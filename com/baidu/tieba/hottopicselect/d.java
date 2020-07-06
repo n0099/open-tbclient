@@ -18,7 +18,7 @@ public class d {
         this.dKw = str;
     }
 
-    public Integer cmx() {
+    public Integer cmy() {
         return this.tag;
     }
 

@@ -226,18 +226,18 @@ public class c extends BdBaseModel implements d.a {
                             c.this.gnp.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.n.c.28.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    c.this.bIl();
+                                    c.this.bIm();
                                 }
                             }, 200L);
                         } else if (!z) {
                             c.this.gnp.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.n.c.28.2
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    c.this.bIm();
+                                    c.this.bIn();
                                 }
                             }, 200L);
                         } else {
-                            c.this.bIj();
+                            c.this.bIk();
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -290,14 +290,14 @@ public class c extends BdBaseModel implements d.a {
                                 c.this.gnp.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.n.c.29.2
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        c.this.bIm();
+                                        c.this.bIn();
                                     }
                                 }, 200L);
                             } else if (alaGetVerifyStrategyResponseHttpMessage.gmY != 1) {
                                 c.this.gnp.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.n.c.29.3
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        c.this.bIp();
+                                        c.this.bIq();
                                     }
                                 }, 200L);
                             }
@@ -305,28 +305,28 @@ public class c extends BdBaseModel implements d.a {
                             c.this.gnp.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.n.c.29.7
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    c.this.bIo();
+                                    c.this.bIp();
                                 }
                             }, 200L);
                         } else if (alaGetVerifyStrategyResponseHttpMessage.gmW != 1) {
                             c.this.gnp.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.n.c.29.4
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    c.this.bIl();
+                                    c.this.bIm();
                                 }
                             }, 200L);
                         } else if (alaGetVerifyStrategyResponseHttpMessage.gmT != 1 || alaGetVerifyStrategyResponseHttpMessage.gmR != 1) {
                             c.this.gnp.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.n.c.29.5
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    c.this.bIm();
+                                    c.this.bIn();
                                 }
                             }, 200L);
                         } else if (alaGetVerifyStrategyResponseHttpMessage.gmY != 1) {
                             c.this.gnp.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.n.c.29.6
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    c.this.bIp();
+                                    c.this.bIq();
                                 }
                             }, 200L);
                         }
@@ -345,20 +345,20 @@ public class c extends BdBaseModel implements d.a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                String bHV;
+                String bHW;
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof MasterIdentityResponseMessage)) {
                     MasterIdentityResponseMessage masterIdentityResponseMessage = (MasterIdentityResponseMessage) httpResponsedMessage;
-                    if ((masterIdentityResponseMessage.bHT() == 1 || masterIdentityResponseMessage.bHU() == 1) && !TextUtils.isEmpty(masterIdentityResponseMessage.bHV())) {
+                    if ((masterIdentityResponseMessage.bHU() == 1 || masterIdentityResponseMessage.bHV() == 1) && !TextUtils.isEmpty(masterIdentityResponseMessage.bHW())) {
                         try {
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("text", masterIdentityResponseMessage.bHV());
+                            jSONObject.put("text", masterIdentityResponseMessage.bHW());
                             jSONObject.put("content_type", "custom_master_identity");
-                            bHV = jSONObject.toString();
+                            bHW = jSONObject.toString();
                         } catch (JSONException e) {
-                            bHV = masterIdentityResponseMessage.bHV();
+                            bHW = masterIdentityResponseMessage.bHW();
                             e.printStackTrace();
                         }
-                        c.this.gnr.a(27, bHV, (com.baidu.live.data.a) null);
+                        c.this.gnr.a(27, bHW, (com.baidu.live.data.a) null);
                     }
                 }
             }
@@ -386,12 +386,12 @@ public class c extends BdBaseModel implements d.a {
                     if (responsedMessage instanceof AlaEnterLiveHttpResonseMessage) {
                         alaEnterLiveHttpResonseMessage = (AlaEnterLiveHttpResonseMessage) responsedMessage;
                         c.this.aLQ = alaEnterLiveHttpResonseMessage.FU();
-                        c.this.gmN = alaEnterLiveHttpResonseMessage.bHN();
+                        c.this.gmN = alaEnterLiveHttpResonseMessage.bHO();
                         c.this.gnr.e(c.this.aLQ);
                     }
                     if (c.this.aLQ != null && c.this.aLQ.mLiveInfo != null) {
                         if (!TbadkCoreApplication.getInst().isOther() && (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isActivityTaskWatchUnabled())) {
-                            com.baidu.tieba.ala.liveroom.task.c.bJx().dL(c.this.aLQ.mLiveInfo.live_id);
+                            com.baidu.tieba.ala.liveroom.task.c.bJy().dL(c.this.aLQ.mLiveInfo.live_id);
                         }
                         LiveTimerManager.getInstance().start(c.this.aLQ.mLiveInfo.live_id);
                     }
@@ -425,7 +425,7 @@ public class c extends BdBaseModel implements d.a {
                     }
                     c.this.b(responsedMessage.getError(), responsedMessage.getErrorString(), 3, c.this.aLQ);
                     if (c.this.aLQ != null && c.this.aLQ.mLiveInfo != null) {
-                        c.this.bIE();
+                        c.this.bIF();
                     }
                     if (c.this.aLQ != null) {
                         c.this.aLQ.isHost = false;
@@ -467,7 +467,7 @@ public class c extends BdBaseModel implements d.a {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetAudienceHttpResponseMessage)) {
                     k kVar = null;
                     if (httpResponsedMessage instanceof AlaGetAudienceHttpResponseMessage) {
-                        kVar = ((AlaGetAudienceHttpResponseMessage) httpResponsedMessage).bwd();
+                        kVar = ((AlaGetAudienceHttpResponseMessage) httpResponsedMessage).bwe();
                     }
                     if (kVar != null) {
                         c.this.fAG = kVar;
@@ -492,10 +492,10 @@ public class c extends BdBaseModel implements d.a {
                 if (httpResponsedMessage instanceof AlaUserLiveMarkInfoResponseMessage) {
                     AlaUserLiveMarkInfoResponseMessage alaUserLiveMarkInfoResponseMessage = (AlaUserLiveMarkInfoResponseMessage) httpResponsedMessage;
                     if (alaUserLiveMarkInfoResponseMessage.getError() == 0) {
-                        List<AlaLiveMarkData> bHS = alaUserLiveMarkInfoResponseMessage.bHS();
-                        c.this.gnr.I(bHS);
+                        List<AlaLiveMarkData> bHT = alaUserLiveMarkInfoResponseMessage.bHT();
+                        c.this.gnr.I(bHT);
                         if (c.this.aLQ != null) {
-                            c.this.aLQ.axN = bHS;
+                            c.this.aLQ.axN = bHT;
                             m.Dm().L(c.this.aLQ.axN);
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913118, c.this.aLQ));
                         }
@@ -632,7 +632,7 @@ public class c extends BdBaseModel implements d.a {
                     }
                     AlaUpdateLiveTbResponseMessage alaUpdateLiveTbResponseMessage = (AlaUpdateLiveTbResponseMessage) httpResponsedMessage;
                     c.this.gnq = (HttpMessage) alaUpdateLiveTbResponseMessage.getOrginalMessage();
-                    c.this.gnt = alaUpdateLiveTbResponseMessage.bHR();
+                    c.this.gnt = alaUpdateLiveTbResponseMessage.bHS();
                     if (c.this.gnt != null) {
                         if (c.this.gnt.mErrorCode == 0) {
                             JSONObject jSONObject = new JSONObject();
@@ -655,7 +655,7 @@ public class c extends BdBaseModel implements d.a {
                             c.this.gnp.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.n.c.9.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    c.this.bIn();
+                                    c.this.bIo();
                                 }
                             }, 200L);
                             return;
@@ -685,7 +685,7 @@ public class c extends BdBaseModel implements d.a {
                     }
                     c.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 6, c.this.aLQ);
                     if (c.this.gnt != null && c.this.gnt.mLiveInfo != null) {
-                        c.this.bIE();
+                        c.this.bIF();
                     }
                     if (c.this.aLQ != null && c.this.aLQ.mLiveInfo != null) {
                         c.this.x(c.this.aLQ.mLiveInfo.user_id, c.this.aLQ.mLiveInfo.live_id);
@@ -727,7 +727,7 @@ public class c extends BdBaseModel implements d.a {
                     if (!(httpResponsedMessage instanceof AlaLiveRecommondHttpResponseMessage)) {
                         nVar = null;
                     } else {
-                        nVar = ((AlaLiveRecommondHttpResponseMessage) httpResponsedMessage).bHP();
+                        nVar = ((AlaLiveRecommondHttpResponseMessage) httpResponsedMessage).bHQ();
                     }
                     if (nVar != null && !ListUtils.isEmpty(nVar.axA)) {
                         c.this.gnv = nVar.pn + 1;
@@ -818,15 +818,15 @@ public class c extends BdBaseModel implements d.a {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_LIVE_INFO_TIME, this.gob);
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        bHY();
         bHZ();
         bIa();
         bIb();
-        bIe();
+        bIc();
         bIf();
+        bIg();
     }
 
-    private void bHY() {
+    private void bHZ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021129, TbConfig.SERVER_ADDRESS + "ala/relation/getDayGuardianShipList");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -835,19 +835,19 @@ public class c extends BdBaseModel implements d.a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void bHZ() {
+    private void bIa() {
         com.baidu.live.tieba.f.a.a.a(1021005, "ala/live/enterLive", AlaEnterLiveHttpResonseMessage.class, false, true, true, true);
     }
 
-    private void bIa() {
+    private void bIb() {
         com.baidu.live.tieba.f.a.a.a(1021006, "ala/live/quitLive", AlaQuitLiveHttpResponseMessage.class, false, true, true, true);
     }
 
-    private void bIb() {
+    private void bIc() {
         com.baidu.live.tieba.f.a.a.a(1021121, "ala/sdk/v1/open/getUserLiveMarkInfo", AlaUserLiveMarkInfoResponseMessage.class, true, true, true, true);
     }
 
-    public void bIc() {
+    public void bId() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913043, new CustomMessageTask.CustomRunnable<ImSendMsgData>() { // from class: com.baidu.tieba.ala.liveroom.n.c.12
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ImSendMsgData> customMessage) {
@@ -863,11 +863,11 @@ public class c extends BdBaseModel implements d.a {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public void bId() {
+    public void bIe() {
         MessageManager.getInstance().unRegisterTask(2913043);
     }
 
-    private void bIe() {
+    private void bIf() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021131, TbConfig.SERVER_ADDRESS + "ala/UGC/getUGCAnchorInfo");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -875,7 +875,7 @@ public class c extends BdBaseModel implements d.a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void bIf() {
+    private void bIg() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021189, TbConfig.SERVER_ADDRESS + "/ala/tag/addAnchorCategory");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -884,7 +884,7 @@ public class c extends BdBaseModel implements d.a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bIg() {
+    public void bIh() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913158, new CustomMessageTask.CustomRunnable() { // from class: com.baidu.tieba.ala.liveroom.n.c.23
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage customMessage) {
@@ -907,7 +907,7 @@ public class c extends BdBaseModel implements d.a {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public void bIh() {
+    public void bIi() {
         MessageManager.getInstance().unRegisterTask(2913158);
     }
 
@@ -918,8 +918,8 @@ public class c extends BdBaseModel implements d.a {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void bIi() {
-        bIH();
+    public void bIj() {
+        bII();
         IExtraParams buildParamsExtra = ExtraParamsManager.getInstance().buildParamsExtra();
         if (buildParamsExtra != null) {
             try {
@@ -933,7 +933,7 @@ public class c extends BdBaseModel implements d.a {
         }
     }
 
-    public void bIj() {
+    public void bIk() {
         MessageManager.getInstance().sendMessage(new HttpMessage(1003303));
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem("1526", UbcStatConstant.ContentType.UBC_TYPE_STRATEGY, UbcStatConstant.Page.AUTHOR_LIVE_ROOM, null));
     }
@@ -945,11 +945,11 @@ public class c extends BdBaseModel implements d.a {
         sendMessage(httpMessage);
     }
 
-    public void bIk() {
+    public void bIl() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FaceRecognitionActivityConfig(this.mPageContext.getPageActivity(), "")));
     }
 
-    public void bIl() {
+    public void bIm() {
         if (this.gnG != null) {
             this.gnG.dismiss();
             this.gnG = null;
@@ -962,7 +962,7 @@ public class c extends BdBaseModel implements d.a {
             this.gnG.setPositiveButton(this.mPageContext.getString(a.i.dialog_to_auth), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.n.c.13
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog) {
-                    c.this.bIk();
+                    c.this.bIl();
                     c.this.yY();
                 }
             });
@@ -989,7 +989,7 @@ public class c extends BdBaseModel implements d.a {
         this.gnG.show();
     }
 
-    public void bIm() {
+    public void bIn() {
         if (this.gnG != null) {
             this.gnG.dismiss();
             this.gnG = null;
@@ -1045,7 +1045,7 @@ public class c extends BdBaseModel implements d.a {
         this.gnG.show();
     }
 
-    public void bIn() {
+    public void bIo() {
         if (this.gnG != null) {
             this.gnG.dismiss();
             this.gnG = null;
@@ -1067,7 +1067,7 @@ public class c extends BdBaseModel implements d.a {
         this.gnG.show();
     }
 
-    public void bIo() {
+    public void bIp() {
         if (this.gnG != null) {
             this.gnG.dismiss();
             this.gnG = null;
@@ -1077,7 +1077,7 @@ public class c extends BdBaseModel implements d.a {
         }
     }
 
-    public void bIp() {
+    public void bIq() {
         if (this.gnG != null) {
             this.gnG.dismiss();
             this.gnG = null;
@@ -1182,7 +1182,7 @@ public class c extends BdBaseModel implements d.a {
         sendMessage(bVar);
     }
 
-    public void bIq() {
+    public void bIr() {
         if (TbadkCoreApplication.isLogin()) {
             HttpMessage httpMessage = new HttpMessage(1021121);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
@@ -1212,7 +1212,7 @@ public class c extends BdBaseModel implements d.a {
         sendMessage(bVar);
     }
 
-    public h bIr() {
+    public h bIs() {
         return this.gnt;
     }
 
@@ -1220,15 +1220,15 @@ public class c extends BdBaseModel implements d.a {
         return this.aLQ;
     }
 
-    public aj bHN() {
+    public aj bHO() {
         return this.gmN;
     }
 
-    public List<AlaLiveInfoData> bIs() {
+    public List<AlaLiveInfoData> bIt() {
         return this.gnu;
     }
 
-    public k bwd() {
+    public k bwe() {
         return this.fAG;
     }
 
@@ -1244,7 +1244,7 @@ public class c extends BdBaseModel implements d.a {
         }
     }
 
-    public void bIt() {
+    public void bIu() {
         ArrayList arrayList = new ArrayList();
         for (AlaLiveInfoData alaLiveInfoData : this.gnu) {
             if (alaLiveInfoData != null) {
@@ -1319,7 +1319,7 @@ public class c extends BdBaseModel implements d.a {
         return null;
     }
 
-    public ArrayList<AlaLiveInfoData> bIu() {
+    public ArrayList<AlaLiveInfoData> bIv() {
         ArrayList<AlaLiveInfoData> arrayList = new ArrayList<>();
         if (ListUtils.isEmpty(this.gnu)) {
             return null;
@@ -1355,7 +1355,7 @@ public class c extends BdBaseModel implements d.a {
         this.gnC = i;
     }
 
-    public int bIv() {
+    public int bIw() {
         return this.gnC;
     }
 
@@ -1414,7 +1414,7 @@ public class c extends BdBaseModel implements d.a {
         aVar.setLiveId(j);
         aVar.setParams();
         sendMessage(aVar);
-        bIG();
+        bIH();
     }
 
     public void ag(String str, String str2, String str3) {
@@ -1428,7 +1428,7 @@ public class c extends BdBaseModel implements d.a {
         aVar.setUk(str);
         aVar.setParams();
         sendMessage(aVar);
-        bIG();
+        bIH();
     }
 
     public void Db(String str) {
@@ -1440,7 +1440,7 @@ public class c extends BdBaseModel implements d.a {
         aVar.fy(str);
         aVar.setParams();
         sendMessage(aVar);
-        bIG();
+        bIH();
     }
 
     public void dJ(long j) {
@@ -1460,7 +1460,7 @@ public class c extends BdBaseModel implements d.a {
 
     public void a(String str, String str2, String str3, int i, double d, double d2, String str4, String str5, int i2, String str6, String str7, String str8, int i3, int i4, int i5, int i6, String str9, String str10) {
         this.mIsHost = true;
-        if (!bIw()) {
+        if (!bIx()) {
             HttpMessage httpMessage = new HttpMessage(1021033);
             httpMessage.addParam("forum_name", str);
             httpMessage.addParam("forum_id", str2);
@@ -1501,11 +1501,11 @@ public class c extends BdBaseModel implements d.a {
         }
     }
 
-    private boolean bIw() {
+    private boolean bIx() {
         return !ListUtils.isEmpty(MessageManager.getInstance().findMessage(1021033, getUniqueId()));
     }
 
-    public void bIx() {
+    public void bIy() {
         MessageManager.getInstance().sendMessage(new HttpMessage(1021046));
     }
 
@@ -1541,7 +1541,7 @@ public class c extends BdBaseModel implements d.a {
         if (this.gnr != null) {
             this.gnr.e(this.aLQ);
         }
-        bIE();
+        bIF();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913081, this.aLQ));
     }
 
@@ -1602,7 +1602,7 @@ public class c extends BdBaseModel implements d.a {
         }
     }
 
-    public boolean bIy() {
+    public boolean bIz() {
         long j;
         if (this.aLQ == null || this.aLQ.mLiveInfo == null || this.gnu.size() <= 0) {
             return true;
@@ -1616,7 +1616,7 @@ public class c extends BdBaseModel implements d.a {
         return j == this.aLQ.mLiveInfo.live_id;
     }
 
-    public boolean bIz() {
+    public boolean bIA() {
         long j;
         if (this.aLQ == null || this.aLQ.mLiveInfo == null || this.gnu.size() <= 0) {
             return true;
@@ -1630,19 +1630,19 @@ public class c extends BdBaseModel implements d.a {
         return j == this.aLQ.mLiveInfo.live_id;
     }
 
-    public int bIA() {
+    public int bIB() {
         return this.gnw;
     }
 
-    public int bIB() {
+    public int bIC() {
         return this.gny;
     }
 
-    public boolean bIC() {
+    public boolean bID() {
         return this.gnz == 1;
     }
 
-    public AlaLiveInfoData bID() {
+    public AlaLiveInfoData bIE() {
         if (this.gnw >= this.gnu.size()) {
             this.gnw = this.gnu.size() - 1;
         }
@@ -1743,11 +1743,11 @@ public class c extends BdBaseModel implements d.a {
         }
     }
 
-    public void bIE() {
+    public void bIF() {
         this.gnr.e(String.valueOf(this.aLQ.mLiveInfo.getGroupID()), String.valueOf(this.aLQ.mLiveInfo.getLastMsgID()), String.valueOf(this.aLQ.mLiveInfo.getUserID()), String.valueOf(this.aLQ.mLiveInfo.getLiveID()), this.aLQ.mLiveInfo.appId);
     }
 
-    public com.baidu.live.im.d bIF() {
+    public com.baidu.live.im.d bIG() {
         return this.gnr;
     }
 
@@ -1755,7 +1755,7 @@ public class c extends BdBaseModel implements d.a {
         this.otherParams = str;
     }
 
-    private void bIG() {
+    private void bIH() {
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_ENTER_LIVE_REQ, "enter_live", "liveroom", ""), true, false);
     }
 
@@ -1781,7 +1781,7 @@ public class c extends BdBaseModel implements d.a {
         UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_ENTER_LIVE_RESP, str, "liveroom", "").setContentExt(jSONObject), alaEnterLiveHttpResonseMessage, true);
     }
 
-    private void bIH() {
+    private void bII() {
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem("1526", UbcStatConstant.ContentType.UBC_TYPE_QM_STRATEGY, UbcStatConstant.Page.AUTHOR_LIVE_ROOM, ""));
     }
 
@@ -1817,7 +1817,7 @@ public class c extends BdBaseModel implements d.a {
         UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem("1534", str2, UbcStatConstant.Page.AUTHOR_LIVE_ROOM, "").setContentExt(jSONObject2), null, true);
     }
 
-    public String bII() {
+    public String bIJ() {
         return this.gnD;
     }
 

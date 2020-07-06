@@ -9,13 +9,13 @@ final class r extends XMPushService.i {
     final /* synthetic */ ii a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ XMPushService f928a;
+    final /* synthetic */ XMPushService f929a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r(int i, XMPushService xMPushService, ii iiVar) {
         super(i);
-        this.f928a = xMPushService;
+        this.f929a = xMPushService;
         this.a = iiVar;
     }
 
@@ -27,10 +27,10 @@ final class r extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            w.a(this.f928a, p.a((Context) this.f928a, this.a));
+            w.a(this.f929a, p.a((Context) this.f929a, this.a));
         } catch (gd e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.f928a.a(10, e);
+            this.f929a.a(10, e);
         }
     }
 }

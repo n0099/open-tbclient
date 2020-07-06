@@ -10,7 +10,7 @@ public class s {
     private static s gSU;
     private List<ao> eXh;
 
-    public static s bOA() {
+    public static s bOB() {
         if (gSU == null) {
             synchronized (s.class) {
                 if (gSU == null) {
@@ -63,7 +63,7 @@ public class s {
         }
     }
 
-    public void brT() {
+    public void brU() {
         if (com.baidu.tbadk.core.util.w.getCount(this.eXh) != 0) {
             for (ao aoVar : this.eXh) {
                 if (aoVar != null) {

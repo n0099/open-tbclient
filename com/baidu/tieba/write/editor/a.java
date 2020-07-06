@@ -10,12 +10,12 @@ public class a {
 
     /* renamed from: com.baidu.tieba.write.editor.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0768a {
+    public interface InterfaceC0769a {
         void GK(int i);
     }
 
-    public static void a(final String str, final int i, final InterfaceC0768a interfaceC0768a) {
-        if (!StringUtils.isNull(str) && interfaceC0768a != null) {
+    public static void a(final String str, final int i, final InterfaceC0769a interfaceC0769a) {
+        if (!StringUtils.isNull(str) && interfaceC0769a != null) {
             final String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
                 ad.a(new ac<Integer>() { // from class: com.baidu.tieba.write.editor.a.1
@@ -35,8 +35,8 @@ public class a {
                     @Override // com.baidu.tbadk.util.l
                     /* renamed from: m */
                     public void onReturnDataInUI(Integer num) {
-                        if (InterfaceC0768a.this != null) {
-                            InterfaceC0768a.this.GK(num.intValue());
+                        if (InterfaceC0769a.this != null) {
+                            InterfaceC0769a.this.GK(num.intValue());
                         }
                     }
                 });

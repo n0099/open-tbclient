@@ -7,8 +7,8 @@ import java.text.SimpleDateFormat;
 public class cg {
 
     /* renamed from: a  reason: collision with other field name */
-    private static SimpleDateFormat f167a = new SimpleDateFormat("yyyy/MM/dd");
-    private static String a = f167a.format(Long.valueOf(System.currentTimeMillis()));
+    private static SimpleDateFormat f168a = new SimpleDateFormat("yyyy/MM/dd");
+    private static String a = f168a.format(Long.valueOf(System.currentTimeMillis()));
 
     public static hq a(Context context, String str) {
         if (TextUtils.isEmpty(str)) {

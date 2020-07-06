@@ -44,7 +44,7 @@ public class m extends com.baidu.adp.widget.ListView.a<bo, com.baidu.tieba.card.
         a(new z() { // from class: com.baidu.tieba.enterForum.tabfeed.a.m.1
             @Override // com.baidu.adp.widget.ListView.z
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                aVar.bSU();
+                aVar.bSV();
                 ao aoVar = new ao("c13647");
                 aoVar.s("uid", TbadkApplication.getCurrentAccountId());
                 aoVar.ag("obj_id", m.this.getPositionByType(i) + 1);
@@ -59,16 +59,16 @@ public class m extends com.baidu.adp.widget.ListView.a<bo, com.baidu.tieba.card.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bo boVar, com.baidu.tieba.card.a.a<a> aVar) {
-        if (boVar == null || aVar == null || aVar.bPg() == null) {
+        if (boVar == null || aVar == null || aVar.bPh() == null) {
             return null;
         }
-        aVar.bPg().a(boVar);
+        aVar.bPh().a(boVar);
         ao aoVar = new ao("c13646");
         aoVar.s("uid", TbadkApplication.getCurrentAccountId());
         aoVar.ag("obj_id", getPositionByType(i) + 1);
         aoVar.dk("resource_id", this.mTabName);
         TiebaStatic.log(aoVar);
-        return aVar.bPg().getView();
+        return aVar.bPh().getView();
     }
 
     /* loaded from: classes9.dex */
@@ -111,7 +111,7 @@ public class m extends com.baidu.adp.widget.ListView.a<bo, com.baidu.tieba.card.
             onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
 
-        public void bSU() {
+        public void bSV() {
             if (!TextUtils.isEmpty(this.hiI)) {
                 bc.aWU().b(this.mPageContext, new String[]{this.hiI});
             }
@@ -120,7 +120,7 @@ public class m extends com.baidu.adp.widget.ListView.a<bo, com.baidu.tieba.card.
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == this.hiH) {
-                bSU();
+                bSV();
             }
         }
     }

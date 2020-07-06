@@ -16,11 +16,11 @@ public class j {
         }
     }
 
-    public int bRw() {
+    public int bRx() {
         return this.hbS;
     }
 
-    public String bRx() {
+    public String bRy() {
         return this.tabCode;
     }
 

@@ -45,8 +45,8 @@ public class a {
                 a(aVar);
             }
             this.mData.clear();
-            ccw();
             ccx();
+            ccy();
             b(aVar);
         }
     }
@@ -108,7 +108,7 @@ public class a {
         }
     }
 
-    private void ccw() {
+    private void ccx() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -132,7 +132,7 @@ public class a {
         }
     }
 
-    private void ccx() {
+    private void ccy() {
         if (this.hPD != null && this.hPD.length > 0) {
             for (int i = 0; i < this.hPD.length; i++) {
                 Object obj = this.hPD[i];

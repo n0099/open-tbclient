@@ -11,7 +11,7 @@ public class a<T extends b> extends ad.a {
         this.gVN = t;
     }
 
-    public T bPg() {
+    public T bPh() {
         return this.gVN;
     }
 }

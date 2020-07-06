@@ -119,7 +119,7 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        bpu();
+        bpv();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -158,18 +158,18 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
         return this.mParent;
     }
 
-    private void bpt() {
-        this.eZB.bpS();
+    private void bpu() {
+        this.eZB.bpT();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
         this.eZB.a(this);
-        bpt();
+        bpu();
     }
 
-    private void bpu() {
+    private void bpv() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestUnreadPointNum());
     }
 
@@ -212,7 +212,7 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
             this.eZJ.completePullRefreshPostDelayed(0L);
         } else if (l.isNetOk()) {
             this.eZG = System.currentTimeMillis();
-            this.eZB.bpN();
+            this.eZB.bpO();
         } else {
             this.eZJ.completePullRefreshPostDelayed(0L);
             showToast(R.string.no_network_guide);
@@ -257,14 +257,14 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
     @Override // com.baidu.tieba.addresslist.view.AssortView.a
     public void Ax(String str) {
         int AK;
-        List<com.baidu.tbadk.coreExtra.relationship.a> bpR = this.eZB.bpR();
-        if (bpR != null && bpR.size() != 0 && (AK = this.eZB.AK(str)) >= 0) {
+        List<com.baidu.tbadk.coreExtra.relationship.a> bpS = this.eZB.bpS();
+        if (bpS != null && bpS.size() != 0 && (AK = this.eZB.AK(str)) >= 0) {
             this.eZJ.setSelection(AK + 5);
         }
     }
 
     @Override // com.baidu.tieba.addresslist.view.AssortView.a
-    public void bpv() {
+    public void bpw() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */

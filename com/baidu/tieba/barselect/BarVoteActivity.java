@@ -25,15 +25,15 @@ public class BarVoteActivity extends BaseActivity {
             if (BarVoteActivity.this.gJv != null && BarVoteActivity.this.gJv.getRootView() != null) {
                 BarVoteActivity.this.hideLoadingView(BarVoteActivity.this.gJv.getRootView());
                 if (i == 0) {
-                    if (fVar == null || fVar.bNv() == null || fVar.bNv().getStatus() < 1 || fVar.bNv().getStatus() > 2) {
+                    if (fVar == null || fVar.bNw() == null || fVar.bNw().getStatus() < 1 || fVar.bNw().getStatus() > 2) {
                         if (BarVoteActivity.this.gJu != null && BarVoteActivity.this.gJu.mPn == 0) {
                             if (BarVoteActivity.this.gJv.getListView() != null) {
                                 BarVoteActivity.this.gJv.getListView().setVisibility(8);
                             }
-                            if (fVar == null || fVar.bNv() == null) {
+                            if (fVar == null || fVar.bNw() == null) {
                                 BarVoteActivity.this.gJv.DI(TbadkCoreApplication.getInst().getString(R.string.no_data_text));
                                 return;
-                            } else if (fVar.bNv().getStatus() < 1 || fVar.bNv().getStatus() > 2) {
+                            } else if (fVar.bNw().getStatus() < 1 || fVar.bNw().getStatus() > 2) {
                                 BarVoteActivity.this.gJv.DI(TbadkCoreApplication.getInst().getString(R.string.error_status));
                                 return;
                             } else {
@@ -92,9 +92,9 @@ public class BarVoteActivity extends BaseActivity {
         new ao("c13440").ag("obj_source", this.source).aWN();
     }
 
-    public void bMW() {
+    public void bMX() {
         if (this.gJu != null) {
-            this.gJu.btu();
+            this.gJu.btv();
         }
     }
 
@@ -106,7 +106,7 @@ public class BarVoteActivity extends BaseActivity {
 
     public void refresh() {
         if (this.gJu != null) {
-            this.gJu.bNe();
+            this.gJu.bNf();
         }
     }
 
@@ -115,10 +115,10 @@ public class BarVoteActivity extends BaseActivity {
         if (view.getId() == R.id.right_textview) {
             bc.aWU().b(getPageContext(), new String[]{"http://c.tieba.baidu.com/mo/q/bzrecruitrule?nomenu=1"});
         } else if (view.getId() == R.id.pb_more) {
-            if (this.gJv != null && this.gJv.bNg() != null) {
-                this.gJv.bNg().showLoading();
+            if (this.gJv != null && this.gJv.bNh() != null) {
+                this.gJv.bNh().showLoading();
             }
-            bMW();
+            bMX();
         }
     }
 
@@ -143,8 +143,8 @@ public class BarVoteActivity extends BaseActivity {
         super.onDestroy();
     }
 
-    public void btM() {
-        this.gJv.btM();
+    public void btN() {
+        this.gJv.btN();
     }
 
     /* loaded from: classes8.dex */

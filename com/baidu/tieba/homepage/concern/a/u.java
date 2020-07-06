@@ -181,7 +181,7 @@ public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         kVar.sR(kVar.position + 1);
-        com.baidu.tieba.card.s.bOA().e(kVar.DU("c12351"));
+        com.baidu.tieba.card.s.bOB().e(kVar.DU("c12351"));
         akVar.se().setPage(this.afG);
         akVar.a(true, kVar.aPZ() ? Align.ALIGN_RIGHT_TOP : Align.ALIGN_RIGHT_BOTTOM);
         akVar.b((ak<com.baidu.tieba.card.data.k>) kVar);

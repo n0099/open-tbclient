@@ -8,7 +8,7 @@ public class c {
     private List<b> parent_menu = new ArrayList();
     private long update_time;
 
-    public boolean cpt() {
+    public boolean cpu() {
         return this.iPO == 1;
     }
 
@@ -24,7 +24,7 @@ public class c {
         this.update_time = j;
     }
 
-    public List<b> cpu() {
+    public List<b> cpv() {
         return this.parent_menu;
     }
 

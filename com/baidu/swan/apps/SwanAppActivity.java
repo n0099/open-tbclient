@@ -710,9 +710,9 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ServiceConne
 
     public void o(String... strArr) {
         RO();
-        HashSet dzg = strArr == null ? com.facebook.common.internal.i.dzg() : com.facebook.common.internal.i.O(strArr);
-        if (dzg.contains("flag_finish_activity")) {
-            if (dzg.contains("flag_remove_task")) {
+        HashSet dzk = strArr == null ? com.facebook.common.internal.i.dzk() : com.facebook.common.internal.i.O(strArr);
+        if (dzk.contains("flag_finish_activity")) {
+            if (dzk.contains("flag_remove_task")) {
                 RX();
             } else {
                 finish();

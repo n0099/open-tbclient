@@ -173,15 +173,15 @@ public class PostData implements q, af {
         this.lGE = z;
     }
 
-    public boolean dhQ() {
+    public boolean dhR() {
         return this.lGE;
     }
 
-    public ArrayList<PostData> dhR() {
+    public ArrayList<PostData> dhS() {
         return this.lGb;
     }
 
-    public void dhS() {
+    public void dhT() {
         this.lGb.clear();
         this.lGb = null;
         this.lGa = false;
@@ -204,7 +204,7 @@ public class PostData implements q, af {
     public void x(PostData postData) {
         if (postData != null && this.lFZ != null) {
             this.lFZ.add(postData);
-            dhW();
+            dhX();
         }
     }
 
@@ -225,7 +225,7 @@ public class PostData implements q, af {
         this.lGD = z;
     }
 
-    public boolean dhT() {
+    public boolean dhU() {
         return this.lGD;
     }
 
@@ -233,19 +233,19 @@ public class PostData implements q, af {
         this.lGa = z;
     }
 
-    public boolean dhU() {
+    public boolean dhV() {
         return this.lGa;
     }
 
-    public ArrayList<PostData> dhV() {
+    public ArrayList<PostData> dhW() {
         return this.lFZ;
     }
 
-    public void dhW() {
+    public void dhX() {
         this.lFY++;
     }
 
-    public void dhX() {
+    public void dhY() {
         this.lFY--;
     }
 
@@ -277,7 +277,7 @@ public class PostData implements q, af {
         this.title = str;
     }
 
-    public int dhY() {
+    public int dhZ() {
         return this.lFU;
     }
 
@@ -285,7 +285,7 @@ public class PostData implements q, af {
         this.lFU = i;
     }
 
-    public boolean dhZ() {
+    public boolean dia() {
         return this.lGj;
     }
 
@@ -314,7 +314,7 @@ public class PostData implements q, af {
         this.dMF = praiseData;
     }
 
-    public TbRichText dia() {
+    public TbRichText dib() {
         return this.lGc;
     }
 
@@ -326,7 +326,7 @@ public class PostData implements q, af {
         return this.bimg_url;
     }
 
-    public SmallTailInfo cOE() {
+    public SmallTailInfo cOF() {
         return this.kuS;
     }
 
@@ -334,7 +334,7 @@ public class PostData implements q, af {
         this.kuS = smallTailInfo;
     }
 
-    public com.baidu.tbadk.data.f dib() {
+    public com.baidu.tbadk.data.f dic() {
         return this.lGh;
     }
 
@@ -353,7 +353,7 @@ public class PostData implements q, af {
         String str3;
         TbRichTextVoiceInfo tbRichTextVoiceInfo;
         TbRichTextData tbRichTextData;
-        if (tbPageContext != null && this.lGc != null && this.lGc.bkO() != null) {
+        if (tbPageContext != null && this.lGc != null && this.lGc.bkP() != null) {
             final BdUniqueId uniqueId = tbPageContext.getUniqueId();
             if (z) {
                 str = " 楼主";
@@ -455,32 +455,32 @@ public class PostData implements q, af {
                     }
                 }
             }
-            ArrayList<TbRichTextData> bkO = this.lGc.bkO();
-            if (bkO != null && bkO.size() > 0) {
-                TbRichTextData tbRichTextData2 = bkO.get(0);
-                if (tbRichTextData2 != null && tbRichTextData2.bkV() != null) {
+            ArrayList<TbRichTextData> bkP = this.lGc.bkP();
+            if (bkP != null && bkP.size() > 0) {
+                TbRichTextData tbRichTextData2 = bkP.get(0);
+                if (tbRichTextData2 != null && tbRichTextData2.bkW() != null) {
                     if (this.lGB) {
-                        int indexOf = tbRichTextData2.bkV().toString().indexOf("：");
+                        int indexOf = tbRichTextData2.bkW().toString().indexOf("：");
                         if (indexOf > 0) {
-                            tbRichTextData2.bkV().delete(0, indexOf + 1);
+                            tbRichTextData2.bkW().delete(0, indexOf + 1);
                         }
                         this.lGB = false;
                     }
                     tbRichTextData2.oK(sb.length());
-                    tbRichTextData2.bkV().insert(0, (CharSequence) spannableString);
+                    tbRichTextData2.bkW().insert(0, (CharSequence) spannableString);
                 } else {
                     int i4 = 0;
                     while (true) {
                         int i5 = i4;
-                        if (i5 >= bkO.size()) {
+                        if (i5 >= bkP.size()) {
                             tbRichTextVoiceInfo = null;
                             break;
-                        } else if (bkO.get(i5) == null || bkO.get(i5).getType() != 512) {
+                        } else if (bkP.get(i5) == null || bkP.get(i5).getType() != 512) {
                             i4 = i5 + 1;
                         } else {
-                            TbRichTextVoiceInfo bkW = bkO.get(i5).bkW();
-                            bkO.remove(i5);
-                            tbRichTextVoiceInfo = bkW;
+                            TbRichTextVoiceInfo bkX = bkP.get(i5).bkX();
+                            bkP.remove(i5);
+                            tbRichTextVoiceInfo = bkX;
                             break;
                         }
                     }
@@ -492,7 +492,7 @@ public class PostData implements q, af {
                     }
                     tbRichTextData.oK(sb.length());
                     tbRichTextData.n(spannableString);
-                    bkO.add(0, tbRichTextData);
+                    bkP.add(0, tbRichTextData);
                 }
             }
             this.lGF = true;
@@ -524,7 +524,7 @@ public class PostData implements q, af {
         return bitmapDrawable;
     }
 
-    public int dic() {
+    public int did() {
         return this.lFY;
     }
 
@@ -591,8 +591,8 @@ public class PostData implements q, af {
                 while (it.hasNext()) {
                     l next = it.next();
                     if (next.getType() == 0) {
-                        if (next.dhI() != null) {
-                            sb.append((CharSequence) next.dhI());
+                        if (next.dhJ() != null) {
+                            sb.append((CharSequence) next.dhJ());
                         }
                     } else if (next.getType() == 3) {
                         if (next.getLink() != null) {
@@ -607,8 +607,8 @@ public class PostData implements q, af {
                             sb.append(yt);
                             sb.append("]");
                         }
-                    } else if (next.getType() == 11 && !ar.isEmpty(next.dhH())) {
-                        sb.append("[").append(next.dhH()).append("]");
+                    } else if (next.getType() == 11 && !ar.isEmpty(next.dhI())) {
+                        sb.append("[").append(next.dhI()).append("]");
                     }
                 }
                 ClipboardManager clipboardManager2 = (ClipboardManager) context.getSystemService("clipboard");
@@ -703,7 +703,7 @@ public class PostData implements q, af {
                     }
                     if ((this.lGG || this.lGJ) && com.baidu.tbadk.a.d.aNR()) {
                         int i2 = this.lGG ? com.baidu.adp.newwidget.ImageView.b.Qo : com.baidu.adp.newwidget.ImageView.b.Qp;
-                        Iterator<TbRichTextData> it = this.lGc.bkO().iterator();
+                        Iterator<TbRichTextData> it = this.lGc.bkP().iterator();
                         while (true) {
                             if (!it.hasNext()) {
                                 break;
@@ -720,12 +720,12 @@ public class PostData implements q, af {
                     }
                     int count = w.getCount(this.dJE);
                     if (this.lFU == 1 && count != 0 && this.dJE != null) {
-                        ArrayList<TbRichTextData> bkO = this.lGc.bkO();
+                        ArrayList<TbRichTextData> bkP = this.lGc.bkP();
                         if (count == 1) {
-                            TbRichTextData tbRichTextData2 = (TbRichTextData) w.getItem(bkO, 0);
+                            TbRichTextData tbRichTextData2 = (TbRichTextData) w.getItem(bkP, 0);
                             if (tbRichTextData2 == null || tbRichTextData2.getType() != 1) {
                                 TbRichTextData tbRichTextData3 = new TbRichTextData(1);
-                                w.add(bkO, 0, tbRichTextData3);
+                                w.add(bkP, 0, tbRichTextData3);
                                 tbRichTextData = tbRichTextData3;
                             } else {
                                 tbRichTextData = tbRichTextData2;
@@ -743,7 +743,7 @@ public class PostData implements q, af {
                             for (int size = this.dJE.size() - 1; size >= 0; size--) {
                                 HeadItem headItem2 = this.dJE.get(size);
                                 if (headItem2 != null) {
-                                    a(bkO, headItem2);
+                                    a(bkP, headItem2);
                                 }
                             }
                         }
@@ -751,7 +751,7 @@ public class PostData implements q, af {
                     if (this.lFU == 1 && this.dOL != null) {
                         TbRichTextData tbRichTextData4 = new TbRichTextData(1281);
                         tbRichTextData4.a(new TbRichTextEvaluateItemInfo(this.dOL));
-                        w.add(this.lGc.bkO(), tbRichTextData4);
+                        w.add(this.lGc.bkP(), tbRichTextData4);
                     }
                 }
                 SubPost subPost = post.sub_post_list;
@@ -895,18 +895,18 @@ public class PostData implements q, af {
     }
 
     public String fq(Context context) {
-        ArrayList<TbRichTextData> bkO;
-        if (this.lGc == null || (bkO = this.lGc.bkO()) == null) {
+        ArrayList<TbRichTextData> bkP;
+        if (this.lGc == null || (bkP = this.lGc.bkP()) == null) {
             return "";
         }
         StringBuffer stringBuffer = new StringBuffer();
-        Iterator<TbRichTextData> it = bkO.iterator();
+        Iterator<TbRichTextData> it = bkP.iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next.getType() == 1) {
-                stringBuffer.append(next.bkV().toString());
+                stringBuffer.append(next.bkW().toString());
             } else if (next.getType() == 17) {
-                String str = next.bkZ().mGifInfo.mSharpText;
+                String str = next.bla().mGifInfo.mSharpText;
                 if (str != null && str.startsWith("#(") && str.endsWith(")")) {
                     stringBuffer.append("[" + str.substring(2, str.length() - 1) + "]");
                 }
@@ -921,21 +921,21 @@ public class PostData implements q, af {
         return stringBuffer.toString();
     }
 
-    public String did() {
-        ArrayList<TbRichTextData> bkO;
+    public String die() {
+        ArrayList<TbRichTextData> bkP;
         String str;
-        if (this.lGc == null || (bkO = this.lGc.bkO()) == null) {
+        if (this.lGc == null || (bkP = this.lGc.bkP()) == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        Iterator<TbRichTextData> it = bkO.iterator();
+        Iterator<TbRichTextData> it = bkP.iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next != null) {
                 if (next.getType() == 1) {
-                    sb.append(next.bkV().toString());
+                    sb.append(next.bkW().toString());
                 } else if (next.getType() == 17) {
-                    if (next.bkZ() != null && next.bkZ().mGifInfo != null && (str = next.bkZ().mGifInfo.mSharpText) != null && str.startsWith("#(") && str.endsWith(")")) {
+                    if (next.bla() != null && next.bla().mGifInfo != null && (str = next.bla().mGifInfo.mSharpText) != null && str.startsWith("#(") && str.endsWith(")")) {
                         sb.append("[" + str.substring(2, str.length() - 1) + "]");
                     }
                 } else if (sb.length() > 0 && sb.charAt(sb.length() - 1) != ' ') {
@@ -946,24 +946,24 @@ public class PostData implements q, af {
         return sb.toString();
     }
 
-    public PreLoadImageInfo die() {
-        ArrayList<TbRichTextData> bkO;
-        if (this.lGc != null && (bkO = this.lGc.bkO()) != null) {
-            Iterator<TbRichTextData> it = bkO.iterator();
+    public PreLoadImageInfo dif() {
+        ArrayList<TbRichTextData> bkP;
+        if (this.lGc != null && (bkP = this.lGc.bkP()) != null) {
+            Iterator<TbRichTextData> it = bkP.iterator();
             while (it.hasNext()) {
                 TbRichTextData next = it.next();
                 if (next.getType() == 8) {
                     PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-                    preLoadImageInfo.width = next.bkU().getWidth();
-                    preLoadImageInfo.height = next.bkU().getHeight();
-                    preLoadImageInfo.imgUrl = next.bkU().blj();
+                    preLoadImageInfo.width = next.bkV().getWidth();
+                    preLoadImageInfo.height = next.bkV().getHeight();
+                    preLoadImageInfo.imgUrl = next.bkV().blk();
                     preLoadImageInfo.procType = 17;
                     return preLoadImageInfo;
                 } else if (next.getType() == 20) {
                     PreLoadImageInfo preLoadImageInfo2 = new PreLoadImageInfo();
-                    preLoadImageInfo2.width = next.bla().memeInfo.width.intValue();
-                    preLoadImageInfo2.height = next.bla().memeInfo.height.intValue();
-                    preLoadImageInfo2.imgUrl = next.bla().memeInfo.pic_url;
+                    preLoadImageInfo2.width = next.blb().memeInfo.width.intValue();
+                    preLoadImageInfo2.height = next.blb().memeInfo.height.intValue();
+                    preLoadImageInfo2.imgUrl = next.blb().memeInfo.pic_url;
                     preLoadImageInfo2.procType = 17;
                     return preLoadImageInfo2;
                 }
@@ -973,45 +973,45 @@ public class PostData implements q, af {
         return null;
     }
 
-    public String dif() {
-        k dhF;
-        PreLoadImageInfo die = die();
-        if (die != null && !StringUtils.isNull(die.imgUrl)) {
-            return die.imgUrl;
+    public String dig() {
+        k dhG;
+        PreLoadImageInfo dif = dif();
+        if (dif != null && !StringUtils.isNull(dif.imgUrl)) {
+            return dif.imgUrl;
         }
-        if (this.lGk != null && (dhF = this.lGk.dhF()) != null && !StringUtils.isNull(dhF.dhG())) {
-            return dhF.dhG();
+        if (this.lGk != null && (dhG = this.lGk.dhG()) != null && !StringUtils.isNull(dhG.dhH())) {
+            return dhG.dhH();
         }
         return null;
     }
 
     @Override // com.baidu.tbadk.core.util.af
     public ArrayList<PreLoadImageInfo> getImages() {
-        ArrayList<TbRichTextData> bkO;
-        if (this.lGc == null || (bkO = this.lGc.bkO()) == null) {
+        ArrayList<TbRichTextData> bkP;
+        if (this.lGc == null || (bkP = this.lGc.bkP()) == null) {
             return null;
         }
         ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
-        Iterator<TbRichTextData> it = bkO.iterator();
+        Iterator<TbRichTextData> it = bkP.iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next.getType() == 8) {
                 PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-                preLoadImageInfo.width = next.bkU().getWidth();
-                preLoadImageInfo.height = next.bkU().getHeight();
-                if (TbadkCoreApplication.getInst().isGifAutoPlay() && !next.bkU().blo()) {
-                    preLoadImageInfo.imgUrl = next.bkU().blk();
+                preLoadImageInfo.width = next.bkV().getWidth();
+                preLoadImageInfo.height = next.bkV().getHeight();
+                if (TbadkCoreApplication.getInst().isGifAutoPlay() && !next.bkV().blp()) {
+                    preLoadImageInfo.imgUrl = next.bkV().bll();
                     preLoadImageInfo.procType = 38;
                 } else {
-                    preLoadImageInfo.imgUrl = next.bkU().blj();
+                    preLoadImageInfo.imgUrl = next.bkV().blk();
                     preLoadImageInfo.procType = 17;
                 }
                 arrayList.add(preLoadImageInfo);
-            } else if (next.bkZ() != null) {
+            } else if (next.bla() != null) {
                 PreLoadImageInfo preLoadImageInfo2 = new PreLoadImageInfo();
-                preLoadImageInfo2.width = next.bkZ().mGifInfo.mGifWidth;
-                preLoadImageInfo2.height = next.bkZ().mGifInfo.mGifHeight;
-                preLoadImageInfo2.bigEmotion = next.bkZ();
+                preLoadImageInfo2.width = next.bla().mGifInfo.mGifWidth;
+                preLoadImageInfo2.height = next.bla().mGifInfo.mGifHeight;
+                preLoadImageInfo2.bigEmotion = next.bla();
                 preLoadImageInfo2.procType = 20;
                 arrayList.add(preLoadImageInfo2);
             }
@@ -1054,7 +1054,7 @@ public class PostData implements q, af {
         if (this.lFT == 53) {
             return lFQ;
         }
-        if (dhY() == 1) {
+        if (dhZ() == 1) {
             return lFL;
         }
         return lFM;
@@ -1064,7 +1064,7 @@ public class PostData implements q, af {
         this.lFT = i;
     }
 
-    public av dig() {
+    public av dih() {
         return this.lGd;
     }
 
@@ -1072,20 +1072,20 @@ public class PostData implements q, af {
         this.lGd = avVar;
     }
 
-    public i dih() {
+    public i dii() {
         return this.lGk;
     }
 
-    public com.baidu.tbadk.widget.richText.j bkY() {
+    public com.baidu.tbadk.widget.richText.j bkZ() {
         if (this.lGo != null) {
             return this.lGo;
         }
-        if (this.lGc != null && w.getCount(this.lGc.bkO()) > 0) {
-            Iterator<TbRichTextData> it = this.lGc.bkO().iterator();
+        if (this.lGc != null && w.getCount(this.lGc.bkP()) > 0) {
+            Iterator<TbRichTextData> it = this.lGc.bkP().iterator();
             while (it.hasNext()) {
                 TbRichTextData next = it.next();
                 if (next != null && next.getType() == 32) {
-                    this.lGo = next.bkY();
+                    this.lGo = next.bkZ();
                     return this.lGo;
                 }
             }
@@ -1093,16 +1093,16 @@ public class PostData implements q, af {
         return null;
     }
 
-    public TbRichTextVoiceInfo bkW() {
+    public TbRichTextVoiceInfo bkX() {
         if (this.eeA != null) {
             return this.eeA;
         }
-        if (this.lGc != null && w.getCount(this.lGc.bkO()) > 0) {
-            Iterator<TbRichTextData> it = this.lGc.bkO().iterator();
+        if (this.lGc != null && w.getCount(this.lGc.bkP()) > 0) {
+            Iterator<TbRichTextData> it = this.lGc.bkP().iterator();
             while (it.hasNext()) {
                 TbRichTextData next = it.next();
                 if (next != null && next.getType() == 512) {
-                    this.eeA = next.bkW();
+                    this.eeA = next.bkX();
                     return this.eeA;
                 }
             }
@@ -1110,7 +1110,7 @@ public class PostData implements q, af {
         return null;
     }
 
-    public String dii() {
+    public String dij() {
         return this.lGp;
     }
 
@@ -1132,7 +1132,7 @@ public class PostData implements q, af {
         return this.agreeData;
     }
 
-    public OriginalThreadInfo dij() {
+    public OriginalThreadInfo dik() {
         return this.dNX;
     }
 
@@ -1140,11 +1140,11 @@ public class PostData implements q, af {
         this.dNX = originalThreadInfo;
     }
 
-    public int dik() {
+    public int dil() {
         return this.lGC;
     }
 
-    public String cGY() {
+    public String cGZ() {
         return this.jZq;
     }
 }

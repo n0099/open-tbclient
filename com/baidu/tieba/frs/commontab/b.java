@@ -61,7 +61,7 @@ public class b {
                     b.this.fnt.setOnClickListener(null);
                     if (b.this.hasMore) {
                         b.this.fnt.showLoading();
-                        b.this.hHq.bMW();
+                        b.this.hHq.bMX();
                         return;
                     }
                     b.this.fnt.setText(b.this.hHq.getResources().getString(R.string.list_has_no_more));
@@ -81,7 +81,7 @@ public class b {
                 if (b.this.hjm != null) {
                     b.this.hjm.a(b.this.Wa.getFirstVisiblePosition(), b.this.Wa.getLastVisiblePosition(), this.hjr, true);
                 }
-                s.bOA().mc(true);
+                s.bOB().mc(true);
             }
         }
 
@@ -143,12 +143,12 @@ public class b {
             }
             this.hjm.CN(1);
             this.hjm.setUniqueId(this.hHq.getUniqueId());
-            if (cbf()) {
+            if (cbg()) {
                 this.hHM = new RelativeLayout(this.hHq.getContext());
                 this.hHM.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
                 this.hHN = new com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a(this.hHq, this.hHM);
                 this.Wa.addHeaderView(this.hHM, 0);
-                this.hHN.setData(cbg());
+                this.hHN.setData(cbh());
             }
             if (this.hHq.tabType == 16) {
                 this.hHO = new aj(this.hHq);
@@ -158,7 +158,7 @@ public class b {
         }
     }
 
-    private boolean cbf() {
+    private boolean cbg() {
         return this.hHq != null && (this.hHq.isGeneralTab == 1 || this.hHq.tabType == 16);
     }
 
@@ -210,7 +210,7 @@ public class b {
             if (this.hjm != null) {
                 this.hjm.a(this.Wa.getFirstVisiblePosition(), this.Wa.getLastVisiblePosition(), false, true);
             }
-            if (cbf() && this.hHN != null) {
+            if (cbg() && this.hHN != null) {
                 this.hHN.changeState(this.hHq.getSortType());
                 this.hHN.setFid(this.hHq.forumId);
             }
@@ -224,7 +224,7 @@ public class b {
         }
     }
 
-    private List<FrsTabInfo> cbg() {
+    private List<FrsTabInfo> cbh() {
         ArrayList arrayList = new ArrayList();
         FrsTabInfo.Builder builder = new FrsTabInfo.Builder();
         builder.tab_id = 2;
@@ -254,13 +254,13 @@ public class b {
 
     public void resume() {
         if (this.hjm != null) {
-            this.hjm.cyn();
+            this.hjm.cyo();
         }
     }
 
     public void pause() {
         if (this.hjm != null) {
-            this.hjm.cym();
+            this.hjm.cyn();
         }
     }
 
@@ -270,7 +270,7 @@ public class b {
         }
     }
 
-    public void caB() {
+    public void caC() {
         u uVar = new u();
         uVar.tabId = this.hHq.tabId;
         uVar.eSL = false;
@@ -303,7 +303,7 @@ public class b {
         }
     }
 
-    public void bXG() {
+    public void bXH() {
         this.Wa.scrollToPosition(0);
     }
 
@@ -317,11 +317,11 @@ public class b {
         }
     }
 
-    public BdTypeRecyclerView cbh() {
+    public BdTypeRecyclerView cbi() {
         return this.Wa;
     }
 
-    public m bZa() {
+    public m bZb() {
         return this.hjm;
     }
 

@@ -13,16 +13,16 @@ import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class f<V> implements RunnableFuture<V>, ScheduledFuture<V> {
     private final Handler mHandler;
-    private final FutureTask<V> mIy;
+    private final FutureTask<V> mIB;
 
     public f(Handler handler, Callable<V> callable) {
         this.mHandler = handler;
-        this.mIy = new FutureTask<>(callable);
+        this.mIB = new FutureTask<>(callable);
     }
 
     public f(Handler handler, Runnable runnable, @Nullable V v) {
         this.mHandler = handler;
-        this.mIy = new FutureTask<>(runnable, v);
+        this.mIB = new FutureTask<>(runnable, v);
     }
 
     @Override // java.util.concurrent.Delayed
@@ -39,31 +39,31 @@ public class f<V> implements RunnableFuture<V>, ScheduledFuture<V> {
 
     @Override // java.util.concurrent.RunnableFuture, java.lang.Runnable
     public void run() {
-        this.mIy.run();
+        this.mIB.run();
     }
 
     @Override // java.util.concurrent.Future
     public boolean cancel(boolean z) {
-        return this.mIy.cancel(z);
+        return this.mIB.cancel(z);
     }
 
     @Override // java.util.concurrent.Future
     public boolean isCancelled() {
-        return this.mIy.isCancelled();
+        return this.mIB.isCancelled();
     }
 
     @Override // java.util.concurrent.Future
     public boolean isDone() {
-        return this.mIy.isDone();
+        return this.mIB.isDone();
     }
 
     @Override // java.util.concurrent.Future
     public V get() throws InterruptedException, ExecutionException {
-        return this.mIy.get();
+        return this.mIB.get();
     }
 
     @Override // java.util.concurrent.Future
     public V get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
-        return this.mIy.get(j, timeUnit);
+        return this.mIB.get(j, timeUnit);
     }
 }

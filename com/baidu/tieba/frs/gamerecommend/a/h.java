@@ -34,19 +34,19 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.g, com.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.g gVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.i> aVar) {
-        if (aVar.bPg() == null) {
+        if (aVar.bPh() == null) {
             return null;
         }
-        aVar.bPg().a(gVar);
-        aVar.bPg().c(new aa<com.baidu.tieba.e.g>() { // from class: com.baidu.tieba.frs.gamerecommend.a.h.1
+        aVar.bPh().a(gVar);
+        aVar.bPh().c(new aa<com.baidu.tieba.e.g>() { // from class: com.baidu.tieba.frs.gamerecommend.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view2, com.baidu.tieba.e.g gVar2) {
                 TiebaStatic.log(new ao("c13047").ag("obj_locate", 1).dk("fid", h.this.mForumId));
-                bc.aWU().a((TbPageContext) com.baidu.adp.base.i.G(view2.getContext()), new String[]{gVar2.bPW().score_url}, true);
+                bc.aWU().a((TbPageContext) com.baidu.adp.base.i.G(view2.getContext()), new String[]{gVar2.bPX().score_url}, true);
             }
         });
-        aVar.bPg().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return aVar.bPg().getView();
+        aVar.bPh().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return aVar.bPh().getView();
     }
 }

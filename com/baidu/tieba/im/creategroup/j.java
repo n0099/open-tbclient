@@ -72,7 +72,7 @@ public class j extends com.baidu.adp.base.c {
         this.iPe = str;
     }
 
-    public String coB() {
+    public String coC() {
         return this.iPd;
     }
 
@@ -80,43 +80,43 @@ public class j extends com.baidu.adp.base.c {
         return this.iPe;
     }
 
-    public View coC() {
+    public View coD() {
         return this.eDr;
     }
 
-    public int coD() {
+    public int coE() {
         return this.iOK;
     }
 
-    public View coE() {
+    public View coF() {
         return this.iOL;
     }
 
-    public View coF() {
+    public View coG() {
         if (this.iOO != null) {
-            return this.iOO.coq();
+            return this.iOO.cor();
         }
         if (this.iOP != null) {
-            return this.iOP.coq();
+            return this.iOP.cor();
         }
         return null;
     }
 
-    public View coG() {
+    public View coH() {
+        return this.iOS.coz();
+    }
+
+    public View coI() {
         return this.iOS.coy();
     }
 
-    public View coH() {
-        return this.iOS.cox();
-    }
-
-    public boolean coI() {
+    public boolean coJ() {
         return this.mIsLoading;
     }
 
-    public void cod() {
-        this.iOT.cod();
-        cpd();
+    public void coe() {
+        this.iOT.coe();
+        cpe();
     }
 
     public void GC(String str) {
@@ -130,7 +130,7 @@ public class j extends com.baidu.adp.base.c {
     public void setBusiness(String str) {
         this.business = str;
         this.iOT.setBusiness(str);
-        cpd();
+        cpe();
     }
 
     public String getBusiness() {
@@ -139,10 +139,10 @@ public class j extends com.baidu.adp.base.c {
 
     public void GD(String str) {
         this.iOT.setAddress(str);
-        cpd();
+        cpe();
     }
 
-    public boolean coJ() {
+    public boolean coK() {
         return this.iPb;
     }
 
@@ -150,26 +150,26 @@ public class j extends com.baidu.adp.base.c {
         this.iPb = z;
     }
 
-    public void coe() {
-        this.iOT.coe();
-        cpd();
-    }
-
     public void cof() {
         this.iOT.cof();
-        cpd();
+        cpe();
     }
 
-    public View coK() {
-        return this.iOT.cob();
-    }
-
-    public int coc() {
-        return this.iOT.coc();
+    public void cog() {
+        this.iOT.cog();
+        cpe();
     }
 
     public View coL() {
-        return this.iOQ.cou();
+        return this.iOT.coc();
+    }
+
+    public int cod() {
+        return this.iOT.cod();
+    }
+
+    public View coM() {
+        return this.iOQ.cov();
     }
 
     public int getForumId() {
@@ -177,11 +177,11 @@ public class j extends com.baidu.adp.base.c {
     }
 
     public String getName() {
-        return this.iOQ.cot().getText().toString();
+        return this.iOQ.cou().getText().toString();
     }
 
     public String getIntro() {
-        return this.iOR.com().getText().toString();
+        return this.iOR.con().getText().toString();
     }
 
     public void setPortrait(String str) {
@@ -196,23 +196,23 @@ public class j extends com.baidu.adp.base.c {
         return this.iON;
     }
 
-    public boolean coM() {
-        return this.iOQ != null && this.iOK == this.iOQ.coa();
-    }
-
     public boolean coN() {
-        return this.iOR != null && this.iOK == this.iOR.coa();
+        return this.iOQ != null && this.iOK == this.iOQ.cob();
     }
 
     public boolean coO() {
-        return this.iOS != null && this.iOK == this.iOS.coa();
+        return this.iOR != null && this.iOK == this.iOR.cob();
     }
 
     public boolean coP() {
-        return this.iOT != null && this.iOK == this.iOT.coa();
+        return this.iOS != null && this.iOK == this.iOS.cob();
     }
 
     public boolean coQ() {
+        return this.iOT != null && this.iOK == this.iOT.cob();
+    }
+
+    public boolean coR() {
         return this.iOJ != null && this.iOK == this.iOJ.getCount();
     }
 
@@ -223,16 +223,16 @@ public class j extends com.baidu.adp.base.c {
         return null;
     }
 
-    public void coR() {
-        this.iOS.coy().setText(R.string.group_create_modify_photo_tip);
+    public void coS() {
+        this.iOS.coz().setText(R.string.group_create_modify_photo_tip);
     }
 
-    public void coS() {
-        this.iOS.cow();
+    public void coT() {
+        this.iOS.cox();
     }
 
     public void EO() {
-        this.iOQ.cov();
+        this.iOQ.cow();
     }
 
     public j(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3, int i4) {
@@ -274,15 +274,15 @@ public class j extends com.baidu.adp.base.c {
         this.iOV = new com.baidu.tieba.im.util.b(this.iNW);
         this.iOV.setUniqueId(this.iNW.getUniqueId());
         if (!ac.d(this.iNW, RequestResponseCode.REQUEST_BUY_TBEAN_FROM_JOIN_GUARDCLUB)) {
-            coT();
+            coU();
         }
     }
 
-    public void coT() {
+    public void coU() {
         this.iOV.startLoad();
     }
 
-    public void coU() {
+    public void coV() {
         if (this.iOV != null) {
             this.iOV.cancelLoad();
         }
@@ -291,17 +291,17 @@ public class j extends com.baidu.adp.base.c {
     private void initListener() {
         this.eDr.setOnClickListener(this.iNW);
         this.iOL.setOnClickListener(this.iNW);
-        this.iOQ.cot().setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});
-        this.iOQ.cot().addTextChangedListener(this.iNW);
-        this.iOR.com().addTextChangedListener(this.iNW);
+        this.iOQ.cou().setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});
+        this.iOQ.cou().addTextChangedListener(this.iNW);
+        this.iOR.con().addTextChangedListener(this.iNW);
+        this.iOS.coz().setOnClickListener(this.iNW);
         this.iOS.coy().setOnClickListener(this.iNW);
-        this.iOS.cox().setOnClickListener(this.iNW);
-        this.iOT.cob().setOnClickListener(this.iNW);
+        this.iOT.coc().setOnClickListener(this.iNW);
         if (this.iOP != null) {
-            this.iOP.coq().setOnClickListener(this.iNW);
+            this.iOP.cor().setOnClickListener(this.iNW);
         }
         if (this.iOO != null) {
-            this.iOO.coq().setOnClickListener(this.iNW);
+            this.iOO.cor().setOnClickListener(this.iNW);
         }
     }
 
@@ -322,12 +322,12 @@ public class j extends com.baidu.adp.base.c {
         this.mNavigationBar = (NavigationBar) createGroupStepActivity.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setSystemClickable(false);
         this.eDr = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        cpb();
+        cpc();
         this.iOL = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, createGroupStepActivity.getResources().getString(R.string.next_step));
         ((LinearLayout.LayoutParams) this.iOL.getLayoutParams()).rightMargin = com.baidu.adp.lib.util.l.getDimens(getPageContext().getPageActivity(), R.dimen.ds16);
         an.setBackgroundResource(this.iOL, R.drawable.s_navbar_button_bg);
         pf(false);
-        cpc();
+        cpd();
     }
 
     private void b(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3, int i4) {
@@ -384,49 +384,49 @@ public class j extends com.baidu.adp.base.c {
 
     private void pf(boolean z) {
         this.bYW = z;
-        coW();
+        coX();
     }
 
-    public boolean coV() {
+    public boolean coW() {
         return this.bYW;
     }
 
-    private void coW() {
+    private void coX() {
         this.iOL.setEnabled(this.bYW);
         an.setBackgroundResource(this.iOL, R.drawable.s_navbar_button_bg);
     }
 
-    public void coX() {
+    public void coY() {
         if (this.iOK > 1) {
             this.iOK--;
-            coZ();
-        }
-    }
-
-    public void coY() {
-        if (this.iOK < this.iOa) {
-            this.iOK++;
-            coZ();
+            cpa();
         }
     }
 
     public void coZ() {
-        this.iOU.setCurrentItem(this.iOK - 1);
-        cpb();
-        cpc();
-        cpd();
-        this.iOQ.cot().clearFocus();
-        this.iOR.com().clearFocus();
-        d(this.iOQ.cot());
-        d(this.iOR.com());
-        if (coO() && coI()) {
-            coE().setEnabled(false);
-        } else {
-            coE().setEnabled(true);
+        if (this.iOK < this.iOa) {
+            this.iOK++;
+            cpa();
         }
     }
 
     public void cpa() {
+        this.iOU.setCurrentItem(this.iOK - 1);
+        cpc();
+        cpd();
+        cpe();
+        this.iOQ.cou().clearFocus();
+        this.iOR.con().clearFocus();
+        d(this.iOQ.cou());
+        d(this.iOR.con());
+        if (coP() && coJ()) {
+            coF().setEnabled(false);
+        } else {
+            coF().setEnabled(true);
+        }
+    }
+
+    public void cpb() {
         String[] strArr = {this.iNW.getResources().getString(R.string.take_photo), this.iNW.getResources().getString(R.string.album)};
         if (this.iOM == null) {
             this.iOM = new com.baidu.tbadk.core.dialog.i(this.iNW.getPageContext());
@@ -482,53 +482,53 @@ public class j extends com.baidu.adp.base.c {
         }
     }
 
-    private void cpb() {
+    private void cpc() {
         if (this.iOJ.yf(this.iOK - 1) != null) {
             this.mNavigationBar.setTitleText(this.iOJ.yf(this.iOK - 1).getTitle());
         }
     }
 
-    public void cpc() {
+    public void cpd() {
         for (o oVar : this.iOJ.getList()) {
-            if (oVar.coa() == this.iOK) {
-                oVar.coh();
-                if (!oVar.col()) {
+            if (oVar.cob() == this.iOK) {
+                oVar.coi();
+                if (!oVar.com()) {
                     this.iOL.setVisibility(8);
                 } else {
                     this.iOL.setVisibility(0);
                 }
-                GE(oVar.coj());
+                GE(oVar.cok());
             } else {
-                oVar.cog();
+                oVar.coh();
             }
         }
-        if (this.iOJ.yf(this.iOK - 1) != null && this.iOJ.yf(this.iOK - 1).cok()) {
+        if (this.iOJ.yf(this.iOK - 1) != null && this.iOJ.yf(this.iOK - 1).col()) {
             pf(true);
         }
     }
 
-    public void cpd() {
-        if (coM()) {
-            a(this.iOQ.cot().getText().length(), this.iOQ.coo() / 2, 2, 20);
-        } else if (coN()) {
-            int coo = this.iOR.coo() / 2;
-            S(coo, 15, 300);
-            int i = 300 - coo;
-            this.iOR.con().setText(String.valueOf(i));
+    public void cpe() {
+        if (coN()) {
+            a(this.iOQ.cou().getText().length(), this.iOQ.cop() / 2, 2, 20);
+        } else if (coO()) {
+            int cop = this.iOR.cop() / 2;
+            S(cop, 15, 300);
+            int i = 300 - cop;
+            this.iOR.coo().setText(String.valueOf(i));
             if (i <= 50) {
-                this.iOR.con().setVisibility(0);
+                this.iOR.coo().setVisibility(0);
             } else {
-                this.iOR.con().setVisibility(8);
+                this.iOR.coo().setVisibility(8);
             }
             if (i == 0) {
-                this.iOR.con().setTextColor(this.iNW.getResources().getColor(R.color.common_color_10170));
+                this.iOR.coo().setTextColor(this.iNW.getResources().getColor(R.color.common_color_10170));
             } else if (i < 0) {
                 this.iOR.ye(300);
             } else {
-                this.iOR.cop();
+                this.iOR.coq();
             }
-        } else if (coP()) {
-            if (this.iOT.coc() != 3) {
+        } else if (coQ()) {
+            if (this.iOT.cod() != 3) {
                 pf(true);
             } else {
                 pf(false);
@@ -569,7 +569,7 @@ public class j extends com.baidu.adp.base.c {
         this.iNW.getLayoutMode().onModeChanged(this.mParent);
         an.setBgColor(this.mParent, i);
         this.mNavigationBar.onChangeSkinType(this.mContext, i);
-        coW();
+        coX();
         an.setViewTextColor(this.iOL, R.color.navbar_btn_color, 1);
         ViewGroup viewGroup = (ViewGroup) this.mParent.getParent().getParent();
         if (com.baidu.adp.lib.util.l.isFlymeOsAbove35()) {

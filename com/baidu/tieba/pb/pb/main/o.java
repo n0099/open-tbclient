@@ -49,7 +49,7 @@ public class o {
     public void Bf(int i) {
         if (this.kbF != null) {
             HttpMessage httpMessage = new HttpMessage(1003066);
-            httpMessage.addParam("thread_id", this.kbF.cJZ());
+            httpMessage.addParam("thread_id", this.kbF.cKa());
             httpMessage.addParam("status", String.valueOf(i));
             MessageManager.getInstance().sendMessage(httpMessage);
         }

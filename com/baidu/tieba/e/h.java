@@ -16,7 +16,7 @@ public class h implements q {
         return gXV;
     }
 
-    public FeatureCardTopic bPX() {
+    public FeatureCardTopic bPY() {
         return this.gXW;
     }
 

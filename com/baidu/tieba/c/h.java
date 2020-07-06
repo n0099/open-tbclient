@@ -53,7 +53,7 @@ public class h implements View.OnClickListener {
     private final com.baidu.adp.framework.listener.a gXA = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.c.h.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            h.this.bJm();
+            h.this.bJn();
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
                 GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                 h.this.a(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
@@ -111,7 +111,7 @@ public class h implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJm() {
+    public void bJn() {
         if (this.gXx != null) {
             this.gXx.setDialogVisiable(false);
         }
@@ -206,7 +206,7 @@ public class h implements View.OnClickListener {
             bundle.putString("tid", shareItem.tid);
             bundle.putInt("obj_source", shareItem.dOP);
             shareItem.ae(bundle);
-            f.bPD().b(new ShareDialogConfig((Context) this.mActivity, shareItem, true, true));
+            f.bPE().b(new ShareDialogConfig((Context) this.mActivity, shareItem, true, true));
         }
     }
 

@@ -14,7 +14,7 @@ import java.util.concurrent.Future;
 /* loaded from: classes12.dex */
 public class u extends c<t> {
     private final ExecutorService mExecutorService;
-    private int mTn;
+    private int mTr;
 
     public u() {
         this(Executors.newFixedThreadPool(3));
@@ -22,7 +22,7 @@ public class u extends c<t> {
 
     public u(int i) {
         this(Executors.newFixedThreadPool(3));
-        this.mTn = i;
+        this.mTr = i;
     }
 
     u(ExecutorService executorService) {
@@ -42,11 +42,11 @@ public class u extends c<t> {
                 u.this.b(tVar, aVar);
             }
         });
-        tVar.dGl().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
+        tVar.dGp().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dCq() {
+            public void dCu() {
                 if (submit.cancel(false)) {
-                    aVar.dzd();
+                    aVar.dzh();
                 }
             }
         });
@@ -133,7 +133,7 @@ public class u extends c<t> {
 
     private HttpURLConnection c(Uri uri, int i) throws IOException {
         HttpURLConnection X = X(uri);
-        X.setConnectTimeout(this.mTn);
+        X.setConnectTimeout(this.mTr);
         int responseCode = X.getResponseCode();
         if (!Jp(responseCode)) {
             if (Jq(responseCode)) {

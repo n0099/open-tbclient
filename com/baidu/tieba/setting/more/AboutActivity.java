@@ -64,8 +64,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 }
             }
         });
-        this.lpP.dbL();
-        cmU();
+        this.lpP.dbM();
+        cmV();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -73,7 +73,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void onResume() {
         super.onResume();
         if (this.lpP != null) {
-            this.lpP.dbL();
+            this.lpP.dbM();
         }
     }
 
@@ -81,12 +81,12 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        cmV();
+        cmW();
         if (this.lpQ != null) {
             this.lpQ.cancelLoadData();
         }
         if (this.lpP != null) {
-            this.lpP.ceu();
+            this.lpP.cev();
         }
         if (this.lpT != null) {
             this.lpT.dismiss();
@@ -114,16 +114,16 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         } else {
             this.lpQ.cancelLoadData();
         }
-        this.lpQ.dbD();
+        this.lpQ.dbE();
         if (this.lpP != null) {
-            this.lpP.dbK();
+            this.lpP.dbL();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aH(Object obj) {
         if (this.lpP != null) {
-            this.lpP.ceu();
+            this.lpP.cev();
         }
         com.baidu.tbadk.coreExtra.model.d dVar = obj != null ? (com.baidu.tbadk.coreExtra.model.d) obj : null;
         if (dVar != null) {
@@ -142,7 +142,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 showToast(getResources().getString(R.string.neednot_update));
             }
             if (this.lpP != null) {
-                this.lpP.dbL();
+                this.lpP.dbM();
                 return;
             }
             return;
@@ -159,19 +159,19 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (AboutActivity.this.lpP != null) {
-                AboutActivity.this.lpP.dbL();
+                AboutActivity.this.lpP.dbM();
             }
         }
     }
 
-    private void cmU() {
+    private void cmV() {
         this.lpR = new a();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
         registerReceiver(this.lpR, intentFilter);
     }
 
-    private void cmV() {
+    private void cmW() {
         if (this.lpR != null) {
             unregisterReceiver(this.lpR);
         }

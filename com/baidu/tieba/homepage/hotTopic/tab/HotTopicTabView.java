@@ -62,31 +62,31 @@ public class HotTopicTabView extends FrameLayout implements f.c {
                 if (HotTopicTabView.this.fpM != i && HotTopicTabView.this.imf != null) {
                     HotTopicTabView.this.fpM = i;
                     if (HotTopicTabView.this.fpM == 1) {
-                        HotTopicTabView.this.imf.buc();
-                    } else if (HotTopicTabView.this.a(recyclerView)) {
                         HotTopicTabView.this.imf.bud();
+                    } else if (HotTopicTabView.this.a(recyclerView)) {
+                        HotTopicTabView.this.imf.bue();
                     } else {
-                        HotTopicTabView.this.imf.buc();
+                        HotTopicTabView.this.imf.bud();
                     }
                 }
             }
         };
         this.imh = new ScrollFragmentTabHost.a() { // from class: com.baidu.tieba.homepage.hotTopic.tab.HotTopicTabView.2
             @Override // com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.a
-            public void ciD() {
+            public void ciE() {
                 if (HotTopicTabView.this.imf != null) {
                     HotTopicTabView.this.fpM = -1;
                     if (HotTopicTabView.this.a(HotTopicTabView.this.Wa)) {
-                        HotTopicTabView.this.imf.bud();
+                        HotTopicTabView.this.imf.bue();
                     } else {
-                        HotTopicTabView.this.imf.buc();
+                        HotTopicTabView.this.imf.bud();
                     }
                 }
             }
         };
         this.mPageContext = tbPageContext;
         init(tbPageContext.getPageActivity());
-        bzx();
+        bzy();
         onChangeSkinType();
     }
 
@@ -106,7 +106,7 @@ public class HotTopicTabView extends FrameLayout implements f.c {
         this.fnt.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
     }
 
-    private void bzx() {
+    private void bzy() {
         this.Wa.addOnScrollListener(this.mOnScrollListener);
         this.mPullView.setListPullRefreshListener(this);
     }
@@ -115,7 +115,7 @@ public class HotTopicTabView extends FrameLayout implements f.c {
         if (this.imf != null) {
             this.imf.b(this.imh);
             this.imf.a(this.imh);
-            this.imh.ciD();
+            this.imh.ciE();
         }
         if (this.gud) {
             this.gud = false;
@@ -142,14 +142,14 @@ public class HotTopicTabView extends FrameLayout implements f.c {
         this.iqL.setData(list);
     }
 
-    public void buJ() {
+    public void buK() {
         this.Wa.setNextPage(this.fnt);
         this.fnt.endLoadData();
         this.fnt.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.fnt.setText(getResources().getString(R.string.really_great));
     }
 
-    public void cjo() {
+    public void cjp() {
         this.Wa.setNextPage(null);
     }
 
@@ -157,7 +157,7 @@ public class HotTopicTabView extends FrameLayout implements f.c {
         this.Wa.setSelection(0);
         startPullRefresh();
         if (this.imh != null) {
-            this.imh.ciD();
+            this.imh.ciE();
         }
     }
 
@@ -165,12 +165,12 @@ public class HotTopicTabView extends FrameLayout implements f.c {
         this.f8for.setRefreshing(true);
     }
 
-    public void btU() {
+    public void btV() {
         this.f8for.setRefreshing(false);
     }
 
     public void ga(boolean z) {
-        if (!bSQ()) {
+        if (!bSR()) {
             if (this.fwo == null) {
                 this.fwo = new g(getContext());
                 int height = (((getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - l.getDimens(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
@@ -189,7 +189,7 @@ public class HotTopicTabView extends FrameLayout implements f.c {
         }
     }
 
-    public boolean bSQ() {
+    public boolean bSR() {
         if (this.fwo != null) {
             return this.fwo.isViewAttached();
         }
@@ -197,7 +197,7 @@ public class HotTopicTabView extends FrameLayout implements f.c {
     }
 
     public void mB(boolean z) {
-        if (!bSR()) {
+        if (!bSS()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.HotTopicTabView.3
                     @Override // android.view.View.OnClickListener
@@ -214,14 +214,14 @@ public class HotTopicTabView extends FrameLayout implements f.c {
         }
     }
 
-    public void btN() {
+    public void btO() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
         }
     }
 
-    public boolean bSR() {
+    public boolean bSS() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -272,9 +272,9 @@ public class HotTopicTabView extends FrameLayout implements f.c {
         if (this.imf != null) {
             this.imf.b(this.imh);
         }
-        btU();
+        btV();
         hideLoadingView();
-        btN();
+        btO();
         this.gud = true;
     }
 

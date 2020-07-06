@@ -13,7 +13,7 @@ public class c {
     private c() {
     }
 
-    public static c bXg() {
+    public static c bXh() {
         return a.hyD;
     }
 
@@ -21,7 +21,7 @@ public class c {
         this.hyC = bawuThrones;
     }
 
-    public BawuThrones bXh() {
+    public BawuThrones bXi() {
         return this.hyC;
     }
 

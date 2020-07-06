@@ -12,7 +12,7 @@ public class b extends com.baidu.adp.framework.b.c {
     /* renamed from: b */
     public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
         if (httpResponsedMessage != null && httpResponsedMessage.getError() == 1990055 && !a.wO(httpResponsedMessage.getCmd())) {
-            a.chw();
+            a.chx();
         }
         return httpResponsedMessage;
     }

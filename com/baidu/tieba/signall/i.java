@@ -18,11 +18,11 @@ public class i {
         return this.forumId;
     }
 
-    public int dfI() {
+    public int dfJ() {
         return this.signed;
     }
 
-    public int dfJ() {
+    public int dfK() {
         return this.lxQ;
     }
 
@@ -30,7 +30,7 @@ public class i {
         return this.lxR;
     }
 
-    public a dfe() {
+    public a dff() {
         return this.lwC;
     }
 

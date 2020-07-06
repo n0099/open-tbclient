@@ -39,7 +39,7 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         return false;
     }
 
-    public void dfV() {
+    public void dfW() {
         if (this.lyw != null) {
             this.lyw.cancel();
             this.lyw = null;

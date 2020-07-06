@@ -26,7 +26,7 @@ public class e implements f {
     private ApkStatusCallback ghE = new ApkStatusCallback() { // from class: com.baidu.tieba.ala.liveroom.i.e.1
         @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
         public void onApkDownloadStart(ApkData apkData) {
-            e.this.bEz();
+            e.this.bEA();
         }
 
         @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
@@ -43,12 +43,12 @@ public class e implements f {
         @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
         public void onApkDownloadFailed(ApkData apkData, int i, String str) {
             e.this.mPageContext.showToast(e.this.mPageContext.getString(a.i.ala_feedback_flow_download_fail_tip_prefix) + str);
-            e.this.bEC();
+            e.this.bED();
         }
 
         @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
         public void onApkStartInstall(ApkData apkData) {
-            e.this.bEC();
+            e.this.bED();
         }
     };
     private String ghi;
@@ -66,7 +66,7 @@ public class e implements f {
         this.aLQ = qVar;
         this.ghA = pendantParentView;
         if (isDownloading() && qVar != null && qVar.mLiveInfo != null) {
-            bEz();
+            bEA();
             if (this.ghD != null) {
                 if (qVar.mLiveInfo.live_id == ghC) {
                     this.ghD.kY(false);
@@ -77,58 +77,58 @@ public class e implements f {
         }
     }
 
-    public void bCS() {
-        bEB();
+    public void bCT() {
+        bEC();
     }
 
-    public void bEy() {
+    public void bEz() {
         ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), ghB, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bEz() {
+    public void bEA() {
         if (isDownloading()) {
-            bEA();
+            bEB();
         }
     }
 
-    private void bEA() {
+    private void bEB() {
         if (this.ghD == null) {
             this.ghD = new d(this.mPageContext.getPageActivity());
             this.ghD.setProgress(0);
             this.ghD.kY(false);
         }
-        if (this.ghD.bEx() != null && this.ghD.bEx().getParent() == null && this.ghA != null) {
+        if (this.ghD.bEy() != null && this.ghD.bEy().getParent() == null && this.ghA != null) {
             int dimensionPixelSize = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds100);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
             layoutParams.rightMargin = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds10);
             layoutParams.bottomMargin = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds54);
             layoutParams.gravity = 5;
-            this.ghA.a(this.ghD.bEx(), new LinearLayout.LayoutParams(-2, -2));
+            this.ghA.a(this.ghD.bEy(), new LinearLayout.LayoutParams(-2, -2));
         }
     }
 
-    private void bEB() {
-        if (this.ghD != null && this.ghD.bEx() != null && this.ghD.bEx().getParent() != null) {
-            ((ViewGroup) this.ghD.bEx().getParent()).removeView(this.ghD.bEx());
+    private void bEC() {
+        if (this.ghD != null && this.ghD.bEy() != null && this.ghD.bEy().getParent() != null) {
+            ((ViewGroup) this.ghD.bEy().getParent()).removeView(this.ghD.bEy());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bEC() {
+    public void bED() {
         ghC = 0L;
         if (ghB != null) {
             ghB.apkStatusCallBack = null;
             ghB = null;
         }
-        bEB();
+        bEC();
         this.ghD = null;
     }
 
     public void bT(boolean z) {
         if (z && ghB != null) {
             ApkManager.getInstance().stopApkDownload(ghB);
-            bEC();
+            bED();
         } else if (ghB != null) {
             ghB.apkStatusCallBack = null;
         }
@@ -214,8 +214,8 @@ public class e implements f {
     }
 
     public void setVisible(int i) {
-        if (this.ghD != null && this.ghD.bEx() != null) {
-            this.ghD.bEx().setVisibility(i);
+        if (this.ghD != null && this.ghD.bEy() != null) {
+            this.ghD.bEy().setVisibility(i);
         }
     }
 }

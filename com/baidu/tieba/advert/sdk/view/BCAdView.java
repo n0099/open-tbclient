@@ -48,7 +48,7 @@ public class BCAdView extends RelativeLayout {
         this.fce.adHeight = this.mHeight;
         this.fce.adWidth = this.mWidth;
         this.fce.typeId = this.fcf;
-        b.bqf().a(this.mPageContext, new a(this), this.fce);
+        b.bqg().a(this.mPageContext, new a(this), this.fce);
     }
 
     public void setBCAdCallBack(com.baidu.tieba.advert.sdk.a.a aVar) {
@@ -57,15 +57,15 @@ public class BCAdView extends RelativeLayout {
         }
     }
 
-    private void bqk() {
+    private void bql() {
         if (this.fca != null) {
-            this.fca.bpZ();
+            this.fca.bqa();
         }
     }
 
     public void axb() {
         if (this.fca != null) {
-            this.fca.bqa();
+            this.fca.bqb();
         }
         pX();
     }
@@ -84,7 +84,7 @@ public class BCAdView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        bqk();
+        bql();
     }
 
     /* loaded from: classes10.dex */
@@ -131,7 +131,7 @@ public class BCAdView extends RelativeLayout {
                 this.fcg.AQ(str);
                 BCAdView bCAdView = this.fci.get();
                 if (bCAdView != null && (aVar = bCAdView.fca) != null) {
-                    aVar.bpY();
+                    aVar.bpZ();
                 }
             }
         }

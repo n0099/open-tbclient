@@ -100,7 +100,7 @@ public class m extends com.baidu.adp.base.c<MembersActivity> {
         this.mProgressBar.setVisibility(z ? 0 : 8);
     }
 
-    public ViewGroup cqB() {
+    public ViewGroup cqC() {
         return this.iTt;
     }
 
@@ -115,11 +115,11 @@ public class m extends com.baidu.adp.base.c<MembersActivity> {
         }
     }
 
-    public TextView cqC() {
+    public TextView cqD() {
         return this.iTw;
     }
 
-    public TextView cqD() {
+    public TextView cqE() {
         return this.iTx;
     }
 
@@ -151,23 +151,23 @@ public class m extends com.baidu.adp.base.c<MembersActivity> {
         this.iTv.setVisibility(8);
     }
 
-    public void ceu() {
+    public void cev() {
         this.iNm.completePullRefreshPostDelayed(0L);
     }
 
-    public NoDataView cqE() {
+    public NoDataView cqF() {
         return this.iTr;
     }
 
-    public l cqF() {
+    public l cqG() {
         return this.iTp;
     }
 
-    public void cqG() {
+    public void cqH() {
         this.iTp.notifyDataSetChanged();
     }
 
-    public TextView cqH() {
+    public TextView cqI() {
         return this.iTq;
     }
 
@@ -175,7 +175,7 @@ public class m extends com.baidu.adp.base.c<MembersActivity> {
         this.iTq.setEnabled(z);
     }
 
-    public BdListView cnV() {
+    public BdListView cnW() {
         return this.iNm;
     }
 }

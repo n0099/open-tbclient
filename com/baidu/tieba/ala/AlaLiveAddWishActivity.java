@@ -222,7 +222,7 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
         this.fec.setHintText(getPageContext().getResources().getString(a.i.add_wish_thank_way_hinit));
         this.fec.getTextView().setText(getPageContext().getResources().getString(a.i.add_wish_thank_way_send));
         e(this.fec);
-        brz();
+        brA();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -243,7 +243,7 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
                         AlaLiveAddWishActivity.this.feb.post(new Runnable() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.6.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                AlaLiveAddWishActivity.this.brB();
+                                AlaLiveAddWishActivity.this.brC();
                             }
                         });
                         e.printStackTrace();
@@ -292,7 +292,7 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
             dVar3.bI(this.feE);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, dVar3));
         } else if (id == a.g.add_wish_center_edit_thank_way) {
-            brA();
+            brB();
         } else if (id == a.g.add_wish_next_bt) {
             if (TextUtils.isEmpty(this.feD)) {
                 this.feD = getPageContext().getResources().getString(a.i.add_wish_thank_way_txt);
@@ -336,14 +336,14 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
                     this.feB.setText(String.valueOf(optInt2) + "小时");
                     this.feB.setTextColor(getPageContext().getResources().getColor(a.d.sdk_cp_cont_g));
                 }
-                brz();
+                brA();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void brz() {
+    private void brA() {
         if (this.fey != null) {
             if (!TextUtils.isEmpty(this.aAL) && this.mGiftNum > 0 && this.feE > 0) {
                 this.fey.setTextColor(getPageContext().getResources().getColor(a.d.sdk_cp_cont_g));
@@ -418,7 +418,7 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
                     AlaLiveAddWishActivity.this.feD = str;
                     AlaLiveAddWishActivity.this.feC.setText(str);
                     AlaLiveAddWishActivity.this.feC.setTextColor(AlaLiveAddWishActivity.this.getPageContext().getResources().getColor(a.d.sdk_cp_cont_g));
-                    AlaLiveAddWishActivity.this.brB();
+                    AlaLiveAddWishActivity.this.brC();
                 }
             }
         });
@@ -433,7 +433,7 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
         }
     }
 
-    public void brA() {
+    public void brB() {
         this.fec.EO();
         this.fec.getEditView().setFocusable(true);
         this.fec.getEditView().setFocusableInTouchMode(true);
@@ -446,7 +446,7 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
         }, 100L);
     }
 
-    public void brB() {
+    public void brC() {
         this.fec.setVisibility(8);
         this.fec.getEditView().post(new Runnable() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.2
             @Override // java.lang.Runnable
@@ -505,7 +505,7 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
     @Override // android.app.Activity
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if (this.fec.getVisibility() == 0) {
-            brB();
+            brC();
             return true;
         }
         return super.onTouchEvent(motionEvent);

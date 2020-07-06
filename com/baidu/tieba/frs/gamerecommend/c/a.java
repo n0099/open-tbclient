@@ -67,14 +67,14 @@ public class a {
 
     public void setData(List<q> list, boolean z) {
         if (z) {
-            btJ();
+            btK();
         } else {
-            btI();
+            btJ();
         }
         this.hPE.setData(list);
     }
 
-    private void btI() {
+    private void btJ() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.fml.setNextPage(this.fnt);
@@ -84,7 +84,7 @@ public class a {
         }
     }
 
-    private void btJ() {
+    private void btK() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.fml.setNextPage(this.fnt);
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    public void bus() {
+    public void but() {
         this.fml.setNextPage(null);
     }
 
@@ -110,7 +110,7 @@ public class a {
         this.mPullView.setListPullRefreshListener(cVar);
     }
 
-    public void buH() {
+    public void buI() {
         if (this.fml != null && j.isNetWorkAvailable()) {
             this.fml.startPullRefresh();
         }
@@ -120,11 +120,11 @@ public class a {
         return this.mRootView;
     }
 
-    public FrameLayout ccy() {
+    public FrameLayout ccz() {
         return this.hPF;
     }
 
-    public NavigationBar bwV() {
+    public NavigationBar bwW() {
         return this.mNavigationBar;
     }
 

@@ -31,11 +31,11 @@ public class b extends BdBaseModel {
     public interface a {
         void aE(int i, String str);
 
-        void bvA();
-
         void bvB();
 
         void bvC();
+
+        void bvD();
     }
 
     public b(TbPageContext tbPageContext, String str, String str2) {
@@ -55,7 +55,7 @@ public class b extends BdBaseModel {
                     }
                     b.this.fyJ = alaTagResponseMessage.getTagList();
                     if (b.this.fza != null) {
-                        b.this.fza.bvA();
+                        b.this.fza.bvB();
                     }
                 }
             }
@@ -66,10 +66,10 @@ public class b extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || !httpResponsedMessage.isSuccess() || httpResponsedMessage.getError() != 0) {
                     if (b.this.fza != null) {
-                        b.this.fza.bvC();
+                        b.this.fza.bvD();
                     }
                 } else if (b.this.fza != null) {
-                    b.this.fza.bvB();
+                    b.this.fza.bvC();
                 }
             }
         };
@@ -80,11 +80,11 @@ public class b extends BdBaseModel {
     }
 
     private void xp() {
-        bvQ();
         bvR();
+        bvS();
     }
 
-    private void bvQ() {
+    private void bvR() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021191, TbConfig.SERVER_ADDRESS + "/ala/tag/getAnchorTags");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -93,7 +93,7 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void bvR() {
+    private void bvS() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021192, TbConfig.SERVER_ADDRESS + "/ala/tag/addAnchorTags");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -111,7 +111,7 @@ public class b extends BdBaseModel {
         return this.fyJ;
     }
 
-    public void bvS() {
+    public void bvT() {
         HttpMessage httpMessage = new HttpMessage(1021191);
         httpMessage.addParam("anchor_id", this.aZa);
         sendMessage(httpMessage);

@@ -8,44 +8,44 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public final class h implements Application.ActivityLifecycleCallbacks {
-    private a mFa;
+    private a mFe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.mFa = aVar;
+        this.mFe = aVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
-        synchronized (this.mFa.dxi()) {
-            for (a.InterfaceC0785a interfaceC0785a : this.mFa.dxi()) {
-                interfaceC0785a.T();
+        synchronized (this.mFe.dxm()) {
+            for (a.InterfaceC0786a interfaceC0786a : this.mFe.dxm()) {
+                interfaceC0786a.T();
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityPaused(Activity activity) {
-        synchronized (this.mFa.dxi()) {
-            for (a.InterfaceC0785a interfaceC0785a : this.mFa.dxi()) {
-                interfaceC0785a.U();
+        synchronized (this.mFe.dxm()) {
+            for (a.InterfaceC0786a interfaceC0786a : this.mFe.dxm()) {
+                interfaceC0786a.U();
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
-        synchronized (this.mFa.dxi()) {
-            for (a.InterfaceC0785a interfaceC0785a : this.mFa.dxi()) {
-                interfaceC0785a.a(activity);
+        synchronized (this.mFe.dxm()) {
+            for (a.InterfaceC0786a interfaceC0786a : this.mFe.dxm()) {
+                interfaceC0786a.a(activity);
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStarted(Activity activity) {
-        synchronized (this.mFa.dxi()) {
-            Iterator<a.InterfaceC0785a> it = this.mFa.dxi().iterator();
+        synchronized (this.mFe.dxm()) {
+            Iterator<a.InterfaceC0786a> it = this.mFe.dxm().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -54,8 +54,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStopped(Activity activity) {
-        synchronized (this.mFa.dxi()) {
-            Iterator<a.InterfaceC0785a> it = this.mFa.dxi().iterator();
+        synchronized (this.mFe.dxm()) {
+            Iterator<a.InterfaceC0786a> it = this.mFe.dxm().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -64,8 +64,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        synchronized (this.mFa.dxi()) {
-            Iterator<a.InterfaceC0785a> it = this.mFa.dxi().iterator();
+        synchronized (this.mFe.dxm()) {
+            Iterator<a.InterfaceC0786a> it = this.mFe.dxm().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -74,9 +74,9 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityDestroyed(Activity activity) {
-        synchronized (this.mFa.dxi()) {
-            for (a.InterfaceC0785a interfaceC0785a : this.mFa.dxi()) {
-                interfaceC0785a.onActivityDestroyed(activity);
+        synchronized (this.mFe.dxm()) {
+            for (a.InterfaceC0786a interfaceC0786a : this.mFe.dxm()) {
+                interfaceC0786a.onActivityDestroyed(activity);
             }
         }
     }

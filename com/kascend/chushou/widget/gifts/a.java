@@ -16,11 +16,11 @@ import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a extends PopupWindow implements View.OnClickListener {
     private final TextView a;
-    private InterfaceC0848a nzs;
+    private InterfaceC0849a nzv;
 
     /* renamed from: com.kascend.chushou.widget.gifts.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0848a {
+    public interface InterfaceC0849a {
         void a(int i);
 
         void b(int i);
@@ -102,8 +102,8 @@ public class a extends PopupWindow implements View.OnClickListener {
         int parseInt = h.parseInt(this.a.getText().toString());
         if (parseInt != 0) {
             dismiss();
-            if (this.nzs != null) {
-                this.nzs.a(parseInt);
+            if (this.nzv != null) {
+                this.nzv.a(parseInt);
             }
         }
     }
@@ -116,8 +116,8 @@ public class a extends PopupWindow implements View.OnClickListener {
         } else if (charSequence.length() < 4) {
             this.a.setText(String.valueOf(charSequence + i));
         }
-        if (this.nzs != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
-            this.nzs.b(parseInt);
+        if (this.nzv != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
+            this.nzv.b(parseInt);
         }
     }
 
@@ -127,12 +127,12 @@ public class a extends PopupWindow implements View.OnClickListener {
         if (charSequence.length() > 0) {
             this.a.setText(charSequence.substring(0, charSequence.length() - 1));
         }
-        if (this.nzs != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
-            this.nzs.b(parseInt);
+        if (this.nzv != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
+            this.nzv.b(parseInt);
         }
     }
 
-    public void a(InterfaceC0848a interfaceC0848a) {
-        this.nzs = interfaceC0848a;
+    public void a(InterfaceC0849a interfaceC0849a) {
+        this.nzv = interfaceC0849a;
     }
 }

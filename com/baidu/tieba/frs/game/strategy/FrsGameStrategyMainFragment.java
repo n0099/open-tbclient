@@ -113,7 +113,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
             if (customResponsedMessage != null && !TextUtils.isEmpty((String) customResponsedMessage.getData())) {
                 String[] split = ((String) customResponsedMessage.getData()).split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                 if (split.length == 2 && "FrsGoodsTab".equals(split[0])) {
-                    FrsGameStrategyMainFragment.this.buH();
+                    FrsGameStrategyMainFragment.this.buI();
                 }
             }
         }
@@ -125,11 +125,11 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
                 if (customResponsedMessage.getCmd() == 2001617) {
-                    if (FrsGameStrategyMainFragment.this.hNb != null && FrsGameStrategyMainFragment.this.hNb.bwV() != null && !FrsGameStrategyMainFragment.this.hNb.bwV().getNavBarIsShow()) {
-                        FrsGameStrategyMainFragment.this.hNb.bwV().showNavigationBarWithAnimation();
+                    if (FrsGameStrategyMainFragment.this.hNb != null && FrsGameStrategyMainFragment.this.hNb.bwW() != null && !FrsGameStrategyMainFragment.this.hNb.bwW().getNavBarIsShow()) {
+                        FrsGameStrategyMainFragment.this.hNb.bwW().showNavigationBarWithAnimation();
                     }
-                } else if (customResponsedMessage.getCmd() == 2001618 && FrsGameStrategyMainFragment.this.hNb != null && FrsGameStrategyMainFragment.this.hNb.bwV() != null && FrsGameStrategyMainFragment.this.hNb.bwV().getNavBarIsShow()) {
-                    FrsGameStrategyMainFragment.this.hNb.bwV().hideNavigationBarWithAnimation();
+                } else if (customResponsedMessage.getCmd() == 2001618 && FrsGameStrategyMainFragment.this.hNb != null && FrsGameStrategyMainFragment.this.hNb.bwW() != null && FrsGameStrategyMainFragment.this.hNb.bwW().getNavBarIsShow()) {
+                    FrsGameStrategyMainFragment.this.hNb.bwW().hideNavigationBarWithAnimation();
                 }
             }
         }
@@ -175,11 +175,11 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            cce();
+            ccf();
         }
     }
 
-    private void cce() {
+    private void ccf() {
         if (this.fqf && this.hNc != null) {
             this.hNc.bZ(0, 0);
             this.fqf = false;
@@ -198,8 +198,8 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
         this.hNb.setFrsGameTabDataLoadListener(this.hNe);
         this.hNb.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         if ("from_single_act".equals(this.mFrom)) {
-            cce();
-            bwV().setCenterTextTitle(this.foo);
+            ccf();
+            bwW().setCenterTextTitle(this.foo);
         }
         return inflate;
     }
@@ -253,17 +253,17 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
     }
 
     @Override // com.baidu.tieba.frs.ar
-    public NavigationBar bwV() {
+    public NavigationBar bwW() {
         if (this.hNb != null) {
-            return this.hNb.bwV();
+            return this.hNb.bwW();
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buH() {
+    public void buI() {
         if (!this.isLoading && this.hNb != null && j.isNetWorkAvailable()) {
-            this.hNb.buH();
+            this.hNb.buI();
         }
     }
 }

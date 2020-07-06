@@ -32,8 +32,8 @@ public class a {
         MessageManager.getInstance().registerListener(this.jwG);
     }
 
-    public void czh() {
-        f.bPD().bPG();
+    public void czi() {
+        f.bPE().bPH();
     }
 
     public void eV(long j) {
@@ -47,7 +47,7 @@ public class a {
         }
     }
 
-    public List<TransmitForumData> czi() {
+    public List<TransmitForumData> czj() {
         return this.ffB;
     }
 

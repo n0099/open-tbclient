@@ -19,7 +19,7 @@ public class a implements c {
     }
 
     @Override // com.facebook.imagepipeline.h.c
-    public void QK(String str) {
+    public void QL(String str) {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
@@ -51,7 +51,7 @@ public class a implements c {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
-    public boolean QP(String str) {
+    public boolean QQ(String str) {
         return false;
     }
 }

@@ -27,7 +27,7 @@ public class b {
     }
 
     public void dismiss() {
-        if (bJj()) {
+        if (bJk()) {
             yY();
             this.grd = null;
         }
@@ -43,7 +43,7 @@ public class b {
         }
     }
 
-    private boolean bJj() {
+    private boolean bJk() {
         if (this.mContext == null || this.mContext.getPageActivity() == null) {
             return false;
         }

@@ -73,7 +73,7 @@ public class NestedScrollHeader extends RelativeLayout {
                                 if (NestedScrollHeader.this.ior != null) {
                                     NestedScrollHeader.this.ior.Ga(str);
                                 }
-                                NestedScrollHeader.this.cim();
+                                NestedScrollHeader.this.cin();
                             }
                         }
                     } else if (NestedScrollHeader.this.ioq != view) {
@@ -112,7 +112,7 @@ public class NestedScrollHeader extends RelativeLayout {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && NestedScrollHeader.this.ioo.getVisibility() == 0) {
-                    NestedScrollHeader.this.cil();
+                    NestedScrollHeader.this.cim();
                 }
             }
         };
@@ -152,13 +152,13 @@ public class NestedScrollHeader extends RelativeLayout {
                 }
             });
             this.ioo.setVisibility(0);
-            cil();
+            cim();
         }
         onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cil() {
+    public void cim() {
         if (!d.aNV()) {
             final String missionEntranceUrl = TbSingleton.getInstance().getMissionEntranceUrl();
             String missionEntranceIcon = TbSingleton.getInstance().getMissionEntranceIcon();
@@ -255,7 +255,7 @@ public class NestedScrollHeader extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cim() {
+    public void cin() {
         ao aoVar = new ao("c13422");
         aoVar.ag("obj_type", 2);
         aoVar.ag("obj_locate", 1);

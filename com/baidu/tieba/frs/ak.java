@@ -32,7 +32,7 @@ public class ak {
         return false;
     }
 
-    public List<FrsTabInfo> bXD() {
+    public List<FrsTabInfo> bXE() {
         return this.hyV;
     }
 
@@ -47,7 +47,7 @@ public class ak {
         }
     }
 
-    public void cae() {
+    public void caf() {
         boolean z;
         LinkedList linkedList = new LinkedList();
         LinkedList linkedList2 = new LinkedList();
@@ -82,7 +82,7 @@ public class ak {
         return this.mContext;
     }
 
-    public List<com.baidu.tbadk.mainTab.b> bXE() {
+    public List<com.baidu.tbadk.mainTab.b> bXF() {
         return this.hyW;
     }
 
@@ -114,7 +114,7 @@ public class ak {
         this.gAR = str;
     }
 
-    public String caf() {
+    public String cag() {
         return this.gAR;
     }
 }

@@ -113,10 +113,10 @@ public class b {
         v vVar = new v(frsGoodFragment.getPageContext(), bu.dLG, this.hSO.getUniqueId());
         ab abVar2 = new ab(frsGoodFragment.getPageContext(), bu.dLP, this.hSO.getUniqueId());
         com.baidu.tieba.frs.q qVar = new com.baidu.tieba.frs.q(frsGoodFragment.getPageContext(), com.baidu.tieba.frs.r.hCX);
-        com.baidu.adp.widget.ListView.a<? extends bt, ? extends ad.a> a = e.bXl().a(frsGoodFragment.getPageContext(), this.hSO.getUniqueId(), true);
-        com.baidu.adp.widget.ListView.a<? extends bu, ? extends ad.a> b = e.bXl().b(frsGoodFragment.getPageContext(), bu.dNs, this.hSO.getUniqueId());
-        com.baidu.adp.widget.ListView.a<?, ?> a2 = com.baidu.tieba.recapp.q.cYS().a(this.hSO, AdvertAppInfo.dGu);
-        com.baidu.adp.widget.ListView.a<?, ?> a3 = com.baidu.tieba.recapp.q.cYS().a(this.hSO, AdvertAppInfo.dGD);
+        com.baidu.adp.widget.ListView.a<? extends bt, ? extends ad.a> a = e.bXm().a(frsGoodFragment.getPageContext(), this.hSO.getUniqueId(), true);
+        com.baidu.adp.widget.ListView.a<? extends bu, ? extends ad.a> b = e.bXm().b(frsGoodFragment.getPageContext(), bu.dNs, this.hSO.getUniqueId());
+        com.baidu.adp.widget.ListView.a<?, ?> a2 = com.baidu.tieba.recapp.q.cYT().a(this.hSO, AdvertAppInfo.dGu);
+        com.baidu.adp.widget.ListView.a<?, ?> a3 = com.baidu.tieba.recapp.q.cYT().a(this.hSO, AdvertAppInfo.dGD);
         z zVar = new z(frsGoodFragment.getPageContext(), bu.dLL, this.hSO.getUniqueId());
         com.baidu.tieba.frs.entelechy.a.b bVar = new com.baidu.tieba.frs.entelechy.a.b(frsGoodFragment.getPageContext(), bu.dLN, this.hSO.getUniqueId());
         h hVar = new h(frsGoodFragment.getPageContext(), bu.dLM, this.hSO.getUniqueId());
@@ -181,7 +181,7 @@ public class b {
             frsViewData.setThreadList(arrayList);
         }
         b(frsViewData);
-        caq();
+        car();
         as(arrayList);
         com.baidu.tieba.tbadkCore.t.t(arrayList, 1);
         ar(arrayList);
@@ -190,7 +190,7 @@ public class b {
         this.hTi = switchThreadDataToThreadCardInfo;
         this.gZU = arrayList;
         this.hJq = frsViewData;
-        caU();
+        caV();
     }
 
     public void refreshData() {
@@ -198,7 +198,7 @@ public class b {
         notifyDataSetChanged();
     }
 
-    private void caq() {
+    private void car() {
         if (!w.isEmpty(this.aUP) && this.hSO != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.aUP) {
                 if (aVar instanceof j) {
@@ -208,7 +208,7 @@ public class b {
         }
     }
 
-    private void caU() {
+    private void caV() {
         com.baidu.tieba.frs.d.b statisticMetaData;
         if (this.hJq != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.aUP) {
@@ -247,11 +247,11 @@ public class b {
         }
     }
 
-    public HashMap<Integer, bu> cbD() {
+    public HashMap<Integer, bu> cbE() {
         return this.hJp;
     }
 
-    public void cbI() {
+    public void cbJ() {
         if (this.hEN != null && this.hEN.getData() != null && this.hEN.getData().size() != 0) {
             for (q qVar : this.hEN.getData()) {
                 if ((qVar instanceof bt) && ((bt) qVar).dLi.aSk() != 0) {
@@ -261,7 +261,7 @@ public class b {
         }
     }
 
-    public void cdq() {
+    public void cdr() {
         for (com.baidu.adp.widget.ListView.a aVar : this.aUP) {
             if (aVar instanceof com.baidu.tieba.card.y) {
                 ((com.baidu.tieba.card.y) aVar).qX(3);
@@ -335,13 +335,13 @@ public class b {
             return false;
         }
         this.hTh = new ArrayList();
-        ArrayList<BdUniqueId> dhp = com.baidu.tieba.tbadkCore.t.dhp();
-        if (dhp == null || dhp.size() <= 0) {
+        ArrayList<BdUniqueId> dhq = com.baidu.tieba.tbadkCore.t.dhq();
+        if (dhq == null || dhq.size() <= 0) {
             return false;
         }
-        int size = dhp.size();
+        int size = dhq.size();
         for (int i = 0; i < size; i++) {
-            j<ICardInfo, ? extends ad.a> a = e.bXl().a(this.hSO.getPageContext(), dhp.get(i), this.hSO.getUniqueId());
+            j<ICardInfo, ? extends ad.a> a = e.bXm().a(this.hSO.getPageContext(), dhq.get(i), this.hSO.getUniqueId());
             if (a != null) {
                 this.aUP.add(a);
                 this.hTh.add(a);
@@ -379,7 +379,7 @@ public class b {
         return this.gZU;
     }
 
-    public List<q> cdr() {
+    public List<q> cds() {
         return this.hTi;
     }
 }

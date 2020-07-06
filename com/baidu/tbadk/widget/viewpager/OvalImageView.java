@@ -57,7 +57,7 @@ public class OvalImageView extends ImageView {
     }
 
     private void init() {
-        bjv();
+        bjw();
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setColor(this.color);
@@ -70,7 +70,7 @@ public class OvalImageView extends ImageView {
         setLayerType(1, null);
     }
 
-    private void bjv() {
+    private void bjw() {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.mSkinType == 0) {
             this.startColor = c.dV("#2bb8ff");

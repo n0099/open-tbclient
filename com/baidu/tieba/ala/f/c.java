@@ -42,11 +42,11 @@ public class c extends BdBaseModel {
             }
         };
         this.gvv = aVar;
-        bKL();
+        bKM();
         registerListener(this.gws);
     }
 
-    private void bKL() {
+    private void bKM() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021171, TbConfig.SERVER_HOST + "liveserver/wishlist/getsupportwishlist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

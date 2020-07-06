@@ -7,10 +7,10 @@ import java.util.List;
 public class ij implements ix<ij, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hx> f613a;
+    public List<hx> f614a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jn f612a = new jn("XmPushActionCustomConfig");
+    private static final jn f613a = new jn("XmPushActionCustomConfig");
     private static final jf a = new jf("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
         if (getClass().equals(ijVar.getClass())) {
             int compareTo = Boolean.valueOf(m422a()).compareTo(Boolean.valueOf(ijVar.m422a()));
             if (compareTo == 0) {
-                if (!m422a() || (a2 = iy.a(this.f613a, ijVar.f613a)) == 0) {
+                if (!m422a() || (a2 = iy.a(this.f614a, ijVar.f614a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -32,12 +32,12 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
     }
 
     public List<hx> a() {
-        return this.f613a;
+        return this.f614a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public void m421a() {
-        if (this.f613a == null) {
+        if (this.f614a == null) {
             throw new jj("Required field 'customConfigs' was not present! Struct: " + toString());
         }
     }
@@ -52,15 +52,15 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
                 m421a();
                 return;
             }
-            switch (m479a.f783a) {
+            switch (m479a.f784a) {
                 case 1:
                     if (m479a.a == 15) {
                         jg m480a = jiVar.m480a();
-                        this.f613a = new ArrayList(m480a.f784a);
-                        for (int i = 0; i < m480a.f784a; i++) {
+                        this.f614a = new ArrayList(m480a.f785a);
+                        for (int i = 0; i < m480a.f785a; i++) {
                             hx hxVar = new hx();
                             hxVar.a(jiVar);
-                            this.f613a.add(hxVar);
+                            this.f614a.add(hxVar);
                         }
                         jiVar.i();
                         break;
@@ -78,7 +78,7 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m422a() {
-        return this.f613a != null;
+        return this.f614a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -88,17 +88,17 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
         }
         boolean m422a = m422a();
         boolean m422a2 = ijVar.m422a();
-        return !(m422a || m422a2) || (m422a && m422a2 && this.f613a.equals(ijVar.f613a));
+        return !(m422a || m422a2) || (m422a && m422a2 && this.f614a.equals(ijVar.f614a));
     }
 
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
         m421a();
-        jiVar.a(f612a);
-        if (this.f613a != null) {
+        jiVar.a(f613a);
+        if (this.f614a != null) {
             jiVar.a(a);
-            jiVar.a(new jg((byte) 12, this.f613a.size()));
-            for (hx hxVar : this.f613a) {
+            jiVar.a(new jg((byte) 12, this.f614a.size()));
+            for (hx hxVar : this.f614a) {
                 hxVar.b(jiVar);
             }
             jiVar.e();
@@ -122,10 +122,10 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("XmPushActionCustomConfig(");
         sb.append("customConfigs:");
-        if (this.f613a == null) {
+        if (this.f614a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f613a);
+            sb.append(this.f614a);
         }
         sb.append(")");
         return sb.toString();

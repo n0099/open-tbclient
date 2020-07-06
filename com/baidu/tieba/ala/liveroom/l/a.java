@@ -47,14 +47,14 @@ public class a {
     /* renamed from: com.baidu.tieba.ala.liveroom.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0573a {
-        boolean bBU();
+        boolean bBV();
 
         void onClose();
     }
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        bFf();
+        bFg();
     }
 
     public void a(InterfaceC0573a interfaceC0573a) {
@@ -73,10 +73,10 @@ public class a {
             this.giD = false;
             this.mPopShow = false;
             this.giJ = com.baidu.live.v.a.Hm().aZp;
-            bFg();
-            DX();
             bFh();
+            DX();
             bFi();
+            bFj();
         }
     }
 
@@ -88,9 +88,9 @@ public class a {
         this.giG = z;
     }
 
-    public boolean bFe() {
-        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isFollowBtnUnabled()) && this.mPopShow && TbadkCoreApplication.isLogin() && this.giB != null && !this.giB.bBU()) {
-            bFn();
+    public boolean bFf() {
+        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isFollowBtnUnabled()) && this.mPopShow && TbadkCoreApplication.isLogin() && this.giB != null && !this.giB.bBV()) {
+            bFo();
             return true;
         }
         return false;
@@ -110,7 +110,7 @@ public class a {
         Fo();
     }
 
-    private void bFf() {
+    private void bFg() {
         this.giE = new b();
         String string = com.baidu.live.c.vf().getString("guide_follow_float_times_date", "");
         if (!TextUtils.isEmpty(string)) {
@@ -131,7 +131,7 @@ public class a {
         }
     }
 
-    private void bFg() {
+    private void bFh() {
         if (this.giE == null) {
             this.giE = new b();
         }
@@ -167,7 +167,7 @@ public class a {
         }
     }
 
-    private void bFh() {
+    private void bFi() {
         at atVar;
         int i;
         if (!this.giD && !this.giE.giL && this.giJ != null && (atVar = this.giJ.aAy) != null) {
@@ -186,14 +186,14 @@ public class a {
         }
     }
 
-    private void bFi() {
+    private void bFj() {
         at atVar;
         int i;
         if (this.giJ != null && (atVar = this.giJ.aAy) != null && (i = atVar.aCv) > 0) {
             LiveTimerManager.getInstance().addLiveTimerTask("guide_follow_pop", this.aZe, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.liveroom.l.a.3
                 @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
                 public void onComplete(boolean z) {
-                    a.this.bFm();
+                    a.this.bFn();
                 }
 
                 @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
@@ -205,24 +205,24 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ld(boolean z) {
-        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isFollowBtnUnabled()) && z && this.giF && !this.giG && !this.giE.giL && this.giB != null && !this.giB.bBU()) {
-            bFj();
+        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isFollowBtnUnabled()) && z && this.giF && !this.giG && !this.giE.giL && this.giB != null && !this.giB.bBV()) {
+            bFk();
         }
     }
 
-    private void bFj() {
+    private void bFk() {
         this.giD = true;
-        bFk();
         bFl();
+        bFm();
     }
 
-    private void bFk() {
+    private void bFl() {
         if (this.giH == null) {
             this.giH = new c(this.mPageContext.getPageActivity());
             this.giH.a(new c.a() { // from class: com.baidu.tieba.ala.liveroom.l.a.4
                 @Override // com.baidu.tieba.ala.liveroom.l.c.a
                 public void onConfirm() {
-                    LogManager.getCommonLogger().doClickGuideFollowFloatConfirmLog(a.this.mVid, String.valueOf(a.this.aZe), a.this.giH.bFo(), a.this.mOtherParams);
+                    LogManager.getCommonLogger().doClickGuideFollowFloatConfirmLog(a.this.mVid, String.valueOf(a.this.aZe), a.this.giH.bFp(), a.this.mOtherParams);
                     a.this.le(false);
                 }
             });
@@ -234,7 +234,7 @@ public class a {
         }
     }
 
-    private void bFl() {
+    private void bFm() {
         at atVar;
         String b = j.b(new Date());
         if (b.equals(this.giE.date)) {
@@ -252,17 +252,17 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFm() {
+    public void bFn() {
         this.mPopShow = true;
     }
 
-    private void bFn() {
+    private void bFo() {
         if (this.giI == null) {
             this.giI = new d(this.mPageContext.getPageActivity());
             this.giI.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.l.a.5
                 @Override // com.baidu.tieba.ala.liveroom.l.d.a
                 public void onConfirm() {
-                    LogManager.getCommonLogger().doClickGuideFollowPopConfirmLog(a.this.mVid, String.valueOf(a.this.aZe), a.this.giI.bFo(), a.this.mOtherParams);
+                    LogManager.getCommonLogger().doClickGuideFollowPopConfirmLog(a.this.mVid, String.valueOf(a.this.aZe), a.this.giI.bFp(), a.this.mOtherParams);
                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "follow_clk").setContentExt(null, "popup", null));
                     a.this.le(true);
                 }
@@ -331,10 +331,10 @@ public class a {
 
     public void aOF() {
         if (this.giH != null && this.giH.isShowing()) {
-            this.giH.bFp();
+            this.giH.bFq();
         }
         if (this.giI != null && this.giI.isShowing()) {
-            this.giI.bFp();
+            this.giI.bFq();
         }
     }
 }

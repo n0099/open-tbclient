@@ -36,7 +36,7 @@ public class a implements View.OnClickListener {
                     @Override // java.lang.Runnable
                     public void run() {
                         if (a.this.hdG != null) {
-                            a.this.ceN();
+                            a.this.ceO();
                         }
                     }
                 }, 3000L);
@@ -86,10 +86,10 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ceN();
+        ceO();
     }
 
-    public void ceN() {
+    public void ceO() {
         if (this.hdG != null) {
             this.hdG.dismiss();
             this.hdG = null;
@@ -98,6 +98,6 @@ public class a implements View.OnClickListener {
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        ceN();
+        ceO();
     }
 }

@@ -46,28 +46,28 @@ public class a {
         }
     }
 
-    public ArrayList<q> bSV() {
+    public ArrayList<q> bSW() {
         return this.hiJ;
     }
 
-    public ArrayList<bo> bSW() {
+    public ArrayList<bo> bSX() {
         return this.hiK;
     }
 
-    public bh bSX() {
+    public bh bSY() {
         return this.hiL;
     }
 
-    public c bSY() {
+    public c bSZ() {
         return this.hiM;
     }
 
-    public boolean bSZ() {
+    public boolean bTa() {
         return this.hiN;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: bTa */
+    /* renamed from: bTb */
     public a clone() {
         a aVar = new a();
         aVar.hiJ = this.hiJ;

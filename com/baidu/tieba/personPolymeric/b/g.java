@@ -168,7 +168,7 @@ public class g implements View.OnClickListener {
         if (this.kMF != null && aVar != null && aVar.getUserData() != null) {
             this.kMH = aVar;
             UserData userData = aVar.getUserData();
-            this.kMG = aVar.ctQ();
+            this.kMG = aVar.ctR();
             this.kMF.setMaskType(userData.isMask() ? 1 : 0);
             this.mUserName = userData.getName_show();
             this.mUserId = userData.getUserIdLong();
@@ -177,9 +177,9 @@ public class g implements View.OnClickListener {
         }
     }
 
-    public void cTC() {
+    public void cTD() {
         if (this.kMu != null && this.kMF != null) {
-            a(this.kMG, this.kMF.getMaskType() == 1, this.kMu.cTs(), this.kMI);
+            a(this.kMG, this.kMF.getMaskType() == 1, this.kMu.cTt(), this.kMI);
         }
     }
 
@@ -205,9 +205,9 @@ public class g implements View.OnClickListener {
     public void onClick(View view) {
         if (view != null) {
             com.baidu.adp.lib.f.g.dismissDialog(this.dDL, this.mPageContext.getPageActivity());
-            if (this.kME.cRA() != null && view.getId() == this.kME.cRA().getId()) {
-                cTE();
-            } else if (this.kME.cRz() != null && view.getId() == this.kME.cRz().getId()) {
+            if (this.kME.cRB() != null && view.getId() == this.kME.cRB().getId()) {
+                cTF();
+            } else if (this.kME.cRA() != null && view.getId() == this.kME.cRA().getId()) {
                 if (this.kMG) {
                     RequestDeleteFriendMessage requestDeleteFriendMessage = new RequestDeleteFriendMessage();
                     requestDeleteFriendMessage.setFriendId(this.mUserId);
@@ -215,38 +215,38 @@ public class g implements View.OnClickListener {
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(this.mPageContext.getPageActivity(), String.valueOf(this.mUserId), this.mUserName, this.enf, null, false, null)));
-            } else if (this.kME.cRB() != null && view.getId() == this.kME.cRB().getId()) {
+            } else if (this.kME.cRC() != null && view.getId() == this.kME.cRC().getId()) {
                 if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     this.mPageContext.showToast(R.string.neterror);
                 } else if (this.kMu != null) {
-                    if (this.kMu.cTs() == 0) {
+                    if (this.kMu.cTt() == 0) {
                         UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_HANDLE_CLICK);
-                        userMuteAddAndDelCustomMessage.setData(false, String.valueOf(this.mUserId), this.mUserName, null, null, 0, this.kMu.cTt(), this.kMu.getUniqueId());
+                        userMuteAddAndDelCustomMessage.setData(false, String.valueOf(this.mUserId), this.mUserName, null, null, 0, this.kMu.cTu(), this.kMu.getUniqueId());
                         userMuteAddAndDelCustomMessage.mId = this.kMu.getUniqueId();
-                        this.kMu.a(false, userMuteAddAndDelCustomMessage, this.kMu.cTt(), this.mUserName);
-                    } else if (this.kMu.cTs() == 1) {
+                        this.kMu.a(false, userMuteAddAndDelCustomMessage, this.kMu.cTu(), this.mUserName);
+                    } else if (this.kMu.cTt() == 1) {
                         UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage2 = new UserMuteAddAndDelCustomMessage(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_HANDLE_CLICK);
-                        userMuteAddAndDelCustomMessage2.setData(true, String.valueOf(this.mUserId), this.mUserName, null, null, 0, this.kMu.cTt(), this.kMu.getUniqueId());
+                        userMuteAddAndDelCustomMessage2.setData(true, String.valueOf(this.mUserId), this.mUserName, null, null, 0, this.kMu.cTu(), this.kMu.getUniqueId());
                         userMuteAddAndDelCustomMessage2.mId = this.kMu.getUniqueId();
                         this.kMu.a(true, userMuteAddAndDelCustomMessage2, null, this.mUserName);
                     }
                 }
-            } else if (this.kME.cRC() != null && view.getId() == this.kME.cRC().getId()) {
+            } else if (this.kME.cRD() != null && view.getId() == this.kME.cRD().getId()) {
                 if (this.jea != null) {
                     TiebaStatic.log(new ao("c13063").ag("obj_locate", 1));
                     this.jea.Dv(String.valueOf(this.mUserId));
                 }
-            } else if (this.kME.cRD() != null && view.getId() == this.kME.cRD().getId()) {
+            } else if (this.kME.cRE() != null && view.getId() == this.kME.cRE().getId()) {
                 if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     l.showToast(this.mPageContext.getPageActivity(), (int) R.string.neterror);
                 } else {
-                    cTD();
+                    cTE();
                 }
             }
         }
     }
 
-    private void cTD() {
+    private void cTE() {
         if (this.mUserId != 0) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
             aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.personPolymeric.b.g.3
@@ -268,7 +268,7 @@ public class g implements View.OnClickListener {
         }
     }
 
-    protected void cTE() {
+    protected void cTF() {
         String format;
         if (this.mUserName != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());

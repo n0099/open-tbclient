@@ -100,7 +100,7 @@ public class d {
         this.Wa.setData(arrayList);
     }
 
-    public void bXG() {
+    public void bXH() {
         this.Wa.scrollToPosition(0);
     }
 

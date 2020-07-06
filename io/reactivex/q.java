@@ -7,12 +7,12 @@ import io.reactivex.internal.operators.observable.ObservableObserveOn;
 public abstract class q<T> implements t<T> {
     protected abstract void a(u<? super T> uVar);
 
-    public static int dPm() {
-        return g.dPm();
+    public static int dPq() {
+        return g.dPq();
     }
 
     public final q<T> d(v vVar) {
-        return b(vVar, false, dPm());
+        return b(vVar, false, dPq());
     }
 
     public final q<T> b(v vVar, boolean z, int i) {
@@ -22,7 +22,7 @@ public abstract class q<T> implements t<T> {
     }
 
     public final io.reactivex.disposables.b b(io.reactivex.c.g<? super T> gVar) {
-        return a(gVar, Functions.nJC, Functions.nJz, Functions.dPw());
+        return a(gVar, Functions.nJF, Functions.nJC, Functions.dPA());
     }
 
     public final io.reactivex.disposables.b a(io.reactivex.c.g<? super T> gVar, io.reactivex.c.g<? super Throwable> gVar2, io.reactivex.c.a aVar, io.reactivex.c.g<? super io.reactivex.disposables.b> gVar3) {

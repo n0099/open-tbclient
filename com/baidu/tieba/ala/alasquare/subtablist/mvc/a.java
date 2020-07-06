@@ -41,11 +41,11 @@ public class a {
             }
             if (a.this.fvR != null) {
                 if (!z) {
-                    a.this.fvR.btI();
+                    a.this.fvR.btJ();
                     return;
                 }
-                a.this.fvS.buP();
-                a.this.fvR.buQ();
+                a.this.fvS.buQ();
+                a.this.fvR.buR();
             }
         }
     };
@@ -66,7 +66,7 @@ public class a {
                     a.this.fvR.ql(8);
                     return;
                 }
-                a.this.fvR.btN();
+                a.this.fvR.btO();
                 a.this.fvR.ql(0);
             }
         }
@@ -176,7 +176,7 @@ public class a {
             alaLiveInfoCoreData.fillWithInfoData(buVar.aSJ());
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            for (bu buVar2 : this.fvS.buG()) {
+            for (bu buVar2 : this.fvS.buH()) {
                 alaLiveInfoListCoreData.mLiveInfoList.add(V(buVar2));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, "square_category", str2, z, "颜值".equals(str) ? str : null, null)));

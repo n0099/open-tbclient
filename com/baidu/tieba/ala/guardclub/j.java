@@ -38,7 +38,7 @@ public class j {
             this.fJU.onDestory();
         }
         if (this.fJT != null) {
-            this.fJT.bxt();
+            this.fJT.bxu();
         }
     }
 }

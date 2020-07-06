@@ -40,7 +40,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         this.eOC = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TextView>() { // from class: com.baidu.tieba.frs.TabMenuPopView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: blM */
+            /* renamed from: blN */
             public TextView makeObject() {
                 TextView textView = new TextView(TabMenuPopView.this.mContext);
                 textView.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(TabMenuPopView.this.mContext, R.dimen.fontsize28));
@@ -289,7 +289,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof bd) {
-            cap();
+            caq();
             bd bdVar = (bd) view.getTag();
             setItemSelectState(bdVar, true);
             view.setSelected(true);
@@ -299,7 +299,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    public void cap() {
+    public void caq() {
         if (this.mDataList != null && getChildCount() > 0) {
             if (this.hEH != null) {
                 this.hEH.isSelected = false;

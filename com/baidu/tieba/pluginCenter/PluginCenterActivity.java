@@ -75,7 +75,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
                     return;
                 }
                 PluginCenterActivity.this.showToast(PluginCenterActivity.this.getPageContext().getString(R.string.plugin_installation_failed) + str);
-                PluginCenterActivity.this.cWA();
+                PluginCenterActivity.this.cWB();
             }
         }
     };
@@ -96,7 +96,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         this.haL = new ViewEventCenter();
         this.haL.addEventDelegate(this);
         biq();
-        bup();
+        buq();
     }
 
     private void biq() {
@@ -108,7 +108,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
-    private void bup() {
+    private void buq() {
         this.mRootView = findViewById(R.id.parent);
         this.US = (BdListView) findViewById(R.id.list);
         this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), findViewById(R.id.list_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(getActivity(), R.dimen.ds220)), NoDataViewFactory.d.mm(R.string.plugin_no_plugins), null);
@@ -198,7 +198,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cWA() {
+    public void cWB() {
         PluginNetConfigInfos oL = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.oK().oL();
         if (oL != null && oL.getConfigs() != null && oL.getConfigs().size() > 0) {
             this.kXY = eF(oL.getConfigs());
@@ -288,7 +288,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             case 1:
                 if (bgY instanceof PluginConfigWrapper) {
                     PluginPackageManager.oo().cv(((PluginConfigWrapper) bgY).package_name);
-                    cWA();
+                    cWB();
                     return true;
                 }
                 break;

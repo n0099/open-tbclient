@@ -110,7 +110,7 @@ public class b extends RecyclerView.Adapter<a> {
                     b.this.b(aVar, aVar2.forum_info.get(aVar2.jUl));
                     b.this.a(size2, aVar2);
                     b.this.c(aVar, aVar2.forum_info.get(aVar2.jUl));
-                    b.this.jTD = b.this.cFn();
+                    b.this.jTD = b.this.cFo();
                     b.this.notifyItemChanged(i);
                     if (b.this.jTC != null) {
                         b.this.jTC.aa(b.this.jTs, b.this.jTD);
@@ -224,7 +224,7 @@ public class b extends RecyclerView.Adapter<a> {
                     tBSpecificationBtn.setText("已选择");
                     cVar.mE(R.color.cp_cont_d);
                     tBSpecificationBtn.setConfig(cVar);
-                    b.this.jTD = b.this.cFn();
+                    b.this.jTD = b.this.cFo();
                 }
                 if (b.this.jTC != null) {
                     b.this.jTC.aa(b.this.jTs, b.this.jTD);
@@ -238,11 +238,11 @@ public class b extends RecyclerView.Adapter<a> {
         });
     }
 
-    public List<com.baidu.tieba.newinterest.data.a> cFl() {
+    public List<com.baidu.tieba.newinterest.data.a> cFm() {
         return this.jTB;
     }
 
-    public void cFm() {
+    public void cFn() {
         if (this.jTB != null && this.jTB.size() != 0) {
             for (com.baidu.tieba.newinterest.data.a aVar : this.jTB) {
                 int i = aVar.jUl;
@@ -269,7 +269,7 @@ public class b extends RecyclerView.Adapter<a> {
         }
     }
 
-    public boolean cFn() {
+    public boolean cFo() {
         for (com.baidu.tieba.newinterest.data.a aVar : this.jTB) {
             int i = aVar.jUl;
             if (!aVar.forum_info.get(i).selected) {

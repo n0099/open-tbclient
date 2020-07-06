@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 public abstract class b {
     public abstract Context getContext();
 
-    public final boolean RV(String str) {
+    public final boolean RW(String str) {
         if (Build.VERSION.SDK_INT < 23) {
             return false;
         }

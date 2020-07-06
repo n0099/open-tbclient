@@ -36,6 +36,6 @@ public class c {
         if (!TextUtils.isEmpty(this.mExtra)) {
             cVar.LW(this.mExtra);
         }
-        com.baidu.tieba.recapp.report.d.cZQ().a(cVar);
+        com.baidu.tieba.recapp.report.d.cZR().a(cVar);
     }
 }

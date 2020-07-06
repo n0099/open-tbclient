@@ -76,7 +76,7 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
                         break;
                 }
                 c.this.lqL.dismiss();
-                c.this.dcf();
+                c.this.dcg();
             }
         };
         this.lqU = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.setting.more.c.3
@@ -125,7 +125,7 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
                         TbadkCoreApplication.getInst().setFontSize(3);
                         break;
                 }
-                c.this.dch();
+                c.this.dci();
             }
         };
         this.lqW = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.setting.more.c.5
@@ -146,7 +146,7 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
                         TiebaStatic.log(new ao("c11281").ag("obj_type", 3));
                         break;
                 }
-                c.this.dci();
+                c.this.dcj();
             }
         };
         this.lqF = browseSettingActivity;
@@ -177,39 +177,39 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
         }
     }
 
-    public TbSettingTextTipView dbT() {
+    public TbSettingTextTipView dbU() {
         return this.lqH;
     }
 
-    public TbSettingTextTipView dbU() {
+    public TbSettingTextTipView dbV() {
         return this.lqG;
     }
 
-    public TbSettingTextTipView dbV() {
+    public TbSettingTextTipView dbW() {
         return this.lqI;
     }
 
-    public TbSettingTextTipView dbW() {
+    public TbSettingTextTipView dbX() {
         return this.lqJ;
     }
 
-    public void dbX() {
-        dcc();
+    public void dbY() {
+        dcd();
         this.lqM.aUQ();
     }
 
-    public void dbY() {
-        dcb();
-        this.lqL.aUQ();
-    }
-
     public void dbZ() {
-        dcd();
-        this.lqN.aUQ();
+        dcc();
+        this.lqL.aUQ();
     }
 
     public void dca() {
         dce();
+        this.lqN.aUQ();
+    }
+
+    public void dcb() {
+        dcf();
         this.lqO.aUQ();
     }
 
@@ -257,7 +257,7 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
         this.lqJ.setOnClickListener(this.lqF);
     }
 
-    private void dcb() {
+    private void dcc() {
         this.lqQ = new ArrayList<>();
         int viewImageQuality = k.aPA().getViewImageQuality();
         boolean isShowImages = k.aPA().isShowImages();
@@ -270,7 +270,7 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
         this.lqL.a(this.lqQ, this.lqT).aUP();
     }
 
-    private void dcc() {
+    private void dcd() {
         this.lqR = new ArrayList<>();
         int imageWaterType = k.aPA().getImageWaterType();
         this.lqR.add(new m(this.lqF.getPageContext().getString(R.string.image_water_show_user_name), null, imageWaterType == 1));
@@ -280,7 +280,7 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
         this.lqM.a(this.lqR, this.lqU).aUP();
     }
 
-    private void dcd() {
+    private void dce() {
         this.lqN = new com.baidu.tbadk.core.dialog.e(this.lqF.getPageContext());
         this.lqP = new ArrayList<>();
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
@@ -293,7 +293,7 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
         this.lqN.aUP();
     }
 
-    private void dce() {
+    private void dcf() {
         this.lqO = new com.baidu.tbadk.core.dialog.e(this.lqF.getPageContext());
         this.lqS = new ArrayList<>();
         int homePageAutoPlay = TbadkCoreApplication.getInst().getHomePageAutoPlay();
@@ -310,14 +310,14 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
     }
 
     public void updateAll() {
-        dcf();
         dcg();
         dch();
         dci();
+        dcj();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dcf() {
+    public void dcg() {
         if (!k.aPA().isShowImages()) {
             this.lqG.setTip(this.mContext.getString(R.string.close));
         } else if (k.aPA().getViewImageQuality() == 1) {
@@ -329,7 +329,7 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
         }
     }
 
-    private void dcg() {
+    private void dch() {
         Ec(k.aPA().getImageWaterType());
     }
 
@@ -350,7 +350,7 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
         }
     }
 
-    public void dch() {
+    public void dci() {
         if (TbadkCoreApplication.getInst().getFontSize() == 0) {
             this.lqI.setTip(this.mContext.getString(R.string.font_size_xlarge));
         } else if (TbadkCoreApplication.getInst().getFontSize() == 1) {
@@ -362,7 +362,7 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
         }
     }
 
-    public void dci() {
+    public void dcj() {
         if (TbadkCoreApplication.getInst().getHomePageAutoPlay() == 0) {
             this.lqJ.setTip(this.mContext.getString(R.string.video_auto_play_in_wifi));
         } else if (TbadkCoreApplication.getInst().getHomePageAutoPlay() == 1) {

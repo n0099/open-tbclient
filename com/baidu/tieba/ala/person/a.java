@@ -18,7 +18,7 @@ public class a extends Dialog implements View.OnClickListener {
     /* renamed from: com.baidu.tieba.ala.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0588a {
-        void bLa();
+        void bLb();
     }
 
     public a(Context context) {
@@ -58,7 +58,7 @@ public class a extends Dialog implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == a.g.report && this.gxp != null) {
-            this.gxp.bLa();
+            this.gxp.bLb();
         }
         dismiss();
     }

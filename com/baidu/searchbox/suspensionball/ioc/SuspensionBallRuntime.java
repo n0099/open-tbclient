@@ -6,14 +6,14 @@ import com.baidu.tieba.write.b.a.k;
 /* loaded from: classes7.dex */
 public class SuspensionBallRuntime {
     public static ISuspensionBallDispatcher getDispatcher() {
-        return i.drI();
+        return i.drM();
     }
 
     public static ISuspensionBallShield getShieldImpl() {
-        return k.drJ();
+        return k.drN();
     }
 
     public static ISuspensionBallDataInit getDataInitImpl() {
-        return g.drH();
+        return g.drL();
     }
 }

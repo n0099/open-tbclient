@@ -48,7 +48,7 @@ public class b extends d {
     }
 
     @Override // com.baidu.tieba.ala.b.d
-    protected int bwi() {
+    protected int bwj() {
         return a.h.ala_choose_gift;
     }
 
@@ -128,19 +128,19 @@ public class b extends d {
         if (ListUtils.isEmpty(this.fBT)) {
             showNoDataView();
         } else {
-            bwk();
+            bwl();
         }
     }
 
     private void acn() {
-        btR();
+        btS();
     }
 
     private void showNoDataView() {
-        btR();
+        btS();
     }
 
-    private void btR() {
+    private void btS() {
         this.fBR.setVisibility(8);
         this.baR.setVisibility(0);
         this.baR.reset();
@@ -156,7 +156,7 @@ public class b extends d {
         this.baR.setVisibility(0);
     }
 
-    private void bwk() {
+    private void bwl() {
         ArrayList arrayList = new ArrayList();
         for (g gVar : this.fBT) {
             if (gVar != null && gVar.xM() != null) {

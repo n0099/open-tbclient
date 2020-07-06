@@ -8,7 +8,7 @@ public final class c {
         return new RunnableDisposable(runnable);
     }
 
-    public static b dPu() {
+    public static b dPy() {
         return EmptyDisposable.INSTANCE;
     }
 }

@@ -9,15 +9,15 @@ public class p {
 
     /* loaded from: classes13.dex */
     public interface b {
-        public static final b mNg = j.mNp;
-        public static final b mNh = i.mNp;
-        public static final b mNi = g.mNp;
-        public static final b mNj = h.mNp;
-        public static final b mNk = c.mNp;
-        public static final b mNl = e.mNp;
-        public static final b mNm = d.mNp;
-        public static final b mNn = k.mNp;
-        public static final b mNo = f.mNp;
+        public static final b mNj = j.mNs;
+        public static final b mNk = i.mNs;
+        public static final b mNl = g.mNs;
+        public static final b mNm = h.mNs;
+        public static final b mNn = c.mNs;
+        public static final b mNo = e.mNs;
+        public static final b mNp = d.mNs;
+        public static final b mNq = k.mNs;
+        public static final b mNr = f.mNs;
 
         Matrix a(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
     }
@@ -40,8 +40,8 @@ public class p {
         }
         if (drawable instanceof com.facebook.drawee.drawable.a) {
             com.facebook.drawee.drawable.a aVar = (com.facebook.drawee.drawable.a) drawable;
-            int dAQ = aVar.dAQ();
-            for (int i2 = 0; i2 < dAQ; i2++) {
+            int dAU = aVar.dAU();
+            for (int i2 = 0; i2 < dAU; i2++) {
                 o l2 = l(aVar.getDrawable(i2));
                 if (l2 != null) {
                     return l2;
@@ -64,7 +64,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class j extends a {
-        public static final b mNp = new j();
+        public static final b mNs = new j();
 
         private j() {
         }
@@ -82,7 +82,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class i extends a {
-        public static final b mNp = new i();
+        public static final b mNs = new i();
 
         private i() {
         }
@@ -101,7 +101,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class f extends a {
-        public static final b mNp = new f();
+        public static final b mNs = new f();
 
         private f() {
         }
@@ -120,7 +120,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class g extends a {
-        public static final b mNp = new g();
+        public static final b mNs = new g();
 
         private g() {
         }
@@ -140,7 +140,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class h extends a {
-        public static final b mNp = new h();
+        public static final b mNs = new h();
 
         private h() {
         }
@@ -160,7 +160,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class c extends a {
-        public static final b mNp = new c();
+        public static final b mNs = new c();
 
         private c() {
         }
@@ -177,7 +177,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class e extends a {
-        public static final b mNp = new e();
+        public static final b mNs = new e();
 
         private e() {
         }
@@ -197,7 +197,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class d extends a {
-        public static final b mNp = new d();
+        public static final b mNs = new d();
 
         private d() {
         }
@@ -225,7 +225,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class k extends a {
-        public static final b mNp = new k();
+        public static final b mNs = new k();
 
         private k() {
         }

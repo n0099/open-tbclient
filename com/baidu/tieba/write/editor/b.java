@@ -19,7 +19,7 @@ public class b extends l {
         this.euB = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
     }
 
-    public void cRN() {
+    public void cRO() {
         BaseActivity baseActivity = (BaseActivity) this.context;
         e eVar = new e(baseActivity.getPageContext(), (View) this.etH);
         eVar.cS(R.drawable.bg_tip_blue_left_less_than_right_down);
@@ -55,19 +55,19 @@ public class b extends l {
         }
     }
 
-    public void bSk() {
+    public void bSl() {
         if (this.etH instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.etH).bSk();
+            ((EditorInfoContainer) this.etH).bSl();
         }
     }
 
-    public void drx() {
+    public void drB() {
         if (this.etH instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.etH).drx();
+            ((EditorInfoContainer) this.etH).drB();
         }
     }
 
-    public void drz() {
+    public void drD() {
         if (this.etH instanceof EditorInfoContainer) {
             ((EditorInfoContainer) this.etH).hide();
         }

@@ -72,7 +72,7 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
             }
             this.agZ.setText(forumName);
             this.idE.setText(this.lDc + " " + ar.numberUniformFormatExtra(bVar.getMemberCount()));
-            this.idF.setText(this.lDd + " " + ar.numberUniformFormatExtra(bVar.dgl()));
+            this.idF.setText(this.lDd + " " + ar.numberUniformFormatExtra(bVar.dgm()));
             MP(bVar.aPT());
             mz(this.lDe.isLike());
             this.mRootView.setOnClickListener(this);
@@ -119,7 +119,7 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
         this.lDe.setLike(z);
     }
 
-    private void bTM() {
+    private void bTN() {
         if (this.lDe != null) {
             String forumName = this.lDe.getForumName();
             if (ar.isForumName(forumName)) {
@@ -128,7 +128,7 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
         }
     }
 
-    private void bTN() {
+    private void bTO() {
         if (!this.isLoading) {
             if (!l.isNetOk()) {
                 UtilHelper.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(R.string.neterror));
@@ -153,14 +153,14 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
                 }
                 if (ar.isForumName(this.lDe.getForumName())) {
                     this.isLoading = true;
-                    this.egK.dhr();
+                    this.egK.dhs();
                     this.egK.fx(this.lDe.getForumName(), String.valueOf(this.lDe.getForumId()));
                 }
             }
         }
     }
 
-    private void bTO() {
+    private void bTP() {
         if (!this.isLoading) {
             if (!l.isNetOk()) {
                 UtilHelper.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(R.string.neterror));
@@ -205,7 +205,7 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
         ao aoVar;
         if (this.lDe != null) {
             if (this.mRootView == view) {
-                bTM();
+                bTN();
                 if (this.gOJ != null) {
                     this.gOJ.a(view, this.lDe);
                 }
@@ -225,9 +225,9 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
                     TiebaStatic.log(aoVar);
                 }
                 if (this.lDe.isLike()) {
-                    bTO();
+                    bTP();
                 } else {
-                    bTN();
+                    bTO();
                 }
             }
         }

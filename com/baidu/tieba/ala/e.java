@@ -55,7 +55,7 @@ public class e extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return ((l) getItem(i)).bwA();
+        return ((l) getItem(i)).bwB();
     }
 
     @Override // android.widget.Adapter
@@ -98,7 +98,7 @@ public class e extends BaseAdapter {
         }
         final l lVar = (l) getItem(i);
         if (lVar != null) {
-            switch (lVar.bwA()) {
+            switch (lVar.bwB()) {
                 case 0:
                     if (aVar != null && aVar.rootView != null) {
                         aVar.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.e.1
@@ -113,15 +113,15 @@ public class e extends BaseAdapter {
                 case 1:
                     if (bVar != null) {
                         bVar.aJC.setText(lVar.getmName());
-                        bVar.fgw.setText(lVar.bwB() + "个");
-                        bVar.fgx.setText(lVar.bwD() + "小时");
+                        bVar.fgw.setText(lVar.bwC() + "个");
+                        bVar.fgx.setText(lVar.bwE() + "小时");
                         String string = this.mPageContext.getResources().getString(a.i.add_wish_thank_way_txt);
-                        if (!TextUtils.isEmpty(lVar.bwE())) {
-                            string = lVar.bwE();
+                        if (!TextUtils.isEmpty(lVar.bwF())) {
+                            string = lVar.bwF();
                         }
                         bVar.fgy.setText(string);
-                        bVar.fgz.startLoad(lVar.bwC(), 10, false);
-                        if (lVar.bwA() == 1) {
+                        bVar.fgz.startLoad(lVar.bwD(), 10, false);
+                        if (lVar.bwB() == 1) {
                             if (getItemId(i) == 0) {
                                 bVar.fgB.setImageResource(a.f.ala_wish_list_item_num_icon_no1);
                             } else if (getItemId(i) == 1) {
@@ -140,7 +140,7 @@ public class e extends BaseAdapter {
                         bVar.fgA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.e.3
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.c.e(e.this.mPageContext.getPageActivity(), lVar.bwF(), 1001, e.this.getItemId(i))));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.c.e(e.this.mPageContext.getPageActivity(), lVar.bwG(), 1001, e.this.getItemId(i))));
                             }
                         });
                         break;

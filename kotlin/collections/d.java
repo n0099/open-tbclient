@@ -9,7 +9,7 @@ import java.util.RandomAccess;
 @kotlin.h
 /* loaded from: classes7.dex */
 public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
-    public static final a nPe = new a(null);
+    public static final a nPh = new a(null);
 
     @Override // java.util.List
     public void add(int i, E e) {
@@ -50,36 +50,36 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
     @Override // java.util.List
     public List<E> subList(int i, int i2) {
-        return new C0896d(this, i, i2);
+        return new C0897d(this, i, i2);
     }
 
     @kotlin.h
     /* renamed from: kotlin.collections.d$d  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    private static final class C0896d<E> extends d<E> implements RandomAccess {
-        private int nPg;
-        private final d<E> nPh;
-        private final int nPi;
+    private static final class C0897d<E> extends d<E> implements RandomAccess {
+        private int nPj;
+        private final d<E> nPk;
+        private final int nPl;
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.collections.d<? extends E> */
         /* JADX WARN: Multi-variable type inference failed */
-        public C0896d(d<? extends E> dVar, int i, int i2) {
+        public C0897d(d<? extends E> dVar, int i, int i2) {
             kotlin.jvm.internal.q.m(dVar, "list");
-            this.nPh = dVar;
-            this.nPi = i;
-            d.nPe.al(this.nPi, i2, this.nPh.size());
-            this.nPg = i2 - this.nPi;
+            this.nPk = dVar;
+            this.nPl = i;
+            d.nPh.al(this.nPl, i2, this.nPk.size());
+            this.nPj = i2 - this.nPl;
         }
 
         @Override // kotlin.collections.d, java.util.List
         public E get(int i) {
-            d.nPe.dN(i, this.nPg);
-            return this.nPh.get(this.nPi + i);
+            d.nPh.dN(i, this.nPj);
+            return this.nPk.get(this.nPl + i);
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.nPg;
+            return this.nPj;
         }
     }
 
@@ -89,14 +89,14 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             return true;
         }
         if (obj instanceof List) {
-            return nPe.a(this, (Collection) obj);
+            return nPh.a(this, (Collection) obj);
         }
         return false;
     }
 
     @Override // java.util.Collection, java.util.List
     public int hashCode() {
-        return nPe.l(this);
+        return nPh.l(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -154,7 +154,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
         public c(int i) {
             super();
-            d.nPe.dO(i, d.this.size());
+            d.nPh.dO(i, d.this.size());
             setIndex(i);
         }
 

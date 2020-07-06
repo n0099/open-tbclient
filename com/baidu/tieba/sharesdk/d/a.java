@@ -81,8 +81,8 @@ public class a implements View.OnClickListener {
         ViewGroup.LayoutParams layoutParams = this.lut.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-            marginLayoutParams.leftMargin = ShareGridLayout.lTs;
-            marginLayoutParams.rightMargin = ShareGridLayout.lTs;
+            marginLayoutParams.leftMargin = ShareGridLayout.lTv;
+            marginLayoutParams.rightMargin = ShareGridLayout.lTv;
             this.lut.setLayoutParams(marginLayoutParams);
         }
         this.lut.setItemParams(gmk, gml);
@@ -105,7 +105,7 @@ public class a implements View.OnClickListener {
         }
     }
 
-    private void byx() {
+    private void byy() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.sharesdk.d.a.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
@@ -171,7 +171,7 @@ public class a implements View.OnClickListener {
         return linearLayout;
     }
 
-    public int deh() {
+    public int dei() {
         if (this.luu == null) {
             return 0;
         }
@@ -206,14 +206,14 @@ public class a implements View.OnClickListener {
     }
 
     public void a(ShareItem shareItem, boolean z) {
-        Location bPJ;
-        if (z && (bPJ = bPJ()) != null) {
-            shareItem.location = bPJ;
+        Location bPK;
+        if (z && (bPK = bPK()) != null) {
+            shareItem.location = bPK;
         }
         this.luw.put(1, shareItem);
     }
 
-    private Location bPJ() {
+    private Location bPK() {
         if (ac.checkLocationForGoogle(this.mContext)) {
             LocationManager locationManager = (LocationManager) this.mContext.getSystemService("location");
             Criteria criteria = new Criteria();
@@ -237,7 +237,7 @@ public class a implements View.OnClickListener {
         }
     }
 
-    public void dei() {
+    public void dej() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -256,7 +256,7 @@ public class a implements View.OnClickListener {
         } else if (!f.bdk()) {
             l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.plugin_share_install_failure);
         } else {
-            dei();
+            dej();
             this.mDialog = new AlertDialog.Builder(this.mContext, R.style.DialogTheme).create();
             this.mDialog.setCanceledOnTouchOutside(true);
             this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.sharesdk.d.a.2
@@ -277,8 +277,8 @@ public class a implements View.OnClickListener {
             window.setGravity(80);
             window.setLayout(-1, -2);
             window.setContentView(this.mRootView);
-            dej();
-            byx();
+            dek();
+            byy();
         }
     }
 
@@ -504,7 +504,7 @@ public class a implements View.OnClickListener {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    private void dej() {
+    private void dek() {
     }
 
     private String m(ShareItem shareItem) {

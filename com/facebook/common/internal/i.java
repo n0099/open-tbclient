@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 /* loaded from: classes13.dex */
 public final class i {
-    public static <E> HashSet<E> dzg() {
+    public static <E> HashSet<E> dzk() {
         return new HashSet<>();
     }
 
@@ -22,7 +22,7 @@ public final class i {
         return new HashSet<>(i);
     }
 
-    public static <E> Set<E> dzh() {
+    public static <E> Set<E> dzl() {
         return x(new IdentityHashMap());
     }
 
@@ -30,7 +30,7 @@ public final class i {
         return Collections.newSetFromMap(map);
     }
 
-    public static <E> CopyOnWriteArraySet<E> dzi() {
+    public static <E> CopyOnWriteArraySet<E> dzm() {
         return new CopyOnWriteArraySet<>();
     }
 }

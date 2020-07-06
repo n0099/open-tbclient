@@ -30,8 +30,8 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, com.baidu.tieba.card.data.l lVar) {
-        if (this.hiC != null && this.hiC.sj() != null && this.hiC.sj().cUU() != null) {
-            if (view.getId() == this.hiC.sj().cUU().getId()) {
+        if (this.hiC != null && this.hiC.sj() != null && this.hiC.sj().cUV() != null) {
+            if (view.getId() == this.hiC.sj().cUV().getId()) {
                 com.baidu.tieba.homepage.concern.b.a(view, lVar, 4);
             } else if (view.getId() == R.id.thread_card_root) {
                 com.baidu.tieba.homepage.concern.b.a(view, lVar, 2);
@@ -46,8 +46,8 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, com.baidu.tieba.card.data.l lVar) {
-                com.baidu.tieba.card.s.bOA().jI(true);
-                com.baidu.tieba.a.d.boA().dh("page_recommend", "show_");
+                com.baidu.tieba.card.s.bOB().jI(true);
+                com.baidu.tieba.a.d.boB().dh("page_recommend", "show_");
                 if (lVar != null && lVar.aPS() != null && !StringUtils.isNull(lVar.aPS().getTid())) {
                     if (lVar.aPS().dNV <= 0) {
                         w.this.a(view, lVar);
@@ -123,7 +123,7 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         lVar.sR(lVar.position + 1);
-        com.baidu.tieba.card.s.bOA().e(lVar.DU("c12351"));
+        com.baidu.tieba.card.s.bOB().e(lVar.DU("c12351"));
         aVar.se().setPosition(i);
         lVar.sourceType = 0;
         aVar.setVideoStatsData(c(lVar));
@@ -151,10 +151,10 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             }
             yVar.dIK = lVar.getExtra();
             yVar.mSource = lVar.getSource();
-            yVar.kVs = lVar.bOM();
+            yVar.kVs = lVar.bON();
             yVar.kVp = lVar.getWeight();
             yVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            yVar.mFloor = String.valueOf(lVar.bOL());
+            yVar.mFloor = String.valueOf(lVar.bOM());
         }
         return yVar;
     }

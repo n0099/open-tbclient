@@ -13,7 +13,7 @@ public class c {
     private int mChannel;
 
     public c() {
-        box();
+        boy();
     }
 
     public void a(ArrayList<Integer> arrayList, b bVar) {
@@ -59,8 +59,8 @@ public class c {
         if (ar.isEmpty(pD)) {
             return 0;
         }
-        SampleResult Qc = com.baidu.ubs.analytics.a.Qc(pD);
-        return (Qc == SampleResult.T1 || Qc == SampleResult.T2 || Qc == SampleResult.T3 || Qc == SampleResult.T4 || Qc == SampleResult.T5) ? 1 : 0;
+        SampleResult Qd = com.baidu.ubs.analytics.a.Qd(pD);
+        return (Qd == SampleResult.T1 || Qd == SampleResult.T2 || Qd == SampleResult.T3 || Qd == SampleResult.T4 || Qd == SampleResult.T5) ? 1 : 0;
     }
 
     private String pD(int i) {
@@ -70,7 +70,7 @@ public class c {
         return null;
     }
 
-    private void box() {
+    private void boy() {
         this.mChannel = com.baidu.tbadk.core.sharedPref.b.aVP().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0);
         initSdk();
     }
@@ -85,22 +85,22 @@ public class c {
 
     private void initSdk() {
         if (!this.eXe && this.mChannel == 1) {
-            this.eXe = boz();
+            this.eXe = boA();
             if (!this.eXe) {
                 this.mChannel = 0;
             }
         }
     }
 
-    public boolean boy() {
+    public boolean boz() {
         return this.eXe;
     }
 
-    public boolean boz() {
+    public boolean boA() {
         boolean z = true;
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             try {
-                com.baidu.ubs.analytics.a.a(new c.a().fJ(TbadkCoreApplication.getInst()).wm(false).fF(30L).HI(1).wn(false).fG(15L).HJ(1000).dxb());
+                com.baidu.ubs.analytics.a.a(new c.a().fJ(TbadkCoreApplication.getInst()).wm(false).fF(30L).HI(1).wn(false).fG(15L).HJ(1000).dxf());
             } catch (Exception e) {
                 e.printStackTrace();
                 z = false;

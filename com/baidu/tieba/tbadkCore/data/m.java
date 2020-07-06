@@ -17,7 +17,7 @@ public class m {
         this.jpf = hashMap;
     }
 
-    public String dhL() {
+    public String dhM() {
         return this.lFH;
     }
 

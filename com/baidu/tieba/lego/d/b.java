@@ -13,7 +13,7 @@ public class b implements a {
     private b() {
     }
 
-    public static a cyD() {
+    public static a cyE() {
         a aVar = jva.get();
         return aVar == null ? jvb : aVar;
     }

@@ -70,7 +70,7 @@ public class e implements com.baidu.tieba.personPolymeric.b.b {
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.b
-    public void cTl() {
+    public void cTm() {
         if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
             if (this.mTbPageContext != null) {
                 this.mTbPageContext.showToast(R.string.neterror);

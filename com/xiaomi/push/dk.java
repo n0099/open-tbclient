@@ -8,20 +8,20 @@ public class dk extends al.b {
     al.b a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ di f225a;
+    final /* synthetic */ di f226a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dk(di diVar) {
-        this.f225a = diVar;
+        this.f226a = diVar;
     }
 
     @Override // com.xiaomi.push.al.b
     public void b() {
-        di.b bVar = (di.b) this.f225a.f213a.peek();
+        di.b bVar = (di.b) this.f226a.f214a.peek();
         if (bVar == null || !bVar.a()) {
             return;
         }
-        if (this.f225a.f213a.remove(bVar)) {
+        if (this.f226a.f214a.remove(bVar)) {
             this.a = bVar;
         }
         if (this.a != null) {

@@ -38,7 +38,7 @@ public class i extends BaseAdapter {
         }
     }
 
-    public void bDs() {
+    public void bDt() {
         if (!ListUtils.isEmpty(this.fZp)) {
             this.fZp.clear();
             notifyDataSetChanged();

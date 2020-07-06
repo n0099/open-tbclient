@@ -136,7 +136,7 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
                 if (AlaLiveAudienceEndView.this.aLQ == null || AlaLiveAudienceEndView.this.aLQ.mLiveInfo == null || AlaLiveAudienceEndView.this.aLQ.mLiveInfo.mLiveCloseData == null) {
                     if (AlaLiveAudienceEndView.this.fEE != null) {
                         if (AlaLiveAudienceEndView.this.fFc) {
-                            AlaLiveAudienceEndView.this.bwQ();
+                            AlaLiveAudienceEndView.this.bwR();
                             return;
                         }
                         LogManager.getLiveCloseLogger().doFollowClickLiveCloseGuestLog(AlaLiveAudienceEndView.this.liveId, AlaLiveAudienceEndView.this.roomId, AlaLiveAudienceEndView.this.aHt, AlaLiveAudienceEndView.this.otherParams);
@@ -167,7 +167,7 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
                 AlaLiveAudienceEndView.this.fEJ.playAnimation();
             }
         });
-        bwO();
+        bwP();
     }
 
     public void setCallback(a aVar) {
@@ -273,7 +273,7 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
         }
     }
 
-    private void bwO() {
+    private void bwP() {
         this.fEL = (LinearLayout) this.mView.findViewById(a.g.llFeedVideoLabel);
         this.fEM = (LinearLayout) this.mView.findViewById(a.g.video_audience_ll);
         this.fFb = this.mView.findViewById(a.g.change_layout);
@@ -322,7 +322,7 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
                     this.fFg.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.endliveroom.AlaLiveAudienceEndView.5
                         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                         public void onAnimationRepeat(Animator animator) {
-                            AlaLiveAudienceEndView.this.bwP();
+                            AlaLiveAudienceEndView.this.bwQ();
                         }
                     });
                 }
@@ -334,7 +334,7 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
                         public void onClick(View view) {
                             LogManager.getLiveCloseLogger().doClickChangeSomeLiveCloseGuestLog(AlaLiveAudienceEndView.this.liveId, AlaLiveAudienceEndView.this.roomId, AlaLiveAudienceEndView.this.aHt, AlaLiveAudienceEndView.this.otherParams);
                             AlaLiveAudienceEndView.this.fFg.cancel();
-                            AlaLiveAudienceEndView.this.bwP();
+                            AlaLiveAudienceEndView.this.bwQ();
                             AlaLiveAudienceEndView.this.fFg.start();
                         }
                     });
@@ -344,7 +344,7 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bwP() {
+    public void bwQ() {
         int i = this.fFe + 1;
         this.fFe = i;
         if (i >= this.fFf.size()) {
@@ -412,7 +412,7 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bwQ() {
+    public void bwR() {
         if (this.bdo != null) {
             BdAlertDialog bdAlertDialog = new BdAlertDialog(this.bdo);
             bdAlertDialog.setMessage(this.bdo.getResources().getString(a.i.ala_live_end_dialog_nomore_attention_msg));

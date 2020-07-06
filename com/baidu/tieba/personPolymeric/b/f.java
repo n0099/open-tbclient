@@ -96,29 +96,29 @@ public class f extends d implements com.baidu.tieba.personPolymeric.mode.b {
         loadData();
     }
 
-    public a cTv() {
+    public a cTw() {
         return this.kMw;
     }
 
-    public g cTw() {
+    public g cTx() {
         return this.kMy;
     }
 
-    public h cTx() {
+    public h cTy() {
         return null;
     }
 
-    public PersonPolymericModel cTy() {
+    public PersonPolymericModel cTz() {
         return this.kMt;
     }
 
-    public e cTz() {
+    public e cTA() {
         return this.kMs;
     }
 
     public void loadData() {
         if (!TbadkCoreApplication.isLogin() && this.mIsHost) {
-            this.kMs.chT();
+            this.kMs.chU();
         } else if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
             this.kMs.A(false, -1);
             this.kMs.tm(true);
@@ -133,7 +133,7 @@ public class f extends d implements com.baidu.tieba.personPolymeric.mode.b {
 
     public void refreshData() {
         if (!TbadkCoreApplication.isLogin() && this.mIsHost) {
-            this.kMs.chT();
+            this.kMs.chU();
         } else if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
             this.kMt.v(this.mUserId, this.mPortrait);
         } else {
@@ -143,9 +143,9 @@ public class f extends d implements com.baidu.tieba.personPolymeric.mode.b {
             com.baidu.tieba.personPolymeric.c.i iVar = new com.baidu.tieba.personPolymeric.c.i();
             iVar.isHost = this.mIsHost;
             arrayList.add(iVar);
-            this.kMs.buK();
+            this.kMs.buL();
             this.kMs.ex(arrayList);
-            this.kMs.cTu();
+            this.kMs.cTv();
         }
     }
 
@@ -156,10 +156,10 @@ public class f extends d implements com.baidu.tieba.personPolymeric.mode.b {
                 this.kMt.v(this.mUserId, this.mPortrait);
             }
         }
-        return this.kMt.cUl();
+        return this.kMt.cUm();
     }
 
-    public void cTA() {
+    public void cTB() {
         new com.baidu.tieba.person.a().a(TbConfig.PERSON_USER_PIC_TEMP_FILE, new a.b() { // from class: com.baidu.tieba.personPolymeric.b.f.3
             @Override // com.baidu.tieba.person.a.b
             public void a(int i, String str, ImageUploadResult imageUploadResult) {
@@ -168,17 +168,17 @@ public class f extends d implements com.baidu.tieba.personPolymeric.mode.b {
                     if (imageUploadResult.picInfo != null && imageUploadResult.picInfo.bigPic != null) {
                         str2 = imageUploadResult.picInfo.bigPic.picUrl;
                     }
-                    i.q(str2, f.this.cTB());
+                    i.q(str2, f.this.cTC());
                 }
             }
         });
     }
 
-    public List<q> cTB() {
-        if (this.kMt.cUl() == null) {
+    public List<q> cTC() {
+        if (this.kMt.cUm() == null) {
             return null;
         }
-        return this.kMt.cUl().cTB();
+        return this.kMt.cUm().cTC();
     }
 
     @Override // com.baidu.tieba.personPolymeric.mode.b

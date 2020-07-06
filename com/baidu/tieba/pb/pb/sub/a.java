@@ -169,14 +169,14 @@ public class a implements KeyboardEventLayout.a {
                     return true;
                 }
                 boolean z = a.this.rH(sparseArray.get(R.id.tag_del_post_is_self) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue() : false) && TbadkCoreApplication.isLogin();
-                a.this.ktg.a(sparseArray, a.this.ktd.cHc(), z);
+                a.this.ktg.a(sparseArray, a.this.ktd.cHd(), z);
                 if (z) {
-                    a.this.ktg.cLa().setVisibility(0);
-                    a.this.ktg.cLa().setTag(postData.getId());
+                    a.this.ktg.cLb().setVisibility(0);
+                    a.this.ktg.cLb().setTag(postData.getId());
                 } else {
-                    a.this.ktg.cLa().setVisibility(8);
+                    a.this.ktg.cLb().setVisibility(8);
                 }
-                a.this.ktg.cKY().setVisibility(8);
+                a.this.ktg.cKZ().setVisibility(8);
             }
             return false;
         }
@@ -185,11 +185,11 @@ public class a implements KeyboardEventLayout.a {
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             if (a.this.ktD != null && be.checkUpIsLogin(a.this.ktD.getPageContext().getPageActivity())) {
-                if ((a.this.ktD.jhL == null || a.this.ktd == null || a.this.ktd.bXd() == null || a.this.ktD.jhL.lp(a.this.ktd.bXd().replyPrivateFlag)) && a.this.ktd != null && a.this.jhW != null) {
-                    a.this.cNV();
+                if ((a.this.ktD.jhL == null || a.this.ktd == null || a.this.ktd.bXe() == null || a.this.ktD.jhL.lp(a.this.ktd.bXe().replyPrivateFlag)) && a.this.ktd != null && a.this.jhW != null) {
+                    a.this.cNW();
                     if (view != null && (view.getTag() instanceof b.a)) {
-                        a.this.cNX();
-                        a.this.ktd.cOw();
+                        a.this.cNY();
+                        a.this.ktd.cOx();
                         return;
                     }
                     SparseArray sparseArray = (SparseArray) view.getTag();
@@ -201,7 +201,7 @@ public class a implements KeyboardEventLayout.a {
                             a.this.jhW.yJ(str);
                         }
                     }
-                    a.this.cNW();
+                    a.this.cNX();
                 }
             }
         }
@@ -236,8 +236,8 @@ public class a implements KeyboardEventLayout.a {
         this.kue.setOnClickListener(this.aLl);
         this.kud.setOnClickListener(this.aLl);
         this.eDk = (NoNetworkView) this.ktB.findViewById(R.id.view_no_network);
-        ccK();
-        byl();
+        ccL();
+        bym();
         this.ktE = (RelativeLayout) this.ktB.findViewById(R.id.sub_pb_body_layout);
         this.fml = (BdTypeListView) this.ktB.findViewById(R.id.new_sub_pb_list);
         this.ktP = (ThreadSkinView) LayoutInflater.from(this.ktD.getPageContext().getPageActivity()).inflate(R.layout.thread_skin_layout, (ViewGroup) null);
@@ -278,7 +278,7 @@ public class a implements KeyboardEventLayout.a {
         return this.fml;
     }
 
-    public void byl() {
+    public void bym() {
         this.ktG = (LinearLayout) this.ktC.findViewById(R.id.subpb_head_user_info_root);
         this.ktG.setOnClickListener(this.aLl);
         this.ktH = (HeadImageView) this.ktC.findViewById(R.id.photo);
@@ -324,7 +324,7 @@ public class a implements KeyboardEventLayout.a {
         this.ktR = view;
     }
 
-    public void ccK() {
+    public void ccL() {
         int dimens = l.getDimens(this.ktD.getPageContext().getPageActivity(), R.dimen.ds88);
         int dimens2 = l.getDimens(this.ktD.getPageContext().getPageActivity(), R.dimen.ds2);
         this.mNavigationBar = (NavigationBar) this.ktB.findViewById(R.id.view_navigation_bar);
@@ -515,14 +515,14 @@ public class a implements KeyboardEventLayout.a {
     }
 
     private void e(final SparseArray<Object> sparseArray) {
-        AntiData bXd;
+        AntiData bXe;
         if (this.ktD != null && sparseArray != null && this.ktC != null) {
             if (this.ieU == null) {
                 this.ieU = new e(this.ktD.getPageContext(), this.ktC);
             }
             SparseArray<String> sparseArray2 = new SparseArray<>();
-            if (this.ktd != null && (bXd = this.ktd.bXd()) != null && bXd.getDelThreadInfoList() != null) {
-                List<DeleteThreadInfo> delThreadInfoList = bXd.getDelThreadInfoList();
+            if (this.ktd != null && (bXe = this.ktd.bXe()) != null && bXe.getDelThreadInfoList() != null) {
+                List<DeleteThreadInfo> delThreadInfoList = bXe.getDelThreadInfoList();
                 for (int i = 0; i < delThreadInfoList.size(); i++) {
                     if (!TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
                         sparseArray2.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
@@ -590,13 +590,13 @@ public class a implements KeyboardEventLayout.a {
             this.jhW.a(new w.a() { // from class: com.baidu.tieba.pb.pb.sub.a.2
                 @Override // com.baidu.tieba.tbadkCore.w.a
                 public void a(WriteData writeData) {
-                    a.this.cOq();
+                    a.this.cOr();
                 }
             });
         }
     }
 
-    public void cNV() {
+    public void cNW() {
         if (this.fml != null) {
             this.kug = this.fml.getLastVisiblePosition();
         }
@@ -604,18 +604,18 @@ public class a implements KeyboardEventLayout.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean rH(boolean z) {
-        if (this.ktd == null || this.ktd.cOt() == null) {
+        if (this.ktd == null || this.ktd.cOu() == null) {
             return false;
         }
-        if (this.ktd.cHc() != 0) {
+        if (this.ktd.cHd() != 0) {
             return false;
         }
         return (this.kse == null || this.kse.aPS() == null || this.kse.aPS().aSp() == null || !TextUtils.equals(this.kse.aPS().aSp().getUserId(), TbadkCoreApplication.getCurrentAccount())) && !z;
     }
 
-    public void cNW() {
+    public void cNX() {
         if (this.ktd != null) {
-            if ((!cNZ() && this.ktV != null && this.ktV.isShown()) || com.baidu.tbadk.core.util.w.isEmpty(this.kub)) {
+            if ((!cOa() && this.ktV != null && this.ktV.isShown()) || com.baidu.tbadk.core.util.w.isEmpty(this.kub)) {
                 this.ktd.sJ(false);
             } else {
                 this.ktd.sJ(true);
@@ -628,7 +628,7 @@ public class a implements KeyboardEventLayout.a {
     }
 
     public void sG(boolean z) {
-        if (this.ktd != null && this.ktd.cNT() && !z) {
+        if (this.ktd != null && this.ktd.cNU() && !z) {
             this.mNavigationBar.setIsClose(true);
             this.mNavigationBar.setIsCorner(true);
             this.mNavigationBar.isShowBottomLine(true);
@@ -647,7 +647,7 @@ public class a implements KeyboardEventLayout.a {
         }
     }
 
-    public void cNX() {
+    public void cNY() {
         b(this.ktD);
         this.fml.setNextPage(this.ktQ);
     }
@@ -658,7 +658,7 @@ public class a implements KeyboardEventLayout.a {
             postData.uI(true);
             PostData postData2 = new PostData();
             postData2.setPostType(52);
-            if (!cNZ() && this.ktV != null && this.ktV.isShown()) {
+            if (!cOa() && this.ktV != null && this.ktV.isShown()) {
                 i = (this.kug - this.kuf) - 1;
             } else {
                 i = this.kug - this.kuf;
@@ -687,7 +687,7 @@ public class a implements KeyboardEventLayout.a {
         return this.ktB;
     }
 
-    public void cMB() {
+    public void cMC() {
         if (this.ktS != null) {
             g.dismissPopupWindow(this.ktS, this.ktD.getPageContext().getPageActivity());
         }
@@ -708,7 +708,7 @@ public class a implements KeyboardEventLayout.a {
         }
     }
 
-    public void cNY() {
+    public void cNZ() {
         this.fml.setNextPage(this.ktQ);
         this.ktQ.startLoadData();
     }
@@ -730,8 +730,8 @@ public class a implements KeyboardEventLayout.a {
                 this.kuf = 1;
             }
             this.kse = nVar;
-            if (this.kse.cHI() != null) {
-                this.kse.cHI().lGK = true;
+            if (this.kse.cHJ() != null) {
+                this.kse.cHJ().lGK = true;
             }
             if (this.ktC != null) {
                 this.ktC.setVisibility(0);
@@ -741,19 +741,19 @@ public class a implements KeyboardEventLayout.a {
             } else {
                 this.ktF.setText(R.string.view_subject);
             }
-            if (nVar.cHI() != null) {
-                this.eNM = nVar.cHI().dhY();
+            if (nVar.cHJ() != null) {
+                this.eNM = nVar.cHJ().dhZ();
                 if (this.eNM > 0) {
                     this.mNavigationBar.setCenterTextTitle(String.format(this.ktD.getResources().getString(R.string.subpb_floor_reply), Integer.valueOf(this.eNM)));
                     if (this.ktD != null) {
-                        this.hRg.setText(this.ktD.cLP());
+                        this.hRg.setText(this.ktD.cLQ());
                     }
                 } else {
                     this.mNavigationBar.setCenterTextTitle(this.ktD.getResources().getString(R.string.local_floor_reply));
                 }
-                String str = this.ktD.cNT() ? "PB" : null;
-                if (nVar.cHI().aSL() != null) {
-                    this.ktP.setData(this.ktD.getPageContext(), nVar.cHI().aSL(), com.baidu.tieba.tbadkCore.d.a.d("PB", "c0132", nVar.bfV().getId(), nVar.bfV().getName(), nVar.aPS().getId(), str));
+                String str = this.ktD.cNU() ? "PB" : null;
+                if (nVar.cHJ().aSL() != null) {
+                    this.ktP.setData(this.ktD.getPageContext(), nVar.cHJ().aSL(), com.baidu.tieba.tbadkCore.d.a.d("PB", "c0132", nVar.bfV().getId(), nVar.bfV().getName(), nVar.aPS().getId(), str));
                 } else {
                     this.ktP.setData(null, null, null);
                 }
@@ -765,7 +765,7 @@ public class a implements KeyboardEventLayout.a {
                 this.ktQ.endLoadData();
                 this.kuh.setHasMoreData(false);
             }
-            this.kub = nVar.cHM();
+            this.kub = nVar.cHN();
             if (this.kub == null || this.kub.size() <= ktA) {
                 i2 = 0;
                 i3 = 0;
@@ -793,10 +793,10 @@ public class a implements KeyboardEventLayout.a {
             bVar.setReplyNum(nVar.getTotalCount());
             arrayList.add(0, bVar);
             if (this.eud) {
-                arrayList.add(0, nVar.cHI());
+                arrayList.add(0, nVar.cHJ());
             }
             this.kuh.b(this.kse.aPS(), arrayList);
-            a(nVar, nVar.cHI(), nVar.csI(), nVar.aOo(), i, z);
+            a(nVar, nVar.cHJ(), nVar.csJ(), nVar.aOo(), i, z);
             if (i4 > 0) {
                 this.fml.setSelectionFromTop(i3, i2);
             }
@@ -821,21 +821,21 @@ public class a implements KeyboardEventLayout.a {
         }
     }
 
-    public boolean cNZ() {
+    public boolean cOa() {
         return this.kuh.apb();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(n nVar, PostData postData, boolean z, boolean z2, int i, boolean z3) {
         if (postData != null && !this.eud) {
-            if (!StringUtils.isNull(postData.dif())) {
+            if (!StringUtils.isNull(postData.dig())) {
                 this.ktN.setVisibility(0);
-                this.ktN.startLoad(postData.dif(), 10, true);
+                this.ktN.startLoad(postData.dig(), 10, true);
             } else {
                 this.ktN.setVisibility(8);
             }
-            i dih = postData.dih();
-            if (dih != null && dih.lFt) {
+            i dii = postData.dii();
+            if (dii != null && dii.lFt) {
                 this.ktO.setVisibility(0);
             } else {
                 this.ktO.setVisibility(8);
@@ -860,17 +860,17 @@ public class a implements KeyboardEventLayout.a {
                 }
             }
             this.ktL.setText(ar.getFormatTime(postData.getTime()));
-            String format = String.format(this.ktD.getPageContext().getString(R.string.is_floor), Integer.valueOf(postData.dhY()));
+            String format = String.format(this.ktD.getPageContext().getString(R.string.is_floor), Integer.valueOf(postData.dhZ()));
             if (nVar.aPS() != null && nVar.aPS().aQZ()) {
                 this.ktK.setText((CharSequence) null);
             } else {
                 this.ktK.setText(format);
             }
             postData.aSp().getUserTbVipInfoData();
-            boolean a = a(this.ktM, postData.dia());
-            if (StringUtils.isNull(postData.dif()) && !a && postData.bkW() != null) {
+            boolean a = a(this.ktM, postData.dib());
+            if (StringUtils.isNull(postData.dig()) && !a && postData.bkX() != null) {
                 this.aiw.setVisibility(0);
-                this.aiw.setTag(postData.bkW());
+                this.aiw.setTag(postData.bkX());
                 return;
             }
             this.aiw.setVisibility(8);
@@ -923,25 +923,25 @@ public class a implements KeyboardEventLayout.a {
     }
 
     private boolean a(TextView textView, TbRichText tbRichText) {
-        if (textView == null || tbRichText == null || tbRichText.bkO() == null) {
+        if (textView == null || tbRichText == null || tbRichText.bkP() == null) {
             return false;
         }
         TbRichTextData tbRichTextData = new TbRichTextData(1);
-        Iterator<TbRichTextData> it = tbRichText.bkO().iterator();
+        Iterator<TbRichTextData> it = tbRichText.bkP().iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next != null) {
                 switch (next.getType()) {
                     case 1:
-                        tbRichTextData.n(next.bkV());
+                        tbRichTextData.n(next.bkW());
                         continue;
                     case 2:
                     case 18:
                         tbRichTextData.iU(true);
-                        textView.setMovementMethod(com.baidu.tieba.view.c.dqq());
+                        textView.setMovementMethod(com.baidu.tieba.view.c.dqu());
                         continue;
                     case 17:
-                        String str = next.bkZ().mGifInfo.mSharpText;
+                        String str = next.bla().mGifInfo.mSharpText;
                         if (str == null) {
                             continue;
                         } else if (str.startsWith("#(") && str.endsWith(")")) {
@@ -952,14 +952,14 @@ public class a implements KeyboardEventLayout.a {
                 }
             }
         }
-        if (!tbRichTextData.ble()) {
+        if (!tbRichTextData.blf()) {
             textView.setMovementMethod(LinkMovementMethod.getInstance());
         }
         try {
-            if (tbRichTextData.bkV() == null || tbRichTextData.bkV().length() <= 0) {
+            if (tbRichTextData.bkW() == null || tbRichTextData.bkW().length() <= 0) {
                 return false;
             }
-            textView.setText(tbRichTextData.bkV());
+            textView.setText(tbRichTextData.bkW());
             return true;
         } catch (Exception e) {
             textView.setText("");
@@ -1064,7 +1064,7 @@ public class a implements KeyboardEventLayout.a {
                         z2 = true;
                         z3 = true;
                     }
-                    if (postData.dhY() == 1) {
+                    if (postData.dhZ() == 1) {
                         i2 = 1;
                     } else {
                         i2 = 0;
@@ -1143,7 +1143,7 @@ public class a implements KeyboardEventLayout.a {
                 z2 = true;
                 z3 = true;
             }
-            if (postData.dhY() == 1) {
+            if (postData.dhZ() == 1) {
             }
             if (!z5) {
             }
@@ -1161,16 +1161,16 @@ public class a implements KeyboardEventLayout.a {
     }
 
     public void sH(boolean z) {
-        if (this.ktg != null && this.ktg.cKY() != null) {
+        if (this.ktg != null && this.ktg.cKZ() != null) {
             if (z) {
-                this.ktg.cKY().setText(R.string.remove_mark);
+                this.ktg.cKZ().setText(R.string.remove_mark);
             } else {
-                this.ktg.cKY().setText(R.string.mark);
+                this.ktg.cKZ().setText(R.string.mark);
             }
         }
     }
 
-    public View cOa() {
+    public View cOb() {
         return this.ktV;
     }
 
@@ -1206,43 +1206,43 @@ public class a implements KeyboardEventLayout.a {
         this.ktD.getLayoutMode().onModeChanged(this.ktT);
     }
 
-    public void cOb() {
+    public void cOc() {
         this.mProgress.setVisibility(0);
     }
 
-    public void cOc() {
+    public void cOd() {
         this.fml.setVisibility(0);
         this.mProgress.setVisibility(8);
         this.ktQ.endLoadData();
     }
 
-    public void bVb() {
+    public void bVc() {
         this.fml.setVisibility(0);
         this.mProgress.setVisibility(8);
-        this.ktQ.bVb();
+        this.ktQ.bVc();
     }
 
-    public boolean cOd() {
-        return this.ktB.cOd();
+    public boolean cOe() {
+        return this.ktB.cOe();
     }
 
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
         this.kuh.c(onLongClickListener);
     }
 
-    public View cOe() {
+    public View cOf() {
         return this.ktC;
     }
 
-    public TextView ccP() {
+    public TextView ccQ() {
         return this.hRg;
     }
 
-    public ImageView cOf() {
+    public ImageView cOg() {
         return this.kud;
     }
 
-    public ImageView cOg() {
+    public ImageView cOh() {
         return this.kue;
     }
 
@@ -1250,15 +1250,15 @@ public class a implements KeyboardEventLayout.a {
     public void BN(int i) {
     }
 
-    public View cOh() {
+    public View cOi() {
         return this.ktF;
     }
 
-    public View cOi() {
+    public View cOj() {
         return this.ktN;
     }
 
-    public MorePopupWindow cOj() {
+    public MorePopupWindow cOk() {
         return this.ktS;
     }
 
@@ -1269,13 +1269,13 @@ public class a implements KeyboardEventLayout.a {
         this.gXx.setDialogVisiable(true);
     }
 
-    public void bJm() {
+    public void bJn() {
         if (this.gXx != null) {
             this.gXx.setDialogVisiable(false);
         }
     }
 
-    public TextView cOk() {
+    public TextView cOl() {
         return this.ktM;
     }
 
@@ -1289,26 +1289,26 @@ public class a implements KeyboardEventLayout.a {
         }
     }
 
-    public ad cOl() {
+    public ad cOm() {
         return this.ktg;
-    }
-
-    public void ceZ() {
     }
 
     public void cfa() {
     }
 
-    public void cdl() {
+    public void cfb() {
+    }
+
+    public void cdm() {
         this.ktB.onDestroy();
     }
 
-    public void cOm() {
+    public void cOn() {
         if (this.ktD.isPaused()) {
         }
     }
 
-    public View cOn() {
+    public View cOo() {
         return this.ktG;
     }
 
@@ -1329,26 +1329,26 @@ public class a implements KeyboardEventLayout.a {
         return this.mNavigationBar.getHeight();
     }
 
-    public int cOo() {
+    public int cOp() {
         if (this.jhW == null || this.jhW.bfa() == null) {
             return 0;
         }
         return this.jhW.bfa().getHeight();
     }
 
-    public int cOp() {
+    public int cOq() {
         if (this.ktW == null) {
             return 0;
         }
         return this.ktW.getHeight();
     }
 
-    public void cOq() {
+    public void cOr() {
         if (this.hRg != null && this.jhW != null) {
             if (this.jhW.bgg()) {
                 this.hRg.setText(R.string.draft_to_send);
             } else {
-                this.hRg.setText(this.ktD.cLP());
+                this.hRg.setText(this.ktD.cLQ());
             }
         }
     }

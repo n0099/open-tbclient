@@ -21,7 +21,7 @@ public class j {
         return this.title;
     }
 
-    public boolean dhd() {
+    public boolean dhe() {
         return this.lDI == 1;
     }
 }

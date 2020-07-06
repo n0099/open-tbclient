@@ -36,8 +36,8 @@ public class b extends com.baidu.tieba.card.b<bu> implements y {
         this.fSo = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.b.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.aeK != null && b.this.bOc() != null) {
-                    b.this.bOc().a(view, b.this.aeK);
+                if (b.this.aeK != null && b.this.bOd() != null) {
+                    b.this.bOd().a(view, b.this.aeK);
                     TiebaStatic.log(new ao("c11844").dk("uid", TbadkCoreApplication.getCurrentAccount()).s("fid", b.this.aeK.getFid()));
                 }
             }

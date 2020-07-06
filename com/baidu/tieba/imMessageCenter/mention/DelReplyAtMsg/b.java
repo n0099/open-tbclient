@@ -23,18 +23,18 @@ public class b {
     private k.b jgV = new k.b() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.2
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            b.this.cuN();
+            b.this.cuO();
             if (b.this.jgU != null) {
-                b.this.jgU.cuI();
+                b.this.jgU.cuJ();
             }
-            b.this.bEQ();
+            b.this.bER();
         }
     };
     private e mContext;
 
     /* loaded from: classes9.dex */
     public interface a {
-        void cuI();
+        void cuJ();
     }
 
     public b(e eVar) {
@@ -47,7 +47,7 @@ public class b {
         this.gTw.a(new k.a() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.1
             @Override // com.baidu.tbadk.core.dialog.k.a
             public void onClick() {
-                b.this.bEQ();
+                b.this.bER();
             }
         });
         this.gTw.aL(this.gTz);
@@ -56,7 +56,7 @@ public class b {
         xp();
     }
 
-    public void bEQ() {
+    public void bER() {
         if (this.jgR != null && this.jgR.isShowing()) {
             this.jgR.dismiss();
         }
@@ -87,7 +87,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cuN() {
+    public void cuO() {
         if (this.jgT != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG);
             httpMessage.addParam("type", this.jgT.type);

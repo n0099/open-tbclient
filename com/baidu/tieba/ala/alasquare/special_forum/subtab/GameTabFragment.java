@@ -54,32 +54,32 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
             GameTabFragment.this.jc(false);
             GameTabFragment.this.hideLoadingView(GameTabFragment.this.mRootView);
             if (w.isEmpty(list)) {
-                GameTabFragment.this.btM();
+                GameTabFragment.this.btN();
                 return;
             }
             GameTabFragment.this.fml.setData(list);
             if (!GameTabFragment.this.mHasMore) {
-                GameTabFragment.this.buJ();
+                GameTabFragment.this.buK();
             } else {
-                GameTabFragment.this.buI();
+                GameTabFragment.this.buJ();
             }
-            GameTabFragment.this.btN();
+            GameTabFragment.this.btO();
         }
 
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabGameModel.a
         public void g(int i, String str, boolean z) {
             GameTabFragment.this.hideLoadingView(GameTabFragment.this.mRootView);
-            GameTabFragment.this.buK();
-            GameTabFragment.this.btM();
+            GameTabFragment.this.buL();
+            GameTabFragment.this.btN();
         }
     };
     private BdListView.e UJ = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.GameTabFragment.3
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (!l.isNetOk()) {
-                GameTabFragment.this.buK();
+                GameTabFragment.this.buL();
             } else if (GameTabFragment.this.mHasMore) {
-                GameTabFragment.this.fot.btu();
+                GameTabFragment.this.fot.btv();
             }
         }
     };
@@ -166,7 +166,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btM() {
+    public void btN() {
         if (this.mRefreshView == null) {
             this.mRefreshView = new h(getPageContext().getContext(), getNetRefreshListener());
             this.mRefreshView.setTitle(null);
@@ -183,8 +183,8 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment
-    public void buH() {
-        super.buH();
+    public void buI() {
+        super.buI();
         if (this.fml != null) {
             this.fml.smoothScrollToPosition(0);
             this.fml.startPullRefresh();
@@ -212,7 +212,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btN() {
+    public void btO() {
         if (this.fml != null && this.mRefreshView != null) {
             this.fuk = false;
             this.fml.removeHeaderView(this.mRefreshView.getAttachedView());
@@ -220,7 +220,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buI() {
+    public void buJ() {
         this.fml.setNextPage(this.fnt);
         this.fnt.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
         this.fnt.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
@@ -228,7 +228,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buJ() {
+    public void buK() {
         this.fml.setNextPage(this.fnt);
         this.fnt.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
         this.fnt.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
@@ -237,7 +237,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buK() {
+    public void buL() {
         this.fml.setNextPage(this.fnt);
         this.fnt.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
         this.fnt.hideWithoutEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());

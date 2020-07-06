@@ -32,10 +32,10 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     if (eu != null) {
                         eu.followNum++;
                         eu.setIsLiked(true);
-                        l cmm = RelateTopicForumActivity.this.iDy.cmm();
-                        if (cmm != null) {
-                            cmm.b(RelateTopicForumActivity.this.dataList, RelateTopicForumActivity.this.dYw);
-                            cmm.notifyDataSetChanged();
+                        l cmn = RelateTopicForumActivity.this.iDy.cmn();
+                        if (cmn != null) {
+                            cmn.b(RelateTopicForumActivity.this.dataList, RelateTopicForumActivity.this.dYw);
+                            cmn.notifyDataSetChanged();
                         }
                     }
                 }
@@ -53,10 +53,10 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     if (eu != null) {
                         eu.followNum--;
                         eu.setIsLiked(false);
-                        l cmm = RelateTopicForumActivity.this.iDy.cmm();
-                        if (cmm != null) {
-                            cmm.b(RelateTopicForumActivity.this.dataList, RelateTopicForumActivity.this.dYw);
-                            cmm.notifyDataSetChanged();
+                        l cmn = RelateTopicForumActivity.this.iDy.cmn();
+                        if (cmn != null) {
+                            cmn.b(RelateTopicForumActivity.this.dataList, RelateTopicForumActivity.this.dYw);
+                            cmn.notifyDataSetChanged();
                         }
                     }
                 }
@@ -88,7 +88,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
 
     private void initUI() {
         this.iDy = new com.baidu.tieba.hottopic.view.d((RelateTopicForumActivity) getPageContext().getOrignalPage(), this.dataList);
-        clw();
+        clx();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -124,12 +124,12 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         return this.dYw;
     }
 
-    private void clw() {
+    private void clx() {
         if (this.iDy != null) {
             if (this.dataList.isEmpty()) {
-                this.iDy.buK();
+                this.iDy.buL();
             } else {
-                this.iDy.buJ();
+                this.iDy.buK();
             }
         }
     }

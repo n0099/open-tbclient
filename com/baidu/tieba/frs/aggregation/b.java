@@ -201,7 +201,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
             });
             this.hFU.a(new c.l() { // from class: com.baidu.tieba.frs.aggregation.b.2
                 @Override // com.baidu.tieba.play.c.l
-                public void caJ() {
+                public void caK() {
                     b.this.hGa = false;
                     b.this.hFJ.setVisibility(8);
                     b.this.Fh(b.this.dQI ? "1" : "2");
@@ -209,7 +209,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
                 }
 
                 @Override // com.baidu.tieba.play.c.l
-                public void caK() {
+                public void caL() {
                     b.this.hFJ.setVisibility(8);
                     b.this.onClick(b.this.hFG);
                 }
@@ -265,7 +265,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
             }
             this.fnj.setVideoStatsData(this.hFX);
             this.hFU.getVideoView().setBusiness(this.fnj);
-            this.hFU.cxZ();
+            this.hFU.cya();
             this.hFU.b(new c.d() { // from class: com.baidu.tieba.frs.aggregation.b.4
                 @Override // com.baidu.tieba.play.c.d
                 public void nx(boolean z) {
@@ -283,7 +283,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
                 }
 
                 @Override // com.baidu.tieba.play.c.d
-                public void caL() {
+                public void caM() {
                     if (!b.this.hFU.qf()) {
                         b.this.hFI.setVisibility(0);
                     } else if (b.this.hFI.getVisibility() == 0) {
@@ -301,7 +301,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
                     }
                     if (aVar != null && !b.this.isFullScreen) {
                         aVar.uQ(i);
-                        b.this.hFU.cla();
+                        b.this.hFU.clb();
                     }
                 }
             });
@@ -322,11 +322,11 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
             this.hFU.KW(gVar.title);
             this.hFU.a(new c.i() { // from class: com.baidu.tieba.frs.aggregation.b.7
                 @Override // com.baidu.tieba.play.c.i
-                public void caM() {
+                public void caN() {
                     b.this.hFJ.setVisibility(8);
                 }
             });
-            this.hFU.cla();
+            this.hFU.clb();
             this.hFU.show();
             if (gVar.autoPlay) {
                 onClick(this.hFH);
@@ -341,7 +341,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
     public void Fh(String str) {
         if (this.hFV != null && this.hFV.hGv != null) {
             if ("1".equals(str) || "2".equals(str)) {
-                com.baidu.tieba.play.l.a(this.hFV.hGv.videoMd5, "", str, this.hFY, this.hFU.cUD().getPcdnState());
+                com.baidu.tieba.play.l.a(this.hFV.hGv.videoMd5, "", str, this.hFY, this.hFU.cUE().getPcdnState());
             }
         }
     }
@@ -350,7 +350,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
         return this.hFU.qf();
     }
 
-    public void caF() {
+    public void caG() {
         if (isPlaying()) {
             this.hFU.awZ();
         }
@@ -360,7 +360,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
         return this.hFU.CI(i);
     }
 
-    public void caG() {
+    public void caH() {
         this.hFK.setVisibility(8);
         this.hFU.stopPlay();
         if (this.hFI != null) {
@@ -371,7 +371,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
         }
     }
 
-    public void caH() {
+    public void caI() {
         if (this.hFU != null) {
             this.hFU.destroy();
         }
@@ -379,9 +379,9 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
 
     @Override // com.baidu.tieba.card.b
     public void onDestroy() {
-        caH();
+        caI();
         if (this.hFW != null) {
-            this.hFW.caR();
+            this.hFW.caS();
         }
     }
 
@@ -450,7 +450,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
         if (this.hFU != null && this.hFH != null && this.mPageContext != null && this.mPageContext.getPageActivity() != null && this.mPageContext.getPageActivity().getWindow() != null && (this.mPageContext.getPageActivity().getWindow().getDecorView() instanceof FrameLayout)) {
             FrameLayout frameLayout = (FrameLayout) this.mPageContext.getPageActivity().getWindow().getDecorView();
             if (this.hFZ) {
-                this.hFU.cUJ();
+                this.hFU.cUK();
             }
             if (configuration.orientation == 2) {
                 this.isFullScreen = true;
@@ -482,7 +482,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
                 if (this.hFH.getParent() == null) {
                     this.hFG.addView(this.hFH, 0);
                     this.hFH.setLayoutParams(new FrameLayout.LayoutParams(this.mWidth, (int) (0.5625f * this.mWidth)));
-                    this.hFU.cxZ();
+                    this.hFU.cya();
                     this.hFZ = true;
                 } else {
                     return;
@@ -495,9 +495,9 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (bOc() != null) {
+        if (bOd() != null) {
             view.setTag(this);
-            bOc().a(view, this.hFV);
+            bOd().a(view, this.hFV);
         }
         if (view == this.hFN || view == this.ahA) {
             boolean z = false;
@@ -521,7 +521,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
         } else if (view == this.hFM) {
             if (this.hFV != null && this.hFV.hGv != null) {
                 this.hFK.setVisibility(8);
-                this.hFU.cUM();
+                this.hFU.cUN();
                 this.hFU.fd(this.hFV.hGv.videoUrl, this.hFV.threadId);
                 Fh("2");
             }
@@ -548,7 +548,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
     }
 
     @Override // com.baidu.tieba.frs.aggregation.c
-    public void caI() {
+    public void caJ() {
         if (this.hFV != null) {
             this.hFV.hasAgree = !this.hFV.hasAgree;
             if (this.hFV.hasAgree) {

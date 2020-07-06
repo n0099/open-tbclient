@@ -54,7 +54,7 @@ public class i {
         return this.img;
     }
 
-    public String dha() {
+    public String dhb() {
         return this.img_popup;
     }
 
@@ -70,7 +70,7 @@ public class i {
         return this.url;
     }
 
-    public int dhb() {
+    public int dhc() {
         return this.lDG;
     }
 
@@ -78,7 +78,7 @@ public class i {
         return this.id;
     }
 
-    public List<j> dhc() {
+    public List<j> dhd() {
         return this.lDH;
     }
 

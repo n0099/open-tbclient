@@ -85,7 +85,7 @@ public class HotUserRankView {
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            HotUserRankView.this.heu.b(((a) HotUserRankView.this.flK.get(i)).heD.bSn().getPageData());
+            HotUserRankView.this.heu.b(((a) HotUserRankView.this.flK.get(i)).heD.bSo().getPageData());
             ao aoVar = new ao("c13657");
             aoVar.s("uid", TbadkCoreApplication.getCurrentAccountId());
             aoVar.dk("resource_id", ((a) HotUserRankView.this.flK.get(i)).title);

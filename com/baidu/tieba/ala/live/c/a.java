@@ -51,7 +51,7 @@ public abstract class a {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    a.this.byB();
+                    a.this.byC();
                     return;
                 default:
                     return;
@@ -95,7 +95,7 @@ public abstract class a {
         }
     }
 
-    private void byp() {
+    private void byq() {
         this.fOK = new IPayCallback() { // from class: com.baidu.tieba.ala.live.c.a.3
             @Override // com.baidu.live.tbadk.pay.channel.interfaces.IPayCallback
             public void onPayResult(int i, String str) {
@@ -104,7 +104,7 @@ public abstract class a {
                 switch (i) {
                     case 0:
                         a.this.a(i, UbcStatConstant.ContentType.UBC_TYPE_PAY_SDK_SUCC, null);
-                        a.this.byB();
+                        a.this.byC();
                         break;
                     case 1:
                         a.this.a(i, UbcStatConstant.ContentType.UBC_TYPE_PAY_SDK, null);
@@ -144,8 +144,8 @@ public abstract class a {
                     jSONObject2.put("stimestamp", currentTimeMillis);
                     jSONObject2.put(DownloadDataConstants.Columns.COLUMN_RETRY_COUNT, this.hasResendGetMsg ? 1 : 0);
                 }
-                if (this.fOI != null && !StringUtils.isNull(this.fOI.byC())) {
-                    jSONObject2.put("order_id", this.fOI.byC());
+                if (this.fOI != null && !StringUtils.isNull(this.fOI.byD())) {
+                    jSONObject2.put("order_id", this.fOI.byD());
                 }
                 jSONObject.put("pay", jSONObject2);
             } catch (JSONException e) {
@@ -158,7 +158,7 @@ public abstract class a {
         if (this.fOI != null) {
             this.fOI.Cx(str);
         }
-        byD();
+        byE();
     }
 
     public void Cz(String str) {
@@ -204,7 +204,7 @@ public abstract class a {
                 this.fOM.Cw(str2);
                 return;
             } else {
-                byD();
+                byE();
                 return;
             }
         }
@@ -250,46 +250,46 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byB() {
+    public void byC() {
         if (this.fOI != null) {
             this.boL.showLoadingDialog(this.boL.getString(a.i.sdk_pay_loading));
-            this.fOI.byB();
+            this.fOI.byC();
             UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_RECHARGE_REQ, UbcStatConstant.ContentType.UBC_TYPE_PAY_STATUS, "liveroom", null));
         }
     }
 
-    private void byD() {
-        if (this.fOJ != null && this.fOI != null && this.fOI.byz() != null && !this.fOI.byz().isEmpty()) {
+    private void byE() {
+        if (this.fOJ != null && this.fOI != null && this.fOI.byA() != null && !this.fOI.byA().isEmpty()) {
             if (this.fOK == null) {
-                byp();
+                byq();
             }
-            this.fOJ.pay(this.fOI.byz(), this.fOK);
+            this.fOJ.pay(this.fOI.byA(), this.fOK);
             UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_RECHARGE_REQ, UbcStatConstant.ContentType.UBC_TYPE_PAY_SDK, "liveroom", null));
         }
     }
 
-    public Intent byE() {
+    public Intent byF() {
         Intent intent = new Intent();
         if (this.fOI != null && this.mCurPayConfig != null) {
             intent.putExtra("result_code", this.mPayStatus);
             intent.putExtra("result_payinfo_status", this.fOL);
             intent.putExtra("result_tbean_num", this.mCurPayConfig.getTBeanNum());
-            intent.putExtra("result_order_id", this.fOI.byC());
+            intent.putExtra("result_order_id", this.fOI.byD());
             intent.putExtra("pay_channel_type_name", this.mPayChannelType.name());
         }
         return intent;
     }
 
-    public int byF() {
+    public int byG() {
         return this.mPayStatus;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void kr(boolean z) {
-        Intent byE = byE();
-        this.boL.setResult(-1, byE);
+        Intent byF = byF();
+        this.boL.setResult(-1, byF);
         if (this.fOM != null) {
-            this.fOM.a(z, byE);
+            this.fOM.a(z, byF);
         }
     }
 

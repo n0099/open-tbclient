@@ -15,55 +15,55 @@ import java.lang.reflect.Type;
 public final class l<T> extends TypeAdapter<T> {
     private TypeAdapter<T> delegate;
     final Gson gson;
-    private final TypeAdapterFactory nbA;
-    private final l<T>.a nbB = new a();
-    private final JsonSerializer<T> nbx;
-    private final JsonDeserializer<T> nby;
-    private final com.google.gson.b.a<T> nbz;
+    private final JsonSerializer<T> nbA;
+    private final JsonDeserializer<T> nbB;
+    private final com.google.gson.b.a<T> nbC;
+    private final TypeAdapterFactory nbD;
+    private final l<T>.a nbE = new a();
 
     public l(JsonSerializer<T> jsonSerializer, JsonDeserializer<T> jsonDeserializer, Gson gson, com.google.gson.b.a<T> aVar, TypeAdapterFactory typeAdapterFactory) {
-        this.nbx = jsonSerializer;
-        this.nby = jsonDeserializer;
+        this.nbA = jsonSerializer;
+        this.nbB = jsonDeserializer;
         this.gson = gson;
-        this.nbz = aVar;
-        this.nbA = typeAdapterFactory;
+        this.nbC = aVar;
+        this.nbD = typeAdapterFactory;
     }
 
     @Override // com.google.gson.TypeAdapter
     public T read(com.google.gson.stream.a aVar) throws IOException {
-        if (this.nby == null) {
-            return dHz().read(aVar);
+        if (this.nbB == null) {
+            return dHD().read(aVar);
         }
         JsonElement parse = com.google.gson.internal.i.parse(aVar);
         if (parse.isJsonNull()) {
             return null;
         }
-        return this.nby.deserialize(parse, this.nbz.getType(), this.nbB);
+        return this.nbB.deserialize(parse, this.nbC.getType(), this.nbE);
     }
 
     @Override // com.google.gson.TypeAdapter
     public void write(com.google.gson.stream.b bVar, T t) throws IOException {
-        if (this.nbx == null) {
-            dHz().write(bVar, t);
+        if (this.nbA == null) {
+            dHD().write(bVar, t);
         } else if (t == null) {
-            bVar.dId();
+            bVar.dIh();
         } else {
-            com.google.gson.internal.i.a(this.nbx.serialize(t, this.nbz.getType(), this.nbB), bVar);
+            com.google.gson.internal.i.a(this.nbA.serialize(t, this.nbC.getType(), this.nbE), bVar);
         }
     }
 
-    private TypeAdapter<T> dHz() {
+    private TypeAdapter<T> dHD() {
         TypeAdapter<T> typeAdapter = this.delegate;
         if (typeAdapter != null) {
             return typeAdapter;
         }
-        TypeAdapter<T> delegateAdapter = this.gson.getDelegateAdapter(this.nbA, this.nbz);
+        TypeAdapter<T> delegateAdapter = this.gson.getDelegateAdapter(this.nbD, this.nbC);
         this.delegate = delegateAdapter;
         return delegateAdapter;
     }
 
     public static TypeAdapterFactory a(com.google.gson.b.a<?> aVar, Object obj) {
-        return new b(obj, aVar, aVar.getType() == aVar.dIh(), null);
+        return new b(obj, aVar, aVar.getType() == aVar.dIl(), null);
     }
 
     public static TypeAdapterFactory a(Class<?> cls, Object obj) {
@@ -73,31 +73,31 @@ public final class l<T> extends TypeAdapter<T> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
     public static final class b implements TypeAdapterFactory {
-        private final com.google.gson.b.a<?> nbD;
-        private final boolean nbE;
-        private final Class<?> nbF;
-        private final JsonSerializer<?> nbx;
-        private final JsonDeserializer<?> nby;
+        private final JsonSerializer<?> nbA;
+        private final JsonDeserializer<?> nbB;
+        private final com.google.gson.b.a<?> nbG;
+        private final boolean nbH;
+        private final Class<?> nbI;
 
         b(Object obj, com.google.gson.b.a<?> aVar, boolean z, Class<?> cls) {
-            this.nbx = obj instanceof JsonSerializer ? (JsonSerializer) obj : null;
-            this.nby = obj instanceof JsonDeserializer ? (JsonDeserializer) obj : null;
-            com.google.gson.internal.a.checkArgument((this.nbx == null && this.nby == null) ? false : true);
-            this.nbD = aVar;
-            this.nbE = z;
-            this.nbF = cls;
+            this.nbA = obj instanceof JsonSerializer ? (JsonSerializer) obj : null;
+            this.nbB = obj instanceof JsonDeserializer ? (JsonDeserializer) obj : null;
+            com.google.gson.internal.a.checkArgument((this.nbA == null && this.nbB == null) ? false : true);
+            this.nbG = aVar;
+            this.nbH = z;
+            this.nbI = cls;
         }
 
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
             boolean isAssignableFrom;
-            if (this.nbD != null) {
-                isAssignableFrom = this.nbD.equals(aVar) || (this.nbE && this.nbD.getType() == aVar.dIh());
+            if (this.nbG != null) {
+                isAssignableFrom = this.nbG.equals(aVar) || (this.nbH && this.nbG.getType() == aVar.dIl());
             } else {
-                isAssignableFrom = this.nbF.isAssignableFrom(aVar.dIh());
+                isAssignableFrom = this.nbI.isAssignableFrom(aVar.dIl());
             }
             if (isAssignableFrom) {
-                return new l(this.nbx, this.nby, gson, aVar, this);
+                return new l(this.nbA, this.nbB, gson, aVar, this);
             }
             return null;
         }

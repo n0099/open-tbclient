@@ -7,47 +7,47 @@ import kotlin.jvm.internal.q;
 /* loaded from: classes.dex */
 public final class a {
     private final String audioKey;
-    private final int nBF;
-    private final int nBG;
-    private final int nBH;
-    private Integer nBI;
-    private Integer nBJ;
+    private final int nBI;
+    private final int nBJ;
+    private final int nBK;
+    private Integer nBL;
+    private Integer nBM;
     private final int startTime;
 
-    public final int dLX() {
-        return this.nBF;
-    }
-
-    public final int dLY() {
-        return this.nBG;
-    }
-
-    public final Integer dLZ() {
+    public final int dMb() {
         return this.nBI;
     }
 
-    public final void r(Integer num) {
-        this.nBI = num;
-    }
-
-    public final Integer dMa() {
+    public final int dMc() {
         return this.nBJ;
     }
 
+    public final Integer dMd() {
+        return this.nBL;
+    }
+
+    public final void r(Integer num) {
+        this.nBL = num;
+    }
+
+    public final Integer dMe() {
+        return this.nBM;
+    }
+
     public final void s(Integer num) {
-        this.nBJ = num;
+        this.nBM = num;
     }
 
     public a(AudioEntity audioEntity) {
         q.m(audioEntity, "audioItem");
         this.audioKey = audioEntity.audioKey;
         Integer num = audioEntity.startFrame;
-        this.nBF = num != null ? num.intValue() : 0;
+        this.nBI = num != null ? num.intValue() : 0;
         Integer num2 = audioEntity.endFrame;
-        this.nBG = num2 != null ? num2.intValue() : 0;
+        this.nBJ = num2 != null ? num2.intValue() : 0;
         Integer num3 = audioEntity.startTime;
         this.startTime = num3 != null ? num3.intValue() : 0;
         Integer num4 = audioEntity.totalTime;
-        this.nBH = num4 != null ? num4.intValue() : 0;
+        this.nBK = num4 != null ? num4.intValue() : 0;
     }
 }

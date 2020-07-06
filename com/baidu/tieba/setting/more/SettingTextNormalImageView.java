@@ -49,7 +49,7 @@ public class SettingTextNormalImageView extends FrameLayout {
     }
 
     public void setLocalIcon(int i) {
-        this.lsM.bjE();
+        this.lsM.bjF();
         this.lsM.setConrers(0);
         this.lsM.setImageResource(i);
     }

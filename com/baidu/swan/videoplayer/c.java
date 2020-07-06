@@ -997,7 +997,7 @@ public final class c {
         public static final int toast_text_view = 2131699122;
 
         /* renamed from: top  reason: collision with root package name */
-        public static final int f1013top = 2131689833;
+        public static final int f1014top = 2131689833;
         public static final int topPanel = 2131690081;
         public static final int top_divider = 2131690749;
         public static final int tv_duration = 2131695529;

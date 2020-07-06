@@ -35,35 +35,35 @@ public class k extends com.baidu.adp.widget.ListView.a<n, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, final n nVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.bPg() == null) {
+        if (aVar.bPh() == null) {
             return null;
         }
-        a(nVar, aVar.bPg());
-        aVar.bPg().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.k.1
+        a(nVar, aVar.bPh());
+        aVar.bPh().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 k.this.a(nVar);
             }
         });
-        return aVar.bPg().getView();
+        return aVar.bPh().getView();
     }
 
     private void a(n nVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = nVar.getPersonCenterData();
-        if (personCenterData != null && personCenterData.bLu() != null) {
+        if (personCenterData != null && personCenterData.bLv() != null) {
             aVar.so(0);
             aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_real_authen));
-            AlaUserInfoData bLu = personCenterData.bLu();
-            if (bLu.certify_status == 0) {
+            AlaUserInfoData bLv = personCenterData.bLv();
+            if (bLv.certify_status == 0) {
                 aVar.DD(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
                 aVar.sp(0);
-            } else if (1 == bLu.certify_status) {
+            } else if (1 == bLv.certify_status) {
                 aVar.DD(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_in_review));
                 aVar.sp(4);
-            } else if (2 == bLu.certify_status) {
+            } else if (2 == bLv.certify_status) {
                 aVar.DD(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
                 aVar.sp(4);
-            } else if (3 == bLu.certify_status) {
+            } else if (3 == bLv.certify_status) {
                 aVar.DD(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_denied));
                 aVar.sp(0);
             }
@@ -73,10 +73,10 @@ public class k extends com.baidu.adp.widget.ListView.a<n, com.baidu.tieba.card.a
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(n nVar) {
-        if (nVar != null && nVar.getPersonCenterData() != null && nVar.getPersonCenterData().bLu() != null) {
-            AlaUserInfoData bLu = nVar.getPersonCenterData().bLu();
-            if (1 != bLu.certify_status && 2 != bLu.certify_status) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterRealAuthenConfig(this.mContext, bLu.user_id, bLu.certify_status + "")));
+        if (nVar != null && nVar.getPersonCenterData() != null && nVar.getPersonCenterData().bLv() != null) {
+            AlaUserInfoData bLv = nVar.getPersonCenterData().bLv();
+            if (1 != bLv.certify_status && 2 != bLv.certify_status) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterRealAuthenConfig(this.mContext, bLv.user_id, bLv.certify_status + "")));
                 if (this.gAU != null) {
                     this.gAU.sk(1);
                 }

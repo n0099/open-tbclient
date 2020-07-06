@@ -38,7 +38,7 @@ public class m extends a<bh, ak<bh>> implements com.baidu.tieba.a.f {
         };
         this.ajo = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.newdetail.adapter.a.m.2
             @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-            public void bkm() {
+            public void bkn() {
                 m.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumSquareActivityConfig(m.this.mPageContext.getPageActivity(), m.this.mTabName)));
             }
         };

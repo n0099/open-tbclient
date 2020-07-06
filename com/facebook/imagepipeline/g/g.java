@@ -3,34 +3,34 @@ package com.facebook.imagepipeline.g;
 import android.support.v7.widget.ActivityChooserView;
 /* loaded from: classes13.dex */
 public class g implements h {
-    public static final h mUK = i(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, true, true);
+    public static final h mUN = i(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, true, true);
     int mQuality;
-    boolean mUL;
-    boolean mUM;
+    boolean mUO;
+    boolean mUP;
 
     private g(int i, boolean z, boolean z2) {
         this.mQuality = i;
-        this.mUL = z;
-        this.mUM = z2;
+        this.mUO = z;
+        this.mUP = z2;
     }
 
     @Override // com.facebook.imagepipeline.g.h
-    public int dFg() {
+    public int dFk() {
         return this.mQuality;
     }
 
     @Override // com.facebook.imagepipeline.g.h
-    public boolean dFh() {
-        return this.mUL;
+    public boolean dFl() {
+        return this.mUO;
     }
 
     @Override // com.facebook.imagepipeline.g.h
-    public boolean dFi() {
-        return this.mUM;
+    public boolean dFm() {
+        return this.mUP;
     }
 
     public int hashCode() {
-        return ((this.mUL ? 4194304 : 0) ^ this.mQuality) ^ (this.mUM ? 8388608 : 0);
+        return ((this.mUO ? 4194304 : 0) ^ this.mQuality) ^ (this.mUP ? 8388608 : 0);
     }
 
     public boolean equals(Object obj) {
@@ -39,7 +39,7 @@ public class g implements h {
         }
         if (obj instanceof g) {
             g gVar = (g) obj;
-            return this.mQuality == gVar.mQuality && this.mUL == gVar.mUL && this.mUM == gVar.mUM;
+            return this.mQuality == gVar.mQuality && this.mUO == gVar.mUO && this.mUP == gVar.mUP;
         }
         return false;
     }

@@ -7,10 +7,10 @@ import java.util.List;
 public class ik implements ix<ik, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hv> f615a;
+    public List<hv> f616a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jn f614a = new jn("XmPushActionNormalConfig");
+    private static final jn f615a = new jn("XmPushActionNormalConfig");
     private static final jf a = new jf("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class ik implements ix<ik, Object>, Serializable, Cloneable {
         if (getClass().equals(ikVar.getClass())) {
             int compareTo = Boolean.valueOf(m425a()).compareTo(Boolean.valueOf(ikVar.m425a()));
             if (compareTo == 0) {
-                if (!m425a() || (a2 = iy.a(this.f615a, ikVar.f615a)) == 0) {
+                if (!m425a() || (a2 = iy.a(this.f616a, ikVar.f616a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -32,12 +32,12 @@ public class ik implements ix<ik, Object>, Serializable, Cloneable {
     }
 
     public List<hv> a() {
-        return this.f615a;
+        return this.f616a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public void m424a() {
-        if (this.f615a == null) {
+        if (this.f616a == null) {
             throw new jj("Required field 'normalConfigs' was not present! Struct: " + toString());
         }
     }
@@ -52,15 +52,15 @@ public class ik implements ix<ik, Object>, Serializable, Cloneable {
                 m424a();
                 return;
             }
-            switch (m479a.f783a) {
+            switch (m479a.f784a) {
                 case 1:
                     if (m479a.a == 15) {
                         jg m480a = jiVar.m480a();
-                        this.f615a = new ArrayList(m480a.f784a);
-                        for (int i = 0; i < m480a.f784a; i++) {
+                        this.f616a = new ArrayList(m480a.f785a);
+                        for (int i = 0; i < m480a.f785a; i++) {
                             hv hvVar = new hv();
                             hvVar.a(jiVar);
-                            this.f615a.add(hvVar);
+                            this.f616a.add(hvVar);
                         }
                         jiVar.i();
                         break;
@@ -78,7 +78,7 @@ public class ik implements ix<ik, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m425a() {
-        return this.f615a != null;
+        return this.f616a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -88,17 +88,17 @@ public class ik implements ix<ik, Object>, Serializable, Cloneable {
         }
         boolean m425a = m425a();
         boolean m425a2 = ikVar.m425a();
-        return !(m425a || m425a2) || (m425a && m425a2 && this.f615a.equals(ikVar.f615a));
+        return !(m425a || m425a2) || (m425a && m425a2 && this.f616a.equals(ikVar.f616a));
     }
 
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
         m424a();
-        jiVar.a(f614a);
-        if (this.f615a != null) {
+        jiVar.a(f615a);
+        if (this.f616a != null) {
             jiVar.a(a);
-            jiVar.a(new jg((byte) 12, this.f615a.size()));
-            for (hv hvVar : this.f615a) {
+            jiVar.a(new jg((byte) 12, this.f616a.size()));
+            for (hv hvVar : this.f616a) {
                 hvVar.b(jiVar);
             }
             jiVar.e();
@@ -122,10 +122,10 @@ public class ik implements ix<ik, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("XmPushActionNormalConfig(");
         sb.append("normalConfigs:");
-        if (this.f615a == null) {
+        if (this.f616a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f615a);
+            sb.append(this.f616a);
         }
         sb.append(")");
         return sb.toString();

@@ -81,7 +81,7 @@ public class AlaActiveDynamicView extends RelativeLayout implements c {
         this.fTS.setTextColor(this.fUd);
         setLayoutBg(axVar);
         setValues(axVar);
-        bAc();
+        bAd();
     }
 
     public void setTimer(String str) {
@@ -94,7 +94,7 @@ public class AlaActiveDynamicView extends RelativeLayout implements c {
         }
     }
 
-    private void bvY() {
+    private void bvZ() {
         this.mEndTime = 0L;
         if (this.mTimer != null) {
             this.mTimer.cancel();
@@ -113,7 +113,7 @@ public class AlaActiveDynamicView extends RelativeLayout implements c {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void release() {
-        bvY();
+        bvZ();
         this.fTN = null;
     }
 
@@ -242,7 +242,7 @@ public class AlaActiveDynamicView extends RelativeLayout implements c {
         }
     }
 
-    private void bAc() {
+    private void bAd() {
         this.fTX.setTextColor(this.fUd);
         this.fTY.setTextColor(this.mTextColor);
         this.fTZ.setTextColor(this.mTextColor);

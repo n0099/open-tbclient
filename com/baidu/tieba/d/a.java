@@ -45,7 +45,7 @@ public class a implements a.InterfaceC0742a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                a.this.bPP();
+                a.this.bPQ();
             }
         }
     };
@@ -63,7 +63,7 @@ public class a implements a.InterfaceC0742a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                a.this.bPQ();
+                a.this.bPR();
             }
         }
     };
@@ -97,9 +97,9 @@ public class a implements a.InterfaceC0742a {
                 CrabSDK.init(application, "b14ed41a92769403");
             }
             this.gXC = true;
-            bPP();
-            r(null);
             bPQ();
+            r(null);
+            bPR();
             CrabSDK.setChannel(TbConfig.getCurrentFrom());
             CrabSDK.setEnableLog(isDebugMode);
             if (isDebugMode) {
@@ -112,9 +112,9 @@ public class a implements a.InterfaceC0742a {
                 CrabSDK.setUploadLimitOfAnrInOneday(-1);
                 CrabSDK.setUrlRecordLimit(10);
             } else {
-                if (bPK()) {
+                if (bPL()) {
                     CrabSDK.disableBlockCatch();
-                } else if (bPM()) {
+                } else if (bPN()) {
                     CrabSDK.disableBlockCatch();
                 } else {
                     CrabSDK.disableBlockCatch();
@@ -137,24 +137,24 @@ public class a implements a.InterfaceC0742a {
             CrabSDK.setOnAnrCrashListener(new OnAnrCrashListener() { // from class: com.baidu.tieba.d.a.5
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onAnrStarted(Map map) {
-                    a.this.bPP();
+                    a.this.bPQ();
                     a.this.r(null);
                 }
 
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onCrashStarted(Thread thread, Throwable th) {
-                    a.this.bPP();
+                    a.this.bPQ();
                     a.this.r(th);
                 }
 
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onNativeCrashStarted(String str) {
-                    a.this.bPP();
+                    a.this.bPQ();
                     a.this.r(null);
                 }
             });
-            bPN();
             bPO();
+            bPP();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -163,31 +163,31 @@ public class a implements a.InterfaceC0742a {
         }
     }
 
-    private boolean bPK() {
+    private boolean bPL() {
         return TbConfig.getVersionType() == 2;
     }
 
-    private boolean bPL() {
+    private boolean bPM() {
         return TbConfig.getVersionType() == 1;
     }
 
-    private boolean bPM() {
+    private boolean bPN() {
         return TbConfig.getVersionType() == 3;
     }
 
-    private void bPN() {
+    private void bPO() {
         if (this.gXC && this.gXD) {
             CrabSDK.disableBlockCatch();
         }
     }
 
-    private void bPO() {
+    private void bPP() {
         if (this.gXC && this.gXE) {
             CrabSDK.closeAnrHandler();
         }
     }
 
-    public void bPP() {
+    public void bPQ() {
         dV(TbadkCoreApplication.getInst().getCuidGalaxy2(), TbadkCoreApplication.getCurrentAccount());
     }
 
@@ -198,7 +198,7 @@ public class a implements a.InterfaceC0742a {
         }
     }
 
-    public void bPQ() {
+    public void bPR() {
         if (this.gXC) {
             if (j.isWifiNet()) {
                 CrabSDK.setCollectScreenshot(true);
@@ -212,7 +212,7 @@ public class a implements a.InterfaceC0742a {
     public void r(Throwable th) {
         if (this.gXC) {
             HashMap hashMap = new HashMap();
-            hashMap.put("version_type", bPR());
+            hashMap.put("version_type", bPS());
             hashMap.put("version", TbConfig.getVersion());
             hashMap.put("sub_version", TbConfig.getSubVersion());
             hashMap.put("plugin_info", s(th));
@@ -326,17 +326,17 @@ public class a implements a.InterfaceC0742a {
         }
     }
 
-    private String bPR() {
+    private String bPS() {
         if (BdBaseApplication.getInst().isDebugMode()) {
             return "DebugBuild";
         }
-        if (bPM()) {
+        if (bPN()) {
             return "ReleasedBuild";
         }
-        if (bPK()) {
+        if (bPL()) {
             return "GrayBuild";
         }
-        if (!bPL()) {
+        if (!bPM()) {
             return "DefaultBuild";
         }
         return "DailyBuild";

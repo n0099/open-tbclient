@@ -61,9 +61,9 @@ public class a {
         if (this.lHy) {
             this.lHy = false;
             this.lHA = null;
-            this.lHw.diw();
             this.lHw.dix();
-            this.lHv.diz();
+            this.lHw.diy();
+            this.lHv.diA();
             this.lHv.invalidate();
         }
     }
@@ -108,7 +108,7 @@ public class a {
                     this.cAs = x;
                     this.lHA.rect.offset((int) (x - this.cAs), 0);
                     a(this.lHA);
-                    dis();
+                    dit();
                     break;
             }
             return true;
@@ -116,17 +116,17 @@ public class a {
         return false;
     }
 
-    public void dis() {
+    public void dit() {
         this.mTempRect.set(this.lHA.rect);
         this.lHv.offsetRectIntoDescendantCoords((View) this.lHw, this.mTempRect);
         this.lHw.j(this.mTempRect);
         this.lHv.invalidate();
         if (this.lHA.lIf) {
-            this.lHw.diu();
-        } else if (this.lHA.lIg) {
             this.lHw.div();
-        } else {
+        } else if (this.lHA.lIg) {
             this.lHw.diw();
+        } else {
+            this.lHw.dix();
         }
     }
 

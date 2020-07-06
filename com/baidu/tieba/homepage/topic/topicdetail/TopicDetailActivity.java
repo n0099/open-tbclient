@@ -58,7 +58,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         if (this.mIsFromSchema) {
             setIsAddSwipeBackLayout(false);
         }
-        this.ixV.getEditor().cbX();
+        this.ixV.getEditor().cbY();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -150,7 +150,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             this.ixV.hideLoadingView();
             this.ixV.mB(true);
         } else {
-            this.ixV.btN();
+            this.ixV.btO();
             this.ixV.ga(false);
             if (this.ixV != null && this.ixV.getEditor() != null) {
                 this.ixV.getEditor().setTopicId(this.dJs);
@@ -166,7 +166,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             this.ixV.mB(true);
             return;
         }
-        this.ixV.btN();
+        this.ixV.btO();
         this.ixV.setData(aVar);
     }
 

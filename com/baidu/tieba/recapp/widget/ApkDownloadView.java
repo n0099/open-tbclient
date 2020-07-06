@@ -169,7 +169,7 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
         }
         int process = downloadData.getProcess();
         if (process <= 0) {
-            process = i.cZe().ds(downloadData.getId(), downloadData.getName());
+            process = i.cZf().ds(downloadData.getId(), downloadData.getName());
         }
         return Math.max(process, 0);
     }
@@ -182,23 +182,23 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        boZ();
-        dak();
+        bpa();
+        dal();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        boY();
+        boZ();
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         if (i == 0) {
-            boY();
-        } else {
             boZ();
+        } else {
+            bpa();
         }
     }
 
@@ -210,7 +210,7 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
         this.llT.aYi();
     }
 
-    private void boY() {
+    private void boZ() {
         if (this.downloadListener != null) {
             MessageManager.getInstance().registerListener(this.downloadListener);
         }
@@ -219,7 +219,7 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
         }
     }
 
-    private void boZ() {
+    private void bpa() {
         if (this.downloadListener != null) {
             MessageManager.getInstance().unRegisterListener(this.downloadListener);
         }
@@ -228,7 +228,7 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
         }
     }
 
-    private void dak() {
+    private void dal() {
         setOnClickInterceptListener(null);
     }
 

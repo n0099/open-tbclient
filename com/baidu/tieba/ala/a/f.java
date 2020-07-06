@@ -43,7 +43,7 @@ public class f implements h {
         this.mDialog = new Dialog(this.mContext, i.d.SoLoaderDialogStyle);
         this.mDialog.setContentView(i.b.dialog_soloader);
         this.fyf = (SimpleDraweeView) this.mDialog.findViewById(i.a.soloader_loading_anim);
-        this.fyf.setController(com.facebook.drawee.a.a.c.dzW().QH("https://pic.rmb.bdstatic.com/qmpic_InRooc_1563447539.webp").wy(true).dAN());
+        this.fyf.setController(com.facebook.drawee.a.a.c.dAa().QI("https://pic.rmb.bdstatic.com/qmpic_InRooc_1563447539.webp").wy(true).dAR());
         this.mTitle = (TextView) this.mDialog.findViewById(i.a.soloader_title);
         this.fyg = this.mDialog.findViewById(i.a.soloader_hide);
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.a.f.1
@@ -66,10 +66,10 @@ public class f implements h {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 f.this.dismiss();
-                f.this.bvu();
+                f.this.bvv();
             }
         });
-        bvv();
+        bvw();
     }
 
     protected void jQ(boolean z) {
@@ -81,7 +81,7 @@ public class f implements h {
         return this;
     }
 
-    protected void bvu() {
+    protected void bvv() {
     }
 
     public f t(Runnable runnable) {
@@ -94,7 +94,7 @@ public class f implements h {
         return this;
     }
 
-    public f bvv() {
+    public f bvw() {
         this.mTitle.setText(String.format("%s加载%s%%…", this.mName, Integer.valueOf((int) (this.fyh.getProgress() * 100.0f))));
         return this;
     }
@@ -161,9 +161,9 @@ public class f implements h {
     }
 
     public void In() {
-        Animatable dAC;
-        if (this.fyf != null && this.fyf.getController() != null && (dAC = this.fyf.getController().dAC()) != null && dAC.isRunning()) {
-            dAC.stop();
+        Animatable dAG;
+        if (this.fyf != null && this.fyf.getController() != null && (dAG = this.fyf.getController().dAG()) != null && dAG.isRunning()) {
+            dAG.stop();
         }
     }
 }

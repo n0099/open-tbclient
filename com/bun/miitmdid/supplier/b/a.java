@@ -9,7 +9,7 @@ import com.huawei.android.hms.pps.AdvertisingIdClient;
 /* loaded from: classes6.dex */
 public class a implements InnerIdSupplier {
     private Context a;
-    private SupplierListener mGD;
+    private SupplierListener mGG;
     private boolean f = false;
     private String b = "";
     private String c = "";
@@ -25,11 +25,11 @@ public class a implements InnerIdSupplier {
         try {
             this.f = !TextUtils.isEmpty(this.c);
             if (this.f) {
-                if (this.mGD != null) {
-                    this.mGD.OnSupport(this.f, this);
+                if (this.mGG != null) {
+                    this.mGG.OnSupport(this.f, this);
                 }
-            } else if (this.mGD != null) {
-                this.mGD.OnSupport(this.f, new com.bun.miitmdid.supplier.a());
+            } else if (this.mGG != null) {
+                this.mGG.OnSupport(this.f, new com.bun.miitmdid.supplier.a());
             }
         } catch (Exception e) {
             com.bun.miitmdid.utils.a.a(getClass().getSimpleName(), "CallBack", e);
@@ -38,7 +38,7 @@ public class a implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public void a(SupplierListener supplierListener) {
-        this.mGD = supplierListener;
+        this.mGG = supplierListener;
         new Thread(new Runnable() { // from class: com.bun.miitmdid.supplier.b.a.1
             @Override // java.lang.Runnable
             public void run() {

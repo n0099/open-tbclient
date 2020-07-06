@@ -139,8 +139,8 @@ public class a extends RecyclerView.Adapter<C0636a> {
                             aoVar.s("uid", TbadkApplication.getCurrentAccountId());
                             aoVar.ag("fid", 0);
                             aoVar.s("tid", jVar.getThreadId());
-                            aoVar.ag("obj_type", jVar.bEk());
-                            aoVar.s("star_id", jVar.ckd());
+                            aoVar.ag("obj_type", jVar.bEl());
+                            aoVar.s("star_id", jVar.cke());
                             aoVar.s(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, liveId);
                             TiebaStatic.log(aoVar);
                         }
@@ -150,8 +150,8 @@ public class a extends RecyclerView.Adapter<C0636a> {
                         aoVar.s("uid", TbadkApplication.getCurrentAccountId());
                         aoVar.ag("fid", 0);
                         aoVar.s("tid", jVar.getThreadId());
-                        aoVar.ag("obj_type", jVar.bEk());
-                        aoVar.s("star_id", jVar.ckd());
+                        aoVar.ag("obj_type", jVar.bEl());
+                        aoVar.s("star_id", jVar.cke());
                         aoVar.s(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, liveId);
                         TiebaStatic.log(aoVar);
                         this.isU.add(Long.valueOf(liveId));

@@ -60,9 +60,9 @@ public class c {
                 yVar.addPostData("lat", String.valueOf(address.getLatitude()));
                 yVar.addPostData("lng", String.valueOf(address.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.diD().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.diE().getLocationData();
             if (locationData != null) {
-                yVar.addPostData("name", locationData.diB());
+                yVar.addPostData("name", locationData.diC());
                 yVar.addPostData(IXAdRequestInfo.SN, locationData.axE());
             }
         }

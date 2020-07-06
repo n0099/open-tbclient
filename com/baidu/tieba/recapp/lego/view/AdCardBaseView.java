@@ -162,7 +162,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View cxy() {
+    protected View cxz() {
         MessageManager.getInstance().registerListener(this.lgJ);
         MessageManager.getInstance().registerListener(this.lgK);
         MessageManager.getInstance().registerListener(this.lgL);
@@ -412,7 +412,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
         } else {
             this.ieC.setVisibility(8);
         }
-        if ((com.baidu.tieba.frs.b.bXc().bWW() || com.baidu.tieba.frs.a.bWV().bWW()) && isInFrsAllThread()) {
+        if ((com.baidu.tieba.frs.b.bXd().bWX() || com.baidu.tieba.frs.a.bWW().bWX()) && isInFrsAllThread()) {
             this.lge.setVisibility(0);
             an.setBackgroundColor(this.lge, R.color.cp_bg_line_d);
         } else {
@@ -448,13 +448,13 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        boY();
+        boZ();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        boZ();
+        bpa();
     }
 
     private void a(AdCard adCard, DownloadData downloadData) {
@@ -472,7 +472,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
             this.lgx.setOnClickInterceptListener(new b.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.5
                 @Override // com.baidu.tieba.ad.download.mvp.b.a
                 public void bu(View view) {
-                    AdCardBaseView.this.cZk();
+                    AdCardBaseView.this.cZl();
                 }
             });
         }
@@ -484,13 +484,13 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
             String scheme = adCard.getScheme();
             String str = advertAppInfo.dGL;
             if (!TextUtils.isEmpty(str)) {
-                Ar = com.baidu.tieba.ad.download.d.bpf().Aq(str);
+                Ar = com.baidu.tieba.ad.download.d.bpg().Aq(str);
             } else {
-                Ar = com.baidu.tieba.ad.download.d.bpf().Ar(scheme);
+                Ar = com.baidu.tieba.ad.download.d.bpg().Ar(scheme);
             }
             if (Ar == null) {
                 Ar = DownloadCacheKey.create(str, advertAppInfo.apkUrl, advertAppInfo.dGO);
-                com.baidu.tieba.ad.download.d.bpf().a(Ar, null);
+                com.baidu.tieba.ad.download.d.bpg().a(Ar, null);
             }
             i(Ar);
         }
@@ -499,9 +499,9 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     public void i(DownloadCacheKey downloadCacheKey) {
         if (downloadCacheKey != null) {
             this.eYA = downloadCacheKey;
-            boZ();
+            bpa();
             this.eYB = null;
-            AdDownloadData d2 = com.baidu.tieba.ad.download.d.bpf().d(downloadCacheKey);
+            AdDownloadData d2 = com.baidu.tieba.ad.download.d.bpg().d(downloadCacheKey);
             if (d2 != null) {
                 this.lgx.a(d2.getCurrentState());
             } else {
@@ -516,19 +516,19 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
             if (d2.extra().getPercent() > 0) {
                 aVar.b((com.baidu.tieba.ad.browser.newstyle.view.a) d2);
             }
-            boY();
-        }
-    }
-
-    private void boY() {
-        if (this.eYA != null && this.eYB != null) {
-            com.baidu.tieba.ad.download.d.bpf().a(this.eYA, this.eYB);
+            boZ();
         }
     }
 
     private void boZ() {
         if (this.eYA != null && this.eYB != null) {
-            com.baidu.tieba.ad.download.d.bpf().b(this.eYA, this.eYB);
+            com.baidu.tieba.ad.download.d.bpg().a(this.eYA, this.eYB);
+        }
+    }
+
+    private void bpa() {
+        if (this.eYA != null && this.eYB != null) {
+            com.baidu.tieba.ad.download.d.bpg().b(this.eYA, this.eYB);
         }
     }
 
@@ -780,7 +780,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
                     apkDownloadView.s(c2);
                     return;
                 case 8:
-                    com.baidu.tieba.ad.download.d.bpf().aw(this.dPv.getPageActivity(), advertAppInfo.dGO);
+                    com.baidu.tieba.ad.download.d.bpg().aw(this.dPv.getPageActivity(), advertAppInfo.dGO);
                     return;
             }
         }
@@ -843,7 +843,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
                 return;
             }
             AdCardBaseView.this.a(advertAppInfo, i, AdCardBaseView.this.lgx, z);
-            AdCardBaseView.this.cZk();
+            AdCardBaseView.this.cZl();
         }
 
         private void j(AdvertAppInfo advertAppInfo) {
@@ -859,7 +859,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cZk() {
+    public void cZl() {
         if (this.jrl != null) {
             this.jrl.d(3, null);
         }
@@ -981,7 +981,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lego.card.view.e
-    public void cxE() {
+    public void cxF() {
         if (4 == getBusinessType()) {
             this.jjC.setTextSize(0, TbConfig.getContentSize());
         }

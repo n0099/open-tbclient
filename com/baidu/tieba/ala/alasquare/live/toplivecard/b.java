@@ -65,7 +65,7 @@ public class b {
         this.eLi = new QuickVideoView.b() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.b.1
             @Override // com.baidu.tieba.play.QuickVideoView.b
             public void onSurfaceDestroyed() {
-                b.this.btD();
+                b.this.btE();
             }
         };
         this.eLe = new g.b() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.b.2
@@ -100,7 +100,7 @@ public class b {
                         }
                     }
                     b.this.bq(gVar.getVideoHeight(), gVar.getVideoWidth());
-                    b.this.fng.btx();
+                    b.this.fng.bty();
                 }
             }
         };
@@ -248,7 +248,7 @@ public class b {
         }
     }
 
-    public void btC() {
+    public void btD() {
         this.fnk = l.getEquipmentWidth(this.dPv.getPageActivity());
         this.fnl = l.getEquipmentHeight(this.dPv.getPageActivity());
         this.fnm = (int) ((this.fnk / 16.0d) * 9.0d);
@@ -258,33 +258,33 @@ public class b {
             boolean isPlaying = this.fnh == null ? false : this.fnh.isPlaying();
             qa(this.fnc.aiq.aSJ().screen_direction);
             pZ(this.fnc.aiq.aSJ().screen_direction);
-            btD();
+            btE();
             if (isPlaying) {
                 Bv(this.fno);
             }
         }
     }
 
-    public void btD() {
+    public void btE() {
         jx(true);
     }
 
     public void jx(boolean z) {
         if (z) {
-            btE();
+            btF();
         }
         if (this.fnh != null) {
             this.fnh.stopPlayback();
         }
-        this.fng.bty();
         this.fng.btz();
+        this.fng.btA();
     }
 
-    private void btE() {
+    private void btF() {
         if (this.fnj != null) {
-            if (this.fnj.cVh() != null) {
-                this.fnj.cVh().setPlayer(null);
-                this.fnj.cVh().stop();
+            if (this.fnj.cVi() != null) {
+                this.fnj.cVi().setPlayer(null);
+                this.fnj.cVi().stop();
             }
             this.fnj = null;
         }
@@ -306,10 +306,10 @@ public class b {
         }
     }
 
-    private void btF() {
+    private void btG() {
         if (this.fnc != null && this.fnc.aiq != null && this.fnc.aiq.aSJ() != null) {
             if (this.fnh != null && this.fnh.getParent() != null) {
-                btE();
+                btF();
             }
             this.fnj = new n(this.dPv.getPageActivity());
             this.fni = new j();
@@ -322,7 +322,7 @@ public class b {
             this.fni.setPlayer(this.fnh);
             this.fni.a(new j.c() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.b.4
                 @Override // com.baidu.tieba.play.j.c
-                public void btG() {
+                public void btH() {
                 }
             });
             if (this.fnh.getParent() == null) {
@@ -336,10 +336,10 @@ public class b {
         if (!StringUtils.isNull(str) && this.fnc != null && this.fnc.aiq != null && this.fnc.aiq.aSJ() != null) {
             if (!str.equals(this.fno) || (this.fnh != null && !this.fnh.isPlaying())) {
                 this.fno = str;
-                btD();
+                btE();
             }
             if (this.fnh == null) {
-                btF();
+                btG();
             }
             if (this.fnh != null && !this.fnh.isPlaying()) {
                 if (this.fnj != null) {
@@ -348,8 +348,8 @@ public class b {
                     yVar.eEs = String.valueOf(this.fnc.aiq.getFid());
                     yVar.ajO = this.fnc.aiq.getTid();
                     this.fnj.setVideoStatsData(yVar);
-                    if (this.fnj.cVC() != null) {
-                        this.fnj.cVC().c(this.fnc.aiq.aSJ());
+                    if (this.fnj.cVD() != null) {
+                        this.fnj.cVD().c(this.fnc.aiq.aSJ());
                     }
                 }
                 if (this.fnh != null) {
@@ -370,7 +370,7 @@ public class b {
     }
 
     public void onDestroy() {
-        btE();
+        btF();
         if (this.fng != null) {
             this.fng.onDestroy();
         }

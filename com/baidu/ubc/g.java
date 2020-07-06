@@ -8,34 +8,34 @@ import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class g {
-    private static volatile g mEb;
+    private static volatile g mEe;
     private int dus;
     private int dut;
     private int duu;
     private Context mContext;
-    private f mEc = new f();
-    private ad mDo = new ad();
+    private f mEf = new f();
+    private ad mDr = new ad();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static g dwI() {
-        if (mEb == null) {
+    public static g dwM() {
+        if (mEe == null) {
             synchronized (e.class) {
-                if (mEb == null) {
-                    mEb = new g();
+                if (mEe == null) {
+                    mEe = new g();
                 }
             }
         }
-        return mEb;
+        return mEe;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(c cVar, Context context) {
         this.mContext = context;
         this.dus = 360000;
-        ag dwY = ag.dwY();
-        this.dut = dwY.getInt("ubc_data_expire_time", PersonListModel.CACHETIME);
-        this.duu = dwY.getInt("ubc_database_limit", 10000);
-        cVar.dwF().a(this.mEc);
+        ag dxc = ag.dxc();
+        this.dut = dxc.getInt("ubc_data_expire_time", PersonListModel.CACHETIME);
+        this.duu = dxc.getInt("ubc_database_limit", 10000);
+        cVar.dwJ().a(this.mEf);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -44,56 +44,56 @@ public class g {
             String id = kVar.getId();
             if (!TextUtils.isEmpty(id)) {
                 if ("0".equals(kVar.aJp())) {
-                    this.mEc.mDQ.add(id);
-                    this.mEc.mDT.remove(id);
+                    this.mEf.mDT.add(id);
+                    this.mEf.mDW.remove(id);
                 } else {
-                    this.mEc.mDQ.remove(id);
-                    this.mEc.mDT.add(id);
+                    this.mEf.mDT.remove(id);
+                    this.mEf.mDW.add(id);
                 }
                 if ("1".equals(kVar.aJq())) {
-                    this.mEc.mDR.add(id);
+                    this.mEf.mDU.add(id);
                 } else {
-                    this.mEc.mDR.remove(id);
+                    this.mEf.mDU.remove(id);
                 }
                 if ("1".equals(kVar.aJr())) {
-                    this.mEc.mDS.add(id);
+                    this.mEf.mDV.add(id);
                 } else {
-                    this.mEc.mDS.remove(id);
+                    this.mEf.mDV.remove(id);
                 }
-                if ("1".equals(kVar.dwK())) {
-                    this.mEc.mDU.add(id);
+                if ("1".equals(kVar.dwO())) {
+                    this.mEf.mDX.add(id);
                 } else {
-                    this.mEc.mDU.remove(id);
+                    this.mEf.mDX.remove(id);
                 }
                 if (kVar.aJs() >= 1 && kVar.aJs() <= 100) {
-                    this.mEc.mDV.put(id, String.valueOf(kVar.aJs()));
+                    this.mEf.mDY.put(id, String.valueOf(kVar.aJs()));
                 } else {
-                    this.mEc.mDV.remove(id);
+                    this.mEf.mDY.remove(id);
                 }
                 if (!TextUtils.isEmpty(kVar.getCategory())) {
-                    this.mEc.mDW.put(id, kVar.getCategory());
+                    this.mEf.mDZ.put(id, kVar.getCategory());
                 } else {
-                    this.mEc.mDW.remove(id);
+                    this.mEf.mDZ.remove(id);
                 }
                 if (kVar.aJu() != 0 && kVar.aJt() != 0) {
                     m mVar = new m(id, kVar.aJu(), kVar.aJt());
-                    this.mEc.mDX.put(mVar.getId(), mVar);
+                    this.mEf.mEa.put(mVar.getId(), mVar);
                 }
                 if (TextUtils.equals(kVar.aJv(), "1")) {
-                    this.mEc.mDY.add(id);
+                    this.mEf.mEb.add(id);
                 } else {
-                    this.mEc.mDY.remove(id);
+                    this.mEf.mEb.remove(id);
                 }
-                if (TextUtils.equals(kVar.dwM(), "1")) {
-                    this.mEc.mDZ.add(id);
+                if (TextUtils.equals(kVar.dwQ(), "1")) {
+                    this.mEf.mEc.add(id);
                 } else {
-                    this.mEc.mDZ.remove(id);
+                    this.mEf.mEc.remove(id);
                 }
-                String dwN = kVar.dwN();
-                if (!TextUtils.isEmpty(dwN) && !TextUtils.equals(dwN, "0")) {
-                    this.mEc.mEa.put(id, dwN);
+                String dwR = kVar.dwR();
+                if (!TextUtils.isEmpty(dwR) && !TextUtils.equals(dwR, "0")) {
+                    this.mEf.mEd.put(id, dwR);
                 } else {
-                    this.mEc.mEa.remove(id);
+                    this.mEf.mEd.remove(id);
                 }
             }
         }
@@ -101,32 +101,32 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean aa(String str, int i) {
-        if (this.mEc.mDQ.contains(str)) {
+        if (this.mEf.mDT.contains(str)) {
             return false;
         }
-        return ((i & 16) == 0 && (i & 32) == 0) || this.mEc.mDT.contains(str);
+        return ((i & 16) == 0 && (i & 32) == 0) || this.mEf.mDW.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean tM(String str) {
-        if (this.mDo.dwW()) {
+        if (this.mDr.dxa()) {
             return true;
         }
-        return this.mEc.mDR.contains(str);
+        return this.mEf.mDU.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean tN(String str) {
-        return this.mEc.mDS.contains(str);
+        return this.mEf.mDV.contains(str);
     }
 
-    boolean PN(String str) {
-        return this.mEc.mDU.contains(str);
+    boolean PO(String str) {
+        return this.mEf.mDX.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String tO(String str) {
-        return this.mEc.mDW.containsKey(str) ? this.mEc.mDW.get(str) : "";
+        return this.mEf.mDZ.containsKey(str) ? this.mEf.mDZ.get(str) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -150,7 +150,7 @@ public class g {
     public void jF(int i) {
         if (i >= this.dut) {
             this.dut = i;
-            ag.dwY().putInt("ubc_data_expire_time", i);
+            ag.dxc().putInt("ubc_data_expire_time", i);
         }
     }
 
@@ -163,42 +163,42 @@ public class g {
     public void jG(int i) {
         if (i >= this.duu) {
             this.duu = i;
-            ag.dwY().putInt("ubc_database_limit", i);
+            ag.dxc().putInt("ubc_database_limit", i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int tP(String str) {
-        if (TextUtils.isEmpty(str) || !this.mEc.mDV.containsKey(str)) {
+        if (TextUtils.isEmpty(str) || !this.mEf.mDY.containsKey(str)) {
             return 0;
         }
-        return Integer.parseInt(this.mEc.mDV.get(str));
+        return Integer.parseInt(this.mEf.mDY.get(str));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean tQ(String str) {
-        if (this.mEc.mDX == null || !this.mEc.mDX.containsKey(str)) {
+        if (this.mEf.mEa == null || !this.mEf.mEa.containsKey(str)) {
             return false;
         }
-        return this.mEc.mDX.get(str).aJw();
+        return this.mEf.mEa.get(str).aJw();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean tR(String str) {
-        if (this.mEc.mDX == null || !this.mEc.mDX.containsKey(str)) {
+        if (this.mEf.mEa == null || !this.mEf.mEa.containsKey(str)) {
             return false;
         }
-        return this.mEc.mDX.get(str).aJx();
+        return this.mEf.mEa.get(str).aJx();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String tS(String str) {
-        return (TextUtils.isEmpty(str) || !this.mEc.mDY.contains(str)) ? "0" : "1";
+        return (TextUtils.isEmpty(str) || !this.mEf.mEb.contains(str)) ? "0" : "1";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean PO(String str) {
-        return this.mContext == null || isNetworkConnected(this.mContext) || !PN(str);
+    public boolean PP(String str) {
+        return this.mContext == null || isNetworkConnected(this.mContext) || !PO(str);
     }
 
     public boolean isNetworkConnected(Context context) {
@@ -207,17 +207,17 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean PP(String str) {
-        return this.mEc.mDZ.contains(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean PQ(String str) {
-        return this.mEc.mDR.contains(str);
+        return this.mEf.mEc.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String PR(String str) {
-        return this.mEc.mEa.containsKey(str) ? this.mEc.mEa.get(str) : "";
+    public boolean PR(String str) {
+        return this.mEf.mDU.contains(str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String PS(String str) {
+        return this.mEf.mEd.containsKey(str) ? this.mEf.mEd.get(str) : "";
     }
 }

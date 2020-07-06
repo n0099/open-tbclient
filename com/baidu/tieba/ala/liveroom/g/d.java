@@ -28,8 +28,8 @@ public class d {
         }
     }
 
-    private void bDZ() {
-        this.gfJ.bDZ();
+    private void bEa() {
+        this.gfJ.bEa();
     }
 
     public View getView() {
@@ -38,39 +38,39 @@ public class d {
 
     public void a(AlaLiveRecorder alaLiveRecorder, int i) {
         this.gfJ.a(alaLiveRecorder);
-        bDZ();
-    }
-
-    public boolean bEa() {
-        return this.gfJ.bEa();
+        bEa();
     }
 
     public boolean bEb() {
         return this.gfJ.bEb();
     }
 
-    public String getLiveTitle() {
-        return this.gfJ.getLiveTitle();
-    }
-
     public boolean bEc() {
         return this.gfJ.bEc();
+    }
+
+    public String getLiveTitle() {
+        return this.gfJ.getLiveTitle();
     }
 
     public boolean bEd() {
         return this.gfJ.bEd();
     }
 
+    public boolean bEe() {
+        return this.gfJ.bEe();
+    }
+
     public void kU(boolean z) {
         this.gfJ.kU(z);
     }
 
-    public void bEe() {
+    public void bEf() {
         this.gfJ.gsK = false;
     }
 
-    public String bEf() {
-        return this.gfJ.bEf();
+    public String bEg() {
+        return this.gfJ.bEg();
     }
 
     public void setVisibility(int i) {
@@ -109,12 +109,12 @@ public class d {
         this.gfJ.onRefresh();
     }
 
-    public boolean bEg() {
-        return this.gfJ.bEg();
+    public boolean bEh() {
+        return this.gfJ.bEh();
     }
 
-    public void bEh() {
-        this.gfJ.bEh();
+    public void bEi() {
+        this.gfJ.bEi();
     }
 
     public void release() {
@@ -129,9 +129,9 @@ public class d {
         this.gfJ.kV(z);
     }
 
-    public void bEi() {
+    public void bEj() {
         if (this.gfJ != null) {
-            this.gfJ.bEi();
+            this.gfJ.bEj();
         }
     }
 

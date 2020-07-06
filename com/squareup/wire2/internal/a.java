@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public final class a {
-    public static <T> List<T> dNm() {
+    public static <T> List<T> dNq() {
         return new MutableOnWriteList(Collections.emptyList());
     }
 
-    public static <K, V> Map<K, V> dNn() {
+    public static <K, V> Map<K, V> dNr() {
         return new LinkedHashMap();
     }
 

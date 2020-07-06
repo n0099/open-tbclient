@@ -20,7 +20,7 @@ public class g implements q {
     }
 
     @Override // com.baidu.ubc.q
-    public List<String> deO() {
+    public List<String> deP() {
         return null;
     }
 }

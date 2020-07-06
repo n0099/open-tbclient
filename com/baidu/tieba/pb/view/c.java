@@ -46,7 +46,7 @@ public class c {
         });
     }
 
-    public void cQM() {
+    public void cQN() {
         if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().bam()) {
             com.baidu.adp.lib.f.e.lt().removeCallbacks(this.kBn);
             long ban = TbSingleton.getInstance().getSharePanelConfData().ban() * 1000;

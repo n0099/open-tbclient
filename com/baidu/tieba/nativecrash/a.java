@@ -30,15 +30,15 @@ public class a {
     private static BdNativeCrash.a jNa = new BdNativeCrash.a() { // from class: com.baidu.tieba.nativecrash.a.2
     };
 
-    public static void cDO() {
+    public static void cDP() {
         if (BdNativeCrash.jMX) {
-            BdNativeCrash.cDN().eU(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
-            BdNativeCrash.cDN().a(jNa);
-            cDP();
+            BdNativeCrash.cDO().eU(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
+            BdNativeCrash.cDO().a(jNa);
+            cDQ();
         }
     }
 
-    private static void cDP() {
+    private static void cDQ() {
         try {
             Context applicationContext = BdBaseApplication.getInst().getApplicationContext();
             IntentFilter intentFilter = new IntentFilter();

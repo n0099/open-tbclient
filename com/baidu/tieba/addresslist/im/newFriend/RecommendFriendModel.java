@@ -58,10 +58,10 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                     ad.b(new ac<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.ac
-                        /* renamed from: bpB */
+                        /* renamed from: bpC */
                         public Void doInBackground() {
                             if (datas != null && datas.size() > 0) {
-                                b.bpH().bq(datas);
+                                b.bpI().bq(datas);
                                 return null;
                             }
                             return null;
@@ -84,7 +84,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
         registerListener(this.fbc);
     }
 
-    public void bpN() {
+    public void bpO() {
         sendMessage(new HttpMessage(1001900));
     }
 

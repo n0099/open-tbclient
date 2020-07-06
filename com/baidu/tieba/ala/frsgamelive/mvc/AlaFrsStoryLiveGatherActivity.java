@@ -45,7 +45,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             if (AlaFrsStoryLiveGatherActivity.this.getPageContext() != null && AlaFrsStoryLiveGatherActivity.this.fGx != null) {
                 AlaFrsStoryLiveGatherActivity.this.hideLoadingView(AlaFrsStoryLiveGatherActivity.this.fGx.getRootView());
                 AlaFrsStoryLiveGatherActivity.this.fGx.completePullRefresh();
-                AlaFrsStoryLiveGatherActivity.this.fGx.d(AlaFrsStoryLiveGatherActivity.this.fGy.getDatas(), AlaFrsStoryLiveGatherActivity.this.fGy.bxc(), z);
+                AlaFrsStoryLiveGatherActivity.this.fGx.d(AlaFrsStoryLiveGatherActivity.this.fGy.getDatas(), AlaFrsStoryLiveGatherActivity.this.fGy.bxd(), z);
                 AlaFrsStoryLiveGatherActivity.this.fGx.qm(AlaFrsStoryLiveGatherActivity.this.fGy.getLiveCount());
                 if (w.getCount(AlaFrsStoryLiveGatherActivity.this.fGy.getDatas()) != 0) {
                     AlaFrsStoryLiveGatherActivity.this.hideNetRefreshView(AlaFrsStoryLiveGatherActivity.this.fGx.getRootView());
@@ -91,13 +91,13 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         public void onScrollToBottom() {
             boolean z = false;
             if (AlaFrsStoryLiveGatherActivity.this.fGy != null) {
-                z = AlaFrsStoryLiveGatherActivity.this.fGy.buP();
+                z = AlaFrsStoryLiveGatherActivity.this.fGy.buQ();
             }
             if (AlaFrsStoryLiveGatherActivity.this.fGx != null) {
                 if (z) {
-                    AlaFrsStoryLiveGatherActivity.this.fGx.btJ();
+                    AlaFrsStoryLiveGatherActivity.this.fGx.btK();
                 } else {
-                    AlaFrsStoryLiveGatherActivity.this.fGx.btI();
+                    AlaFrsStoryLiveGatherActivity.this.fGx.btJ();
                 }
             }
         }
@@ -131,11 +131,11 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         if (StringUtils.isNull(this.forumId)) {
             finish();
         }
-        setContentView(bwR());
+        setContentView(bwS());
         Bc();
     }
 
-    private View bwR() {
+    private View bwS() {
         String string;
         LinearLayout linearLayout = new LinearLayout(getActivity());
         linearLayout.setOrientation(1);
@@ -209,7 +209,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             alaLiveInfoCoreData.fillWithInfoData(buVar.aSJ());
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            for (bu buVar2 : this.fGy.buG()) {
+            for (bu buVar2 : this.fGy.buH()) {
                 alaLiveInfoListCoreData.mLiveInfoList.add(V(buVar2));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, "square_sub_live", str, z, null, null)));

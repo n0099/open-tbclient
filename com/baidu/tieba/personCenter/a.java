@@ -11,7 +11,7 @@ public class a {
     private a() {
     }
 
-    public static a cRI() {
+    public static a cRJ() {
         return kFA;
     }
 
@@ -31,7 +31,7 @@ public class a {
         this.beginTime = j;
     }
 
-    public long cRJ() {
+    public long cRK() {
         return this.eAY;
     }
 
@@ -47,7 +47,7 @@ public class a {
         this.kFB = j;
     }
 
-    public long cRK() {
+    public long cRL() {
         return this.kFC;
     }
 

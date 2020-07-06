@@ -54,7 +54,7 @@ public class a extends BaseAdapter {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.f.a
-        public void bQX() {
+        public void bQY() {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.f.a
@@ -74,9 +74,9 @@ public class a extends BaseAdapter {
         this.haM = new com.baidu.tieba.enterForum.view.f(this.mPageContext, recentlyVisitedForumModel, viewEventCenter);
         this.haM.a(new f.a() { // from class: com.baidu.tieba.enterForum.a.a.1
             @Override // com.baidu.tieba.enterForum.view.f.a
-            public void bQW() {
+            public void bQX() {
                 a.this.notifyDataSetChanged();
-                bVar.setRecentlyIsExtend(a.this.haM.bTG());
+                bVar.setRecentlyIsExtend(a.this.haM.bTH());
                 bVar.setRecentlyIsShow(a.this.haM.isShow());
             }
         });
@@ -159,7 +159,7 @@ public class a extends BaseAdapter {
                 if (this.mData.get(i) instanceof com.baidu.tieba.enterForum.data.e) {
                     com.baidu.tieba.enterForum.data.e eVar2 = (com.baidu.tieba.enterForum.data.e) this.mData.get(i);
                     this.haN.f(cVar3.haZ);
-                    this.haN.bRY();
+                    this.haN.bRZ();
                     this.haN.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
                     if (eVar2 != null) {
                         cVar3.mTitle.setText(eVar2.mTitle);
@@ -263,10 +263,10 @@ public class a extends BaseAdapter {
                 return view;
             case 4:
                 View view2 = this.haM.getView();
-                this.haM.bTI();
+                this.haM.bTJ();
                 return view2;
             case 5:
-                bQV();
+                bQW();
                 if (view == null || !(view.getTag() instanceof com.baidu.tieba.enterForum.b.a)) {
                     aVar = new com.baidu.tieba.enterForum.b.a(this.mPageContext);
                     view = aVar.getView();
@@ -278,10 +278,10 @@ public class a extends BaseAdapter {
                 aVar.w(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.a.5
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view3) {
-                        String bRh;
-                        String bRh2;
+                        String bRi;
+                        String bRi2;
                         TiebaStatic.log("c13379");
-                        if (a.this.haO.bSx()) {
+                        if (a.this.haO.bSy()) {
                             if (a.this.haL != null) {
                                 a.this.haL.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(14, null, null, null));
                                 return;
@@ -289,17 +289,17 @@ public class a extends BaseAdapter {
                             return;
                         }
                         boolean z = false;
-                        ForumCreateInfoData bRa = a.this.haO.bSw().bRa();
-                        if (bRa != null) {
-                            switch (bRa.bRg()) {
+                        ForumCreateInfoData bRb = a.this.haO.bSx().bRb();
+                        if (bRb != null) {
+                            switch (bRb.bRh()) {
                                 case NetWorkErr.ERROR_FORBID_POST_LIVE /* 220012 */:
                                     BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-                                    if (ar.isEmpty(bRa.bRh())) {
-                                        bRh2 = a.this.mPageContext.getResources().getString(R.string.create_forum_block_tip);
+                                    if (ar.isEmpty(bRb.bRi())) {
+                                        bRi2 = a.this.mPageContext.getResources().getString(R.string.create_forum_block_tip);
                                     } else {
-                                        bRh2 = bRa.bRh();
+                                        bRi2 = bRb.bRi();
                                     }
-                                    blockPopInfoData.block_info = bRh2;
+                                    blockPopInfoData.block_info = bRi2;
                                     blockPopInfoData.ahead_info = a.this.mPageContext.getResources().getString(R.string.create_forum_feed);
                                     blockPopInfoData.ok_info = a.this.mPageContext.getResources().getString(R.string.know);
                                     blockPopInfoData.ahead_url = "http://tieba.baidu.com/mo/q/userappeal";
@@ -325,13 +325,13 @@ public class a extends BaseAdapter {
                         }
                         if (!z) {
                             String string = a.this.mPageContext.getResources().getString(R.string.create_forum_err);
-                            if (bRa != null) {
-                                if (ar.isEmpty(bRa.bRh())) {
-                                    bRh = a.this.mPageContext.getResources().getString(R.string.create_forum_err);
+                            if (bRb != null) {
+                                if (ar.isEmpty(bRb.bRi())) {
+                                    bRi = a.this.mPageContext.getResources().getString(R.string.create_forum_err);
                                 } else {
-                                    bRh = bRa.bRh();
+                                    bRi = bRb.bRi();
                                 }
-                                string = bRh;
+                                string = bRi;
                             }
                             com.baidu.tbadk.coreExtra.c.a.a(a.this.mPageContext, (String) null, string, a.this.mPageContext.getResources().getString(R.string.know), (String) null, new a.b() { // from class: com.baidu.tieba.enterForum.a.a.5.3
                                 @Override // com.baidu.tbadk.core.dialog.a.b
@@ -358,8 +358,8 @@ public class a extends BaseAdapter {
                 if (this.mData.get(i) instanceof bi) {
                     eVar.a((bi) this.mData.get(i));
                 }
-                if (this.haO.bSw() != null && this.haO.bSw().bQY() != null && this.haO.bSw().bQY().bRu() != null) {
-                    eVar.setHasLikeForum(this.haO.bSw().bQY().bRu().size() > 0);
+                if (this.haO.bSx() != null && this.haO.bSx().bQZ() != null && this.haO.bSx().bQZ().bRv() != null) {
+                    eVar.setHasLikeForum(this.haO.bSx().bQZ().bRv().size() > 0);
                     return view;
                 }
                 return view;
@@ -375,13 +375,13 @@ public class a extends BaseAdapter {
                 if (this.mData.get(i) instanceof bg) {
                     bg bgVar = (bg) this.mData.get(i);
                     fVar.a(bgVar);
-                    if (this.haR.bTw().getGlobalVisibleRect(new Rect()) && view.getGlobalVisibleRect(new Rect()) && !this.haS.contains(Long.valueOf(bgVar.getForumId()))) {
+                    if (this.haR.bTx().getGlobalVisibleRect(new Rect()) && view.getGlobalVisibleRect(new Rect()) && !this.haS.contains(Long.valueOf(bgVar.getForumId()))) {
                         ao aoVar = new ao("c13642");
                         aoVar.s("uid", TbadkApplication.getCurrentAccountId());
                         aoVar.s("fid", bgVar.getForumId());
                         aoVar.ag("obj_locate", 1);
-                        if (this.haO.bSw() != null && this.haO.bSw().bQY() != null && this.haO.bSw().bQY().bRu() != null) {
-                            boolean z = this.haO.bSw().bQY().bRu().size() > 0;
+                        if (this.haO.bSx() != null && this.haO.bSx().bQZ() != null && this.haO.bSx().bQZ().bRv() != null) {
+                            boolean z = this.haO.bSx().bQZ().bRv().size() > 0;
                             aoVar.ag("obj_type", z ? 3 : 1);
                             fVar.setHasLikeForum(z);
                         }
@@ -395,7 +395,7 @@ public class a extends BaseAdapter {
             case 9:
                 if (view == null || !(view.getTag() instanceof d)) {
                     d dVar2 = new d(this.mPageContext);
-                    view = dVar2.bTL();
+                    view = dVar2.bTM();
                     view.setTag(dVar2);
                     dVar = dVar2;
                 } else {
@@ -421,8 +421,8 @@ public class a extends BaseAdapter {
                 if (this.mData.get(i) instanceof com.baidu.tieba.enterForum.data.a) {
                     bVar.a((com.baidu.tieba.enterForum.data.a) this.mData.get(i));
                 }
-                if (this.haO.bSw() != null && this.haO.bSw().bQY() != null && this.haO.bSw().bQY().bRu() != null) {
-                    bVar.setHasLikeForum(this.haO.bSw().bQY().bRu().size() > 0);
+                if (this.haO.bSx() != null && this.haO.bSx().bQZ() != null && this.haO.bSx().bQZ().bRv() != null) {
+                    bVar.setHasLikeForum(this.haO.bSx().bQZ().bRv().size() > 0);
                     return view;
                 }
                 return view;
@@ -472,11 +472,11 @@ public class a extends BaseAdapter {
         }
     }
 
-    public boolean bQU() {
+    public boolean bQV() {
         if (this.haM == null) {
             return false;
         }
-        return this.haM.bQU();
+        return this.haM.bQV();
     }
 
     public void onPrimary() {
@@ -484,7 +484,7 @@ public class a extends BaseAdapter {
         this.haS.clear();
     }
 
-    public void bQV() {
+    public void bQW() {
         if (this.haP) {
             TiebaStatic.log("c13378");
             this.haP = false;

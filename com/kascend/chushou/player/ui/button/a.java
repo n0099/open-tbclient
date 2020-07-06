@@ -11,7 +11,7 @@ public class a {
         this.b = i2;
     }
 
-    public a Rk(String str) {
+    public a Rl(String str) {
         this.d = str;
         return this;
     }

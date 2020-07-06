@@ -44,7 +44,7 @@ public class TopicFragment extends BaseFragment implements f.c, ao, a {
             ((ViewGroup) this.izy.getParent()).removeView(this.izy);
         }
         if (this.ilW) {
-            this.izy.bzx();
+            this.izy.bzy();
             this.ilW = false;
         }
         return this.izy;
@@ -62,7 +62,7 @@ public class TopicFragment extends BaseFragment implements f.c, ao, a {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         this.izy.ga(false);
-        this.izx.ckO();
+        this.izx.ckP();
     }
 
     @Override // com.baidu.tieba.frs.ao
@@ -71,11 +71,11 @@ public class TopicFragment extends BaseFragment implements f.c, ao, a {
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void btP() {
+    public void btQ() {
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void btQ() {
+    public void btR() {
     }
 
     @Override // com.baidu.tieba.frs.ao
@@ -98,30 +98,30 @@ public class TopicFragment extends BaseFragment implements f.c, ao, a {
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        this.izx.ckO();
+        this.izx.ckP();
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void loadData() {
         if (j.isNetWorkAvailable()) {
-            this.izy.btN();
+            this.izy.btO();
             this.izy.ga(false);
-            this.izx.ckO();
+            this.izx.ckP();
         }
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void n(int i, List<q> list) {
         this.izy.hideLoadingView();
-        this.izy.btU();
+        this.izy.btV();
         if (i != 0 || w.isEmpty(list)) {
             this.izy.mB(false);
             return;
         }
-        this.izy.btN();
-        this.izy.byJ();
+        this.izy.btO();
+        this.izy.byK();
         this.izy.setData(list);
-        this.izy.buJ();
+        this.izy.buK();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a

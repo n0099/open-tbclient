@@ -143,7 +143,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         sendMessage(alaGameFrsLiveThreadsRequestMessage);
     }
 
-    public boolean buP() {
+    public boolean buQ() {
         if (!this.hasMore) {
             return false;
         }
@@ -206,7 +206,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         return this.liveCount;
     }
 
-    public boolean bxb() {
+    public boolean bxc() {
         return this.fGt;
     }
 

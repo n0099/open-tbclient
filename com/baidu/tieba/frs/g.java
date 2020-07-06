@@ -21,7 +21,7 @@ public class g {
         this.mContext = context;
     }
 
-    public List<FrsTabInfo> bXD() {
+    public List<FrsTabInfo> bXE() {
         return this.hyV;
     }
 
@@ -36,7 +36,7 @@ public class g {
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> bXE() {
+    public List<com.baidu.tbadk.mainTab.b> bXF() {
         return this.hyW;
     }
 

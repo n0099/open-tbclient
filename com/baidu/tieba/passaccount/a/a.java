@@ -53,7 +53,7 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a cFP() {
+    public static a cFQ() {
         if (jVA == null) {
             jVA = new a();
         }

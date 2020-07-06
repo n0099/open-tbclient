@@ -51,8 +51,8 @@ public class u extends com.baidu.tbadk.editortools.d {
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-                if (aVar != null && !StringUtils.isNull(aVar.diB())) {
-                    u.this.a(2, true, aVar.diB());
+                if (aVar != null && !StringUtils.isNull(aVar.diC())) {
+                    u.this.a(2, true, aVar.diC());
                 } else {
                     onFail(null);
                 }
@@ -110,12 +110,12 @@ public class u extends com.baidu.tbadk.editortools.d {
             this.eXy.showToast((int) R.string.location_system_permission_prompt);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             bfG();
-        } else if (this.evw.diI()) {
+        } else if (this.evw.diJ()) {
             bfC();
         } else {
             this.evw.uL(false);
             a(1, true, null);
-            this.evw.diG();
+            this.evw.diH();
         }
     }
 
@@ -134,7 +134,7 @@ public class u extends com.baidu.tbadk.editortools.d {
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     u.this.a(1, true, null);
-                    u.this.evw.diK();
+                    u.this.evw.diL();
                 } else {
                     u.this.evJ.bfT();
                 }
@@ -151,13 +151,13 @@ public class u extends com.baidu.tbadk.editortools.d {
     }
 
     public void bfH() {
-        if (this.evw.bKs()) {
-            if (this.evw.diI()) {
-                this.evJ.a(com.baidu.tieba.tbadkCore.location.c.diD().getLocationData());
+        if (this.evw.bKt()) {
+            if (this.evw.diJ()) {
+                this.evJ.a(com.baidu.tieba.tbadkCore.location.c.diE().getLocationData());
                 return;
             }
             if (com.baidu.adp.lib.util.l.isNetOk()) {
-                this.evw.diG();
+                this.evw.diH();
             }
             a(0, true, null);
             return;
@@ -172,7 +172,7 @@ public class u extends com.baidu.tbadk.editortools.d {
         if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) && bfa() != null) {
             bfa().b(new com.baidu.tbadk.editortools.a(2, 12, " "));
         }
-        if (!this.evw.bKs() && bfa() != null) {
+        if (!this.evw.bKt() && bfa() != null) {
             bfa().b(new com.baidu.tbadk.editortools.a(20, 8, null));
         }
     }

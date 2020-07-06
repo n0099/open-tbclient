@@ -32,15 +32,15 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a B(int i, int i2, int i3, int i4) {
-        a ckX = ckX();
-        ckX.type = i;
-        ckX.bge = i2;
-        ckX.bgf = i3;
-        ckX.bgg = i4;
-        return ckX;
+        a ckY = ckY();
+        ckY.type = i;
+        ckY.bge = i2;
+        ckY.bgf = i3;
+        ckY.bgg = i4;
+        return ckY;
     }
 
-    private static a ckX() {
+    private static a ckY() {
         a aVar;
         synchronized (bga) {
             if (bga.size() > 0) {

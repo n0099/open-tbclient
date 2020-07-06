@@ -57,15 +57,15 @@ public class j {
         }
     }
 
-    public List<TopicList> clP() {
+    public List<TopicList> clQ() {
         return this.mTopicList;
     }
 
-    public ArrayList<q> clL() {
-        return clN();
+    public ArrayList<q> clM() {
+        return clO();
     }
 
-    private ArrayList<q> clN() {
+    private ArrayList<q> clO() {
         this.iDS = new ArrayList<>();
         if (this.iEG != null && (!StringUtils.isNull(this.iEG.picUrl) || !StringUtils.isNull(this.iEG.videoUrl))) {
             this.iDS.add(this.iEG);
@@ -74,7 +74,7 @@ public class j {
             int size = this.iEI.size() == 1 ? this.iEI.size() : 1;
             for (int i = 0; i < size; i++) {
                 b bVar = this.iEI.get(i);
-                if (bVar != null && (!StringUtils.isNull(bVar.cly()) || !StringUtils.isNull(bVar.clz()) || !StringUtils.isNull(bVar.getName()))) {
+                if (bVar != null && (!StringUtils.isNull(bVar.clz()) || !StringUtils.isNull(bVar.clA()) || !StringUtils.isNull(bVar.getName()))) {
                     this.iDS.add(this.iEI.get(i));
                 }
             }

@@ -12,28 +12,28 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public class a<T> extends RecyclerView.Adapter<b<T>> {
     protected List<T> aCA;
-    private final int nxF;
-    private com.kascend.chushou.widget.convenientbanner.c.a<T> nxG;
-    private ConvenientBanner nxH;
-    private boolean nxy;
+    private boolean nxB;
+    private final int nxI;
+    private com.kascend.chushou.widget.convenientbanner.c.a<T> nxJ;
+    private ConvenientBanner nxK;
 
     public a(com.kascend.chushou.widget.convenientbanner.c.a<T> aVar, List<T> list, boolean z, ConvenientBanner convenientBanner) {
-        this.nxG = aVar;
-        this.nxF = aVar.getLayoutId();
+        this.nxJ = aVar;
+        this.nxI = aVar.getLayoutId();
         this.aCA = list;
-        this.nxy = z;
-        this.nxH = convenientBanner;
+        this.nxB = z;
+        this.nxK = convenientBanner;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: J */
     public b<T> onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(this.nxF, viewGroup, false);
-        if (this.nxH != null) {
-            inflate.setTag(this.nxH);
+        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(this.nxI, viewGroup, false);
+        if (this.nxK != null) {
+            inflate.setTag(this.nxK);
         }
-        return this.nxG.dv(inflate);
+        return this.nxJ.dv(inflate);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,10 +59,10 @@ public class a<T> extends RecyclerView.Adapter<b<T>> {
         if (this.aCA == null || this.aCA.size() == 0) {
             return 0;
         }
-        return this.nxy ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.aCA.size();
+        return this.nxB ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.aCA.size();
     }
 
-    public int buT() {
+    public int buU() {
         return this.aCA.size();
     }
 }

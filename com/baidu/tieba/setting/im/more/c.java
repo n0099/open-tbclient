@@ -35,7 +35,7 @@ public class c extends com.baidu.adp.base.c<SecretSettingActivity> {
 
         void dbB();
 
-        void dbv();
+        void dbC();
 
         void dbw();
 
@@ -58,19 +58,19 @@ public class c extends com.baidu.adp.base.c<SecretSettingActivity> {
                     if (view == c.this.mBack) {
                         c.this.lps.onBackPressed();
                     } else if (view == c.this.lph) {
-                        c.this.lps.dbv();
-                    } else if (view == c.this.lpi) {
                         c.this.lps.dbw();
-                    } else if (view == c.this.lpj) {
-                        c.this.lps.dby();
-                    } else if (view == c.this.lpn) {
+                    } else if (view == c.this.lpi) {
                         c.this.lps.dbx();
-                    } else if (view == c.this.lpk) {
+                    } else if (view == c.this.lpj) {
                         c.this.lps.dbz();
-                    } else if (view == c.this.lpm) {
+                    } else if (view == c.this.lpn) {
+                        c.this.lps.dby();
+                    } else if (view == c.this.lpk) {
                         c.this.lps.dbA();
-                    } else if (view == c.this.lpr) {
+                    } else if (view == c.this.lpm) {
                         c.this.lps.dbB();
+                    } else if (view == c.this.lpr) {
+                        c.this.lps.dbC();
                     }
                 }
             }
@@ -120,7 +120,7 @@ public class c extends com.baidu.adp.base.c<SecretSettingActivity> {
         this.lps = aVar;
     }
 
-    public void dbC() {
+    public void dbD() {
         this.lph.recycle();
     }
 
@@ -161,24 +161,24 @@ public class c extends com.baidu.adp.base.c<SecretSettingActivity> {
     public void d(com.baidu.tieba.setting.im.more.a aVar) {
         if (aVar != null && this.lpq != null) {
             int length = this.lpq.length;
-            int dbq = aVar.dbq() - 1;
-            if (dbq < length && dbq >= 0) {
-                this.lpn.setTip(this.lpq[dbq]);
-            }
-            int dbo = aVar.dbo() - 1;
-            if (dbo < length && dbo >= 0) {
-                this.lpi.setTip(this.lpq[dbo]);
+            int dbr = aVar.dbr() - 1;
+            if (dbr < length && dbr >= 0) {
+                this.lpn.setTip(this.lpq[dbr]);
             }
             int dbp = aVar.dbp() - 1;
             if (dbp < length && dbp >= 0) {
-                this.lpj.setTip(this.lpq[dbp]);
+                this.lpi.setTip(this.lpq[dbp]);
             }
-            int dbs = aVar.dbs() - 1;
-            if (dbs < length && dbs >= 0) {
-                if (dbs == 0) {
+            int dbq = aVar.dbq() - 1;
+            if (dbq < length && dbq >= 0) {
+                this.lpj.setTip(this.lpq[dbq]);
+            }
+            int dbt = aVar.dbt() - 1;
+            if (dbt < length && dbt >= 0) {
+                if (dbt == 0) {
                     this.lpm.setTip(this.lpo.getString(R.string.all_person));
                 } else {
-                    this.lpm.setTip(this.lpq[dbs]);
+                    this.lpm.setTip(this.lpq[dbt]);
                 }
             }
         }

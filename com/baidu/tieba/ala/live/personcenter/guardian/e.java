@@ -48,7 +48,7 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
                     }
                     AlaGuardianListHttpResponseMessage alaGuardianListHttpResponseMessage = (AlaGuardianListHttpResponseMessage) httpResponsedMessage;
                     if (e.this.fQX != null) {
-                        e.this.fQX.b(alaGuardianListHttpResponseMessage.bzc());
+                        e.this.fQX.b(alaGuardianListHttpResponseMessage.bzd());
                     }
                 }
             }
@@ -74,11 +74,11 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     public boolean loadData() {
-        bzd();
+        bze();
         return false;
     }
 
-    private void bzd() {
+    private void bze() {
         HttpMessage httpMessage = new HttpMessage(1021024);
         httpMessage.setTag(this.fQZ.getUniqueId());
         httpMessage.addParam("benefit_userid", this.mUserId);

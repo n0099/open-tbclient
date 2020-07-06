@@ -74,7 +74,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
                     bVar2.setUniqueId(ChosenPostModelController.this.getUniqueId());
                     ChosenPostModelController.this.gVR.bhs().dispatchMvcEvent(bVar2);
                 }
-                ChosenPostModelController.this.gVV.bPo();
+                ChosenPostModelController.this.gVV.bPp();
                 ChosenPostModelController.this.gVS.loadData();
             }
 
@@ -123,17 +123,17 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bPj() {
+    public boolean bPk() {
         this.gVT.bhc();
         return true;
     }
 
     protected boolean a(com.baidu.tieba.chosen.posts.request.a aVar, com.baidu.tieba.chosen.posts.request.b bVar) {
-        this.gVR.bPi().a(bVar);
+        this.gVR.bPj().a(bVar);
         if (bVar != null) {
             this.gVU.is(false);
             this.gVU.it(false);
-            this.gVR.bPi().c(this.gVU);
+            this.gVR.bPj().c(this.gVU);
             return true;
         }
         return true;
@@ -150,21 +150,21 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean mh(boolean z) {
         this.gVU.is(true);
-        this.gVR.bPi().c(this.gVU);
+        this.gVR.bPj().c(this.gVU);
         mi(true);
-        this.gVV.bPo();
+        this.gVV.bPp();
         this.gVS.loadData();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bPk() {
-        this.gVV.bPo();
+    public boolean bPl() {
+        this.gVV.bPp();
         this.gVS.loadData();
         this.gVU.it(true);
         this.gVU.iv(true);
         mi(false);
-        this.gVR.bPi().c(this.gVU);
+        this.gVR.bPj().c(this.gVU);
         return true;
     }
 
@@ -200,7 +200,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             this.gVR.a(errorData);
-            this.gVR.bPi().a(errorData);
+            this.gVR.bPj().a(errorData);
         }
     }
 
@@ -225,7 +225,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             this.gVR.a(errorData);
-            this.gVR.bPi().a(errorData);
+            this.gVR.bPj().a(errorData);
         }
     }
 

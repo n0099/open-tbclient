@@ -53,13 +53,13 @@ public class b extends c<UserMuteListActivity> {
         this.flI.onChangeSkinType(this.mActivity.getPageContext(), skinType);
     }
 
-    public void cds() {
+    public void cdt() {
         this.US.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.mm(R.string.user_mute_list_no_data_text));
     }
 
-    public void ddK() {
+    public void ddL() {
         this.US.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.mm(R.string.refresh_view_title_text));

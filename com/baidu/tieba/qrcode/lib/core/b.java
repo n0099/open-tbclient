@@ -48,7 +48,7 @@ final class b {
         return a(camera.getParameters().getSupportedFocusModes(), "auto") != null;
     }
 
-    public Point cYb() {
+    public Point cYc() {
         return this.lbB;
     }
 
@@ -56,7 +56,7 @@ final class b {
         Camera.Parameters parameters = camera.getParameters();
         parameters.setPreviewSize(this.lbC.x, this.lbC.y);
         d(parameters);
-        camera.setDisplayOrientation(cYc());
+        camera.setDisplayOrientation(cYd());
         camera.setParameters(parameters);
     }
 
@@ -71,7 +71,7 @@ final class b {
         return null;
     }
 
-    public int cYc() {
+    public int cYd() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);

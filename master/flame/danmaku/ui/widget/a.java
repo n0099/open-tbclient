@@ -9,9 +9,9 @@ import master.flame.danmaku.danmaku.model.android.d;
 import master.flame.danmaku.danmaku.model.l;
 /* loaded from: classes5.dex */
 public class a {
-    private final GestureDetector nWY;
-    private f nWZ;
-    private final GestureDetector.OnGestureListener nXb = new GestureDetector.SimpleOnGestureListener() { // from class: master.flame.danmaku.ui.widget.a.1
+    private final GestureDetector nXb;
+    private f nXc;
+    private final GestureDetector.OnGestureListener nXe = new GestureDetector.SimpleOnGestureListener() { // from class: master.flame.danmaku.ui.widget.a.1
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onDown(MotionEvent motionEvent) {
             return a.this.U(motionEvent);
@@ -25,16 +25,16 @@ public class a {
                 z = a.this.b(B);
             }
             if (!z) {
-                return a.this.dTe();
+                return a.this.dTi();
             }
             return z;
         }
     };
-    private RectF nXa = new RectF();
+    private RectF nXd = new RectF();
 
     private a(f fVar) {
-        this.nWZ = fVar;
-        this.nWY = new GestureDetector(((View) fVar).getContext(), this.nXb);
+        this.nXc = fVar;
+        this.nXb = new GestureDetector(((View) fVar).getContext(), this.nXe);
     }
 
     public static synchronized a b(f fVar) {
@@ -46,12 +46,12 @@ public class a {
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.nWY.onTouchEvent(motionEvent);
+        return this.nXb.onTouchEvent(motionEvent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean b(l lVar) {
-        f.a onDanmakuClickListener = this.nWZ.getOnDanmakuClickListener();
+        f.a onDanmakuClickListener = this.nXc.getOnDanmakuClickListener();
         if (onDanmakuClickListener != null) {
             return onDanmakuClickListener.a(lVar);
         }
@@ -59,10 +59,10 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean dTe() {
-        f.a onDanmakuClickListener = this.nWZ.getOnDanmakuClickListener();
+    public boolean dTi() {
+        f.a onDanmakuClickListener = this.nXc.getOnDanmakuClickListener();
         if (onDanmakuClickListener != null) {
-            return onDanmakuClickListener.a(this.nWZ);
+            return onDanmakuClickListener.a(this.nXc);
         }
         return false;
     }
@@ -70,8 +70,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public l B(final float f, final float f2) {
         final d dVar = new d();
-        this.nXa.setEmpty();
-        l currentVisibleDanmakus = this.nWZ.getCurrentVisibleDanmakus();
+        this.nXd.setEmpty();
+        l currentVisibleDanmakus = this.nXc.getCurrentVisibleDanmakus();
         if (currentVisibleDanmakus != null && !currentVisibleDanmakus.isEmpty()) {
             currentVisibleDanmakus.a(new l.c<master.flame.danmaku.danmaku.model.d>() { // from class: master.flame.danmaku.ui.widget.a.2
                 /* JADX DEBUG: Method merged with bridge method */
@@ -79,8 +79,8 @@ public class a {
                 /* renamed from: e */
                 public int bM(master.flame.danmaku.danmaku.model.d dVar2) {
                     if (dVar2 != null) {
-                        a.this.nXa.set(dVar2.dRZ(), dVar2.dSa(), dVar2.dSb(), dVar2.dSc());
-                        if (a.this.nXa.contains(f, f2)) {
+                        a.this.nXd.set(dVar2.dSd(), dVar2.dSe(), dVar2.dSf(), dVar2.dSg());
+                        if (a.this.nXd.contains(f, f2)) {
                             dVar.k(dVar2);
                             return 0;
                         }
@@ -95,8 +95,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean U(MotionEvent motionEvent) {
-        master.flame.danmaku.danmaku.model.d dSn;
+        master.flame.danmaku.danmaku.model.d dSr;
         l B = B(motionEvent.getX(), motionEvent.getY());
-        return (B == null || B.isEmpty() || (dSn = B.dSn()) == null || dSn.tag == null) ? false : true;
+        return (B == null || B.isEmpty() || (dSr = B.dSr()) == null || dSr.tag == null) ? false : true;
     }
 }

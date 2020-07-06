@@ -28,8 +28,8 @@ public class a implements View.OnClickListener, b.InterfaceC0691b, b.a, b.Interf
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (a.this.jUg.hasMore()) {
-                a.this.jUg.cFv();
-                a.this.buI();
+                a.this.jUg.cFw();
+                a.this.buJ();
             }
         }
     };
@@ -50,7 +50,7 @@ public class a implements View.OnClickListener, b.InterfaceC0691b, b.a, b.Interf
         this.jUj = tBSpecificationBtn;
         this.jUi = tBSpecificationBtn2;
         initUI();
-        cbV();
+        cbW();
     }
 
     private void initUI() {
@@ -65,10 +65,10 @@ public class a implements View.OnClickListener, b.InterfaceC0691b, b.a, b.Interf
         this.fnt.setTextSize(R.dimen.tbfontsize33);
         this.fnt.setNoMoreTextColorId(R.color.cp_cont_e);
         this.gKg.setNextPage(this.fnt);
-        buI();
+        buJ();
     }
 
-    private void cbV() {
+    private void cbW() {
         this.gKg.setOnSrollToBottomListener(this.UJ);
         this.jUg.a((b.InterfaceC0692b) this);
         this.jUg.a((b.a) this);
@@ -76,14 +76,14 @@ public class a implements View.OnClickListener, b.InterfaceC0691b, b.a, b.Interf
         this.jUj.setOnClickListener(this);
     }
 
-    public void buI() {
+    public void buJ() {
         this.fnt.setTopExtraViewGone();
         this.fnt.startLoadData();
         this.fnt.setText(this.gKg.getContext().getString(R.string.list_loading));
         this.fnt.showEmptyView(l.getDimens(this.gKg.getContext(), R.dimen.tbds217));
     }
 
-    public void cFo() {
+    public void cFp() {
         this.fnt.am(this.gKg.getContext().getString(R.string.interested_forum_list_no_more), l.getDimens(this.gKg.getContext(), R.dimen.tbds178));
         this.fnt.setTextSize(R.dimen.tbds36);
         this.fnt.setNoMoreTextColorId(R.color.cp_cont_d);
@@ -91,17 +91,17 @@ public class a implements View.OnClickListener, b.InterfaceC0691b, b.a, b.Interf
         this.fnt.showEmptyView(l.getDimens(this.gKg.getContext(), R.dimen.tbds217));
     }
 
-    public void cFm() {
-        this.jUh.cFm();
+    public void cFn() {
+        this.jUh.cFn();
     }
 
     public void ee(List<com.baidu.tieba.newinterest.data.b> list) {
         this.jUg.ek(list);
-        this.jUg.cFv();
+        this.jUg.cFw();
     }
 
     @Override // com.baidu.tieba.newinterest.c.b.a
-    public void bvB() {
+    public void bvC() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(0)));
     }
 
@@ -112,10 +112,10 @@ public class a implements View.OnClickListener, b.InterfaceC0691b, b.a, b.Interf
                 this.gKg.setVisibility(0);
             }
             this.jUh.bL(cVar.jUm);
-            this.jUf.cFp();
+            this.jUf.cFq();
         }
         if (!this.jUg.hasMore()) {
-            cFo();
+            cFp();
         }
     }
 
@@ -148,7 +148,7 @@ public class a implements View.OnClickListener, b.InterfaceC0691b, b.a, b.Interf
     public void onClick(View view) {
         if (view == this.jUj) {
             try {
-                this.jUg.ei(this.jUh.cFl());
+                this.jUg.ei(this.jUh.cFm());
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }

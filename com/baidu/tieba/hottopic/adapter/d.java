@@ -58,36 +58,36 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(int i, com.baidu.tieba.hottopic.a.b bVar, final com.baidu.tieba.hottopic.data.c cVar) {
         if (bVar != null && cVar != null) {
             bVar.iFq.setVisibility(8);
-            if (cVar.clD() == 1) {
+            if (cVar.clE() == 1) {
                 bVar.iFn.setText("");
                 an.setBackgroundResource(bVar.iFn, R.drawable.icon_grade_shaitu1);
                 bVar.iFq.setVisibility(0);
-                bVar.iFr.setText(er(StringUtils.isNull(cVar.clA()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_list) : cVar.clA(), StringUtils.isNull(cVar.getTips()) ? this.mContext.getResources().getString(R.string.hot_topic_update_time) : cVar.getTips()));
+                bVar.iFr.setText(er(StringUtils.isNull(cVar.clB()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_list) : cVar.clB(), StringUtils.isNull(cVar.getTips()) ? this.mContext.getResources().getString(R.string.hot_topic_update_time) : cVar.getTips()));
                 bVar.iFj.setVisibility(0);
                 an.setBackgroundResource(bVar.iFu, R.drawable.hot_topic_ranklist_bg);
                 bVar.iFu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.d.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (d.this.mPageContext != null) {
-                            String clB = cVar.clB();
-                            if (!StringUtils.isNull(clB)) {
-                                bc.aWU().b(d.this.mPageContext, new String[]{clB});
+                            String clC = cVar.clC();
+                            if (!StringUtils.isNull(clC)) {
+                                bc.aWU().b(d.this.mPageContext, new String[]{clC});
                             }
                         }
                         TiebaStatic.log("c10820");
                     }
                 });
-            } else if (cVar.clD() == 2) {
+            } else if (cVar.clE() == 2) {
                 bVar.iFn.setText("");
                 bVar.iFj.setVisibility(8);
                 an.setBackgroundResource(bVar.iFn, R.drawable.icon_grade_shaitu2);
-            } else if (cVar.clD() == 3) {
+            } else if (cVar.clE() == 3) {
                 bVar.iFn.setText("");
                 bVar.iFj.setVisibility(8);
                 an.setBackgroundResource(bVar.iFn, R.drawable.icon_grade_shaitu3);
             } else {
-                String str = "" + cVar.clD();
-                if (cVar.clD() < 10) {
+                String str = "" + cVar.clE();
+                if (cVar.clE() < 10) {
                     str = "0" + str;
                 }
                 bVar.iFn.setText(str);
@@ -106,7 +106,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
             } else {
                 bVar.iFp.setVisibility(8);
             }
-            String numFormat9999W = ar.numFormat9999W(cVar.clC());
+            String numFormat9999W = ar.numFormat9999W(cVar.clD());
             String str2 = "";
             if (!TextUtils.isEmpty(cVar.getName())) {
                 str2 = UtilHelper.getFixedText(cVar.getName(), 10);

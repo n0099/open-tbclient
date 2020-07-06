@@ -84,7 +84,7 @@ public class a {
         }
     }
 
-    public int ckr() {
+    public int cks() {
         return this.ixn;
     }
 
@@ -92,31 +92,31 @@ public class a {
         return this.hasMore;
     }
 
-    public ArrayList<bu> bSV() {
+    public ArrayList<bu> bSW() {
         return this.hiJ;
     }
 
-    public bh cks() {
+    public bh ckt() {
         return this.ixq;
     }
 
-    public bm ckt() {
+    public bm cku() {
         return this.ixr;
     }
 
-    public k cku() {
+    public k ckv() {
         return this.ixo;
     }
 
-    public ag ckv() {
+    public ag ckw() {
         return this.ixp;
     }
 
-    public b ckw() {
+    public b ckx() {
         return this.ixs;
     }
 
-    public SpecialColumnListData ckx() {
+    public SpecialColumnListData cky() {
         return this.ixt;
     }
 }

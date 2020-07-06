@@ -201,14 +201,14 @@ public class NewThroneAndNobleActivity extends BaseActivity implements View.OnTo
             if (this.fMS != null) {
                 this.fMS.onConfigurationChanged(configuration);
             }
-            byi();
-            brs();
+            byj();
+            brt();
         }
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.h.ala_activity_throne_and_noble_layout, (ViewGroup) null);
-        byi();
+        byj();
         setContentView(this.mRootView);
         initTabSpec();
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
@@ -217,7 +217,7 @@ public class NewThroneAndNobleActivity extends BaseActivity implements View.OnTo
         }
     }
 
-    private void byi() {
+    private void byj() {
         if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
             this.mRootView.setBackgroundResource(a.f.ala_new_throne_and_noble_land_bg);
         } else {
@@ -239,10 +239,10 @@ public class NewThroneAndNobleActivity extends BaseActivity implements View.OnTo
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        brs();
+        brt();
     }
 
-    private void brs() {
+    private void brt() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());

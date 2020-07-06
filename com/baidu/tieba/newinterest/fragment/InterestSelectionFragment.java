@@ -45,7 +45,7 @@ public class InterestSelectionFragment extends BaseFragment implements a.b {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mRootView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_interest_selection_layout, viewGroup, false);
         initUI();
-        cbV();
+        cbW();
         return this.mRootView;
     }
 
@@ -62,18 +62,18 @@ public class InterestSelectionFragment extends BaseFragment implements a.b {
         this.jUo.setText(getResources().getString(R.string.select_interest_introduce));
         this.jUo.setEnabled(false);
         this.jUo.setOnClickListener(this);
-        this.jUu = new com.baidu.tieba.newinterest.a.a(this.jUs.cFr(), getContext());
+        this.jUu = new com.baidu.tieba.newinterest.a.a(this.jUs.cFs(), getContext());
         this.jUt.setAdapter((ListAdapter) this.jUu);
     }
 
-    private void cbV() {
+    private void cbW() {
         this.jUu.a(this);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.jUv != null) {
-            this.jUv.ef(this.jUu.cFk());
+            this.jUv.ef(this.jUu.cFl());
             ao aoVar = new ao("c13682");
             aoVar.ag("obj_type", 2);
             aoVar.ag("obj_locate", 5);

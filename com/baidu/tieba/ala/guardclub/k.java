@@ -219,8 +219,8 @@ public class k extends BdBaseView<GuardClubMemberListActivity> {
 
                 @Override // android.widget.AbsListView.OnScrollListener
                 public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                    if (!k.this.fJW.isLoading() && k.this.fJU.bxA() && i + i2 > i3 - 2 && k.this.fJU.bxA()) {
-                        k.this.fJU.bxC();
+                    if (!k.this.fJW.isLoading() && k.this.fJU.bxB() && i + i2 > i3 - 2 && k.this.fJU.bxB()) {
+                        k.this.fJU.bxD();
                     }
                 }
             });
@@ -262,7 +262,7 @@ public class k extends BdBaseView<GuardClubMemberListActivity> {
         }
     }
 
-    public void bxv() {
+    public void bxw() {
         if (this.fJW != null) {
             this.fJW.endLoadData();
             this.fJV.setNextPage(null);
@@ -282,7 +282,7 @@ public class k extends BdBaseView<GuardClubMemberListActivity> {
         }
     }
 
-    public void btJ() {
+    public void btK() {
         if (this.fJW != null) {
             if (this.fJW.getView().getParent() == null) {
                 this.fJV.setNextPage(this.fJW);
@@ -298,14 +298,14 @@ public class k extends BdBaseView<GuardClubMemberListActivity> {
         }
     }
 
-    private void btR() {
+    private void btS() {
         bu(8, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(com.baidu.tieba.ala.guardclub.model.g gVar) {
         this.fJU = gVar;
-        this.fJU.bxB();
+        this.fJU.bxC();
     }
 
     public void bJ(List<com.baidu.live.guardclub.f> list) {
@@ -314,21 +314,21 @@ public class k extends BdBaseView<GuardClubMemberListActivity> {
             this.fKg.bJ(list);
             return;
         }
-        btR();
+        btS();
     }
 
-    public void bxw() {
-        brD();
+    public void bxx() {
+        brE();
     }
 
-    public void brD() {
+    public void brE() {
         this.bjC.reset();
         this.bjC.setTitle(a.i.sdk_net_fail_tip_rank);
         this.bjC.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.k.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (k.this.fJU != null) {
-                    k.this.fJU.bxB();
+                    k.this.fJU.bxC();
                 }
             }
         });
@@ -365,9 +365,9 @@ public class k extends BdBaseView<GuardClubMemberListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bxt() {
+    public void bxu() {
         if (this.fKg != null) {
-            this.fKg.bxt();
+            this.fKg.bxu();
         }
         MessageManager.getInstance().unRegisterListener(this.fzr);
     }

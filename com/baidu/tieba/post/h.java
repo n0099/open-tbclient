@@ -25,7 +25,7 @@ public class h {
                     h.this.foV = null;
                 }
                 if (h.this.kZb != null) {
-                    h.this.kZb.cWF();
+                    h.this.kZb.cWG();
                 }
             }
         }
@@ -47,7 +47,7 @@ public class h {
         }
     };
 
-    public BdTypeListView cWQ() {
+    public BdTypeListView cWR() {
         return this.kZq;
     }
 
@@ -60,7 +60,7 @@ public class h {
         this.kZq.setOnScrollListener(this.mOnScrollListener);
     }
 
-    public d cWR() {
+    public d cWS() {
         return this.kZb;
     }
 

@@ -7,18 +7,18 @@ import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class e extends InputStream {
     private ByteBuffer mBuffer;
-    private final d mDi;
-    private boolean mDj;
-    private IOException mDk;
+    private final d mDl;
+    private boolean mDm;
+    private IOException mDn;
 
     public e(d dVar) {
-        this.mDi = dVar;
+        this.mDl = dVar;
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        dwA();
-        if (dwB()) {
+        dwE();
+        if (dwF()) {
             return this.mBuffer.get() & 255;
         }
         return -1;
@@ -32,8 +32,8 @@ public class e extends InputStream {
         if (i2 == 0) {
             return 0;
         }
-        dwA();
-        if (dwB()) {
+        dwE();
+        if (dwF()) {
             int min = Math.min(this.mBuffer.limit() - this.mBuffer.position(), i2);
             this.mBuffer.get(bArr, i, min);
             return min;
@@ -43,24 +43,24 @@ public class e extends InputStream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(IOException iOException) {
-        this.mDk = iOException;
-        this.mDj = true;
+        this.mDn = iOException;
+        this.mDm = true;
         this.mBuffer = null;
     }
 
-    private void dwA() throws IOException {
-        if (this.mDj) {
-            if (this.mDk != null) {
-                throw this.mDk;
+    private void dwE() throws IOException {
+        if (this.mDm) {
+            if (this.mDn != null) {
+                throw this.mDn;
             }
-        } else if (!dwB()) {
+        } else if (!dwF()) {
             if (this.mBuffer == null) {
                 this.mBuffer = ByteBuffer.allocateDirect(32768);
             }
             this.mBuffer.clear();
-            this.mDi.p(this.mBuffer);
-            if (this.mDk != null) {
-                throw this.mDk;
+            this.mDl.p(this.mBuffer);
+            if (this.mDn != null) {
+                throw this.mDn;
             }
             if (this.mBuffer != null) {
                 this.mBuffer.flip();
@@ -68,7 +68,7 @@ public class e extends InputStream {
         }
     }
 
-    private boolean dwB() {
+    private boolean dwF() {
         return this.mBuffer != null && this.mBuffer.hasRemaining();
     }
 }

@@ -14,7 +14,7 @@ public class AlaLiveCountDownView extends TextView {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bHp();
+        void bHq();
     }
 
     static /* synthetic */ int e(AlaLiveCountDownView alaLiveCountDownView) {
@@ -37,7 +37,7 @@ public class AlaLiveCountDownView extends TextView {
                     AlaLiveCountDownView.this.handler.postDelayed(AlaLiveCountDownView.this.gsP, AlaLiveCountDownView.this.mInterval);
                     return;
                 }
-                AlaLiveCountDownView.this.gsO.bHp();
+                AlaLiveCountDownView.this.gsO.bHq();
                 AlaLiveCountDownView.this.handler.removeCallbacks(AlaLiveCountDownView.this.gsP);
             }
         };
@@ -57,7 +57,7 @@ public class AlaLiveCountDownView extends TextView {
                     AlaLiveCountDownView.this.handler.postDelayed(AlaLiveCountDownView.this.gsP, AlaLiveCountDownView.this.mInterval);
                     return;
                 }
-                AlaLiveCountDownView.this.gsO.bHp();
+                AlaLiveCountDownView.this.gsO.bHq();
                 AlaLiveCountDownView.this.handler.removeCallbacks(AlaLiveCountDownView.this.gsP);
             }
         };
@@ -77,7 +77,7 @@ public class AlaLiveCountDownView extends TextView {
                     AlaLiveCountDownView.this.handler.postDelayed(AlaLiveCountDownView.this.gsP, AlaLiveCountDownView.this.mInterval);
                     return;
                 }
-                AlaLiveCountDownView.this.gsO.bHp();
+                AlaLiveCountDownView.this.gsO.bHq();
                 AlaLiveCountDownView.this.handler.removeCallbacks(AlaLiveCountDownView.this.gsP);
             }
         };

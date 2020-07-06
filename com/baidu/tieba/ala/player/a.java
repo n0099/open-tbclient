@@ -59,7 +59,7 @@ public class a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (a.this.gFx != null) {
                 a.this.gFx.lL(false);
-                a.this.gFx.bzm();
+                a.this.gFx.bzn();
             }
         }
     };
@@ -73,7 +73,7 @@ public class a {
                 NetWorkChangedMessage netWorkChangedMessage = (NetWorkChangedMessage) customResponsedMessage;
                 if (netWorkChangedMessage.mLastNetState != netType || !BdNetTypeUtil.isWifiNet() || netWorkChangedMessage.mlastChangedTime != 0) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        a.this.bFU();
+                        a.this.bFV();
                         if (a.this.gFx != null) {
                             a.this.gFx.lM(false);
                             return;
@@ -81,13 +81,13 @@ public class a {
                         return;
                     }
                     if (BdNetTypeUtil.isMobileNet() && k.Jk()) {
-                        a.this.bFT();
+                        a.this.bFU();
                     } else if (BdNetTypeUtil.isWifiNet()) {
-                        a.this.bFV();
+                        a.this.bFW();
                     }
                     if (a.this.gFx != null) {
                         a.this.gFx.onStart();
-                        a.this.gFx.bMv();
+                        a.this.gFx.bMw();
                     }
                 }
             }
@@ -98,7 +98,7 @@ public class a {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() instanceof AccountData) {
-                a.this.bLU();
+                a.this.bLV();
             }
         }
     };
@@ -108,18 +108,18 @@ public class a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    a.this.bFU();
+                    a.this.bFV();
                     if (a.this.gFx != null) {
                         a.this.gFx.lM(false);
                     }
                 } else if (a.this.gFx != null) {
-                    if (a.this.gFx.bMg()) {
+                    if (a.this.gFx.bMh()) {
                         if (!TbadkCoreApplication.isShownNetChangeDialog.booleanValue() && BdNetTypeUtil.isMobileNet() && k.Jk()) {
                             TbadkCoreApplication.isShownNetChangeDialog = true;
-                            a.this.bFT();
+                            a.this.bFU();
                         }
                     } else if (BdNetTypeUtil.isMobileNet() && k.Jk()) {
-                        a.this.bFT();
+                        a.this.bFU();
                     }
                 }
             }
@@ -161,7 +161,7 @@ public class a {
         this.mLastScreenHeight = screenDimensions[1];
         this.mLastScreenWidth = screenDimensions[0];
         if (!UtilHelper.isARM()) {
-            bFO();
+            bFP();
             return;
         }
         Intent intent = getPageContext().getPageActivity().getIntent();
@@ -174,7 +174,7 @@ public class a {
         a(false, false, -1L);
     }
 
-    private void bFO() {
+    private void bFP() {
         BdAlertDialog bdAlertDialog = new BdAlertDialog(getPageContext().getPageActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setTitle((String) null);
@@ -207,12 +207,12 @@ public class a {
                 a.this.availableHeight = rect.bottom;
                 if (a.this.mLastScreenHeight != screenFullSize[1]) {
                     if (a.this.gFx != null) {
-                        a.this.gFx.bMo();
+                        a.this.gFx.bMp();
                     }
                     a.this.mLastScreenHeight = screenFullSize[1];
                 } else if (a.this.mLastScreenWidth != screenFullSize[0]) {
                     if (a.this.gFx != null) {
-                        a.this.gFx.bMo();
+                        a.this.gFx.bMp();
                     }
                     a.this.mLastScreenWidth = screenFullSize[0];
                 }
@@ -233,9 +233,9 @@ public class a {
         int realScreenOrientation = UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity());
         if (this.gFx != null) {
             if (realScreenOrientation == 2) {
-                this.gFx.bMp();
-            } else {
                 this.gFx.bMq();
+            } else {
+                this.gFx.bMr();
             }
         }
     }
@@ -249,20 +249,20 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFV() {
+    public void bFW() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getResources().getString(a.i.ala_watch_live_user_has_change_to_wifi));
         }
     }
 
-    public void bFT() {
+    public void bFU() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getPageActivity().getResources().getString(a.i.ala_watch_live_mobile_net_tip));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFU() {
+    public void bFV() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getPageActivity().getString(a.i.ala_create_no_network));
         }
@@ -308,15 +308,15 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bLU() {
+    public void bLV() {
         if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.player.a.8
                 @Override // java.lang.Runnable
                 public void run() {
                     if (a.this.gFx != null) {
                         a.this.gFx.kI(true);
-                        a.this.gFx.bMf();
-                        a.this.gFx.bLV();
+                        a.this.gFx.bMg();
+                        a.this.gFx.bLW();
                     }
                 }
             }, 1L);
@@ -334,7 +334,7 @@ public class a {
             QMStaticManager.staticEndPlayTime("", j + "", "", "", System.currentTimeMillis(), "", this.gFx != null ? this.gFx.Ep() : "");
         }
         if (this.gFx != null) {
-            this.gFx.bMu();
+            this.gFx.bMv();
         }
         if (this.gFw != null) {
             this.gFw.b(z, !z2, j);

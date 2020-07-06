@@ -41,7 +41,7 @@ public class h implements View.OnClickListener {
             if (h.this.flT != null && h.this.flT.aSp() != null && !StringUtils.isNull(h.this.flT.aSp().getUserId())) {
                 long j = com.baidu.adp.lib.f.b.toLong(h.this.flT.aSp().getUserId(), 0L);
                 boolean z = j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
-                com.baidu.tieba.ala.c.brS().brT();
+                com.baidu.tieba.ala.c.brT().brU();
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(h.this.mTbPageContext.getPageActivity()).createNormalConfig(j, z, h.this.flT.aSp().isBigV())));
             }
         }
@@ -108,7 +108,7 @@ public class h implements View.OnClickListener {
             if (this.fFG != null) {
                 this.fFG.R(this.flT);
             }
-            com.baidu.tieba.ala.c.brS().brT();
+            com.baidu.tieba.ala.c.brT().brU();
             TiebaStatic.log(new ao("c12116").s("obj_id", this.flT.aSJ().live_id));
         }
     }

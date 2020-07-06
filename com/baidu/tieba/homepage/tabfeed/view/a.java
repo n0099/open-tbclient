@@ -45,7 +45,7 @@ public class a {
             if (a.this.Wa != null) {
                 a.this.Wa.stopScroll();
             }
-            a.this.buI();
+            a.this.buJ();
         }
     };
     private RecyclerView.OnScrollListener gKd = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.homepage.tabfeed.view.a.2
@@ -57,8 +57,8 @@ public class a {
                 if (a.this.hjm != null) {
                     a.this.hjm.a(a.this.Wa.getFirstVisiblePosition(), a.this.Wa.getLastVisiblePosition(), this.hjr, true);
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, Boolean.valueOf(a.this.bTg() ? false : true)));
-                s.bOA().brT();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, Boolean.valueOf(a.this.bTh() ? false : true)));
+                s.bOB().brU();
             }
         }
 
@@ -83,13 +83,13 @@ public class a {
                 a.this.fnt.setOnClickListener(null);
                 if (a.this.hasMore) {
                     a.this.fnt.showLoading();
-                    a.this.ixx.bSS();
+                    a.this.ixx.bST();
                 }
             }
         }
     };
 
-    public void buI() {
+    public void buJ() {
         if (this.fnt != null && this.ixx != null) {
             if (j.isNetWorkAvailable()) {
                 this.Wa.setNextPage(this.fnt);
@@ -97,7 +97,7 @@ public class a {
                 this.fnt.setOnClickListener(null);
                 if (this.hasMore) {
                     this.fnt.showLoading();
-                    this.ixx.bSS();
+                    this.ixx.bST();
                     return;
                 }
                 this.fnt.setText(this.iwn.getResources().getString(R.string.list_has_no_more));
@@ -231,12 +231,12 @@ public class a {
 
     public void pause() {
         if (this.hjm != null) {
-            this.hjm.cym();
+            this.hjm.cyn();
             this.hjm.qs(false);
         }
     }
 
-    public void bTf() {
+    public void bTg() {
         if (this.Wa != null) {
             this.Wa.scrollToPosition(0);
         }
@@ -254,7 +254,7 @@ public class a {
         }
     }
 
-    public boolean bTg() {
+    public boolean bTh() {
         return this.Wa == null || this.Wa.getChildCount() == 0 || this.Wa.getChildAt(0).getTop() == 0;
     }
 }

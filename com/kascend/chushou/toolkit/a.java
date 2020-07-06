@@ -5,7 +5,7 @@ public class a implements tv.chushou.zues.toolkit.richtext.a {
     }
 
     @Override // tv.chushou.zues.toolkit.richtext.a
-    public CharSequence Rn(String str) {
+    public CharSequence Ro(String str) {
         return str;
     }
 }

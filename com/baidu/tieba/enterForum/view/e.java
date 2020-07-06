@@ -81,7 +81,7 @@ public class e implements AbsListView.OnScrollListener {
             for (c cVar : this.list) {
                 for (c cVar2 : aVar.list) {
                     if (cVar.position == cVar2.position) {
-                        return cVar.f1019top - cVar2.f1019top;
+                        return cVar.f1020top - cVar2.f1020top;
                     }
                 }
             }
@@ -96,11 +96,11 @@ public class e implements AbsListView.OnScrollListener {
         private int position;
 
         /* renamed from: top  reason: collision with root package name */
-        private int f1019top;
+        private int f1020top;
 
         private c(View view, int i) {
             this.position = i;
-            this.f1019top = view.getTop();
+            this.f1020top = view.getTop();
             this.bottom = view.getBottom();
         }
     }

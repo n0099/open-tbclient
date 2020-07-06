@@ -22,7 +22,7 @@ public class b extends a implements View.OnClickListener {
     }
 
     private void initView(Context context) {
-        blS();
+        blT();
         initViews();
         Bz();
         if (this.ePZ.eQc == null) {
@@ -58,7 +58,7 @@ public class b extends a implements View.OnClickListener {
         if (this.ePZ.eQb != null) {
             this.eRl.a(new com.baidu.tbadk.widget.timepicker.a.d.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.b.1
                 @Override // com.baidu.tbadk.widget.timepicker.a.d.b
-                public void blR() {
+                public void blS() {
                     try {
                         b.this.ePZ.eQb.n(c.dateFormat.parse(b.this.eRl.getTime()));
                     } catch (ParseException e) {
@@ -69,27 +69,27 @@ public class b extends a implements View.OnClickListener {
         }
         this.eRl.ja(this.ePZ.eQo);
         if (this.ePZ.eQl != 0 && this.ePZ.eQm != 0 && this.ePZ.eQl <= this.ePZ.eQm) {
-            blU();
+            blV();
         }
         if (this.ePZ.eQj != null && this.ePZ.eQk != null) {
             if (this.ePZ.eQj.getTimeInMillis() > this.ePZ.eQk.getTimeInMillis()) {
                 throw new IllegalArgumentException("startDate can't be later than endDate");
             }
-            blV();
+            blW();
         } else if (this.ePZ.eQj != null) {
             if (this.ePZ.eQj.get(1) < 1900) {
                 throw new IllegalArgumentException("The startDate can not as early as 1900");
             }
-            blV();
+            blW();
         } else if (this.ePZ.eQk != null) {
             if (this.ePZ.eQk.get(1) > 2100) {
                 throw new IllegalArgumentException("The endDate should not be later than 2100");
             }
-            blV();
+            blW();
         } else {
-            blV();
+            blW();
         }
-        blX();
+        blY();
         this.eRl.c(this.ePZ.eQp, this.ePZ.eQq, this.ePZ.eQr, this.ePZ.eQs, this.ePZ.eQt, this.ePZ.eQu);
         this.eRl.j(this.ePZ.eQv, this.ePZ.eQw, this.ePZ.eQx, this.ePZ.eQy, this.ePZ.eQz, this.ePZ.eQA);
         iZ(this.ePZ.eQP);
@@ -102,17 +102,17 @@ public class b extends a implements View.OnClickListener {
         this.eRl.isCenterLabel(this.ePZ.isCenterLabel);
     }
 
-    private void blU() {
+    private void blV() {
         this.eRl.pg(this.ePZ.eQl);
         this.eRl.ph(this.ePZ.eQm);
     }
 
-    private void blV() {
+    private void blW() {
         this.eRl.a(this.ePZ.eQj, this.ePZ.eQk);
-        blW();
+        blX();
     }
 
-    private void blW() {
+    private void blX() {
         if (this.ePZ.eQj != null && this.ePZ.eQk != null) {
             if (this.ePZ.eQi == null || this.ePZ.eQi.getTimeInMillis() < this.ePZ.eQj.getTimeInMillis() || this.ePZ.eQi.getTimeInMillis() > this.ePZ.eQk.getTimeInMillis()) {
                 this.ePZ.eQi = this.ePZ.eQj;
@@ -124,7 +124,7 @@ public class b extends a implements View.OnClickListener {
         }
     }
 
-    private void blX() {
+    private void blY() {
         int i;
         int i2;
         int i3;
@@ -154,12 +154,12 @@ public class b extends a implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (((String) view.getTag()).equals("submit")) {
-            blY();
+            blZ();
         }
         dismiss();
     }
 
-    public void blY() {
+    public void blZ() {
         if (this.ePZ.eQa != null) {
             try {
                 this.ePZ.eQa.a(c.dateFormat.parse(this.eRl.getTime()), this.eRh);
@@ -170,7 +170,7 @@ public class b extends a implements View.OnClickListener {
     }
 
     @Override // com.baidu.tbadk.widget.timepicker.a.f.a
-    public boolean blT() {
+    public boolean blU() {
         return this.ePZ.eQO;
     }
 }

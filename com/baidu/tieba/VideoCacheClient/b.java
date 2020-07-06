@@ -16,10 +16,10 @@ public class b implements i {
     private int mPort = 0;
 
     private b() {
-        a.bom();
+        a.bon();
     }
 
-    public static b boo() {
+    public static b bop() {
         if (eWU == null) {
             synchronized (b.class) {
                 if (eWU == null) {
@@ -30,7 +30,7 @@ public class b implements i {
         return eWU;
     }
 
-    private static long bok() {
+    private static long bol() {
         try {
             File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
             if (cacheDir != null && cacheDir.exists() && cacheDir.canRead() && cacheDir.canWrite()) {
@@ -44,20 +44,20 @@ public class b implements i {
         }
     }
 
-    private boolean bop() {
-        d.D(TAG, "sdcard avalible size " + ((bok() / 1024) / 1024) + "M");
-        return bok() > 314572800 && getPort() > 0;
+    private boolean boq() {
+        d.D(TAG, "sdcard avalible size " + ((bol() / 1024) / 1024) + "M");
+        return bol() > 314572800 && getPort() > 0;
     }
 
     public void eh(Context context) {
         if (context != null) {
-            e.ei(context).bnw();
+            e.ei(context).bnx();
         }
     }
 
     @Override // com.baidu.tieba.play.i
     public String zU(String str) {
-        if (bop()) {
+        if (boq()) {
             String zV = zV(str);
             if (zV == null) {
                 String zS = zS(str);
@@ -73,7 +73,7 @@ public class b implements i {
 
     @Override // com.baidu.tieba.play.i
     public String aq(String str, boolean z) {
-        if (bop()) {
+        if (boq()) {
             String zV = zV(str);
             if (zV == null) {
                 String zS = zS(str);
@@ -120,7 +120,7 @@ public class b implements i {
 
     @Override // com.baidu.tieba.play.i
     public void zW(String str) {
-        a.bom().zT(str);
+        a.bon().zT(str);
     }
 
     @Override // com.baidu.tieba.play.i
@@ -244,7 +244,7 @@ public class b implements i {
         return this.mPort;
     }
 
-    public void boq() {
+    public void bor() {
         this.mPort = 0;
     }
 

@@ -25,7 +25,7 @@ public class i {
         this.jlj = i;
     }
 
-    public int cwc() {
+    public int cwd() {
         return this.jlj;
     }
 
@@ -33,7 +33,7 @@ public class i {
         this.jlk = i;
     }
 
-    public int cwd() {
+    public int cwe() {
         return this.jlk;
     }
 
@@ -66,11 +66,11 @@ public class i {
             }
         }
         if (this.jlf.size() >= 100) {
-            cwe();
+            cwf();
         }
     }
 
-    public void cwe() {
+    public void cwf() {
         if (this.jlf != null) {
             synchronized (this.jlf) {
                 if (this.jlf.size() > 0) {

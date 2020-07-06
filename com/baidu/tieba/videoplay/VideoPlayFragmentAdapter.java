@@ -30,17 +30,17 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
     public String mFrom;
     public String mFromPage;
     private Rect mRect;
-    private boolean mgo;
-    private a mgp;
-    private long mgq;
-    public String mgr;
-    private SparseArray<VideoPlayFragment> mgs;
+    private boolean mgr;
+    private a mgs;
+    private long mgt;
+    public String mgu;
+    private SparseArray<VideoPlayFragment> mgv;
 
     public VideoPlayFragmentAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
-        this.mgq = -1L;
-        this.mgs = new SparseArray<>();
-        this.mgp = new a();
+        this.mgt = -1L;
+        this.mgv = new SparseArray<>();
+        this.mgs = new a();
     }
 
     @Override // android.support.v4.app.FragmentStatePagerAdapter
@@ -53,10 +53,10 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         bundle.putSerializable(VideoPlayActivityConfig.VIDEO_INDEX, Integer.valueOf(i));
         bundle.putSerializable(VideoPlayActivityConfig.PAGE_FROM, this.mFrom);
         bundle.putSerializable("from", this.mFromPage);
-        bundle.putSerializable("obj_id", this.mgr);
-        if (this.mgo) {
+        bundle.putSerializable("obj_id", this.mgu);
+        if (this.mgr) {
             bundle.putParcelable(VideoPlayActivityConfig.VIDEO_COVER_RECT, this.mRect);
-            this.mgo = false;
+            this.mgr = false;
         }
         videoPlayFragment.setArguments(bundle);
         return videoPlayFragment;
@@ -81,13 +81,13 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
     @Override // android.support.v4.app.FragmentStatePagerAdapter, android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         super.destroyItem(viewGroup, i, obj);
-        this.mgs.remove(i);
+        this.mgv.remove(i);
     }
 
     @Override // android.support.v4.app.FragmentStatePagerAdapter, android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         VideoPlayFragment videoPlayFragment = (VideoPlayFragment) super.instantiateItem(viewGroup, i);
-        this.mgs.put(i, videoPlayFragment);
+        this.mgv.put(i, videoPlayFragment);
         return videoPlayFragment;
     }
 
@@ -101,19 +101,19 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
     }
 
     public VideoPlayFragment Gr(int i) {
-        return this.mgs.get(i);
+        return this.mgv.get(i);
     }
 
     public void a(List<VideoItemData> list, Rect rect) {
         this.mDatas = list;
-        this.mgo = true;
+        this.mgr = true;
         this.mRect = rect;
     }
 
-    public void dpY() {
+    public void dqc() {
         int i = b.aVP().getInt("nani_key_download_show_rate", 2);
-        if (this.mgq > 0 && i != 1) {
-            b.aVP().putLong("key_vertical_shown_time", this.mgq);
+        if (this.mgt > 0 && i != 1) {
+            b.aVP().putLong("key_vertical_shown_time", this.mgt);
         }
     }
 
@@ -123,12 +123,12 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         VideoPlayFragment Gr;
         VideoPlayFragment Gr2;
         String str2 = null;
-        VideoPlayFragment videoPlayFragment = this.mgs.get(i);
+        VideoPlayFragment videoPlayFragment = this.mgv.get(i);
         if (videoPlayFragment != null) {
             List<String> mediaIDs = videoPlayFragment.getMediaIDs();
             if (w.getCount(mediaIDs) >= 5) {
                 list = mediaIDs;
-                str = videoPlayFragment.dpU();
+                str = videoPlayFragment.dpY();
             } else {
                 return;
             }
@@ -136,15 +136,15 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
             list = null;
             str = null;
         }
-        String dpU = (i + (-1) < 0 || (Gr2 = Gr(i + (-1))) == null) ? null : Gr2.dpU();
+        String dpY = (i + (-1) < 0 || (Gr2 = Gr(i + (-1))) == null) ? null : Gr2.dpY();
         if (i + 1 < getCount() && (Gr = Gr(i + 1)) != null) {
-            str2 = Gr.dpU();
+            str2 = Gr.dpY();
         }
         ArrayList arrayList = new ArrayList();
         int count = w.getCount(list);
         for (int i2 = 0; i2 < count; i2++) {
             String str3 = list.get(i2);
-            if (!TextUtils.equals(str3, str) && !TextUtils.equals(str3, dpU) && !TextUtils.equals(str3, str2)) {
+            if (!TextUtils.equals(str3, str) && !TextUtils.equals(str3, dpY) && !TextUtils.equals(str3, str2)) {
                 arrayList.add(str3);
             }
         }

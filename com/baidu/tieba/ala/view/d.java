@@ -134,7 +134,7 @@ public class d {
         this.gIs.a(this.gHM, this.fff, j);
     }
 
-    public ArrayList<g> bkO() {
+    public ArrayList<g> bkP() {
         return this.gIv;
     }
 
@@ -164,7 +164,7 @@ public class d {
         this.gIn.setVisibility(i);
     }
 
-    public n bMR() {
+    public n bMS() {
         return this.gIu;
     }
 
@@ -210,7 +210,7 @@ public class d {
         }
     }
 
-    public void bMS() {
+    public void bMT() {
         if (this.gIp != null) {
             this.gIp.getView().setVisibility(8);
         }
@@ -230,7 +230,7 @@ public class d {
         this.baR.setVisibility(0);
     }
 
-    public void btN() {
+    public void btO() {
         this.baR.setVisibility(8);
     }
 

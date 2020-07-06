@@ -291,7 +291,7 @@ public class a {
                             }
                             str4 = "";
                         }
-                        SpannableString a = a(tbRichTextData.bkT(), Gs, str3);
+                        SpannableString a = a(tbRichTextData.bkU(), Gs, str3);
                         if (a != null) {
                             tbRichTextData.n(a);
                         }

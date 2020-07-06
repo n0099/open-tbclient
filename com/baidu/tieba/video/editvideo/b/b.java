@@ -6,22 +6,22 @@ import java.io.File;
 @TargetApi(18)
 /* loaded from: classes10.dex */
 public class b {
-    private String lUK;
-    private d lWA;
-    private e lWB;
-    private volatile boolean lWC;
-    private volatile boolean lWD;
-    private volatile boolean lWE;
-    private a lWx;
-    private String lWy;
-    private f lWz;
+    private String lUN;
+    private a lWA;
+    private String lWB;
+    private f lWC;
+    private d lWD;
+    private e lWE;
+    private volatile boolean lWF;
+    private volatile boolean lWG;
+    private volatile boolean lWH;
     private Context mContext;
     private String mFilterName;
     private boolean mIsRunning = false;
 
     /* loaded from: classes10.dex */
     public interface a {
-        void Oa(String str);
+        void Ob(String str);
 
         void bG(int i, String str);
 
@@ -30,78 +30,78 @@ public class b {
 
     public b(Context context, String str, String str2, String str3) {
         this.mContext = context;
-        this.lWy = str;
-        this.lUK = str2;
+        this.lWB = str;
+        this.lUN = str2;
         this.mFilterName = str3;
     }
 
-    public void dmQ() {
+    public void dmU() {
         if (!this.mIsRunning) {
             this.mIsRunning = true;
-            this.lWC = false;
-            this.lWD = false;
-            this.lWE = false;
+            this.lWF = false;
+            this.lWG = false;
+            this.lWH = false;
             try {
-                File file = new File(new File(this.lUK).getParent());
+                File file = new File(new File(this.lUN).getParent());
                 if (!file.exists()) {
                     file.mkdirs();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                if (this.lWx != null) {
-                    this.lWx.bG(222, com.baidu.tieba.k.a.t(e));
+                if (this.lWA != null) {
+                    this.lWA.bG(222, com.baidu.tieba.k.a.t(e));
                 }
             }
             try {
-                this.lWB = new e(this.lUK);
-                this.lWz = new f(this.mContext, this.lWy, this.mFilterName, this.lWB, this.lWx) { // from class: com.baidu.tieba.video.editvideo.b.b.1
+                this.lWE = new e(this.lUN);
+                this.lWC = new f(this.mContext, this.lWB, this.mFilterName, this.lWE, this.lWA) { // from class: com.baidu.tieba.video.editvideo.b.b.1
                     @Override // com.baidu.tieba.video.editvideo.b.f
                     public void onPostExecute() {
-                        b.this.lWC = true;
-                        b.this.dmS();
+                        b.this.lWF = true;
+                        b.this.dmW();
                     }
                 };
-                this.lWz.start();
-                this.lWA = new d(this.mContext, this.lWy, this.lWB, this.lWx) { // from class: com.baidu.tieba.video.editvideo.b.b.2
+                this.lWC.start();
+                this.lWD = new d(this.mContext, this.lWB, this.lWE, this.lWA) { // from class: com.baidu.tieba.video.editvideo.b.b.2
                     @Override // com.baidu.tieba.video.editvideo.b.d
                     public void onPostExecute() {
-                        b.this.lWD = true;
-                        b.this.dmS();
+                        b.this.lWG = true;
+                        b.this.dmW();
                     }
                 };
-                this.lWA.start();
+                this.lWD.start();
             } catch (Exception e2) {
             }
         }
     }
 
-    public void dmR() {
-        if (this.lWz != null) {
-            this.lWz.interrupt();
-            this.lWz = null;
+    public void dmV() {
+        if (this.lWC != null) {
+            this.lWC.interrupt();
+            this.lWC = null;
         }
-        if (this.lWA != null) {
-            this.lWA.interrupt();
-            this.lWA = null;
+        if (this.lWD != null) {
+            this.lWD.interrupt();
+            this.lWD = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dmS() {
-        if (this.lWC && this.lWD && !this.lWE) {
-            this.lWB.stop();
-            this.lWE = true;
-            dmT();
+    public void dmW() {
+        if (this.lWF && this.lWG && !this.lWH) {
+            this.lWE.stop();
+            this.lWH = true;
+            dmX();
         }
     }
 
-    private void dmT() {
-        if (this.lWx != null) {
-            File file = new File(this.lUK);
+    private void dmX() {
+        if (this.lWA != null) {
+            File file = new File(this.lUN);
             if (file.exists() && file.length() > 0) {
-                this.lWx.Oa(this.lUK);
+                this.lWA.Ob(this.lUN);
             } else {
-                this.lWx.bG(223, "Err empty outputFile");
+                this.lWA.bG(223, "Err empty outputFile");
             }
         }
         this.mIsRunning = false;
@@ -112,6 +112,6 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.lWx = aVar;
+        this.lWA = aVar;
     }
 }

@@ -35,7 +35,7 @@ public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
         this.mProgress.setVisibility(0);
     }
 
-    public void cud() {
+    public void cue() {
         this.mProgress.setVisibility(8);
     }
 

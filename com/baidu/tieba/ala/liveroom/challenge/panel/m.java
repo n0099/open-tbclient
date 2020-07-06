@@ -5,8 +5,6 @@ public interface m {
 
     void bB(int i, int i2);
 
-    void bDi();
-
     void bDj();
 
     void bDk();
@@ -16,6 +14,8 @@ public interface m {
     void bDm();
 
     void bDn();
+
+    void bDo();
 
     void bM(int i);
 

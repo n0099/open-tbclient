@@ -46,14 +46,14 @@ public class a {
         }
     }
 
-    public boolean cVX() {
+    public boolean cVY() {
         if (this.kVy) {
             c.init();
         }
         return this.kVy;
     }
 
-    public boolean cVY() {
+    public boolean cVZ() {
         return this.kVz;
     }
 

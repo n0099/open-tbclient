@@ -137,13 +137,13 @@ public class b {
         this.mNoDataView.setVisibility(0);
     }
 
-    public void ctd() {
+    public void cte() {
         if (this.jaL != null) {
             this.jaL.setVisibility(0);
         }
     }
 
-    public void cte() {
+    public void ctf() {
         if (this.jaL != null) {
             this.jaL.setVisibility(8);
         }

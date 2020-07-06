@@ -10,7 +10,7 @@ public class e {
     public String iuU;
     public int mThreadCount;
 
-    public boolean cjY() {
+    public boolean cjZ() {
         return this.iuR > 0;
     }
 

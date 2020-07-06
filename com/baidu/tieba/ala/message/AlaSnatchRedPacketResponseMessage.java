@@ -21,7 +21,7 @@ public class AlaSnatchRedPacketResponseMessage extends JsonHttpResponsedMessage 
         }
     }
 
-    public i bKJ() {
+    public i bKK() {
         return this.gwl;
     }
 }

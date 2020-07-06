@@ -156,7 +156,7 @@ public class VideoAggregationModel extends BdBaseModel {
         }
     }
 
-    public void caQ() {
+    public void caR() {
         this.mPn = 0;
         LoadData();
     }

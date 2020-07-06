@@ -69,14 +69,14 @@ public class b {
         }
     }
 
-    public List<d> bLC() {
+    public List<d> bLD() {
         if (this.gDp == null) {
             this.gDp = new ArrayList();
         }
         return this.gDp;
     }
 
-    public boolean bLD() {
+    public boolean bLE() {
         return this.gDi == 1;
     }
 
@@ -84,7 +84,7 @@ public class b {
         this.gDi = i;
     }
 
-    public String bLB() {
+    public String bLC() {
         return this.gDg;
     }
 
@@ -92,19 +92,19 @@ public class b {
         this.gDg = str;
     }
 
-    public int bLE() {
+    public int bLF() {
         return this.gDj;
     }
 
-    public String bLF() {
+    public String bLG() {
         return this.mark_name;
     }
 
-    public String bLG() {
+    public String bLH() {
         return this.mark_pic;
     }
 
-    public int bLH() {
+    public int bLI() {
         return this.gDl;
     }
 
@@ -116,23 +116,23 @@ public class b {
         return this.description;
     }
 
-    public String bLI() {
+    public String bLJ() {
         return this.gDn;
     }
 
-    public int bLJ() {
+    public int bLK() {
         return this.gDk;
     }
 
-    public String bLK() {
+    public String bLL() {
         return this.gDo;
     }
 
-    public boolean bLL() {
+    public boolean bLM() {
         return this.type == 10;
     }
 
-    public boolean bLM() {
+    public boolean bLN() {
         return this.type == 9;
     }
 }

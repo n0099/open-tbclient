@@ -30,7 +30,7 @@ public class d {
             d.this.eUx = IQuickMediaPlayerService.Stub.asInterface(iBinder);
             if (d.this.eUy) {
                 d.this.eUy = false;
-                d.this.bnx();
+                d.this.bny();
             }
             if (d.this.eUD != null) {
                 d.this.eUD.a(d.this.eUx);
@@ -48,7 +48,7 @@ public class d {
         @Override // java.lang.Runnable
         public void run() {
             if (!d.this.eUw) {
-                d.this.bnw();
+                d.this.bnx();
                 com.baidu.adp.lib.f.e.lt().postDelayed(d.this.eUE, 1000L);
             }
         }
@@ -61,18 +61,18 @@ public class d {
 
     /* loaded from: classes13.dex */
     public interface b {
-        void bny();
+        void bnz();
     }
 
     private d() {
-        bnw();
+        bnx();
         com.baidu.adp.lib.f.e.lt().postDelayed(this.eUE, 1000L);
         this.eUz = new HashSet();
         this.eUA = new HashSet();
         this.eUB = new HashSet();
     }
 
-    public static d bnv() {
+    public static d bnw() {
         if (eUv == null) {
             synchronized (d.class) {
                 if (eUv == null) {
@@ -84,7 +84,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bnw() {
+    public void bnx() {
         try {
             this.mContext.bindService(new Intent(this.mContext, QuickMediaPlayerService.class), this.mServiceConnection, 1);
         } catch (Exception e) {
@@ -93,11 +93,11 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bnx() {
+    public void bny() {
         this.eUC = true;
         for (b bVar : this.eUz) {
             if (bVar != null) {
-                bVar.bny();
+                bVar.bnz();
             }
         }
         this.eUC = false;

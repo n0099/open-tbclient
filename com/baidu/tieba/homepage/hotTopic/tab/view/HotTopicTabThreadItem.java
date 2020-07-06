@@ -124,14 +124,14 @@ public class HotTopicTabThreadItem extends RelativeLayout {
                 this.irc.setVisibility(4);
             }
             this.irb.setText("" + eVar.index);
-            cjq();
+            cjr();
             if (this.agW != null && this.iro != null) {
                 this.agW.b(this, this.iro, this.iro.index, this.iro.index);
             }
         }
     }
 
-    private void cjq() {
+    private void cjr() {
         if (this.iro != null) {
             int lA = TagTextHelper.lA(this.iro.index);
             Drawable background = this.irc.getBackground();
@@ -152,7 +152,7 @@ public class HotTopicTabThreadItem extends RelativeLayout {
             an.setViewTextColor(this.irb, (int) R.color.cp_cont_a);
             an.setViewTextColor(this.irm, (int) R.color.cp_cont_a);
             this.irl.setImageDrawable(SvgManager.aWQ().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
-            cjq();
+            cjr();
             this.iqP = i;
         }
     }

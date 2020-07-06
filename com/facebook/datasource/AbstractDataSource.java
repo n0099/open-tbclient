@@ -12,14 +12,14 @@ public abstract class AbstractDataSource<T> implements b<T> {
     @Nullable
     private T crp = null;
     @GuardedBy("this")
-    private Throwable mJG = null;
+    private Throwable mJJ = null;
     @GuardedBy("this")
     private float mProgress = 0.0f;
     @GuardedBy("this")
     private boolean Pi = false;
     @GuardedBy("this")
-    private DataSourceStatus mJF = DataSourceStatus.IN_PROGRESS;
-    private final ConcurrentLinkedQueue<Pair<d<T>, Executor>> mJH = new ConcurrentLinkedQueue<>();
+    private DataSourceStatus mJI = DataSourceStatus.IN_PROGRESS;
+    private final ConcurrentLinkedQueue<Pair<d<T>, Executor>> mJK = new ConcurrentLinkedQueue<>();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes13.dex */
@@ -35,11 +35,11 @@ public abstract class AbstractDataSource<T> implements b<T> {
 
     @Override // com.facebook.datasource.b
     public synchronized boolean isFinished() {
-        return this.mJF != DataSourceStatus.IN_PROGRESS;
+        return this.mJI != DataSourceStatus.IN_PROGRESS;
     }
 
     @Override // com.facebook.datasource.b
-    public synchronized boolean dzF() {
+    public synchronized boolean dzJ() {
         return this.crp != null;
     }
 
@@ -49,14 +49,14 @@ public abstract class AbstractDataSource<T> implements b<T> {
         return this.crp;
     }
 
-    public synchronized boolean dzG() {
-        return this.mJF == DataSourceStatus.FAILURE;
+    public synchronized boolean dzK() {
+        return this.mJI == DataSourceStatus.FAILURE;
     }
 
     @Override // com.facebook.datasource.b
     @Nullable
-    public synchronized Throwable dzH() {
-        return this.mJG;
+    public synchronized Throwable dzL() {
+        return this.mJJ;
     }
 
     @Override // com.facebook.datasource.b
@@ -78,10 +78,10 @@ public abstract class AbstractDataSource<T> implements b<T> {
                     aT(t);
                 }
                 if (!isFinished()) {
-                    dzI();
+                    dzM();
                 }
                 synchronized (this) {
-                    this.mJH.clear();
+                    this.mJK.clear();
                 }
             }
         }
@@ -97,24 +97,24 @@ public abstract class AbstractDataSource<T> implements b<T> {
         com.facebook.common.internal.g.checkNotNull(executor);
         synchronized (this) {
             if (!this.Pi) {
-                if (this.mJF == DataSourceStatus.IN_PROGRESS) {
-                    this.mJH.add(Pair.create(dVar, executor));
+                if (this.mJI == DataSourceStatus.IN_PROGRESS) {
+                    this.mJK.add(Pair.create(dVar, executor));
                 }
-                boolean z = dzF() || isFinished() || dzJ();
+                boolean z = dzJ() || isFinished() || dzN();
                 if (z) {
-                    a(dVar, executor, dzG(), dzJ());
+                    a(dVar, executor, dzK(), dzN());
                 }
             }
         }
     }
 
-    private void dzI() {
-        boolean dzG = dzG();
-        boolean dzJ = dzJ();
-        Iterator<Pair<d<T>, Executor>> it = this.mJH.iterator();
+    private void dzM() {
+        boolean dzK = dzK();
+        boolean dzN = dzN();
+        Iterator<Pair<d<T>, Executor>> it = this.mJK.iterator();
         while (it.hasNext()) {
             Pair<d<T>, Executor> next = it.next();
-            a((d) next.first, (Executor) next.second, dzG, dzJ);
+            a((d) next.first, (Executor) next.second, dzK, dzN);
         }
     }
 
@@ -133,7 +133,7 @@ public abstract class AbstractDataSource<T> implements b<T> {
         });
     }
 
-    private synchronized boolean dzJ() {
+    private synchronized boolean dzN() {
         boolean z;
         if (isClosed()) {
             z = isFinished() ? false : true;
@@ -145,7 +145,7 @@ public abstract class AbstractDataSource<T> implements b<T> {
     public boolean b(@Nullable T t, boolean z) {
         boolean c = c(t, z);
         if (c) {
-            dzI();
+            dzM();
         }
         return c;
     }
@@ -154,7 +154,7 @@ public abstract class AbstractDataSource<T> implements b<T> {
     public boolean z(Throwable th) {
         boolean A = A(th);
         if (A) {
-            dzI();
+            dzM();
         }
         return A;
     }
@@ -163,7 +163,7 @@ public abstract class AbstractDataSource<T> implements b<T> {
     public boolean aE(float f) {
         boolean aF = aF(f);
         if (aF) {
-            dzK();
+            dzO();
         }
         return aF;
     }
@@ -180,14 +180,14 @@ public abstract class AbstractDataSource<T> implements b<T> {
             try {
                 synchronized (this) {
                     try {
-                        if (this.Pi || this.mJF != DataSourceStatus.IN_PROGRESS) {
+                        if (this.Pi || this.mJI != DataSourceStatus.IN_PROGRESS) {
                             z2 = false;
                             if (t != null) {
                                 aT(t);
                             }
                         } else {
                             if (z) {
-                                this.mJF = DataSourceStatus.SUCCESS;
+                                this.mJI = DataSourceStatus.SUCCESS;
                                 this.mProgress = 1.0f;
                             }
                             if (this.crp != t) {
@@ -236,11 +236,11 @@ public abstract class AbstractDataSource<T> implements b<T> {
 
     private synchronized boolean A(Throwable th) {
         boolean z;
-        if (this.Pi || this.mJF != DataSourceStatus.IN_PROGRESS) {
+        if (this.Pi || this.mJI != DataSourceStatus.IN_PROGRESS) {
             z = false;
         } else {
-            this.mJF = DataSourceStatus.FAILURE;
-            this.mJG = th;
+            this.mJI = DataSourceStatus.FAILURE;
+            this.mJJ = th;
             z = true;
         }
         return z;
@@ -249,7 +249,7 @@ public abstract class AbstractDataSource<T> implements b<T> {
     private synchronized boolean aF(float f) {
         boolean z = false;
         synchronized (this) {
-            if (!this.Pi && this.mJF == DataSourceStatus.IN_PROGRESS && f >= this.mProgress) {
+            if (!this.Pi && this.mJI == DataSourceStatus.IN_PROGRESS && f >= this.mProgress) {
                 this.mProgress = f;
                 z = true;
             }
@@ -257,8 +257,8 @@ public abstract class AbstractDataSource<T> implements b<T> {
         return z;
     }
 
-    protected void dzK() {
-        Iterator<Pair<d<T>, Executor>> it = this.mJH.iterator();
+    protected void dzO() {
+        Iterator<Pair<d<T>, Executor>> it = this.mJK.iterator();
         while (it.hasNext()) {
             Pair<d<T>, Executor> next = it.next();
             final d dVar = (d) next.first;

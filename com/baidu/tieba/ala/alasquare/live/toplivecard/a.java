@@ -22,7 +22,7 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            a.this.btA();
+            a.this.btB();
         }
     };
     private Runnable fnd = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.2
@@ -64,13 +64,13 @@ public class a {
         }
     }
 
-    public void btA() {
+    public void btB() {
         if (!this.mIsBackground) {
             if (ag.og(1)) {
                 e.lt().removeCallbacks(this.fnd);
                 e.lt().postDelayed(this.fnd, 1000L);
             } else if (this.fnb != null) {
-                this.fnb.btD();
+                this.fnb.btE();
             }
         }
     }
@@ -84,7 +84,7 @@ public class a {
 
     public void stopPlay() {
         if (this.fnb != null) {
-            this.fnb.btD();
+            this.fnb.btE();
         }
         e.lt().removeCallbacks(this.fnd);
     }
@@ -101,7 +101,7 @@ public class a {
         }
     }
 
-    public c btB() {
+    public c btC() {
         return this.fnc;
     }
 }

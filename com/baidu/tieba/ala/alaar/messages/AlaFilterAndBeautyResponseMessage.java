@@ -13,7 +13,7 @@ public class AlaFilterAndBeautyResponseMessage extends JsonHttpResponsedMessage 
         super(1021163);
     }
 
-    public AlaFilterAndBeautyData bsc() {
+    public AlaFilterAndBeautyData bsd() {
         return this.fgU;
     }
 

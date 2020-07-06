@@ -15,7 +15,7 @@ public class d {
     @V8JavascriptField
 
     /* renamed from: top  reason: collision with root package name */
-    public volatile float f1012top;
+    public volatile float f1013top;
     @V8JavascriptField
     public volatile float width;
 
@@ -27,7 +27,7 @@ public class d {
     public d() {
         Resources resources = com.baidu.swan.apps.u.a.afX() != null ? com.baidu.swan.apps.u.a.afX().getResources() : null;
         this.left = b(resources, a.d.swangame_recommend_button_default_left);
-        this.f1012top = b(resources, a.d.swangame_recommend_button_default_top);
+        this.f1013top = b(resources, a.d.swangame_recommend_button_default_top);
         this.width = b(resources, a.d.swangame_recommend_button_default_width);
         this.height = b(resources, a.d.swangame_recommend_button_default_height);
         this.djd = this.width;
@@ -54,6 +54,6 @@ public class d {
     }
 
     public String toString() {
-        return "{left=" + this.left + ", top=" + this.f1012top + ", width=" + this.width + ", height=" + this.height + "}";
+        return "{left=" + this.left + ", top=" + this.f1013top + ", width=" + this.width + ", height=" + this.height + "}";
     }
 }

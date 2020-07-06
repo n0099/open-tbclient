@@ -25,7 +25,7 @@ public class b implements e {
     }
 
     @Override // com.baidu.tieba.k.e
-    public void cCo() {
+    public void cCp() {
         if (f.bcM()) {
             if (StringUtils.isNull(this.jKk) || !QuickVideoView.xP(this.jKk)) {
                 if (this.jKn != null) {
@@ -39,7 +39,7 @@ public class b implements e {
                 public void n(Integer num) {
                     if (num != null && num.intValue() == 1) {
                         b.this.jKl = true;
-                        b.this.cCV();
+                        b.this.cCW();
                     }
                     if (b.this.jKn != null) {
                         b.this.jKn.Al(num.intValue());
@@ -50,7 +50,7 @@ public class b implements e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cCV() {
+    public void cCW() {
         if (f.bcM()) {
             if (StringUtils.isNull(this.jKk) || !QuickVideoView.xP(this.jKk)) {
                 if (this.jKn != null) {
@@ -74,7 +74,7 @@ public class b implements e {
     }
 
     @Override // com.baidu.tieba.k.e
-    public void cCp() {
+    public void cCq() {
         if (f.bcM()) {
             if (StringUtils.isNull(this.jKk) || !new File(this.jKk).exists() || !new File(this.jKk + "_moov_head_suffix").exists() || !this.jKl || !this.jKm) {
                 if (this.jKn != null) {
@@ -108,7 +108,7 @@ public class b implements e {
     }
 
     @Override // com.baidu.tieba.k.e
-    public void cCq() {
+    public void cCr() {
         if (StringUtils.isNull(this.jKk) || !QuickVideoView.xP(this.jKk)) {
             if (this.jKn != null) {
                 this.jKn.Al(2);

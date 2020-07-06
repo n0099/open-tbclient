@@ -9,7 +9,7 @@ import java.lang.ref.WeakReference;
 public class CountDownTextView extends TextView {
     private int cab;
     private final Runnable fcp;
-    private b lKj;
+    private b lKm;
     private Handler mHandler;
     private String mText;
 
@@ -39,13 +39,13 @@ public class CountDownTextView extends TextView {
         super(context);
         this.cab = 0;
         this.mText = "";
-        this.lKj = null;
+        this.lKm = null;
         this.mHandler = new Handler();
         this.fcp = new a();
     }
 
     public void setTimeoutListener(b bVar) {
-        this.lKj = bVar;
+        this.lKm = bVar;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -57,7 +57,7 @@ public class CountDownTextView extends TextView {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bqn();
+        bqo();
     }
 
     @Override // android.view.View
@@ -66,7 +66,7 @@ public class CountDownTextView extends TextView {
         if (i == 0) {
             pK(0);
         } else {
-            bqn();
+            bqo();
         }
     }
 
@@ -77,7 +77,7 @@ public class CountDownTextView extends TextView {
         }
     }
 
-    private void bqn() {
+    private void bqo() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
@@ -85,8 +85,8 @@ public class CountDownTextView extends TextView {
     public void pK(int i) {
         this.cab -= i;
         if (this.cab == 0) {
-            if (this.lKj != null) {
-                this.lKj.bv(this);
+            if (this.lKm != null) {
+                this.lKm.bv(this);
             }
             this.mHandler.removeCallbacksAndMessages(null);
             return;

@@ -79,7 +79,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         qc(0);
     }
 
-    public void btW() {
+    public void btX() {
         qc(this.pn);
     }
 
@@ -163,7 +163,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         return false;
     }
 
-    public List<bu> buG() {
+    public List<bu> buH() {
         return this.fug;
     }
 }

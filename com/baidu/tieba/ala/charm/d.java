@@ -193,7 +193,7 @@ public class d {
         this.baR.setVisibility(0);
     }
 
-    public void btN() {
+    public void btO() {
         this.baR.setVisibility(8);
     }
 

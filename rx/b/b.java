@@ -8,7 +8,7 @@ import rx.k;
 public final class b implements rx.c, k {
     final rx.c actual;
     boolean done;
-    k ogD;
+    k ogG;
 
     public b(rx.c cVar) {
         this.actual = cVar;
@@ -43,7 +43,7 @@ public final class b implements rx.c, k {
 
     @Override // rx.c
     public void onSubscribe(k kVar) {
-        this.ogD = kVar;
+        this.ogG = kVar;
         try {
             this.actual.onSubscribe(this);
         } catch (Throwable th) {
@@ -55,11 +55,11 @@ public final class b implements rx.c, k {
 
     @Override // rx.k
     public void unsubscribe() {
-        this.ogD.unsubscribe();
+        this.ogG.unsubscribe();
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.done || this.ogD.isUnsubscribed();
+        return this.done || this.ogG.isUnsubscribed();
     }
 }

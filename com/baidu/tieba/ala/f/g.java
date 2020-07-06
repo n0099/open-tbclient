@@ -46,12 +46,12 @@ public class g extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021168 && (httpResponsedMessage instanceof AlaUpdateWishListResponseMessage)) {
                     AlaUpdateWishListResponseMessage alaUpdateWishListResponseMessage = (AlaUpdateWishListResponseMessage) httpResponsedMessage;
-                    com.baidu.tieba.ala.data.j bKK = alaUpdateWishListResponseMessage.bKK();
-                    if (g.this.gwD != null && bKK != null) {
+                    com.baidu.tieba.ala.data.j bKL = alaUpdateWishListResponseMessage.bKL();
+                    if (g.this.gwD != null && bKL != null) {
                         if (alaUpdateWishListResponseMessage.getError() != 0 || !alaUpdateWishListResponseMessage.isSuccess()) {
                             g.this.gwD.aw(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
                         } else {
-                            g.this.gwD.b(bKK);
+                            g.this.gwD.b(bKL);
                         }
                     }
                 }
@@ -63,12 +63,12 @@ public class g extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021169 && (httpResponsedMessage instanceof AlaUpdateWishListResponseMessage)) {
                     AlaUpdateWishListResponseMessage alaUpdateWishListResponseMessage = (AlaUpdateWishListResponseMessage) httpResponsedMessage;
-                    com.baidu.tieba.ala.data.j bKK = alaUpdateWishListResponseMessage.bKK();
-                    if (g.this.gwE != null && bKK != null) {
+                    com.baidu.tieba.ala.data.j bKL = alaUpdateWishListResponseMessage.bKL();
+                    if (g.this.gwE != null && bKL != null) {
                         if (alaUpdateWishListResponseMessage.getError() != 0 || !alaUpdateWishListResponseMessage.isSuccess()) {
                             g.this.gwE.av(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
                         } else {
-                            g.this.gwE.a(bKK);
+                            g.this.gwE.a(bKL);
                         }
                     }
                 }
@@ -80,12 +80,12 @@ public class g extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021170 && (httpResponsedMessage instanceof AlaUpdateWishListResponseMessage)) {
                     AlaUpdateWishListResponseMessage alaUpdateWishListResponseMessage = (AlaUpdateWishListResponseMessage) httpResponsedMessage;
-                    com.baidu.tieba.ala.data.j bKK = alaUpdateWishListResponseMessage.bKK();
-                    if (g.this.gwF != null && bKK != null) {
+                    com.baidu.tieba.ala.data.j bKL = alaUpdateWishListResponseMessage.bKL();
+                    if (g.this.gwF != null && bKL != null) {
                         if (alaUpdateWishListResponseMessage.getError() != 0 || !alaUpdateWishListResponseMessage.isSuccess()) {
                             g.this.gwF.ax(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
                         } else {
-                            g.this.gwF.c(bKK);
+                            g.this.gwF.c(bKL);
                         }
                     }
                 }
@@ -138,11 +138,11 @@ public class g extends BdBaseModel {
         MessageManager.getInstance().unRegisterListener(this.gwG);
     }
 
-    public void bKM() {
+    public void bKN() {
         MessageManager.getInstance().unRegisterListener(this.gwH);
     }
 
-    public void bKN() {
+    public void bKO() {
         MessageManager.getInstance().unRegisterListener(this.gwI);
     }
 }

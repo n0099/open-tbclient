@@ -8,10 +8,10 @@ public final class c {
     private final int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final OutputStream f150a;
+    private final OutputStream f151a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final byte[] f151a;
+    private final byte[] f152a;
     private int b;
 
     /* loaded from: classes8.dex */
@@ -22,15 +22,15 @@ public final class c {
     }
 
     private c(OutputStream outputStream, byte[] bArr) {
-        this.f150a = outputStream;
-        this.f151a = bArr;
+        this.f151a = outputStream;
+        this.f152a = bArr;
         this.b = 0;
         this.a = bArr.length;
     }
 
     private c(byte[] bArr, int i, int i2) {
-        this.f150a = null;
-        this.f151a = bArr;
+        this.f151a = null;
+        this.f152a = bArr;
         this.b = i;
         this.a = i + i2;
     }
@@ -153,10 +153,10 @@ public final class c {
     }
 
     private void c() {
-        if (this.f150a == null) {
+        if (this.f151a == null) {
             throw new a();
         }
-        this.f150a.write(this.f151a, 0, this.b);
+        this.f151a.write(this.f152a, 0, this.b);
         this.b = 0;
     }
 
@@ -174,7 +174,7 @@ public final class c {
     }
 
     public int a() {
-        if (this.f150a == null) {
+        if (this.f151a == null) {
             return this.a - this.b;
         }
         throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
@@ -182,7 +182,7 @@ public final class c {
 
     /* renamed from: a  reason: collision with other method in class */
     public void m170a() {
-        if (this.f150a != null) {
+        if (this.f151a != null) {
             c();
         }
     }
@@ -191,7 +191,7 @@ public final class c {
         if (this.b == this.a) {
             c();
         }
-        byte[] bArr = this.f151a;
+        byte[] bArr = this.f152a;
         int i = this.b;
         this.b = i + 1;
         bArr[i] = b;
@@ -279,21 +279,21 @@ public final class c {
     /* renamed from: a  reason: collision with other method in class */
     public void m183a(byte[] bArr, int i, int i2) {
         if (this.a - this.b >= i2) {
-            System.arraycopy(bArr, i, this.f151a, this.b, i2);
+            System.arraycopy(bArr, i, this.f152a, this.b, i2);
             this.b += i2;
             return;
         }
         int i3 = this.a - this.b;
-        System.arraycopy(bArr, i, this.f151a, this.b, i3);
+        System.arraycopy(bArr, i, this.f152a, this.b, i3);
         int i4 = i + i3;
         int i5 = i2 - i3;
         this.b = this.a;
         c();
         if (i5 > this.a) {
-            this.f150a.write(bArr, i4, i5);
+            this.f151a.write(bArr, i4, i5);
             return;
         }
-        System.arraycopy(bArr, i4, this.f151a, 0, i5);
+        System.arraycopy(bArr, i4, this.f152a, 0, i5);
         this.b = i5;
     }
 

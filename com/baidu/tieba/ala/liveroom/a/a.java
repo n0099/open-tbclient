@@ -19,7 +19,7 @@ public class a implements c {
 
     public a(Activity activity) {
         this.mActivity = activity;
-        buX();
+        buY();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
@@ -87,14 +87,14 @@ public class a implements c {
         this.aBT = "";
         MessageManager.getInstance().unRegisterListener(this.fxk);
         if (this.fTv != null) {
-            this.fTv.buY();
+            this.fTv.buZ();
             if (this.fTv.Hf() != null) {
                 this.fTv.Hf().release();
             }
         }
     }
 
-    private void buX() {
+    private void buY() {
         this.fxk = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener

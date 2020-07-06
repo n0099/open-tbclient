@@ -6,7 +6,7 @@ public class r implements com.baidu.adp.widget.ListView.q {
     public static final BdUniqueId hCX = BdUniqueId.gen();
     private int hCY;
 
-    public int bZL() {
+    public int bZM() {
         return this.hCY;
     }
 

@@ -5,7 +5,7 @@ import java.util.List;
 public interface q {
     String alX();
 
-    List<String> deO();
+    List<String> deP();
 
     boolean isPeakTime();
 

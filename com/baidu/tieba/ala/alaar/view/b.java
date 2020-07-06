@@ -25,10 +25,10 @@ public class b extends BaseAdapter {
 
     public b(ViewGroup viewGroup) {
         this.flb = viewGroup;
-        btc();
+        btd();
     }
 
-    private void btc() {
+    private void btd() {
         if (this.flp != null) {
             this.flp.clear();
             this.flp.addAll(Arrays.asList(new Boolean[this.flo.length]));
@@ -146,13 +146,13 @@ public class b extends BaseAdapter {
         if (com.baidu.live.c.vf().getInt("beauty_subitem_redot", 0) != 1) {
             return false;
         }
-        if (TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey()) && btd()) {
+        if (TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey()) && bte()) {
             return true;
         }
         return Bp(str) && com.baidu.live.c.vf().getBoolean(str, true);
     }
 
-    public boolean btd() {
+    public boolean bte() {
         return com.baidu.live.c.vf().getBoolean("naturalFace", true) || com.baidu.live.c.vf().getBoolean("goddessFace", true) || com.baidu.live.c.vf().getBoolean("babyFace", true);
     }
 

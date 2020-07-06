@@ -156,7 +156,7 @@ public class f {
         this.dWm = (TextView) this.mRootView.findViewById(R.id.frs_ad_close);
         this.dWm.setOnClickListener(this.mClickListener);
         if (this.hFx != null) {
-            this.hFv.startLoad(this.hFx.dha(), 10, false);
+            this.hFv.startLoad(this.hFx.dhb(), 10, false);
         }
     }
 }

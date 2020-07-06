@@ -12,15 +12,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ZoneInfo {
-    private static int nCL = com.baidu.down.utils.Constants.HTTP_DNS_INAVAILABLE_TIME;
-    public final List<String> nCM;
-    public final Map<String, Long> nCN;
-    private final int nCO;
+    private static int nCO = com.baidu.down.utils.Constants.HTTP_DNS_INAVAILABLE_TIME;
+    public final List<String> nCP;
+    public final Map<String, Long> nCQ;
+    private final int nCR;
 
     public ZoneInfo(int i, List<String> list, Map<String, Long> map) {
-        this.nCO = i;
-        this.nCM = list;
-        this.nCN = map;
+        this.nCR = i;
+        this.nCP = list;
+        this.nCQ = map;
     }
 
     public static ZoneInfo eo(JSONObject jSONObject) throws JSONException {
@@ -51,15 +51,15 @@ public class ZoneInfo {
         return new ZoneInfo(i, arrayList, concurrentHashMap);
     }
 
-    public void RB(String str) {
-        this.nCN.put(str, Long.valueOf((System.currentTimeMillis() / 1000) + nCL));
+    public void RC(String str) {
+        this.nCQ.put(str, Long.valueOf((System.currentTimeMillis() / 1000) + nCO));
     }
 
     public String toString() {
         HashMap hashMap = new HashMap();
-        hashMap.put("ttl", Integer.valueOf(this.nCO));
-        hashMap.put("upDomainList", this.nCM);
-        hashMap.put("upDomainMap", this.nCN);
+        hashMap.put("ttl", Integer.valueOf(this.nCR));
+        hashMap.put("upDomainList", this.nCP);
+        hashMap.put("upDomainMap", this.nCQ);
         return new JSONObject(hashMap).toString();
     }
 }

@@ -11,7 +11,7 @@ class n {
     private boolean duN;
     private String mCategory;
     private String mContent;
-    private String mEi;
+    private String mEl;
     private String mId;
     private int mOption;
     private long mTime;
@@ -20,7 +20,7 @@ class n {
         this.mContent = "";
         this.duN = false;
         this.Zt = "";
-        this.mEi = "0";
+        this.mEl = "0";
         this.mId = str;
         this.duJ = str;
         this.duK = -1;
@@ -35,7 +35,7 @@ class n {
         this.mContent = "";
         this.duN = false;
         this.Zt = "";
-        this.mEi = "0";
+        this.mEl = "0";
         this.mId = str;
         this.duJ = str;
         this.duK = -1;
@@ -50,7 +50,7 @@ class n {
         this.mContent = "";
         this.duN = false;
         this.Zt = "";
-        this.mEi = "0";
+        this.mEl = "0";
         this.mId = str2;
         this.duJ = str;
         this.duK = i;
@@ -65,7 +65,7 @@ class n {
         this.mContent = "";
         this.duN = false;
         this.Zt = "";
-        this.mEi = "0";
+        this.mEl = "0";
         this.mId = str2;
         this.duJ = str;
         this.duK = i;
@@ -137,16 +137,16 @@ class n {
     }
 
     public void aJD() {
-        if (this.mId != null && this.mId.equals(this.duJ) && g.dwI().tN(this.mId)) {
+        if (this.mId != null && this.mId.equals(this.duJ) && g.dwM().tN(this.mId)) {
             this.duM = UBC.getUBCContext().alX();
         }
     }
 
-    public void PU(String str) {
-        this.mEi = str;
+    public void PV(String str) {
+        this.mEl = str;
     }
 
-    public String dwM() {
-        return this.mEi;
+    public String dwQ() {
+        return this.mEl;
     }
 }

@@ -65,8 +65,8 @@ public class c {
             long j5;
             long parseInt;
             j.D(c.TAG, "test run in " + c.this);
-            while (e.boa().y(c.this)) {
-                e.boa().zI(c.this.mVideoUrl);
+            while (e.bob().y(c.this)) {
+                e.bob().zI(c.this.mVideoUrl);
                 try {
                     j.D(c.TAG, "mDownloadRunnable sleep in..." + c.this);
                     Thread.sleep(100L);
@@ -79,14 +79,14 @@ public class c {
                 }
             }
             if (!c.this.eWg) {
-                e.boa().w(c.this);
+                e.bob().w(c.this);
             }
             while (true) {
                 if (c.this.eWg) {
                     break;
                 }
                 j.D(c.TAG, "download in " + c.this);
-                if (c.this.bnW()) {
+                if (c.this.bnX()) {
                     break;
                 }
                 c.this.eWi = -1L;
@@ -276,7 +276,7 @@ public class c {
                         } else {
                             try {
                                 j.D(c.TAG, "download start waitting ...... ");
-                                while (c.this.bnX()) {
+                                while (c.this.bnY()) {
                                     try {
                                         Thread.sleep(20L);
                                     } catch (InterruptedException e8) {
@@ -364,7 +364,7 @@ public class c {
                                         if (str2 != null) {
                                             fileOutputStream.close();
                                         }
-                                        k.boi().n(inputStream);
+                                        k.boj().n(inputStream);
                                         c.this.eWi = j4;
                                     } catch (Exception e12) {
                                         httpURLConnection2 = httpURLConnection;
@@ -396,7 +396,7 @@ public class c {
                                             }
                                             if (!c.this.eWg) {
                                             }
-                                            e.boa().x(c.this);
+                                            e.bob().x(c.this);
                                             j.D(c.TAG, "test run out ***************************************************************" + c.this);
                                         } catch (Throwable th2) {
                                             th = th2;
@@ -486,7 +486,7 @@ public class c {
                     break;
                 }
             }
-            e.boa().x(c.this);
+            e.bob().x(c.this);
             j.D(c.TAG, "test run out ***************************************************************" + c.this);
         }
     };
@@ -534,7 +534,7 @@ public class c {
                     this.eWh = false;
                     this.eWi = -1L;
                     this.eWj = false;
-                    l.boj().s(this.eWo);
+                    l.bok().s(this.eWo);
                 }
             }
         }
@@ -545,7 +545,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bnW() {
+    public boolean bnX() {
         if (m.zR(this.eWk) > this.mTotalLength) {
             m.O(new File(i.eWH + this.eWk + "/segments"));
             TiebaStatic.log(new ao("c12028").dk("errormsg", "校验到缓存文件片段大小有异常").dk("url", this.mVideoUrl));
@@ -566,7 +566,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bnX() {
+    public boolean bnY() {
         if (!this.eWe || this.eWd != -1) {
             return false;
         }
@@ -591,7 +591,7 @@ public class c {
             return;
         }
         if (file == null || !file.exists()) {
-            k.boi().zP(this.mVideoUrl);
+            k.boj().zP(this.mVideoUrl);
         }
     }
 

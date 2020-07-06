@@ -27,9 +27,9 @@ public class AlaChallengeTargetItemView extends RelativeLayout implements View.O
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bDd();
-
         void bDe();
+
+        void bDf();
     }
 
     public AlaChallengeTargetItemView(Context context, AttributeSet attributeSet) {
@@ -71,9 +71,9 @@ public class AlaChallengeTargetItemView extends RelativeLayout implements View.O
     public void onClick(View view) {
         if (this.geG != null) {
             if (view == this.geC) {
-                this.geG.bDd();
-            } else if (view == this.geE) {
                 this.geG.bDe();
+            } else if (view == this.geE) {
+                this.geG.bDf();
             }
         }
     }

@@ -8,11 +8,11 @@ import java.util.Map;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a<T> {
-    private final LruCache<String, T> okn;
-    private final Map<String, WeakReference<T>> oko = new ArrayMap();
+    private final LruCache<String, T> okq;
+    private final Map<String, WeakReference<T>> okr = new ArrayMap();
 
     public a(int i, final b<T> bVar) {
-        this.okn = new LruCache<String, T>(i <= 0 ? 8388608 : i) { // from class: tv.chushou.zues.toolkit.a.b.a.1
+        this.okq = new LruCache<String, T>(i <= 0 ? 8388608 : i) { // from class: tv.chushou.zues.toolkit.a.b.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.support.v4.util.LruCache
@@ -30,7 +30,7 @@ public class a<T> {
             /* renamed from: a */
             public void entryRemoved(boolean z, String str, T t, T t2) {
                 if (z && t != null) {
-                    a.this.oko.put(str, new WeakReference(t));
+                    a.this.okr.put(str, new WeakReference(t));
                 }
             }
         };
@@ -39,7 +39,7 @@ public class a<T> {
     public void put(String str, T t) {
         if (!h.isEmpty(str) && t != null) {
             synchronized (this) {
-                this.okn.put(str, t);
+                this.okq.put(str, t);
             }
         }
     }
@@ -52,15 +52,15 @@ public class a<T> {
             return null;
         }
         synchronized (this) {
-            T t2 = this.okn.get(str);
-            if (t2 != null || (weakReference = this.oko.get(str)) == null) {
+            T t2 = this.okq.get(str);
+            if (t2 != null || (weakReference = this.okr.get(str)) == null) {
                 t = t2;
             } else {
                 t = weakReference.get();
                 if (t != null) {
-                    this.okn.put(str, t);
+                    this.okq.put(str, t);
                 } else {
-                    this.oko.remove(str);
+                    this.okr.remove(str);
                 }
             }
         }
@@ -69,8 +69,8 @@ public class a<T> {
 
     public void clear() {
         synchronized (this) {
-            this.okn.evictAll();
-            this.oko.clear();
+            this.okq.evictAll();
+            this.okr.clear();
         }
     }
 }

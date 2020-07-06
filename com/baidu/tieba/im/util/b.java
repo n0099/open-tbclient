@@ -36,11 +36,11 @@ public class b {
                 case 1:
                 case 2:
                 case 3:
-                    b.this.jcc.coA();
+                    b.this.jcc.coB();
                     return;
                 case 4:
                 case 5:
-                    b.this.jcc.coz();
+                    b.this.jcc.coA();
                     return;
                 default:
                     return;
@@ -52,13 +52,13 @@ public class b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103010) {
-                b.this.jcc.coz();
+                b.this.jcc.coA();
             } else if (!(socketResponsedMessage instanceof ResponseRequestGroupLocMessage)) {
-                b.this.jcc.coz();
+                b.this.jcc.coA();
             } else {
                 ResponseRequestGroupLocMessage responseRequestGroupLocMessage = (ResponseRequestGroupLocMessage) socketResponsedMessage;
                 if (responseRequestGroupLocMessage.getError() != 0) {
-                    b.this.jcc.coz();
+                    b.this.jcc.coA();
                     return;
                 }
                 Iterator<String> iteraotrOfBusinessAreaList = responseRequestGroupLocMessage.getIteraotrOfBusinessAreaList();
@@ -68,7 +68,7 @@ public class b {
                 }
                 String position = responseRequestGroupLocMessage.getPosition();
                 if ((position == null || position.equals("")) && arrayList.size() < 1) {
-                    b.this.jcc.coz();
+                    b.this.jcc.coA();
                 } else {
                     b.this.jcc.a(position, arrayList, b.this.latitude, b.this.longitude);
                 }
@@ -82,7 +82,7 @@ public class b {
 
         void coA();
 
-        void coz();
+        void coB();
     }
 
     public b(a aVar) {

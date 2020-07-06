@@ -241,7 +241,7 @@ public class AlaChooseGiftActivity extends BaseFragmentActivity {
                         AlaChooseGiftActivity.this.feb.post(new Runnable() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.7.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                AlaChooseGiftActivity.this.fed.brB();
+                                AlaChooseGiftActivity.this.fed.brC();
                             }
                         });
                         e.printStackTrace();

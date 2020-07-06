@@ -17,7 +17,7 @@ public class b {
     private List<JSONObject> ljB;
     private List<JSONObject> ljC;
 
-    public static b cZK() {
+    public static b cZL() {
         if (ljz == null) {
             synchronized (b.class) {
                 if (ljz == null) {
@@ -36,7 +36,7 @@ public class b {
         this.ljA.addAll(list);
     }
 
-    public String cZL() {
+    public String cZM() {
         synchronized (this) {
             if (w.isEmpty(this.ljA)) {
                 return "";
@@ -64,7 +64,7 @@ public class b {
         this.ljB.addAll(list);
     }
 
-    public String cZM() {
+    public String cZN() {
         synchronized (this) {
             if (w.isEmpty(this.ljB)) {
                 return "";
@@ -92,7 +92,7 @@ public class b {
         this.ljC.addAll(list);
     }
 
-    public String cZN() {
+    public String cZO() {
         synchronized (this) {
             if (w.isEmpty(this.ljC)) {
                 return "";
@@ -112,7 +112,7 @@ public class b {
         }
     }
 
-    public synchronized void cZO() {
+    public synchronized void cZP() {
         if (this.ljC != null) {
             this.ljC.clear();
             this.ljC = null;

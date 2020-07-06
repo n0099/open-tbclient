@@ -33,12 +33,12 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.d, com.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.g> aVar) {
-        if (aVar.bPg() == null) {
+        if (aVar.bPh() == null) {
             return null;
         }
-        aVar.bPg().a(dVar);
-        aVar.bPg().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.bPg().a(new g.a() { // from class: com.baidu.tieba.frs.gamerecommend.a.e.1
+        aVar.bPh().a(dVar);
+        aVar.bPh().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.bPh().a(new g.a() { // from class: com.baidu.tieba.frs.gamerecommend.a.e.1
             @Override // com.baidu.tieba.card.g.a
             public void b(View view2, com.baidu.tieba.card.data.b bVar) {
                 if (e.this.hOQ != null) {
@@ -46,7 +46,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.d, com.
                 }
             }
         });
-        return aVar.bPg().getView();
+        return aVar.bPh().getView();
     }
 
     public void d(aa aaVar) {

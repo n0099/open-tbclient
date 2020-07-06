@@ -134,7 +134,7 @@ public class a {
         }
     }
 
-    public int bYO() {
+    public int bYP() {
         ViewGroup.LayoutParams layoutParams = this.kOb.getLayoutParams();
         if (layoutParams != null) {
             return layoutParams.height;

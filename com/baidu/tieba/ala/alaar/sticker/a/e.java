@@ -40,7 +40,7 @@ public class e {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return com.baidu.tieba.ala.alaar.sticker.download.b.bsn().isRunning(str);
+        return com.baidu.tieba.ala.alaar.sticker.download.b.bso().isRunning(str);
     }
 
     public static void a(final String str, final a aVar) {
@@ -55,7 +55,7 @@ public class e {
             }
             final String md5 = Md5.toMd5(str);
             fhH.add(str);
-            com.baidu.tieba.ala.alaar.sticker.download.b.bsn().a(str, avg, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.e.1
+            com.baidu.tieba.ala.alaar.sticker.download.b.bso().a(str, avg, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.e.1
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onStarted() {
                     super.onStarted();

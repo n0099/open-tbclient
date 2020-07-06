@@ -167,10 +167,10 @@ public class AACTrackImpl extends AbstractTrack {
         this.bufferSizeDB = 1536;
         this.sampleDescriptionBox = new SampleDescriptionBox();
         AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
-        if (this.firstHeader.ndG == 7) {
+        if (this.firstHeader.ndJ == 7) {
             audioSampleEntry.setChannelCount(8);
         } else {
-            audioSampleEntry.setChannelCount(this.firstHeader.ndG);
+            audioSampleEntry.setChannelCount(this.firstHeader.ndJ);
         }
         audioSampleEntry.setSampleRate(this.firstHeader.sampleRate);
         audioSampleEntry.setDataReferenceIndex(1);
@@ -189,8 +189,8 @@ public class AACTrackImpl extends AbstractTrack {
         decoderConfigDescriptor.setAvgBitRate(this.avgBitRate);
         AudioSpecificConfig audioSpecificConfig = new AudioSpecificConfig();
         audioSpecificConfig.setAudioObjectType(2);
-        audioSpecificConfig.setSamplingFrequencyIndex(this.firstHeader.ndC);
-        audioSpecificConfig.setChannelConfiguration(this.firstHeader.ndG);
+        audioSpecificConfig.setSamplingFrequencyIndex(this.firstHeader.ndF);
+        audioSpecificConfig.setChannelConfiguration(this.firstHeader.ndJ);
         decoderConfigDescriptor.setAudioSpecificInfo(audioSpecificConfig);
         eSDescriptor.setDecoderConfigDescriptor(decoderConfigDescriptor);
         ByteBuffer serialize = eSDescriptor.serialize();
@@ -262,9 +262,6 @@ public class AACTrackImpl extends AbstractTrack {
     public class a {
         int home;
         int layer;
-        int ndC;
-        int ndD;
-        int ndE;
         int ndF;
         int ndG;
         int ndH;
@@ -272,6 +269,9 @@ public class AACTrackImpl extends AbstractTrack {
         int ndJ;
         int ndK;
         int ndL;
+        int ndM;
+        int ndN;
+        int ndO;
         int original;
         int sampleRate;
 
@@ -279,7 +279,7 @@ public class AACTrackImpl extends AbstractTrack {
         }
 
         int getSize() {
-            return (this.ndE == 0 ? 2 : 0) + 7;
+            return (this.ndH == 0 ? 2 : 0) + 7;
         }
     }
 
@@ -295,25 +295,25 @@ public class AACTrackImpl extends AbstractTrack {
         if (bitReaderBuffer.readBits(12) != 4095) {
             throw new IOException("Expected Start Word 0xfff");
         }
-        aVar.ndD = bitReaderBuffer.readBits(1);
+        aVar.ndG = bitReaderBuffer.readBits(1);
         aVar.layer = bitReaderBuffer.readBits(2);
-        aVar.ndE = bitReaderBuffer.readBits(1);
-        aVar.ndF = bitReaderBuffer.readBits(2) + 1;
-        aVar.ndC = bitReaderBuffer.readBits(4);
-        aVar.sampleRate = samplingFrequencyIndexMap.get(Integer.valueOf(aVar.ndC)).intValue();
+        aVar.ndH = bitReaderBuffer.readBits(1);
+        aVar.ndI = bitReaderBuffer.readBits(2) + 1;
+        aVar.ndF = bitReaderBuffer.readBits(4);
+        aVar.sampleRate = samplingFrequencyIndexMap.get(Integer.valueOf(aVar.ndF)).intValue();
         bitReaderBuffer.readBits(1);
-        aVar.ndG = bitReaderBuffer.readBits(3);
+        aVar.ndJ = bitReaderBuffer.readBits(3);
         aVar.original = bitReaderBuffer.readBits(1);
         aVar.home = bitReaderBuffer.readBits(1);
-        aVar.ndH = bitReaderBuffer.readBits(1);
-        aVar.ndI = bitReaderBuffer.readBits(1);
-        aVar.ndJ = bitReaderBuffer.readBits(13);
-        aVar.ndK = bitReaderBuffer.readBits(11);
-        aVar.ndL = bitReaderBuffer.readBits(2) + 1;
-        if (aVar.ndL != 1) {
+        aVar.ndK = bitReaderBuffer.readBits(1);
+        aVar.ndL = bitReaderBuffer.readBits(1);
+        aVar.ndM = bitReaderBuffer.readBits(13);
+        aVar.ndN = bitReaderBuffer.readBits(11);
+        aVar.ndO = bitReaderBuffer.readBits(2) + 1;
+        if (aVar.ndO != 1) {
             throw new IOException("This muxer can only work with 1 AAC frame per ADTS frame");
         }
-        if (aVar.ndE == 0) {
+        if (aVar.ndH == 0) {
             dataSource.read(ByteBuffer.allocate(2));
         }
         return aVar;
@@ -327,9 +327,9 @@ public class AACTrackImpl extends AbstractTrack {
                 if (aVar == null) {
                     aVar = readADTSHeader;
                 }
-                ByteBuffer map = dataSource.map(dataSource.position(), readADTSHeader.ndJ - readADTSHeader.getSize());
+                ByteBuffer map = dataSource.map(dataSource.position(), readADTSHeader.ndM - readADTSHeader.getSize());
                 this.samples.add(new SampleImpl(map));
-                dataSource.position((dataSource.position() + readADTSHeader.ndJ) - readADTSHeader.getSize());
+                dataSource.position((dataSource.position() + readADTSHeader.ndM) - readADTSHeader.getSize());
                 map.rewind();
             } else {
                 return aVar;
@@ -338,6 +338,6 @@ public class AACTrackImpl extends AbstractTrack {
     }
 
     public String toString() {
-        return "AACTrackImpl{sampleRate=" + this.firstHeader.sampleRate + ", channelconfig=" + this.firstHeader.ndG + '}';
+        return "AACTrackImpl{sampleRate=" + this.firstHeader.sampleRate + ", channelconfig=" + this.firstHeader.ndJ + '}';
     }
 }

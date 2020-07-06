@@ -49,7 +49,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
 
     /* loaded from: classes13.dex */
     public interface a {
-        boolean cZr();
+        boolean cZs();
 
         FormItemBaseView getFormView();
 
@@ -69,7 +69,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View cxy() {
+    protected View cxz() {
         this.mRootView = LayoutInflater.from(getContext()).inflate(R.layout.card_form, (ViewGroup) null);
         this.lip = (TitleView) this.mRootView.findViewById(R.id.form_title_view);
         this.lit = (ImageView) this.mRootView.findViewById(R.id.tb_img_background);
@@ -105,7 +105,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
     /* renamed from: a */
     public void d(FormCard formCard) {
         if (formCard != null && formCard.mIsLegal && this.liw != formCard) {
-            cZy();
+            cZz();
             this.liw = formCard;
             this.aOP = formCard.getItemId();
             cT(formCard.mWidth, formCard.mHeight);
@@ -121,17 +121,17 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             }
             this.lip.a(formCard.titleInfo);
             this.liq.a(formCard.commitInfo);
-            b.cYT().a(new com.baidu.tieba.recapp.a.a(this.liq.getPostUrl()));
-            cZv();
-            cZx();
+            b.cYU().a(new com.baidu.tieba.recapp.a.a(this.liq.getPostUrl()));
             cZw();
+            cZy();
+            cZx();
             a(this.lip);
             a(this.liq);
             if (formCard.isCommitSuccess()) {
-                cZz();
+                cZA();
             }
             if (!formCard.mHasShown) {
-                q.cYS().cYO().dx(formCard.getShowExtra(), this.mFrom);
+                q.cYT().cYP().dx(formCard.getShowExtra(), this.mFrom);
                 formCard.mHasShown = true;
             }
         }
@@ -144,7 +144,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         this.liy = (float) (this.mScreenWidth / 750.0d);
     }
 
-    private void cZv() {
+    private void cZw() {
         this.mRootView.setBackgroundResource(R.drawable.form_defalut_bg_image);
         if (this.liw.backgroundInfo != null) {
             this.lit.setVisibility(0);
@@ -200,7 +200,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         this.lit.setVisibility(8);
     }
 
-    private void cZw() {
+    private void cZx() {
         FormCard.f fVar = this.liw.resultInfo;
         float dimension = this.dPv.getResources().getDimension(R.dimen.fontsize48);
         float dimension2 = this.dPv.getResources().getDimension(R.dimen.fontsize28);
@@ -215,7 +215,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         }
     }
 
-    private void cZx() {
+    private void cZy() {
         if (this.liw.itemList != null && this.liw.itemList.size() > 0) {
             int size = this.liw.itemList.size();
             for (int i = 0; i < size; i++) {
@@ -244,7 +244,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         }
     }
 
-    private void cZy() {
+    private void cZz() {
         this.lis.removeAllViews();
         if (this.lix != null) {
             this.lix.clear();
@@ -269,12 +269,12 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
     private void a(FormItemBaseView formItemBaseView, int i, int i2) {
         if (formItemBaseView != null) {
             if (i != i2 - 1) {
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, formItemBaseView.cZA());
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, formItemBaseView.cZB());
                 layoutParams.bottomMargin = (int) (((int) this.mActivity.getApplicationContext().getResources().getDimension(R.dimen.form_size40)) * this.liy);
                 formItemBaseView.setLayoutParams(layoutParams);
                 return;
             }
-            formItemBaseView.setLayoutParams(new LinearLayout.LayoutParams(-1, formItemBaseView.cZA()));
+            formItemBaseView.setLayoutParams(new LinearLayout.LayoutParams(-1, formItemBaseView.cZB()));
         }
     }
 
@@ -293,7 +293,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             for (a aVar : list) {
                 FormItemBaseView formView = aVar.getFormView();
                 if (formView != null) {
-                    if (!aVar.cZr()) {
+                    if (!aVar.cZs()) {
                         View frameView = formView.getFrameView();
                         if (frameView != null) {
                             formView.a(frameView, FormItemBaseView.DrawableType.ERROR_FRAME);
@@ -332,7 +332,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cZz() {
+    public void cZA() {
         this.liq.setVisibility(4);
         this.lis.setVisibility(4);
         this.lir.setVisibility(0);
@@ -357,14 +357,14 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         if (TextUtils.isEmpty(str)) {
             this.liq.setClickable(true);
         } else {
-            b.cYT().a(null, str, hashMap, new d() { // from class: com.baidu.tieba.recapp.lego.view.form.FormCardView.3
+            b.cYU().a(null, str, hashMap, new d() { // from class: com.baidu.tieba.recapp.lego.view.form.FormCardView.3
                 @Override // com.baidu.adp.base.d
                 public void callback(Object obj) {
                     if (obj instanceof h) {
                         h hVar = (h) obj;
                         if (hVar.result) {
                             FormCardView.this.liw.setCommitState(true);
-                            FormCardView.this.cZz();
+                            FormCardView.this.cZA();
                         } else if (!TextUtils.isEmpty(hVar.errorString)) {
                             new com.baidu.tbadk.core.view.c().showFailToast(hVar.errorString);
                             FormCardView.this.liw.setCommitState(false);

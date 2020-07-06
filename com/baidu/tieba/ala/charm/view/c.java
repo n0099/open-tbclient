@@ -50,7 +50,7 @@ public class c {
     public c(ALaCharmCardActivity aLaCharmCardActivity) {
         this.fzp = aLaCharmCardActivity;
         initView();
-        bwh();
+        bwi();
     }
 
     private void initView() {
@@ -68,7 +68,7 @@ public class c {
                     if (dVar instanceof com.baidu.tieba.ala.charm.a) {
                         com.baidu.tieba.ala.charm.a aVar = (com.baidu.tieba.ala.charm.a) dVar;
                         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
-                            String qx = com.baidu.tieba.ala.charm.g.qx(aVar.bvV());
+                            String qx = com.baidu.tieba.ala.charm.g.qx(aVar.bvW());
                             if (c.this.axZ) {
                                 alaStaticItem = new AlaStaticItem(SdkStaticKeys.ACCESS_MASTER_CHARMLIST);
                             } else {
@@ -78,7 +78,7 @@ public class c {
                             alaStaticItem.addParams(SdkStaticKeys.KEY_CHARM_TYPE, qx);
                             AlaStaticsManager.getInst().onStatic(alaStaticItem);
                         }
-                        aVar.bvU().bwg();
+                        aVar.bvV().bwh();
                     }
                 }
             }
@@ -94,7 +94,7 @@ public class c {
         return this.mRootView;
     }
 
-    private void bwh() {
+    private void bwi() {
         AlaStaticItem alaStaticItem;
         Intent intent = this.fzp.getIntent();
         String stringExtra = intent.getStringExtra("user_id");
@@ -129,7 +129,7 @@ public class c {
             AlaStaticsManager.getInst().onStatic(alaStaticItem);
         }
         if (this.avk != null && this.avk.size() > 0 && (this.avk.get(0) instanceof com.baidu.tieba.ala.charm.a)) {
-            ((com.baidu.tieba.ala.charm.a) this.avk.get(0)).bvU().bwg();
+            ((com.baidu.tieba.ala.charm.a) this.avk.get(0)).bvV().bwh();
         }
     }
 

@@ -20,7 +20,7 @@ public class GetOrderHttpResponsedMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public be byA() {
+    public be byB() {
         return this.fOC;
     }
 }

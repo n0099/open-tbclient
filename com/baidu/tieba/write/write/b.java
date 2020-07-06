@@ -18,8 +18,8 @@ import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public class b {
     private String dqq;
-    private ArrayList<String> mlw;
-    private final String msM = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private ArrayList<String> mlz;
+    private final String msP = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -39,10 +39,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !w.isEmpty(this.mlw)) {
+        if (spannable != null && !w.isEmpty(this.mlz)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.mlw.iterator();
+                Iterator<String> it = this.mlz.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -91,7 +91,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (w.isEmpty(dqI())) {
+        if (w.isEmpty(dqM())) {
             return false;
         }
         return i(editText) || i(editText2);
@@ -114,18 +114,18 @@ public class b {
     }
 
     public void aY(ArrayList<String> arrayList) {
-        this.mlw = arrayList;
+        this.mlz = arrayList;
     }
 
-    public ArrayList<String> dqI() {
-        return this.mlw;
+    public ArrayList<String> dqM() {
+        return this.mlz;
     }
 
-    public void OM(String str) {
+    public void ON(String str) {
         this.dqq = str;
     }
 
-    public String dqM() {
+    public String dqQ() {
         return this.dqq;
     }
 

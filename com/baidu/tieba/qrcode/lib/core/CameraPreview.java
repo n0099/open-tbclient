@@ -54,13 +54,13 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
             if (this.lbD) {
                 requestLayout();
             } else {
-                bHe();
+                bHf();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bHe() {
+    public void bHf() {
         if (this.mSurfaceTexture != null && this.mCamera != null) {
             try {
                 this.lbD = true;
@@ -74,7 +74,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    public void cYd() {
+    public void cYe() {
         if (this.mCamera != null) {
             try {
                 removeCallbacks(this.lbF);
@@ -92,10 +92,10 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public void onMeasure(int i, int i2) {
         int defaultSize = getDefaultSize(getSuggestedMinimumWidth(), i);
         int defaultSize2 = getDefaultSize(getSuggestedMinimumHeight(), i2);
-        if (this.lbE != null && this.lbE.cYb() != null) {
-            Point cYb = this.lbE.cYb();
-            int i3 = cYb.x;
-            int i4 = cYb.y;
+        if (this.lbE != null && this.lbE.cYc() != null) {
+            Point cYc = this.lbE.cYc();
+            int i3 = cYc.x;
+            int i4 = cYc.y;
             if ((defaultSize * 1.0f) / defaultSize2 < (i3 * 1.0f) / i4) {
                 defaultSize = (int) ((defaultSize2 / ((i4 * 1.0f) / i3)) + 0.5f);
             } else {
@@ -109,17 +109,17 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
         this.mSurfaceCreated = true;
         this.mSurfaceTexture = surfaceTexture;
-        bHe();
+        bHf();
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
         if (surfaceTexture != null) {
-            cYd();
+            cYe();
             post(new Runnable() { // from class: com.baidu.tieba.qrcode.lib.core.CameraPreview.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    CameraPreview.this.bHe();
+                    CameraPreview.this.bHf();
                 }
             });
         }
@@ -128,7 +128,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     @Override // android.view.TextureView.SurfaceTextureListener
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
         this.mSurfaceCreated = false;
-        cYd();
+        cYe();
         return true;
     }
 

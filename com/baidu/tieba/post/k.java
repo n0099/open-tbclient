@@ -37,35 +37,35 @@ public class k {
         this.mUuid = str;
     }
 
-    public void cWW() {
+    public void cWX() {
         this.isSuccess = false;
     }
 
-    public void cWX() {
+    public void cWY() {
         this.isSuccess = true;
     }
 
-    public void cWY() {
+    public void cWZ() {
         this.kZu++;
     }
 
-    public boolean cWZ() {
+    public boolean cXa() {
         return this.kZu > 0;
     }
 
-    public void cXa() {
+    public void cXb() {
         this.kYG = true;
     }
 
-    public boolean cXb() {
+    public boolean cXc() {
         return this.kYG;
     }
 
     public void a(com.baidu.tieba.n.c cVar) {
         this.kZv.add(cVar);
-        cXd();
+        cXe();
         b(cVar);
-        cXc();
+        cXd();
     }
 
     private void b(com.baidu.tieba.n.c cVar) {
@@ -79,7 +79,7 @@ public class k {
                     if (lVarArr != null && lVarArr.length == 1 && lVarArr[0] != null) {
                         l lVar = lVarArr[0];
                         synchronized ("debug") {
-                            com.baidu.tieba.k.d.a(new File(g.a.jJl + g.a.jJc + lVar.uuid + g.a.jJc + "debug"), lVar.kZy.cWx().toString() + "\n", true);
+                            com.baidu.tieba.k.d.a(new File(g.a.jJl + g.a.jJc + lVar.uuid + g.a.jJc + "debug"), lVar.kZy.cWy().toString() + "\n", true);
                         }
                     }
                     return null;
@@ -88,7 +88,7 @@ public class k {
         }
     }
 
-    private void cXc() {
+    private void cXd() {
         if (com.baidu.adp.lib.util.f.checkSD()) {
             new BdAsyncTask<e, Void, Void>() { // from class: com.baidu.tieba.post.k.3
                 /* JADX DEBUG: Method merged with bridge method */
@@ -108,7 +108,7 @@ public class k {
         }
     }
 
-    private void cXd() {
+    private void cXe() {
         if (com.baidu.adp.lib.util.f.checkSD()) {
             File file = new File(g.a.jJl + g.a.jJc + this.mUuid + g.a.jJc);
             if (!file.exists()) {
@@ -117,7 +117,7 @@ public class k {
         }
     }
 
-    public JSONObject cCG() {
+    public JSONObject cCH() {
         return b(this.isSuccess, this.kZu, this.kYG);
     }
 
@@ -133,14 +133,14 @@ public class k {
         return jSONObject;
     }
 
-    public JSONObject cCI() {
+    public JSONObject cCJ() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
             if (!w.isEmpty(this.kZv)) {
                 int size = this.kZv.size();
                 for (int i = 0; i < size; i++) {
-                    jSONArray.put(this.kZv.get(i).cWx());
+                    jSONArray.put(this.kZv.get(i).cWy());
                 }
             }
             jSONObject.put("running", jSONArray);

@@ -367,7 +367,7 @@ public class f extends com.baidu.adp.widget.ListView.d {
             if (this.ecZ != null) {
                 this.ecZ.mt(this.ecY.getTipViewHeight());
             }
-            this.ecY.cam();
+            this.ecY.can();
             return true;
         }
         return false;

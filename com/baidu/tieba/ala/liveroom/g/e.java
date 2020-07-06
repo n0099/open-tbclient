@@ -85,7 +85,7 @@ public class e {
     public e(TbPageContext tbPageContext, bc bcVar) {
         this.pageContext = tbPageContext;
         this.fWG = bcVar;
-        bEj();
+        bEk();
     }
 
     public void s(q qVar) {
@@ -186,7 +186,7 @@ public class e {
         }
     }
 
-    private static void bEj() {
+    private static void bEk() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021152, TbConfig.SERVER_ADDRESS + "ala/task/complete");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);

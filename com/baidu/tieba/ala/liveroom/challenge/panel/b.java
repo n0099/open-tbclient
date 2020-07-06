@@ -48,7 +48,7 @@ public class b extends g {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view == b.this.gac) {
-                    b.this.bCZ();
+                    b.this.bDa();
                 }
             }
         };
@@ -104,7 +104,7 @@ public class b extends g {
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
     protected boolean onBackKeyDown() {
-        bCZ();
+        bDa();
         return true;
     }
 
@@ -113,7 +113,7 @@ public class b extends g {
         return LayoutInflater.from(this.mContext).inflate(a.h.ala_challenge_direct_link_view, (ViewGroup) null);
     }
 
-    public void bCZ() {
+    public void bDa() {
         if (this.gaK != null && this.gab != null) {
             this.gaK.dG(this.gab.userId);
         }
@@ -127,13 +127,13 @@ public class b extends g {
                 this.gaf.setVisibility(8);
                 this.gac.setVisibility(8);
             } else {
-                bDa();
+                bDb();
             }
             this.mHandler.removeCallbacks(this.fOd);
         }
     }
 
-    private void bDa() {
+    private void bDb() {
         this.gae.setText(a.i.ala_challenge_panel_invite_fail);
         this.gad.setText(a.i.ala_challenge_panel_direct_fail_tip);
         this.gac.setText(a.i.ala_challenge_panel_again_select);
@@ -156,7 +156,7 @@ public class b extends g {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
-    protected int bCY() {
+    protected int bCZ() {
         return this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds510);
     }
 }

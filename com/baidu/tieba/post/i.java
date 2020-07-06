@@ -15,7 +15,7 @@ public class i implements com.baidu.tieba.k.f {
     @Override // com.baidu.tieba.k.f
     public void o(String str, int i, String str2) {
         if (Lj(str)) {
-            this.kZs.cWY();
+            this.kZs.cWZ();
             this.kZs.a(new com.baidu.tieba.n.d(i, "record", i, str2));
         }
     }
@@ -24,7 +24,7 @@ public class i implements com.baidu.tieba.k.f {
     public void p(String str, int i, String str2) {
         if (Lj(str)) {
             if (i == 103 || i == 105 || i == 106 || i == 107 || i == 104) {
-                this.kZs.cWY();
+                this.kZs.cWZ();
                 this.kZs.a(new com.baidu.tieba.n.d(i, str2, i, VideoPlatformStatic.py(i)));
                 return;
             }
@@ -35,7 +35,7 @@ public class i implements com.baidu.tieba.k.f {
     @Override // com.baidu.tieba.k.f
     public void q(String str, int i, String str2) {
         if (Lj(str)) {
-            this.kZs.cWY();
+            this.kZs.cWZ();
             this.kZs.a(new com.baidu.tieba.n.d(i, "edit", i, str2));
         }
     }
@@ -43,9 +43,9 @@ public class i implements com.baidu.tieba.k.f {
     @Override // com.baidu.tieba.k.f
     public void e(String str, int i, int i2, String str2) {
         if (Lj(str)) {
-            this.kZs.cWY();
-            this.kZs.cWW();
-            this.kZs.cXa();
+            this.kZs.cWZ();
+            this.kZs.cWX();
+            this.kZs.cXb();
             this.kZs.a(new com.baidu.tieba.n.d(i, "write", i2, str2));
         }
     }
@@ -53,7 +53,7 @@ public class i implements com.baidu.tieba.k.f {
     @Override // com.baidu.tieba.k.f
     public void IT(String str) {
         if (Lj(str)) {
-            this.kZs.cXa();
+            this.kZs.cXb();
             this.kZs.a(new com.baidu.tieba.n.d(301, "write", -4399, ""));
         }
     }
@@ -61,8 +61,8 @@ public class i implements com.baidu.tieba.k.f {
     @Override // com.baidu.tieba.k.f
     public void IU(String str) {
         if (Lj(str)) {
-            this.kZs.cXa();
-            this.kZs.cWX();
+            this.kZs.cXb();
+            this.kZs.cWY();
             this.kZs.a(new com.baidu.tieba.n.d(401, "write", -4399, ""));
         }
     }
@@ -70,9 +70,9 @@ public class i implements com.baidu.tieba.k.f {
     @Override // com.baidu.tieba.k.f
     public void r(String str, int i, String str2) {
         if (Lj(str)) {
-            this.kZs.cWY();
-            this.kZs.cWW();
-            this.kZs.cXa();
+            this.kZs.cWZ();
+            this.kZs.cWX();
+            this.kZs.cXb();
             this.kZs.a(new com.baidu.tieba.n.d(402, "write", i, str2));
         }
     }
@@ -80,21 +80,21 @@ public class i implements com.baidu.tieba.k.f {
     @Override // com.baidu.tieba.k.f
     public void gY(String str) {
         if (Lj(str)) {
-            com.baidu.tieba.u.b.dlJ().q(this.mUuid, com.baidu.tieba.u.b.a(VideoPlatformStatic.bow(), this.kZs.cCG(), this.kZs.cCI()));
+            com.baidu.tieba.u.b.dlN().q(this.mUuid, com.baidu.tieba.u.b.a(VideoPlatformStatic.box(), this.kZs.cCH(), this.kZs.cCJ()));
         }
     }
 
     @Override // com.baidu.tieba.k.f
     public boolean IV(String str) {
         if (Lj(str)) {
-            return this.kZs.cWZ();
+            return this.kZs.cXa();
         }
         return false;
     }
 
     @Override // com.baidu.tieba.k.f
     public boolean IW(String str) {
-        return this.kZs.cXb();
+        return this.kZs.cXc();
     }
 
     @Override // com.baidu.tieba.k.f

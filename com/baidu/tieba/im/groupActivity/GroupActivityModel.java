@@ -22,7 +22,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         this.iUu = groupActivityActivity;
     }
 
-    public int cqW() {
+    public int cqX() {
         return this.mFrom;
     }
 
@@ -30,7 +30,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         this.mFrom = i;
     }
 
-    public int cqX() {
+    public int cqY() {
         return this.dyP;
     }
 
@@ -38,7 +38,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         this.dyP = i;
     }
 
-    public long cqY() {
+    public long cqZ() {
         return this.mGroupId;
     }
 
@@ -92,7 +92,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         return this.iUr;
     }
 
-    public Message<?> cqZ() {
+    public Message<?> cra() {
         return this.iUt;
     }
 
@@ -103,7 +103,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         this.iUu.sendMessage(this.iUt);
     }
 
-    public GroupActivityData cra() {
+    public GroupActivityData crb() {
         return this.iUv;
     }
 

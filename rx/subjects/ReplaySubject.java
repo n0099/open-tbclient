@@ -12,7 +12,7 @@ import rx.j;
 import rx.k;
 /* loaded from: classes6.dex */
 public final class ReplaySubject<T> extends c<T, T> {
-    private static final Object[] nOj = new Object[0];
+    private static final Object[] nOm = new Object[0];
     final ReplayState<T> state;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -168,18 +168,18 @@ public final class ReplaySubject<T> extends c<T, T> {
         volatile boolean done;
         Throwable error;
         final int limit;
-        volatile Node<T> ohB;
-        Node<T> ohC;
+        volatile Node<T> ohE;
+        Node<T> ohF;
         int size;
 
         @Override // rx.subjects.ReplaySubject.a
         public void next(T t) {
             Node<T> node = new Node<>(t);
-            this.ohC.set(node);
-            this.ohC = node;
+            this.ohF.set(node);
+            this.ohF = node;
             int i = this.size;
             if (i == this.limit) {
-                this.ohB = this.ohB.get();
+                this.ohE = this.ohE.get();
             } else {
                 this.size = i + 1;
             }
@@ -210,7 +210,7 @@ public final class ReplaySubject<T> extends c<T, T> {
                     long j3 = 0;
                     Node<T> node2 = (Node) replayProducer.node;
                     if (node2 == null) {
-                        node2 = this.ohB;
+                        node2 = this.ohE;
                     }
                     while (true) {
                         j = j3;
@@ -289,9 +289,9 @@ public final class ReplaySubject<T> extends c<T, T> {
         volatile boolean done;
         Throwable error;
         final int limit;
-        TimedNode<T> ohA;
-        final long ohy;
-        volatile TimedNode<T> ohz;
+        final long ohB;
+        volatile TimedNode<T> ohC;
+        TimedNode<T> ohD;
         final g scheduler;
         int size;
 
@@ -301,11 +301,11 @@ public final class ReplaySubject<T> extends c<T, T> {
             int i;
             long now = this.scheduler.now();
             TimedNode<T> timedNode2 = new TimedNode<>(t, now);
-            this.ohA.set(timedNode2);
-            this.ohA = timedNode2;
-            long j = now - this.ohy;
+            this.ohD.set(timedNode2);
+            this.ohD = timedNode2;
+            long j = now - this.ohB;
             int i2 = this.size;
-            TimedNode<T> timedNode3 = this.ohz;
+            TimedNode<T> timedNode3 = this.ohC;
             if (i2 == this.limit) {
                 i = i2;
                 timedNode = timedNode3.get();
@@ -324,26 +324,26 @@ public final class ReplaySubject<T> extends c<T, T> {
             }
             this.size = i;
             if (timedNode != timedNode3) {
-                this.ohz = timedNode;
+                this.ohC = timedNode;
             }
         }
 
         @Override // rx.subjects.ReplaySubject.a
         public void error(Throwable th) {
-            dVE();
+            dVI();
             this.error = th;
             this.done = true;
         }
 
         @Override // rx.subjects.ReplaySubject.a
         public void complete() {
-            dVE();
+            dVI();
             this.done = true;
         }
 
-        void dVE() {
-            long now = this.scheduler.now() - this.ohy;
-            TimedNode<T> timedNode = this.ohz;
+        void dVI() {
+            long now = this.scheduler.now() - this.ohB;
+            TimedNode<T> timedNode = this.ohC;
             TimedNode<T> timedNode2 = timedNode;
             while (true) {
                 TimedNode<T> timedNode3 = timedNode2.get();
@@ -353,14 +353,14 @@ public final class ReplaySubject<T> extends c<T, T> {
                 timedNode2 = timedNode3;
             }
             if (timedNode != timedNode2) {
-                this.ohz = timedNode2;
+                this.ohC = timedNode2;
             }
         }
 
-        TimedNode<T> dVF() {
+        TimedNode<T> dVJ() {
             TimedNode<T> timedNode;
-            long now = this.scheduler.now() - this.ohy;
-            TimedNode<T> timedNode2 = this.ohz;
+            long now = this.scheduler.now() - this.ohB;
+            TimedNode<T> timedNode2 = this.ohC;
             while (true) {
                 timedNode = timedNode2;
                 timedNode2 = timedNode.get();
@@ -385,7 +385,7 @@ public final class ReplaySubject<T> extends c<T, T> {
                     long j3 = 0;
                     TimedNode<T> timedNode2 = (TimedNode) replayProducer.node;
                     if (timedNode2 == null) {
-                        timedNode2 = dVF();
+                        timedNode2 = dVJ();
                     }
                     while (true) {
                         j = j3;

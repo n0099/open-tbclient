@@ -56,7 +56,7 @@ public class c {
             return this;
         }
 
-        public c bso() {
+        public c bsp() {
             return new c(this.mUri, this.mFolder, this.mName, this.mDescription);
         }
     }

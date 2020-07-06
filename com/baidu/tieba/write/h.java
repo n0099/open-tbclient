@@ -8,11 +8,11 @@ public abstract class h {
     protected View dSV;
     protected View mAnchorView;
     protected Context mContext;
-    protected com.baidu.tieba.write.a mlY;
-    protected a mmd;
+    protected com.baidu.tieba.write.a mmb;
+    protected a mmg;
     protected int mState = 4;
-    protected Rect mmi = new Rect();
-    protected Rect mmj = new Rect();
+    protected Rect mml = new Rect();
+    protected Rect mmm = new Rect();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -21,38 +21,38 @@ public abstract class h {
 
     public abstract void ajJ();
 
-    public abstract void dqQ();
+    public abstract void dqU();
 
-    public abstract void dqR();
+    public abstract void dqV();
 
     public abstract void onDestroy();
 
     public h(Context context, com.baidu.tieba.write.a aVar) {
         this.mContext = context;
-        this.mlY = aVar;
+        this.mmb = aVar;
     }
 
     public void b(a aVar) {
-        this.mmd = aVar;
+        this.mmg = aVar;
     }
 
     public void d(View view, View view2) {
         this.mAnchorView = view;
         this.dSV = view2;
         if (this.dSV != null) {
-            this.dSV.getGlobalVisibleRect(this.mmi);
+            this.dSV.getGlobalVisibleRect(this.mml);
         }
     }
 
     public void show() {
-        dqQ();
+        dqU();
     }
 
     public void eO(boolean z) {
         if (z) {
             ajJ();
         } else {
-            dqR();
+            dqV();
         }
     }
 }

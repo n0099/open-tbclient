@@ -28,7 +28,7 @@ public class k {
                 }
             } else if (message.what == 3) {
                 if (k.this.eWM != null) {
-                    k.this.eWM.bnU();
+                    k.this.eWM.bnV();
                 }
             } else if (message.what == 4) {
                 if (message.obj instanceof String) {
@@ -49,7 +49,7 @@ public class k {
         this.eWM = new b();
     }
 
-    public static k boi() {
+    public static k boj() {
         if (eWK == null) {
             synchronized (k.class) {
                 if (eWK == null) {
@@ -73,7 +73,7 @@ public class k {
         this.mHandler.sendMessageDelayed(obtainMessage, 1000L);
     }
 
-    public void bnU() {
+    public void bnV() {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
     }
 

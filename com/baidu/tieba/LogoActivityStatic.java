@@ -8,6 +8,6 @@ public class LogoActivityStatic {
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(LogoActivityConfig.class, LogoActivity.class);
-        eTw = c.bmq();
+        eTw = c.bmr();
     }
 }

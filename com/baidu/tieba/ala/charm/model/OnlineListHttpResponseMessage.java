@@ -34,19 +34,19 @@ public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public long bwc() {
+    public long bwd() {
         return this.mAudienceCount;
     }
 
-    public k bwd() {
+    public k bwe() {
         return this.fAE;
     }
 
-    public AlaLiveUserInfoData bwe() {
+    public AlaLiveUserInfoData bwf() {
         return this.axp;
     }
 
-    public long bwf() {
+    public long bwg() {
         return this.fAF;
     }
 }

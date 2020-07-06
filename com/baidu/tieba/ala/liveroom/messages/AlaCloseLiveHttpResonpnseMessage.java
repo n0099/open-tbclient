@@ -20,7 +20,7 @@ public class AlaCloseLiveHttpResonpnseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public com.baidu.tieba.ala.liveroom.data.b bHL() {
+    public com.baidu.tieba.ala.liveroom.data.b bHM() {
         return this.gmM;
     }
 }

@@ -204,7 +204,7 @@ public class a {
                 }
             }
             if (this.gHC != null) {
-                if ((nVar.fEo == 1 && nVar.bwL()) || nVar.fEv) {
+                if ((nVar.fEo == 1 && nVar.bwM()) || nVar.fEv) {
                     this.gHC.setVisibility(8);
                 } else {
                     this.gHC.setVisibility(0);

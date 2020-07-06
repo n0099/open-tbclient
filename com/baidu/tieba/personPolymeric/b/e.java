@@ -119,7 +119,7 @@ public class e extends d {
         this.mNoDataView.setVisibility(0);
     }
 
-    public void chT() {
+    public void chU() {
         if (this.kMk != null) {
             if (this.kMh != null) {
                 this.kMh.setVisibility(8);
@@ -165,7 +165,7 @@ public class e extends d {
         this.kMg = bVar;
     }
 
-    public void btN() {
+    public void btO() {
         if (this.refreshView != null) {
             this.refreshView.dettachView(this.kMk);
             this.refreshView = null;
@@ -195,7 +195,7 @@ public class e extends d {
 
     public void tm(boolean z) {
         if (z) {
-            cTu();
+            cTv();
         }
     }
 
@@ -204,14 +204,14 @@ public class e extends d {
     }
 
     public void aI(String str, boolean z) {
-        if (!bSR()) {
+        if (!bSS()) {
             this.kMj.setVisibility(0);
             if (this.refreshView == null) {
                 this.refreshView = new com.baidu.tbadk.k.h(this.dPv.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.b.e.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-                            e.this.btN();
+                            e.this.btO();
                             e.this.tm(true);
                             if (e.this.kMg != null) {
                                 e.this.kMg.cT(view);
@@ -230,7 +230,7 @@ public class e extends d {
         }
     }
 
-    public boolean bSR() {
+    public boolean bSS() {
         if (this.refreshView != null) {
             return this.refreshView.isViewAttached();
         }
@@ -240,7 +240,7 @@ public class e extends d {
     public void g(boolean z, List<q> list) {
     }
 
-    public void buK() {
+    public void buL() {
     }
 
     public void ex(List<q> list) {
@@ -249,7 +249,7 @@ public class e extends d {
         }
     }
 
-    public void cTu() {
+    public void cTv() {
         if (NickNameActivitySwitch.isOn()) {
             if (this.kMh == null) {
                 this.kMh = new ImageView(this.dPv.getPageActivity());
@@ -257,7 +257,7 @@ public class e extends d {
                 this.kMh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.b.e.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(e.this.dPv.getPageActivity(), null, com.baidu.tieba.pb.c.cGx(), true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(e.this.dPv.getPageActivity(), null, com.baidu.tieba.pb.c.cGy(), true)));
                     }
                 });
             }
@@ -280,7 +280,7 @@ public class e extends d {
     public void b(com.baidu.tieba.personPolymeric.c.a aVar) {
     }
 
-    public void ceu() {
+    public void cev() {
     }
 
     public void doRefresh() {

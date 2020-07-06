@@ -7,30 +7,30 @@ import com.tb.airbnb.lottie.a.b.a;
 import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class e implements j, l, a.InterfaceC0864a {
+public class e implements j, l, a.InterfaceC0865a {
     private boolean Cb;
     private final com.tb.airbnb.lottie.f lottieDrawable;
-    private final com.tb.airbnb.lottie.model.content.a nFA;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> nFB;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> nFC;
+    private final com.tb.airbnb.lottie.model.content.a nFD;
     @Nullable
-    private r nFw;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> nFy;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> nFz;
+    private r nFz;
     private final String name;
     private final Path path = new Path();
 
     public e(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.a aVar2) {
         this.name = aVar2.getName();
         this.lottieDrawable = fVar;
-        this.nFy = aVar2.dNM().dNC();
-        this.nFz = aVar2.dNF().dNC();
-        this.nFA = aVar2;
-        aVar.a(this.nFy);
-        aVar.a(this.nFz);
-        this.nFy.b(this);
-        this.nFz.b(this);
+        this.nFB = aVar2.dNQ().dNG();
+        this.nFC = aVar2.dNJ().dNG();
+        this.nFD = aVar2;
+        aVar.a(this.nFB);
+        aVar.a(this.nFC);
+        this.nFB.b(this);
+        this.nFC.b(this);
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0864a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0865a
     public void hq() {
         invalidate();
     }
@@ -47,9 +47,9 @@ public class e implements j, l, a.InterfaceC0864a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).dNs() == ShapeTrimPath.Type.Simultaneously) {
-                    this.nFw = (r) bVar;
-                    this.nFw.a(this);
+                if ((bVar instanceof r) && ((r) bVar).dNw() == ShapeTrimPath.Type.Simultaneously) {
+                    this.nFz = (r) bVar;
+                    this.nFz.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -69,13 +69,13 @@ public class e implements j, l, a.InterfaceC0864a {
             return this.path;
         }
         this.path.reset();
-        PointF value = this.nFy.getValue();
+        PointF value = this.nFB.getValue();
         float f = value.x / 2.0f;
         float f2 = value.y / 2.0f;
         float f3 = f * 0.55228f;
         float f4 = f2 * 0.55228f;
         this.path.reset();
-        if (this.nFA.isReversed()) {
+        if (this.nFD.isReversed()) {
             this.path.moveTo(0.0f, -f2);
             this.path.cubicTo(0.0f - f3, -f2, -f, 0.0f - f4, -f, 0.0f);
             this.path.cubicTo(-f, 0.0f + f4, 0.0f - f3, f2, 0.0f, f2);
@@ -88,10 +88,10 @@ public class e implements j, l, a.InterfaceC0864a {
             this.path.cubicTo(0.0f - f3, f2, -f, 0.0f + f4, -f, 0.0f);
             this.path.cubicTo(-f, 0.0f - f4, 0.0f - f3, -f2, 0.0f, -f2);
         }
-        PointF value2 = this.nFz.getValue();
+        PointF value2 = this.nFC.getValue();
         this.path.offset(value2.x, value2.y);
         this.path.close();
-        com.tb.airbnb.lottie.d.f.a(this.path, this.nFw);
+        com.tb.airbnb.lottie.d.f.a(this.path, this.nFz);
         this.Cb = true;
         return this.path;
     }
@@ -104,9 +104,9 @@ public class e implements j, l, a.InterfaceC0864a {
     @Override // com.tb.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         if (t == com.tb.airbnb.lottie.j.Be) {
-            this.nFy.a(cVar);
+            this.nFB.a(cVar);
         } else if (t == com.tb.airbnb.lottie.j.Bf) {
-            this.nFz.a(cVar);
+            this.nFC.a(cVar);
         }
     }
 }

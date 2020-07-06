@@ -26,13 +26,13 @@ import okhttp3.ResponseBody;
 /* loaded from: classes12.dex */
 public class b extends c<a> {
     private Context mContext;
-    private volatile Call.Factory mQN;
-    private volatile Executor mQO;
+    private volatile Call.Factory mQQ;
+    private volatile Executor mQR;
 
     /* loaded from: classes12.dex */
     public static class a extends t {
-        public long mQU;
-        public long mQV;
+        public long mQX;
+        public long mQY;
         public long responseTime;
 
         public a(k<e> kVar, ak akVar) {
@@ -45,8 +45,8 @@ public class b extends c<a> {
     }
 
     public b(Call.Factory factory, Executor executor) {
-        this.mQN = factory;
-        this.mQO = executor;
+        this.mQQ = factory;
+        this.mQR = executor;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,23 +59,23 @@ public class b extends c<a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.af
     public void a(a aVar, af.a aVar2) {
-        aVar.mQU = SystemClock.elapsedRealtime();
+        aVar.mQX = SystemClock.elapsedRealtime();
         Uri uri = aVar.getUri();
-        dCp();
+        dCt();
         try {
             Request.Builder builder = new Request.Builder().cacheControl(new CacheControl.Builder().noStore().build()).url(uri.toString()).get();
-            com.facebook.imagepipeline.common.a dFc = aVar.dGl().dFY().dFc();
-            if (dFc != null) {
-                builder.addHeader(Headers.RANGE, dFc.dCO());
+            com.facebook.imagepipeline.common.a dFg = aVar.dGp().dGc().dFg();
+            if (dFg != null) {
+                builder.addHeader(Headers.RANGE, dFg.dCS());
             }
-            Map<String, String> dGp = aVar.dGp();
-            if (dGp == null) {
+            Map<String, String> dGt = aVar.dGt();
+            if (dGt == null) {
                 builder.addHeader("User-Agent", "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36");
             } else {
-                if (!dGp.containsKey("User-Agent")) {
+                if (!dGt.containsKey("User-Agent")) {
                     builder.addHeader("User-Agent", "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36");
                 }
-                for (Map.Entry<String, String> entry : dGp.entrySet()) {
+                for (Map.Entry<String, String> entry : dGt.entrySet()) {
                     builder.addHeader(entry.getKey(), entry.getValue());
                 }
             }
@@ -89,7 +89,7 @@ public class b extends c<a> {
     @Override // com.facebook.imagepipeline.producers.c, com.facebook.imagepipeline.producers.af
     /* renamed from: a */
     public void b(a aVar, int i) {
-        aVar.mQV = SystemClock.elapsedRealtime();
+        aVar.mQY = SystemClock.elapsedRealtime();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -97,20 +97,20 @@ public class b extends c<a> {
     /* renamed from: b */
     public Map<String, String> a(a aVar, int i) {
         HashMap hashMap = new HashMap(4);
-        hashMap.put("queue_time", Long.toString(aVar.responseTime - aVar.mQU));
-        hashMap.put("fetch_time", Long.toString(aVar.mQV - aVar.responseTime));
-        hashMap.put("total_time", Long.toString(aVar.mQV - aVar.mQU));
+        hashMap.put("queue_time", Long.toString(aVar.responseTime - aVar.mQX));
+        hashMap.put("fetch_time", Long.toString(aVar.mQY - aVar.responseTime));
+        hashMap.put("total_time", Long.toString(aVar.mQY - aVar.mQX));
         hashMap.put("image_size", Integer.toString(i));
         return hashMap;
     }
 
     protected void a(final a aVar, final af.a aVar2, Request request) {
-        final Call newCall = this.mQN.newCall(request);
-        aVar.dGl().a(new com.facebook.imagepipeline.producers.e() { // from class: com.facebook.imagepipeline.a.a.b.1
+        final Call newCall = this.mQQ.newCall(request);
+        aVar.dGp().a(new com.facebook.imagepipeline.producers.e() { // from class: com.facebook.imagepipeline.a.a.b.1
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dCq() {
+            public void dCu() {
                 if (Looper.myLooper() == Looper.getMainLooper()) {
-                    b.this.mQO.execute(new Runnable() { // from class: com.facebook.imagepipeline.a.a.b.1.1
+                    b.this.mQR.execute(new Runnable() { // from class: com.facebook.imagepipeline.a.a.b.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             newCall.cancel();
@@ -131,9 +131,9 @@ public class b extends c<a> {
                         b.this.a(call, new IOException("Unexpected HTTP code " + response), aVar2);
                         return;
                     }
-                    com.facebook.imagepipeline.common.a QO = com.facebook.imagepipeline.common.a.QO(response.header(Headers.CONTENT_RANGE));
-                    if (QO != null && (QO.from != 0 || QO.to != Integer.MAX_VALUE)) {
-                        aVar.c(QO);
+                    com.facebook.imagepipeline.common.a QP = com.facebook.imagepipeline.common.a.QP(response.header(Headers.CONTENT_RANGE));
+                    if (QP != null && (QP.from != 0 || QP.to != Integer.MAX_VALUE)) {
+                        aVar.c(QP);
                         aVar.Jo(8);
                     }
                     long contentLength = body.contentLength();
@@ -155,19 +155,19 @@ public class b extends c<a> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Call call, Exception exc, af.a aVar) {
         if (call.isCanceled()) {
-            aVar.dzd();
+            aVar.dzh();
         } else {
             aVar.G(exc);
         }
     }
 
-    private void dCp() {
-        if (this.mQO == null) {
+    private void dCt() {
+        if (this.mQR == null) {
             synchronized (this) {
-                if (this.mQO == null) {
+                if (this.mQR == null) {
                     OkHttpClient okHttpClient = HttpManager.newHttpManager(this.mContext).getOkHttpClient();
-                    this.mQN = okHttpClient;
-                    this.mQO = okHttpClient.dispatcher().executorService();
+                    this.mQQ = okHttpClient;
+                    this.mQR = okHttpClient.dispatcher().executorService();
                 }
             }
         }

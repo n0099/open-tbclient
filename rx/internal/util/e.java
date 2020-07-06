@@ -4,7 +4,7 @@ public final class e<T> {
     final float loadFactor;
     int mask;
     int maxSize;
-    T[] nNG;
+    T[] nNJ;
     int size;
 
     public e() {
@@ -16,12 +16,12 @@ public final class e<T> {
         int KU = rx.internal.util.a.h.KU(i);
         this.mask = KU - 1;
         this.maxSize = (int) (KU * f);
-        this.nNG = (T[]) new Object[KU];
+        this.nNJ = (T[]) new Object[KU];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.nNG;
+        T[] tArr = this.nNJ;
         int i = this.mask;
         int KT = KT(t.hashCode()) & i;
         T t3 = tArr[KT];
@@ -48,7 +48,7 @@ public final class e<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.nNG;
+        T[] tArr = this.nNJ;
         int i = this.mask;
         int KT = KT(t.hashCode()) & i;
         T t3 = tArr[KT];
@@ -98,11 +98,11 @@ public final class e<T> {
 
     public void terminate() {
         this.size = 0;
-        this.nNG = (T[]) new Object[0];
+        this.nNJ = (T[]) new Object[0];
     }
 
     void rehash() {
-        T[] tArr = this.nNG;
+        T[] tArr = this.nNJ;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -126,7 +126,7 @@ public final class e<T> {
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.nNG = tArr2;
+                this.nNJ = tArr2;
                 return;
             }
         }
@@ -141,7 +141,7 @@ public final class e<T> {
         return this.size == 0;
     }
 
-    public T[] dUP() {
-        return this.nNG;
+    public T[] dUT() {
+        return this.nNJ;
     }
 }

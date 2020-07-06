@@ -63,10 +63,10 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.VideoControllerView
-    public int bpp() {
-        int bpp = super.bpp();
+    public int bpq() {
+        int bpq = super.bpq();
         this.kzJ.setProgress(this.eZn.getProgress());
-        return bpp;
+        return bpq;
     }
 
     public void setBottomBarShow(boolean z) {

@@ -8,16 +8,16 @@ import javax.annotation.concurrent.ThreadSafe;
 @TargetApi(21)
 /* loaded from: classes12.dex */
 public class a extends f {
-    private final com.facebook.imagepipeline.memory.c mQW;
+    private final com.facebook.imagepipeline.memory.c mQZ;
 
     public a(com.facebook.imagepipeline.memory.c cVar) {
-        this.mQW = cVar;
+        this.mQZ = cVar;
     }
 
     @Override // com.facebook.imagepipeline.b.f
     public com.facebook.common.references.a<Bitmap> c(int i, int i2, Bitmap.Config config) {
-        Bitmap bitmap = this.mQW.get(com.facebook.d.a.e(i, i2, config));
+        Bitmap bitmap = this.mQZ.get(com.facebook.d.a.e(i, i2, config));
         Bitmaps.a(bitmap, i, i2, config);
-        return com.facebook.common.references.a.a(bitmap, this.mQW);
+        return com.facebook.common.references.a.a(bitmap, this.mQZ);
     }
 }

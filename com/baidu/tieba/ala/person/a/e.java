@@ -12,7 +12,7 @@ public class e {
     public List<AlaLiveInfoData> gxH;
     public c gxI;
 
-    public List bLe() {
+    public List bLf() {
         int i = 0;
         if (ListUtils.isEmpty(this.gxH)) {
             return null;

@@ -34,7 +34,7 @@ public class c implements BdListView.e, NoNetworkView.a, f.c {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             c.this.iTK = true;
-            c.this.bWu();
+            c.this.bWv();
         }
     };
     private at iTO = new at() { // from class: com.baidu.tieba.im.frsgroup.view.a.c.2
@@ -47,7 +47,7 @@ public class c implements BdListView.e, NoNetworkView.a, f.c {
             }
             c.this.hvT = bbVar;
             if ((c.this.hvT.pn == 0 || c.this.hvT.pn == 1) && c.this.hvT.hasMore && !c.this.hvT.isLocal) {
-                c.this.btu();
+                c.this.btv();
                 return;
             }
             if (arrayList != null) {
@@ -68,19 +68,19 @@ public class c implements BdListView.e, NoNetworkView.a, f.c {
                     c.this.iTI.a(c.this.hvT.errMsg, c.this.iTN);
                 } else {
                     c.this.iTI.completePullRefresh();
-                    c.this.iTI.cht();
+                    c.this.iTI.chu();
                 }
             } else {
                 c.this.hvO = arrayList;
                 c.this.iTI.cS(c.this.hvO);
                 if (w.getCount(c.this.hvO) != 1 || !(w.getItem(c.this.hvO, 0) instanceof h)) {
                     if (c.this.hvT.hasMore) {
-                        c.this.iTI.chs();
+                        c.this.iTI.cht();
                     } else {
-                        c.this.iTI.chu();
+                        c.this.iTI.chv();
                     }
                 } else {
-                    c.this.iTI.cqL();
+                    c.this.iTI.cqM();
                 }
                 if (c.this.iTK) {
                     c.this.iTI.hideLoadingView();
@@ -115,25 +115,25 @@ public class c implements BdListView.e, NoNetworkView.a, f.c {
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        cqN();
+        cqO();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         if (!j.isNetWorkAvailable()) {
-            this.iTI.cht();
+            this.iTI.chu();
         }
         if (this.hvT != null) {
             if (!this.hvT.hasMore) {
-                this.iTI.chu();
+                this.iTI.chv();
             } else {
-                btu();
+                btv();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btu() {
+    public void btv() {
         if (this.hvT != null) {
             ay ayVar = new ay();
             ayVar.forumName = this.iTL;
@@ -144,7 +144,7 @@ public class c implements BdListView.e, NoNetworkView.a, f.c {
         }
     }
 
-    private void cqN() {
+    private void cqO() {
         ay ayVar = new ay();
         ayVar.forumName = this.iTL;
         ayVar.forumId = this.eEs;
@@ -158,11 +158,11 @@ public class c implements BdListView.e, NoNetworkView.a, f.c {
         this.iTL = str2;
     }
 
-    public void bWu() {
+    public void bWv() {
         if (this.iTK) {
-            this.iTI.btN();
+            this.iTI.btO();
             this.iTI.showLoadingView();
-            cqN();
+            cqO();
         }
     }
 
@@ -175,7 +175,7 @@ public class c implements BdListView.e, NoNetworkView.a, f.c {
     }
 
     public void onDestroy() {
-        this.iTJ.bzf();
+        this.iTJ.bzg();
     }
 
     public void b(at atVar) {

@@ -8,23 +8,23 @@ class cn {
     private File a;
 
     /* renamed from: a  reason: collision with other field name */
-    private StringBuilder f174a;
+    private StringBuilder f175a;
 
     public void a() {
         try {
             FileWriter fileWriter = new FileWriter(this.a, true);
-            fileWriter.write(this.f174a.toString());
+            fileWriter.write(this.f175a.toString());
             fileWriter.flush();
             fileWriter.close();
-            this.f174a.delete(0, this.f174a.length());
+            this.f175a.delete(0, this.f175a.length());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void a(cm cmVar) {
-        this.f174a.append(cmVar.a + "\t");
-        this.f174a.append(cmVar.f173a + "\t" + cmVar.b);
-        this.f174a.append("\r\n");
+        this.f175a.append(cmVar.a + "\t");
+        this.f175a.append(cmVar.f174a + "\t" + cmVar.b);
+        this.f175a.append("\r\n");
     }
 }

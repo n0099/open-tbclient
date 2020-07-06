@@ -9,7 +9,7 @@ public class a {
     private List<String> kqi;
     private SingleBarEmotionRecommendData kqj;
 
-    public SingleBarEmotionRecommendData cNt() {
+    public SingleBarEmotionRecommendData cNu() {
         return this.kqj;
     }
 
@@ -17,7 +17,7 @@ public class a {
         this.kqj = singleBarEmotionRecommendData;
     }
 
-    public List<EmotionImageData> bTQ() {
+    public List<EmotionImageData> bTR() {
         return this.hlY;
     }
 
@@ -25,7 +25,7 @@ public class a {
         this.hlY = list;
     }
 
-    public List<String> cNu() {
+    public List<String> cNv() {
         return this.kqi;
     }
 

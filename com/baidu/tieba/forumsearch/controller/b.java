@@ -80,7 +80,7 @@ public class b implements View.OnClickListener {
                 String str = (String) customResponsedMessage.getData();
                 b.this.hxx.hxO.setText(str);
                 b.this.hxx.hxO.setSelection(str.length());
-                b.this.bWJ();
+                b.this.bWK();
             }
         }
     };
@@ -89,23 +89,23 @@ public class b implements View.OnClickListener {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                b.this.bWK();
+                b.this.bWL();
             }
         }
     };
     private d.a hxL = new d.a() { // from class: com.baidu.tieba.forumsearch.controller.b.5
         @Override // com.baidu.tieba.forumsearch.controller.d.a
         public void a(boolean z, com.baidu.tieba.forumsearch.b.c cVar) {
-            if (!z || cVar == null || w.isEmpty(cVar.bWT())) {
+            if (!z || cVar == null || w.isEmpty(cVar.bWU())) {
                 if (StringUtils.isNull(b.this.hxA)) {
-                    b.this.bWK();
+                    b.this.bWL();
                     return;
                 } else {
-                    b.this.bWH();
+                    b.this.bWI();
                     return;
                 }
             }
-            b.this.gZU = cVar.bWT();
+            b.this.gZU = cVar.bWU();
             b.this.setDatas(b.this.gZU);
         }
     };
@@ -119,13 +119,13 @@ public class b implements View.OnClickListener {
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
         this.hxx = new c(tbPageContext);
-        bWI();
+        bWJ();
         this.hxy = new d(tbPageContext, tbPageContext.getUniqueId());
         this.hxy.a(this.hxL);
         this.gZU = new ArrayList<>();
         this.hxz = new a(tbPageContext, this.hxx.fml);
         this.hxz.y(this.hxH);
-        bWK();
+        bWL();
         tbPageContext.registerListener(this.hxK);
         tbPageContext.registerListener(this.hxJ);
         com.baidu.adp.lib.f.e.lt().postDelayed(this.hxI, 500L);
@@ -202,11 +202,11 @@ public class b implements View.OnClickListener {
     }
 
     private FrsTabInfoData b(com.baidu.tieba.forumsearch.b.b bVar) {
-        if (bVar == null || w.isEmpty(bVar.bWS())) {
+        if (bVar == null || w.isEmpty(bVar.bWT())) {
             return null;
         }
-        ArrayList arrayList = new ArrayList(bVar.bWS().size());
-        for (FrsTabInfo frsTabInfo : bVar.bWS()) {
+        ArrayList arrayList = new ArrayList(bVar.bWT().size());
+        for (FrsTabInfo frsTabInfo : bVar.bWT()) {
             if (frsTabInfo != null && frsTabInfo.is_general_tab.intValue() == 1 && frsTabInfo.tab_id.intValue() > 0 && !StringUtils.isNull(frsTabInfo.tab_name)) {
                 arrayList.add(new FrsTabItemData(frsTabInfo));
             }
@@ -220,12 +220,12 @@ public class b implements View.OnClickListener {
         return frsTabInfoData;
     }
 
-    public c bWG() {
+    public c bWH() {
         return this.hxx;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bWH() {
+    public void bWI() {
         this.gZU.clear();
         com.baidu.tieba.forumsearch.b.a aVar = new com.baidu.tieba.forumsearch.b.a();
         aVar.g(com.baidu.tieba.forumsearch.b.a.hxT);
@@ -238,13 +238,13 @@ public class b implements View.OnClickListener {
         this.hxx.fml.setData(arrayList);
     }
 
-    private void bWI() {
+    private void bWJ() {
         this.hxx.mRoot.setOnClickListener(this);
         this.hxx.hxO.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.forumsearch.controller.b.6
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 3) {
-                    b.this.bWJ();
+                    b.this.bWK();
                     return true;
                 }
                 return false;
@@ -261,7 +261,7 @@ public class b implements View.OnClickListener {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                b.this.bWJ();
+                b.this.bWK();
             }
         });
         this.hxx.hxO.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.forumsearch.controller.b.8
@@ -270,7 +270,7 @@ public class b implements View.OnClickListener {
                 if (!z) {
                     l.hideSoftKeyPad(b.this.mPageContext.getPageActivity(), view);
                 } else {
-                    b.this.bWJ();
+                    b.this.bWK();
                 }
             }
         });
@@ -280,11 +280,11 @@ public class b implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bWJ() {
+    public void bWK() {
         if (this.hxx.hxO.getText() == null || StringUtils.isNull(this.hxx.hxO.getText().toString())) {
             this.hxx.gKl.setVisibility(8);
             this.hxA = null;
-            bWK();
+            bWL();
             return;
         }
         q qVar = (q) w.getItem(this.gZU, 0);
@@ -298,15 +298,15 @@ public class b implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bWK() {
+    public void bWL() {
         this.hxy.cancelMessage();
         this.gZU.clear();
-        ArrayList<String> bWM = e.bWM();
-        if (!w.isEmpty(bWM)) {
+        ArrayList<String> bWN = e.bWN();
+        if (!w.isEmpty(bWN)) {
             com.baidu.tieba.forumsearch.b.a aVar = new com.baidu.tieba.forumsearch.b.a();
             aVar.g(com.baidu.tieba.forumsearch.b.a.hxS);
             this.gZU.add(aVar);
-            this.gZU.add(new com.baidu.tieba.forumsearch.b.a(bWM));
+            this.gZU.add(new com.baidu.tieba.forumsearch.b.a(bWN));
             setDatas(this.gZU);
             return;
         }
@@ -323,7 +323,7 @@ public class b implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.hxx.hxO) {
-            bWJ();
+            bWK();
         } else if (view == this.hxx.dmF) {
             l.hideSoftKeyPad(this.mPageContext.getPageActivity(), this.hxx.hxO);
             this.mPageContext.getPageActivity().finish();

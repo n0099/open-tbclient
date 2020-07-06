@@ -97,7 +97,7 @@ public class SpecialConcernTabModel extends BdBaseModel {
         qc(1);
     }
 
-    public void btW() {
+    public void btX() {
         qc(this.pn + 1);
     }
 

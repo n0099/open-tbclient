@@ -66,7 +66,7 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.usermute.a) && customResponsedMessage.getOrginalMessage().getTag() == PersonPolymericModel.this.unique_id) {
                     com.baidu.tieba.usermute.a aVar = (com.baidu.tieba.usermute.a) customResponsedMessage.getData();
-                    DataRes dataRes = aVar.lUh;
+                    DataRes dataRes = aVar.lUk;
                     if (aVar.error == 0 && !StringUtils.isNULL(dataRes.is_mute)) {
                         if (dataRes.is_mute.equals("0")) {
                             PersonPolymericModel.this.kMc = 0;
@@ -179,10 +179,10 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void resetData() {
-        this.kMR.cTO();
+        this.kMR.cTP();
     }
 
-    public com.baidu.tieba.personPolymeric.c.a cUl() {
+    public com.baidu.tieba.personPolymeric.c.a cUm() {
         return this.kMR;
     }
 

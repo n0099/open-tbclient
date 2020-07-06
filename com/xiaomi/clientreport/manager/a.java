@@ -24,28 +24,28 @@ public class a {
     private static final int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static volatile a f15a;
+    private static volatile a f16a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f16a;
+    private Context f17a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Config f17a;
+    private Config f18a;
 
     /* renamed from: a  reason: collision with other field name */
-    private IEventProcessor f18a;
+    private IEventProcessor f19a;
 
     /* renamed from: a  reason: collision with other field name */
-    private IPerfProcessor f19a;
+    private IPerfProcessor f20a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f20a;
+    private String f21a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ExecutorService f22a = Executors.newSingleThreadExecutor();
+    private ExecutorService f23a = Executors.newSingleThreadExecutor();
 
     /* renamed from: a  reason: collision with other field name */
-    private HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f21a = new HashMap<>();
+    private HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f22a = new HashMap<>();
     private HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> b = new HashMap<>();
 
     static {
@@ -53,7 +53,7 @@ public class a {
     }
 
     private a(Context context) {
-        this.f16a = context;
+        this.f17a = context;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -70,34 +70,34 @@ public class a {
     }
 
     public static a a(Context context) {
-        if (f15a == null) {
+        if (f16a == null) {
             synchronized (a.class) {
-                if (f15a == null) {
-                    f15a = new a(context);
+                if (f16a == null) {
+                    f16a = new a(context);
                 }
             }
         }
-        return f15a;
+        return f16a;
     }
 
     private void a(ai.a aVar, int i) {
-        ai.a(this.f16a).b(aVar, i);
+        ai.a(this.f17a).b(aVar, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int b() {
         int i;
         int i2 = 0;
-        if (this.f21a == null) {
+        if (this.f22a == null) {
             return 0;
         }
-        Iterator<String> it = this.f21a.keySet().iterator();
+        Iterator<String> it = this.f22a.keySet().iterator();
         while (true) {
             int i3 = i2;
             if (!it.hasNext()) {
                 return i3;
             }
-            HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f21a.get(it.next());
+            HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f22a.get(it.next());
             if (hashMap != null) {
                 Iterator<String> it2 = hashMap.keySet().iterator();
                 while (true) {
@@ -117,34 +117,34 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(EventClientReport eventClientReport) {
-        if (this.f18a != null) {
-            this.f18a.mo55a(eventClientReport);
+        if (this.f19a != null) {
+            this.f19a.mo55a(eventClientReport);
             if (a() < 10) {
                 a(new d(this), a);
                 return;
             }
             d();
-            ai.a(this.f16a).m122a(100888);
+            ai.a(this.f17a).m122a(100888);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(PerfClientReport perfClientReport) {
-        if (this.f19a != null) {
-            this.f19a.mo55a(perfClientReport);
+        if (this.f20a != null) {
+            this.f20a.mo55a(perfClientReport);
             if (b() < 10) {
                 a(new f(this), a);
                 return;
             }
             e();
-            ai.a(this.f16a).m122a(100889);
+            ai.a(this.f17a).m122a(100889);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         try {
-            this.f18a.b();
+            this.f19a.b();
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.d("we: " + e.getMessage());
         }
@@ -153,41 +153,41 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         try {
-            this.f19a.b();
+            this.f20a.b();
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.d("wp: " + e.getMessage());
         }
     }
 
     private void f() {
-        if (a(this.f16a).m52a().isEventUploadSwitchOpen()) {
-            bg bgVar = new bg(this.f16a);
-            int eventUploadFrequency = (int) a(this.f16a).m52a().getEventUploadFrequency();
+        if (a(this.f17a).m52a().isEventUploadSwitchOpen()) {
+            bg bgVar = new bg(this.f17a);
+            int eventUploadFrequency = (int) a(this.f17a).m52a().getEventUploadFrequency();
             int i = eventUploadFrequency >= 1800 ? eventUploadFrequency : 1800;
-            if (System.currentTimeMillis() - bm.a(this.f16a).a("sp_client_report_status", "event_last_upload_time", 0L) > i * 1000) {
-                ai.a(this.f16a).a(new h(this, bgVar), 10);
+            if (System.currentTimeMillis() - bm.a(this.f17a).a("sp_client_report_status", "event_last_upload_time", 0L) > i * 1000) {
+                ai.a(this.f17a).a(new h(this, bgVar), 10);
             }
             synchronized (a.class) {
-                if (!ai.a(this.f16a).a((ai.a) bgVar, i)) {
-                    ai.a(this.f16a).m122a(100886);
-                    ai.a(this.f16a).a((ai.a) bgVar, i);
+                if (!ai.a(this.f17a).a((ai.a) bgVar, i)) {
+                    ai.a(this.f17a).m122a(100886);
+                    ai.a(this.f17a).a((ai.a) bgVar, i);
                 }
             }
         }
     }
 
     private void g() {
-        if (a(this.f16a).m52a().isPerfUploadSwitchOpen()) {
-            bh bhVar = new bh(this.f16a);
-            int perfUploadFrequency = (int) a(this.f16a).m52a().getPerfUploadFrequency();
+        if (a(this.f17a).m52a().isPerfUploadSwitchOpen()) {
+            bh bhVar = new bh(this.f17a);
+            int perfUploadFrequency = (int) a(this.f17a).m52a().getPerfUploadFrequency();
             int i = perfUploadFrequency >= 1800 ? perfUploadFrequency : 1800;
-            if (System.currentTimeMillis() - bm.a(this.f16a).a("sp_client_report_status", "perf_last_upload_time", 0L) > i * 1000) {
-                ai.a(this.f16a).a(new i(this, bhVar), 15);
+            if (System.currentTimeMillis() - bm.a(this.f17a).a("sp_client_report_status", "perf_last_upload_time", 0L) > i * 1000) {
+                ai.a(this.f17a).a(new i(this, bhVar), 15);
             }
             synchronized (a.class) {
-                if (!ai.a(this.f16a).a((ai.a) bhVar, i)) {
-                    ai.a(this.f16a).m122a(100887);
-                    ai.a(this.f16a).a((ai.a) bhVar, i);
+                if (!ai.a(this.f17a).a((ai.a) bhVar, i)) {
+                    ai.a(this.f17a).m122a(100887);
+                    ai.a(this.f17a).a((ai.a) bhVar, i);
                 }
             }
         }
@@ -195,10 +195,10 @@ public class a {
 
     /* renamed from: a  reason: collision with other method in class */
     public synchronized Config m52a() {
-        if (this.f17a == null) {
-            this.f17a = Config.defaultConfig(this.f16a);
+        if (this.f18a == null) {
+            this.f18a = Config.defaultConfig(this.f17a);
         }
-        return this.f17a;
+        return this.f18a;
     }
 
     public EventClientReport a(int i, String str) {
@@ -210,60 +210,60 @@ public class a {
         eventClientReport.production = 1000;
         eventClientReport.reportType = 1001;
         eventClientReport.clientInterfaceId = "E100004";
-        eventClientReport.setAppPackageName(this.f16a.getPackageName());
-        eventClientReport.setSdkVersion(this.f20a);
+        eventClientReport.setAppPackageName(this.f17a.getPackageName());
+        eventClientReport.setSdkVersion(this.f21a);
         return eventClientReport;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public void m53a() {
-        a(this.f16a).f();
-        a(this.f16a).g();
+        a(this.f17a).f();
+        a(this.f17a).g();
     }
 
     public void a(Config config, IEventProcessor iEventProcessor, IPerfProcessor iPerfProcessor) {
-        this.f17a = config;
-        this.f18a = iEventProcessor;
-        this.f19a = iPerfProcessor;
-        this.f18a.setEventMap(this.b);
-        this.f19a.setPerfMap(this.f21a);
+        this.f18a = config;
+        this.f19a = iEventProcessor;
+        this.f20a = iPerfProcessor;
+        this.f19a.setEventMap(this.b);
+        this.f20a.setPerfMap(this.f22a);
     }
 
     public void a(EventClientReport eventClientReport) {
         if (m52a().isEventUploadSwitchOpen()) {
-            this.f22a.execute(new b(this, eventClientReport));
+            this.f23a.execute(new b(this, eventClientReport));
         }
     }
 
     public void a(PerfClientReport perfClientReport) {
         if (m52a().isPerfUploadSwitchOpen()) {
-            this.f22a.execute(new c(this, perfClientReport));
+            this.f23a.execute(new c(this, perfClientReport));
         }
     }
 
     public void a(String str) {
-        this.f20a = str;
+        this.f21a = str;
     }
 
     public void a(boolean z, boolean z2, long j, long j2) {
-        if (this.f17a != null) {
-            if (z == this.f17a.isEventUploadSwitchOpen() && z2 == this.f17a.isPerfUploadSwitchOpen() && j == this.f17a.getEventUploadFrequency() && j2 == this.f17a.getPerfUploadFrequency()) {
+        if (this.f18a != null) {
+            if (z == this.f18a.isEventUploadSwitchOpen() && z2 == this.f18a.isPerfUploadSwitchOpen() && j == this.f18a.getEventUploadFrequency() && j2 == this.f18a.getPerfUploadFrequency()) {
                 return;
             }
-            long eventUploadFrequency = this.f17a.getEventUploadFrequency();
-            long perfUploadFrequency = this.f17a.getPerfUploadFrequency();
-            Config build = Config.getBuilder().setAESKey(bj.a(this.f16a)).setEventEncrypted(this.f17a.isEventEncrypted()).setEventUploadSwitchOpen(z).setEventUploadFrequency(j).setPerfUploadSwitchOpen(z2).setPerfUploadFrequency(j2).build(this.f16a);
-            this.f17a = build;
-            if (!this.f17a.isEventUploadSwitchOpen()) {
-                ai.a(this.f16a).m122a(100886);
+            long eventUploadFrequency = this.f18a.getEventUploadFrequency();
+            long perfUploadFrequency = this.f18a.getPerfUploadFrequency();
+            Config build = Config.getBuilder().setAESKey(bj.a(this.f17a)).setEventEncrypted(this.f18a.isEventEncrypted()).setEventUploadSwitchOpen(z).setEventUploadFrequency(j).setPerfUploadSwitchOpen(z2).setPerfUploadFrequency(j2).build(this.f17a);
+            this.f18a = build;
+            if (!this.f18a.isEventUploadSwitchOpen()) {
+                ai.a(this.f17a).m122a(100886);
             } else if (eventUploadFrequency != build.getEventUploadFrequency()) {
-                com.xiaomi.channel.commonutils.logger.b.c(this.f16a.getPackageName() + "reset event job " + build.getEventUploadFrequency());
+                com.xiaomi.channel.commonutils.logger.b.c(this.f17a.getPackageName() + "reset event job " + build.getEventUploadFrequency());
                 f();
             }
-            if (!this.f17a.isPerfUploadSwitchOpen()) {
-                ai.a(this.f16a).m122a(100887);
+            if (!this.f18a.isPerfUploadSwitchOpen()) {
+                ai.a(this.f17a).m122a(100887);
             } else if (perfUploadFrequency != build.getPerfUploadFrequency()) {
-                com.xiaomi.channel.commonutils.logger.b.c(this.f16a.getPackageName() + "reset perf job " + build.getPerfUploadFrequency());
+                com.xiaomi.channel.commonutils.logger.b.c(this.f17a.getPackageName() + "reset perf job " + build.getPerfUploadFrequency());
                 g();
             }
         }
@@ -273,18 +273,18 @@ public class a {
     public void m54b() {
         if (m52a().isEventUploadSwitchOpen()) {
             bi biVar = new bi();
-            biVar.a(this.f16a);
-            biVar.a(this.f18a);
-            this.f22a.execute(biVar);
+            biVar.a(this.f17a);
+            biVar.a(this.f19a);
+            this.f23a.execute(biVar);
         }
     }
 
     public void c() {
         if (m52a().isPerfUploadSwitchOpen()) {
             bi biVar = new bi();
-            biVar.a(this.f19a);
-            biVar.a(this.f16a);
-            this.f22a.execute(biVar);
+            biVar.a(this.f20a);
+            biVar.a(this.f17a);
+            this.f23a.execute(biVar);
         }
     }
 }

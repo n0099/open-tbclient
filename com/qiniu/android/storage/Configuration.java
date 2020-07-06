@@ -10,30 +10,30 @@ import java.io.File;
 public final class Configuration {
     public final int chunkSize;
     public final int connectTimeout;
-    public final Recorder nDs;
-    public final KeyGenerator nDt;
-    public final ProxyConfiguration nDu;
-    public final int nDv;
-    public final int nDw;
-    public UrlConverter nDx;
-    public Dns nDy;
-    public Zone nDz;
+    public UrlConverter nDA;
+    public Dns nDB;
+    public Zone nDC;
+    public final Recorder nDv;
+    public final KeyGenerator nDw;
+    public final ProxyConfiguration nDx;
+    public final int nDy;
+    public final int nDz;
     public final int responseTimeout;
     public boolean useHttps;
 
     private Configuration(Builder builder) {
         this.useHttps = builder.useHttps;
         this.chunkSize = builder.chunkSize;
-        this.nDv = builder.nDv;
+        this.nDy = builder.nDy;
         this.connectTimeout = builder.connectTimeout;
         this.responseTimeout = builder.responseTimeout;
-        this.nDs = builder.nDs;
-        this.nDt = a(builder.nDt);
-        this.nDw = builder.nDw;
-        this.nDu = builder.nDu;
+        this.nDv = builder.nDv;
+        this.nDw = a(builder.nDw);
+        this.nDz = builder.nDz;
         this.nDx = builder.nDx;
-        this.nDz = builder.nDz == null ? AutoZone.nCx : builder.nDz;
-        this.nDy = builder.nDy;
+        this.nDA = builder.nDA;
+        this.nDC = builder.nDC == null ? AutoZone.nCA : builder.nDC;
+        this.nDB = builder.nDB;
     }
 
     private KeyGenerator a(KeyGenerator keyGenerator) {
@@ -50,20 +50,20 @@ public final class Configuration {
 
     /* loaded from: classes5.dex */
     public static class Builder {
-        private Zone nDz = null;
-        private Recorder nDs = null;
-        private KeyGenerator nDt = null;
-        private ProxyConfiguration nDu = null;
+        private Zone nDC = null;
+        private Recorder nDv = null;
+        private KeyGenerator nDw = null;
+        private ProxyConfiguration nDx = null;
         private boolean useHttps = false;
         private int chunkSize = 2097152;
-        private int nDv = 4194304;
+        private int nDy = 4194304;
         private int connectTimeout = 10;
         private int responseTimeout = 60;
-        private int nDw = 3;
-        private UrlConverter nDx = null;
-        private Dns nDy = null;
+        private int nDz = 3;
+        private UrlConverter nDA = null;
+        private Dns nDB = null;
 
-        public Configuration dMM() {
+        public Configuration dMQ() {
             return new Configuration(this);
         }
     }

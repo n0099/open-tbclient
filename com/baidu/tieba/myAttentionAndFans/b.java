@@ -18,7 +18,7 @@ public abstract class b extends BaseAdapter {
         this.dQf.clear();
     }
 
-    public void byT() {
+    public void byU() {
         this.fPX = false;
         if (this.dQf != null && this.dQf.size() == 0) {
             this.fPX = true;

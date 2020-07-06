@@ -9,7 +9,7 @@ public class HotSearchInfoData extends OrmObject {
     private String mName;
     private long mType;
 
-    public String bRi() {
+    public String bRj() {
         return this.hbH;
     }
 

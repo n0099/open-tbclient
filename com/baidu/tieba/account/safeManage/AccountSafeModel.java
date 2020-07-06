@@ -13,7 +13,7 @@ public class AccountSafeModel extends BdBaseModel {
     private String eXS;
     private boolean mFinished;
 
-    public com.baidu.tieba.setting.im.more.a boN() {
+    public com.baidu.tieba.setting.im.more.a boO() {
         return this.eXP;
     }
 
@@ -39,40 +39,40 @@ public class AccountSafeModel extends BdBaseModel {
         return false;
     }
 
-    private PrivateInfoNetMessage boO() {
+    private PrivateInfoNetMessage boP() {
         return new PrivateInfoNetMessage();
     }
 
-    public boolean boP() {
+    public boolean boQ() {
         if (this.eCO) {
             return false;
         }
         this.eCO = true;
         this.mFinished = false;
-        sendMessage(boO());
+        sendMessage(boP());
         return true;
     }
 
     public void a(com.baidu.tieba.setting.im.more.a aVar) {
         this.eXP = aVar;
-        boQ();
+        boR();
     }
 
-    private void boQ() {
-        SimpleUser boR = boR();
-        if (boR != null) {
-            this.eXR = boR.secureemail;
-            this.eXS = boR.securemobil;
-            this.eXQ = boR.ahead_url;
+    private void boR() {
+        SimpleUser boS = boS();
+        if (boS != null) {
+            this.eXR = boS.secureemail;
+            this.eXS = boS.securemobil;
+            this.eXQ = boS.ahead_url;
             this.mFinished = true;
         }
     }
 
-    private SimpleUser boR() {
-        if (this.eXP == null || this.eXP.boR() == null) {
+    private SimpleUser boS() {
+        if (this.eXP == null || this.eXP.boS() == null) {
             return null;
         }
-        return this.eXP.boR();
+        return this.eXP.boS();
     }
 
     public boolean isLoading() {

@@ -43,7 +43,7 @@ public class b extends com.baidu.tieba.card.data.b {
         return this.memberCount;
     }
 
-    public int dgl() {
+    public int dgm() {
         return this.threadCount;
     }
 

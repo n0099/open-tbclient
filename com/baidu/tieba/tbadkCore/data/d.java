@@ -12,7 +12,7 @@ public class d {
         this.lFj = absDelegateAdapterList;
     }
 
-    public AbsDelegateAdapterList dhD() {
+    public AbsDelegateAdapterList dhE() {
         return this.lFj;
     }
 }

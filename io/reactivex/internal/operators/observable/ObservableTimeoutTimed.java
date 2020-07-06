@@ -10,7 +10,7 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.operators.observable.a<T, T> {
-    static final io.reactivex.disposables.b nLP = new a();
+    static final io.reactivex.disposables.b nLS = new a();
     final t<? extends T> other;
     final v scheduler;
     final long timeout;
@@ -19,9 +19,9 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
         if (this.other == null) {
-            this.source.subscribe(new TimeoutTimedObserver(new io.reactivex.observers.b(uVar), this.timeout, this.unit, this.scheduler.dPr()));
+            this.source.subscribe(new TimeoutTimedObserver(new io.reactivex.observers.b(uVar), this.timeout, this.unit, this.scheduler.dPv()));
         } else {
-            this.source.subscribe(new TimeoutTimedOtherObserver(uVar, this.timeout, this.unit, this.scheduler.dPr(), this.other));
+            this.source.subscribe(new TimeoutTimedOtherObserver(uVar, this.timeout, this.unit, this.scheduler.dPv(), this.other));
         }
     }
 
@@ -74,7 +74,7 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
             if (bVar != null) {
                 bVar.dispose();
             }
-            if (compareAndSet(bVar, ObservableTimeoutTimed.nLP)) {
+            if (compareAndSet(bVar, ObservableTimeoutTimed.nLS)) {
                 DisposableHelper.replace(this, this.worker.c(new a(j), this.timeout, this.unit));
             }
         }
@@ -178,7 +178,7 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
             if (bVar != null) {
                 bVar.dispose();
             }
-            if (compareAndSet(bVar, ObservableTimeoutTimed.nLP)) {
+            if (compareAndSet(bVar, ObservableTimeoutTimed.nLS)) {
                 DisposableHelper.replace(this, this.worker.c(new a(j), this.timeout, this.unit));
             }
         }

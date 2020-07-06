@@ -60,16 +60,16 @@ public class h {
                 h.this.hOu.setChecked(true);
                 h.this.mScore = 5;
             }
-            if (h.this.mjo != null) {
-                h.this.mjo.Dl(h.this.mScore);
+            if (h.this.mjr != null) {
+                h.this.mjr.Dl(h.this.mScore);
             }
         }
     };
     private int mScore;
-    private d mjm;
-    private b mjn;
-    private e mjo;
-    private LinearLayout mjp;
+    private d mjp;
+    private b mjq;
+    private e mjr;
+    private LinearLayout mjs;
     private String titleText;
     private View view;
 
@@ -112,7 +112,7 @@ public class h {
             this.hOu.setOnClickListener(this.mOnClickListener);
             this.hOv = (RadioButton) this.view.findViewById(R.id.comment_grade_5);
             this.hOv.setOnClickListener(this.mOnClickListener);
-            this.mjp = (LinearLayout) this.view.findViewById(R.id.comment_grade);
+            this.mjs = (LinearLayout) this.view.findViewById(R.id.comment_grade);
         }
     }
 
@@ -179,11 +179,11 @@ public class h {
     }
 
     public void Gu(int i) {
-        this.mjp.setVisibility(i);
+        this.mjs.setVisibility(i);
     }
 
     public void G(int i, int i2, int i3, int i4) {
-        this.mjp.setPadding(i, i2, i3, i4);
+        this.mjs.setPadding(i, i2, i3, i4);
     }
 
     public void setTitlePadding(int i, int i2, int i3, int i4) {
@@ -194,8 +194,8 @@ public class h {
         this.dDu.setTextSize(0, l.getDimens(this.dPX, i));
     }
 
-    public d dqA() {
-        return this.mjm;
+    public d dqE() {
+        return this.mjp;
     }
 
     public void aL(List<a> list) {
@@ -219,11 +219,11 @@ public class h {
     }
 
     public void a(b bVar) {
-        this.mjn = bVar;
+        this.mjq = bVar;
     }
 
     public void a(e eVar) {
-        this.mjo = eVar;
+        this.mjr = eVar;
     }
 
     public void Gv(int i) {
@@ -236,7 +236,7 @@ public class h {
         an.setBackgroundColor(this.dQa, R.color.cp_bg_line_c);
         an.setBackgroundResource(this.dQb, R.drawable.bg_bottom_up_list_dialog_item);
         an.setViewTextColor(this.dQb, (int) R.color.cp_cont_f);
-        an.setBackgroundResource(this.mjp, R.drawable.bg_bottom_up_list_dialog_item);
+        an.setBackgroundResource(this.mjs, R.drawable.bg_bottom_up_list_dialog_item);
         if (this.mItems != null) {
             for (a aVar : this.mItems) {
                 aVar.onChangeSkinType();
@@ -250,11 +250,11 @@ public class h {
         } else {
             this.dDu.setVisibility(8);
         }
-        if (this.mjn != null) {
+        if (this.mjq != null) {
             this.dQb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.h.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    h.this.mjn.onClick();
+                    h.this.mjq.onClick();
                 }
             });
         }
@@ -268,8 +268,8 @@ public class h {
         private String mText;
         private TextView mTextView;
         private View mView;
-        private h mjr;
-        private c mjs;
+        private h mju;
+        private c mjv;
         private int mTextColor = R.drawable.person_more_pop_cancel_text_selector;
         private int dPJ = R.drawable.person_more_pop_item_bg_selector;
         private int dPK = 17;
@@ -277,11 +277,11 @@ public class h {
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.h.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.mjs != null) {
-                    a.this.mjs.onClick();
+                if (a.this.mjv != null) {
+                    a.this.mjv.onClick();
                 }
-                if (a.this.mjr != null && a.this.mjr.dqA() != null) {
-                    a.this.mjr.dqA().onItemClick(a.this.mId);
+                if (a.this.mju != null && a.this.mju.dqE() != null) {
+                    a.this.mju.dqE().onItemClick(a.this.mId);
                 }
             }
         };
@@ -289,7 +289,7 @@ public class h {
 
         public a(String str, h hVar) {
             this.mText = str;
-            this.mjr = hVar;
+            this.mju = hVar;
             initView();
             initListener();
         }
@@ -299,7 +299,7 @@ public class h {
         }
 
         public void a(c cVar) {
-            this.mjs = cVar;
+            this.mjv = cVar;
             initListener();
         }
 
@@ -310,8 +310,8 @@ public class h {
         }
 
         private void initView() {
-            if (this.mjr != null && this.mjr.getContext() != null) {
-                this.mView = LayoutInflater.from(this.mjr.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.mjr.getView(), false);
+            if (this.mju != null && this.mju.getContext() != null) {
+                this.mView = LayoutInflater.from(this.mju.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.mju.getView(), false);
                 this.mTextView = (TextView) this.mView.findViewById(R.id.item_view);
                 this.mTextView.setText(this.mText);
                 this.mTextView.setGravity(this.dPK);

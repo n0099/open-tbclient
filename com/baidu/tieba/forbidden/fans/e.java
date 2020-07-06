@@ -20,7 +20,7 @@ public class e {
     public interface a {
         void a(int i, String str, boolean z, int i2, long j);
 
-        void bWh();
+        void bWi();
     }
 
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -58,18 +58,18 @@ public class e {
             this.huS = new com.baidu.tieba.view.a(this.dPv.getContext());
             this.huS.setTitleText(this.dPv.getString(R.string.confirm_remove_all_forbidden_fans));
             ArrayList arrayList = new ArrayList();
-            a.C0761a c0761a = new a.C0761a(this.dPv.getString(R.string.confirm), this.huS);
-            c0761a.a(new a.c() { // from class: com.baidu.tieba.forbidden.fans.e.3
+            a.C0762a c0762a = new a.C0762a(this.dPv.getString(R.string.confirm), this.huS);
+            c0762a.a(new a.c() { // from class: com.baidu.tieba.forbidden.fans.e.3
                 @Override // com.baidu.tieba.view.a.c
                 public void onClick() {
                     e.this.dDL.dismiss();
                     if (e.this.huT != null) {
-                        e.this.huT.bWh();
+                        e.this.huT.bWi();
                     }
-                    e.this.huR.bWl();
+                    e.this.huR.bWm();
                 }
             });
-            arrayList.add(c0761a);
+            arrayList.add(c0762a);
             this.huS.a(new a.b() { // from class: com.baidu.tieba.forbidden.fans.e.4
                 @Override // com.baidu.tieba.view.a.b
                 public void onClick() {

@@ -65,13 +65,13 @@ public abstract class a {
     private ArrayList<n> kNu = new ArrayList<>();
     private List<bu> kNE = new ArrayList();
 
-    public abstract void cTL();
+    public abstract void cTM();
 
     public a(boolean z) {
         this.isHost = z;
     }
 
-    public boolean ctQ() {
+    public boolean ctR() {
         return this.kNg;
     }
 
@@ -125,7 +125,7 @@ public abstract class a {
                 aVar.a(cVar.getBookrackData());
                 this.kGc = new com.baidu.tieba.person.data.d(true, aVar);
             }
-            if (!w.isEmpty(cVar.getConcernedForumList()) && !this.isHost && !cTM()) {
+            if (!w.isEmpty(cVar.getConcernedForumList()) && !this.isHost && !cTN()) {
                 ey(cVar.getConcernedForumList());
             }
             if (this.kNr == null) {
@@ -189,7 +189,7 @@ public abstract class a {
                 this.mCardNullPolymericData.isHost = this.isHost;
             }
             if (this.isHost) {
-                cRT();
+                cRU();
                 this.maskType = cVar.getMaskType();
             }
             this.kNB = cVar.getUserAgreeInfo();
@@ -226,7 +226,7 @@ public abstract class a {
 
     private void a(User user, DynamicInfo dynamicInfo, Random random, boolean z, boolean z2, boolean z3) {
         ThreadInfo threadInfo;
-        if ((!cTN() || this.isHost) && (threadInfo = dynamicInfo.thread_dynamic) != null) {
+        if ((!cTO() || this.isHost) && (threadInfo = dynamicInfo.thread_dynamic) != null) {
             if (this.kNs == null) {
                 this.kNs = new ArrayList();
             }
@@ -246,7 +246,7 @@ public abstract class a {
     }
 
     private void a(User user, PostInfoList postInfoList, Random random) {
-        if (!cTN() || this.isHost) {
+        if (!cTO() || this.isHost) {
             if (this.kNv == null) {
                 this.kNv = new ArrayList<>();
             }
@@ -292,7 +292,7 @@ public abstract class a {
 
     private void b(DynamicInfo dynamicInfo, boolean z) {
         ForumDynamic forumDynamic;
-        if ((!cTM() || this.isHost) && (forumDynamic = dynamicInfo.forum_dynamic) != null) {
+        if ((!cTN() || this.isHost) && (forumDynamic = dynamicInfo.forum_dynamic) != null) {
             if (this.kNs == null) {
                 this.kNs = new ArrayList();
             }
@@ -313,7 +313,7 @@ public abstract class a {
         }
     }
 
-    public List<q> cTB() {
+    public List<q> cTC() {
         if (this.kNm == null) {
             return null;
         }
@@ -336,7 +336,7 @@ public abstract class a {
         }
     }
 
-    private boolean cTM() {
+    private boolean cTN() {
         if (this.isHost) {
             return false;
         }
@@ -346,7 +346,7 @@ public abstract class a {
         return this.kNh == 2 && !this.kNg;
     }
 
-    public boolean cTN() {
+    public boolean cTO() {
         if (this.isHost) {
             return false;
         }
@@ -363,7 +363,7 @@ public abstract class a {
         return dVar;
     }
 
-    public void cTO() {
+    public void cTP() {
         this.kNg = true;
         this.sex = 1;
         this.kNh = 1;
@@ -409,19 +409,19 @@ public abstract class a {
         return this.kND;
     }
 
-    public AntiData bXd() {
+    public AntiData bXe() {
         return this.ejE;
     }
 
-    public com.baidu.tieba.i.a cTP() {
+    public com.baidu.tieba.i.a cTQ() {
         return this.kNp;
     }
 
-    public ArrayList<q> clL() {
+    public ArrayList<q> clM() {
         return this.kNt;
     }
 
-    private void cRT() {
+    private void cRU() {
         this.kNu.clear();
         this.kNx = Y(R.drawable.icon_starer_caise_heibai, R.string.mark, 20);
         this.kNx.hlL = new Bundle();

@@ -16,27 +16,27 @@ public class h {
     private a lwC = new a();
     private ArrayList<i> lxN = new ArrayList<>();
 
-    public int dfE() {
+    public int dfF() {
         return this.lwh;
     }
 
-    public String dfc() {
+    public String dfd() {
         return this.lwi;
     }
 
-    public a dfe() {
+    public a dff() {
         return this.lwC;
     }
 
-    public ArrayList<i> dfF() {
+    public ArrayList<i> dfG() {
         return this.lxN;
     }
 
-    public int dfG() {
+    public int dfH() {
         return this.lxL;
     }
 
-    public String dfH() {
+    public String dfI() {
         return this.lxM;
     }
 

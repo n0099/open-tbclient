@@ -138,7 +138,7 @@ public class a {
         this.mTextSize = i;
     }
 
-    public boolean bkN() {
+    public boolean bkO() {
         return this.eNy;
     }
 

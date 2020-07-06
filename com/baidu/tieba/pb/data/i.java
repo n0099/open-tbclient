@@ -37,31 +37,31 @@ public class i {
         return this.status;
     }
 
-    public boolean cHv() {
+    public boolean cHw() {
         return this.jZR;
     }
 
-    public int cHw() {
+    public int cHx() {
         return this.jZS;
     }
 
-    public int cHx() {
+    public int cHy() {
         return this.jZL;
     }
 
-    public List<String> cHy() {
+    public List<String> cHz() {
         return this.jZO;
     }
 
-    public List<String> cHz() {
+    public List<String> cHA() {
         return this.jZP;
     }
 
-    public String cHA() {
+    public String cHB() {
         return this.jZQ;
     }
 
-    public boolean bNs() {
+    public boolean bNt() {
         return this.gKR;
     }
 

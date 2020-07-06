@@ -18,8 +18,8 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         bhs().addEventDelegate(this);
-        this.gVP = bPh();
-        this.gVQ = bPi();
+        this.gVP = bPi();
+        this.gVQ = bPj();
         if (getIntent() != null) {
             this.gVP.aj(getIntent().getExtras());
         } else if (bundle != null) {
@@ -27,20 +27,20 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         } else {
             this.gVP.aj(null);
         }
-        setContentView(this.gVQ.bwR());
-        this.gVQ.bPm();
+        setContentView(this.gVQ.bwS());
+        this.gVQ.bPn();
         this.gVQ.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         adjustResizeForSoftInput();
     }
 
-    public ChosenPostModelController bPh() {
+    public ChosenPostModelController bPi() {
         if (this.gVP == null) {
             this.gVP = new ChosenPostModelController(this);
         }
         return this.gVP;
     }
 
-    public b bPi() {
+    public b bPj() {
         if (this.gVQ == null) {
             this.gVQ = new b(this);
         }
@@ -66,7 +66,7 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
                 b(bVar);
                 break;
         }
-        return bPi().a(bVar) || bPh().a(bVar);
+        return bPj().a(bVar) || bPi().a(bVar);
     }
 
     private void b(com.baidu.tbadk.mvc.c.b bVar) {
@@ -87,6 +87,6 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bPi().onChangeSkinType(getPageContext(), i);
+        bPj().onChangeSkinType(getPageContext(), i);
     }
 }

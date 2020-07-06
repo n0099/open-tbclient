@@ -11,36 +11,36 @@ public class gg implements gk {
     private String a;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<gg> f392a;
+    private List<gg> f393a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String[] f393a;
+    private String[] f394a;
     private String b;
 
     /* renamed from: b  reason: collision with other field name */
-    private String[] f394b;
+    private String[] f395b;
     private String c;
 
     public gg(String str, String str2, String[] strArr, String[] strArr2) {
+        this.f394a = null;
+        this.f395b = null;
         this.f393a = null;
-        this.f394b = null;
-        this.f392a = null;
         this.a = str;
         this.b = str2;
-        this.f393a = strArr;
-        this.f394b = strArr2;
+        this.f394a = strArr;
+        this.f395b = strArr2;
     }
 
     public gg(String str, String str2, String[] strArr, String[] strArr2, String str3, List<gg> list) {
+        this.f394a = null;
+        this.f395b = null;
         this.f393a = null;
-        this.f394b = null;
-        this.f392a = null;
         this.a = str;
         this.b = str2;
-        this.f393a = strArr;
-        this.f394b = strArr2;
+        this.f394a = strArr;
+        this.f395b = strArr2;
         this.c = str3;
-        this.f392a = list;
+        this.f393a = list;
     }
 
     public static gg a(Bundle bundle) {
@@ -91,14 +91,14 @@ public class gg implements gk {
         bundle.putString("ext_ns", this.b);
         bundle.putString("ext_text", this.c);
         Bundle bundle2 = new Bundle();
-        if (this.f393a != null && this.f393a.length > 0) {
-            for (int i = 0; i < this.f393a.length; i++) {
-                bundle2.putString(this.f393a[i], this.f394b[i]);
+        if (this.f394a != null && this.f394a.length > 0) {
+            for (int i = 0; i < this.f394a.length; i++) {
+                bundle2.putString(this.f394a[i], this.f395b[i]);
             }
         }
         bundle.putBundle("attributes", bundle2);
-        if (this.f392a != null && this.f392a.size() > 0) {
-            bundle.putParcelableArray("children", a(this.f392a));
+        if (this.f393a != null && this.f393a.size() > 0) {
+            bundle.putParcelableArray("children", a(this.f393a));
         }
         return bundle;
     }
@@ -117,10 +117,10 @@ public class gg implements gk {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        if (this.f393a != null) {
-            for (int i = 0; i < this.f393a.length; i++) {
-                if (str.equals(this.f393a[i])) {
-                    return this.f394b[i];
+        if (this.f394a != null) {
+            for (int i = 0; i < this.f394a.length; i++) {
+                if (str.equals(this.f394a[i])) {
+                    return this.f395b[i];
                 }
             }
         }
@@ -151,20 +151,20 @@ public class gg implements gk {
         if (!TextUtils.isEmpty(this.b)) {
             sb.append(" ").append("xmlns=").append("\"").append(this.b).append("\"");
         }
-        if (this.f393a != null && this.f393a.length > 0) {
-            for (int i = 0; i < this.f393a.length; i++) {
-                if (!TextUtils.isEmpty(this.f394b[i])) {
-                    sb.append(" ").append(this.f393a[i]).append("=\"").append(gu.a(this.f394b[i])).append("\"");
+        if (this.f394a != null && this.f394a.length > 0) {
+            for (int i = 0; i < this.f394a.length; i++) {
+                if (!TextUtils.isEmpty(this.f395b[i])) {
+                    sb.append(" ").append(this.f394a[i]).append("=\"").append(gu.a(this.f395b[i])).append("\"");
                 }
             }
         }
         if (!TextUtils.isEmpty(this.c)) {
             sb.append(">").append(this.c).append("</").append(this.a).append(">");
-        } else if (this.f392a == null || this.f392a.size() <= 0) {
+        } else if (this.f393a == null || this.f393a.size() <= 0) {
             sb.append("/>");
         } else {
             sb.append(">");
-            for (gg ggVar : this.f392a) {
+            for (gg ggVar : this.f393a) {
                 sb.append(ggVar.d());
             }
             sb.append("</").append(this.a).append(">");

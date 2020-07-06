@@ -61,7 +61,7 @@ public class b extends com.baidu.adp.base.c<GroupSettingActivity> {
         an.setBackgroundResource(this.iKp, R.drawable.big_red_button);
     }
 
-    public View cnc() {
+    public View cnd() {
         return this.iKr;
     }
 
@@ -96,27 +96,27 @@ public class b extends com.baidu.adp.base.c<GroupSettingActivity> {
         this.iKn.setOnClickListener(this.iKf);
     }
 
-    public TbSettingTextTipView cnd() {
+    public TbSettingTextTipView cne() {
         return this.iKl;
     }
 
-    public Button cne() {
+    public Button cnf() {
         return this.iKp;
     }
 
-    public Button cnf() {
+    public Button cng() {
         return this.iKo;
     }
 
-    public TbSettingTextTipView cng() {
+    public TbSettingTextTipView cnh() {
         return this.iKm;
     }
 
-    public TbSettingTextTipView cnh() {
+    public TbSettingTextTipView cni() {
         return this.iKn;
     }
 
-    public void cni() {
+    public void cnj() {
         if (this.iKi == null) {
             this.iKi = new com.baidu.tbadk.core.dialog.a(this.iKf.getPageContext().getPageActivity());
             this.iKi.kS(R.string.inform);
@@ -135,11 +135,11 @@ public class b extends com.baidu.adp.base.c<GroupSettingActivity> {
         this.iKi.aUN();
     }
 
-    public com.baidu.tbadk.core.dialog.a cnj() {
+    public com.baidu.tbadk.core.dialog.a cnk() {
         return this.iKi;
     }
 
-    public void cnk() {
+    public void cnl() {
         if (this.iKh == null) {
             this.iKh = new com.baidu.tbadk.core.dialog.b(this.iKf.getPageContext().getPageActivity());
             this.iKh.kX(R.string.group_report);
@@ -149,13 +149,13 @@ public class b extends com.baidu.adp.base.c<GroupSettingActivity> {
         this.iKh.aUO();
     }
 
-    public void cnl() {
+    public void cnm() {
         if (this.iKp != null) {
             this.iKp.setVisibility(8);
         }
     }
 
-    public void cnm() {
+    public void cnn() {
         if (this.iKo != null) {
             this.iKo.setVisibility(8);
         }
@@ -175,39 +175,39 @@ public class b extends com.baidu.adp.base.c<GroupSettingActivity> {
         }
     }
 
-    public void cnn() {
+    public void cno() {
         if (this.iKp != null) {
             this.iKp.setVisibility(0);
         }
     }
 
-    public void cno() {
+    public void cnp() {
         if (this.iKo != null) {
             this.iKo.setVisibility(0);
         }
     }
 
-    public void bLm() {
+    public void bLn() {
         if (this.iKm != null) {
             this.iKm.setVisibility(0);
         }
     }
 
-    public void cnp() {
+    public void cnq() {
         if (this.iKm != null) {
             this.iKm.setVisibility(8);
         }
     }
 
-    public BdSwitchView cnq() {
+    public BdSwitchView cnr() {
         return this.iKk.getSwitchView();
     }
 
-    public BdSwitchView cnr() {
+    public BdSwitchView cns() {
         return this.iKj.getSwitchView();
     }
 
-    public void cns() {
+    public void cnt() {
         if (this.iKq == null) {
             this.iKq = new com.baidu.tbadk.core.dialog.a(this.iKf.getPageContext().getPageActivity());
             this.iKq.kT(R.string.group_dismiss_alert);
@@ -224,11 +224,11 @@ public class b extends com.baidu.adp.base.c<GroupSettingActivity> {
         this.iKq.aUN();
     }
 
-    public com.baidu.tbadk.core.dialog.a cnt() {
+    public com.baidu.tbadk.core.dialog.a cnu() {
         return this.iKq;
     }
 
-    public void cnu() {
+    public void cnv() {
         if (this.iKq != null) {
             this.iKq.dismiss();
             this.iKq = null;

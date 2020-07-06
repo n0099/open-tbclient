@@ -16,13 +16,13 @@ public interface Framedata {
 
     boolean XQ();
 
-    ByteBuffer dTM();
+    ByteBuffer dTQ();
 
-    boolean dTN();
+    boolean dTR();
 
-    boolean dTO();
+    boolean dTS();
 
-    boolean dTP();
+    boolean dTT();
 
-    Opcode dTQ();
+    Opcode dTU();
 }

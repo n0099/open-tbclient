@@ -5,50 +5,50 @@ import org.aspectj.lang.a;
 /* loaded from: classes7.dex */
 public class c implements org.aspectj.lang.b {
     Object[] args;
-    Object nXu;
-    a.InterfaceC0908a nXv;
+    Object nXx;
+    a.InterfaceC0909a nXy;
     Object target;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
-    public static class a implements a.InterfaceC0908a {
+    public static class a implements a.InterfaceC0909a {
         private int id;
-        String nXw;
-        org.aspectj.lang.c nXx;
-        org.aspectj.lang.reflect.d nXy;
+        org.aspectj.lang.c nXA;
+        org.aspectj.lang.reflect.d nXB;
+        String nXz;
 
         public a(int i, String str, org.aspectj.lang.c cVar, org.aspectj.lang.reflect.d dVar) {
-            this.nXw = str;
-            this.nXx = cVar;
-            this.nXy = dVar;
+            this.nXz = str;
+            this.nXA = cVar;
+            this.nXB = dVar;
             this.id = i;
         }
 
-        public String dTl() {
-            return this.nXw;
+        public String dTp() {
+            return this.nXz;
         }
 
-        public org.aspectj.lang.c dTm() {
-            return this.nXx;
+        public org.aspectj.lang.c dTq() {
+            return this.nXA;
         }
 
         String a(h hVar) {
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(hVar.SA(dTl()));
+            stringBuffer.append(hVar.SB(dTp()));
             stringBuffer.append("(");
-            stringBuffer.append(((f) dTm()).a(hVar));
+            stringBuffer.append(((f) dTq()).a(hVar));
             stringBuffer.append(")");
             return stringBuffer.toString();
         }
 
         public final String toString() {
-            return a(h.nXQ);
+            return a(h.nXT);
         }
     }
 
-    public c(a.InterfaceC0908a interfaceC0908a, Object obj, Object obj2, Object[] objArr) {
-        this.nXv = interfaceC0908a;
-        this.nXu = obj;
+    public c(a.InterfaceC0909a interfaceC0909a, Object obj, Object obj2, Object[] objArr) {
+        this.nXy = interfaceC0909a;
+        this.nXx = obj;
         this.target = obj2;
         this.args = objArr;
     }
@@ -59,6 +59,6 @@ public class c implements org.aspectj.lang.b {
     }
 
     public final String toString() {
-        return this.nXv.toString();
+        return this.nXy.toString();
     }
 }

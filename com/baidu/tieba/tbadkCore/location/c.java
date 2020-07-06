@@ -8,7 +8,7 @@ public class c {
     private a mLocationData;
     private long mTimeStamp;
 
-    public static c diD() {
+    public static c diE() {
         if (lIh == null) {
             synchronized (c.class) {
                 if (lIh == null) {
@@ -35,7 +35,7 @@ public class c {
         this.mLocationData = aVar;
     }
 
-    public boolean diE() {
+    public boolean diF() {
         return this.lIi;
     }
 

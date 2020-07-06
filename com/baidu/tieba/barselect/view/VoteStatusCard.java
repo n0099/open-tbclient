@@ -70,7 +70,7 @@ public class VoteStatusCard extends LinearLayout {
         setPadding(dimens, dimens2, dimens, dimens2);
         LayoutInflater.from(getContext()).inflate(R.layout.vote_status_card, (ViewGroup) this, true);
         sq();
-        bNU();
+        bNV();
     }
 
     private void sq() {
@@ -86,7 +86,7 @@ public class VoteStatusCard extends LinearLayout {
         this.gOn = (NewVoteCountDownView) findViewById(R.id.vote_count_down_view);
     }
 
-    private void bNU() {
+    private void bNV() {
         this.mPath = new Path();
         this.mPath.moveTo(0.0f, 15.0f);
         this.mPath.lineTo(440.0f, 15.0f);
@@ -101,23 +101,23 @@ public class VoteStatusCard extends LinearLayout {
 
     public void setData(f fVar) {
         this.gJz = fVar;
-        if (this.gJz == null || this.gJz.bNv() == null) {
+        if (this.gJz == null || this.gJz.bNw() == null) {
             setVisibility(8);
             return;
         }
-        this.gKS = this.gJz.bNv();
+        this.gKS = this.gJz.bNw();
         this.status = this.gKS.getStatus();
         this.gOg.setStatus(this.status);
-        long bNq = this.gKS.bNq() * 1000;
-        this.gOi.setText(ar.ch(this.gKS.bNo() * 1000));
-        this.gOk.setText(ar.cg(this.gKS.bNr() * 1000));
-        this.gOm.setText(ar.cg(this.gKS.bNp() * 1000));
+        long bNr = this.gKS.bNr() * 1000;
+        this.gOi.setText(ar.ch(this.gKS.bNp() * 1000));
+        this.gOk.setText(ar.cg(this.gKS.bNs() * 1000));
+        this.gOm.setText(ar.cg(this.gKS.bNq() * 1000));
         if (this.status == d.gNC) {
             this.gOo.setVisibility(0);
             if (this.gOp != null) {
                 this.gOn.setOnCountDownFinished(this.gOp);
             }
-            this.gOn.setData(bNq);
+            this.gOn.setData(bNr);
             return;
         }
         this.gOo.setVisibility(8);

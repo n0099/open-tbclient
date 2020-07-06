@@ -64,7 +64,7 @@ public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickL
         this.mHelp.setOnClickListener(this);
     }
 
-    private void bJT() {
+    private void bJU() {
         if (this.gtx <= 0) {
             this.gtx = 0;
         } else if (this.gtx > this.gnb.ggI.ggJ.size()) {
@@ -108,7 +108,7 @@ public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickL
         this.gnb = hVar;
         if (this.gnb != null && this.gnb.ggI != null && this.gnb.ggI.ggJ != null && this.gnb.ggI.ggJ.size() > 0) {
             this.gtx = 0;
-            bJT();
+            bJU();
         }
     }
 
@@ -121,7 +121,7 @@ public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickL
             }
         } else if (view == this.gts) {
             this.gtx--;
-            bJT();
+            bJU();
         } else if (view == this.gtv) {
             if (this.gtx == this.gnb.ggI.ggJ.size()) {
                 if (this.gtw != null) {
@@ -131,7 +131,7 @@ public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickL
                 return;
             }
             this.gtx++;
-            bJT();
+            bJU();
         }
     }
 

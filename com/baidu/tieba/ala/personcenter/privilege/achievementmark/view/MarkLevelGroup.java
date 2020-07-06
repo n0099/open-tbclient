@@ -54,8 +54,8 @@ public class MarkLevelGroup extends LinearLayout {
 
     public void c(b bVar) {
         if (bVar != null) {
-            List<d> bLC = bVar.bLC();
-            if (w.isEmpty(bLC)) {
+            List<d> bLD = bVar.bLD();
+            if (w.isEmpty(bLD)) {
                 if (getLayoutParams() != null) {
                     ViewGroup.LayoutParams layoutParams = getLayoutParams();
                     layoutParams.height = getContext().getResources().getDimensionPixelSize(R.dimen.ds118);
@@ -71,32 +71,32 @@ public class MarkLevelGroup extends LinearLayout {
             } else {
                 this.gDL.clear();
             }
-            int size = bLC.size();
+            int size = bLD.size();
             for (int i = 0; i < size; i++) {
-                final d dVar = bLC.get(i);
+                final d dVar = bLD.get(i);
                 if (dVar != null) {
                     View inflate = LayoutInflater.from(getContext()).inflate(R.layout.ala_achievement_mark_level_item_view, (ViewGroup) null);
                     FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.mark_level_layout);
                     TextView textView = (TextView) inflate.findViewById(R.id.mark_level_tv);
                     textView.setText(String.valueOf(i + 1));
-                    ((TextView) inflate.findViewById(R.id.mark_level_score_tv)).setText(AlaStringHelper.numFormatMarkLevel(dVar.bLN()));
+                    ((TextView) inflate.findViewById(R.id.mark_level_score_tv)).setText(AlaStringHelper.numFormatMarkLevel(dVar.bLO()));
                     this.gDL.add(inflate);
-                    boolean z = bVar.bLH() == 0;
-                    if (bVar.bLJ() == dVar.bLJ()) {
+                    boolean z = bVar.bLI() == 0;
+                    if (bVar.bLK() == dVar.bLK()) {
                         a(frameLayout, true);
                         if (z) {
                             textView.setBackgroundResource(R.drawable.pic_live_honor_show_off);
                         } else {
                             textView.setBackgroundResource(R.drawable.pic_live_honor_show_on);
                         }
-                    } else if (bVar.bLJ() > dVar.bLJ()) {
+                    } else if (bVar.bLK() > dVar.bLK()) {
                         a(frameLayout, false);
                         if (z) {
                             textView.setBackgroundResource(R.drawable.pic_live_honor_show_off);
                         } else {
                             textView.setBackgroundResource(R.drawable.pic_live_honor_show_on);
                         }
-                    } else if (bVar.bLJ() < dVar.bLJ()) {
+                    } else if (bVar.bLK() < dVar.bLK()) {
                         a(frameLayout, false);
                         textView.setBackgroundResource(R.drawable.pic_live_honor_show_off);
                     }
@@ -111,7 +111,7 @@ public class MarkLevelGroup extends LinearLayout {
                                 }
                             }
                             if (MarkLevelGroup.this.gDM != null) {
-                                MarkLevelGroup.this.gDM.dQ(dVar.bLG(), dVar.bLF());
+                                MarkLevelGroup.this.gDM.dQ(dVar.bLH(), dVar.bLG());
                             }
                         }
                     });

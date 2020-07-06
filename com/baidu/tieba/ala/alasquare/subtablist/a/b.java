@@ -52,10 +52,10 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         if (bVar != null) {
             if (this.from == 1) {
                 if (bVar.foi != null) {
-                    com.baidu.tieba.ala.alasquare.c.a.buo().e(com.baidu.tieba.ala.alasquare.c.a.buo().a(this.isSmallFollow, "c12117", bVar.foi.tabId, bVar.foi.entryName, bVar.foi.aPS()));
+                    com.baidu.tieba.ala.alasquare.c.a.bup().e(com.baidu.tieba.ala.alasquare.c.a.bup().a(this.isSmallFollow, "c12117", bVar.foi.tabId, bVar.foi.entryName, bVar.foi.aPS()));
                 }
                 if (bVar.foj != null) {
-                    com.baidu.tieba.ala.alasquare.c.a.buo().e(com.baidu.tieba.ala.alasquare.c.a.buo().a(this.isSmallFollow, "c12117", bVar.foj.tabId, bVar.foj.entryName, bVar.foj.aPS()));
+                    com.baidu.tieba.ala.alasquare.c.a.bup().e(com.baidu.tieba.ala.alasquare.c.a.bup().a(this.isSmallFollow, "c12117", bVar.foj.tabId, bVar.foj.entryName, bVar.foj.aPS()));
                 }
             } else if (this.from == 2) {
                 if (bVar.foi != null && bVar.foi.aPS() != null && bVar.foi.aPS().aSJ() != null) {

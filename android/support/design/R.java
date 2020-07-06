@@ -893,7 +893,7 @@ public final class R {
         public static final int title_template = 0x7f0f0262;
 
         /* renamed from: top  reason: collision with root package name */
-        public static final int f961top = 0x7f0f0169;
+        public static final int f962top = 0x7f0f0169;
         public static final int topPanel = 0x7f0f0261;
         public static final int touch_outside = 0x7f0f0f75;
         public static final int transition_current_scene = 0x7f0f0152;

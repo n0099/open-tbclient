@@ -79,7 +79,7 @@ public class a {
         this.eKb.sampleScale = i3;
     }
 
-    public C0506a bkn() {
+    public C0506a bko() {
         return this.eKb;
     }
 

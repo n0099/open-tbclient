@@ -128,7 +128,7 @@ public class c {
         this.gKg.setOnSrollToBottomListener(eVar);
     }
 
-    public void buI() {
+    public void buJ() {
         this.fnt.setTopExtraViewGone();
         this.fnt.startLoadData();
         this.fnt.setText(this.gKg.getContext().getString(R.string.list_loading));
@@ -320,7 +320,7 @@ public class c {
             this.heT = i;
         }
 
-        public void bSo() {
+        public void bSp() {
             this.heP.setVisibility(8);
             this.heS.setVisibility(8);
         }

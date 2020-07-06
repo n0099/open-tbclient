@@ -75,7 +75,7 @@ public class AlaActiveWebView extends FrameLayout implements c {
         return this.boX != null ? this.boX.getOriginalUrl() : "";
     }
 
-    public boolean bAk() {
+    public boolean bAl() {
         return this.bdv;
     }
 

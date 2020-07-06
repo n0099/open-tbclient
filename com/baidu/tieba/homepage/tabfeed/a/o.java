@@ -47,7 +47,7 @@ public class o extends com.baidu.adp.widget.ListView.a<bt, ak<bu>> {
             @Override // com.baidu.tieba.card.aa
             public void a(View view, bt btVar) {
                 if (btVar != null) {
-                    s.bOA().jI(true);
+                    s.bOB().jI(true);
                 }
             }
         };

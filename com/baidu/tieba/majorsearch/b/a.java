@@ -36,20 +36,20 @@ public class a {
         this.mRootView = LayoutInflater.from(this.jzs).inflate(R.layout.search_major_main, (ViewGroup) null);
         this.jzs.setContentView(this.mRootView);
         this.jzE = new com.baidu.tieba.majorsearch.a(this.mRootView, this.jzs);
-        cAv();
-        cAi();
-        this.dlV = "";
         cAw();
+        cAj();
+        this.dlV = "";
+        cAx();
     }
 
-    public void cAv() {
+    public void cAw() {
         View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.majorsearch.b.a.1
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
                     l.hideSoftKeyPad(a.this.jzs.getPageContext().getPageActivity(), view);
                 } else {
-                    a.this.cAw();
+                    a.this.cAx();
                 }
             }
         };
@@ -57,7 +57,7 @@ public class a {
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 3) {
-                    a.this.cAw();
+                    a.this.cAx();
                     return true;
                 }
                 return false;
@@ -76,7 +76,7 @@ public class a {
             public void afterTextChanged(Editable editable) {
                 if (editable != null) {
                     a.this.dlV = editable.toString();
-                    a.this.cAw();
+                    a.this.cAx();
                     a.this.jzE.lP(!StringUtils.isNull(editable.toString()));
                 }
             }
@@ -86,7 +86,7 @@ public class a {
         this.jzE.d(textWatcher);
     }
 
-    private void cAi() {
+    private void cAj() {
         a.InterfaceC0684a interfaceC0684a = new a.InterfaceC0684a() { // from class: com.baidu.tieba.majorsearch.b.a.4
             @Override // com.baidu.tieba.majorsearch.a.a.InterfaceC0684a
             public void Is(String str) {
@@ -112,7 +112,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cAw() {
+    public void cAx() {
         if (this.jzs != null) {
             if (j.isNetWorkAvailable()) {
                 if (this.dlV != null) {
@@ -123,7 +123,7 @@ public class a {
             } else if (this.jzE != null) {
                 d(new ErrorData());
                 this.jzs.getRefreshView().nR(R.drawable.new_pic_emotion_05);
-                this.jzs.showNetRefreshViewNoClick(this.jzE.cAs(), null);
+                this.jzs.showNetRefreshViewNoClick(this.jzE.cAt(), null);
                 this.jzs.getRefreshView().yQ(this.jzs.getString(R.string.im_error_default));
             }
         }
@@ -151,7 +151,7 @@ public class a {
         this.jzE.onChangeSkinType(i);
     }
 
-    public com.baidu.tieba.majorsearch.a cAx() {
+    public com.baidu.tieba.majorsearch.a cAy() {
         return this.jzE;
     }
 }

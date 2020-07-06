@@ -16,42 +16,42 @@ public class a {
     /* renamed from: com.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     static class C0015a {
-        private static Object nAi;
-        private static Class<?> nAj;
-        private static Method nAk;
-        private static Method nAl;
-        private static Method nAm;
+        private static Object nAl;
+        private static Class<?> nAm;
         private static Method nAn;
+        private static Method nAo;
+        private static Method nAp;
+        private static Method nAq;
 
         static {
-            nAk = null;
-            nAl = null;
-            nAm = null;
             nAn = null;
+            nAo = null;
+            nAp = null;
+            nAq = null;
             try {
-                nAj = Class.forName("com.android.id.impl.IdProviderImpl");
-                nAi = nAj.newInstance();
-                nAk = nAj.getMethod("getUDID", Context.class);
-                nAl = nAj.getMethod("getOAID", Context.class);
-                nAm = nAj.getMethod("getVAID", Context.class);
-                nAn = nAj.getMethod("getAAID", Context.class);
+                nAm = Class.forName("com.android.id.impl.IdProviderImpl");
+                nAl = nAm.newInstance();
+                nAn = nAm.getMethod("getUDID", Context.class);
+                nAo = nAm.getMethod("getOAID", Context.class);
+                nAp = nAm.getMethod("getVAID", Context.class);
+                nAq = nAm.getMethod("getAAID", Context.class);
             } catch (Throwable th) {
                 Log.e("XiaomiId", "xiaomi init error", th);
             }
         }
 
         public static boolean isSupported() {
-            return (nAj == null || nAi == null) ? false : true;
+            return (nAm == null || nAl == null) ? false : true;
         }
 
         public static String gc(Context context) {
-            return b(context, nAl);
+            return b(context, nAo);
         }
 
         private static String b(Context context, Method method) {
-            if (nAi != null && method != null) {
+            if (nAl != null && method != null) {
                 try {
-                    Object invoke = method.invoke(nAi, context);
+                    Object invoke = method.invoke(nAl, context);
                     if (invoke != null) {
                         return (String) invoke;
                     }

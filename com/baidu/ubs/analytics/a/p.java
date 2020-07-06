@@ -3,29 +3,29 @@ package com.baidu.ubs.analytics.a;
 import java.util.List;
 /* loaded from: classes8.dex */
 public final class p {
-    private o mEM = new o();
+    private o mEP = new o();
 
     public final void c(n nVar) {
-        this.mEM.a(nVar);
+        this.mEP.a(nVar);
     }
 
     public final void b(n nVar) {
-        this.mEM.b(nVar);
+        this.mEP.b(nVar);
     }
 
-    public final List<n> dxe() {
-        return this.mEM.dxe();
+    public final List<n> dxi() {
+        return this.mEP.dxi();
     }
 
     public final void B(String str) {
-        this.mEM.B(str);
+        this.mEP.B(str);
     }
 
-    public final void Qf(String str) {
-        this.mEM.B(str);
+    public final void Qg(String str) {
+        this.mEP.B(str);
     }
 
-    public final boolean Qe(String str) {
-        return this.mEM.Qe(str);
+    public final boolean Qf(String str) {
+        return this.mEP.Qf(str);
     }
 }

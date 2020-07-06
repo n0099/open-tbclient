@@ -71,7 +71,7 @@ public class y extends ad.a implements View.OnClickListener {
             this.dDu.setText(String.format(this.dDu.getContext().getResources().getString(R.string.pb_ala_name), com.baidu.tbadk.core.util.ar.getFixedText(xVar.userName, 7, true)));
             this.khM.setText(String.format(this.khM.getContext().getResources().getString(R.string.pb_ala_audience_count), com.baidu.tbadk.core.util.ar.numFormatOverWan(xVar.khG)));
             this.khO.setVisibility(xVar.khI ? 8 : 0);
-            cJS();
+            cJT();
         }
     }
 
@@ -90,7 +90,7 @@ public class y extends ad.a implements View.OnClickListener {
         this.ahx = i;
     }
 
-    private void cJS() {
+    private void cJT() {
         if (this.khJ == null || this.khJ.dMu == null) {
             this.khK.setVisibility(8);
             return;

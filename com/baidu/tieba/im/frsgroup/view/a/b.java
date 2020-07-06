@@ -68,19 +68,19 @@ public class b {
         this.fml.completePullRefreshPostDelayed(0L);
     }
 
-    public void chs() {
-        cqM();
+    public void cht() {
+        cqN();
         this.fnt.startLoadData();
     }
 
-    public void cht() {
-        cqM();
+    public void chu() {
+        cqN();
         this.fnt.setText(this.dPv.getResources().getString(R.string.network_ungeilivable));
         this.fnt.endLoadData();
     }
 
-    public void chu() {
-        cqM();
+    public void chv() {
+        cqN();
         this.fnt.setText(this.dPv.getResources().getString(R.string.list_no_more));
         this.fnt.endLoadData();
     }
@@ -107,14 +107,14 @@ public class b {
         }
     }
 
-    public void cqL() {
+    public void cqM() {
         if (this.fml != null) {
             this.fml.setNextPage(null);
             this.fnt = null;
         }
     }
 
-    private void cqM() {
+    private void cqN() {
         if (this.fml != null && this.fnt == null) {
             this.fnt = new PbListView(this.dPv.getPageActivity());
             this.fnt.createView();
@@ -157,7 +157,7 @@ public class b {
         }
     }
 
-    public void btN() {
+    public void btO() {
         if (this.iTH != null && this.iTH.isViewAttached()) {
             this.fml.setVisibility(0);
             this.iTH.dettachView(this.mRootView);

@@ -40,13 +40,13 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.gamel
         if (!StringUtils.isNull(aVar.fHP.aSJ().appId)) {
             str = aVar.fHP.aSJ().appId;
         }
-        com.baidu.tieba.ala.c.brS().e(new ao("c12115").s("obj_id", aVar.fHP.aSJ().live_id).dk(TiebaInitialize.Params.OBJ_PARAM3, str));
+        com.baidu.tieba.ala.c.brT().e(new ao("c12115").s("obj_id", aVar.fHP.aSJ().live_id).dk(TiebaInitialize.Params.OBJ_PARAM3, str));
         if (aVar.fHQ != null) {
             String str2 = "";
             if (!StringUtils.isNull(aVar.fHQ.aSJ().appId)) {
                 str2 = aVar.fHQ.aSJ().appId;
             }
-            com.baidu.tieba.ala.c.brS().e(new ao("c12115").s("obj_id", aVar.fHQ.aSJ().live_id).dk(TiebaInitialize.Params.OBJ_PARAM3, str2));
+            com.baidu.tieba.ala.c.brT().e(new ao("c12115").s("obj_id", aVar.fHQ.aSJ().live_id).dk(TiebaInitialize.Params.OBJ_PARAM3, str2));
         }
         return aVar2.getView();
     }

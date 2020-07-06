@@ -12,15 +12,15 @@ import java.util.Map;
 public class o {
 
     /* renamed from: a  reason: collision with other field name */
-    private static final Map<String, byte[]> f926a = new HashMap();
+    private static final Map<String, byte[]> f927a = new HashMap();
     private static ArrayList<Pair<String, byte[]>> a = new ArrayList<>();
 
     public static void a(Context context, int i, String str) {
-        synchronized (f926a) {
-            for (String str2 : f926a.keySet()) {
-                a(context, str2, f926a.get(str2), i, str);
+        synchronized (f927a) {
+            for (String str2 : f927a.keySet()) {
+                a(context, str2, f927a.get(str2), i, str);
             }
-            f926a.clear();
+            f927a.clear();
         }
     }
 
@@ -35,11 +35,11 @@ public class o {
 
     public static void a(XMPushService xMPushService) {
         try {
-            synchronized (f926a) {
-                for (String str : f926a.keySet()) {
-                    w.a(xMPushService, str, f926a.get(str));
+            synchronized (f927a) {
+                for (String str : f927a.keySet()) {
+                    w.a(xMPushService, str, f927a.get(str));
                 }
-                f926a.clear();
+                f927a.clear();
             }
         } catch (gd e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -48,8 +48,8 @@ public class o {
     }
 
     public static void a(String str, byte[] bArr) {
-        synchronized (f926a) {
-            f926a.put(str, bArr);
+        synchronized (f927a) {
+            f927a.put(str, bArr);
         }
     }
 

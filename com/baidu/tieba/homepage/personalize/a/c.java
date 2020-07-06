@@ -36,9 +36,9 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                         i = 5;
                     } else if (view == c.this.ite.gOF.getCommentContainer()) {
                         c.this.b(jVar);
-                    } else if (c.this.ite.bOf() != null && view.getId() == c.this.ite.bOf().getId()) {
-                        i = 2;
                     } else if (c.this.ite.bOg() != null && view.getId() == c.this.ite.bOg().getId()) {
+                        i = 2;
+                    } else if (c.this.ite.bOh() != null && view.getId() == c.this.ite.bOh().getId()) {
                         i = 2;
                     }
                 } else {
@@ -51,18 +51,18 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                     }
                     ao aoVar = new ao("c11824");
                     aoVar.dk("uid", TbadkCoreApplication.getCurrentAccount());
-                    aoVar.dk("ab_tag", jVar.bOM());
+                    aoVar.dk("ab_tag", jVar.bON());
                     aoVar.s(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, j);
                     aoVar.ag("obj_type", i);
                     aoVar.dk("tid", str);
                     aoVar.dk("obj_param1", jVar.getExtra());
                     aoVar.dk("obj_source", jVar.getSource());
-                    aoVar.ag("obj_floor", jVar.bOL());
+                    aoVar.ag("obj_floor", jVar.bOM());
                     TiebaStatic.log(aoVar);
                     i = 1;
                 }
                 if (i != 0) {
-                    com.baidu.tieba.homepage.personalize.c.a.a(jVar.dLi, c.this.eyE, jVar.bOL(), i);
+                    com.baidu.tieba.homepage.personalize.c.a.a(jVar.dLi, c.this.eyE, jVar.bOM(), i);
                 }
             }
         };
@@ -106,16 +106,16 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             aoVar.ag("obj_type", i2);
             aoVar.dk(TiebaInitialize.Params.OBJ_PARAM3, str);
             aoVar.dk("tid", tid);
-            aoVar.dk("ab_tag", jVar.bOM());
+            aoVar.dk("ab_tag", jVar.bON());
             aoVar.s(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, j);
             aoVar.s("fid", jVar.aPS().getFid());
             aoVar.dk("uid", TbadkCoreApplication.getCurrentAccount());
             aoVar.dk("obj_param1", jVar.getExtra());
             aoVar.dk("obj_source", jVar.getSource());
-            aoVar.ag("obj_floor", jVar.bOL());
+            aoVar.ag("obj_floor", jVar.bOM());
             TiebaStatic.log(aoVar);
         }
-        com.baidu.tieba.homepage.personalize.c.a.a(jVar.dLi, this.eyE, jVar.bOL());
+        com.baidu.tieba.homepage.personalize.c.a.a(jVar.dLi, this.eyE, jVar.bOM());
         return aVar.getView();
     }
 

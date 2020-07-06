@@ -15,13 +15,13 @@ class bh implements Runnable {
     public void run() {
         ConcurrentHashMap concurrentHashMap;
         try {
-            concurrentHashMap = this.a.f896a;
+            concurrentHashMap = this.a.f897a;
             for (bg.a aVar : concurrentHashMap.values()) {
                 aVar.run();
             }
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.m48a("Sync job exception :" + e.getMessage());
         }
-        this.a.f897a = false;
+        this.a.f898a = false;
     }
 }

@@ -5,7 +5,7 @@ import android.view.View;
 public interface f {
     void ca(View view);
 
-    boolean cck();
+    boolean ccl();
 
     int getArrowIndex();
 

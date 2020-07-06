@@ -2307,7 +2307,7 @@ public class bu extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                     arrayList.add(new m.a((int) R.string.good));
                 }
                 if (aSk() == 1) {
-                    arrayList.add(new m.a((int) R.string.f1302top));
+                    arrayList.add(new m.a((int) R.string.f1303top));
                 }
                 if (aTx() && aRV() != null && aTa() == 2) {
                     arrayList.add(new m.a((int) R.string.interview_live));

@@ -132,11 +132,11 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    public void bKC() {
+    public void bKD() {
         aD(this.fIb);
     }
 
-    public void bKD() {
+    public void bKE() {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
@@ -145,7 +145,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    private boolean bKE() {
+    private boolean bKF() {
         return this.gvk;
     }
 
@@ -181,7 +181,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                 }
                 int optInt = jSONObject.optInt("zan_count", 0);
                 if (optInt > 0) {
-                    if (this.gvl > 0 && optInt > this.gvl && bKE() && this.gvi != null) {
+                    if (this.gvl > 0 && optInt > this.gvl && bKF() && this.gvi != null) {
                         int i = optInt - this.gvl;
                         if (this.gvn > 0) {
                             if (i > this.gvn) {
@@ -214,7 +214,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
 
     public void ah(String str, String str2, String str3) {
         if (this.gvi != null) {
-            if (bKE()) {
+            if (bKF()) {
                 addHeart(1);
             }
             this.mLiveId = str;

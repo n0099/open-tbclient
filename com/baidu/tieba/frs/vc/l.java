@@ -39,15 +39,15 @@ public class l {
     private Runnable ibw = new Runnable() { // from class: com.baidu.tieba.frs.vc.l.2
         @Override // java.lang.Runnable
         public void run() {
-            l.this.cfZ();
+            l.this.cga();
         }
     };
     private View.OnClickListener ibx = new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.l.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            l.this.cfY();
+            l.this.cfZ();
             if (l.this.iaT != null && l.this.iaT.postTopic != null && l.this.iaT.getForum() != null) {
-                if (l.this.ibu == null || l.this.ibu.cbN()) {
+                if (l.this.ibu == null || l.this.ibu.cbO()) {
                     WriteActivityConfig writeActivityConfig = new WriteActivityConfig(l.this.mActivity, 9, l.this.iaT.getForum().getId(), l.this.iaT.getForum().getName(), null, null, 0, l.this.iaT.getAnti(), RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, l.this.iaT.getForum().getPrefixData(), 0);
                     if (!StringUtils.isNull(l.this.iaT.postTopic.recom_topic)) {
                         writeActivityConfig.setTitle(l.this.iaT.postTopic.recom_topic, true);
@@ -82,14 +82,14 @@ public class l {
         }
     }
 
-    public void cfY() {
+    public void cfZ() {
         com.baidu.adp.lib.f.e.lt().removeCallbacks(this.ibv);
         com.baidu.adp.lib.f.e.lt().removeCallbacks(this.ibw);
-        cfZ();
+        cga();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfZ() {
+    public void cga() {
         com.baidu.adp.lib.f.g.dismissPopupWindow(this.ibt);
     }
 }

@@ -93,7 +93,7 @@ public class a extends m<PostData, b> implements View.OnClickListener, com.baidu
             bVar.kel.setPadding(0, 0, 0, 0);
             bVar.kel.zx(null);
             postData.aTB();
-            if (postData.dhY() == 1) {
+            if (postData.dhZ() == 1) {
                 bVar.kBO.setVisibility(0);
                 String str = null;
                 String str2 = null;
@@ -103,16 +103,16 @@ public class a extends m<PostData, b> implements View.OnClickListener, com.baidu
                     str = postData.aSp().getUserName();
                     str2 = postData.aSp().getName_show();
                 }
-                bVar.kBO.a(postData.dig(), str, str2, j, com.baidu.adp.lib.f.b.toLong(this.kck.cGN().getId(), 0L), com.baidu.adp.lib.f.b.toLong(postData.getId(), 0L));
+                bVar.kBO.a(postData.dih(), str, str2, j, com.baidu.adp.lib.f.b.toLong(this.kck.cGO().getId(), 0L), com.baidu.adp.lib.f.b.toLong(postData.getId(), 0L));
                 bVar.kBO.onChangeSkinType();
                 if (this.kcm) {
-                    PraiseData aSa = this.kck.cGN().aSa();
+                    PraiseData aSa = this.kck.cGO().aSa();
                     if (aSa != null && aSa.getUser() != null && aSa.getUser().size() > 0) {
                         bVar.kBP.setVisibility(0);
                         bVar.kBN.setVisibility(0);
                         bVar.kBQ.setVisibility(0);
                         bVar.kBP.setIsFromPb(true);
-                        bVar.kBP.setData(aSa, this.kck.cGN().getId(), aSa.getPostId(), true);
+                        bVar.kBP.setData(aSa, this.kck.cGO().getId(), aSa.getPostId(), true);
                         bVar.kBP.onChangeSkin(this.mSkinType);
                     } else {
                         bVar.kBP.setVisibility(8);
@@ -143,16 +143,16 @@ public class a extends m<PostData, b> implements View.OnClickListener, com.baidu
             bVar.kel.setIsFromCDN(this.mIsFromCDN);
             TbRichText tbRichText = null;
             if (0 == 0) {
-                tbRichText = postData.dia();
+                tbRichText = postData.dib();
             }
             if (this.kea || !this.keb) {
                 bVar.kel.setText(tbRichText, false);
             } else {
                 bVar.kel.setText(tbRichText, true);
             }
-            bs aRV = this.kck.cGN().aRV();
+            bs aRV = this.kck.cGO().aRV();
             if (aRV != null) {
-                bVar.kBM.startLoad(this.kck.cGN().aRV().getThreadImgUrl(), this.mIsFromCDN ? 17 : 18, false);
+                bVar.kBM.startLoad(this.kck.cGO().aRV().getThreadImgUrl(), this.mIsFromCDN ? 17 : 18, false);
                 int equipmentWidth = l.getEquipmentWidth(this.mContext);
                 float aRK = aRV.aRK() / aRV.aRJ();
                 if (aRK > 1.0f) {
@@ -200,8 +200,8 @@ public class a extends m<PostData, b> implements View.OnClickListener, com.baidu
         bVar.kel.setOnLongClickListener(this.mOnLongClickListener);
         bVar.kel.setOnTouchListener(this.eor);
         bVar.kel.setOnImageClickListener(this.eLw);
-        if (this.kdO != null && this.kdO.cJI() != null) {
-            bVar.kel.setOnEmotionClickListener(this.kdO.cJI().kbH.krb);
+        if (this.kdO != null && this.kdO.cJJ() != null) {
+            bVar.kel.setOnEmotionClickListener(this.kdO.cJJ().kbH.krb);
         }
     }
 

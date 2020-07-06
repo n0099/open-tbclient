@@ -35,7 +35,7 @@ public class c {
                     if (!StringUtils.isNull(A) && A.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
                         A = A.substring(TbConfig.URL_IMAGE_PREFIX.length());
                     }
-                    buVar = eVar.cGN();
+                    buVar = eVar.cGO();
                     if (buVar == null) {
                         return;
                     }

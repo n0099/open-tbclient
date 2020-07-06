@@ -47,15 +47,15 @@ public class AdPostImageView extends AdPostBaseView {
     protected void a(AdPost adPost) {
         if (adPost != null && adPost.getAdvertAppInfo() != null) {
             boolean isShowImages = k.aPA().isShowImages();
-            if (adPost.feedData.cZj().size() == 0 || !isShowImages) {
+            if (adPost.feedData.cZk().size() == 0 || !isShowImages) {
                 this.gRn.setVisibility(8);
                 return;
             }
             this.gRn.setVisibility(0);
-            List<String> cZj = adPost.feedData.cZj();
-            if (!w.isEmpty(cZj)) {
+            List<String> cZk = adPost.feedData.cZk();
+            if (!w.isEmpty(cZk)) {
                 LinkedList linkedList = new LinkedList();
-                for (String str : cZj) {
+                for (String str : cZk) {
                     MediaData mediaData = new MediaData();
                     mediaData.setPic(str);
                     mediaData.setThumbnails_url(str);

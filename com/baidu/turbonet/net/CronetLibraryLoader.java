@@ -13,11 +13,11 @@ import java.util.List;
 /* loaded from: classes.dex */
 class CronetLibraryLoader {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final Object mzk;
-    private static final HandlerThread mzl;
-    private static volatile boolean mzm;
-    private static boolean mzn;
-    private static List<Runnable> mzo;
+    private static final Object mzn;
+    private static final HandlerThread mzo;
+    private static volatile boolean mzp;
+    private static boolean mzq;
+    private static List<Runnable> mzr;
 
     private static native void nativeCronetInitOnInitThread();
 
@@ -29,19 +29,19 @@ class CronetLibraryLoader {
 
     static {
         $assertionsDisabled = !CronetLibraryLoader.class.desiredAssertionStatus();
-        mzk = new Object();
-        mzl = new HandlerThread("TurboNetInit");
-        mzm = false;
-        mzn = false;
-        mzo = new ArrayList();
+        mzn = new Object();
+        mzo = new HandlerThread("TurboNetInit");
+        mzp = false;
+        mzq = false;
+        mzr = new ArrayList();
     }
 
     CronetLibraryLoader() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long duX() {
-        if (mzn) {
+    public static long dvb() {
+        if (mzq) {
             return nativeGetTurboNetHandler();
         }
         return 0L;
@@ -49,16 +49,16 @@ class CronetLibraryLoader {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(final Context context, TurbonetEngine.Builder builder) {
-        synchronized (mzk) {
-            if (!mzm) {
-                mzm = true;
+        synchronized (mzn) {
+            if (!mzp) {
+                mzp = true;
                 ContextUtils.fC(context.getApplicationContext());
-                builder.dvP();
-                ContextUtils.duI();
+                builder.dvT();
+                ContextUtils.duM();
                 com.baidu.turbonet.base.a.g("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
                 ContextUtils.fC(context.getApplicationContext());
-                if (!mzl.isAlive()) {
-                    mzl.start();
+                if (!mzo.isAlive()) {
+                    mzo.start();
                 }
                 D(new Runnable() { // from class: com.baidu.turbonet.net.CronetLibraryLoader.1
                     @Override // java.lang.Runnable
@@ -70,36 +70,36 @@ class CronetLibraryLoader {
         }
     }
 
-    private static boolean duY() {
-        return mzl.getLooper() == Looper.myLooper();
+    private static boolean dvc() {
+        return mzo.getLooper() == Looper.myLooper();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void fF(Context context) {
-        if (!$assertionsDisabled && !mzm) {
+        if (!$assertionsDisabled && !mzp) {
             throw new AssertionError();
         }
-        if (!$assertionsDisabled && !duY()) {
+        if (!$assertionsDisabled && !dvc()) {
             throw new AssertionError();
         }
-        if (!mzn) {
+        if (!mzq) {
             NetworkChangeNotifier.init(context);
-            NetworkChangeNotifier.dvu();
+            NetworkChangeNotifier.dvy();
             nativeCronetInitOnInitThread();
-            for (Runnable runnable : mzo) {
+            for (Runnable runnable : mzr) {
                 runnable.run();
             }
-            mzo.clear();
-            mzn = true;
+            mzr.clear();
+            mzq = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void D(Runnable runnable) {
-        if (duY()) {
+        if (dvc()) {
             runnable.run();
         } else {
-            new Handler(mzl.getLooper()).post(runnable);
+            new Handler(mzo.getLooper()).post(runnable);
         }
     }
 }

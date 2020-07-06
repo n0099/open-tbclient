@@ -44,7 +44,7 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         this.eLl = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.homepage.concern.a.m.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: blL */
+            /* renamed from: blM */
             public ImageView makeObject() {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(m.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.k.aPA().isShowImages();
@@ -116,7 +116,7 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         this.eLm = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.homepage.concern.a.m.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bST */
+            /* renamed from: bSU */
             public GifView makeObject() {
                 GifView gifView = new GifView(m.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.k.aPA().isShowImages();
@@ -353,7 +353,7 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         }
         kVar.sR(kVar.position + 1);
         akVar.se().setPosition(i);
-        com.baidu.tieba.card.s.bOA().e(kVar.DU("c12351"));
+        com.baidu.tieba.card.s.bOB().e(kVar.DU("c12351"));
         akVar.se().setPage(this.afG);
         akVar.a(true, kVar.aPZ() ? Align.ALIGN_RIGHT_TOP : Align.ALIGN_RIGHT_BOTTOM);
         akVar.b((ak<com.baidu.tieba.card.data.k>) kVar);

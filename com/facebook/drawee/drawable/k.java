@@ -15,7 +15,7 @@ public class k extends m {
     @Nullable
     private final Bitmap mBitmap;
     private final Paint mBorderPaint;
-    private WeakReference<Bitmap> mMD;
+    private WeakReference<Bitmap> mMG;
     private final Paint mPaint;
 
     public k(Resources resources, @Nullable Bitmap bitmap, @Nullable Paint paint) {
@@ -32,40 +32,40 @@ public class k extends m {
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!dAZ()) {
+        if (!dBd()) {
             super.draw(canvas);
             return;
         }
-        dBb();
-        dBa();
+        dBf();
+        dBe();
         updatePaint();
         int save = canvas.save();
-        canvas.concat(this.mNb);
+        canvas.concat(this.mNe);
         canvas.drawPath(this.mPath, this.mPaint);
         if (this.mBorderWidth > 0.0f) {
             this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
             this.mBorderPaint.setColor(e.dt(this.mBorderColor, this.mPaint.getAlpha()));
-            canvas.drawPath(this.mMH, this.mBorderPaint);
+            canvas.drawPath(this.mMK, this.mBorderPaint);
         }
         canvas.restoreToCount(save);
     }
 
     private void updatePaint() {
-        if (this.mMD == null || this.mMD.get() != this.mBitmap) {
-            this.mMD = new WeakReference<>(this.mBitmap);
+        if (this.mMG == null || this.mMG.get() != this.mBitmap) {
+            this.mMG = new WeakReference<>(this.mBitmap);
             this.mPaint.setShader(new BitmapShader(this.mBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
-            this.mMR = true;
+            this.mMU = true;
         }
-        if (this.mMR) {
+        if (this.mMU) {
             this.mPaint.getShader().setLocalMatrix(this.mTransform);
-            this.mMR = false;
+            this.mMU = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.facebook.drawee.drawable.m
-    public boolean dAZ() {
-        return super.dAZ() && this.mBitmap != null;
+    public boolean dBd() {
+        return super.dBd() && this.mBitmap != null;
     }
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable

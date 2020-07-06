@@ -55,14 +55,14 @@ public class c {
         MessageManager.getInstance().registerListener(this.huM);
     }
 
-    public void bWj() {
+    public void bWk() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
         httpMessage.addParam("rn", 20);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void bWk() {
+    public void bWl() {
         if (this.huJ == null || this.huJ.aRf() == 1) {
             int aRd = this.huJ != null ? this.huJ.aRd() + 1 : 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);

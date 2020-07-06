@@ -29,15 +29,15 @@ public class d {
         this.threadId = j;
     }
 
-    public BdUniqueId cGy() {
+    public BdUniqueId cGz() {
         return this.mPageId;
     }
 
-    public int cGz() {
+    public int cGA() {
         return this.source;
     }
 
-    public long cGA() {
+    public long cGB() {
         return this.jWN;
     }
 

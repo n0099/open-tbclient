@@ -96,7 +96,7 @@ public class b extends BaseAdapter {
         return view;
     }
 
-    public void bKF() {
+    public void bKG() {
         if (this.gvK != null) {
             int size = this.gvK.size();
             for (int i = 0; i < size; i++) {

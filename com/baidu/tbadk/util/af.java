@@ -141,7 +141,7 @@ public class af implements Thread.UncaughtExceptionHandler {
                         com.baidu.adp.lib.util.n.close((OutputStream) printStream);
                         com.baidu.adp.lib.util.n.close((OutputStream) byteArrayOutputStream);
                         int recordHourCrashCount = recordHourCrashCount();
-                        if (!bjf()) {
+                        if (!bjg()) {
                         }
                     } catch (Throwable th2) {
                         printStream3 = printStream;
@@ -164,7 +164,7 @@ public class af implements Thread.UncaughtExceptionHandler {
             }
         }
         int recordHourCrashCount2 = recordHourCrashCount();
-        if (!bjf()) {
+        if (!bjg()) {
             return;
         }
         try {
@@ -181,7 +181,7 @@ public class af implements Thread.UncaughtExceptionHandler {
                         this.eEH.info = new String(byteArray);
                         this.eEH.mExcep = th;
                     }
-                    bjd();
+                    bje();
                     if (!z) {
                         writeToFile(thread, th);
                     }
@@ -190,7 +190,7 @@ public class af implements Thread.UncaughtExceptionHandler {
                         BdLog.e(this.eEH.info);
                     }
                     BdLog.e("hourCrash = " + recordHourCrashCount2);
-                    if (recordHourCrashCount2 >= bje()) {
+                    if (recordHourCrashCount2 >= bjf()) {
                         a(thread, th);
                     }
                     com.baidu.adp.lib.util.n.close((OutputStream) printStream2);
@@ -272,7 +272,7 @@ public class af implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    private void bjd() {
+    private void bje() {
         if (this.eEH != null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UEXCEPTION_MESSAGE, this.eEH));
             if (this.eEH.appendInfo != null) {
@@ -574,11 +574,11 @@ public class af implements Thread.UncaughtExceptionHandler {
         return i2;
     }
 
-    private int bje() {
+    private int bjf() {
         return com.baidu.adp.lib.stats.switchs.a.mn().getMaxAlertCount(BdStatsConstant.AlertTypeKey.ALERT_CRASH, 5);
     }
 
-    private boolean bjf() {
+    private boolean bjg() {
         int i;
         int i2;
         int i3 = 10;

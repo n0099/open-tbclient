@@ -110,7 +110,7 @@ public class f {
         this.kvK.setAlpha(f);
     }
 
-    public View cOP() {
+    public View cOQ() {
         return this.kvK;
     }
 

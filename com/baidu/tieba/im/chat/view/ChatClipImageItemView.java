@@ -116,7 +116,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         this.isLeft = z;
     }
 
-    public void cnY() {
+    public void cnZ() {
         this.iNP.onFinishComputeBounds();
         this.iNP.setPathAvailable(true);
     }

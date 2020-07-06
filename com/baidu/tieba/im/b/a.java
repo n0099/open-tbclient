@@ -21,11 +21,11 @@ public class a {
     private a() {
     }
 
-    public static a cts() {
+    public static a ctt() {
         return jbN;
     }
 
-    public void ctt() {
+    public void ctu() {
         String str;
         String str2 = null;
         if (this.jbO != null) {
@@ -57,7 +57,7 @@ public class a {
         new AddMsgRecordModel().reqViewAndClick(str, str2);
     }
 
-    public void ctu() {
+    public void ctv() {
         if (this.jbP != null && this.jbP.length() > 0) {
             this.jbP.delete(0, this.jbP.length());
         }

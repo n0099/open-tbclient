@@ -11,7 +11,7 @@ public class Texture2dProgram {
     private int mProgramHandle;
     private float[] mTexOffset;
     private int mTextureTarget;
-    private ProgramType mYV;
+    private ProgramType mYY;
     private int maPositionLoc;
     private int maTextureCoordLoc;
     private int muColorAdjustLoc;
@@ -29,7 +29,7 @@ public class Texture2dProgram {
     }
 
     public Texture2dProgram(ProgramType programType) {
-        this.mYV = programType;
+        this.mYY = programType;
         switch (programType) {
             case TEXTURE_2D:
                 this.mTextureTarget = 3553;

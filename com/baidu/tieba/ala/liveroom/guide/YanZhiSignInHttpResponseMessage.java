@@ -22,11 +22,11 @@ public class YanZhiSignInHttpResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public boolean bFc() {
+    public boolean bFd() {
         return !StringUtils.isNull(this.giz) && this.giz.equals("1");
     }
 
-    public boolean bFd() {
+    public boolean bFe() {
         return !StringUtils.isNull(this.giA) && this.giA.equals("1");
     }
 }

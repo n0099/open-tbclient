@@ -53,12 +53,12 @@ public class PersonWrapperFragment extends BaseFragment implements ViewPager.OnP
         View inflate = layoutInflater.inflate(a.h.ala_fragment_person_wrapper, (ViewGroup) null);
         ag(inflate);
         initListener();
-        bLc();
+        bLd();
         se(this.type);
         return inflate;
     }
 
-    private void bLc() {
+    private void bLd() {
         this.gxv.setIndicatorMargin(getResources().getDimensionPixelSize(a.e.sdk_ds34));
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) {
             this.gxv.setViewPager(this.gxs, this.gxw / 3);
@@ -87,13 +87,13 @@ public class PersonWrapperFragment extends BaseFragment implements ViewPager.OnP
     public void se(int i) {
         this.type = i;
         this.gxj = false;
-        bLd();
+        bLe();
         if (this.gxs != null) {
             this.gxs.setCurrentItem(this.YJ);
         }
     }
 
-    private void bLd() {
+    private void bLe() {
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba()) {
             if (this.type == 2) {
                 this.YJ = 0;

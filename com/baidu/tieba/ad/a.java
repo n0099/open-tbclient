@@ -25,7 +25,7 @@ public final class a implements g {
     private a() {
     }
 
-    public static a boT() {
+    public static a boU() {
         return eXZ;
     }
 

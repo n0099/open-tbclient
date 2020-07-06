@@ -89,7 +89,7 @@ public class PersonalChatActivityStatic {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003004, TbConfig.SERVER_ADDRESS + Config.FREIND_LIST_ADDRESS);
         tbHttpMessageTask.setResponsedClass(ResponseFriendListMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        bRJ();
+        bRK();
         MessageManager.getInstance().registerListener(jdG);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSONAL_CHAT, new CustomMessageTask.CustomRunnable<PersonalChatActivityConfig>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -101,9 +101,9 @@ public class PersonalChatActivityStatic {
                     ad.b(new ac<Void>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.ac
-                        /* renamed from: bpB */
+                        /* renamed from: bpC */
                         public Void doInBackground() {
-                            return m.cpS().l(linkedList);
+                            return m.cpT().l(linkedList);
                         }
                     }, new l<Void>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -181,9 +181,9 @@ public class PersonalChatActivityStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                     if (TbadkCoreApplication.isLogin()) {
-                        i.cuZ().start();
+                        i.cva().start();
                     } else {
-                        i.cuZ().destroy();
+                        i.cva().destroy();
                     }
                 }
             }
@@ -193,15 +193,15 @@ public class PersonalChatActivityStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin()) {
-                    i.cuZ().restart();
+                    i.cva().restart();
                 } else {
-                    i.cuZ().destroy();
+                    i.cva().destroy();
                 }
             }
         });
     }
 
-    public static e ctS() {
+    public static e ctT() {
         return jdF;
     }
 
@@ -209,7 +209,7 @@ public class PersonalChatActivityStatic {
         jdF = eVar;
     }
 
-    private static void bRJ() {
+    private static void bRK() {
         bc.aWU().a(new bc.a() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.8
             @Override // com.baidu.tbadk.core.util.bc.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {

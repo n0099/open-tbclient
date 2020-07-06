@@ -10,25 +10,25 @@ import java.lang.reflect.Field;
 import tv.chushou.zues.utils.e;
 /* loaded from: classes5.dex */
 public class b extends LinearLayoutManager {
-    private static boolean olc = true;
-    private static Field old = null;
+    private static boolean olf = true;
+    private static Field olg = null;
     private final Rect hou;
-    private final int[] ole;
-    private int olf;
-    private boolean olg;
-    private int olh;
+    private final int[] olh;
+    private int oli;
+    private boolean olj;
+    private int olk;
     private final RecyclerView view;
 
     public b(Context context, int i, boolean z) {
         super(context, i, z);
-        this.ole = new int[2];
-        this.olf = 100;
-        this.olh = 0;
+        this.olh = new int[2];
+        this.oli = 100;
+        this.olk = 0;
         this.hou = new Rect();
         this.view = null;
     }
 
-    public static int dWO() {
+    public static int dWS() {
         return View.MeasureSpec.makeMeasureSpec(0, 0);
     }
 
@@ -47,7 +47,7 @@ public class b extends LinearLayoutManager {
         boolean z2 = mode2 != 0;
         boolean z3 = mode == 1073741824;
         boolean z4 = mode2 == 1073741824;
-        int dWO = dWO();
+        int dWS = dWS();
         if (z3 && z4) {
             super.onMeasure(recycler, state, i, i2);
             return;
@@ -66,15 +66,15 @@ public class b extends LinearLayoutManager {
                 i4 = i6;
                 break;
             } else if (z5) {
-                if (!this.olg) {
+                if (!this.olj) {
                     if (i8 < itemCount) {
-                        a(recycler, i8, size, dWO, this.ole);
+                        a(recycler, i8, size, dWS, this.olh);
                     } else {
                         LM(i8);
                     }
                 }
-                i5 = this.ole[1] + i7;
-                i4 = i8 == 0 ? this.ole[0] : i6;
+                i5 = this.olh[1] + i7;
+                i4 = i8 == 0 ? this.olh[0] : i6;
                 if (z2 && i5 >= size2) {
                     i3 = i5;
                     break;
@@ -83,15 +83,15 @@ public class b extends LinearLayoutManager {
                 i7 = i5;
                 i6 = i4;
             } else {
-                if (!this.olg) {
+                if (!this.olj) {
                     if (i8 < itemCount) {
-                        a(recycler, i8, dWO, size2, this.ole);
+                        a(recycler, i8, dWS, size2, this.olh);
                     } else {
                         LM(i8);
                     }
                 }
-                i4 = i6 + this.ole[0];
-                i5 = i8 == 0 ? this.ole[1] : i7;
+                i4 = i6 + this.olh[0];
+                i5 = i8 == 0 ? this.olh[1] : i7;
                 if (z && i4 >= size) {
                     i3 = i5;
                     break;
@@ -116,7 +116,7 @@ public class b extends LinearLayoutManager {
             }
         }
         setMeasuredDimension(min, paddingTop);
-        if (this.view != null && this.olh == 1) {
+        if (this.view != null && this.olk == 1) {
             ViewCompat.setOverScrollMode(this.view, (z5 && (!z2 || paddingTop < size2)) || (!z5 && (!z || min < size)) ? 2 : 0);
         }
     }
@@ -126,22 +126,22 @@ public class b extends LinearLayoutManager {
     }
 
     private void q(int i, int i2, boolean z) {
-        if (this.ole[0] == 0 && this.ole[1] == 0) {
+        if (this.olh[0] == 0 && this.olh[1] == 0) {
             if (z) {
-                this.ole[0] = i;
-                this.ole[1] = this.olf;
+                this.olh[0] = i;
+                this.olh[1] = this.oli;
                 return;
             }
-            this.ole[0] = this.olf;
-            this.ole[1] = i2;
+            this.olh[0] = this.oli;
+            this.olh[1] = i2;
         }
     }
 
     @Override // android.support.v7.widget.LinearLayoutManager
     public void setOrientation(int i) {
-        if (this.ole != null && getOrientation() != i) {
-            this.ole[0] = 0;
-            this.ole[1] = 0;
+        if (this.olh != null && getOrientation() != i) {
+            this.olh[0] = 0;
+            this.olh[1] = 0;
         }
         super.setOrientation(i);
     }
@@ -167,21 +167,21 @@ public class b extends LinearLayoutManager {
     }
 
     private static void a(RecyclerView.LayoutParams layoutParams) {
-        if (olc) {
+        if (olf) {
             try {
-                if (old == null) {
-                    old = RecyclerView.LayoutParams.class.getDeclaredField("mInsetsDirty");
-                    old.setAccessible(true);
+                if (olg == null) {
+                    olg = RecyclerView.LayoutParams.class.getDeclaredField("mInsetsDirty");
+                    olg.setAccessible(true);
                 }
-                old.set(layoutParams, true);
+                olg.set(layoutParams, true);
             } catch (Exception e) {
-                dWP();
+                dWT();
             }
         }
     }
 
-    private static void dWP() {
-        olc = false;
+    private static void dWT() {
+        olf = false;
         e.w("WrapContentManager", "Can't make LayoutParams insets dirty, decorations measurements might be incorrect");
     }
 

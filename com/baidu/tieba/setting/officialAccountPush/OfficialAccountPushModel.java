@@ -44,7 +44,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
         com.baidu.tieba.tbadkCore.a.a.a(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
     }
 
-    public void ddL() {
+    public void ddM() {
         sendMessage(new OfficialAccountPushRequestMessage());
     }
 

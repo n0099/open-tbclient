@@ -6,24 +6,24 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes12.dex */
 public class e {
-    private final com.facebook.common.memory.a mIW;
-    private boolean mUA;
-    private int mUw = 0;
-    private int mUv = 0;
-    private int mUx = 0;
+    private final com.facebook.common.memory.a mIZ;
+    private boolean mUD;
     private int mUz = 0;
     private int mUy = 0;
-    private int mUu = 0;
+    private int mUA = 0;
+    private int mUC = 0;
+    private int mUB = 0;
+    private int mUx = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.mIW = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.mIZ = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.g.e eVar) {
-        if (this.mUu != 6 && eVar.getSize() > this.mUw) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.mIW.get(16384), this.mIW);
+        if (this.mUx != 6 && eVar.getSize() > this.mUz) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.mIZ.get(16384), this.mIZ);
             try {
-                com.facebook.common.util.c.a(fVar, this.mUw);
+                com.facebook.common.util.c.a(fVar, this.mUz);
                 return u(fVar);
             } catch (IOException e) {
                 l.y(e);
@@ -38,82 +38,82 @@ public class e {
     private boolean u(InputStream inputStream) {
         int read;
         boolean z = true;
-        int i = this.mUy;
-        while (this.mUu != 6 && (read = inputStream.read()) != -1) {
+        int i = this.mUB;
+        while (this.mUx != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.mUw++;
-                if (this.mUA) {
-                    this.mUu = 6;
-                    this.mUA = false;
+                this.mUz++;
+                if (this.mUD) {
+                    this.mUx = 6;
+                    this.mUD = false;
                     return false;
                 }
-                switch (this.mUu) {
+                switch (this.mUx) {
                     case 0:
                         if (read == 255) {
-                            this.mUu = 1;
+                            this.mUx = 1;
                             break;
                         } else {
-                            this.mUu = 6;
+                            this.mUx = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.mUu = 2;
+                            this.mUx = 2;
                             break;
                         } else {
-                            this.mUu = 6;
+                            this.mUx = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.mUu = 3;
+                            this.mUx = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.mUu = 3;
+                            this.mUx = 3;
                             break;
                         } else if (read == 0) {
-                            this.mUu = 2;
+                            this.mUx = 2;
                             break;
                         } else if (read == 217) {
-                            this.mUA = true;
-                            IN(this.mUw - 2);
-                            this.mUu = 2;
+                            this.mUD = true;
+                            IN(this.mUz - 2);
+                            this.mUx = 2;
                             break;
                         } else {
                             if (read == 218) {
-                                IN(this.mUw - 2);
+                                IN(this.mUz - 2);
                             }
                             if (IM(read)) {
-                                this.mUu = 4;
+                                this.mUx = 4;
                                 break;
                             } else {
-                                this.mUu = 2;
+                                this.mUx = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.mUu = 5;
+                        this.mUx = 5;
                         break;
                     case 5:
-                        int i2 = ((this.mUv << 8) + read) - 2;
+                        int i2 = ((this.mUy << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.mUw = i2 + this.mUw;
-                        this.mUu = 2;
+                        this.mUz = i2 + this.mUz;
+                        this.mUx = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.mUv = read;
+                this.mUy = read;
             } catch (IOException e) {
                 l.y(e);
             }
         }
-        if (this.mUu == 6 || this.mUy == i) {
+        if (this.mUx == 6 || this.mUB == i) {
             z = false;
         }
         return z;
@@ -134,23 +134,23 @@ public class e {
     }
 
     private void IN(int i) {
-        if (this.mUx > 0) {
-            this.mUz = i;
+        if (this.mUA > 0) {
+            this.mUC = i;
         }
-        int i2 = this.mUx;
-        this.mUx = i2 + 1;
-        this.mUy = i2;
+        int i2 = this.mUA;
+        this.mUA = i2 + 1;
+        this.mUB = i2;
     }
 
-    public int dEN() {
-        return this.mUz;
+    public int dER() {
+        return this.mUC;
     }
 
-    public int dEO() {
-        return this.mUy;
+    public int dES() {
+        return this.mUB;
     }
 
-    public boolean dEP() {
-        return this.mUA;
+    public boolean dET() {
+        return this.mUD;
     }
 }

@@ -28,7 +28,7 @@ public class c {
         return gLU;
     }
 
-    public static void bNT() {
+    public static void bNU() {
         if (gLU != null) {
             gLU.cancel();
             gLU = null;

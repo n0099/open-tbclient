@@ -103,7 +103,7 @@ public class a {
         return this.hfm;
     }
 
-    public int bSp() {
+    public int bSq() {
         return this.mPageNum;
     }
 

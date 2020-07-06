@@ -59,10 +59,10 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
                             bVar2.setName(subMenu.name);
                             bVar2.yh(subMenu.parent_id.intValue());
                             bVar2.setUpdate_time(subMenu.update_time.intValue());
-                            bVar.cps().add(bVar2);
+                            bVar.cpt().add(bVar2);
                         }
                     }
-                    getOfficialBarMenuDatas().cpu().add(bVar);
+                    getOfficialBarMenuDatas().cpv().add(bVar);
                 }
             }
         }
@@ -73,7 +73,7 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         c officialBarMenuDatas;
         Message<?> orginalMessage = getOrginalMessage();
-        if (orginalMessage != null && (orginalMessage instanceof RequestOfficialBarMenuMessage) && getError() == 0 && (officialBarMenuDatas = getOfficialBarMenuDatas()) != null && officialBarMenuDatas.cpt() && officialBarMenuDatas.cpu() != null && officialBarMenuDatas.cpu().size() > 0) {
+        if (orginalMessage != null && (orginalMessage instanceof RequestOfficialBarMenuMessage) && getError() == 0 && (officialBarMenuDatas = getOfficialBarMenuDatas()) != null && officialBarMenuDatas.cpu() && officialBarMenuDatas.cpv() != null && officialBarMenuDatas.cpv().size() > 0) {
             saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.aUM().wb("tb.official_bar_menu"), OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuMessage) orginalMessage).getForum_id(), bArr);
         }
     }

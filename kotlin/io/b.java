@@ -7,5 +7,5 @@ import kotlin.reflect.j;
 /* loaded from: classes7.dex */
 public final class b {
     static final /* synthetic */ j[] deO = {t.a(new PropertyReference0Impl(t.j(b.class, "kotlin-stdlib"), "decoder", "getDecoder()Ljava/nio/charset/CharsetDecoder;"))};
-    private static final kotlin.d nPE = kotlin.e.b(ConsoleKt$decoder$2.INSTANCE);
+    private static final kotlin.d nPH = kotlin.e.b(ConsoleKt$decoder$2.INSTANCE);
 }

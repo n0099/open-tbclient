@@ -128,10 +128,10 @@ public class c {
         this.dDI.setOnClickListener(this.eYq);
         this.dDH = inflate.findViewById(R.id.webview_more_pop_item_copy_link_layout);
         this.dDH.setOnClickListener(this.eYq);
-        boW();
+        boX();
     }
 
-    private void boW() {
+    private void boX() {
         int statusBarHeight = UtilHelper.getStatusBarHeight();
         int dimens = l.getDimens(this.eYq.getPageContext().getPageActivity(), R.dimen.ds98);
         int i = l.getScreenSize(this.eYq.getPageContext().getPageActivity()).heightPixels;

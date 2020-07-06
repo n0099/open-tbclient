@@ -77,7 +77,7 @@ public class f {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                f.this.bQU();
+                f.this.bQV();
             }
         }
     };
@@ -93,7 +93,7 @@ public class f {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void bQW();
+        void bQX();
     }
 
     public f(TbPageContext<?> tbPageContext, RecentlyVisitedForumModel recentlyVisitedForumModel, ViewEventCenter viewEventCenter) {
@@ -120,7 +120,7 @@ public class f {
         this.hkZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.f.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                f.this.bTF();
+                f.this.bTG();
             }
         });
         this.hla = (TextView) this.mRootView.findViewById(R.id.done);
@@ -220,7 +220,7 @@ public class f {
         }
     }
 
-    public boolean bQU() {
+    public boolean bQV() {
         if (this.hbb) {
             jk(false);
             return true;
@@ -253,11 +253,11 @@ public class f {
         }
     }
 
-    public boolean bTE() {
+    public boolean bTF() {
         return this.hbb;
     }
 
-    public void bTF() {
+    public void bTG() {
         this.hjT = !this.hjT;
         com.baidu.tbadk.core.sharedPref.b.aVP().putBoolean("key_recently_visited_forum_extend_state", this.hjT);
         if (this.hjT) {
@@ -265,14 +265,14 @@ public class f {
         } else {
             TiebaStatic.log(new ao("c13004"));
         }
-        bTH();
+        bTI();
     }
 
-    public boolean bTG() {
+    public boolean bTH() {
         return this.hjT;
     }
 
-    private void bTH() {
+    private void bTI() {
         int i = R.color.white_alpha100;
         if (this.hjT) {
             this.hlb.setVisibility(0);
@@ -290,7 +290,7 @@ public class f {
             SvgManager.aWQ().a(this.hkZ, R.drawable.icon_pure_ba_hide24_svg, i, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
         if (this.hlh != null) {
-            this.hlh.bQW();
+            this.hlh.bQX();
         }
     }
 
@@ -298,14 +298,14 @@ public class f {
     public void ih(boolean z) {
         if (z && !com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean("recnbar" + TbadkCoreApplication.getCurrentAccount(), false)) {
             this.gNO.setVisibility(0);
-            bTH();
+            bTI();
         } else {
             this.gNO.setVisibility(8);
             this.hlb.setVisibility(8);
             this.hlc.setVisibility(8);
         }
         if (this.hlh != null) {
-            this.hlh.bQW();
+            this.hlh.bQX();
         }
     }
 
@@ -315,14 +315,14 @@ public class f {
 
     public void j(LinkedList<VisitedForumData> linkedList) {
         if (this.hld != null && linkedList != null) {
-            bTH();
+            bTI();
             this.hld.h(linkedList);
             notifyDataSetChanged();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void bTI() {
+    public void bTJ() {
         if (this.hkY != null) {
             this.hkY.refresh();
         }
@@ -355,17 +355,17 @@ public class f {
 
     public void setAdState(com.baidu.tieba.enterForum.data.c cVar) {
         this.haQ = cVar;
-        bTJ();
+        bTK();
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            bTJ();
+            bTK();
         }
     }
 
-    private void bTJ() {
+    private void bTK() {
         if (this.haQ != null && this.haQ.hbs) {
             an.setViewTextColor(this.mTitle, (int) R.color.cp_cont_a);
             this.mRootView.setBackgroundColor(0);
@@ -377,7 +377,7 @@ public class f {
             an.setViewTextColor(this.hla, (int) R.color.cp_link_tip_a);
             this.hla.setBackgroundResource(R.drawable.enter_forum_recent_edit_done_trans_bg);
         }
-        bTH();
+        bTI();
         notifyDataSetChanged();
     }
 
@@ -436,7 +436,7 @@ public class f {
         }
     }
 
-    public com.baidu.tieba.enterForum.data.c bTK() {
+    public com.baidu.tieba.enterForum.data.c bTL() {
         return this.haQ;
     }
 }

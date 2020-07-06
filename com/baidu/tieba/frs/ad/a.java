@@ -27,7 +27,7 @@ public class a {
         this.hEP = new q(this.hEM.getPageContext(), r.hCX);
         this.aUP.add(this.hEO);
         this.aUP.add(this.hEP);
-        caq();
+        car();
         this.hEN.addAdapters(this.aUP);
     }
 
@@ -35,7 +35,7 @@ public class a {
         this.hEN.setData(arrayList);
     }
 
-    private void caq() {
+    private void car() {
         if (!w.isEmpty(this.aUP) && this.hEM != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.aUP) {
                 if (aVar instanceof j) {

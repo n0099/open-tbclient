@@ -36,7 +36,7 @@ public class a {
         return this.mShowName;
     }
 
-    public long cRs() {
+    public long cRt() {
         return this.kDI;
     }
 }

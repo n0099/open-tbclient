@@ -34,7 +34,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.app_activity);
-        boC();
+        boD();
         aF(bundle);
     }
 
@@ -46,7 +46,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         }
         if (System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.aVP().getLong(SharedPrefConfig.APP_PULL_TIME, 0L) > 86400000) {
             refresh();
-        } else if (!dbS()) {
+        } else if (!dbT()) {
             refresh();
         }
     }
@@ -73,7 +73,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         an.setTopBarRefrshBgImage(this.lqz, i);
     }
 
-    private void boC() {
+    private void boD() {
         this.iKg = (RelativeLayout) findViewById(R.id.parent);
         this.lqA = (RelativeLayout) findViewById(R.id.title);
         this.bjy = (TextView) findViewById(R.id.title_text);
@@ -160,7 +160,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                 });
                 com.baidu.tbadk.core.sharedPref.b.aVP().putLong(SharedPrefConfig.APP_PULL_TIME, System.currentTimeMillis());
                 AppsActivity.this.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, "text/html", "utf-8", "");
-            } else if (!AppsActivity.this.dbS() && str == null) {
+            } else if (!AppsActivity.this.dbT() && str == null) {
                 AppsActivity.this.mWebView.setVisibility(8);
                 AppsActivity.this.lqx.setVisibility(0);
                 AppsActivity.this.showToast(AppsActivity.this.getPageContext().getString(R.string.neterror));
@@ -171,7 +171,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean dbS() {
+    public boolean dbT() {
         String noAccountData = TbadkCoreApplication.getInst().getNoAccountData(7);
         if (noAccountData == null || noAccountData.length() <= 1) {
             return false;

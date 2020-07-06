@@ -9,7 +9,7 @@ public class c {
     private static volatile c fdz;
     private IWXAPI fdA;
 
-    public static c brh() {
+    public static c bri() {
         if (fdz == null) {
             synchronized (c.class) {
                 if (fdz == null) {

@@ -45,14 +45,14 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         public void a(ArrayList<MuteUser> arrayList, int i, String str) {
             UserMuteListActivity.this.mWaitingDialog.setDialogVisiable(false);
             if (i != UserMuteQueryModel.NET_SUCCESS) {
-                UserMuteListActivity.this.ltt.cds();
+                UserMuteListActivity.this.ltt.cdt();
                 UserMuteListActivity.this.showToast(str);
                 return;
             }
             UserMuteListActivity.b(UserMuteListActivity.this);
             UserMuteListActivity.this.dQf.addAll(arrayList);
             if (UserMuteListActivity.this.dQf == null || UserMuteListActivity.this.dQf.size() <= 0) {
-                UserMuteListActivity.this.ltt.cds();
+                UserMuteListActivity.this.ltt.cdt();
             } else {
                 UserMuteListActivity.this.ltu.setData(UserMuteListActivity.this.dQf);
             }
@@ -98,7 +98,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                             UserMuteListActivity.this.dQf.remove(i2);
                             UserMuteListActivity.this.ltu.notifyDataSetChanged();
                             if (UserMuteListActivity.this.dQf.size() == 0) {
-                                UserMuteListActivity.this.ltt.cds();
+                                UserMuteListActivity.this.ltt.cdt();
                                 return;
                             }
                             return;
@@ -197,7 +197,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoadingDialog() {
         if (!j.isNetWorkAvailable()) {
-            this.ltt.ddK();
+            this.ltt.ddL();
             return;
         }
         if (this.mWaitingDialog == null) {

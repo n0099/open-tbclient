@@ -47,7 +47,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(bundle);
         CSTVSdk.INSTANCE.check();
         this.w = this;
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dWg().S(ThirdParty.class);
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dWk().S(ThirdParty.class);
         if (thirdParty != null) {
             thirdParty.onEnterLiveRoom(this);
         }
@@ -89,8 +89,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             this.x.dismiss();
         }
         this.x = null;
-        com.kascend.chushou.d.d.neR.a();
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dWg().S(ThirdParty.class);
+        com.kascend.chushou.d.d.neU.a();
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dWk().S(ThirdParty.class);
         if (thirdParty != null) {
             thirdParty.onExitLiveRoom(this);
         }

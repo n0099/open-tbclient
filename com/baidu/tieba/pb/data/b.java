@@ -33,11 +33,11 @@ public class b {
         }
     }
 
-    public boolean cGK() {
+    public boolean cGL() {
         return this.jYC == 3;
     }
 
-    public boolean cGL() {
+    public boolean cGM() {
         return this.jYC == 1;
     }
 }

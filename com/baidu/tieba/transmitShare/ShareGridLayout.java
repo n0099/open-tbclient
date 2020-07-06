@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class ShareGridLayout extends ViewGroup {
-    public static final int lTs = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44);
+    public static final int lTv = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44);
     private int eKx;
-    private int lTt;
+    private int lTw;
     private Context mContext;
     private int mItemHeight;
     private int mItemWidth;
@@ -39,7 +39,7 @@ public class ShareGridLayout extends ViewGroup {
 
     private void init(Context context) {
         this.mContext = context;
-        df(0, l.getEquipmentWidth(this.mContext) - (lTs * 2));
+        df(0, l.getEquipmentWidth(this.mContext) - (lTv * 2));
     }
 
     @Override // android.view.View
@@ -50,15 +50,15 @@ public class ShareGridLayout extends ViewGroup {
         for (int i3 = 0; i3 < childCount; i3++) {
             getChildAt(i3).measure(makeMeasureSpec, makeMeasureSpec2);
         }
-        if (childCount <= this.lTt) {
-            setMeasuredDimension(resolveSize((this.mItemWidth * this.lTt) + (this.eKx * 2 * this.lTt), i), resolveSize(this.mItemHeight, i2));
+        if (childCount <= this.lTw) {
+            setMeasuredDimension(resolveSize((this.mItemWidth * this.lTw) + (this.eKx * 2 * this.lTw), i), resolveSize(this.mItemHeight, i2));
             return;
         }
-        int i4 = childCount / this.lTt;
-        if (childCount % this.lTt > 0) {
+        int i4 = childCount / this.lTw;
+        if (childCount % this.lTw > 0) {
             i4++;
         }
-        setMeasuredDimension(resolveSize((this.mItemWidth * this.lTt) + (this.eKx * 2 * this.lTt), i), resolveSize(i4 * this.mItemHeight, i2));
+        setMeasuredDimension(resolveSize((this.mItemWidth * this.lTw) + (this.eKx * 2 * this.lTw), i), resolveSize(i4 * this.mItemHeight, i2));
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -74,11 +74,11 @@ public class ShareGridLayout extends ViewGroup {
             getChildAt(i6).layout(i8, i9, this.mItemWidth + i8, this.mItemHeight + i9);
             i7++;
             int i10 = this.mItemWidth + i8 + (this.eKx * 2);
-            if (i7 >= this.lTt) {
+            if (i7 >= this.lTw) {
                 i10 = this.eKx;
                 i7 = 0;
             }
-            int i11 = ((i6 + 1) / this.lTt) * this.mItemHeight;
+            int i11 = ((i6 + 1) / this.lTw) * this.mItemHeight;
             i6++;
             i8 = i10;
             i9 = i11;
@@ -88,13 +88,13 @@ public class ShareGridLayout extends ViewGroup {
     private void df(int i, int i2) {
         int i3 = i2 - i;
         if (l.getEquipmentWidth(TbadkCoreApplication.getInst()) > 800 && this.mItemWidth * 5 <= i3) {
-            this.lTt = 5;
+            this.lTw = 5;
         } else {
-            this.lTt = 4;
+            this.lTw = 4;
         }
-        double d = i3 - (this.mItemWidth * this.lTt);
+        double d = i3 - (this.mItemWidth * this.lTw);
         if (d > 0.0d) {
-            if (this.lTt == 5) {
+            if (this.lTw == 5) {
                 this.eKx = (int) Math.floor(d / 10.0d);
                 return;
             } else {

@@ -227,7 +227,7 @@ public class GuardClubInfoActivity extends BaseActivity<GuardClubInfoActivity> {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             if ((i == 25045 || i == 25046) && this.fIp != null) {
-                this.fIp.bxk();
+                this.fIp.bxl();
             }
             if (i == 25046 && intent != null) {
                 if (intent.getBooleanExtra("guard_club_rank_hit", false)) {

@@ -53,7 +53,7 @@ public class c extends b {
             }
         } else {
             this.ltZ = new b.a(bVar);
-            if (shareEntity.ddU() != 0) {
+            if (shareEntity.ddV() != 0) {
                 b(shareEntity);
             } else {
                 c(shareEntity);
@@ -62,8 +62,8 @@ public class c extends b {
     }
 
     private void b(ShareEntity shareEntity) {
-        if (xP(shareEntity.ddS())) {
-            My(shareEntity.ddS());
+        if (xP(shareEntity.ddT())) {
+            My(shareEntity.ddT());
         } else if (t(shareEntity.getImageUri())) {
             My(shareEntity.getImageUri().getPath());
         } else {

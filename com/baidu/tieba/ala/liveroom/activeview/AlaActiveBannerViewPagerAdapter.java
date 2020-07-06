@@ -28,7 +28,7 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
         }
     }
 
-    public List<i> bAb() {
+    public List<i> bAc() {
         return this.mOriginDatas;
     }
 

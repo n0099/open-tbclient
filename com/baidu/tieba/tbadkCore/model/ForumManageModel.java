@@ -154,7 +154,7 @@ public class ForumManageModel extends BdBaseModel {
         this.lIq.execute(new String[0]);
     }
 
-    public boolean diL() {
+    public boolean diM() {
         return (this.lIq == null && this.lIr == null && this.lIs == null) ? false : true;
     }
 
@@ -162,7 +162,7 @@ public class ForumManageModel extends BdBaseModel {
         this.lIt = str;
     }
 
-    public String diM() {
+    public String diN() {
         return this.lIt;
     }
 
@@ -188,7 +188,7 @@ public class ForumManageModel extends BdBaseModel {
             this.hhf = i;
             this.kun = i2;
             this.fPZ = z;
-            this.lIt = ForumManageModel.this.diM();
+            this.lIt = ForumManageModel.this.diN();
             this.mBaijiahaoData = baijiahaoData;
         }
 

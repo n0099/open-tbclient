@@ -71,13 +71,13 @@ public class HomePageTabFeedFragment extends BaseFragment implements ao, c {
             if (this.iwG != null) {
                 this.iwG.resume();
             }
-            cko();
+            ckp();
         } else if (this.iwG != null) {
             this.iwG.pause();
         }
     }
 
-    private void cko() {
+    private void ckp() {
         if (isPrimary()) {
             com.baidu.tbadk.core.util.ao aoVar = new com.baidu.tbadk.core.util.ao("c13749");
             aoVar.s("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -89,13 +89,13 @@ public class HomePageTabFeedFragment extends BaseFragment implements ao, c {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        s.bOA().mc(false);
+        s.bOB().mc(false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        s.bOA().mc(false);
+        s.bOB().mc(false);
         if (this.iwF != null) {
             this.iwF.destory();
         }
@@ -159,9 +159,9 @@ public class HomePageTabFeedFragment extends BaseFragment implements ao, c {
     }
 
     @Override // com.baidu.tieba.homepage.tabfeed.c
-    public void bSS() {
+    public void bST() {
         if (this.iwF != null) {
-            this.iwF.btu();
+            this.iwF.btv();
         }
     }
 
@@ -169,7 +169,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements ao, c {
         if (this.iwF != null) {
             if (this.iwG != null && z) {
                 if (this.iwF.hasData()) {
-                    this.iwG.bTf();
+                    this.iwG.bTg();
                     this.iwG.jc(true);
                 } else {
                     hideNetRefreshView(this.rootView);
@@ -227,10 +227,10 @@ public class HomePageTabFeedFragment extends BaseFragment implements ao, c {
         if (this.iwG != null) {
             this.iwG.mD(false);
         }
-        super.showLoadingView(view, false, ckp());
+        super.showLoadingView(view, false, ckq());
     }
 
-    private int ckp() {
+    private int ckq() {
         return (l.getEquipmentHeight(getContext()) - l.getDimens(getContext(), R.dimen.tbds304)) / 2;
     }
 
@@ -267,11 +267,11 @@ public class HomePageTabFeedFragment extends BaseFragment implements ao, c {
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void btP() {
+    public void btQ() {
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void btQ() {
+    public void btR() {
     }
 
     @Override // com.baidu.tieba.frs.ao

@@ -68,7 +68,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
         @Override // com.baidu.tieba.ala.personcenter.privilege.entereffect.a.InterfaceC0598a
         public void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage) {
             AlaEnterEffectFragment.this.hideLoadingView();
-            AlaEnterEffectFragment.this.btN();
+            AlaEnterEffectFragment.this.btO();
             if (alaGetEnterEffectResponsedMessage == null || alaGetEnterEffectResponsedMessage.getError() != 0) {
                 AlaEnterEffectFragment.this.DA(TbadkCoreApplication.getCurrentPortrait());
                 AlaEnterEffectFragment.this.gDU.setText(AlaEnterEffectFragment.this.getString(R.string.ala_enter_effect_count, 0));
@@ -80,9 +80,9 @@ public class AlaEnterEffectFragment extends AbsFragment {
                     AlaEnterEffectFragment.this.a(R.drawable.pic_live_empty03, R.string.ala_net_fail_tip, true, new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEnterEffectFragment.4.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            AlaEnterEffectFragment.this.btN();
+                            AlaEnterEffectFragment.this.btO();
                             AlaEnterEffectFragment.this.showLoadingView();
-                            AlaEnterEffectFragment.this.gDX.bLQ();
+                            AlaEnterEffectFragment.this.gDX.bLR();
                         }
                     });
                     return;
@@ -136,7 +136,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
         initView();
         this.gDX = new a(getPageContext(), this.gEd);
         showLoadingView();
-        this.gDX.bLQ();
+        this.gDX.bLR();
         return this.mRootView;
     }
 
@@ -196,7 +196,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
         this.gDD.attachView(this.gEa);
     }
 
-    public void btN() {
+    public void btO() {
         if (this.gDD != null) {
             this.gDD.dettachView(this.gEa);
         }

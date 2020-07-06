@@ -39,19 +39,19 @@ public class b {
     private final Handler.Callback hEn = new Handler.Callback() { // from class: com.baidu.tieba.pb.pb.main.b.b.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
-            if ((message.what == 1 || message.what == 2) && b.this.cal()) {
+            if ((message.what == 1 || message.what == 2) && b.this.cam()) {
                 b.this.mHandler.sendEmptyMessageDelayed(message.what, 100L);
                 return true;
             }
             switch (message.what) {
                 case 1:
-                    b.this.cak();
+                    b.this.cal();
                     return true;
                 case 2:
-                    b.this.cai();
+                    b.this.caj();
                     return true;
                 case 3:
-                    b.this.caj();
+                    b.this.cak();
                     return true;
                 default:
                     return false;
@@ -83,7 +83,7 @@ public class b {
         cm(false);
     }
 
-    private void cNv() {
+    private void cNw() {
         this.krd = ObjectAnimator.ofFloat(this.krj, "translationY", (-this.krj.getMeasuredHeight()) + this.mExpandView.getMeasuredHeight());
         this.krd.setInterpolator(new LinearInterpolator());
         this.krd.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.pb.main.b.b.2
@@ -163,7 +163,7 @@ public class b {
         this.kri.play(this.krd).with(this.krg);
     }
 
-    private void cNw() {
+    private void cNx() {
         this.kre = ObjectAnimator.ofFloat(this.krj, "translationY", 0.0f);
         this.kre.setInterpolator(new LinearInterpolator());
         this.kre.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.pb.main.b.b.5
@@ -239,16 +239,16 @@ public class b {
         this.krh.play(this.kre).with(this.krf);
     }
 
-    public void cai() {
+    public void caj() {
         Q(false, false);
     }
 
-    public void caj() {
+    public void cak() {
         Q(false, true);
     }
 
     public void Q(boolean z, boolean z2) {
-        if (this.krj != null && this.krj.getY() == 0.0f && !cal()) {
+        if (this.krj != null && this.krj.getY() == 0.0f && !cam()) {
             if (z2) {
                 this.krj.setVisibility(8);
                 if (this.kro) {
@@ -261,7 +261,7 @@ public class b {
             }
             this.krj.setVisibility(0);
             if (this.kri == null) {
-                cNv();
+                cNw();
             }
             if (this.kri != null) {
                 this.kri.cancel();
@@ -270,11 +270,11 @@ public class b {
         }
     }
 
-    public void cak() {
-        if (this.krj != null && this.krj.getY() < 0.0f && !cal()) {
+    public void cal() {
+        if (this.krj != null && this.krj.getY() < 0.0f && !cam()) {
             this.krj.setVisibility(0);
             if (this.krh == null) {
-                cNw();
+                cNx();
             }
             if (this.krh != null) {
                 this.krh.cancel();
@@ -283,25 +283,25 @@ public class b {
         }
     }
 
-    public void biX() {
+    public void biY() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void biY() {
+    public void biZ() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void bnE() {
+    public void bnF() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    public boolean cal() {
+    public boolean cam() {
         return (this.krh != null && this.krh.isRunning()) || (this.kri != null && this.kri.isRunning());
     }
 
@@ -309,9 +309,9 @@ public class b {
         if (this.hEk) {
             if (this.eri) {
                 cm(true);
-            } else if (this.krj != null && !this.krn && !this.knz && cNx()) {
+            } else if (this.krj != null && !this.krn && !this.knz && cNy()) {
                 Log.i("PbView", "hideFloatingView: startDragDown");
-                biY();
+                biZ();
             }
         }
     }
@@ -320,14 +320,14 @@ public class b {
         if (this.hEk) {
             if (this.eri) {
                 cm(true);
-            } else if (this.krj != null && !cNx()) {
+            } else if (this.krj != null && !cNy()) {
                 Log.i("PbView", "showFloatingView: startDragUp");
-                biX();
+                biY();
             }
         }
     }
 
-    public boolean cNx() {
+    public boolean cNy() {
         return this.krj.getVisibility() == 0 && this.krj.getY() >= 0.0f;
     }
 
@@ -341,10 +341,10 @@ public class b {
 
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         if (this.hEk && this.krj != null && !this.krn && !this.knz && this.krm) {
-            if (i > this.eEz && cNx()) {
+            if (i > this.eEz && cNy()) {
                 Log.i("PbView", "onScroll hideFloatingView");
                 hideFloatingView();
-            } else if (i < this.eEz && !cNx()) {
+            } else if (i < this.eEz && !cNy()) {
                 Log.i("PbView", "onScroll showFloatingView");
                 showFloatingView();
             }
@@ -364,19 +364,19 @@ public class b {
             } else if (absListView != null && i == 0) {
                 int firstVisiblePosition = absListView.getFirstVisiblePosition();
                 if (firstVisiblePosition > this.eEz) {
-                    biY();
+                    biZ();
                     Log.i("PbView", "onScrollStateChanged startDragDown: firstVisibleItem > mLastFirstVisibleItem");
                 } else if (firstVisiblePosition < this.eEz) {
                     Log.i("PbView", "onScrollStateChanged startDragUp: firstVisibleItem < mLastFirstVisibleItem");
-                    biX();
+                    biY();
                 } else if (firstVisiblePosition == this.eEz) {
                     if (firstVisiblePosition == 0 || !this.eEA || a(absListView)) {
                         Log.i("PbView", "onScrollStateChanged startDragUp: firstVisibleItem == 0");
-                        biX();
+                        biY();
                         return;
                     }
                     Log.i("PbView", "onScrollStateChanged startDragDown:");
-                    biY();
+                    biZ();
                 }
             }
         }

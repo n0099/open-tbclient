@@ -140,7 +140,7 @@ public class b {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (b.this.fzG != null) {
-                b.this.fzG.bvT();
+                b.this.fzG.bvU();
             }
             if (view.getTag() == null) {
                 if (!b.this.aVc) {
@@ -229,7 +229,7 @@ public class b {
         this.fAQ = (LinearLayout) this.mRootView.findViewById(a.g.bottomImproveCard_layout);
     }
 
-    public void bwg() {
+    public void bwh() {
         if (!this.aVc && this.fAO != null && this.fAO.getVisibility() == 0) {
             if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
                 String qx = com.baidu.tieba.ala.charm.g.qx(this.fzq);
@@ -375,7 +375,7 @@ public class b {
         }
     }
 
-    public void buI() {
+    public void buJ() {
         this.mListView.setNextPage(this.fzx);
         this.fzx.startLoadData();
     }
@@ -410,7 +410,7 @@ public class b {
         this.baR.setVisibility(0);
     }
 
-    public void btN() {
+    public void btO() {
         this.baR.setVisibility(8);
     }
 

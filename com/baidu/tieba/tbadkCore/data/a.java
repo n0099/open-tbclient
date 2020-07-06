@@ -13,7 +13,7 @@ public class a {
     private String mTitle;
     private int mWidth;
 
-    public String dhB() {
+    public String dhC() {
         return this.lFd;
     }
 
@@ -25,7 +25,7 @@ public class a {
         return this.mHeight;
     }
 
-    public String dhC() {
+    public String dhD() {
         return this.lFe;
     }
 

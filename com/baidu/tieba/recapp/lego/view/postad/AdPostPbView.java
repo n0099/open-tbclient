@@ -122,7 +122,7 @@ public class AdPostPbView extends PostAdBaseView<AdPostPbData> {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.postad.PostAdBaseView
-    protected View cxy() {
+    protected View cxz() {
         MessageManager.getInstance().registerListener(this.lgK);
         this.lgK.setTag(this.dPv.getUniqueId());
         this.rootView = LayoutInflater.from(getContext()).inflate(R.layout.post_ad_pb_banner_card, (ViewGroup) null);

@@ -23,20 +23,20 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.jxo == null || this.jxo.czm() == null || this.jxo.czm().isEmpty()) {
+        if (this.jxo == null || this.jxo.czn() == null || this.jxo.czn().isEmpty()) {
             this.hpj = false;
             return 1;
         }
         this.hpj = true;
-        return this.jxo.czm().size();
+        return this.jxo.czn().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.jxo == null || this.jxo.czm() == null || this.jxo.czm().isEmpty()) {
+        if (this.jxo == null || this.jxo.czn() == null || this.jxo.czn().isEmpty()) {
             return null;
         }
-        return this.jxo.czm().get(i);
+        return this.jxo.czn().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -59,7 +59,7 @@ public class a extends BaseAdapter {
             view.setTag(c0678a);
         }
         C0678a c0678a2 = c0678a;
-        c0678a2.jxr.setText(this.jxo.czm().get(i).getName());
+        c0678a2.jxr.setText(this.jxo.czn().get(i).getName());
         an.setBackgroundColor(c0678a2.gCZ, R.color.cp_bg_line_c);
         an.setViewTextColor(c0678a2.jxr, R.color.cp_cont_b, 1);
         an.setBackgroundResource(view, R.drawable.home_recommend_item_bg);
@@ -70,7 +70,7 @@ public class a extends BaseAdapter {
         this.jxo = aVar;
     }
 
-    public boolean czq() {
+    public boolean czr() {
         return this.hpj;
     }
 

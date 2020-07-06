@@ -21,7 +21,7 @@ public class c {
         return spannableStringBuilder;
     }
 
-    public static String cGx() {
+    public static String cGy() {
         if (TextUtils.isEmpty(jWM)) {
             jWM = com.baidu.tbadk.core.sharedPref.b.aVP().getString("nick_name_activity_link", "");
         }

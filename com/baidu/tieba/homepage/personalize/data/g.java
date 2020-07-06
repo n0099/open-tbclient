@@ -32,7 +32,7 @@ public class g extends com.baidu.tieba.card.data.c implements p {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean bOS() {
+    public boolean bOT() {
         return false;
     }
 

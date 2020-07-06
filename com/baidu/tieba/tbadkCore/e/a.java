@@ -23,7 +23,7 @@ public class a {
         }
     }
 
-    public void diA() {
+    public void diB() {
         this.hci.clear();
     }
 

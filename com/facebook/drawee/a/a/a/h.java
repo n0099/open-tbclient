@@ -7,58 +7,58 @@ public class h {
     private boolean TC;
     private boolean mIsCanceled;
     @Nullable
-    private Object mKB;
+    private String mKC;
     @Nullable
-    private ImageRequest mKC;
+    private Object mKE;
     @Nullable
-    private com.facebook.imagepipeline.g.f mKD;
-    private boolean mKM;
+    private ImageRequest mKF;
     @Nullable
-    private String mKz;
+    private com.facebook.imagepipeline.g.f mKG;
+    private boolean mKP;
     @Nullable
     private String mRequestId;
-    private long mKE = -1;
-    private long mKF = -1;
-    private long mKG = -1;
     private long mKH = -1;
     private long mKI = -1;
     private long mKJ = -1;
     private long mKK = -1;
-    private int mKL = -1;
-    private int mKN = -1;
+    private long mKL = -1;
+    private long mKM = -1;
+    private long mKN = -1;
     private int mKO = -1;
-    private int mKX = -1;
+    private int mKQ = -1;
+    private int mKR = -1;
+    private int mLa = -1;
 
     public void reset() {
         this.mRequestId = null;
-        this.mKC = null;
-        this.mKB = null;
-        this.mKD = null;
-        this.mKE = -1L;
-        this.mKG = -1L;
+        this.mKF = null;
+        this.mKE = null;
+        this.mKG = null;
         this.mKH = -1L;
-        this.mKI = -1L;
         this.mKJ = -1L;
         this.mKK = -1L;
-        this.mKL = -1;
+        this.mKL = -1L;
+        this.mKM = -1L;
+        this.mKN = -1L;
+        this.mKO = -1;
         this.mIsCanceled = false;
         this.TC = false;
-        this.mKM = false;
-        this.mKN = -1;
-        this.mKO = -1;
-        this.mKX = -1;
+        this.mKP = false;
+        this.mKQ = -1;
+        this.mKR = -1;
+        this.mLa = -1;
     }
 
     public void Ia(int i) {
-        this.mKX = i;
+        this.mLa = i;
     }
 
-    public int dAo() {
-        return this.mKX;
+    public int dAs() {
+        return this.mLa;
     }
 
-    public void QJ(@Nullable String str) {
-        this.mKz = str;
+    public void QK(@Nullable String str) {
+        this.mKC = str;
     }
 
     public void setRequestId(@Nullable String str) {
@@ -66,43 +66,43 @@ public class h {
     }
 
     public void setImageRequest(@Nullable ImageRequest imageRequest) {
-        this.mKC = imageRequest;
+        this.mKF = imageRequest;
     }
 
     public void aZ(@Nullable Object obj) {
-        this.mKB = obj;
+        this.mKE = obj;
     }
 
     public void fK(long j) {
-        this.mKE = j;
-    }
-
-    public void fL(long j) {
-        this.mKF = j;
-    }
-
-    public void fM(long j) {
-        this.mKG = j;
-    }
-
-    public void fN(long j) {
         this.mKH = j;
     }
 
-    public void fO(long j) {
+    public void fL(long j) {
         this.mKI = j;
     }
 
-    public void fP(long j) {
+    public void fM(long j) {
         this.mKJ = j;
     }
 
-    public void fQ(long j) {
+    public void fN(long j) {
         this.mKK = j;
     }
 
+    public void fO(long j) {
+        this.mKL = j;
+    }
+
+    public void fP(long j) {
+        this.mKM = j;
+    }
+
+    public void fQ(long j) {
+        this.mKN = j;
+    }
+
     public void Ib(int i) {
-        this.mKL = i;
+        this.mKO = i;
     }
 
     public void ws(boolean z) {
@@ -114,22 +114,22 @@ public class h {
     }
 
     public void wu(boolean z) {
-        this.mKM = z;
+        this.mKP = z;
     }
 
     public void a(@Nullable com.facebook.imagepipeline.g.f fVar) {
-        this.mKD = fVar;
+        this.mKG = fVar;
     }
 
     public void Ic(int i) {
-        this.mKN = i;
+        this.mKQ = i;
     }
 
     public void Id(int i) {
-        this.mKO = i;
+        this.mKR = i;
     }
 
-    public e dAp() {
-        return new e(this.mKz, this.mRequestId, this.mKC, this.mKB, this.mKD, this.mKE, this.mKF, this.mKG, this.mKH, this.mKI, this.mKJ, this.mKK, this.mKL, this.mIsCanceled, this.TC, this.mKM, this.mKN, this.mKO);
+    public e dAt() {
+        return new e(this.mKC, this.mRequestId, this.mKF, this.mKE, this.mKG, this.mKH, this.mKI, this.mKJ, this.mKK, this.mKL, this.mKM, this.mKN, this.mKO, this.mIsCanceled, this.TC, this.mKP, this.mKQ, this.mKR);
     }
 }

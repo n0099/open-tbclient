@@ -96,7 +96,7 @@ public class y {
         return aoVar;
     }
 
-    public y cVW() {
+    public y cVX() {
         y yVar = new y();
         yVar.mLocate = this.mLocate;
         yVar.mType = this.mType;

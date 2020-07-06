@@ -13,7 +13,7 @@ public class d {
     private LruCache<String, String> hYc = new LruCache<>(10);
     private l<String> hYd = com.baidu.tbadk.core.c.a.aUM().wc("tb.recently_vistited_forum_animation");
 
-    public static d ceC() {
+    public static d ceD() {
         if (hYe == null) {
             synchronized (d.class) {
                 if (hYe == null) {

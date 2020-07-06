@@ -29,7 +29,7 @@ public class e implements o {
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 111) {
-                e.this.cff();
+                e.this.cfg();
                 return true;
             }
             return false;
@@ -60,7 +60,7 @@ public class e implements o {
         this.mHideRunnable = new Runnable() { // from class: com.baidu.tieba.frs.vc.e.3
             @Override // java.lang.Runnable
             public void run() {
-                e.this.cfg();
+                e.this.cfh();
             }
         };
         initView();
@@ -71,9 +71,9 @@ public class e implements o {
         this.hZC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.e.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.cfg();
-                if (e.this.hZB != null && !e.this.hZB.bYC() && e.this.hZB.bXZ() != null) {
-                    e.this.hZB.bXZ().startPullRefresh();
+                e.this.cfh();
+                if (e.this.hZB != null && !e.this.hZB.bYD() && e.this.hZB.bYa() != null) {
+                    e.this.hZB.bYa().startPullRefresh();
                 }
             }
         });
@@ -87,7 +87,7 @@ public class e implements o {
         an.setViewTextColor(this.hZC, (int) R.color.cp_link_tip_a);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
-        layoutParams.topMargin = this.hZB.bwV().getBottom() + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds8);
+        layoutParams.topMargin = this.hZB.bwW().getBottom() + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds8);
         this.hZC.setLayoutParams(layoutParams);
     }
 
@@ -109,7 +109,7 @@ public class e implements o {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cff() {
+    public void cfg() {
         if (this.hZC.getParent() == null) {
             this.hZa.addView(this.hZC);
             this.hZC.clearAnimation();
@@ -120,7 +120,7 @@ public class e implements o {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfg() {
+    public void cfh() {
         if (this.hZC.getParent() != null) {
             this.hBI = -1;
             this.hZF = -1;

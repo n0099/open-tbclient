@@ -8,7 +8,7 @@ import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 /* loaded from: classes5.dex */
 public class AnimationImageView extends AppCompatImageView {
-    private AnimationDrawable nwE;
+    private AnimationDrawable nwH;
 
     public AnimationImageView(Context context) {
         this(context, null, 0);
@@ -63,10 +63,10 @@ public class AnimationImageView extends AppCompatImageView {
     }
 
     public int getTotalDuration() {
-        if (this.nwE != null) {
+        if (this.nwH != null) {
             int i = 0;
-            for (int i2 = 0; i2 < this.nwE.getNumberOfFrames(); i2++) {
-                i += this.nwE.getDuration(i2);
+            for (int i2 = 0; i2 < this.nwH.getNumberOfFrames(); i2++) {
+                i += this.nwH.getDuration(i2);
             }
             return i;
         }
@@ -75,13 +75,13 @@ public class AnimationImageView extends AppCompatImageView {
 
     private void startPlay() {
         if (getBackground() instanceof AnimationDrawable) {
-            this.nwE = (AnimationDrawable) getBackground();
+            this.nwH = (AnimationDrawable) getBackground();
             post(new Runnable() { // from class: tv.chushou.zues.widget.animation.AnimationImageView.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (AnimationImageView.this.nwE != null) {
-                        AnimationImageView.this.nwE.start();
-                        if (AnimationImageView.this.nwE.isOneShot()) {
+                    if (AnimationImageView.this.nwH != null) {
+                        AnimationImageView.this.nwH.start();
+                        if (AnimationImageView.this.nwH.isOneShot()) {
                             AnimationImageView.this.postDelayed(new Runnable() { // from class: tv.chushou.zues.widget.animation.AnimationImageView.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {

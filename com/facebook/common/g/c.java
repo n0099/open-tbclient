@@ -8,47 +8,47 @@ import javax.annotation.Nullable;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes13.dex */
 public class c {
-    private static final byte[] mJA;
-    private static final byte[] mJB;
-    private static final byte[] mJC;
+    public static final boolean mJA;
+    @Nullable
+    public static b mJB;
+    private static boolean mJC;
     private static final byte[] mJD;
     private static final byte[] mJE;
-    public static final boolean mJv;
-    public static final boolean mJw;
-    public static final boolean mJx;
-    @Nullable
-    public static b mJy;
-    private static boolean mJz;
+    private static final byte[] mJF;
+    private static final byte[] mJG;
+    private static final byte[] mJH;
+    public static final boolean mJy;
+    public static final boolean mJz;
 
     static {
-        mJv = Build.VERSION.SDK_INT <= 17;
-        mJw = Build.VERSION.SDK_INT >= 14;
-        mJx = dzE();
-        mJy = null;
-        mJz = false;
-        mJA = QG("RIFF");
-        mJB = QG("WEBP");
-        mJC = QG("VP8 ");
-        mJD = QG("VP8L");
-        mJE = QG("VP8X");
+        mJy = Build.VERSION.SDK_INT <= 17;
+        mJz = Build.VERSION.SDK_INT >= 14;
+        mJA = dzI();
+        mJB = null;
+        mJC = false;
+        mJD = QH("RIFF");
+        mJE = QH("WEBP");
+        mJF = QH("VP8 ");
+        mJG = QH("VP8L");
+        mJH = QH("VP8X");
     }
 
     @Nullable
-    public static b dzD() {
+    public static b dzH() {
         b bVar;
-        if (mJz) {
-            return mJy;
+        if (mJC) {
+            return mJB;
         }
         try {
             bVar = (b) Class.forName("com.facebook.webpsupport.WebpBitmapFactoryImpl").newInstance();
         } catch (Throwable th) {
             bVar = null;
         }
-        mJz = true;
+        mJC = true;
         return bVar;
     }
 
-    private static byte[] QG(String str) {
+    private static byte[] QH(String str) {
         try {
             return str.getBytes(HTTP.ASCII);
         } catch (UnsupportedEncodingException e) {
@@ -56,7 +56,7 @@ public class c {
         }
     }
 
-    private static boolean dzE() {
+    private static boolean dzI() {
         if (Build.VERSION.SDK_INT < 17) {
             return false;
         }
@@ -73,27 +73,27 @@ public class c {
     }
 
     public static boolean k(byte[] bArr, int i) {
-        return b(bArr, i + 12, mJE) && ((bArr[i + 20] & 2) == 2);
+        return b(bArr, i + 12, mJH) && ((bArr[i + 20] & 2) == 2);
     }
 
     public static boolean l(byte[] bArr, int i) {
-        return b(bArr, i + 12, mJC);
+        return b(bArr, i + 12, mJF);
     }
 
     public static boolean m(byte[] bArr, int i) {
-        return b(bArr, i + 12, mJD);
+        return b(bArr, i + 12, mJG);
     }
 
     public static boolean s(byte[] bArr, int i, int i2) {
-        return i2 >= 21 && b(bArr, i + 12, mJE);
+        return i2 >= 21 && b(bArr, i + 12, mJH);
     }
 
     public static boolean n(byte[] bArr, int i) {
-        return b(bArr, i + 12, mJE) && ((bArr[i + 20] & 16) == 16);
+        return b(bArr, i + 12, mJH) && ((bArr[i + 20] & 16) == 16);
     }
 
     public static boolean t(byte[] bArr, int i, int i2) {
-        return i2 >= 20 && b(bArr, i, mJA) && b(bArr, i + 8, mJB);
+        return i2 >= 20 && b(bArr, i, mJD) && b(bArr, i + 8, mJE);
     }
 
     private static boolean b(byte[] bArr, int i, byte[] bArr2) {

@@ -61,11 +61,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(R.layout.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.mmO = (TbImageView) view.findViewById(R.id.item_head);
+            aVar.mmR = (TbImageView) view.findViewById(R.id.item_head);
             aVar.biZ = (TextView) view.findViewById(R.id.item_name);
             aVar.bja = (ImageView) view.findViewById(R.id.item_arrow);
-            aVar.mmO.setGifIconSupport(false);
-            aVar.mmO.setLongIconSupport(false);
+            aVar.mmR.setGifIconSupport(false);
+            aVar.mmR.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -87,9 +87,9 @@ public class b extends BaseAdapter {
             }
             MediaFileInfo aOh = item.aOh();
             if (aOh instanceof VideoFileInfo) {
-                aVar.mmO.startLoad(((VideoFileInfo) aOh).videoPath, 37, false);
+                aVar.mmR.startLoad(((VideoFileInfo) aOh).videoPath, 37, false);
             } else if (aOh instanceof ImageFileInfo) {
-                aVar.mmO.startLoad(((ImageFileInfo) aOh).getFilePath(), 35, false);
+                aVar.mmR.startLoad(((ImageFileInfo) aOh).getFilePath(), 35, false);
             }
             an.setViewTextColor(aVar.biZ, (int) R.color.cp_cont_b);
             an.setBackgroundResource(view, R.drawable.addresslist_item_bg);
@@ -101,7 +101,7 @@ public class b extends BaseAdapter {
     private class a {
         TextView biZ;
         ImageView bja;
-        TbImageView mmO;
+        TbImageView mmR;
 
         private a() {
         }

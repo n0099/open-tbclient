@@ -23,13 +23,13 @@ public class d {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && d.this.ljW != null) {
-                d.this.ljW.cZS();
+                d.this.ljW.cZT();
             }
         }
     };
     private e ljW = new h();
 
-    public static d cZQ() {
+    public static d cZR() {
         if (ljV == null) {
             synchronized (d.class) {
                 if (ljV == null) {
@@ -40,7 +40,7 @@ public class d {
         return ljV;
     }
 
-    private boolean cZR() {
+    private boolean cZS() {
         return SwitchManager.getInstance().findType(AdUploadSwitch.KEY) != 0;
     }
 
@@ -49,7 +49,7 @@ public class d {
     }
 
     public void a(c cVar) {
-        if (cZR() && cVar != null && this.ljW != null) {
+        if (cZS() && cVar != null && this.ljW != null) {
             if (j.isNetWorkAvailable()) {
                 this.ljW.b(cVar);
             } else {

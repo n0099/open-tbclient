@@ -39,11 +39,11 @@ public class f {
         MessageManager.getInstance().sendMessage(dVar);
     }
 
-    public static void bsA() {
+    public static void bsB() {
         fhM = false;
     }
 
-    public static boolean bsB() {
+    public static boolean bsC() {
         return fhM;
     }
 }

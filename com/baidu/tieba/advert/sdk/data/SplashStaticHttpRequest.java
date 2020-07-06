@@ -35,7 +35,7 @@ public class SplashStaticHttpRequest extends HttpMessage {
             BdLog.e(e.getMessage());
         }
         splashStaticHttpRequest.addParam("parammap", jSONObject.toString());
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003193, com.baidu.tieba.advert.sdk.b.b.bqg());
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003193, com.baidu.tieba.advert.sdk.b.b.bqh());
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
         tbHttpMessageTask.setResponsedClass(SplashStaticHttpResponse.class);
         MessageManager.getInstance().sendMessage(splashStaticHttpRequest, tbHttpMessageTask);

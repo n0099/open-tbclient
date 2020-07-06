@@ -112,7 +112,7 @@ public class a extends c<ForumDetailActivity> {
         this.iQL.e(this.iQB);
     }
 
-    public void cqg() {
+    public void cqh() {
         if (this.iQM == null) {
             this.iQM = new com.baidu.tbadk.core.dialog.a(this.iQB.getPageContext().getPageActivity());
             this.iQM.kT(R.string.officical_bar_info_clean_alert);
@@ -133,7 +133,7 @@ public class a extends c<ForumDetailActivity> {
         this.iQM.b(getPageContext()).aUN();
     }
 
-    public NoNetworkView cqh() {
+    public NoNetworkView cqi() {
         return this.fns;
     }
 

@@ -37,10 +37,10 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         this.mFrom = intent.getStringExtra("PARAM_FROM");
         this.mNid = intent.getStringExtra("key_nid");
         IC();
-        cgo();
+        cgp();
     }
 
-    private void cgo() {
+    private void cgp() {
         ao aoVar = new ao("c12664");
         if (!StringUtils.isNull(this.mFrom)) {
             aoVar.dk("obj_source", this.mFrom);

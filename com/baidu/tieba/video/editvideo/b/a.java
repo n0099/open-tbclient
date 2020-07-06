@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a lWv;
-    private b lWw;
-    b.a lWx;
+    b.a lWA;
+    private com.baidu.tieba.video.editvideo.data.a lWy;
+    private b lWz;
     private Context mContext;
 
     public a(Context context) {
@@ -20,40 +20,40 @@ public class a {
     }
 
     public void b(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.lWv = aVar;
+        this.lWy = aVar;
     }
 
-    public String dmM() {
-        return (this.lWv == null || "normal".equalsIgnoreCase(this.lWv.value)) ? "" : this.lWv.value;
+    public String dmQ() {
+        return (this.lWy == null || "normal".equalsIgnoreCase(this.lWy.value)) ? "" : this.lWy.value;
     }
 
     public void fF(String str, String str2) {
-        if ((this.lWw == null || !this.lWw.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            this.lWw = new b(this.mContext, str, dmP(), str2);
-            if (this.lWx != null) {
-                this.lWw.a(this.lWx);
+        if ((this.lWz == null || !this.lWz.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            this.lWz = new b(this.mContext, str, dmT(), str2);
+            if (this.lWA != null) {
+                this.lWz.a(this.lWA);
             }
-            this.lWw.dmQ();
+            this.lWz.dmU();
         }
     }
 
-    public boolean dmN() {
-        if (this.lWw != null) {
-            return this.lWw.isRunning();
+    public boolean dmR() {
+        if (this.lWz != null) {
+            return this.lWz.isRunning();
         }
         return false;
     }
 
-    public void dmO() {
-        if (this.lWw != null) {
-            this.lWw.dmR();
+    public void dmS() {
+        if (this.lWz != null) {
+            this.lWz.dmV();
         }
     }
 
     public void a(b.a aVar) {
-        this.lWx = aVar;
-        if (this.lWw != null) {
-            this.lWw.a(this.lWx);
+        this.lWA = aVar;
+        if (this.lWz != null) {
+            this.lWz.a(this.lWA);
         }
     }
 
@@ -89,7 +89,7 @@ public class a {
         }
     }
 
-    private static String dmP() {
-        return com.baidu.tieba.video.d.lUu + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String dmT() {
+        return com.baidu.tieba.video.d.lUx + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

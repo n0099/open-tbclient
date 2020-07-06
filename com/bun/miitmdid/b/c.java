@@ -13,10 +13,10 @@ public class c {
 
     private Map<String, String> a() {
         if (this.a.isEmpty()) {
-            this.a.put("av", sysParamters.dxY().b());
-            this.a.put("sv", sysParamters.dxY().c());
-            this.a.put(IXAdRequestInfo.TEST_MODE, sysParamters.dxY().d());
-            this.a.put("mf", sysParamters.dxY().e());
+            this.a.put("av", sysParamters.dyc().b());
+            this.a.put("sv", sysParamters.dyc().c());
+            this.a.put(IXAdRequestInfo.TEST_MODE, sysParamters.dyc().d());
+            this.a.put("mf", sysParamters.dyc().e());
             this.a.put(Config.PACKAGE_NAME, sysParamters.g());
         }
         this.a.put(IXAdRequestInfo.MAX_TITLE_LENGTH, String.valueOf(System.currentTimeMillis()));
@@ -30,12 +30,12 @@ public class c {
             fR.w(a());
             fR.fQ("support", String.valueOf(z ? 1 : 0));
             fR.aL(a);
-            fR.Qr("http://sdk.api.bjshcw.com/stat");
+            fR.Qs("http://sdk.api.bjshcw.com/stat");
             fR.a(new b.a() { // from class: com.bun.miitmdid.b.c.1
                 @Override // com.bun.miitmdid.b.b.a
                 public void a(Exception exc, int i, String str5) {
                 }
-            }).dxS();
+            }).dxW();
             return true;
         } catch (Exception e) {
             e.printStackTrace();

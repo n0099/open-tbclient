@@ -37,23 +37,23 @@ public class a extends c<AddGroupActivity> {
         initUI();
     }
 
-    public View coL() {
+    public View coM() {
         return this.jaU;
     }
 
-    public View ctg() {
+    public View cth() {
         return this.jaV;
     }
 
-    public View cth() {
+    public View cti() {
         return this.jaS;
     }
 
-    public View cti() {
+    public View ctj() {
         return this.jaW;
     }
 
-    public void ctj() {
+    public void ctk() {
         if (this.jaT != null) {
             this.jaT.setText("");
         }

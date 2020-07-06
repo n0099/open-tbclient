@@ -63,8 +63,8 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.gyV == this.kZB.cXl().getCurrentTabType()) {
-            cXu();
+        if (this.gyV == this.kZB.cXm().getCurrentTabType()) {
+            cXv();
             requestData(false);
         }
     }
@@ -88,17 +88,17 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
         hideLoadingView(this.mRootView);
         if (bVar == null || bVar.kZH == null || bVar.kZH.size() == 0) {
             if (!z || this.kZS == null || this.kZS.kZH == null || this.kZS.kZH.size() == 0) {
-                buK();
+                buL();
                 showNoDataView();
                 this.kZQ.setVisibility(8);
                 this.kZS = bVar;
                 return;
             }
             if (this.kZS.huJ.aRf() == 1) {
-                buI();
+                buJ();
                 return;
             } else {
-                buJ();
+                buK();
                 return;
             }
         }
@@ -109,12 +109,12 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
             this.kZS.kZH.addAll(bVar.kZH);
         }
         if (z) {
-            cXu();
+            cXv();
         }
         if (this.kZS.huJ.aRf() == 1) {
-            buI();
-        } else {
             buJ();
+        } else {
+            buK();
         }
         this.kZR.setData(this.kZS.kZH);
         this.kZR.notifyDataSetChanged();
@@ -129,25 +129,25 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
             String str = this.kZB.hxA;
             if (!StringUtils.isNull(str)) {
                 boolean z2 = !str.equals(this.kZT) || z;
-                if (this.kZS == null || (this.kZS != null && !this.kZS.ctb())) {
+                if (this.kZS == null || (this.kZS != null && !this.kZS.ctc())) {
                     z2 = true;
                 }
                 if (z2) {
                     showLoadingView(this.mRootView, false, this.kZB.getResources().getDimensionPixelSize(R.dimen.ds320));
-                    this.kZB.cXk().bw(str, this.gyV);
+                    this.kZB.cXl().bw(str, this.gyV);
                     this.kZT = str;
                 }
             }
         }
     }
 
-    public void cXs() {
+    public void cXt() {
         if (this.kZS != null && this.kZS.kZH != null) {
             this.kZS.kZH.clear();
             this.kZR.setData(this.kZS.kZH);
             this.kZR.notifyDataSetChanged();
         }
-        buK();
+        buL();
         hideNoDataView();
     }
 
@@ -157,29 +157,29 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (!StringUtils.isNull(this.kZT) && this.kZS != null && this.kZS.isHasMore() && this.kZB.cXk().bw(this.kZT, this.gyV)) {
-            cXt();
+        if (!StringUtils.isNull(this.kZT) && this.kZS != null && this.kZS.isHasMore() && this.kZB.cXl().bw(this.kZT, this.gyV)) {
+            cXu();
         }
     }
 
-    private void cXt() {
+    private void cXu() {
         this.kZQ.setNextPage(this.fnt);
         this.fnt.startLoadData();
-    }
-
-    private void buI() {
-        this.kZQ.setNextPage(this.fnt);
-        this.fnt.endLoadData();
-        this.fnt.setText(this.kZB.getResources().getString(R.string.pb_load_more));
     }
 
     private void buJ() {
         this.kZQ.setNextPage(this.fnt);
         this.fnt.endLoadData();
-        this.fnt.setText(this.kZB.getResources().getString(R.string.list_no_more));
+        this.fnt.setText(this.kZB.getResources().getString(R.string.pb_load_more));
     }
 
     private void buK() {
+        this.kZQ.setNextPage(this.fnt);
+        this.fnt.endLoadData();
+        this.fnt.setText(this.kZB.getResources().getString(R.string.list_no_more));
+    }
+
+    private void buL() {
         if (this.kZQ != null) {
             this.kZQ.setNextPage(null);
         }
@@ -199,7 +199,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
         }
     }
 
-    private void cXu() {
+    private void cXv() {
         if (this.kZB != null) {
             TiebaStatic.log(new ao("c12406").dk("fid", this.kZB.mForumId).dk("fname", this.kZB.mForumName).dk("uid", TbadkCoreApplication.getCurrentAccount()).ag("tab_id", this.gyV));
         }

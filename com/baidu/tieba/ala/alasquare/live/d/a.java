@@ -41,7 +41,7 @@ public class a {
     private i fnv = new i() { // from class: com.baidu.tieba.ala.alasquare.live.d.a.1
         @Override // com.baidu.tieba.ala.alasquare.subtablist.c.i
         public void a(int i, String str, bu buVar) {
-            TiebaStatic.log(com.baidu.tieba.ala.alasquare.c.a.buo().a(a.this.isSmallFollow, "c12118", i, str, buVar));
+            TiebaStatic.log(com.baidu.tieba.ala.alasquare.c.a.bup().a(a.this.isSmallFollow, "c12118", i, str, buVar));
             a.this.a(a.this.mPageContext, buVar, str);
         }
 
@@ -100,7 +100,7 @@ public class a {
         return this.mRootView;
     }
 
-    public FrameLayout btH() {
+    public FrameLayout btI() {
         return this.mContentView;
     }
 
@@ -112,9 +112,9 @@ public class a {
         this.fnu.setDatas(list);
         this.fnu.pY(i);
         if (z) {
-            btJ();
+            btK();
         } else {
-            btI();
+            btJ();
         }
     }
 
@@ -126,7 +126,7 @@ public class a {
         this.mPullView.setListPullRefreshListener(cVar);
     }
 
-    public void btI() {
+    public void btJ() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.fml.setNextPage(this.fnt);
@@ -136,7 +136,7 @@ public class a {
         }
     }
 
-    public void btJ() {
+    public void btK() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.fml.setNextPage(this.fnt);
@@ -167,7 +167,7 @@ public class a {
         this.fns.onChangeSkinType(this.mPageContext, i);
     }
 
-    public BdTypeListView btK() {
+    public BdTypeListView btL() {
         return this.fml;
     }
 

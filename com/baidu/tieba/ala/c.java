@@ -10,7 +10,7 @@ public class c {
     private static c fgi;
     private List<ao> eXh;
 
-    public static c brS() {
+    public static c brT() {
         if (fgi == null) {
             synchronized (c.class) {
                 if (fgi == null) {
@@ -32,7 +32,7 @@ public class c {
         }
     }
 
-    public void brT() {
+    public void brU() {
         if (w.getCount(this.eXh) != 0) {
             for (ao aoVar : this.eXh) {
                 if (aoVar != null) {

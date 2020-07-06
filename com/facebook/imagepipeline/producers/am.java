@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 public interface am {
     void G(String str, String str2, boolean z);
 
-    boolean QP(String str);
+    boolean QQ(String str);
 
     void a(ImageRequest imageRequest, com.facebook.imagepipeline.g.e eVar, Throwable th, @Nullable Map<String, String> map);
 

@@ -45,7 +45,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         setContentView(R.layout.create_forum_activity);
         initData();
         initUI();
-        chI();
+        chJ();
         TiebaStatic.log("c11223");
     }
 
@@ -61,11 +61,11 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view == CreateForumActivity.this.ilo) {
-                    CreateForumActivity.this.chK();
+                    CreateForumActivity.this.chL();
                     TiebaStatic.log("c11223");
                     return;
                 }
-                CreateForumActivity.this.chJ();
+                CreateForumActivity.this.chK();
             }
         };
         this.mRootView = (LinearLayout) findViewById(R.id.root_view);
@@ -101,7 +101,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         });
     }
 
-    private void chI() {
+    private void chJ() {
         if (this.iln == null) {
             this.iln = new b();
             this.iln.execute(new String[0]);
@@ -109,7 +109,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chJ() {
+    public void chK() {
         if (this.iln == null && this.ilm == null) {
             this.iln = new b();
             this.iln.setPriority(3);
@@ -118,7 +118,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chK() {
+    public void chL() {
         if (this.ilm == null) {
             this.ilm = new a(this.ikM.getText().toString().trim(), this.ikN.getText().toString().trim());
             this.ilm.setPriority(3);
@@ -206,7 +206,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             }
             CreateForumActivity.this.showToast(this.mNetwork.getErrorString());
             if (this.mNetwork.isNetSuccess()) {
-                CreateForumActivity.this.chJ();
+                CreateForumActivity.this.chK();
             }
         }
 

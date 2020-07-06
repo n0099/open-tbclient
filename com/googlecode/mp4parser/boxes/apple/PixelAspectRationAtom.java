@@ -8,10 +8,10 @@ import org.aspectj.lang.a;
 /* loaded from: classes7.dex */
 public class PixelAspectRationAtom extends AbstractBox {
     public static final String TYPE = "pasp";
-    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0908a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_3 = null;
     private int hSpacing;
     private int vSpacing;
 

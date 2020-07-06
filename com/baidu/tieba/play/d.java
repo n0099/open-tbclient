@@ -5,11 +5,9 @@ public interface d {
 
     void KX(String str);
 
-    String cUZ();
+    String cVa();
 
-    void cVa();
-
-    boolean cVb();
+    void cVb();
 
     boolean cVc();
 
@@ -17,11 +15,13 @@ public interface d {
 
     boolean cVe();
 
-    int cVf();
+    boolean cVf();
 
-    void cVg();
+    int cVg();
 
-    j cVh();
+    void cVh();
+
+    j cVi();
 
     void fm(long j);
 

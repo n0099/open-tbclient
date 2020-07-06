@@ -10,19 +10,19 @@ public class a {
     private b lbd;
     private MetaData lbe;
 
-    public String cXO() {
+    public String cXP() {
         return this.dialogTitle;
     }
 
-    public String cXP() {
+    public String cXQ() {
         return this.lbc;
     }
 
-    public b cXQ() {
+    public b cXR() {
         return this.lbd;
     }
 
-    public MetaData cXR() {
+    public MetaData cXS() {
         return this.lbe;
     }
 

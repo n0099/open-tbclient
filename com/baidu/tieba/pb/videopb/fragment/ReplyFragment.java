@@ -76,11 +76,11 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             super.onScrollStateChanged(recyclerView, i);
             if (i == 1) {
-                ReplyFragment.this.cJH().cLN();
-                ReplyFragment.this.cJH().cPA();
+                ReplyFragment.this.cJI().cLO();
+                ReplyFragment.this.cJI().cPB();
             }
-            if (ReplyFragment.this.cJH() != null) {
-                ReplyFragment.this.cJH().onScrollStateChanged(i);
+            if (ReplyFragment.this.cJI() != null) {
+                ReplyFragment.this.cJI().onScrollStateChanged(i);
             }
         }
 
@@ -103,13 +103,13 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
             if (ReplyFragment.this.kyR != 1 || i == 1 || ReplyFragment.this.kyH == 0) {
                 if (ReplyFragment.this.kyR != 0 || i == 0) {
                     if (ReplyFragment.this.kyR != 0 && i == 0) {
-                        ReplyFragment.this.cJH().BT(8);
+                        ReplyFragment.this.cJI().BT(8);
                     }
                 } else if (ReplyFragment.this.kyO.getVisibility() != 0) {
-                    ReplyFragment.this.cJH().BT(0);
+                    ReplyFragment.this.cJI().BT(0);
                 }
             } else {
-                ReplyFragment.this.cJH().BT(8);
+                ReplyFragment.this.cJI().BT(8);
                 ReplyFragment.this.kyO.setVisibility(0);
             }
             ReplyFragment.this.kyR = i;
@@ -118,10 +118,10 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
     private final f.c ecS = new f.c() { // from class: com.baidu.tieba.pb.videopb.fragment.ReplyFragment.3
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
-            if (ReplyFragment.this.cIe() != null && ReplyFragment.this.cIe().rS(true)) {
+            if (ReplyFragment.this.cIf() != null && ReplyFragment.this.cIf().rS(true)) {
                 TiebaStatic.eventStat(ReplyFragment.this.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);
             } else {
-                ReplyFragment.this.cMl();
+                ReplyFragment.this.cMm();
             }
         }
     };
@@ -130,10 +130,10 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             n nVar;
-            if (customResponsedMessage != null && ReplyFragment.this.cIe() != null && ReplyFragment.this.cIe().getPbData() != null && ReplyFragment.this.cIe().getPbData().cGP() != null) {
+            if (customResponsedMessage != null && ReplyFragment.this.cIf() != null && ReplyFragment.this.cIf().getPbData() != null && ReplyFragment.this.cIf().getPbData().cGQ() != null) {
                 String str = (String) customResponsedMessage.getData();
                 if (!TextUtils.isEmpty(str)) {
-                    Iterator<PostData> it = ReplyFragment.this.cIe().getPbData().cGP().iterator();
+                    Iterator<PostData> it = ReplyFragment.this.cIf().getPbData().cGQ().iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             nVar = null;
@@ -146,7 +146,7 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
                         }
                     }
                     if (nVar != null && ReplyFragment.this.kyL != null && ReplyFragment.this.hEN != null) {
-                        ReplyFragment.this.cIe().getPbData().cGP().remove(nVar);
+                        ReplyFragment.this.cIf().getPbData().cGQ().remove(nVar);
                         if (ReplyFragment.this.kyL.getDataList() != null) {
                             ReplyFragment.this.kyL.getDataList().remove(nVar);
                         }
@@ -163,13 +163,13 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (ReplyFragment.this.mIsLogin) {
-                if (ReplyFragment.this.cIe().rR(false)) {
-                    ReplyFragment.this.cMj();
+                if (ReplyFragment.this.cIf().rR(false)) {
+                    ReplyFragment.this.cMk();
                     if (ReplyFragment.this.getPageContext() != null) {
                         TiebaStatic.eventStat(ReplyFragment.this.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
                     }
-                } else if (ReplyFragment.this.cIe().getPbData() != null) {
-                    ReplyFragment.this.cMG();
+                } else if (ReplyFragment.this.cIf().getPbData() != null) {
+                    ReplyFragment.this.cMH();
                 }
             }
         }
@@ -218,16 +218,16 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
         this.hEN = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.video_pb_reply_list);
         this.hEN.setLayoutManager(new LinearLayoutManager(getContext()));
         this.kyL = new c(this, this.hEN);
-        this.kyL.E(cJH().cPm());
-        this.kyL.R(cJH().cPn());
-        this.kyL.setOnLongClickListener(cJH().cPo());
+        this.kyL.E(cJI().cPn());
+        this.kyL.R(cJI().cPo());
+        this.kyL.setOnLongClickListener(cJI().cPp());
         this.kyL.setOnImageClickListener(this.kyM.getOnImageClickListener());
-        this.kyL.setTbGestureDetector(this.kyM.cQb());
+        this.kyL.setTbGestureDetector(this.kyM.cQc());
         this.kyO = this.mRootView.findViewById(R.id.reply_pager_title_shadow);
         this.hGJ = new PbListView(getPageContext().getPageActivity());
         this.eAd = this.hGJ.getView().findViewById(R.id.pb_more_view);
         if (this.eAd != null) {
-            this.eAd.setOnClickListener(cJH().cPm());
+            this.eAd.setOnClickListener(cJI().cPn());
             an.setBackgroundResource(this.eAd, R.drawable.pb_foot_more_trans_selector);
         }
         this.hGJ.setLineVisible();
@@ -236,7 +236,7 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
         this.hGJ.aXZ();
         this.hEN.setOnSrollToBottomListener(this.kgv);
         this.hEN.addOnScrollListener(this.gKd);
-        this.hEN.setOnTouchListener(cJH().bja());
+        this.hEN.setOnTouchListener(cJI().bjb());
         if (this.mPullView == null) {
             this.mPullView = new g(getPageContext());
             this.mPullView.createView();
@@ -250,16 +250,16 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
         }
         this.kyQ = this.mRootView.findViewById(R.id.video_pb_reply_all_title);
         this.kyP = new com.baidu.tieba.pb.videopb.videoView.b(this.kyQ);
-        this.kyP.V(cJH().cPm());
-        this.kyP.setOnSwitchChangeListener(cJH().kgn);
+        this.kyP.V(cJI().cPn());
+        this.kyP.setOnSwitchChangeListener(cJI().kgn);
         registerListener(this.hSY);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        e eVar = (e) y.b(cJI()).l(e.class);
-        eVar.cPS().observe(this, new q<Boolean>() { // from class: com.baidu.tieba.pb.videopb.fragment.ReplyFragment.5
+        e eVar = (e) y.b(cJJ()).l(e.class);
+        eVar.cPT().observe(this, new q<Boolean>() { // from class: com.baidu.tieba.pb.videopb.fragment.ReplyFragment.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.arch.lifecycle.q
             /* renamed from: l */
@@ -271,7 +271,7 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
                 }
             }
         });
-        d(true, 0, 3, 0, eVar.cPJ(), "", 1);
+        d(true, 0, 3, 0, eVar.cPK(), "", 1);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -335,19 +335,19 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
         sg(z);
-        if (cJH() != null && cJH().kxj != null) {
-            this.kyE.kxj.cPZ();
+        if (cJI() != null && cJI().kxj != null) {
+            this.kyE.kxj.cQa();
         }
         if (z && this.kfx) {
-            cMj();
-            cIe().rR(true);
+            cMk();
+            cIf().rR(true);
         }
     }
 
     private void d(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.e eVar, String str, int i4) {
-        e eVar2 = (e) y.b(cJI()).l(e.class);
-        if (z && cIe() != null && eVar != null) {
-            this.kcm = cIe().cKb();
+        e eVar2 = (e) y.b(cJJ()).l(e.class);
+        if (z && cIf() != null && eVar != null) {
+            this.kcm = cIf().cKc();
             boolean isEnabled = this.fpF.isEnabled();
             if (eVar.getPage().aRg() == 0 && this.kcm) {
                 this.fpF.setEnabled(false);
@@ -362,8 +362,8 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
             if (TbadkCoreApplication.isLogin()) {
                 this.hEN.setNextPage(this.hGJ);
                 this.klY = 2;
-                if (cJH() != null && cJH().kxj != null) {
-                    this.kyE.kxj.bJm();
+                if (cJI() != null && cJI().kxj != null) {
+                    this.kyE.kxj.bJn();
                 }
             } else {
                 this.kmZ = true;
@@ -381,20 +381,20 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
             }
             if (this.kyP != null && this.kyQ != null) {
                 com.baidu.tieba.pb.data.l lVar = new com.baidu.tieba.pb.data.l(com.baidu.tieba.pb.data.l.jZY);
-                bu cGN = eVar.cGN();
-                lVar.kaa = cGN != null ? cGN.aSg() : 0L;
-                lVar.isNew = !cIe().cKb();
-                lVar.kad = cJC();
+                bu cGO = eVar.cGO();
+                lVar.kaa = cGO != null ? cGO.aSg() : 0L;
+                lVar.isNew = !cIf().cKc();
+                lVar.kad = cJD();
                 lVar.sortType = eVar.jYM;
-                lVar.kac = eVar.cHq();
-                lVar.isDynamic = eVar.cHp();
+                lVar.kac = eVar.cHr();
+                lVar.isDynamic = eVar.cHq();
                 lVar.kae = eVar.jYL;
                 this.kyP.a(lVar);
             }
-            ArrayList<PostData> cGP = eVar.cGP();
-            if (eVar.getPage().aRf() == 0 || cGP == null || cGP.size() < eVar.getPage().aRe()) {
-                if (w.getCount(cGP) == 0 || (w.getCount(cGP) == 1 && cGP.get(0) != null && cGP.get(0).dhY() == 1)) {
-                    if (cJC()) {
+            ArrayList<PostData> cGQ = eVar.cGQ();
+            if (eVar.getPage().aRf() == 0 || cGQ == null || cGQ.size() < eVar.getPage().aRe()) {
+                if (w.getCount(cGQ) == 0 || (w.getCount(cGQ) == 1 && cGQ.get(0) != null && cGQ.get(0).dhZ() == 1)) {
+                    if (cJD()) {
                         this.hGJ.al(TbadkCoreApplication.getInst().getResources().getString(R.string.pb_no_host_reply), this.topMargin);
                     } else {
                         this.hGJ.al(TbadkCoreApplication.getInst().getResources().getString(R.string.pb_no_replay), this.topMargin);
@@ -407,11 +407,11 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
                     }
                     this.hGJ.aYa();
                 }
-                if (eVar.getPage().aRf() == 0 || cGP == null) {
-                    cMG();
+                if (eVar.getPage().aRf() == 0 || cGQ == null) {
+                    cMH();
                 }
             } else {
-                if (cIe().getIsFromMark()) {
+                if (cIf().getIsFromMark()) {
                     if (this.knV) {
                         endLoadData();
                         if (eVar.getPage().aRf() != 0) {
@@ -429,14 +429,14 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
             }
             switch (i2) {
                 case 2:
-                    this.hEN.setSelection(i3 > 1 ? (((this.hEN.getData() == null && eVar.cGP() == null) ? 0 : this.hEN.getData().size() - eVar.cGP().size()) + i3) - 2 : 0);
+                    this.hEN.setSelection(i3 > 1 ? (((this.hEN.getData() == null && eVar.cGQ() == null) ? 0 : this.hEN.getData().size() - eVar.cGQ().size()) + i3) - 2 : 0);
                     break;
                 case 3:
                     if (i4 == 1) {
-                        Parcelable cLu = ao.cLt().cLu();
-                        if (cLu instanceof RecyclerView.SavedState) {
-                            this.hEN.onRestoreInstanceState(cLu);
-                            if (w.getCount(cGP) > 1 && eVar.getPage().aRf() > 0) {
+                        Parcelable cLv = ao.cLu().cLv();
+                        if (cLv instanceof RecyclerView.SavedState) {
+                            this.hEN.onRestoreInstanceState(cLv);
+                            if (w.getCount(cGQ) > 1 && eVar.getPage().aRf() > 0) {
                                 this.hGJ.endLoadData();
                                 this.hGJ.setText(getString(R.string.pb_load_more_without_point));
                                 this.hGJ.setLineGone();
@@ -453,16 +453,16 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
                     break;
                 case 6:
                     if (i4 == 1) {
-                        Parcelable cLu2 = ao.cLt().cLu();
-                        if (cLu2 instanceof RecyclerView.SavedState) {
-                            this.hEN.onRestoreInstanceState(cLu2);
+                        Parcelable cLv2 = ao.cLu().cLv();
+                        if (cLv2 instanceof RecyclerView.SavedState) {
+                            this.hEN.onRestoreInstanceState(cLv2);
                             break;
                         }
                     }
                     this.hEN.setSelection(0);
                     break;
                 case 8:
-                    int size = (this.hEN.getData() == null && eVar.cGP() == null) ? 0 : this.hEN.getData().size() - eVar.cGP().size();
+                    int size = (this.hEN.getData() == null && eVar.cGQ() == null) ? 0 : this.hEN.getData().size() - eVar.cGQ().size();
                     this.kyN.setMaxOffset();
                     this.hEN.setSelection(i3 > 0 ? size + i3 : 0);
                     this.hGJ.endLoadData();
@@ -471,26 +471,26 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
                     break;
             }
             if (this.knw) {
-                cLH();
+                cLI();
                 this.knw = false;
                 if (i4 == 0) {
                     sc(true);
                 }
             }
-            cJH().u(eVar);
+            cJI().u(eVar);
         }
     }
 
-    public void cQi() {
-        com.baidu.tieba.pb.data.e pbData = cIe().getPbData();
+    public void cQj() {
+        com.baidu.tieba.pb.data.e pbData = cIf().getPbData();
         if (pbData != null) {
-            this.kyL.sP(cIe().cKb());
+            this.kyL.sP(cIf().cKc());
             this.kyL.setData(pbData);
             this.kyL.notifyDataSetChanged();
-            ArrayList<PostData> cGP = pbData.cGP();
-            if (pbData.getPage().aRf() == 0 || cGP == null || cGP.size() < pbData.getPage().aRe()) {
-                if (w.getCount(cGP) == 0 || (w.getCount(cGP) == 1 && cGP.get(0) != null && cGP.get(0).dhY() == 1)) {
-                    if (cJC()) {
+            ArrayList<PostData> cGQ = pbData.cGQ();
+            if (pbData.getPage().aRf() == 0 || cGQ == null || cGQ.size() < pbData.getPage().aRe()) {
+                if (w.getCount(cGQ) == 0 || (w.getCount(cGQ) == 1 && cGQ.get(0) != null && cGQ.get(0).dhZ() == 1)) {
+                    if (cJD()) {
                         this.hGJ.al(TbadkCoreApplication.getInst().getResources().getString(R.string.pb_no_host_reply), this.topMargin);
                     } else {
                         this.hGJ.al(TbadkCoreApplication.getInst().getResources().getString(R.string.pb_no_replay), this.topMargin);
@@ -504,40 +504,40 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
                     this.hGJ.aYa();
                 }
             }
-            cJH().u(pbData);
+            cJI().u(pbData);
         }
     }
 
-    public PbActivity cJI() {
-        return this.keN != null ? this.keN : cJH().cJI();
+    public PbActivity cJJ() {
+        return this.keN != null ? this.keN : cJI().cJJ();
     }
 
-    public VideoPbFragment cJH() {
+    public VideoPbFragment cJI() {
         if (this.kyE == null && this.keN != null) {
-            Fragment cIq = this.keN.cIq();
-            if (cIq instanceof VideoPbFragment) {
-                this.kyE = (VideoPbFragment) cIq;
+            Fragment cIr = this.keN.cIr();
+            if (cIr instanceof VideoPbFragment) {
+                this.kyE = (VideoPbFragment) cIr;
             }
         }
         return this.kyE;
     }
 
-    public PbModel cIe() {
-        return cJH().cIe();
+    public PbModel cIf() {
+        return cJI().cIf();
     }
 
     public BdTypeRecyclerView getListView() {
         return this.hEN;
     }
 
-    public boolean cJC() {
-        if (cIe() != null) {
-            return cIe().getHostMode();
+    public boolean cJD() {
+        if (cIf() != null) {
+            return cIf().getHostMode();
         }
         return false;
     }
 
-    public c cQj() {
+    public c cQk() {
         return this.kyL;
     }
 
@@ -548,7 +548,7 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
         }
     }
 
-    public b cQk() {
+    public b cQl() {
         return this.kyM;
     }
 
@@ -565,7 +565,7 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
         }
     }
 
-    public void cMj() {
+    public void cMk() {
         this.hGJ.setLineVisible();
         this.hGJ.startLoadData();
     }
@@ -575,8 +575,8 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
             this.hGJ.setLineGone();
             this.hGJ.endLoadData();
         }
-        if (cJH() != null && cJH().kxj != null) {
-            this.kyE.kxj.bJm();
+        if (cJI() != null && cJI().kxj != null) {
+            this.kyE.kxj.bJn();
         }
     }
 
@@ -592,13 +592,13 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
         }
     }
 
-    public void cMl() {
+    public void cMm() {
         if (this.fpF != null && this.fpF.isEnabled()) {
             this.fpF.setRefreshing(false);
         }
     }
 
-    public void cMG() {
+    public void cMH() {
         if (this.klY != 2) {
             this.hEN.setNextPage(this.hGJ);
             this.klY = 2;
@@ -609,19 +609,19 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
         this.knw = z;
     }
 
-    public void cLH() {
+    public void cLI() {
         if (this.hEN == null) {
         }
     }
 
-    public int cMm() {
+    public int cMn() {
         if (this.hEN != null) {
             return this.hEN.getFirstVisiblePosition();
         }
         return 0;
     }
 
-    public int cQl() {
+    public int cQm() {
         View childAt;
         if (this.hEN == null || this.hEN.getCount() <= 0 || (childAt = this.hEN.getChildAt(0)) == null) {
             return 0;
@@ -629,26 +629,26 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0714a 
         return childAt.getTop();
     }
 
-    public int cMn() {
+    public int cMo() {
         if (this.hEN != null) {
             int lastVisiblePosition = this.hEN.getLastVisiblePosition();
-            if (cIe() != null && cIe().getPbData() != null && lastVisiblePosition >= cIe().getPbData().cGP().size()) {
-                return cIe().getPbData().cGP().size() - 2;
+            if (cIf() != null && cIf().getPbData() != null && lastVisiblePosition >= cIf().getPbData().cGQ().size()) {
+                return cIf().getPbData().cGQ().size() - 2;
             }
             return lastVisiblePosition;
         }
         return 0;
     }
 
-    public View cMx() {
+    public View cMy() {
         return this.eAd;
     }
 
-    public int cQh() {
+    public int cQi() {
         return this.kyH;
     }
 
-    public int cQm() {
+    public int cQn() {
         return this.kyR;
     }
 

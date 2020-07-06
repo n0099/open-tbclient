@@ -31,10 +31,10 @@ public class VideoHolyCardModel extends BdBaseModel {
     }
 
     public VideoHolyCardModel() {
-        cCm();
+        cCn();
     }
 
-    private void cCm() {
+    private void cCn() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003400, TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_HOLY_CARD);
         tbHttpMessageTask.setResponsedClass(VideoHolyCardResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -55,7 +55,7 @@ public class VideoHolyCardModel extends BdBaseModel {
         this.jJa = aVar;
     }
 
-    public void cCn() {
+    public void cCo() {
         if (System.currentTimeMillis() - this.gnI > 200) {
             String clientIP = UtilHelper.getClientIP();
             String str = RomUtils.UNKNOWN;

@@ -28,7 +28,7 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateTimeInstance(2, 2));
         }
-        if (d.dHC()) {
+        if (d.dHG()) {
             this.dateFormats.add(g.dH(2, 2));
         }
     }
@@ -50,7 +50,7 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateInstance(i));
         }
-        if (d.dHC()) {
+        if (d.dHG()) {
             this.dateFormats.add(g.JU(i));
         }
     }
@@ -66,7 +66,7 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateTimeInstance(i, i2));
         }
-        if (d.dHC()) {
+        if (d.dHG()) {
             this.dateFormats.add(g.dH(i, i2));
         }
     }
@@ -82,22 +82,22 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     @Override // com.google.gson.TypeAdapter
     public void write(b bVar, Date date) throws IOException {
         if (date == null) {
-            bVar.dId();
+            bVar.dIh();
             return;
         }
         synchronized (this.dateFormats) {
-            bVar.Rc(this.dateFormats.get(0).format(date));
+            bVar.Rd(this.dateFormats.get(0).format(date));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public Date read(a aVar) throws IOException {
-        if (aVar.dHO() == JsonToken.NULL) {
-            aVar.dHT();
+        if (aVar.dHS() == JsonToken.NULL) {
+            aVar.dHX();
             return null;
         }
-        Date deserializeToDate = deserializeToDate(aVar.dHS());
+        Date deserializeToDate = deserializeToDate(aVar.dHW());
         if (this.dateType != Date.class) {
             if (this.dateType == Timestamp.class) {
                 return new Timestamp(deserializeToDate.getTime());

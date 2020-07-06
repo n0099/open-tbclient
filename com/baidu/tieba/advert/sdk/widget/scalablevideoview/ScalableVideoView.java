@@ -35,7 +35,7 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
         }
     }
 
-    private void bqo() {
+    private void bqp() {
         if (this.mMediaPlayer == null) {
             this.mMediaPlayer = new MediaPlayer();
             this.mMediaPlayer.setOnVideoSizeChangedListener(this);
@@ -52,12 +52,12 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void setDataSource(String str) throws IOException {
-        bqo();
+        bqp();
         this.mMediaPlayer.setDataSource(str);
     }
 
     public void setDataSource(Context context, Uri uri) throws Exception {
-        bqo();
+        bqp();
         this.mMediaPlayer.setDataSource(context, uri);
     }
 

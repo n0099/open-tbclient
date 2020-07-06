@@ -10,7 +10,7 @@ public class ah {
     private ah() {
     }
 
-    public static ah bZY() {
+    public static ah bZZ() {
         return hDX;
     }
 

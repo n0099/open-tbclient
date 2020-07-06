@@ -53,15 +53,15 @@ public class a {
                     l.hideSoftKeyPad(a.this.kZB.getPageContext().getPageActivity(), view);
                     return;
                 }
+                a.this.cXi();
                 a.this.cXh();
-                a.this.cXg();
             }
         });
         this.hmp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
+                a.this.cXi();
                 a.this.cXh();
-                a.this.cXg();
             }
         });
         this.hmp.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.postsearch.a.4
@@ -83,7 +83,7 @@ public class a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.hmp.setText("");
-                a.this.cXh();
+                a.this.cXi();
             }
         });
         this.hmp.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.postsearch.a.6
@@ -100,7 +100,7 @@ public class a {
                 String obj = editable.toString();
                 a.this.kZB.hxA = obj;
                 if (obj.trim().length() == 0) {
-                    a.this.cXh();
+                    a.this.cXi();
                     a.this.gKl.setVisibility(8);
                     return;
                 }
@@ -120,7 +120,7 @@ public class a {
         this.hmp.setText(str);
     }
 
-    public void cgJ() {
+    public void cgK() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
@@ -130,21 +130,21 @@ public class a {
         l.hideSoftKeyPad(this.kZB.getPageContext().getPageActivity(), this.hmp);
     }
 
-    public void cXf() {
+    public void cXg() {
         this.gKl.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cXg() {
+    public void cXh() {
         if (!StringUtils.isNull(this.hmp.getText().toString())) {
             this.gKl.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cXh() {
-        if (!this.kZB.cXj()) {
-            this.kZB.cXi();
+    public void cXi() {
+        if (!this.kZB.cXk()) {
+            this.kZB.cXj();
             if (!this.hmp.hasFocus()) {
                 this.hmp.requestFocus();
                 l.showSoftKeyPad(this.kZB.getPageContext().getPageActivity(), this.hmp);

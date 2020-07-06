@@ -21,7 +21,7 @@ public class AlaGetRedPacketInfoResponseMessage extends JsonHttpResponsedMessage
         }
     }
 
-    public b bKH() {
+    public b bKI() {
         return this.gwh;
     }
 }

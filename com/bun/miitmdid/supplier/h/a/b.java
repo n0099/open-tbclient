@@ -11,11 +11,11 @@ import android.os.SystemClock;
 public class b {
     private static Context a;
     private static boolean b = false;
-    private static b mGN = null;
-    private static a mGO = null;
-    private static c mGP = null;
-    private static c mGQ = null;
-    private static c mGR = null;
+    private static b mGQ = null;
+    private static a mGR = null;
+    private static c mGS = null;
+    private static c mGT = null;
+    private static c mGU = null;
     private static Object h = new Object();
     private static HandlerThread i = null;
     private static Handler j = null;
@@ -43,16 +43,16 @@ public class b {
     private static void a(Context context, int i2, String str) {
         switch (i2) {
             case 0:
-                mGP = new c(mGN, 0, null);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, mGP);
+                mGS = new c(mGQ, 0, null);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, mGS);
                 return;
             case 1:
-                mGQ = new c(mGN, 1, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str), false, mGQ);
+                mGT = new c(mGQ, 1, str);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str), false, mGT);
                 return;
             case 2:
-                mGR = new c(mGN, 2, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str), false, mGR);
+                mGU = new c(mGQ, 2, str);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str), false, mGU);
                 return;
             default:
                 return;
@@ -86,7 +86,7 @@ public class b {
                     return;
                 }
                 try {
-                    String unused = b.k = b.mGO.a(message.getData().getInt("type"), message.getData().getString("appid"));
+                    String unused = b.k = b.mGR.a(message.getData().getInt("type"), message.getData().getString("appid"));
                 } catch (Exception e) {
                     String unused2 = b.k = "";
                     com.bun.miitmdid.utils.a.a("VMS_IDLG_SDK_Client", "exception", e);
@@ -99,14 +99,14 @@ public class b {
     }
 
     public static b fS(Context context) {
-        if (mGN == null) {
-            mGN = new b();
+        if (mGQ == null) {
+            mGQ = new b();
             a = context;
             f();
-            mGO = new a(a);
+            mGR = new a(a);
             c();
         }
-        return mGN;
+        return mGQ;
     }
 
     public String a(String str) {
@@ -115,7 +115,7 @@ public class b {
                 return m;
             }
             a(1, str);
-            if (mGQ == null && m != null) {
+            if (mGT == null && m != null) {
                 a(a, 1, str);
             }
             return m;
@@ -173,7 +173,7 @@ public class b {
                 return l;
             }
             a(0, (String) null);
-            if (mGP == null) {
+            if (mGS == null) {
                 a(a, 0, null);
             }
             return l;
@@ -187,7 +187,7 @@ public class b {
                 return n;
             }
             a(2, str);
-            if (mGR == null && n != null) {
+            if (mGU == null && n != null) {
                 a(a, 2, str);
             }
             return n;

@@ -118,7 +118,7 @@ public class p {
     }
 
     public void aJD() {
-        if (g.dwI().tN(this.mId)) {
+        if (g.dwM().tN(this.mId)) {
             this.duM = UBC.getUBCContext().alX();
         }
     }

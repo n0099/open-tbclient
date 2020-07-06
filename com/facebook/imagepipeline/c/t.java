@@ -1,52 +1,28 @@
 package com.facebook.imagepipeline.c;
 /* loaded from: classes12.dex */
 public class t implements n {
-    private static t mRZ = null;
+    private static t mSc = null;
 
     private t() {
     }
 
-    public static synchronized t dCL() {
+    public static synchronized t dCP() {
         t tVar;
         synchronized (t.class) {
-            if (mRZ == null) {
-                mRZ = new t();
+            if (mSc == null) {
+                mSc = new t();
             }
-            tVar = mRZ;
+            tVar = mSc;
         }
         return tVar;
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dCD() {
+    public void dCH() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
     public void p(com.facebook.cache.common.b bVar) {
-    }
-
-    @Override // com.facebook.imagepipeline.c.n
-    public void dCE() {
-    }
-
-    @Override // com.facebook.imagepipeline.c.n
-    public void dCF() {
-    }
-
-    @Override // com.facebook.imagepipeline.c.n
-    public void q(com.facebook.cache.common.b bVar) {
-    }
-
-    @Override // com.facebook.imagepipeline.c.n
-    public void dCG() {
-    }
-
-    @Override // com.facebook.imagepipeline.c.n
-    public void r(com.facebook.cache.common.b bVar) {
-    }
-
-    @Override // com.facebook.imagepipeline.c.n
-    public void dCH() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -58,7 +34,31 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.c.n
+    public void q(com.facebook.cache.common.b bVar) {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
     public void dCK() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void r(com.facebook.cache.common.b bVar) {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void dCL() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void dCM() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void dCN() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void dCO() {
     }
 
     @Override // com.facebook.imagepipeline.c.n

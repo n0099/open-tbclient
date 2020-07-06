@@ -34,7 +34,7 @@ public class AlaTextStickerEditView extends RelativeLayout {
     public interface a {
         void Bk(String str);
 
-        void bsL();
+        void bsM();
     }
 
     public AlaTextStickerEditView(Context context) {
@@ -80,11 +80,11 @@ public class AlaTextStickerEditView extends RelativeLayout {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (!(httpResponsedMessage instanceof AntiContentHttpResponseMessage) || httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
                     BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.i.sdk_net_fail_tip));
-                } else if (((AntiContentHttpResponseMessage) httpResponsedMessage).bsd()) {
+                } else if (((AntiContentHttpResponseMessage) httpResponsedMessage).bse()) {
                     if (AlaTextStickerEditView.this.fjx != null) {
                         AlaTextStickerEditView.this.fjx.Bk(AlaTextStickerEditView.this.fjw.getText().toString());
                         BdUtilHelper.hideSoftKeyPad(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.fjw);
-                        AlaTextStickerEditView.this.fjx.bsL();
+                        AlaTextStickerEditView.this.fjx.bsM();
                     }
                 } else {
                     BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.i.ala_live_sticker_edit_anti));
@@ -137,11 +137,11 @@ public class AlaTextStickerEditView extends RelativeLayout {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (!(httpResponsedMessage instanceof AntiContentHttpResponseMessage) || httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
                     BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.i.sdk_net_fail_tip));
-                } else if (((AntiContentHttpResponseMessage) httpResponsedMessage).bsd()) {
+                } else if (((AntiContentHttpResponseMessage) httpResponsedMessage).bse()) {
                     if (AlaTextStickerEditView.this.fjx != null) {
                         AlaTextStickerEditView.this.fjx.Bk(AlaTextStickerEditView.this.fjw.getText().toString());
                         BdUtilHelper.hideSoftKeyPad(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.fjw);
-                        AlaTextStickerEditView.this.fjx.bsL();
+                        AlaTextStickerEditView.this.fjx.bsM();
                     }
                 } else {
                     BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.i.ala_live_sticker_edit_anti));
@@ -194,11 +194,11 @@ public class AlaTextStickerEditView extends RelativeLayout {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (!(httpResponsedMessage instanceof AntiContentHttpResponseMessage) || httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
                     BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.i.sdk_net_fail_tip));
-                } else if (((AntiContentHttpResponseMessage) httpResponsedMessage).bsd()) {
+                } else if (((AntiContentHttpResponseMessage) httpResponsedMessage).bse()) {
                     if (AlaTextStickerEditView.this.fjx != null) {
                         AlaTextStickerEditView.this.fjx.Bk(AlaTextStickerEditView.this.fjw.getText().toString());
                         BdUtilHelper.hideSoftKeyPad(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.fjw);
-                        AlaTextStickerEditView.this.fjx.bsL();
+                        AlaTextStickerEditView.this.fjx.bsM();
                     }
                 } else {
                     BdUtilHelper.showToast(AlaTextStickerEditView.this.getContext(), AlaTextStickerEditView.this.getContext().getResources().getString(a.i.ala_live_sticker_edit_anti));
@@ -215,7 +215,7 @@ public class AlaTextStickerEditView extends RelativeLayout {
         this.fju.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.AlaTextStickerEditView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaTextStickerEditView.this.bsR();
+                AlaTextStickerEditView.this.bsS();
             }
         });
         this.fjv = (TextView) findViewById(a.g.ala_sticker_edit_num);
@@ -227,7 +227,7 @@ public class AlaTextStickerEditView extends RelativeLayout {
                 switch (i) {
                     case 4:
                     case 6:
-                        AlaTextStickerEditView.this.bsR();
+                        AlaTextStickerEditView.this.bsS();
                         return true;
                     case 5:
                     default:
@@ -240,7 +240,7 @@ public class AlaTextStickerEditView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bsR() {
+    public void bsS() {
         if (this.aLQ != null && this.aLQ.mLiveInfo != null) {
             String obj = this.fjw.getText().toString();
             if (com.baidu.live.utils.i.fT(obj)) {
@@ -250,7 +250,7 @@ public class AlaTextStickerEditView extends RelativeLayout {
             } else if (this.fjx != null) {
                 this.fjx.Bk(getContext().getResources().getString(a.i.ala_live_striker_text));
                 BdUtilHelper.hideSoftKeyPad(getContext(), this.fjw);
-                this.fjx.bsL();
+                this.fjx.bsM();
             }
         }
     }

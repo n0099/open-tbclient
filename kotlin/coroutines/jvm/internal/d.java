@@ -14,8 +14,8 @@ public final class d {
         }
         dQ(1, b.v());
         int c = c(baseContinuationImpl);
-        int i = c < 0 ? -1 : b.dQB()[c];
-        String d = f.nPz.d(baseContinuationImpl);
+        int i = c < 0 ? -1 : b.dQF()[c];
+        String d = f.nPC.d(baseContinuationImpl);
         return new StackTraceElement(d == null ? b.c() : d + '/' + b.c(), b.m(), b.f(), i);
     }
 

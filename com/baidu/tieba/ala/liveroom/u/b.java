@@ -66,8 +66,8 @@ public class b extends BdBaseModel {
                     GetSuperCustomerInfoHttpResponseMessage getSuperCustomerInfoHttpResponseMessage = (GetSuperCustomerInfoHttpResponseMessage) httpResponsedMessage;
                     if (getSuperCustomerInfoHttpResponseMessage.Gd() != null) {
                         b.this.aZA = getSuperCustomerInfoHttpResponseMessage.Gd();
-                        a.bJt().aZA = b.this.aZA;
-                        b.this.bJu();
+                        a.bJu().aZA = b.this.aZA;
+                        b.this.bJv();
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913189, "refreshInfo"));
                     }
                 }
@@ -138,7 +138,7 @@ public class b extends BdBaseModel {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void bJu() {
+    public void bJv() {
         JSONArray jSONArray;
         if (!TbadkCoreApplication.getInst().isMobileBaidu() && this.aye != null && this.aye.axI != null) {
             if (this.aye.mLiveInfo == null || this.aye.mLiveInfo.screen_direction != 2) {
@@ -368,7 +368,7 @@ public class b extends BdBaseModel {
         this.handler.removeCallbacksAndMessages(null);
         yY();
         this.aZA = null;
-        a.bJt().aZA = null;
+        a.bJu().aZA = null;
         if (this.ghI != null) {
             this.ghI.cancel();
             this.ghI = null;

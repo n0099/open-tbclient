@@ -104,7 +104,7 @@ public class a implements com.baidu.live.guardclub.h {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            a.this.bxj();
+            a.this.bxk();
         }
     };
     HttpMessageListener fIh = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS) { // from class: com.baidu.tieba.ala.guardclub.a.8
@@ -123,7 +123,7 @@ public class a implements com.baidu.live.guardclub.h {
                 GuardClubJoinHttpResponseMessage guardClubJoinHttpResponseMessage = (GuardClubJoinHttpResponseMessage) httpResponsedMessage;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     if (a.this.fIc != null && a.this.fIc.id == guardClubJoinHttpResponseMessage.aRu) {
-                        a.this.bxk();
+                        a.this.bxl();
                     }
                 } else if (!guardClubJoinHttpResponseMessage.aRx) {
                     guardClubJoinHttpResponseMessage.aRx = true;
@@ -234,18 +234,18 @@ public class a implements com.baidu.live.guardclub.h {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, boolean z, com.baidu.live.guardclub.f fVar, String str2) {
         if (z) {
-            bxi();
+            bxj();
         } else if (fVar.aRE > 0) {
             dG(str, str2);
         }
     }
 
-    private void bxi() {
+    private void bxj() {
         this.fId = new com.baidu.tieba.ala.guardclub.view.a(this.context);
         this.fId.a(new a.InterfaceC0548a() { // from class: com.baidu.tieba.ala.guardclub.a.2
             @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0548a
             public void onConfirm() {
-                if (a.this.bxj()) {
+                if (a.this.bxk()) {
                     a.this.fId.dismiss();
                 }
             }
@@ -363,7 +363,7 @@ public class a implements com.baidu.live.guardclub.h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bxj() {
+    public boolean bxk() {
         long j;
         if (this.fIc == null) {
             return false;
@@ -390,7 +390,7 @@ public class a implements com.baidu.live.guardclub.h {
         MessageManager.getInstance().sendMessage(cVar);
     }
 
-    public void bxk() {
+    public void bxl() {
         if (this.aLQ != null && this.aLQ.axp != null) {
             com.baidu.live.guardclub.b bVar = new com.baidu.live.guardclub.b();
             bVar.af(this.aLQ.axp.userId);

@@ -37,7 +37,7 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View bwR() {
+    public View bwS() {
         this.rootView = this.jgj.getActivity().getLayoutInflater().inflate(R.layout.at_me_activity, (ViewGroup) null);
         this.jgj.setContentView(this.rootView);
         this.jgr = (BdListView) this.rootView.findViewById(R.id.atme_lv);
@@ -68,7 +68,7 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
         this.jgr.setExOnSrollToBottomListener(new BdListView.f() { // from class: com.baidu.tieba.imMessageCenter.mention.d.2
             @Override // com.baidu.adp.widget.ListView.BdListView.f
             public void v(BdListView bdListView) {
-                d.this.jgj.caS();
+                d.this.jgj.caT();
             }
         });
         this.jgq = new com.baidu.tbadk.mvc.f.d<>(this.jgj.getPageContext(), a.class, R.layout.mention_atme_item, this.jgj.bhs());
@@ -88,7 +88,7 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
             bVar.a(aVar);
             bVar.a(new b.a() { // from class: com.baidu.tieba.imMessageCenter.mention.d.3
                 @Override // com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.a
-                public void cuI() {
+                public void cuJ() {
                     if (!w.isEmpty(d.this.mDataList)) {
                         d.this.mDataList.remove(feedData);
                         if (d.this.jgq != null) {
@@ -105,9 +105,9 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
     public void a(com.baidu.tbadk.mvc.b.a aVar) {
         if (aVar instanceof f) {
             f fVar = (f) aVar;
-            this.mDataList = fVar.cvb();
+            this.mDataList = fVar.cvc();
             if (this.jgq != null) {
-                this.jgq.aZ(fVar.cvb());
+                this.jgq.aZ(fVar.cvc());
             }
         }
     }
@@ -125,7 +125,7 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
         this.jgs.onChangeSkinType(tbPageContext, i);
     }
 
-    public void cuG() {
+    public void cuH() {
         if (this.jgr != null) {
             this.jgr.completePullRefreshPostDelayed(0L);
         }
@@ -161,14 +161,14 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
                 }
             }
             if (aVar.isPullRefreshing()) {
-                cuH();
+                cuI();
             } else {
-                cuG();
+                cuH();
             }
         }
     }
 
-    public void cuH() {
+    public void cuI() {
         if (this.mPullView != null) {
             this.mPullView.setListPullRefreshListener(null);
         }

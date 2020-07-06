@@ -18,9 +18,9 @@ public class d extends com.kascend.chushou.view.base.a implements View.OnClickLi
     private TextView f;
     private String g;
     private LinearLayout h;
-    private FrescoThumbnailView nqK;
-    private SimpleDraweeSpanTextView nvc;
-    private a nvd;
+    private FrescoThumbnailView nqN;
+    private SimpleDraweeSpanTextView nvf;
+    private a nvg;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -30,10 +30,10 @@ public class d extends com.kascend.chushou.view.base.a implements View.OnClickLi
     }
 
     public void a(a aVar) {
-        this.nvd = aVar;
+        this.nvg = aVar;
     }
 
-    public static d Rr(String str) {
+    public static d Rs(String str) {
         Bundle bundle = new Bundle();
         d dVar = new d();
         bundle.putString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, str);
@@ -53,8 +53,8 @@ public class d extends com.kascend.chushou.view.base.a implements View.OnClickLi
     @Override // com.kascend.chushou.view.base.a
     public View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(a.h.dialog_show_unsubscribe, viewGroup, false);
-        this.nqK = (FrescoThumbnailView) inflate.findViewById(a.f.ivHead);
-        this.nvc = (SimpleDraweeSpanTextView) inflate.findViewById(a.f.tvContent);
+        this.nqN = (FrescoThumbnailView) inflate.findViewById(a.f.ivHead);
+        this.nvf = (SimpleDraweeSpanTextView) inflate.findViewById(a.f.tvContent);
         this.e = (TextView) inflate.findViewById(a.f.tvSure);
         this.e.setOnClickListener(this);
         this.f = (TextView) inflate.findViewById(a.f.tvCancel);
@@ -67,7 +67,7 @@ public class d extends com.kascend.chushou.view.base.a implements View.OnClickLi
     public void a(View view) {
         super.a(view);
         this.h.setVisibility(0);
-        this.nqK.i(this.g, com.kascend.chushou.view.a.a(""), tv.chushou.zues.utils.a.dip2px(this.b, 36.0f), tv.chushou.zues.utils.a.dip2px(this.b, 36.0f));
+        this.nqN.i(this.g, com.kascend.chushou.view.a.a(""), tv.chushou.zues.utils.a.dip2px(this.b, 36.0f), tv.chushou.zues.utils.a.dip2px(this.b, 36.0f));
         this.f.setText(getString(a.i.cs_exit_subscribes));
         this.e.setText(getString(a.i.quit_str));
         tv.chushou.zues.widget.a.c cVar = new tv.chushou.zues.widget.a.c();
@@ -75,24 +75,24 @@ public class d extends com.kascend.chushou.view.base.a implements View.OnClickLi
         cVar.a(new b.c() { // from class: com.kascend.chushou.view.b.d.1
             @Override // com.facebook.drawee.span.b.c
             public void d(com.facebook.drawee.span.b bVar) {
-                if (d.this.nvc != null) {
-                    d.this.nvc.measure(0, 0);
-                    d.this.nvc.requestLayout();
+                if (d.this.nvf != null) {
+                    d.this.nvf.measure(0, 0);
+                    d.this.nvf.requestLayout();
                 }
             }
         });
-        this.nvc.setDraweeSpanStringBuilder(cVar);
+        this.nvf.setDraweeSpanStringBuilder(cVar);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
         if (id == a.f.tvCancel) {
-            if (this.nvd != null) {
-                this.nvd.a();
+            if (this.nvg != null) {
+                this.nvg.a();
             }
-        } else if (id == a.f.tvSure && this.nvd != null) {
-            this.nvd.b();
+        } else if (id == a.f.tvSure && this.nvg != null) {
+            this.nvg.b();
         }
     }
 

@@ -30,7 +30,7 @@ public class a {
         }
     }
 
-    public void cem() {
+    public void cen() {
         if (this.hWm && this.hWn >= 0) {
             vI(this.hWn);
         }
@@ -50,8 +50,8 @@ public class a {
     private void vI(int i) {
         FrameLayout frameLayout;
         String string;
-        p bXZ = this.hUd.bXZ();
-        if (bXZ != null && bXZ.getListView() != null && (frameLayout = (FrameLayout) bXZ.bZx()) != null) {
+        p bYa = this.hUd.bYa();
+        if (bYa != null && bYa.getListView() != null && (frameLayout = (FrameLayout) bYa.bZy()) != null) {
             if (this.hOn == null && this.hUd.getPageContext() != null) {
                 this.hOn = new TextView(this.hUd.getPageContext().getPageActivity());
                 this.hOn.setTextSize(0, this.hUd.getResources().getDimensionPixelSize(R.dimen.fontsize28));

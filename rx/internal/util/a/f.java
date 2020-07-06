@@ -3,62 +3,62 @@ package rx.internal.util.a;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public abstract class f<E> extends g<E> {
-    protected static final int ogp = Integer.getInteger("sparse.shift", 0).intValue();
-    private static final long ogq;
-    private static final int ogr;
-    protected final E[] nPn;
-    protected final long ogs;
+    protected static final int ogs = Integer.getInteger("sparse.shift", 0).intValue();
+    private static final long ogt;
+    private static final int ogu;
+    protected final E[] nPq;
+    protected final long ogv;
 
     static {
-        int Q = ae.ogA.Q(Object[].class);
+        int Q = ae.ogD.Q(Object[].class);
         if (4 == Q) {
-            ogr = ogp + 2;
+            ogu = ogs + 2;
         } else if (8 == Q) {
-            ogr = ogp + 3;
+            ogu = ogs + 3;
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        ogq = ae.ogA.R(Object[].class) + (32 << (ogr - ogp));
+        ogt = ae.ogD.R(Object[].class) + (32 << (ogu - ogs));
     }
 
     public f(int i) {
         int KU = h.KU(i);
-        this.ogs = KU - 1;
-        this.nPn = (E[]) new Object[(KU << ogp) + 64];
+        this.ogv = KU - 1;
+        this.nPq = (E[]) new Object[(KU << ogs) + 64];
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final long gB(long j) {
-        return V(j, this.ogs);
+        return V(j, this.ogv);
     }
 
     protected final long V(long j, long j2) {
-        return ogq + ((j & j2) << ogr);
+        return ogt + ((j & j2) << ogu);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(E[] eArr, long j, E e) {
-        ae.ogA.a(eArr, j, e);
+        ae.ogD.a(eArr, j, e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b(E[] eArr, long j, E e) {
-        ae.ogA.b(eArr, j, e);
+        ae.ogD.b(eArr, j, e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E a(E[] eArr, long j) {
-        return (E) ae.ogA.c(eArr, j);
+        return (E) ae.ogD.c(eArr, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E gC(long j) {
-        return b(this.nPn, j);
+        return b(this.nPq, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E b(E[] eArr, long j) {
-        return (E) ae.ogA.d(eArr, j);
+        return (E) ae.ogD.d(eArr, j);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable

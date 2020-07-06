@@ -76,7 +76,7 @@ public class a {
         this.mPageContext.registerListener(this.gEj);
     }
 
-    public void bLQ() {
+    public void bLR() {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
         this.mPageContext.sendMessage(httpMessage);

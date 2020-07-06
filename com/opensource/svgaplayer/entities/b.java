@@ -13,30 +13,30 @@ import kotlin.text.l;
 @h
 /* loaded from: classes.dex */
 public final class b {
-    private final String nBK;
-    private Path nBL;
+    private final String nBN;
+    private Path nBO;
 
     public b(String str) {
         q.m(str, "originValue");
-        this.nBK = l.a((CharSequence) str, (CharSequence) Constants.ACCEPT_TIME_SEPARATOR_SP, false, 2, (Object) null) ? l.a(str, Constants.ACCEPT_TIME_SEPARATOR_SP, " ", false, 4, (Object) null) : str;
+        this.nBN = l.a((CharSequence) str, (CharSequence) Constants.ACCEPT_TIME_SEPARATOR_SP, false, 2, (Object) null) ? l.a(str, Constants.ACCEPT_TIME_SEPARATOR_SP, " ", false, 4, (Object) null) : str;
     }
 
     public final void a(Path path) {
         Set set;
         q.m(path, "toPath");
-        Path path2 = this.nBL;
+        Path path2 = this.nBO;
         if (path2 != null) {
             path.set(path2);
             return;
         }
         Path path3 = new Path();
-        StringTokenizer stringTokenizer = new StringTokenizer(this.nBK, "MLHVCSQRAZmlhvcsqraz", true);
+        StringTokenizer stringTokenizer = new StringTokenizer(this.nBN, "MLHVCSQRAZmlhvcsqraz", true);
         String str = "";
         while (stringTokenizer.hasMoreTokens()) {
             String nextToken = stringTokenizer.nextToken();
             q.l((Object) nextToken, "segment");
             if (!(nextToken.length() == 0)) {
-                set = c.nBM;
+                set = c.nBP;
                 if (set.contains(nextToken)) {
                     if (q.l((Object) nextToken, (Object) "Z") || q.l((Object) nextToken, (Object) "z")) {
                         a(path3, nextToken, new StringTokenizer("", ""));
@@ -48,7 +48,7 @@ public final class b {
                 str = nextToken;
             }
         }
-        this.nBL = path3;
+        this.nBO = path3;
         path.set(path3);
     }
 

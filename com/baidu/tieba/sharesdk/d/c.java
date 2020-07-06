@@ -85,14 +85,14 @@ public class c implements View.OnClickListener {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                c.this.dej();
+                c.this.dek();
                 c.this.lut.removeAllViews();
-                c.this.dei();
+                c.this.dej();
             }
         }
     };
     private final List<View> luu = new ArrayList();
-    protected final View mRootView = cbl();
+    protected final View mRootView = cbm();
     protected final View jrJ = this.mRootView.findViewById(R.id.share_dialog_main_view);
     private final TextView lus = (TextView) this.mRootView.findViewById(R.id.share_dialog_title);
 
@@ -110,8 +110,8 @@ public class c implements View.OnClickListener {
         ViewGroup.LayoutParams layoutParams = this.lut.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-            marginLayoutParams.leftMargin = ShareGridLayout.lTs;
-            marginLayoutParams.rightMargin = ShareGridLayout.lTs;
+            marginLayoutParams.leftMargin = ShareGridLayout.lTv;
+            marginLayoutParams.rightMargin = ShareGridLayout.lTv;
             this.lut.setLayoutParams(marginLayoutParams);
         }
         this.lut.setItemParams(gmk, gml);
@@ -119,11 +119,11 @@ public class c implements View.OnClickListener {
         this.lur.setOnClickListener(this);
     }
 
-    protected View cbl() {
+    protected View cbm() {
         return LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.default_share_dialog_layout, (ViewGroup) null);
     }
 
-    private void byx() {
+    private void byy() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.sharesdk.d.c.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
@@ -138,7 +138,7 @@ public class c implements View.OnClickListener {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private void del() {
+    private void dem() {
         ArrayList arrayList = new ArrayList(this.luu);
         this.luu.clear();
         if (!En(this.hideMode)) {
@@ -223,7 +223,7 @@ public class c implements View.OnClickListener {
         return linearLayout;
     }
 
-    public int deh() {
+    public int dei() {
         if (this.luu == null) {
             return 0;
         }
@@ -269,9 +269,9 @@ public class c implements View.OnClickListener {
     }
 
     public void a(ShareItem shareItem, boolean z) {
-        Location bPJ;
-        if (z && (bPJ = bPJ()) != null) {
-            shareItem.location = bPJ;
+        Location bPK;
+        if (z && (bPK = bPK()) != null) {
+            shareItem.location = bPK;
         }
         this.luw.put(1, shareItem);
         if (!StringUtils.isNull(shareItem.enB)) {
@@ -280,14 +280,14 @@ public class c implements View.OnClickListener {
     }
 
     public void b(int i, ShareItem shareItem, boolean z) {
-        Location bPJ;
-        if (z && (bPJ = bPJ()) != null) {
-            shareItem.location = bPJ;
+        Location bPK;
+        if (z && (bPK = bPK()) != null) {
+            shareItem.location = bPK;
         }
         this.luw.put(i, shareItem);
     }
 
-    private Location bPJ() {
+    private Location bPK() {
         if (ac.checkLocationForGoogle(this.mContext)) {
             LocationManager locationManager = (LocationManager) this.mContext.getSystemService("location");
             Criteria criteria = new Criteria();
@@ -311,8 +311,8 @@ public class c implements View.OnClickListener {
         }
     }
 
-    public void dei() {
-        del();
+    public void dej() {
+        dem();
         if (!f.bdk()) {
             this.lut.setVisibility(8);
         }
@@ -334,7 +334,7 @@ public class c implements View.OnClickListener {
         } else if (!f.bdk()) {
             l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.plugin_share_install_failure);
         } else {
-            dei();
+            dej();
             this.mDialog = new AlertDialog.Builder(this.mContext, R.style.DialogTheme).create();
             this.mDialog.setCanceledOnTouchOutside(true);
             this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.sharesdk.d.c.3
@@ -364,8 +364,8 @@ public class c implements View.OnClickListener {
                 window.setGravity(80);
                 a(window);
                 window.setContentView(this.mRootView);
-                dej();
-                byx();
+                dek();
+                byy();
                 i.G(this.mContext).registerListener(this.dPU);
             }
         }
@@ -727,7 +727,7 @@ public class c implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"ResourceAsColor"})
-    public void dej() {
+    public void dek() {
         an.setBackgroundResource(this.jrJ, R.drawable.transmit_share_dialog_background);
         an.setViewTextColor(this.lus, R.color.cp_cont_c, 1);
         an.setViewTextColor(this.lur, R.color.cp_cont_j, 1);

@@ -69,9 +69,9 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         SpecialColumnListData specialColumnListData = (SpecialColumnListData) getIntent().getParcelableExtra("data");
         if (specialColumnListData != null) {
             this.mNavigationBar.setCenterTextTitle(specialColumnListData.getTitle());
-            final List<SpecialColumnItemData> btZ = specialColumnListData.btZ();
-            if (btZ != null && btZ.size() > 0) {
-                SpecialColumnItemData specialColumnItemData = btZ.get(0);
+            final List<SpecialColumnItemData> bua = specialColumnListData.bua();
+            if (bua != null && bua.size() > 0) {
+                SpecialColumnItemData specialColumnItemData = bua.get(0);
                 if (specialColumnItemData.specialType == 1 || specialColumnItemData.specialType == 2) {
                     this.iwW.setLayoutManager(new LinearLayoutManager(this));
                 } else if (specialColumnItemData.specialType == 3 || specialColumnItemData.specialType == 4) {
@@ -79,7 +79,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                     gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() { // from class: com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondActivity.1
                         @Override // android.support.v7.widget.GridLayoutManager.SpanSizeLookup
                         public int getSpanSize(int i) {
-                            return i == btZ.size() ? 2 : 1;
+                            return i == bua.size() ? 2 : 1;
                         }
                     });
                     this.iwW.setLayoutManager(gridLayoutManager);
@@ -88,7 +88,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                     this.iwW.addItemDecoration(new p(dimens, l.getDimens(this, R.dimen.tbds11), dimens2));
                 }
             }
-            this.iwX = new a(this, btZ);
+            this.iwX = new a(this, bua);
         }
         this.iwX.a(this.iqN);
         this.iwW.setAdapter(this.iwX);

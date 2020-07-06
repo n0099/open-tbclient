@@ -72,8 +72,8 @@ public class d extends BdBaseView<GuardClubMemberListActivity> {
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                if (!d.this.fJW.isLoading() && d.this.fJs.bxA() && i + i2 > i3 - 2 && d.this.fJs.bxA()) {
-                    d.this.fJs.bxC();
+                if (!d.this.fJW.isLoading() && d.this.fJs.bxB() && i + i2 > i3 - 2 && d.this.fJs.bxB()) {
+                    d.this.fJs.bxD();
                 }
             }
         });
@@ -105,7 +105,7 @@ public class d extends BdBaseView<GuardClubMemberListActivity> {
                                     public void b(int i3, String str, Object obj) {
                                         d.this.fMi.qN(i2);
                                         if (d.this.fMi.getCount() <= 0) {
-                                            d.this.btR();
+                                            d.this.btS();
                                         }
                                         d.this.showToast(dVar2.aRa);
                                     }
@@ -126,7 +126,7 @@ public class d extends BdBaseView<GuardClubMemberListActivity> {
         }
     }
 
-    public void bxv() {
+    public void bxw() {
         if (this.fJW != null) {
             this.fJW.endLoadData();
             this.fMh.setNextPage(null);
@@ -146,7 +146,7 @@ public class d extends BdBaseView<GuardClubMemberListActivity> {
         }
     }
 
-    public void btJ() {
+    public void btK() {
         if (this.fJW != null) {
             if (this.fJW.getView().getParent() == null) {
                 this.fMh.setNextPage(this.fJW);
@@ -166,13 +166,13 @@ public class d extends BdBaseView<GuardClubMemberListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btR() {
+    public void btS() {
         bv(8, 0);
     }
 
     public void f(e eVar) {
         this.fJs = eVar;
-        this.fJs.bxB();
+        this.fJs.bxC();
     }
 
     public void bH(List<com.baidu.tieba.ala.guardclub.model.d> list) {
@@ -181,7 +181,7 @@ public class d extends BdBaseView<GuardClubMemberListActivity> {
             this.fMi.bH(list);
             return;
         }
-        btR();
+        btS();
     }
 
     private void bv(int i, int i2) {
@@ -210,14 +210,14 @@ public class d extends BdBaseView<GuardClubMemberListActivity> {
         makeText.show();
     }
 
-    public void bxt() {
+    public void bxu() {
         if (this.fMi != null) {
-            this.fMi.bxt();
+            this.fMi.bxu();
         }
         MessageManager.getInstance().unRegisterListener(this.fzr);
     }
 
-    public void brD() {
+    public void brE() {
         this.bjC.reset();
         this.bjC.setTitle(a.i.sdk_net_fail_tip_rank);
         this.bjC.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.view.d.4
@@ -225,7 +225,7 @@ public class d extends BdBaseView<GuardClubMemberListActivity> {
             public void onClick(View view) {
                 d.this.bjC.setVisibility(8);
                 if (d.this.fJs != null) {
-                    d.this.fJs.bxB();
+                    d.this.fJs.bxC();
                 }
             }
         });

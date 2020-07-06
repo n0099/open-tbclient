@@ -13,7 +13,7 @@ public abstract class a {
 
     public abstract void aU(int i, String str);
 
-    public abstract void bHD();
+    public abstract void bHE();
 
     public a(f fVar) {
         this.fYL = fVar;
@@ -29,13 +29,13 @@ public abstract class a {
         switch (s) {
             case 2:
                 if (this.gmH != null) {
-                    this.gmH.bGr();
+                    this.gmH.bGs();
                     return;
                 }
                 return;
             case 3:
                 if (this.gmH != null) {
-                    this.gmH.bGs();
+                    this.gmH.bGt();
                     return;
                 }
                 return;
@@ -61,13 +61,13 @@ public abstract class a {
                 return;
             case 6:
                 if (this.gmH != null) {
-                    this.gmH.bGx();
+                    this.gmH.bGy();
                     return;
                 }
                 return;
             case 7:
                 if (this.gmH != null) {
-                    this.gmH.bGy();
+                    this.gmH.bGz();
                     return;
                 }
                 return;
@@ -88,7 +88,7 @@ public abstract class a {
 
     public void c(com.baidu.tieba.ala.liveroom.data.e eVar) {
         this.glk = eVar;
-        bHD();
+        bHE();
     }
 
     public void c(h hVar) {
@@ -109,15 +109,15 @@ public abstract class a {
         }
     }
 
-    public void bHE() {
-        if (this.gmH != null) {
-            this.gmH.bGB();
-        }
-    }
-
     public void bHF() {
         if (this.gmH != null) {
             this.gmH.bGC();
+        }
+    }
+
+    public void bHG() {
+        if (this.gmH != null) {
+            this.gmH.bGD();
         }
     }
 
@@ -127,20 +127,20 @@ public abstract class a {
         }
     }
 
-    public boolean bHG() {
+    public boolean bHH() {
         if (this.gmH != null) {
-            return this.gmH.bGz();
+            return this.gmH.bGA();
         }
         return false;
     }
 
-    public void bHH() {
+    public void bHI() {
         if (this.gmH != null) {
-            this.gmH.bGA();
+            this.gmH.bGB();
         }
     }
 
-    public boolean bHI() {
+    public boolean bHJ() {
         return this.mCurrentState == 5;
     }
 

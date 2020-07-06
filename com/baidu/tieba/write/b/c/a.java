@@ -13,27 +13,27 @@ import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class a {
     private boolean isOriginalImg;
-    private b mpj;
-    private e mpi = new e(true);
+    private b mpm;
+    private e mpl = new e(true);
     private com.baidu.tbadk.img.b eyc = new com.baidu.tbadk.img.b();
 
     /* renamed from: com.baidu.tieba.write.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0765a {
-        void cBH();
+    public interface InterfaceC0766a {
+        void cBI();
     }
 
-    public void a(LinkedList<ImageFileInfo> linkedList, boolean z, InterfaceC0765a interfaceC0765a) {
+    public void a(LinkedList<ImageFileInfo> linkedList, boolean z, InterfaceC0766a interfaceC0766a) {
         if (linkedList == null || linkedList.size() <= 0) {
-            if (interfaceC0765a != null) {
-                interfaceC0765a.cBH();
+            if (interfaceC0766a != null) {
+                interfaceC0766a.cBI();
                 return;
             }
             return;
         }
         this.isOriginalImg = z;
-        if (this.mpj != null) {
-            this.mpj.cancel();
+        if (this.mpm != null) {
+            this.mpm.cancel();
         }
         LinkedList linkedList2 = new LinkedList();
         Iterator<ImageFileInfo> it = linkedList.iterator();
@@ -44,21 +44,21 @@ public class a {
             }
         }
         if (linkedList2.size() > 0) {
-            this.mpj = new b(linkedList, interfaceC0765a);
-            this.mpj.execute(new String[0]);
-        } else if (interfaceC0765a != null) {
-            interfaceC0765a.cBH();
+            this.mpm = new b(linkedList, interfaceC0766a);
+            this.mpm.execute(new String[0]);
+        } else if (interfaceC0766a != null) {
+            interfaceC0766a.cBI();
         }
     }
 
     /* loaded from: classes2.dex */
     public class b extends BdAsyncTask<String, Void, Void> {
-        LinkedList<ImageFileInfo> mpk;
-        InterfaceC0765a mpl;
+        LinkedList<ImageFileInfo> mpn;
+        InterfaceC0766a mpo;
 
-        public b(LinkedList<ImageFileInfo> linkedList, InterfaceC0765a interfaceC0765a) {
-            this.mpk = linkedList;
-            this.mpl = interfaceC0765a;
+        public b(LinkedList<ImageFileInfo> linkedList, InterfaceC0766a interfaceC0766a) {
+            this.mpn = linkedList;
+            this.mpo = interfaceC0766a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,12 +66,12 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(String... strArr) {
             try {
-                if (this.mpk != null) {
-                    Iterator<ImageFileInfo> it = this.mpk.iterator();
+                if (this.mpn != null) {
+                    Iterator<ImageFileInfo> it = this.mpn.iterator();
                     while (it.hasNext()) {
                         ImageFileInfo next = it.next();
                         String j = a.this.j(next);
-                        com.baidu.tieba.write.b.a.OV(j);
+                        com.baidu.tieba.write.b.a.OW(j);
                         next.setFilePath(j);
                         next.setContentUriStr(null);
                     }
@@ -85,8 +85,8 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Void r2) {
-            if (this.mpl != null) {
-                this.mpl.cBH();
+            if (this.mpo != null) {
+                this.mpo.cBI();
             }
         }
     }
@@ -99,7 +99,7 @@ public class a {
         if (imageFileInfo.getImageType() == 1) {
             return k(imageFileInfo);
         }
-        return this.mpi.c(imageFileInfo, this.isOriginalImg);
+        return this.mpl.c(imageFileInfo, this.isOriginalImg);
     }
 
     private String k(ImageFileInfo imageFileInfo) {

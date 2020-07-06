@@ -17,7 +17,7 @@ public class c extends a {
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        buL();
+        buM();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
@@ -36,7 +36,7 @@ public class c extends a {
             public void onClick(View view) {
                 if (!TextUtils.isEmpty(c.this.fvt.ftF)) {
                     bc.aWU().a(c.this.mTbPageContext, new String[]{c.this.fvt.ftF}, true);
-                    com.baidu.tieba.ala.alasquare.c.a.buo().c("c12909", c.this.fvt.ftH, 3, "-1");
+                    com.baidu.tieba.ala.alasquare.c.a.bup().c("c12909", c.this.fvt.ftH, 3, "-1");
                 }
             }
         });
@@ -53,8 +53,8 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
-    public void buM() {
-        super.buM();
+    public void buN() {
+        super.buN();
         if (this.dYH != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.dYH.getLayoutParams();
             layoutParams.width = this.mScreenWidth;
@@ -72,7 +72,7 @@ public class c extends a {
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
         super.a(aVar);
         this.dYH.startLoad(aVar.ftD, 10, false);
-        com.baidu.tieba.ala.alasquare.c.a.buo().c("c12908", this.fvt.ftH, 3, "-1");
+        com.baidu.tieba.ala.alasquare.c.a.bup().c("c12908", this.fvt.ftH, 3, "-1");
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a

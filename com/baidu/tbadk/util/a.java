@@ -9,7 +9,7 @@ public class a {
     private com.baidu.tbadk.coreExtra.data.a emJ;
     private ABTestExtraData emK;
 
-    public static a biv() {
+    public static a biw() {
         if (eDL == null) {
             synchronized (a.class) {
                 if (eDL == null) {
@@ -41,7 +41,7 @@ public class a {
         this.emK = aBTestExtraData;
     }
 
-    public String biw() {
+    public String bix() {
         if (this.emK == null) {
             this.emK = new ABTestExtraData();
             this.emK.parserABTestExtraFormSharedPref();

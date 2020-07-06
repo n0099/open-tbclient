@@ -96,7 +96,7 @@ public class EnterForumAdView extends FrameLayout {
     }
 
     public void setAdData() {
-        bTi();
+        bTj();
         ((ViewGroup) getRootView()).setClipChildren(false);
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.height = getRootView().getHeight();
@@ -106,7 +106,7 @@ public class EnterForumAdView extends FrameLayout {
         this.hjR.setLayoutParams(layoutParams2);
     }
 
-    private void bTi() {
+    private void bTj() {
         ao a2;
         if (this.hjR == null) {
             this.hjR = (TbImageView) findViewById(R.id.enter_forum_ad_image);
@@ -125,10 +125,10 @@ public class EnterForumAdView extends FrameLayout {
                 }
             });
         }
-        com.baidu.tieba.enterForum.data.b bSr = EnterForumDelegateStatic.hck.bSr();
-        if (bSr != null && bSr.isValid()) {
+        com.baidu.tieba.enterForum.data.b bSs = EnterForumDelegateStatic.hck.bSs();
+        if (bSs != null && bSs.isValid()) {
             this.hjQ = true;
-            this.hjR.startLoad(bSr.hbq, 38, false);
+            this.hjR.startLoad(bSs.hbq, 38, false);
             invalidate();
             if (this.hjS != null) {
                 com.baidu.tieba.enterForum.data.c cVar = new com.baidu.tieba.enterForum.data.c();
@@ -141,9 +141,9 @@ public class EnterForumAdView extends FrameLayout {
                 this.hjS.dispatchMvcEvent(bVar);
             }
             setVisibility(0);
-            if (this.hjU != bSr && (a2 = com.baidu.tieba.s.a.a(false, PageStayDurationConstants.PageName.ENTER_FORUM, "common_exp", 0, 1, true, String.valueOf(bSr.hbp), String.valueOf(bSr.hbp), 5)) != null) {
-                com.baidu.tieba.s.c.dgX().a(this.mTag, com.baidu.tieba.s.a.MQ("" + bSr.hbp), a2);
-                com.baidu.tieba.s.c.dgX().b(this.mTag, false);
+            if (this.hjU != bSs && (a2 = com.baidu.tieba.s.a.a(false, PageStayDurationConstants.PageName.ENTER_FORUM, "common_exp", 0, 1, true, String.valueOf(bSs.hbp), String.valueOf(bSs.hbp), 5)) != null) {
+                com.baidu.tieba.s.c.dgY().a(this.mTag, com.baidu.tieba.s.a.MQ("" + bSs.hbp), a2);
+                com.baidu.tieba.s.c.dgY().b(this.mTag, false);
             }
         } else {
             if (this.hjS != null) {
@@ -158,7 +158,7 @@ public class EnterForumAdView extends FrameLayout {
             }
             setVisibility(8);
         }
-        this.hjU = bSr;
+        this.hjU = bSs;
     }
 
     @Override // android.widget.FrameLayout, android.view.View
@@ -175,7 +175,7 @@ public class EnterForumAdView extends FrameLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         this.hjM.setBounds(0, -i2, getMeasuredWidth(), (-i2) + getResources().getDimensionPixelOffset(R.dimen.tbds260));
-        if (z && EnterForumDelegateStatic.hck.bSr() != null && this.hjS != null) {
+        if (z && EnterForumDelegateStatic.hck.bSs() != null && this.hjS != null) {
             com.baidu.tieba.enterForum.data.c cVar = new com.baidu.tieba.enterForum.data.c();
             cVar.hbs = true;
             cVar.hbt = false;
@@ -207,15 +207,15 @@ public class EnterForumAdView extends FrameLayout {
 
     public static final void a(BdUniqueId bdUniqueId, Context context) {
         ao a2;
-        com.baidu.tieba.enterForum.data.b bSr = EnterForumDelegateStatic.hck.bSr();
-        if (bSr != null) {
-            String str = EnterForumDelegateStatic.hck.bSr().awR;
+        com.baidu.tieba.enterForum.data.b bSs = EnterForumDelegateStatic.hck.bSs();
+        if (bSs != null) {
+            String str = EnterForumDelegateStatic.hck.bSs().awR;
             if (!TextUtils.isEmpty(str)) {
                 if (context != null) {
                     com.baidu.tbadk.browser.a.startWebActivity(context, str);
                 }
-                if (bdUniqueId != null && (a2 = com.baidu.tieba.s.a.a(true, PageStayDurationConstants.PageName.ENTER_FORUM, "common_click", 3, 1, true, String.valueOf(bSr.hbp), String.valueOf(bSr.hbp), 5)) != null) {
-                    com.baidu.tieba.s.c.dgX().b(bdUniqueId, a2);
+                if (bdUniqueId != null && (a2 = com.baidu.tieba.s.a.a(true, PageStayDurationConstants.PageName.ENTER_FORUM, "common_click", 3, 1, true, String.valueOf(bSs.hbp), String.valueOf(bSs.hbp), 5)) != null) {
+                    com.baidu.tieba.s.c.dgY().b(bdUniqueId, a2);
                 }
             }
         }
@@ -231,11 +231,11 @@ public class EnterForumAdView extends FrameLayout {
         invalidate();
     }
 
-    public boolean bTj() {
+    public boolean bTk() {
         return this.hjT;
     }
 
-    public boolean bTk() {
+    public boolean bTl() {
         return this.isShow;
     }
 

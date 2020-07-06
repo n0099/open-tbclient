@@ -13,13 +13,13 @@ public interface h {
 
     void bq(int i, String str);
 
-    void cCr();
-
     void cCs();
 
     void cCt();
 
     void cCu();
+
+    void cCv();
 
     void l(int i, int i2, String str);
 }

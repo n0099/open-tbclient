@@ -54,7 +54,7 @@ public class d {
             }
             final String md5 = Md5.toMd5(str);
             fhH.add(str);
-            com.baidu.tieba.ala.alaar.sticker.download.b.bsn().a(str, avg, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.d.1
+            com.baidu.tieba.ala.alaar.sticker.download.b.bso().a(str, avg, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.d.1
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onStarted() {
                     super.onStarted();

@@ -52,7 +52,7 @@ public class EmotionEditModel extends BdBaseModel {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003348 && (httpResponsedMessage instanceof EmotionCheckUegResponseMessage)) {
                 String status = ((EmotionCheckUegResponseMessage) httpResponsedMessage).getStatus();
                 if (EmotionCheckUegResponseMessage.STATUS_OK.equals(status)) {
-                    EmotionEditModel.this.kCt.cQW();
+                    EmotionEditModel.this.kCt.cQX();
                 } else if (EmotionCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                     String msg = ((EmotionCheckUegResponseMessage) httpResponsedMessage).getMsg();
                     if (TextUtils.isEmpty(msg)) {
@@ -78,7 +78,7 @@ public class EmotionEditModel extends BdBaseModel {
 
         void c(ImageUploadResult imageUploadResult);
 
-        void cQW();
+        void cQX();
     }
 
     public EmotionEditModel(EmotionEditActivity emotionEditActivity, a aVar) {
@@ -93,7 +93,7 @@ public class EmotionEditModel extends BdBaseModel {
     public void setCancel(boolean z) {
         this.hoC = z;
         if (this.hoC) {
-            cRg();
+            cRh();
         }
     }
 
@@ -174,7 +174,7 @@ public class EmotionEditModel extends BdBaseModel {
                                     EmotionEditModel.this.a(createBitmap, bitmap);
                                     return;
                                 }
-                                aVar.cQX();
+                                aVar.cQY();
                                 File a2 = EmotionEditModel.this.a(byteArrayOutputStream, str);
                                 EmotionEditModel.this.a(createBitmap, bitmap);
                                 Message obtain = Message.obtain();
@@ -211,11 +211,11 @@ public class EmotionEditModel extends BdBaseModel {
     public boolean cancelLoadData() {
         MessageManager.getInstance().unRegisterListener(this.kCz);
         MessageManager.getInstance().unRegisterTask(1003348);
-        cRg();
+        cRh();
         return false;
     }
 
-    private void cRg() {
+    private void cRh() {
         if (this.kCu != null) {
             this.kCu.cancel();
         }

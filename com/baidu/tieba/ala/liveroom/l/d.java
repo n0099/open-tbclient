@@ -40,12 +40,12 @@ public class d extends Dialog implements View.OnClickListener {
     }
 
     public void show(String str) {
-        bFr();
+        bFs();
         this.aIh.startLoad(str, 25, false, false);
         show();
     }
 
-    public String bFo() {
+    public String bFp() {
         return this.bnm.getText().toString();
     }
 
@@ -75,11 +75,11 @@ public class d extends Dialog implements View.OnClickListener {
             window.setGravity(17);
             window.setBackgroundDrawableResource(17170445);
             window.getDecorView().setPadding(0, 0, 0, 0);
-            bFp();
+            bFq();
         }
     }
 
-    public void bFp() {
+    public void bFq() {
         WindowManager windowManager = (WindowManager) getContext().getSystemService("window");
         if (windowManager != null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -124,7 +124,7 @@ public class d extends Dialog implements View.OnClickListener {
         this.bnl.setOnClickListener(this);
     }
 
-    private void bFr() {
+    private void bFs() {
         if (this.aIh != null) {
             this.aIh.stopLoad();
         }

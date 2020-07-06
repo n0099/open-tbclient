@@ -27,7 +27,7 @@ public class b {
     public static void a(com.baidu.tieba.newdetail.adapter.a.a aVar, AbsThreadDataSupport absThreadDataSupport) {
         if (absThreadDataSupport != null && absThreadDataSupport.aPS() != null) {
             bu aPS = absThreadDataSupport.aPS();
-            ao aoVar = new ao(aVar.cEc() ? "c13823" : "c13822");
+            ao aoVar = new ao(aVar.cEd() ? "c13823" : "c13822");
             aoVar.dk("tid", aPS.getTid());
             aoVar.s("fid", aPS.getFid());
             aoVar.dk("uid", TbadkCoreApplication.getCurrentAccount());
@@ -38,7 +38,7 @@ public class b {
     public static void b(com.baidu.tieba.newdetail.adapter.a.a aVar, AbsThreadDataSupport absThreadDataSupport) {
         if (absThreadDataSupport != null && absThreadDataSupport.aPS() != null) {
             bu aPS = absThreadDataSupport.aPS();
-            ao aoVar = new ao(aVar.cEc() ? "c13824" : "c13821");
+            ao aoVar = new ao(aVar.cEd() ? "c13824" : "c13821");
             aoVar.dk("tid", aPS.getTid());
             aoVar.s("fid", aPS.getFid());
             aoVar.dk("uid", TbadkCoreApplication.getCurrentAccount());

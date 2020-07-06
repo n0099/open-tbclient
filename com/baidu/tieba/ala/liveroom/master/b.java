@@ -49,7 +49,7 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
                 this.mRootView.setVisibility(0);
             }
             this.eyF.setText(str);
-            bHu();
+            bHv();
         }
     }
 
@@ -61,7 +61,7 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    private void bHu() {
+    private void bHv() {
         this.agB = BdUtilHelper.getScreenSize((Activity) this.mContext).widthPixels;
         this.gmi = ObjectAnimator.ofFloat(this.mRootView, "TranslationX", this.agB, -this.agB);
         this.gmi.setDuration(this.gmj);

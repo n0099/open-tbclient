@@ -21,7 +21,7 @@ public class AlaLootRedPacketResultResponseMessage extends JsonHttpResponsedMess
         }
     }
 
-    public d bKI() {
+    public d bKJ() {
         return this.gwk;
     }
 }

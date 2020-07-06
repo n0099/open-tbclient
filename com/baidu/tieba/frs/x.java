@@ -60,11 +60,11 @@ public class x implements com.baidu.adp.widget.ListView.q {
         return this.hDs;
     }
 
-    public String bZN() {
+    public String bZO() {
         return this.hDt;
     }
 
-    public boolean bZO() {
+    public boolean bZP() {
         return this.hDu;
     }
 

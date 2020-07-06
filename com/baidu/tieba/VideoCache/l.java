@@ -7,7 +7,7 @@ public class l {
     private static l eWO;
     private ExecutorService bKx = Executors.newFixedThreadPool(10);
 
-    public static l boj() {
+    public static l bok() {
         if (eWO == null) {
             synchronized (l.class) {
                 if (eWO == null) {

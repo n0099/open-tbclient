@@ -28,12 +28,12 @@ public class ImageOverlayView extends ViewGroup {
     private int mImageHeight;
     private int mImageWidth;
     private Paint mStrokePaint;
-    private RectF miA;
-    private int miz;
+    private int miC;
+    private RectF miD;
 
     /* loaded from: classes.dex */
     public interface a {
-        void dqw();
+        void dqA();
     }
 
     public ImageOverlayView(Context context) {
@@ -53,23 +53,23 @@ public class ImageOverlayView extends ViewGroup {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (ImageOverlayView.this.hjG != null) {
-                    ImageOverlayView.this.hjG.dqw();
+                    ImageOverlayView.this.hjG.dqA();
                 }
             }
         };
         qP();
-        this.miA = new RectF();
+        this.miD = new RectF();
     }
 
     public void k(int i, int i2, int i3, int i4, int i5, int i6) {
         this.hjC = i;
-        this.miz = i;
+        this.miC = i;
         this.mImageWidth = i2;
         this.mImageHeight = i3;
         this.hjD = i4;
         this.hjE = i5;
         this.hjF = i6;
-        bTh();
+        bTi();
     }
 
     public void setFirstImageStrokeColor(@ColorRes int i) {
@@ -86,7 +86,7 @@ public class ImageOverlayView extends ViewGroup {
         this.mStrokePaint.setStyle(Paint.Style.STROKE);
     }
 
-    private void bTh() {
+    private void bTi() {
         for (int i = 0; i < this.hjC; i++) {
             HeadImageView headImageView = new HeadImageView(getContext());
             headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.mImageWidth, this.mImageHeight));
@@ -107,7 +107,7 @@ public class ImageOverlayView extends ViewGroup {
         if (this.hjJ == 1) {
             i3 = this.hjD * 2;
         }
-        setMeasuredDimension(resolveSize(((i3 + (getPaddingLeft() + getPaddingRight())) + (this.miz * this.mImageWidth)) - ((this.miz - 1) * this.hjF), i), resolveSize(getPaddingTop() + getPaddingBottom() + this.mImageHeight + (this.hjD * 2), i2));
+        setMeasuredDimension(resolveSize(((i3 + (getPaddingLeft() + getPaddingRight())) + (this.miC * this.mImageWidth)) - ((this.miC - 1) * this.hjF), i), resolveSize(getPaddingTop() + getPaddingBottom() + this.mImageHeight + (this.hjD * 2), i2));
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -120,11 +120,11 @@ public class ImageOverlayView extends ViewGroup {
             paddingLeft = this.hjD + getPaddingLeft();
             paddingTop = getPaddingTop() + this.hjD;
         } else {
-            paddingLeft = this.hjD + getPaddingLeft() + ((this.miz - 1) * (this.mImageWidth - this.hjF));
+            paddingLeft = this.hjD + getPaddingLeft() + ((this.miC - 1) * (this.mImageWidth - this.hjF));
             paddingTop = getPaddingTop() + this.hjD;
         }
         int i5 = paddingLeft;
-        for (int i6 = 0; i6 < this.miz; i6++) {
+        for (int i6 = 0; i6 < this.miC; i6++) {
             if (i6 < getChildCount() && (childAt2 = getChildAt(i6)) != null) {
                 childAt2.setVisibility(0);
                 if (this.hjH) {
@@ -138,7 +138,7 @@ public class ImageOverlayView extends ViewGroup {
                 return;
             }
         }
-        for (int i7 = this.miz; i7 < this.hjC && i7 < getChildCount() && (childAt = getChildAt(i7)) != null; i7++) {
+        for (int i7 = this.miC; i7 < this.hjC && i7 < getChildCount() && (childAt = getChildAt(i7)) != null; i7++) {
             childAt.setVisibility(8);
         }
     }
@@ -158,17 +158,17 @@ public class ImageOverlayView extends ViewGroup {
                 float f2 = this.mImageWidth / 2.0f;
                 float acos = ((float) ((Math.acos((((f2 * 2.0f) - this.hjF) / 2.0f) / f2) / 3.141592653589793d) * 180.0d)) - 180.0f;
                 float abs = Math.abs(acos * 2.0f);
-                int i2 = this.hjH ? 0 : this.miz - 1;
+                int i2 = this.hjH ? 0 : this.miC - 1;
                 int i3 = 0;
-                while (i3 < this.miz) {
+                while (i3 < this.miC) {
                     if (getChildAt(i3) instanceof HeadImageView) {
-                        this.miA.set(childAt2.getLeft() - f, childAt2.getTop() - f, childAt2.getRight() + f, childAt2.getBottom() + f);
+                        this.miD.set(childAt2.getLeft() - f, childAt2.getTop() - f, childAt2.getRight() + f, childAt2.getBottom() + f);
                         if (i3 == i2) {
                             this.mStrokePaint.setColor(an.getColor(this.hjI));
                         } else {
                             this.mStrokePaint.setColor(an.getColor(this.hjE));
                         }
-                        canvas.drawArc(this.miA, i3 == i2 ? 0.0f : acos, i3 == i2 ? 360.0f : abs, false, this.mStrokePaint);
+                        canvas.drawArc(this.miD, i3 == i2 ? 0.0f : acos, i3 == i2 ? 360.0f : abs, false, this.mStrokePaint);
                     }
                     i3++;
                 }
@@ -178,11 +178,11 @@ public class ImageOverlayView extends ViewGroup {
         }
         while (true) {
             int i4 = i;
-            if (i4 < this.miz && i4 < getChildCount() && (childAt = getChildAt(i4)) != null) {
+            if (i4 < this.miC && i4 < getChildCount() && (childAt = getChildAt(i4)) != null) {
                 float f3 = this.hjD * 0.5f;
                 if (childAt instanceof HeadImageView) {
-                    this.miA.set(childAt.getLeft() - f3, childAt.getTop() - f3, childAt.getRight() + f3, childAt.getBottom() + f3);
-                    canvas.drawArc(this.miA, -90.0f, 180.0f, false, this.mStrokePaint);
+                    this.miD.set(childAt.getLeft() - f3, childAt.getTop() - f3, childAt.getRight() + f3, childAt.getBottom() + f3);
+                    canvas.drawArc(this.miD, -90.0f, 180.0f, false, this.mStrokePaint);
                 }
                 i = i4 + 1;
             } else {
@@ -193,8 +193,8 @@ public class ImageOverlayView extends ViewGroup {
 
     public void setData(List<String> list) {
         String str;
-        this.miz = Math.min(this.hjC, w.getCount(list));
-        for (int i = 0; i < this.miz; i++) {
+        this.miC = Math.min(this.hjC, w.getCount(list));
+        for (int i = 0; i < this.miC; i++) {
             HeadImageView headImageView = (HeadImageView) getChildAt(i);
             if (headImageView != null && (str = (String) w.getItem(list, (list.size() - i) - 1)) != null) {
                 if (this.gKW == 12) {

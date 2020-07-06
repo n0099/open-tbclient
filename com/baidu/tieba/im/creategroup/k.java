@@ -22,7 +22,7 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
     NavigationBar mNavigationBar;
     View mParent;
 
-    public View cpf() {
+    public View cpg() {
         return this.eDq;
     }
 
@@ -80,7 +80,7 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
         this.eDq = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressEditActivity.getResources().getString(R.string.save));
     }
 
-    public void cpg() {
+    public void cph() {
         this.iPl.notifyDataSetChanged();
     }
 

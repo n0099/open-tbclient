@@ -73,7 +73,7 @@ public class b {
         this.fGf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.bwX();
+                b.this.bwY();
             }
         });
         if (this.fFT) {
@@ -88,7 +88,7 @@ public class b {
         }
     }
 
-    private void bwW() {
+    private void bwX() {
         an.setViewTextColor(this.fGk, (int) R.color.cp_cont_d);
         an.setViewTextColor(this.fGl, (int) R.color.cp_cont_d);
         an.setViewTextColor(this.fGm, (int) R.color.cp_cont_d);
@@ -121,15 +121,15 @@ public class b {
         if (this.ahx != i) {
             this.ahx = i;
         }
-        bwW();
+        bwX();
         an.setViewTextColor(this.fGe, (int) R.color.cp_cont_d);
         an.setViewTextColor(this.fGf, (int) R.color.cp_cont_d);
         this.fGf.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, an.getDrawable(R.drawable.icon_gamefrs_arrow_n), (Drawable) null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bwX() {
-        buS();
+    public void bwY() {
+        buT();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -141,7 +141,7 @@ public class b {
         }
     }
 
-    private void bwY() {
+    private void bwZ() {
         if (this.fws == null) {
             this.fws = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.ala_frs_game_live_sort_panel, (ViewGroup) null);
             this.fGg = (TextView) this.fws.findViewById(R.id.frs_game_live_hot);
@@ -173,14 +173,14 @@ public class b {
             this.fwr.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.b.5
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
-                    b.this.bwZ();
+                    b.this.bxa();
                 }
             });
         }
     }
 
-    private void buS() {
-        bwY();
+    private void buT() {
+        bwZ();
         an.setBackgroundResource(this.fws, R.drawable.bg_ala_frs_game_live_sort_panel);
         an.setBackgroundResource(this.fGg, R.drawable.ala_frs_game_live_sort_selecor);
         an.setBackgroundResource(this.fGh, R.drawable.ala_frs_game_live_sort_selecor);
@@ -199,7 +199,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bwZ() {
+    public void bxa() {
     }
 
     public View getRootView() {
@@ -227,14 +227,14 @@ public class b {
             }
             this.fGp.setDatas(list);
             if (z2) {
-                bxa();
+                bxb();
             } else {
-                btI();
+                btJ();
             }
         }
     }
 
-    public void bxa() {
+    public void bxb() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.fml.setNextPage(this.fnt);
@@ -244,7 +244,7 @@ public class b {
         }
     }
 
-    public void btI() {
+    public void btJ() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.fml.setNextPage(this.fnt);
@@ -254,7 +254,7 @@ public class b {
         }
     }
 
-    public void btJ() {
+    public void btK() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.fml.setNextPage(this.fnt);

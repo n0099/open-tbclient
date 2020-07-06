@@ -38,7 +38,7 @@ public class CustomScrollView extends ScrollView {
     protected Field scrollerField;
 
     /* renamed from: top  reason: collision with root package name */
-    public int f995top;
+    public int f996top;
 
     /* loaded from: classes8.dex */
     public interface b {
@@ -75,18 +75,18 @@ public class CustomScrollView extends ScrollView {
         this.g = new GestureDetector(context, new a());
         setFadingEdgeLength(0);
         setVerticalScrollBarEnabled(false);
-        this.f995top = com.baidu.platform.comapi.wnplatform.o.g.c(context) - com.baidu.platform.comapi.wnplatform.o.g.d(context);
+        this.f996top = com.baidu.platform.comapi.wnplatform.o.g.c(context) - com.baidu.platform.comapi.wnplatform.o.g.d(context);
         this.bottom = 0;
         this.c = 3;
         com.baidu.platform.comapi.wnplatform.o.a.a.a((Activity) getContext(), R.layout.abc_action_mode_close_item_material, this);
         this.j = (LinearLayout) findViewById(R.raw.lottie_use_publish_cj_n_2);
         this.l = (LinearLayout) findViewById(R.raw.lottie_use_publish_cj_n_1);
-        this.l.setMinimumHeight(this.f995top);
+        this.l.setMinimumHeight(this.f996top);
     }
 
     public void setStatusHeight(int i, int i2) {
         this.l.setMinimumHeight(i);
-        this.f995top = i;
+        this.f996top = i;
         this.bottom = i2;
         this.c = 3;
     }
@@ -145,7 +145,7 @@ public class CustomScrollView extends ScrollView {
                 if (i > 1000 || i2 < this.c) {
                     return com.baidu.platform.comapi.wnplatform.n.b.BOTTOM;
                 }
-                if (i2 > this.f995top) {
+                if (i2 > this.f996top) {
                     return com.baidu.platform.comapi.wnplatform.n.b.NULL;
                 }
                 return com.baidu.platform.comapi.wnplatform.n.b.TOP;
@@ -209,10 +209,10 @@ public class CustomScrollView extends ScrollView {
                 }
             case TOP:
                 if (z) {
-                    smoothScrollTo(0, this.f995top);
+                    smoothScrollTo(0, this.f996top);
                     return;
                 } else {
-                    scrollTo(0, this.f995top);
+                    scrollTo(0, this.f996top);
                     return;
                 }
             default:

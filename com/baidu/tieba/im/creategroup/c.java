@@ -11,7 +11,7 @@ public class c {
     public static String iOf = "pic_benba";
 
     public static String a(Activity activity, String str, boolean z) {
-        return z ? com.baidu.tbadk.util.c.biA().getUrlByNet(str + "_1.png") : com.baidu.tbadk.util.c.biA().getUrlByNet(str + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX);
+        return z ? com.baidu.tbadk.util.c.biB().getUrlByNet(str + "_1.png") : com.baidu.tbadk.util.c.biB().getUrlByNet(str + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX);
     }
 
     public static void b(Activity activity, String str, boolean z) {

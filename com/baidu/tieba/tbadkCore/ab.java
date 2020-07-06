@@ -16,7 +16,7 @@ public class ab extends bu {
         return lET;
     }
 
-    public boolean dhx() {
+    public boolean dhy() {
         return this.ftM;
     }
 
@@ -24,7 +24,7 @@ public class ab extends bu {
         this.ftM = z;
     }
 
-    public bw dhy() {
+    public bw dhz() {
         return this.lEU;
     }
 
@@ -32,7 +32,7 @@ public class ab extends bu {
         this.lEU = bwVar;
     }
 
-    public bz dhz() {
+    public bz dhA() {
         return this.lEV;
     }
 

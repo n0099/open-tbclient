@@ -3,15 +3,15 @@ package com.baidu.tieba.tbadkCore.util;
 public class e {
     private static boolean lIT = false;
 
-    public static void dje() {
+    public static void djf() {
         lIT = true;
     }
 
-    public static void djf() {
+    public static void djg() {
         lIT = false;
     }
 
-    public static boolean djg() {
+    public static boolean djh() {
         return lIT;
     }
 }

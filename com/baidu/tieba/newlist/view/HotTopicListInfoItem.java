@@ -98,7 +98,7 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
                 this.irc.setVisibility(0);
                 this.irc.setText(s);
             }
-            cjq();
+            cjr();
             if (bVar.replyNum > 0) {
                 this.jUY.setVisibility(0);
                 this.jUY.setText(this.jUY.getContext().getResources().getString(R.string.hot_topic_rank_item_tag, ar.cn(bVar.replyNum)));
@@ -109,7 +109,7 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
         }
     }
 
-    private void cjq() {
+    private void cjr() {
         if (this.jVb != null) {
             int lz = TagTextHelper.lz(this.jVb.tag);
             Drawable background = this.irc.getBackground();
@@ -132,7 +132,7 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
             an.setViewTextColor(this.dDu, (int) R.color.cp_cont_b);
             an.setViewTextColor(this.jUZ, (int) R.color.cp_cont_b);
             an.setViewTextColor(this.jVa, (int) R.color.cp_cont_b);
-            cjq();
+            cjr();
             this.iqP = i;
         }
     }

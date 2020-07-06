@@ -72,7 +72,7 @@ public class ImMessageCenterListAdapter extends c {
             if (!d.bbV().bbZ()) {
                 str = "";
             } else {
-                if (!f.ctr().isAcceptNotify()) {
+                if (!f.cts().isAcceptNotify()) {
                     str = "";
                     i = 0;
                 }

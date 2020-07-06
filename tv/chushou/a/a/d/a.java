@@ -26,7 +26,7 @@ public final class a {
                     }
                 }
             } catch (IOException e) {
-                tv.chushou.a.a.c.a.dWq().e(null, "IOUtils:IOException thrown while closing Closeable.", e);
+                tv.chushou.a.a.c.a.dWu().e(null, "IOUtils:IOException thrown while closing Closeable.", e);
             }
         }
     }
@@ -133,7 +133,7 @@ public final class a {
                     b(fileInputStream);
                 } catch (IOException e) {
                     e = e;
-                    tv.chushou.a.a.c.a.dWq().e(null, "IOUtils:read string from file=" + file + " failed", e);
+                    tv.chushou.a.a.c.a.dWu().e(null, "IOUtils:read string from file=" + file + " failed", e);
                     b(fileInputStream);
                     return str2;
                 }
@@ -205,14 +205,14 @@ public final class a {
                                 r0 = 1;
                                 str3 = r3;
                             } else {
-                                ?? dWq = tv.chushou.a.a.c.a.dWq();
-                                dWq.e(null, "IOUtils:rename file failed");
-                                i = dWq;
+                                ?? dWu = tv.chushou.a.a.c.a.dWu();
+                                dWu.e(null, "IOUtils:rename file failed");
+                                i = dWu;
                                 str3 = r3;
                             }
                         } catch (IOException e) {
                             e = e;
-                            tv.chushou.a.a.c.a.dWq().e(null, "IOUtils:write string to file=" + file.getAbsolutePath() + " failed", e);
+                            tv.chushou.a.a.c.a.dWu().e(null, "IOUtils:write string to file=" + file.getAbsolutePath() + " failed", e);
                             ?? r1 = {r3};
                             b(r1);
                             i = r1;

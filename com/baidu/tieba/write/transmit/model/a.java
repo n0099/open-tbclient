@@ -16,8 +16,8 @@ public class a {
                 if ((responsedMessage instanceof GetRepostForumHttpResMessage) || (responsedMessage instanceof GetRepostForumSocketResMessage)) {
                     if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) || a.this.mRequestId == ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
                         if (responsedMessage.hasError()) {
-                            if (a.this.mlu != null) {
-                                a.this.mlu.onError();
+                            if (a.this.mlx != null) {
+                                a.this.mlx.onError();
                                 return;
                             }
                             return;
@@ -32,8 +32,8 @@ public class a {
                             a.this.recommendExt = ((GetRepostForumSocketResMessage) responsedMessage).getRecommendExtension();
                             a.this.privateThread = ((GetRepostForumSocketResMessage) responsedMessage).getPrivateThread();
                         }
-                        if (a.this.mlu != null) {
-                            a.this.mlu.h(a.this.idn, a.this.privateThread);
+                        if (a.this.mlx != null) {
+                            a.this.mlx.h(a.this.idn, a.this.privateThread);
                         }
                     }
                 }
@@ -43,7 +43,7 @@ public class a {
     private List<SimpleForum> idn;
     private BdUniqueId mBdUniqueId;
     private BdUniqueId mRequestId;
-    private InterfaceC0771a mlu;
+    private InterfaceC0772a mlx;
     private int privateThread;
     private String recommendExt;
     private String threadContent;
@@ -51,7 +51,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.write.transmit.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0771a {
+    public interface InterfaceC0772a {
         void h(List<SimpleForum> list, int i);
 
         void onError();
@@ -79,7 +79,7 @@ public class a {
         MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
     }
 
-    public void caR() {
+    public void caS() {
         MessageManager.getInstance().removeMessage(1003323, this.mBdUniqueId);
         MessageManager.getInstance().removeMessage(CmdConfigSocket.CMD_GET_REPOST_RECOMMEND_FORUM, this.mBdUniqueId);
     }
@@ -100,8 +100,8 @@ public class a {
         return this.recommendExt;
     }
 
-    public void a(InterfaceC0771a interfaceC0771a) {
-        this.mlu = interfaceC0771a;
+    public void a(InterfaceC0772a interfaceC0772a) {
+        this.mlx = interfaceC0772a;
     }
 
     public void destroy() {

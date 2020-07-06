@@ -212,7 +212,7 @@ public class a {
         }
     }
 
-    public void btN() {
+    public void btO() {
         if (this.gDD != null) {
             this.gDD.dettachView(this.gDE);
         }

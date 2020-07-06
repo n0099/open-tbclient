@@ -34,13 +34,13 @@ public class b extends Dialog {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bHq();
-
         void bHr();
 
         void bHs();
 
         void bHt();
+
+        void bHu();
 
         void ll(boolean z);
 
@@ -72,13 +72,13 @@ public class b extends Dialog {
                     } else if (i == 4) {
                         b.this.gmC.lo(z2);
                     } else if (i == 5) {
-                        b.this.gmC.bHq();
-                    } else if (i == 6) {
                         b.this.gmC.bHr();
-                    } else if (i == 7) {
+                    } else if (i == 6) {
                         b.this.gmC.bHs();
-                    } else if (i == 8) {
+                    } else if (i == 7) {
                         b.this.gmC.bHt();
+                    } else if (i == 8) {
+                        b.this.gmC.bHu();
                     }
                 }
             }
@@ -98,11 +98,11 @@ public class b extends Dialog {
         super.onCreate(bundle);
         StatusBarUtil.from(this).setTransparentStatusbar(true).process();
         createView();
+        bHA();
         bHz();
-        bHy();
     }
 
-    private void bHy() {
+    private void bHz() {
         this.gmz.addView(this.gmA);
         View view = new View(getContext());
         view.setBackgroundColor(getContext().getResources().getColor(a.d.sdk_white_alpha10));
@@ -130,7 +130,7 @@ public class b extends Dialog {
         }
     }
 
-    private void bHz() {
+    private void bHA() {
         Display defaultDisplay = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay();
         int navigationBarHeight = k.getNavigationBarHeight(getContext());
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
@@ -186,7 +186,7 @@ public class b extends Dialog {
         this.gmB.a(4, z ? (short) 1 : (short) 2);
     }
 
-    public void bHA() {
+    public void bHB() {
         this.gmB.notifyDataSetChanged();
     }
 }

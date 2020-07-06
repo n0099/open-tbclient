@@ -50,7 +50,7 @@ public class b {
         this.fml.setPullRefresh(this.mPullView);
         this.hwP = BdListViewHelper.a(this.mActivity.getPageContext().getPageActivity(), this.fml, BdListViewHelper.HeadType.DEFAULT);
         this.hwQ = new a(this.mActivity, this.fml);
-        this.fml.addAdapters(this.hwQ.btV());
+        this.fml.addAdapters(this.hwQ.btW());
     }
 
     public void showLoadingView() {
@@ -68,7 +68,7 @@ public class b {
         this.mActivity.showNetRefreshView(this.mRootView, str, true);
     }
 
-    public void btN() {
+    public void btO() {
         this.fml.setVisibility(0);
         this.mActivity.hideNetRefreshView(this.mRootView);
     }

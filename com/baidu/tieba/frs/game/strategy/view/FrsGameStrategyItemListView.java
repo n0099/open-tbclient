@@ -168,7 +168,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements com.baid
             this.fml.completePullRefresh();
             if (w.isEmpty(list) && w.isEmpty(this.mData)) {
                 DI(getContext().getString(R.string.no_data_text));
-                buK();
+                buL();
                 this.mHasMore = false;
                 return;
             }
@@ -178,9 +178,9 @@ public class FrsGameStrategyItemListView extends FrameLayout implements com.baid
             this.hOa.setData(this.mData);
             this.mHasMore = z;
             if (z) {
-                buI();
-            } else {
                 buJ();
+            } else {
+                buK();
             }
         }
     }
@@ -192,28 +192,28 @@ public class FrsGameStrategyItemListView extends FrameLayout implements com.baid
             hideLoadingView();
             if (w.isEmpty(this.mData)) {
                 DI(str);
-                buK();
+                buL();
                 return;
             }
             this.mPageContext.showToast(str);
-            buJ();
+            buK();
         }
     }
 
-    private void buI() {
+    private void buJ() {
         this.mHasMore = true;
         this.fml.setNextPage(this.fnt);
         this.fnt.startLoadData();
     }
 
-    private void buJ() {
+    private void buK() {
         this.mHasMore = false;
         this.fml.setNextPage(this.fnt);
         this.fnt.endLoadData();
         this.fnt.setText(this.mPageContext.getResources().getString(R.string.list_no_more));
     }
 
-    private void buK() {
+    private void buL() {
         this.mHasMore = false;
         this.fml.setNextPage(null);
     }
@@ -284,13 +284,13 @@ public class FrsGameStrategyItemListView extends FrameLayout implements com.baid
     public void cf(int i, int i2) {
         this.hNn = i;
         this.hOb = i2;
-        buK();
+        buL();
         this.mData = new LinkedList();
         this.hOa.setData(this.mData);
         this.hNw.cb(i, i2);
     }
 
-    public void ccn() {
+    public void cco() {
         if (w.isEmpty(this.mData) && (this.hNn != 0 || this.hOb != 0)) {
             showLoadingView();
             this.hNw.bZ(this.hNn, this.hOb);

@@ -93,7 +93,7 @@ public class CharmRankTotalActivity extends BaseActivity implements View.OnTouch
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        brs();
+        brt();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -130,7 +130,7 @@ public class CharmRankTotalActivity extends BaseActivity implements View.OnTouch
                 h.V(this.mRootView);
                 q.e(getActivity(), true);
             }
-            brs();
+            brt();
         }
     }
 
@@ -150,7 +150,7 @@ public class CharmRankTotalActivity extends BaseActivity implements View.OnTouch
         zz();
     }
 
-    private void brs() {
+    private void brt() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());

@@ -40,7 +40,7 @@ public class bc {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (bc.this.hEy != null) {
-                    bc.this.cao();
+                    bc.this.cap();
                     bc.this.hEy.setAlpha(1.0f);
                 }
             }
@@ -74,7 +74,7 @@ public class bc {
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
         if (viewGroup != null && view != null) {
             this.hEy = view;
-            cao();
+            cap();
             viewGroup.addView(this.hEy, layoutParams);
             this.hEy.setVisibility(0);
             this.hEz = i;
@@ -86,7 +86,7 @@ public class bc {
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         if (viewGroup != null && view != null) {
             this.hEy = view;
-            cao();
+            cap();
             viewGroup.addView(this.hEy, layoutParams);
             this.hEy.setVisibility(0);
         }
@@ -99,7 +99,7 @@ public class bc {
         }
     }
 
-    public void cao() {
+    public void cap() {
         com.baidu.adp.lib.f.e.lt().removeCallbacks(this.bon);
         if (this.hEy != null) {
             if (this.hEA != null && this.hEA.isRunning()) {
@@ -114,6 +114,6 @@ public class bc {
     }
 
     public void onDestroy() {
-        cao();
+        cap();
     }
 }

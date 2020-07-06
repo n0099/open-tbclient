@@ -7,22 +7,22 @@ import com.baidu.ubs.analytics.d;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class a {
-    private static boolean mEu = false;
+    private static boolean mEx = false;
 
-    public static void Qa(String str) {
-        if (mEu) {
-            e.dxm().Qa(str);
+    public static void Qb(String str) {
+        if (mEx) {
+            e.dxq().Qb(str);
         }
     }
 
-    public static void Qb(String str) {
-        if (mEu) {
-            e.dxm().Qb(str);
+    public static void Qc(String str) {
+        if (mEx) {
+            e.dxq().Qc(str);
         }
     }
 
     public static void a(String str, String str2, String str3, Map<String, String> map) {
-        if (mEu && str != null) {
+        if (mEx && str != null) {
             j.b(str, str2, str3, map);
         }
     }
@@ -33,11 +33,11 @@ public class a {
         }
     }
 
-    public static SampleResult Qc(String str) {
-        return mEu ? d.a.mEC.Qd(str) : SampleResult.OTHERE;
+    public static SampleResult Qd(String str) {
+        return mEx ? d.a.mEF.Qe(str) : SampleResult.OTHERE;
     }
 
     public static void wl(boolean z) {
-        mEu = z;
+        mEx = z;
     }
 }

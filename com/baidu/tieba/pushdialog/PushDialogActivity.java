@@ -57,7 +57,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetWorkAvailable() && PushDialogActivity.this.lav != null) {
-                PushDialogActivity.this.lav.cXN();
+                PushDialogActivity.this.lav.cXO();
             }
         }
     };
@@ -91,7 +91,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         this.laA += "_1";
         TiebaStatic.eventStat(this, "push_dialog", this.laA);
         super.onCreate(bundle);
-        this.icI = com.baidu.tieba.screenlocknotify.a.daC().lno;
+        this.icI = com.baidu.tieba.screenlocknotify.a.daD().lno;
         if (this.lax == null) {
             this.lax = new com.baidu.tieba.ueg.b();
         }
@@ -175,7 +175,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
     }
 
-    public com.baidu.tieba.v.b cXD() {
+    public com.baidu.tieba.v.b cXE() {
         return this.icI;
     }
 
@@ -190,17 +190,17 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
-    public int bly() {
+    public int blz() {
         return R.id.push_dialog_content;
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
-    public com.baidu.adp.lib.d.b<ImageView> blz() {
+    public com.baidu.adp.lib.d.b<ImageView> blA() {
         if (this.eLl == null) {
             this.eLl = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.d.c
-                /* renamed from: blL */
+                /* renamed from: blM */
                 public ImageView makeObject() {
                     ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(PushDialogActivity.this);
                     boolean isShowImages = k.aPA().isShowImages();
@@ -274,7 +274,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
-    public com.baidu.adp.lib.d.b<TextView> blA() {
+    public com.baidu.adp.lib.d.b<TextView> blB() {
         if (this.eOC == null) {
             this.eOC = TbRichTextView.v(this, 8);
         }
@@ -282,12 +282,12 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
-    public com.baidu.adp.lib.d.b<GifView> blB() {
+    public com.baidu.adp.lib.d.b<GifView> blC() {
         if (this.eLm == null) {
             this.eLm = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.d.c
-                /* renamed from: bST */
+                /* renamed from: bSU */
                 public GifView makeObject() {
                     return new GifView(PushDialogActivity.this);
                 }
@@ -322,12 +322,12 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
-    public com.baidu.adp.lib.d.b<View> blC() {
+    public com.baidu.adp.lib.d.b<View> blD() {
         if (this.eOD == null) {
             this.eOD = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<View>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.5
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.d.c
-                /* renamed from: cJL */
+                /* renamed from: cJM */
                 public View makeObject() {
                     PlayVoiceBntNew playVoiceBntNew = new PlayVoiceBntNew(PushDialogActivity.this, PlayVoiceBntNew.PLAY_TYPE.NORMAL);
                     playVoiceBntNew.setPlayTimeTextView(R.dimen.fontsize28);
@@ -345,7 +345,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 @Override // com.baidu.adp.lib.d.c
                 /* renamed from: cG */
                 public View activateObject(View view) {
-                    ((PlayVoiceBntNew) view).bCn();
+                    ((PlayVoiceBntNew) view).bCo();
                     return view;
                 }
 
@@ -362,12 +362,12 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
-    public com.baidu.adp.lib.d.b<LinearLayout> blD() {
+    public com.baidu.adp.lib.d.b<LinearLayout> blE() {
         if (this.eOE == null) {
             this.eOE = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<LinearLayout>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.d.c
-                /* renamed from: cJN */
+                /* renamed from: cJO */
                 public LinearLayout makeObject() {
                     LinearLayout linearLayout = new LinearLayout(PushDialogActivity.this);
                     linearLayout.setId(R.id.pb_text_voice_layout);
@@ -407,11 +407,11 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
-    public com.baidu.adp.lib.d.b<RelativeLayout> blE() {
+    public com.baidu.adp.lib.d.b<RelativeLayout> blF() {
         this.eOF = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<RelativeLayout>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cJM */
+            /* renamed from: cJN */
             public RelativeLayout makeObject() {
                 return new RelativeLayout(PushDialogActivity.this);
             }

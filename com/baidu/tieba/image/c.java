@@ -20,24 +20,24 @@ public class c {
         this.jjr = advertAppInfo;
     }
 
-    public void cvy() {
-        HJ("click");
-        com.baidu.tieba.recapp.report.d.cZQ().a(com.baidu.tieba.recapp.report.g.c(this.jjr, 2, 0));
-    }
-
     public void cvz() {
         HJ("click");
-        com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.g.c(this.jjr, 2, 0);
-        c.Mf("title");
-        com.baidu.tieba.recapp.report.d.cZQ().a(c);
-    }
-
-    public void cko() {
-        HJ("show");
-        com.baidu.tieba.recapp.report.d.cZQ().a(com.baidu.tieba.recapp.report.g.c(this.jjr, 3, 0));
+        com.baidu.tieba.recapp.report.d.cZR().a(com.baidu.tieba.recapp.report.g.c(this.jjr, 2, 0));
     }
 
     public void cvA() {
+        HJ("click");
+        com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.g.c(this.jjr, 2, 0);
+        c.Mf("title");
+        com.baidu.tieba.recapp.report.d.cZR().a(c);
+    }
+
+    public void ckp() {
+        HJ("show");
+        com.baidu.tieba.recapp.report.d.cZR().a(com.baidu.tieba.recapp.report.g.c(this.jjr, 3, 0));
+    }
+
+    public void cvB() {
     }
 
     public void HI(String str) {

@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends a<TLeft, R> {
     final h<? super TLeft, ? extends org.a.b<TLeftEnd>> leftEnd;
-    final org.a.b<? extends TRight> nKt;
+    final org.a.b<? extends TRight> nKw;
     final io.reactivex.c.c<? super TLeft, ? super TRight, ? extends R> resultSelector;
     final h<? super TRight, ? extends org.a.b<TRightEnd>> rightEnd;
 
@@ -26,8 +26,8 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends a
         joinSubscription.disposables.a(leftRightSubscriber);
         FlowableGroupJoin.LeftRightSubscriber leftRightSubscriber2 = new FlowableGroupJoin.LeftRightSubscriber(joinSubscription, false);
         joinSubscription.disposables.a(leftRightSubscriber2);
-        this.nJT.a((j) leftRightSubscriber);
-        this.nKt.subscribe(leftRightSubscriber2);
+        this.nJW.a((j) leftRightSubscriber);
+        this.nKw.subscribe(leftRightSubscriber2);
     }
 
     /* loaded from: classes7.dex */
@@ -46,7 +46,7 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends a
         static final Integer RIGHT_CLOSE = 4;
         final AtomicLong requested = new AtomicLong();
         final io.reactivex.disposables.a disposables = new io.reactivex.disposables.a();
-        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.dPm());
+        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.dPq());
         final Map<Integer, TLeft> lefts = new LinkedHashMap();
         final Map<Integer, TRight> rights = new LinkedHashMap();
         final AtomicReference<Throwable> error = new AtomicReference<>();

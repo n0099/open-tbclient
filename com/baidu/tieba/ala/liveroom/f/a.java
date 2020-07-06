@@ -15,16 +15,16 @@ public class a {
     public void dH(long j) {
         if (j > this.gft) {
             this.gft = j;
-            bDX();
+            bDY();
         }
     }
 
-    public void bDW() {
+    public void bDX() {
         this.gft = 0L;
-        bDX();
+        bDY();
     }
 
-    private void bDX() {
+    private void bDY() {
         this.gfu.setText(String.format(this.mContext.getString(a.i.sdk_charm_name), StringHelper.formatTosepara((int) this.gft)));
     }
 

@@ -27,13 +27,13 @@ public class ax {
             if (d != null) {
                 this.koo.vF(true);
                 this.koq.setText(d);
-                if (z && this.koo.dqJ() >= 0) {
+                if (z && this.koo.dqN() >= 0) {
                     this.koq.requestFocus();
-                    this.koq.setSelection(this.koo.dqJ());
+                    this.koq.setSelection(this.koo.dqN());
                 } else {
                     this.koq.setSelection(selectionEnd);
                 }
-                this.koo.vE(this.koo.dqJ() >= 0);
+                this.koo.vE(this.koo.dqN() >= 0);
             }
         }
     }
@@ -45,25 +45,25 @@ public class ax {
             if (d != null) {
                 this.kop.vF(true);
                 this.iyV.setText(d);
-                if (z && this.kop.dqJ() >= 0) {
+                if (z && this.kop.dqN() >= 0) {
                     this.iyV.requestFocus();
-                    this.iyV.setSelection(this.kop.dqJ());
+                    this.iyV.setSelection(this.kop.dqN());
                 } else {
                     this.iyV.setSelection(selectionEnd);
                 }
-                this.kop.vE(this.kop.dqJ() >= 0);
+                this.kop.vE(this.kop.dqN() >= 0);
             }
         }
     }
 
-    public void cMY() {
-        this.kop.OM(null);
+    public void cMZ() {
+        this.kop.ON(null);
         this.kop.aY(null);
         this.kop.vE(false);
     }
 
-    public void cMZ() {
-        this.koo.OM(null);
+    public void cNa() {
+        this.koo.ON(null);
         this.koo.aY(null);
         this.koo.vE(false);
     }
@@ -71,8 +71,8 @@ public class ax {
     public void f(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
             this.koo.aY(postWriteCallBackData.getSensitiveWords());
-            this.koo.OM(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.w.isEmpty(this.koo.dqI())) {
+            this.koo.ON(postWriteCallBackData.getErrorString());
+            if (!com.baidu.tbadk.core.util.w.isEmpty(this.koo.dqM())) {
                 st(true);
                 this.khu = postWriteCallBackData;
             }
@@ -82,8 +82,8 @@ public class ax {
     public void g(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
             this.kop.aY(postWriteCallBackData.getSensitiveWords());
-            this.kop.OM(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.w.isEmpty(this.kop.dqI())) {
+            this.kop.ON(postWriteCallBackData.getErrorString());
+            if (!com.baidu.tbadk.core.util.w.isEmpty(this.kop.dqM())) {
                 su(true);
             }
         }
@@ -105,27 +105,27 @@ public class ax {
     public void onChangeSkinType() {
         this.koo.onChangeSkinType();
         this.kop.onChangeSkinType();
-        if (this.koo.dqK()) {
+        if (this.koo.dqO()) {
             st(false);
         }
-        if (this.kop.dqK()) {
+        if (this.kop.dqO()) {
             su(false);
         }
     }
 
-    public com.baidu.tieba.write.c cNa() {
+    public com.baidu.tieba.write.c cNb() {
         return this.koo;
     }
 
-    public com.baidu.tieba.write.c cNb() {
+    public com.baidu.tieba.write.c cNc() {
         return this.kop;
     }
 
-    public EditText cNc() {
+    public EditText cNd() {
         return this.iyV;
     }
 
-    public PostWriteCallBackData cNd() {
+    public PostWriteCallBackData cNe() {
         return this.khu;
     }
 }

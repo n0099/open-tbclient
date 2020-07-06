@@ -9,7 +9,7 @@ import java.util.List;
 public class f {
     private static LinkedList<Integer> RL;
 
-    public static int biG() {
+    public static int biH() {
         return bb(null);
     }
 

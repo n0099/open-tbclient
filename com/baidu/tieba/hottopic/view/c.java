@@ -73,12 +73,12 @@ public class c {
     private a iCo = new a() { // from class: com.baidu.tieba.hottopic.view.c.5
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            HotTopicView ckZ = c.this.iGM.ckZ();
-            if (ckZ != null && absListView == ckZ.getListView() && i == 0) {
+            HotTopicView cla = c.this.iGM.cla();
+            if (cla != null && absListView == cla.getListView() && i == 0) {
                 c.this.iGS = true;
                 float y = c.this.iGL.getY();
                 if (c.this.iGM != null) {
-                    if (Math.abs(c.this.iGT) != c.this.cmc() || c.this.iGT == y) {
+                    if (Math.abs(c.this.iGT) != c.this.cmd() || c.this.iGT == y) {
                         c.this.iGM.xD((int) (c.this.iGT - y));
                         return;
                     }
@@ -91,13 +91,13 @@ public class c {
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             HotTopicActivity hotTopicActivity;
-            HotTopicView ckZ = c.this.iGM.ckZ();
-            if (ckZ != null) {
-                if (absListView == ckZ.getListView()) {
+            HotTopicView cla = c.this.iGM.cla();
+            if (cla != null) {
+                if (absListView == cla.getListView()) {
                     if (c.this.iGK != null) {
                         c.this.iGK.xN(i);
                     }
-                    c.this.cmd();
+                    c.this.cme();
                 }
                 if (c.this.iGM != null && c.this.iGL.getNavigationBarSwitchHeight() != c.this.mNavigationBarHeight) {
                     if (c.this.iGU) {
@@ -111,7 +111,7 @@ public class c {
                         if (c.this.iGP != null) {
                             c.this.iGP.setAlpha((-c.this.iGL.getY()) / (c.this.iGL.getNavigationBarSwitchHeight() - c.this.mNavigationBarHeight));
                         }
-                        if (Math.abs(c.this.iGT) == c.this.cmc()) {
+                        if (Math.abs(c.this.iGT) == c.this.cmd()) {
                             c.this.iGI.hideBottomLine();
                         } else {
                             c.this.iGI.showBottomLine();
@@ -157,8 +157,8 @@ public class c {
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
                     if (ShareSwitch.isOn() || be.checkUpIsLogin(c.this.dPv.getContext())) {
-                        TiebaStatic.log(new ao("c10521").dk("obj_id", ((HotTopicActivity) c.this.dPv.getOrignalPage()).clp()).dk("topic_id", ((HotTopicActivity) c.this.dPv.getOrignalPage()).clp()));
-                        ((HotTopicActivity) c.this.dPv.getOrignalPage()).clg();
+                        TiebaStatic.log(new ao("c10521").dk("obj_id", ((HotTopicActivity) c.this.dPv.getOrignalPage()).clq()).dk("topic_id", ((HotTopicActivity) c.this.dPv.getOrignalPage()).clq()));
+                        ((HotTopicActivity) c.this.dPv.getOrignalPage()).clh();
                     }
                 }
             });
@@ -171,8 +171,8 @@ public class c {
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
                     if (ShareSwitch.isOn() || be.checkUpIsLogin(c.this.dPv.getContext())) {
-                        TiebaStatic.log(new ao("c10521").dk("obj_id", ((HotTopicActivity) c.this.dPv.getOrignalPage()).clp()).dk("topic_id", ((HotTopicActivity) c.this.dPv.getOrignalPage()).clp()));
-                        ((HotTopicActivity) c.this.dPv.getOrignalPage()).clg();
+                        TiebaStatic.log(new ao("c10521").dk("obj_id", ((HotTopicActivity) c.this.dPv.getOrignalPage()).clq()).dk("topic_id", ((HotTopicActivity) c.this.dPv.getOrignalPage()).clq()));
+                        ((HotTopicActivity) c.this.dPv.getOrignalPage()).clh();
                     }
                 }
             });
@@ -202,7 +202,7 @@ public class c {
         }
     }
 
-    public View clU() {
+    public View clV() {
         return this.iGH;
     }
 
@@ -243,19 +243,19 @@ public class c {
     }
 
     public void c(com.baidu.tieba.hottopic.data.e eVar) {
-        if (eVar != null && eVar.clE() != null) {
-            if (!this.iGL.cma()) {
-                this.iGL.setData(eVar.clE());
+        if (eVar != null && eVar.clF() != null) {
+            if (!this.iGL.cmb()) {
+                this.iGL.setData(eVar.clF());
             }
-            if (eVar.clE() != null) {
-                this.iGU = !StringUtils.isNull(eVar.clE().iEj);
+            if (eVar.clF() != null) {
+                this.iGU = !StringUtils.isNull(eVar.clF().iEj);
                 this.mNavigationBar.setVisibility(this.iGU ? 0 : 8);
                 if (!this.iGU) {
                     this.iGI.setAlpha(1.0f);
                     this.iGI.showBottomLine();
                 }
             }
-            String str = eVar.clE().dKw;
+            String str = eVar.clF().dKw;
             if (StringUtils.isNull(str)) {
                 this.hHg.setVisibility(8);
                 Gl("");
@@ -293,15 +293,15 @@ public class c {
         this.dSy.setVisibility(i);
     }
 
-    public void btN() {
-        this.iGM.btN();
+    public void btO() {
+        this.iGM.btO();
     }
 
     public void showLoadingView() {
         this.iGM.showLoadingView();
     }
 
-    public void clW() {
+    public void clX() {
         this.iGM.oK(false);
     }
 
@@ -343,11 +343,11 @@ public class c {
         }
     }
 
-    public HotTopicView cmb() {
-        return this.iGM.ckZ();
+    public HotTopicView cmc() {
+        return this.iGM.cla();
     }
 
-    public int cmc() {
+    public int cmd() {
         return (this.cBB - this.iGO) - this.mNavigationBarHeight;
     }
 
@@ -370,8 +370,8 @@ public class c {
     }
 
     public void a(AbsListView absListView, int i) {
-        HotTopicView ckZ;
-        if (this.iGL != null && this.iGN != null && (ckZ = this.iGM.ckZ()) != null && ckZ.getListView() != null && absListView == ckZ.getListView()) {
+        HotTopicView cla;
+        if (this.iGL != null && this.iGN != null && (cla = this.iGM.cla()) != null && cla.getListView() != null && absListView == cla.getListView()) {
             this.iGN.setHeaderViewHeight(this.cBB - i);
             this.iGL.setY(-i);
             if (i == 0) {
@@ -383,7 +383,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmd() {
+    public void cme() {
         if (this.iGS) {
             this.iGT = this.iGL.getY();
             this.iGS = false;
@@ -396,11 +396,11 @@ public class c {
         }
     }
 
-    public HotTopicHeaderView cme() {
+    public HotTopicHeaderView cmf() {
         return this.iGL;
     }
 
-    public int cmf() {
+    public int cmg() {
         return this.cBB;
     }
 }

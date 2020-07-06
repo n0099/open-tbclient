@@ -2,10 +2,10 @@ package kotlin.collections;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final /* synthetic */ class c {
-    public static final /* synthetic */ int[] nBX = new int[State.values().length];
+    public static final /* synthetic */ int[] nCa = new int[State.values().length];
 
     static {
-        nBX[State.Done.ordinal()] = 1;
-        nBX[State.Ready.ordinal()] = 2;
+        nCa[State.Done.ordinal()] = 1;
+        nCa[State.Ready.ordinal()] = 2;
     }
 }

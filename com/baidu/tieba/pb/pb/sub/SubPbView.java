@@ -86,7 +86,7 @@ public class SubPbView extends LinearLayout {
         this.aHh = relativeLayout;
     }
 
-    public boolean cOd() {
+    public boolean cOe() {
         return this.eqS;
     }
 

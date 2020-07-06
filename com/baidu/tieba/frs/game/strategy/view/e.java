@@ -75,7 +75,7 @@ public class e {
         return this.mRootView;
     }
 
-    public NavigationBar bwV() {
+    public NavigationBar bwW() {
         return this.mNavigationBar;
     }
 
@@ -108,9 +108,9 @@ public class e {
         this.hOj.onDestory();
     }
 
-    public void buH() {
+    public void buI() {
         if (this.hOj != null) {
-            this.hOj.buH();
+            this.hOj.buI();
         }
     }
 }

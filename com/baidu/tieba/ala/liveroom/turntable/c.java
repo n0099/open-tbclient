@@ -17,7 +17,7 @@ public class c implements a {
 
     @Override // com.baidu.tieba.ala.liveroom.turntable.a
     public void Do(String str) {
-        bJA();
+        bJB();
         com.baidu.tieba.ala.liveroom.turntable.lucky.d dVar = new com.baidu.tieba.ala.liveroom.turntable.lucky.d();
         dVar.eI(str);
         MessageManager.getInstance().sendMessage(dVar);
@@ -29,7 +29,7 @@ public class c implements a {
         unRegisterListener();
     }
 
-    private void bJA() {
+    private void bJB() {
         if (this.gsc == null) {
             this.gsc = new HttpMessageListener(1021157) { // from class: com.baidu.tieba.ala.liveroom.turntable.c.1
                 /* JADX DEBUG: Method merged with bridge method */

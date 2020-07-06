@@ -19,7 +19,7 @@ public class l {
     private static k a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static a f921a;
+    private static a f922a;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -99,11 +99,11 @@ public class l {
             com.xiaomi.channel.commonutils.logger.b.m48a("account register:" + a4);
             treeMap.put("devid", a4);
             treeMap.put("devid1", com.xiaomi.push.i.a(context));
-            if (a != null && !TextUtils.isEmpty(a.f920a)) {
-                treeMap.put("uuid", a.f920a);
-                int lastIndexOf = a.f920a.lastIndexOf("/");
+            if (a != null && !TextUtils.isEmpty(a.f921a)) {
+                treeMap.put("uuid", a.f921a);
+                int lastIndexOf = a.f921a.lastIndexOf("/");
                 if (lastIndexOf != -1) {
-                    str4 = a.f920a.substring(lastIndexOf + 1);
+                    str4 = a.f921a.substring(lastIndexOf + 1);
                     com.xiaomi.push.au.a(context).a(treeMap);
                     c = com.xiaomi.push.i.c(context);
                     if (c != null) {
@@ -233,8 +233,8 @@ public class l {
     }
 
     public static void a() {
-        if (f921a != null) {
-            f921a.a();
+        if (f922a != null) {
+            f922a.a();
         }
     }
 
@@ -247,7 +247,7 @@ public class l {
 
     public static void a(Context context, k kVar) {
         SharedPreferences.Editor edit = context.getSharedPreferences("mipush_account", 0).edit();
-        edit.putString("uuid", kVar.f920a);
+        edit.putString("uuid", kVar.f921a);
         edit.putString("security", kVar.c);
         edit.putString("token", kVar.b);
         edit.putString("app_id", kVar.d);
@@ -260,7 +260,7 @@ public class l {
     }
 
     public static void a(a aVar) {
-        f921a = aVar;
+        f922a = aVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */

@@ -23,7 +23,7 @@ public class a {
     private a() {
     }
 
-    public static a bEp() {
+    public static a bEq() {
         if (ggO == null) {
             synchronized (a.class) {
                 if (ggO == null) {
@@ -34,7 +34,7 @@ public class a {
         return ggO;
     }
 
-    public double bEq() {
+    public double bEr() {
         if (Build.VERSION.SDK_INT >= 26) {
             String CO = CO(this.mPackageName);
             if (TextUtils.isEmpty(CO)) {
@@ -47,7 +47,7 @@ public class a {
                 return 0.0d;
             }
         }
-        return bEr();
+        return bEs();
     }
 
     private String CO(String str) {
@@ -76,7 +76,7 @@ public class a {
         return split[16];
     }
 
-    private double bEr() {
+    private double bEs() {
         double d = 0.0d;
         try {
             if (this.ggR == null || this.ggS == null) {
@@ -108,7 +108,7 @@ public class a {
         return d;
     }
 
-    public double bEs() {
+    public double bEt() {
         try {
             Debug.MemoryInfo[] processMemoryInfo = this.cOh.getProcessMemoryInfo(new int[]{Process.myPid()});
             if (processMemoryInfo.length <= 0) {

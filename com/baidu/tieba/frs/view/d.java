@@ -42,7 +42,7 @@ public class d {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         d.this.mIsChecked = !d.this.mIsChecked;
-                        d.this.bNW();
+                        d.this.bNX();
                     }
                 });
                 onChangeSkinType();
@@ -51,7 +51,7 @@ public class d {
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                         com.baidu.tbadk.core.sharedPref.b.aVP().putBoolean("key_frs_move_area_tip", !d.this.mIsChecked);
-                        com.baidu.tieba.frs.a.bWV().bS(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
+                        com.baidu.tieba.frs.a.bWW().bS(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
                         d.this.hDn.dismiss();
                         d.this.hDn = null;
                     }
@@ -69,7 +69,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bNW() {
+    public void bNX() {
         Drawable a;
         if (this.gOA != null) {
             ImageView imageView = this.gOA;
@@ -89,7 +89,7 @@ public class d {
         if (this.cbI != null) {
             an.setViewTextColor(this.cbI, (int) R.color.cp_cont_j);
         }
-        bNW();
+        bNX();
         if (this.hDo != null) {
             an.setViewTextColor(this.hDo, (int) R.color.cp_cont_j);
         }

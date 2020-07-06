@@ -169,16 +169,16 @@ public class AlaActiveBannerView extends LinearLayout implements c {
             this.fTF = new HashSet();
             this.fTE = str;
         }
-        List<i> bAb = this.fTB.bAb();
-        if (bAb != null && bAb.size() == arrayList.size()) {
+        List<i> bAc = this.fTB.bAc();
+        if (bAc != null && bAc.size() == arrayList.size()) {
             int i = 0;
             while (true) {
-                if (i >= bAb.size()) {
+                if (i >= bAc.size()) {
                     z = true;
                     break;
                 }
                 i iVar = arrayList.get(i);
-                i iVar2 = bAb.get(i);
+                i iVar2 = bAc.get(i);
                 if (iVar.activityId != iVar2.activityId || iVar.picType != iVar2.picType || !iVar.pic_url.equals(iVar2.pic_url) || !iVar.jump_url.equals(iVar2.jump_url)) {
                     break;
                 }
@@ -188,7 +188,7 @@ public class AlaActiveBannerView extends LinearLayout implements c {
         this.fTC.rb(ListUtils.getCount(arrayList));
         this.fTB.setData(arrayList);
         this.fTB.notifyDataSetChanged();
-        this.fTA.bAa();
+        this.fTA.bAb();
     }
 
     public void rf(int i) {

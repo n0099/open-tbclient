@@ -39,7 +39,7 @@ public class c extends a<bt, ak<bu>> {
         this.eLl = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.newdetail.adapter.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: blL */
+            /* renamed from: blM */
             public ImageView makeObject() {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(c.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.k.aPA().isShowImages();
@@ -111,7 +111,7 @@ public class c extends a<bt, ak<bu>> {
         this.eLm = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.newdetail.adapter.a.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bST */
+            /* renamed from: bSU */
             public GifView makeObject() {
                 GifView gifView = new GifView(c.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.k.aPA().isShowImages();
@@ -175,7 +175,7 @@ public class c extends a<bt, ak<bu>> {
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, bu buVar) {
-                s.bOA().jI(true);
+                s.bOB().jI(true);
                 c.this.f(view, buVar);
             }
         };

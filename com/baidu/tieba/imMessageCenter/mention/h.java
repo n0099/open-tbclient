@@ -11,23 +11,23 @@ public class h {
     private int chat = 0;
     private int jhn = 0;
 
-    public int cuU() {
+    public int cuV() {
         return this.jhk;
     }
 
-    public int cuV() {
+    public int cuW() {
         return this.jhl;
     }
 
-    public int cuW() {
+    public int cuX() {
         return this.jhm;
     }
 
-    public int cuX() {
+    public int cuY() {
         return this.fans;
     }
 
-    public int cuY() {
+    public int cuZ() {
         return this.jhn;
     }
 

@@ -14,7 +14,7 @@ public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a>
     private int mCmd;
 
     public g() {
-        a(com.baidu.tieba.im.db.c.cpz(), CmdConfigCustom.CMD_LOAD_HISTORY_GROUP);
+        a(com.baidu.tieba.im.db.c.cpA(), CmdConfigCustom.CMD_LOAD_HISTORY_GROUP);
     }
 
     private void a(com.baidu.tieba.im.db.c cVar, int i) {

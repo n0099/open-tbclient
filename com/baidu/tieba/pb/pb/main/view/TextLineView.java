@@ -48,7 +48,7 @@ public class TextLineView extends TextView {
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        cNM();
+        cNN();
         if (this.mRectF == null) {
             this.mRectF = new RectF();
         }
@@ -67,7 +67,7 @@ public class TextLineView extends TextView {
         invalidate();
     }
 
-    private void cNM() {
+    private void cNN() {
         if (this.mPaint == null) {
             this.mPaint = new Paint();
         }
@@ -88,7 +88,7 @@ public class TextLineView extends TextView {
         } else {
             setTextColor(this.aQC);
         }
-        cNM();
+        cNN();
         invalidate();
     }
 

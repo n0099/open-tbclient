@@ -37,7 +37,7 @@ public class g {
         }
     }
 
-    public static void bED() {
+    public static void bEE() {
         if (ghH != null) {
             ghH.clear();
         }

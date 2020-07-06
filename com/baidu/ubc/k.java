@@ -11,10 +11,10 @@ public class k {
     private int duF;
     private String duG;
     private String mCategory;
-    private String mEg;
-    private String mEh;
-    private String mEi;
     private String mEj;
+    private String mEk;
+    private String mEl;
+    private String mEm;
     private String mId;
     private int mRate;
     private String mType;
@@ -45,8 +45,8 @@ public class k {
         this.duF = i;
     }
 
-    public void PS(String str) {
-        this.mEg = str;
+    public void PT(String str) {
+        this.mEj = str;
     }
 
     public String getId() {
@@ -73,8 +73,8 @@ public class k {
         return this.duD;
     }
 
-    public String dwK() {
-        return this.mEg;
+    public String dwO() {
+        return this.mEj;
     }
 
     public int aJs() {
@@ -101,12 +101,12 @@ public class k {
         return this.duG;
     }
 
-    public String dwL() {
-        return this.mEh;
+    public String dwP() {
+        return this.mEk;
     }
 
-    public void PT(String str) {
-        this.mEh = str;
+    public void PU(String str) {
+        this.mEk = str;
     }
 
     public void setVersion(String str) {
@@ -117,19 +117,19 @@ public class k {
         return TextUtils.isEmpty(this.mVersion) ? "0" : this.mVersion;
     }
 
-    public void PU(String str) {
-        this.mEi = str;
-    }
-
-    public String dwM() {
-        return this.mEi;
-    }
-
     public void PV(String str) {
-        this.mEj = str;
+        this.mEl = str;
     }
 
-    public String dwN() {
-        return this.mEj;
+    public String dwQ() {
+        return this.mEl;
+    }
+
+    public void PW(String str) {
+        this.mEm = str;
+    }
+
+    public String dwR() {
+        return this.mEm;
     }
 }

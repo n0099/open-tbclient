@@ -31,11 +31,11 @@ public class h implements e {
     private ArrayList<c> lkc = new ArrayList<>();
 
     public h() {
-        bKL();
+        bKM();
         MessageManager.getInstance().registerListener(this.lka);
     }
 
-    private void bKL() {
+    private void bKM() {
         this.lkb = new TbHttpMessageTask(1003062, "https://als.baidu.com/clog/clog");
         this.lkb.setMethod(HttpMessageTask.HTTP_METHOD.POST);
         this.lkb.setIsNeedAddCommenParam(true);
@@ -50,13 +50,13 @@ public class h implements e {
                 this.lkb.setUrl("http://als.baidu.com/clog/clog");
             }
             d(cVar);
-            cZT();
+            cZU();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.e
-    public void cZS() {
-        cZT();
+    public void cZT() {
+        cZU();
     }
 
     @Override // com.baidu.tieba.recapp.report.e
@@ -66,7 +66,7 @@ public class h implements e {
         }
     }
 
-    private void cZT() {
+    private void cZU() {
         if (w.getCount(this.lkc) > 0) {
             MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.lkc), this.lkb);
             this.lkc.clear();

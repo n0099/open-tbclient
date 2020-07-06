@@ -38,7 +38,7 @@ public class MyConcernTabModel extends BdBaseModel {
                 }
                 MyConcernTabModel.this.fpy.c(alaLiveTabMyConcernResponse, MyConcernTabModel.this.pn == 1);
                 if (MyConcernTabModel.this.fpx != null) {
-                    MyConcernTabModel.this.fpx.c(MyConcernTabModel.this.fpy.btZ(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.pn == 1);
+                    MyConcernTabModel.this.fpx.c(MyConcernTabModel.this.fpy.bua(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.pn == 1);
                 }
                 MyConcernTabModel.this.pn = alaLiveTabMyConcernResponse.pn + 1;
             }
@@ -55,11 +55,11 @@ public class MyConcernTabModel extends BdBaseModel {
     public MyConcernTabModel(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.fpy = new b(this.mTbPageContext);
-        btn();
+        bto();
         MessageManager.getInstance().registerListener(this.fpz);
     }
 
-    private void btn() {
+    private void bto() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_TAB_SUB_MY_CONCERN_LIST);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -74,7 +74,7 @@ public class MyConcernTabModel extends BdBaseModel {
         qc(1);
     }
 
-    public void btW() {
+    public void btX() {
         qc(this.pn);
     }
 

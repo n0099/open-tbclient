@@ -279,7 +279,7 @@ public class a {
         return this;
     }
 
-    public a dem() {
+    public a den() {
         return ur(true);
     }
 

@@ -6,20 +6,20 @@ public class jb {
     private final ji a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final jr f773a;
+    private final jr f774a;
 
     public jb() {
         this(new je.a());
     }
 
     public jb(jk jkVar) {
-        this.f773a = new jr();
-        this.a = jkVar.a(this.f773a);
+        this.f774a = new jr();
+        this.a = jkVar.a(this.f774a);
     }
 
     public void a(ix ixVar, byte[] bArr) {
         try {
-            this.f773a.a(bArr);
+            this.f774a.a(bArr);
             ixVar.a(this.a);
         } finally {
             this.a.k();

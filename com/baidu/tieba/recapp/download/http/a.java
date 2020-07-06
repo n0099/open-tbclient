@@ -7,7 +7,7 @@ public abstract class a {
 
     public abstract String bB(String str);
 
-    public static final a cZf() {
+    public static final a cZg() {
         return lfz;
     }
 }

@@ -24,10 +24,10 @@ public class c extends BaseAdapter {
 
     public c(ViewGroup viewGroup) {
         this.flb = viewGroup;
-        btc();
+        btd();
     }
 
-    private void btc() {
+    private void btd() {
         if (this.flp != null) {
             this.flp.clear();
             this.flp.addAll(Arrays.asList(new Boolean[this.gfF.length]));

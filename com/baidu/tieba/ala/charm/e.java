@@ -24,7 +24,7 @@ public class e implements com.baidu.live.liveroom.d.d {
                     e.this.fzO.jS(true);
                     return;
                 }
-                e.this.fzO.btN();
+                e.this.fzO.btO();
                 e.this.fzO.a(kVar.getList(), alaLiveUserInfoData, j2);
                 int size = kVar.getList().size();
                 if (size <= 0) {

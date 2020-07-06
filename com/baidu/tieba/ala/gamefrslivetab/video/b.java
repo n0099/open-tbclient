@@ -129,7 +129,7 @@ public class b {
                 }
             }
         });
-        bxg();
+        bxh();
     }
 
     public BaseWebView getWebView() {
@@ -141,7 +141,7 @@ public class b {
         this.fHJ.loadUrl(str);
     }
 
-    public void bxf() {
+    public void bxg() {
         if (this.mLoadSuccess) {
             this.fHJ.loadUrl("javascript:window.reload_page()");
         } else {
@@ -166,19 +166,19 @@ public class b {
         }
     }
 
-    public void bwk() {
-        btN();
+    public void bwl() {
+        btO();
         this.fHJ.setVisibility(0);
     }
 
-    public void btM() {
+    public void btN() {
         if (this.fHI != null && this.fHI.isAdded()) {
             String string = TbadkCoreApplication.getInst().getString(R.string.neterror);
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(this.fHI.getActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.5
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        b.this.bxf();
+                        b.this.bxg();
                     }
                 });
                 this.mRefreshView.onChangeSkinType();
@@ -190,14 +190,14 @@ public class b {
         }
     }
 
-    public void btN() {
+    public void btO() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this.mRootView);
             this.mRefreshView = null;
         }
     }
 
-    private void bxg() {
+    private void bxh() {
         if (this.fHJ != null) {
             this.fHJ.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.6
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
@@ -224,7 +224,7 @@ public class b {
                 public void onPageFinished(WebView webView, String str) {
                     b.this.hideLoadingView();
                     if (j.isNetWorkAvailable()) {
-                        b.this.bwk();
+                        b.this.bwl();
                         b.this.mLoadSuccess = true;
                     }
                 }
@@ -232,7 +232,7 @@ public class b {
             this.fHJ.setOnReceivedErrorListener(new BaseWebView.f() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.9
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
                 public void onReceivedError(WebView webView, int i, String str, String str2) {
-                    b.this.btM();
+                    b.this.btN();
                 }
             });
         }
@@ -430,13 +430,13 @@ public class b {
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
     }
 
-    public void buH() {
+    public void buI() {
         if (!this.isLoading && j.isNetWorkAvailable()) {
             this.fHJ.loadUrl(this.mUrl);
         }
     }
 
-    public NavigationBar bwV() {
+    public NavigationBar bwW() {
         return this.mNavigationBar;
     }
 

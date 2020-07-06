@@ -7,23 +7,23 @@ import java.util.Set;
 import rx.k;
 /* loaded from: classes6.dex */
 public final class b implements k {
-    private volatile boolean obd;
-    private Set<k> ohQ;
+    private volatile boolean obg;
+    private Set<k> ohT;
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.obd;
+        return this.obg;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.obd) {
+            if (!this.obg) {
                 synchronized (this) {
-                    if (!this.obd) {
-                        if (this.ohQ == null) {
-                            this.ohQ = new HashSet(4);
+                    if (!this.obg) {
+                        if (this.ohT == null) {
+                            this.ohT = new HashSet(4);
                         }
-                        this.ohQ.add(kVar);
+                        this.ohT.add(kVar);
                         return;
                     }
                 }
@@ -33,10 +33,10 @@ public final class b implements k {
     }
 
     public void a(k kVar) {
-        if (!this.obd) {
+        if (!this.obg) {
             synchronized (this) {
-                if (!this.obd && this.ohQ != null) {
-                    boolean remove = this.ohQ.remove(kVar);
+                if (!this.obg && this.ohT != null) {
+                    boolean remove = this.ohT.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
                     }
@@ -47,12 +47,12 @@ public final class b implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.obd) {
+        if (!this.obg) {
             synchronized (this) {
-                if (!this.obd) {
-                    this.obd = true;
-                    Set<k> set = this.ohQ;
-                    this.ohQ = null;
+                if (!this.obg) {
+                    this.obg = true;
+                    Set<k> set = this.ohT;
+                    this.ohT = null;
                     t(set);
                 }
             }

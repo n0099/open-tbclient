@@ -41,7 +41,7 @@ public class RGStateNorth2D extends RGState {
             MapStatus.Builder builder = new MapStatus.Builder(i);
             builder.rotate(0.0f);
             builder.overlook(0.0f);
-            builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f994top + i.winRound.bottom) / 2) - ((int) 0)));
+            builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f995top + i.winRound.bottom) / 2) - ((int) 0)));
             if (i.zoom < 19.0f) {
                 builder.zoom(19.0f);
             }

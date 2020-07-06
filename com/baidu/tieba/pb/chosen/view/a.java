@@ -156,8 +156,8 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof g) {
             g gVar = (g) item;
-            textView.setText(gVar.cOL());
-            switch (gVar.cON()) {
+            textView.setText(gVar.cOM());
+            switch (gVar.cOO()) {
                 case 1:
                     textView.setGravity(17);
                     break;
@@ -168,8 +168,8 @@ public class a extends BaseAdapter {
                     textView.setGravity(3);
                     break;
             }
-            if (!StringUtils.isNull(gVar.cOO())) {
-                if (!an.setViewTextColor(textView, gVar.cOO())) {
+            if (!StringUtils.isNull(gVar.cOP())) {
+                if (!an.setViewTextColor(textView, gVar.cOP())) {
                     an.setViewTextColor(textView, R.color.cp_cont_b, 1);
                 }
             } else {

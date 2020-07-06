@@ -14,7 +14,7 @@ public class s implements com.baidu.adp.widget.ListView.q {
         return hwL;
     }
 
-    public int bWA() {
+    public int bWB() {
         return this.hwM;
     }
 
@@ -22,7 +22,7 @@ public class s implements com.baidu.adp.widget.ListView.q {
         this.hwM = i;
     }
 
-    public int bWy() {
+    public int bWz() {
         return this.hwD;
     }
 
@@ -30,7 +30,7 @@ public class s implements com.baidu.adp.widget.ListView.q {
         this.hwD = i;
     }
 
-    public String bWz() {
+    public String bWA() {
         return this.hwF;
     }
 

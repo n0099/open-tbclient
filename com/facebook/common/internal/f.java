@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes13.dex */
     public static final class a {
         private final String className;
-        private C0793a mIC;
-        private C0793a mIE;
-        private boolean mIF;
+        private C0794a mIG;
+        private C0794a mIH;
+        private boolean mII;
 
         private a(String str) {
-            this.mIC = new C0793a();
-            this.mIE = this.mIC;
-            this.mIF = false;
+            this.mIG = new C0794a();
+            this.mIH = this.mIG;
+            this.mII = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -54,47 +54,47 @@ public final class f {
         }
 
         public String toString() {
-            boolean z = this.mIF;
+            boolean z = this.mII;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0793a c0793a = this.mIC.mIG; c0793a != null; c0793a = c0793a.mIG) {
-                if (!z || c0793a.value != null) {
+            for (C0794a c0794a = this.mIG.mIJ; c0794a != null; c0794a = c0794a.mIJ) {
+                if (!z || c0794a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c0793a.name != null) {
-                        append.append(c0793a.name).append('=');
+                    if (c0794a.name != null) {
+                        append.append(c0794a.name).append('=');
                     }
-                    append.append(c0793a.value);
+                    append.append(c0794a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C0793a dzf() {
-            C0793a c0793a = new C0793a();
-            this.mIE.mIG = c0793a;
-            this.mIE = c0793a;
-            return c0793a;
+        private C0794a dzj() {
+            C0794a c0794a = new C0794a();
+            this.mIH.mIJ = c0794a;
+            this.mIH = c0794a;
+            return c0794a;
         }
 
         private a G(String str, @Nullable Object obj) {
-            C0793a dzf = dzf();
-            dzf.value = obj;
-            dzf.name = (String) g.checkNotNull(str);
+            C0794a dzj = dzj();
+            dzj.value = obj;
+            dzj.name = (String) g.checkNotNull(str);
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes13.dex */
-        public static final class C0793a {
-            C0793a mIG;
+        public static final class C0794a {
+            C0794a mIJ;
             @Nullable
             String name;
             @Nullable
             Object value;
 
-            private C0793a() {
+            private C0794a() {
             }
         }
     }

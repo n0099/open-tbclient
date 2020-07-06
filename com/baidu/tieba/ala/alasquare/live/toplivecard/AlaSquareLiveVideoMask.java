@@ -115,7 +115,7 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
         an.setViewTextColor(this.fmU, (int) R.color.cp_cont_a);
     }
 
-    public void btx() {
+    public void bty() {
         if (this.fmZ) {
             this.eKW.setVisibility(8);
             this.fmX.setVisibility(8);
@@ -124,11 +124,11 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
         this.fmY.startAnimation(this.btX);
     }
 
-    public void bty() {
+    public void btz() {
         this.fmY.clearAnimation();
     }
 
-    public void btz() {
+    public void btA() {
         if (!this.fmZ) {
             this.fmW.startPlayAnimation();
         }

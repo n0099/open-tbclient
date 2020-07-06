@@ -68,7 +68,7 @@ public class e {
                 this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.e.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        e.this.bSk();
+                        e.this.bSl();
                     }
                 });
             }
@@ -81,7 +81,7 @@ public class e {
         }
     }
 
-    public void bSk() {
+    public void bSl() {
         if (this.hdG != null) {
             g.dismissPopupWindow(this.hdG);
         }

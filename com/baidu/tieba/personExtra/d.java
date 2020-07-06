@@ -27,7 +27,7 @@ public class d extends BaseAdapter {
     private boolean fPX = false;
     private ArrayList<ProgressBar> kKL = new ArrayList<>();
 
-    public void cTj() {
+    public void cTk() {
         if (this.kKL != null) {
             int i = 0;
             while (true) {
@@ -47,7 +47,7 @@ public class d extends BaseAdapter {
         }
     }
 
-    public void byT() {
+    public void byU() {
         this.fPX = false;
         if (this.dQf != null && this.dQf.size() == 0) {
             this.fPX = true;

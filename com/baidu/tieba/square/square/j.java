@@ -76,11 +76,11 @@ public class j extends com.baidu.adp.base.c<Object> {
         }
     }
 
-    public void dgS() {
+    public void dgT() {
         this.flI.setVisibility(0);
     }
 
-    public void dgT() {
+    public void dgU() {
         this.flI.setVisibility(8);
     }
 

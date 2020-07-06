@@ -16,16 +16,16 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes9.dex */
 public class c {
     public static void A(p pVar) {
-        HashMap<Integer, bu> cbD;
-        if (pVar != null && pVar.bZw() != null && (cbD = pVar.bZw().cbD()) != null) {
+        HashMap<Integer, bu> cbE;
+        if (pVar != null && pVar.bZx() != null && (cbE = pVar.bZx().cbE()) != null) {
             ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-            for (Map.Entry<Integer, bu> entry : cbD.entrySet()) {
+            for (Map.Entry<Integer, bu> entry : cbE.entrySet()) {
                 bu value = entry.getValue();
                 if (value != null && (value instanceof AdvertAppInfo)) {
                     arrayList.add((AdvertAppInfo) value);
                 }
             }
-            com.baidu.tieba.recapp.download.e.cYY().E(arrayList);
+            com.baidu.tieba.recapp.download.e.cYZ().E(arrayList);
         }
     }
 
@@ -47,7 +47,7 @@ public class c {
                 com.baidu.adp.lib.f.e.lt().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.f.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        p.this.bZj();
+                        p.this.bZk();
                     }
                 }, TimeUnit.SECONDS.toMillis(2L));
             }

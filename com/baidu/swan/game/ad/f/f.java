@@ -19,7 +19,7 @@ public class f {
     @V8JavascriptField
 
     /* renamed from: top  reason: collision with root package name */
-    public int f1010top;
+    public int f1011top;
     @V8JavascriptField
     public int width;
 
@@ -34,7 +34,7 @@ public class f {
 
     private void a(@NonNull com.baidu.swan.games.binding.model.c cVar) {
         this.left = cVar.optInt("left", this.left);
-        this.f1010top = cVar.optInt(VerticalTranslateLayout.TOP, this.f1010top);
+        this.f1011top = cVar.optInt(VerticalTranslateLayout.TOP, this.f1011top);
         this.width = cVar.optInt("width", this.width);
         this.height = cVar.optInt("height", this.height);
     }

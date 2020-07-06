@@ -6,11 +6,11 @@ public class p {
     private boolean lEA;
     private String menu_name;
 
-    public boolean dhn() {
+    public boolean dho() {
         return this.lEA;
     }
 
-    public String dho() {
+    public String dhp() {
         return this.menu_name;
     }
 

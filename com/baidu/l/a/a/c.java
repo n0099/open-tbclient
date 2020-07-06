@@ -3,15 +3,15 @@ package com.baidu.l.a.a;
 public interface c {
     void HN(int i);
 
-    void Qo(String str);
-
     void Qp(String str);
 
     void Qq(String str);
 
-    boolean dxG();
+    void Qr(String str);
 
-    c dxQ();
+    boolean dxK();
+
+    c dxU();
 
     String getAAID();
 

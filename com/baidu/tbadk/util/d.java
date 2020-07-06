@@ -94,7 +94,7 @@ public class d {
         MessageManager.getInstance().registerListener(this.skinTypeChangeListener);
     }
 
-    public static final d biB() {
+    public static final d biC() {
         return a.eDS;
     }
 
@@ -161,7 +161,7 @@ public class d {
                 public void onClick(View view) {
                     d.this.ea(view.getContext());
                     d.this.iE(false);
-                    d.this.biC();
+                    d.this.biD();
                 }
             };
             viewGroup.setClickable(true);
@@ -280,7 +280,7 @@ public class d {
         }
     }
 
-    public void biC() {
+    public void biD() {
         BackBaiduBoxViewEvent backBaiduBoxViewEvent = new BackBaiduBoxViewEvent();
         backBaiduBoxViewEvent.isShow = eDO;
         com.baidu.tbadk.mutiprocess.g.publishEvent(backBaiduBoxViewEvent);
@@ -293,15 +293,15 @@ public class d {
                 if (context.getPackageManager().resolveActivity(intent, 65536) != null) {
                     context.startActivity(intent);
                 } else {
-                    biD();
+                    biE();
                 }
             } catch (Exception e) {
-                biD();
+                biE();
             }
         }
     }
 
-    private void biD() {
+    private void biE() {
         com.baidu.adp.lib.util.l.showToast(TbadkCoreApplication.getInst(), (int) R.string.not_install_baidu_box_app_tip);
     }
 

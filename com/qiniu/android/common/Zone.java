@@ -11,7 +11,7 @@ public abstract class Zone {
         void onSuccess();
     }
 
-    public abstract void RB(String str);
+    public abstract void RC(String str);
 
     public abstract void a(String str, QueryHandler queryHandler);
 
@@ -26,16 +26,16 @@ public abstract class Zone {
         int i = 0;
         synchronized (this) {
             if (str != null) {
-                zoneInfo.RB(URI.create(str).getHost());
+                zoneInfo.RC(URI.create(str).getHost());
             }
             while (true) {
                 int i2 = i;
-                if (i2 >= zoneInfo.nCM.size()) {
+                if (i2 >= zoneInfo.nCP.size()) {
                     str2 = null;
                     break;
                 }
-                str5 = zoneInfo.nCM.get(i2);
-                long longValue = zoneInfo.nCN.get(str5).longValue();
+                str5 = zoneInfo.nCP.get(i2);
+                long longValue = zoneInfo.nCQ.get(str5).longValue();
                 if (longValue == 0 || longValue <= System.currentTimeMillis() / 1000) {
                     break;
                 }
@@ -43,13 +43,13 @@ public abstract class Zone {
             }
             str2 = str5;
             if (str2 != null) {
-                zoneInfo.nCN.put(str2, 0L);
+                zoneInfo.nCQ.put(str2, 0L);
                 str3 = str2;
             } else {
-                for (String str6 : zoneInfo.nCM) {
-                    zoneInfo.nCN.put(str6, 0L);
+                for (String str6 : zoneInfo.nCP) {
+                    zoneInfo.nCQ.put(str6, 0L);
                 }
-                str3 = zoneInfo.nCM.size() > 0 ? zoneInfo.nCM.get(0) : str2;
+                str3 = zoneInfo.nCP.size() > 0 ? zoneInfo.nCP.get(0) : str2;
             }
             if (str3 == null) {
                 str4 = null;

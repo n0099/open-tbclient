@@ -90,7 +90,7 @@ public class b {
                     }
                     b.this.jjl.nU(R.string.loading);
                     if (b.this.jjm != null) {
-                        b.this.jjm.bxC();
+                        b.this.jjm.bxD();
                         b.this.isLoadMore = true;
                     }
                 }

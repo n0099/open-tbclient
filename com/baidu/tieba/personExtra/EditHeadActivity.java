@@ -103,7 +103,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             } else {
                 TiebaPrepareImageService.StartService(this.iZz, null, as.aWR().getPostImageSize(), 0, stringExtra);
             }
-            cmU();
+            cmV();
             return;
         }
         initUI();
@@ -115,10 +115,10 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        cSr();
+        cSs();
     }
 
-    private void cSr() {
+    private void cSs() {
         an.setBackgroundColor(this.mNavigationBar, R.color.common_color_10222);
         getLayoutMode().onModeChanged(this.bhr);
         getLayoutMode().onModeChanged(this.bhs);
@@ -133,10 +133,10 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             this.kIj.cancel();
         }
         this.kIc.setImageDrawable(null);
-        cSs();
+        cSt();
     }
 
-    private void cSs() {
+    private void cSt() {
         if (this.kIu != null) {
             for (Map.Entry<String, ImageView> entry : this.kIu.entrySet()) {
                 ImageView value = entry.getValue();
@@ -201,7 +201,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cSt() {
+    public void cSu() {
         if (this.kIp != null) {
             this.kIp.cancel();
         }
@@ -288,7 +288,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 if (cg != null && EditHeadActivity.this.c(str, cg)) {
                     if (EditHeadActivity.this.jbV == 0) {
                         if (EditHeadActivity.this.eDz) {
-                            EditHeadActivity.this.cSt();
+                            EditHeadActivity.this.cSu();
                             return;
                         }
                         Intent intent = EditHeadActivity.this.getIntent();
@@ -591,7 +591,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    private void cmU() {
+    private void cmV() {
         this.kIq = new c();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionImageResized());

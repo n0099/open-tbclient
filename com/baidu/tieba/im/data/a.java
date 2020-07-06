@@ -48,7 +48,7 @@ public class a {
         this.status = i;
     }
 
-    public int cpq() {
+    public int cpr() {
         return this.iPL;
     }
 

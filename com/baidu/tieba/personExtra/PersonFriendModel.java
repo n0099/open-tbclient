@@ -44,11 +44,11 @@ public class PersonFriendModel extends BdBaseModel {
         this.mData = azVar;
     }
 
-    public az cTk() {
+    public az cTl() {
         return this.mData;
     }
 
-    public void cSH() {
+    public void cSI() {
         super.sendMessage(new PersonFriendByUidLocalMessage());
     }
 

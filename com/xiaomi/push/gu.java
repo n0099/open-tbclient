@@ -6,7 +6,7 @@ import java.util.Random;
 public class gu {
 
     /* renamed from: a  reason: collision with other field name */
-    private static final char[] f411a = "&quot;".toCharArray();
+    private static final char[] f412a = "&quot;".toCharArray();
     private static final char[] b = "&apos;".toCharArray();
     private static final char[] c = "&amp;".toCharArray();
     private static final char[] d = "&lt;".toCharArray();
@@ -62,7 +62,7 @@ public class gu {
                         sb.append(charArray, i, i2 - i);
                     }
                     i = i2 + 1;
-                    sb.append(f411a);
+                    sb.append(f412a);
                 } else if (c2 == '\'') {
                     if (i2 > i) {
                         sb.append(charArray, i, i2 - i);

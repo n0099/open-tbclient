@@ -9,7 +9,7 @@ public class a implements Cloneable {
     protected int left;
 
     /* renamed from: top  reason: collision with root package name */
-    protected int f1004top;
+    protected int f1005top;
     protected int width;
 
     public a() {
@@ -17,7 +17,7 @@ public class a implements Cloneable {
 
     public a(int i, int i2, int i3, int i4) {
         this.left = i;
-        this.f1004top = i2;
+        this.f1005top = i2;
         this.width = i3;
         this.height = i4;
     }
@@ -60,11 +60,11 @@ public class a implements Cloneable {
     }
 
     public int getTop() {
-        return this.f1004top;
+        return this.f1005top;
     }
 
     public void gi(int i) {
-        this.f1004top = i;
+        this.f1005top = i;
     }
 
     public int getWidth() {
@@ -98,7 +98,7 @@ public class a implements Cloneable {
         }
         if (obj instanceof a) {
             a aVar = (a) obj;
-            return this.left == aVar.left && this.f1004top == aVar.f1004top && this.height == aVar.height && this.width == aVar.width && this.ctM == aVar.ctM;
+            return this.left == aVar.left && this.f1005top == aVar.f1005top && this.height == aVar.height && this.width == aVar.width && this.ctM == aVar.ctM;
         }
         return false;
     }
@@ -108,6 +108,6 @@ public class a implements Cloneable {
     }
 
     public String toString() {
-        return "Position{l=" + this.left + ", t=" + this.f1004top + ", w=" + this.width + ", h=" + this.height + ", WAuto=" + this.ctJ + ", HAuto=" + this.ctK + ", fixed=" + this.ctM + '}';
+        return "Position{l=" + this.left + ", t=" + this.f1005top + ", w=" + this.width + ", h=" + this.height + ", WAuto=" + this.ctJ + ", HAuto=" + this.ctK + ", fixed=" + this.ctM + '}';
     }
 }

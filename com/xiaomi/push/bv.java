@@ -23,10 +23,10 @@ public class bv extends bx {
     }
 
     private void a(long j) {
-        if (this.f165a == null || this.f165a.length <= 0) {
+        if (this.f166a == null || this.f166a.length <= 0) {
             return;
         }
-        this.f165a[0] = String.valueOf(j);
+        this.f166a[0] = String.valueOf(j);
     }
 
     @Override // com.xiaomi.push.cb.a
@@ -34,7 +34,7 @@ public class bv extends bx {
         if (obj instanceof Long) {
             long longValue = ((Long) obj).longValue();
             long a = ch.a(a());
-            long j = bt.f146a;
+            long j = bt.f147a;
             if (a <= j) {
                 com.xiaomi.channel.commonutils.logger.b.b("db size is suitable");
                 return;

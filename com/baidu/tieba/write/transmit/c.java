@@ -15,33 +15,33 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.adp.widget.ListView.a<TransmitForumData, a> {
-    private com.baidu.tieba.write.transmit.a mqk;
-    private z mql;
+    private com.baidu.tieba.write.transmit.a mqn;
+    private z mqo;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
-        this.mql = new z() { // from class: com.baidu.tieba.write.transmit.c.1
+        this.mqo = new z() { // from class: com.baidu.tieba.write.transmit.c.1
             @Override // com.baidu.adp.widget.ListView.z
             public void a(View view, q qVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
                 if (qVar instanceof TransmitForumData) {
                     CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
                     boolean isChecked = checkBox.isChecked();
-                    boolean drQ = c.this.mqk != null ? c.this.mqk.drQ() : false;
-                    if (!isChecked && drQ) {
-                        c.this.mqk.drR();
+                    boolean drU = c.this.mqn != null ? c.this.mqn.drU() : false;
+                    if (!isChecked && drU) {
+                        c.this.mqn.drV();
                     }
-                    if (isChecked || !drQ) {
+                    if (isChecked || !drU) {
                         checkBox.setChecked(checkBox.isChecked() ? false : true);
                         ((TransmitForumData) qVar).checked = checkBox.isChecked();
-                        if (c.this.mqk != null) {
-                            c.this.mqk.drS();
+                        if (c.this.mqn != null) {
+                            c.this.mqn.drW();
                         }
                     }
                 }
             }
         };
-        a(this.mql);
+        a(this.mqo);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,6 +76,6 @@ public class c extends com.baidu.adp.widget.ListView.a<TransmitForumData, a> {
     }
 
     public void a(com.baidu.tieba.write.transmit.a aVar) {
-        this.mqk = aVar;
+        this.mqn = aVar;
     }
 }

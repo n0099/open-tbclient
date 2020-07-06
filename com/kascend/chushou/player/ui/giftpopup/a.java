@@ -25,12 +25,12 @@ public class a implements View.OnClickListener {
     private ImageView k;
     private RelativeLayout l;
     private boolean m = false;
-    public ListItem neF;
-    private GiftPopupLayout nri;
-    private RedpacketNotifier nrj;
-    private InteractNotifier nrk;
-    private FoodView nrl;
-    private FrescoThumbnailView nrm;
+    public ListItem neI;
+    private GiftPopupLayout nrl;
+    private RedpacketNotifier nrm;
+    private InteractNotifier nrn;
+    private FoodView nro;
+    private FrescoThumbnailView nrp;
 
     public a(View view, int i) {
         this.h = 1;
@@ -42,7 +42,7 @@ public class a implements View.OnClickListener {
         d();
         c(list);
         a(aVar);
-        this.nrk.a(bVar, aVar2, aVar3);
+        this.nrn.a(bVar, aVar2, aVar3);
     }
 
     public void a(boolean z) {
@@ -50,12 +50,12 @@ public class a implements View.OnClickListener {
             this.c.setVisibility(0);
             if (!z) {
                 this.d.setVisibility(8);
-                this.nri.setVisibility(8);
+                this.nrl.setVisibility(8);
                 this.l.setVisibility(8);
                 return;
             }
             this.d.setVisibility(0);
-            this.nri.setVisibility(0);
+            this.nrl.setVisibility(0);
             this.l.setVisibility(0);
             if (this.h == 2 && (this.c.getContext() instanceof Activity)) {
                 Activity activity = (Activity) this.c.getContext();
@@ -75,19 +75,19 @@ public class a implements View.OnClickListener {
     }
 
     public void b() {
-        if (this.nri != null) {
-            this.nri.removeAllViews();
-            this.nri.setVisibility(8);
-        }
-        if (this.nrk != null) {
-            this.nrk.b();
-            this.nrk.setVisibility(8);
-        }
-        if (this.nrj != null) {
-            this.nrj.setVisibility(8);
-        }
         if (this.nrl != null) {
+            this.nrl.removeAllViews();
             this.nrl.setVisibility(8);
+        }
+        if (this.nrn != null) {
+            this.nrn.b();
+            this.nrn.setVisibility(8);
+        }
+        if (this.nrm != null) {
+            this.nrm.setVisibility(8);
+        }
+        if (this.nro != null) {
+            this.nro.setVisibility(8);
         }
     }
 
@@ -98,7 +98,7 @@ public class a implements View.OnClickListener {
     public void a(com.kascend.chushou.player.ui.h5.redpacket.a aVar) {
         if (aVar != null) {
             d();
-            this.nrj.a(aVar, true);
+            this.nrm.a(aVar, true);
         }
     }
 
@@ -122,60 +122,60 @@ public class a implements View.OnClickListener {
 
     public void a(List<ListItem> list) {
         if (h.isEmpty(list)) {
-            if (this.nri != null) {
-                this.nri.removeAllViews();
-                this.nri.setVisibility(8);
+            if (this.nrl != null) {
+                this.nrl.removeAllViews();
+                this.nrl.setVisibility(8);
                 return;
             }
             return;
         }
         d();
-        this.nri.a(list, this.h);
+        this.nrl.a(list, this.h);
     }
 
     public void a(int i) {
         if (i <= 0) {
-            if (this.nrj != null) {
-                this.nrj.setVisibility(8);
+            if (this.nrm != null) {
+                this.nrm.setVisibility(8);
                 return;
             }
             return;
         }
         d();
-        this.nrj.a(i, true);
+        this.nrm.a(i, true);
     }
 
     public void a(long j) {
         d();
-        if (this.nrk != null) {
-            this.nrk.b(j);
+        if (this.nrn != null) {
+            this.nrn.b(j);
         }
     }
 
     public void b(int i) {
         d();
-        if (this.nrk != null) {
-            this.nrk.a(i);
+        if (this.nrn != null) {
+            this.nrn.a(i);
         }
     }
 
     public void b(long j) {
         d();
-        if (this.nrk != null) {
-            this.nrk.a(j);
+        if (this.nrn != null) {
+            this.nrn.a(j);
         }
     }
 
     public void c() {
         d();
-        if (this.nrk != null) {
-            this.nrk.a();
+        if (this.nrn != null) {
+            this.nrn.a();
         }
     }
 
     public void a(ListItem listItem, FoodView.a aVar) {
-        if (this.nrl != null && listItem != null) {
-            this.nrl.a(listItem, 0, aVar);
+        if (this.nro != null && listItem != null) {
+            this.nro.a(listItem, 0, aVar);
         }
     }
 
@@ -183,20 +183,20 @@ public class a implements View.OnClickListener {
         if (!this.m) {
             if (this.h == 1) {
                 this.c = ((ViewStub) this.b.findViewById(a.f.viewstub_gift_popup_landscape)).inflate();
-                this.nri = (GiftPopupLayout) this.c.findViewById(a.f.gift_popup_layout_landscape);
-                this.nrj = (RedpacketNotifier) this.c.findViewById(a.f.redpacket_notifier_landscape);
-                this.nrk = (InteractNotifier) this.c.findViewById(a.f.interact_notifier_landscape);
+                this.nrl = (GiftPopupLayout) this.c.findViewById(a.f.gift_popup_layout_landscape);
+                this.nrm = (RedpacketNotifier) this.c.findViewById(a.f.redpacket_notifier_landscape);
+                this.nrn = (InteractNotifier) this.c.findViewById(a.f.interact_notifier_landscape);
             } else {
                 this.c = ((ViewStub) this.b.findViewById(a.f.viewstub_gift_popup_portrait)).inflate();
-                this.nri = (GiftPopupLayout) this.c.findViewById(a.f.gift_popup_layout_portrait);
-                this.nrj = (RedpacketNotifier) this.c.findViewById(a.f.redpacket_notifier_portrait);
-                this.nrk = (InteractNotifier) this.c.findViewById(a.f.interact_notifier_portrait);
+                this.nrl = (GiftPopupLayout) this.c.findViewById(a.f.gift_popup_layout_portrait);
+                this.nrm = (RedpacketNotifier) this.c.findViewById(a.f.redpacket_notifier_portrait);
+                this.nrn = (InteractNotifier) this.c.findViewById(a.f.interact_notifier_portrait);
             }
-            this.nrl = (FoodView) this.c.findViewById(a.f.ad_pendant);
+            this.nro = (FoodView) this.c.findViewById(a.f.ad_pendant);
             this.d = this.c.findViewById(a.f.rl_vertical_container);
-            this.nrm = (FrescoThumbnailView) this.c.findViewById(a.f.ic_shopwindow);
+            this.nrp = (FrescoThumbnailView) this.c.findViewById(a.f.ic_shopwindow);
             this.k = (ImageView) this.c.findViewById(a.f.iv_shopwindow_close);
-            this.nrm.setOnClickListener(this);
+            this.nrp.setOnClickListener(this);
             this.k.setOnClickListener(this);
             this.l = (RelativeLayout) this.c.findViewById(a.f.rl_shopwindow);
             this.m = true;
@@ -207,14 +207,14 @@ public class a implements View.OnClickListener {
     public void onClick(View view) {
         int id = view.getId();
         if (id == a.f.ic_shopwindow) {
-            if (this.neF != null) {
-                if (this.nrm.getContext() instanceof Activity) {
-                    e.a(this.nrm.getContext(), this.neF, (JSONObject) null);
+            if (this.neI != null) {
+                if (this.nrp.getContext() instanceof Activity) {
+                    e.a(this.nrp.getContext(), this.neI, (JSONObject) null);
                     return;
                 }
                 Activity e = com.kascend.chushou.d.b.e();
                 if (e != null) {
-                    e.a(e, this.neF, (JSONObject) null);
+                    e.a(e, this.neI, (JSONObject) null);
                 }
             }
         } else if (id == a.f.iv_shopwindow_close && this.l != null) {
@@ -223,12 +223,12 @@ public class a implements View.OnClickListener {
     }
 
     public void b(List<ListItem> list) {
-        if (this.nrm != null && !h.isEmpty(list)) {
-            this.neF = list.get(0);
-            this.nrm.setVisibility(0);
-            this.nrm.a(this.neF.mCover, 0, 0, 0, 1);
+        if (this.nrp != null && !h.isEmpty(list)) {
+            this.neI = list.get(0);
+            this.nrp.setVisibility(0);
+            this.nrp.a(this.neI.mCover, 0, 0, 0, 1);
             if (this.k != null) {
-                if (this.neF.mShowClose) {
+                if (this.neI.mShowClose) {
                     this.k.setVisibility(0);
                 } else {
                     this.k.setVisibility(8);

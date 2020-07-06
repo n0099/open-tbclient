@@ -41,7 +41,7 @@ public class b implements com.baidu.live.x.c {
     private Handler handler = new Handler();
     private long startTime;
 
-    public static b bJw() {
+    public static b bJx() {
         if (grJ == null) {
             synchronized (b.class) {
                 if (grJ == null) {

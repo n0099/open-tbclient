@@ -26,14 +26,14 @@ public class g extends a {
     private final com.tb.airbnb.lottie.f lottieDrawable;
     private final Matrix matrix;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<Integer, Integer> nFB;
-    private final n nHq;
+    private com.tb.airbnb.lottie.a.b.a<Integer, Integer> nFE;
+    private final n nHt;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<Integer, Integer> nHr;
+    private com.tb.airbnb.lottie.a.b.a<Integer, Integer> nHu;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<Float, Float> nHs;
+    private com.tb.airbnb.lottie.a.b.a<Float, Float> nHv;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<Float, Float> nHt;
+    private com.tb.airbnb.lottie.a.b.a<Float, Float> nHw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(com.tb.airbnb.lottie.f fVar, Layer layer) {
@@ -54,29 +54,29 @@ public class g extends a {
         this.FJ = new HashMap();
         this.lottieDrawable = fVar;
         this.composition = layer.getComposition();
-        this.nHq = layer.dOp().dNC();
-        this.nHq.b(this);
-        a(this.nHq);
-        k dOq = layer.dOq();
-        if (dOq != null && dOq.nGt != null) {
-            this.nFB = dOq.nGt.dNC();
-            this.nFB.b(this);
-            a(this.nFB);
+        this.nHt = layer.dOt().dNG();
+        this.nHt.b(this);
+        a(this.nHt);
+        k dOu = layer.dOu();
+        if (dOu != null && dOu.nGw != null) {
+            this.nFE = dOu.nGw.dNG();
+            this.nFE.b(this);
+            a(this.nFE);
         }
-        if (dOq != null && dOq.nGu != null) {
-            this.nHr = dOq.nGu.dNC();
-            this.nHr.b(this);
-            a(this.nHr);
+        if (dOu != null && dOu.nGx != null) {
+            this.nHu = dOu.nGx.dNG();
+            this.nHu.b(this);
+            a(this.nHu);
         }
-        if (dOq != null && dOq.nGv != null) {
-            this.nHs = dOq.nGv.dNC();
-            this.nHs.b(this);
-            a(this.nHs);
+        if (dOu != null && dOu.nGy != null) {
+            this.nHv = dOu.nGy.dNG();
+            this.nHv.b(this);
+            a(this.nHv);
         }
-        if (dOq != null && dOq.nGw != null) {
-            this.nHt = dOq.nGw.dNC();
-            this.nHt.b(this);
-            a(this.nHt);
+        if (dOu != null && dOu.nGz != null) {
+            this.nHw = dOu.nGz.dNG();
+            this.nHw.b(this);
+            a(this.nHw);
         }
     }
 
@@ -86,27 +86,27 @@ public class g extends a {
         if (!this.lottieDrawable.hg()) {
             canvas.setMatrix(matrix);
         }
-        com.tb.airbnb.lottie.model.b value = this.nHq.getValue();
+        com.tb.airbnb.lottie.model.b value = this.nHt.getValue();
         com.tb.airbnb.lottie.model.c cVar = this.composition.gZ().get(value.fontName);
         if (cVar == null) {
             canvas.restore();
             return;
         }
-        if (this.nFB != null) {
-            this.FH.setColor(this.nFB.getValue().intValue());
+        if (this.nFE != null) {
+            this.FH.setColor(this.nFE.getValue().intValue());
         } else {
             this.FH.setColor(value.color);
         }
-        if (this.nHr != null) {
-            this.FI.setColor(this.nHr.getValue().intValue());
+        if (this.nHu != null) {
+            this.FI.setColor(this.nHu.getValue().intValue());
         } else {
             this.FI.setColor(value.DD);
         }
-        int intValue = (this.nFQ.dNx().getValue().intValue() * 255) / 100;
+        int intValue = (this.nFT.dNB().getValue().intValue() * 255) / 100;
         this.FH.setAlpha(intValue);
         this.FI.setAlpha(intValue);
-        if (this.nHs != null) {
-            this.FI.setStrokeWidth(this.nHs.getValue().floatValue());
+        if (this.nHv != null) {
+            this.FI.setStrokeWidth(this.nHv.getValue().floatValue());
         } else {
             this.FI.setStrokeWidth((float) (value.DE * com.tb.airbnb.lottie.d.f.jA() * com.tb.airbnb.lottie.d.f.b(matrix)));
         }
@@ -131,7 +131,7 @@ public class g extends a {
                     a(dVar, matrix, f, bVar, canvas);
                     float width = ((float) dVar.getWidth()) * f * com.tb.airbnb.lottie.d.f.jA() * b;
                     float f2 = bVar.Dz / 10.0f;
-                    canvas.translate(((this.nHt != null ? this.nHt.getValue().floatValue() + f2 : f2) * b) + width, 0.0f);
+                    canvas.translate(((this.nHw != null ? this.nHw.getValue().floatValue() + f2 : f2) * b) + width, 0.0f);
                 }
                 i = i2 + 1;
             } else {
@@ -145,8 +145,8 @@ public class g extends a {
         Typeface n = this.lottieDrawable.n(cVar.hU(), cVar.hV());
         if (n != null) {
             String str = bVar.text;
-            p dNp = this.lottieDrawable.dNp();
-            String bc = dNp != null ? dNp.bc(str) : str;
+            p dNt = this.lottieDrawable.dNt();
+            String bc = dNt != null ? dNt.bc(str) : str;
             this.FH.setTypeface(n);
             this.FH.setTextSize((float) (bVar.Dx * com.tb.airbnb.lottie.d.f.jA()));
             this.FI.setTypeface(this.FH.getTypeface());
@@ -156,7 +156,7 @@ public class g extends a {
                 a(charAt, bVar, canvas);
                 this.FF[0] = charAt;
                 float f = bVar.Dz / 10.0f;
-                canvas.translate(((this.nHt != null ? this.nHt.getValue().floatValue() + f : f) * b) + this.FH.measureText(this.FF, 0, 1), 0.0f);
+                canvas.translate(((this.nHw != null ? this.nHw.getValue().floatValue() + f : f) * b) + this.FH.measureText(this.FF, 0, 1), 0.0f);
             }
         }
     }
@@ -224,14 +224,14 @@ public class g extends a {
     @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         super.a((g) t, (com.tb.airbnb.lottie.e.c<g>) cVar);
-        if (t == com.tb.airbnb.lottie.j.AY && this.nFB != null) {
-            this.nFB.a(cVar);
-        } else if (t == com.tb.airbnb.lottie.j.AZ && this.nHr != null) {
-            this.nHr.a(cVar);
-        } else if (t == com.tb.airbnb.lottie.j.Bi && this.nHs != null) {
-            this.nHs.a(cVar);
-        } else if (t == com.tb.airbnb.lottie.j.Bj && this.nHt != null) {
-            this.nHt.a(cVar);
+        if (t == com.tb.airbnb.lottie.j.AY && this.nFE != null) {
+            this.nFE.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.j.AZ && this.nHu != null) {
+            this.nHu.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.j.Bi && this.nHv != null) {
+            this.nHv.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.j.Bj && this.nHw != null) {
+            this.nHw.a(cVar);
         }
     }
 }

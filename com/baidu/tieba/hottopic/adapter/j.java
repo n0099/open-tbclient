@@ -82,7 +82,7 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
 
     private void a(com.baidu.tieba.hottopic.a.e eVar, com.baidu.tieba.hottopic.data.m mVar) {
         if (eVar != null && mVar != null) {
-            if (mVar.clQ()) {
+            if (mVar.clR()) {
                 eVar.iFv.setVisibility(0);
                 eVar.iFw.setVisibility(0);
                 eVar.iFD.setVisibility(8);
@@ -139,10 +139,10 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.hottopic.data.m mVar) {
-        if (mVar != null && !mVar.clQ()) {
+        if (mVar != null && !mVar.clR()) {
             String valueOf = String.valueOf(mVar.tid);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.iCm.getActivity()).createNormalCfg(valueOf, String.valueOf(mVar.postId), "hot_topic")));
-            TiebaStatic.log(new ao("c10522").dk("tid", valueOf).dk("obj_id", this.iCm.clp()));
+            TiebaStatic.log(new ao("c10522").dk("tid", valueOf).dk("obj_id", this.iCm.clq()));
         }
     }
 }

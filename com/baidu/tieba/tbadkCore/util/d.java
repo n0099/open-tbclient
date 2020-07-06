@@ -18,7 +18,7 @@ public class d {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
                 if (this.lIS.size() >= this.dXZ) {
-                    djd();
+                    dje();
                 }
                 this.mWeight++;
                 this.lIS.put(valueOf, Integer.valueOf(this.mWeight));
@@ -28,7 +28,7 @@ public class d {
         }
     }
 
-    public void djd() {
+    public void dje() {
         int i;
         Long l;
         synchronized (this) {
@@ -77,7 +77,7 @@ public class d {
         }
     }
 
-    public void djc() {
+    public void djd() {
         synchronized (this) {
             this.lIS.clear();
         }

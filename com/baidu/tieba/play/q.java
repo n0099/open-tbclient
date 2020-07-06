@@ -21,20 +21,20 @@ public class q {
         com.baidu.adp.lib.f.e.lt().postDelayed(this.kUG, 500L);
     }
 
-    public void cVG() {
+    public void cVH() {
         this.kUD = true;
     }
 
-    public void cVH() {
+    public void cVI() {
         com.baidu.adp.lib.f.e.lt().removeCallbacks(this.kUF);
         com.baidu.adp.lib.f.e.lt().postDelayed(this.kUF, 500L);
     }
 
     public void a(int i, int i2, com.baidu.tieba.k.i iVar) {
         if ((i == 701 || i2 == 701) && iVar != null && !this.kUD && !this.kUE) {
-            iVar.cCy();
-        } else if ((i == 702 || i2 == 702) && iVar != null && !this.kUD && !this.kUE) {
             iVar.cCz();
+        } else if ((i == 702 || i2 == 702) && iVar != null && !this.kUD && !this.kUE) {
+            iVar.cCA();
             this.kUD = false;
             this.kUE = false;
             Rw();

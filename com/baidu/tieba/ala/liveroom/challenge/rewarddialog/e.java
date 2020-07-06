@@ -12,7 +12,7 @@ public class e {
         public static final e gck = new e();
     }
 
-    public static e bDv() {
+    public static e bDw() {
         return a.gck;
     }
 

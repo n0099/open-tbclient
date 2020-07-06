@@ -49,7 +49,7 @@ public class j {
         this.threadId = j;
     }
 
-    public long ckd() {
+    public long cke() {
         return this.iuZ;
     }
 
@@ -57,7 +57,7 @@ public class j {
         this.iuZ = j;
     }
 
-    public int bEk() {
+    public int bEl() {
         return this.liveType;
     }
 

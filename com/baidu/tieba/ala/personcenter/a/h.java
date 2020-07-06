@@ -38,24 +38,24 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.k kVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.bPg() == null) {
+        if (aVar.bPh() == null) {
             return null;
         }
-        a(kVar, aVar.bPg());
-        aVar.bPg().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.h.1
+        a(kVar, aVar.bPh());
+        aVar.bPh().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.h.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 h.this.click();
             }
         });
-        return aVar.bPg().getView();
+        return aVar.bPh().getView();
     }
 
     private void a(com.baidu.tieba.ala.personcenter.c.k kVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = kVar.getPersonCenterData();
         if (personCenterData != null && aVar != null) {
-            this.fxN = aVar.bLT();
-            this.user_id = personCenterData.bLu().user_id;
+            this.fxN = aVar.bLU();
+            this.user_id = personCenterData.bLv().user_id;
             a(personCenterData, aVar);
             aVar.so(8);
             aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_privilege));

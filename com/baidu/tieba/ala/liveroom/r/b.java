@@ -55,7 +55,7 @@ public class b {
         }
     }
 
-    public void bJa() {
+    public void bJb() {
         if (this.fIb != null && this.fIb.indexOfChild(this.gqe.getView()) > 0) {
             this.fIb.removeView(this.gqe.getView());
             g.rw(2913128);

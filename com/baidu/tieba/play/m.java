@@ -30,9 +30,9 @@ public class m {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                m.this.cje();
+                m.this.cjf();
                 if (m.this.mIsShowing && m.this.mIsShowing) {
-                    m.this.a(m.this.jtN.cVI(), m.this.jtN.cVJ(), m.this.jtN.cVK(), m.this.jtN.cVL());
+                    m.this.a(m.this.jtN.cVJ(), m.this.jtN.cVK(), m.this.jtN.cVL(), m.this.jtN.cVM());
                 }
             }
         }
@@ -214,7 +214,7 @@ public class m {
                     fVar.startPlay();
                 }
             } else if (i == 2 && (view.getTag() instanceof e)) {
-                ((e) view.getTag()).cxH();
+                ((e) view.getTag()).cxI();
             }
         }
     }
@@ -226,7 +226,7 @@ public class m {
                 fVar.stopPlay();
             }
         } else if (i == 2 && (view.getTag() instanceof e)) {
-            ((e) view.getTag()).cxI();
+            ((e) view.getTag()).cxJ();
         }
     }
 
@@ -251,14 +251,14 @@ public class m {
     public void destroy() {
         com.baidu.adp.lib.f.e.lt().removeCallbacks(this.jtO);
         com.baidu.adp.lib.f.e.lt().removeCallbacks(this.kTe);
-        cyj();
+        cyk();
     }
 
     public void zH(int i) {
         this.jtI = i;
     }
 
-    public void cyj() {
+    public void cyk() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -278,7 +278,7 @@ public class m {
         this.jtH = str;
     }
 
-    public void cym() {
+    public void cyn() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -302,7 +302,7 @@ public class m {
         }
     }
 
-    public void cyn() {
+    public void cyo() {
         if (this.mIsShowing) {
             if (this.jtK != null && (this.jtK.getTag() instanceof f)) {
                 f fVar = (f) this.jtK.getTag();
@@ -311,14 +311,14 @@ public class m {
                     this.jtL = false;
                 }
                 if (this.jtK.getTag() instanceof e) {
-                    ((e) this.jtK.getTag()).cxJ();
+                    ((e) this.jtK.getTag()).cxK();
                 }
             }
             this.jtK = null;
         }
     }
 
-    public void cje() {
+    public void cjf() {
         com.baidu.adp.lib.f.e.lt().removeCallbacks(this.jtO);
         com.baidu.adp.lib.f.e.lt().removeCallbacks(this.kTe);
         int i = 0;
@@ -362,7 +362,7 @@ public class m {
         this.kTb = i;
     }
 
-    public View cVl() {
+    public View cVm() {
         return this.jtK;
     }
 }

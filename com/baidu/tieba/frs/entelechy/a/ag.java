@@ -31,7 +31,7 @@ public class ag extends com.baidu.tieba.frs.j<com.baidu.tieba.frs.x, a> {
         this.hJU = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<UserRecommendItemView>() { // from class: com.baidu.tieba.frs.entelechy.a.ag.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cbL */
+            /* renamed from: cbM */
             public UserRecommendItemView makeObject() {
                 return new UserRecommendItemView(ag.this.mContext);
             }
@@ -58,7 +58,7 @@ public class ag extends com.baidu.tieba.frs.j<com.baidu.tieba.frs.x, a> {
         }, 10, 0);
     }
 
-    public void cbK() {
+    public void cbL() {
         this.hJT = true;
     }
 
@@ -82,16 +82,16 @@ public class ag extends com.baidu.tieba.frs.j<com.baidu.tieba.frs.x, a> {
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.x xVar, a aVar) {
         if (xVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            aVar.hJY.setText(xVar.bZN());
+            aVar.hJY.setText(xVar.bZO());
             aVar.hJX.setPageContext(this.mPageContext);
             aVar.hJX.setData(xVar.getUserInfo());
             aVar.hJW.setMaxOverScrollDistance(aVar.hJX.getChildItemWidth());
             aVar.hJY.setTextColor(an.getColor(skinType, R.color.cp_cont_f));
             aVar.mRootView.setBackgroundColor(an.getColor(skinType, R.color.cp_bg_line_e));
-            if (!xVar.bZO()) {
+            if (!xVar.bZP()) {
                 for (MetaData metaData : xVar.getUserInfo()) {
                     if (metaData != null && !ar.isEmpty(metaData.getUserId())) {
-                        com.baidu.tieba.card.s.bOA().e(new ao("c12530").dk("obj_id", metaData.getUserId()));
+                        com.baidu.tieba.card.s.bOB().e(new ao("c12530").dk("obj_id", metaData.getUserId()));
                     }
                 }
                 xVar.nk(true);

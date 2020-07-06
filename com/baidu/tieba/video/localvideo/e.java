@@ -54,7 +54,7 @@ public class e {
                             try {
                                 try {
                                     if (cursor2.moveToFirst() && (string = cursor2.getString(cursor2.getColumnIndex("_data"))) != null) {
-                                        dVar.Om(string.replace("/storage/emulated/0", "/sdcard"));
+                                        dVar.On(string.replace("/storage/emulated/0", "/sdcard"));
                                     }
                                 } catch (Throwable th) {
                                     th = th;
@@ -90,7 +90,7 @@ public class e {
                         cursor2 = null;
                     }
                     cursor.moveToNext();
-                    if (dVar.getVideoPath() != null && dVar.getDuration() != 0 && Op(dVar.getMimeType()) && dVar.getDuration() >= 1000) {
+                    if (dVar.getVideoPath() != null && dVar.getDuration() != 0 && Oq(dVar.getMimeType()) && dVar.getDuration() >= 1000) {
                         videoPath = dVar.getVideoPath();
                         String substring2 = videoPath.substring(0, videoPath.lastIndexOf("/"));
                         if (!videoPath.contains("/DCIM/") && ((substring2 == null || !substring2.equals("/sdcard")) && (file = new File(videoPath)) != null && file.exists())) {
@@ -133,11 +133,11 @@ public class e {
         return arrayList;
     }
 
-    public static int NU(String str) {
-        return VideoConvertUtil.NU(str);
+    public static int NV(String str) {
+        return VideoConvertUtil.NV(str);
     }
 
-    public static d On(String str) {
+    public static d Oo(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
@@ -182,7 +182,7 @@ public class e {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public static d Oo(String str) {
+    public static d Op(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
@@ -216,13 +216,13 @@ public class e {
         return dVar;
     }
 
-    public static String NT(String str) {
-        return VideoConvertUtil.NT(str);
+    public static String NU(String str) {
+        return VideoConvertUtil.NU(str);
     }
 
     public static void c(String str, List<d> list, boolean z) {
         File[] listFiles;
-        d On;
+        d Oo;
         if (list != null && !StringUtils.isNull(str) && (listFiles = new File(str).listFiles()) != null && listFiles.length != 0) {
             for (File file : listFiles) {
                 if (file != null && !StringUtils.isNull(file.getPath())) {
@@ -232,8 +232,8 @@ public class e {
                             if (file.exists()) {
                                 file.delete();
                             }
-                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (On = On(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && On.getDuration() >= 1000 && Op(On.getMimeType())) {
-                            list.add(On);
+                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (Oo = Oo(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && Oo.getDuration() >= 1000 && Oq(Oo.getMimeType())) {
+                            list.add(Oo);
                         }
                     } else if (file.isDirectory() && !path.contains("/.") && z) {
                         c(path, list, z);
@@ -264,7 +264,7 @@ public class e {
         }
     }
 
-    public static boolean Op(String str) {
+    public static boolean Oq(String str) {
         return MimeType.Video.MP4.equals(str) || "video/ext-mp4".equals(str);
     }
 }

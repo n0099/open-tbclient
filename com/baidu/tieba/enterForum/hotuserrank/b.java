@@ -62,7 +62,7 @@ public class b {
         if (cVar != null && cVar.hfk != null && cVar.hfk.hfg != null && !cVar.hfk.hfg.isMask && TbadkCoreApplication.isLogin()) {
             this.mRootView.setVisibility(0);
             this.heE.a(cVar.hfk);
-            this.heE.bSo();
+            this.heE.bSp();
             this.heH = cVar.hfl;
             return;
         }

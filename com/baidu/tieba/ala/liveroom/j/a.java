@@ -230,7 +230,7 @@ public class a {
         dialog.setCanceledOnTouchOutside(false);
         this.mContentView = inflate;
         this.aQQ = dialog;
-        bEF();
+        bEG();
         inflate.findViewById(a.g.main_layout).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.j.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -371,7 +371,7 @@ public class a {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913098, this.aDQ.ayj));
             }
             this.ghL = true;
-            bEE();
+            bEF();
         }
     }
 
@@ -382,12 +382,12 @@ public class a {
             if (!z && this.ghK) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913115));
                 this.ghM = true;
-                bEE();
+                bEF();
             }
         }
     }
 
-    private void bEE() {
+    private void bEF() {
         if (this.ghL && this.ghM) {
             this.ghK = false;
         }
@@ -407,11 +407,11 @@ public class a {
     public void yA() {
         if (this.aQQ != null && this.aQQ.isShowing() && this.mContentView != null) {
             this.aQQ.show();
-            bEF();
+            bEG();
         }
     }
 
-    private void bEF() {
+    private void bEG() {
         TbImageView tbImageView = (TbImageView) this.mContentView.findViewById(a.g.rechargeBg_imageView);
         tbImageView.setDefaultBgResource(a.f.sdk_shape_transparent);
         TbImageView tbImageView2 = (TbImageView) this.mContentView.findViewById(a.g.recharge_imageView);

@@ -28,7 +28,7 @@ public class ef extends ed {
         if (this.a) {
             try {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
-                ((WindowManager) this.f236a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+                ((WindowManager) this.f237a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                 return displayMetrics.heightPixels + Constants.ACCEPT_TIME_SEPARATOR_SP + displayMetrics.widthPixels;
             } catch (Throwable th) {
                 return "";
@@ -62,7 +62,7 @@ public class ef extends ed {
     private String e() {
         if (this.d) {
             try {
-                return Settings.Secure.getString(this.f236a.getContentResolver(), "android_id");
+                return Settings.Secure.getString(this.f237a.getContentResolver(), "android_id");
             } catch (Throwable th) {
                 return "";
             }
@@ -73,7 +73,7 @@ public class ef extends ed {
     private String f() {
         if (this.e) {
             try {
-                return ((TelephonyManager) this.f236a.getSystemService("phone")).getSimOperator();
+                return ((TelephonyManager) this.f237a.getSystemService("phone")).getSimOperator();
             } catch (Throwable th) {
                 return "";
             }

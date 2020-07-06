@@ -83,11 +83,11 @@ public class a {
         });
     }
 
-    public void chL() {
+    public void chM() {
         this.ile.setVisibility(8);
     }
 
-    public void chM() {
+    public void chN() {
         this.ile.setVisibility(0);
     }
 

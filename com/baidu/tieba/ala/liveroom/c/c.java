@@ -94,7 +94,7 @@ public class c {
         }
         if (this.fXx instanceof b) {
             b bVar = (b) this.fXx;
-            bVar.bBe();
+            bVar.bBf();
             bVar.kE(this.fWM);
             bVar.a(this.fWG);
         }
@@ -172,7 +172,7 @@ public class c {
         }
     }
 
-    public void bBV() {
+    public void bBW() {
         if (this.fVT != null) {
             this.fVT.gfV = true;
         }
@@ -206,7 +206,7 @@ public class c {
         }
     }
 
-    public void bBW() {
+    public void bBX() {
         if (this.fXw != 4) {
             try {
                 if (this.fVT != null) {
@@ -223,14 +223,14 @@ public class c {
         }
     }
 
-    public boolean bBX() {
+    public boolean bBY() {
         if (this.fXx == null || !(this.fXx instanceof b)) {
             return false;
         }
-        return ((b) this.fXx).bAW();
+        return ((b) this.fXx).bAX();
     }
 
-    public boolean bBY() {
+    public boolean bBZ() {
         if (this.fXx != null && (this.fXx instanceof b) && ((b) this.fXx).fWV) {
             return false;
         }
@@ -275,13 +275,13 @@ public class c {
         }
     }
 
-    public void bBZ() {
+    public void bCa() {
         if (this.fXx != null) {
             this.fXx.onStop();
         }
     }
 
-    public void bCa() {
+    public void bCb() {
         if (this.fXx != null) {
             this.fXx.onStart();
         }
@@ -305,7 +305,7 @@ public class c {
         }
     }
 
-    public com.baidu.tieba.ala.liveroom.data.a bBS() {
+    public com.baidu.tieba.ala.liveroom.data.a bBT() {
         return this.fVT;
     }
 
@@ -313,7 +313,7 @@ public class c {
         this.otherParams = str;
     }
 
-    public com.baidu.live.liveroom.f.a bCb() {
+    public com.baidu.live.liveroom.f.a bCc() {
         return this.fXx;
     }
 

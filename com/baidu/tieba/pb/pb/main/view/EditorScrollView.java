@@ -20,7 +20,7 @@ public class EditorScrollView extends ScrollView {
     public interface a {
         void a(EditorScrollView editorScrollView, int i, int i2, int i3, int i4);
 
-        void cNy();
+        void cNA();
 
         void cNz();
     }
@@ -62,10 +62,10 @@ public class EditorScrollView extends ScrollView {
             this.ksb.a(this, i, i2, i3, i4);
         }
         if (getHeight() + i2 >= this.contentView.getHeight() && this.ksb != null) {
-            this.ksb.cNz();
+            this.ksb.cNA();
         }
         if ((i2 == 0 || getHeight() + i2 > this.contentView.getHeight()) && this.ksb != null) {
-            this.ksb.cNy();
+            this.ksb.cNz();
         }
         if (this.ksa != null && this.hmg && Math.abs(i3 - i2) >= this.krZ) {
             this.ksa.onScrollChanged();

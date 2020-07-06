@@ -20,7 +20,7 @@ public class d extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bKY();
+        void bKZ();
 
         void onFail(String str);
     }
@@ -35,7 +35,7 @@ public class d extends BdBaseModel {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
                         d.this.gzo.onFail(httpResponsedMessage.getErrorString());
                     } else if (httpResponsedMessage.getError() == 0) {
-                        d.this.gzo.bKY();
+                        d.this.gzo.bKZ();
                     } else {
                         d.this.gzo.onFail(httpResponsedMessage.getErrorString());
                     }

@@ -33,7 +33,7 @@ public class a {
         this.mTbPageContext = tbPageContext;
     }
 
-    public void cUm() {
+    public void cUn() {
         if (!this.kPc) {
             this.kPc = true;
             com.baidu.tbadk.core.sharedPref.b.aVP().putBoolean("key_person_dynamic_tab_guide_has_shown", true);
@@ -72,7 +72,7 @@ public class a {
         }
     }
 
-    public boolean cUn() {
+    public boolean cUo() {
         return this.kPc;
     }
 

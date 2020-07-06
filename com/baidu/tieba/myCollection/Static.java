@@ -98,11 +98,11 @@ public class Static {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        com.baidu.tieba.myCollection.a.a.cDM().destroy();
+                        com.baidu.tieba.myCollection.a.a.cDN().destroy();
                     } else if (TbadkCoreApplication.isLogin()) {
-                        com.baidu.tieba.myCollection.a.a.cDM().start();
+                        com.baidu.tieba.myCollection.a.a.cDN().start();
                     } else {
-                        com.baidu.tieba.myCollection.a.a.cDM().destroy();
+                        com.baidu.tieba.myCollection.a.a.cDN().destroy();
                     }
                 }
             }
@@ -112,9 +112,9 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin()) {
-                    com.baidu.tieba.myCollection.a.a.cDM().restart();
+                    com.baidu.tieba.myCollection.a.a.cDN().restart();
                 } else {
-                    com.baidu.tieba.myCollection.a.a.cDM().destroy();
+                    com.baidu.tieba.myCollection.a.a.cDN().destroy();
                 }
             }
         });
@@ -123,8 +123,8 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark() > 0) {
-                    b.cDl().cDo();
-                    b.cDl().qO(true);
+                    b.cDm().cDp();
+                    b.cDm().qO(true);
                 }
             }
         });

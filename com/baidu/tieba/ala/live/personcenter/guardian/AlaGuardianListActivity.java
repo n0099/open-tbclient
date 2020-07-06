@@ -49,7 +49,7 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
     public e.a fQX = new e.a() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.2
         @Override // com.baidu.tieba.ala.live.personcenter.guardian.e.a
         public void CA(String str) {
-            AlaGuardianListActivity.this.bza();
+            AlaGuardianListActivity.this.bzb();
             if (!TextUtils.isEmpty(str)) {
                 AlaGuardianListActivity.this.showToast(str);
             }
@@ -132,7 +132,7 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
             setContentView(this.mRootView);
             setUseStyleImmersiveSticky(true);
             initData();
-            byZ();
+            bza();
             initUI();
             registerListener(this.fzf);
         }
@@ -156,7 +156,7 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
         this.fQT = (BdListView) this.mRootView.findViewById(a.g.list);
         this.fQW = new d(getPageContext().getPageActivity());
         this.fQW.CB(this.fzj);
-        this.fQT.addHeaderView(this.fQW.byQ());
+        this.fQT.addHeaderView(this.fQW.byR());
         this.fQU = new b(this);
         this.fQU.m(this.fAx);
         this.fQT.setAdapter((ListAdapter) this.fQU);
@@ -167,13 +167,13 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                AlaGuardianListActivity.this.byO();
                 AlaGuardianListActivity.this.byP();
+                AlaGuardianListActivity.this.byQ();
             }
         });
     }
 
-    private void byZ() {
+    private void bza() {
         this.fQV.loadData();
     }
 
@@ -192,7 +192,7 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar) {
         if (this.fQU != null) {
-            if (cVar != null && cVar.bzb().size() <= 0) {
+            if (cVar != null && cVar.bzc().size() <= 0) {
                 showNoDataView();
             } else {
                 hideNoDataView();
@@ -203,9 +203,9 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byO() {
+    public void byP() {
         if (Build.VERSION.SDK_INT >= 11 && this.fQW != null) {
-            int i = this.fPC - (-this.fQW.byQ().getTop());
+            int i = this.fPC - (-this.fQW.byR().getTop());
             if (i < this.fPD) {
                 if (this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                     this.mNavigationBar.getBarBgView().setAlpha(1.0f);
@@ -227,7 +227,7 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byP() {
+    public void byQ() {
         float alpha = this.mNavigationBar.getBarBgView().getAlpha();
         if (alpha < 0.5f) {
             alpha = 1.0f - alpha;
@@ -283,7 +283,7 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bza() {
+    public void bzb() {
         if (this.bjC == null) {
             this.bjC = new CommonEmptyView(getPageContext().getPageActivity());
             this.bjC.addToParent(this.mRootView);

@@ -17,7 +17,7 @@ public class z extends m<aa, ab> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ch */
     public ab b(ViewGroup viewGroup) {
-        return new ab(LayoutInflater.from(this.mContext).inflate(R.layout.pb_list_ala_recomment_layout, (ViewGroup) null), this.kdO.cJI());
+        return new ab(LayoutInflater.from(this.mContext).inflate(R.layout.pb_list_ala_recomment_layout, (ViewGroup) null), this.kdO.cJJ());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

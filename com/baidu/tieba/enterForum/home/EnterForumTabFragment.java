@@ -22,7 +22,7 @@ public class EnterForumTabFragment extends BaseFragment implements g {
         @Override // com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip.a
         public void k(View view, int i) {
             if (view != null && EnterForumTabFragment.this.isPrimary() && EnterForumTabFragment.this.hcW != null) {
-                if (EnterForumTabFragment.this.hcW.bSh() == i) {
+                if (EnterForumTabFragment.this.hcW.bSi() == i) {
                     EnterForumTabFragment.this.hcW.ts(i);
                 } else if (i == 0) {
                     TiebaStatic.log(new ao("c13366").ag("obj_locate", 1));
@@ -38,14 +38,14 @@ public class EnterForumTabFragment extends BaseFragment implements g {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 1 && EnterForumTabFragment.this.hcW != null) {
                 if (EnterForumTabFragment.this.isPrimary()) {
-                    EnterForumTabFragment.this.hcW.ts(EnterForumTabFragment.this.hcW.bSh());
+                    EnterForumTabFragment.this.hcW.ts(EnterForumTabFragment.this.hcW.bSi());
                     return;
                 }
-                int bSh = EnterForumTabFragment.this.hcW.bSh();
-                if (bSh == 0) {
+                int bSi = EnterForumTabFragment.this.hcW.bSi();
+                if (bSi == 0) {
                     TiebaStatic.log(new ao("c13366").ag("obj_locate", 1));
-                } else if (bSh > 0) {
-                    TiebaStatic.log(new ao("c13366").ag("obj_locate", 3).dk("resource_id", EnterForumTabFragment.this.hcW.tt(bSh)));
+                } else if (bSi > 0) {
+                    TiebaStatic.log(new ao("c13366").ag("obj_locate", 3).dk("resource_id", EnterForumTabFragment.this.hcW.tt(bSi)));
                 }
             }
         }
@@ -104,7 +104,7 @@ public class EnterForumTabFragment extends BaseFragment implements g {
         if (this.hcW != null && intent != null && intent.getExtras() != null && intent.getBooleanExtra("is_from_scheme", false)) {
             String stringExtra = intent.getStringExtra("sub_locate_type");
             int El = this.hcW.El(stringExtra);
-            if (this.hcW.bSa()) {
+            if (this.hcW.bSb()) {
                 if (this.hcW.tp(El != -1 ? El : 0)) {
                     intent.removeExtra("sub_locate_type");
                     intent.removeExtra("is_from_scheme");
@@ -119,7 +119,7 @@ public class EnterForumTabFragment extends BaseFragment implements g {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.db.e.cpB().cpC();
+        com.baidu.tieba.im.db.e.cpC().cpD();
         MessageManager.getInstance().unRegisterListener(this.hcY);
         if (this.hcW != null) {
             this.hcW.Ve();

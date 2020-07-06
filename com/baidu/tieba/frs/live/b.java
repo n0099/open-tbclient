@@ -34,19 +34,19 @@ public class b implements CustomMessageTask.CustomRunnable<bu>, y {
             bu data = customMessage.getData();
             if (customMessage.getCmd() == 2921018) {
                 av(data);
-                com.baidu.tieba.frs.d.c.ceq().a(this.hTG, data, 1);
+                com.baidu.tieba.frs.d.c.cer().a(this.hTG, data, 1);
                 com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.hTG, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921016) {
                 av(data);
-                com.baidu.tieba.frs.d.c.ceq().a(this.hTG, data, 2);
+                com.baidu.tieba.frs.d.c.cer().a(this.hTG, data, 2);
                 com.baidu.tieba.frs.d.a.a(data, 2, this.mPageId, this.hTG, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921019) {
                 av(data);
-                com.baidu.tieba.frs.d.c.ceq().a(this.hTG, data, 4);
+                com.baidu.tieba.frs.d.c.cer().a(this.hTG, data, 4);
                 com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.hTG, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921017) {
                 aw(data);
-                com.baidu.tieba.frs.d.c.ceq().a(this.hTG, data);
+                com.baidu.tieba.frs.d.c.cer().a(this.hTG, data);
                 com.baidu.tieba.frs.d.a.a(data, this.mPageId, this.hTG, this.mTbPageTag);
             }
         }
@@ -99,7 +99,7 @@ public class b implements CustomMessageTask.CustomRunnable<bu>, y {
             } else if (this.hTH == 13) {
                 aoVar.ag("obj_locate", 2);
             }
-            s.bOA().e(aoVar);
+            s.bOB().e(aoVar);
         }
     }
 

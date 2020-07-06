@@ -11,7 +11,7 @@ public class b {
         this.jao = new e(1000, 1000, 1000);
     }
 
-    public static b csO() {
+    public static b csP() {
         if (jan == null) {
             synchronized (b.class) {
                 if (jan == null) {

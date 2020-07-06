@@ -22,13 +22,13 @@ public class a {
     /* renamed from: com.baidu.tieba.ala.liveroom.challenge.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0569a {
-        void bDG();
-
         void bDH();
 
         void bDI();
 
         void bDJ();
+
+        void bDK();
     }
 
     public a(Context context) {
@@ -230,7 +230,7 @@ public class a {
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     if (a.this.gdz != null) {
-                        a.this.gdz.bDJ();
+                        a.this.gdz.bDK();
                     }
                 }
 
@@ -265,7 +265,7 @@ public class a {
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     if (a.this.gdz != null) {
-                        a.this.gdz.bDI();
+                        a.this.gdz.bDJ();
                     }
                 }
 
@@ -322,7 +322,7 @@ public class a {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (a.this.gdz != null) {
-                    a.this.gdz.bDG();
+                    a.this.gdz.bDH();
                 }
             }
 
@@ -360,7 +360,7 @@ public class a {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (a.this.gdz != null) {
-                    a.this.gdz.bDH();
+                    a.this.gdz.bDI();
                 }
             }
 

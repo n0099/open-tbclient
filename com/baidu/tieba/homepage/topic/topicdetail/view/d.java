@@ -210,7 +210,7 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
                 if (this.izd.source == 1) {
                     name_show = aTS.aSp().getName_show();
                     formatTime = ar.getFormatTime(aTS.getTime());
-                    aSg = aTS.dic();
+                    aSg = aTS.did();
                 } else {
                     name_show = buVar.aSp().getName_show();
                     formatTime = ar.getFormatTime(buVar.getCreateTime());
@@ -253,7 +253,7 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
     private void a(PostData postData, bu buVar) {
         if (this.izd.source == 1) {
             this.izk.setVisibility(0);
-            this.izk.setText(postData.dia());
+            this.izk.setText(postData.dib());
             return;
         }
         List<PbContent> aSf = buVar.aSf();
@@ -380,7 +380,7 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
         }
     }
 
-    private void ckM() {
+    private void ckN() {
         PbActivityConfig createNormalCfg = new PbActivityConfig(this.dPv.getPageActivity()).createNormalCfg(String.valueOf(this.izd.dLi.getTid()), String.format("%1$s", this.izd.dLi.aTS().getId()) + "", 1, "mention");
         createNormalCfg.setStartFrom(12);
         createNormalCfg.setJumpToCommentArea(true);
@@ -444,7 +444,7 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
         if (this.izd != null && this.izd.dLi != null) {
             if (view == this.izk) {
                 if (this.izd.source == 1) {
-                    ckM();
+                    ckN();
                 } else {
                     bdl();
                 }
@@ -452,13 +452,13 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
             }
             if (view == this.izi || view == this.izj) {
                 if (this.izd.source == 1) {
-                    ckM();
+                    ckN();
                 } else {
                     bdl();
                 }
                 Gi("3");
             } else if (view == this.dEL) {
-                ckN();
+                ckO();
             } else {
                 bdl();
                 Gi("2");
@@ -466,7 +466,7 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
         }
     }
 
-    private void ckN() {
+    private void ckO() {
         MetaData aSp;
         if (this.izd != null && this.izd.dLi != null) {
             bu buVar = this.izd.dLi;

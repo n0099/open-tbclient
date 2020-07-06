@@ -36,7 +36,7 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         this.hFi = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.hottopic.adapter.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cay */
+            /* renamed from: caz */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(g.this.mPageContext.getPageActivity());
             }
@@ -102,17 +102,17 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
-                if (kVar != null && kVar.aPS() != null && !StringUtils.isNull(kVar.aPS().getTid()) && !StringUtils.isNull(kVar.bON())) {
+                if (kVar != null && kVar.aPS() != null && !StringUtils.isNull(kVar.aPS().getTid()) && !StringUtils.isNull(kVar.bOO())) {
                     String topicName = ((HotTopicActivity) g.this.mPageContext.getOrignalPage()).getTopicName();
-                    String clp = ((HotTopicActivity) g.this.mPageContext.getOrignalPage()).clp();
+                    String clq = ((HotTopicActivity) g.this.mPageContext.getOrignalPage()).clq();
                     bu aPS = kVar.aPS();
                     aPS.kF(5);
-                    if ("c10814".equals(kVar.bON())) {
+                    if ("c10814".equals(kVar.bOO())) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                        TiebaStatic.log(new ao("c10814").dk("tid", aPS.getId()).dk("obj_name", topicName).dk("topic_id", clp));
-                    } else if ("c10816".equals(kVar.bON())) {
+                        TiebaStatic.log(new ao("c10814").dk("tid", aPS.getId()).dk("obj_name", topicName).dk("topic_id", clq));
+                    } else if ("c10816".equals(kVar.bOO())) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                        TiebaStatic.log(new ao("c10816").dk("post_id", aPS.getTid()).dk("obj_name", topicName).dk("topic_id", clp));
+                        TiebaStatic.log(new ao("c10816").dk("post_id", aPS.getTid()).dk("obj_name", topicName).dk("topic_id", clq));
                     }
                     if (g.this.mPageContext != null && (g.this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
                         ((HotTopicActivity) g.this.mPageContext.getOrignalPage()).t(kVar);

@@ -130,7 +130,7 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
         this.foo = str;
         this.hNq.a(this.hNr);
         registerListeners();
-        bts();
+        btt();
     }
 
     private void registerListeners() {
@@ -138,7 +138,7 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
         MessageManager.getInstance().registerListener(this.hNs);
     }
 
-    private static void bts() {
+    private static void btt() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_FRS_GAME_STRATEGY, FrsGameStrategySocketResponseMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003362, com.baidu.tieba.tbadkCore.a.a.bE(Config.FRS_GAME_STRATEGY, CmdConfigSocket.CMD_FRS_GAME_STRATEGY));
         tbHttpMessageTask.setIsNeedLogin(false);

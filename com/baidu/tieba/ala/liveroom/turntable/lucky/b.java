@@ -42,7 +42,7 @@ public class b implements a {
         this.gsr = true;
         this.mLiveId = str;
         this.gsj = interfaceC0583a;
-        bJC();
+        bJD();
     }
 
     public void bF(int i, int i2) {
@@ -69,7 +69,7 @@ public class b implements a {
 
     public void yW() {
         this.mLiveId = "";
-        bvY();
+        bvZ();
         this.gsj = null;
         if (this.gso != null) {
             this.gso.removeCallbacksAndMessages(null);
@@ -93,7 +93,7 @@ public class b implements a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJC() {
+    public void bJD() {
         bb bbVar = com.baidu.live.v.a.Hm().bdV;
         if (bbVar == null || bbVar.aCW == null || bbVar.aCW.aEN) {
             if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isRotaryTableUnabled()) {
@@ -121,7 +121,7 @@ public class b implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, String str, c cVar) {
         if (!z) {
-            bJD();
+            bJE();
         } else if (TextUtils.isEmpty(this.mLiveId)) {
         } else {
             if (TextUtils.isEmpty(str) || this.mLiveId.equals(str)) {
@@ -131,29 +131,29 @@ public class b implements a {
                         this.gsn.setContent(cVar.gsz.giftName, cVar.gsz.gsA);
                     }
                 } else {
-                    bvY();
-                    btD();
+                    bvZ();
+                    btE();
                 }
-                bJD();
+                bJE();
             }
         }
     }
 
-    private void bJD() {
+    private void bJE() {
         if (this.gso == null) {
             this.gso = new Handler();
         }
         this.gso.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.turntable.lucky.b.2
             @Override // java.lang.Runnable
             public void run() {
-                b.this.bJC();
+                b.this.bJD();
             }
         }, 5000L);
     }
 
     private void a(c cVar) {
         if (this.gsq != cVar.gsy) {
-            bvY();
+            bvZ();
             this.gsq = cVar.gsy;
             long j = cVar.gsy - cVar.currentTime;
             a(cVar.gsz, j);
@@ -166,14 +166,14 @@ public class b implements a {
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
-                    b.this.bJE();
+                    b.this.bJF();
                 }
             };
             this.fzZ.start();
         }
     }
 
-    private void bvY() {
+    private void bvZ() {
         this.gsq = 0L;
         if (this.fzZ != null) {
             this.fzZ.cancel();
@@ -218,12 +218,12 @@ public class b implements a {
             if (j3 >= 1) {
                 this.gsj.a((((float) j) * 1.0f) / ((float) j2), j3 + "s");
             } else {
-                bJE();
+                bJF();
             }
         }
     }
 
-    private void btD() {
+    private void btE() {
         if (this.gsm != null) {
             this.gsm.removeAllViews();
             if (this.gsk != null) {
@@ -238,12 +238,12 @@ public class b implements a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJE() {
-        bvY();
-        btD();
+    public void bJF() {
+        bvZ();
+        btE();
         if (this.gso != null) {
             this.gso.removeCallbacksAndMessages(null);
         }
-        bJC();
+        bJD();
     }
 }

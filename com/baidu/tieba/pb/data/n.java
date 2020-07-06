@@ -28,11 +28,11 @@ public class n {
     private ArrayList<PostData> kaj = new ArrayList<>();
     private int kak = 1;
 
-    public Error cHH() {
+    public Error cHI() {
         return this.kan;
     }
 
-    public PostData cHI() {
+    public PostData cHJ() {
         return this.kai;
     }
 
@@ -40,41 +40,41 @@ public class n {
         this.kai = postData;
     }
 
-    public int cHJ() {
+    public int cHK() {
         if (this.kal == -1) {
             this.kal = this.aLb;
         }
         return this.kal;
     }
 
-    public int cHK() {
+    public int cHL() {
         return this.kal;
     }
 
     public void a(n nVar, boolean z) {
         if (nVar != null) {
-            b(nVar.bXd());
-            this.kal = nVar.bmK();
+            b(nVar.bXe());
+            this.kal = nVar.bmL();
             a(nVar.bfV());
             setPageSize(nVar.getPageSize());
             setThreadData(nVar.aPS());
             setTotalCount(nVar.getTotalCount());
-            AZ(nVar.cHN());
-            this.kaj.addAll(0, nVar.cHM());
+            AZ(nVar.cHO());
+            this.kaj.addAll(0, nVar.cHN());
         }
     }
 
     public void b(n nVar, boolean z) {
         if (nVar != null) {
-            b(nVar.bXd());
+            b(nVar.bXe());
             a(nVar.bfV());
-            g(nVar.cHI());
+            g(nVar.cHJ());
             setThreadData(nVar.aPS());
-            if (nVar.cHM() != null) {
-                setCurrentPage(nVar.bmK());
+            if (nVar.cHN() != null) {
+                setCurrentPage(nVar.bmL());
                 setPageSize(nVar.getPageSize());
                 setTotalCount(nVar.getTotalCount());
-                AZ(nVar.cHN());
+                AZ(nVar.cHO());
             }
             int size = this.kaj.size();
             if (z && size % this.mPageSize != 0) {
@@ -82,21 +82,21 @@ public class n {
                     this.kaj.remove(this.kaj.size() - 1);
                 }
             }
-            this.kaj.addAll(nVar.cHM());
+            this.kaj.addAll(nVar.cHN());
         }
     }
 
     public void c(n nVar, boolean z) {
         if (nVar != null) {
-            b(nVar.bXd());
+            b(nVar.bXe());
             a(nVar.bfV());
-            g(nVar.cHI());
+            g(nVar.cHJ());
             setThreadData(nVar.aPS());
-            if (nVar.cHM() != null && nVar.cHM().size() > 0) {
-                setCurrentPage(nVar.bmK());
+            if (nVar.cHN() != null && nVar.cHN().size() > 0) {
+                setCurrentPage(nVar.bmL());
                 setPageSize(nVar.getPageSize());
                 setTotalCount(nVar.getTotalCount());
-                AZ(nVar.cHN());
+                AZ(nVar.cHO());
             }
             int size = this.kaj.size();
             if (z && size % this.mPageSize != 0) {
@@ -104,8 +104,8 @@ public class n {
                     this.kaj.remove(this.kaj.size() - 1);
                 }
             }
-            this.kaj.addAll(nVar.cHM());
-            cHL();
+            this.kaj.addAll(nVar.cHN());
+            cHM();
         }
     }
 
@@ -115,25 +115,25 @@ public class n {
 
     public void a(n nVar) {
         if (nVar != null) {
-            b(nVar.bXd());
+            b(nVar.bXe());
             a(nVar.bfV());
-            g(nVar.cHI());
+            g(nVar.cHJ());
             setThreadData(nVar.aPS());
-            if (nVar.cHM() != null && nVar.cHM().size() > 0) {
-                setCurrentPage(nVar.bmK());
+            if (nVar.cHN() != null && nVar.cHN().size() > 0) {
+                setCurrentPage(nVar.bmL());
                 setPageSize(nVar.getPageSize());
                 setTotalCount(nVar.getTotalCount());
-                AZ(nVar.cHN());
-                this.kal = (this.aLb - (((nVar.cHM().size() - 1) + this.mPageSize) / this.mPageSize)) + 1;
+                AZ(nVar.cHO());
+                this.kal = (this.aLb - (((nVar.cHN().size() - 1) + this.mPageSize) / this.mPageSize)) + 1;
                 if (this.kal < 0) {
                     this.kal = 0;
                 }
             }
-            this.kaj.addAll(nVar.cHM());
+            this.kaj.addAll(nVar.cHN());
         }
     }
 
-    public void cHL() {
+    public void cHM() {
         if (this.kal < 0) {
             this.kal = this.aLb;
         } else if (this.kal > this.aLb) {
@@ -141,7 +141,7 @@ public class n {
         }
     }
 
-    public ArrayList<PostData> cHM() {
+    public ArrayList<PostData> cHN() {
         return this.kaj;
     }
 
@@ -149,7 +149,7 @@ public class n {
         this.kaj = arrayList;
     }
 
-    public int cHN() {
+    public int cHO() {
         return this.kak;
     }
 
@@ -175,7 +175,7 @@ public class n {
         }
     }
 
-    public int bmK() {
+    public int bmL() {
         return this.aLb;
     }
 
@@ -195,7 +195,7 @@ public class n {
         this.ejE = antiData;
     }
 
-    public AntiData bXd() {
+    public AntiData bXe() {
         return this.ejE;
     }
 
@@ -203,7 +203,7 @@ public class n {
         this.aiq = buVar;
     }
 
-    public boolean csI() {
+    public boolean csJ() {
         return (this.aiq == null || this.kai == null || this.aiq.aSp() == null || this.aiq.aSp().getUserId() == null || this.kai.aSp() == null || this.kai.aSp().getUserId() == null || !this.aiq.aSp().getUserId().equals(this.kai.aSp().getUserId())) ? false : true;
     }
 

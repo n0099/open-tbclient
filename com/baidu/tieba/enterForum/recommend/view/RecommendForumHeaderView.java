@@ -36,7 +36,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921386) {
-                    RecommendForumHeaderView.this.bSO();
+                    RecommendForumHeaderView.this.bSP();
                 }
             }
         };
@@ -48,7 +48,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
                     if (RecommendForumHeaderView.this.hhq == null || RecommendForumHeaderView.this.hhq.getVisibility() == 8) {
                         RecommendForumHeaderView.this.hhs = false;
                     } else {
-                        RecommendForumHeaderView.this.bSN();
+                        RecommendForumHeaderView.this.bSO();
                     }
                 }
             }
@@ -84,7 +84,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
         this.hhq.setVisibility(0);
         this.hhq.setData(list);
         if (!this.hhs) {
-            bSN();
+            bSO();
             this.hhs = true;
         }
     }
@@ -102,7 +102,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != this.hhq && this.hhr != null) {
-            bSO();
+            bSP();
         }
     }
 
@@ -113,7 +113,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSN() {
+    public void bSO() {
         if (this.hhr == null) {
             this.hhr = new e(this.mPageContext, this.hhq);
             this.hhr.cS(R.drawable.bg_tip_blue_up);
@@ -126,13 +126,13 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
         }
     }
 
-    public void bSO() {
+    public void bSP() {
         if (this.hhr != null) {
             this.hhr.HH();
         }
     }
 
-    public void bSP() {
+    public void bSQ() {
         MessageManager.getInstance().unRegisterListener(this.hht);
     }
 

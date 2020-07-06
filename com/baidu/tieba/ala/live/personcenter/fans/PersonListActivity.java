@@ -38,13 +38,13 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             if (!StringUtils.isNull(str)) {
                 PersonListActivity.this.showToast(str);
             }
-            PersonListActivity.this.byU();
+            PersonListActivity.this.byV();
         }
 
         @Override // com.baidu.tieba.ala.live.personcenter.fans.f.a
         public e a(e eVar, boolean z) {
             if (eVar == null || ListUtils.isEmpty(eVar.aRi())) {
-                PersonListActivity.this.byU();
+                PersonListActivity.this.byV();
                 return null;
             }
             PersonListActivity.this.mListView.setVisibility(0);
@@ -131,7 +131,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putBoolean("follow", this.fQg.byV());
+        bundle.putBoolean("follow", this.fQg.byW());
         bundle.putString("user_id", this.fQg.getId());
         bundle.putInt("user_sex", this.fQh);
     }
@@ -161,11 +161,11 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     private void loadData() {
-        this.fQg.byW();
+        this.fQg.byX();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byU() {
+    public void byV() {
         this.fQd.setVisibility(0);
         this.mListView.setVisibility(8);
         if (this.fQg.getId() != null && this.fQg.getId().equals(TbadkCoreApplication.getCurrentAccount())) {

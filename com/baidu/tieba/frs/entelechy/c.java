@@ -41,7 +41,7 @@ public class c implements com.baidu.tieba.frs.entelechy.b.b {
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(h hVar, p pVar, FrsViewData frsViewData) {
         if (hVar != null && pVar != null && frsViewData != null) {
-            hVar.cfq();
+            hVar.cfr();
             if (frsViewData != null && frsViewData.getForum() != null) {
                 pVar.a(frsViewData.getForum().getFrsBannerData());
             }

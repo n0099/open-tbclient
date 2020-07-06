@@ -72,7 +72,7 @@ public class a<T> extends RecyclerView.Adapter<b> {
         return this.fwV ? w.getCount(this.aCA) * 3 : w.getCount(this.aCA);
     }
 
-    public int buT() {
+    public int buU() {
         return w.getCount(this.aCA);
     }
 

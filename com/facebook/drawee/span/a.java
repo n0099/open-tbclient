@@ -1,22 +1,22 @@
 package com.facebook.drawee.span;
 /* loaded from: classes5.dex */
 public class a extends com.facebook.e.a.a.a {
-    private final com.facebook.drawee.view.b mOc;
+    private final com.facebook.drawee.view.b mOf;
 
     public a(com.facebook.drawee.view.b bVar, int i) {
         super(bVar.getTopLevelDrawable(), i);
-        this.mOc = bVar;
+        this.mOf = bVar;
     }
 
     public void onAttach() {
-        this.mOc.onAttach();
+        this.mOf.onAttach();
     }
 
     public void onDetach() {
-        this.mOc.onDetach();
+        this.mOf.onDetach();
     }
 
-    public com.facebook.drawee.view.b dBG() {
-        return this.mOc;
+    public com.facebook.drawee.view.b dBK() {
+        return this.mOf;
     }
 }

@@ -44,7 +44,7 @@ public class b {
         this.jjD = (TextView) this.jjA.findViewById(R.id.big_image_ad_brand);
         this.jjE = (TextView) this.jjA.findViewById(R.id.big_image_ad_tag);
         this.mContext = viewGroup.getContext();
-        cvr();
+        cvs();
     }
 
     public View getView() {
@@ -55,7 +55,7 @@ public class b {
         this.eqZ = dVar;
     }
 
-    public void cvr() {
+    public void cvs() {
         this.hiH.setVisibility(4);
         this.jjH = new UrlDragImageView(this.mContext);
         this.jjH.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
@@ -80,7 +80,7 @@ public class b {
             }
 
             @Override // com.baidu.tbadk.widget.DragImageView.d
-            public void bjq() {
+            public void bjr() {
                 b.this.n(b.this.jjC, 0);
                 b.this.n(b.this.jjD, 0);
                 b.this.n(b.this.jjE, 0);
@@ -89,20 +89,20 @@ public class b {
         this.jjA.addView(this.jjH, 0);
     }
 
-    public UrlDragImageView cvs() {
+    public UrlDragImageView cvt() {
         return this.jjH;
     }
 
-    public TbImageView cvt() {
+    public TbImageView cvu() {
         return this.hiH;
     }
 
-    public TBSpecificationBtn cvu() {
+    public TBSpecificationBtn cvv() {
         return this.iSn;
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void cvv() {
+    public void cvw() {
         this.iSn.setText(this.mContext.getResources().getString(R.string.pause_load));
     }
 
@@ -112,11 +112,11 @@ public class b {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void cvw() {
+    public void cvx() {
         this.iSn.setText(this.mContext.getResources().getString(R.string.setup_text));
     }
 
-    public void cvx() {
+    public void cvy() {
         WindowManager windowManager = (WindowManager) this.mContext.getSystemService("window");
         if (windowManager != null) {
             int width = windowManager.getDefaultDisplay().getWidth();

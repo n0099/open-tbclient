@@ -89,7 +89,7 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
             if (this.hyJ == null) {
                 this.hyJ = new com.baidu.tieba.frs.e.f(this, (ViewGroup) getWindow().getDecorView(), getIntent());
             }
-            this.hyJ.ceG();
+            this.hyJ.ceH();
         }
         this.ajK = new WeakReference<>(TbadkCoreApplication.getInst());
         registerResponsedEventListener(TipEvent.class, this.hyP);
@@ -160,10 +160,10 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
         if (this.hyI != null) {
             this.hyI.onDestroy();
         }
-        b.bXc().reset();
-        a.bWV().reset();
-        a.bWV().destory();
-        c.bXg().destory();
+        b.bXd().reset();
+        a.bWW().reset();
+        a.bWW().destory();
+        c.bXh().destory();
         if (!com.baidu.tbadk.core.util.ar.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
             TbadkCoreApplication.getInst().setTaskId("");
         }
@@ -255,15 +255,15 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
         }
     }
 
-    public FrsFragment bXm() {
+    public FrsFragment bXn() {
         if (this.hyI == null) {
             return null;
         }
-        return this.hyI.bXm();
+        return this.hyI.bXn();
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
-    public com.baidu.adp.lib.d.b<TbImageView> bXn() {
+    public com.baidu.adp.lib.d.b<TbImageView> bXo() {
         if (this.hyK == null) {
             this.hyK = FrsCommonImageLayout.B(getPageContext().getPageActivity(), 12);
         }
@@ -286,16 +286,16 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
-        bXm().onRequestPermissionsResult(i, strArr, iArr);
+        bXn().onRequestPermissionsResult(i, strArr, iArr);
     }
 
     public void mS(boolean z) {
-        FragmentTabHost bZU;
-        if (this.hyI != null && (bZU = this.hyI.bZU()) != null && bZU.getFragmentTabWidget() != null) {
+        FragmentTabHost bZV;
+        if (this.hyI != null && (bZV = this.hyI.bZV()) != null && bZV.getFragmentTabWidget() != null) {
             if (z) {
-                bZU.changeStyle(2);
+                bZV.changeStyle(2);
             } else {
-                bZU.changeStyle(4);
+                bZV.changeStyle(4);
             }
         }
     }
@@ -319,22 +319,22 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
             TbSingleton.getInstance().setFrsContentViewLoadingShow(z);
         }
         if (TbSingleton.getInstance().isFrsLoadingViewHided()) {
-            bXo();
+            bXp();
         }
     }
 
-    public void bXo() {
+    public void bXp() {
         if (this.hyJ != null) {
-            this.hyJ.bXo();
+            this.hyJ.bXp();
         }
     }
 
     @Override // com.baidu.tbadk.core.util.f.c
     public boolean videoNeedPreload() {
-        if (this.hyI == null || this.hyI.bXm() == null) {
+        if (this.hyI == null || this.hyI.bXn() == null) {
             return false;
         }
-        return this.hyI.bXm().videoNeedPreload();
+        return this.hyI.bXn().videoNeedPreload();
     }
 
     @Override // com.baidu.tbadk.core.util.f.c
@@ -346,8 +346,8 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
     public List<String> getNextPageSourceKeyList() {
         List<String> nextPageSourceKeyList = super.getNextPageSourceKeyList();
         ArrayList arrayList = nextPageSourceKeyList == null ? new ArrayList() : nextPageSourceKeyList;
-        if (this.hyI != null && this.hyI.ccY() && this.hyI.bZU() != null && (this.hyI.bZU().getCurrentFragment() instanceof BaseFragment) && ((BaseFragment) this.hyI.bZU().getCurrentFragment()).getCurrentPageKey() != null && ((BaseFragment) this.hyI.bZU().getCurrentFragment()).isPrimary()) {
-            arrayList.add(((BaseFragment) this.hyI.bZU().getCurrentFragment()).getCurrentPageKey());
+        if (this.hyI != null && this.hyI.ccZ() && this.hyI.bZV() != null && (this.hyI.bZV().getCurrentFragment() instanceof BaseFragment) && ((BaseFragment) this.hyI.bZV().getCurrentFragment()).getCurrentPageKey() != null && ((BaseFragment) this.hyI.bZV().getCurrentFragment()).isPrimary()) {
+            arrayList.add(((BaseFragment) this.hyI.bZV().getCurrentFragment()).getCurrentPageKey());
         } else {
             arrayList.add(getCurrentPageKey());
         }
@@ -363,8 +363,8 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
     public com.baidu.tbadk.m.d getPageStayDurationItem() {
         com.baidu.tbadk.m.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            if (this.hyI != null && this.hyI.bXm() != null) {
-                pageStayDurationItem.setFid(com.baidu.adp.lib.f.b.toLong(this.hyI.bXm().forumId, 0L));
+            if (this.hyI != null && this.hyI.bXn() != null) {
+                pageStayDurationItem.setFid(com.baidu.adp.lib.f.b.toLong(this.hyI.bXn().forumId, 0L));
             }
             if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
                 pageStayDurationItem.yX(TbadkCoreApplication.getInst().getAdAdSense().ejy);
@@ -406,12 +406,12 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
     }
 
     @Override // com.baidu.tieba.frs.am
-    public ItemInfo bXp() {
+    public ItemInfo bXq() {
         return this.hyO;
     }
 
     @Override // com.baidu.tieba.frs.am
-    public boolean bXq() {
-        return (this.hyI == null || this.hyI.bXm() == null || this.hyI.bXm().bXX() == null || this.hyI.bXm().bXX().cfP() == null || this.hyI.bXm().bXX().cfP().tabType != 16) ? false : true;
+    public boolean bXr() {
+        return (this.hyI == null || this.hyI.bXn() == null || this.hyI.bXn().bXY() == null || this.hyI.bXn().bXY().cfQ() == null || this.hyI.bXn().bXY().cfQ().tabType != 16) ? false : true;
     }
 }

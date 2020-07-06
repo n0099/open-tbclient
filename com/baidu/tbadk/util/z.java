@@ -12,14 +12,14 @@ public class z {
     private int eEz;
     private final Handler mHandler;
 
-    public void biX() {
+    public void biY() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void biY() {
+    public void biZ() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
@@ -29,7 +29,7 @@ public class z {
     public void iJ(boolean z) {
         if (this.aKd != null) {
             if (z || this.aKd.getVisibility() != 8) {
-                biY();
+                biZ();
             }
         }
     }
@@ -37,7 +37,7 @@ public class z {
     public void iK(boolean z) {
         if (this.aKd != null) {
             if (z || this.aKd.getVisibility() != 0) {
-                biX();
+                biY();
             }
         }
     }

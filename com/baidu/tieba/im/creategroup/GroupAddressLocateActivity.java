@@ -28,7 +28,7 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             aVar.dismiss();
-            GroupAddressLocateActivity.this.cpi();
+            GroupAddressLocateActivity.this.cpj();
         }
     };
     a.b iPu = new a.b() { // from class: com.baidu.tieba.im.creategroup.GroupAddressLocateActivity.2
@@ -61,7 +61,7 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     public void onDestroy() {
         super.onDestroy();
         if (this.iPs != null) {
-            this.iPs.coU();
+            this.iPs.coV();
         }
     }
 
@@ -74,7 +74,7 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && keyEvent.getRepeatCount() == 0 && cph()) {
+        if (i == 4 && keyEvent.getRepeatCount() == 0 && cpi()) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -83,24 +83,24 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.iPs.cpf()) {
-            cpi();
+        if (view == this.iPs.cpg()) {
+            cpj();
         } else if (view == this.iPs.getBackButton()) {
-            if (!cph()) {
+            if (!cpi()) {
                 finish();
             }
-        } else if (view == this.iPs.cpo()) {
-            this.iPs.cpg();
-            this.iPs.cpk();
-            this.iIp = -1;
         } else if (view == this.iPs.cpp()) {
-            switch (this.iPs.coc()) {
+            this.iPs.cph();
+            this.iPs.cpl();
+            this.iIp = -1;
+        } else if (view == this.iPs.cpq()) {
+            switch (this.iPs.cod()) {
                 case 1:
                     startActivityForResult(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"), RequestResponseCode.REQUEST_SETTING_LOCATION_SOURCE);
                     return;
                 case 2:
-                    this.iPs.cpl();
-                    this.iPs.coT();
+                    this.iPs.cpm();
+                    this.iPs.coU();
                     return;
                 case 3:
                 default:
@@ -114,8 +114,8 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 22001) {
-            this.iPs.cpl();
-            this.iPs.coT();
+            this.iPs.cpm();
+            this.iPs.coU();
         }
     }
 
@@ -123,7 +123,7 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         if (i == 25044) {
-            this.iPs.coT();
+            this.iPs.coU();
         }
     }
 
@@ -138,8 +138,8 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        this.iPs.cpg();
-        this.iPs.cpj();
+        this.iPs.cph();
+        this.iPs.cpk();
         this.iIp = i;
     }
 
@@ -171,16 +171,16 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void coz() {
-        this.iPs.cpm();
+    public void coA() {
+        this.iPs.cpn();
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void coA() {
-        this.iPs.coe();
+    public void coB() {
+        this.iPs.cof();
     }
 
-    private boolean cph() {
+    private boolean cpi() {
         if (this.iPb != this.iPn || this.iIp > -1) {
             this.iPs.showDialog();
             return true;
@@ -189,7 +189,7 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpi() {
+    public void cpj() {
         Intent intent = new Intent();
         if (this.iPq == null) {
             if (this.iIp > -1) {

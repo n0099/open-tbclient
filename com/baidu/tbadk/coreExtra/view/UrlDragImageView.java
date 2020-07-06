@@ -476,7 +476,7 @@ public class UrlDragImageView extends RelativeLayout {
                 }
             } else {
                 if (this.eqS && this.eqZ != null) {
-                    this.eqZ.bjq();
+                    this.eqZ.bjr();
                 }
                 this.mRatio = 1.0f;
                 invalidate();
@@ -491,7 +491,7 @@ public class UrlDragImageView extends RelativeLayout {
     private boolean r(float f, float f2) {
         if (this.eqM.getVisibility() != 0 || this.eqM.isCanDrag()) {
             if (this.eop == null || !this.eop.isLongPic || this.eqM.getVisibility() != 0 || this.eqM.isViewTop()) {
-                if (this.eop == null || !this.eop.isLongPic || this.eqM.getVisibility() == 0 || this.eqK.isAtViewTop() || this.eqK.bjo()) {
+                if (this.eop == null || !this.eop.isLongPic || this.eqM.getVisibility() == 0 || this.eqK.isAtViewTop() || this.eqK.bjp()) {
                     if (this.eqM.getVisibility() == 0 || this.eqK.pagerCantScroll()) {
                         if (this.eqU != null && getScrollY() == 0) {
                             boolean z = (this.eop == null || !this.eop.isLongPic) && ((f2 < -15.0f && !this.isInDragScaleMode) || (f2 > 15.0f && !this.isInDragScaleMode));
@@ -992,7 +992,7 @@ public class UrlDragImageView extends RelativeLayout {
             this.mProgressBar.setVisibility(8);
         }
         e.lt().removeCallbacks(this.ert);
-        com.baidu.tieba.view.c.dqq().setColor(-1);
+        com.baidu.tieba.view.c.dqu().setColor(-1);
     }
 
     public void release() {

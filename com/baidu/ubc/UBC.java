@@ -34,7 +34,7 @@ public class UBC {
     private static volatile IRemoteUBCService sProxy;
 
     public static final q getUBCContext() {
-        return com.baidu.tieba.q.h.deP();
+        return com.baidu.tieba.q.h.deQ();
     }
 
     public static final void onEvent(String str) {
@@ -70,11 +70,11 @@ public class UBC {
     }
 
     public static void onMutilProcessEvent(String str, String str2, String str3) {
-        String PZ = com.baidu.k.a.PZ(str3);
+        String Qa = com.baidu.k.a.Qa(str3);
         if (DEBUG) {
-            Log.d(TAG, "on onMutilProcessEvent id:" + str + " value:" + str2 + " name: " + PZ);
+            Log.d(TAG, "on onMutilProcessEvent id:" + str + " value:" + str2 + " name: " + Qa);
         }
-        d.dwG().g(str, str2, PZ, 8);
+        d.dwK().g(str, str2, Qa, 8);
     }
 
     public static final Flow beginFlow(String str) {

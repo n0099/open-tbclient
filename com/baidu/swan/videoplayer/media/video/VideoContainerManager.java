@@ -134,7 +134,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
         private void aKS() {
             this.dxd = new SimpleDraweeView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.dxd.getHierarchy().b(p.b.mNm);
+            this.dxd.getHierarchy().b(p.b.mNp);
             addView(this.dxd, layoutParams);
         }
 
@@ -167,7 +167,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "cover";
                 }
-                p.b bVar = p.b.mNm;
+                p.b bVar = p.b.mNp;
                 char c = 65535;
                 switch (str2.hashCode()) {
                     case 3143043:
@@ -191,16 +191,16 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 }
                 switch (c) {
                     case 0:
-                        p.b bVar2 = p.b.mNl;
+                        p.b bVar2 = p.b.mNo;
                         break;
                     case 1:
-                        p.b bVar3 = p.b.mNm;
+                        p.b bVar3 = p.b.mNp;
                         break;
                     case 2:
-                        p.b bVar4 = p.b.mNg;
+                        p.b bVar4 = p.b.mNj;
                         break;
                 }
-                this.dxd.getHierarchy().b(p.b.mNm);
+                this.dxd.getHierarchy().b(p.b.mNp);
                 a(str, this.dxd);
             }
         }
@@ -217,7 +217,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
             if (measuredWidth > 0 && measuredHeight > 0) {
                 ac.c(new d(measuredWidth, measuredHeight));
             }
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dzW().c(simpleDraweeView.getController()).bc(ac.dHb()).dAN());
+            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dAa().c(simpleDraweeView.getController()).bc(ac.dHf()).dAR());
         }
 
         public Uri getUri(String str) {

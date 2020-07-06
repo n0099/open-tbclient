@@ -26,10 +26,10 @@ public class g {
 
     public g(Context context) {
         this.mContext = context;
-        cco();
+        ccp();
     }
 
-    private void cco() {
+    private void ccp() {
         this.hOn = new TextView(this.mContext);
         this.hOn.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(R.dimen.fontsize24));
         an.setBackgroundResource(this.hOn, R.color.cp_link_tip_a);
@@ -55,7 +55,7 @@ public class g {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (g.this.hOn != null) {
-                    g.this.cao();
+                    g.this.cap();
                 }
             }
 
@@ -69,7 +69,7 @@ public class g {
         });
     }
 
-    public void cao() {
+    public void cap() {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
@@ -90,11 +90,11 @@ public class g {
         return this.hOn != null && this.hOn.getVisibility() == 0;
     }
 
-    public TextView ccp() {
+    public TextView ccq() {
         return this.hOn;
     }
 
-    public void ccq() {
+    public void ccr() {
         this.mHandler.removeCallbacks(this.mHideRunnable);
         this.mHandler.postDelayed(this.mHideRunnable, 2000L);
     }

@@ -36,7 +36,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 if (kVar != null && kVar.dLi != null && !StringUtils.isNull(kVar.dLi.getTid())) {
                     if (i.this.iCq.getHeaderImg() != null && view.getId() == i.this.iCq.getHeaderImg().getId()) {
                         i = 1;
-                    } else if (i.this.iCq.bOg() != null && view.getId() == i.this.iCq.bOg().getId()) {
+                    } else if (i.this.iCq.bOh() != null && view.getId() == i.this.iCq.bOh().getId()) {
                         i = 1;
                     } else if (i.this.iCq.gSC != null && view.getId() == i.this.iCq.gSC.getId()) {
                         i = 3;
@@ -44,15 +44,15 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                         i = 2;
                     }
                     String topicName = ((HotTopicActivity) i.this.mPageContext.getOrignalPage()).getTopicName();
-                    String clp = ((HotTopicActivity) i.this.mPageContext.getOrignalPage()).clp();
+                    String clq = ((HotTopicActivity) i.this.mPageContext.getOrignalPage()).clq();
                     bu aPS = kVar.aPS();
                     TiebaStatic.log(new ao("c12941").ag("obj_type", i).dk("tid", aPS.getId()));
-                    if ("c10814".equals(kVar.bON())) {
+                    if ("c10814".equals(kVar.bOO())) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                        TiebaStatic.log(new ao("c10814").dk("tid", aPS.getId()).dk("obj_name", topicName).dk("topic_id", clp));
-                    } else if ("c10816".equals(kVar.bON())) {
+                        TiebaStatic.log(new ao("c10814").dk("tid", aPS.getId()).dk("obj_name", topicName).dk("topic_id", clq));
+                    } else if ("c10816".equals(kVar.bOO())) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                        TiebaStatic.log(new ao("c10816").dk("post_id", aPS.getTid()).dk("obj_name", topicName).dk("topic_id", clp));
+                        TiebaStatic.log(new ao("c10816").dk("post_id", aPS.getTid()).dk("obj_name", topicName).dk("topic_id", clq));
                     }
                 }
             }
@@ -83,13 +83,13 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, com.baidu.tieba.card.a.a<u> aVar) {
-        if (kVar == null || aVar == null || aVar.bPg() == null) {
+        if (kVar == null || aVar == null || aVar.bPh() == null) {
             return null;
         }
         this.gRm = kVar;
-        aVar.bPg().a(new bv(kVar.aPS()));
-        aVar.bPg().c(this.hfO);
-        ((u) ((com.baidu.tieba.card.a.a) this.Up).bPg()).md(!(getItem(i + 1) instanceof n));
+        aVar.bPh().a(new bv(kVar.aPS()));
+        aVar.bPh().c(this.hfO);
+        ((u) ((com.baidu.tieba.card.a.a) this.Up).bPh()).md(!(getItem(i + 1) instanceof n));
         return aVar.getView();
     }
 }

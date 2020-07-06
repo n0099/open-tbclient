@@ -101,15 +101,15 @@ public class g {
             this.hFx = iVar;
             this.mTitleView.setText(this.hFx.getTitle());
             if (iVar.getType() == 3) {
-                this.hFA.setText(this.mContext.getString(R.string.frs_top_ad_download_num, Integer.valueOf(this.hFx.dhb())));
+                this.hFA.setText(this.mContext.getString(R.string.frs_top_ad_download_num, Integer.valueOf(this.hFx.dhc())));
             } else if (iVar.getType() == 1) {
-                this.hFA.setText(this.mContext.getString(R.string.frs_top_ad_person_num, Integer.valueOf(this.hFx.dhb())));
+                this.hFA.setText(this.mContext.getString(R.string.frs_top_ad_person_num, Integer.valueOf(this.hFx.dhc())));
             } else if (iVar.getType() == 2) {
-                this.hFA.setText(this.mContext.getString(R.string.frs_top_ad_appointment_num, Integer.valueOf(this.hFx.dhb())));
+                this.hFA.setText(this.mContext.getString(R.string.frs_top_ad_appointment_num, Integer.valueOf(this.hFx.dhc())));
             }
             this.hFv.startLoad(this.hFx.getImg(), 10, false);
             if (this.hFB != null) {
-                this.hFB.aP(this.hFx.dhc());
+                this.hFB.aP(this.hFx.dhd());
             }
         }
     }

@@ -119,7 +119,7 @@ public class e {
         return this.dMl;
     }
 
-    public ArrayList<AlaInfoData> cvB() {
+    public ArrayList<AlaInfoData> cvC() {
         return this.jjP;
     }
 
@@ -127,14 +127,14 @@ public class e {
         this.mIsReserver = z;
     }
 
-    public void cvC() {
+    public void cvD() {
         this.jjY = false;
         if (!this.dxm) {
             c(this.ajO, this.jjR, 10, 0);
         }
     }
 
-    public void cvD() {
+    public void cvE() {
         this.jjY = true;
         String str = this.jjN.get(0);
         if (StringUtils.isNull(this.jjQ)) {
@@ -230,11 +230,11 @@ public class e {
                 }
             }
             this.byb.addPostData("applist", e.this.jjZ);
-            String biW = x.biW();
-            if (!TextUtils.isEmpty(biW)) {
-                this.byb.addPostData("oaid", biW);
+            String biX = x.biX();
+            if (!TextUtils.isEmpty(biX)) {
+                this.byb.addPostData("oaid", biX);
             }
-            cvE();
+            cvF();
             this.byb.aWu().aWV().mNeedBackgroundLogin = false;
             String postNetData = this.byb.postNetData();
             if (!this.byb.aWu().aWW().isRequestSuccess()) {
@@ -245,7 +245,7 @@ public class e {
             return hVar;
         }
 
-        private void cvE() {
+        private void cvF() {
             this.byb.addPostData("forum_id", e.this.mForumId);
             this.byb.addPostData("user_id", e.this.mUserId == null ? "0" : e.this.mUserId);
             this.byb.addPostData("scr_w", String.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
@@ -288,7 +288,7 @@ public class e {
                     }
                     return;
                 }
-                boolean isEmpty = w.isEmpty(hVar.cvN());
+                boolean isEmpty = w.isEmpty(hVar.cvO());
                 if (e.this.mIsReset && !isEmpty) {
                     e.this.jjN.clear();
                     e.this.epf.clear();
@@ -297,47 +297,47 @@ public class e {
                 if (hVar.getImageNum() != 0) {
                     e.this.jjT = hVar.getImageNum();
                 }
-                e.this.jjX = hVar.cvP();
+                e.this.jjX = hVar.cvQ();
                 if (this.mPicId == null) {
                     e.this.jjN.clear();
                     e.this.jjO.clear();
                 }
-                LinkedList<f> cvN = hVar.cvN();
-                int size = cvN.size();
+                LinkedList<f> cvO = hVar.cvO();
+                int size = cvO.size();
                 if (size <= 0) {
                     e.this.dxm = true;
                 } else {
                     for (int i2 = 0; i2 < size; i2++) {
-                        f fVar = cvN.get(i2);
+                        f fVar = cvO.get(i2);
                         String a = e.this.a(fVar);
                         ImageUrlData imageUrlData = new ImageUrlData();
-                        imageUrlData.id = fVar.cvF();
+                        imageUrlData.id = fVar.cvG();
                         if (ar.equals(imageUrlData.id, e.this.jkb)) {
                             imageUrlData.setSourceImageRectInScreen(e.this.jka);
                         }
                         imageUrlData.imageUrl = a;
-                        String str2 = a + "*" + fVar.cvJ();
+                        String str2 = a + "*" + fVar.cvK();
                         imageUrlData.urlType = 10;
-                        imageUrlData.originalUrl = fVar.blm();
+                        imageUrlData.originalUrl = fVar.bln();
                         imageUrlData.originalSize = fVar.getOriginalSize();
                         imageUrlData.forumId = e.this.mForumId;
                         imageUrlData.threadId = com.baidu.adp.lib.f.b.toLong(this.ajO, -1L);
                         imageUrlData.nid = e.this.mNid;
-                        imageUrlData.postId = com.baidu.adp.lib.f.b.toLong(fVar.cvG(), -1L);
+                        imageUrlData.postId = com.baidu.adp.lib.f.b.toLong(fVar.cvH(), -1L);
                         imageUrlData.mIsReserver = e.this.mIsReserver;
                         imageUrlData.mIsSeeHost = e.this.jjU;
-                        imageUrlData.overAllIndex = fVar.cvJ();
+                        imageUrlData.overAllIndex = fVar.cvK();
                         imageUrlData.mThreadType = e.this.mThreadType;
                         imageUrlData.mPicType = fVar.getPicType();
                         imageUrlData.mTagName = fVar.getTagName();
-                        imageUrlData.mIsShowOrigonButton = fVar.cvH();
+                        imageUrlData.mIsShowOrigonButton = fVar.cvI();
                         imageUrlData.isLongPic = fVar.isLongPic();
-                        imageUrlData.isBlockedPic = fVar.cvI();
+                        imageUrlData.isBlockedPic = fVar.cvJ();
                         imageUrlData.from = e.this.mFrom;
-                        if (fVar.cvL() != null) {
-                            imageUrlData.richTextArray = fVar.cvL().toString();
+                        if (fVar.cvM() != null) {
+                            imageUrlData.richTextArray = fVar.cvM().toString();
                         }
-                        imageUrlData.isFirstPost = fVar.cvM();
+                        imageUrlData.isFirstPost = fVar.cvN();
                         if (fVar.aUg() != null) {
                             imageUrlData.agreeData = fVar.aUg();
                             imageUrlData.agreeData.isFromImageViewer = true;
@@ -347,8 +347,8 @@ public class e {
                             imageUrlData.agreeData.nid = imageUrlData.nid;
                             imageUrlData.agreeData.postId = String.valueOf(imageUrlData.postId);
                             imageUrlData.agreeData.indexOfPic = imageUrlData.overAllIndex;
-                            imageUrlData.commentNum = fVar.cvK();
-                            if (fVar.cvM()) {
+                            imageUrlData.commentNum = fVar.cvL();
+                            if (fVar.cvN()) {
                                 imageUrlData.agreeData.objType = 3;
                                 imageUrlData.agreeData.isInThread = true;
                                 imageUrlData.agreeData.isInPost = false;
@@ -394,14 +394,14 @@ public class e {
                             e.this.jjO.put(imageUrlData.id, str2);
                         }
                     }
-                    f fVar2 = (f) w.getItem(cvN, 0);
+                    f fVar2 = (f) w.getItem(cvO, 0);
                     if (fVar2 != null) {
-                        e.this.jjQ = fVar2.cvF();
+                        e.this.jjQ = fVar2.cvG();
                     }
-                    f fVar3 = (f) w.getItem(cvN, size - 1);
+                    f fVar3 = (f) w.getItem(cvO, size - 1);
                     if (fVar3 != null) {
-                        e.this.jjR = fVar3.cvF();
-                        e.this.dxm = ((long) e.this.jjT) == fVar3.cvJ();
+                        e.this.jjR = fVar3.cvG();
+                        e.this.dxm = ((long) e.this.jjT) == fVar3.cvK();
                     }
                 }
                 ImageUrlData imageUrlData3 = null;
@@ -438,8 +438,8 @@ public class e {
                 e.this.dMl = hVar.aTY();
                 if (e.this.jjP == null) {
                     e.this.jjP = new ArrayList();
-                    if (hVar.cvO() != null && hVar.cvN().size() > 0) {
-                        e.this.jjP.addAll(hVar.cvO());
+                    if (hVar.cvP() != null && hVar.cvO().size() > 0) {
+                        e.this.jjP.addAll(hVar.cvP());
                     }
                 }
                 if (e.this.jjW != null) {
@@ -452,8 +452,8 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(f fVar) {
-        if (fVar.blg() != null && fVar.blg().length() > 0) {
-            return fVar.blg();
+        if (fVar.blh() != null && fVar.blh().length() > 0) {
+            return fVar.blh();
         }
         StringBuilder sb = new StringBuilder(150);
         int threadImageMaxWidth = TbConfig.getThreadImageMaxWidth();

@@ -20,7 +20,7 @@ public class a extends f {
             @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.a
             public void a(TbImageView tbImageView, int i2) {
                 tbImageView.setRadius(a.eKq);
-                tbImageView.bjE();
+                tbImageView.bjF();
                 tbImageView.setDrawCorner(true);
                 tbImageView.oi(15);
             }

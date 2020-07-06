@@ -101,7 +101,7 @@ public class g extends BaseAdapter {
         this.kNc.fetchPost(this.hoE, this.kYP, z, this.mUid, false, true, false, null);
     }
 
-    public void caR() {
+    public void caS() {
         if (this.kNc != null) {
             this.kNc.cancelLoadData();
         }

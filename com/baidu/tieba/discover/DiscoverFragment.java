@@ -42,9 +42,9 @@ public class DiscoverFragment extends BaseFragment implements ao {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921041 && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    DiscoverFragment.this.btP();
-                } else {
                     DiscoverFragment.this.btQ();
+                } else {
+                    DiscoverFragment.this.btR();
                 }
             }
         }
@@ -139,18 +139,18 @@ public class DiscoverFragment extends BaseFragment implements ao {
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void btP() {
+    public void btQ() {
         if (this.gXY != null && !this.gXZ) {
             this.gXZ = true;
-            this.gXY.bPY();
+            this.gXY.bPZ();
         }
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void btQ() {
+    public void btR() {
         if (this.gXY != null && this.gXZ) {
             this.gXZ = false;
-            this.gXY.bPZ();
+            this.gXY.bQa();
         }
     }
 

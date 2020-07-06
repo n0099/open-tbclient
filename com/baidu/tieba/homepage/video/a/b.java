@@ -33,8 +33,8 @@ public class b extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, l lVar) {
-        if (this.hiC != null && this.hiC.sj() != null && this.hiC.sj().cUU() != null) {
-            if (view.getId() == this.hiC.sj().cUU().getId()) {
+        if (this.hiC != null && this.hiC.sj() != null && this.hiC.sj().cUV() != null) {
+            if (view.getId() == this.hiC.sj().cUV().getId()) {
                 com.baidu.tieba.homepage.video.c.a.r(lVar);
             } else if (view.getId() == R.id.thread_card_root) {
                 com.baidu.tieba.homepage.video.c.a.p(lVar);
@@ -54,7 +54,7 @@ public class b extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
                     b.this.a(view, lVar);
                     if (b.this.iti != null && (view.getTag() instanceof String) && !com.baidu.tieba.homepage.personalize.f.eq(com.baidu.adp.lib.f.b.toLong(lVar.aPS().getTid(), 0L))) {
                         com.baidu.tieba.homepage.personalize.f.ep(com.baidu.adp.lib.f.b.toLong(lVar.aPS().getTid(), 0L));
-                        b.this.iti.a(com.baidu.adp.lib.f.b.toLong(lVar.aPS().getTid(), 0L), lVar.getWeight(), lVar.getSource(), lVar.bOL(), lVar.bOM(), com.baidu.adp.lib.f.b.toInt("3", 1), "video_tab", lVar.aPS().getBaijiahaoData());
+                        b.this.iti.a(com.baidu.adp.lib.f.b.toLong(lVar.aPS().getTid(), 0L), lVar.getWeight(), lVar.getSource(), lVar.bOM(), lVar.bON(), com.baidu.adp.lib.f.b.toInt("3", 1), "video_tab", lVar.aPS().getBaijiahaoData());
                     }
                 }
             }
@@ -152,10 +152,10 @@ public class b extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
             }
             yVar.dIK = lVar.getExtra();
             yVar.mSource = lVar.getSource();
-            yVar.kVs = lVar.bOM();
+            yVar.kVs = lVar.bON();
             yVar.kVp = lVar.getWeight();
             yVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            yVar.mFloor = String.valueOf(lVar.bOL());
+            yVar.mFloor = String.valueOf(lVar.bOM());
             if (lVar.aPS() != null && lVar.aPS().getBaijiahaoData() != null) {
                 yVar.mNid = lVar.aPS().getBaijiahaoData().oriUgcNid;
                 yVar.mVid = lVar.aPS().getBaijiahaoData().oriUgcVid;

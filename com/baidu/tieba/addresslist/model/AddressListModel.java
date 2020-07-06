@@ -15,7 +15,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.fbu = a.bpx();
+        this.fbu = a.bpy();
     }
 
     public void a(a.InterfaceC0515a interfaceC0515a) {
@@ -26,15 +26,15 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         this.fbu.b(interfaceC0515a);
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> bpR() {
-        return this.fbu.bpy();
+    public List<com.baidu.tbadk.coreExtra.relationship.a> bpS() {
+        return this.fbu.bpz();
     }
 
-    public void bpS() {
+    public void bpT() {
         sendMessage(new CustomMessage(CmdConfigCustom.CMD_QUERY_LOCAL_ADDRESSLIST));
     }
 
-    public void bpN() {
+    public void bpO() {
         super.sendMessage(new RequestGetAddressListMessage(CmdConfigSocket.CMD_GET_ADDRESSLIST));
     }
 
@@ -53,11 +53,11 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public int AK(String str) {
         int i;
         if (c.xO(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.a> bpy = this.fbu.bpy();
-            if (bpy != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : bpy) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> bpz = this.fbu.bpz();
+            if (bpz != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : bpz) {
                     if (str.equals(aVar.bdb())) {
-                        i = bpy.indexOf(aVar);
+                        i = bpz.indexOf(aVar);
                         break;
                     }
                 }

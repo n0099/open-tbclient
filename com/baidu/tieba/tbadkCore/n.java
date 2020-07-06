@@ -22,11 +22,11 @@ public class n {
     private String lEx = null;
     private String lEy = null;
 
-    public int dhl() {
+    public int dhm() {
         return this.lEk;
     }
 
-    public String dhm() {
+    public String dhn() {
         return this.lEy;
     }
 
@@ -34,7 +34,7 @@ public class n {
         if (starInfo != null) {
             this.lEk = starInfo.has_frs_star.intValue();
             if (this.lEk == 1) {
-                this.lEl = starInfo.f1104top;
+                this.lEl = starInfo.f1105top;
                 this.lEm = starInfo.head;
                 Fans fans = starInfo.fans;
                 if (fans != null) {

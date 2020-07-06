@@ -31,7 +31,7 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
                 }
                 MentionActivityConfig.newJumpIn = true;
                 if (ChatAggregationFragment.this.jgA != null) {
-                    ChatAggregationFragment.this.jgA.cfa();
+                    ChatAggregationFragment.this.jgA.cfb();
                     ChatAggregationFragment.this.jgA.aa(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
                 }
             }
@@ -58,12 +58,12 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
         } else {
             this.jgA.aq(null);
         }
-        View bwR = this.jgA.bwR();
+        View bwS = this.jgA.bwS();
         this.jgA.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         bhs().addEventDelegate(this);
         registerListener(this.mAccountChangedListener);
         registerListener(this.jgy);
-        return bwR;
+        return bwS;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -71,7 +71,7 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
         if (getActivity() != null && Z(getActivity().getIntent())) {
             this.jgA.onNewIntent(getActivity().getIntent());
         } else {
-            this.jgA.cfa();
+            this.jgA.cfb();
         }
         super.onViewCreated(view, bundle);
     }
@@ -143,7 +143,7 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
         MessageManager.getInstance().unRegisterListener(this.mAccountChangedListener);
         MessageManager.getInstance().unRegisterListener(this.jgy);
         if (this.jgA != null) {
-            this.jgA.cdl();
+            this.jgA.cdm();
         }
     }
 

@@ -56,7 +56,7 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
                             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                             public Void doInBackground(Void... voidArr) {
                                 if (!TextUtils.isEmpty(list)) {
-                                    d.ctp().A(TbadkApplication.getCurrentAccount(), list, z);
+                                    d.ctq().A(TbadkApplication.getCurrentAccount(), list, z);
                                 }
                                 return null;
                             }

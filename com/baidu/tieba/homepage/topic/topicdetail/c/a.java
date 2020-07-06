@@ -11,7 +11,7 @@ public class a<T extends View> extends RecyclerView.ViewHolder {
         this.iyu = t;
     }
 
-    public T ckF() {
+    public T ckG() {
         return this.iyu;
     }
 }

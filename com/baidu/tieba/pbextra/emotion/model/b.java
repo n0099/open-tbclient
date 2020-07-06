@@ -69,7 +69,7 @@ class b {
         this.kCV = this.kCU + 1;
         this.kCR = this.kCU + 2;
         this.kCZ = 0;
-        int cRh = cRh();
+        int cRi = cRi();
         for (int i3 = this.kCQ; i3 < 65536; i3 *= 2) {
             i2++;
         }
@@ -78,12 +78,12 @@ class b {
         Ce(i5);
         b(this.kCU, outputStream);
         while (true) {
-            int cRh2 = cRh();
-            if (cRh2 != -1) {
-                int i6 = (cRh2 << this.kCL) + cRh;
-                int i7 = (cRh2 << i4) ^ cRh;
+            int cRi2 = cRi();
+            if (cRi2 != -1) {
+                int i6 = (cRi2 << this.kCL) + cRi;
+                int i7 = (cRi2 << i4) ^ cRi;
                 if (this.kCO[i7] == i6) {
-                    cRh = this.kCP[i7];
+                    cRi = this.kCP[i7];
                 } else {
                     if (this.kCO[i7] >= 0) {
                         int i8 = i5 - i7;
@@ -96,26 +96,26 @@ class b {
                                 i7 += i5;
                             }
                             if (this.kCO[i7] == i6) {
-                                cRh = this.kCP[i7];
+                                cRi = this.kCP[i7];
                                 break;
                             }
                         } while (this.kCO[i7] >= 0);
                     }
-                    b(cRh, outputStream);
+                    b(cRi, outputStream);
                     if (this.kCR < this.kCN) {
                         int[] iArr = this.kCP;
                         int i9 = this.kCR;
                         this.kCR = i9 + 1;
                         iArr[i7] = i9;
                         this.kCO[i7] = i6;
-                        cRh = cRh2;
+                        cRi = cRi2;
                     } else {
                         c(outputStream);
-                        cRh = cRh2;
+                        cRi = cRi2;
                     }
                 }
             } else {
-                b(cRh, outputStream);
+                b(cRi, outputStream);
                 b(this.kCV, outputStream);
                 return;
             }
@@ -143,7 +143,7 @@ class b {
         return (1 << i) - 1;
     }
 
-    private int cRh() {
+    private int cRi() {
         if (this.kCI == 0) {
             return -1;
         }

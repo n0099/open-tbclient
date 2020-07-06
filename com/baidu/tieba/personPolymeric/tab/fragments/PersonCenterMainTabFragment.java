@@ -79,12 +79,12 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void tt(boolean z) {
-        bXG();
+        bXH();
     }
 
-    public void bXG() {
+    public void bXH() {
         if (this.kPk != null && isAdded()) {
-            this.kPk.bXG();
+            this.kPk.bXH();
         }
     }
 

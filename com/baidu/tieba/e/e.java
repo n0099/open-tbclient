@@ -11,7 +11,7 @@ public class e extends com.baidu.tieba.card.data.b {
         this.gXQ = featureCardHot;
     }
 
-    public FeatureCardHot bPU() {
+    public FeatureCardHot bPV() {
         return this.gXQ;
     }
 

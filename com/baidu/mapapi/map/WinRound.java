@@ -5,10 +5,10 @@ public class WinRound {
     public int right = 0;
 
     /* renamed from: top  reason: collision with root package name */
-    public int f994top = 0;
+    public int f995top = 0;
     public int bottom = 0;
 
     public String toString() {
-        return "WinRound{left=" + this.left + ", right=" + this.right + ", top=" + this.f994top + ", bottom=" + this.bottom + '}';
+        return "WinRound{left=" + this.left + ", right=" + this.right + ", top=" + this.f995top + ", bottom=" + this.bottom + '}';
     }
 }

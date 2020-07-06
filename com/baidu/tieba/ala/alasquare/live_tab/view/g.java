@@ -130,7 +130,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                g.this.bul();
+                g.this.bum();
             }
         });
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -180,7 +180,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
         this.frJ = iVar.fog.foc;
         if (!w.isEmpty(this.frJ)) {
             startAnim();
-            bul();
+            bum();
         }
     }
 
@@ -217,7 +217,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bul() {
+    public void bum() {
         if (this.fro != null && !w.isEmpty(this.frJ)) {
             this.frI++;
             if (this.frJ.size() > this.frI) {
@@ -267,12 +267,12 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
             }
             TiebaStatic.log("c13555");
         } else if (view == this.frB) {
-            bum();
+            bun();
             TiebaStatic.log("c13617");
         }
     }
 
-    private void bum() {
+    private void bun() {
         Plugin plugin2;
         if (Build.VERSION.SDK_INT < 21) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getTbPageContext().getPageActivity());
@@ -292,7 +292,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
             if (this.frL == null) {
                 this.frL = new com.baidu.tieba.ueg.d(getTbPageContext());
             }
-            if (!this.frL.dlH()) {
+            if (!this.frL.dlL()) {
                 if (!BdBaseApplication.getInst().isDebugMode() && (plugin2 = PluginCenter.getInstance().getPlugin("com.baidu.tieba.pluginAla")) != null && !plugin2.isLoaded()) {
                     com.baidu.adp.lib.util.l.showToast(getTbPageContext().getPageActivity(), (int) R.string.plugin_config_not_found);
                     return;

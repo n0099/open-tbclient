@@ -1,25 +1,25 @@
 package com.baidu.turbonet.net;
 /* loaded from: classes.dex */
 public final class RequestTimeInfo {
-    private final long mBO;
-    private final long mBP;
-    private final long mBQ;
-    private final long mzR;
-    private final long mzS;
+    private final long mBR;
+    private final long mBS;
+    private final long mBT;
+    private final long mzU;
+    private final long mzV;
 
     public RequestTimeInfo() {
-        this.mBO = 0L;
-        this.mBP = 0L;
-        this.mBQ = 0L;
-        this.mzR = 0L;
-        this.mzS = 0L;
+        this.mBR = 0L;
+        this.mBS = 0L;
+        this.mBT = 0L;
+        this.mzU = 0L;
+        this.mzV = 0L;
     }
 
     public RequestTimeInfo(long j, long j2, long j3, long j4, long j5) {
-        this.mBO = j;
-        this.mBP = j2;
-        this.mBQ = j3;
-        this.mzR = j4;
-        this.mzS = j5;
+        this.mBR = j;
+        this.mBS = j2;
+        this.mBT = j3;
+        this.mzU = j4;
+        this.mzV = j5;
     }
 }

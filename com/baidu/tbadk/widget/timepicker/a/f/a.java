@@ -59,7 +59,7 @@ public class a {
     public void initViews() {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2, 80);
         LayoutInflater from = LayoutInflater.from(this.context);
-        if (blT()) {
+        if (blU()) {
             this.eRd = (ViewGroup) from.inflate(R.layout.layout_basepickerview, (ViewGroup) null, false);
             this.eRd.setBackgroundColor(0);
             this.eRc = (ViewGroup) this.eRd.findViewById(R.id.content_container);
@@ -95,7 +95,7 @@ public class a {
     }
 
     public void show() {
-        if (blT()) {
+        if (blU()) {
             showDialog();
         } else if (!isShowing()) {
             this.isShowing = true;
@@ -112,14 +112,14 @@ public class a {
     }
 
     public boolean isShowing() {
-        if (blT()) {
+        if (blU()) {
             return false;
         }
         return this.rootView.getParent() != null || this.isShowing;
     }
 
     public void dismiss() {
-        if (blT()) {
+        if (blU()) {
             yY();
         } else if (!this.eRf) {
             if (this.eRi) {
@@ -169,7 +169,7 @@ public class a {
 
     public void iY(boolean z) {
         ViewGroup viewGroup;
-        if (blT()) {
+        if (blU()) {
             viewGroup = this.eRd;
         } else {
             viewGroup = this.rootView;
@@ -196,7 +196,7 @@ public class a {
         return this;
     }
 
-    public void blS() {
+    public void blT() {
         if (this.mDialog != null) {
             this.mDialog.setCancelable(this.ePZ.eQP);
         }
@@ -243,7 +243,7 @@ public class a {
         return this.mDialog;
     }
 
-    public boolean blT() {
+    public boolean blU() {
         return false;
     }
 }

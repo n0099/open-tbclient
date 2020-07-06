@@ -9,18 +9,18 @@ import master.flame.danmaku.danmaku.model.m;
 public class b {
     public static boolean a(m mVar, d dVar, d dVar2, long j, long j2) {
         int type = dVar.getType();
-        if (type == dVar2.getType() && !dVar.dRV()) {
-            long dSe = dVar2.dSe() - dVar.dSe();
-            if (dSe <= 0) {
+        if (type == dVar2.getType() && !dVar.dRZ()) {
+            long dSi = dVar2.dSi() - dVar.dSi();
+            if (dSi <= 0) {
                 return true;
             }
-            if (Math.abs(dSe) >= j || dVar.isTimeOut() || dVar2.isTimeOut()) {
+            if (Math.abs(dSi) >= j || dVar.isTimeOut() || dVar2.isTimeOut()) {
                 return false;
             }
             if (type == 5 || type == 4) {
                 return true;
             }
-            return a(mVar, dVar, dVar2, j2) || a(mVar, dVar, dVar2, dVar.dSe() + dVar.getDuration());
+            return a(mVar, dVar, dVar2, j2) || a(mVar, dVar, dVar2, dVar.dSi() + dVar.getDuration());
         }
         return false;
     }
@@ -51,12 +51,12 @@ public class b {
         if (eVar == null) {
             eVar = new e();
         }
-        eVar.e((int) Math.ceil(dVar.nTc), (int) Math.ceil(dVar.nTd), mVar.getDensityDpi(), false);
+        eVar.e((int) Math.ceil(dVar.nTf), (int) Math.ceil(dVar.nTg), mVar.getDensityDpi(), false);
         f fVar = eVar.get();
         if (fVar != null) {
-            ((master.flame.danmaku.danmaku.model.b) mVar).a(dVar, fVar.nUc, 0.0f, 0.0f, true);
+            ((master.flame.danmaku.danmaku.model.b) mVar).a(dVar, fVar.nUf, 0.0f, 0.0f, true);
             if (mVar.isHardwareAccelerated()) {
-                fVar.J(mVar.getWidth(), mVar.getHeight(), mVar.dSs(), mVar.dSt());
+                fVar.J(mVar.getWidth(), mVar.getHeight(), mVar.dSw(), mVar.dSx());
             }
         }
         return eVar;
@@ -123,7 +123,7 @@ public class b {
         if (!TextUtils.isEmpty(charSequence) && charSequence.toString().contains("/n")) {
             String[] split = String.valueOf(dVar.text).split("/n", -1);
             if (split.length > 1) {
-                dVar.nSX = split;
+                dVar.nTa = split;
             }
         }
     }

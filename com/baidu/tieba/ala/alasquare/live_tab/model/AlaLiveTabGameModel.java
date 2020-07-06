@@ -81,7 +81,7 @@ public class AlaLiveTabGameModel extends BdBaseModel {
         qb(this.mPn);
     }
 
-    public void btu() {
+    public void btv() {
         if (this.hasMore && !this.foF) {
             this.foF = true;
             qb(this.mPn);

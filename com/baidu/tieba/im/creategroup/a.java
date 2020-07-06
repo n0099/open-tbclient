@@ -23,7 +23,7 @@ public class a extends com.baidu.adp.base.c<BaseActivity> {
         initUI();
     }
 
-    public View byQ() {
+    public View byR() {
         return this.layoutView;
     }
 
@@ -43,7 +43,7 @@ public class a extends com.baidu.adp.base.c<BaseActivity> {
         this.layoutView.setTag(this);
     }
 
-    public View cnZ() {
+    public View coa() {
         return this.dQh;
     }
 }

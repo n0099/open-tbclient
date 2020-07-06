@@ -16,8 +16,8 @@ public class BaseGiftView extends RelativeLayout {
     protected Object f;
     public boolean g;
     protected boolean h;
-    protected a nyn;
-    protected GeneralGift nyo;
+    protected a nyq;
+    protected GeneralGift nyr;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -32,7 +32,7 @@ public class BaseGiftView extends RelativeLayout {
 
     public BaseGiftView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nyo = null;
+        this.nyr = null;
         this.e = -1;
         this.f = null;
         this.g = false;
@@ -48,7 +48,7 @@ public class BaseGiftView extends RelativeLayout {
     }
 
     public void setViewListener(a aVar) {
-        this.nyn = aVar;
+        this.nyq = aVar;
     }
 
     public View getCurGiftView() {
@@ -56,7 +56,7 @@ public class BaseGiftView extends RelativeLayout {
     }
 
     public GeneralGift getCurObj() {
-        return this.nyo;
+        return this.nyr;
     }
 
     public int getCurSelectPos() {

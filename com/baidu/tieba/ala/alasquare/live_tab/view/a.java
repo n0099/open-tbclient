@@ -62,7 +62,7 @@ public class a {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (a.this.fqS != null) {
-                        a.this.fqS.btT();
+                        a.this.fqS.btU();
                     }
                 }
             }, 500L);
@@ -146,7 +146,7 @@ public class a {
         this.fqQ.setData(jG(z));
     }
 
-    public ViewGroup buh() {
+    public ViewGroup bui() {
         return this.mRootView;
     }
 
@@ -184,7 +184,7 @@ public class a {
         this.fqS.loadData();
     }
 
-    public void bui() {
+    public void buj() {
         this.fqS.qe(this.fqR.getCurrentItem());
     }
 
@@ -280,7 +280,7 @@ public class a {
             }
         }
 
-        public void btT() {
+        public void btU() {
             if (!w.isEmpty(this.mFragments)) {
                 int i = 0;
                 while (true) {
@@ -288,7 +288,7 @@ public class a {
                     if (i2 < this.mFragments.size()) {
                         LiveTabBaseSubFragment liveTabBaseSubFragment = this.mFragments.get(i2);
                         if (liveTabBaseSubFragment != null) {
-                            liveTabBaseSubFragment.btT();
+                            liveTabBaseSubFragment.btU();
                         }
                         i = i2 + 1;
                     } else {

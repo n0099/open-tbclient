@@ -16,7 +16,7 @@ public class e {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bvt();
+        void bvu();
 
         void onCancel();
     }
@@ -33,7 +33,7 @@ public class e {
         this.fxY.add(this.fxW);
     }
 
-    public boolean bvs() {
+    public boolean bvt() {
         if (this.fxZ == null) {
             this.fxZ = new HashSet();
             for (j jVar : this.fxY) {
@@ -51,19 +51,19 @@ public class e {
     }
 
     public void a(final a aVar) {
-        if (!bvs()) {
-            aVar.bvt();
+        if (!bvt()) {
+            aVar.bvu();
             return;
         }
         ArrayList arrayList = new ArrayList();
         for (j jVar : this.fxZ) {
             jVar.load();
-            arrayList.add(jVar.bvk());
+            arrayList.add(jVar.bvl());
         }
         f.a(this.mContext, new com.baidu.tieba.ala.a.a((g[]) arrayList.toArray(new g[0]))).t(new Runnable() { // from class: com.baidu.tieba.ala.a.e.3
             @Override // java.lang.Runnable
             public void run() {
-                aVar.bvt();
+                aVar.bvu();
             }
         }).u(new Runnable() { // from class: com.baidu.tieba.ala.a.e.2
             @Override // java.lang.Runnable

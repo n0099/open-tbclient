@@ -29,9 +29,9 @@ public class b extends BaseAdapter {
             Object tag = view.getTag();
             if ((tag instanceof a) && (eVar = ((a) tag).lBo) != null) {
                 if (eVar.lzl == null) {
-                    com.baidu.tieba.square.square.a.g(b.this.dgG(), null);
+                    com.baidu.tieba.square.square.a.g(b.this.dgH(), null);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.dgG(), eVar.lzk, eVar.lzl, eVar.lzm)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.dgH(), eVar.lzk, eVar.lzl, eVar.lzm)));
                 }
             }
         }
@@ -39,10 +39,10 @@ public class b extends BaseAdapter {
 
     public b(Activity activity, c cVar, boolean z) {
         this.bdo = activity;
-        this.lBj = cVar.dgF();
+        this.lBj = cVar.dgG();
     }
 
-    public ArrayList<e> dgF() {
+    public ArrayList<e> dgG() {
         return this.lBj;
     }
 
@@ -154,7 +154,7 @@ public class b extends BaseAdapter {
         return 2;
     }
 
-    protected Activity dgG() {
+    protected Activity dgH() {
         return this.bdo;
     }
 }

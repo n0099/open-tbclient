@@ -71,7 +71,7 @@ public class b {
                             b.this.jUC.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                         }
                     } else if (b.this.jUD != null) {
-                        b.this.jUD.bvB();
+                        b.this.jUD.bvC();
                     }
                 }
             }
@@ -80,7 +80,7 @@ public class b {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void bvB();
+        void bvC();
     }
 
     /* renamed from: com.baidu.tieba.newinterest.c.b$b  reason: collision with other inner class name */
@@ -103,9 +103,9 @@ public class b {
         this.jUG.setTag(this.mBdUniqueId);
         MessageManager.getInstance().registerListener(this.jUF);
         MessageManager.getInstance().registerListener(this.jUG);
+        cFv();
         cFu();
         cFt();
-        cFs();
     }
 
     private List<Integer> eh(List<com.baidu.tieba.newinterest.data.b> list) {
@@ -118,7 +118,7 @@ public class b {
         return arrayList;
     }
 
-    private void cFs() {
+    private void cFt() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT, TbConfig.SERVER_ADDRESS + TbConfig.GUIDE_INTEREST_COMMIT_URL);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setResponsedClass(InterestCommitHttpResMsg.class);
@@ -126,7 +126,7 @@ public class b {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void cFt() {
+    private void cFu() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, com.baidu.tieba.tbadkCore.a.a.bE(TbConfig.GUIDE_INTERESTED_FORUM_URL, 309654));
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setResponsedClass(InterestedForumHttpResMsg.class);
@@ -134,7 +134,7 @@ public class b {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void cFu() {
+    private void cFv() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309654);
         bVar.setResponsedClass(InterestedForumSocketResMsg.class);
         bVar.setNeedAck(true);
@@ -176,7 +176,7 @@ public class b {
         this.mPageNum = 1;
     }
 
-    public void cFv() {
+    public void cFw() {
         InterestedForumReqMsg interestedForumReqMsg = new InterestedForumReqMsg();
         interestedForumReqMsg.classidList = eh(this.jUE.subList((this.mPageNum - 1) * 3, Math.min(this.jUE.size(), this.mPageNum * 3)));
         interestedForumReqMsg.setTag(this.mBdUniqueId);

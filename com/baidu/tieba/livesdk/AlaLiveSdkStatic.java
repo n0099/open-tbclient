@@ -55,18 +55,18 @@ public class AlaLiveSdkStatic {
     private static CustomMessageListener jvQ;
 
     static {
-        cyH();
         cyI();
+        cyJ();
+        cyL();
+        cyO();
         cyK();
         cyN();
-        cyJ();
         cyM();
-        cyL();
         c.b(AlaCmdConfigSocket.ALA_SOCKET_PUSH_ALERT, ALAPushAlertResponsedMessage.class, false);
         TbadkCoreApplication.getInst().RegisterIntent(AlaSDKShareEmptyActivityConfig.class, AlaSDKShareEmptyActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AlaWriteShareInBarActivityConfig.class, AlaShareInBarEmptyActivity.class);
-        cyF();
         cyG();
+        cyH();
         jvP = new CustomMessageListener(2921406) { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -74,7 +74,7 @@ public class AlaLiveSdkStatic {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ShareEvent)) {
                     long j = com.baidu.adp.lib.f.b.toLong(((ShareEvent) customResponsedMessage.getData()).extLiveInfo, 0L);
                     if (j > 0) {
-                        com.baidu.tieba.sdk.a.daK().fr(j);
+                        com.baidu.tieba.sdk.a.daL().fr(j);
                     }
                 }
             }
@@ -87,7 +87,7 @@ public class AlaLiveSdkStatic {
                     UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                     if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid) && updateAttentionMessage.getData().isSucc) {
                         AlaLiveSdkStatic.checkInit();
-                        com.baidu.tieba.sdk.a.daK().bz(updateAttentionMessage.getData().toUid, updateAttentionMessage.getData().status);
+                        com.baidu.tieba.sdk.a.daL().bz(updateAttentionMessage.getData().toUid, updateAttentionMessage.getData().status);
                     }
                 }
             }
@@ -112,7 +112,7 @@ public class AlaLiveSdkStatic {
         };
     }
 
-    private static void cyF() {
+    private static void cyG() {
         e.lt().post(new Runnable() { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.1
             @Override // java.lang.Runnable
             public void run() {
@@ -121,7 +121,7 @@ public class AlaLiveSdkStatic {
         });
     }
 
-    private static void cyG() {
+    private static void cyH() {
         e.lt().post(new Runnable() { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.6
             @Override // java.lang.Runnable
             public void run() {
@@ -142,7 +142,7 @@ public class AlaLiveSdkStatic {
         }
     }
 
-    private static void cyH() {
+    private static void cyI() {
         e.lt().post(new Runnable() { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.10
             @Override // java.lang.Runnable
             public void run() {
@@ -151,7 +151,7 @@ public class AlaLiveSdkStatic {
         });
     }
 
-    public static void cyI() {
+    public static void cyJ() {
         bc.aWU().a(new bc.a() { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.11
             @Override // com.baidu.tbadk.core.util.bc.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -177,7 +177,7 @@ public class AlaLiveSdkStatic {
         });
     }
 
-    public static void cyJ() {
+    public static void cyK() {
         bc.aWU().a(new bc.a() { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.12
             @Override // com.baidu.tbadk.core.util.bc.a
             public int deal(final TbPageContext<?> tbPageContext, String[] strArr) {
@@ -186,8 +186,8 @@ public class AlaLiveSdkStatic {
                 }
                 if (strArr[0].startsWith("bdtiebalive://")) {
                     AlaLiveSdkStatic.checkInit();
-                    if (com.baidu.tieba.sdk.a.daK().checkScheme(strArr[0])) {
-                        com.baidu.tieba.sdk.a.daK().openScheme(tbPageContext.getPageActivity(), strArr[0], new SchemeCallback() { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.12.1
+                    if (com.baidu.tieba.sdk.a.daL().checkScheme(strArr[0])) {
+                        com.baidu.tieba.sdk.a.daL().openScheme(tbPageContext.getPageActivity(), strArr[0], new SchemeCallback() { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.12.1
                             @Override // com.baidu.live.tbadk.scheme.SchemeCallback
                             public void doJsCallback(int i, String str, JSONObject jSONObject, String str2) {
                                 AlaLiveSdkStatic.a(tbPageContext, i, str, jSONObject, str2);
@@ -202,7 +202,7 @@ public class AlaLiveSdkStatic {
         });
     }
 
-    private static void cyK() {
+    private static void cyL() {
         bc.aWU().a(new bc.a() { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.13
             @Override // com.baidu.tbadk.core.util.bc.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -273,7 +273,7 @@ public class AlaLiveSdkStatic {
         }
     }
 
-    private static void cyL() {
+    private static void cyM() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921431, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
@@ -287,15 +287,15 @@ public class AlaLiveSdkStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void checkInit() {
         try {
-            if (!a.cyS().Re()) {
-                a.cyS().init(TbadkCoreApplication.getInst());
+            if (!a.cyT().Re()) {
+                a.cyT().init(TbadkCoreApplication.getInst());
             }
         } catch (Throwable th) {
             BdLog.e(th);
         }
     }
 
-    private static void cyM() {
+    private static void cyN() {
         MessageManager.getInstance().addMessageRule(new com.baidu.adp.framework.b.b(CmdConfigCustom.START_GO_ACTION) { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.b.f
@@ -342,7 +342,7 @@ public class AlaLiveSdkStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(AlaAdminListActivityConfig alaAdminListActivityConfig) {
         if (alaAdminListActivityConfig != null && alaAdminListActivityConfig.getIntent() != null) {
-            com.baidu.tieba.sdk.a.daK().aR(alaAdminListActivityConfig.getContext(), alaAdminListActivityConfig.getIntent().getStringExtra(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID));
+            com.baidu.tieba.sdk.a.daL().aR(alaAdminListActivityConfig.getContext(), alaAdminListActivityConfig.getIntent().getStringExtra(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID));
         }
     }
 
@@ -350,7 +350,7 @@ public class AlaLiveSdkStatic {
     public static void a(AlaForbiddenListActivityConfig alaForbiddenListActivityConfig) {
         if (alaForbiddenListActivityConfig != null && alaForbiddenListActivityConfig.getIntent() != null) {
             alaForbiddenListActivityConfig.getIntent();
-            com.baidu.tieba.sdk.a.daK().aS(alaForbiddenListActivityConfig.getContext(), "");
+            com.baidu.tieba.sdk.a.daL().aS(alaForbiddenListActivityConfig.getContext(), "");
         }
     }
 
@@ -358,7 +358,7 @@ public class AlaLiveSdkStatic {
     public static void a(AlaPersonCenterExpActivityConfig alaPersonCenterExpActivityConfig) {
         if (alaPersonCenterExpActivityConfig != null && alaPersonCenterExpActivityConfig.getIntent() != null) {
             Intent intent = alaPersonCenterExpActivityConfig.getIntent();
-            com.baidu.tieba.sdk.a.daK().a(alaPersonCenterExpActivityConfig.getContext(), intent.getLongExtra(AlaPersonCenterExpActivityConfig.CURRENT_EXP, 0L), intent.getIntExtra("current_level", 0));
+            com.baidu.tieba.sdk.a.daL().a(alaPersonCenterExpActivityConfig.getContext(), intent.getLongExtra(AlaPersonCenterExpActivityConfig.CURRENT_EXP, 0L), intent.getIntExtra("current_level", 0));
         }
     }
 
@@ -366,7 +366,7 @@ public class AlaLiveSdkStatic {
     public static void a(AlaPersonCenterRealAuthenConfig alaPersonCenterRealAuthenConfig) {
         if (alaPersonCenterRealAuthenConfig != null && alaPersonCenterRealAuthenConfig.getIntent() != null) {
             Intent intent = alaPersonCenterRealAuthenConfig.getIntent();
-            com.baidu.tieba.sdk.a.daK().v(alaPersonCenterRealAuthenConfig.getContext(), intent.getStringExtra(AlaPersonCenterRealAuthenConfig.REAL_AUTHEN_USER_ID), intent.getStringExtra(AlaPersonCenterRealAuthenConfig.REAL_AUTHEN_CERTIFY_STATUS));
+            com.baidu.tieba.sdk.a.daL().v(alaPersonCenterRealAuthenConfig.getContext(), intent.getStringExtra(AlaPersonCenterRealAuthenConfig.REAL_AUTHEN_USER_ID), intent.getStringExtra(AlaPersonCenterRealAuthenConfig.REAL_AUTHEN_CERTIFY_STATUS));
         }
     }
 
@@ -374,24 +374,24 @@ public class AlaLiveSdkStatic {
     public static void a(AlaLoveFamilyActivityConfig alaLoveFamilyActivityConfig) {
         if (alaLoveFamilyActivityConfig != null && alaLoveFamilyActivityConfig.getIntent() != null) {
             alaLoveFamilyActivityConfig.getIntent();
-            com.baidu.tieba.sdk.a.daK().fk(alaLoveFamilyActivityConfig.getContext());
+            com.baidu.tieba.sdk.a.daL().fk(alaLoveFamilyActivityConfig.getContext());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(AlaFansFamilyActivityConfig alaFansFamilyActivityConfig) {
         if (alaFansFamilyActivityConfig != null && alaFansFamilyActivityConfig.getIntent() != null) {
-            com.baidu.tieba.sdk.a.daK().aT(alaFansFamilyActivityConfig.getContext(), alaFansFamilyActivityConfig.getIntent().getStringExtra("author_live_user_id"));
+            com.baidu.tieba.sdk.a.daL().aT(alaFansFamilyActivityConfig.getContext(), alaFansFamilyActivityConfig.getIntent().getStringExtra("author_live_user_id"));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(final AlaMasterLiveRoomActivityConfig alaMasterLiveRoomActivityConfig) {
         com.baidu.tieba.ala.a.e eVar = new com.baidu.tieba.ala.a.e(alaMasterLiveRoomActivityConfig.getContext());
-        if (eVar.bvs()) {
+        if (eVar.bvt()) {
             eVar.a(new e.a() { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.4
                 @Override // com.baidu.tieba.ala.a.e.a
-                public void bvt() {
+                public void bvu() {
                     AlaLiveSdkStatic.b(AlaMasterLiveRoomActivityConfig.this);
                 }
 
@@ -407,9 +407,9 @@ public class AlaLiveSdkStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(AlaMasterLiveRoomActivityConfig alaMasterLiveRoomActivityConfig) {
         d By;
-        if (com.baidu.tieba.ala.a.c.ex(alaMasterLiveRoomActivityConfig.getContext()) && com.baidu.minivideo.arface.a.MQ() && (By = com.baidu.tieba.ala.a.c.By("source")) != null && By.bvp() != null) {
-            DuArConfig.instance().setDuArSourcePath(By.bvp().getAbsolutePath());
-            com.baidu.tieba.sdk.a.daK().fj(alaMasterLiveRoomActivityConfig.getContext());
+        if (com.baidu.tieba.ala.a.c.ex(alaMasterLiveRoomActivityConfig.getContext()) && com.baidu.minivideo.arface.a.MQ() && (By = com.baidu.tieba.ala.a.c.By("source")) != null && By.bvq() != null) {
+            DuArConfig.instance().setDuArSourcePath(By.bvq().getAbsolutePath());
+            com.baidu.tieba.sdk.a.daL().fj(alaMasterLiveRoomActivityConfig.getContext());
         }
     }
 
@@ -434,15 +434,15 @@ public class AlaLiveSdkStatic {
                     e.printStackTrace();
                 }
                 if (j != 0) {
-                    com.baidu.tieba.sdk.a.daK().a(alaLiveRoomActivityConfig.getContext(), j, true, "0", jSONObject);
+                    com.baidu.tieba.sdk.a.daL().a(alaLiveRoomActivityConfig.getContext(), j, true, "0", jSONObject);
                 } else {
-                    com.baidu.tieba.sdk.a.daK().b(alaLiveRoomActivityConfig.getContext(), str, true, "0", jSONObject);
+                    com.baidu.tieba.sdk.a.daL().b(alaLiveRoomActivityConfig.getContext(), str, true, "0", jSONObject);
                 }
             }
         }
     }
 
-    static void cyN() {
+    static void cyO() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921364, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.5
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Context> customMessage) {

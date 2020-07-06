@@ -24,27 +24,27 @@ public class a {
         }
     }
 
-    public String cgK() {
+    public String cgL() {
         return this.mTitle;
     }
 
-    public String cgL() {
+    public String cgM() {
         return this.igD;
     }
 
-    public String cgM() {
+    public String cgN() {
         return this.aMb;
     }
 
-    public String cgN() {
+    public String cgO() {
         return this.igE;
     }
 
-    public String cgO() {
+    public String cgP() {
         return this.igF;
     }
 
-    public String cgP() {
+    public String cgQ() {
         return this.bmW;
     }
 
@@ -52,7 +52,7 @@ public class a {
         this.bmW = str;
     }
 
-    public String cgQ() {
+    public String cgR() {
         return this.eXQ;
     }
 

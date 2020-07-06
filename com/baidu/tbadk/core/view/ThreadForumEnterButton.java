@@ -90,12 +90,12 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         int skinType;
         if (this.dLi != null && this.mSkinType != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
             this.mSkinType = skinType;
-            int biG = com.baidu.tbadk.util.f.biG();
-            an.setBackgroundColor(this.eee, biG);
+            int biH = com.baidu.tbadk.util.f.biH();
+            an.setBackgroundColor(this.eee, biH);
             if (this.mSkinType == 0) {
                 this.mTextColor = an.getColor(R.color.cp_cont_b);
             } else {
-                this.mTextColor = com.baidu.tbadk.util.f.of(biG);
+                this.mTextColor = com.baidu.tbadk.util.f.of(biH);
             }
             an.a(this.eee, this.mTextColor);
             this.mIconDrawable = SvgManager.aWQ().b(R.drawable.icon_pure_card_ba16_svg, this.mTextColor, SvgManager.SvgResourceStateType.NORMAL_PRESS);

@@ -24,7 +24,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, com.baidu.tieba.card.data.l lVar) {
-                if (lVar != null && lVar.aPS() != null && !StringUtils.isNull(lVar.aPS().getTid()) && !StringUtils.isNull(lVar.bON()) && a.this.mPageContext != null && (a.this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
+                if (lVar != null && lVar.aPS() != null && !StringUtils.isNull(lVar.aPS().getTid()) && !StringUtils.isNull(lVar.bOO()) && a.this.mPageContext != null && (a.this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
                     ((HotTopicActivity) a.this.mPageContext.getOrignalPage()).t(lVar);
                 }
             }

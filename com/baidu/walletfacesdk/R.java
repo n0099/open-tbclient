@@ -5233,7 +5233,7 @@ public final class R {
         public static final int commit_good_layout = 0x7f0f0eb0;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f1037common = 0x7f0f01ad;
+        public static final int f1038common = 0x7f0f01ad;
         public static final int common_loading_view = 0x7f0f19a3;
         public static final int common_progress = 0x7f0f0ebf;
         public static final int common_tab_content = 0x7f0f0ebd;
@@ -6522,7 +6522,7 @@ public final class R {
         public static final int tool_view = 0x7f0f0150;
 
         /* renamed from: top  reason: collision with root package name */
-        public static final int f1038top = 0x7f0f0169;
+        public static final int f1039top = 0x7f0f0169;
         public static final int topDvider = 0x7f0f1259;
         public static final int topPanel = 0x7f0f0261;
         public static final int top_area = 0x7f0f03d3;
@@ -8749,7 +8749,7 @@ public final class R {
         public static final int too_many_face = 0x7f0817b5;
 
         /* renamed from: top  reason: collision with root package name */
-        public static final int f1039top = 0x7f0817b6;
+        public static final int f1040top = 0x7f0817b6;
         public static final int top_announcement = 0x7f0817b7;
         public static final int top_success = 0x7f0817b8;
         public static final int topic_join = 0x7f0817be;

@@ -33,9 +33,9 @@ import org.json.JSONObject;
 public class SelectCoverModel extends BdBaseModel {
     private final HttpMessageListener kCz;
     private h lHf;
-    private com.baidu.tieba.video.editvideo.a lWZ;
-    private a lXa;
-    private final HttpMessageListener lXb;
+    private com.baidu.tieba.video.editvideo.a lXc;
+    private a lXd;
+    private final HttpMessageListener lXe;
     private TbPageContext mPageContext;
 
     public SelectCoverModel(TbPageContext tbPageContext, com.baidu.tieba.video.editvideo.a aVar, h hVar) {
@@ -47,19 +47,19 @@ public class SelectCoverModel extends BdBaseModel {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003356 && (httpResponsedMessage instanceof VideoCheckUegResponseMessage)) {
                     String status = ((VideoCheckUegResponseMessage) httpResponsedMessage).getStatus();
                     if (VideoCheckUegResponseMessage.STATUS_OK.equals(status)) {
-                        SelectCoverModel.this.lWZ.cQW();
+                        SelectCoverModel.this.lXc.cQX();
                     } else if (VideoCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                         String msg = ((VideoCheckUegResponseMessage) httpResponsedMessage).getMsg();
                         if (TextUtils.isEmpty(msg)) {
                             msg = TbadkCoreApplication.getInst().getResources().getString(R.string.video_ueg_fail);
                         }
-                        SelectCoverModel.this.lWZ.Ky(msg);
+                        SelectCoverModel.this.lXc.Ky(msg);
                     } else {
                         String errorString = httpResponsedMessage.getErrorString();
                         if (TextUtils.isEmpty(errorString)) {
                             errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.video_fail);
                         }
-                        SelectCoverModel.this.lWZ.Ky(errorString);
+                        SelectCoverModel.this.lXc.Ky(errorString);
                         if (SelectCoverModel.this.lHf != null) {
                             SelectCoverModel.this.lHf.bp(201, errorString);
                         }
@@ -67,25 +67,25 @@ public class SelectCoverModel extends BdBaseModel {
                 }
             }
         };
-        this.lXb = new HttpMessageListener(1003377) { // from class: com.baidu.tieba.video.editvideo.model.SelectCoverModel.2
+        this.lXe = new HttpMessageListener(1003377) { // from class: com.baidu.tieba.video.editvideo.model.SelectCoverModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003377 && (httpResponsedMessage instanceof VideoPendantResponseMessage) && ((VideoPendantResponseMessage) httpResponsedMessage).pendantDatas != null) {
-                    SelectCoverModel.this.lWZ.fa(((VideoPendantResponseMessage) httpResponsedMessage).pendantDatas);
+                    SelectCoverModel.this.lXc.fa(((VideoPendantResponseMessage) httpResponsedMessage).pendantDatas);
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.lWZ = aVar;
+        this.lXc = aVar;
         this.lHf = hVar;
         xp();
         this.kCz.setTag(getUniqueId());
         this.kCz.setSelfListener(true);
         registerListener(this.kCz);
-        this.lXb.setTag(getUniqueId());
-        this.lXb.setSelfListener(true);
-        registerListener(this.lXb);
+        this.lXe.setTag(getUniqueId());
+        this.lXe.setSelfListener(true);
+        registerListener(this.lXe);
     }
 
     private void xp() {
@@ -97,7 +97,7 @@ public class SelectCoverModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
     }
 
-    public void dnf() {
+    public void dnj() {
         if (!j.isNetWorkAvailable()) {
             this.mPageContext.showToast(R.string.no_network);
         } else {
@@ -112,8 +112,8 @@ public class SelectCoverModel extends BdBaseModel {
     }
 
     public void bG(String str, int i) {
-        this.lXa = new a(str, i);
-        this.lXa.execute(new Void[0]);
+        this.lXd = new a(str, i);
+        this.lXd.execute(new Void[0]);
     }
 
     public void b(final Bitmap bitmap, final String str) {
@@ -133,7 +133,7 @@ public class SelectCoverModel extends BdBaseModel {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(String str2) {
                     super.onPostExecute((AnonymousClass3) str2);
-                    SelectCoverModel.this.lWZ.NW(str2);
+                    SelectCoverModel.this.lXc.NX(str2);
                 }
             }.execute(new Void[0]);
         }
@@ -179,7 +179,7 @@ public class SelectCoverModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            SelectCoverModel.this.lWZ.K(bitmap);
+            SelectCoverModel.this.lXc.K(bitmap);
         }
     }
 
@@ -268,7 +268,7 @@ public class SelectCoverModel extends BdBaseModel {
                             if (i3 < jSONArray.length()) {
                                 PendantData pendantData = (PendantData) OrmObject.objectWithJsonStr(jSONArray.optString(i3), PendantData.class);
                                 if (pendantData != null) {
-                                    pendantData.dmZ();
+                                    pendantData.dnd();
                                     this.pendantDatas.add(pendantData);
                                 }
                                 i2 = i3 + 1;
@@ -325,8 +325,8 @@ public class SelectCoverModel extends BdBaseModel {
     public boolean cancelLoadData() {
         MessageManager.getInstance().unRegisterListener(this.kCz);
         MessageManager.getInstance().unRegisterTask(1003356);
-        if (this.lXa != null) {
-            this.lXa.cancel();
+        if (this.lXd != null) {
+            this.lXd.cancel();
             return false;
         }
         return false;

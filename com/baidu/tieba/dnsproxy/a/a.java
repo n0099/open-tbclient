@@ -21,7 +21,7 @@ public class a {
     long gYF;
     String name;
 
-    public static final String bQm() {
+    public static final String bQn() {
         String str;
         WifiInfo connectionInfo;
         try {
@@ -37,11 +37,11 @@ public class a {
                         return typeName + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str;
                     }
                 }
-                com.baidu.tieba.dnsproxy.d.bQd().dW("get_connectpoint_null", typeName + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str);
+                com.baidu.tieba.dnsproxy.d.bQe().dW("get_connectpoint_null", typeName + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str);
             }
         } catch (Throwable th) {
             BdLog.detailException(th);
-            com.baidu.tieba.dnsproxy.d.bQd().dW("get_connectpoint_name", th.getMessage());
+            com.baidu.tieba.dnsproxy.d.bQe().dW("get_connectpoint_name", th.getMessage());
         }
         return null;
     }

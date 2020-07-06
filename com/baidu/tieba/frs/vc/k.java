@@ -91,7 +91,7 @@ public class k {
                 final int i2 = k.this.iaA.height - k.this.iaB;
                 final int i3 = 0;
                 if (k.this.iay != null) {
-                    i3 = k.this.iay.bYO();
+                    i3 = k.this.iay.bYP();
                 }
                 if (i2 > 0) {
                     k.this.ecC = ValueAnimator.ofFloat(0.0f, 1.0f);
@@ -136,14 +136,14 @@ public class k {
     private PullRefreshFrameLayout.a iaF = new PullRefreshFrameLayout.a() { // from class: com.baidu.tieba.frs.vc.k.2
         @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.a
         public void aYg() {
-            k.this.cfE();
+            k.this.cfF();
         }
     };
     private Runnable iaG = new Runnable() { // from class: com.baidu.tieba.frs.vc.k.3
         @Override // java.lang.Runnable
         public void run() {
             if (k.this.iaw) {
-                k.this.cfF();
+                k.this.cfG();
             }
         }
     };
@@ -159,18 +159,18 @@ public class k {
         this.hCE = (FrsHeaderViewContainer) rootView.findViewById(R.id.header_view_container);
         this.WW = (AppBarLayout) rootView.findViewById(R.id.frs_app_bar_layout);
         this.hCj = (BdTypeRecyclerView) rootView.findViewById(R.id.frs_lv_thread);
-        bZK();
+        bZL();
     }
 
     public void setInterceptScrollDown(boolean z) {
         this.iat.setInterceptScrollDown(z);
     }
 
-    public int cfC() {
+    public int cfD() {
         return this.iaC;
     }
 
-    public int cfD() {
+    public int cfE() {
         return this.iaB;
     }
 
@@ -188,17 +188,17 @@ public class k {
                 return;
             }
             this.hCj.getAdapter().notifyDataSetChanged();
-            btU();
+            btV();
         }
     }
 
-    public boolean bYC() {
+    public boolean bYD() {
         return this.iav;
     }
 
     public void onDestroy() {
         if (this.iaw) {
-            cfF();
+            cfG();
         }
         if (this.ecC != null) {
             this.ecC.cancel();
@@ -241,7 +241,7 @@ public class k {
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
                         if (!k.this.iaw && k.this.iat != null && !k.this.iat.isLoading()) {
-                            k.this.cfF();
+                            k.this.cfG();
                         }
                     }
 
@@ -255,19 +255,19 @@ public class k {
                 });
                 this.iau.start();
                 this.iat.setRefreshing(true);
-                cfE();
+                cfF();
             }
         }
     }
 
-    public void bZJ() {
+    public void bZK() {
         final View headBgContainer;
         if (this.hCE != null && (headBgContainer = this.hCE.getHeadBgContainer()) != null) {
             if (this.iay == null) {
                 this.iay = new com.baidu.tieba.frs.n(headBgContainer);
             }
-            if (this.iay.bYO() > 0) {
-                this.iay.setHeight(this.iay.bYO());
+            if (this.iay.bYP() > 0) {
+                this.iay.setHeight(this.iay.bYP());
             }
             headBgContainer.post(new Runnable() { // from class: com.baidu.tieba.frs.vc.k.6
                 @Override // java.lang.Runnable
@@ -275,7 +275,7 @@ public class k {
                     if (k.this.iay.getOriginHeight() < 0) {
                         k.this.iay.setOriginHeight(headBgContainer.getMeasuredHeight());
                     }
-                    if (k.this.iay.bYO() < 0) {
+                    if (k.this.iay.bYP() < 0) {
                         k.this.iay.uq(headBgContainer.getMeasuredHeight());
                     }
                 }
@@ -283,7 +283,7 @@ public class k {
         }
     }
 
-    public void bZK() {
+    public void bZL() {
         if (this.hCE != null) {
             this.iaz = this.hCE.getHeaderEmptyView();
             if (this.iaz != null) {
@@ -298,7 +298,7 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfE() {
+    public void cfF() {
         com.baidu.adp.lib.f.e.lt().postDelayed(this.iaG, ias);
         this.iaw = true;
         if (this.iax != null) {
@@ -307,16 +307,16 @@ public class k {
         }
     }
 
-    public void cfF() {
+    public void cfG() {
         this.iaw = false;
         if (this.iat != null) {
             this.iat.aYe();
         }
     }
 
-    public void btU() {
+    public void btV() {
         if (this.iaw) {
-            cfF();
+            cfG();
             com.baidu.adp.lib.f.e.lt().removeCallbacks(this.iaG);
         }
     }

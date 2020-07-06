@@ -61,7 +61,7 @@ public class b {
             if (customResponsedMessage.getData() instanceof String) {
                 b.this.Cl((String) customResponsedMessage.getData());
             } else {
-                b.this.bFE();
+                b.this.bFF();
             }
         }
     };
@@ -117,7 +117,7 @@ public class b {
             this.gjf.setVisibility(8);
             this.gjg.setVisibility(0);
         } else {
-            bFD();
+            bFE();
         }
         if (!this.isHost && this.gjh != null && this.gjh.mLiveInfo != null && this.gjh.axp != null) {
             long j = this.gjh.axp.userId;
@@ -128,7 +128,7 @@ public class b {
         }
     }
 
-    private void bFD() {
+    private void bFE() {
         if (!this.gjq && this.gjg.getVisibility() != 0) {
             this.gjq = true;
             this.gjl = new ScaleAnimation(1.1f, 1.0f, 1.1f, 1.0f, 1, 0.5f, 1, 0.5f);
@@ -152,7 +152,7 @@ public class b {
                     b.this.gjf.setVisibility(8);
                     b.this.gjg.setVisibility(0);
                     if (b.this.gjt) {
-                        b.this.bFG();
+                        b.this.bFH();
                     }
                 }
 
@@ -230,7 +230,7 @@ public class b {
         }
     }
 
-    public void bFC() {
+    public void bFD() {
         this.gjs = true;
         this.gjq = false;
         this.gjf.setScaleX(1.0f);
@@ -278,7 +278,7 @@ public class b {
             this.gjg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.m.b.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.bFE();
+                    b.this.bFF();
                     if (!z && b.this.gjh != null && b.this.gjh.mLiveInfo != null) {
                         LogManager.getGuardClubLogger().doClickLiveGuardButtonLog(b.this.gjh.mLiveInfo.live_id + "", b.this.gjh.mLiveInfo.room_id + "", b.this.gjh.mLiveInfo.feed_id, str);
                     }
@@ -288,7 +288,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFE() {
+    public void bFF() {
         Cl(null);
     }
 
@@ -309,7 +309,7 @@ public class b {
         }
     }
 
-    private void bFF() {
+    private void bFG() {
         if (this.gjj != null) {
             this.gjj.removeAllListeners();
             this.gjj.cancel();
@@ -318,7 +318,7 @@ public class b {
     }
 
     public void onDestroy() {
-        bFF();
+        bFG();
         if (this.fIf != null) {
             MessageManager.getInstance().unRegisterListener(this.fIf);
         }
@@ -352,7 +352,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFG() {
+    public void bFH() {
         if (this.mContext == null || this.mView == null) {
         }
     }

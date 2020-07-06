@@ -97,7 +97,7 @@ public class e implements a.InterfaceC0424a {
                 e.this.axL();
                 if (e.this.cWN != null) {
                     e.this.cWN.im(e.this.cWK.width);
-                    com.baidu.swan.games.view.a.c.b(e.this.cWN.getConvertView(), new com.baidu.swan.apps.model.a.a.a(ag.D(e.this.cWK.left), ag.D(e.this.cWK.f1010top), ag.D(e.this.cWK.realWidth), ag.D(e.this.cWK.realHeight)));
+                    com.baidu.swan.games.view.a.c.b(e.this.cWN.getConvertView(), new com.baidu.swan.apps.model.a.a.a(ag.D(e.this.cWK.left), ag.D(e.this.cWK.f1011top), ag.D(e.this.cWK.realWidth), ag.D(e.this.cWK.realHeight)));
                 }
                 if (str.equals("width") && z && e.this.cWJ != null) {
                     e.this.cWJ.a(e.this.cWK);
@@ -135,7 +135,7 @@ public class e implements a.InterfaceC0424a {
         if (com.baidu.swan.games.view.a.c.ay(this.cWN.getConvertView())) {
             com.baidu.swan.games.view.a.c.av(this.cWN.getConvertView());
         }
-        com.baidu.swan.games.view.a.c.c(this.cWN.getConvertView(), new com.baidu.swan.apps.model.a.a.a(ag.D(this.cWK.left), ag.D(this.cWK.f1010top), ag.D(this.cWK.realWidth), ag.D(this.cWK.realHeight)));
+        com.baidu.swan.games.view.a.c.c(this.cWN.getConvertView(), new com.baidu.swan.apps.model.a.a.a(ag.D(this.cWK.left), ag.D(this.cWK.f1011top), ag.D(this.cWK.realWidth), ag.D(this.cWK.realHeight)));
         this.cWN.getConvertView().postDelayed(new Runnable() { // from class: com.baidu.swan.game.ad.f.e.5
             @Override // java.lang.Runnable
             public void run() {
@@ -168,7 +168,7 @@ public class e implements a.InterfaceC0424a {
         if (com.baidu.swan.games.view.a.c.ay(this.cWN.getConvertView())) {
             com.baidu.swan.games.view.a.c.av(this.cWN.getConvertView());
         }
-        if (com.baidu.swan.games.view.a.c.c(this.cWN.getConvertView(), new com.baidu.swan.apps.model.a.a.a(ag.D(this.cWK.left), ag.D(this.cWK.f1010top), ag.D(this.cWK.realWidth), ag.D(this.cWK.realHeight)))) {
+        if (com.baidu.swan.games.view.a.c.c(this.cWN.getConvertView(), new com.baidu.swan.apps.model.a.a.a(ag.D(this.cWK.left), ag.D(this.cWK.f1011top), ag.D(this.cWK.realWidth), ag.D(this.cWK.realHeight)))) {
             if (this.cWJ != null) {
                 this.cWJ.onLoad();
             }
@@ -209,12 +209,12 @@ public class e implements a.InterfaceC0424a {
             if (this.cWK.left > F) {
                 this.cWK.left = F;
             }
-            if (this.cWK.f1010top < 0) {
-                this.cWK.f1010top = 0;
+            if (this.cWK.f1011top < 0) {
+                this.cWK.f1011top = 0;
             }
             int F2 = ag.F(aDN) - this.cWK.height;
-            if (this.cWK.f1010top > F2) {
-                this.cWK.f1010top = F2;
+            if (this.cWK.f1011top > F2) {
+                this.cWK.f1011top = F2;
             }
             this.cWK.realWidth = this.cWK.width;
             this.cWK.realHeight = this.cWK.height;

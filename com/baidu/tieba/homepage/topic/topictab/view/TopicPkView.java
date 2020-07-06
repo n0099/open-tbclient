@@ -316,10 +316,10 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                         }
                     });
                 }
-                if (ckQ()) {
+                if (ckR()) {
                     i = 1;
                 } else {
-                    i = ckR() ? 2 : 0;
+                    i = ckS() ? 2 : 0;
                 }
                 if (view == this.iAg) {
                     oG(1 != i);
@@ -549,11 +549,11 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         this.iAl.setVisibility(4);
     }
 
-    private boolean ckQ() {
+    private boolean ckR() {
         return (this.iAd == null || this.iAd.izD == null || !this.iAd.izD.izJ) ? false : true;
     }
 
-    private boolean ckR() {
+    private boolean ckS() {
         return (this.iAd == null || this.iAd.izE == null || !this.iAd.izE.izJ) ? false : true;
     }
 

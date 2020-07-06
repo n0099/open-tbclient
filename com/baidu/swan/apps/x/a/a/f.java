@@ -14,7 +14,7 @@ public class f implements com.baidu.swan.apps.model.a {
     public boolean col = false;
 
     /* renamed from: com  reason: collision with root package name */
-    public boolean f1005com = false;
+    public boolean f1006com = false;
     public String con = "";
     public int borderColor = 0;
     public float coh = 0.0f;
@@ -41,7 +41,7 @@ public class f implements com.baidu.swan.apps.model.a {
                 this.color = com.baidu.swan.apps.x.a.d.N(jSONObject.optString("color"), 0);
                 this.width = Math.abs(com.baidu.swan.apps.x.a.d.k(jSONObject.optDouble("width", 0.0d)));
                 this.col = jSONObject.optBoolean("dottedLine", false);
-                this.f1005com = jSONObject.optBoolean("arrowLine", false);
+                this.f1006com = jSONObject.optBoolean("arrowLine", false);
                 this.con = jSONObject.optString("arrowIconPath");
                 this.borderColor = com.baidu.swan.apps.x.a.d.N(jSONObject.optString("borderColor"), 0);
                 this.coh = Math.abs(com.baidu.swan.apps.x.a.d.k(jSONObject.optDouble("borderWidth", 0.0d)));

@@ -29,7 +29,7 @@ public class BdNativeCrash {
     private BdNativeCrash() {
     }
 
-    public static BdNativeCrash cDN() {
+    public static BdNativeCrash cDO() {
         if (jMV == null) {
             synchronized (BdNativeCrash.class) {
                 if (jMV == null) {

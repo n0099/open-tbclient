@@ -146,15 +146,15 @@ public class a implements com.baidu.live.x.b {
                     ViewHelper.skipToLoginActivity(a.this.mContext);
                     return;
                 }
-                a.this.bEG();
-                a.this.bEI();
+                a.this.bEH();
+                a.this.bEJ();
             }
         });
         MessageManager.getInstance().registerListener(this.gGV);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bEI() {
+    public void bEJ() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new g(this.mContext)));
     }
 
@@ -203,8 +203,8 @@ public class a implements com.baidu.live.x.b {
                     if (this.fxP) {
                         this.gHf.setVisibility(0);
                         lO(true);
+                        bMO();
                         bMN();
-                        bMM();
                         return;
                     }
                     lO(false);
@@ -243,8 +243,8 @@ public class a implements com.baidu.live.x.b {
             if (this.fxP) {
                 this.gHf.setVisibility(0);
                 lO(true);
+                bMO();
                 bMN();
-                bMM();
                 return;
             }
             lO(false);
@@ -256,16 +256,16 @@ public class a implements com.baidu.live.x.b {
         }
     }
 
-    private void bMM() {
+    private void bMN() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "petal_show"));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bEG() {
+    public void bEH() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "petal_clk"));
     }
 
-    private void bMN() {
+    private void bMO() {
         if (TbConfig.FLOWER_GUIDE_STATUS == 1) {
             this.gHf.post(new Runnable() { // from class: com.baidu.tieba.ala.taskview.a.4
                 @Override // java.lang.Runnable

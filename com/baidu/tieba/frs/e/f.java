@@ -31,7 +31,7 @@ public class f {
                     f.this.VX.bhX();
                 }
             } else if (i == 0) {
-                f.this.ceI();
+                f.this.ceJ();
             }
         }
     };
@@ -50,16 +50,16 @@ public class f {
         this.hYi.a(this.hYj);
     }
 
-    public void ceG() {
+    public void ceH() {
         if (this.mParent != null) {
-            ceI();
+            ceJ();
             this.mParent.addView(this.hXZ.mRootView);
-            ceH();
-            this.hYi.cew();
+            ceI();
+            this.hYi.cex();
         }
     }
 
-    public void bXo() {
+    public void bXp() {
         if (this.mParent != null) {
             hide();
         }
@@ -73,7 +73,7 @@ public class f {
             return;
         }
         showContentView();
-        this.hYi.cex();
+        this.hYi.cey();
     }
 
     public static boolean T(Intent intent) {
@@ -90,7 +90,7 @@ public class f {
         }
     }
 
-    private void ceH() {
+    private void ceI() {
         View findViewById;
         if (this.mParent != null && (this.mParent.getChildAt(0) instanceof SwipeBackLayout)) {
             this.mParent.getChildAt(0).setVisibility(8);
@@ -101,7 +101,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ceI() {
+    public void ceJ() {
         ViewParent parent = this.hXZ.mRootView.getParent();
         if (parent instanceof ViewGroup) {
             ((ViewGroup) parent).removeView(this.hXZ.mRootView);

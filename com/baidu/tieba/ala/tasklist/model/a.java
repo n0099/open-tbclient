@@ -71,24 +71,24 @@ public class a extends BdBaseModel<AlaTaskListActivity> {
                     }
                     a.this.gGR = alaTaskRewardHttpResponsedMessage.gGR;
                     a.this.gGS = alaTaskRewardHttpResponsedMessage.gGS;
-                    a.this.bML();
+                    a.this.bMM();
                     if (a.this.gGT != null) {
                         a.this.gGT.a(alaTaskRewardHttpResponsedMessage.gGR, alaTaskRewardHttpResponsedMessage.gGS);
                     }
                 }
             }
         };
-        bMI();
         bMJ();
+        bMK();
         MessageManager.getInstance().registerListener(this.gGU);
         MessageManager.getInstance().registerListener(this.gGV);
     }
 
-    public ac bMH() {
+    public ac bMI() {
         return this.gGS;
     }
 
-    private void bMI() {
+    private void bMJ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021065, com.baidu.live.a.atE);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -97,7 +97,7 @@ public class a extends BdBaseModel<AlaTaskListActivity> {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void bMJ() {
+    private void bMK() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021066, com.baidu.live.a.atF);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -106,7 +106,7 @@ public class a extends BdBaseModel<AlaTaskListActivity> {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bMK() {
+    public void bML() {
         HttpMessage httpMessage = new HttpMessage(1021065);
         httpMessage.setTag(getUniqueId());
         MessageManager.getInstance().sendMessage(httpMessage);
@@ -120,7 +120,7 @@ public class a extends BdBaseModel<AlaTaskListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bML() {
+    public void bMM() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "petal_pickup"));
     }
 

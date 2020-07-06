@@ -22,7 +22,7 @@ public class a implements d {
 
     @Override // com.baidu.swan.apps.u.b.d
     public void a(String str, boolean z, boolean z2, d.a aVar) {
-        BDLocation dj = fcW.dj(bqH());
+        BDLocation dj = fcW.dj(bqI());
         boolean z3 = dj != null;
         if (z3) {
             aVar.a(a(dj, str));
@@ -60,8 +60,8 @@ public class a implements d {
 
     @Override // com.baidu.swan.apps.u.b.d
     public void ahp() {
-        long bqH = bqH();
-        if (fcW.fcZ == null || (bqH > 0 && !fcW.di(bqH))) {
+        long bqI = bqI();
+        if (fcW.fcZ == null || (bqI > 0 && !fcW.di(bqI))) {
             if (DEBUG) {
                 Log.i("SwanAppLocationImpl", "onWarmUp");
             }
@@ -108,7 +108,7 @@ public class a implements d {
         return dArr;
     }
 
-    private long bqH() {
+    private long bqI() {
         return fcV;
     }
 

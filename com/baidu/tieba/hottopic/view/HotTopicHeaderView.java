@@ -106,7 +106,7 @@ public class HotTopicHeaderView extends LinearLayout {
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
                 HotTopicHeaderView.this.iGo.setText(HotTopicHeaderView.this.MN);
-                HotTopicHeaderView.this.clZ();
+                HotTopicHeaderView.this.cma();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -162,7 +162,7 @@ public class HotTopicHeaderView extends LinearLayout {
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
                 HotTopicHeaderView.this.iGo.setText(HotTopicHeaderView.this.MN);
-                HotTopicHeaderView.this.clZ();
+                HotTopicHeaderView.this.cma();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -218,7 +218,7 @@ public class HotTopicHeaderView extends LinearLayout {
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
                 HotTopicHeaderView.this.iGo.setText(HotTopicHeaderView.this.MN);
-                HotTopicHeaderView.this.clZ();
+                HotTopicHeaderView.this.cma();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -265,7 +265,7 @@ public class HotTopicHeaderView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clZ() {
+    public void cma() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) this.MN);
         String string = getResources().getString(R.string.hot_topic_detail);
@@ -323,7 +323,7 @@ public class HotTopicHeaderView extends LinearLayout {
                 this.iGy = this.iGo.getLineCount();
                 if (this.iGy > 3) {
                     this.iGo.setMovementMethod(LinkMovementMethod.getInstance());
-                    clZ();
+                    cma();
                 }
                 this.iGo.setVisibility(0);
                 this.iGo.setHighlightColor(getResources().getColor(R.color.transparent));
@@ -349,7 +349,7 @@ public class HotTopicHeaderView extends LinearLayout {
         }
     }
 
-    public boolean cma() {
+    public boolean cmb() {
         return this.iGx;
     }
 

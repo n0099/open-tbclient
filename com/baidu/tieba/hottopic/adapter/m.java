@@ -58,7 +58,7 @@ public class m extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.hottop
                 if (m.this.iCB != null && m.this.iCB.fnh != null) {
                     m.this.iCB.fnh.stopPlayback();
                 }
-                m.this.cla();
+                m.this.clb();
             }
         };
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.hottopic.adapter.m.13
@@ -92,7 +92,7 @@ public class m extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.hottop
                 if (!m.this.iCD) {
                     BdToast.a((Context) m.this.activity.getPageContext().getPageActivity(), (CharSequence) m.this.activity.getPageContext().getResources().getString(R.string.pb_play_error), (int) R.drawable.icon_pure_toast_mistake40_svg, true).aUS();
                 }
-                m.this.cla();
+                m.this.clb();
                 return true;
             }
         };
@@ -100,7 +100,7 @@ public class m extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.hottop
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                m.this.clc();
+                m.this.cld();
             }
         };
         this.iCI = new CustomMessageListener(CmdConfigCustom.PB_REFRESH_VIDEO) { // from class: com.baidu.tieba.hottopic.adapter.m.5
@@ -165,13 +165,13 @@ public class m extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.hottop
                 findViewById.setLayoutParams(layoutParams);
             }
         } else {
-            cla();
+            clb();
         }
         return this.iCB;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cla() {
+    public void clb() {
         if (this.iCB != null && this.iCB.iFP != null && this.iCB.iFS != null) {
             this.iCB.iFP.setVisibility(0);
             this.iCB.iFS.setVisibility(8);
@@ -181,7 +181,7 @@ public class m extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.hottop
         }
     }
 
-    public void clb() {
+    public void clc() {
         this.iCC = false;
     }
 
@@ -370,7 +370,7 @@ public class m extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.hottop
                     aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.hottopic.adapter.m.a.1
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                            a.this.cld();
+                            a.this.cle();
                             aVar2.dismiss();
                         }
                     });
@@ -382,16 +382,16 @@ public class m extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.hottop
                     });
                     aVar.b(m.this.activity.getPageContext()).aUN();
                 } else {
-                    cld();
+                    cle();
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void cld() {
+        public void cle() {
             if (this.iCO != null && this.iCP != null && this.iCP.fnh != null && this.iCP.fnj != null) {
                 this.iCP.fnj.La("2");
-                this.iCP.fnj.cVB();
+                this.iCP.fnj.cVC();
                 this.iCP.fnh.setVideoPath(this.iCO.videoUrl);
                 this.iCP.fnh.start();
                 m.this.iCD = false;
@@ -467,7 +467,7 @@ public class m extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.hottop
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clc() {
+    public void cld() {
         if (this.iCB != null && this.iCB.fnh != null && this.iCB.iFU != null && this.iCB.iFV != null) {
             if (this.iCB.fnh.isPlaying()) {
                 this.iCB.fnh.pause();

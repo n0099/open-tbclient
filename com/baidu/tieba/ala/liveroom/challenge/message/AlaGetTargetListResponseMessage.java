@@ -41,11 +41,11 @@ public class AlaGetTargetListResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public b bCO() {
+    public b bCP() {
         return this.fZw;
     }
 
-    public List<d> bCP() {
+    public List<d> bCQ() {
         return this.fZx;
     }
 }

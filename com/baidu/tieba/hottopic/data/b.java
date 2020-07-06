@@ -18,11 +18,11 @@ public class b implements q {
     String rule_jump_url;
     String tips;
 
-    public String cly() {
+    public String clz() {
         return this.iDM;
     }
 
-    public String clz() {
+    public String clA() {
         return this.iDL;
     }
 
@@ -34,7 +34,7 @@ public class b implements q {
         return this.mName;
     }
 
-    public String clA() {
+    public String clB() {
         return this.module_title;
     }
 

@@ -49,9 +49,9 @@ public class e {
                     intent.putExtra("sub_locate_type", stringExtra);
                     i = 1;
                 }
-                if (dVar != null && dVar.bZU() != null) {
-                    dVar.bZU().setCurrentTabByType(i);
-                    FragmentTabHost.b lm = dVar.bZU().lm(i);
+                if (dVar != null && dVar.bZV() != null) {
+                    dVar.bZV().setCurrentTabByType(i);
+                    FragmentTabHost.b lm = dVar.bZV().lm(i);
                     if (lm != null && (lm.mContentFragment instanceof g)) {
                         ((g) lm.mContentFragment).z(intent);
                     }

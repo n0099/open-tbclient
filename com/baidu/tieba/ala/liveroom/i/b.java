@@ -43,7 +43,7 @@ public class b {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.bEw();
+            b.this.bEx();
             String str = null;
             String str2 = "";
             if (b.this.gho != null && b.this.ghn != null) {
@@ -67,11 +67,11 @@ public class b {
                     this.ghs = new com.baidu.tieba.ala.liveroom.i.a(b.this.getPageContext().getPageActivity());
                     this.ghs.a(new a.InterfaceC0572a() { // from class: com.baidu.tieba.ala.liveroom.i.b.2.1
                         @Override // com.baidu.tieba.ala.liveroom.i.a.InterfaceC0572a
-                        public void bEt() {
+                        public void bEu() {
                         }
 
                         @Override // com.baidu.tieba.ala.liveroom.i.a.InterfaceC0572a
-                        public void bEu() {
+                        public void bEv() {
                             if (b.this.gho != null && b.this.ghn != null) {
                                 b.this.gho.b(b.this.ghn);
                             }
@@ -142,9 +142,9 @@ public class b {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bBc();
-
         void bBd();
+
+        void bBe();
     }
 
     public b(TbPageContext tbPageContext, String str, f fVar, a aVar) {
@@ -167,7 +167,7 @@ public class b {
         if (this.ghj == null) {
             this.ghj = new c(getPageContext(), this.eoP);
         }
-        bEw();
+        bEx();
         this.fIb = viewGroup;
         return true;
     }
@@ -183,12 +183,12 @@ public class b {
         if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) != 2) {
             if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isPopupWindowUnabled()) && ah(viewGroup)) {
                 if (this.gho == null || !this.gho.isDownloading()) {
-                    if (!bEv()) {
+                    if (!bEw()) {
                         BdLog.e("apk download data invalid");
                         return;
                     }
                     if (this.ghp != null) {
-                        this.ghp.bBc();
+                        this.ghp.bBd();
                     }
                     this.fIb.addView(this.ghj.getView(), layoutParams);
                     n.aw(this.roomId);
@@ -198,7 +198,7 @@ public class b {
                     this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.i.b.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (b.this.bEw()) {
+                            if (b.this.bEx()) {
                                 n.cu(false);
                             }
                         }
@@ -208,19 +208,19 @@ public class b {
         }
     }
 
-    private boolean bEv() {
+    private boolean bEw() {
         return (this.ghn == null || TextUtils.isEmpty(this.ghn.apkPackageName) || TextUtils.isEmpty(this.ghn.apkUrl) || TextUtils.isEmpty(this.ghn.apkDeeplinkScheme) || TextUtils.isEmpty(this.ghn.apkClipBoardScheme)) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bEw() {
+    public boolean bEx() {
         if (this.fIb == null || this.fIb.indexOfChild(this.ghj.getView()) < 0) {
             return false;
         }
         this.fIb.removeView(this.ghj.getView());
         g.rw(2913168);
         if (this.ghp != null) {
-            this.ghp.bBd();
+            this.ghp.bBe();
         }
         return true;
     }
@@ -264,7 +264,7 @@ public class b {
     public void vH() {
         cancel();
         this.handler.removeCallbacksAndMessages(null);
-        if (bEw()) {
+        if (bEx()) {
             n.cu(false);
         }
     }
@@ -280,18 +280,18 @@ public class b {
 
     public void b(com.baidu.tieba.ala.liveroom.data.a aVar) {
         q FU = aVar.gfS.FU();
-        AlaLiveInfoData bID = aVar.gfS.bID();
-        if (n.ax(bID.room_id) && FU != null && FU.axU != null && FU.axU.needToast == 1) {
-            c(FU.axU.watchDurationMust, bID.live_id + "", bID.user_id + "", aVar.enterTime);
+        AlaLiveInfoData bIE = aVar.gfS.bIE();
+        if (n.ax(bIE.room_id) && FU != null && FU.axU != null && FU.axU.needToast == 1) {
+            c(FU.axU.watchDurationMust, bIE.live_id + "", bIE.user_id + "", aVar.enterTime);
         }
     }
 
     public void c(com.baidu.tieba.ala.liveroom.data.a aVar) {
         q FU = aVar.gfS.FU();
         if (FU != null && aVar != null && this.handler != null && FU.axU != null && FU.axU.needToast == 1 && System.currentTimeMillis() - (aVar.enterTime * 1000) > FU.axU.watchDurationMust) {
-            AlaLiveInfoData bID = aVar.gfS.bID();
+            AlaLiveInfoData bIE = aVar.gfS.bIE();
             if (n.ax(this.roomId)) {
-                a(bID.live_id + "", bID.user_id + "", aVar.enterTime, 5000L);
+                a(bIE.live_id + "", bIE.user_id + "", aVar.enterTime, 5000L);
             }
         }
     }

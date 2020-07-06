@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class j {
-    private static j neV = null;
-    private final LruCache<String, VideoPlayInfo> neU = new LruCache<String, VideoPlayInfo>(50) { // from class: com.kascend.chushou.d.j.1
+    private static j neY = null;
+    private final LruCache<String, VideoPlayInfo> neX = new LruCache<String, VideoPlayInfo>(50) { // from class: com.kascend.chushou.d.j.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
@@ -29,39 +29,39 @@ public class j {
         }
     };
 
-    public static j dIV() {
-        if (neV == null) {
+    public static j dIZ() {
+        if (neY == null) {
             synchronized (j.class) {
-                if (neV == null) {
-                    neV = new j();
+                if (neY == null) {
+                    neY = new j();
                 }
             }
         }
-        return neV;
+        return neY;
     }
 
     private j() {
     }
 
     public VideoPlayInfo L(String str, long j) {
-        return a(this.neU, str, j);
+        return a(this.neX, str, j);
     }
 
     public void a(String str) {
-        this.neU.remove(str);
+        this.neX.remove(str);
     }
 
     public void a(String str, List<PlayUrl> list) {
-        a(this.neU, str, list);
+        a(this.neX, str, list);
     }
 
     public void a(final String str, final String str2) {
         if (M(str, 600000L) == null) {
-            com.kascend.chushou.player.c.a.dJJ().a(str, str2, new a.InterfaceC0819a() { // from class: com.kascend.chushou.d.j.3
-                @Override // com.kascend.chushou.player.c.a.InterfaceC0819a
+            com.kascend.chushou.player.c.a.dJN().a(str, str2, new a.InterfaceC0820a() { // from class: com.kascend.chushou.d.j.3
+                @Override // com.kascend.chushou.player.c.a.InterfaceC0820a
                 public void a(ParserRet parserRet) {
                     if (parserRet.mRc == 0 && parserRet.mData != null) {
-                        j.dIV().a(str + str2, (ArrayList) parserRet.mData);
+                        j.dIZ().a(str + str2, (ArrayList) parserRet.mData);
                     }
                 }
             });

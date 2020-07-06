@@ -97,9 +97,9 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
     public interface a {
         void a(bg bgVar);
 
-        void bDE();
-
         void bDF();
+
+        void bDG();
 
         void d(aq aqVar);
 
@@ -337,7 +337,7 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
         }
         if (i == 2) {
             setCloseBtnVisible(true);
-            bDB();
+            bDC();
         } else if (i == 3) {
             boolean z2 = com.baidu.live.v.a.Hm().aZp != null && com.baidu.live.v.a.Hm().aZp.azW == 1;
             if (z2) {
@@ -346,7 +346,7 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
             setCloseBtnVisible(z2);
             bC(amVar.challengeResult, amVar.aBP);
         } else {
-            bvY();
+            bvZ();
             setCloseBtnVisible(false);
             bC(amVar.challengeResult, amVar.aBP);
         }
@@ -451,7 +451,7 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
 
     private void a(long j, int i, long j2, long j3) {
         if (j3 >= j2 && a(j, i, j3)) {
-            bvY();
+            bvZ();
             if (this.gds != null) {
                 v(this.gds.aBI, (j3 - j2) * 1000);
             }
@@ -478,7 +478,7 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
         return (this.gds != null && this.gds.challengeId == j && this.gds.aBI == i && this.gds.aBL == j2) ? false : true;
     }
 
-    private void bvY() {
+    private void bvZ() {
         if (this.fzZ != null) {
             this.fzZ.cancel();
         }
@@ -512,11 +512,11 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
         }
     }
 
-    public void bDA() {
+    public void bDB() {
         setCloseBtnVisible(false);
         this.gdm.setText(this.mContext.getResources().getString(a.i.ala_challenge_btn_close_label));
         this.gdb.zo();
-        this.gdc.bDK();
+        this.gdc.bDL();
         setLiveContainerVisible(false);
         if (this.gdu != null) {
             this.gdu.clear();
@@ -556,16 +556,16 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
             }
             this.gcY.setImageResource(a.f.icon_live_vs_win);
         } else {
-            bDB();
+            bDC();
         }
     }
 
-    public void bDB() {
+    public void bDC() {
         this.gcG.setVisibility(4);
         this.gcX.setVisibility(4);
     }
 
-    public void bDC() {
+    public void bDD() {
         if (this.gdu != null) {
             this.gdu.clear();
             this.gdu = null;
@@ -648,10 +648,10 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
     }
 
     public void releaseResource() {
-        bvY();
+        bvZ();
         this.gdm.setText(this.mContext.getResources().getString(a.i.ala_challenge_btn_close_label));
         this.gdb.zo();
-        this.gdc.bDK();
+        this.gdc.bDL();
         this.gds = null;
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
@@ -673,12 +673,12 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
                     }
                     return;
                 }
-                this.gdn.bDE();
+                this.gdn.bDF();
             }
         } else if (view == this.gcP) {
             if (this.gdn != null) {
                 if (this.gdw) {
-                    this.gdn.bDF();
+                    this.gdn.bDG();
                 } else {
                     this.gdn.d((aq) this.gcP.getTag());
                 }
@@ -686,7 +686,7 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
         } else if (view == this.gcS) {
             if (this.gdn != null) {
                 if (this.gdw) {
-                    this.gdn.bDF();
+                    this.gdn.bDG();
                 } else {
                     this.gdn.e((aq) this.gcP.getTag());
                 }
@@ -694,7 +694,7 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
         } else if (view == this.gcO) {
             if (this.gdn != null) {
                 if (this.gdw) {
-                    this.gdn.bDF();
+                    this.gdn.bDG();
                 } else {
                     this.gdn.f(this.aBF);
                 }
@@ -711,9 +711,9 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.view.ChallengeJinzhuView.a
-    public void bDD() {
+    public void bDE() {
         if (this.gdn != null) {
-            this.gdn.bDF();
+            this.gdn.bDG();
         }
     }
 }

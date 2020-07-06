@@ -17,13 +17,13 @@ public class aq implements ap.b.a {
         XMPushService.b bVar;
         XMPushService.b bVar2;
         if (cVar2 == ap.c.binding) {
-            XMPushService xMPushService = this.a.f860a;
-            bVar2 = this.a.f859a;
+            XMPushService xMPushService = this.a.f861a;
+            bVar2 = this.a.f860a;
             xMPushService.a(bVar2, 60000L);
             return;
         }
-        XMPushService xMPushService2 = this.a.f860a;
-        bVar = this.a.f859a;
+        XMPushService xMPushService2 = this.a.f861a;
+        bVar = this.a.f860a;
         xMPushService2.b(bVar);
     }
 }

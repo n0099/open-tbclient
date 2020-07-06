@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class c extends BaseData {
     private ArrayList<a> fRg = new ArrayList<>();
 
-    public ArrayList<a> bzb() {
+    public ArrayList<a> bzc() {
         return this.fRg;
     }
 

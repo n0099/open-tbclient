@@ -2,18 +2,18 @@ package com.facebook.imagepipeline.producers;
 /* loaded from: classes12.dex */
 public class e implements al {
     @Override // com.facebook.imagepipeline.producers.al
-    public void dCq() {
+    public void dCu() {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public void dGf() {
+    public void dGj() {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public void dGg() {
+    public void dGk() {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public void dGh() {
+    public void dGl() {
     }
 }

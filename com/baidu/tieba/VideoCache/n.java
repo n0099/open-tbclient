@@ -18,7 +18,7 @@ public class n {
         public void run() {
             long j;
             j.D(n.TAG, "run ...");
-            n.this.bol();
+            n.this.bom();
             int i = 9000;
             while (n.this.eWP == null && i < 10000) {
                 try {
@@ -31,8 +31,8 @@ public class n {
             }
             j.D(n.TAG, "service port " + i);
             n.this.pv(i);
-            e.boa();
-            k.boi();
+            e.bob();
+            k.boj();
             while (!n.this.eWP.isClosed()) {
                 try {
                     j.D(n.TAG, "accept start");
@@ -61,11 +61,11 @@ public class n {
                             b.da(j);
                             n.this.b(b, accept);
                         } else {
-                            j.D(n.TAG, "HandleSocketRunnable new request b=" + b.bof() + " e=" + b.bog());
+                            j.D(n.TAG, "HandleSocketRunnable new request b=" + b.bog() + " e=" + b.boh());
                             f fVar = new f(n.this.mContext);
                             fVar.setSocket(accept);
                             fVar.a(b);
-                            l.boj().s(fVar);
+                            l.bok().s(fVar);
                         }
                     }
                 } catch (Exception e3) {
@@ -80,11 +80,11 @@ public class n {
 
     public n(Context context) {
         this.mContext = context;
-        l.boj().s(this.mRunnable);
+        l.bok().s(this.mRunnable);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bol() {
+    public void bom() {
         File file = new File(i.eWD);
         if (!file.exists()) {
             file.mkdir();
@@ -193,7 +193,7 @@ public class n {
         if (originUrl != null) {
             originUrl = originUrl.replace("?stop_cache=1", "");
         }
-        e.boa().zK(originUrl);
+        e.bob().zK(originUrl);
         d(socket);
         j.D(TAG, "handleStopCache out");
     }
@@ -203,7 +203,7 @@ public class n {
         j.D(TAG, "handleNotifyDownLoadNextSegment in");
         String originUrl = hVar.getOriginUrl();
         if (originUrl != null) {
-            e.boa().v(originUrl, hVar.boh());
+            e.bob().v(originUrl, hVar.boi());
         }
         d(socket);
         j.D(TAG, "handleNotifyDownLoadNextSegment out");
@@ -216,7 +216,7 @@ public class n {
         if (originUrl != null) {
             originUrl = originUrl.replace("?file_access=1", "");
         }
-        k.boi().zF(originUrl);
+        k.boj().zF(originUrl);
         d(socket);
         j.D(TAG, "handleFileAccess out");
     }
@@ -224,7 +224,7 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(h hVar, Socket socket) {
         j.D(TAG, "handleDeleteExpiredFiles in");
-        k.boi().bnU();
+        k.boj().bnV();
         d(socket);
         j.D(TAG, "handleDeleteExpiredFiles out");
     }
@@ -232,7 +232,7 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     public void e(h hVar, Socket socket) {
         j.D(TAG, "handleClearCache in");
-        k.boi().clearCache();
+        k.boj().clearCache();
         d(socket);
         j.D(TAG, "handleClearCache out");
     }

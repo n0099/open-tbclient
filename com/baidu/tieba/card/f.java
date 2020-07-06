@@ -156,8 +156,8 @@ public class f extends b<com.baidu.tieba.e.b> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (bOc() != null) {
-            bOc().a(getView(), this.gPn);
+        if (bOd() != null) {
+            bOd().a(getView(), this.gPn);
         }
     }
 }

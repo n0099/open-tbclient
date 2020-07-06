@@ -53,18 +53,18 @@ public class a {
             a.this.fPe.completePullRefresh();
             a.this.fPe.hideNoDataView();
             if (a.this.fPd.getUserList().size() == 0) {
-                a.this.fPe.bxv();
-                a.this.fPe.byK();
+                a.this.fPe.bxw();
+                a.this.fPe.byL();
                 a.this.fPe.showNoDataView();
                 return;
             }
-            a.this.fPe.btN();
-            a.this.fPe.byJ();
-            a.this.fPe.f(a.this.fPd.getUserList(), a.this.fPd.byG());
+            a.this.fPe.btO();
+            a.this.fPe.byK();
+            a.this.fPe.f(a.this.fPd.getUserList(), a.this.fPd.byH());
             if (z) {
-                a.this.fPe.bxa();
+                a.this.fPe.bxb();
             } else {
-                a.this.fPe.bxv();
+                a.this.fPe.bxw();
             }
         }
 
@@ -73,13 +73,13 @@ public class a {
             a.this.fPe.completePullRefresh();
             a.this.fPe.hideNoDataView();
             if (a.this.fPd.getUserList().size() <= 0) {
-                a.this.fPe.bxv();
-                a.this.fPe.byK();
+                a.this.fPe.bxw();
+                a.this.fPe.byL();
                 a.this.fPe.a(a.i.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.fPe.btN();
-                        a.this.fPd.byI();
+                        a.this.fPe.btO();
+                        a.this.fPd.byJ();
                     }
                 });
                 return;
@@ -108,15 +108,15 @@ public class a {
         this.fPe.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.3
             @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
             public void onListPullRefresh(boolean z) {
-                a.this.fPd.byI();
+                a.this.fPd.byJ();
             }
         });
-        this.fPe.bxv();
+        this.fPe.bxw();
     }
 
     public void onCreate(Bundle bundle) {
         getPageContext().registerListener(this.fPg);
-        this.fPd.byI();
+        this.fPd.byJ();
     }
 
     public void onChangeSkinType(int i) {

@@ -12,15 +12,15 @@ import org.json.JSONObject;
 public class b implements Cloneable {
     private Context appContext;
     private String appKey = "";
-    private String nHP = "";
+    private String nHS = "";
     private String from = "";
     private String wm = "";
-    private String nHQ = "";
-    private String nHR = "";
-    private String nHS = "";
+    private String nHT = "";
+    private String nHU = "";
+    private String nHV = "";
     private HashMap<String, String> extra = new HashMap<>();
 
-    private String RT(String str) {
+    private String RU(String str) {
         try {
             return URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException e) {
@@ -41,29 +41,29 @@ public class b implements Cloneable {
             }
         }
         if (z) {
-            return RT(jSONObject.toString());
+            return RU(jSONObject.toString());
         }
         return jSONObject.toString();
     }
 
     public String xi(boolean z) {
-        return z ? RT(this.nHR) : this.nHR;
+        return z ? RU(this.nHU) : this.nHU;
     }
 
     public String xj(boolean z) {
-        return z ? RT(this.wm) : this.wm;
+        return z ? RU(this.wm) : this.wm;
     }
 
-    public void RU(String str) {
+    public void RV(String str) {
         this.wm = str;
     }
 
     public String xk(boolean z) {
-        return z ? RT(this.nHQ) : this.nHQ;
+        return z ? RU(this.nHT) : this.nHT;
     }
 
     public String xl(boolean z) {
-        return z ? RT(this.from) : this.from;
+        return z ? RU(this.from) : this.from;
     }
 
     public void setFrom(String str) {
@@ -71,7 +71,7 @@ public class b implements Cloneable {
     }
 
     public String xm(boolean z) {
-        return z ? RT(this.appKey) : this.appKey;
+        return z ? RU(this.appKey) : this.appKey;
     }
 
     public void setAppKey(String str) {
@@ -87,10 +87,10 @@ public class b implements Cloneable {
     }
 
     public String xn(boolean z) {
-        return z ? RT(this.nHP) : this.nHP;
+        return z ? RU(this.nHS) : this.nHS;
     }
 
-    public boolean dOI() {
+    public boolean dOM() {
         return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.wm)) ? false : true;
     }
 

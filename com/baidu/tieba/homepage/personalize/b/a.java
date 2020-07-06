@@ -34,15 +34,15 @@ public class a extends com.baidu.tieba.card.b<c> {
         this.mRoot.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.b.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.bOc() != null) {
-                    a.this.bOc().a(view, a.this.ivv);
+                if (a.this.bOd() != null) {
+                    a.this.bOd().a(view, a.this.ivv);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ckk() {
+    public void ckl() {
         final ViewGroup.LayoutParams layoutParams = this.mRoot.getLayoutParams();
         if (layoutParams != null && layoutParams.height != ivr) {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
@@ -88,7 +88,7 @@ public class a extends com.baidu.tieba.card.b<c> {
                 e.lt().postDelayed(new Runnable() { // from class: com.baidu.tieba.homepage.personalize.b.a.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.ckk();
+                        a.this.ckl();
                     }
                 }, 1600L);
             }

@@ -58,27 +58,27 @@ public class s implements n {
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public i cYM() {
-        return a.cYD();
+    public i cYN() {
+        return a.cYE();
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public k cYN() {
-        return a.cYD();
+    public k cYO() {
+        return a.cYE();
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public com.baidu.tieba.r.a cYO() {
-        return com.baidu.tieba.ad.statis.a.bpr();
+    public com.baidu.tieba.r.a cYP() {
+        return com.baidu.tieba.ad.statis.a.bps();
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public g cYP() {
-        return com.baidu.tieba.ad.a.boT();
+    public g cYQ() {
+        return com.baidu.tieba.ad.a.boU();
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public List<AppData> cYQ() {
+    public List<AppData> cYR() {
         if (this.ley == null) {
             this.ley = new ArrayList();
         }
@@ -86,7 +86,7 @@ public class s implements n {
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public void cYR() {
+    public void cYS() {
         AdDebugService.updateFloatView(this.ley != null ? StringUtils.string(Integer.valueOf(this.ley.size())) : "0");
     }
 }

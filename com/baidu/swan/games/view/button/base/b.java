@@ -141,7 +141,7 @@ public class b extends EventTargetImpl implements a.InterfaceC0447a {
         int D = ag.D(this.style.width);
         int D2 = ag.D(this.style.height);
         int D3 = ag.D(this.style.left);
-        int D4 = ag.D(this.style.f1011top);
+        int D4 = ag.D(this.style.f1012top);
         int D5 = ag.D(this.style.borderWidth);
         int i = D < D5 * 2 ? D5 * 2 : D;
         int i2 = D2 < D5 * 2 ? D5 * 2 : D2;

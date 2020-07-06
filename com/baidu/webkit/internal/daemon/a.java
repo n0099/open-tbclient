@@ -9,11 +9,11 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.webkit.internal.daemon.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class ThreadFactoryC0788a implements ThreadFactory {
-        private ThreadFactoryC0788a() {
+    public static class ThreadFactoryC0789a implements ThreadFactory {
+        private ThreadFactoryC0789a() {
         }
 
-        public /* synthetic */ ThreadFactoryC0788a(byte b) {
+        public /* synthetic */ ThreadFactoryC0789a(byte b) {
             this();
         }
 

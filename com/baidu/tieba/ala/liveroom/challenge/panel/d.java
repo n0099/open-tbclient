@@ -21,7 +21,7 @@ public class d extends BaseAdapter {
         void f(com.baidu.live.challenge.d dVar);
     }
 
-    public a bDc() {
+    public a bDd() {
         return this.gaq;
     }
 
@@ -114,14 +114,14 @@ public class d extends BaseAdapter {
         if (item != null) {
             bVar.gat.setCallback(new AlaChallengeTargetItemView.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.d.1
                 @Override // com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeTargetItemView.a
-                public void bDd() {
+                public void bDe() {
                     if (d.this.gaq != null) {
                         d.this.gaq.e(item);
                     }
                 }
 
                 @Override // com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeTargetItemView.a
-                public void bDe() {
+                public void bDf() {
                     if (d.this.gaq != null && d.this.d(item)) {
                         d.this.gaq.f(item);
                     }

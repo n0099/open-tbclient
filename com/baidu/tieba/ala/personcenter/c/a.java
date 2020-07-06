@@ -12,7 +12,7 @@ public class a extends com.baidu.tbadk.core.data.m {
         }
     }
 
-    public String bLs() {
+    public String bLt() {
         return this.qq;
     }
 }

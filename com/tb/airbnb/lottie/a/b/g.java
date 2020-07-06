@@ -18,8 +18,8 @@ public class g {
         while (true) {
             int i2 = i;
             if (i2 < list.size()) {
-                this.CO.add(list.get(i2).dNW().dNC());
-                this.CP.add(list.get(i2).dNI().dNC());
+                this.CO.add(list.get(i2).dOa().dNG());
+                this.CP.add(list.get(i2).dNM().dNG());
                 i = i2 + 1;
             } else {
                 return;

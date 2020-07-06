@@ -132,7 +132,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
         this.kGI = new f();
     }
 
-    public f cRW() {
+    public f cRX() {
         return this.kGI;
     }
 
@@ -145,20 +145,20 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void a(boolean z, ResponsedMessage<?> responsedMessage, long j) {
-        if (m.bhP().bhQ() && com.baidu.tieba.personCenter.a.cRI().getCreateTime() > 0) {
-            long refreshTime = com.baidu.tieba.personCenter.a.cRI().getRefreshTime();
-            long createTime = com.baidu.tieba.personCenter.a.cRI().getCreateTime();
-            long cRJ = com.baidu.tieba.personCenter.a.cRI().cRJ();
+        if (m.bhP().bhQ() && com.baidu.tieba.personCenter.a.cRJ().getCreateTime() > 0) {
+            long refreshTime = com.baidu.tieba.personCenter.a.cRJ().getRefreshTime();
+            long createTime = com.baidu.tieba.personCenter.a.cRJ().getCreateTime();
+            long cRK = com.baidu.tieba.personCenter.a.cRJ().cRK();
             long j2 = refreshTime + createTime;
-            long aJG = com.baidu.tieba.personCenter.a.cRI().aJG();
+            long aJG = com.baidu.tieba.personCenter.a.cRJ().aJG();
             if (aJG > 0 && j > aJG) {
                 j2 = j - aJG;
             }
-            i iVar = new i(1008, z, responsedMessage, 0L, createTime, cRJ, false, 0L, 0L, j2);
+            i iVar = new i(1008, z, responsedMessage, 0L, createTime, cRK, false, 0L, 0L, j2);
             if (iVar != null) {
                 iVar.bhM();
             }
-            com.baidu.tieba.personCenter.a.cRI().setCreateTime(0L);
+            com.baidu.tieba.personCenter.a.cRJ().setCreateTime(0L);
         }
     }
 }

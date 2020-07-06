@@ -75,7 +75,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         public void c(BdFileDownloadData bdFileDownloadData) {
             if (bdFileDownloadData != null && PluginDetailActivity.this.kYg != null && bdFileDownloadData.getId().equals(PluginDetailActivity.this.kYg.package_name)) {
                 PluginDetailActivity.this.showToast(bdFileDownloadData.getStatusMsg());
-                PluginDetailActivity.this.cWB();
+                PluginDetailActivity.this.cWC();
                 PluginDetailActivity.this.mFinished = true;
             }
         }
@@ -84,11 +84,11 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
             if (i == 0) {
                 PluginDetailActivity.this.showToast(PluginDetailActivity.this.getPageContext().getString(R.string.plugin_installation_finished));
-                PluginDetailActivity.this.cWB();
+                PluginDetailActivity.this.cWC();
                 return;
             }
             PluginDetailActivity.this.showToast(PluginDetailActivity.this.getPageContext().getString(R.string.plugin_installation_failed) + str);
-            PluginDetailActivity.this.cWB();
+            PluginDetailActivity.this.cWC();
         }
     };
     private final CustomMessageListener dFp = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.pluginCenter.PluginDetailActivity.5
@@ -96,7 +96,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetWorkAvailable()) {
-                PluginDetailActivity.this.cWB();
+                PluginDetailActivity.this.cWC();
             }
         }
     };
@@ -146,7 +146,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                 this.kYg.display_name = "";
             }
             this.mName.setText(this.kYg.display_name);
-            cWB();
+            cWC();
             if (this.kYg.newest != null) {
                 if (TextUtils.isEmpty(this.kYg.newest.change_log)) {
                     this.kYc.setText("");
@@ -188,7 +188,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cWB() {
+    public void cWC() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PLUGIN_ENABLE_STATE_CHANGED));
         if (PluginPackageManager.oo().cy(this.cxh) && PluginPackageManager.oo().cw(this.cxh)) {
             this.gtT.setText(R.string.plugin_enabled);
@@ -257,22 +257,22 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     public void onClick(View view) {
         if (view == this.kYe) {
             if (this.mStatus == 0 || this.mStatus == 1) {
-                cWC();
+                cWD();
             } else if (this.mStatus == 3) {
                 PluginPackageManager.oo().cu(this.cxh);
-                cWB();
+                cWC();
             } else if (this.mStatus == 2) {
                 PluginPackageManager.oo().cv(this.cxh);
-                cWB();
+                cWC();
             }
         }
     }
 
-    private void cWC() {
+    private void cWD() {
         if (!j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
         } else if (j.isMobileNet()) {
-            cWD();
+            cWE();
         } else if (this.kYg != null && !TextUtils.isEmpty(this.kYg.package_name) && !PluginPackageManager.oo().cA(this.kYg.package_name)) {
             this.kYe.setEnabled(false);
             this.mFinished = false;
@@ -280,7 +280,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         }
     }
 
-    private void cWD() {
+    private void cWE() {
         String string;
         String string2;
         if (this.kYg != null && this.kYg.newest != null) {

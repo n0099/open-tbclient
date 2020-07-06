@@ -23,7 +23,7 @@ public class e {
 
     public e(Activity activity) {
         this.bdo = activity;
-        buX();
+        buY();
     }
 
     public void a(String str, long j, long j2, long j3) {
@@ -53,7 +53,7 @@ public class e {
 
     public void dismiss() {
         if (this.gsg != null) {
-            this.gsg.buY();
+            this.gsg.buZ();
         }
     }
 
@@ -72,7 +72,7 @@ public class e {
         MessageManager.getInstance().unRegisterListener(this.fxk);
     }
 
-    private void buX() {
+    private void buY() {
         this.fxk = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -130,7 +130,7 @@ public class e {
         this.gse = aVar;
     }
 
-    public d.a bJB() {
+    public d.a bJC() {
         return this.gse;
     }
 }

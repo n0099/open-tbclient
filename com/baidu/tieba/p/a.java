@@ -52,19 +52,19 @@ public class a {
     private CustomMessageListener memberCenterRedTipListener;
     private CustomMessageListener syncFinishListener;
 
-    public boolean dam() {
+    public boolean dan() {
         return this.lmz;
     }
 
-    public boolean dan() {
+    public boolean dao() {
         return this.lmA;
     }
 
-    public boolean dao() {
+    public boolean dap() {
         return this.lmE;
     }
 
-    public boolean dap() {
+    public boolean daq() {
         return this.lmF;
     }
 
@@ -120,9 +120,9 @@ public class a {
                         a.this.lmM = true;
                         a.this.lmC = a.this.lmM ? true : a.this.lmC;
                         a.this.lmL = responseUnreadPointNum.getNum();
-                        a.this.dau();
+                        a.this.dav();
                     }
-                    a.this.dat();
+                    a.this.dau();
                 }
             }
         };
@@ -137,7 +137,7 @@ public class a {
                     }
                     a.this.lmG = booleanValue;
                     a.this.lmS = booleanValue;
-                    a.this.dau();
+                    a.this.dav();
                 }
             }
         };
@@ -158,7 +158,7 @@ public class a {
                     }
                     a.this.lmQ = booleanValue;
                     a.this.lmE = booleanValue;
-                    a.this.dau();
+                    a.this.dav();
                 }
             }
         };
@@ -169,7 +169,7 @@ public class a {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
                     a.this.mHasNewVersion = ((Boolean) customResponsedMessage.getData()).booleanValue();
                     a.this.lmD = a.this.mHasNewVersion ? true : a.this.lmD;
-                    a.this.dau();
+                    a.this.dav();
                 }
             }
         };
@@ -180,7 +180,7 @@ public class a {
                 if (customResponsedMessage != null) {
                     Object data = customResponsedMessage.getData();
                     if ((data instanceof Integer) && ((Integer) data).intValue() == 4) {
-                        a.this.daw();
+                        a.this.dax();
                         if (a.this.lmH) {
                             TiebaStatic.log(new ao("c13688").s("uid", TbadkCoreApplication.getCurrentAccountId()).ag("obj_locate", 1));
                             a.this.lmH = false;
@@ -194,7 +194,7 @@ public class a {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
-                    a.this.day();
+                    a.this.daz();
                 }
             }
         };
@@ -211,7 +211,7 @@ public class a {
                         if (!StringUtils.isNull(dotTimestamp) && !dotTimestamp.equals(string)) {
                             a.this.lmF = true;
                             a.this.lmR = true;
-                            a.this.dau();
+                            a.this.dav();
                         }
                     }
                 }
@@ -220,7 +220,7 @@ public class a {
         initListener();
     }
 
-    public static final a daq() {
+    public static final a dar() {
         return C0694a.lmX;
     }
 
@@ -235,7 +235,7 @@ public class a {
         MessageManager.getInstance().registerListener(this.syncFinishListener);
     }
 
-    private void dar() {
+    private void das() {
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (!com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean(SharedPrefConfig.MEMBER_CLOSE_AD_SETTING_CLICKED, false) && currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
             this.lmD = true;
@@ -246,7 +246,7 @@ public class a {
         this.izJ = inst.loadBoolean(append.append(TbadkCoreApplication.getCurrentAccount()).toString(), false);
     }
 
-    private void das() {
+    private void dat() {
         if (TbadkCoreApplication.isLogin()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(this.lmD)));
         }
@@ -267,12 +267,12 @@ public class a {
                 this.lmA = this.lmP ? true : this.lmA;
                 this.lmB = this.lmO ? true : this.lmB;
                 this.lmD = this.mHasNewVersion ? true : this.lmD;
-                dau();
+                dav();
             }
         }
     }
 
-    public void dat() {
+    public void dau() {
         TbadkSettings inst = TbadkSettings.getInst();
         StringBuilder append = new StringBuilder().append(SharedPrefConfig.HAS_CLICKED_ADDRESSLIST_ITEM_IN_LEFTNAVI);
         TbadkCoreApplication.getInst();
@@ -284,7 +284,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dau() {
+    public void dav() {
         SparseArray sparseArray = new SparseArray();
         if (this.lmM) {
             sparseArray.append(4, new b.a(this.lmC, this.lmL));
@@ -311,7 +311,7 @@ public class a {
             sparseArray.append(10, new b.a(this.lmG, 0));
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_RED_TIP, new b(sparseArray)));
-        dav();
+        daw();
     }
 
     public void ud(boolean z) {
@@ -330,7 +330,7 @@ public class a {
         }
     }
 
-    private void dav() {
+    private void daw() {
         if (((this.lmI > 0 && this.lmN) || (this.lmK > 0 && this.lmP) || this.mHasNewVersion || this.lmR || this.lmS) && !this.isPrimary && TbadkCoreApplication.isLogin()) {
             if (this.lmS) {
                 com.baidu.tbadk.core.sharedPref.b.aVP().putBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, true);
@@ -339,7 +339,7 @@ public class a {
         }
     }
 
-    public void daw() {
+    public void dax() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(false)));
     }
 
@@ -387,18 +387,18 @@ public class a {
                     break;
             }
             ud(true);
-            dax();
+            day();
         }
     }
 
-    private void dax() {
+    private void day() {
         boolean z = this.lmB || this.lmA || this.lmz || this.lmC || this.lmD || this.lmE || this.lmF || this.lmH;
         if (!this.isPrimary && TbadkCoreApplication.isLogin()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(z, 0)));
         }
     }
 
-    public void day() {
+    public void daz() {
         this.lmz = false;
         this.lmA = false;
         this.lmB = false;
@@ -417,7 +417,7 @@ public class a {
         this.lmP = false;
         this.lmQ = false;
         this.lmR = false;
-        dar();
+        das();
         e.lt().post(new Runnable() { // from class: com.baidu.tieba.p.a.9
             @Override // java.lang.Runnable
             public void run() {
@@ -426,6 +426,6 @@ public class a {
                 }
             }
         });
-        das();
+        dat();
     }
 }

@@ -25,19 +25,19 @@ public class av {
     private final Handler.Callback hEn = new Handler.Callback() { // from class: com.baidu.tieba.frs.av.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
-            if ((message.what == 1 || message.what == 2) && av.this.cal()) {
+            if ((message.what == 1 || message.what == 2) && av.this.cam()) {
                 av.this.mHandler.sendEmptyMessageDelayed(message.what, 100L);
                 return true;
             }
             switch (message.what) {
                 case 1:
-                    av.this.cak();
+                    av.this.cal();
                     return true;
                 case 2:
-                    av.this.cai();
+                    av.this.caj();
                     return true;
                 case 3:
-                    av.this.caj();
+                    av.this.cak();
                     return true;
                 default:
                     return false;
@@ -82,7 +82,7 @@ public class av {
     };
     private boolean biE = UtilHelper.canUseStyleImmersiveSticky();
 
-    public com.baidu.tieba.f.b cah() {
+    public com.baidu.tieba.f.b cai() {
         return this.hEm;
     }
 
@@ -97,53 +97,53 @@ public class av {
     public av(Context context, p pVar, com.baidu.tieba.frs.vc.h hVar) {
         this.mContext = context;
         this.hEh = pVar;
-        this.mNavigationBar = pVar.bwV();
-        this.hEg = pVar.bYR();
+        this.mNavigationBar = pVar.bwW();
+        this.hEg = pVar.bYS();
         this.hEi = hVar;
         Ip();
         this.hEm = new com.baidu.tieba.f.b(context);
         this.hEm.a(this.gZb);
     }
 
-    public void cai() {
+    public void caj() {
         Q(false, false);
     }
 
-    public void caj() {
+    public void cak() {
         Q(false, true);
     }
 
     public void Q(boolean z, boolean z2) {
-        if (this.hEg != null && this.hEh != null && this.hEh.bZb() != null && this.hEh.bZb().cbM()) {
+        if (this.hEg != null && this.hEh != null && this.hEh.bZc() != null && this.hEh.bZc().cbN()) {
             P(false, true);
         }
     }
 
-    public void cak() {
-        if (this.hEg != null && this.hEh != null && this.hEh.bZb() != null && !this.hEh.bZb().cbM()) {
+    public void cal() {
+        if (this.hEg != null && this.hEh != null && this.hEh.bZc() != null && !this.hEh.bZc().cbN()) {
             P(true, true);
         }
     }
 
-    public void biX() {
+    public void biY() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void biY() {
+    public void biZ() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void bnE() {
+    public void bnF() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    public boolean cal() {
+    public boolean cam() {
         return bX(this.hEg);
     }
 
@@ -160,13 +160,13 @@ public class av {
 
     public void hideFloatingView() {
         if (this.hEk && this.hEl && this.hEg != null && this.eEz >= this.hEj) {
-            biY();
+            biZ();
         }
     }
 
     public void showFloatingView() {
         if (this.hEk && this.hEl && this.hEg != null) {
-            biX();
+            biY();
         }
     }
 

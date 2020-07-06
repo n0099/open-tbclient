@@ -51,7 +51,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             }
         };
         this.mPageContext = tbPageContext;
-        cjP();
+        cjQ();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -146,7 +146,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         }
     }
 
-    private void cjP() {
+    private void cjQ() {
         k.gUC = "c13542";
     }
 

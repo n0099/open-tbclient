@@ -15,7 +15,7 @@ public class g {
     private static volatile SQLiteDatabase database = null;
     public static HashMap<String, SQLiteDatabase> iQf = new HashMap<>();
 
-    public static synchronized SQLiteDatabase cpE() {
+    public static synchronized SQLiteDatabase cpF() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (g.class) {
             try {
@@ -44,16 +44,16 @@ public class g {
         return sQLiteDatabase;
     }
 
-    public static LinkedList<String> cpF() {
+    public static LinkedList<String> cpG() {
         Cursor cursor;
         Throwable th;
         Exception exc;
         Cursor cursor2 = null;
-        SQLiteDatabase cpE = cpE();
+        SQLiteDatabase cpF = cpF();
         LinkedList<String> linkedList = new LinkedList<>();
-        if (cpE != null) {
+        if (cpF != null) {
             try {
-                cursor2 = cpE.rawQuery("select * from sqlite_master where type='table'", null);
+                cursor2 = cpF.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor2 != null) {
                     try {
                         cursor2.moveToFirst();
@@ -95,17 +95,17 @@ public class g {
     public static void GT(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                h.cpG().cpH();
-                Iterator<String> it = cpF().iterator();
+                h.cpH().cpI();
+                Iterator<String> it = cpG().iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (next != null) {
                         if (next.equals("tb_message_center")) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("is_hidden", (Integer) 1);
-                            h.cpG().a("tb_message_center", contentValues, null, null);
+                            h.cpH().a("tb_message_center", contentValues, null, null);
                         } else if (!next.equals("tb_new_friends")) {
-                            h.cpG().a(next, (String) null, (String[]) null);
+                            h.cpH().a(next, (String) null, (String[]) null);
                         }
                     }
                 }
@@ -114,7 +114,7 @@ public class g {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
             e.printStackTrace();
         } finally {
-            h.cpG().cpI();
+            h.cpH().cpJ();
         }
     }
 }

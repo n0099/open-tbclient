@@ -45,7 +45,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
         private GroupActivityData iYW;
         private boolean isMemGroup;
 
-        public GroupActivityData csl() {
+        public GroupActivityData csm() {
             return this.iYW;
         }
 
@@ -61,7 +61,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.iYP = groupData;
         }
 
-        public List<MemberData> csm() {
+        public List<MemberData> csn() {
             return this.iYQ;
         }
 
@@ -69,7 +69,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.iYQ = list;
         }
 
-        public List<PhotoUrlData> csn() {
+        public List<PhotoUrlData> cso() {
             return this.iYR;
         }
 
@@ -77,7 +77,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.iYR = list;
         }
 
-        public int cso() {
+        public int csp() {
             return this.iYS;
         }
 
@@ -85,7 +85,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.iYS = i;
         }
 
-        public int csp() {
+        public int csq() {
             return this.iYT;
         }
 
@@ -93,7 +93,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.iYT = i;
         }
 
-        public boolean csq() {
+        public boolean csr() {
             return this.iWD;
         }
 
@@ -101,7 +101,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.iWD = z;
         }
 
-        public boolean csr() {
+        public boolean css() {
             return this.iWE;
         }
 
@@ -121,7 +121,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.isMemGroup = z;
         }
 
-        public boolean css() {
+        public boolean cst() {
             return this.iYV;
         }
 

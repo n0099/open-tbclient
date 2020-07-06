@@ -3,64 +3,64 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes7.dex */
 class h {
-    static h nXP = new h();
-    static h nXQ;
-    static h nXR;
-    boolean nXG = true;
-    boolean nXH = true;
-    boolean nXI = false;
-    boolean nXJ = false;
-    boolean nXK = false;
-    boolean nXL = true;
-    boolean nXM = true;
-    boolean nXN = true;
-    int nXO;
+    static h nXS = new h();
+    static h nXT;
+    static h nXU;
+    boolean nXJ = true;
+    boolean nXK = true;
+    boolean nXL = false;
+    boolean nXM = false;
+    boolean nXN = false;
+    boolean nXO = true;
+    boolean nXP = true;
+    boolean nXQ = true;
+    int nXR;
 
     h() {
     }
 
     static {
-        nXP.nXG = true;
-        nXP.nXH = false;
-        nXP.nXI = false;
-        nXP.nXJ = false;
-        nXP.nXK = true;
-        nXP.nXL = false;
-        nXP.nXM = false;
-        nXP.nXO = 0;
-        nXQ = new h();
-        nXQ.nXG = true;
-        nXQ.nXH = true;
-        nXQ.nXI = false;
-        nXQ.nXJ = false;
-        nXQ.nXK = false;
-        nXP.nXO = 1;
-        nXR = new h();
-        nXR.nXG = false;
-        nXR.nXH = true;
-        nXR.nXI = false;
-        nXR.nXJ = true;
-        nXR.nXK = false;
-        nXR.nXN = false;
-        nXR.nXO = 2;
+        nXS.nXJ = true;
+        nXS.nXK = false;
+        nXS.nXL = false;
+        nXS.nXM = false;
+        nXS.nXN = true;
+        nXS.nXO = false;
+        nXS.nXP = false;
+        nXS.nXR = 0;
+        nXT = new h();
+        nXT.nXJ = true;
+        nXT.nXK = true;
+        nXT.nXL = false;
+        nXT.nXM = false;
+        nXT.nXN = false;
+        nXS.nXR = 1;
+        nXU = new h();
+        nXU.nXJ = false;
+        nXU.nXK = true;
+        nXU.nXL = false;
+        nXU.nXM = true;
+        nXU.nXN = false;
+        nXU.nXQ = false;
+        nXU.nXR = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String SA(String str) {
+    public String SB(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String Lo(int i) {
-        if (this.nXJ) {
+        if (this.nXM) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
         return "";
     }
 
-    String SB(String str) {
+    String SC(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,18 +73,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return SB(str).replace('$', '.');
+            return SC(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
     public String N(Class cls) {
-        return b(cls, cls.getName(), this.nXG);
+        return b(cls, cls.getName(), this.nXJ);
     }
 
     public String k(Class cls, String str) {
-        return b(cls, str, this.nXK);
+        return b(cls, str, this.nXN);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.nXH) {
+            if (!this.nXK) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.nXI && clsArr != null && clsArr.length != 0) {
+        if (this.nXL && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

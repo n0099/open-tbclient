@@ -65,28 +65,28 @@ public class c extends com.baidu.adp.base.c<UpdatesActivity> {
         this.iXb = null;
     }
 
-    public a crN() {
+    public a crO() {
         return this.iXm;
     }
 
-    public void crO() {
+    public void crP() {
         this.iXo.setVisibility(8);
         this.iVf.setVisibility(8);
         this.iXp.setVisibility(0);
         this.iXr.setVisibility(0);
-        cqG();
+        cqH();
     }
 
-    public void crP() {
+    public void crQ() {
         this.iXo.setVisibility(0);
         this.iVf.setVisibility(0);
         this.iXp.setVisibility(8);
         this.iXr.setVisibility(8);
         yC(0);
-        cqG();
+        cqH();
     }
 
-    public void cqG() {
+    public void cqH() {
         if (this.iXm != null) {
             this.iXm.notifyDataSetChanged();
         }
@@ -120,23 +120,23 @@ public class c extends com.baidu.adp.base.c<UpdatesActivity> {
         an.setBackgroundResource(this.iXq, R.drawable.btn_delete_groupupdates);
     }
 
-    public View crQ() {
+    public View crR() {
         return this.iVf;
     }
 
-    public BdListView crR() {
+    public BdListView crS() {
         return this.iXl;
     }
 
-    public Button crS() {
+    public Button crT() {
         return this.iXo;
     }
 
-    public Button crT() {
+    public Button crU() {
         return this.iXp;
     }
 
-    public Button crU() {
+    public Button crV() {
         return this.iXq;
     }
 }

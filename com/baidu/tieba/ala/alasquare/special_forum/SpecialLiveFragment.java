@@ -114,7 +114,7 @@ public class SpecialLiveFragment extends BaseFragment {
         @Override // java.lang.Runnable
         public void run() {
             if (SpecialLiveFragment.this.ftg != null) {
-                SpecialLiveFragment.this.ftg.buM();
+                SpecialLiveFragment.this.ftg.buN();
             }
         }
     };
@@ -138,7 +138,7 @@ public class SpecialLiveFragment extends BaseFragment {
                     }
                     SpecialForumTabBaseFragment qh = SpecialLiveFragment.this.ftf.qh(SpecialLiveFragment.this.dSy.getCurrentItem());
                     if (qh != null) {
-                        qh.buH();
+                        qh.buI();
                     }
                 }
             }
@@ -160,7 +160,7 @@ public class SpecialLiveFragment extends BaseFragment {
             u uVar;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof u) && (uVar = (u) customResponsedMessage.getData()) != null && SpecialLiveFragment.this.mForumId.equals(uVar.getFid())) {
                 if (uVar.isLike() == 1) {
-                    if (SpecialLiveFragment.this.bux()) {
+                    if (SpecialLiveFragment.this.buy()) {
                         SpecialLiveFragment.this.mCurState = 3;
                     } else {
                         SpecialLiveFragment.this.mCurState = 2;
@@ -228,9 +228,9 @@ public class SpecialLiveFragment extends BaseFragment {
                 this.mForumName = this.mContext.getResources().getString(R.string.ala_ufan_bar_title);
                 this.ftm = this.mForumName + string2;
             }
-            buv();
-            but();
+            buw();
             buu();
+            buv();
             MessageManager.getInstance().registerListener(this.ftk);
             MessageManager.getInstance().registerListener(this.fts);
             MessageManager.getInstance().registerListener(this.mSignChangedListener);
@@ -393,7 +393,7 @@ public class SpecialLiveFragment extends BaseFragment {
         }
     }
 
-    private void but() {
+    private void buu() {
         this.fnE = new AlaLiveUserNotifyController(getPageContext());
         this.fnF = new AlaLiveUserNotifyManager.AlaLiveNotifyListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.7
             @Override // com.baidu.ala.notify.AlaLiveUserNotifyManager.AlaLiveNotifyListener
@@ -406,7 +406,7 @@ public class SpecialLiveFragment extends BaseFragment {
         AlaLiveUserNotifyManager.getInstance().addNotifyListener(this.fnF);
     }
 
-    private void buu() {
+    private void buv() {
         this.ftk = new CustomMessageListener(CmdConfigCustom.CMD_SIGN_MODEL_TASK) { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -450,7 +450,7 @@ public class SpecialLiveFragment extends BaseFragment {
         };
     }
 
-    private void buv() {
+    private void buw() {
         this.egK = new LikeModel(getPageContext());
         this.egK.setLoadDataCallBack(new d() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.9
             @Override // com.baidu.adp.base.d
@@ -480,10 +480,10 @@ public class SpecialLiveFragment extends BaseFragment {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(h hVar) {
         this.mData = hVar;
-        buy();
-        buw();
+        buz();
+        bux();
         if (!this.fto) {
-            buz();
+            buA();
             if (this.dSy != null && this.dSy.getChildCount() > 1) {
                 this.dSy.setCurrentItem(1);
             }
@@ -502,9 +502,9 @@ public class SpecialLiveFragment extends BaseFragment {
         }
     }
 
-    private void buw() {
+    private void bux() {
         if (this.mData.ftQ) {
-            if (bux()) {
+            if (buy()) {
                 this.mCurState = 3;
             } else {
                 this.mCurState = 2;
@@ -516,11 +516,11 @@ public class SpecialLiveFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bux() {
+    public boolean buy() {
         return this.mData.ftS.ftY;
     }
 
-    private void buy() {
+    private void buz() {
         boolean c = this.ftg.c(this.mData.ftO);
         if (c) {
             this.ftg.stopPlay();
@@ -533,8 +533,8 @@ public class SpecialLiveFragment extends BaseFragment {
         this.ftg.startPlay();
     }
 
-    private void buz() {
-        buA();
+    private void buA() {
+        buB();
         this.fqQ.setData(this.fti);
         this.ftf.setData(this.ftj);
     }
@@ -576,13 +576,13 @@ public class SpecialLiveFragment extends BaseFragment {
         this.fta.setLayoutParams(layoutParams3);
     }
 
-    private void buA() {
+    private void buB() {
         this.fti.clear();
         this.ftj.clear();
-        this.fti.add(buD());
         this.fti.add(buE());
-        this.ftj.add(buB());
+        this.fti.add(buF());
         this.ftj.add(buC());
+        this.ftj.add(buD());
         if (!w.isEmpty(this.mData.tabInfoList)) {
             boolean z = b.aVP().getInt("chushou_game_tab", 1) == 1;
             for (int i = 0; i < this.mData.tabInfoList.size() && i < 10; i++) {
@@ -599,28 +599,28 @@ public class SpecialLiveFragment extends BaseFragment {
         }
     }
 
-    private SpecialLiveTabInfo buB() {
+    private SpecialLiveTabInfo buC() {
         SpecialLiveTabInfo specialLiveTabInfo = new SpecialLiveTabInfo();
         specialLiveTabInfo.tabId = OpenBdussResult.ERROR_CODE_NOT_LOGIN;
         specialLiveTabInfo.tabName = this.mContext.getResources().getString(R.string.special_concern_tab_title);
         return specialLiveTabInfo;
     }
 
-    private SpecialLiveTabInfo buC() {
+    private SpecialLiveTabInfo buD() {
         SpecialLiveTabInfo specialLiveTabInfo = new SpecialLiveTabInfo();
         specialLiveTabInfo.tabId = -903;
         specialLiveTabInfo.tabName = this.mContext.getResources().getString(R.string.special_recommend_tab_title);
         return specialLiveTabInfo;
     }
 
-    private TabData buD() {
+    private TabData buE() {
         TabData tabData = new TabData();
         tabData.tabId = OpenBdussResult.ERROR_CODE_NOT_LOGIN;
         tabData.tabName = this.mContext.getResources().getString(R.string.special_concern_tab_title);
         return tabData;
     }
 
-    private TabData buE() {
+    private TabData buF() {
         TabData tabData = new TabData();
         tabData.tabId = -903;
         tabData.tabName = this.mContext.getResources().getString(R.string.special_recommend_tab_title);
@@ -726,7 +726,7 @@ public class SpecialLiveFragment extends BaseFragment {
         this.fsY.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
         this.fsY.setCompoundDrawablePadding(dimens);
         this.fsY.setText(string);
-        buF();
+        buG();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -740,7 +740,7 @@ public class SpecialLiveFragment extends BaseFragment {
         }
     }
 
-    private void buF() {
+    private void buG() {
         if (this.mData != null && this.mData.ftR != null && this.mCurState != 1) {
             int i = this.mData.ftR.level_id;
             String str = TextUtils.isEmpty(this.mData.ftR.level_name) ? "" : " " + this.mData.ftR.level_name;

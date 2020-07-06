@@ -87,15 +87,15 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         this.size = 0;
         this.modCount++;
         f<K, V> fVar = this.header;
-        f<K, V> fVar2 = fVar.nax;
+        f<K, V> fVar2 = fVar.naA;
         while (fVar2 != fVar) {
-            f<K, V> fVar3 = fVar2.nax;
-            fVar2.naC = null;
-            fVar2.nax = null;
+            f<K, V> fVar3 = fVar2.naA;
+            fVar2.naF = null;
+            fVar2.naA = null;
             fVar2 = fVar3;
         }
-        fVar.naC = fVar;
-        fVar.nax = fVar;
+        fVar.naF = fVar;
+        fVar.naA = fVar;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
@@ -130,7 +130,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
                 if (compare == 0) {
                     return fVar2;
                 }
-                f<K, V> fVar3 = compare < 0 ? fVar2.naA : fVar2.naB;
+                f<K, V> fVar3 = compare < 0 ? fVar2.naD : fVar2.naE;
                 if (fVar3 == null) {
                     i = compare;
                     break;
@@ -144,14 +144,14 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
                 if (comparator == NATURAL_ORDER && !(k instanceof Comparable)) {
                     throw new ClassCastException(k.getClass().getName() + " is not Comparable");
                 }
-                fVar = new f<>(fVar2, k, secondaryHash, fVar4, fVar4.naC);
+                fVar = new f<>(fVar2, k, secondaryHash, fVar4, fVar4.naF);
                 fVarArr[length] = fVar;
             } else {
-                fVar = new f<>(fVar2, k, secondaryHash, fVar4, fVar4.naC);
+                fVar = new f<>(fVar2, k, secondaryHash, fVar4, fVar4.naF);
                 if (i < 0) {
-                    fVar2.naA = fVar;
+                    fVar2.naD = fVar;
                 } else {
-                    fVar2.naB = fVar;
+                    fVar2.naE = fVar;
                 }
                 rebalance(fVar2, true);
             }
@@ -200,43 +200,43 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         int i;
         int i2 = 0;
         if (z) {
-            fVar.naC.nax = fVar.nax;
-            fVar.nax.naC = fVar.naC;
-            fVar.naC = null;
-            fVar.nax = null;
+            fVar.naF.naA = fVar.naA;
+            fVar.naA.naF = fVar.naF;
+            fVar.naF = null;
+            fVar.naA = null;
         }
-        f<K, V> fVar2 = fVar.naA;
-        f<K, V> fVar3 = fVar.naB;
-        f<K, V> fVar4 = fVar.naz;
+        f<K, V> fVar2 = fVar.naD;
+        f<K, V> fVar3 = fVar.naE;
+        f<K, V> fVar4 = fVar.naC;
         if (fVar2 != null && fVar3 != null) {
-            f<K, V> dHH = fVar2.height > fVar3.height ? fVar2.dHH() : fVar3.dHG();
-            removeInternal(dHH, false);
-            f<K, V> fVar5 = fVar.naA;
+            f<K, V> dHL = fVar2.height > fVar3.height ? fVar2.dHL() : fVar3.dHK();
+            removeInternal(dHL, false);
+            f<K, V> fVar5 = fVar.naD;
             if (fVar5 != null) {
                 i = fVar5.height;
-                dHH.naA = fVar5;
-                fVar5.naz = dHH;
-                fVar.naA = null;
+                dHL.naD = fVar5;
+                fVar5.naC = dHL;
+                fVar.naD = null;
             } else {
                 i = 0;
             }
-            f<K, V> fVar6 = fVar.naB;
+            f<K, V> fVar6 = fVar.naE;
             if (fVar6 != null) {
                 i2 = fVar6.height;
-                dHH.naB = fVar6;
-                fVar6.naz = dHH;
-                fVar.naB = null;
+                dHL.naE = fVar6;
+                fVar6.naC = dHL;
+                fVar.naE = null;
             }
-            dHH.height = Math.max(i, i2) + 1;
-            replaceInParent(fVar, dHH);
+            dHL.height = Math.max(i, i2) + 1;
+            replaceInParent(fVar, dHL);
             return;
         }
         if (fVar2 != null) {
             replaceInParent(fVar, fVar2);
-            fVar.naA = null;
+            fVar.naD = null;
         } else if (fVar3 != null) {
             replaceInParent(fVar, fVar3);
-            fVar.naB = null;
+            fVar.naE = null;
         } else {
             replaceInParent(fVar, null);
         }
@@ -254,19 +254,19 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     }
 
     private void replaceInParent(f<K, V> fVar, f<K, V> fVar2) {
-        f<K, V> fVar3 = fVar.naz;
-        fVar.naz = null;
+        f<K, V> fVar3 = fVar.naC;
+        fVar.naC = null;
         if (fVar2 != null) {
-            fVar2.naz = fVar3;
+            fVar2.naC = fVar3;
         }
         if (fVar3 != null) {
-            if (fVar3.naA == fVar) {
-                fVar3.naA = fVar2;
+            if (fVar3.naD == fVar) {
+                fVar3.naD = fVar2;
                 return;
-            } else if (!$assertionsDisabled && fVar3.naB != fVar) {
+            } else if (!$assertionsDisabled && fVar3.naE != fVar) {
                 throw new AssertionError();
             } else {
-                fVar3.naB = fVar2;
+                fVar3.naE = fVar2;
                 return;
             }
         }
@@ -275,14 +275,14 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
 
     private void rebalance(f<K, V> fVar, boolean z) {
         while (fVar != null) {
-            f<K, V> fVar2 = fVar.naA;
-            f<K, V> fVar3 = fVar.naB;
+            f<K, V> fVar2 = fVar.naD;
+            f<K, V> fVar3 = fVar.naE;
             int i = fVar2 != null ? fVar2.height : 0;
             int i2 = fVar3 != null ? fVar3.height : 0;
             int i3 = i - i2;
             if (i3 == -2) {
-                f<K, V> fVar4 = fVar3.naA;
-                f<K, V> fVar5 = fVar3.naB;
+                f<K, V> fVar4 = fVar3.naD;
+                f<K, V> fVar5 = fVar3.naE;
                 int i4 = (fVar4 != null ? fVar4.height : 0) - (fVar5 != null ? fVar5.height : 0);
                 if (i4 == -1 || (i4 == 0 && !z)) {
                     rotateLeft(fVar);
@@ -296,8 +296,8 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
                     return;
                 }
             } else if (i3 == 2) {
-                f<K, V> fVar6 = fVar2.naA;
-                f<K, V> fVar7 = fVar2.naB;
+                f<K, V> fVar6 = fVar2.naD;
+                f<K, V> fVar7 = fVar2.naE;
                 int i5 = (fVar6 != null ? fVar6.height : 0) - (fVar7 != null ? fVar7.height : 0);
                 if (i5 == 1 || (i5 == 0 && !z)) {
                     rotateRight(fVar);
@@ -323,38 +323,38 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
                     return;
                 }
             }
-            fVar = fVar.naz;
+            fVar = fVar.naC;
         }
     }
 
     private void rotateLeft(f<K, V> fVar) {
-        f<K, V> fVar2 = fVar.naA;
-        f<K, V> fVar3 = fVar.naB;
-        f<K, V> fVar4 = fVar3.naA;
-        f<K, V> fVar5 = fVar3.naB;
-        fVar.naB = fVar4;
+        f<K, V> fVar2 = fVar.naD;
+        f<K, V> fVar3 = fVar.naE;
+        f<K, V> fVar4 = fVar3.naD;
+        f<K, V> fVar5 = fVar3.naE;
+        fVar.naE = fVar4;
         if (fVar4 != null) {
-            fVar4.naz = fVar;
+            fVar4.naC = fVar;
         }
         replaceInParent(fVar, fVar3);
-        fVar3.naA = fVar;
-        fVar.naz = fVar3;
+        fVar3.naD = fVar;
+        fVar.naC = fVar3;
         fVar.height = Math.max(fVar2 != null ? fVar2.height : 0, fVar4 != null ? fVar4.height : 0) + 1;
         fVar3.height = Math.max(fVar.height, fVar5 != null ? fVar5.height : 0) + 1;
     }
 
     private void rotateRight(f<K, V> fVar) {
-        f<K, V> fVar2 = fVar.naA;
-        f<K, V> fVar3 = fVar.naB;
-        f<K, V> fVar4 = fVar2.naA;
-        f<K, V> fVar5 = fVar2.naB;
-        fVar.naA = fVar5;
+        f<K, V> fVar2 = fVar.naD;
+        f<K, V> fVar3 = fVar.naE;
+        f<K, V> fVar4 = fVar2.naD;
+        f<K, V> fVar5 = fVar2.naE;
+        fVar.naD = fVar5;
         if (fVar5 != null) {
-            fVar5.naz = fVar;
+            fVar5.naC = fVar;
         }
         replaceInParent(fVar, fVar2);
-        fVar2.naB = fVar;
-        fVar.naz = fVar2;
+        fVar2.naE = fVar;
+        fVar.naC = fVar2;
         fVar.height = Math.max(fVar3 != null ? fVar3.height : 0, fVar5 != null ? fVar5.height : 0) + 1;
         fVar2.height = Math.max(fVar.height, fVar4 != null ? fVar4.height : 0) + 1;
     }
@@ -388,28 +388,28 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         int height;
         final K key;
         f<K, V> naA;
-        f<K, V> naB;
         f<K, V> naC;
-        f<K, V> nax;
-        f<K, V> naz;
+        f<K, V> naD;
+        f<K, V> naE;
+        f<K, V> naF;
         V value;
 
         f() {
             this.key = null;
             this.hash = -1;
-            this.naC = this;
-            this.nax = this;
+            this.naF = this;
+            this.naA = this;
         }
 
         f(f<K, V> fVar, K k, int i, f<K, V> fVar2, f<K, V> fVar3) {
-            this.naz = fVar;
+            this.naC = fVar;
             this.key = k;
             this.hash = i;
             this.height = 1;
-            this.nax = fVar2;
-            this.naC = fVar3;
-            fVar3.nax = this;
-            fVar2.naC = this;
+            this.naA = fVar2;
+            this.naF = fVar3;
+            fVar3.naA = this;
+            fVar2.naF = this;
         }
 
         @Override // java.util.Map.Entry
@@ -461,15 +461,15 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
             return this.key + ETAG.EQUAL + this.value;
         }
 
-        public f<K, V> dHG() {
-            for (f<K, V> fVar = this.naA; fVar != null; fVar = fVar.naA) {
+        public f<K, V> dHK() {
+            for (f<K, V> fVar = this.naD; fVar != null; fVar = fVar.naD) {
                 this = fVar;
             }
             return this;
         }
 
-        public f<K, V> dHH() {
-            for (f<K, V> fVar = this.naB; fVar != null; fVar = fVar.naB) {
+        public f<K, V> dHL() {
+            for (f<K, V> fVar = this.naE; fVar != null; fVar = fVar.naE) {
                 this = fVar;
             }
             return this;
@@ -494,10 +494,10 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
                 int i2 = 0;
                 int i3 = 0;
                 while (true) {
-                    f<K, V> dHE = bVar.dHE();
-                    if (dHE == null) {
+                    f<K, V> dHI = bVar.dHI();
+                    if (dHI == null) {
                         break;
-                    } else if ((dHE.hash & length) == 0) {
+                    } else if ((dHI.hash & length) == 0) {
                         i3++;
                     } else {
                         i2++;
@@ -507,17 +507,17 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
                 aVar2.reset(i2);
                 bVar.b(fVar);
                 while (true) {
-                    f<K, V> dHE2 = bVar.dHE();
-                    if (dHE2 == null) {
+                    f<K, V> dHI2 = bVar.dHI();
+                    if (dHI2 == null) {
                         break;
-                    } else if ((dHE2.hash & length) == 0) {
-                        aVar.a(dHE2);
+                    } else if ((dHI2.hash & length) == 0) {
+                        aVar.a(dHI2);
                     } else {
-                        aVar2.a(dHE2);
+                        aVar2.a(dHI2);
                     }
                 }
-                fVarArr2[i] = i3 > 0 ? aVar.dHD() : null;
-                fVarArr2[i + length] = i2 > 0 ? aVar2.dHD() : null;
+                fVarArr2[i] = i3 > 0 ? aVar.dHH() : null;
+                fVarArr2[i + length] = i2 > 0 ? aVar2.dHH() : null;
             }
         }
         return fVarArr2;
@@ -526,7 +526,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static class b<K, V> {
-        private f<K, V> nat;
+        private f<K, V> naw;
 
         b() {
         }
@@ -534,25 +534,25 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         void b(f<K, V> fVar) {
             f<K, V> fVar2 = null;
             while (fVar != null) {
-                fVar.naz = fVar2;
+                fVar.naC = fVar2;
                 fVar2 = fVar;
-                fVar = fVar.naA;
+                fVar = fVar.naD;
             }
-            this.nat = fVar2;
+            this.naw = fVar2;
         }
 
-        public f<K, V> dHE() {
-            f<K, V> fVar = this.nat;
+        public f<K, V> dHI() {
+            f<K, V> fVar = this.naw;
             if (fVar == null) {
                 return null;
             }
-            f<K, V> fVar2 = fVar.naz;
-            fVar.naz = null;
-            for (f<K, V> fVar3 = fVar.naB; fVar3 != null; fVar3 = fVar3.naA) {
-                fVar3.naz = fVar2;
+            f<K, V> fVar2 = fVar.naC;
+            fVar.naC = null;
+            for (f<K, V> fVar3 = fVar.naE; fVar3 != null; fVar3 = fVar3.naD) {
+                fVar3.naC = fVar2;
                 fVar2 = fVar3;
             }
-            this.nat = fVar2;
+            this.naw = fVar2;
             return fVar;
         }
     }
@@ -560,68 +560,68 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static final class a<K, V> {
-        private f<K, V> naq;
-        private int nar;
-        private int nas;
+        private f<K, V> nat;
+        private int nau;
+        private int nav;
         private int size;
 
         a() {
         }
 
         void reset(int i) {
-            this.nar = ((Integer.highestOneBit(i) * 2) - 1) - i;
+            this.nau = ((Integer.highestOneBit(i) * 2) - 1) - i;
             this.size = 0;
-            this.nas = 0;
-            this.naq = null;
+            this.nav = 0;
+            this.nat = null;
         }
 
         void a(f<K, V> fVar) {
-            fVar.naB = null;
-            fVar.naz = null;
-            fVar.naA = null;
+            fVar.naE = null;
+            fVar.naC = null;
+            fVar.naD = null;
             fVar.height = 1;
-            if (this.nar > 0 && (this.size & 1) == 0) {
+            if (this.nau > 0 && (this.size & 1) == 0) {
                 this.size++;
-                this.nar--;
-                this.nas++;
+                this.nau--;
+                this.nav++;
             }
-            fVar.naz = this.naq;
-            this.naq = fVar;
+            fVar.naC = this.nat;
+            this.nat = fVar;
             this.size++;
-            if (this.nar > 0 && (this.size & 1) == 0) {
+            if (this.nau > 0 && (this.size & 1) == 0) {
                 this.size++;
-                this.nar--;
-                this.nas++;
+                this.nau--;
+                this.nav++;
             }
             for (int i = 4; (this.size & (i - 1)) == i - 1; i *= 2) {
-                if (this.nas == 0) {
-                    f<K, V> fVar2 = this.naq;
-                    f<K, V> fVar3 = fVar2.naz;
-                    f<K, V> fVar4 = fVar3.naz;
-                    fVar3.naz = fVar4.naz;
-                    this.naq = fVar3;
-                    fVar3.naA = fVar4;
-                    fVar3.naB = fVar2;
+                if (this.nav == 0) {
+                    f<K, V> fVar2 = this.nat;
+                    f<K, V> fVar3 = fVar2.naC;
+                    f<K, V> fVar4 = fVar3.naC;
+                    fVar3.naC = fVar4.naC;
+                    this.nat = fVar3;
+                    fVar3.naD = fVar4;
+                    fVar3.naE = fVar2;
                     fVar3.height = fVar2.height + 1;
-                    fVar4.naz = fVar3;
-                    fVar2.naz = fVar3;
-                } else if (this.nas == 1) {
-                    f<K, V> fVar5 = this.naq;
-                    f<K, V> fVar6 = fVar5.naz;
-                    this.naq = fVar6;
-                    fVar6.naB = fVar5;
+                    fVar4.naC = fVar3;
+                    fVar2.naC = fVar3;
+                } else if (this.nav == 1) {
+                    f<K, V> fVar5 = this.nat;
+                    f<K, V> fVar6 = fVar5.naC;
+                    this.nat = fVar6;
+                    fVar6.naE = fVar5;
                     fVar6.height = fVar5.height + 1;
-                    fVar5.naz = fVar6;
-                    this.nas = 0;
-                } else if (this.nas == 2) {
-                    this.nas = 0;
+                    fVar5.naC = fVar6;
+                    this.nav = 0;
+                } else if (this.nav == 2) {
+                    this.nav = 0;
                 }
             }
         }
 
-        f<K, V> dHD() {
-            f<K, V> fVar = this.naq;
-            if (fVar.naz != null) {
+        f<K, V> dHH() {
+            f<K, V> fVar = this.nat;
+            if (fVar.naC != null) {
                 throw new IllegalStateException();
             }
             return fVar;
@@ -632,39 +632,39 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     /* loaded from: classes7.dex */
     public abstract class e<T> implements Iterator<T> {
         int expectedModCount;
-        f<K, V> nax;
-        f<K, V> nay = null;
+        f<K, V> naA;
+        f<K, V> naB = null;
 
         e() {
-            this.nax = LinkedHashTreeMap.this.header.nax;
+            this.naA = LinkedHashTreeMap.this.header.naA;
             this.expectedModCount = LinkedHashTreeMap.this.modCount;
         }
 
         @Override // java.util.Iterator
         public final boolean hasNext() {
-            return this.nax != LinkedHashTreeMap.this.header;
+            return this.naA != LinkedHashTreeMap.this.header;
         }
 
-        final f<K, V> dHF() {
-            f<K, V> fVar = this.nax;
+        final f<K, V> dHJ() {
+            f<K, V> fVar = this.naA;
             if (fVar == LinkedHashTreeMap.this.header) {
                 throw new NoSuchElementException();
             }
             if (LinkedHashTreeMap.this.modCount != this.expectedModCount) {
                 throw new ConcurrentModificationException();
             }
-            this.nax = fVar.nax;
-            this.nay = fVar;
+            this.naA = fVar.naA;
+            this.naB = fVar;
             return fVar;
         }
 
         @Override // java.util.Iterator
         public final void remove() {
-            if (this.nay == null) {
+            if (this.naB == null) {
                 throw new IllegalStateException();
             }
-            LinkedHashTreeMap.this.removeInternal(this.nay, true);
-            this.nay = null;
+            LinkedHashTreeMap.this.removeInternal(this.naB, true);
+            this.naB = null;
             this.expectedModCount = LinkedHashTreeMap.this.modCount;
         }
     }
@@ -689,7 +689,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Iterator
                 public Map.Entry<K, V> next() {
-                    return dHF();
+                    return dHJ();
                 }
             };
         }
@@ -734,7 +734,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
 
                 @Override // java.util.Iterator
                 public K next() {
-                    return dHF().key;
+                    return dHJ().key;
                 }
             };
         }

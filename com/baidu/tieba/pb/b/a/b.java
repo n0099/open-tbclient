@@ -29,7 +29,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence cOL() {
+    public CharSequence cOM() {
         return this.kvm;
     }
 
@@ -51,7 +51,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean cOM() {
+    public boolean cON() {
         return false;
     }
 }

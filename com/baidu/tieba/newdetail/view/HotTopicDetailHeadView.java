@@ -95,7 +95,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         this.jOq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailHeadView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ((HotTopicDetailActivity) HotTopicDetailHeadView.this.pageContext.getOrignalPage()).cDQ();
+                ((HotTopicDetailActivity) HotTopicDetailHeadView.this.pageContext.getOrignalPage()).cDR();
             }
         });
         this.jOr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailHeadView.2
@@ -216,13 +216,13 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     public void F(long j, long j2) {
         if (this.jOt != null && this.jOt.iDG != 1) {
             this.jOr.playAnimation();
-            cEd();
+            cEe();
             this.jOt.iDG = 1;
             this.jOt.userPkId = j2;
         }
     }
 
-    private void cEd() {
+    private void cEe() {
         if (this.jOu != null) {
             this.jOu.cancel();
         }

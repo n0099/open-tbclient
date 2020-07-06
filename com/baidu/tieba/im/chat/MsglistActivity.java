@@ -14,11 +14,11 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     protected abstract void initView();
 
     @Override // com.baidu.tieba.im.chat.d
-    public void cnv() {
-        cmW();
+    public void cnw() {
+        cmX();
     }
 
-    public void cmW() {
+    public void cmX() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -34,11 +34,11 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (this.iLw != null) {
             this.iLw.setImageUploadUIProgressCallback(this.iLB);
         }
-        byp();
+        byq();
         if (a((d) this)) {
             loadDraft();
-            cmU();
-            j.iLu = m.biJ();
+            cmV();
+            j.iLu = m.biK();
         }
     }
 
@@ -56,7 +56,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
         initView();
         adjustResizeForSoftInput(R.color.common_color_10022, false);
-        byp();
+        byq();
         if (a((d) this)) {
             loadDraft();
         }
@@ -77,12 +77,12 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         super.onResume();
         if (this.iLv != null) {
             this.iLv.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            cmR();
+            cmS();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cmR() {
+    public void cmS() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
             this.iLv.showReceiver();
         } else {
@@ -98,14 +98,14 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        cmV();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void cmU() {
+        cmW();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void cmV() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void cmW() {
     }
 }

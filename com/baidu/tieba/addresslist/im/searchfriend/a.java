@@ -87,11 +87,11 @@ public class a {
         changeSkin(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void bpP() {
+    public void bpQ() {
         this.fbo.removeTextChangedListener(this.mTextWatcher);
     }
 
-    public void bpQ() {
+    public void bpR() {
         l.hideSoftKeyPad(this.context, this.fbo);
     }
 

@@ -301,7 +301,7 @@ public final class i {
         public static final int commit_good_layout = 2131693232;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f1014common = 2131689901;
+        public static final int f1015common = 2131689901;
         public static final int common_loading_view = 2131696035;
         public static final int common_progress = 2131693247;
         public static final int common_tab_content = 2131693245;
@@ -1534,7 +1534,7 @@ public final class i {
         public static final int tool_view = 2131689808;
 
         /* renamed from: top  reason: collision with root package name */
-        public static final int f1015top = 2131689833;
+        public static final int f1016top = 2131689833;
         public static final int topDvider = 2131694169;
         public static final int topPanel = 2131690081;
         public static final int top_area = 2131690451;
@@ -3483,7 +3483,7 @@ public final class i {
         public static final int too_many_face = 2131236789;
 
         /* renamed from: top  reason: collision with root package name */
-        public static final int f1016top = 2131236790;
+        public static final int f1017top = 2131236790;
         public static final int top_announcement = 2131236791;
         public static final int top_success = 2131236792;
         public static final int topic_join = 2131236798;

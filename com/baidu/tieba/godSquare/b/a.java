@@ -115,8 +115,8 @@ public class a extends com.baidu.tieba.card.b<h> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (bOc() != null) {
-            bOc().a(view, this.ikx);
+        if (bOd() != null) {
+            bOd().a(view, this.ikx);
         }
         if (view == getView() && this.ikw != null && !StringUtils.isNull(this.ikw.getName_show()) && !StringUtils.isNull(this.ikw.getUserId())) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(this.ikw.getUserId(), 0L), false, this.ikw.isBigV())));

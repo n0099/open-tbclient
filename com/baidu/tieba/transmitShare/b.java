@@ -39,8 +39,8 @@ import com.sina.weibo.sdk.auth.AuthInfo;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class b implements View.OnClickListener {
-    private ShareGridLayout lTu;
-    private a lTv;
+    private ShareGridLayout lTx;
+    private a lTy;
     private Context mContext;
     private ArrayList<TransmitForumData> mForumList;
     private int mPrivateThread;
@@ -51,7 +51,7 @@ public class b implements View.OnClickListener {
     private static final int lup = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds36);
     private static final int luq = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
     private static final int eoo = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
-    private boolean lTw = false;
+    private boolean lTz = false;
     private CustomMessageListener jwG = new CustomMessageListener(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED) { // from class: com.baidu.tieba.transmitShare.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -67,16 +67,16 @@ public class b implements View.OnClickListener {
         MessageManager.getInstance().registerListener(this.jwG);
     }
 
-    public ShareGridLayout dlF() {
-        if (this.lTu == null) {
+    public ShareGridLayout dlJ() {
+        if (this.lTx == null) {
             initView();
         }
-        return this.lTu;
+        return this.lTx;
     }
 
     private void initView() {
-        this.lTu = new ShareGridLayout(this.mContext);
-        this.lTu.setItemParams(gmk, gml);
+        this.lTx = new ShareGridLayout(this.mContext);
+        this.lTx.setItemParams(gmk, gml);
     }
 
     private void b(com.baidu.tbadk.core.util.d.a aVar, int i, int i2) {
@@ -104,7 +104,7 @@ public class b implements View.OnClickListener {
             imageView.setImageDrawable(aVar.getDrawable());
             an.setViewTextColor(textView, (int) R.color.cp_cont_f);
             linearLayout.setOnClickListener(this);
-            this.lTu.addView(linearLayout, new ViewGroup.LayoutParams(gmk, gml));
+            this.lTx.addView(linearLayout, new ViewGroup.LayoutParams(gmk, gml));
         }
     }
 
@@ -112,9 +112,9 @@ public class b implements View.OnClickListener {
         this.mShareItem = shareDialogConfig.shareItem;
         this.mForumList = shareDialogConfig.mForumList;
         this.mPrivateThread = shareDialogConfig.mPrivateThread;
-        this.lTu.removeAllViews();
-        this.lTw = shareDialogConfig.mShowMoreForumShare;
-        if (this.lTw) {
+        this.lTx.removeAllViews();
+        this.lTz = shareDialogConfig.mShowMoreForumShare;
+        if (this.lTz) {
             b(new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_wechat40_svg), R.string.share_weixin, 4);
             b(new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_circle40_svg), R.string.share_weixin_timeline, 3);
             b(new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_qq40_svg), R.string.share_qq_friends, 9);
@@ -138,13 +138,13 @@ public class b implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.lTv = aVar;
+        this.lTy = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.lTv != null) {
-            this.lTv.df(view);
+        if (this.lTy != null) {
+            this.lTy.df(view);
         }
         if (view.getTag() instanceof Integer) {
             Integer num = (Integer) view.getTag();
@@ -240,7 +240,7 @@ public class b implements View.OnClickListener {
             a("1", null, this.mPrivateThread);
             FM(11);
         } else if (i == 13) {
-            dlG();
+            dlK();
             FM(13);
         }
     }
@@ -249,10 +249,10 @@ public class b implements View.OnClickListener {
         return i == 4 || i == 3 || i == 9 || i == 5 || i == 7 || i == 10;
     }
 
-    private void dlG() {
+    private void dlK() {
         SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.mContext, RequestResponseCode.REQUEST_SELECT_FORUM);
         selectForumActivityConfig.setForumList(this.mForumList);
-        if (this.lTw) {
+        if (this.lTz) {
             selectForumActivityConfig.setFrom(4);
             selectForumActivityConfig.setMoreForumImg(this.mShareItem.imageUrl);
             selectForumActivityConfig.setMoreForumUrl(this.mShareItem.linkUrl);

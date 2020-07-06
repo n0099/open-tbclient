@@ -8,7 +8,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 /* loaded from: classes10.dex */
 public abstract class MultiAudioMixer {
-    private b mak;
+    private b man;
 
     /* loaded from: classes10.dex */
     public interface b {
@@ -16,17 +16,17 @@ public abstract class MultiAudioMixer {
 
         void ai(byte[] bArr) throws IOException;
 
-        void dnZ();
+        void dod();
     }
 
     abstract byte[] c(byte[][] bArr);
 
-    public static MultiAudioMixer dnY() {
+    public static MultiAudioMixer doc() {
         return new a();
     }
 
     public void a(b bVar) {
-        this.mak = bVar;
+        this.man = bVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[ARITH, INVOKE, ARITH, IF, INVOKE, MOVE_EXCEPTION, AGET, IF, ARRAY_LENGTH, INVOKE, MOVE_EXCEPTION] complete} */
@@ -45,8 +45,8 @@ public abstract class MultiAudioMixer {
                     fileInputStreamArr[i2] = new FileInputStream(fileArr[i2]);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    if (this.mak != null) {
-                        this.mak.Ge(1);
+                    if (this.man != null) {
+                        this.man.Ge(1);
                     }
                     try {
                         int length2 = fileInputStreamArr.length;
@@ -89,8 +89,8 @@ public abstract class MultiAudioMixer {
                 }
             }
             byte[] c = c(bArr);
-            if (c != null && this.mak != null) {
-                this.mak.ai(c);
+            if (c != null && this.man != null) {
+                this.man.ai(c);
             }
             z = true;
             for (boolean z2 : zArr) {
@@ -99,8 +99,8 @@ public abstract class MultiAudioMixer {
                 }
             }
         } while (!z);
-        if (this.mak != null) {
-            this.mak.dnZ();
+        if (this.man != null) {
+            this.man.dod();
         }
     }
 

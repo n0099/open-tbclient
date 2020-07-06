@@ -17,46 +17,46 @@ public abstract class fs {
     private static final AtomicInteger a = new AtomicInteger(0);
 
     /* renamed from: a  reason: collision with other field name */
-    public static boolean f363a;
+    public static boolean f364a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected ft f366a;
+    protected ft f367a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected XMPushService f368a;
+    protected XMPushService f369a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected int f364a = 0;
+    protected int f365a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    protected long f365a = -1;
+    protected long f366a = -1;
 
     /* renamed from: b  reason: collision with other field name */
-    protected volatile long f373b = 0;
+    protected volatile long f374b = 0;
 
     /* renamed from: c  reason: collision with other field name */
-    protected volatile long f376c = 0;
+    protected volatile long f377c = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private LinkedList<Pair<Integer, Long>> f371a = new LinkedList<>();
+    private LinkedList<Pair<Integer, Long>> f372a = new LinkedList<>();
 
     /* renamed from: a  reason: collision with other field name */
-    private final Collection<fv> f370a = new CopyOnWriteArrayList();
+    private final Collection<fv> f371a = new CopyOnWriteArrayList();
 
     /* renamed from: a  reason: collision with other field name */
-    protected final Map<fx, a> f372a = new ConcurrentHashMap();
+    protected final Map<fx, a> f373a = new ConcurrentHashMap();
 
     /* renamed from: b  reason: collision with other field name */
-    protected final Map<fx, a> f375b = new ConcurrentHashMap();
+    protected final Map<fx, a> f376b = new ConcurrentHashMap();
 
     /* renamed from: a  reason: collision with other field name */
-    protected ge f367a = null;
+    protected ge f368a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    protected String f369a = "";
+    protected String f370a = "";
 
     /* renamed from: b  reason: collision with other field name */
-    protected String f374b = "";
+    protected String f375b = "";
     private int c = 2;
     protected final int b = a.getAndIncrement();
     private long e = 0;
@@ -67,11 +67,11 @@ public abstract class fs {
         private fx a;
 
         /* renamed from: a  reason: collision with other field name */
-        private gf f377a;
+        private gf f378a;
 
         public a(fx fxVar, gf gfVar) {
             this.a = fxVar;
-            this.f377a = gfVar;
+            this.f378a = gfVar;
         }
 
         public void a(fl flVar) {
@@ -79,16 +79,16 @@ public abstract class fs {
         }
 
         public void a(gj gjVar) {
-            if (this.f377a == null || this.f377a.a(gjVar)) {
+            if (this.f378a == null || this.f378a.a(gjVar)) {
                 this.a.a(gjVar);
             }
         }
     }
 
     static {
-        f363a = false;
+        f364a = false;
         try {
-            f363a = Boolean.getBoolean("smack.debugEnabled");
+            f364a = Boolean.getBoolean("smack.debugEnabled");
         } catch (Exception e) {
         }
         fy.m298a();
@@ -96,8 +96,8 @@ public abstract class fs {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public fs(XMPushService xMPushService, ft ftVar) {
-        this.f366a = ftVar;
-        this.f368a = xMPushService;
+        this.f367a = ftVar;
+        this.f369a = xMPushService;
         m291b();
     }
 
@@ -107,51 +107,51 @@ public abstract class fs {
 
     /* renamed from: a  reason: collision with other method in class */
     private void m285a(int i) {
-        synchronized (this.f371a) {
+        synchronized (this.f372a) {
             if (i == 1) {
-                this.f371a.clear();
+                this.f372a.clear();
             } else {
-                this.f371a.add(new Pair<>(Integer.valueOf(i), Long.valueOf(System.currentTimeMillis())));
-                if (this.f371a.size() > 6) {
-                    this.f371a.remove(0);
+                this.f372a.add(new Pair<>(Integer.valueOf(i), Long.valueOf(System.currentTimeMillis())));
+                if (this.f372a.size() > 6) {
+                    this.f372a.remove(0);
                 }
             }
         }
     }
 
     public int a() {
-        return this.f364a;
+        return this.f365a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public long m286a() {
-        return this.f376c;
+        return this.f377c;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public ft m287a() {
-        return this.f366a;
+        return this.f367a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public String m288a() {
-        return this.f366a.c();
+        return this.f367a.c();
     }
 
     public void a(int i, int i2, Exception exc) {
         if (i != this.c) {
             com.xiaomi.channel.commonutils.logger.b.m48a(String.format("update the connection status. %1$s -> %2$s : %3$s ", a(this.c), a(i), com.xiaomi.push.service.at.a(i2)));
         }
-        if (az.b(this.f368a)) {
+        if (az.b(this.f369a)) {
             m285a(i);
         }
         if (i == 1) {
-            this.f368a.a(10);
+            this.f369a.a(10);
             if (this.c != 0) {
                 com.xiaomi.channel.commonutils.logger.b.m48a("try set connected while not connecting.");
             }
             this.c = i;
-            for (fv fvVar : this.f370a) {
+            for (fv fvVar : this.f371a) {
                 fvVar.a(this);
             }
         } else if (i == 0) {
@@ -159,17 +159,17 @@ public abstract class fs {
                 com.xiaomi.channel.commonutils.logger.b.m48a("try set connecting while not disconnected.");
             }
             this.c = i;
-            for (fv fvVar2 : this.f370a) {
+            for (fv fvVar2 : this.f371a) {
                 fvVar2.b(this);
             }
         } else if (i == 2) {
-            this.f368a.a(10);
+            this.f369a.a(10);
             if (this.c == 0) {
-                for (fv fvVar3 : this.f370a) {
+                for (fv fvVar3 : this.f371a) {
                     fvVar3.a(this, exc == null ? new CancellationException("disconnect while connecting") : exc);
                 }
             } else if (this.c == 1) {
-                for (fv fvVar4 : this.f370a) {
+                for (fv fvVar4 : this.f371a) {
                     fvVar4.a(this, i2, exc);
                 }
             }
@@ -178,17 +178,17 @@ public abstract class fs {
     }
 
     public void a(fv fvVar) {
-        if (fvVar == null || this.f370a.contains(fvVar)) {
+        if (fvVar == null || this.f371a.contains(fvVar)) {
             return;
         }
-        this.f370a.add(fvVar);
+        this.f371a.add(fvVar);
     }
 
     public void a(fx fxVar, gf gfVar) {
         if (fxVar == null) {
             throw new NullPointerException("Packet listener is null.");
         }
-        this.f372a.put(fxVar, new a(fxVar, gfVar));
+        this.f373a.put(fxVar, new a(fxVar, gfVar));
     }
 
     public abstract void a(gj gjVar);
@@ -198,7 +198,7 @@ public abstract class fs {
     public synchronized void a(String str) {
         if (this.c == 0) {
             com.xiaomi.channel.commonutils.logger.b.m48a("setChallenge hash = " + be.a(str).substring(0, 8));
-            this.f369a = str;
+            this.f370a = str;
             a(1, 0, null);
         } else {
             com.xiaomi.channel.commonutils.logger.b.m48a("ignore setChallenge because connection was disconnected");
@@ -224,14 +224,14 @@ public abstract class fs {
 
     /* renamed from: b  reason: collision with other method in class */
     public String m290b() {
-        return this.f366a.b();
+        return this.f367a.b();
     }
 
     /* renamed from: b  reason: collision with other method in class */
     protected void m291b() {
         String str;
         Class<?> cls = null;
-        if (this.f366a.m296a() && this.f367a == null) {
+        if (this.f367a.m296a() && this.f368a == null) {
             try {
                 str = System.getProperty("smack.debuggerClass");
             } catch (Throwable th) {
@@ -245,11 +245,11 @@ public abstract class fs {
                 }
             }
             if (cls == null) {
-                this.f367a = new bn(this);
+                this.f368a = new bn(this);
                 return;
             }
             try {
-                this.f367a = (ge) cls.getConstructor(fs.class, Writer.class, Reader.class).newInstance(this);
+                this.f368a = (ge) cls.getConstructor(fs.class, Writer.class, Reader.class).newInstance(this);
             } catch (Exception e2) {
                 throw new IllegalArgumentException("Can't initialize the configured debugger!", e2);
             }
@@ -261,14 +261,14 @@ public abstract class fs {
     public abstract void b(fl flVar);
 
     public void b(fv fvVar) {
-        this.f370a.remove(fvVar);
+        this.f371a.remove(fvVar);
     }
 
     public void b(fx fxVar, gf gfVar) {
         if (fxVar == null) {
             throw new NullPointerException("Packet listener is null.");
         }
-        this.f375b.put(fxVar, new a(fxVar, gfVar));
+        this.f376b.put(fxVar, new a(fxVar, gfVar));
     }
 
     public abstract void b(boolean z);
@@ -288,8 +288,8 @@ public abstract class fs {
     }
 
     public void d() {
-        synchronized (this.f371a) {
-            this.f371a.clear();
+        synchronized (this.f372a) {
+            this.f372a.clear();
         }
     }
 

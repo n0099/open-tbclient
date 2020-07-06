@@ -39,7 +39,7 @@ public class b extends BdBaseModel {
                         }
                         return;
                     }
-                    b.this.fPm = alaAdminListResponseMessage.byH();
+                    b.this.fPm = alaAdminListResponseMessage.byI();
                     if (b.this.fPh != null) {
                         b.this.fPh.jM(false);
                     }
@@ -59,13 +59,13 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void byI() {
+    public void byJ() {
         sendMessage(new com.baidu.tieba.ala.live.personcenter.admin.message.a());
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     protected boolean loadData() {
-        byI();
+        byJ();
         return true;
     }
 
@@ -79,9 +79,9 @@ public class b extends BdBaseModel {
         return hasData() ? new ArrayList(this.fPm.getUserList()) : new ArrayList();
     }
 
-    public int byG() {
+    public int byH() {
         if (hasData()) {
-            return this.fPm.byG();
+            return this.fPm.byH();
         }
         return -1;
     }

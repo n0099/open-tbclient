@@ -13,13 +13,13 @@ public interface a extends MediaController.MediaPlayerControl {
 
     void b(TbVideoViewSet.a aVar);
 
-    void cVp();
-
     void cVq();
 
-    boolean cVr();
+    void cVr();
 
-    void cVu();
+    boolean cVs();
+
+    void cVv();
 
     int getCurrentPositionSync();
 

@@ -5,7 +5,7 @@ public class c {
     private int eSy;
     private int threadType;
 
-    public Object bmv() {
+    public Object bmw() {
         return this.eSx;
     }
 
@@ -21,7 +21,7 @@ public class c {
         this.threadType = i;
     }
 
-    public int bmw() {
+    public int bmx() {
         return this.eSy;
     }
 

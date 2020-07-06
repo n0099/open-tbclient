@@ -15,7 +15,7 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         Bundle bundle = new Bundle();
         bundle.putString("key_uid", personPostActivity.getUid());
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
-        bundle.putString("key_empty_view_text", personPostActivity.cWG());
+        bundle.putString("key_empty_view_text", personPostActivity.cWH());
         this.kYN = new PersonReplyFragment();
         this.kYN.setArguments(bundle);
         this.kYN.a(personPostActivity);
@@ -26,7 +26,7 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         this.fHv = new int[]{0, 1};
     }
 
-    public PersonThreadFragment cWH() {
+    public PersonThreadFragment cWI() {
         return this.kYM;
     }
 

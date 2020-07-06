@@ -29,7 +29,7 @@ import tv.chushou.zues.utils.g;
 @h
 /* loaded from: classes5.dex */
 public final class BaiduAuthActivity extends BaseActivity {
-    public static final a nuO = new a(null);
+    public static final a nuR = new a(null);
     private HashMap b;
 
     public View b(int i) {
@@ -64,7 +64,7 @@ public final class BaiduAuthActivity extends BaseActivity {
             hashMap.put("client_id", "43vLB6EGs9V4tVNugF3OdqjS");
             hashMap.put(WBConstants.AUTH_PARAMS_REDIRECT_URL, "cstvsdk://baiduauth");
             hashMap.put("changeAcc", 3);
-            Http http = (Http) tv.chushou.basis.d.b.dWg().S(Http.class);
+            Http http = (Http) tv.chushou.basis.d.b.dWk().S(Http.class);
             if (http == null || (packParams = http.packParams("https://openapi.baidu.com/oauth/2.0/authorize", hashMap)) == null) {
                 return "https://openapi.baidu.com/oauth/2.0/authorize";
             }
@@ -147,7 +147,7 @@ public final class BaiduAuthActivity extends BaseActivity {
                 tag = null;
             }
             String str2 = (String) tag;
-            if (tv.chushou.zues.utils.a.dWD()) {
+            if (tv.chushou.zues.utils.a.dWH()) {
                 if (str2 != null && q.l((Object) str2, (Object) BdStatsConstant.StatsType.ERROR)) {
                     BaiduAuthActivity.this.a_(4);
                     return;
@@ -279,16 +279,16 @@ public final class BaiduAuthActivity extends BaseActivity {
         if (simpleWebview != null) {
             simpleWebview.setTag(null);
         }
-        String a2 = nuO.a();
+        String a2 = nuR.a();
         e.d(this.v, a2);
         ((SimpleWebview) b(a.f.webView)).loadUrl(a2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final String a(String str) {
-        Uri Rj = i.Rj(str);
-        if (Rj != null) {
-            return Rj.getQueryParameter("code");
+        Uri Rk = i.Rk(str);
+        if (Rk != null) {
+            return Rk.getQueryParameter("code");
         }
         return null;
     }

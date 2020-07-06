@@ -5,76 +5,76 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes7.dex */
 public abstract class f implements Framedata {
-    private Framedata.Opcode oad;
-    private ByteBuffer oae = org.java_websocket.e.b.dTV();
-    private boolean oac = true;
-    private boolean oaf = false;
-    private boolean oag = false;
-    private boolean oah = false;
+    private Framedata.Opcode oag;
+    private ByteBuffer oah = org.java_websocket.e.b.dTZ();
+    private boolean oaf = true;
     private boolean oai = false;
+    private boolean oaj = false;
+    private boolean oak = false;
+    private boolean oal = false;
 
-    public abstract void dTK() throws InvalidDataException;
+    public abstract void dTO() throws InvalidDataException;
 
     public f(Framedata.Opcode opcode) {
-        this.oad = opcode;
+        this.oag = opcode;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dTN() {
-        return this.oag;
+    public boolean dTR() {
+        return this.oaj;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dTO() {
-        return this.oah;
+    public boolean dTS() {
+        return this.oak;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dTP() {
-        return this.oai;
+    public boolean dTT() {
+        return this.oal;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean XQ() {
-        return this.oac;
+        return this.oaf;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode dTQ() {
-        return this.oad;
+    public Framedata.Opcode dTU() {
+        return this.oag;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer dTM() {
-        return this.oae;
+    public ByteBuffer dTQ() {
+        return this.oah;
     }
 
     public String toString() {
-        return "Framedata{ optcode:" + dTQ() + ", fin:" + XQ() + ", rsv1:" + dTN() + ", rsv2:" + dTO() + ", rsv3:" + dTP() + ", payloadlength:[pos:" + this.oae.position() + ", len:" + this.oae.remaining() + "], payload:" + (this.oae.remaining() > 1000 ? "(too big to display)" : new String(this.oae.array())) + '}';
+        return "Framedata{ optcode:" + dTU() + ", fin:" + XQ() + ", rsv1:" + dTR() + ", rsv2:" + dTS() + ", rsv3:" + dTT() + ", payloadlength:[pos:" + this.oah.position() + ", len:" + this.oah.remaining() + "], payload:" + (this.oah.remaining() > 1000 ? "(too big to display)" : new String(this.oah.array())) + '}';
     }
 
     public void z(ByteBuffer byteBuffer) {
-        this.oae = byteBuffer;
+        this.oah = byteBuffer;
     }
 
     public void dy(boolean z) {
-        this.oac = z;
+        this.oaf = z;
     }
 
     public void xC(boolean z) {
-        this.oag = z;
+        this.oaj = z;
     }
 
     public void xD(boolean z) {
-        this.oah = z;
+        this.oak = z;
     }
 
     public void xE(boolean z) {
-        this.oai = z;
+        this.oal = z;
     }
 
     public void xF(boolean z) {
-        this.oaf = z;
+        this.oai = z;
     }
 
     public static f b(Framedata.Opcode opcode) {
@@ -108,10 +108,10 @@ public abstract class f implements Framedata {
             return false;
         }
         f fVar = (f) obj;
-        if (this.oac == fVar.oac && this.oaf == fVar.oaf && this.oag == fVar.oag && this.oah == fVar.oah && this.oai == fVar.oai && this.oad == fVar.oad) {
-            if (this.oae != null) {
-                z = this.oae.equals(fVar.oae);
-            } else if (fVar.oae != null) {
+        if (this.oaf == fVar.oaf && this.oai == fVar.oai && this.oaj == fVar.oaj && this.oak == fVar.oak && this.oal == fVar.oal && this.oag == fVar.oag) {
+            if (this.oah != null) {
+                z = this.oah.equals(fVar.oah);
+            } else if (fVar.oah != null) {
                 z = false;
             }
             return z;
@@ -120,6 +120,6 @@ public abstract class f implements Framedata {
     }
 
     public int hashCode() {
-        return (((this.oah ? 1 : 0) + (((this.oag ? 1 : 0) + (((this.oaf ? 1 : 0) + (((this.oae != null ? this.oae.hashCode() : 0) + ((((this.oac ? 1 : 0) * 31) + this.oad.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.oai ? 1 : 0);
+        return (((this.oak ? 1 : 0) + (((this.oaj ? 1 : 0) + (((this.oai ? 1 : 0) + (((this.oah != null ? this.oah.hashCode() : 0) + ((((this.oaf ? 1 : 0) * 31) + this.oag.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.oal ? 1 : 0);
     }
 }

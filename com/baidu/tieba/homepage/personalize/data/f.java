@@ -38,11 +38,11 @@ public class f extends AbsThreadDataSupport {
         return null;
     }
 
-    public List<AlaLiveInfo> cjZ() {
+    public List<AlaLiveInfo> cka() {
         return this.iuW;
     }
 
-    public ao cka() {
+    public ao ckb() {
         ao aoVar = new ao("c13620");
         aoVar.s("uid", TbadkApplication.getCurrentAccountId());
         aoVar.ag("fid", 0);

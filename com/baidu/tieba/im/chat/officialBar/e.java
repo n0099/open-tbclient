@@ -56,7 +56,7 @@ public class e extends com.baidu.adp.base.c<OfficialBarHistoryActivity> {
         this.hXJ.setOnSrollToBottomListener(eVar);
     }
 
-    public boolean cnL() {
+    public boolean cnM() {
         return this.iMK.getCount() != 0 && this.hXJ.getLastVisiblePosition() - this.hXJ.getHeaderViewsCount() < this.iMK.getCount() + (-1);
     }
 

@@ -6,7 +6,7 @@ public final class a {
 
     /* renamed from: tv.chushou.widget.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C0933a {
+    public static final class C0934a {
         public static final int[] ToggleButton = {R.attr.toggleBorderWidth, R.attr.offBorderColor, R.attr.offColor, R.attr.onColor, R.attr.spotColor, R.attr.animate};
         public static final int ToggleButton_animate = 5;
         public static final int ToggleButton_offBorderColor = 1;

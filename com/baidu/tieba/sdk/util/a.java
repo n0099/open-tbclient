@@ -11,7 +11,7 @@ public class a extends AccountLoginCoreHelper {
     private a() {
     }
 
-    public static a dbi() {
+    public static a dbj() {
         if (loA == null) {
             loA = new a();
         }

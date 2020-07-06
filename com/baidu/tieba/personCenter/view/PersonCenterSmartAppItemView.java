@@ -91,7 +91,7 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public void onClick(View view) {
         if (this.kHq instanceof m) {
             m mVar = (m) this.kHq;
-            if (!com.baidu.tieba.aiapps.a.b(mVar.getAppKey(), mVar.getLink(), "1191000600000000", mVar.cRV())) {
+            if (!com.baidu.tieba.aiapps.a.b(mVar.getAppKey(), mVar.getLink(), "1191000600000000", mVar.cRW())) {
                 if (!ar.isEmpty(mVar.getH5Url())) {
                     bc.aWU().b(T(getContext()), new String[]{mVar.getH5Url()});
                 } else {
@@ -101,9 +101,9 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
             ao aoVar = new ao("c13274");
             aoVar.s("uid", TbadkCoreApplication.getCurrentAccountId());
             aoVar.dk("obj_source", "personal_center");
-            aoVar.s("obj_id", mVar.cRU().longValue());
+            aoVar.s("obj_id", mVar.cRV().longValue());
             aoVar.dk("obj_name", mVar.getName());
-            aoVar.ag("obj_param1", mVar.cRV().intValue());
+            aoVar.ag("obj_param1", mVar.cRW().intValue());
             TiebaStatic.log(aoVar);
         } else if (this.kHq instanceof l) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SmartAppBrowseHistoryActivityConfig(getContext())));

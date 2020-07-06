@@ -11,10 +11,10 @@ import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class b extends a {
     private static int mPadding;
-    private TextView mrR;
-    private TextView mrS;
-    private TextView mrT;
     private TextView mrU;
+    private TextView mrV;
+    private TextView mrW;
+    private TextView mrX;
 
     public b(e eVar) {
         super(eVar);
@@ -26,37 +26,37 @@ public class b extends a {
     }
 
     public void E(View.OnClickListener onClickListener) {
-        this.mrR.setTag(0);
-        this.mrS.setTag(1);
-        this.mrT.setTag(2);
-        this.mrU.setTag(3);
-        this.mrR.setOnClickListener(onClickListener);
-        this.mrS.setOnClickListener(onClickListener);
-        this.mrT.setOnClickListener(onClickListener);
+        this.mrU.setTag(0);
+        this.mrV.setTag(1);
+        this.mrW.setTag(2);
+        this.mrX.setTag(3);
         this.mrU.setOnClickListener(onClickListener);
+        this.mrV.setOnClickListener(onClickListener);
+        this.mrW.setOnClickListener(onClickListener);
+        this.mrX.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(R.layout.pic_rorate_view, (ViewGroup) null);
-        this.mrR = (TextView) this.mRootView.findViewById(R.id.rotate_left);
-        this.mrS = (TextView) this.mRootView.findViewById(R.id.rotate_right);
-        this.mrT = (TextView) this.mRootView.findViewById(R.id.rotate_left_right);
-        this.mrU = (TextView) this.mRootView.findViewById(R.id.rotate_up_down);
+        this.mrU = (TextView) this.mRootView.findViewById(R.id.rotate_left);
+        this.mrV = (TextView) this.mRootView.findViewById(R.id.rotate_right);
+        this.mrW = (TextView) this.mRootView.findViewById(R.id.rotate_left_right);
+        this.mrX = (TextView) this.mRootView.findViewById(R.id.rotate_up_down);
     }
 
     public void onChangeSkinType() {
-        an.setViewTextColor(this.mrR, (int) R.color.cp_cont_j);
-        an.setViewTextColor(this.mrS, (int) R.color.cp_cont_j);
-        an.setViewTextColor(this.mrT, (int) R.color.cp_cont_j);
         an.setViewTextColor(this.mrU, (int) R.color.cp_cont_j);
-        this.mrR.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, an.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
-        this.mrS.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, an.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
-        this.mrU.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, an.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
-        this.mrT.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, an.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
-        this.mrR.setCompoundDrawablePadding(mPadding);
-        this.mrS.setCompoundDrawablePadding(mPadding);
+        an.setViewTextColor(this.mrV, (int) R.color.cp_cont_j);
+        an.setViewTextColor(this.mrW, (int) R.color.cp_cont_j);
+        an.setViewTextColor(this.mrX, (int) R.color.cp_cont_j);
+        this.mrU.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, an.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
+        this.mrV.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, an.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
+        this.mrX.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, an.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
+        this.mrW.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, an.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
         this.mrU.setCompoundDrawablePadding(mPadding);
-        this.mrT.setCompoundDrawablePadding(mPadding);
+        this.mrV.setCompoundDrawablePadding(mPadding);
+        this.mrX.setCompoundDrawablePadding(mPadding);
+        this.mrW.setCompoundDrawablePadding(mPadding);
     }
 }

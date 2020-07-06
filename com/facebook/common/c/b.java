@@ -5,12 +5,12 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 /* loaded from: classes13.dex */
 public class b implements c {
-    public static final b mIL = new b();
-    private String mIM = "unknown";
-    private int mIN = 5;
+    public static final b mIO = new b();
+    private String mIP = "unknown";
+    private int mIQ = 5;
 
-    public static b dzk() {
-        return mIL;
+    public static b dzo() {
+        return mIO;
     }
 
     private b() {
@@ -18,7 +18,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.mIN <= i;
+        return this.mIQ <= i;
     }
 
     @Override // com.facebook.common.c.c
@@ -62,16 +62,16 @@ public class b implements c {
     }
 
     private void q(int i, String str, String str2) {
-        Log.println(i, QB(str), str2);
+        Log.println(i, QC(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, QB(str), j(str2, th));
+        Log.println(i, QC(str), j(str2, th));
     }
 
-    private String QB(String str) {
-        if (this.mIM != null) {
-            return this.mIM + ":" + str;
+    private String QC(String str) {
+        if (this.mIP != null) {
+            return this.mIP + ":" + str;
         }
         return str;
     }

@@ -230,10 +230,10 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         this.eez = postData;
         setVisibility(0);
         a(postData);
-        a(a(postData.dia()));
+        a(a(postData.dib()));
         b(postData);
         c(postData);
-        if ((this.mImageList != null && this.mImageList.size() > 0) || (this.eeA != null && this.eeA.blP() != null)) {
+        if ((this.mImageList != null && this.mImageList.size() > 0) || (this.eeA != null && this.eeA.blQ() != null)) {
             this.mRootView.setPadding(0, 0, 0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds30));
         } else {
             this.mRootView.setPadding(0, 0, 0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds25));
@@ -259,7 +259,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 spannableStringBuilder3.setSpan(new com.baidu.tbadk.widget.richText.f(2, null) { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.1
                     @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                     public void onClick(View view) {
-                        s.bOA().e(new ao("c13348"));
+                        s.bOB().e(new ao("c13348"));
                         ThreadGodReplyLayout.this.eeu.setMaxLines(15);
                         ThreadGodReplyLayout.this.eeu.setEllipsize(TextUtils.TruncateAt.END);
                         ThreadGodReplyLayout.this.eeu.setText(spannableStringBuilder2.toString());
@@ -296,7 +296,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 }
                 this.eeu.setText(spannableStringBuilder);
                 this.eeu.setOnTouchListener(new com.baidu.tieba.view.i(spannableStringBuilder));
-                s.bOA().e(new ao("c13347"));
+                s.bOB().e(new ao("c13347"));
             } else {
                 return;
             }
@@ -322,18 +322,18 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
     }
 
     private SpannableStringBuilder a(TbRichText tbRichText) {
-        ArrayList<TbRichTextData> bkO;
-        if (tbRichText == null || (bkO = tbRichText.bkO()) == null) {
+        ArrayList<TbRichTextData> bkP;
+        if (tbRichText == null || (bkP = tbRichText.bkP()) == null) {
             return null;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        Iterator<TbRichTextData> it = bkO.iterator();
+        Iterator<TbRichTextData> it = bkP.iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next.getType() == 1) {
-                spannableStringBuilder.append((CharSequence) next.bkV());
+                spannableStringBuilder.append((CharSequence) next.bkW());
             } else if (next.getType() == 17) {
-                String str = next.bkZ().mGifInfo.mSharpText;
+                String str = next.bla().mGifInfo.mSharpText;
                 if (str != null && str.startsWith("#(") && str.endsWith(")")) {
                     spannableStringBuilder.append((CharSequence) "[表情]");
                 }
@@ -363,19 +363,19 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             this.eex.setVisibility(8);
             return;
         }
-        TbRichText dia = postData.dia();
-        if (dia == null || dia.bkO() == null) {
+        TbRichText dib = postData.dib();
+        if (dib == null || dib.bkP() == null) {
             this.eew.setVisibility(8);
             this.eex.setVisibility(8);
             return;
         }
-        Iterator<TbRichTextData> it = dia.bkO().iterator();
+        Iterator<TbRichTextData> it = dib.bkP().iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next != null) {
                 next.bh(eet, eet);
                 if (next.getType() == 8) {
-                    this.mImageList.add(next.bkU());
+                    this.mImageList.add(next.bkV());
                 }
             }
         }
@@ -391,13 +391,13 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             View childAt = this.eew.getChildAt(i2);
             if (childAt != null && (childAt instanceof TbImageView)) {
                 TbImageView tbImageView = (TbImageView) childAt;
-                tbImageView.bjE();
+                tbImageView.bjF();
                 tbImageView.setRadius(dimens);
                 tbImageView.oi(15);
                 if (i < this.mImageList.size()) {
                     TbRichTextImageInfo tbRichTextImageInfo = this.mImageList.get(i);
-                    if (tbRichTextImageInfo != null && !TextUtils.isEmpty(tbRichTextImageInfo.blj())) {
-                        tbImageView.startLoad(tbRichTextImageInfo.blj(), this.aik ? 13 : 14, false);
+                    if (tbRichTextImageInfo != null && !TextUtils.isEmpty(tbRichTextImageInfo.blk())) {
+                        tbImageView.startLoad(tbRichTextImageInfo.blk(), this.aik ? 13 : 14, false);
                         tbImageView.setVisibility(0);
                         i++;
                     } else {
@@ -433,7 +433,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
     }
 
     public void c(PostData postData) {
-        this.eeA = postData.bkW();
+        this.eeA = postData.bkX();
         if (this.eeA == null) {
             this.eev.setVisibility(8);
             return;
@@ -468,7 +468,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             int intValue = ((Integer) view.getTag(R.id.god_reply_image_layout)).intValue();
             ArrayList<String> arrayList = new ArrayList<>();
             for (TbRichTextImageInfo tbRichTextImageInfo : this.mImageList) {
-                arrayList.add(tbRichTextImageInfo.blg());
+                arrayList.add(tbRichTextImageInfo.blh());
             }
             String str = "";
             String str2 = "";

@@ -13,21 +13,21 @@ public class n {
     private static int iQq = 1500;
     private static int iQr = 500;
 
-    public static void cpT() {
+    public static void cpU() {
         if (!StrangeCleanSwitch.isOn()) {
             com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "witch is close", new Object[0]);
             return;
         }
         try {
-            h.cpG().cpH();
-            String cpV = cpV();
-            if (!TextUtils.isEmpty(cpV)) {
-                com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + GW(cpV), new Object[0]);
+            h.cpH().cpI();
+            String cpW = cpW();
+            if (!TextUtils.isEmpty(cpW)) {
+                com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + GW(cpW), new Object[0]);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            h.cpG().cpI();
+            h.cpH().cpJ();
         }
     }
 
@@ -38,27 +38,27 @@ public class n {
         com.baidu.tbadk.core.sharedPref.b.aVP().putInt(SharedPrefConfig.KEY_MAX_STRANGER, i);
     }
 
-    private static int cpU() {
+    private static int cpV() {
         return com.baidu.tbadk.core.sharedPref.b.aVP().getInt(SharedPrefConfig.KEY_MAX_STRANGER, iQq);
     }
 
-    private static String cpV() {
-        List<String> cpW;
+    private static String cpW() {
+        List<String> cpX;
         StringBuilder sb = new StringBuilder();
         try {
-            cpW = cpW();
+            cpX = cpX();
         } catch (Exception e) {
             e.printStackTrace();
             TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getStrangeData", new Object[0]);
         }
-        if (cpW == null || cpW.size() == 0) {
+        if (cpX == null || cpX.size() == 0) {
             return null;
         }
-        int cpU = cpU();
-        com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "getStrangeData", -1, "strange size is " + cpW.size() + " max is " + cpU, new Object[0]);
-        if (cpW.size() > cpU) {
+        int cpV = cpV();
+        com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "getStrangeData", -1, "strange size is " + cpX.size() + " max is " + cpV, new Object[0]);
+        if (cpX.size() > cpV) {
             boolean z = true;
-            for (String str : cpW.subList(0, 2000 >= cpW.size() - cpU ? cpW.size() - cpU : 2000)) {
+            for (String str : cpX.subList(0, 2000 >= cpX.size() - cpV ? cpX.size() - cpV : 2000)) {
                 if (z) {
                     z = false;
                 } else {
@@ -70,11 +70,11 @@ public class n {
         return sb.toString();
     }
 
-    public static List<String> cpW() {
+    public static List<String> cpX() {
         Cursor cursor = null;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = h.cpG().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND is_friend!=?  ORDER BY last_content_time ASC", new String[]{String.valueOf(2), String.valueOf(1)});
+            cursor = h.cpH().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND is_friend!=?  ORDER BY last_content_time ASC", new String[]{String.valueOf(2), String.valueOf(1)});
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     arrayList.add(cursor.getString(cursor.getColumnIndex("gid")));
@@ -91,7 +91,7 @@ public class n {
 
     public static boolean GW(String str) {
         try {
-            return h.cpG().GU("DELETE FROM tb_message_center WHERE gid IN(" + str + ") AND custom_group_type= " + String.valueOf(2) + " AND is_friend!=" + String.valueOf(1));
+            return h.cpH().GU("DELETE FROM tb_message_center WHERE gid IN(" + str + ") AND custom_group_type= " + String.valueOf(2) + " AND is_friend!=" + String.valueOf(1));
         } catch (Exception e) {
             e.printStackTrace();
             TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.deleteStrange", new Object[0]);

@@ -11,7 +11,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public static final String FILE_SEP = File.separator;
     private String mPath;
     private String mUrl;
-    private a mgS;
+    private a mgV;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -21,7 +21,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.mgS = aVar;
+        this.mgV = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,7 +40,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
         e eVar = new e();
         eVar.kT().setUrl(this.mUrl);
         if (new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true)) {
-            return dqj();
+            return dqn();
         }
         return "";
     }
@@ -49,16 +49,16 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.mgS != null) {
+        if (this.mgV != null) {
             if (!ar.isEmpty(str)) {
-                this.mgS.c(true, str, this.mUrl);
+                this.mgV.c(true, str, this.mUrl);
             } else {
-                this.mgS.c(false, null, null);
+                this.mgV.c(false, null, null);
             }
         }
     }
 
-    private String dqj() {
+    private String dqn() {
         File file = new File(this.mPath + FILE_SEP + "videosplash.temp");
         File file2 = new File(this.mPath + FILE_SEP + (s.toMd5(this.mUrl) + ".mp4"));
         if (file2.exists()) {

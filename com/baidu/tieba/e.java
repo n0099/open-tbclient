@@ -63,9 +63,9 @@ public class e extends Dialog {
 
     /* loaded from: classes.dex */
     interface a {
-        void bnK();
-
         void bnL();
+
+        void bnM();
 
         void jh(boolean z);
 
@@ -86,10 +86,10 @@ public class e extends Dialog {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getId() == e.this.eVt.getId()) {
-                    e.this.eVF.bnK();
+                    e.this.eVF.bnL();
                     e.this.eg(e.this.mContext);
                 } else if (view.getId() == e.this.eVv.getId()) {
-                    e.this.eVF.bnK();
+                    e.this.eVF.bnL();
                 }
             }
         };
@@ -199,7 +199,7 @@ public class e extends Dialog {
         this.eVs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.e.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.eVF.bnK();
+                e.this.eVF.bnL();
             }
         });
         this.eVr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.e.4
@@ -303,7 +303,7 @@ public class e extends Dialog {
             this.eVz.setVisibility(0);
             return;
         }
-        this.eVF.bnL();
+        this.eVF.bnM();
     }
 
     public void a(VersionData versionData, CombineDownload combineDownload, a aVar) {
@@ -312,7 +312,7 @@ public class e extends Dialog {
         this.eVF = aVar;
     }
 
-    public void bnJ() {
+    public void bnK() {
         this.eVz.setVisibility(8);
         this.eVm.setVisibility(0);
     }

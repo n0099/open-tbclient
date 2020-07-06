@@ -21,16 +21,16 @@ public class b implements c.a {
         @Override // com.baidu.tieba.personCenter.model.PersonCenterModel.a
         public void a(f fVar) {
             long currentTimeMillis = System.currentTimeMillis();
-            b.this.kFL.btN();
+            b.this.kFL.btO();
             b.this.kFL.b(fVar);
             if (fVar != null && fVar.getUserData() != null) {
                 e.a(fVar.getUserData().getPersonPrivate());
             }
-            com.baidu.tieba.personCenter.a.cRI().fi(System.currentTimeMillis() - currentTimeMillis);
-            long cRK = com.baidu.tieba.personCenter.a.cRI().cRK();
-            if (cRK > 0) {
-                com.baidu.tieba.personCenter.a.cRI().setRefreshTime(System.currentTimeMillis() - cRK);
-                com.baidu.tieba.personCenter.a.cRI().fj(0L);
+            com.baidu.tieba.personCenter.a.cRJ().fi(System.currentTimeMillis() - currentTimeMillis);
+            long cRL = com.baidu.tieba.personCenter.a.cRJ().cRL();
+            if (cRL > 0) {
+                com.baidu.tieba.personCenter.a.cRJ().setRefreshTime(System.currentTimeMillis() - cRL);
+                com.baidu.tieba.personCenter.a.cRJ().fj(0L);
             }
         }
 
@@ -39,7 +39,7 @@ public class b implements c.a {
             if (i != -1 || b.this.kFK.mIsDataLoaded) {
                 b.this.kFL.aR(i, str);
             } else {
-                b.this.kFL.btM();
+                b.this.kFL.btN();
             }
         }
     };
@@ -54,18 +54,18 @@ public class b implements c.a {
                     b.a aVar2 = bVar.lmY.get(3);
                     b.a aVar3 = bVar.lmY.get(9);
                     b.a aVar4 = bVar.lmY.get(10);
-                    if (b.this.kFK.cRW() != null) {
+                    if (b.this.kFK.cRX() != null) {
                         if (aVar2 != null) {
-                            b.this.kFK.cRW().te(aVar2.eDO);
+                            b.this.kFK.cRX().te(aVar2.eDO);
                         }
                         if (aVar != null) {
-                            b.this.kFK.cRW().th(aVar.eDO);
+                            b.this.kFK.cRX().th(aVar.eDO);
                         }
                         if (aVar3 != null) {
-                            b.this.kFK.cRW().tg(aVar3.eDO);
+                            b.this.kFK.cRX().tg(aVar3.eDO);
                         }
                         if (aVar4 != null) {
-                            b.this.kFK.cRW().tf(aVar4.eDO);
+                            b.this.kFK.cRX().tf(aVar4.eDO);
                         }
                     }
                     b.a aVar5 = bVar.lmY.get(5);
@@ -86,7 +86,7 @@ public class b implements c.a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                com.baidu.tieba.p.a.daq().uc(false);
+                com.baidu.tieba.p.a.dar().uc(false);
             }
         }
     };
@@ -96,8 +96,8 @@ public class b implements c.a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             l lVar;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof l) && (lVar = (l) customResponsedMessage.getData()) != null) {
-                if (b.this.kFK.cRW() != null) {
-                    b.this.kFK.cRW().a(lVar);
+                if (b.this.kFK.cRX() != null) {
+                    b.this.kFK.cRX().a(lVar);
                     b.this.kFL.notifyDataSetChanged();
                     return;
                 }
@@ -111,7 +111,7 @@ public class b implements c.a {
         this.kFL.a(this);
         this.kFK = new PersonCenterModel(tbPageContext, bdUniqueId);
         this.kFK.a(this.kFM);
-        com.baidu.tieba.p.a.daq();
+        com.baidu.tieba.p.a.dar();
         this.kFN.setTag(bdUniqueId);
         this.eXq.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.kFN);
@@ -121,23 +121,23 @@ public class b implements c.a {
     }
 
     public void KD(String str) {
-        f cRW = this.kFK.cRW();
-        if (cRW != null && cRW.getUserData() != null) {
-            cRW.getUserData().setName_show(str);
+        f cRX = this.kFK.cRX();
+        if (cRX != null && cRX.getUserData() != null) {
+            cRX.getUserData().setName_show(str);
             this.kFL.notifyDataSetChanged();
         }
     }
 
     public void KE(String str) {
-        f cRW = this.kFK.cRW();
-        if (cRW != null && cRW.getUserData() != null) {
-            cRW.getUserData().setPortrait(str);
+        f cRX = this.kFK.cRX();
+        if (cRX != null && cRX.getUserData() != null) {
+            cRX.getUserData().setPortrait(str);
             this.kFL.notifyDataSetChanged();
         }
     }
 
     public void refreshView() {
-        com.baidu.tieba.personCenter.a.cRI().fj(System.currentTimeMillis());
+        com.baidu.tieba.personCenter.a.cRJ().fj(System.currentTimeMillis());
         this.kFK.LoadData();
     }
 
@@ -157,12 +157,12 @@ public class b implements c.a {
         this.kFL.onChangeSkinType(i);
     }
 
-    public void cRN() {
-        this.kFL.cRL();
-    }
-
     public void cRO() {
         this.kFL.cRM();
+    }
+
+    public void cRP() {
+        this.kFL.cRN();
     }
 
     @Override // com.baidu.tieba.personCenter.view.c.a

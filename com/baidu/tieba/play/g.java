@@ -69,11 +69,11 @@ public interface g {
 
     void a(i iVar);
 
-    int bnC();
+    int bnD();
 
-    boolean bnD();
+    boolean bnE();
 
-    void bnE();
+    void bnF();
 
     void d(SurfaceTexture surfaceTexture);
 

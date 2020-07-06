@@ -56,11 +56,11 @@ public class b extends c<StrangerListActivity> {
         this.iNm.setAdapter((ListAdapter) this.jfY);
     }
 
-    public StrangerListAdapter cuD() {
+    public StrangerListAdapter cuE() {
         return this.jfY;
     }
 
-    public View cuE() {
+    public View cuF() {
         return this.jfZ;
     }
 }

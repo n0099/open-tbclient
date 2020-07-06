@@ -75,8 +75,8 @@ public class e extends com.baidu.tieba.card.a<bu> implements com.baidu.tieba.a.e
         this.ahM = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.b.e.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.bOc() != null) {
-                    e.this.bOc().a(view, e.this.aea);
+                if (e.this.bOd() != null) {
+                    e.this.bOd().a(view, e.this.aea);
                 }
             }
         };
@@ -211,13 +211,13 @@ public class e extends com.baidu.tieba.card.a<bu> implements com.baidu.tieba.a.e
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!com.baidu.tieba.frs.b.bXc().bWW() && !com.baidu.tieba.frs.a.bWV().bWW()) {
+        if (!com.baidu.tieba.frs.b.bXd().bWX() && !com.baidu.tieba.frs.a.bWW().bWX()) {
             if (view == this.fRG || view == this.fRI.getCommentContainer() || view == this.fdX || view == this.fSu.eeP.getCommentContainer() || view == this.gOF.getCommentContainer()) {
                 if (this.aea != 0) {
                     m.DO(((bu) this.aea).getId());
                 }
-                if (bOc() != null) {
-                    bOc().a(this.fRG, this.aea);
+                if (bOd() != null) {
+                    bOd().a(this.fRG, this.aea);
                 }
                 b(getContext(), (bu) this.aea);
                 if (this.aea != 0) {
@@ -231,8 +231,8 @@ public class e extends com.baidu.tieba.card.a<bu> implements com.baidu.tieba.a.e
                     }
                 }
             } else if (view.getId() == R.id.video_container) {
-                if (bOc() != null) {
-                    bOc().a(view, this.aea);
+                if (bOd() != null) {
+                    bOd().a(view, this.aea);
                 }
                 b(getContext(), (bu) this.aea);
             }
@@ -280,8 +280,8 @@ public class e extends com.baidu.tieba.card.a<bu> implements com.baidu.tieba.a.e
         }
         if (this.fSN && sparseArray != null && sparseArray.size() > 0) {
             this.fSB.l((bu) this.aea, "ala_frs_demo_hell_live_feed_back_type");
-        } else if (this.fSB.bzg() != null) {
-            this.fSB.bzg().setVisibility(8);
+        } else if (this.fSB.bzh() != null) {
+            this.fSB.bzh().setVisibility(8);
         }
         ((bu) this.aea).v(false, true);
         this.aeg.setData((bu) this.aea);
@@ -310,9 +310,9 @@ public class e extends com.baidu.tieba.card.a<bu> implements com.baidu.tieba.a.e
                 String aSE = ((bu) this.aea).aSE();
                 String aSF = ((bu) this.aea).aSF();
                 if (UtilHelper.isDecimal(aSE) && UtilHelper.isDecimal(aSF) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-                    AppPosInfo cZJ = com.baidu.tieba.recapp.d.a.cZF().cZJ();
-                    String str2 = cZJ.latitude;
-                    String str3 = cZJ.longitude;
+                    AppPosInfo cZK = com.baidu.tieba.recapp.d.a.cZG().cZK();
+                    String str2 = cZK.latitude;
+                    String str3 = cZK.longitude;
                     if (UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3) && l.GetDistance(Double.parseDouble(str2), Double.parseDouble(str3), Double.parseDouble(aSE), Double.parseDouble(aSF)) <= 50.0d) {
                         this.fSJ.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_recom_reason));
                         this.fSJ.setVisibility(0);
@@ -322,14 +322,14 @@ public class e extends com.baidu.tieba.card.a<bu> implements com.baidu.tieba.a.e
         }
         qZ(pz(1));
         Y((bu) this.aea);
-        this.mMaskView.setVisibility((com.baidu.tieba.frs.b.bXc().bWW() || com.baidu.tieba.frs.a.bWV().bWW()) ? 0 : 8);
+        this.mMaskView.setVisibility((com.baidu.tieba.frs.b.bXd().bWX() || com.baidu.tieba.frs.a.bWW().bWX()) ? 0 : 8);
         onChangeSkinType(this.dPv, TbadkCoreApplication.getInst().getSkinType());
-        bzk();
+        bzl();
         this.fSI.playAnimation();
         aN(this.fRG);
     }
 
-    public void bzk() {
+    public void bzl() {
         if (k.aPA().isShowImages() && this.aea != 0 && ((bu) this.aea).aPS() != null && ((bu) this.aea).aPS().aSJ() != null) {
             this.eKV.setPlaceHolder(3);
             this.eKV.startLoad(((bu) this.aea).aPS().aSJ().cover, 10, false);
@@ -427,6 +427,6 @@ public class e extends com.baidu.tieba.card.a<bu> implements com.baidu.tieba.a.e
     }
 
     public int pz(int i) {
-        return com.baidu.tieba.a.d.boA().as(this.afG, i);
+        return com.baidu.tieba.a.d.boB().as(this.afG, i);
     }
 }

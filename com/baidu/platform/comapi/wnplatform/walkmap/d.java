@@ -169,9 +169,9 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     public MapStatus j() {
         MapStatus i = com.baidu.platform.comapi.walknavi.b.a().G().i();
         if (i != null) {
-            int[] iArr = {(i.winRound.left + i.winRound.right) / 2, Math.abs(i.winRound.bottom + i.winRound.f994top) / 2};
+            int[] iArr = {(i.winRound.left + i.winRound.right) / 2, Math.abs(i.winRound.bottom + i.winRound.f995top) / 2};
             int[] iArr2 = {0, 0};
-            return new MapStatus.Builder(i).targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f994top + i.winRound.bottom) / 2) - (0 - ((Math.abs(i.winRound.bottom - i.winRound.f994top) * 2) / 10)))).build();
+            return new MapStatus.Builder(i).targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f995top + i.winRound.bottom) / 2) - (0 - ((Math.abs(i.winRound.bottom - i.winRound.f995top) * 2) / 10)))).build();
         }
         return i;
     }

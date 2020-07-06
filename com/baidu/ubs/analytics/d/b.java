@@ -10,48 +10,48 @@ import java.util.Date;
 import java.util.TimeZone;
 /* loaded from: classes8.dex */
 public final class b {
-    private static boolean mEv;
-    private static boolean mFv;
-    private static StringBuffer mFw = new StringBuffer();
+    private static boolean mEy;
+    private static boolean mFy;
+    private static StringBuffer mFz = new StringBuffer();
 
     static {
-        if (com.baidu.ubs.analytics.d.dxd() != null) {
-            mEv = !a.dxz();
-            mFv = true;
-            mFw.append("ABsdkLog-");
-            mFw.append(new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(new Date()));
-            mFw.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        if (com.baidu.ubs.analytics.d.dxh() != null) {
+            mEy = !a.dxD();
+            mFy = true;
+            mFz.append("ABsdkLog-");
+            mFz.append(new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(new Date()));
+            mFz.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             try {
-                mFw.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.dxd().getContext()).getBytes("UTF-8")));
+                mFz.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.dxh().getContext()).getBytes("UTF-8")));
             } catch (UnsupportedEncodingException e) {
                 j.a(e);
             } catch (Exception e2) {
                 j.a(e2);
             }
-            mFw.append(BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
+            mFz.append(BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
         }
     }
 
-    public static String dxA() {
-        return mFw.toString();
+    public static String dxE() {
+        return mFz.toString();
     }
 
     public static void H(String str) {
-        if (mEv) {
+        if (mEy) {
             Log.w("BaiDuUbs", str);
         }
         a("w", "BaiDuUbs", str);
     }
 
     public static void I(String str) {
-        if (mEv) {
+        if (mEy) {
             Log.e("BaiDuUbs", str);
         }
         a("e", "BaiDuUbs", str);
     }
 
     private static void a(final String str, final String str2, final String str3) {
-        if (mFv) {
+        if (mFy) {
             c.a(new d() { // from class: com.baidu.ubs.analytics.d.b.1
                 @Override // com.baidu.ubs.analytics.d.d
                 protected final void a() {
@@ -65,7 +65,7 @@ public final class b {
                     stringBuffer.append(str2);
                     stringBuffer.append("\t");
                     stringBuffer.append(str3);
-                    g.b(stringBuffer.toString(), a.mFt, b.mFw.toString());
+                    g.b(stringBuffer.toString(), a.mFw, b.mFz.toString());
                 }
             });
         }

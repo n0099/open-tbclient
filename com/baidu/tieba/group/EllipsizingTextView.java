@@ -89,7 +89,7 @@ public class EllipsizingTextView extends TextView {
     protected void onDraw(Canvas canvas) {
         if (this.ikB) {
             super.setEllipsize(null);
-            chy();
+            chz();
         }
         super.onDraw(canvas);
     }
@@ -100,7 +100,7 @@ public class EllipsizingTextView extends TextView {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void chy() {
+    private void chz() {
         boolean z;
         int maxLines = getMaxLines();
         String str = this.ikD;

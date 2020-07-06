@@ -67,7 +67,7 @@ public class AlaChallengeCountDown extends LinearLayout {
         this.maxCount = i;
     }
 
-    private void bDw() {
+    private void bDx() {
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         ofFloat.setDuration(300L);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeCountDown.1
@@ -86,9 +86,9 @@ public class AlaChallengeCountDown extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bDx() {
+    public void bDy() {
         if (this.count <= 0) {
-            bDz();
+            bDA();
             return;
         }
         this.gcs.setText(String.valueOf(this.count));
@@ -111,7 +111,7 @@ public class AlaChallengeCountDown extends LinearLayout {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                AlaChallengeCountDown.this.bDx();
+                AlaChallengeCountDown.this.bDy();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -121,7 +121,7 @@ public class AlaChallengeCountDown extends LinearLayout {
         this.gcs.startAnimation(animationSet);
     }
 
-    public void bDy() {
+    public void bDz() {
         this.gct = false;
         this.gcu = false;
         if (this.gcr != null) {
@@ -134,7 +134,7 @@ public class AlaChallengeCountDown extends LinearLayout {
         }
     }
 
-    public void bDz() {
+    public void bDA() {
         if (!this.gcu) {
             this.gcu = true;
             if (this.gcr != null) {
@@ -182,8 +182,8 @@ public class AlaChallengeCountDown extends LinearLayout {
             this.gct = true;
             this.count = this.maxCount;
             this.rootView.setAlpha(1.0f);
-            bDw();
             bDx();
+            bDy();
         }
     }
 

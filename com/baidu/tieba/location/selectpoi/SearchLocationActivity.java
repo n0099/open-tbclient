@@ -82,7 +82,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
     private AdapterView.OnItemClickListener jxm = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.7
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (SearchLocationActivity.this.jxh != null && SearchLocationActivity.this.jxh.czq()) {
+            if (SearchLocationActivity.this.jxh != null && SearchLocationActivity.this.jxh.czr()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CLOSE_SELECT_LOCATION_ACTIVITY));
                 MessageManager messageManager = MessageManager.getInstance();
                 a.C0677a c0677a = (a.C0677a) SearchLocationActivity.this.jxh.getItem(i);
@@ -97,7 +97,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         registerListener(this.jxl);
-        SearchLocationActivityStatic.czp();
+        SearchLocationActivityStatic.czq();
         setContentView(R.layout.search_location_layout);
         initUI();
         initData();
@@ -145,7 +145,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
                     } else if (StringUtils.isNull(SearchLocationActivity.this.getInputMsg())) {
                         return false;
                     } else {
-                        SearchLocationActivity.this.czo();
+                        SearchLocationActivity.this.czp();
                         return true;
                     }
                 }
@@ -160,7 +160,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
                 if (!l.isNetOk()) {
                     SearchLocationActivity.this.showToast(R.string.no_network_guide);
                 } else if (!StringUtils.isNull(SearchLocationActivity.this.getInputMsg())) {
-                    SearchLocationActivity.this.czo();
+                    SearchLocationActivity.this.czp();
                 }
             }
         });
@@ -173,9 +173,9 @@ public class SearchLocationActivity extends NavigationBarActivity {
 
     public void initData() {
         this.jxg = new com.baidu.tieba.location.data.a();
-        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.diD().getLocationData();
+        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.diE().getLocationData();
         if (locationData != null) {
-            this.jxg.aA(b(locationData.diC(), locationData.diB(), locationData.axE()));
+            this.jxg.aA(b(locationData.diD(), locationData.diC(), locationData.axE()));
         }
         this.jxh.a(this.jxg);
         this.jxh.notifyDataSetChanged();
@@ -213,7 +213,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
         return arrayList;
     }
 
-    public void czo() {
+    public void czp() {
         LocationSearchNetRequestMessage locationSearchNetRequestMessage = new LocationSearchNetRequestMessage();
         locationSearchNetRequestMessage.setAddrName(getInputMsg());
         sendMessage(locationSearchNetRequestMessage);

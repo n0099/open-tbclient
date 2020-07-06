@@ -54,7 +54,7 @@ public class n {
         return layoutParams.height;
     }
 
-    public int bYO() {
+    public int bYP() {
         return this.hBR;
     }
 }

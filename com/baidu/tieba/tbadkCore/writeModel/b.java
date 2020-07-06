@@ -35,19 +35,19 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean djr() {
+    public boolean djs() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean djs() {
+    public boolean djt() {
         return this.errorCode == 1990055;
     }
 
-    public boolean djt() {
+    public boolean dju() {
         return this.errorCode == 3250012;
     }
 
-    public boolean dju() {
+    public boolean djv() {
         return this.errorCode == 227001;
     }
 
@@ -63,7 +63,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData bXd() {
+    public AntiData bXe() {
         return this.antiData;
     }
 
@@ -107,7 +107,7 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String djv() {
+    public String djw() {
         return this.lJU;
     }
 
@@ -115,7 +115,7 @@ public class b {
         this.lJU = str;
     }
 
-    public String djw() {
+    public String djx() {
         return this.lJV;
     }
 

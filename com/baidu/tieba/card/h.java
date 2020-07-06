@@ -63,33 +63,33 @@ public class h extends b<com.baidu.tieba.e.e> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.e.e eVar) {
-        if (eVar != null && eVar.bPU() != null) {
-            if (!TextUtils.isEmpty(eVar.bPU().title)) {
-                this.gPS.setText(eVar.bPU().title);
+        if (eVar != null && eVar.bPV() != null) {
+            if (!TextUtils.isEmpty(eVar.bPV().title)) {
+                this.gPS.setText(eVar.bPV().title);
             }
             this.gPT.setVisibility(8);
             this.gPU.setVisibility(8);
             this.gPV.setVisibility(8);
             this.gPW.setVisibility(8);
-            if (eVar.bPU().sub_nodes.size() >= 1) {
+            if (eVar.bPV().sub_nodes.size() >= 1) {
                 this.gPT.setVisibility(0);
-                this.gPT.setTag(eVar.bPU().sub_nodes.get(0).url);
-                this.gPT.setText(eVar.bPU().sub_nodes.get(0).title);
+                this.gPT.setTag(eVar.bPV().sub_nodes.get(0).url);
+                this.gPT.setText(eVar.bPV().sub_nodes.get(0).title);
             }
-            if (eVar.bPU().sub_nodes.size() >= 2) {
+            if (eVar.bPV().sub_nodes.size() >= 2) {
                 this.gPU.setVisibility(0);
-                this.gPU.setTag(eVar.bPU().sub_nodes.get(1).url);
-                this.gPU.setText(eVar.bPU().sub_nodes.get(1).title);
+                this.gPU.setTag(eVar.bPV().sub_nodes.get(1).url);
+                this.gPU.setText(eVar.bPV().sub_nodes.get(1).title);
             }
-            if (eVar.bPU().sub_nodes.size() >= 3) {
+            if (eVar.bPV().sub_nodes.size() >= 3) {
                 this.gPV.setVisibility(0);
-                this.gPV.setTag(eVar.bPU().sub_nodes.get(2).url);
-                this.gPV.setText(eVar.bPU().sub_nodes.get(2).title);
+                this.gPV.setTag(eVar.bPV().sub_nodes.get(2).url);
+                this.gPV.setText(eVar.bPV().sub_nodes.get(2).title);
             }
-            if (eVar.bPU().sub_nodes.size() >= 4) {
+            if (eVar.bPV().sub_nodes.size() >= 4) {
                 this.gPW.setVisibility(0);
-                this.gPW.setTag(eVar.bPU().sub_nodes.get(3).url);
-                this.gPW.setText(eVar.bPU().sub_nodes.get(3).title);
+                this.gPW.setTag(eVar.bPV().sub_nodes.get(3).url);
+                this.gPW.setText(eVar.bPV().sub_nodes.get(3).title);
             }
         }
     }

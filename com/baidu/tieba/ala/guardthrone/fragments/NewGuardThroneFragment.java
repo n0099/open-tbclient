@@ -93,11 +93,11 @@ public class NewGuardThroneFragment extends BaseFragment {
     public void onDestroy() {
         super.onDestroy();
         if (this.fNf != null) {
-            this.fNf.byw();
+            this.fNf.byx();
             this.fNf.onDestroy();
         }
         if (this.fNg != null) {
-            this.fNg.byw();
+            this.fNg.byx();
             this.fNg.onDestroy();
         }
     }

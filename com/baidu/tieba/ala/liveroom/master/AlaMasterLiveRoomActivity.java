@@ -105,16 +105,16 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
                 NetWorkChangedMessage netWorkChangedMessage = (NetWorkChangedMessage) customResponsedMessage;
                 if (netWorkChangedMessage.mLastNetState != netType || !BdNetTypeUtil.isWifiNet() || netWorkChangedMessage.mlastChangedTime != 0) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        AlaMasterLiveRoomActivity.this.bFU();
+                        AlaMasterLiveRoomActivity.this.bFV();
                         return;
                     }
                     if (BdNetTypeUtil.isMobileNet() && k.Jl()) {
-                        AlaMasterLiveRoomActivity.this.bFT();
+                        AlaMasterLiveRoomActivity.this.bFU();
                     } else if (BdNetTypeUtil.isWifiNet()) {
-                        AlaMasterLiveRoomActivity.this.bFV();
+                        AlaMasterLiveRoomActivity.this.bFW();
                     }
                     if (AlaMasterLiveRoomActivity.this.gjP != null) {
-                        AlaMasterLiveRoomActivity.this.gjP.bGh();
+                        AlaMasterLiveRoomActivity.this.gjP.bGi();
                     }
                 }
             }
@@ -146,13 +146,13 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
         this.gjX = true;
         if (!isFinishing()) {
             this.gjT = bundle;
-            if (!bFN()) {
+            if (!bFO()) {
                 init();
             }
         }
     }
 
-    private boolean bFN() {
+    private boolean bFO() {
         Activity pageActivity = getPageContext().getPageActivity();
         this.gkc = new PermissionJudgePolicy();
         this.gkc.setDialogClickListener(new PermissionJudgePolicy.PermissionDialogClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomActivity.4
@@ -192,7 +192,7 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
     private void initData(Bundle bundle) {
         AlaLivePersonData alaLivePersonData;
         if (!UtilHelper.isARM()) {
-            bFO();
+            bFP();
             return;
         }
         Intent intent = getIntent();
@@ -230,7 +230,7 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
                     AlaLiveSwitchData.liveActivityType = "";
                 }
             }
-            bFQ();
+            bFR();
             MessageManager.getInstance().registerListener(this.fTl);
             MessageManager.getInstance().registerListener(this.gkd);
             MessageManager.getInstance().registerListener(this.ble);
@@ -270,7 +270,7 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
         }
     }
 
-    private void bFO() {
+    private void bFP() {
         BdAlertDialog bdAlertDialog = new BdAlertDialog(getPageContext().getPageActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setTitle((String) null);
@@ -334,12 +334,12 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
                     }
                     if (AlaMasterLiveRoomActivity.this.mLastScreenHeight != screenFullSize[1]) {
                         if (AlaMasterLiveRoomActivity.this.gjP != null) {
-                            AlaMasterLiveRoomActivity.this.gjP.bGe();
+                            AlaMasterLiveRoomActivity.this.gjP.bGf();
                         }
                         AlaMasterLiveRoomActivity.this.mLastScreenHeight = screenFullSize[1];
                     } else if (AlaMasterLiveRoomActivity.this.mLastScreenWidth != screenFullSize[0]) {
                         if (AlaMasterLiveRoomActivity.this.gjP != null) {
-                            AlaMasterLiveRoomActivity.this.gjP.bGe();
+                            AlaMasterLiveRoomActivity.this.gjP.bGf();
                         }
                         AlaMasterLiveRoomActivity.this.mLastScreenWidth = screenFullSize[0];
                     }
@@ -401,14 +401,14 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
         super.onResume();
         if (this.gjS) {
             if (this.gjQ != null) {
-                this.gjQ.bIo();
-                this.gjQ.bIc();
-                this.gjQ.bIg();
+                this.gjQ.bIp();
+                this.gjQ.bId();
+                this.gjQ.bIh();
             }
             if (this.gjP != null) {
                 this.gjP.onResume();
             }
-            bFP();
+            bFQ();
         }
     }
 
@@ -417,8 +417,8 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
     public void onPause() {
         super.onPause();
         if (this.gjS && this.gjQ != null) {
-            this.gjQ.bId();
-            this.gjQ.bIh();
+            this.gjQ.bIe();
+            this.gjQ.bIi();
         }
         if (this.gjP != null) {
             this.gjP.onPause();
@@ -435,17 +435,17 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
         AlaStatManager.getInstance().forceUpload();
     }
 
-    private void bFP() {
+    private void bFQ() {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            bFU();
+            bFV();
         } else if (this.gjX) {
             this.gjX = false;
             if (!TbadkCoreApplication.isShownNetChangeDialog.booleanValue() && BdNetTypeUtil.isMobileNet() && k.Jk()) {
                 TbadkCoreApplication.isShownNetChangeDialog = true;
-                bFT();
+                bFU();
             }
         } else if (BdNetTypeUtil.isMobileNet() && k.Jl()) {
-            bFT();
+            bFU();
         }
     }
 
@@ -522,7 +522,7 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
         }
     }
 
-    private void bFQ() {
+    private void bFR() {
         this.gjR = new a();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(BdStatsConstant.BROADCAST_ACCOUNT_CHANGED);
@@ -559,7 +559,7 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
         }
     }
 
-    public void bFR() {
+    public void bFS() {
         this.isBackground = false;
         finish();
     }
@@ -588,7 +588,7 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
         }
     }
 
-    public String bFS() {
+    public String bFT() {
         return this.fTa;
     }
 
@@ -606,21 +606,21 @@ public class AlaMasterLiveRoomActivity extends BaseActivity<AlaMasterLiveRoomAct
         ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
     }
 
-    public void bFT() {
+    public void bFU() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getPageActivity().getResources().getString(a.i.ala_watch_live_mobile_net_tip));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFU() {
+    public void bFV() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getPageActivity().getString(a.i.ala_create_no_network));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFV() {
+    public void bFW() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getResources().getString(a.i.ala_watch_live_user_has_change_to_wifi));
         }

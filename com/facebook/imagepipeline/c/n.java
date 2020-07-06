@@ -5,14 +5,6 @@ public interface n {
 
     void b(h<?, ?> hVar);
 
-    void dCD();
-
-    void dCE();
-
-    void dCF();
-
-    void dCG();
-
     void dCH();
 
     void dCI();
@@ -20,6 +12,14 @@ public interface n {
     void dCJ();
 
     void dCK();
+
+    void dCL();
+
+    void dCM();
+
+    void dCN();
+
+    void dCO();
 
     void p(com.facebook.cache.common.b bVar);
 

@@ -157,7 +157,7 @@ public class GuardClubRankActivity extends BaseActivity implements b.a {
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.b.a
-    public ViewGroup bxx() {
+    public ViewGroup bxy() {
         return this.fKt;
     }
 
@@ -176,13 +176,13 @@ public class GuardClubRankActivity extends BaseActivity implements b.a {
         setContentView(a.h.live_guard_club_activity_rank);
         initTitle();
         this.fKt = (RelativeLayout) findViewById(a.g.layout_join_suc);
-        bxy();
+        bxz();
     }
 
     private void zA() {
         this.fKv = new com.baidu.tieba.ala.guardclub.rank.b(getPageContext());
         this.fKv.a(getIntent(), this);
-        this.fKv.bxN();
+        this.fKv.bxO();
     }
 
     private void initTitle() {
@@ -227,7 +227,7 @@ public class GuardClubRankActivity extends BaseActivity implements b.a {
         });
     }
 
-    private void bxy() {
+    private void bxz() {
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             this.fKr.setPadding(this.fKr.getPaddingLeft(), this.fKr.getPaddingTop() + UtilHelper.getStatusBarHeight(), this.fKr.getPaddingRight(), this.fKr.getPaddingBottom());
         }

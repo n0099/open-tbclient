@@ -45,7 +45,7 @@ public class a {
         return this.jMx.size();
     }
 
-    public int cDB() {
+    public int cDC() {
         return this.jMz;
     }
 
@@ -63,7 +63,7 @@ public class a {
         this.inP = true;
     }
 
-    public ArrayList<MarkData> cDC() {
+    public ArrayList<MarkData> cDD() {
         return this.jMx;
     }
 
@@ -74,7 +74,7 @@ public class a {
     public void aL(ArrayList<MarkData> arrayList) {
         if (this.jMx != null && arrayList != null) {
             this.jMx.addAll(arrayList);
-            cDG();
+            cDH();
         }
     }
 
@@ -89,14 +89,14 @@ public class a {
         return this.jMx.size();
     }
 
-    public int cDD() {
+    public int cDE() {
         return this.jMy;
     }
 
-    public void cDE() {
-        ArrayList<MarkData> diT = com.baidu.tieba.tbadkCore.util.a.diT();
-        if (diT != null) {
-            aK(diT);
+    public void cDF() {
+        ArrayList<MarkData> diU = com.baidu.tieba.tbadkCore.util.a.diU();
+        if (diU != null) {
+            aK(diU);
         }
     }
 
@@ -314,15 +314,15 @@ public class a {
                 com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "collection_thread_list_result", this.jMB.getErrorCode(), this.jMB.getErrorString(), new Object[0]);
             }
             a.this.jMy = aVar.getCount();
-            ArrayList<MarkData> cDC = aVar.cDC();
+            ArrayList<MarkData> cDD = aVar.cDD();
             if (this.jMD.booleanValue()) {
-                if (cDC != null && cDC.size() != 0) {
-                    a.this.aK(cDC);
+                if (cDD != null && cDD.size() != 0) {
+                    a.this.aK(cDD);
                 }
             } else {
-                a.this.aL(cDC);
+                a.this.aL(cDD);
             }
-            Iterator<MarkData> it = cDC.iterator();
+            Iterator<MarkData> it = cDD.iterator();
             int i2 = 0;
             while (it.hasNext()) {
                 if (it.next().getNewCounts() > 0) {
@@ -367,25 +367,25 @@ public class a {
         public Boolean doInBackground(a... aVarArr) {
             a aVar = new a();
             try {
-                aVar.cDE();
+                aVar.cDF();
                 this.byb = new y();
                 this.byb.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                int cDF = this.jMC.cDF();
-                if (aVar.getCount() - 1 <= cDF) {
-                    cDF = aVar.getCount() - 1;
+                int cDG = this.jMC.cDG();
+                if (aVar.getCount() - 1 <= cDG) {
+                    cDG = aVar.getCount() - 1;
                 }
-                while (cDF >= 0) {
-                    String cE = aVar.cE(cDF, 20);
+                while (cDG >= 0) {
+                    String cE = aVar.cE(cDG, 20);
                     this.byb.setPostData(new ArrayList<>());
                     this.byb.addPostData("data", cE);
                     this.jMB.parserJson(this.byb.postNetData());
                     if (!this.byb.aWu().aWW().isRequestSuccess() || this.jMB.getErrorCode() != 0) {
                         break;
                     }
-                    cDF -= 20;
+                    cDG -= 20;
                 }
-                this.jMC.Au(cDF);
-                if (cDF >= 0) {
+                this.jMC.Au(cDG);
+                if (cDG >= 0) {
                     return false;
                 }
                 return true;
@@ -510,7 +510,7 @@ public class a {
         }
     }
 
-    public int cDF() {
+    public int cDG() {
         return com.baidu.tbadk.core.sharedPref.b.aVP().getInt(SharedPrefConfig.UPLOAD_MARK_OFFSET, 399);
     }
 
@@ -534,7 +534,7 @@ public class a {
         this.jMA = cVar;
     }
 
-    private void cDG() {
+    private void cDH() {
         if (this.jMx != null) {
             HashSet hashSet = new HashSet();
             Iterator<MarkData> it = this.jMx.iterator();

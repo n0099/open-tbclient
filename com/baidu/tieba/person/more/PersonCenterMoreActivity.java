@@ -29,7 +29,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         @Override // com.baidu.tieba.card.aa
         public void a(View view, h hVar) {
             PersonCenterMoreActivity.this.kFl = hVar;
-            if (PersonCenterMoreActivity.this.kFl != null && !PersonCenterMoreActivity.this.bFN()) {
+            if (PersonCenterMoreActivity.this.kFl != null && !PersonCenterMoreActivity.this.bFO()) {
                 PersonCenterMoreActivity.this.KC(PersonCenterMoreActivity.this.kFl.awR);
             }
         }
@@ -52,7 +52,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bFN() {
+    public boolean bFO() {
         Activity pageActivity = getPageContext().getPageActivity();
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.clearRequestPermissionList();

@@ -35,7 +35,7 @@ public class GroupChatView extends CommonGroupMsglistView {
             this.iJN = (ImageView) this.mBtnGroupInfo.findViewById(R.id.red_dot);
             this.iJN.setVisibility(8);
             if (!StringUtils.isNull(stringExtra) && stringExtra.equals(TbadkApplication.getCurrentAccount())) {
-                cmZ();
+                cna();
             }
             if (MessageManager.getInstance().findTask(CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START) == null) {
                 this.mBtnGroupInfo.setVisibility(4);
@@ -56,13 +56,13 @@ public class GroupChatView extends CommonGroupMsglistView {
         }
     }
 
-    public void cmZ() {
+    public void cna() {
         if (!com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean(SharedPrefConfig.HAS_SHOWN_GROUP_BTN_DOT, false)) {
             this.iJN.setVisibility(0);
         }
     }
 
-    public void cna() {
+    public void cnb() {
         this.iJN.setVisibility(8);
         com.baidu.tbadk.core.sharedPref.b.aVP().putBoolean(SharedPrefConfig.HAS_SHOWN_GROUP_BTN_DOT, true);
     }

@@ -291,7 +291,7 @@ public class i extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bxt() {
+    public void bxu() {
         MessageManager.getInstance().unRegisterListener(this.fzf);
     }
 

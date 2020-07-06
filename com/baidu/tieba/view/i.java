@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class i implements View.OnTouchListener {
-    private final Spannable mjY;
-    private com.baidu.tbadk.widget.richText.f mjZ = null;
-    private int mka = 0;
+    private final Spannable mkb;
+    private com.baidu.tbadk.widget.richText.f mkc = null;
+    private int mkd = 0;
 
     public i(Spannable spannable) {
-        this.mjY = spannable;
+        this.mkb = spannable;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -24,10 +24,10 @@ public class i implements View.OnTouchListener {
         int action = motionEvent.getAction();
         if (view instanceof TextView) {
             TextView textView = (TextView) view;
-            if (action == 3 && this.mjZ != null) {
-                this.mjZ.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+            if (action == 3 && this.mkc != null) {
+                this.mkc.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                 view.invalidate();
-                this.mjZ = null;
+                this.mkc = null;
                 return false;
             }
             if (action == 1 || action == 0) {
@@ -39,36 +39,36 @@ public class i implements View.OnTouchListener {
                 }
                 int totalPaddingLeft = x - textView.getTotalPaddingLeft();
                 int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), totalPaddingLeft + textView.getScrollX());
-                if (this.mjY == null) {
+                if (this.mkb == null) {
                     return false;
                 }
-                com.baidu.tbadk.widget.richText.f[] fVarArr = (com.baidu.tbadk.widget.richText.f[]) this.mjY.getSpans(offsetForHorizontal, offsetForHorizontal, com.baidu.tbadk.widget.richText.f.class);
+                com.baidu.tbadk.widget.richText.f[] fVarArr = (com.baidu.tbadk.widget.richText.f[]) this.mkb.getSpans(offsetForHorizontal, offsetForHorizontal, com.baidu.tbadk.widget.richText.f.class);
                 if (fVarArr != null && fVarArr.length != 0 && fVarArr[0] != null) {
                     if (action == 1) {
                         fVarArr[0].setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                         fVarArr[0].onClick(textView);
                         view.invalidate();
                     } else {
-                        this.mjZ = fVarArr[0];
-                        if (this.mjZ.blq()) {
-                            if (this.mka != 0) {
-                                fVarArr[0].setColor(an.getColor(this.mka));
+                        this.mkc = fVarArr[0];
+                        if (this.mkc.blr()) {
+                            if (this.mkd != 0) {
+                                fVarArr[0].setColor(an.getColor(this.mkd));
                             } else if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                                 fVarArr[0].setColor(an.getColor(R.color.cp_bg_line_c));
                             } else {
                                 fVarArr[0].setColor(an.getColor(R.color.cp_bg_line_z));
                             }
                         }
-                        Selection.setSelection(this.mjY, this.mjY.getSpanStart(fVarArr[0]), this.mjY.getSpanEnd(fVarArr[0]));
+                        Selection.setSelection(this.mkb, this.mkb.getSpanStart(fVarArr[0]), this.mkb.getSpanEnd(fVarArr[0]));
                         view.invalidate();
                     }
                     return true;
                 }
-                if (this.mjZ != null) {
-                    this.mjZ.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                if (this.mkc != null) {
+                    this.mkc.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                     view.invalidate();
                 }
-                Selection.removeSelection(this.mjY);
+                Selection.removeSelection(this.mkb);
             }
             return false;
         }
@@ -76,6 +76,6 @@ public class i implements View.OnTouchListener {
     }
 
     public void Gx(int i) {
-        this.mka = i;
+        this.mkd = i;
     }
 }

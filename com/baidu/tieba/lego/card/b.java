@@ -23,7 +23,7 @@ public class b extends e {
         private static final b jqk = new b();
     }
 
-    public static b cxc() {
+    public static b cxd() {
         return a.jqk;
     }
 
@@ -32,7 +32,7 @@ public class b extends e {
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void cxd() {
+    protected void cxe() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -112,6 +112,6 @@ public class b extends e {
     }
 
     public static ICardInfo dx(JSONObject jSONObject) throws CardParseException {
-        return cxc().d(jSONObject, jSONObject.optInt(IntentConfig.CARD_TYPE));
+        return cxd().d(jSONObject, jSONObject.optInt(IntentConfig.CARD_TYPE));
     }
 }

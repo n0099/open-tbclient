@@ -87,9 +87,9 @@ public class c extends BaseAdapter {
         if (dVar != null) {
             dVar.a(getItem(i));
             if (this.fjj == i) {
-                dVar.btf();
+                dVar.btg();
             } else {
-                dVar.bte();
+                dVar.btf();
             }
         }
         if (i == 0 && this.fld != 0) {

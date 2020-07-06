@@ -142,7 +142,7 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaRedPacketSnatchResultActivity.this.finish();
-                AlaRedPacketSnatchResultActivity.this.brJ();
+                AlaRedPacketSnatchResultActivity.this.brK();
             }
         });
         this.fdX.setVisibility(8);
@@ -150,7 +150,7 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void brJ() {
+    public void brK() {
         w wVar = new w();
         wVar.ayb = -1;
         wVar.ayc = -1;

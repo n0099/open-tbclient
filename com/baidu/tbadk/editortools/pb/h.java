@@ -82,11 +82,11 @@ public class h extends com.baidu.tbadk.editortools.d {
                     str = postWriteCallBackData.getErrorString();
                 }
                 if (z) {
-                    WriteData dev = h.this.evx.dev();
+                    WriteData dew = h.this.evx.dew();
                     h.this.evx.d((WriteData) null);
                     h.this.evx.uN(false);
                     h.this.mVoiceModel = null;
-                    if (dev != null && dev != null && dev.getType() == 2) {
+                    if (dew != null && dew != null && dew.getType() == 2) {
                         h.this.ewi.bfv();
                     }
                 } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.bA(i, str)) {
@@ -223,10 +223,10 @@ public class h extends com.baidu.tbadk.editortools.d {
                     }
                     bfZ();
                     in(true);
-                    WriteData dev = this.evx.dev();
+                    WriteData dew = this.evx.dew();
                     this.evx.d((WriteData) null);
                     this.evx.uN(false);
-                    if (dev != null && dev != null && dev.getType() == 2) {
+                    if (dew != null && dew != null && dew.getType() == 2) {
                         this.ewi.bfv();
                         return;
                     }
@@ -239,7 +239,7 @@ public class h extends com.baidu.tbadk.editortools.d {
                 case RequestResponseCode.REQUEST_VCODE /* 12006 */:
                     PostWriteCallBackData postWriteCallBackData = (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
                     if (this.ewk != null) {
-                        this.ewk.callback(false, postWriteCallBackData, null, this.evx.dev(), null);
+                        this.ewk.callback(false, postWriteCallBackData, null, this.evx.dew(), null);
                         return;
                     }
                     return;
@@ -250,45 +250,45 @@ public class h extends com.baidu.tbadk.editortools.d {
     }
 
     public void bfX() {
-        if (this.evx.dev() == null) {
+        if (this.evx.dew() == null) {
             WriteData yy = this.ewi.yy(this.ewi.bfw());
             if (yy != null && this.aiq != null) {
                 yy.setBaijiahaoData(this.aiq.getBaijiahaoData());
             }
             this.evx.d(yy);
         }
-        if (this.evx.dev() != null) {
+        if (this.evx.dew() != null) {
             this.evx.setSpanGroupManager(this.mSpanGroupManager);
             if (this.ewg != null) {
-                this.evx.dev().setContent(this.ewg.mContent);
-                this.evx.dev().setSubPbReplyPrefix(this.ewg.ews);
+                this.evx.dew().setContent(this.ewg.mContent);
+                this.evx.dew().setSubPbReplyPrefix(this.ewg.ews);
                 if (this.aiq != null) {
-                    this.evx.dev().setBaijiahaoData(this.aiq.getBaijiahaoData());
+                    this.evx.dew().setBaijiahaoData(this.aiq.getBaijiahaoData());
                 }
             }
-            this.evx.dev().setReplyId(this.ewh);
+            this.evx.dew().setReplyId(this.ewh);
             if (this.mPostId != null) {
-                this.evx.dev().setRepostId(this.ewi.bfw());
+                this.evx.dew().setRepostId(this.ewi.bfw());
             }
             if (this.mVoiceModel != null) {
                 if (this.mVoiceModel.getId() != null) {
-                    this.evx.dev().setVoice(this.mVoiceModel.getId());
-                    this.evx.dev().setVoiceDuringTime(this.mVoiceModel.duration);
+                    this.evx.dew().setVoice(this.mVoiceModel.getId());
+                    this.evx.dew().setVoiceDuringTime(this.mVoiceModel.duration);
                 } else {
-                    this.evx.dev().setVoice(null);
-                    this.evx.dev().setVoiceDuringTime(-1);
+                    this.evx.dew().setVoice(null);
+                    this.evx.dew().setVoiceDuringTime(-1);
                 }
             } else {
-                this.evx.dev().setVoice(null);
-                this.evx.dev().setVoiceDuringTime(-1);
+                this.evx.dew().setVoice(null);
+                this.evx.dew().setVoiceDuringTime(-1);
             }
-            if (!this.evx.djq()) {
+            if (!this.evx.djr()) {
                 bac().showToast((int) R.string.write_img_limit);
             } else if (this.evF == null || !this.evF.bfy()) {
                 if (this.evE != null) {
                     this.evE.bfz();
                 }
-                if (!this.evx.djn()) {
+                if (!this.evx.djo()) {
                 }
             }
         }

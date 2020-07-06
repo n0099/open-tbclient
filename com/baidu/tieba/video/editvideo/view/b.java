@@ -12,44 +12,44 @@ import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class b implements com.baidu.tieba.c.b, com.baidu.tieba.video.editvideo.b, b.a {
-    private SelectMusicModel lWa;
-    private com.baidu.tieba.video.editvideo.b.a lWc;
-    private BaseActivity lYF;
-    private com.baidu.tieba.video.b lYG;
-    private String lYH;
+    private SelectMusicModel lWd;
+    private com.baidu.tieba.video.editvideo.b.a lWf;
+    private BaseActivity lYI;
+    private com.baidu.tieba.video.b lYJ;
+    private String lYK;
 
     public b(com.baidu.tieba.video.b bVar) {
-        this.lYG = bVar;
-        this.lYF = this.lYG.activity;
+        this.lYJ = bVar;
+        this.lYI = this.lYJ.activity;
     }
 
     @Override // com.baidu.tieba.c.b
     public void start() {
-        dnB();
+        dnF();
     }
 
     @Override // com.baidu.tieba.c.b
     public void cancel() {
-        if (this.lYG != null) {
-            this.lYG.vf(true);
+        if (this.lYJ != null) {
+            this.lYJ.vf(true);
         }
-        if (this.lWc != null && this.lWc.dmN()) {
-            this.lWc.dmO();
+        if (this.lWf != null && this.lWf.dmR()) {
+            this.lWf.dmS();
         }
     }
 
-    public void dnB() {
-        if (this.lYG != null) {
-            if (this.lYG.isCancel()) {
-                this.lYG.onCancel();
-                this.lYG = null;
-            } else if (!StringUtils.isNull(this.lYG.musicPath) || this.lYG.isMute) {
-                if (this.lWa == null) {
-                    this.lWa = new SelectMusicModel(this.lYF.getPageContext(), this);
+    public void dnF() {
+        if (this.lYJ != null) {
+            if (this.lYJ.isCancel()) {
+                this.lYJ.onCancel();
+                this.lYJ = null;
+            } else if (!StringUtils.isNull(this.lYJ.musicPath) || this.lYJ.isMute) {
+                if (this.lWd == null) {
+                    this.lWd = new SelectMusicModel(this.lYI.getPageContext(), this);
                 }
-                this.lWa.h(this.lYG.originPath, this.lYG.musicPath, com.baidu.tieba.video.d.lUu + "video_" + System.currentTimeMillis() + ".mp4", !this.lYG.isMute);
+                this.lWd.h(this.lYJ.originPath, this.lYJ.musicPath, com.baidu.tieba.video.d.lUx + "video_" + System.currentTimeMillis() + ".mp4", !this.lYJ.isMute);
             } else {
-                t(this.lYG.originPath, -4399, "");
+                t(this.lYJ.originPath, -4399, "");
             }
         }
     }
@@ -60,72 +60,72 @@ public class b implements com.baidu.tieba.c.b, com.baidu.tieba.video.editvideo.b
 
     @Override // com.baidu.tieba.video.editvideo.b
     public void t(String str, int i, String str2) {
-        if (this.lYG != null && this.lYG.isCancel()) {
-            this.lYG.onCancel();
-            this.lYG = null;
+        if (this.lYJ != null && this.lYJ.isCancel()) {
+            this.lYJ.onCancel();
+            this.lYJ = null;
         } else if (TextUtils.isEmpty(str)) {
-            this.lYF.showToast(R.string.mixing_fail);
-            if (this.lYG != null) {
-                this.lYG.bE(i, str2);
+            this.lYI.showToast(R.string.mixing_fail);
+            if (this.lYJ != null) {
+                this.lYJ.bE(i, str2);
             }
         } else {
-            if (this.lYG != null) {
-                this.lYG.dmd();
+            if (this.lYJ != null) {
+                this.lYJ.dmh();
             }
-            if (!StringUtils.isNull(this.lYG.filterName)) {
-                if (!ar.equals(str, this.lYG.originPath)) {
-                    this.lYG.lUr = str;
+            if (!StringUtils.isNull(this.lYJ.filterName)) {
+                if (!ar.equals(str, this.lYJ.originPath)) {
+                    this.lYJ.lUu = str;
                 }
-                if (this.lWc == null) {
-                    this.lWc = new com.baidu.tieba.video.editvideo.b.a(this.lYF.getActivity());
-                    this.lWc.a(this);
+                if (this.lWf == null) {
+                    this.lWf = new com.baidu.tieba.video.editvideo.b.a(this.lYI.getActivity());
+                    this.lWf.a(this);
                 }
-                this.lWc.fF(str, this.lYG.filterName);
+                this.lWf.fF(str, this.lYJ.filterName);
                 return;
             }
-            if (this.lYG != null) {
-                this.lYG.dme();
+            if (this.lYJ != null) {
+                this.lYJ.dmi();
             }
-            Oi(str);
+            Oj(str);
         }
     }
 
-    private void Oi(String str) {
-        if (this.lYG != null) {
-            if (this.lYG.isCancel()) {
-                this.lYG.onCancel();
-                this.lYG = null;
+    private void Oj(String str) {
+        if (this.lYJ != null) {
+            if (this.lYJ.isCancel()) {
+                this.lYJ.onCancel();
+                this.lYJ = null;
                 return;
             }
-            this.lYH = str;
+            this.lYK = str;
             VideoInfo videoInfo = new VideoInfo();
-            videoInfo.setVideoPath(this.lYH);
-            videoInfo.setThumbPath(this.lYG.coverPath);
-            if (this.lYG != null) {
-                this.lYG.a(videoInfo);
+            videoInfo.setVideoPath(this.lYK);
+            videoInfo.setThumbPath(this.lYJ.coverPath);
+            if (this.lYJ != null) {
+                this.lYJ.a(videoInfo);
             }
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
-    public void Oa(String str) {
-        if (this.lYG != null) {
-            this.lYG.dme();
+    public void Ob(String str) {
+        if (this.lYJ != null) {
+            this.lYJ.dmi();
         }
-        Oi(str);
+        Oj(str);
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
     public void bG(int i, String str) {
-        if (this.lYG != null) {
-            this.lYG.bF(i, str);
+        if (this.lYJ != null) {
+            this.lYJ.bF(i, str);
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
     public void bH(int i, String str) {
-        if (this.lYG != null) {
-            this.lYG.bF(i, str);
+        if (this.lYJ != null) {
+            this.lYJ.bF(i, str);
         }
     }
 }

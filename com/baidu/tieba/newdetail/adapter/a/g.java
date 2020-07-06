@@ -31,7 +31,7 @@ public class g extends a<bt, ak<bu>> {
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, bu buVar) {
-                s.bOA().jI(true);
+                s.bOB().jI(true);
                 g.this.f(view, buVar);
             }
         };

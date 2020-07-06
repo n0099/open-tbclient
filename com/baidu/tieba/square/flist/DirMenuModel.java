@@ -73,7 +73,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         public void onProgressUpdate(Integer... numArr) {
             super.onProgressUpdate((Object[]) numArr);
             if (this.lzo != null) {
-                DirMenuModel.this.lzj.a(true, this.lzo.getErrorCode(), this.lzo.dgH(), this.lzo.getErrorMsg(), DirMenuModel.this.lzn);
+                DirMenuModel.this.lzj.a(true, this.lzo.getErrorCode(), this.lzo.dgI(), this.lzo.getErrorMsg(), DirMenuModel.this.lzn);
             }
         }
 
@@ -126,8 +126,8 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         public void onPostExecute(com.baidu.tieba.square.square.d dVar) {
             if (!DirMenuModel.this.isOk) {
                 DirMenuModel.this.lzj.a(false, -1, null, dVar.getErrorMsg(), DirMenuModel.this.lzn);
-            } else if (dVar.dgH() != null) {
-                DirMenuModel.this.lzj.a(true, dVar.getErrorCode(), dVar.dgH(), dVar.getErrorMsg(), DirMenuModel.this.lzn);
+            } else if (dVar.dgI() != null) {
+                DirMenuModel.this.lzj.a(true, dVar.getErrorCode(), dVar.dgI(), dVar.getErrorMsg(), DirMenuModel.this.lzn);
             }
         }
 

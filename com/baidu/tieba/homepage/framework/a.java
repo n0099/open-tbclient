@@ -13,7 +13,7 @@ public class a {
     private a() {
     }
 
-    public static a cif() {
+    public static a cig() {
         return inH;
     }
 

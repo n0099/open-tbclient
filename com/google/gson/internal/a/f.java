@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public final class f extends com.google.gson.stream.b {
-    private static final Writer nbe = new Writer() { // from class: com.google.gson.internal.a.f.1
+    private static final Writer nbh = new Writer() { // from class: com.google.gson.internal.a.f.1
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) {
             throw new AssertionError();
@@ -27,40 +27,40 @@ public final class f extends com.google.gson.stream.b {
             throw new AssertionError();
         }
     };
-    private static final JsonPrimitive nbf = new JsonPrimitive("closed");
-    private String nbg;
-    private JsonElement nbh;
+    private static final JsonPrimitive nbi = new JsonPrimitive("closed");
+    private String nbj;
+    private JsonElement nbk;
     private final List<JsonElement> stack;
 
     public f() {
-        super(nbe);
+        super(nbh);
         this.stack = new ArrayList();
-        this.nbh = JsonNull.INSTANCE;
+        this.nbk = JsonNull.INSTANCE;
     }
 
-    public JsonElement dHX() {
+    public JsonElement dIb() {
         if (!this.stack.isEmpty()) {
             throw new IllegalStateException("Expected one JSON element but was " + this.stack);
         }
-        return this.nbh;
+        return this.nbk;
     }
 
-    private JsonElement dHY() {
+    private JsonElement dIc() {
         return this.stack.get(this.stack.size() - 1);
     }
 
     private void a(JsonElement jsonElement) {
-        if (this.nbg != null) {
-            if (!jsonElement.isJsonNull() || dIr()) {
-                ((JsonObject) dHY()).add(this.nbg, jsonElement);
+        if (this.nbj != null) {
+            if (!jsonElement.isJsonNull() || dIv()) {
+                ((JsonObject) dIc()).add(this.nbj, jsonElement);
             }
-            this.nbg = null;
+            this.nbj = null;
         } else if (this.stack.isEmpty()) {
-            this.nbh = jsonElement;
+            this.nbk = jsonElement;
         } else {
-            JsonElement dHY = dHY();
-            if (dHY instanceof JsonArray) {
-                ((JsonArray) dHY).add(jsonElement);
+            JsonElement dIc = dIc();
+            if (dIc instanceof JsonArray) {
+                ((JsonArray) dIc).add(jsonElement);
                 return;
             }
             throw new IllegalStateException();
@@ -68,7 +68,7 @@ public final class f extends com.google.gson.stream.b {
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b dHZ() throws IOException {
+    public com.google.gson.stream.b dId() throws IOException {
         JsonArray jsonArray = new JsonArray();
         a(jsonArray);
         this.stack.add(jsonArray);
@@ -76,11 +76,11 @@ public final class f extends com.google.gson.stream.b {
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b dIa() throws IOException {
-        if (this.stack.isEmpty() || this.nbg != null) {
+    public com.google.gson.stream.b dIe() throws IOException {
+        if (this.stack.isEmpty() || this.nbj != null) {
             throw new IllegalStateException();
         }
-        if (dHY() instanceof JsonArray) {
+        if (dIc() instanceof JsonArray) {
             this.stack.remove(this.stack.size() - 1);
             return this;
         }
@@ -88,7 +88,7 @@ public final class f extends com.google.gson.stream.b {
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b dIb() throws IOException {
+    public com.google.gson.stream.b dIf() throws IOException {
         JsonObject jsonObject = new JsonObject();
         a(jsonObject);
         this.stack.add(jsonObject);
@@ -96,11 +96,11 @@ public final class f extends com.google.gson.stream.b {
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b dIc() throws IOException {
-        if (this.stack.isEmpty() || this.nbg != null) {
+    public com.google.gson.stream.b dIg() throws IOException {
+        if (this.stack.isEmpty() || this.nbj != null) {
             throw new IllegalStateException();
         }
-        if (dHY() instanceof JsonObject) {
+        if (dIc() instanceof JsonObject) {
             this.stack.remove(this.stack.size() - 1);
             return this;
         }
@@ -108,28 +108,28 @@ public final class f extends com.google.gson.stream.b {
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b Rb(String str) throws IOException {
-        if (this.stack.isEmpty() || this.nbg != null) {
+    public com.google.gson.stream.b Rc(String str) throws IOException {
+        if (this.stack.isEmpty() || this.nbj != null) {
             throw new IllegalStateException();
         }
-        if (dHY() instanceof JsonObject) {
-            this.nbg = str;
+        if (dIc() instanceof JsonObject) {
+            this.nbj = str;
             return this;
         }
         throw new IllegalStateException();
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b Rc(String str) throws IOException {
+    public com.google.gson.stream.b Rd(String str) throws IOException {
         if (str == null) {
-            return dId();
+            return dIh();
         }
         a(new JsonPrimitive(str));
         return this;
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b dId() throws IOException {
+    public com.google.gson.stream.b dIh() throws IOException {
         a(JsonNull.INSTANCE);
         return this;
     }
@@ -143,7 +143,7 @@ public final class f extends com.google.gson.stream.b {
     @Override // com.google.gson.stream.b
     public com.google.gson.stream.b p(Boolean bool) throws IOException {
         if (bool == null) {
-            return dId();
+            return dIh();
         }
         a(new JsonPrimitive(bool));
         return this;
@@ -158,9 +158,9 @@ public final class f extends com.google.gson.stream.b {
     @Override // com.google.gson.stream.b
     public com.google.gson.stream.b a(Number number) throws IOException {
         if (number == null) {
-            return dId();
+            return dIh();
         }
-        if (!dIi()) {
+        if (!dIm()) {
             double doubleValue = number.doubleValue();
             if (Double.isNaN(doubleValue) || Double.isInfinite(doubleValue)) {
                 throw new IllegalArgumentException("JSON forbids NaN and infinities: " + number);
@@ -179,6 +179,6 @@ public final class f extends com.google.gson.stream.b {
         if (!this.stack.isEmpty()) {
             throw new IOException("Incomplete document");
         }
-        this.stack.add(nbf);
+        this.stack.add(nbi);
     }
 }

@@ -18,7 +18,7 @@ public class h implements q {
         return iSg;
     }
 
-    public String cqi() {
+    public String cqj() {
         return this.iSi;
     }
 
@@ -26,7 +26,7 @@ public class h implements q {
         this.iSi = str;
     }
 
-    public String cqj() {
+    public String cqk() {
         return this.iSj;
     }
 
@@ -34,7 +34,7 @@ public class h implements q {
         this.iSj = str;
     }
 
-    public String cqk() {
+    public String cql() {
         return this.iSk;
     }
 
@@ -42,7 +42,7 @@ public class h implements q {
         this.iSk = str;
     }
 
-    public int cql() {
+    public int cqm() {
         return this.iSl;
     }
 
@@ -58,7 +58,7 @@ public class h implements q {
         this.agT = obj;
     }
 
-    public NoDataViewFactory.ImgType cqm() {
+    public NoDataViewFactory.ImgType cqn() {
         return this.iSh;
     }
 

@@ -9,7 +9,7 @@ public class e {
     private e() {
     }
 
-    public static e bmB() {
+    public static e bmC() {
         return eSA;
     }
 

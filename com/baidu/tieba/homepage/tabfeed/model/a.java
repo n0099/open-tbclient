@@ -19,23 +19,23 @@ public class a {
         c cVar = new c();
         cVar.eSL = z;
         cVar.hasMore = aVar.hasMore();
-        cVar.ixv = aVar.cku();
-        cVar.ixw = aVar.ckv();
-        ArrayList<bu> bSV = aVar.bSV();
+        cVar.ixv = aVar.ckv();
+        cVar.ixw = aVar.ckw();
+        ArrayList<bu> bSW = aVar.bSW();
         if (z) {
-            if (!w.isEmpty(bSV)) {
+            if (!w.isEmpty(bSW)) {
                 this.ixA.clear();
-                this.ixA.addAll(bSV);
+                this.ixA.addAll(bSW);
             }
-        } else if (!w.isEmpty(bSV)) {
-            this.ixA.addAll(bSV);
+        } else if (!w.isEmpty(bSW)) {
+            this.ixA.addAll(bSW);
         }
         ArrayList<q> arrayList = new ArrayList<>();
         arrayList.addAll(this.ixA);
-        a(arrayList, aVar.cks());
         a(arrayList, aVar.ckt());
-        a(arrayList, aVar.ckw());
+        a(arrayList, aVar.cku());
         a(arrayList, aVar.ckx());
+        a(arrayList, aVar.cky());
         cVar.ixu = ax(arrayList);
         return cVar;
     }

@@ -58,7 +58,7 @@ public class k {
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                k.this.bDt();
+                k.this.bDu();
             }
         });
     }
@@ -85,7 +85,7 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bDt() {
+    public void bDu() {
         if (this.gbB != null) {
             final Dialog dialog = new Dialog(this.mContext, a.j.sdk_TransparentDialog);
             dialog.requestWindowFeature(1);
@@ -135,7 +135,7 @@ public class k {
         return this.mRootView;
     }
 
-    public com.baidu.live.challenge.d bDu() {
+    public com.baidu.live.challenge.d bDv() {
         return this.gbB;
     }
 

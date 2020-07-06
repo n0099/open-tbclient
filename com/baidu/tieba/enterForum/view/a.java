@@ -72,8 +72,8 @@ public class a extends PopupWindow {
         setBackgroundDrawable(new ColorDrawable(0));
     }
 
-    private View bTl() {
-        bTm();
+    private View bTm() {
+        bTn();
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         FrameLayout frameLayout2 = new FrameLayout(this.mContext);
         this.bkg = frameLayout2;
@@ -85,7 +85,7 @@ public class a extends PopupWindow {
         return frameLayout;
     }
 
-    private void bTm() {
+    private void bTn() {
         this.hjY = LayoutInflater.from(this.mContext).inflate(R.layout.layout_sort_select, (ViewGroup) null);
         this.hjZ = (TextView) this.hjY.findViewById(R.id.sort_type_level_text);
         this.mLine = this.hjY.findViewById(R.id.sort_select_line);
@@ -96,7 +96,7 @@ public class a extends PopupWindow {
 
     public void setData(List<i> list, int i) {
         if (list != null) {
-            View bTl = bTl();
+            View bTm = bTm();
             for (i iVar : list) {
                 if (iVar.sortType == 1) {
                     this.hjZ.setText(iVar.hbR);
@@ -111,7 +111,7 @@ public class a extends PopupWindow {
                     an.setViewTextColor(this.hjZ, (int) R.color.cp_cont_j);
                 }
             }
-            setContentView(bTl);
+            setContentView(bTm);
         }
     }
 

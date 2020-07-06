@@ -17,10 +17,10 @@ import java.lang.ref.WeakReference;
 public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int LIMIT = 100;
     public static final int OFFSET = 0;
-    private static final String lNI = TbConfig.SERVER_ADDRESS + Config.INTERESTS_FRS_URL;
-    private boolean lNJ;
-    private InterestFrsData lNK;
-    private a lNL;
+    private static final String lNL = TbConfig.SERVER_ADDRESS + Config.INTERESTS_FRS_URL;
+    private boolean lNM;
+    private InterestFrsData lNN;
+    private a lNO;
 
     /* loaded from: classes9.dex */
     public interface b {
@@ -33,30 +33,30 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         super(baseFragmentActivity.getPageContext());
     }
 
-    public boolean dkz() {
-        return this.lNJ;
+    public boolean dkD() {
+        return this.lNM;
     }
 
     public void uZ(boolean z) {
-        this.lNJ = z;
+        this.lNM = z;
     }
 
-    public InterestFrsData dkA() {
-        return this.lNK;
+    public InterestFrsData dkE() {
+        return this.lNN;
     }
 
     public void e(InterestFrsData interestFrsData) {
-        this.lNK = interestFrsData;
+        this.lNN = interestFrsData;
     }
 
     public void a(int i, int i2, int i3, b bVar) {
-        this.lNL = new a(i, i2, i3, bVar);
-        this.lNL.execute(new Void[0]);
+        this.lNO = new a(i, i2, i3, bVar);
+        this.lNO.execute(new Void[0]);
     }
 
-    public void dkB() {
-        if (this.lNL != null) {
-            this.lNL.cancel();
+    public void dkF() {
+        if (this.lNO != null) {
+            this.lNO.cancel();
         }
     }
 
@@ -91,7 +91,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: o */
         public InterestFrsData doInBackground(Void... voidArr) {
-            y yVar = new y(NewUserGuideModel.lNI);
+            y yVar = new y(NewUserGuideModel.lNL);
             yVar.addPostData("user_type", String.valueOf(this.userType));
             yVar.addPostData("offset", String.valueOf(this.offset));
             yVar.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(this.limit));

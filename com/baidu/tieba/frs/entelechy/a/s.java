@@ -56,7 +56,7 @@ public class s implements al {
     /* JADX WARN: Multi-variable type inference failed */
     public void a(FrsFragment frsFragment, com.baidu.adp.widget.ListView.v vVar) {
         this.hBW = frsFragment;
-        this.hJt = com.baidu.tieba.frs.e.bXl().a(frsFragment.getPageContext(), com.baidu.tieba.tbadkCore.v.lEH, this.hBW.getUniqueId(), false);
+        this.hJt = com.baidu.tieba.frs.e.bXm().a(frsFragment.getPageContext(), com.baidu.tieba.tbadkCore.v.lEH, this.hBW.getUniqueId(), false);
         this.hJu = new aa(frsFragment.getTbPageContext(), bu.dLq, this.hBW.getUniqueId());
         this.hJu.b(vVar);
         this.hJv = new n(frsFragment.getTbPageContext(), bu.dLr, this.hBW.getUniqueId());
@@ -106,8 +106,8 @@ public class s implements al {
         this.hJs = new ah(frsFragment.getPageContext(), com.baidu.tieba.tbadkCore.o.lEz, this.hBW.getUniqueId());
         this.hJF = new v(frsFragment.getPageContext(), bu.dLG, this.hBW.getUniqueId());
         this.hJF.b(vVar);
-        com.baidu.adp.widget.ListView.a<? extends bt, ? extends ad.a> a = com.baidu.tieba.frs.e.bXl().a(frsFragment.getPageContext(), this.hBW.getUniqueId(), true);
-        com.baidu.adp.widget.ListView.a<? extends bu, ? extends ad.a> b = com.baidu.tieba.frs.e.bXl().b(frsFragment.getPageContext(), bu.dNs, this.hBW.getUniqueId());
+        com.baidu.adp.widget.ListView.a<? extends bt, ? extends ad.a> a = com.baidu.tieba.frs.e.bXm().a(frsFragment.getPageContext(), this.hBW.getUniqueId(), true);
+        com.baidu.adp.widget.ListView.a<? extends bu, ? extends ad.a> b = com.baidu.tieba.frs.e.bXm().b(frsFragment.getPageContext(), bu.dNs, this.hBW.getUniqueId());
         com.baidu.tieba.frs.q qVar2 = new com.baidu.tieba.frs.q(frsFragment.getPageContext(), com.baidu.tieba.frs.r.hCX);
         l lVar = new l(frsFragment.getPageContext(), com.baidu.tieba.frs.v.hDm);
         ag agVar = new ag(frsFragment.getPageContext(), com.baidu.tieba.frs.x.hDv, this.hBW.getUniqueId());
@@ -181,7 +181,7 @@ public class s implements al {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.a.al
-    public HashMap<Integer, bu> cbD() {
+    public HashMap<Integer, bu> cbE() {
         return this.hJp;
     }
 
@@ -193,7 +193,7 @@ public class s implements al {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.a.al
-    public int cbE() {
+    public int cbF() {
         if (this.hJt != null) {
             return R.id.frs_bawu_center;
         }
@@ -240,7 +240,7 @@ public class s implements al {
     /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: com.baidu.tieba.frs.FrsFragment */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.tieba.frs.entelechy.a.al
-    public void cbF() {
+    public void cbG() {
         if (this.aUP != null && this.aUP.size() != 0) {
             for (com.baidu.adp.widget.ListView.a aVar : this.aUP) {
                 if (aVar instanceof com.baidu.tieba.frs.j) {
@@ -260,7 +260,7 @@ public class s implements al {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.a.al
-    public int cbG() {
+    public int cbH() {
         if (this.hJt != null) {
             return R.id.frs_fortune_bag_item;
         }
@@ -268,7 +268,7 @@ public class s implements al {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.a.al
-    public int cbH() {
+    public int cbI() {
         if (this.hJt != null) {
             return R.id.frs_my_service_item;
         }
@@ -318,7 +318,7 @@ public class s implements al {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.a.al
-    public void cbI() {
+    public void cbJ() {
         List<com.baidu.adp.widget.ListView.q> data;
         if (this.hfK != null && this.hfK.getData() != null && this.hfK.getData().size() != 0 && (data = this.hfK.getData()) != null && data.size() != 0) {
             for (com.baidu.adp.widget.ListView.q qVar : data) {
@@ -343,7 +343,7 @@ public class s implements al {
     @Override // com.baidu.tieba.frs.entelechy.a.al
     public void b(ArrayList<com.baidu.adp.widget.ListView.q> arrayList, FrsViewData frsViewData) {
         b(frsViewData);
-        caq();
+        car();
         com.baidu.tieba.tbadkCore.t.t(arrayList, 1);
         ao(arrayList);
         ap(arrayList);
@@ -357,8 +357,8 @@ public class s implements al {
         }
         this.hfK.setData(arrayList);
         this.hJq = frsViewData;
-        caU();
-        cbJ();
+        caV();
+        cbK();
         this.dataList = arrayList;
     }
 
@@ -454,7 +454,7 @@ public class s implements al {
         return type == bu.dLm || type == bu.dLG || type == bu.dLH || type == bu.dLP || type == bu.dLY;
     }
 
-    private void caq() {
+    private void car() {
         if (!com.baidu.tbadk.core.util.w.isEmpty(this.aUP) && this.hBW != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.aUP) {
                 if (aVar instanceof com.baidu.tieba.frs.j) {
@@ -464,7 +464,7 @@ public class s implements al {
         }
     }
 
-    private void caU() {
+    private void caV() {
         com.baidu.tieba.frs.d.b statisticMetaData;
         if (this.hJq != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.aUP) {
@@ -477,19 +477,19 @@ public class s implements al {
                     if (this.hJq.getForum() != null) {
                         statisticMetaData.hWO = this.hJq.getForum().getId();
                     }
-                    if (this.hBW != null && this.hBW.bXU() != null) {
-                        int cdR = this.hBW.bXU().cdR();
-                        if (cdR == -1) {
-                            cdR = this.hBW.bXU().cdS();
+                    if (this.hBW != null && this.hBW.bXV() != null) {
+                        int cdS = this.hBW.bXV().cdS();
+                        if (cdS == -1) {
+                            cdS = this.hBW.bXV().cdT();
                         }
-                        statisticMetaData.hWN = cdR;
+                        statisticMetaData.hWN = cdS;
                     }
                 }
             }
         }
     }
 
-    private void cbJ() {
+    private void cbK() {
         if (this.hJq != null && this.hJq.getForum() != null && !StringUtils.isNull(this.hJq.getForum().getId()) && this.hJs != null) {
             this.hJs.setForumId(this.hJq.getForum().getId());
         }

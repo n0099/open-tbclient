@@ -33,7 +33,7 @@ public class p extends ar {
         this.agI = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
         this.aez = (InterviewLiveLayout) this.mRootView.findViewById(R.id.frame_interview_no_video);
         this.agJ = rP();
-        this.agJ.cUU().setBackgroundResource(R.color.transparent);
+        this.agJ.cUV().setBackgroundResource(R.color.transparent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -46,7 +46,7 @@ public class a {
     private a() {
     }
 
-    public static a cYX() {
+    public static a cYY() {
         return lfc;
     }
 

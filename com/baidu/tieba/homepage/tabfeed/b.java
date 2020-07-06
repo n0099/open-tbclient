@@ -20,7 +20,7 @@ public class b {
         ao aoVar = new ao(str);
         aoVar.ag("obj_type", 1);
         aoVar.dk("uid", TbadkCoreApplication.getCurrentAccount());
-        s.bOA().e(aoVar);
+        s.bOB().e(aoVar);
     }
 
     public static void c(String str, Object obj, int i) {
@@ -32,26 +32,26 @@ public class b {
             aoVar.dk("uid", TbadkCoreApplication.getCurrentAccount());
             aoVar.s("tid", specialColumnItemData.threadId);
             aoVar.s("obj_id", specialColumnItemData.liveId);
-            s.bOA().e(aoVar);
+            s.bOB().e(aoVar);
         } else if (obj instanceof MetaData) {
             ao aoVar2 = new ao(str);
             aoVar2.ag("obj_type", 1);
             aoVar2.ag("obj_locate", i);
             aoVar2.s("uid", ((MetaData) obj).getUserIdLong());
-            s.bOA().e(aoVar2);
+            s.bOB().e(aoVar2);
         } else if (obj instanceof bg) {
             ao aoVar3 = new ao(str);
             aoVar3.ag("obj_type", 1);
             aoVar3.ag("obj_locate", i);
             aoVar3.s("fid", ((bg) obj).getForumId());
-            s.bOA().e(aoVar3);
+            s.bOB().e(aoVar3);
         } else if (obj instanceof j) {
             ao aoVar4 = new ao(str);
             aoVar4.ag("obj_type", 1);
             aoVar4.dk("uid", TbadkCoreApplication.getCurrentAccount());
             aoVar4.ag("obj_locate", i);
             aoVar4.dk("obj_param1", ((j) obj).aQm());
-            s.bOA().e(aoVar4);
+            s.bOB().e(aoVar4);
         }
     }
 
@@ -127,9 +127,9 @@ public class b {
     public static void a(AbsThreadDataSupport absThreadDataSupport, String str) {
         if (absThreadDataSupport != null && absThreadDataSupport.aPS() != null) {
             if (absThreadDataSupport.aPS().aQV()) {
-                s.bOA().e(l.b(absThreadDataSupport.aPS(), str));
+                s.bOB().e(l.b(absThreadDataSupport.aPS(), str));
             } else {
-                s.bOA().e(l.a(absThreadDataSupport.aPS(), str));
+                s.bOB().e(l.a(absThreadDataSupport.aPS(), str));
             }
         }
     }

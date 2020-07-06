@@ -91,12 +91,12 @@ public class a implements TabLayout.OnTabSelectedListener {
     private BannerView.a hSX = new BannerView.a() { // from class: com.baidu.tieba.frs.good.a.3
         @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
         public void bdp() {
-            a.this.cdg();
+            a.this.cdh();
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
         public void bdq() {
-            a.this.cdi();
+            a.this.cdj();
         }
     };
     private CustomMessageListener hSY = new CustomMessageListener(CmdConfigCustom.DELETE_AD_FROM_FEED) { // from class: com.baidu.tieba.frs.good.a.6
@@ -188,7 +188,7 @@ public class a implements TabLayout.OnTabSelectedListener {
     /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: com.baidu.tieba.frs.good.FrsGoodFragment */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    public void cdg() {
+    public void cdh() {
         if (this.eoN != null) {
             String value = this.eoN.getValue();
             if (this.eoN.aQB() == 1) {
@@ -272,18 +272,18 @@ public class a implements TabLayout.OnTabSelectedListener {
         }
     }
 
-    public void caB() {
+    public void caC() {
         u uVar = new u();
         uVar.tabId = 301;
         uVar.eSL = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
     }
 
-    public void byJ() {
+    public void byK() {
         this.hCj.setVisibility(0);
     }
 
-    public void bZj() {
+    public void bZk() {
         if (this.hSR != null) {
             this.hSR.notifyDataSetChanged();
         }
@@ -306,7 +306,7 @@ public class a implements TabLayout.OnTabSelectedListener {
                 }
             }
             if (w.getCount(tabData) > 1) {
-                cdk();
+                cdl();
                 this.hSV = true;
                 a(tabData, this.hSP);
                 a(tabData, this.hSQ);
@@ -368,7 +368,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         return this.hCj;
     }
 
-    public void cdh() {
+    public void cdi() {
         this.hSR.notifyDataSetInvalidated();
     }
 
@@ -393,7 +393,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         }
     }
 
-    public void cdi() {
+    public void cdj() {
         if (this.hSS != null) {
             this.hSU = false;
             this.hCj.removeHeaderView(this.hSS);
@@ -402,7 +402,7 @@ public class a implements TabLayout.OnTabSelectedListener {
 
     public void onChangeSkinType(int i) {
         if (this.hSR != null) {
-            this.hSR.cbI();
+            this.hSR.cbJ();
             this.hSR.notifyDataSetChanged();
             this.hSR.onChangeSkinType(i);
         }
@@ -426,18 +426,18 @@ public class a implements TabLayout.OnTabSelectedListener {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
     }
 
-    public void btU() {
+    public void btV() {
         u uVar = new u();
         uVar.tabId = 301;
         uVar.eSL = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
     }
 
-    public b cdj() {
+    public b cdk() {
         return this.hSR;
     }
 
-    public RelativeLayout bLS() {
+    public RelativeLayout bLT() {
         return this.mContainer;
     }
 
@@ -448,7 +448,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(9205410, abVar));
     }
 
-    public void bZy() {
+    public void bZz() {
         if (m.bhP().bhQ()) {
             int lastVisiblePosition = this.hCj.getLastVisiblePosition();
             for (int i = 0; i <= lastVisiblePosition; i++) {
@@ -492,20 +492,20 @@ public class a implements TabLayout.OnTabSelectedListener {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void buI() {
+    public void buJ() {
         this.hCj.setNextPage(this.fnt);
         this.fnt.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.fnt.startLoadData();
     }
 
-    public void buJ() {
+    public void buK() {
         this.hCj.setNextPage(this.fnt);
         this.fnt.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.fnt.endLoadData();
         this.fnt.setText(this.hSO.getResources().getString(R.string.list_has_no_more));
     }
 
-    public void buK() {
+    public void buL() {
         this.hCj.setNextPage(null);
     }
 
@@ -524,8 +524,8 @@ public class a implements TabLayout.OnTabSelectedListener {
                     this.hSW = intValue;
                     a(intValue, this.hSQ, false);
                     this.hSO.vy(this.hSW);
-                    s.bOA().mc(false);
-                    c.dgX().b(this.hSO.getUniqueId(), false);
+                    s.bOB().mc(false);
+                    c.dgY().b(this.hSO.getUniqueId(), false);
                 }
             }
             setTabColorSelected(tab);
@@ -534,7 +534,7 @@ public class a implements TabLayout.OnTabSelectedListener {
 
     @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
     public void onTabUnselected(TabLayout.Tab tab) {
-        btU();
+        btV();
         setTabColorUnSelected(tab);
     }
 
@@ -549,7 +549,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         }
     }
 
-    private void cdk() {
+    private void cdl() {
         if (this.hSP == null) {
             this.hSP = (TabLayout) LayoutInflater.from(this.hSO.getContext()).inflate(R.layout.frs_good_second_layout, (ViewGroup) null);
             this.hSP.setLayoutParams(new RecyclerView.LayoutParams(-1, l.getDimens(this.hSO.getContext(), R.dimen.tbds126)));
@@ -574,7 +574,7 @@ public class a implements TabLayout.OnTabSelectedListener {
 
             @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
             public void onTabUnselected(TabLayout.Tab tab) {
-                a.this.btU();
+                a.this.btV();
                 a.this.setTabColorUnSelected(tab);
             }
 
@@ -684,8 +684,8 @@ public class a implements TabLayout.OnTabSelectedListener {
     }
 
     public void yA() {
-        if (cdj() != null) {
-            List<q> dataList = cdj().getDataList();
+        if (cdk() != null) {
+            List<q> dataList = cdk().getDataList();
             if (!w.isEmpty(dataList)) {
                 for (q qVar : dataList) {
                     if (qVar instanceof bt) {
@@ -700,7 +700,7 @@ public class a implements TabLayout.OnTabSelectedListener {
                 e.lt().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.good.a.5
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.cdj().notifyDataSetChanged();
+                        a.this.cdk().notifyDataSetChanged();
                     }
                 }, 500L);
             }
@@ -708,19 +708,19 @@ public class a implements TabLayout.OnTabSelectedListener {
     }
 
     public void Fy(String str) {
-        if (this.hSO.cdd() != null) {
-            this.hSO.cdd().FA(str);
+        if (this.hSO.cde() != null) {
+            this.hSO.cde().FA(str);
         }
     }
 
     public void Fz(String str) {
         if (!StringUtils.isNull(str) && !w.isEmpty(this.hSR.getDataList())) {
-            Iterator<q> it = this.hSR.cdr().iterator();
+            Iterator<q> it = this.hSR.cds().iterator();
             while (it.hasNext()) {
                 q next = it.next();
                 if (next instanceof com.baidu.tieba.InjectPlugin.a) {
                     com.baidu.tieba.InjectPlugin.a aVar = (com.baidu.tieba.InjectPlugin.a) next;
-                    if ((aVar.bmv() instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) aVar.bmv()).dGL)) {
+                    if ((aVar.bmw() instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) aVar.bmw()).dGL)) {
                         it.remove();
                     }
                 }

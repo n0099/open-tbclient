@@ -161,7 +161,7 @@ public class a implements ap {
     }
 
     @Override // com.baidu.tieba.frs.ap
-    public void bzf() {
+    public void bzg() {
         MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD);
         unRegisterListener();
     }

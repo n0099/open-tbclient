@@ -10,7 +10,7 @@ import com.baidu.tieba.R;
 public class FindNewLinkBubbleController {
     private com.baidu.tieba.c.e klQ;
     private TbPageContext mPageContext;
-    private a msk;
+    private a msn;
 
     /* loaded from: classes2.dex */
     public enum ANCHOR_VIEW_FROM {
@@ -25,7 +25,7 @@ public class FindNewLinkBubbleController {
 
     public FindNewLinkBubbleController(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
-        this.msk = aVar;
+        this.msn = aVar;
     }
 
     public void Kv() {
@@ -69,8 +69,8 @@ public class FindNewLinkBubbleController {
             this.klQ.c(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.FindNewLinkBubbleController.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (FindNewLinkBubbleController.this.msk != null) {
-                        FindNewLinkBubbleController.this.msk.f(view2, str);
+                    if (FindNewLinkBubbleController.this.msn != null) {
+                        FindNewLinkBubbleController.this.msn.f(view2, str);
                     }
                 }
             });

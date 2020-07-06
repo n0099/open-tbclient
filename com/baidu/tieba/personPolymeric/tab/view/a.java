@@ -80,7 +80,7 @@ public class a {
 
     public void eD(List<q> list) {
         if (w.isEmpty(list)) {
-            buK();
+            buL();
             if (this.Wa.getHeaderViewsCount() == 0) {
                 ym(R.string.person_center_listempty_txt);
             }
@@ -122,7 +122,7 @@ public class a {
         }
     }
 
-    public n cUq() {
+    public n cUr() {
         return this.kPC;
     }
 
@@ -130,24 +130,24 @@ public class a {
         return this.mRootView;
     }
 
-    public void buI() {
+    public void buJ() {
         this.Wa.setNextPage(this.fnt);
         this.fnt.showEmptyView(0);
         this.fnt.startLoadData();
     }
 
-    public void buJ() {
+    public void buK() {
         this.Wa.setNextPage(this.fnt);
         this.fnt.showEmptyView(0);
         this.fnt.endLoadData();
         this.fnt.setText(this.dPv.getString(R.string.list_no_more));
     }
 
-    public void buK() {
+    public void buL() {
         this.Wa.setNextPage(null);
     }
 
-    public void bXG() {
+    public void bXH() {
         this.Wa.smoothScrollToPosition(0);
     }
 

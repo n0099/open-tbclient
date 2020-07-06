@@ -14,7 +14,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         this.mErrMsg = "";
     }
 
-    public e byX() {
+    public e byY() {
         return this.fQu;
     }
 

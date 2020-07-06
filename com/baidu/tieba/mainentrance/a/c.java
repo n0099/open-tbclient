@@ -40,11 +40,11 @@ public class c {
         this.mPageContext = baseActivity.getPageContext();
         this.jyV = bVar;
         this.jyW = dVar;
-        czT();
         czU();
+        czV();
     }
 
-    private void czT() {
+    private void czU() {
         BaseWebView.c cVar = new BaseWebView.c() { // from class: com.baidu.tieba.mainentrance.a.c.1
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
             public void onPageFinished(WebView webView, String str) {
@@ -53,7 +53,7 @@ public class c {
         BaseWebView.f fVar = new BaseWebView.f() { // from class: com.baidu.tieba.mainentrance.a.c.2
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
             public void onReceivedError(WebView webView, int i, String str, String str2) {
-                if (webView == c.this.jyW.cAf()) {
+                if (webView == c.this.jyW.cAg()) {
                     c.this.qw(false);
                 }
             }
@@ -64,22 +64,22 @@ public class c {
                 return c.this.Cf(str);
             }
         };
-        QuickWebView cAf = this.jyW.cAf();
-        if (cAf != null) {
-            cAf.addJsPromptInterface(new a());
-            cAf.setOnPageFinishedListener(cVar);
-            cAf.setOnReceivedErrorListener(fVar);
-            cAf.setOnLoadUrlListener(bVar);
+        QuickWebView cAg = this.jyW.cAg();
+        if (cAg != null) {
+            cAg.addJsPromptInterface(new a());
+            cAg.setOnPageFinishedListener(cVar);
+            cAg.setOnReceivedErrorListener(fVar);
+            cAg.setOnLoadUrlListener(bVar);
         }
     }
 
-    private void czU() {
+    private void czV() {
         ad.a(new ac<List<String>>() { // from class: com.baidu.tieba.mainentrance.a.c.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ac
-            /* renamed from: bpG */
+            /* renamed from: bpH */
             public List<String> doInBackground() {
-                return com.baidu.tieba.tbadkCore.util.a.diP();
+                return com.baidu.tieba.tbadkCore.util.a.diQ();
             }
         }, new l<List<String>>() { // from class: com.baidu.tieba.mainentrance.a.c.5
             /* JADX DEBUG: Method merged with bridge method */
@@ -93,21 +93,21 @@ public class c {
         });
     }
 
-    public void czV() {
-        this.jyW.cAa();
+    public void czW() {
+        this.jyW.cAb();
         if (this.jyY) {
-            String czW = czW();
-            if (!StringUtils.isNull(czW)) {
-                this.jyW.cAf().loadUrl("javascript:setSearchHistory('" + czW + "')");
+            String czX = czX();
+            if (!StringUtils.isNull(czX)) {
+                this.jyW.cAg().loadUrl("javascript:setSearchHistory('" + czX + "')");
                 return;
             }
             return;
         }
-        this.jyW.cAf().loadUrl("https://tieba.baidu.com/n/apage-runtime/page/search_history");
+        this.jyW.cAg().loadUrl("https://tieba.baidu.com/n/apage-runtime/page/search_history");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String czW() {
+    public String czX() {
         int count = w.getCount(this.jyX);
         if (count == 0) {
             return "";
@@ -123,7 +123,7 @@ public class c {
     public void qw(boolean z) {
         NoDataViewFactory.d mm;
         if (!z) {
-            this.jyW.czK();
+            this.jyW.czL();
             if (j.isNetWorkAvailable()) {
                 mm = NoDataViewFactory.d.mm(R.string.text_no_search_record);
             } else {
@@ -132,7 +132,7 @@ public class c {
             this.jyW.a(mm);
             return;
         }
-        this.jyW.cAa();
+        this.jyW.cAb();
     }
 
     public void In(String str) {
@@ -171,7 +171,7 @@ public class c {
         public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if ("CommonJSBridge".equals(str)) {
                 if ("getSearchHistory".equals(str2)) {
-                    jsPromptResult.confirm(c.this.czW());
+                    jsPromptResult.confirm(c.this.czX());
                     c.this.jyY = true;
                     return true;
                 } else if ("deleteSearchHistory".equals(str2)) {
@@ -179,7 +179,7 @@ public class c {
                     jsPromptResult.confirm("1");
                     return true;
                 } else if ("deleteAllSearchHistory".equals(str2)) {
-                    bWN();
+                    bWO();
                     jsPromptResult.confirm("1");
                     return true;
                 } else if ("openSearchPage".equals(str2)) {
@@ -199,7 +199,7 @@ public class c {
                 ad.a(new ac<String>() { // from class: com.baidu.tieba.mainentrance.a.c.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.tbadk.util.ac
-                    /* renamed from: cjN */
+                    /* renamed from: cjO */
                     public String doInBackground() {
                         com.baidu.tieba.tbadkCore.util.a.Nn(optString);
                         return optString;
@@ -217,11 +217,11 @@ public class c {
             }
         }
 
-        private void bWN() {
+        private void bWO() {
             ad.a(new ac() { // from class: com.baidu.tieba.mainentrance.a.c.a.3
                 @Override // com.baidu.tbadk.util.ac
                 public Object doInBackground() {
-                    com.baidu.tieba.tbadkCore.util.a.diR();
+                    com.baidu.tieba.tbadkCore.util.a.diS();
                     return null;
                 }
             }, new l() { // from class: com.baidu.tieba.mainentrance.a.c.a.4

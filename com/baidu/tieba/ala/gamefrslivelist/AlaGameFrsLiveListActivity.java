@@ -84,7 +84,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                 }
             }
         });
-        bwU();
+        bwV();
         linearLayout.addView(this.mNavigationBar, new LinearLayout.LayoutParams(-1, -2));
         this.mNavigationBar.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         an.setBackgroundColor(this.mNavigationBar.getBottomLine(), R.color.cp_bg_line_c);
@@ -222,8 +222,8 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof al)) {
                     al alVar = (al) customResponsedMessage.getData();
                     ArrayList arrayList = new ArrayList();
-                    if (alVar.bXE() != null) {
-                        for (com.baidu.tbadk.mainTab.b bVar : alVar.bXE()) {
+                    if (alVar.bXF() != null) {
+                        for (com.baidu.tbadk.mainTab.b bVar : alVar.bXF()) {
                             if (bVar.getFragmentTabStructure().frag != null) {
                                 arrayList.add(bVar.getFragmentTabStructure().frag);
                             }
@@ -277,7 +277,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
     public void onPageScrollStateChanged(int i) {
     }
 
-    private void bwU() {
+    private void bwV() {
         if (this.mNavigationBar != null) {
             StringBuilder sb = new StringBuilder();
             sb.append(UtilHelper.getFixedBarText(this.forumName, 5, true, true) + getResources().getString(R.string.forum));

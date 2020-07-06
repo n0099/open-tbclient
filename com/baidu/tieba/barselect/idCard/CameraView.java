@@ -159,7 +159,7 @@ public class CameraView extends FrameLayout {
 
     private void init() {
         this.gLZ = new com.baidu.tieba.barselect.idCard.b(getContext());
-        this.gLg = this.gLZ.bNA();
+        this.gLg = this.gLZ.bNB();
         addView(this.gLg);
         this.gMa = new MaskView(getContext());
         addView(this.gMa);
@@ -196,8 +196,8 @@ public class CameraView extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public Bitmap a(File file, byte[] bArr, int i) {
         try {
-            Rect bNI = this.gLZ.bNI();
-            if (this.gMa.getWidth() == 0 || this.gMa.getHeight() == 0 || bNI.width() == 0 || bNI.height() == 0) {
+            Rect bNJ = this.gLZ.bNJ();
+            if (this.gMa.getWidth() == 0 || this.gMa.getHeight() == 0 || bNJ.width() == 0 || bNJ.height() == 0) {
                 return null;
             }
             BitmapRegionDecoder newInstance = BitmapRegionDecoder.newInstance(bArr, 0, bArr.length, true);
@@ -208,17 +208,17 @@ public class CameraView extends FrameLayout {
             int height2 = (frameRect.top * height) / this.gMa.getHeight();
             int width3 = (frameRect.right * width) / this.gMa.getWidth();
             int height3 = (frameRect.bottom * height) / this.gMa.getHeight();
-            if (bNI.top < 0) {
-                int height4 = (bNI.height() * getWidth()) / bNI.width();
-                int height5 = (((height4 + frameRect.height()) / 2) * getWidth()) / bNI.width();
-                height2 = (((((height4 - frameRect.height()) / 2) * getWidth()) / bNI.width()) * height) / bNI.height();
-                height3 = (height5 * height) / bNI.height();
-            } else if (bNI.left < 0) {
-                int width4 = (bNI.width() * getHeight()) / bNI.height();
-                int width5 = (((width4 - this.gMa.getFrameRect().width()) / 2) * getHeight()) / bNI.height();
-                int width6 = (((width4 + this.gMa.getFrameRect().width()) / 2) * getHeight()) / bNI.height();
-                width2 = (width5 * width) / bNI.width();
-                width3 = (width6 * width) / bNI.width();
+            if (bNJ.top < 0) {
+                int height4 = (bNJ.height() * getWidth()) / bNJ.width();
+                int height5 = (((height4 + frameRect.height()) / 2) * getWidth()) / bNJ.width();
+                height2 = (((((height4 - frameRect.height()) / 2) * getWidth()) / bNJ.width()) * height) / bNJ.height();
+                height3 = (height5 * height) / bNJ.height();
+            } else if (bNJ.left < 0) {
+                int width4 = (bNJ.width() * getHeight()) / bNJ.height();
+                int width5 = (((width4 - this.gMa.getFrameRect().width()) / 2) * getHeight()) / bNJ.height();
+                int width6 = (((width4 + this.gMa.getFrameRect().width()) / 2) * getHeight()) / bNJ.height();
+                width2 = (width5 * width) / bNJ.width();
+                width3 = (width6 * width) / bNJ.width();
             }
             Rect rect = new Rect();
             rect.left = width2;

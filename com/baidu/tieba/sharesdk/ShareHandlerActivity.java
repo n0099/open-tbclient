@@ -39,7 +39,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu
             return;
         }
         aH(this.ltS.bde());
-        this.ltR = this.ltS.ddT();
+        this.ltR = this.ltS.ddU();
         if (this.ltT != null) {
             this.ltT.onDestroy();
             this.ltT = null;
@@ -77,9 +77,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu
         }
         if (this.ltT != null) {
             this.ltT.setTid(this.ltS.getTid());
-            this.ltT.Mt(this.ltS.ddV());
+            this.ltT.Mt(this.ltS.ddW());
         }
-        if (this.ltS.ddY() && !TextUtils.isEmpty(this.ltS.aQl())) {
+        if (this.ltS.ddZ() && !TextUtils.isEmpty(this.ltS.aQl())) {
             if (this.mPermissionJudgement == null) {
                 this.mPermissionJudgement = new PermissionJudgePolicy();
             }

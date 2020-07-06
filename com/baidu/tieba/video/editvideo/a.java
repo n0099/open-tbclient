@@ -9,13 +9,13 @@ public interface a {
 
     void Ky(String str);
 
-    void NW(String str);
+    void NX(String str);
 
-    void cQW();
+    void cQX();
 
-    void dmJ();
+    void dmN();
 
-    void dmK();
+    void dmO();
 
     void fa(List<PendantData> list);
 

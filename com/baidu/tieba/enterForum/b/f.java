@@ -55,7 +55,7 @@ public class f {
         this.mView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.b.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                f.this.bTM();
+                f.this.bTN();
             }
         });
         this.hlG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.b.f.2
@@ -68,9 +68,9 @@ public class f {
                 aoVar.ag(TiebaInitialize.Params.OBJ_TO, f.this.ahe.isLike() ? 2 : 1);
                 TiebaStatic.log(aoVar);
                 if (f.this.ahe.isLike()) {
-                    f.this.bTO();
+                    f.this.bTP();
                 } else {
-                    f.this.bTN();
+                    f.this.bTO();
                 }
             }
         });
@@ -143,7 +143,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bTM() {
+    public void bTN() {
         if (this.ahe != null) {
             String forumName = this.ahe.getForumName();
             if (ar.isForumName(forumName)) {
@@ -159,7 +159,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bTN() {
+    public void bTO() {
         if (!l.isNetOk()) {
             UtilHelper.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(R.string.neterror));
         } else if (this.ahe != null && !StringUtils.isNull(this.ahe.getForumName()) && this.ahe.getForumId() > 0) {
@@ -186,14 +186,14 @@ public class f {
                 }
             });
             if (ar.isForumName(this.ahe.getForumName())) {
-                this.egK.dhr();
+                this.egK.dhs();
                 this.egK.fx(this.ahe.getForumName(), String.valueOf(this.ahe.getForumId()));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bTO() {
+    public void bTP() {
         if (!l.isNetOk()) {
             UtilHelper.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(R.string.neterror));
         } else if (this.ahe != null && !StringUtils.isNull(this.ahe.getForumName()) && this.ahe.getForumId() > 0) {

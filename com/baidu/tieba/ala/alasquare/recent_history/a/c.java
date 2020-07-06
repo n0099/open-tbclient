@@ -136,7 +136,7 @@ public class c extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
             });
             ao aoVar = new ao("c12660");
             aoVar.dk("obj_id", qg.dLi.aSp().getUserId());
-            com.baidu.tieba.ala.alasquare.c.a.buo().e(aoVar);
+            com.baidu.tieba.ala.alasquare.c.a.bup().e(aoVar);
         }
         return view;
     }

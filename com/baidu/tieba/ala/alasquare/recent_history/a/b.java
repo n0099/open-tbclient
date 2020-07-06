@@ -92,7 +92,7 @@ public class b extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
             });
             ao aoVar = new ao("c12658");
             aoVar.dk("tid", qg.dLi.getTid());
-            com.baidu.tieba.ala.alasquare.c.a.buo().e(aoVar);
+            com.baidu.tieba.ala.alasquare.c.a.bup().e(aoVar);
         }
         return view;
     }

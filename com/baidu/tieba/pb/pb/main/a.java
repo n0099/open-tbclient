@@ -67,9 +67,9 @@ public class a {
             aoVar.dk("fid", pbModel.kcE.getForumId());
             aoVar.dk("tid", pbModel.kcE.getThreadId());
             aoVar.ag("obj_type", i);
-            if (pbModel.cKJ() == 5) {
+            if (pbModel.cKK() == 5) {
                 aoVar.ag("obj_source", 1);
-            } else if (pbModel.cKJ() == 7) {
+            } else if (pbModel.cKK() == 7) {
                 aoVar.ag("obj_source", 2);
             } else {
                 aoVar.ag("obj_source", 3);

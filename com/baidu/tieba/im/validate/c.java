@@ -78,11 +78,11 @@ public class c extends com.baidu.adp.base.c<ValidateActivity> {
         this.jcu.setDividerHeight(this.jcn.getResources().getDimensionPixelSize(R.dimen.ds2));
     }
 
-    public ImageView ctF() {
+    public ImageView ctG() {
         return this.jct;
     }
 
-    public a ctG() {
+    public a ctH() {
         return this.jcv;
     }
 }

@@ -21,9 +21,9 @@ import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ProxyChangeListener {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static boolean mBF;
-    private b mBG;
-    private Delegate mBH;
+    private static boolean mBI;
+    private b mBJ;
+    private Delegate mBK;
     private Context mContext;
     private long mNativePtr;
     private final Looper mLooper = Looper.myLooper();
@@ -31,7 +31,7 @@ public class ProxyChangeListener {
 
     /* loaded from: classes.dex */
     public interface Delegate {
-        void dvJ();
+        void dvN();
     }
 
     @NativeClassQualifiedName
@@ -42,13 +42,13 @@ public class ProxyChangeListener {
 
     static {
         $assertionsDisabled = !ProxyChangeListener.class.desiredAssertionStatus();
-        mBF = true;
+        mBI = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public final String[] mBI;
+        public final String[] mBL;
         public final String mHost;
         public final String mPacUrl;
         public final int mPort;
@@ -57,7 +57,7 @@ public class ProxyChangeListener {
             this.mHost = str;
             this.mPort = i;
             this.mPacUrl = str2;
-            this.mBI = strArr;
+            this.mBL = strArr;
         }
     }
 
@@ -171,13 +171,13 @@ public class ProxyChangeListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b bVar, a aVar) {
-        if (mBF && bVar == this.mBG) {
-            if (this.mBH != null) {
-                this.mBH.dvJ();
+        if (mBI && bVar == this.mBJ) {
+            if (this.mBK != null) {
+                this.mBK.dvN();
             }
             if (this.mNativePtr != 0) {
                 if (aVar != null) {
-                    nativeProxySettingsChangedTo(this.mNativePtr, aVar.mHost, aVar.mPort, aVar.mPacUrl, aVar.mBI);
+                    nativeProxySettingsChangedTo(this.mNativePtr, aVar.mHost, aVar.mPort, aVar.mPacUrl, aVar.mBL);
                 } else {
                     nativeProxySettingsChanged(this.mNativePtr);
                 }
@@ -186,18 +186,18 @@ public class ProxyChangeListener {
     }
 
     private void registerReceiver() {
-        if (this.mBG == null) {
+        if (this.mBJ == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.PROXY_CHANGE");
-            this.mBG = new b();
-            this.mContext.getApplicationContext().registerReceiver(this.mBG, intentFilter);
+            this.mBJ = new b();
+            this.mContext.getApplicationContext().registerReceiver(this.mBJ, intentFilter);
         }
     }
 
     private void unregisterReceiver() {
-        if (this.mBG != null) {
-            this.mContext.unregisterReceiver(this.mBG);
-            this.mBG = null;
+        if (this.mBJ != null) {
+            this.mContext.unregisterReceiver(this.mBJ);
+            this.mBJ = null;
         }
     }
 

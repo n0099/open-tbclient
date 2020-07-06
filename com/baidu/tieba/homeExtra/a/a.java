@@ -11,20 +11,20 @@ public class a extends com.baidu.tieba.homepage.a.a.a {
     public void a(com.baidu.tieba.lego.c.a aVar) {
         this.ilt = aVar;
         update();
-        chO();
+        chP();
     }
 
     private void update() {
         if (this.ilt != null && this.ilt.hasData()) {
-            List<ICardInfo> cyq = this.ilt.cyq();
+            List<ICardInfo> cyr = this.ilt.cyr();
             this.mThreadList = new ArrayList();
-            this.mThreadList.addAll(cyq);
+            this.mThreadList.addAll(cyr);
             this.mHasMore = this.ilt.hasMore();
             this.pn = this.ilt.getPn();
         }
     }
 
-    private void chO() {
+    private void chP() {
         if (this.mThreadList != null) {
             t.u(this.mThreadList, 2);
         }

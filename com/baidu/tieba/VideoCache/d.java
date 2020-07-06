@@ -13,7 +13,7 @@ public class d {
         this.fileName = str;
     }
 
-    public long bnY() {
+    public long bnZ() {
         return this.eWq;
     }
 
@@ -21,7 +21,7 @@ public class d {
         this.eWq = j;
     }
 
-    public long bnZ() {
+    public long boa() {
         return this.currentSize;
     }
 

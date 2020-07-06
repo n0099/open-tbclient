@@ -43,16 +43,16 @@ public class g {
     private TbPageContext dPv;
     private ItemInfo hHP;
     private ForumWriteData hLG;
-    private h.a lLZ;
+    private h.a lMc;
     private String mFrom;
     private ViewGroup mParentView;
     private int mSkinType;
-    private a mlY;
-    private boolean mlZ;
-    private h mma;
-    private String mmb;
-    private String mmc;
-    private h.a mmd;
+    private a mmb;
+    private boolean mmc;
+    private h mmd;
+    private String mme;
+    private String mmf;
+    private h.a mmg;
     private String writeCallFrom;
 
     public g(TbPageContext tbPageContext, ViewGroup viewGroup, String str) {
@@ -60,17 +60,17 @@ public class g {
     }
 
     public g(TbPageContext tbPageContext, ViewGroup viewGroup, String str, int i) {
-        this.mlZ = false;
+        this.mmc = false;
         this.mSkinType = 3;
-        this.mmb = "";
+        this.mme = "";
         this.mFrom = "write";
-        this.mmc = "0";
-        this.mmd = new h.a() { // from class: com.baidu.tieba.write.g.1
+        this.mmf = "0";
+        this.mmg = new h.a() { // from class: com.baidu.tieba.write.g.1
             @Override // com.baidu.tieba.write.h.a
             public void Fp(int i2) {
                 if (i2 == 1) {
-                    g.this.mlZ = true;
-                    if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_sendthread_maintab") && (g.this.mma instanceof d)) {
+                    g.this.mmc = true;
+                    if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_sendthread_maintab") && (g.this.mmd instanceof d)) {
                         if (g.this.VX == null) {
                             g.this.VX = new com.baidu.tbadk.n.a.a("anim_switch_sendthread_maintab");
                         }
@@ -79,20 +79,20 @@ public class g {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921401, 0));
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921467, 0));
                 } else if (i2 == 2) {
-                    if (g.this.VX != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_sendthread_maintab") && (g.this.mma instanceof d)) {
+                    if (g.this.VX != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_sendthread_maintab") && (g.this.mmd instanceof d)) {
                         g.this.VX.bhX();
                     }
-                    g.this.dqX();
+                    g.this.drb();
                 } else if (i2 == 4) {
-                    g.this.mlZ = false;
-                    if (g.this.mlY.mRootView.getParent() == g.this.mParentView && g.this.mParentView != null && g.this.mlY.mRootView != null && g.this.mParentView.indexOfChild(g.this.mlY.mRootView) > 0) {
-                        g.this.mParentView.removeView(g.this.mlY.mRootView);
+                    g.this.mmc = false;
+                    if (g.this.mmb.mRootView.getParent() == g.this.mParentView && g.this.mParentView != null && g.this.mmb.mRootView != null && g.this.mParentView.indexOfChild(g.this.mmb.mRootView) > 0) {
+                        g.this.mParentView.removeView(g.this.mmb.mRootView);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921401, 1));
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921467, 1));
                 }
-                if (g.this.lLZ != null) {
-                    g.this.lLZ.Fp(i2);
+                if (g.this.lMc != null) {
+                    g.this.lMc.Fp(i2);
                 }
             }
         };
@@ -101,39 +101,39 @@ public class g {
         this.mFrom = str;
         if (i == 2) {
             a.b bVar = new a.b(this.dPv, this);
-            this.mlY = bVar;
-            this.mma = new d(tbPageContext.getPageActivity(), bVar);
+            this.mmb = bVar;
+            this.mmd = new d(tbPageContext.getPageActivity(), bVar);
         } else if (i == 3) {
-            a.C0762a c0762a = new a.C0762a(this.dPv, this);
-            this.mlY = c0762a;
-            this.mma = new f(tbPageContext.getPageActivity(), c0762a);
+            a.C0763a c0763a = new a.C0763a(this.dPv, this);
+            this.mmb = c0763a;
+            this.mmd = new f(tbPageContext.getPageActivity(), c0763a);
         } else {
             a.c cVar = new a.c(this.dPv, this);
-            this.mlY = cVar;
-            this.mma = new e(tbPageContext.getPageActivity(), cVar);
+            this.mmb = cVar;
+            this.mmd = new e(tbPageContext.getPageActivity(), cVar);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.mma.b(this.mmd);
+        this.mmd.b(this.mmg);
     }
 
     public String getFrom() {
         return this.mFrom;
     }
 
-    public void ON(String str) {
+    public void OO(String str) {
         if (str == null) {
             str = "";
         }
-        this.mmb = str;
+        this.mme = str;
     }
 
-    public String cfd() {
-        return this.mmb;
+    public String cfe() {
+        return this.mme;
     }
 
     public void vG(boolean z) {
-        if (this.mlY instanceof a.c) {
-            ((a.c) this.mlY).vD(z);
+        if (this.mmb instanceof a.c) {
+            ((a.c) this.mmb).vD(z);
         }
     }
 
@@ -145,17 +145,17 @@ public class g {
         this.hHP = itemInfo;
     }
 
-    public void OO(String str) {
+    public void OP(String str) {
         if ("3".equals(str)) {
             this.writeCallFrom = "1";
         } else {
             this.writeCallFrom = str;
         }
-        this.mmc = str;
+        this.mmf = str;
     }
 
     public boolean isShowing() {
-        return this.mlZ;
+        return this.mmc;
     }
 
     public void GC(int i) {
@@ -168,12 +168,12 @@ public class g {
 
     public void a(boolean z, View view, View view2) {
         if (this.mParentView != null) {
-            if (this.mlY.mRootView.getParent() == null) {
-                com.baidu.tbadk.k.e.bk(this.mParentView).attachView(this.mParentView, this.mlY.mRootView, z);
+            if (this.mmb.mRootView.getParent() == null) {
+                com.baidu.tbadk.k.e.bk(this.mParentView).attachView(this.mParentView, this.mmb.mRootView, z);
             }
-            this.mma.d(view, view2);
-            this.mma.show();
-            TiebaStatic.log(new ao("c12052").dk("obj_locate", this.mmc));
+            this.mmd.d(view, view2);
+            this.mmd.show();
+            TiebaStatic.log(new ao("c12052").dk("obj_locate", this.mmf));
             if (com.baidu.adp.lib.util.j.isMobileNet()) {
                 String string = com.baidu.tbadk.core.sharedPref.b.aVP().getString(SharedPrefConfig.KEY_BAIDU_SIM_CARD_WRITTING_TIP, "");
                 if (!ar.isEmpty(string)) {
@@ -185,34 +185,34 @@ public class g {
     }
 
     public void GD(int i) {
-        if (this.mlY instanceof a.c) {
-            ((a.c) this.mlY).mlo.setIconFade(i);
+        if (this.mmb instanceof a.c) {
+            ((a.c) this.mmb).mlr.setIconFade(i);
         }
     }
 
     public void vH(boolean z) {
-        this.mma.eO(z);
-        if (!z && (this.mlY instanceof a.c)) {
-            ((a.c) this.mlY).mlo.bgF();
+        this.mmd.eO(z);
+        if (!z && (this.mmb instanceof a.c)) {
+            ((a.c) this.mmb).mlr.bgF();
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            this.mlY.onChangeSkinType(i);
+            this.mmb.onChangeSkinType(i);
         }
     }
 
     public void onDestroy() {
-        if (this.mlY.mRootView != null && this.mlY.mRootView.getParent() == this.mParentView) {
-            this.mParentView.removeView(this.mlY.mRootView);
+        if (this.mmb.mRootView != null && this.mmb.mRootView.getParent() == this.mParentView) {
+            this.mParentView.removeView(this.mmb.mRootView);
         }
-        this.mma.onDestroy();
+        this.mmd.onDestroy();
     }
 
-    public void dqT() {
-        TiebaStatic.log(new ao(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dk("obj_locate", this.mmc).ag("obj_type", 6));
+    public void dqX() {
+        TiebaStatic.log(new ao(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dk("obj_locate", this.mmf).ag("obj_type", 6));
         vH(false);
         UniversityEvaluationConfig universityEvaluationConfig = new UniversityEvaluationConfig(this.dPv.getPageActivity(), RequestResponseCode.REQUEST_WRITE_NEW);
         if (this.hLG != null) {
@@ -228,8 +228,8 @@ public class g {
         }
     }
 
-    public void OP(String str) {
-        TiebaStatic.log(new ao(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dk("obj_locate", this.mmc).ag("obj_type", 5));
+    public void OQ(String str) {
+        TiebaStatic.log(new ao(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dk("obj_locate", this.mmf).ag("obj_type", 5));
         if (this.hLG != null && this.hLG.antiData != null) {
             int pollLevel = this.hLG.antiData.getPollLevel();
             if (this.hLG.forumLevel < pollLevel) {
@@ -245,10 +245,10 @@ public class g {
         }
     }
 
-    public void dqU() {
-        if (this.mlY instanceof a.b) {
+    public void dqY() {
+        if (this.mmb instanceof a.b) {
             TiebaStatic.log("c13619");
-            dqX();
+            drb();
         }
         vH(false);
         if (Build.VERSION.SDK_INT < 21) {
@@ -267,7 +267,7 @@ public class g {
             aVar.b(this.dPv).aUN();
             return;
         }
-        a(this.dPv, this.mmc, this.hLG);
+        a(this.dPv, this.mmf, this.hLG);
     }
 
     public void a(TbPageContext tbPageContext, final String str, final ForumWriteData forumWriteData) {
@@ -300,7 +300,7 @@ public class g {
         }
     }
 
-    public void dqV() {
+    public void dqZ() {
         String str;
         String str2;
         int i;
@@ -336,7 +336,7 @@ public class g {
             str4 = str7;
             str5 = str6;
         }
-        TiebaStatic.log(new ao(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dk("obj_locate", this.mmc).ag("obj_type", 3));
+        TiebaStatic.log(new ao(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dk("obj_locate", this.mmf).ag("obj_type", 3));
         WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.dPv.getPageActivity(), 0, str5, str4, null, null, 0, antiData, RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, postPrefixData, 0);
         writeActivityConfig.getIntent().putExtra("from", this.mFrom);
         writeActivityConfig.setCallFrom(this.writeCallFrom);
@@ -347,17 +347,17 @@ public class g {
         writeActivityConfig.setForumDir(str2, str);
         writeActivityConfig.setProfessionZone(this.hLG != null ? this.hLG.defaultZone : -1);
         writeActivityConfig.setFrsTabInfo(this.hLG != null ? this.hLG.frsTabInfo : null);
-        if (!StringUtils.isNull(this.mmb)) {
-            writeActivityConfig.setTitle(this.mmb, true);
+        if (!StringUtils.isNull(this.mme)) {
+            writeActivityConfig.setTitle(this.mme, true);
         }
         if (!a(this.dPv.getPageActivity(), writeActivityConfig)) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
         }
     }
 
-    public void dqW() {
+    public void dra() {
         vH(false);
-        TiebaStatic.log(new ao(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dk("obj_locate", this.mmc).ag("obj_type", 2));
+        TiebaStatic.log(new ao(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dk("obj_locate", this.mmf).ag("obj_type", 2));
         if (this.hLG == null) {
             this.hLG = new ForumWriteData("0", null, null, null);
         }
@@ -366,7 +366,7 @@ public class g {
         j.b(this.dPv, "", this.hLG);
     }
 
-    public void OQ(String str) {
+    public void OR(String str) {
         String str2;
         String str3;
         int i;
@@ -402,7 +402,7 @@ public class g {
             str5 = str8;
             str6 = str7;
         }
-        TiebaStatic.log(new ao(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dk("obj_locate", this.mmc).ag("obj_type", 1));
+        TiebaStatic.log(new ao(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dk("obj_locate", this.mmf).ag("obj_type", 1));
         WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.dPv.getPageActivity(), 9, str6, str5, null, null, 0, antiData, RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, postPrefixData, 0);
         writeActivityConfig.getIntent().putExtra("from", this.mFrom);
         writeActivityConfig.setCallFrom(this.writeCallFrom);
@@ -431,21 +431,21 @@ public class g {
         return permissionJudgePolicy.startRequestPermission(activity);
     }
 
-    public void bke() {
-        if (this.mlY != null) {
-            this.mlY.dqG();
+    public void bkf() {
+        if (this.mmb != null) {
+            this.mmb.dqK();
         }
     }
 
     public void a(h.a aVar) {
-        this.lLZ = aVar;
+        this.lMc = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dqX() {
+    public void drb() {
         boolean z = com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean("home_publish_ala_has_showed", false);
-        if (this.mlY instanceof a.b) {
-            ((a.b) this.mlY).vC(z ? false : true);
+        if (this.mmb instanceof a.b) {
+            ((a.b) this.mmb).vC(z ? false : true);
         }
         com.baidu.tbadk.core.sharedPref.b.aVP().putBoolean("home_publish_ala_has_showed", true);
     }

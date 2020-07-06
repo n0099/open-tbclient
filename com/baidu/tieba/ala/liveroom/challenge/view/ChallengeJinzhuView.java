@@ -40,7 +40,7 @@ public class ChallengeJinzhuView extends FrameLayout {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bDD();
+        void bDE();
     }
 
     public ChallengeJinzhuView(@NonNull Context context) {
@@ -166,7 +166,7 @@ public class ChallengeJinzhuView extends FrameLayout {
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig));
                                 return;
                             }
-                            ChallengeJinzhuView.this.gfr.bDD();
+                            ChallengeJinzhuView.this.gfr.bDE();
                         }
                     }
                 });

@@ -12,7 +12,7 @@ public class e {
     private boolean gKR;
     private int status = 0;
 
-    public int bNn() {
+    public int bNo() {
         return this.gKP;
     }
 
@@ -20,23 +20,23 @@ public class e {
         return this.status;
     }
 
-    public long bNo() {
+    public long bNp() {
         return this.gKL;
     }
 
-    public long bNp() {
+    public long bNq() {
         return this.gKN;
     }
 
-    public long bNq() {
+    public long bNr() {
         return this.gKO;
     }
 
-    public long bNr() {
+    public long bNs() {
         return this.gKM;
     }
 
-    public boolean bNs() {
+    public boolean bNt() {
         return this.gKR;
     }
 

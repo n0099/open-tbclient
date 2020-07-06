@@ -9,7 +9,7 @@ public class FTOSPushHelper {
     private static long a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private static volatile boolean f30a = false;
+    private static volatile boolean f31a = false;
 
     private static void a(Context context) {
         AbstractPushManager a2 = e.a(context).a(d.ASSEMBLE_PUSH_FTOS);
@@ -30,7 +30,7 @@ public class FTOSPushHelper {
     }
 
     public static boolean getNeedRegister() {
-        return f30a;
+        return f31a;
     }
 
     public static boolean hasNetwork(Context context) {
@@ -54,7 +54,7 @@ public class FTOSPushHelper {
     }
 
     public static void setNeedRegister(boolean z) {
-        f30a = z;
+        f31a = z;
     }
 
     public static void uploadToken(Context context, String str) {

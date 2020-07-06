@@ -31,7 +31,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
                 if (AtMessageActivity.this.jgw != null) {
-                    AtMessageActivity.this.jgw.bPj();
+                    AtMessageActivity.this.jgw.bPk();
                 }
             }
         }
@@ -50,18 +50,18 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         } else {
             this.jgw.aj(null);
         }
-        this.jgv.bwR();
+        this.jgv.bwS();
         bhs().addEventDelegate(this);
-        this.jgw.bPj();
+        this.jgw.bPk();
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        this.jgw.cdm();
+        this.jgw.cdn();
     }
 
-    public void caS() {
-        this.jgw.bPk();
+    public void caT() {
+        this.jgw.bPl();
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
@@ -160,8 +160,8 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         return this.jgx;
     }
 
-    public void cuG() {
-        this.jgv.cuG();
+    public void cuH() {
+        this.jgv.cuH();
     }
 
     public void c(com.baidu.tbadk.mvc.d.b bVar) {
@@ -172,8 +172,8 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         this.jgv.a(aVar);
     }
 
-    public void cuH() {
-        this.jgv.cuH();
+    public void cuI() {
+        this.jgv.cuI();
     }
 
     public void a(ErrorData errorData) {

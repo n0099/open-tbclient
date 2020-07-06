@@ -12,7 +12,7 @@ import java.util.List;
 public class a {
     private List<com.baidu.adp.widget.ListView.a> aUP = new ArrayList();
 
-    public List<com.baidu.adp.widget.ListView.a> btV() {
+    public List<com.baidu.adp.widget.ListView.a> btW() {
         return this.aUP;
     }
 

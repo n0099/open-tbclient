@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class AlaUpdateLiveTbResponseMessage extends JsonHttpResponsedMessage {
     private h gnb;
 
-    public h bHR() {
+    public h bHS() {
         return this.gnb;
     }
 

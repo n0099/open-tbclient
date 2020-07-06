@@ -69,12 +69,12 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                             alaStaticItem.addParams("other_params", a.this.Ep());
                             AlaStaticsManager.getInst().onStatic(alaStaticItem);
                         }
-                        a.this.bEG();
+                        a.this.bEH();
                         if (TbadkCoreApplication.isLogin()) {
                             if (a.this.fXS != null) {
                                 a.this.fXS.cG(8);
                             }
-                            a.this.bEI();
+                            a.this.bEJ();
                             return;
                         }
                         ViewHelper.skipToLoginActivity(a.this.getPageContext().getPageActivity());
@@ -82,7 +82,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                 });
                 if (pendantParentView.indexOfChild(HD) < 0) {
                     if (layoutParams == null) {
-                        layoutParams = bEH();
+                        layoutParams = bEI();
                     }
                     pendantParentView.a(HD, layoutParams);
                 }
@@ -91,11 +91,11 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bEG() {
+    public void bEH() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "petal_clk"));
     }
 
-    private LinearLayout.LayoutParams bEH() {
+    private LinearLayout.LayoutParams bEI() {
         return new LinearLayout.LayoutParams(-2, -2);
     }
 
@@ -123,7 +123,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bEI() {
+    public void bEJ() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new g(getPageContext().getPageActivity())));
     }
 
@@ -135,7 +135,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
 
     public void u(q qVar) {
         if (!TbadkCoreApplication.isLogin()) {
-            bEJ();
+            bEK();
         }
         if (this.ghP != null && this.ghP.HD() != null && qVar != null && qVar.axS != null) {
             this.ghP.a(qVar.axS);
@@ -148,7 +148,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    public void bEJ() {
+    public void bEK() {
         if (this.ghP != null && this.ghP.HD() != null) {
             this.ghP.HD().setVisibility(8);
         }

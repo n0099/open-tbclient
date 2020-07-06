@@ -87,8 +87,8 @@ public class TbCornersImageView extends AppCompatImageView {
         this.eGf = new RectF();
         this.paint = new Paint();
         this.path = new Path();
-        bjA();
         bjB();
+        bjC();
     }
 
     @Override // android.view.View
@@ -96,8 +96,8 @@ public class TbCornersImageView extends AppCompatImageView {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = i;
         this.height = i2;
-        bjy();
         bjz();
+        bjA();
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -169,13 +169,13 @@ public class TbCornersImageView extends AppCompatImageView {
         this.paint.setStyle(Paint.Style.STROKE);
     }
 
-    private void bjy() {
+    private void bjz() {
         if (!this.eFU) {
             this.eGg.set(this.borderWidth / 2.0f, this.borderWidth / 2.0f, this.width - (this.borderWidth / 2.0f), this.height - (this.borderWidth / 2.0f));
         }
     }
 
-    private void bjz() {
+    private void bjA() {
         if (this.eFU) {
             this.bnJ = Math.min(this.width, this.height) / 2.0f;
             this.eGf.set((this.width / 2.0f) - this.bnJ, (this.height / 2.0f) - this.bnJ, (this.width / 2.0f) + this.bnJ, (this.height / 2.0f) + this.bnJ);
@@ -187,7 +187,7 @@ public class TbCornersImageView extends AppCompatImageView {
         }
     }
 
-    private void bjA() {
+    private void bjB() {
         if (!this.eFU) {
             if (this.cornerRadius > 0) {
                 for (int i = 0; i < this.eGd.length; i++) {
@@ -239,12 +239,12 @@ public class TbCornersImageView extends AppCompatImageView {
         if (z) {
             this.cornerRadius = 0;
         }
-        bjA();
-        bjy();
+        bjB();
+        bjz();
         invalidate();
     }
 
-    private void bjB() {
+    private void bjC() {
         if (!this.eFU) {
             this.eFW = 0;
         }
@@ -267,7 +267,7 @@ public class TbCornersImageView extends AppCompatImageView {
 
     public void setInnerBorderWidth(int i) {
         this.eFW = i;
-        bjB();
+        bjC();
         invalidate();
     }
 

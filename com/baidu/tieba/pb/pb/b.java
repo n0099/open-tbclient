@@ -61,7 +61,7 @@ public class b {
         return i2;
     }
 
-    public static void cHX() {
+    public static void cHY() {
         ahK = new LayerDrawable(new Drawable[]{c.aXu().lG(0).Q(igf).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).aXw(), c.aXu().lG(0).Q(igf).xa("#4D000000").aXw()});
         ahL = new LayerDrawable(new Drawable[]{c.aXu().lG(0).Q(igf).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).aXw(), c.aXu().lG(0).Q(igf).xa("#4D000000").aXw()});
         kaM = new LayerDrawable(new Drawable[]{c.aXu().lG(0).Q(igf).b("TL_BR", R.color.floor_host_start, R.color.floor_host_end).aXw(), c.aXu().lG(0).Q(igf).xa("#4D000000").aXw()});
@@ -128,8 +128,8 @@ public class b {
                         lVar.kdv.setVisibility(8);
                         lVar.kdw.setVisibility(8);
                         lVar.kdL.setText(R.string.close_content);
-                    } else if (StringUtils.isNull(eVar.cGY())) {
-                        lVar.kdL.setText(eVar.cGY());
+                    } else if (StringUtils.isNull(eVar.cGZ())) {
+                        lVar.kdL.setText(eVar.cGZ());
                     } else {
                         lVar.kdL.setText(R.string.expand_content);
                     }
@@ -220,14 +220,14 @@ public class b {
                 ArrayList<IconData> tShowInfoNew = postData.aSp().getTShowInfoNew();
                 if (lVar.kdC != null) {
                     lVar.kdC.setTag(R.id.tag_user_id, postData.aSp().getUserId());
-                    lVar.kdC.setOnClickListener(aVar.cHT().kqZ);
+                    lVar.kdC.setOnClickListener(aVar.cHU().kqZ);
                     lVar.kdC.a(iconInfo, 2, kaL, kaL, eNE);
                 }
                 if (lVar.kdB != null) {
                     if (tShowInfoNew != null && tShowInfoNew.size() > 0 && tShowInfoNew.get(0) != null) {
                         lVar.kdB.setTag(tShowInfoNew.get(0).getUrl());
                     }
-                    lVar.kdB.setOnClickListener(aVar.cHT().kra);
+                    lVar.kdB.setOnClickListener(aVar.cHU().kra);
                     lVar.kdB.a(tShowInfoNew, 3, kaL, kaL, eNE, true);
                 }
                 if (!w.isEmpty(tShowInfoNew) || postData.aSp().isBigV()) {
@@ -244,7 +244,7 @@ public class b {
                 if (NickNameActivitySwitch.isOn() && name_show != null && !name_show.equals(userName)) {
                     lVar.gDT.setText(com.baidu.tieba.pb.c.aK(aVar.getPageContext().getPageActivity(), lVar.gDT.getText().toString()));
                     lVar.gDT.setGravity(16);
-                    lVar.gDT.setTag(R.id.tag_nick_name_activity, com.baidu.tieba.pb.c.cGx());
+                    lVar.gDT.setTag(R.id.tag_nick_name_activity, com.baidu.tieba.pb.c.cGy());
                     an.setViewTextColor(lVar.gDT, R.color.cp_other_f, 1);
                 }
                 if (postData.aSp().getPendantData() != null && !StringUtils.isNull(postData.aSp().getPendantData().aQl())) {
@@ -260,7 +260,7 @@ public class b {
                     lVar.kdr.setGodIconWidth(R.dimen.tbds32);
                     UtilHelper.showHeadImageViewBigV(lVar.kdr, postData.aSp(), 4);
                     lVar.kdr.setUserId(postData.aSp().getUserId());
-                    lVar.kdr.setUserName(postData.aSp().getUserName(), postData.dii());
+                    lVar.kdr.setUserName(postData.aSp().getUserName(), postData.dij());
                     lVar.kdr.setTag(R.id.tag_virtual_user_url, postData.aSp().getVirtualUserUrl());
                     lVar.kdr.setImageDrawable(null);
                     lVar.kdr.startLoad(avater, 28, false);
@@ -272,8 +272,8 @@ public class b {
                     lVar.kdk.setTag(null);
                 } else if (postData.aSp() != null) {
                     MetaData aSp = postData.aSp();
-                    int lr = postData.dhQ() ? R.drawable.brand_official_btn : an.lr(R.drawable.bg_user_identity_btn);
-                    int lr2 = postData.dhQ() ? R.color.cp_cont_a : an.lr(R.color.cp_bg_line_d);
+                    int lr = postData.dhR() ? R.drawable.brand_official_btn : an.lr(R.drawable.bg_user_identity_btn);
+                    int lr2 = postData.dhR() ? R.color.cp_cont_a : an.lr(R.color.cp_bg_line_d);
                     an.setBackgroundResource(lVar.kdk, lr);
                     an.setViewTextColor(lVar.kdk, lr2);
                     lVar.kdk.setTag(Integer.valueOf(lr));
@@ -289,7 +289,7 @@ public class b {
                             kaM.getDrawable(1).setAlpha(0);
                         }
                         lVar.kdk.setBackgroundDrawable(kaM);
-                    } else if (aSp.getIs_bawu() == 1 && postData.dhQ()) {
+                    } else if (aSp.getIs_bawu() == 1 && postData.dhR()) {
                         lVar.kdk.setVisibility(0);
                         lVar.kdk.setText(R.string.brand_Official);
                     } else if (aSp.getIs_bawu() == 1 && Config.BAWU_TYPE_MANAGER.equals(aSp.getBawu_type())) {
@@ -332,7 +332,7 @@ public class b {
                 }
             }
             int i2 = 0;
-            if (aVar.cHU() && postData.aSp() != null) {
+            if (aVar.cHV() && postData.aSp() != null) {
                 i2 = postData.aSp().getLevel_id();
             }
             if (buVar != null && buVar.aQZ()) {
@@ -375,7 +375,7 @@ public class b {
             sparseArray.put(R.id.tag_load_sub_data, postData);
             sparseArray.put(R.id.tag_load_sub_view, view);
             sparseArray.put(R.id.tag_pb_floor_postion, Integer.valueOf(i));
-            sparseArray.put(R.id.tag_pb_floor_number, Integer.valueOf(postData.dhY()));
+            sparseArray.put(R.id.tag_pb_floor_number, Integer.valueOf(postData.dhZ()));
             sparseArray.put(R.id.tag_forbid_user_post_id, postData.getId());
             if (postData.aSp() == null || StringUtils.isNull(postData.aSp().getVirtualUserUrl())) {
                 z = false;
@@ -385,11 +385,11 @@ public class b {
             boolean z8 = false;
             boolean z9 = false;
             boolean z10 = false;
-            if (buVar != null && aVar.cHW() != 0) {
-                if (aVar.cHW() != 1002 && aVar.cHW() != 3) {
+            if (buVar != null && aVar.cHX() != 0) {
+                if (aVar.cHX() != 1002 && aVar.cHX() != 3) {
                     z8 = true;
                 }
-                if (aVar.cHW() != 3 && !buVar.isBjh()) {
+                if (aVar.cHX() != 3 && !buVar.isBjh()) {
                     z9 = true;
                 }
                 if (postData != null && postData.aSp() != null) {
@@ -424,7 +424,7 @@ public class b {
                                     z5 = false;
                                 }
                                 int i4 = 1;
-                                if (postData.dhY() == 1) {
+                                if (postData.dhZ() == 1) {
                                     i4 = 0;
                                 }
                                 if (buVar != null && buVar.aQZ()) {
@@ -433,7 +433,7 @@ public class b {
                                 }
                                 if (z2) {
                                     sparseArray.put(R.id.tag_should_manage_visible, true);
-                                    sparseArray.put(R.id.tag_manage_user_identity, Integer.valueOf(aVar.cHW()));
+                                    sparseArray.put(R.id.tag_manage_user_identity, Integer.valueOf(aVar.cHX()));
                                     if (postData.aSp() != null) {
                                         sparseArray.put(R.id.tag_forbid_user_name, postData.aSp().getUserName());
                                         sparseArray.put(R.id.tag_forbid_user_name_show, postData.aSp().getName_show());
@@ -457,7 +457,7 @@ public class b {
                                 }
                                 if (!z7 && buVar != null) {
                                     sparseArray.put(R.id.tag_should_delete_visible, true);
-                                    sparseArray.put(R.id.tag_manage_user_identity, Integer.valueOf(aVar.cHW()));
+                                    sparseArray.put(R.id.tag_manage_user_identity, Integer.valueOf(aVar.cHX()));
                                     sparseArray.put(R.id.tag_del_post_is_self, Boolean.valueOf(z6));
                                     sparseArray.put(R.id.tag_del_post_type, Integer.valueOf(i4));
                                     sparseArray.put(R.id.tag_del_post_id, postData.getId());
@@ -476,7 +476,7 @@ public class b {
                         if (z) {
                         }
                         int i42 = 1;
-                        if (postData.dhY() == 1) {
+                        if (postData.dhZ() == 1) {
                         }
                         if (buVar != null) {
                             z2 = false;
@@ -511,7 +511,7 @@ public class b {
             if (z) {
             }
             int i422 = 1;
-            if (postData.dhY() == 1) {
+            if (postData.dhZ() == 1) {
             }
             if (buVar != null) {
             }
@@ -563,7 +563,7 @@ public class b {
             lVar.kds.setLayoutParams(layoutParams);
             lVar.kds.setLinkTextColor(an.getColor(R.color.cp_link_tip_c));
             lVar.kds.setIsFromCDN(z2);
-            lVar.kds.setText(postData.dia(), true, cVar);
+            lVar.kds.setText(postData.dib(), true, cVar);
             SparseArray sparseArray = (SparseArray) lVar.kds.getTag();
             if (sparseArray == null) {
                 sparseArray = new SparseArray();
@@ -580,8 +580,8 @@ public class b {
         int i;
         int i2;
         if (lVar != null && postData != null) {
-            if (postData.dhY() > 0 && buVar != null && !buVar.isBjh()) {
-                String format = String.format(TbadkApplication.getInst().getString(R.string.is_floor), Integer.valueOf(postData.dhY()));
+            if (postData.dhZ() > 0 && buVar != null && !buVar.isBjh()) {
+                String format = String.format(TbadkApplication.getInst().getString(R.string.is_floor), Integer.valueOf(postData.dhZ()));
                 lVar.kdy.setVisibility(0);
                 lVar.kdy.setText(format);
                 z = true;
@@ -589,8 +589,8 @@ public class b {
                 lVar.kdy.setVisibility(8);
                 z = false;
             }
-            f dib = postData.dib();
-            boolean z2 = (dib == null || StringUtils.isNull(dib.getName()) || buVar == null || buVar.isBjh()) ? false : true;
+            f dic = postData.dic();
+            boolean z2 = (dic == null || StringUtils.isNull(dic.getName()) || buVar == null || buVar.isBjh()) ? false : true;
             if (z) {
                 lVar.kdm.setVisibility(0);
                 i = kaK;
@@ -614,7 +614,7 @@ public class b {
             if (z2) {
                 lVar.kdo.setVisibility(0);
                 lVar.kdo.setPadding(kaK, 0, 0, 0);
-                lVar.kdo.setText(dib.getName());
+                lVar.kdo.setText(dic.getName());
                 return;
             }
             lVar.kdo.setVisibility(8);
@@ -622,12 +622,12 @@ public class b {
     }
 
     public static void a(l lVar, PostData postData) {
-        if (postData == null || postData.cOE() == null) {
+        if (postData == null || postData.cOF() == null) {
             lVar.kdD.setVisibility(8);
             return;
         }
-        TbRichText dia = postData.dia();
-        com.baidu.tieba.pb.view.b.a(postData.cOE(), lVar.kdD, false, false, dia != null && StringUtils.isNull(dia.toString()) && StringUtils.isNull(postData.getBimg_url()));
+        TbRichText dib = postData.dib();
+        com.baidu.tieba.pb.view.b.a(postData.cOF(), lVar.kdD, false, false, dib != null && StringUtils.isNull(dib.toString()) && StringUtils.isNull(postData.getBimg_url()));
     }
 
     public static void a(l lVar, PostData postData, boolean z) {

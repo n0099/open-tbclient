@@ -26,7 +26,7 @@ public class b {
         setHasMore(false);
     }
 
-    public int cSx() {
+    public int cSy() {
         return this.kIL;
     }
 
@@ -38,7 +38,7 @@ public class b {
         this.kIL += i;
     }
 
-    public int cSy() {
+    public int cSz() {
         return this.kIM;
     }
 
@@ -50,23 +50,23 @@ public class b {
         this.kIM += i;
     }
 
-    public ArrayList<ForumData> cSz() {
+    public ArrayList<ForumData> cSA() {
         return this.kIF;
     }
 
-    public ArrayList<ForumData> cSA() {
+    public ArrayList<ForumData> cSB() {
         return this.kIG;
     }
 
-    public ArrayList<ForumData> cSB() {
+    public ArrayList<ForumData> cSC() {
         return this.kII;
     }
 
-    public ArrayList<ForumData> cSC() {
+    public ArrayList<ForumData> cSD() {
         return this.kIJ;
     }
 
-    public ArrayList<ForumData> cSD() {
+    public ArrayList<ForumData> cSE() {
         return this.kIE;
     }
 
@@ -114,7 +114,7 @@ public class b {
         }
     }
 
-    public ArrayList<ForumData> cSE() {
+    public ArrayList<ForumData> cSF() {
         return this.kIH;
     }
 

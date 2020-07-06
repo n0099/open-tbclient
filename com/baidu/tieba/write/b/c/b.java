@@ -15,7 +15,7 @@ import com.baidu.tieba.write.upload.VideoUploadData;
 /* loaded from: classes2.dex */
 public final class b {
     private boolean isInit;
-    private com.baidu.tieba.write.b.b.a mpn;
+    private com.baidu.tieba.write.b.b.a mpq;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -26,12 +26,12 @@ public final class b {
 
     /* renamed from: com.baidu.tieba.write.b.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0766b {
-        private static final b mpq = new b();
+    private static class C0767b {
+        private static final b mpt = new b();
     }
 
-    public static final b drM() {
-        return C0766b.mpq;
+    public static final b drQ() {
+        return C0767b.mpt;
     }
 
     private b() {
@@ -45,16 +45,16 @@ public final class b {
             UgcServerApiUtils.setHostAddress(UgcServerApiUtils.ONLINE_HOST_ADRESS);
             UgcServerApiUtils.setPublisherUserAgent(UgcServerApiUtils.DEFAULT_PUBLISHER_USER_AGENT);
             com.baidu.a.a.a.sL().setAppName("tieba");
-            if (this.mpn == null) {
-                this.mpn = new com.baidu.tieba.write.b.b.a();
+            if (this.mpq == null) {
+                this.mpq = new com.baidu.tieba.write.b.b.a();
             }
-            this.mpn.vP(false);
+            this.mpq.vP(false);
             MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.write.b.c.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.mpn != null) {
-                        b.this.mpn.vP(false);
+                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.mpq != null) {
+                        b.this.mpq.vP(false);
                     }
                 }
             });

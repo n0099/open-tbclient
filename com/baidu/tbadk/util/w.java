@@ -16,9 +16,9 @@ public final class w {
             return false;
         }
         try {
-            a biV = a.biV();
+            a biW = a.biW();
             for (String str : strArr) {
-                if (biV.getProperty(str) != null) {
+                if (biW.getProperty(str) != null) {
                     return true;
                 }
             }
@@ -38,7 +38,7 @@ public final class w {
             this.eEx.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
-        public static a biV() throws IOException {
+        public static a biW() throws IOException {
             if (eEw == null) {
                 synchronized (a.class) {
                     if (eEw == null) {

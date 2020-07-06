@@ -86,7 +86,7 @@ public class b {
         }
     }
 
-    public void btu() {
+    public void btv() {
         this.ikn = false;
         wL(this.pn + 1);
     }

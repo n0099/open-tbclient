@@ -26,11 +26,11 @@ public class c {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void ccA();
-
         void ccB();
 
-        boolean ccC();
+        void ccC();
+
+        boolean ccD();
     }
 
     public c(BaseActivity baseActivity, View view, NavigationBar navigationBar) {
@@ -55,12 +55,12 @@ public class c {
         this.hEm.a(new a.InterfaceC0614a() { // from class: com.baidu.tieba.frs.gamesubpb.c.3
             @Override // com.baidu.tieba.f.a.InterfaceC0614a
             public void D(int i, int i2) {
-                c.this.ccD();
+                c.this.ccE();
             }
 
             @Override // com.baidu.tieba.f.a.InterfaceC0614a
             public void E(int i, int i2) {
-                if (c.this.hQE != null && c.this.hQE.ccC() && Math.abs(i2) > c.TOUCH_SLOP) {
+                if (c.this.hQE != null && c.this.hQE.ccD() && Math.abs(i2) > c.TOUCH_SLOP) {
                     if (c.this.hQC != null) {
                         c.this.hQC.setBackgroundResource(R.color.transparent);
                     }
@@ -78,18 +78,18 @@ public class c {
         });
     }
 
-    public void ccD() {
+    public void ccE() {
         if (this.hQF && this.mNavigationBar != null && this.hQC != null && this.hQC.getVisibility() == 0) {
             this.mNavigationBar.setStatusBarVisibility(0);
             this.mActivity.setExcludeHeight(0);
             if (this.hQE != null) {
-                this.hQE.ccA();
+                this.hQE.ccB();
             }
-            this.hQC.ccJ();
+            this.hQC.ccK();
         }
     }
 
-    public void ccE() {
+    public void ccF() {
         ViewGroup viewGroup;
         if (!this.hQF && (viewGroup = (ViewGroup) this.mActivity.findViewById(16908290)) != null && (viewGroup.getParent() instanceof LinearLayout)) {
             this.hQC = new BlankView(this.mActivity.getPageContext().getPageActivity());
@@ -110,7 +110,7 @@ public class c {
                     }
                     c.this.hQF = false;
                     if (c.this.hQE != null) {
-                        c.this.hQE.ccB();
+                        c.this.hQE.ccC();
                     }
                 }
             });
@@ -123,7 +123,7 @@ public class c {
         this.hQE = aVar;
     }
 
-    public boolean ccF() {
+    public boolean ccG() {
         return this.hQF;
     }
 

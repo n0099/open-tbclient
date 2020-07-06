@@ -10,11 +10,11 @@ public class b implements i {
     private boolean huV = false;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int bWm() {
+    public int bWn() {
         return 1;
     }
 
-    public ArrayList<BawuRoleInfoPub> bWn() {
+    public ArrayList<BawuRoleInfoPub> bWo() {
         return this.mMembers;
     }
 
@@ -30,7 +30,7 @@ public class b implements i {
         this.isLast = z;
     }
 
-    public boolean bWo() {
+    public boolean bWp() {
         return this.huV;
     }
 
@@ -38,7 +38,7 @@ public class b implements i {
         this.huV = z;
     }
 
-    public String bWp() {
+    public String bWq() {
         return this.huW;
     }
 

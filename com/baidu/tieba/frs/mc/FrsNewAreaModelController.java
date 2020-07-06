@@ -56,7 +56,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cdl() {
+    public void cdm() {
         this.hTc.cancelLoadData();
     }
 
@@ -101,7 +101,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
         bundle.putBoolean(FrsActivityConfig.GOOD, true);
     }
 
-    public boolean cdm() {
+    public boolean cdn() {
         FrsRequestData frsRequestData = (FrsRequestData) FrsRequestData.objectWithJson(FrsRequestData.jsonWithObject(this.hTd), FrsRequestData.class);
         frsRequestData.setPn(1);
         a(frsRequestData, 3);
@@ -149,7 +149,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
             }
             frsRequestData.setUpdateType(this.mType);
             frsRequestData.setNeedCache(false);
-            cdo();
+            cdp();
         }
     }
 
@@ -258,7 +258,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
         }
     }
 
-    public void bYv() {
+    public void bYw() {
         if (this.hzi != null && this.hzi.getForum() != null && this.hzi.getForum().getBannerListData() != null) {
             String lastIds = this.hzi.getForum().getBannerListData().getLastIds();
             if (!TextUtils.isEmpty(lastIds)) {
@@ -271,28 +271,28 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
         return this.mType;
     }
 
-    public FrsViewData cdn() {
+    public FrsViewData cdo() {
         return this.hzi;
     }
 
-    private void cdo() {
+    private void cdp() {
         this.hfB = System.currentTimeMillis();
         this.hTc.loadData();
     }
 
-    public long bSs() {
+    public long bSt() {
         return this.hfE;
     }
 
-    public long bSt() {
+    public long bSu() {
         return this.hfC;
     }
 
-    public long bSu() {
+    public long bSv() {
         return this.hfD;
     }
 
-    public long bSv() {
+    public long bSw() {
         return this.hfB;
     }
 
@@ -301,10 +301,10 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
     }
 
     public void loadData() {
-        cdm();
+        cdn();
     }
 
-    public boolean cdp() {
+    public boolean cdq() {
         return true;
     }
 
@@ -321,13 +321,13 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
     public void vE(int i) {
         this.hUx = i;
         if (7 == i) {
-            com.baidu.tieba.tbadkCore.util.e.dje();
-        } else {
             com.baidu.tieba.tbadkCore.util.e.djf();
+        } else {
+            com.baidu.tieba.tbadkCore.util.e.djg();
         }
     }
 
-    public int cdR() {
+    public int cdS() {
         return this.hUx;
     }
 

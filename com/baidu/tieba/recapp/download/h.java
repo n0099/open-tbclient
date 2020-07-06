@@ -43,7 +43,7 @@ public class h {
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        i.cZe().a(advertAppInfo.dGO, advertAppInfo.apkUrl, str2, i, i.LJ(advertAppInfo.dGO).intValue(), null, true, false, true, advertAppInfo.dGU.userPortrait, downloadStaticsData, advertAppInfo.dGU.userName);
+        i.cZf().a(advertAppInfo.dGO, advertAppInfo.apkUrl, str2, i, i.LJ(advertAppInfo.dGO).intValue(), null, true, false, true, advertAppInfo.dGU.userPortrait, downloadStaticsData, advertAppInfo.dGU.userName);
         return true;
     }
 
@@ -52,7 +52,7 @@ public class h {
         if (adAdSense != null && !adAdSense.aZW()) {
             r.f(advertAppInfo);
         } else {
-            i.cZe().C(advertAppInfo.apkUrl, advertAppInfo.dGO, true);
+            i.cZf().C(advertAppInfo.apkUrl, advertAppInfo.dGO, true);
         }
     }
 

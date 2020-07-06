@@ -14,7 +14,7 @@ public final class b {
 
     /* renamed from: tv.chushou.widget.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C0932b {
+    public static final class C0933b {
         public static final int commonres_placeholder_bg = 2131559347;
         public static final int commonres_second_black = 2131559348;
         public static final int commonres_selected_green = 2131559349;

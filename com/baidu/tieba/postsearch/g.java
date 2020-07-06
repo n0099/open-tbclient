@@ -36,9 +36,9 @@ public class g {
     }
 
     public void Db(int i) {
-        this.lar.cgJ();
+        this.lar.cgK();
         hideSoftKeyPad();
-        this.lar.cXf();
+        this.lar.cXg();
         this.lau.setVisibility(true);
         this.lau.Db(i);
     }
@@ -51,8 +51,8 @@ public class g {
         this.lau.a(i, bVar, z);
     }
 
-    public boolean cXj() {
-        return this.las.cXr();
+    public boolean cXk() {
+        return this.las.cXs();
     }
 
     public void showLoadingView() {
@@ -63,16 +63,16 @@ public class g {
         this.las.hideLoadingView();
     }
 
-    public void cXq() {
-        this.las.cXq();
+    public void cXr() {
+        this.las.cXr();
     }
 
     public void hideSoftKeyPad() {
         this.lar.hideSoftKeyPad();
     }
 
-    public void cXC() {
-        this.las.cXp();
+    public void cXD() {
+        this.las.cXq();
     }
 
     public int getCurrentTabType() {

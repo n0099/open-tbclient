@@ -19,9 +19,9 @@ public class a extends RelativeLayout {
     private int d;
     private boolean g;
     private String h;
-    private MyWebView nsE;
-    private ListItem nsF;
-    private d nsG;
+    private MyWebView nsH;
+    private ListItem nsI;
+    private d nsJ;
 
     public a(Context context, ListItem listItem, d dVar) {
         super(context);
@@ -33,19 +33,19 @@ public class a extends RelativeLayout {
 
     private void a(Context context, ListItem listItem, d dVar) {
         this.a = context;
-        this.nsF = listItem;
-        this.nsG = dVar;
+        this.nsI = listItem;
+        this.nsJ = dVar;
         inflate(getContext(), a.h.popupwebview, this);
         setLayoutParams(new RelativeLayout.LayoutParams(tv.chushou.zues.utils.a.gw(this.a).x, tv.chushou.zues.utils.a.dip2px(this.a, 80.0f)));
-        this.nsE = (MyWebView) findViewById(a.f.wv);
-        this.nsE.setBackgroundColor(0);
+        this.nsH = (MyWebView) findViewById(a.f.wv);
+        this.nsH.setBackgroundColor(0);
         com.kascend.chushou.widget.cswebview.a aVar = new com.kascend.chushou.widget.cswebview.a();
         aVar.a(new JSInterface(this.a));
-        if (this.nsG != null) {
-            aVar.a(this.nsG);
+        if (this.nsJ != null) {
+            aVar.a(this.nsJ);
         }
         aVar.bx(this);
-        CSWebView.a(this.nsE, this.a, new c() { // from class: com.kascend.chushou.player.ui.miniview.a.1
+        CSWebView.a(this.nsH, this.a, new c() { // from class: com.kascend.chushou.player.ui.miniview.a.1
             @Override // android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
@@ -64,10 +64,10 @@ public class a extends RelativeLayout {
                 }
             }
         }, aVar);
-        this.nsE.onResume();
-        this.nsE.resumeTimers();
+        this.nsH.onResume();
+        this.nsH.resumeTimers();
         this.g = false;
-        this.nsE.loadUrl(this.nsF.mUrl);
+        this.nsH.loadUrl(this.nsI.mUrl);
         setVisibility(8);
     }
 
@@ -87,7 +87,7 @@ public class a extends RelativeLayout {
             public void onAnimationStart(Animation animation) {
                 super.onAnimationStart(animation);
                 com.kascend.chushou.player.ui.button.a aVar = new com.kascend.chushou.player.ui.button.a(3, 0);
-                aVar.Rk(str);
+                aVar.Rl(str);
                 tv.chushou.zues.a.a.post(aVar);
             }
 
@@ -104,14 +104,14 @@ public class a extends RelativeLayout {
 
     public boolean a() {
         if (!this.c) {
-            return this.nsF.mPackStyle != 1;
+            return this.nsI.mPackStyle != 1;
         }
         this.c = false;
-        if (this.nsF.mPackStyle != 1) {
+        if (this.nsI.mPackStyle != 1) {
             setVisibility(8);
             b();
             com.kascend.chushou.player.ui.button.a aVar = new com.kascend.chushou.player.ui.button.a(3, 8);
-            aVar.Rk(this.h);
+            aVar.Rl(this.h);
             tv.chushou.zues.a.a.post(aVar);
             return true;
         }
@@ -121,7 +121,7 @@ public class a extends RelativeLayout {
             public void onAnimationStart(Animation animation) {
                 super.onAnimationStart(animation);
                 com.kascend.chushou.player.ui.button.a aVar2 = new com.kascend.chushou.player.ui.button.a(3, 8);
-                aVar2.Rk(a.this.h);
+                aVar2.Rl(a.this.h);
                 tv.chushou.zues.a.a.post(aVar2);
             }
 
@@ -138,18 +138,18 @@ public class a extends RelativeLayout {
     }
 
     public void a(String str) {
-        if (this.nsE != null) {
-            this.nsE.loadUrl("javascript:getRefreshData('" + str + "')");
+        if (this.nsH != null) {
+            this.nsH.loadUrl("javascript:getRefreshData('" + str + "')");
         }
     }
 
     public void b() {
         this.a = null;
-        if (this.nsE != null) {
-            this.nsE.loadUrl("");
-            this.nsE.removeAllViews();
-            this.nsE.destroy();
-            this.nsE = null;
+        if (this.nsH != null) {
+            this.nsH.loadUrl("");
+            this.nsH.removeAllViews();
+            this.nsH.destroy();
+            this.nsH = null;
         }
     }
 }

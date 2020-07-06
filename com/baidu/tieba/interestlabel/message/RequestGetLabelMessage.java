@@ -11,7 +11,7 @@ import tbclient.GetTagList.GetTagListReqIdl;
 public class RequestGetLabelMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f1029common;
+    private CommonReq f1030common;
     private int from;
     private b mLabelDataSet;
 
@@ -20,7 +20,7 @@ public class RequestGetLabelMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f1029common = commonReq;
+        this.f1030common = commonReq;
     }
 
     public void setFrom(int i) {
@@ -38,7 +38,7 @@ public class RequestGetLabelMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1171common = this.f1029common;
+        builder.f1172common = this.f1030common;
         builder.from = Integer.valueOf(this.from);
         if (z) {
             t.a(builder, true);

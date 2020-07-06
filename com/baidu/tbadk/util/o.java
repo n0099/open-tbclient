@@ -71,14 +71,14 @@ public class o extends BdAsyncTask<String, String, b> {
         if (TextUtils.isEmpty(this.url)) {
             return new b(false, "url is null");
         }
-        if (!biN()) {
+        if (!biO()) {
             return new b(false, "make file error");
         }
         if (!this.eEj) {
-            if (!biO()) {
+            if (!biP()) {
                 return new b(false, "download error");
             }
-        } else if (!biP()) {
+        } else if (!biQ()) {
             return new b(false, "decode base64 error");
         }
         return new b(true, null);
@@ -105,7 +105,7 @@ public class o extends BdAsyncTask<String, String, b> {
                 this.imagePath = replace;
                 this.eEi = new File(this.imagePath);
             }
-            biQ();
+            biR();
             if (this.eEh != null) {
                 this.eEh.onSuccess(this.imagePath);
             }
@@ -136,7 +136,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean biN() {
+    private boolean biO() {
         File externalStoragePublicDirectory;
         String lowerCase;
         try {
@@ -181,7 +181,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean biO() {
+    private boolean biP() {
         return m(this.url, this.imagePath, 3);
     }
 
@@ -322,7 +322,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean biP() {
+    private boolean biQ() {
         FileOutputStream fileOutputStream;
         byte[] decode = Base64.decode(this.url.substring(this.url.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP) + 1, this.url.length()), 0);
         for (int i = 0; i < decode.length; i++) {
@@ -416,7 +416,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private void biQ() {
+    private void biR() {
         if (this.eEi != null) {
             TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.eEi)));
         }

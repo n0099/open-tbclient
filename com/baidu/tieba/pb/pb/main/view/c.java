@@ -60,13 +60,13 @@ public class c {
     private Runnable ibw = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.view.c.3
         @Override // java.lang.Runnable
         public void run() {
-            c.this.cfZ();
+            c.this.cga();
         }
     };
     private View.OnClickListener ibx = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.c.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.cNL();
+            c.this.cNM();
         }
     };
 
@@ -89,7 +89,7 @@ public class c {
         this.mNavigationBar.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                c.this.kbv.bYx();
+                c.this.kbv.bYy();
             }
         });
         this.mNavigationBar.hideBottomLine();
@@ -152,7 +152,7 @@ public class c {
         }
     }
 
-    public NavigationBar cND() {
+    public NavigationBar cNE() {
         return this.mNavigationBar;
     }
 
@@ -210,21 +210,21 @@ public class c {
             if (agVar != null) {
                 this.ksB.kkb = agVar.kkr;
                 if (agVar.kkr) {
-                    this.ksB.cLl().setText(R.string.report_text);
+                    this.ksB.cLm().setText(R.string.report_text);
                     this.ksB.rZ(false);
                 }
             }
             this.ksB.rY(agVar != null ? agVar.kks : false);
-            if (!TbSingleton.getInstance().mCanCallFans && this.kbv.cIe() != null && this.kbv.cIe().getPbData() != null && this.kbv.cIe().getPbData().getThreadId() != null && this.kbv.cIe().getPbData().getThreadId().equals(TbSingleton.getInstance().mCallFansTid)) {
-                this.ksB.cLo().setText(R.string.have_called_fans_short);
+            if (!TbSingleton.getInstance().mCanCallFans && this.kbv.cIf() != null && this.kbv.cIf().getPbData() != null && this.kbv.cIf().getPbData().getThreadId() != null && this.kbv.cIf().getPbData().getThreadId().equals(TbSingleton.getInstance().mCallFansTid)) {
+                this.ksB.cLp().setText(R.string.have_called_fans_short);
             }
-            cNE();
+            cNF();
         }
     }
 
-    private void cNE() {
+    private void cNF() {
         if (this.ksB != null) {
-            this.ksB.cLs();
+            this.ksB.cLt();
         }
     }
 
@@ -242,21 +242,21 @@ public class c {
         e.lt().postDelayed(this.runnable, 100L);
     }
 
-    public void cNF() {
+    public void cNG() {
         if (this.ksA != null) {
             g.dismissDialog(this.ksA, this.kbv.getPageContext().getPageActivity());
         }
     }
 
-    public af cNG() {
+    public af cNH() {
         return this.ksB;
     }
 
-    public View cNH() {
+    public View cNI() {
         return this.ksv;
     }
 
-    public boolean cNI() {
+    public boolean cNJ() {
         return this.ksA != null && this.ksA.isShowing();
     }
 
@@ -269,7 +269,7 @@ public class c {
         e.lt().removeCallbacks(this.runnable);
     }
 
-    public void cNJ() {
+    public void cNK() {
         if (this.ksu != null) {
             this.ksu.setVisibility(8);
         }
@@ -284,7 +284,7 @@ public class c {
         SvgManager.aWQ().a(this.afe, R.drawable.icon_pure_topbar_more44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         an.setNavbarTitleColor(this.kst, R.color.cp_cont_b, R.color.s_navbar_title_color);
         an.setViewTextColor(this.eee, (int) R.color.cp_cont_b);
-        cNE();
+        cNF();
         if (this.ksz != null) {
             this.ksz.onChangeSkinType(i);
         }
@@ -303,7 +303,7 @@ public class c {
         SvgManager.aWQ().a(this.fIH, R.drawable.icon_pure_topbar_return44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
-    public void cNK() {
+    public void cNL() {
         this.fIH.setVisibility(0);
         sD(false);
         if (this.ksu != null) {
@@ -335,7 +335,7 @@ public class c {
         this.jZX = z;
     }
 
-    public void cMo() {
+    public void cMp() {
         if ((!this.jZX || TbadkCoreApplication.isLogin()) && !com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean(SharedPrefConfig.SHOW_SHARE, false)) {
             View inflate = LayoutInflater.from(this.kbv.getPageContext().getContext()).inflate(R.layout.tips_blue_right_up, (ViewGroup) null);
             View findViewById = inflate.findViewById(R.id.arrow_up);
@@ -353,15 +353,15 @@ public class c {
         }
     }
 
-    public void cNL() {
+    public void cNM() {
         if (this.ibw != null) {
             e.lt().removeCallbacks(this.ibw);
         }
-        cfZ();
+        cga();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfZ() {
+    public void cga() {
         g.dismissPopupWindow(this.ksC);
     }
 

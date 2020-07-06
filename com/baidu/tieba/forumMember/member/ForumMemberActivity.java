@@ -33,7 +33,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 }
             }
             if (!w.isEmpty(arrayList)) {
-                ForumMemberActivity.this.hvP.btN();
+                ForumMemberActivity.this.hvP.btO();
                 ForumMemberActivity.this.hvO = arrayList;
                 ForumMemberActivity.this.hvP.cs(ForumMemberActivity.this.hvO);
             } else if (w.isEmpty(ForumMemberActivity.this.hvO) && bbVar != null) {
@@ -47,7 +47,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             ForumMemberActivity.this.hvP.mO(z);
             if (z) {
                 if (w.isEmpty(ForumMemberActivity.this.hvO)) {
-                    ForumMemberActivity.this.bWu();
+                    ForumMemberActivity.this.bWv();
                 } else {
                     ForumMemberActivity.this.hvP.startPullRefresh();
                 }
@@ -66,7 +66,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         this.hvQ.setTag(getUniqueId());
         this.hvQ.init();
         this.hvQ.a(this.hvR);
-        bWu();
+        bWv();
     }
 
     private void initBundle(Bundle bundle) {
@@ -104,7 +104,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.hvQ.bzf();
+        this.hvQ.bzg();
         if (this.hvP != null) {
             this.hvP.onDestroy();
         }
@@ -121,12 +121,12 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-            bWu();
+            bWv();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bWu() {
+    public void bWv() {
         this.hvP.showLoadingView();
         e eVar = this.hvQ;
         e eVar2 = this.hvQ;

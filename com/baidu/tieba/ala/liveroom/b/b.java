@@ -38,7 +38,7 @@ public class b {
     public void b(ViewGroup viewGroup, q qVar) {
         if (viewGroup != null && this.mTbPageContext != null && qVar != null) {
             this.fUB = new c(this.mTbPageContext);
-            bAl();
+            bAm();
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(11);
             layoutParams.rightMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds24);
@@ -51,7 +51,7 @@ public class b {
         }
     }
 
-    public void bAl() {
+    public void bAm() {
         if (this.fUB != null && this.fUB.getView() != null && this.fUB.getView().getParent() != null) {
             ((ViewGroup) this.fUB.getView().getParent()).removeView(this.fUB.getView());
         }

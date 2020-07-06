@@ -26,7 +26,7 @@ public interface a {
         }
 
         @Override // com.baidu.tieba.ad.download.b.a
-        public c bpo() {
+        public c bpp() {
             throw new IllegalArgumentException("IDownloaderProxy 无有效实例");
         }
     };
@@ -37,5 +37,5 @@ public interface a {
 
     void b(@NonNull DownloadCacheKey downloadCacheKey, @Nullable AdDownloadData adDownloadData);
 
-    c bpo();
+    c bpp();
 }

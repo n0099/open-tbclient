@@ -62,11 +62,11 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         setContentView(R.layout.create_bar_activity);
         initData();
         initUI();
-        chI();
+        chJ();
         adjustResizeForSoftInput();
     }
 
-    private void chI() {
+    private void chJ() {
         if (this.ikS == null) {
             this.ikS = new b();
             this.ikS.execute(new String[0]);
@@ -95,7 +95,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chJ() {
+    public void chK() {
         if (this.ikS == null && this.ikR == null) {
             this.ikS = new b();
             this.ikS.setPriority(3);
@@ -104,7 +104,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chK() {
+    public void chL() {
         if (this.ikR == null) {
             this.ikR = new a(this.ikM.getText().toString().trim(), this.ikN.getText().toString().trim());
             this.ikR.setPriority(3);
@@ -117,9 +117,9 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view == CreateBarActivity.this.ikO) {
-                    CreateBarActivity.this.chK();
+                    CreateBarActivity.this.chL();
                 } else if (view == CreateBarActivity.this.ikP) {
-                    CreateBarActivity.this.chJ();
+                    CreateBarActivity.this.chK();
                 }
             }
         };
@@ -274,7 +274,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             }
             CreateBarActivity.this.showToast(this.mNetwork.getErrorString());
             if (this.mNetwork.isNetSuccess()) {
-                CreateBarActivity.this.chJ();
+                CreateBarActivity.this.chK();
             }
         }
 

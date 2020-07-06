@@ -40,7 +40,7 @@ public class a extends RecyclerView.Adapter<C0450a> implements View.OnClickListe
     public void onBindViewHolder(C0450a c0450a, int i) {
         RecommendItemModel recommendItemModel = this.djJ.get(i);
         if (recommendItemModel != null) {
-            c0450a.djK.setController(com.facebook.drawee.a.a.c.dzW().QH(recommendItemModel.getIconUrl()).dAN());
+            c0450a.djK.setController(com.facebook.drawee.a.a.c.dAa().QI(recommendItemModel.getIconUrl()).dAR());
             c0450a.textView.setText(recommendItemModel.getAppName());
             c0450a.itemView.setTag(Integer.valueOf(i));
         }

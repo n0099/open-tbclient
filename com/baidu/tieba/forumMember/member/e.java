@@ -252,9 +252,9 @@ public class e implements ap {
             arrayList.add(bVar);
         }
         a(memberGodInfo, arrayList);
-        com.baidu.adp.widget.ListView.q bWv = bWv();
-        if (bWv != null) {
-            arrayList.add(bWv);
+        com.baidu.adp.widget.ListView.q bWw = bWw();
+        if (bWw != null) {
+            arrayList.add(bWw);
         }
         return arrayList;
     }
@@ -285,7 +285,7 @@ public class e implements ap {
         }
     }
 
-    private com.baidu.tieba.frs.m bWv() {
+    private com.baidu.tieba.frs.m bWw() {
         int dimens;
         if (this.mMemberGroupInfoList == null || this.mMemberGroupInfoList.size() <= 0) {
             return null;
@@ -353,7 +353,7 @@ public class e implements ap {
     }
 
     @Override // com.baidu.tieba.frs.ap
-    public void bzf() {
+    public void bzg() {
         MessageManager.getInstance().unRegisterListener(this.hvm);
         MessageManager.getInstance().unRegisterListener(this.hvn);
         MessageManager.getInstance().unRegisterListener(this.hvU);

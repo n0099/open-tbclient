@@ -6,7 +6,7 @@ public class d {
     private static d ldl;
     private HashMap<String, com.baidu.tieba.quickWebView.data.a> ldk = new HashMap<>();
 
-    public static d cYx() {
+    public static d cYy() {
         if (ldl == null) {
             synchronized (d.class) {
                 if (ldl == null) {

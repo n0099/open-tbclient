@@ -173,7 +173,7 @@ public class b {
         this.mListView.completePullRefresh();
     }
 
-    public void bwb() {
+    public void bwc() {
         this.fAt.notifyDataSetChanged();
     }
 

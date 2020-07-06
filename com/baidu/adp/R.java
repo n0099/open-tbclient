@@ -883,7 +883,7 @@ public final class R {
         public static final int collapseActionView = 0x7f0f01f1;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f969common = 0x7f0f01ad;
+        public static final int f970common = 0x7f0f01ad;
         public static final int container = 0x7f0f03b4;
         public static final int contentPanel = 0x7f0f0259;
         public static final int coordinator = 0x7f0f0f74;
@@ -1011,7 +1011,7 @@ public final class R {
         public static final int title_template = 0x7f0f0262;
 
         /* renamed from: top  reason: collision with root package name */
-        public static final int f970top = 0x7f0f0169;
+        public static final int f971top = 0x7f0f0169;
         public static final int topPanel = 0x7f0f0261;
         public static final int touch_outside = 0x7f0f0f75;
         public static final int transition_current_scene = 0x7f0f0152;

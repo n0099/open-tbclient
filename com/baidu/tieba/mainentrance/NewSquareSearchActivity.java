@@ -86,7 +86,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         registerListener(this.jxQ);
         this.jxO = new com.baidu.tieba.mainentrance.a.e(this, this.jxM);
         this.jxN = new HotForumModel(getPageContext(), this);
-        czt();
+        czu();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -114,12 +114,12 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         }
     }
 
-    private void czt() {
+    private void czu() {
         this.mHotSearchInfo = (HotSearchInfoData) OrmObject.objectWithJsonStr(com.baidu.tbadk.core.sharedPref.b.aVP().getString(SharedPrefConfig.HOT_SEARCH_INFO, ""), HotSearchInfoData.class);
-        if (this.mHotSearchInfo != null && !TextUtils.isEmpty(this.mHotSearchInfo.bRi()) && !TextUtils.isEmpty(this.mHotSearchInfo.getName())) {
+        if (this.mHotSearchInfo != null && !TextUtils.isEmpty(this.mHotSearchInfo.bRj()) && !TextUtils.isEmpty(this.mHotSearchInfo.getName())) {
             this.jxO.b(this.mHotSearchInfo);
         } else {
-            this.jxN.czr();
+            this.jxN.czs();
         }
     }
 
@@ -148,9 +148,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            BaseWebView cAp = this.jxO.cAp();
-            if (i == 4 && cAp != null && cAp.canGoBack()) {
-                cAp.goBack();
+            BaseWebView cAq = this.jxO.cAq();
+            if (i == 4 && cAq != null && cAq.canGoBack()) {
+                cAq.goBack();
                 return true;
             }
             closeActivity();

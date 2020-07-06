@@ -14,11 +14,11 @@ public class k {
         }
     }
 
-    public static bu bXN() {
+    public static bu bXO() {
         return aiq;
     }
 
-    public static String bXO() {
+    public static String bXP() {
         return hzq;
     }
 }

@@ -22,15 +22,15 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
     private View f;
     private TextView g;
     private TextView h;
-    private InterfaceC0838a nuT;
+    private InterfaceC0839a nuW;
 
     /* renamed from: com.kascend.chushou.view.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0838a {
+    public interface InterfaceC0839a {
         void a(int i);
     }
 
-    public static a dKY() {
+    public static a dLc() {
         return new a();
     }
 
@@ -83,8 +83,8 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.nuT != null) {
-            this.nuT.a(view.getId());
+        if (this.nuW != null) {
+            this.nuW.a(view.getId());
         }
     }
 
@@ -94,7 +94,7 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
         this.a--;
     }
 
-    public void a(InterfaceC0838a interfaceC0838a) {
-        this.nuT = interfaceC0838a;
+    public void a(InterfaceC0839a interfaceC0839a) {
+        this.nuW = interfaceC0839a;
     }
 }

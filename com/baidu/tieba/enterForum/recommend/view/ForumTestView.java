@@ -64,7 +64,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
 
     /* loaded from: classes9.dex */
     public interface a {
-        void bSM();
+        void bSN();
 
         void ed(long j);
     }
@@ -241,7 +241,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
                     }
                     ForumTestView.this.hhe = false;
                     if (ForumTestView.this.hhh != null && w.isEmpty(ForumTestView.this.hgH)) {
-                        ForumTestView.this.hhh.bSM();
+                        ForumTestView.this.hhh.bSN();
                     }
                 } else {
                     ForumTestView.this.hgL.setViewLeft(ForumTestView.this.hgL.getMoveLeft() + floatValue3);
@@ -469,9 +469,9 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
                     boolean z = Math.abs(ForumTestView.this.mDistance) >= ((float) ForumTestView.this.hgO) * 0.2f;
                     if (ForumTestView.this.hhi) {
                         if (ForumTestView.this.mDistance > 0.0f) {
-                            ForumTestView.this.bSJ();
-                        } else {
                             ForumTestView.this.bSK();
+                        } else {
+                            ForumTestView.this.bSL();
                         }
                         ForumTestView.this.hhi = false;
                     }
@@ -486,11 +486,11 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
                     if (ForumTestView.this.hhi) {
                         if (ForumTestView.this.mDistance > 0.0f) {
                             if (ForumTestView.this.tA(2) != null && ForumTestView.this.tA(2).getViewLeft() >= l.getEquipmentWidth(ForumTestView.this.getContext())) {
-                                ForumTestView.this.bSJ();
+                                ForumTestView.this.bSK();
                                 ForumTestView.this.hhi = false;
                             }
                         } else if (ForumTestView.this.tA(0) != null && ForumTestView.this.tA(0).getViewRight() <= 0.0f) {
-                            ForumTestView.this.bSK();
+                            ForumTestView.this.bSL();
                             ForumTestView.this.hhi = false;
                         }
                     }
@@ -551,13 +551,13 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
             if (this.mDistance >= this.hgO) {
                 this.mDistance -= this.hgO;
                 this.hhi = false;
-                bSK();
+                bSL();
             } else if (this.mDistance > 0.0f && this.mDistance < this.hgO) {
                 this.mDistance = this.hgV[0].right - tA.getViewRight();
             } else if (this.mDistance > (-this.hgO)) {
                 this.mDistance = this.hgV[2].left - tA.getViewLeft();
             } else {
-                bSJ();
+                bSK();
                 this.mDistance += this.hgO;
                 this.hhi = false;
             }
@@ -567,7 +567,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSJ() {
+    public void bSK() {
         this.hgI.setIndex(this.hgI.getIndex() + 1);
         this.hgJ.setIndex(this.hgJ.getIndex() + 1);
         this.hgK.setIndex(this.hgK.getIndex() + 1);
@@ -577,7 +577,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSK() {
+    public void bSL() {
         this.hgI.setIndex(this.hgI.getIndex() - 1);
         this.hgJ.setIndex(this.hgJ.getIndex() - 1);
         this.hgK.setIndex(this.hgK.getIndex() - 1);
@@ -698,7 +698,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
         this.hhe = true;
         this.hgL.setVisibility(0);
         this.hgL.setAlpha(1.0f);
-        bSL();
+        bSM();
         if (this.hgI.getIndex() == i && this.hgI.getVisibility() == 0) {
             cellForumTestView = this.hgI;
         } else if (this.hgJ.getIndex() == i && this.hgJ.getVisibility() == 0) {
@@ -778,7 +778,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
         this.hhc.start();
     }
 
-    private void bSL() {
+    private void bSM() {
         this.hgI.setMoveLeft(this.hgI.getViewLeft());
         this.hgI.setMoveTop(this.hgI.getViewTop());
         this.hgI.setMoveRight(this.hgI.getViewRight());
@@ -840,7 +840,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
         f fVar;
         ao a2;
         if (this.hgH != null && i >= 0 && i < this.hgH.size() && (fVar = this.hgH.get(i)) != null && (a2 = com.baidu.tieba.s.a.a(false, "a065", "common_exp", i + 1, i + 1, false, (String) null, String.valueOf(fVar.testId), 0)) != null) {
-            com.baidu.tieba.s.c.dgX().a(this.mPageId, com.baidu.tieba.s.a.MR("" + fVar.testId), a2);
+            com.baidu.tieba.s.c.dgY().a(this.mPageId, com.baidu.tieba.s.a.MR("" + fVar.testId), a2);
         }
     }
 }

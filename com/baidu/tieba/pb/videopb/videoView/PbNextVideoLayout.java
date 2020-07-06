@@ -105,7 +105,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         this.kzg.setProgress(0);
     }
 
-    private void cQs() {
+    private void cQt() {
         this.kzh = true;
         this.kzd.setText(R.string.pb_video_next_play);
         if (this.kzj != null) {
@@ -120,7 +120,7 @@ public class PbNextVideoLayout extends RelativeLayout {
             this.kzh = z;
             if (getVisibility() == 0) {
                 if (z) {
-                    cQs();
+                    cQt();
                 } else {
                     stopProgress();
                 }
@@ -133,7 +133,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         super.setVisibility(i);
         if (i == 0) {
             if (this.kzh) {
-                cQs();
+                cQt();
                 return;
             } else {
                 stopProgress();

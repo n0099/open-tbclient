@@ -82,8 +82,8 @@ public class n extends b<com.baidu.tieba.card.data.k> implements com.baidu.tieba
                 if (n.this.gRm != null) {
                     n.this.gRm.objType = 1;
                 }
-                if (n.this.bOc() != null) {
-                    n.this.bOc().a(view, n.this.gRm);
+                if (n.this.bOd() != null) {
+                    n.this.bOd().a(view, n.this.gRm);
                 }
                 n.this.lW(view == n.this.gQM);
             }
@@ -91,10 +91,10 @@ public class n extends b<com.baidu.tieba.card.data.k> implements com.baidu.tieba
         this.gRt = new View.OnClickListener() { // from class: com.baidu.tieba.card.n.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                aa<com.baidu.tieba.card.data.k> bOc = n.this.bOc();
-                if (bOc != null) {
+                aa<com.baidu.tieba.card.data.k> bOd = n.this.bOd();
+                if (bOd != null) {
                     view.setTag("2");
-                    bOc.a(view, n.this.gRm);
+                    bOd.a(view, n.this.gRm);
                 }
             }
         };
@@ -102,8 +102,8 @@ public class n extends b<com.baidu.tieba.card.data.k> implements com.baidu.tieba
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (n.this.gRm == null) {
-                    if (n.this.bOc() != null) {
-                        n.this.bOc().a(view, n.this.gRm);
+                    if (n.this.bOd() != null) {
+                        n.this.bOd().a(view, n.this.gRm);
                         return;
                     }
                     return;
@@ -118,8 +118,8 @@ public class n extends b<com.baidu.tieba.card.data.k> implements com.baidu.tieba
                 } else {
                     n.this.gRm.objType = 1;
                 }
-                if (n.this.bOc() != null) {
-                    n.this.bOc().a(view, n.this.gRm);
+                if (n.this.bOd() != null) {
+                    n.this.bOd().a(view, n.this.gRm);
                 }
             }
         };
@@ -173,12 +173,12 @@ public class n extends b<com.baidu.tieba.card.data.k> implements com.baidu.tieba
         this.fRI.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.n.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (n.this.bOc() != null) {
-                    n.this.bOc().a(view2, n.this.gRm);
+                if (n.this.bOd() != null) {
+                    n.this.bOd().a(view2, n.this.gRm);
                 }
                 if (n.this.gRm != null && n.this.gRm.dLi != null) {
                     m.DO(n.this.gRm.dLi.getId());
-                    if (!n.this.bOl()) {
+                    if (!n.this.bOm()) {
                         m.a(n.this.mTitle, n.this.gRm.aPS().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                         m.a(n.this.aeA, n.this.gRm.dLi.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                         m.a(n.this.gQM.getGodReplyContent(), n.this.gRm.dLi.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
@@ -196,12 +196,12 @@ public class n extends b<com.baidu.tieba.card.data.k> implements com.baidu.tieba
         this.fSu.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.n.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (n.this.bOc() != null) {
-                    n.this.bOc().a(view2, n.this.gRm);
+                if (n.this.bOd() != null) {
+                    n.this.bOd().a(view2, n.this.gRm);
                 }
                 if (n.this.gRm != null && n.this.gRm.dLi != null && view2 != n.this.fSu.eee) {
                     m.DO(n.this.gRm.dLi.getId());
-                    if (!n.this.bOl()) {
+                    if (!n.this.bOm()) {
                         m.a(n.this.mTitle, n.this.gRm.aPS().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                         m.a(n.this.aeA, n.this.gRm.dLi.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                         m.a(n.this.gQM.getGodReplyContent(), n.this.gRm.dLi.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
@@ -288,7 +288,7 @@ public class n extends b<com.baidu.tieba.card.data.k> implements com.baidu.tieba
         this.fRH.setData(kVar.dLi);
         this.gQM.setFromCDN(this.aik);
         this.gQM.setData(kVar.dLi.aTS());
-        if (!bOl() && m.DP(this.gRm.dLi.getId())) {
+        if (!bOm() && m.DP(this.gRm.dLi.getId())) {
             m.a(this.mTitle, this.gRm.aPS().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
             m.a(this.aeA, this.gRm.dLi.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
             m.a(this.gQM.getGodReplyContent(), this.gRm.dLi.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
@@ -324,7 +324,7 @@ public class n extends b<com.baidu.tieba.card.data.k> implements com.baidu.tieba
             if (voiceModel != null) {
                 this.aiw.yU(voiceModel.voice_status.intValue());
             }
-            this.aiw.bCn();
+            this.aiw.bCo();
             z = true;
         }
         if (this.gRm.gUT && z) {
@@ -345,13 +345,13 @@ public class n extends b<com.baidu.tieba.card.data.k> implements com.baidu.tieba
                     this.gRn.setImageClickListener(new com.baidu.tbadk.widget.layout.d() { // from class: com.baidu.tieba.card.n.3
                         @Override // com.baidu.tbadk.widget.layout.d
                         public void b(View view, int i2, boolean z2) {
-                            aa<com.baidu.tieba.card.data.k> bOc = n.this.bOc();
-                            if (bOc != null) {
+                            aa<com.baidu.tieba.card.data.k> bOd = n.this.bOd();
+                            if (bOd != null) {
                                 view.setTag("1");
                                 if (n.this.ahM != null) {
                                     n.this.ahM.onClick(n.this.gRn);
                                 }
-                                bOc.a(view, n.this.gRm);
+                                bOd.a(view, n.this.gRm);
                             }
                             if (z2) {
                                 n.this.bdl();
@@ -368,15 +368,15 @@ public class n extends b<com.baidu.tieba.card.data.k> implements com.baidu.tieba
                 this.gRn.setVisibility(8);
             }
         }
-        bOt();
         bOu();
+        bOv();
         setPageUniqueId(getTag());
         this.gRr.setVisibility(8);
         qZ(pz(1));
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void bOt() {
+    private void bOu() {
         if (this.gRl != null && this.gRn != null && this.gQM != null) {
             if (this.gRn.getVisibility() == 8 && this.gQM.getVisibility() == 8) {
                 this.gRl.setVisibility(0);
@@ -437,7 +437,7 @@ public class n extends b<com.baidu.tieba.card.data.k> implements com.baidu.tieba
         MessageManager.getInstance().dispatchResponsedMessage(historyMessage);
     }
 
-    private void bOu() {
+    private void bOv() {
         if (!this.gRm.evf) {
             this.aiw.setClickable(false);
         } else {
@@ -487,7 +487,7 @@ public class n extends b<com.baidu.tieba.card.data.k> implements com.baidu.tieba
     /* JADX INFO: Access modifiers changed from: private */
     public void lW(boolean z) {
         if (this.gRm != null && this.gRm.dLi != null) {
-            if (!bOl()) {
+            if (!bOm()) {
                 m.DO(this.gRm.dLi.getId());
                 m.a(this.mTitle, this.gRm.aPS().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 m.a(this.aeA, this.gRm.dLi.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
@@ -507,7 +507,7 @@ public class n extends b<com.baidu.tieba.card.data.k> implements com.baidu.tieba
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bOl() {
+    public boolean bOm() {
         return this.gRm.gUT && !this.gRm.evf;
     }
 
@@ -548,6 +548,6 @@ public class n extends b<com.baidu.tieba.card.data.k> implements com.baidu.tieba
     }
 
     public int pz(int i) {
-        return com.baidu.tieba.a.d.boA().as(this.afG, i);
+        return com.baidu.tieba.a.d.boB().as(this.afG, i);
     }
 }

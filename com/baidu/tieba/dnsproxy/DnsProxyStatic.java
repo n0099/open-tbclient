@@ -29,9 +29,9 @@ public class DnsProxyStatic {
                     @Override // java.lang.Runnable
                     public void run() {
                         if (SwitchManager.getInstance().findType(DnsProxySwitch.DNSPROXY_KEY) == 1) {
-                            DnsProxyStatic.bQh();
-                        } else {
                             DnsProxyStatic.bQi();
+                        } else {
+                            DnsProxyStatic.bQj();
                         }
                     }
                 }, 1000L);
@@ -39,7 +39,7 @@ public class DnsProxyStatic {
         });
     }
 
-    public static final void bQh() {
+    public static final void bQi() {
         com.baidu.adp.lib.network.http.a.a(new com.baidu.adp.lib.network.http.a() { // from class: com.baidu.tieba.dnsproxy.DnsProxyStatic.1
             @Override // com.baidu.adp.lib.network.http.a
             public void a(com.baidu.adp.lib.network.http.e eVar) {
@@ -61,9 +61,9 @@ public class DnsProxyStatic {
 
             @Override // com.baidu.adp.lib.network.http.a
             public String bB(String str) {
-                if (f.bQl().DZ(str)) {
+                if (f.bQm().DZ(str)) {
                     try {
-                        return e.bQe().aB(new URL(str).getHost(), f.bQl().Ea(str));
+                        return e.bQf().aB(new URL(str).getHost(), f.bQm().Ea(str));
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                         return null;
@@ -72,12 +72,12 @@ public class DnsProxyStatic {
                 return null;
             }
         });
-        e.bQe().start();
+        e.bQf().start();
     }
 
-    public static final void bQi() {
+    public static final void bQj() {
         com.baidu.adp.lib.network.http.a.a((com.baidu.adp.lib.network.http.a) null);
-        e.bQe().close();
+        e.bQf().close();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -94,7 +94,7 @@ public class DnsProxyStatic {
             if (bArr != null && bArr.length == 0) {
                 z = true;
             }
-            com.baidu.tieba.dnsproxy.a.d.bQr().aC(dVar.KI, z ? false : true);
+            com.baidu.tieba.dnsproxy.a.d.bQs().aC(dVar.KI, z ? false : true);
             if (z) {
                 try {
                     URL url = new URL(eVar.kT().getUrl());
@@ -115,12 +115,12 @@ public class DnsProxyStatic {
             }
             gYy++;
             if (gYy >= 100) {
-                bQj();
+                bQk();
             }
         }
     }
 
-    public static final void bQj() {
+    public static final void bQk() {
         if (gYy > 0) {
             try {
                 com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
@@ -168,12 +168,12 @@ public class DnsProxyStatic {
             }
             gYz++;
             if (gYz >= 100) {
-                bQk();
+                bQl();
             }
         }
     }
 
-    public static final void bQk() {
+    public static final void bQl() {
         if (gYz > 0) {
             try {
                 com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");

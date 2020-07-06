@@ -26,7 +26,7 @@ public class c {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void cFE();
+        void cFF();
 
         void d(boolean z, boolean z2, String str);
 
@@ -35,7 +35,7 @@ public class c {
         void u(boolean z, String str);
     }
 
-    public static c cFW() {
+    public static c cFX() {
         if (jVJ == null) {
             synchronized (c.class) {
                 if (jVJ == null) {
@@ -52,10 +52,10 @@ public class c {
 
     public void b(a aVar) {
         this.jVK = aVar;
-        cFX();
+        cFY();
     }
 
-    private void cFX() {
+    private void cFY() {
         final SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
             HashMap hashMap = new HashMap();
@@ -80,13 +80,13 @@ public class c {
                         BdLog.e("人脸验证不可用");
                         l.showToast(TbadkCoreApplication.getInst(), "刷脸功能暂不可用，请您稍后再试");
                         if (c.this.jVK != null) {
-                            c.this.jVK.cFE();
+                            c.this.jVK.cFF();
                         }
                     } else {
                         BdLog.e("人脸验证不可用");
                         l.showToast(TbadkCoreApplication.getInst(), "刷脸功能暂不可用，请您稍后再试");
                         if (c.this.jVK != null) {
-                            c.this.jVK.cFE();
+                            c.this.jVK.cFF();
                         }
                     }
                 }

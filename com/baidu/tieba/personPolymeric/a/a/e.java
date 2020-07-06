@@ -69,7 +69,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ak<k>> implements com.
         this.eLl = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.personPolymeric.a.a.e.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: blL */
+            /* renamed from: blM */
             public ImageView makeObject() {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(e.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.k.aPA().isShowImages();
@@ -141,7 +141,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ak<k>> implements com.
         this.eLm = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.personPolymeric.a.a.e.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bST */
+            /* renamed from: bSU */
             public GifView makeObject() {
                 GifView gifView = new GifView(e.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.k.aPA().isShowImages();

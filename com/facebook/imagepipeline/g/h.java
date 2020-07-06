@@ -1,9 +1,9 @@
 package com.facebook.imagepipeline.g;
 /* loaded from: classes13.dex */
 public interface h {
-    int dFg();
+    int dFk();
 
-    boolean dFh();
+    boolean dFl();
 
-    boolean dFi();
+    boolean dFm();
 }

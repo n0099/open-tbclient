@@ -6,6 +6,6 @@ public class a {
     }
 
     public static b awn() {
-        return com.baidu.tieba.aiapps.apps.h.d.bre();
+        return com.baidu.tieba.aiapps.apps.h.d.brf();
     }
 }

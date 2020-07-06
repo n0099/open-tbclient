@@ -83,13 +83,13 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    public void bJb() {
+    public void bJc() {
         if (this.gqh != null) {
             this.gqh.GE();
         }
     }
 
-    public void bJc() {
+    public void bJd() {
         if (this.gqh != null) {
             this.gqh.GF();
         }

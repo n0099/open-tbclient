@@ -97,7 +97,7 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
                 TiebaStatic.log(aoVar2);
             }
         });
-        bun();
+        buo();
     }
 
     public void setData(SdkLiveInfoData sdkLiveInfoData, int i) {
@@ -136,7 +136,7 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
         this.fsd.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelOffset(R.dimen.tbds8));
     }
 
-    private void bun() {
+    private void buo() {
         try {
             this.fsf.setAnimation("zan_lottie_anim.json");
             this.fsf.setImageAssetsFolder("images/");

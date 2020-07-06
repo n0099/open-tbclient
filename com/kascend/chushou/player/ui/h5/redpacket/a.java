@@ -13,11 +13,11 @@ import tv.chushou.zues.utils.h;
 public class a {
     private final List<e> a = new ArrayList();
     private io.reactivex.disposables.a c = new io.reactivex.disposables.a();
-    private InterfaceC0830a nss;
+    private InterfaceC0831a nsv;
 
     /* renamed from: com.kascend.chushou.player.ui.h5.redpacket.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0830a {
+    public interface InterfaceC0831a {
         void D();
 
         void a(int i);
@@ -25,9 +25,9 @@ public class a {
 
     public a(Context context) {
         try {
-            this.nss = (InterfaceC0830a) context;
+            this.nsv = (InterfaceC0831a) context;
         } catch (Exception e) {
-            this.nss = null;
+            this.nsv = null;
         }
     }
 
@@ -63,8 +63,8 @@ public class a {
                 it.remove();
             }
         }
-        if (this.nss != null) {
-            this.nss.a(this.a.size());
+        if (this.nsv != null) {
+            this.nsv.a(this.a.size());
         }
     }
 
@@ -90,13 +90,13 @@ public class a {
         RxExecutor.post(this.c, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.player.ui.h5.redpacket.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.nss != null) {
-                    a.this.nss.a(a.this.a.size());
+                if (a.this.nsv != null) {
+                    a.this.nsv.a(a.this.a.size());
                 }
             }
         });
-        if (com.kascend.chushou.d.h.dIP().q() && this.a.size() > 0 && this.nss != null) {
-            this.nss.D();
+        if (com.kascend.chushou.d.h.dIT().q() && this.a.size() > 0 && this.nsv != null) {
+            this.nsv.D();
         }
     }
 
@@ -106,10 +106,10 @@ public class a {
         }
         e eVar = this.a.get(0);
         if (i == 2) {
-            return eVar.dKM();
+            return eVar.dKQ();
         }
         if (i == 1) {
-            return eVar.dKL();
+            return eVar.dKP();
         }
         return null;
     }

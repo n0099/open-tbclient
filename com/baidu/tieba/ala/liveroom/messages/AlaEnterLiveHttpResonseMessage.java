@@ -21,7 +21,7 @@ public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
         return this.aLQ;
     }
 
-    public aj bHN() {
+    public aj bHO() {
         return this.gmN;
     }
 

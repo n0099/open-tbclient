@@ -3,7 +3,7 @@ package com.baidu.tieba.videoEasterEgg;
 public interface b {
     void OA(String str);
 
-    void Oz(String str);
+    void OB(String str);
 
     void acn();
 

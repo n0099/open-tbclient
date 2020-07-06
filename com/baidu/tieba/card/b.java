@@ -81,7 +81,7 @@ public abstract class b<T extends com.baidu.tieba.card.data.b> implements View.O
         this.gOJ = aaVar;
     }
 
-    public aa<T> bOc() {
+    public aa<T> bOd() {
         return this.gOJ;
     }
 }

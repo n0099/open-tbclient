@@ -1,16 +1,16 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes5.dex */
 public class f {
-    public long nTt;
-    private long nTu;
+    public long nTw;
+    private long nTx;
 
     public long gv(long j) {
-        this.nTu = j - this.nTt;
-        this.nTt = j;
-        return this.nTu;
+        this.nTx = j - this.nTw;
+        this.nTw = j;
+        return this.nTx;
     }
 
     public long gw(long j) {
-        return gv(this.nTt + j);
+        return gv(this.nTw + j);
     }
 }

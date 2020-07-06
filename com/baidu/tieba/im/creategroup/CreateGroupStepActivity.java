@@ -114,8 +114,8 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 22001) {
-            this.iOC.cod();
-            this.iOC.coT();
+            this.iOC.coe();
+            this.iOC.coU();
         } else if (i2 == -1) {
             switch (i) {
                 case 12001:
@@ -127,8 +127,8 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
                 case RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW /* 12009 */:
                 case RequestResponseCode.REQUEST_CAMERA_VIEW /* 12010 */:
                     this.iOC.setPortrait(intent.getStringExtra(EditHeadActivityConfig.PHOTO_RESOURCE));
+                    this.iOC.coT();
                     this.iOC.coS();
-                    this.iOC.coR();
                     return;
                 case RequestResponseCode.REQUEST_ADDRESS_VIEW /* 21001 */:
                     this.iOC.setBusiness(intent.getStringExtra("Selected_Business"));
@@ -153,7 +153,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         if (i == 25044) {
-            this.iOC.coT();
+            this.iOC.coU();
         }
     }
 
@@ -168,32 +168,32 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setIsLoading(boolean z) {
-        this.iOC.coE().setEnabled(!z);
+        this.iOC.coF().setEnabled(!z);
         this.iOC.setIsLoading(z);
     }
 
     private void back() {
-        if (this.iOC.coD() == 1) {
+        if (this.iOC.coE() == 1) {
             finish();
         } else {
-            this.iOC.coX();
+            this.iOC.coY();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.iOC.coC()) {
+        if (view == this.iOC.coD()) {
             back();
-        } else if (view == this.iOC.coE()) {
+        } else if (view == this.iOC.coF()) {
             int dip2px = com.baidu.adp.lib.util.l.dip2px(TbadkApplication.getInst().getApp(), 0.0f);
-            if (!this.iOC.coV()) {
+            if (!this.iOC.coW()) {
                 String errMsg = this.iOC.getErrMsg();
                 if (!TextUtils.isEmpty(errMsg)) {
                     showToast(errMsg, dip2px);
                 }
-            } else if (this.iOC.coQ()) {
-                if (!this.iOC.coI()) {
+            } else if (this.iOC.coR()) {
+                if (!this.iOC.coJ()) {
                     setIsLoading(true);
                     this.iOD.setForumId(this.iOC.getForumId());
                     this.iOD.setName(this.iOC.getName());
@@ -202,38 +202,38 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
                     this.iOD.setPortrait(this.iOC.getPortrait());
                     this.iOD.setPosition(this.iOC.Ym());
                     this.iOD.setBusiness(this.iOC.getBusiness());
-                    this.iOD.setLng(this.iOC.coB());
+                    this.iOD.setLng(this.iOC.coC());
                     this.iOD.setLat(this.iOC.aSE());
                     this.iOD.setSourceFrom(this.sourceFrom);
-                    this.iOD.setFlag(this.iOC.coJ() ? 1 : 0);
+                    this.iOD.setFlag(this.iOC.coK() ? 1 : 0);
                     this.iOD.sendMessage();
                 }
             } else {
-                this.iOC.coY();
+                this.iOC.coZ();
             }
-        } else if (this.iOC.coF() == view) {
-            this.iOC.coY();
-        } else if (view == this.iOC.coG() || view == this.iOC.coH()) {
-            this.iOC.cpa();
-        } else if (view == this.iOC.coK()) {
+        } else if (this.iOC.coG() == view) {
+            this.iOC.coZ();
+        } else if (view == this.iOC.coH() || view == this.iOC.coI()) {
+            this.iOC.cpb();
+        } else if (view == this.iOC.coL()) {
             TiebaStatic.log("edit_place_at_creatgroup");
-            switch (this.iOC.coc()) {
+            switch (this.iOC.cod()) {
                 case 0:
-                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupAddressEditActivityConfig(getPageContext().getPageActivity(), RequestResponseCode.REQUEST_ADDRESS_VIEW, this.iOE.getAddressList(), this.iOF, this.iOC.coJ())));
+                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupAddressEditActivityConfig(getPageContext().getPageActivity(), RequestResponseCode.REQUEST_ADDRESS_VIEW, this.iOE.getAddressList(), this.iOF, this.iOC.coK())));
                     return;
                 case 1:
                     startActivityForResult(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"), RequestResponseCode.REQUEST_SETTING_LOCATION_SOURCE);
                     return;
                 case 2:
-                    this.iOC.cod();
-                    this.iOC.coT();
+                    this.iOC.coe();
+                    this.iOC.coU();
                     return;
                 case 3:
                 case 4:
                 default:
                     return;
             }
-        } else if (view == this.iOC.coL()) {
+        } else if (view == this.iOC.coM()) {
             this.iOC.EO();
         }
     }
@@ -244,7 +244,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.iOC.cpd();
+        this.iOC.cpe();
     }
 
     @Override // android.text.TextWatcher
@@ -260,7 +260,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     public void onDestroy() {
         super.onDestroy();
         this.iOD.cancelMessage();
-        this.iOC.coU();
+        this.iOC.coV();
     }
 
     @Override // com.baidu.tieba.im.util.b.a
@@ -279,12 +279,12 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void coz() {
-        this.iOC.cof();
+    public void coA() {
+        this.iOC.cog();
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void coA() {
-        this.iOC.coe();
+    public void coB() {
+        this.iOC.cof();
     }
 }

@@ -22,7 +22,7 @@ public class PbLandscapeListView extends BdTypeListView {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void cJT();
+        void cJU();
     }
 
     /* loaded from: classes9.dex */
@@ -177,7 +177,7 @@ public class PbLandscapeListView extends BdTypeListView {
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (this.khR != null) {
-            this.khR.cJT();
+            this.khR.cJU();
         }
     }
 

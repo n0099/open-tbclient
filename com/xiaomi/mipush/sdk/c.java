@@ -17,9 +17,9 @@ public class c implements eu {
         il ilVar = new il();
         ilVar.b(eq.a(context).m263a());
         ilVar.d(eq.a(context).b());
-        ilVar.c(hw.AwakeAppResponse.f481a);
+        ilVar.c(hw.AwakeAppResponse.f482a);
         ilVar.a(com.xiaomi.push.service.an.a());
-        ilVar.f622a = hashMap;
+        ilVar.f623a = hashMap;
         aq.a(context).a((aq) ilVar, hm.Notification, true, (hz) null, true);
         com.xiaomi.channel.commonutils.logger.b.m48a("MoleInfo：\u3000send data in app layer");
     }

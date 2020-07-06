@@ -18,7 +18,7 @@ public class a extends g {
         this.eSG = false;
     }
 
-    public s bmE() {
+    public s bmF() {
         return this.eSE;
     }
 
@@ -26,7 +26,7 @@ public class a extends g {
         this.eSE = sVar;
     }
 
-    public Object bmF() {
+    public Object bmG() {
         return this.eSF;
     }
 

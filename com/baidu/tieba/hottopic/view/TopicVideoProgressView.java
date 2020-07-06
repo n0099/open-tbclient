@@ -28,7 +28,7 @@ public class TopicVideoProgressView extends RelativeLayout {
                 switch (message.what) {
                     case 1:
                         if (TopicVideoProgressView.this.mShowing && TopicVideoProgressView.this.eZk != null && TopicVideoProgressView.this.eZk.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.eZj - (TopicVideoProgressView.this.bpp() % TopicVideoProgressView.this.eZj));
+                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.eZj - (TopicVideoProgressView.this.bpq() % TopicVideoProgressView.this.eZj));
                             return;
                         }
                         return;
@@ -50,7 +50,7 @@ public class TopicVideoProgressView extends RelativeLayout {
                 switch (message.what) {
                     case 1:
                         if (TopicVideoProgressView.this.mShowing && TopicVideoProgressView.this.eZk != null && TopicVideoProgressView.this.eZk.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.eZj - (TopicVideoProgressView.this.bpp() % TopicVideoProgressView.this.eZj));
+                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.eZj - (TopicVideoProgressView.this.bpq() % TopicVideoProgressView.this.eZj));
                             return;
                         }
                         return;
@@ -72,7 +72,7 @@ public class TopicVideoProgressView extends RelativeLayout {
                 switch (message.what) {
                     case 1:
                         if (TopicVideoProgressView.this.mShowing && TopicVideoProgressView.this.eZk != null && TopicVideoProgressView.this.eZk.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.eZj - (TopicVideoProgressView.this.bpp() % TopicVideoProgressView.this.eZj));
+                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.eZj - (TopicVideoProgressView.this.bpq() % TopicVideoProgressView.this.eZj));
                             return;
                         }
                         return;
@@ -122,7 +122,7 @@ public class TopicVideoProgressView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int bpp() {
+    public int bpq() {
         if (this.eZk == null || this.hkM == null) {
             return 0;
         }

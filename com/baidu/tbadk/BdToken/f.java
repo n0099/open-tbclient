@@ -185,8 +185,8 @@ public class f {
 
     private void uE(String str) {
         if (!TextUtils.isEmpty(str) && UbcStatConstant.ContentSource.SHOUBAI.equals(str)) {
-            com.baidu.tbadk.util.d.biB().iE(true);
-            com.baidu.tbadk.util.d.biB().biC();
+            com.baidu.tbadk.util.d.biC().iE(true);
+            com.baidu.tbadk.util.d.biC().biD();
         }
     }
 }

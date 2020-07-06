@@ -79,31 +79,31 @@ public class a extends c<GroupCardActivity> {
         this.progressBar.setVisibility(0);
     }
 
-    public void ceu() {
+    public void cev() {
         this.progressBar.setVisibility(8);
     }
 
-    public void cri() {
+    public void crj() {
         this.mImageView.setVisibility(0);
     }
 
-    public View crj() {
+    public View crk() {
         return this.iUY;
     }
 
-    public View crk() {
+    public View crl() {
         return this.iUZ;
     }
 
-    public View crl() {
+    public View crm() {
         return this.iVb;
     }
 
-    public View crm() {
+    public View crn() {
         return this.mNavigationBar;
     }
 
-    public LinearLayout crn() {
+    public LinearLayout cro() {
         return this.iVa;
     }
 

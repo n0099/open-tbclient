@@ -71,7 +71,7 @@ public class i extends com.baidu.tieba.frs.j<j, k> {
     /* renamed from: bb */
     public k b(ViewGroup viewGroup) {
         if (this.egK == null) {
-            buv();
+            buw();
         }
         return new k(LayoutInflater.from(this.mContext).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.mClickListener);
     }
@@ -81,26 +81,26 @@ public class i extends com.baidu.tieba.frs.j<j, k> {
     @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, j jVar, k kVar) {
         super.a(i, view, viewGroup, (ViewGroup) jVar, (j) kVar);
-        if (jVar != null && jVar.bWw() != null) {
+        if (jVar != null && jVar.bWx() != null) {
             int parseColor = Color.parseColor("#56cfa1");
             int color = an.getColor(R.color.cp_cont_d);
-            u bWw = jVar.bWw();
+            u bWx = jVar.bWx();
             if (TbadkCoreApplication.isLogin()) {
-                if (bWw.isLike() == 1) {
+                if (bWx.isLike() == 1) {
                     kVar.hwc.setVisibility(8);
                     kVar.hwd.setVisibility(0);
                     kVar.hwd.setText(R.string.mydegree);
-                    an.setImageResource(kVar.hvb, BitmapHelper.getSmallGradeResourceIdNew(bWw.dfq()));
-                    if (StringUtils.isNull(bWw.getLevelName())) {
+                    an.setImageResource(kVar.hvb, BitmapHelper.getSmallGradeResourceIdNew(bWx.dfr()));
+                    if (StringUtils.isNull(bWx.getLevelName())) {
                         kVar.hvc.setVisibility(8);
                     } else {
-                        kVar.hvc.setText(bWw.getLevelName());
+                        kVar.hvc.setText(bWx.getLevelName());
                         kVar.hvc.setVisibility(0);
                     }
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                    SpannableString spannableString = new SpannableString(bWw.getCurScore() + "");
+                    SpannableString spannableString = new SpannableString(bWx.getCurScore() + "");
                     spannableString.setSpan(new ForegroundColorSpan(parseColor), 0, spannableString.length(), 17);
-                    SpannableString spannableString2 = new SpannableString("/" + bWw.getLevelupScore());
+                    SpannableString spannableString2 = new SpannableString("/" + bWx.getLevelupScore());
                     spannableString2.setSpan(new ForegroundColorSpan(color), 0, spannableString2.length(), 17);
                     spannableStringBuilder.append((CharSequence) spannableString);
                     spannableStringBuilder.append((CharSequence) spannableString2);
@@ -139,17 +139,17 @@ public class i extends com.baidu.tieba.frs.j<j, k> {
             an.setViewTextColor(kVar.hwh, R.color.cp_cont_b, 1);
             an.setBackgroundResource(kVar.hwi, R.drawable.forum_member_exp_progress);
             an.setBackgroundColor(kVar.hwj, R.color.cp_bg_line_c);
-            if (this.gtU != bWw.dfq() || this.hvY != bWw.getCurScore()) {
-                this.gtU = bWw.dfq();
-                this.hvY = bWw.getCurScore();
+            if (this.gtU != bWx.dfr() || this.hvY != bWx.getCurScore()) {
+                this.gtU = bWx.dfr();
+                this.hvY = bWx.getCurScore();
                 kVar.hwi.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, tY(this.gtU)));
                 float f = 0.0f;
-                this.hvY = bWw.getCurScore();
-                if (this.hvY > bWw.getLevelupScore()) {
-                    this.hvY = bWw.getLevelupScore();
+                this.hvY = bWx.getCurScore();
+                if (this.hvY > bWx.getLevelupScore()) {
+                    this.hvY = bWx.getLevelupScore();
                 }
-                if (bWw.getLevelupScore() != 0) {
-                    f = this.hvY / bWw.getLevelupScore();
+                if (bWx.getLevelupScore() != 0) {
+                    f = this.hvY / bWx.getLevelupScore();
                 }
                 if (f > 0.999f) {
                     f = 1.0f;
@@ -163,7 +163,7 @@ public class i extends com.baidu.tieba.frs.j<j, k> {
         return view;
     }
 
-    private void buv() {
+    private void buw() {
         if (this.mPageContext != null) {
             this.egK = new LikeModel(this.mPageContext);
             this.egK.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.forumMember.member.i.2

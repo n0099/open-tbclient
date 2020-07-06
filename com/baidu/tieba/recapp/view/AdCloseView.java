@@ -87,7 +87,7 @@ public class AdCloseView extends FrameLayout {
             public void onClick(View view) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - AdCloseView.this.aJj > 500) {
-                    AdCloseView.this.clT();
+                    AdCloseView.this.clU();
                     AdCloseView.this.aJj = currentTimeMillis;
                 }
             }
@@ -95,15 +95,15 @@ public class AdCloseView extends FrameLayout {
         this.lkF = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int dac = AdCloseView.this.dac();
-                if (dac > 0) {
+                int dad = AdCloseView.this.dad();
+                if (dad > 0) {
                     AdCloseView.this.hOG.setText(R.string.confirm);
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_prefix));
                     int color = an.getColor(R.color.cp_cont_b);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, spannableStringBuilder.length(), 17);
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) String.valueOf(dac));
+                    spannableStringBuilder.append((CharSequence) String.valueOf(dad));
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(an.getColor(R.color.cp_link_tip_a)), length, spannableStringBuilder.length(), 17);
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_postfix));
@@ -121,7 +121,7 @@ public class AdCloseView extends FrameLayout {
                 if (AdCloseView.this.lkA != null && AdCloseView.this.mPopupWindow != null) {
                     String selectedResultJsonObj = AdCloseView.this.getSelectedResultJsonObj();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.DELETE_AD_FROM_FEED, AdCloseView.this.lkA.dGL));
-                    AdCloseView.this.bnp();
+                    AdCloseView.this.bnq();
                     TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003322, "http://afd.baidu.com/afd/close");
                     tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
                     tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -159,13 +159,13 @@ public class AdCloseView extends FrameLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                AdCloseView.this.bnp();
+                AdCloseView.this.bnq();
             }
         };
         this.lkI = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AdCloseView.this.daa();
+                AdCloseView.this.dab();
             }
         };
         this.mContext = context;
@@ -187,7 +187,7 @@ public class AdCloseView extends FrameLayout {
             public void onClick(View view) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - AdCloseView.this.aJj > 500) {
-                    AdCloseView.this.clT();
+                    AdCloseView.this.clU();
                     AdCloseView.this.aJj = currentTimeMillis;
                 }
             }
@@ -195,15 +195,15 @@ public class AdCloseView extends FrameLayout {
         this.lkF = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int dac = AdCloseView.this.dac();
-                if (dac > 0) {
+                int dad = AdCloseView.this.dad();
+                if (dad > 0) {
                     AdCloseView.this.hOG.setText(R.string.confirm);
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_prefix));
                     int color = an.getColor(R.color.cp_cont_b);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, spannableStringBuilder.length(), 17);
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) String.valueOf(dac));
+                    spannableStringBuilder.append((CharSequence) String.valueOf(dad));
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(an.getColor(R.color.cp_link_tip_a)), length, spannableStringBuilder.length(), 17);
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_postfix));
@@ -221,7 +221,7 @@ public class AdCloseView extends FrameLayout {
                 if (AdCloseView.this.lkA != null && AdCloseView.this.mPopupWindow != null) {
                     String selectedResultJsonObj = AdCloseView.this.getSelectedResultJsonObj();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.DELETE_AD_FROM_FEED, AdCloseView.this.lkA.dGL));
-                    AdCloseView.this.bnp();
+                    AdCloseView.this.bnq();
                     TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003322, "http://afd.baidu.com/afd/close");
                     tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
                     tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -259,13 +259,13 @@ public class AdCloseView extends FrameLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                AdCloseView.this.bnp();
+                AdCloseView.this.bnq();
             }
         };
         this.lkI = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AdCloseView.this.daa();
+                AdCloseView.this.dab();
             }
         };
         this.mContext = context;
@@ -287,7 +287,7 @@ public class AdCloseView extends FrameLayout {
             public void onClick(View view) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - AdCloseView.this.aJj > 500) {
-                    AdCloseView.this.clT();
+                    AdCloseView.this.clU();
                     AdCloseView.this.aJj = currentTimeMillis;
                 }
             }
@@ -295,15 +295,15 @@ public class AdCloseView extends FrameLayout {
         this.lkF = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int dac = AdCloseView.this.dac();
-                if (dac > 0) {
+                int dad = AdCloseView.this.dad();
+                if (dad > 0) {
                     AdCloseView.this.hOG.setText(R.string.confirm);
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_prefix));
                     int color = an.getColor(R.color.cp_cont_b);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, spannableStringBuilder.length(), 17);
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) String.valueOf(dac));
+                    spannableStringBuilder.append((CharSequence) String.valueOf(dad));
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(an.getColor(R.color.cp_link_tip_a)), length, spannableStringBuilder.length(), 17);
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_postfix));
@@ -321,7 +321,7 @@ public class AdCloseView extends FrameLayout {
                 if (AdCloseView.this.lkA != null && AdCloseView.this.mPopupWindow != null) {
                     String selectedResultJsonObj = AdCloseView.this.getSelectedResultJsonObj();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.DELETE_AD_FROM_FEED, AdCloseView.this.lkA.dGL));
-                    AdCloseView.this.bnp();
+                    AdCloseView.this.bnq();
                     TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003322, "http://afd.baidu.com/afd/close");
                     tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
                     tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -359,13 +359,13 @@ public class AdCloseView extends FrameLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                AdCloseView.this.bnp();
+                AdCloseView.this.bnq();
             }
         };
         this.lkI = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AdCloseView.this.daa();
+                AdCloseView.this.dab();
             }
         };
         this.mContext = context;
@@ -405,7 +405,7 @@ public class AdCloseView extends FrameLayout {
             this.hOG.setText(this.lkD);
         }
         this.hOG.setOnClickListener(this.lkG);
-        if (dab()) {
+        if (dac()) {
             this.lkw.setText(this.lkB.name);
             findViewById.setVisibility(0);
             findViewById.setOnClickListener(this.lkI);
@@ -421,11 +421,11 @@ public class AdCloseView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clT() {
+    public void clU() {
         if (this.mContext != null) {
-            bnp();
+            bnq();
             View contentView = getContentView();
-            cZZ();
+            daa();
             this.mContentView = contentView;
             this.mWindowHeight = getWindowMeasuredHeight();
             this.mPopupWindow = new PopupWindow(contentView, this.mWindowWidth, this.mWindowHeight);
@@ -479,7 +479,7 @@ public class AdCloseView extends FrameLayout {
         }
     }
 
-    private void cZZ() {
+    private void daa() {
         if (this.lkC != null && this.lkC.size() > 0) {
             int size = this.lkC.size();
             this.lkv.setVisibility(0);
@@ -519,7 +519,7 @@ public class AdCloseView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bnp() {
+    public void bnq() {
         if (this.mPopupWindow != null) {
             this.mPopupWindow.dismiss();
             this.mPopupWindow = null;
@@ -584,13 +584,13 @@ public class AdCloseView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void daa() {
-        if (dab()) {
-            a.boT().c(getContext(), new String[]{this.lkB.url});
+    public void dab() {
+        if (dac()) {
+            a.boU().c(getContext(), new String[]{this.lkB.url});
         }
     }
 
-    private boolean dab() {
+    private boolean dac() {
         return (this.lkB == null || TextUtils.isEmpty(this.lkB.url) || TextUtils.isEmpty(this.lkB.name)) ? false : true;
     }
 
@@ -641,7 +641,7 @@ public class AdCloseView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int dac() {
+    public int dad() {
         if (w.isEmpty(this.lkz)) {
             return 0;
         }

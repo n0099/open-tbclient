@@ -20,7 +20,7 @@ public class c {
         this.type = i;
     }
 
-    public String cmw() {
+    public String cmx() {
         return this.title;
     }
 

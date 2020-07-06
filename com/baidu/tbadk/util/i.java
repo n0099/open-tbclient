@@ -90,7 +90,7 @@ public class i {
         this.eEa = aVar;
     }
 
-    public long biH() {
+    public long biI() {
         return this.eDW;
     }
 }

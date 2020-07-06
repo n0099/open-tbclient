@@ -34,7 +34,7 @@ public class c {
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        bJk();
+        bJl();
     }
 
     public void c(q qVar, boolean z) {
@@ -54,7 +54,7 @@ public class c {
         }
     }
 
-    private void bJk() {
+    private void bJl() {
         this.mPageContext.registerListener(new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_RES_ZIP_DOWNLOADED_STATUS) { // from class: com.baidu.tieba.ala.liveroom.share.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -73,25 +73,25 @@ public class c {
                             }
                         });
                     }
-                    c.this.bJl();
+                    c.this.bJm();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJl() {
+    public void bJm() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1395, "click", "liveroom", LogConfig.VALUE_LIVE_SHARE_TO));
     }
 
-    private void bJm() {
+    private void bJn() {
         if (this.bjG != null) {
             this.bjG.setDialogVisiable(false);
         }
     }
 
     public void vH() {
-        bJm();
+        bJn();
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
@@ -101,7 +101,7 @@ public class c {
     }
 
     public void onDestroy() {
-        bJm();
+        bJn();
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }

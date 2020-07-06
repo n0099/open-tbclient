@@ -144,7 +144,7 @@ public class a extends BaseAdapter {
         this.eXz = z;
     }
 
-    public boolean boI() {
+    public boolean boJ() {
         return this.eXz;
     }
 

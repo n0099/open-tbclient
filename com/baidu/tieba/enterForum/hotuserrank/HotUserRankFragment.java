@@ -27,8 +27,8 @@ public class HotUserRankFragment extends BaseFragment {
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (HotUserRankFragment.this.hef.hasMore()) {
-                HotUserRankFragment.this.bSm();
-                HotUserRankFragment.this.hen.buI();
+                HotUserRankFragment.this.bSn();
+                HotUserRankFragment.this.hen.buJ();
             }
         }
     };
@@ -39,7 +39,7 @@ public class HotUserRankFragment extends BaseFragment {
                 HotUserRankFragment.this.hideLoadingView(HotUserRankFragment.this.mRootView);
             }
             if (cVar != null) {
-                if (HotUserRankFragment.this.hef.bSp() == 2) {
+                if (HotUserRankFragment.this.hef.bSq() == 2) {
                     if (HotUserRankFragment.this.mForumId > 0 || TextUtils.isEmpty(HotUserRankFragment.this.mCategory)) {
                         cVar.hfi.heX = HotUserRankFragment.this.getResources().getString(R.string.forum_hot_user_rank);
                     } else if (cVar.hfi != null) {
@@ -86,14 +86,14 @@ public class HotUserRankFragment extends BaseFragment {
             this.hen.setOnSrollToBottomListener(this.UJ);
         }
         if (this.hef.getPageData() == null || w.isEmpty(this.hef.getPageData().hfj)) {
-            bSm();
+            bSn();
             showLoadingView(this.mRootView);
         }
         return this.mRootView;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSm() {
+    public void bSn() {
         if (!TextUtils.isEmpty(this.mCategory)) {
             this.hef.En(this.mCategory);
         } else if (this.mForumId > 0) {
@@ -115,7 +115,7 @@ public class HotUserRankFragment extends BaseFragment {
         this.mForumId = j;
     }
 
-    public com.baidu.tieba.enterForum.hotuserrank.model.a bSn() {
+    public com.baidu.tieba.enterForum.hotuserrank.model.a bSo() {
         return this.hef;
     }
 
@@ -123,7 +123,7 @@ public class HotUserRankFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         hideNetRefreshView(this.mRootView);
-        bSm();
+        bSn();
         showLoadingView(this.mRootView);
     }
 

@@ -20,7 +20,7 @@ public final class b {
 
     /* renamed from: tv.chushou.zues.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C0934b {
+    public static final class C0935b {
         public static final int error_stroke_color = 2131560032;
         public static final int float_transparent = 2131560039;
         public static final int kas_btn_bg_color = 2131560116;

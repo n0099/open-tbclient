@@ -105,7 +105,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                         TiebaStatic.log(ag);
                         if (!TextUtils.isEmpty(str4)) {
                             if (str4.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str4.startsWith("https") || str4.startsWith("com.baidu.tieba://deeplink?jump=new_hot_topic_list") || str4.startsWith("bdtiebalive://") || str4.startsWith("tiebachushou://") || str4.startsWith("flt://") || str4.startsWith("com.baidu.tieba://unidispatch/frs?kw=")) {
-                                if (Pr(str4)) {
+                                if (Ps(str4)) {
                                     String str5 = str4 + "&from_yunpush=1";
                                     MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
                                     mainTabActivityConfig.setTargetScheme(str5);
@@ -181,7 +181,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         finish();
     }
 
-    private boolean Pr(String str) {
+    private boolean Ps(String str) {
         return Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find() || str.startsWith("http://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("https://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("bdtiebalive://") || str.startsWith("tiebachushou://");
     }
 }

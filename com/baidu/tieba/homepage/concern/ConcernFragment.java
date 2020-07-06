@@ -81,7 +81,7 @@ public class ConcernFragment extends BaseFragment implements ao {
     @SuppressLint({"ValidFragment"})
     public ConcernFragment(Context context) {
         this.ilU = new ConcernPageView(context);
-        this.ilU.bzx();
+        this.ilU.bzy();
         registerListener(this.hBa);
         registerListener(this.hBt);
     }
@@ -96,7 +96,7 @@ public class ConcernFragment extends BaseFragment implements ao {
         }
         this.ilU.setPageUniqueId(getUniqueId());
         if (this.ilW) {
-            this.ilU.bzx();
+            this.ilU.bzy();
             this.ilW = false;
         }
         return this.ilU;
@@ -168,14 +168,14 @@ public class ConcernFragment extends BaseFragment implements ao {
         if (isPrimary()) {
             if (!this.hsC) {
                 if (this.ilU != null) {
-                    this.ilU.chR();
+                    this.ilU.chS();
                 }
                 this.hsC = true;
             }
             this.ilU.setViewForeground();
             return;
         }
-        this.ilU.chX();
+        this.ilU.chY();
         completePullRefresh();
     }
 
@@ -198,9 +198,9 @@ public class ConcernFragment extends BaseFragment implements ao {
         }
     }
 
-    public void chQ() {
+    public void chR() {
         if (this.ilU != null) {
-            this.ilU.chS();
+            this.ilU.chT();
         }
     }
 
@@ -212,11 +212,11 @@ public class ConcernFragment extends BaseFragment implements ao {
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void btP() {
+    public void btQ() {
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void btQ() {
+    public void btR() {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a

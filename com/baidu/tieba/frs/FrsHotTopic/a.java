@@ -14,7 +14,7 @@ public class a {
     private a() {
     }
 
-    public static a bYP() {
+    public static a bYQ() {
         if (hBS == null) {
             synchronized (a.class) {
                 if (hBS == null) {
@@ -71,11 +71,11 @@ public class a {
             return false;
         }
         this.hBT.put(str, Long.valueOf(j));
-        bYQ();
+        bYR();
         return true;
     }
 
-    private void bYQ() {
+    private void bYR() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.frs.FrsHotTopic.a.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */

@@ -222,15 +222,15 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.gyk) {
-            bLg();
+            bLh();
         } else if (view == this.gyo) {
             if (this.gkt != null && this.gxR != null && this.gxR.axI != null) {
                 this.gkt.a(this.gxR.axI, "from_host_tab_panel");
             }
         } else if (view == this.gyp) {
-            bLi();
+            bLj();
         } else if (view == this.gyq) {
-            bLh();
+            bLi();
         } else if (view == this.gyh) {
             sf(2);
         } else if (view == this.gyi) {
@@ -257,10 +257,10 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
         }
     }
 
-    private void bLg() {
+    private void bLh() {
     }
 
-    private void bLh() {
+    private void bLi() {
         if (this.axp != null) {
             if (!TbadkCoreApplication.isLogin()) {
                 ViewHelper.skipToLoginActivity(this.mPageContext.getPageActivity());
@@ -317,7 +317,7 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
         textView2.setText(resources2.getString(i3, StringHelper.numberUniformFormat(i4)));
     }
 
-    private void bLi() {
+    private void bLj() {
         if (this.axp != null) {
             if (!TbadkCoreApplication.isLogin()) {
                 ViewHelper.skipToLoginActivity(this.mPageContext.getPageActivity());

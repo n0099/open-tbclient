@@ -48,7 +48,7 @@ public class a {
         this.aUP.add(new d(this.mPageContext, com.baidu.tieba.e.c.gXJ, this.mPageContext.getUniqueId(), this.mForumId));
         this.aUP.add(new g(this.mPageContext, com.baidu.tieba.e.f.gXR, this.mPageContext.getUniqueId(), this.mForumId));
         ag agVar = new ag(this.mPageContext, x.hDv, this.mPageContext.getUniqueId());
-        agVar.cbK();
+        agVar.cbL();
         agVar.setForumId(this.mForumId);
         this.aUP.add(agVar);
         this.fml.addAdapters(this.aUP);

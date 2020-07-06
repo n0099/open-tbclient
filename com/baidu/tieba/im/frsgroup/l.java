@@ -62,11 +62,11 @@ public class l extends BaseAdapter {
         }
     }
 
-    public void cqy() {
+    public void cqz() {
         this.iTb.clear();
     }
 
-    public Set<Long> cqz() {
+    public Set<Long> cqA() {
         return this.iTb;
     }
 
@@ -100,7 +100,7 @@ public class l extends BaseAdapter {
         this.iSY = z;
     }
 
-    public boolean cqA() {
+    public boolean cqB() {
         return this.iSY;
     }
 
@@ -108,7 +108,7 @@ public class l extends BaseAdapter {
         this.iSZ = z;
     }
 
-    public boolean cnH() {
+    public boolean cnI() {
         return this.iTa;
     }
 
@@ -262,8 +262,8 @@ public class l extends BaseAdapter {
 
     private String c(UserData userData) {
         long lastReplyTime;
-        MembersModel cqs = this.iSW.cqs();
-        switch (cqs.getOrderType()) {
+        MembersModel cqt = this.iSW.cqt();
+        switch (cqt.getOrderType()) {
             case 0:
                 lastReplyTime = userData.getLoginTime();
                 break;
@@ -278,7 +278,7 @@ public class l extends BaseAdapter {
                 break;
         }
         if (lastReplyTime <= 0) {
-            if (cqs.getOrderType() == 1) {
+            if (cqt.getOrderType() == 1) {
                 return this.iSW.getPageContext().getString(R.string.members_no_speak);
             }
             return "";

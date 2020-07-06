@@ -40,7 +40,7 @@ public class AlaGetDirectChallengeListResponseMessage extends JsonHttpResponsedM
         return this.mCount;
     }
 
-    public List<d> bCM() {
+    public List<d> bCN() {
         return this.fZu;
     }
 }

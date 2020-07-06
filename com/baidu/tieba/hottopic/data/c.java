@@ -19,7 +19,7 @@ public class c implements q {
     String rule_jump_url;
     String tips;
 
-    public String clA() {
+    public String clB() {
         return this.module_title;
     }
 
@@ -27,11 +27,11 @@ public class c implements q {
         return this.tips;
     }
 
-    public String clB() {
+    public String clC() {
         return this.rule_jump_url;
     }
 
-    public long clC() {
+    public long clD() {
         return this.iDK;
     }
 
@@ -47,7 +47,7 @@ public class c implements q {
         return this.mName;
     }
 
-    public int clD() {
+    public int clE() {
         return this.iDP;
     }
 

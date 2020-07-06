@@ -80,7 +80,7 @@ public class e {
 
     public static void a(com.tb.airbnb.lottie.model.e eVar, int i, List<com.tb.airbnb.lottie.model.e> list, com.tb.airbnb.lottie.model.e eVar2, j jVar) {
         if (eVar.i(jVar.getName(), i)) {
-            list.add(eVar2.RO(jVar.getName()).a(jVar));
+            list.add(eVar2.RP(jVar.getName()).a(jVar));
         }
     }
 }

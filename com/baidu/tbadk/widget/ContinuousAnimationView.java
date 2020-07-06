@@ -31,13 +31,13 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.widget.ContinuousAnimationView.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                ContinuousAnimationView.this.bjn();
+                ContinuousAnimationView.this.bjo();
                 ContinuousAnimationView.this.eEK = true;
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                ContinuousAnimationView.this.bjk();
+                ContinuousAnimationView.this.bjl();
                 if (ContinuousAnimationView.this.eEL) {
                     ContinuousAnimationView.this.eEL = false;
                 }
@@ -47,12 +47,12 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                ContinuousAnimationView.this.bjl();
+                ContinuousAnimationView.this.bjm();
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                ContinuousAnimationView.this.bjm();
+                ContinuousAnimationView.this.bjn();
                 if (ContinuousAnimationView.this.eEL) {
                     ContinuousAnimationView.this.cancelAnimation();
                     ContinuousAnimationView.this.eEL = false;
@@ -91,10 +91,6 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bjk() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public void bjl() {
     }
 
@@ -104,6 +100,10 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bjn() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bjo() {
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b

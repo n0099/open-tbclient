@@ -54,11 +54,11 @@ public class a {
         }
     }
 
-    public void cRL() {
-        this.kFF.cRL();
+    public void cRM() {
+        this.kFF.cRM();
     }
 
-    public void cRM() {
+    public void cRN() {
         this.kFF.destroy();
     }
 }

@@ -24,7 +24,7 @@ public class d implements e {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bxO();
+        void bxP();
 
         void c(k kVar);
 
@@ -43,7 +43,7 @@ public class d implements e {
 
         void bM(List<k> list);
 
-        void bxQ();
+        void bxR();
 
         void c(String str, String str2, String str3, String str4, boolean z);
     }
@@ -70,7 +70,7 @@ public class d implements e {
         return this.mType;
     }
 
-    public void bxU() {
+    public void bxV() {
         if (this.fLs == null) {
             this.fLs = new i();
             this.fLs.a(new com.baidu.tieba.ala.guardclub.model.b() { // from class: com.baidu.tieba.ala.guardclub.rank.d.1
@@ -92,7 +92,7 @@ public class d implements e {
         }
     }
 
-    public void bxV() {
+    public void bxW() {
         if (this.fLF != null) {
             this.fLF.notifyDataSetChanged();
         }
@@ -119,17 +119,17 @@ public class d implements e {
         }
     }
 
-    public void bxO() {
+    public void bxP() {
         if (this.fLB != null) {
-            this.fLB.bxO();
+            this.fLB.bxP();
         }
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.e
     public void onInitial() {
         this.fLG = 1;
-        bxW();
-        bxU();
+        bxX();
+        bxV();
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.e
@@ -157,7 +157,7 @@ public class d implements e {
         }
     }
 
-    private void bxW() {
+    private void bxX() {
         this.fLF = new m(this.mContext);
         switch (this.mType) {
             case 1:
@@ -209,7 +209,7 @@ public class d implements e {
             }
         } else if (this.fLG == 1) {
             if (this.fLE != null) {
-                this.fLE.bxQ();
+                this.fLE.bxR();
                 return;
             }
             return;

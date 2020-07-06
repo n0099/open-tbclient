@@ -222,15 +222,15 @@ public class d implements r {
             if (this.lfj.b(this.dTN.aWV().aWZ().mUrl, this.dTN.aWV().aWZ().mPostData, this.dTN.aWV().aWZ().mRequestGzip, 5, -1, aWx()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g cZg = this.lfj.cZg();
-            if (cZg == null) {
+            com.baidu.tieba.recapp.download.http.g cZh = this.lfj.cZh();
+            if (cZh == null) {
                 return null;
             }
-            com.baidu.tieba.recapp.download.http.i cZi = cZg.cZi();
-            if (cZg == null || cZg.kV() == null || cZg.kV().size() > 0) {
+            com.baidu.tieba.recapp.download.http.i cZj = cZh.cZj();
+            if (cZh == null || cZh.kV() == null || cZh.kV().size() > 0) {
             }
-            this.dTN.aWW().mNetErrorCode = cZi.responseCode;
-            this.dTN.aWW().mHeader = cZi.Lf;
+            this.dTN.aWW().mNetErrorCode = cZj.responseCode;
+            this.dTN.aWW().mHeader = cZj.Lf;
             if (this.dTN.aWW().mNetErrorCode != 200) {
                 if (this.dTN.aWX().dVs != null && !TextUtils.isEmpty(this.dTN.aWX().dVs.exception)) {
                     this.dTN.aWW().mException = this.dTN.aWX().dVs.exception;
@@ -242,7 +242,7 @@ public class d implements r {
             } else if (this.lfj.isCanceled()) {
                 return null;
             } else {
-                str = new String(cZi.retBytes, "utf-8");
+                str = new String(cZj.retBytes, "utf-8");
                 try {
                     if (this.dTN.aWV().aWZ().mIsBaiduServer && this.dTN.aWV().aWZ().mIsJson) {
                         wE(str);
@@ -385,14 +385,14 @@ public class d implements r {
         }
         long j = new Date().getTime();
         this.lfj.b(str, z, 5, 100, -1, -1, aWx());
-        com.baidu.tieba.recapp.download.http.g cZg = this.lfj.cZg();
-        if (cZg == null) {
+        com.baidu.tieba.recapp.download.http.g cZh = this.lfj.cZh();
+        if (cZh == null) {
             return null;
         }
-        iVar = cZg.cZi();
-        if (cZg != null) {
+        iVar = cZh.cZj();
+        if (cZh != null) {
             try {
-                if (cZg.kV() == null || cZg.kV().size() > 0) {
+                if (cZh.kV() == null || cZh.kV().size() > 0) {
                 }
             } catch (BdHttpCancelException e6) {
                 iVar2 = iVar;
@@ -568,15 +568,15 @@ public class d implements r {
             if (this.lfj.b(this.dTN.aWV().aWZ().mUrl, this.dTN.aWV().aWZ().mPostData, this.dTN.aWV().aWZ().mRequestGzip, 5, -1, aWx()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g cZg = this.lfj.cZg();
-            if (cZg == null) {
+            com.baidu.tieba.recapp.download.http.g cZh = this.lfj.cZh();
+            if (cZh == null) {
                 return null;
             }
-            com.baidu.tieba.recapp.download.http.i cZi = cZg.cZi();
-            if (cZg == null || cZg.kV() == null || cZg.kV().size() > 0) {
+            com.baidu.tieba.recapp.download.http.i cZj = cZh.cZj();
+            if (cZh == null || cZh.kV() == null || cZh.kV().size() > 0) {
             }
-            this.dTN.aWW().mNetErrorCode = cZi.responseCode;
-            this.dTN.aWW().mHeader = cZi.Lf;
+            this.dTN.aWW().mNetErrorCode = cZj.responseCode;
+            this.dTN.aWW().mHeader = cZj.Lf;
             if (this.dTN.aWW().mNetErrorCode != 200) {
                 if (this.dTN.aWX().dVs != null && !TextUtils.isEmpty(this.dTN.aWX().dVs.exception)) {
                     this.dTN.aWW().mException = this.dTN.aWX().dVs.exception;
@@ -588,7 +588,7 @@ public class d implements r {
             } else if (this.lfj.isCanceled()) {
                 return null;
             } else {
-                str = new String(cZi.retBytes, "utf-8");
+                str = new String(cZj.retBytes, "utf-8");
                 try {
                     if (this.dTN.aWV().aWZ().mIsBaiduServer && this.dTN.aWV().aWZ().mIsJson) {
                         wE(str);

@@ -16,12 +16,12 @@ public class a implements IPayChannelBuilder {
 
     @Override // com.baidu.live.tbadk.pay.channel.interfaces.IPayChannelBuilder
     public IPayChannel build() {
-        cza();
+        czb();
         return new IPayChannel() { // from class: com.baidu.tieba.livesdk.h.a.1
             @Override // com.baidu.live.tbadk.pay.channel.interfaces.IPayChannel
             public void pay(HashMap<String, String> hashMap, final IPayCallback iPayCallback) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    a.this.cza();
+                    a.this.czb();
                     if (a.this.jwn != null) {
                         a.this.jwn.pay(hashMap.remove("channel"), hashMap, new ITiebaPayCallback() { // from class: com.baidu.tieba.livesdk.h.a.1.1
                             @Override // com.baidu.tieba.wallet.ITiebaPayCallback
@@ -53,7 +53,7 @@ public class a implements IPayChannelBuilder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cza() {
+    public void czb() {
         CustomResponsedMessage runTask;
         if (this.jwn == null && (runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class)) != null) {
             this.jwn = (ITiebaPay) runTask.getData();

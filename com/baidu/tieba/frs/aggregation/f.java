@@ -43,7 +43,7 @@ public class f implements a {
             this.mDatas.addAll(list);
             this.fml.setData(this.mDatas);
             if (z && list.size() > 0 && this.hGo && j.isWifiNet()) {
-                caP();
+                caQ();
                 list.get(0).autoPlay = true;
             }
         }
@@ -128,11 +128,11 @@ public class f implements a {
         }
     }
 
-    public int caN() {
+    public int caO() {
         return this.hGp;
     }
 
-    public void caO() {
+    public void caP() {
         if (!w.isEmpty(this.mDatas)) {
             Iterator<q> it = this.mDatas.iterator();
             while (it.hasNext()) {
@@ -143,11 +143,11 @@ public class f implements a {
 
     @Override // com.baidu.tieba.frs.aggregation.a
     public void cancel() {
-        caP();
+        caQ();
     }
 
-    private void caP() {
-        caO();
+    private void caQ() {
+        caP();
         this.hGp = 0;
         pQ();
     }

@@ -13,20 +13,20 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     private NewWriteModel evx;
     private WriteData hLV;
-    private b mms;
-    private a mmt;
-    private AccessState mmu;
+    private b mmv;
+    private a mmw;
+    private AccessState mmx;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mms = new b(this);
+        this.mmv = new b(this);
         Intent intent = getIntent();
         if (intent != null) {
-            this.mmu = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
+            this.mmx = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
             this.hLV = (WriteData) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_WRITE_DATA);
-            if (this.hLV == null || this.mmu == null) {
+            if (this.hLV == null || this.mmx == null) {
                 finish();
                 return;
             }
@@ -35,9 +35,9 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
             if (this.hLV.getWriteImagesInfo() != null) {
                 this.evx.uN(this.hLV.getWriteImagesInfo().size() > 0);
             }
-            this.mmt = new a(this.mms, this.evx);
-            this.mms.c(this.mmt);
-            this.mmt.bl(dqZ());
+            this.mmw = new a(this.mmv, this.evx);
+            this.mmv.c(this.mmw);
+            this.mmw.bl(drd());
         }
     }
 
@@ -55,14 +55,14 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.mms.onDestory();
+        this.mmv.onDestory();
     }
 
-    public String dqZ() {
-        if (this.mmu == null || this.mmu.getUserInfo() == null) {
+    public String drd() {
+        if (this.mmx == null || this.mmx.getUserInfo() == null) {
             return null;
         }
-        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.mmu.getToken(), this.mmu.getType(), this.mmu.getUserInfo().strMobile, this.mmu.getUserInfo().strEmail);
+        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.mmx.getToken(), this.mmx.getType(), this.mmx.getUserInfo().strMobile, this.mmx.getUserInfo().strEmail);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

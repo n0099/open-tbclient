@@ -74,12 +74,12 @@ public class a {
         return packageInfo != null;
     }
 
-    public static boolean dWD() {
-        Application dWe = h.dWe();
-        if (dWe == null) {
+    public static boolean dWH() {
+        Application dWi = h.dWi();
+        if (dWi == null) {
             return false;
         }
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) dWe.getSystemService("connectivity")).getActiveNetworkInfo();
+        NetworkInfo activeNetworkInfo = ((ConnectivityManager) dWi.getSystemService("connectivity")).getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
     }
 
@@ -100,7 +100,7 @@ public class a {
         return networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED;
     }
 
-    public static boolean dWE() {
+    public static boolean dWI() {
         FileInputStream fileInputStream;
         boolean z = false;
         try {

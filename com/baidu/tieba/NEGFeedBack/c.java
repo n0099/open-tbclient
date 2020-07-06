@@ -80,7 +80,7 @@ public class c {
                     c.this.eTS.remove(aVar);
                 }
             }
-            c.this.bnr();
+            c.this.bns();
         }
     };
     private View.OnClickListener eUf = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.c.2
@@ -102,12 +102,12 @@ public class c {
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
                     }
                 }
-                c.this.bnp();
+                c.this.bnq();
                 com.baidu.tbadk.core.view.c cVar = new com.baidu.tbadk.core.view.c();
                 cVar.toastTime = 1500L;
                 cVar.showFailToast(c.this.mContext.getResources().getString(R.string.reduce_related_thread_recommend));
                 if (c.this.eTW != null) {
-                    c.this.eTW.a(arrayList, c.this.bnq(), c.this.eTR);
+                    c.this.eTW.a(arrayList, c.this.bnr(), c.this.eTR);
                 }
             }
         }
@@ -129,7 +129,7 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c.this.bnp();
+            c.this.bnq();
         }
     };
 
@@ -305,7 +305,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String bnq() {
+    public String bnr() {
         if (w.isEmpty(this.eTS)) {
             return "";
         }
@@ -322,7 +322,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bnr() {
+    public void bns() {
         int size = this.eTS.size();
         if (size > 0) {
             String string = this.mContext.getResources().getString(R.string.feedback_selected_reason, Integer.valueOf(size));
@@ -388,7 +388,7 @@ public class c {
         this.eUa.setDefaultReasonArray(strArr);
     }
 
-    public void bnp() {
+    public void bnq() {
         if (this.mPopupWindow != null) {
             this.mPopupWindow.dismiss();
             this.mPopupWindow = null;
@@ -402,13 +402,13 @@ public class c {
     /* JADX INFO: Access modifiers changed from: protected */
     public void onDetachedFromWindow() {
         MessageManager.getInstance().unRegisterListener(this.eUh);
-        bnp();
+        bnq();
     }
 
     private void resetState() {
         if (this.eUb && this.eTS.size() != 0) {
             this.eTS.clear();
-            bnr();
+            bns();
         }
     }
 

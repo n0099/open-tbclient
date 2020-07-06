@@ -10,7 +10,7 @@ public final class FlowableOnErrorReturn<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nJT.a((j) new OnErrorReturnSubscriber(cVar, this.valueSupplier));
+        this.nJW.a((j) new OnErrorReturnSubscriber(cVar, this.valueSupplier));
     }
 
     /* loaded from: classes7.dex */

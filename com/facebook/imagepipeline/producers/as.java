@@ -1,24 +1,24 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes12.dex */
 public class as<T> implements aj<T> {
-    private final at mSL;
-    private final aj<T> mVP;
+    private final at mSO;
+    private final aj<T> mVS;
 
     public as(aj<T> ajVar, at atVar) {
-        this.mVP = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
-        this.mSL = atVar;
+        this.mVS = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
+        this.mSO = atVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(final k<T> kVar, final ak akVar) {
-        final am dFZ = akVar.dFZ();
+        final am dGd = akVar.dGd();
         final String id = akVar.getId();
-        final aq<T> aqVar = new aq<T>(kVar, dFZ, "BackgroundThreadHandoffProducer", id) { // from class: com.facebook.imagepipeline.producers.as.1
+        final aq<T> aqVar = new aq<T>(kVar, dGd, "BackgroundThreadHandoffProducer", id) { // from class: com.facebook.imagepipeline.producers.as.1
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
             public void onSuccess(T t) {
-                dFZ.a(id, "BackgroundThreadHandoffProducer", null);
-                as.this.mVP.c(kVar, akVar);
+                dGd.a(id, "BackgroundThreadHandoffProducer", null);
+                as.this.mVS.c(kVar, akVar);
             }
 
             @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
@@ -32,11 +32,11 @@ public class as<T> implements aj<T> {
         };
         akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.as.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dCq() {
+            public void dCu() {
                 aqVar.cancel();
-                as.this.mSL.H(aqVar);
+                as.this.mSO.H(aqVar);
             }
         });
-        this.mSL.G(aqVar);
+        this.mSO.G(aqVar);
     }
 }

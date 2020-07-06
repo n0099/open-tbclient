@@ -27,7 +27,7 @@ public class e extends BdBaseModel {
                         if (alaLootRedPacketResultResponseMessage.getError() != 0 || !alaLootRedPacketResultResponseMessage.isSuccess()) {
                             e.this.ffz.az(alaLootRedPacketResultResponseMessage.getError(), alaLootRedPacketResultResponseMessage.getErrorString());
                         } else {
-                            e.this.ffz.b(alaLootRedPacketResultResponseMessage.bKI());
+                            e.this.ffz.b(alaLootRedPacketResultResponseMessage.bKJ());
                         }
                     }
                 }

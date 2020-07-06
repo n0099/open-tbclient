@@ -45,7 +45,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         return false;
     }
 
-    public void dbD() {
+    public void dbE() {
         if (this.lpu == null) {
             this.lpu = new a();
         }

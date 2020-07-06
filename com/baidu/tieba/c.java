@@ -21,8 +21,8 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && q.cYS().cYN() != null) {
-                q.cYS().cYN().cYG();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && q.cYT().cYO() != null) {
+                q.cYT().cYO().cYH();
             }
         }
     };
@@ -31,7 +31,7 @@ public class c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016521) {
-                c.this.bmr();
+                c.this.bms();
             }
         }
     };
@@ -42,14 +42,14 @@ public class c {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520 && c.this.eSl != 0) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof BaseActivity) {
-                    if (!data.getClass().getSimpleName().equals("LoginActivity") && c.this.bms()) {
+                    if (!data.getClass().getSimpleName().equals("LoginActivity") && c.this.bmt()) {
                         BaseActivity baseActivity = (BaseActivity) data;
                         Intent intent = new Intent(baseActivity.getActivity(), LogoActivity.class);
                         intent.putExtra("splash", true);
                         intent.setFlags(65536);
                         baseActivity.startActivity(intent);
                     }
-                } else if ((data instanceof BaseFragmentActivity) && c.this.bms()) {
+                } else if ((data instanceof BaseFragmentActivity) && c.this.bmt()) {
                     BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) data;
                     Intent intent2 = new Intent(baseFragmentActivity.getActivity(), LogoActivity.class);
                     intent2.putExtra("splash", true);
@@ -78,7 +78,7 @@ public class c {
     private boolean eSn = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c bmq() {
+    public static c bmr() {
         if (eSo == null) {
             synchronized (c.class) {
                 if (eSo == null) {
@@ -94,20 +94,20 @@ public class c {
         MessageManager.getInstance().registerListener(this.eSr);
         MessageManager.getInstance().registerListener(this.eSp);
         MessageManager.getInstance().registerListener(this.eSs);
-        if (q.cYS().cYN() != null) {
-            q.cYS().cYN().cYF();
+        if (q.cYT().cYO() != null) {
+            q.cYT().cYO().cYG();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bmr() {
+    public void bms() {
         this.eSn = true;
         this.eSl = System.currentTimeMillis() / 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bms() {
-        bmt();
+    public boolean bmt() {
+        bmu();
         this.eSn = false;
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         if (this.eSm) {
@@ -116,12 +116,12 @@ public class c {
         } else if (currentTimeMillis - this.eSl <= 2 || currentTimeMillis - this.eSl <= this.ayh) {
             return false;
         } else {
-            k cYN = q.cYS().cYN();
-            return (cYN != null ? cYN.cYH() : 3) < 3;
+            k cYO = q.cYT().cYO();
+            return (cYO != null ? cYO.cYI() : 3) < 3;
         }
     }
 
-    private void bmt() {
+    private void bmu() {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
         if (adAdSense != null) {
             this.ayh = adAdSense.aZU();

@@ -90,16 +90,16 @@ public class s extends d implements n<bu>, o {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (s.this.aeI != null && s.this.aeK != null && s.this.aeJ != null && !s.this.aeK.aUc()) {
-                    if (s.this.aeK.aUa() || !com.baidu.tieba.frs.b.bXc().bWW()) {
-                        if (s.this.aeK.aUb() || !com.baidu.tieba.frs.a.bWV().bWW()) {
-                            com.baidu.tieba.frs.b.bXc().am(s.this.aeK);
+                    if (s.this.aeK.aUa() || !com.baidu.tieba.frs.b.bXd().bWX()) {
+                        if (s.this.aeK.aUb() || !com.baidu.tieba.frs.a.bWW().bWX()) {
+                            com.baidu.tieba.frs.b.bXd().am(s.this.aeK);
                             s.this.aeK.ha(false);
-                            com.baidu.tieba.frs.a.bWV().am(s.this.aeK);
+                            com.baidu.tieba.frs.a.bWW().am(s.this.aeK);
                             s.this.aeK.hb(false);
-                        } else if (com.baidu.tieba.frs.a.bWV().al(s.this.aeK)) {
+                        } else if (com.baidu.tieba.frs.a.bWW().al(s.this.aeK)) {
                             s.this.aeK.hb(true);
                         }
-                    } else if (com.baidu.tieba.frs.b.bXc().al(s.this.aeK)) {
+                    } else if (com.baidu.tieba.frs.b.bXd().al(s.this.aeK)) {
                         s.this.aeK.ha(true);
                     }
                     s.this.rV();
@@ -140,7 +140,7 @@ public class s extends d implements n<bu>, o {
     /* renamed from: a */
     public void D(bu buVar) {
         this.aeK = buVar;
-        if (com.baidu.tieba.frs.b.bXc().bWW() || com.baidu.tieba.frs.a.bWV().bWW()) {
+        if (com.baidu.tieba.frs.b.bXd().bWX() || com.baidu.tieba.frs.a.bWW().bWX()) {
             this.mRootView.setVisibility(0);
             this.aef.b(new a.C0098a(4, false));
             rV();

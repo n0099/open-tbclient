@@ -20,28 +20,28 @@ import org.apache.http.client.methods.HttpHead;
 class CronetBidirectionalStream extends BidirectionalStream {
     static final /* synthetic */ boolean $assertionsDisabled;
     private final Executor mExecutor;
-    private final CronetUrlRequestContext myQ;
-    private final BidirectionalStream.Callback myR;
-    private final String myS;
-    private final String myT;
-    private final Object myU;
+    private final CronetUrlRequestContext myT;
+    private final BidirectionalStream.Callback myU;
+    private final String myV;
+    private final String myW;
+    private final Object myX;
     @GuardedBy("mNativeStreamLock")
-    private LinkedList<ByteBuffer> myV;
+    private LinkedList<ByteBuffer> myY;
     @GuardedBy("mNativeStreamLock")
-    private LinkedList<ByteBuffer> myW;
+    private LinkedList<ByteBuffer> myZ;
     @GuardedBy("mNativeStreamLock")
-    private boolean myX;
+    private boolean mza;
     @GuardedBy("mNativeStreamLock")
-    private boolean myY;
+    private boolean mzb;
     @GuardedBy("mNativeStreamLock")
-    private long myZ;
+    private long mzc;
     @GuardedBy("mNativeStreamLock")
-    private State mza;
+    private State mzd;
     @GuardedBy("mNativeStreamLock")
-    private State mzb;
-    private UrlResponseInfo mzc;
-    private a mzd;
-    private Runnable mze;
+    private State mze;
+    private UrlResponseInfo mzf;
+    private a mzg;
+    private Runnable mzh;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -83,8 +83,8 @@ class CronetBidirectionalStream extends BidirectionalStream {
     /* loaded from: classes.dex */
     private final class a implements Runnable {
         ByteBuffer mByteBuffer;
-        final /* synthetic */ CronetBidirectionalStream mzg;
-        boolean mzj;
+        final /* synthetic */ CronetBidirectionalStream mzj;
+        boolean mzm;
 
         @Override // java.lang.Runnable
         public void run() {
@@ -92,24 +92,24 @@ class CronetBidirectionalStream extends BidirectionalStream {
             try {
                 ByteBuffer byteBuffer = this.mByteBuffer;
                 this.mByteBuffer = null;
-                synchronized (this.mzg.myU) {
-                    if (!this.mzg.duV()) {
-                        if (this.mzj) {
-                            this.mzg.mza = State.READING_DONE;
-                            if (this.mzg.mzb == State.WRITING_DONE) {
+                synchronized (this.mzj.myX) {
+                    if (!this.mzj.duZ()) {
+                        if (this.mzm) {
+                            this.mzj.mzd = State.READING_DONE;
+                            if (this.mzj.mze == State.WRITING_DONE) {
                                 z = true;
                             }
                         } else {
-                            this.mzg.mza = State.WAITING_FOR_READ;
+                            this.mzj.mzd = State.WAITING_FOR_READ;
                         }
-                        this.mzg.myR.a(this.mzg, this.mzg.mzc, byteBuffer, this.mzj);
+                        this.mzj.myU.a(this.mzj, this.mzj.mzf, byteBuffer, this.mzm);
                         if (z) {
-                            this.mzg.duW();
+                            this.mzj.dva();
                         }
                     }
                 }
             } catch (Exception e) {
-                this.mzg.u(e);
+                this.mzj.u(e);
             }
         }
     }
@@ -117,11 +117,11 @@ class CronetBidirectionalStream extends BidirectionalStream {
     /* loaded from: classes.dex */
     private final class b implements Runnable {
         private ByteBuffer mByteBuffer;
-        private final boolean mzj;
+        private final boolean mzm;
 
         b(ByteBuffer byteBuffer, boolean z) {
             this.mByteBuffer = byteBuffer;
-            this.mzj = z;
+            this.mzm = z;
         }
 
         @Override // java.lang.Runnable
@@ -130,17 +130,17 @@ class CronetBidirectionalStream extends BidirectionalStream {
             try {
                 ByteBuffer byteBuffer = this.mByteBuffer;
                 this.mByteBuffer = null;
-                synchronized (CronetBidirectionalStream.this.myU) {
-                    if (!CronetBidirectionalStream.this.duV()) {
-                        if (this.mzj) {
-                            CronetBidirectionalStream.this.mzb = State.WRITING_DONE;
-                            if (CronetBidirectionalStream.this.mza == State.READING_DONE) {
+                synchronized (CronetBidirectionalStream.this.myX) {
+                    if (!CronetBidirectionalStream.this.duZ()) {
+                        if (this.mzm) {
+                            CronetBidirectionalStream.this.mze = State.WRITING_DONE;
+                            if (CronetBidirectionalStream.this.mzd == State.READING_DONE) {
                                 z = true;
                             }
                         }
-                        CronetBidirectionalStream.this.myR.b(CronetBidirectionalStream.this, CronetBidirectionalStream.this.mzc, byteBuffer, this.mzj);
+                        CronetBidirectionalStream.this.myU.b(CronetBidirectionalStream.this, CronetBidirectionalStream.this.mzf, byteBuffer, this.mzm);
                         if (z) {
-                            CronetBidirectionalStream.this.duW();
+                            CronetBidirectionalStream.this.dva();
                         }
                     }
                 }
@@ -150,51 +150,51 @@ class CronetBidirectionalStream extends BidirectionalStream {
         }
     }
 
-    private void duU() {
+    private void duY() {
         boolean z = true;
-        if (!$assertionsDisabled && this.mzb != State.WAITING_FOR_FLUSH) {
+        if (!$assertionsDisabled && this.mze != State.WAITING_FOR_FLUSH) {
             throw new AssertionError();
         }
-        int size = this.myW.size();
+        int size = this.myZ.size();
         ByteBuffer[] byteBufferArr = new ByteBuffer[size];
         int[] iArr = new int[size];
         int[] iArr2 = new int[size];
         for (int i = 0; i < size; i++) {
-            ByteBuffer poll = this.myW.poll();
+            ByteBuffer poll = this.myZ.poll();
             byteBufferArr[i] = poll;
             iArr[i] = poll.position();
             iArr2[i] = poll.limit();
         }
-        if (!$assertionsDisabled && !this.myW.isEmpty()) {
+        if (!$assertionsDisabled && !this.myZ.isEmpty()) {
             throw new AssertionError();
         }
         if (!$assertionsDisabled && byteBufferArr.length < 1) {
             throw new AssertionError();
         }
-        this.mzb = State.WRITING;
-        if (!nativeWritevData(this.myZ, byteBufferArr, iArr, iArr2, (this.myX && this.myV.isEmpty()) ? false : false)) {
-            this.mzb = State.WAITING_FOR_FLUSH;
+        this.mze = State.WRITING;
+        if (!nativeWritevData(this.mzc, byteBufferArr, iArr, iArr2, (this.mza && this.myY.isEmpty()) ? false : false)) {
+            this.mze = State.WAITING_FOR_FLUSH;
             throw new IllegalArgumentException("Unable to call native writev.");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @GuardedBy("mNativeStreamLock")
-    public boolean duV() {
-        return this.mza != State.NOT_STARTED && this.myZ == 0;
+    public boolean duZ() {
+        return this.mzd != State.NOT_STARTED && this.mzc == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void duW() {
-        synchronized (this.myU) {
-            if (!duV()) {
-                if (this.mzb == State.WRITING_DONE && this.mza == State.READING_DONE) {
+    public void dva() {
+        synchronized (this.myX) {
+            if (!duZ()) {
+                if (this.mze == State.WRITING_DONE && this.mzd == State.READING_DONE) {
                     State state = State.SUCCESS;
-                    this.mzb = state;
-                    this.mza = state;
+                    this.mze = state;
+                    this.mzd = state;
                     wc(false);
                     try {
-                        this.myR.b(this, this.mzc);
+                        this.myU.b(this, this.mzf);
                     } catch (Exception e) {
                         com.baidu.turbonet.base.a.h("ChromiumNetwork", "Exception in onSucceeded method", e);
                     }
@@ -208,17 +208,17 @@ class CronetBidirectionalStream extends BidirectionalStream {
         C(new Runnable() { // from class: com.baidu.turbonet.net.CronetBidirectionalStream.1
             @Override // java.lang.Runnable
             public void run() {
-                synchronized (CronetBidirectionalStream.this.myU) {
-                    if (!CronetBidirectionalStream.this.duV()) {
-                        CronetBidirectionalStream.this.myY = z;
-                        CronetBidirectionalStream.this.mza = State.WAITING_FOR_READ;
-                        if (!CronetBidirectionalStream.Pu(CronetBidirectionalStream.this.myT) && CronetBidirectionalStream.this.myY) {
-                            CronetBidirectionalStream.this.mzb = State.WRITING_DONE;
+                synchronized (CronetBidirectionalStream.this.myX) {
+                    if (!CronetBidirectionalStream.this.duZ()) {
+                        CronetBidirectionalStream.this.mzb = z;
+                        CronetBidirectionalStream.this.mzd = State.WAITING_FOR_READ;
+                        if (!CronetBidirectionalStream.Pv(CronetBidirectionalStream.this.myW) && CronetBidirectionalStream.this.mzb) {
+                            CronetBidirectionalStream.this.mze = State.WRITING_DONE;
                         } else {
-                            CronetBidirectionalStream.this.mzb = State.WAITING_FOR_FLUSH;
+                            CronetBidirectionalStream.this.mze = State.WAITING_FOR_FLUSH;
                         }
                         try {
-                            CronetBidirectionalStream.this.myR.a(CronetBidirectionalStream.this);
+                            CronetBidirectionalStream.this.myU.a(CronetBidirectionalStream.this);
                         } catch (Exception e) {
                             CronetBidirectionalStream.this.u(e);
                         }
@@ -231,15 +231,15 @@ class CronetBidirectionalStream extends BidirectionalStream {
     @CalledByNative
     private void onResponseHeadersReceived(int i, String str, String[] strArr, long j) {
         try {
-            this.mzc = a(i, str, strArr, j);
+            this.mzf = a(i, str, strArr, j);
             C(new Runnable() { // from class: com.baidu.turbonet.net.CronetBidirectionalStream.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    synchronized (CronetBidirectionalStream.this.myU) {
-                        if (!CronetBidirectionalStream.this.duV()) {
-                            CronetBidirectionalStream.this.mza = State.WAITING_FOR_READ;
+                    synchronized (CronetBidirectionalStream.this.myX) {
+                        if (!CronetBidirectionalStream.this.duZ()) {
+                            CronetBidirectionalStream.this.mzd = State.WAITING_FOR_READ;
                             try {
-                                CronetBidirectionalStream.this.myR.a(CronetBidirectionalStream.this, CronetBidirectionalStream.this.mzc);
+                                CronetBidirectionalStream.this.myU.a(CronetBidirectionalStream.this, CronetBidirectionalStream.this.mzf);
                             } catch (Exception e) {
                                 CronetBidirectionalStream.this.u(e);
                             }
@@ -254,19 +254,19 @@ class CronetBidirectionalStream extends BidirectionalStream {
 
     @CalledByNative
     private void onReadCompleted(ByteBuffer byteBuffer, int i, int i2, int i3, long j) {
-        this.mzc.fE(j);
+        this.mzf.fE(j);
         if (byteBuffer.position() != i2 || byteBuffer.limit() != i3) {
             b(new TurbonetException("ByteBuffer modified externally during read", null));
         } else if (i < 0 || i2 + i > i3) {
             b(new TurbonetException("Invalid number of bytes read", null));
         } else {
             byteBuffer.position(i2 + i);
-            if (!$assertionsDisabled && this.mzd.mByteBuffer != null) {
+            if (!$assertionsDisabled && this.mzg.mByteBuffer != null) {
                 throw new AssertionError();
             }
-            this.mzd.mByteBuffer = byteBuffer;
-            this.mzd.mzj = i == 0;
-            C(this.mzd);
+            this.mzg.mByteBuffer = byteBuffer;
+            this.mzg.mzm = i == 0;
+            C(this.mzg);
         }
     }
 
@@ -278,10 +278,10 @@ class CronetBidirectionalStream extends BidirectionalStream {
         if (!$assertionsDisabled && byteBufferArr.length != iArr2.length) {
             throw new AssertionError();
         }
-        synchronized (this.myU) {
-            this.mzb = State.WAITING_FOR_FLUSH;
-            if (!this.myW.isEmpty()) {
-                duU();
+        synchronized (this.myX) {
+            this.mze = State.WAITING_FOR_FLUSH;
+            if (!this.myZ.isEmpty()) {
+                duY();
             }
         }
         int i = 0;
@@ -303,10 +303,10 @@ class CronetBidirectionalStream extends BidirectionalStream {
         C(new Runnable() { // from class: com.baidu.turbonet.net.CronetBidirectionalStream.3
             @Override // java.lang.Runnable
             public void run() {
-                synchronized (CronetBidirectionalStream.this.myU) {
-                    if (!CronetBidirectionalStream.this.duV()) {
+                synchronized (CronetBidirectionalStream.this.myX) {
+                    if (!CronetBidirectionalStream.this.duZ()) {
                         try {
-                            CronetBidirectionalStream.this.myR.a(CronetBidirectionalStream.this, CronetBidirectionalStream.this.mzc, headerBlock);
+                            CronetBidirectionalStream.this.myU.a(CronetBidirectionalStream.this, CronetBidirectionalStream.this.mzf, headerBlock);
                         } catch (Exception e) {
                             CronetBidirectionalStream.this.u(e);
                         }
@@ -318,8 +318,8 @@ class CronetBidirectionalStream extends BidirectionalStream {
 
     @CalledByNative
     private void onError(int i, int i2, int i3, String str, long j) {
-        if (this.mzc != null) {
-            this.mzc.fE(j);
+        if (this.mzf != null) {
+            this.mzf.fE(j);
         }
         if (i == 11) {
             b(new QuicException("Exception in BidirectionalStream: " + str, i2, i3));
@@ -334,7 +334,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    CronetBidirectionalStream.this.myR.c(CronetBidirectionalStream.this, CronetBidirectionalStream.this.mzc);
+                    CronetBidirectionalStream.this.myU.c(CronetBidirectionalStream.this, CronetBidirectionalStream.this.mzf);
                 } catch (Exception e) {
                     com.baidu.turbonet.base.a.h("ChromiumNetwork", "Exception in onCanceled method", e);
                 }
@@ -343,7 +343,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean Pu(String str) {
+    public static boolean Pv(String str) {
         return (str.equals("GET") || str.equals(HttpHead.METHOD_NAME)) ? false : true;
     }
 
@@ -360,17 +360,17 @@ class CronetBidirectionalStream extends BidirectionalStream {
             this.mExecutor.execute(runnable);
         } catch (RejectedExecutionException e) {
             com.baidu.turbonet.base.a.h("ChromiumNetwork", "Exception posting task to executor", e);
-            synchronized (this.myU) {
+            synchronized (this.myX) {
                 State state = State.ERROR;
-                this.mzb = state;
-                this.mza = state;
+                this.mze = state;
+                this.mzd = state;
                 wc(false);
             }
         }
     }
 
     private UrlResponseInfo a(int i, String str, String[] strArr, long j) {
-        UrlResponseInfo urlResponseInfo = new UrlResponseInfo(Arrays.asList(this.myS), i, "", U(strArr), false, str, null);
+        UrlResponseInfo urlResponseInfo = new UrlResponseInfo(Arrays.asList(this.myV), i, "", U(strArr), false, str, null);
         urlResponseInfo.fE(j);
         return urlResponseInfo;
     }
@@ -378,26 +378,26 @@ class CronetBidirectionalStream extends BidirectionalStream {
     @GuardedBy("mNativeStreamLock")
     private void wc(boolean z) {
         com.baidu.turbonet.base.a.g("ChromiumNetwork", "destroyNativeStreamLocked " + toString(), new Object[0]);
-        if (this.myZ != 0) {
-            nativeDestroy(this.myZ, z);
-            this.myZ = 0L;
-            this.myQ.dvl();
-            if (this.mze != null) {
-                this.mze.run();
+        if (this.mzc != 0) {
+            nativeDestroy(this.mzc, z);
+            this.mzc = 0L;
+            this.myT.dvp();
+            if (this.mzh != null) {
+                this.mzh.run();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(TurbonetException turbonetException) {
-        synchronized (this.myU) {
-            if (!duV()) {
+        synchronized (this.myX) {
+            if (!duZ()) {
                 State state = State.ERROR;
-                this.mzb = state;
-                this.mza = state;
+                this.mze = state;
+                this.mzd = state;
                 wc(false);
                 try {
-                    this.myR.a(this, this.mzc, turbonetException);
+                    this.myU.a(this, this.mzf, turbonetException);
                 } catch (Exception e) {
                     com.baidu.turbonet.base.a.h("ChromiumNetwork", "Exception notifying of failed request", e);
                 }

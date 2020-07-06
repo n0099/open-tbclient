@@ -6,10 +6,10 @@ public final class cx {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f191a;
+    private String f192a;
 
     public cx(String str, int i) {
-        this.f191a = str;
+        this.f192a = str;
         this.a = i;
     }
 
@@ -42,10 +42,10 @@ public final class cx {
 
     /* renamed from: a  reason: collision with other method in class */
     public String m208a() {
-        return this.f191a;
+        return this.f192a;
     }
 
     public String toString() {
-        return this.a > 0 ? this.f191a + ":" + this.a : this.f191a;
+        return this.a > 0 ? this.f192a + ":" + this.a : this.f192a;
     }
 }

@@ -26,7 +26,7 @@ public class a implements c {
         this.mState = i;
     }
 
-    public int bpk() {
+    public int bpl() {
         return this.mState;
     }
 
@@ -46,17 +46,17 @@ public class a implements c {
         return remove;
     }
 
-    public boolean bpl() {
+    public boolean bpm() {
         return this.eZg.isEmpty();
     }
 
-    public void bpm() {
+    public void bpn() {
         if (this.eZf != null) {
             this.eZe.au(710, this.eZf.mPackageName);
-            AdDownloadData d = com.baidu.tieba.ad.download.d.bpf().d(this.eZf);
+            AdDownloadData d = com.baidu.tieba.ad.download.d.bpg().d(this.eZf);
             d.extra().setStatus(DownloadStatus.STATUS_INSTALL_SUCCESS);
             d.extra().setPercent(100);
-            if (!bpl()) {
+            if (!bpm()) {
                 for (d dVar : this.eZg) {
                     dVar.f(this.eZf);
                 }
@@ -64,10 +64,10 @@ public class a implements c {
         }
     }
 
-    public void bpn() {
+    public void bpo() {
         if (this.eZf != null) {
-            com.baidu.tieba.ad.download.d.bpf().d(this.eZf).extra().setStatus(DownloadStatus.STATUS_NONE);
-            if (!bpl()) {
+            com.baidu.tieba.ad.download.d.bpg().d(this.eZf).extra().setStatus(DownloadStatus.STATUS_NONE);
+            if (!bpm()) {
                 for (d dVar : this.eZg) {
                     dVar.g(this.eZf);
                 }
@@ -78,8 +78,8 @@ public class a implements c {
     @Override // com.baidu.tieba.ad.download.a.c
     public void As(String str) {
         if (this.eZf != null) {
-            com.baidu.tieba.ad.download.d.bpf().d(this.eZf).extra().setStatus(DownloadStatus.STATUS_DOWNLOADING);
-            if (!bpl()) {
+            com.baidu.tieba.ad.download.d.bpg().d(this.eZf).extra().setStatus(DownloadStatus.STATUS_DOWNLOADING);
+            if (!bpm()) {
                 for (d dVar : this.eZg) {
                     dVar.e(this.eZf);
                 }
@@ -90,8 +90,8 @@ public class a implements c {
     @Override // com.baidu.tieba.ad.download.a.c
     public void at(String str, int i) {
         if (this.eZf != null) {
-            com.baidu.tieba.ad.download.d.bpf().d(this.eZf).extra().setStatus(DownloadStatus.STATUS_PAUSED);
-            if (!bpl()) {
+            com.baidu.tieba.ad.download.d.bpg().d(this.eZf).extra().setStatus(DownloadStatus.STATUS_PAUSED);
+            if (!bpm()) {
                 for (d dVar : this.eZg) {
                     dVar.b(this.eZf, this.mPercent);
                 }
@@ -102,8 +102,8 @@ public class a implements c {
     @Override // com.baidu.tieba.ad.download.a.c
     public void a(String str, StopStatus stopStatus) {
         if (this.eZf != null) {
-            com.baidu.tieba.ad.download.d.bpf().d(this.eZf).extra().setStatus(DownloadStatus.STATUS_NONE);
-            if (!bpl()) {
+            com.baidu.tieba.ad.download.d.bpg().d(this.eZf).extra().setStatus(DownloadStatus.STATUS_NONE);
+            if (!bpm()) {
                 for (d dVar : this.eZg) {
                     dVar.a(this.eZf, stopStatus);
                 }
@@ -115,11 +115,11 @@ public class a implements c {
     public void onSuccess(String str, String str2) {
         if (this.eZf != null) {
             this.eZe.au(704, this.eZf.mPackageName);
-            AdDownloadData d = com.baidu.tieba.ad.download.d.bpf().d(this.eZf);
+            AdDownloadData d = com.baidu.tieba.ad.download.d.bpg().d(this.eZf);
             d.extra().setStatus(DownloadStatus.STATUS_SUCCESS);
             d.extra().setPercent(100);
-            com.baidu.tieba.ad.download.d.bpf().d(this.eZf).extra().setDownloadPath(str2);
-            if (!bpl()) {
+            com.baidu.tieba.ad.download.d.bpg().d(this.eZf).extra().setDownloadPath(str2);
+            if (!bpm()) {
                 for (d dVar : this.eZg) {
                     dVar.a(this.eZf, str2, false);
                 }
@@ -131,8 +131,8 @@ public class a implements c {
     public void au(String str, int i) {
         if (this.eZf != null) {
             this.mPercent = i;
-            com.baidu.tieba.ad.download.d.bpf().d(this.eZf).extra().setPercent(i);
-            if (!bpl()) {
+            com.baidu.tieba.ad.download.d.bpg().d(this.eZf).extra().setPercent(i);
+            if (!bpm()) {
                 for (d dVar : this.eZg) {
                     dVar.a(this.eZf, this.mPercent);
                 }

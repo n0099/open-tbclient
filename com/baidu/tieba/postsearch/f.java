@@ -35,7 +35,7 @@ public class f {
             Dc(1);
             return;
         }
-        cXB();
+        cXC();
         if (this.mTabHost.getCurrentTabType() == i) {
             PostSearchListFragment De = De(i);
             if (De != null) {
@@ -81,7 +81,7 @@ public class f {
         this.mTabHost.setup(this.kZB.getSupportFragmentManager());
         this.mTabHost.setTabWidgetViewHeight((int) this.kZB.getResources().getDimension(R.dimen.ds80));
         this.mTabHost.setShouldDrawIndicatorLine(true);
-        cXA();
+        cXB();
         this.mTabHost.initViewPager(3);
         this.mTabHost.setCurrentTabByType(i);
         this.mTabHost.setNeedShowThemeStyle(false);
@@ -98,7 +98,7 @@ public class f {
         }
     }
 
-    private void cXA() {
+    private void cXB() {
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         this.lao = new PostSearchListFragment(1);
         bVar.mContentFragment = this.lao;
@@ -143,9 +143,9 @@ public class f {
         }
     }
 
-    private void cXB() {
-        this.lao.cXs();
-        this.lap.cXs();
-        this.laq.cXs();
+    private void cXC() {
+        this.lao.cXt();
+        this.lap.cXt();
+        this.laq.cXt();
     }
 }

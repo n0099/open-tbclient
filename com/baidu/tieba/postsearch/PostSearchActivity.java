@@ -43,7 +43,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
     public void tb(String str) {
         this.hxA = str;
         this.kZE.Db(1);
-        this.kZF.cXy();
+        this.kZF.cXz();
         this.kZE.showLoadingView();
     }
 
@@ -51,34 +51,34 @@ public class PostSearchActivity extends BaseFragmentActivity {
         this.kZE.Ll(str);
     }
 
-    public void cXi() {
+    public void cXj() {
         this.kZE.aS(this.kZF.lad);
     }
 
     public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.ctb())) {
+        if (i == 1 && (bVar == null || !bVar.ctc())) {
             this.kZE.hideLoadingView();
-            this.kZE.cXC();
+            this.kZE.cXD();
             return;
         }
         this.kZE.hideLoadingView();
-        this.kZE.cXq();
+        this.kZE.cXr();
         this.kZE.a(i, bVar, z);
     }
 
-    public boolean cXj() {
-        return this.kZE.cXj();
+    public boolean cXk() {
+        return this.kZE.cXk();
     }
 
     public void hideSoftKeyPad() {
         this.kZE.hideSoftKeyPad();
     }
 
-    public d cXk() {
+    public d cXl() {
         return this.kZF;
     }
 
-    public g cXl() {
+    public g cXm() {
         return this.kZE;
     }
 
@@ -93,7 +93,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.kZF.cXv();
+        this.kZF.cXw();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

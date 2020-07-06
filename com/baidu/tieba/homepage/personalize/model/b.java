@@ -29,7 +29,7 @@ public class b {
                 if ((qVar instanceof p) && (qVar2 instanceof p)) {
                     p pVar = (p) qVar;
                     p pVar2 = (p) qVar2;
-                    if (pVar.bOS()) {
+                    if (pVar.bOT()) {
                         pVar2.mf(false);
                         if (pVar2 instanceof com.baidu.tieba.homepage.personalize.b.c) {
                             pVar.mg(false);

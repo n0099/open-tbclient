@@ -51,56 +51,56 @@ public class TbRichTextItem extends OrmObject {
         this.eNY = tbRichTextLinkImageInfo;
     }
 
-    public TbRichTextLinkImageInfo blc() {
+    public TbRichTextLinkImageInfo bld() {
         if (this.mType == 1280) {
             return this.eNY;
         }
         return null;
     }
 
-    public TbRichTextLinkButtonInfo blr() {
+    public TbRichTextLinkButtonInfo bls() {
         if (this.mType == 1024) {
             return this.eNZ;
         }
         return null;
     }
 
-    public TbRichTextImageInfo bkU() {
+    public TbRichTextImageInfo bkV() {
         if (this.mType == 8) {
             return this.eNT;
         }
         return null;
     }
 
-    public j bkY() {
+    public j bkZ() {
         if (this.mType != 32) {
             return null;
         }
         return this.eNX;
     }
 
-    public TbRichTextVoiceInfo bkW() {
+    public TbRichTextVoiceInfo bkX() {
         if (this.mType == 512 || this.mType == 768) {
             return this.eeA;
         }
         return null;
     }
 
-    public TbRichTextEmotionInfo bkZ() {
+    public TbRichTextEmotionInfo bla() {
         if (this.mType == 17) {
             return this.eNW;
         }
         return null;
     }
 
-    public TbRichTextMemeInfo bla() {
+    public TbRichTextMemeInfo blb() {
         if (this.mType == 20) {
             return this.eOa;
         }
         return null;
     }
 
-    private SpannableString bls() {
+    private SpannableString blt() {
         if (this.mType != 1 || this.eOv == null) {
             return null;
         }
@@ -116,8 +116,8 @@ public class TbRichTextItem extends OrmObject {
             if (L != null) {
                 spannableStringBuilder.append(L);
             }
-            if (this.eOv.bkQ() == 1) {
-                a = a(this.mType, this.eOv.getText(), this.eOv.bkR(), 0);
+            if (this.eOv.bkR() == 1) {
+                a = a(this.mType, this.eOv.getText(), this.eOv.bkS(), 0);
             } else {
                 a = a(this.mType, this.eOv.getText(), this.eOv.getText(), 0);
             }
@@ -153,23 +153,23 @@ public class TbRichTextItem extends OrmObject {
         if (this.mType != 32 || this.eOv == null) {
             return null;
         }
-        if (this.eOv.bkQ() == 1) {
-            return this.eOv.bkR();
+        if (this.eOv.bkR() == 1) {
+            return this.eOv.bkS();
         }
         return this.eOv.getText();
     }
 
-    private SpannableString blt() {
+    private SpannableString blu() {
         if ((this.mType != 2 && this.mType != 18) || this.eOv == null) {
             return null;
         }
-        if (this.eOv.bkQ() == 1) {
-            return a(this.mType, this.eOv.getText(), this.eOv.bkR(), 0);
+        if (this.eOv.bkR() == 1) {
+            return a(this.mType, this.eOv.getText(), this.eOv.bkS(), 0);
         }
-        return a(this.mType, this.eOv.getText(), this.eOv.getLink(), this.eOv.bkS());
+        return a(this.mType, this.eOv.getText(), this.eOv.getLink(), this.eOv.bkT());
     }
 
-    private SpannableString blu() {
+    private SpannableString blv() {
         if (this.mType != 256 || this.eOv == null) {
             return null;
         }
@@ -187,7 +187,7 @@ public class TbRichTextItem extends OrmObject {
         return spannableString;
     }
 
-    private SpannableString blv() {
+    private SpannableString blw() {
         if (this.mType != 16 || this.eOv == null) {
             return null;
         }
@@ -265,7 +265,7 @@ public class TbRichTextItem extends OrmObject {
         return spannableString;
     }
 
-    private SpannableString blw() {
+    private SpannableString blx() {
         if (this.mType != 1024 || this.eNZ == null) {
             return null;
         }
@@ -282,9 +282,9 @@ public class TbRichTextItem extends OrmObject {
     public CharSequence N(ArrayList<d> arrayList) {
         switch (this.mType) {
             case 1:
-                return bls();
-            case 2:
                 return blt();
+            case 2:
+                return blu();
             case 4:
                 return M(arrayList);
             case 8:
@@ -292,22 +292,22 @@ public class TbRichTextItem extends OrmObject {
             default:
                 return null;
             case 16:
-                return blv();
+                return blw();
             case 18:
-                return blt();
+                return blu();
             case 32:
                 return J(arrayList);
             case 128:
                 return K(arrayList);
             case 256:
-                return blu();
+                return blv();
             case 1024:
-                return blw();
+                return blx();
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x002b, code lost:
-        if (r7.eNX.blG() != false) goto L9;
+        if (r7.eNX.blH() != false) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

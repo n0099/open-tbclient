@@ -7,16 +7,16 @@ public class ax {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f120a;
+    public String f121a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, String> f121a = new HashMap();
+    public Map<String, String> f122a = new HashMap();
 
     public String a() {
-        return this.f120a;
+        return this.f121a;
     }
 
     public String toString() {
-        return String.format("resCode = %1$d, headers = %2$s, response = %3$s", Integer.valueOf(this.a), this.f121a.toString(), this.f120a);
+        return String.format("resCode = %1$d, headers = %2$s, response = %3$s", Integer.valueOf(this.a), this.f122a.toString(), this.f121a);
     }
 }

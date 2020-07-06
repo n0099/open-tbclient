@@ -30,18 +30,18 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (!(customResponsedMessage instanceof ResponseGetGroupActivityLocalMessage)) {
-                GroupActivityActivity.this.iUp.sendMessage(GroupActivityActivity.this.iUp.cqX());
+                GroupActivityActivity.this.iUp.sendMessage(GroupActivityActivity.this.iUp.cqY());
                 return;
             }
             ResponseGetGroupActivityLocalMessage responseGetGroupActivityLocalMessage = (ResponseGetGroupActivityLocalMessage) customResponsedMessage;
             if (GroupActivityActivity.this.iUp.getLocalSendMsg() == responseGetGroupActivityLocalMessage.getOrginalMessage()) {
                 if (responseGetGroupActivityLocalMessage.getError() != 0) {
-                    GroupActivityActivity.this.iUp.sendMessage(GroupActivityActivity.this.iUp.cqX());
+                    GroupActivityActivity.this.iUp.sendMessage(GroupActivityActivity.this.iUp.cqY());
                     return;
                 }
                 GroupActivityActivity.this.iUo.a(responseGetGroupActivityLocalMessage.getActivityData(), true);
                 GroupActivityActivity.this.iUp.a(responseGetGroupActivityLocalMessage.getActivityData());
-                GroupActivityActivity.this.iUp.sendMessage(GroupActivityActivity.this.iUp.cqX());
+                GroupActivityActivity.this.iUp.sendMessage(GroupActivityActivity.this.iUp.cqY());
             }
         }
     };
@@ -77,7 +77,7 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
                     return;
                 }
                 ResponseDelGroupActivityMessage responseDelGroupActivityMessage = (ResponseDelGroupActivityMessage) socketResponsedMessage;
-                if (GroupActivityActivity.this.iUp.cqZ() == responseDelGroupActivityMessage.getOrginalMessage()) {
+                if (GroupActivityActivity.this.iUp.cra() == responseDelGroupActivityMessage.getOrginalMessage()) {
                     if (responseDelGroupActivityMessage.getError() != 0) {
                         GroupActivityActivity.this.showToast(StringUtils.isNull(responseDelGroupActivityMessage.getErrorString()) ? GroupActivityActivity.this.getResources().getString(R.string.neterror) : responseDelGroupActivityMessage.getErrorString());
                         return;
@@ -140,9 +140,9 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         if (this.iUp != null) {
-            bundle.putInt("activity_id", this.iUp.cqX());
-            bundle.putLong("group_id", this.iUp.cqY());
-            bundle.putInt("from", this.iUp.cqW());
+            bundle.putInt("activity_id", this.iUp.cqY());
+            bundle.putLong("group_id", this.iUp.cqZ());
+            bundle.putInt("from", this.iUp.cqX());
         }
     }
 
@@ -170,7 +170,7 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
 
     private void startLoading() {
         showProgressBar();
-        this.iUp.yz(this.iUp.cqX());
+        this.iUp.yz(this.iUp.cqY());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -184,15 +184,15 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.iUo.crb()) {
+        if (view == this.iUo.crc()) {
             closeActivity();
-        } else if (view == this.iUo.crc()) {
+        } else if (view == this.iUo.crd()) {
             DialogUtil.deleteGroupActivity(getPageContext().getContext(), new a.b() { // from class: com.baidu.tieba.im.groupActivity.GroupActivityActivity.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                     GroupActivityActivity.this.showProgressBar();
-                    GroupActivityActivity.this.iUp.r(GroupActivityActivity.this.iUp.cqY(), GroupActivityActivity.this.iUp.cqX());
+                    GroupActivityActivity.this.iUp.r(GroupActivityActivity.this.iUp.cqZ(), GroupActivityActivity.this.iUp.cqY());
                 }
             });
         }
@@ -221,16 +221,16 @@ public class GroupActivityActivity extends BaseActivity<GroupActivityActivity> i
 
     @Override // com.baidu.tbadk.core.dialog.k.c
     public void a(k kVar, int i, View view) {
-        if (kVar != null && this.iUo != null && this.iUo.crd() != null && kVar.getRootView() == this.iUo.crd().getContentView()) {
-            this.iUo.crd().dismiss();
+        if (kVar != null && this.iUo != null && this.iUo.cre() != null && kVar.getRootView() == this.iUo.cre().getContentView()) {
+            this.iUo.cre().dismiss();
             if (i == 0) {
-                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateGroupActivityActivityConfig(getPageContext().getPageActivity(), this.iUp.cqY(), this.iUp.cra(), RequestResponseCode.REQUEST_EDIT_GROUP_ACTIVITY_CODE)));
+                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateGroupActivityActivityConfig(getPageContext().getPageActivity(), this.iUp.cqZ(), this.iUp.crb(), RequestResponseCode.REQUEST_EDIT_GROUP_ACTIVITY_CODE)));
             } else if (i == 1) {
                 DialogUtil.deleteGroupActivity(getPageContext().getContext(), new a.b() { // from class: com.baidu.tieba.im.groupActivity.GroupActivityActivity.4
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                         GroupActivityActivity.this.showProgressBar();
-                        GroupActivityActivity.this.iUp.r(GroupActivityActivity.this.iUp.cqY(), GroupActivityActivity.this.iUp.cqX());
+                        GroupActivityActivity.this.iUp.r(GroupActivityActivity.this.iUp.cqZ(), GroupActivityActivity.this.iUp.cqY());
                     }
                 });
             }

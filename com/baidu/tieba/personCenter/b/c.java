@@ -27,11 +27,11 @@ public class c {
         this.kFQ.onChangeSkinType();
     }
 
-    public void cRL() {
-        this.kFQ.cRL();
-    }
-
     public void cRM() {
         this.kFQ.cRM();
+    }
+
+    public void cRN() {
+        this.kFQ.cRN();
     }
 }

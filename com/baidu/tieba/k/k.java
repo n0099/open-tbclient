@@ -9,22 +9,22 @@ public class k {
     private long jJR;
     private boolean jJS;
 
-    public void cCL() {
+    public void cCM() {
         this.jJP = 0L;
         this.jJQ = 0L;
         this.jJR = 0L;
     }
 
-    public void cCM() {
+    public void cCN() {
         this.jJS = true;
         this.jJP = SystemClock.elapsedRealtime();
     }
 
-    public void cCN() {
+    public void cCO() {
         this.jJQ = SystemClock.elapsedRealtime();
     }
 
-    public void cCO() {
+    public void cCP() {
         this.jJR = SystemClock.elapsedRealtime();
     }
 

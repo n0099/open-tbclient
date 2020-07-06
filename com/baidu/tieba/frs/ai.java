@@ -10,7 +10,7 @@ public class ai {
     private ai() {
     }
 
-    public static ai cad() {
+    public static ai cae() {
         return hEb;
     }
 

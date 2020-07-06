@@ -19,9 +19,9 @@ public class TbVideoViewSet {
 
     /* loaded from: classes.dex */
     public interface a {
-        void cWb();
-
         void cWc();
+
+        void cWd();
     }
 
     private TbVideoViewSet() {
@@ -36,7 +36,7 @@ public class TbVideoViewSet {
         });
     }
 
-    public static TbVideoViewSet cWa() {
+    public static TbVideoViewSet cWb() {
         if (kVW == null) {
             synchronized (TbVideoViewSet.class) {
                 if (kVW == null) {
@@ -124,7 +124,7 @@ public class TbVideoViewSet {
             boolean z = size() > 3;
             if (z && (value = entry.getValue()) != null) {
                 TbVideoViewSet.this.kVX = true;
-                value.cVu();
+                value.cVv();
                 value.stopPlayback();
                 TbVideoViewSet.this.kVX = false;
             }

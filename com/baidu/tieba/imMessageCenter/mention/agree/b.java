@@ -74,17 +74,17 @@ public class b {
         }
     }
 
-    public void chR() {
+    public void chS() {
         aPK();
         aPJ();
     }
 
-    public void caX() {
+    public void caY() {
         this.lastId = 0L;
         aPJ();
     }
 
-    public void btu() {
+    public void btv() {
         aPJ();
     }
 

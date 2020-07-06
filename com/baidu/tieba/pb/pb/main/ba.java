@@ -10,7 +10,7 @@ import java.util.Map;
 public class ba {
     private static ba kos = null;
 
-    public static ba cNe() {
+    public static ba cNf() {
         if (kos == null) {
             synchronized (ba.class) {
                 if (kos == null) {

@@ -79,7 +79,7 @@ public class a extends RecyclerView.Adapter<b> {
         notifyDataSetChanged();
     }
 
-    public void cAu() {
+    public void cAv() {
         if (this.mDataList != null) {
             this.mDataList.clear();
             notifyDataSetChanged();

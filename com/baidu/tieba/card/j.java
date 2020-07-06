@@ -74,7 +74,7 @@ public class j extends c<com.baidu.tieba.card.data.i> {
         this.gOS.addView(this.gQw);
         this.gQw.setSelector(R.drawable.list_selector_transparent);
         this.gQw.setPadding(tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0);
-        bOe();
+        bOf();
         if (this.gQx == null) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < 10; i++) {
@@ -137,7 +137,7 @@ public class j extends c<com.baidu.tieba.card.data.i> {
             iVar.getDataList().clear();
             iVar.getDataList().addAll(arrayList.subList(0, 10));
         }
-        this.gQE = iVar.bOU();
+        this.gQE = iVar.bOV();
         this.stType = iVar.getStType();
         if (!l(iVar.getDataList(), this.gQA)) {
             boolean z = com.baidu.tbadk.core.util.w.getCount(iVar.getDataList()) != com.baidu.tbadk.core.util.w.getCount(this.gQA);
@@ -224,7 +224,7 @@ public class j extends c<com.baidu.tieba.card.data.i> {
         return z2;
     }
 
-    private void bOe() {
+    private void bOf() {
         this.eoP = new View.OnClickListener() { // from class: com.baidu.tieba.card.j.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -235,7 +235,7 @@ public class j extends c<com.baidu.tieba.card.data.i> {
                             String valueOf = String.valueOf(view.getTag(R.id.tag_forum_id));
                             if (ar.isForumName(str)) {
                                 j.this.egK.fx(str, valueOf);
-                                TiebaStatic.log(new ao(j.this.eJs).dk("fid", valueOf).dk(TiebaInitialize.Params.OBJ_PARAM3, m.bOr()));
+                                TiebaStatic.log(new ao(j.this.eJs).dk("fid", valueOf).dk(TiebaInitialize.Params.OBJ_PARAM3, m.bOs()));
                             }
                         }
                     } else if (view.getTag(R.id.tag_forum_name) != null) {
@@ -243,9 +243,9 @@ public class j extends c<com.baidu.tieba.card.data.i> {
                         String valueOf2 = String.valueOf(view.getTag(R.id.tag_forum_id));
                         if (ar.isForumName(str2)) {
                             if (view.getId() == R.id.m_forum_name_textview) {
-                                TiebaStatic.log(new ao(j.this.gQD).dk("fid", valueOf2).dk(TiebaInitialize.Params.OBJ_PARAM3, m.bOr()));
+                                TiebaStatic.log(new ao(j.this.gQD).dk("fid", valueOf2).dk(TiebaInitialize.Params.OBJ_PARAM3, m.bOs()));
                             } else {
-                                TiebaStatic.log(new ao(j.this.gQC).dk("fid", valueOf2).dk(TiebaInitialize.Params.OBJ_PARAM3, m.bOr()));
+                                TiebaStatic.log(new ao(j.this.gQC).dk("fid", valueOf2).dk(TiebaInitialize.Params.OBJ_PARAM3, m.bOs()));
                             }
                             if (!StringUtils.isNull(j.this.stType) && !StringUtils.isNull(j.this.gQE)) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(j.this.getView().getContext()).createCfgForpersonalized(str2, j.this.stType, j.this.gQE)));

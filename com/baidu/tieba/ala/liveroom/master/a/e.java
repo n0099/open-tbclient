@@ -23,7 +23,7 @@ public class e extends a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bHD() {
+    public void bHE() {
         if (this.fYL != null && this.fYL.ggs != null) {
             if (this.gmI != null) {
                 this.gmI.rJ(2);
@@ -46,12 +46,12 @@ public class e extends a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bHE() {
-        super.bHE();
+    public void bHF() {
+        super.bHF();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bHF() {
-        super.bHF();
+    public void bHG() {
+        super.bHG();
     }
 }

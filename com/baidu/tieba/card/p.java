@@ -37,12 +37,12 @@ public class p {
     private k.b gSa = new k.b() { // from class: com.baidu.tieba.card.p.2
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            p.this.bOv();
+            p.this.bOw();
             if (p.this.gRR == null || !p.this.gRR.isPrivacy) {
                 if (p.this.gRR != null && p.this.gRR.aPS() != null) {
                     p.this.gRZ.setThreadId(p.this.gRR.aPS().getTid());
                 }
-                p.this.gRZ.bNV();
+                p.this.gRZ.bNW();
                 return;
             }
             p.this.mPageContext.showToast(R.string.privacy_thread_can_not_use_call_fans);
@@ -103,7 +103,7 @@ public class p {
                 p.this.gRW.a(p.this.gSb);
                 p.this.gRW.LoadData();
             }
-            p.this.bOv();
+            p.this.bOw();
         }
     };
     private k.b gSd = new k.b() { // from class: com.baidu.tieba.card.p.7
@@ -114,10 +114,10 @@ public class p {
                 return;
             }
             if (p.this.gRR != null && p.this.gRX != null) {
-                p.this.bOw();
+                p.this.bOx();
                 p.this.gRP.aUN();
             }
-            p.this.bOv();
+            p.this.bOw();
         }
     };
     private com.baidu.adp.base.d gSe = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.card.p.8
@@ -190,7 +190,7 @@ public class p {
             this.gRO.a(new k.a() { // from class: com.baidu.tieba.card.p.1
                 @Override // com.baidu.tbadk.core.dialog.k.a
                 public void onClick() {
-                    p.this.bOv();
+                    p.this.bOw();
                 }
             });
             this.gRO.aL(this.gRS);
@@ -231,14 +231,14 @@ public class p {
         }
     }
 
-    public void bOv() {
+    public void bOw() {
         if (this.gRN != null && this.gRN.isShowing()) {
             this.gRN.dismiss();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bOw() {
+    public void bOx() {
         if (this.gRP == null) {
             this.gRP = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
             if (this.gRY) {

@@ -68,7 +68,7 @@ public class a {
         this.gqO.getView().setId(a.g.guide_rename_view);
         this.gqO.getView().setVisibility(0);
         initTasks();
-        bJh();
+        bJi();
         return true;
     }
 
@@ -76,14 +76,14 @@ public class a {
         this.otherParams = str;
     }
 
-    private void bJh() {
+    private void bJi() {
         com.baidu.live.s.a.GJ().a(new com.baidu.live.s.c() { // from class: com.baidu.tieba.ala.liveroom.t.a.1
         });
     }
 
     private void Dj(String str) {
         if (this.aLQ != null) {
-            bJi();
+            bJj();
             if (this.gqP != null && this.gqP.isShowing()) {
                 this.gqP.onSuccess();
             }
@@ -132,7 +132,7 @@ public class a {
         }
     }
 
-    public void bJi() {
+    public void bJj() {
         if (this.fIb != null && this.fIb.indexOfChild(this.gqO.getView()) > 0) {
             this.fIb.removeView(this.gqO.getView());
         }

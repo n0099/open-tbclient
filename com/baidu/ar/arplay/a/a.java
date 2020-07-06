@@ -24,7 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class a {
 
     /* renamed from: de  reason: collision with root package name */
-    private static a f978de;
+    private static a f979de;
     private static ConcurrentHashMap<String, C0075a> dh;
     private static HandlerThread di;
     private static b dk;
@@ -390,10 +390,10 @@ public final class a {
     public static synchronized a aB() {
         a aVar;
         synchronized (a.class) {
-            if (f978de == null) {
-                f978de = new a();
+            if (f979de == null) {
+                f979de = new a();
             }
-            aVar = f978de;
+            aVar = f979de;
         }
         return aVar;
     }

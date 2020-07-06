@@ -4,18 +4,18 @@ import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class c implements b {
     @Nullable
-    private static c mIo = null;
+    private static c mIt = null;
 
     private c() {
     }
 
-    public static synchronized c dyY() {
+    public static synchronized c dzc() {
         c cVar;
         synchronized (c.class) {
-            if (mIo == null) {
-                mIo = new c();
+            if (mIt == null) {
+                mIt = new c();
             }
-            cVar = mIo;
+            cVar = mIt;
         }
         return cVar;
     }

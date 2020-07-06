@@ -122,7 +122,7 @@ public class MultiImgLayout extends LinearLayout implements n<AbsThreadDataSuppo
         if (voiceModel != null) {
             this.aiw.yU(voiceModel.voice_status.intValue());
         }
-        this.aiw.bCn();
+        this.aiw.bCo();
         this.aiz = true;
     }
 

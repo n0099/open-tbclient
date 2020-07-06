@@ -26,19 +26,19 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         this.jmX = new LabelSettingModel(getPageContext());
         setContentView(this.jmW);
         this.jmX.a(this);
-        cwp();
+        cwq();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
-    public void cwp() {
+    public void cwq() {
         if (!j.isNetworkAvailableForImmediately()) {
             this.jmW.hideLoadingView();
             this.jmW.mB(true);
             return;
         }
-        this.jmW.btN();
+        this.jmW.btO();
         this.jmW.ga(true);
-        this.jmX.cwv();
+        this.jmX.cww();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
@@ -55,11 +55,11 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         switch (labelRequestEnum) {
             case GET_LABEL:
                 this.jmW.hideLoadingView();
-                if (bVar == null || w.isEmpty(bVar.cwt())) {
+                if (bVar == null || w.isEmpty(bVar.cwu())) {
                     this.jmW.mB(true);
                     return;
                 }
-                this.jmW.btN();
+                this.jmW.btO();
                 this.jmW.setData(bVar);
                 return;
             case SUB_LABEL:
@@ -83,7 +83,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.jmW != null && this.jmW.cwF()) {
+        if (i == 4 && this.jmW != null && this.jmW.cwG()) {
             this.jmW.showDialog();
             return true;
         }

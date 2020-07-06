@@ -10,20 +10,20 @@ import tbclient.Recommforum.RecommforumReqIdl;
 public class RequestRecommendMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f1017common;
+    private CommonReq f1018common;
 
     public RequestRecommendMessage() {
         super(CmdConfigHttp.CMD_RECOMMEND_FORUM, 309630);
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f1017common = commonReq;
+        this.f1018common = commonReq;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1247common = this.f1017common;
+        builder.f1248common = this.f1018common;
         if (z) {
             t.a(builder, true);
         }

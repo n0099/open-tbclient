@@ -29,10 +29,10 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         this.kbi = new ae.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
             @Override // com.baidu.tieba.pb.pb.main.ae.a
             public void aX(List<PostData> list) {
-                p cHb;
+                p cHc;
                 MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.kbe != null && MoreGodReplyModel.this.kbe.getPbData() != null && (cHb = MoreGodReplyModel.this.kbe.getPbData().cHb()) != null) {
-                    List<PostData> list2 = cHb.kao;
+                if (MoreGodReplyModel.this.kbe != null && MoreGodReplyModel.this.kbe.getPbData() != null && (cHc = MoreGodReplyModel.this.kbe.getPbData().cHc()) != null) {
+                    List<PostData> list2 = cHc.kao;
                     int size = list2.size();
                     if (!w.isEmpty(list)) {
                         for (PostData postData : list) {
@@ -61,9 +61,9 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         };
         if (pbModel != null) {
             this.kbe = pbModel;
-            ae cKD = pbModel.cKD();
-            if (cKD != null) {
-                cKD.b(this.kbi);
+            ae cKE = pbModel.cKE();
+            if (cKE != null) {
+                cKE.b(this.kbi);
             }
         }
     }
@@ -85,25 +85,25 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return false;
     }
 
-    public boolean cId() {
-        p cHb;
+    public boolean cIe() {
+        p cHc;
         com.baidu.tieba.pb.data.e pbData = this.kbe.getPbData();
-        if (pbData == null || (cHb = pbData.cHb()) == null) {
+        if (pbData == null || (cHc = pbData.cHc()) == null) {
             return false;
         }
         if (this.kbg < 0) {
-            this.kbg = cHb.getCount();
+            this.kbg = cHc.getCount();
         }
-        List<Long> list = cHb.kap;
+        List<Long> list = cHc.kap;
         int size = list.size();
         int i = this.kbg;
-        if (size <= i || cHb.kao.size() >= 100) {
+        if (size <= i || cHc.kao.size() >= 100) {
             return false;
         }
         int min = Math.min(100, Math.min(i + 20, size));
         this.kbf = min;
         this.isLoading = true;
-        this.kbe.cKD().en(list.subList(i, min));
+        this.kbe.cKE().en(list.subList(i, min));
         Log.d("more_god_reply", "load from " + i + " to " + min);
         return true;
     }
@@ -112,18 +112,18 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return this.isLoading;
     }
 
-    public PbModel cIe() {
+    public PbModel cIf() {
         return this.kbe;
     }
 
-    public List<q> cIf() {
+    public List<q> cIg() {
         com.baidu.tieba.pb.data.e pbData;
-        if (this.kbe == null || (pbData = this.kbe.getPbData()) == null || pbData.cHb() == null || w.isEmpty(pbData.cHb().kao)) {
+        if (this.kbe == null || (pbData = this.kbe.getPbData()) == null || pbData.cHc() == null || w.isEmpty(pbData.cHc().kao)) {
             return null;
         }
-        p cHb = pbData.cHb();
+        p cHc = pbData.cHc();
         ArrayList arrayList = new ArrayList();
-        List<PostData> list = cHb.kao;
+        List<PostData> list = cHc.kao;
         int size = list.size();
         int i = 0;
         while (i < size) {
@@ -155,13 +155,13 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean apb() {
         com.baidu.tieba.pb.data.e pbData;
-        p cHb;
-        if (this.kbe == null || (pbData = this.kbe.getPbData()) == null || (cHb = pbData.cHb()) == null) {
+        p cHc;
+        if (this.kbe == null || (pbData = this.kbe.getPbData()) == null || (cHc = pbData.cHc()) == null) {
             return false;
         }
         if (this.kbg < 0) {
-            this.kbg = cHb.getCount();
+            this.kbg = cHc.getCount();
         }
-        return cHb.kap.size() > this.kbg && cHb.kao.size() < 100;
+        return cHc.kap.size() > this.kbg && cHc.kao.size() < 100;
     }
 }

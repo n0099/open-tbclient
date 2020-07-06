@@ -72,8 +72,8 @@ public class u extends b<bv> implements com.baidu.tieba.a.e {
         this.ahM = new View.OnClickListener() { // from class: com.baidu.tieba.card.u.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (u.this.bOc() != null) {
-                    u.this.bOc().a(view, u.this.gSX);
+                if (u.this.bOd() != null) {
+                    u.this.bOd().a(view, u.this.gSX);
                 }
             }
         };
@@ -81,8 +81,8 @@ public class u extends b<bv> implements com.baidu.tieba.a.e {
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
                 if (u.this.gSX != null && u.this.gSX.dLi != null) {
-                    if (u.this.bOc() != null) {
-                        u.this.bOc().a(u.this.gSC, u.this.gSX);
+                    if (u.this.bOd() != null) {
+                        u.this.bOd().a(u.this.gSC, u.this.gSX);
                     }
                     String id = u.this.gSX.dLi.getId();
                     m.DO(id);
@@ -131,8 +131,8 @@ public class u extends b<bv> implements com.baidu.tieba.a.e {
         this.fRI.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.u.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (u.this.bOc() != null) {
-                    u.this.bOc().a(view2, u.this.gSX);
+                if (u.this.bOd() != null) {
+                    u.this.bOd().a(view2, u.this.gSX);
                 }
                 if (u.this.gSX != null && u.this.gSX.dLi != null) {
                     m.DO(u.this.gSX.dLi.getId());
@@ -146,8 +146,8 @@ public class u extends b<bv> implements com.baidu.tieba.a.e {
         this.fSu.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.u.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (u.this.bOc() != null) {
-                    u.this.bOc().a(view2, u.this.gSX);
+                if (u.this.bOd() != null) {
+                    u.this.bOd().a(view2, u.this.gSX);
                 }
                 if (view2 != u.this.fSu.eee && u.this.gSX != null && u.this.gSX.dLi != null) {
                     m.DO(u.this.gSX.dLi.getId());
@@ -288,7 +288,7 @@ public class u extends b<bv> implements com.baidu.tieba.a.e {
         setPageUniqueId(getTag());
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         cY(buVar.getId());
-        if (this.fRI.isInFrsAllThread() && (com.baidu.tieba.frs.b.bXc().bWW() || com.baidu.tieba.frs.a.bWV().bWW())) {
+        if (this.fRI.isInFrsAllThread() && (com.baidu.tieba.frs.b.bXd().bWX() || com.baidu.tieba.frs.a.bWW().bWX())) {
             this.mMaskView.setVisibility(0);
             if (buVar.aUa() || buVar.aUb() || buVar.aUc()) {
                 an.setBackgroundColor(this.mMaskView, R.color.cp_bg_line_d);
@@ -393,8 +393,8 @@ public class u extends b<bv> implements com.baidu.tieba.a.e {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (bOc() != null) {
-            bOc().a(view, this.gSX);
+        if (bOd() != null) {
+            bOd().a(view, this.gSX);
         }
         if (view == getView() || view.getId() == R.id.thread_content_layout_outter) {
             bdl();
@@ -408,7 +408,7 @@ public class u extends b<bv> implements com.baidu.tieba.a.e {
         return null;
     }
 
-    public View bOg() {
+    public View bOh() {
         if (this.fRH != null) {
             return this.fRH.ahA;
         }
@@ -442,6 +442,6 @@ public class u extends b<bv> implements com.baidu.tieba.a.e {
     }
 
     public int pz(int i) {
-        return com.baidu.tieba.a.d.boA().as(this.afG, i);
+        return com.baidu.tieba.a.d.boB().as(this.afG, i);
     }
 }

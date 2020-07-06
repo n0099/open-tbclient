@@ -23,8 +23,8 @@ public class c extends m<com.baidu.tieba.pb.data.m, a> {
     public c(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
         super(bVar, bdUniqueId);
         this.koJ = new LinkedList<>();
-        if (bVar != null && bVar.cIe() != null) {
-            ayd = bVar.cIe().cKJ();
+        if (bVar != null && bVar.cIf() != null) {
+            ayd = bVar.cIf().cKK();
         }
         this.koI = new e(bVar);
     }
@@ -52,13 +52,13 @@ public class c extends m<com.baidu.tieba.pb.data.m, a> {
     }
 
     public void onDestroy() {
-        cNg();
+        cNh();
         if (this.koI != null) {
             this.koI.onDestroy();
         }
     }
 
-    private void cNg() {
+    private void cNh() {
         Iterator<a> it = this.koJ.iterator();
         while (it.hasNext()) {
             a next = it.next();
@@ -77,25 +77,25 @@ public class c extends m<com.baidu.tieba.pb.data.m, a> {
                     next.koK.xl(str);
                 }
             }
-        } else if (cNh() != null) {
-            this.koI.d(cNh().aUg());
+        } else if (cNi() != null) {
+            this.koI.d(cNi().aUg());
         }
     }
 
     private String getPostId() {
-        bu cNh = cNh();
-        return cNh != null ? cNh.aSG() : "";
+        bu cNi = cNi();
+        return cNi != null ? cNi.aSG() : "";
     }
 
     private String getForumId() {
-        return this.kdO.cIe() != null ? this.kdO.cIe().getForumId() : "";
+        return this.kdO.cIf() != null ? this.kdO.cIf().getForumId() : "";
     }
 
-    private bu cNh() {
-        if (this.kdO.cIe() == null || this.kdO.cIe().getPbData() == null) {
+    private bu cNi() {
+        if (this.kdO.cIf() == null || this.kdO.cIf().getPbData() == null) {
             return null;
         }
-        return this.kdO.cIe().getPbData().cGN();
+        return this.kdO.cIf().getPbData().cGO();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -130,7 +130,7 @@ public class c extends m<com.baidu.tieba.pb.data.m, a> {
                     aPS.aUg().postId = aPS.aSG();
                 }
                 this.koK.a(aPS, mVar.getAnti());
-                this.koL.setVisibility(mVar.cHG() ? 0 : 8);
+                this.koL.setVisibility(mVar.cHH() ? 0 : 8);
                 if (aPS.aQV() && aPS.aSH() != null) {
                     this.koM = 2;
                 } else {

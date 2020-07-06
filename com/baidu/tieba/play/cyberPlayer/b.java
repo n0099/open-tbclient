@@ -21,13 +21,13 @@ public class b {
     private String kUh = "1";
     private k kVC = new k();
 
-    public void cVZ() {
-        this.kVC.cCM();
+    public void cWa() {
+        this.kVC.cCN();
     }
 
     public void fo(long j) {
         this.kUv = j;
-        this.kVC.cCN();
+        this.kVC.cCO();
     }
 
     public void onStart() {
@@ -36,7 +36,7 @@ public class b {
         }
         this.mStartTime = System.currentTimeMillis();
         this.kUp = true;
-        this.kVC.cCO();
+        this.kVC.cCP();
     }
 
     public void a(TbCyberVideoView tbCyberVideoView) {
@@ -56,11 +56,11 @@ public class b {
             this.hGx = (System.currentTimeMillis() - this.mStartTime) + this.hGx;
             this.mStartTime = 0L;
         }
-        cVA();
+        cVB();
         this.hGx = 0L;
         this.mStartTime = 0L;
         this.kUp = false;
-        this.kVC.cCL();
+        this.kVC.cCM();
     }
 
     public void onComplete() {
@@ -71,11 +71,11 @@ public class b {
     }
 
     public void h(n nVar) {
-        this.dLi = nVar.cVC().aPS();
-        this.kUg = nVar.cVF();
+        this.dLi = nVar.cVD().aPS();
+        this.kUg = nVar.cVG();
     }
 
-    private void cVA() {
+    private void cVB() {
         if (this.hGx >= 0 && this.hGx < 86400000) {
             if (this.hGx > 0) {
                 ao aoVar = new ao(TbadkCoreStatisticKey.KEY_VIDEO_TIME);

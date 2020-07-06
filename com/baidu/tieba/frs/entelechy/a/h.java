@@ -80,9 +80,9 @@ public class h extends com.baidu.tieba.frs.j<bt, com.baidu.card.ak<bu>> implemen
                         com.baidu.tieba.frs.d.a.a(buVar, 1, h.this.mPageId, h.this.hIE, h.this.getTbPageTag());
                     }
                     if (view.getId() == R.id.user_name || view.getId() == R.id.user_avatar) {
-                        com.baidu.tieba.frs.d.c.ceq().a(h.this.hIE, buVar, 2);
+                        com.baidu.tieba.frs.d.c.cer().a(h.this.hIE, buVar, 2);
                     } else if (view.getId() != R.id.card_home_page_normal_thread_user_icon) {
-                        com.baidu.tieba.frs.d.c.ceq().a(h.this.hIE, buVar, 1);
+                        com.baidu.tieba.frs.d.c.cer().a(h.this.hIE, buVar, 1);
                     } else {
                         TiebaStatic.log(new ao(CommonStatisticKey.USER_ICON_VISIT).ag("obj_type", 3));
                     }
@@ -103,7 +103,7 @@ public class h extends com.baidu.tieba.frs.j<bt, com.baidu.card.ak<bu>> implemen
         this.eLl = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: blL */
+            /* renamed from: blM */
             public ImageView makeObject() {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(h.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.k.aPA().isShowImages();
@@ -175,7 +175,7 @@ public class h extends com.baidu.tieba.frs.j<bt, com.baidu.card.ak<bu>> implemen
         this.eLm = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.frs.entelechy.a.h.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bST */
+            /* renamed from: bSU */
             public GifView makeObject() {
                 GifView gifView = new GifView(h.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.k.aPA().isShowImages();
@@ -390,7 +390,7 @@ public class h extends com.baidu.tieba.frs.j<bt, com.baidu.card.ak<bu>> implemen
         if (this.hIE != null) {
             btVar.dLi.dJw = (btVar.position + 1) - (this.hzi != null ? this.hzi.getTopThreadSize() : 0);
         }
-        com.baidu.tieba.frs.d.c.ceq().a(this.hIE, btVar.dLi);
+        com.baidu.tieba.frs.d.c.cer().a(this.hIE, btVar.dLi);
         aq(btVar.dLi);
         btVar.dLi.aTB();
         com.baidu.tieba.frs.d.a.a(btVar.dLi, this.mPageId, this.hIE, getTbPageTag());
@@ -404,7 +404,7 @@ public class h extends com.baidu.tieba.frs.j<bt, com.baidu.card.ak<bu>> implemen
         if (this.hIC == null) {
             this.hIC = new HashSet<>();
         }
-        com.baidu.tieba.frs.d.c.ceq().a(buVar, this.hIC);
+        com.baidu.tieba.frs.d.c.cer().a(buVar, this.hIC);
     }
 
     @Override // com.baidu.tieba.card.y

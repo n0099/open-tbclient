@@ -3054,7 +3054,7 @@ public final class a {
         public static final int combo_text_icon = 2131691198;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f991common = 2131689901;
+        public static final int f992common = 2131689901;
         public static final int confirm = 2131693799;
         public static final int confirm_btn_root = 2131697838;
         public static final int container = 2131690420;
@@ -3985,7 +3985,7 @@ public final class a {
         public static final int toast_message = 2131693446;
 
         /* renamed from: top  reason: collision with root package name */
-        public static final int f992top = 2131689833;
+        public static final int f993top = 2131689833;
         public static final int topDvider = 2131694169;
         public static final int top_navi_login = 2131697895;
         public static final int top_navi_register = 2131697894;

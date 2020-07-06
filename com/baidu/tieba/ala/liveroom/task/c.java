@@ -32,7 +32,7 @@ public class c {
         }
     };
 
-    public static c bJx() {
+    public static c bJy() {
         if (grQ == null) {
             synchronized (c.class) {
                 if (grQ == null) {
@@ -45,7 +45,7 @@ public class c {
 
     public void dL(long j) {
         Log.i("TaskHelper", "@@ startRecord watchCount=" + grP + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
-        if (bJy()) {
+        if (bJz()) {
             this.currLiveId = j;
             this.duration = 0L;
             this.now = System.currentTimeMillis();
@@ -81,14 +81,14 @@ public class c {
         this.handler.removeCallbacks(this.grR);
     }
 
-    private boolean bJy() {
+    private boolean bJz() {
         return grP < 30;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ait() {
-        Log.i("TaskHelper", "@@ report watchCount=" + grP + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration + ", isNeed=" + bJy());
-        if (bJy()) {
+        Log.i("TaskHelper", "@@ report watchCount=" + grP + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration + ", isNeed=" + bJz());
+        if (bJz()) {
             HttpMessage httpMessage = new HttpMessage(1021127);
             httpMessage.addParam("live_id", this.currLiveId);
             httpMessage.addParam("client_ip", "");

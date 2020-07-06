@@ -9,7 +9,7 @@ public class v extends bu {
     private boolean lEI;
     private p lEJ;
 
-    public boolean dhu() {
+    public boolean dhv() {
         return this.lEI;
     }
 
@@ -17,7 +17,7 @@ public class v extends bu {
         this.lEI = z;
     }
 
-    public String dhv() {
+    public String dhw() {
         return this.fortune_desc;
     }
 
@@ -25,7 +25,7 @@ public class v extends bu {
         this.fortune_desc = str;
     }
 
-    public p dhw() {
+    public p dhx() {
         return this.lEJ;
     }
 

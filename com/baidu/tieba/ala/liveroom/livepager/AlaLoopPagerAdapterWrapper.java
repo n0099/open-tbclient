@@ -36,13 +36,13 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int rz(int i) {
-        int bFJ = bFJ();
-        if (bFJ == 0) {
+        int bFK = bFK();
+        if (bFK == 0) {
             return 0;
         }
-        int i2 = (i - 1) % bFJ;
+        int i2 = (i - 1) % bFK;
         if (i2 < 0) {
-            return i2 + bFJ;
+            return i2 + bFK;
         }
         return i2;
     }
@@ -51,12 +51,12 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
         return i + 1;
     }
 
-    private int bFH() {
+    private int bFI() {
         return 1;
     }
 
-    private int bFI() {
-        return (bFH() + bFJ()) - 1;
+    private int bFJ() {
+        return (bFI() + bFK()) - 1;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -64,11 +64,11 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
         return this.mAdapter.getCount() + 2;
     }
 
-    public int bFJ() {
+    public int bFK() {
         return this.mAdapter.getCount();
     }
 
-    public PagerAdapter bFK() {
+    public PagerAdapter bFL() {
         return this.mAdapter;
     }
 
@@ -97,10 +97,10 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        int bFH = bFH();
         int bFI = bFI();
+        int bFJ = bFJ();
         int rz = ((this.mAdapter instanceof FragmentPagerAdapter) || (this.mAdapter instanceof FragmentStatePagerAdapter)) ? i : rz(i);
-        if (this.gjx && (i == bFH || i == bFI)) {
+        if (this.gjx && (i == bFI || i == bFJ)) {
             this.gjw.put(i, new a(viewGroup, rz, obj));
         } else {
             this.mAdapter.destroyItem(viewGroup, rz, obj);

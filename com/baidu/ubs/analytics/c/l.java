@@ -6,36 +6,36 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public final class l {
-    private static String mFe;
-    private static String mFf;
-    private final LinkedHashMap<String, Long> mFg = new LinkedHashMap<>();
+    private static String mFh;
+    private static String mFi;
+    private final LinkedHashMap<String, Long> mFj = new LinkedHashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void Qa(String str) {
+    public final void Qb(String str) {
         if (!TextUtils.isEmpty(str)) {
-            synchronized (this.mFg) {
-                this.mFg.put(str, Long.valueOf(System.currentTimeMillis()));
-                mFe = str;
-                mFf = String.valueOf(System.currentTimeMillis());
+            synchronized (this.mFj) {
+                this.mFj.put(str, Long.valueOf(System.currentTimeMillis()));
+                mFh = str;
+                mFi = String.valueOf(System.currentTimeMillis());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void Qb(String str) {
+    public final void Qc(String str) {
         d dVar;
         if (!TextUtils.isEmpty(str)) {
             final com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-            synchronized (this.mFg) {
-                Long remove = this.mFg.remove(str);
+            synchronized (this.mFj) {
+                Long remove = this.mFj.remove(str);
                 if (remove != null) {
                     try {
                         lVar.setStartTime(String.valueOf(remove));
                         lVar.t(str);
                         lVar.z(String.valueOf(System.currentTimeMillis()));
-                        dVar = d.a.mES;
-                        lVar.setPath(dVar.dxk());
-                        lVar.x(m.dxt().I());
+                        dVar = d.a.mEV;
+                        lVar.setPath(dVar.dxo());
+                        lVar.x(m.dxx().I());
                     } catch (Exception e) {
                         com.baidu.ubs.analytics.d.j.G(e.toString());
                         com.baidu.ubs.analytics.d.b.I(e.toString());

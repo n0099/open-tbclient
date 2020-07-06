@@ -88,18 +88,18 @@ public class c {
         this.mRoot.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() { // from class: com.baidu.tieba.ad.browser.newstyle.c.2
             @Override // android.view.View.OnAttachStateChangeListener
             public void onViewAttachedToWindow(View view) {
-                c.this.boY();
+                c.this.boZ();
             }
 
             @Override // android.view.View.OnAttachStateChangeListener
             public void onViewDetachedFromWindow(View view) {
-                c.this.boZ();
+                c.this.bpa();
             }
         });
-        boW();
+        boX();
     }
 
-    private void boW() {
+    private void boX() {
         int statusBarHeight = UtilHelper.getStatusBarHeight();
         int dimens = l.getDimens(this.eYy.getPageContext().getPageActivity(), R.dimen.ds98);
         int i = l.getScreenSize(this.eYy.getPageContext().getPageActivity()).heightPixels;
@@ -282,25 +282,25 @@ public class c {
     public void a(DownloadCacheKey downloadCacheKey) {
         this.eYA = downloadCacheKey;
         if (this.eYB == null) {
-            AdDownloadData d = com.baidu.tieba.ad.download.d.bpf().d(downloadCacheKey);
+            AdDownloadData d = com.baidu.tieba.ad.download.d.bpg().d(downloadCacheKey);
             com.baidu.tieba.ad.browser.newstyle.view.a aVar = new com.baidu.tieba.ad.browser.newstyle.view.a(this.eYz, d, "LANDING_PAGE");
             this.eYB = new com.baidu.tieba.ad.download.a.b(aVar);
             if (d.extra().getPercent() > 0) {
                 aVar.b((com.baidu.tieba.ad.browser.newstyle.view.a) d);
             }
         }
-        boY();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void boY() {
-        if (this.eYA != null && this.eYB != null) {
-            com.baidu.tieba.ad.download.d.bpf().a(this.eYA, this.eYB);
-        }
+        boZ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void boZ() {
-        com.baidu.tieba.ad.download.d.bpf().b(this.eYA, this.eYB);
+        if (this.eYA != null && this.eYB != null) {
+            com.baidu.tieba.ad.download.d.bpg().a(this.eYA, this.eYB);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bpa() {
+        com.baidu.tieba.ad.download.d.bpg().b(this.eYA, this.eYB);
     }
 }

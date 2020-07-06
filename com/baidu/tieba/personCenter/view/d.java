@@ -87,7 +87,7 @@ public class d extends com.baidu.tieba.card.b<k> {
     }
 
     private void a(com.baidu.tieba.personCenter.c.c cVar) {
-        if (this.kHm.cRX()) {
+        if (this.kHm.cRY()) {
             this.kHm.c(cVar);
             return;
         }

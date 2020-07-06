@@ -11,7 +11,7 @@ public class c {
         this.mHandlerThread.start();
     }
 
-    public static c bnu() {
+    public static c bnv() {
         if (eUt == null) {
             synchronized (c.class) {
                 if (eUt == null) {

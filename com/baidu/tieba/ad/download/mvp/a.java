@@ -28,7 +28,7 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     a.this.eZb.bu(view2);
-                    a.this.bpi();
+                    a.this.bpj();
                     a.this.a((a) a.this.eZc);
                 }
             });
@@ -36,7 +36,7 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public VIEW bph() {
+    public VIEW bpi() {
         return this.eZb;
     }
 
@@ -44,7 +44,7 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
     public void b(@NonNull MODEL model) {
         this.eZc = model;
         if (this.eZb != null) {
-            bpj();
+            bpk();
             this.eZb.a(model.getCurrentState(), model.getPercent());
         }
     }
@@ -54,7 +54,7 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
         if (this.eZc != null) {
             this.eZb.a(downloadStatus);
             if (downloadStatus != DownloadStatus.STATUS_NONE) {
-                bpj();
+                bpk();
             }
         }
     }
@@ -63,12 +63,12 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
     public void dE(int i) {
         this.eZb.dE(i);
         if ((this.eZc != null ? this.eZc.getCurrentState() : null) != DownloadStatus.STATUS_NONE) {
-            bpj();
+            bpk();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bpi() {
+    public void bpj() {
         MODEL model = this.eZc;
         if (model != null) {
             DownloadStatus currentState = model.getCurrentState();
@@ -78,7 +78,7 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
                 case STATUS_PAUSED:
                 case STATUS_SUCCESS:
                 case STATUS_INSTALL_SUCCESS:
-                    d.bpf().a(model.adId(), this.mPage, currentState, model.getPkgName());
+                    d.bpg().a(model.adId(), this.mPage, currentState, model.getPkgName());
                     return;
                 default:
                     return;
@@ -86,7 +86,7 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
         }
     }
 
-    private void bpj() {
+    private void bpk() {
         if (this.eZb.getRealView().getVisibility() != 0) {
             this.eZb.getRealView().setVisibility(0);
         }

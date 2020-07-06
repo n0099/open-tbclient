@@ -39,7 +39,7 @@ public class v {
     private v() {
     }
 
-    public static synchronized v biU() {
+    public static synchronized v biV() {
         v vVar;
         synchronized (v.class) {
             if (eEt == null) {

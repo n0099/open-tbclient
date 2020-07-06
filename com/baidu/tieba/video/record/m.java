@@ -3,16 +3,16 @@ package com.baidu.tieba.video.record;
 import android.animation.Animator;
 /* loaded from: classes10.dex */
 public abstract class m implements Animator.AnimatorListener {
-    protected boolean mes = false;
+    protected boolean mev = false;
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationStart(Animator animator) {
-        this.mes = false;
+        this.mev = false;
     }
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationCancel(Animator animator) {
-        this.mes = true;
+        this.mev = true;
     }
 
     @Override // android.animation.Animator.AnimatorListener

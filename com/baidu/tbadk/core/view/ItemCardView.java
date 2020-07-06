@@ -78,8 +78,8 @@ public class ItemCardView extends RelativeLayout {
         } else {
             this.eax.setStarCount(0);
         }
-        if (tbRichTextEvaluateItemInfo.blf() > 0.0d && tbRichTextEvaluateItemInfo.blf() <= 10.0d) {
-            this.eay.setText(tbRichTextEvaluateItemInfo.blf() + "");
+        if (tbRichTextEvaluateItemInfo.blg() > 0.0d && tbRichTextEvaluateItemInfo.blg() <= 10.0d) {
+            this.eay.setText(tbRichTextEvaluateItemInfo.blg() + "");
         } else {
             this.eay.setText(R.string.no_evaluate_now);
         }

@@ -52,14 +52,14 @@ public class TitleView extends FormItemBaseView {
         this.liY = new ImageView(this.mContext);
         this.liZ = new ImageView(this.mContext);
         this.lja = new ImageView(this.mContext);
-        cZC();
+        cZD();
         a(this.liZ, true, 2);
         a(this.lja, false, 3);
         c(this.liX, true);
         c(this.liY, false);
     }
 
-    private void cZC() {
+    private void cZD() {
         this.dDu.setTextSize(0, this.liM);
         this.dDu.setTextColor(-1);
         this.dDu.setId(1);
@@ -113,7 +113,7 @@ public class TitleView extends FormItemBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.a
-    public boolean cZr() {
+    public boolean cZs() {
         return true;
     }
 

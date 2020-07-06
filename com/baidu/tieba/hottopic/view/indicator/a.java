@@ -109,7 +109,7 @@ public class a {
         this.iIi.setVisibility(8);
     }
 
-    public void cmq() {
+    public void cmr() {
         this.iIm = true;
         if (this.iIh != null) {
             this.iIh.clearAnimation();

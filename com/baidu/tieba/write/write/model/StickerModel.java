@@ -12,12 +12,12 @@ import com.baidu.tieba.write.write.message.ResponseSocketGetStickerMessage;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class StickerModel extends BdBaseModel {
-    private a mwo;
-    private com.baidu.adp.framework.listener.a mwp;
+    private a mwr;
+    private com.baidu.adp.framework.listener.a mws;
 
     public StickerModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.mwp = new com.baidu.adp.framework.listener.a(1003341, CmdConfigSocket.CMD_GET_STICKET_LIST) { // from class: com.baidu.tieba.write.write.model.StickerModel.1
+        this.mws = new com.baidu.adp.framework.listener.a(1003341, CmdConfigSocket.CMD_GET_STICKET_LIST) { // from class: com.baidu.tieba.write.write.model.StickerModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
@@ -28,18 +28,18 @@ public class StickerModel extends BdBaseModel {
                         } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
                             list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
                         }
-                        if (StickerModel.this.mwo != null) {
-                            StickerModel.this.mwo.fm(list);
+                        if (StickerModel.this.mwr != null) {
+                            StickerModel.this.mwr.fm(list);
                         }
                     }
                 }
             }
         };
-        registerListener(this.mwp);
+        registerListener(this.mws);
     }
 
     public void a(a aVar) {
-        this.mwo = aVar;
+        this.mwr = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

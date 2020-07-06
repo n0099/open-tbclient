@@ -34,23 +34,23 @@ public class d implements af {
         return this.avatar;
     }
 
-    public int dfo() {
+    public int dfp() {
         return this.lwH;
     }
 
-    public int dfp() {
+    public int dfq() {
         return this.ftU;
     }
 
-    public int dfq() {
+    public int dfr() {
         return this.lwI;
     }
 
-    public int dfr() {
+    public int dfs() {
         return this.lwJ;
     }
 
-    public int dfs() {
+    public int dft() {
         return this.lwK;
     }
 
@@ -66,7 +66,7 @@ public class d implements af {
         this.lwI = i;
     }
 
-    public boolean bux() {
+    public boolean buy() {
         return this.isSigned;
     }
 
@@ -75,7 +75,7 @@ public class d implements af {
         this.lwH = 1;
     }
 
-    public boolean dft() {
+    public boolean dfu() {
         return this.lwM;
     }
 
@@ -84,7 +84,7 @@ public class d implements af {
         this.lwH = 0;
     }
 
-    public boolean dfu() {
+    public boolean dfv() {
         return this.lwN;
     }
 
@@ -92,7 +92,7 @@ public class d implements af {
         this.lwN = z;
     }
 
-    public int dfv() {
+    public int dfw() {
         return this.lwO;
     }
 
@@ -104,7 +104,7 @@ public class d implements af {
         this.errorMsg = str;
     }
 
-    public boolean dfw() {
+    public boolean dfx() {
         return this.lwL;
     }
 

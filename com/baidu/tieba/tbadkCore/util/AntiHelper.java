@@ -123,7 +123,7 @@ public class AntiHelper {
 
     public static boolean a(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         if (!f(antiData)) {
-            diN();
+            diO();
         }
         if (c(antiData) || e(antiData)) {
             if (antiData.isHas_chance()) {
@@ -321,7 +321,7 @@ public class AntiHelper {
         }
     }
 
-    private static void diN() {
+    private static void diO() {
         com.baidu.tbadk.core.sharedPref.b.aVP().remove(SharedPrefConfig.ANTI_VCODE_NO_LONGER_TIP);
     }
 

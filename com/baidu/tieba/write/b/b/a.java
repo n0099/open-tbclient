@@ -27,7 +27,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements BoxAccountManager {
-    private static boolean mph = false;
+    private static boolean mpk = false;
     private static String mUid = "";
     private static String mBduss = "";
     private static String mZid = "";
@@ -58,7 +58,7 @@ public class a implements BoxAccountManager {
                 c.bK(mBduss);
                 com.baidu.tieba.write.b.a.a.setZid(mZid);
                 com.baidu.tbadk.core.sharedPref.b.aVP().putBoolean("key_dynamic_publish_login_status", true);
-                mph = true;
+                mpk = true;
                 return;
             }
             logout();
@@ -76,8 +76,8 @@ public class a implements BoxAccountManager {
 
     public void logout() {
         com.baidu.tbadk.core.sharedPref.b.aVP().putBoolean("key_dynamic_publish_login_status", false);
-        mph = false;
-        c.drF();
+        mpk = false;
+        c.drJ();
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
@@ -90,13 +90,13 @@ public class a implements BoxAccountManager {
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
     public boolean isLogin() {
-        mph = com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean("key_dynamic_publish_login_status", false);
-        return mph;
+        mpk = com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean("key_dynamic_publish_login_status", false);
+        return mpk;
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
     public boolean isLogin(int i) {
-        return mph;
+        return mpk;
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager

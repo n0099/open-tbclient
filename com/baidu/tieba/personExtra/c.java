@@ -54,7 +54,7 @@ public class c extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public boolean boI() {
+    public boolean boJ() {
         return this.eXz;
     }
 
@@ -69,14 +69,14 @@ public class c extends BaseAdapter {
         return 0;
     }
 
-    public void byT() {
+    public void byU() {
         this.fPX = false;
         if (this.mForumList == null || this.mForumList.size() == 0) {
             this.fPX = true;
         }
     }
 
-    public boolean cSI() {
+    public boolean cSJ() {
         return this.fPX;
     }
 
@@ -182,7 +182,7 @@ public class c extends BaseAdapter {
                     aVar.kJt.setText(String.format(this.kJj.getPageContext().getString(R.string.sign_point_new), Integer.valueOf(forumData.getCurScore()), Integer.valueOf(forumData.getLevelupScore())));
                     aVar.kJu.setOnClickListener(this.kJk);
                     aVar.kJu.setTag(Integer.valueOf(i));
-                    if (i < this.mData.cSx()) {
+                    if (i < this.mData.cSy()) {
                         aVar.mName.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, an.getDrawable(R.drawable.icon_v), (Drawable) null);
                         if (!this.kHT && this.kJl) {
                             aVar.kJv.setVisibility(0);
@@ -198,12 +198,12 @@ public class c extends BaseAdapter {
                         aVar.kJw.setVisibility(0);
                     }
                 } else {
-                    if ((this.kJj.csG() == 0 && i < this.mData.cSx()) || (this.kJj.csG() == 1 && i < this.mData.cSy())) {
+                    if ((this.kJj.csH() == 0 && i < this.mData.cSy()) || (this.kJj.csH() == 1 && i < this.mData.cSz())) {
                         aVar.mName.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, an.getDrawable(R.drawable.icon_v), (Drawable) null);
                     } else {
                         aVar.mName.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                     }
-                    if (this.kJj.csG() == 1) {
+                    if (this.kJj.csH() == 1) {
                         aVar.kJq.setVisibility(8);
                     }
                     aVar.kJv.setVisibility(8);
@@ -215,7 +215,7 @@ public class c extends BaseAdapter {
                     aVar.kJv.setVisibility(8);
                 } else {
                     aVar.kJu.setVisibility(8);
-                    if (i < this.mData.cSx() && this.fPZ && !this.kHT && this.kJl) {
+                    if (i < this.mData.cSy() && this.fPZ && !this.kHT && this.kJl) {
                         aVar.kJv.setVisibility(0);
                     } else {
                         aVar.kJv.setVisibility(8);

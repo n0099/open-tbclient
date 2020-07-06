@@ -7,7 +7,7 @@ import master.flame.danmaku.danmaku.model.android.a;
 import master.flame.danmaku.danmaku.model.n;
 /* loaded from: classes5.dex */
 public abstract class b {
-    protected a nUG;
+    protected a nUJ;
 
     /* loaded from: classes5.dex */
     public static abstract class a {
@@ -16,20 +16,20 @@ public abstract class b {
         public abstract void t(master.flame.danmaku.danmaku.model.d dVar);
     }
 
-    public abstract void a(master.flame.danmaku.danmaku.model.d dVar, Canvas canvas, float f, float f2, boolean z, a.C0907a c0907a);
+    public abstract void a(master.flame.danmaku.danmaku.model.d dVar, Canvas canvas, float f, float f2, boolean z, a.C0908a c0908a);
 
     public abstract void b(master.flame.danmaku.danmaku.model.d dVar, TextPaint textPaint, boolean z);
 
     public void b(master.flame.danmaku.danmaku.model.d dVar, boolean z) {
-        if (this.nUG != null) {
-            this.nUG.e(dVar, z);
+        if (this.nUJ != null) {
+            this.nUJ.e(dVar, z);
         }
     }
 
     public boolean a(master.flame.danmaku.danmaku.model.d dVar, Canvas canvas, float f, float f2, Paint paint, TextPaint textPaint) {
         f fVar;
-        n<?> dRU = dVar.dRU();
-        if (dRU == null || (fVar = (f) dRU.get()) == null) {
+        n<?> dRY = dVar.dRY();
+        if (dRY == null || (fVar = (f) dRY.get()) == null) {
             return false;
         }
         return fVar.a(canvas, f, f2, paint);
@@ -39,12 +39,12 @@ public abstract class b {
     }
 
     public void a(a aVar) {
-        this.nUG = aVar;
+        this.nUJ = aVar;
     }
 
     public void t(master.flame.danmaku.danmaku.model.d dVar) {
-        if (this.nUG != null) {
-            this.nUG.t(dVar);
+        if (this.nUJ != null) {
+            this.nUJ.t(dVar);
         }
     }
 }

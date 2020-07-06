@@ -52,11 +52,11 @@ public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage
         return stringBuffer.toString();
     }
 
-    public b bCO() {
+    public b bCP() {
         return this.fZw;
     }
 
-    public List<d> bCP() {
+    public List<d> bCQ() {
         return this.fZx;
     }
 }

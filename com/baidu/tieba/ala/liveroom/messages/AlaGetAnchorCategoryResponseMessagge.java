@@ -18,7 +18,7 @@ public class AlaGetAnchorCategoryResponseMessagge extends JsonHttpResponsedMessa
         this.gmQ.parse(optJSONObject);
     }
 
-    public com.baidu.tieba.ala.category.b.a bHO() {
+    public com.baidu.tieba.ala.category.b.a bHP() {
         return this.gmQ;
     }
 }

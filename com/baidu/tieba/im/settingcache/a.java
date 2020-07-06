@@ -19,7 +19,7 @@ public abstract class a {
 
     public abstract void a(ChatSetting chatSetting, l<Void> lVar);
 
-    protected abstract com.baidu.adp.lib.cache.l<String> ctm();
+    protected abstract com.baidu.adp.lib.cache.l<String> ctn();
 
     public abstract ChatSetting ez(String str, String str2);
 
@@ -35,12 +35,12 @@ public abstract class a {
         if (str2 != null && str2.length() != 0) {
             String str3 = str2 + UgcConstant.AT_RULE_TAG;
             synchronized (this.jbz) {
-                com.baidu.adp.lib.cache.l<String> ctm = ctm();
-                List<l.b<String>> b = r.b(ctm);
+                com.baidu.adp.lib.cache.l<String> ctn = ctn();
+                List<l.b<String>> b = r.b(ctn);
                 if (b != null) {
                     for (l.b<String> bVar : b) {
                         String str4 = bVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = ctm.get(str4)) != null) {
+                        if (str4 != null && str4.startsWith(str3) && (str = ctn.get(str4)) != null) {
                             this.jbz.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                         }
                     }

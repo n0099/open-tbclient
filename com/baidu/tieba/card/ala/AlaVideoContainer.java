@@ -109,7 +109,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.eLi = new QuickVideoView.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.5
             @Override // com.baidu.tieba.play.QuickVideoView.b
             public void onSurfaceDestroyed() {
-                AlaVideoContainer.this.btD();
+                AlaVideoContainer.this.btE();
             }
         };
         this.eLe = new g.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.6
@@ -122,7 +122,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.eLg = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.7
             @Override // java.lang.Runnable
             public void run() {
-                AlaVideoContainer.this.btD();
+                AlaVideoContainer.this.btE();
             }
         };
         this.gTV = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.8
@@ -191,7 +191,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.eLi = new QuickVideoView.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.5
             @Override // com.baidu.tieba.play.QuickVideoView.b
             public void onSurfaceDestroyed() {
-                AlaVideoContainer.this.btD();
+                AlaVideoContainer.this.btE();
             }
         };
         this.eLe = new g.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.6
@@ -204,7 +204,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.eLg = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.7
             @Override // java.lang.Runnable
             public void run() {
-                AlaVideoContainer.this.btD();
+                AlaVideoContainer.this.btE();
             }
         };
         this.gTV = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.8
@@ -273,7 +273,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.eLi = new QuickVideoView.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.5
             @Override // com.baidu.tieba.play.QuickVideoView.b
             public void onSurfaceDestroyed() {
-                AlaVideoContainer.this.btD();
+                AlaVideoContainer.this.btE();
             }
         };
         this.eLe = new g.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.6
@@ -286,7 +286,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.eLg = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.7
             @Override // java.lang.Runnable
             public void run() {
-                AlaVideoContainer.this.btD();
+                AlaVideoContainer.this.btE();
             }
         };
         this.gTV = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.8
@@ -309,7 +309,7 @@ public class AlaVideoContainer extends LinearLayout {
         layoutParams.height = (this.fnh.getWidth() * 9) / 16;
         this.fnh.setLayoutParams(layoutParams);
         this.gTR = new n(getContext());
-        this.gTR.cVB();
+        this.gTR.cVC();
         this.fnh.setBusiness(this.gTR);
         this.fnh.setOnPreparedListener(this.eUJ);
         this.fnh.setOnSurfaceDestroyedListener(this.eLi);
@@ -405,7 +405,7 @@ public class AlaVideoContainer extends LinearLayout {
         return this.fnh;
     }
 
-    public void btD() {
+    public void btE() {
         this.gTI.setVisibility(0);
         this.gTJ.setVisibility(0);
         this.gTK.setVisibility(8);
@@ -439,7 +439,7 @@ public class AlaVideoContainer extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bOK();
+        bOL();
     }
 
     public void startPlayAnimation() {
@@ -448,7 +448,7 @@ public class AlaVideoContainer extends LinearLayout {
         }
     }
 
-    public void bOK() {
+    public void bOL() {
         if (this.gTJ != null) {
             this.gTJ.cancelAnimation();
         }

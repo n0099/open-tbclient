@@ -60,7 +60,7 @@ public class h extends d implements View.OnClickListener {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChangePortraitResponse) && ((ChangePortraitResponse) httpResponsedMessage).getErrCode() == 0) {
-                    h.this.cTH();
+                    h.this.cTI();
                 }
             }
         };
@@ -73,7 +73,7 @@ public class h extends d implements View.OnClickListener {
                     if (setUserPicsResponse.getErrCode() != 0) {
                         h.this.mPageContext.showToast(setUserPicsResponse.getErrorString());
                     } else {
-                        h.this.cTH();
+                        h.this.cTI();
                     }
                 }
             }
@@ -106,25 +106,25 @@ public class h extends d implements View.OnClickListener {
         this.kMR = aVar;
     }
 
-    public List<q> cTB() {
+    public List<q> cTC() {
         if (this.kMR == null) {
             return null;
         }
-        return this.kMR.cTB();
+        return this.kMR.cTC();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != null && cTB() != null) {
+        if (view != null && cTC() != null) {
             q qVar = null;
             if (view.getTag() instanceof com.baidu.tieba.person.b.c) {
                 qVar = ((com.baidu.tieba.person.b.c) view.getTag()).po();
             } else if (view.getTag() instanceof com.baidu.tieba.person.b.b) {
                 qVar = ((com.baidu.tieba.person.b.b) view.getTag()).po();
             }
-            int position = w.getPosition(cTB(), qVar);
+            int position = w.getPosition(cTC(), qVar);
             if (position >= 0) {
-                a(qVar, cTB(), position);
+                a(qVar, cTC(), position);
             }
         }
     }
@@ -148,7 +148,7 @@ public class h extends d implements View.OnClickListener {
                     c((m) qVar, list, i);
                 }
             } else if (qVar instanceof com.baidu.tieba.person.data.c) {
-                cTF();
+                cTG();
             } else if (qVar instanceof m) {
                 m mVar = (m) qVar;
                 if (mVar.beG()) {
@@ -164,7 +164,7 @@ public class h extends d implements View.OnClickListener {
         a(qVar, list, i, false);
     }
 
-    private void cTF() {
+    private void cTG() {
         if (this.mPageContext != null) {
             String[] strArr = {this.mPageContext.getString(R.string.choose_local_photo), this.mPageContext.getString(R.string.change_system_photo)};
             final com.baidu.tbadk.core.dialog.i iVar = new com.baidu.tbadk.core.dialog.i(this.mPageContext);
@@ -174,10 +174,10 @@ public class h extends d implements View.OnClickListener {
                     h.this.kMQ = false;
                     switch (i) {
                         case 0:
-                            h.this.cTI();
+                            h.this.cTJ();
                             break;
                         case 1:
-                            h.this.cTJ();
+                            h.this.cTK();
                             break;
                     }
                     if (iVar.isShowing()) {
@@ -211,7 +211,7 @@ public class h extends d implements View.OnClickListener {
                                     break;
                                 }
                             } else {
-                                h.this.cTI();
+                                h.this.cTJ();
                                 break;
                             }
                             break;
@@ -225,13 +225,13 @@ public class h extends d implements View.OnClickListener {
                                     break;
                                 }
                             } else {
-                                h.this.cTJ();
+                                h.this.cTK();
                                 break;
                             }
                             break;
                         case 3:
                             TiebaStatic.log(new ao("c11616").ag("obj_type", 1));
-                            h.this.cTK();
+                            h.this.cTL();
                             break;
                     }
                     if (iVar.isShowing()) {
@@ -305,13 +305,13 @@ public class h extends d implements View.OnClickListener {
         }
     }
 
-    public void cTG() {
+    public void cTH() {
         if (this.kMR != null && this.kMR.getUserData() != null) {
             com.baidu.tbadk.imageManager.c.bgz().deletePhoto(this.kMR.getUserData().getPortrait());
         }
     }
 
-    public void cTH() {
+    public void cTI() {
         com.baidu.adp.lib.f.e.lt().postDelayed(this.kMV, 300L);
     }
 
@@ -322,11 +322,11 @@ public class h extends d implements View.OnClickListener {
                 this.kMS = new PersonChangeData();
             }
             this.kMS.setPhotoChanged(true);
-            cTG();
+            cTH();
         }
     }
 
-    public void cTI() {
+    public void cTJ() {
         if (this.mPageContext != null) {
             Activity pageActivity = this.mPageContext.getPageActivity();
             if (this.mPermissionJudgement == null) {
@@ -344,13 +344,13 @@ public class h extends d implements View.OnClickListener {
         }
     }
 
-    public void cTJ() {
+    public void cTK() {
         if (this.mPageContext != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChangeSystemPhotoActivityConfig(this.mPageContext.getPageActivity(), RequestResponseCode.REQUEST_SYSTEM_PHOTO_LIST, this.kMQ)));
         }
     }
 
-    public void cTK() {
+    public void cTL() {
         if (this.mPageContext != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AvatarPendantActivityConfig(this.mPageContext.getPageActivity())));
         }

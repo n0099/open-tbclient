@@ -109,7 +109,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         return 1;
     }
 
-    public boolean cQD() {
+    public boolean cQE() {
         return (this.kzH == null || this.kzH.aZi() == null || !this.kzH.aZi().getIsLike()) ? false : true;
     }
 }

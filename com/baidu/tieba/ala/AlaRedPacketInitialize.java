@@ -16,10 +16,10 @@ public class AlaRedPacketInitialize {
         TbadkCoreApplication.getInst().RegisterIntent(r.class, AlaSnatchRedPacketActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(q.class, AlaRedPktSendActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(p.class, AlaRedPacketSnatchResultActivity.class);
-        brI();
+        brJ();
     }
 
-    private static void brI() {
+    private static void brJ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913130, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaRedPacketInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.r.a> run(CustomMessage<Context> customMessage) {

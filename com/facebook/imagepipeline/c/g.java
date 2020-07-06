@@ -9,33 +9,33 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes13.dex */
 public class g<K, V> {
+    private final v<V> mRC;
     @GuardedBy("this")
-    private final LinkedHashMap<K, V> mRA = new LinkedHashMap<>();
+    private final LinkedHashMap<K, V> mRD = new LinkedHashMap<>();
     @GuardedBy("this")
-    private int mRB = 0;
-    private final v<V> mRz;
+    private int mRE = 0;
 
     public g(v<V> vVar) {
-        this.mRz = vVar;
+        this.mRC = vVar;
     }
 
     public synchronized int getCount() {
-        return this.mRA.size();
+        return this.mRD.size();
     }
 
     public synchronized int getSizeInBytes() {
-        return this.mRB;
+        return this.mRE;
     }
 
     @Nullable
-    public synchronized K dCv() {
-        return this.mRA.isEmpty() ? null : this.mRA.keySet().iterator().next();
+    public synchronized K dCz() {
+        return this.mRD.isEmpty() ? null : this.mRD.keySet().iterator().next();
     }
 
     public synchronized ArrayList<Map.Entry<K, V>> a(@Nullable com.facebook.common.internal.h<K> hVar) {
         ArrayList<Map.Entry<K, V>> arrayList;
-        arrayList = new ArrayList<>(this.mRA.entrySet().size());
-        for (Map.Entry<K, V> entry : this.mRA.entrySet()) {
+        arrayList = new ArrayList<>(this.mRD.entrySet().size());
+        for (Map.Entry<K, V> entry : this.mRD.entrySet()) {
             if (hVar == null || hVar.aP(entry.getKey())) {
                 arrayList.add(entry);
             }
@@ -44,29 +44,29 @@ public class g<K, V> {
     }
 
     public synchronized boolean contains(K k) {
-        return this.mRA.containsKey(k);
+        return this.mRD.containsKey(k);
     }
 
     @Nullable
     public synchronized V get(K k) {
-        return this.mRA.get(k);
+        return this.mRD.get(k);
     }
 
     @Nullable
     public synchronized V put(K k, V v) {
         V remove;
-        remove = this.mRA.remove(k);
-        this.mRB -= bh(remove);
-        this.mRA.put(k, v);
-        this.mRB += bh(v);
+        remove = this.mRD.remove(k);
+        this.mRE -= bh(remove);
+        this.mRD.put(k, v);
+        this.mRE += bh(v);
         return remove;
     }
 
     @Nullable
     public synchronized V remove(K k) {
         V remove;
-        remove = this.mRA.remove(k);
-        this.mRB -= bh(remove);
+        remove = this.mRD.remove(k);
+        this.mRE -= bh(remove);
         return remove;
     }
 
@@ -74,6 +74,6 @@ public class g<K, V> {
         if (v == null) {
             return 0;
         }
-        return this.mRz.bf(v);
+        return this.mRC.bf(v);
     }
 }

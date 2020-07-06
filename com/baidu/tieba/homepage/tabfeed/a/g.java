@@ -35,7 +35,7 @@ public class g extends com.baidu.adp.widget.ListView.a<bt, ak<bu>> {
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, bu buVar) {
-                s.bOA().jI(true);
+                s.bOB().jI(true);
                 com.baidu.tieba.homepage.tabfeed.b.a(view, buVar, g.this.mTabName);
             }
         };

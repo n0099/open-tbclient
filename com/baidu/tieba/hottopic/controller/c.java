@@ -26,7 +26,7 @@ public class c {
         this.hRR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.controller.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.ckG();
+                c.this.ckH();
             }
         });
     }
@@ -40,7 +40,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ckG() {
+    public void ckH() {
         WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.mPageContext.getPageActivity(), 9, "0", null, null, null, 0, null, RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, null, 0);
         writeActivityConfig.setTopicId(String.valueOf(this.mTopicId));
         writeActivityConfig.getIntent().putExtra("from", "topic_detail");

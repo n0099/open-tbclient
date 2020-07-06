@@ -44,12 +44,12 @@ public class b {
     private View.OnClickListener iGi = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.clR()) {
-                b.this.bnp();
+            if (b.this.clS()) {
+                b.this.bnq();
                 view.setContentDescription("展开");
                 return;
             }
-            b.this.clT();
+            b.this.clU();
             view.setContentDescription("折叠");
         }
     };
@@ -67,9 +67,9 @@ public class b {
     };
     private c.a iGj = new c.a() { // from class: com.baidu.tieba.hottopic.view.b.3
         @Override // com.baidu.tieba.hottopic.view.indicator.c.a
-        public void clY() {
+        public void clZ() {
             if (b.this.iGc != null) {
-                b.this.iGc.cmq();
+                b.this.iGc.cmr();
             }
             if (b.this.iGf != null) {
                 b.this.iGf.a((c.a) null);
@@ -79,7 +79,7 @@ public class b {
         }
     };
 
-    public boolean clR() {
+    public boolean clS() {
         return this.iGf != null && this.iGf.isShowing();
     }
 
@@ -115,7 +115,7 @@ public class b {
                         b.this.iGb.showToast(R.string.topic_share_no_network);
                     } else if (ShareSwitch.isOn() || be.checkUpIsLogin(b.this.iGb)) {
                         TiebaStatic.log(new ao(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dk("obj_param1", "6"));
-                        b.this.iGb.clg();
+                        b.this.iGb.clh();
                     }
                 }
             });
@@ -131,7 +131,7 @@ public class b {
         }
     }
 
-    public void clS() {
+    public void clT() {
         this.iGc.setViewPager(this.dSy);
     }
 
@@ -152,14 +152,14 @@ public class b {
         return this.dSy.getCurrentItem();
     }
 
-    public void clT() {
+    public void clU() {
         com.baidu.tieba.hottopic.data.j jVar;
         if (this.iGf == null) {
             this.iGf = new com.baidu.tieba.hottopic.view.indicator.c(this.iGe);
             this.iGf.a(this.iGj);
         }
         this.iGf.xS(this.topHeight);
-        if (!this.iGf.isShowing() && (jVar = (com.baidu.tieba.hottopic.data.j) w.getItem(this.iGd.cmp(), 0)) != null) {
+        if (!this.iGf.isShowing() && (jVar = (com.baidu.tieba.hottopic.data.j) w.getItem(this.iGd.cmq(), 0)) != null) {
             this.iGf.a(this.iGb.getActivity(), jVar.iEF, this.dSy.getCurrentItem());
             if (this.iGc != null) {
                 this.iGc.aPl();
@@ -167,7 +167,7 @@ public class b {
         }
     }
 
-    public void bnp() {
+    public void bnq() {
         if (this.iGf != null) {
             this.iGf.eM(this.iGb.getActivity());
         }
@@ -186,7 +186,7 @@ public class b {
         }
     }
 
-    public View clU() {
+    public View clV() {
         return this.iGe;
     }
 
@@ -194,7 +194,7 @@ public class b {
         this.iGd.de(list);
     }
 
-    public void clV() {
+    public void clW() {
         if (this.flI != null && this.hwW != null) {
             this.flI.b(this.hwW);
         }
@@ -210,21 +210,21 @@ public class b {
         }
     }
 
-    public void btN() {
-        this.iGd.btN();
+    public void btO() {
+        this.iGd.btO();
     }
 
     public void showLoadingView() {
         this.iGd.showLoadingView();
     }
 
-    public void clW() {
+    public void clX() {
         this.iGd.oK(false);
     }
 
-    public boolean clX() {
-        if (clR()) {
-            bnp();
+    public boolean clY() {
+        if (clS()) {
+            bnq();
             return true;
         }
         return false;

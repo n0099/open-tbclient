@@ -31,7 +31,7 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
             UtilHelper.useNavigationBarStyleImmersiveSticky(this);
             ((LinearLayout) inflate.findViewById(R.id.ai_apps_title_bar_container)).addView(createStateBarFillView(), 0);
         }
-        bqx();
+        bqy();
         super.setContentView(inflate);
     }
 
@@ -52,7 +52,7 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
         this.eDA.setCancelable(true);
     }
 
-    private void bqx() {
+    private void bqy() {
         if (this.fcw != null) {
             this.fcw.setLeftTitleInvalidate(true);
             this.fcw.setRightTxtZone1Visibility(8);

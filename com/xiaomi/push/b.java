@@ -8,10 +8,10 @@ public final class b {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final InputStream f123a;
+    private final InputStream f124a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final byte[] f124a;
+    private final byte[] f125a;
     private int b;
     private int c;
     private int d;
@@ -25,20 +25,20 @@ public final class b {
         this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.h = 64;
         this.i = 67108864;
-        this.f124a = new byte[4096];
+        this.f125a = new byte[4096];
         this.a = 0;
         this.c = 0;
-        this.f123a = inputStream;
+        this.f124a = inputStream;
     }
 
     private b(byte[] bArr, int i, int i2) {
         this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.h = 64;
         this.i = 67108864;
-        this.f124a = bArr;
+        this.f125a = bArr;
         this.a = i + i2;
         this.c = i;
-        this.f123a = null;
+        this.f124a = null;
     }
 
     public static b a(InputStream inputStream) {
@@ -61,7 +61,7 @@ public final class b {
         }
         this.e += this.a;
         this.c = 0;
-        this.a = this.f123a == null ? -1 : this.f123a.read(this.f124a);
+        this.a = this.f124a == null ? -1 : this.f124a.read(this.f125a);
         if (this.a == 0 || this.a < -1) {
             throw new IllegalStateException("InputStream#read(byte[]) returned invalid result: " + this.a + "\nThe InputStream implementation is buggy.");
         }
@@ -95,7 +95,7 @@ public final class b {
         if (this.c == this.a) {
             a(true);
         }
-        byte[] bArr = this.f124a;
+        byte[] bArr = this.f125a;
         int i = this.c;
         this.c = i + 1;
         return bArr[i];
@@ -139,7 +139,7 @@ public final class b {
         if (d > this.a - this.c || d <= 0) {
             return a.a(m146a(d));
         }
-        a a = a.a(this.f124a, this.c, d);
+        a a = a.a(this.f125a, this.c, d);
         this.c = d + this.c;
         return a;
     }
@@ -150,7 +150,7 @@ public final class b {
         if (d > this.a - this.c || d <= 0) {
             return new String(m146a(d), "UTF-8");
         }
-        String str = new String(this.f124a, this.c, d, "UTF-8");
+        String str = new String(this.f125a, this.c, d, "UTF-8");
         this.c = d + this.c;
         return str;
     }
@@ -227,22 +227,22 @@ public final class b {
             throw d.a();
         } else if (i <= this.a - this.c) {
             byte[] bArr = new byte[i];
-            System.arraycopy(this.f124a, this.c, bArr, 0, i);
+            System.arraycopy(this.f125a, this.c, bArr, 0, i);
             this.c += i;
             return bArr;
         } else if (i < 4096) {
             byte[] bArr2 = new byte[i];
             int i2 = this.a - this.c;
-            System.arraycopy(this.f124a, this.c, bArr2, 0, i2);
+            System.arraycopy(this.f125a, this.c, bArr2, 0, i2);
             this.c = this.a;
             a(true);
             while (i - i2 > this.a) {
-                System.arraycopy(this.f124a, 0, bArr2, i2, this.a);
+                System.arraycopy(this.f125a, 0, bArr2, i2, this.a);
                 i2 += this.a;
                 this.c = this.a;
                 a(true);
             }
-            System.arraycopy(this.f124a, 0, bArr2, i2, i - i2);
+            System.arraycopy(this.f125a, 0, bArr2, i2, i - i2);
             this.c = i - i2;
             return bArr2;
         } else {
@@ -257,7 +257,7 @@ public final class b {
                 byte[] bArr3 = new byte[Math.min(i5, 4096)];
                 int i6 = 0;
                 while (i6 < bArr3.length) {
-                    int read = this.f123a == null ? -1 : this.f123a.read(bArr3, i6, bArr3.length - i6);
+                    int read = this.f124a == null ? -1 : this.f124a.read(bArr3, i6, bArr3.length - i6);
                     if (read == -1) {
                         throw d.a();
                     }
@@ -269,7 +269,7 @@ public final class b {
             }
             byte[] bArr4 = new byte[i];
             int i7 = i4 - i3;
-            System.arraycopy(this.f124a, i3, bArr4, 0, i7);
+            System.arraycopy(this.f125a, i3, bArr4, 0, i7);
             int i8 = i7;
             for (int i9 = 0; i9 < vector.size(); i9++) {
                 byte[] bArr5 = (byte[]) vector.elementAt(i9);
@@ -333,7 +333,7 @@ public final class b {
             this.a = 0;
             int i3 = i2;
             while (i3 < i) {
-                int skip = this.f123a == null ? -1 : (int) this.f123a.skip(i - i3);
+                int skip = this.f124a == null ? -1 : (int) this.f124a.skip(i - i3);
                 if (skip <= 0) {
                     throw d.a();
                 }

@@ -78,16 +78,16 @@ public class c extends ad.a {
         this.hMG = view.findViewById(R.id.frs_list_item_u9_top_line);
         an.setBackgroundResource(this.hMC, R.drawable.frs_star_btn_like);
         an.setViewTextColor(this.hMC, (int) R.drawable.frs_text_color_selector);
-        ccc();
+        ccd();
     }
 
     public void a(ab abVar) {
         if (abVar != null) {
-            bw dhy = abVar.dhy();
-            bz dhz = abVar.dhz();
-            this.top_code = dhy;
-            this.news_info = dhz;
-            if (abVar.dhx()) {
+            bw dhz = abVar.dhz();
+            bz dhA = abVar.dhA();
+            this.top_code = dhz;
+            this.news_info = dhA;
+            if (abVar.dhy()) {
                 this.hMG.setVisibility(0);
             } else {
                 this.hMG.setVisibility(8);
@@ -103,10 +103,10 @@ public class c extends ad.a {
                 this.hMD.setVisibility(0);
                 this.hMy.startLoad(this.top_code.aQl(), 10, false);
                 this.hMz.setText(this.top_code.getSummary());
-                if (StringUtils.isNull(dhy.aUC())) {
+                if (StringUtils.isNull(dhz.aUC())) {
                     this.hMC.setVisibility(8);
                 } else {
-                    this.hMC.setText(dhy.aUC());
+                    this.hMC.setText(dhz.aUC());
                     this.hMC.setVisibility(0);
                 }
                 int aUz = this.top_code.aUz();
@@ -120,7 +120,7 @@ public class c extends ad.a {
                         this.hMA.setText(spannableString);
                         this.hMA.setVisibility(0);
                     }
-                    if (dhy.aUB() <= 0) {
+                    if (dhz.aUB() <= 0) {
                         this.hMB.setVisibility(8);
                     } else {
                         String str2 = this.dPv.getResources().getString(R.string.u9_worth) + this.top_code.aUB();
@@ -131,20 +131,20 @@ public class c extends ad.a {
                     }
                 } else {
                     this.hMB.setVisibility(8);
-                    this.hMA.setText(dhy.getSubTitle());
+                    this.hMA.setText(dhz.getSubTitle());
                     this.hMA.setVisibility(0);
                 }
             }
-            if (this.news_info == null || StringUtils.isNull(dhz.getSummary())) {
+            if (this.news_info == null || StringUtils.isNull(dhA.getSummary())) {
                 this.hMx.setVisibility(8);
                 return;
             }
             this.hMx.setVisibility(0);
-            this.hME.setText(dhz.getSummary());
+            this.hME.setText(dhA.getSummary());
         }
     }
 
-    public void ccc() {
+    public void ccd() {
         this.hMw.setOnClickListener(this.aXG);
         this.hMx.setOnClickListener(this.aXG);
     }

@@ -12,11 +12,11 @@ public class i {
         this.fDQ = jSONObject.optLong(LogConfig.LOG_AMOUNT);
     }
 
-    public boolean bwu() {
+    public boolean bwv() {
         return this.fDv == 1;
     }
 
-    public long bwv() {
+    public long bww() {
         return this.fDQ;
     }
 }

@@ -89,7 +89,7 @@ public class SdkLivePlayer extends LinearLayout implements f {
     public void c(AlaLiveInfoData alaLiveInfoData) {
         ArrayList<AlaLiveInfoData> arrayList = new ArrayList<>();
         arrayList.add(alaLiveInfoData);
-        bMw();
+        bMx();
         ab(arrayList);
     }
 
@@ -97,9 +97,9 @@ public class SdkLivePlayer extends LinearLayout implements f {
         int i;
         bb bbVar;
         this.gGx = arrayList;
-        LinearLayout.LayoutParams bMA = bMA();
+        LinearLayout.LayoutParams bMB = bMB();
         if (ListUtils.getCount(arrayList) == 2) {
-            bMA = bMz();
+            bMB = bMA();
         }
         if (arrayList == null || arrayList.size() != 1 || (bbVar = com.baidu.live.v.a.Hm().bdV) == null || bbVar.aDa == null || ((i = bbVar.aDa.decodeMode) != 1 && i != 2)) {
             i = 1;
@@ -110,12 +110,12 @@ public class SdkLivePlayer extends LinearLayout implements f {
                 if (arrayList.get(i3).screen_direction == 2) {
                     i2 = 2;
                 }
-                a(arrayList.get(i3), i3, bMA, i, i2);
+                a(arrayList.get(i3), i3, bMB, i, i2);
             }
         }
         this.isPlaying = true;
         this.aME = System.currentTimeMillis();
-        UbcStatisticManager.getInstance().flowStartSlot(UbcStatisticLiveKey.KEY_ID_FLOW, getUbcFlowSlotKey(), bMB());
+        UbcStatisticManager.getInstance().flowStartSlot(UbcStatisticLiveKey.KEY_ID_FLOW, getUbcFlowSlotKey(), bMC());
     }
 
     private void a(AlaLiveInfoData alaLiveInfoData, final int i, LinearLayout.LayoutParams layoutParams, int i2, int i3) {
@@ -198,7 +198,7 @@ public class SdkLivePlayer extends LinearLayout implements f {
         removeAllViews();
     }
 
-    public void bMw() {
+    public void bMx() {
         bY(true);
     }
 
@@ -233,7 +233,7 @@ public class SdkLivePlayer extends LinearLayout implements f {
         return this;
     }
 
-    public void bMx() {
+    public void bMy() {
         if (BdLog.isDebugMode()) {
             BdLog.e("AlaLivePlayer restartPlay()");
         }
@@ -299,15 +299,15 @@ public class SdkLivePlayer extends LinearLayout implements f {
         ArrayList<AlaLiveInfoData> arrayList = new ArrayList<>();
         arrayList.add(alaLiveInfoData);
         this.gGx = arrayList;
-        bMy();
+        bMz();
     }
 
     public void setPlayLiveInfo(ArrayList<AlaLiveInfoData> arrayList) {
         this.gGx = arrayList;
-        bMy();
+        bMz();
     }
 
-    private void bMy() {
+    private void bMz() {
         if (this.gGx != null && this.gGw != null && this.gGx.size() > 0 && this.gGw.size() > 0) {
             int i = 0;
             for (int i2 = 0; i2 < this.gGx.size(); i2++) {
@@ -321,7 +321,7 @@ public class SdkLivePlayer extends LinearLayout implements f {
         }
     }
 
-    private LinearLayout.LayoutParams bMz() {
+    private LinearLayout.LayoutParams bMA() {
         int av = com.baidu.live.utils.g.av(this.mContext);
         int equipmentWidth = BdUtilHelper.getEquipmentWidth(this.mContext) / 2;
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(equipmentWidth, (equipmentWidth * 4) / 3);
@@ -329,7 +329,7 @@ public class SdkLivePlayer extends LinearLayout implements f {
         return layoutParams;
     }
 
-    private LinearLayout.LayoutParams bMA() {
+    private LinearLayout.LayoutParams bMB() {
         return new LinearLayout.LayoutParams(-1, -1);
     }
 
@@ -349,7 +349,7 @@ public class SdkLivePlayer extends LinearLayout implements f {
         }
     }
 
-    private JSONObject bMB() {
+    private JSONObject bMC() {
         JSONObject jSONObject = new JSONObject();
         if (this.gGx != null && !this.gGx.isEmpty()) {
             try {

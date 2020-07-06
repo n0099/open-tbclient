@@ -30,18 +30,18 @@ public class VideoPlatformStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.u.e.dlO().dlK();
-            com.baidu.tieba.u.b.dlJ().dlK();
+            com.baidu.tieba.u.e.dlS().dlO();
+            com.baidu.tieba.u.b.dlN().dlO();
         }
     };
 
     static {
-        bou();
-        MessageManager.getInstance().registerListener(eXa);
         bov();
+        MessageManager.getInstance().registerListener(eXa);
+        bow();
     }
 
-    private static void bou() {
+    private static void bov() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, new CustomMessageTask.CustomRunnable<l>() { // from class: com.baidu.tieba.VideoPlatformStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -53,7 +53,7 @@ public class VideoPlatformStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bov() {
+    private static void bow() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003388, TbConfig.SERVER_ADDRESS + TbConfig.URL_MOOV_REPORT);
         tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
@@ -197,7 +197,7 @@ public class VideoPlatformStatic {
         return str;
     }
 
-    public static JSONObject bow() {
+    public static JSONObject box() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("appVer", TbConfig.getVersion());

@@ -7,15 +7,15 @@ public interface b extends tv.chushou.basis.d.a {
 
     String ada();
 
-    String dKP();
+    String dKT();
 
-    String dKQ();
+    String dKU();
 
-    Map<String, String> dKR();
+    Map<String, String> dKV();
 
-    String dKS();
+    String dKW();
 
-    Map<String, String> dKT();
+    Map<String, String> dKX();
 
     String getAppKey();
 

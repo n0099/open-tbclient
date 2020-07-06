@@ -34,10 +34,10 @@ public class a {
         this.mView = LayoutInflater.from(this.context).inflate(a.h.layout_anchor_view, (ViewGroup) null);
         this.mView.setId(a.g.id_anchorTask_view);
         this.mView.setVisibility(8);
-        bve();
+        bvf();
     }
 
-    private void bve() {
+    private void bvf() {
         this.fxG = (Space) this.mView.findViewById(a.g.space);
         this.fxH = (TextView) this.mView.findViewById(a.g.currRatio_textView);
         this.fxI = (FrameLayout) this.mView.findViewById(a.g.process_layout);

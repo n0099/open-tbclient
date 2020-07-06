@@ -21,8 +21,8 @@ public class a {
     private long mEndTime;
     private long mInterval;
     private long mStartTime;
-    private long mgP;
-    private ae mgQ;
+    private long mgS;
+    private ae mgT;
 
     public a() {
         init();
@@ -30,11 +30,11 @@ public class a {
 
     private void init() {
         Uz();
-        this.mgP = com.baidu.tbadk.core.sharedPref.b.aVP().getLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, 0L);
+        this.mgS = com.baidu.tbadk.core.sharedPref.b.aVP().getLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, 0L);
         MessageManager.getInstance().registerListener(this.dFw);
     }
 
-    public boolean dqi() {
+    public boolean dqm() {
         if (this.mStartTime == 0 || this.mEndTime == 0 || this.mInterval == 0) {
             return false;
         }
@@ -47,22 +47,22 @@ public class a {
     }
 
     private boolean q(Date date) {
-        return date != null && date.getTime() - this.mgP >= this.mInterval;
+        return date != null && date.getTime() - this.mgS >= this.mInterval;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Uz() {
-        if (this.mgQ == null) {
-            this.mgQ = new ae();
+        if (this.mgT == null) {
+            this.mgT = new ae();
         }
-        this.mgQ.parseJson(com.baidu.tbadk.core.sharedPref.b.aVP().getString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, ""));
-        this.mStartTime = this.mgQ.bau();
-        this.mEndTime = this.mgQ.bav();
-        this.mInterval = this.mgQ.baw();
+        this.mgT.parseJson(com.baidu.tbadk.core.sharedPref.b.aVP().getString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, ""));
+        this.mStartTime = this.mgT.bau();
+        this.mEndTime = this.mgT.bav();
+        this.mInterval = this.mgT.baw();
     }
 
     public void fz(long j) {
-        this.mgP = j;
+        this.mgS = j;
         com.baidu.tbadk.core.sharedPref.b.aVP().putLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, j);
     }
 }

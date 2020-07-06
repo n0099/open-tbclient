@@ -9,11 +9,11 @@ import java.io.IOException;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public abstract class Linker {
-    private static Linker myK = null;
-    private static Object myL = new Object();
-    protected int myI = 0;
+    private static Linker myN = null;
+    private static Object myO = new Object();
+    protected int myL = 0;
     protected final Object mLock = new Object();
-    private String myJ = null;
+    private String myM = null;
 
     private static native long nativeGetRandomBaseLoadAddress();
 

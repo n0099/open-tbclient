@@ -1,23 +1,23 @@
 package master.flame.danmaku.a;
 /* loaded from: classes5.dex */
 public class i extends Thread {
-    volatile boolean nST;
+    volatile boolean nSW;
 
     public i(String str) {
         super(str);
     }
 
     public void quit() {
-        this.nST = true;
+        this.nSW = true;
     }
 
-    public boolean dRN() {
-        return this.nST;
+    public boolean dRR() {
+        return this.nSW;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        if (this.nST) {
+        if (this.nSW) {
         }
     }
 }

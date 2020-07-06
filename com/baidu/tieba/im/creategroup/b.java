@@ -45,22 +45,22 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int coa() {
+    public int cob() {
         return this.mIndex;
     }
 
-    public View cob() {
+    public View coc() {
         return this.mTipView;
     }
 
-    public int coc() {
+    public int cod() {
         return this.iNV;
     }
 
-    public void cod() {
+    public void coe() {
         this.iNY.setVisibility(0);
         this.iNZ = false;
-        coi();
+        coj();
         this.mTipView.setText(R.string.location_loading);
         this.iNV = 3;
     }
@@ -68,7 +68,7 @@ public class b implements o {
     public void setBusiness(String str) {
         this.iNY.setVisibility(0);
         this.iNZ = true;
-        coi();
+        coj();
         this.mTipView.setText(str);
         this.iNV = 0;
     }
@@ -76,42 +76,42 @@ public class b implements o {
     public void setAddress(String str) {
         this.iNY.setVisibility(8);
         this.iNZ = true;
-        coi();
+        coj();
         this.mTipView.setText(str);
         this.iNV = 4;
     }
 
-    public void coe() {
+    public void cof() {
         this.iNY.setVisibility(0);
         this.iNZ = false;
-        coi();
+        coj();
         this.mTipView.setText(R.string.address_locate_failed_opengps);
         this.iNV = 1;
     }
 
-    public void cof() {
+    public void cog() {
         this.iNZ = false;
-        coi();
+        coj();
         this.mTipView.setText(R.string.address_locate_failed_tryagain);
         this.iNY.setVisibility(8);
         this.iNV = 2;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void cog() {
+    public void coh() {
         this.iNX.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void coh() {
+    public void coi() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
         this.iNW.getLayoutMode().setNightMode(z);
         this.iNW.getLayoutMode().onModeChanged(this.mView);
         this.iNX.startLoad(c.a(this.iNW.getActivity(), c.iOb, z), 29, false);
-        coi();
+        coj();
     }
 
-    private void coi() {
+    private void coj() {
         if (this.iNZ) {
             Drawable drawable = an.getDrawable(R.drawable.icon_jq_lbs_s);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
@@ -131,7 +131,7 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String coj() {
+    public String cok() {
         if (this.mIndex != this.iOa) {
             return this.iNW.getPageContext().getString(R.string.next_step);
         }
@@ -139,7 +139,7 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean cok() {
+    public boolean col() {
         return true;
     }
 
@@ -149,7 +149,7 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean col() {
+    public boolean com() {
         return true;
     }
 }

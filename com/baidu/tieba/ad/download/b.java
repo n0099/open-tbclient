@@ -17,7 +17,7 @@ public class b {
         this.eYW = new HashMap();
     }
 
-    public static b bpc() {
+    public static b bpd() {
         return a.eYX;
     }
 

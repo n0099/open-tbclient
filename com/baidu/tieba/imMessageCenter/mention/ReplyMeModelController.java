@@ -45,8 +45,8 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bPk() {
-        if (this.jhC.isLoading() || !cuF()) {
+    public boolean bPl() {
+        if (this.jhC.isLoading() || !cuG()) {
             return false;
         }
         this.jhB.e(this.jgn);
@@ -56,8 +56,8 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean cdm() {
-        if (this.jhC.isLoading() || !cuF()) {
+    public boolean cdn() {
+        if (this.jhC.isLoading() || !cuG()) {
             return false;
         }
         this.jgn = null;
@@ -67,20 +67,20 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
         return true;
     }
 
-    protected boolean cuF() {
+    protected boolean cuG() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
         if (this.jgo != null && this.jgo.jhr != null) {
             this.jgo.jhr.clear();
         }
-        this.jhA.cvi();
+        this.jhA.cvj();
         this.jhA.b(false, (ArrayList<q>) null);
         return false;
     }
 
-    public boolean bPj() {
-        if (cuF()) {
+    public boolean bPk() {
+        if (cuG()) {
             this.jhD.a((com.baidu.tbadk.mvc.b.e) this.jhB);
             return true;
         }
@@ -92,11 +92,11 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
         boolean z3;
         boolean z4;
         if (kVar.getUpdateType() != 4) {
-            this.jgo.cvb().clear();
+            this.jgo.cvc().clear();
         }
         this.jgo.a(lVar);
-        if (lVar != null && lVar.cvb() != null && lVar.cvb().size() > 0) {
-            this.jgn = lVar.cvb().get(lVar.cvb().size() - 1);
+        if (lVar != null && lVar.cvc() != null && lVar.cvc().size() > 0) {
+            this.jgn = lVar.cvc().get(lVar.cvc().size() - 1);
             if (this.jgo.getPage() != null) {
                 z4 = this.jgo.getPage().aRf() == 1;
             } else {
@@ -134,8 +134,8 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
     }
 
     public void zd(int i) {
-        if (this.jgo != null && this.jgo.cvb() != null && i < this.jgo.cvb().size()) {
-            this.jgo.cvb().remove(i);
+        if (this.jgo != null && this.jgo.cvc() != null && i < this.jgo.cvc().size()) {
+            this.jgo.cvc().remove(i);
         }
     }
 

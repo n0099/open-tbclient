@@ -17,16 +17,16 @@ public class AlaMasterOperationSwitchItemView extends AlaMasterOperationBaseItem
         setTextResId(i);
         this.gmF = i2;
         this.gmG = i3;
-        bHB();
+        bHC();
     }
 
     public void h(short s) {
         this.gmE = s;
-        bHB();
         bHC();
+        bHD();
     }
 
-    private void bHB() {
+    private void bHC() {
         if (this.gmE == 1) {
             setIconResId(this.gmF);
             setEnabled(true);
@@ -39,7 +39,7 @@ public class AlaMasterOperationSwitchItemView extends AlaMasterOperationBaseItem
         }
     }
 
-    private void bHC() {
+    private void bHD() {
         if (this.mId == 3) {
             if (this.gmE == 1) {
                 setTextResId(a.i.ala_operation_panel_text_mirror_on);

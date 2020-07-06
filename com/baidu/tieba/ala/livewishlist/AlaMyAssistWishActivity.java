@@ -140,15 +140,15 @@ public class AlaMyAssistWishActivity extends BaseFragmentActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void acn() {
-        btR();
+        btS();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showNoDataView() {
-        btR();
+        btS();
     }
 
-    private void btR() {
+    private void btS() {
         if (this.gvs != null) {
             this.gvs.setVisibility(8);
         }

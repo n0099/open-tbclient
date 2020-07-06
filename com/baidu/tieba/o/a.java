@@ -22,7 +22,7 @@ public class a {
     private e ldp;
     private int mScore = 0;
 
-    public static a cYy() {
+    public static a cYz() {
         if (ldo == null) {
             synchronized (a.class) {
                 if (ldo == null) {

@@ -88,7 +88,7 @@ public class c extends a {
                         mVar.hY(true);
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(mVar);
-                        this.kMZ.cTx().a((q) mVar, (List<q>) arrayList, 0);
+                        this.kMZ.cTy().a((q) mVar, (List<q>) arrayList, 0);
                         return;
                     }
                     return;
@@ -112,9 +112,9 @@ public class c extends a {
                     this.mPageContext.getPageActivity().finish();
                     return;
                 case 9:
-                    if (this.kMZ != null && this.kMZ.cTw() != null) {
+                    if (this.kMZ != null && this.kMZ.cTx() != null) {
                         TiebaStatic.log("c12207");
-                        this.kMZ.cTw().cTC();
+                        this.kMZ.cTx().cTD();
                         return;
                     }
                     return;
@@ -204,7 +204,7 @@ public class c extends a {
                     return;
                 case 16:
                     Cx(7);
-                    com.baidu.tieba.p.a.daq().g(7, false, this.isHost);
+                    com.baidu.tieba.p.a.dar().g(7, false, this.isHost);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MembercenterActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 17:
@@ -213,7 +213,7 @@ public class c extends a {
                     return;
                 case 20:
                     Cx(2);
-                    com.baidu.tieba.p.a.daq().g(3, false, this.isHost);
+                    com.baidu.tieba.p.a.dar().g(3, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.LEFT_NAV_COLLECTION_CLICK));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_EDITMARK, new IntentConfig(this.mPageContext.getPageActivity())));
                     return;
@@ -231,7 +231,7 @@ public class c extends a {
                     return;
                 case 24:
                     Cx(3);
-                    com.baidu.tieba.p.a.daq().g(4, false, this.isHost);
+                    com.baidu.tieba.p.a.dar().g(4, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CLEAR_ADDRESSLIST_TIP));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddressListActivityConfig(this.mPageContext.getPageActivity())));
                     return;
@@ -249,7 +249,7 @@ public class c extends a {
                     return;
                 case 30:
                     Cx(1);
-                    com.baidu.tieba.p.a.daq().g(8, false, this.isHost);
+                    com.baidu.tieba.p.a.dar().g(8, false, this.isHost);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MessageCenterActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 31:
@@ -259,7 +259,7 @@ public class c extends a {
                 case 32:
                     if (be.checkUpIsLogin(this.mPageContext.getPageActivity())) {
                         Cx(4);
-                        com.baidu.tieba.p.a.daq().g(1, false, this.isHost);
+                        com.baidu.tieba.p.a.dar().g(1, false, this.isHost);
                         if (userData != null && TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getName_show(), userData.getSex(), "iowner_gift")));
                             return;
@@ -309,8 +309,8 @@ public class c extends a {
                         mVar2.hY(false);
                         ArrayList arrayList2 = new ArrayList();
                         arrayList2.add(mVar2);
-                        if (this.kMZ.cTx() != null) {
-                            this.kMZ.cTx().a((q) mVar2, (List<q>) arrayList2, 0, true);
+                        if (this.kMZ.cTy() != null) {
+                            this.kMZ.cTy().a((q) mVar2, (List<q>) arrayList2, 0, true);
                             return;
                         }
                         return;

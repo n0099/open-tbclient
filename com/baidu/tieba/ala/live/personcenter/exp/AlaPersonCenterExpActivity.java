@@ -103,18 +103,18 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
         }
         this.fPC = (int) getResources().getDimension(a.e.sdk_ds364);
         this.fPD = (int) getResources().getDimension(a.e.sdk_ds168);
-        byL();
+        byM();
         this.fPy.i(this.fPz, this.fPA);
     }
 
-    public void byL() {
-        byM();
+    public void byM() {
         byN();
+        byO();
     }
 
-    private void byM() {
+    private void byN() {
         if (this.isHost) {
-            this.fPv.addHeaderView(this.fPy.byQ());
+            this.fPv.addHeaderView(this.fPy.byR());
             this.mNavigationBar.showBottomLine(false);
             setUseStyleImmersiveSticky(true);
             this.fPv.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.live.personcenter.exp.AlaPersonCenterExpActivity.2
@@ -124,8 +124,8 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
 
                 @Override // android.widget.AbsListView.OnScrollListener
                 public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                    AlaPersonCenterExpActivity.this.byO();
                     AlaPersonCenterExpActivity.this.byP();
+                    AlaPersonCenterExpActivity.this.byQ();
                 }
             });
             return;
@@ -134,7 +134,7 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
         setUseStyleImmersiveSticky(false);
     }
 
-    private void byN() {
+    private void byO() {
         ArrayList<b> arrayList = new ArrayList<>();
         for (int i = 0; i < 40; i++) {
             b bVar = new b();
@@ -147,9 +147,9 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byO() {
+    public void byP() {
         if (Build.VERSION.SDK_INT >= 11 && this.fPy != null) {
-            int i = this.fPC - (-this.fPy.byQ().getTop());
+            int i = this.fPC - (-this.fPy.byR().getTop());
             if (i < this.fPD) {
                 if (this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                     this.mNavigationBar.getBarBgView().setAlpha(1.0f);
@@ -171,7 +171,7 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byP() {
+    public void byQ() {
         float alpha = this.mNavigationBar.getBarBgView().getAlpha();
         if (alpha < 0.5f) {
             alpha = 1.0f - alpha;

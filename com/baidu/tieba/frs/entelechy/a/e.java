@@ -35,7 +35,7 @@ public class e extends com.baidu.tieba.frs.j<bt, com.baidu.card.ak<bu>> implemen
         this.eLl = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: blL */
+            /* renamed from: blM */
             public ImageView makeObject() {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(e.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.k.aPA().isShowImages();
@@ -107,7 +107,7 @@ public class e extends com.baidu.tieba.frs.j<bt, com.baidu.card.ak<bu>> implemen
         this.eLm = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.frs.entelechy.a.e.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bST */
+            /* renamed from: bSU */
             public GifView makeObject() {
                 GifView gifView = new GifView(e.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.k.aPA().isShowImages();
@@ -172,7 +172,7 @@ public class e extends com.baidu.tieba.frs.j<bt, com.baidu.card.ak<bu>> implemen
             /* renamed from: b */
             public void a(View view, bu buVar) {
                 if (view != null && buVar != null) {
-                    com.baidu.tieba.a.d.boA().dh("page_frs", "show_");
+                    com.baidu.tieba.a.d.boB().dh("page_frs", "show_");
                 }
             }
         };

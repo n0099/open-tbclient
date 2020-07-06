@@ -23,7 +23,7 @@ public class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        boc();
+        bod();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0144, code lost:
@@ -66,7 +66,7 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void boc() {
+    private synchronized void bod() {
         File file;
         long zM;
         File[] fileArr;

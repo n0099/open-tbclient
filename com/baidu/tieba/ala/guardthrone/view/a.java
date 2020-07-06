@@ -82,7 +82,7 @@ public class a implements View.OnClickListener {
         public void run() {
             if (a.this.fNY <= 0) {
                 a.this.fNY = 0L;
-                a.this.byt();
+                a.this.byu();
             } else {
                 a.e(a.this);
                 a.this.startCountDown();
@@ -106,10 +106,10 @@ public class a implements View.OnClickListener {
         public void run() {
             if (a.this.fOb <= 0) {
                 a.this.fOb = 0L;
-                a.this.byv();
+                a.this.byw();
             } else {
                 a.i(a.this);
-                a.this.byu();
+                a.this.byv();
             }
             if (a.this.fOb >= 0 && a.this.fNL != null && a.this.fNx != null && a.this.fNx.fNh != null && !TextUtils.isEmpty(a.this.fNx.fNh.fNl)) {
                 a.this.fNL.setText(a.this.fNx.fNh.fNl + com.baidu.tieba.ala.guardthrone.e.a.d(Long.valueOf(a.this.fOb)));
@@ -158,13 +158,13 @@ public class a implements View.OnClickListener {
         this.fNP = (RelativeLayout) this.mRootView.findViewById(a.g.guard_throne_bottom_view);
         this.fNQ = (TextView) this.mRootView.findViewById(a.g.tv_bottom);
         this.fNR = (TextView) this.mRootView.findViewById(a.g.btn_bottom_start);
-        byl();
         bym();
         byn();
         byo();
+        byp();
     }
 
-    private void byl() {
+    private void bym() {
         this.fNI.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
         this.fNI.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
         this.fNI.setIsRound(true);
@@ -174,7 +174,7 @@ public class a implements View.OnClickListener {
         this.fNJ.setDefaultBgResource(a.d.sdk_transparent);
     }
 
-    private void bym() {
+    private void byn() {
         if (this.mActivity != null) {
             ViewGroup.LayoutParams layoutParams = this.fNH.getLayoutParams();
             layoutParams.height = BdUtilHelper.getEquipmentWidth(this.mActivity) / 2;
@@ -182,7 +182,7 @@ public class a implements View.OnClickListener {
         }
     }
 
-    private void byn() {
+    private void byo() {
         if (this.fNX) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fNG.getLayoutParams();
             layoutParams.width = BdUtilHelper.getEquipmentWidth(this.mActivity);
@@ -191,7 +191,7 @@ public class a implements View.OnClickListener {
         }
     }
 
-    private void byo() {
+    private void byp() {
         if (this.mIsHost) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fNN.getLayoutParams();
             layoutParams.bottomMargin = 0;
@@ -209,12 +209,12 @@ public class a implements View.OnClickListener {
     }
 
     private void Bc() {
-        byp();
+        byq();
         this.fNS = new com.baidu.tieba.ala.guardthrone.d.a(this.mTbPageContext, this.fNT);
         this.fNS.dH(this.mLiveId, this.aZa);
     }
 
-    private void byp() {
+    private void byq() {
         this.fNT = new a.InterfaceC0556a() { // from class: com.baidu.tieba.ala.guardthrone.view.a.4
             @Override // com.baidu.tieba.ala.guardthrone.d.a.InterfaceC0556a
             public void a(com.baidu.tieba.ala.guardthrone.b.a aVar) {
@@ -309,7 +309,7 @@ public class a implements View.OnClickListener {
                     if (this.mHandler != null && this.fOd != null) {
                         this.mHandler.removeCallbacks(this.fOd);
                     }
-                    byu();
+                    byv();
                 }
             } else {
                 this.fNL.setVisibility(8);
@@ -371,13 +371,13 @@ public class a implements View.OnClickListener {
         if (view == this.mRootView) {
             this.mActivity.finish();
         } else if (view == this.ffh) {
-            byq();
-        } else if (view == this.fNR || view == this.fNP) {
             byr();
+        } else if (view == this.fNR || view == this.fNP) {
+            bys();
         }
     }
 
-    private void byq() {
+    private void byr() {
         if (this.mActivity == null || this.fNx == null || this.fNx.fNh == null || TextUtils.isEmpty(this.fNx.fNh.fNm)) {
             BdUtilHelper.showToast(this.mActivity, a.i.sdk_url_is_null);
         } else {
@@ -385,7 +385,7 @@ public class a implements View.OnClickListener {
         }
     }
 
-    private void byr() {
+    private void bys() {
         if (this.mActivity != null) {
             this.mActivity.finish();
         }
@@ -406,7 +406,7 @@ public class a implements View.OnClickListener {
         }
     }
 
-    public void bys() {
+    public void byt() {
         if (this.mHandler != null && this.bal != null) {
             this.mHandler.removeCallbacks(this.bal);
         }
@@ -417,18 +417,18 @@ public class a implements View.OnClickListener {
         this.mHandler.postDelayed(this.fOd, 1000L);
     }
 
-    public void byt() {
+    public void byu() {
         if (this.mHandler != null && this.fOd != null) {
             this.mHandler.removeCallbacks(this.fOd);
         }
     }
 
-    public void byu() {
+    public void byv() {
         this.mHandler.removeCallbacks(this.fOe);
         this.mHandler.postDelayed(this.fOe, 1000L);
     }
 
-    public void byv() {
+    public void byw() {
         if (this.mHandler != null && this.fOe != null) {
             this.mHandler.removeCallbacks(this.fOe);
         }
@@ -455,12 +455,12 @@ public class a implements View.OnClickListener {
         if (this.fNS != null) {
             this.fNS.onDestroy();
         }
+        byu();
+        byw();
         byt();
-        byv();
-        bys();
     }
 
-    public Animation byw() {
+    public Animation byx() {
         this.mHandler.removeCallbacksAndMessages(null);
         this.mHandler = null;
         if (this.fNW != null) {

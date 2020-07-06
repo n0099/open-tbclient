@@ -21,19 +21,19 @@ public class g implements o {
     private int mStep;
     View mView;
 
-    public EditText cot() {
+    public EditText cou() {
         return this.iOt;
     }
 
-    public View cou() {
+    public View cov() {
         return this.iOu;
     }
 
-    public void cov() {
+    public void cow() {
         this.iOt.setText("");
     }
 
-    public int coo() {
+    public int cop() {
         return com.baidu.tieba.im.util.f.getTrimmedTextLength(this.iOt);
     }
 
@@ -63,7 +63,7 @@ public class g implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int coa() {
+    public int cob() {
         return this.mIndex;
     }
 
@@ -74,12 +74,12 @@ public class g implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void cog() {
+    public void coh() {
         this.iNX.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void coh() {
+    public void coi() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
         this.iNW.getLayoutMode().setNightMode(z);
         this.iNW.getLayoutMode().onModeChanged(this.mView);
@@ -93,7 +93,7 @@ public class g implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String coj() {
+    public String cok() {
         if (this.mIndex != this.iOv) {
             return this.iNW.getPageContext().getString(R.string.next_step);
         }
@@ -101,7 +101,7 @@ public class g implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean cok() {
+    public boolean col() {
         return false;
     }
 
@@ -111,7 +111,7 @@ public class g implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean col() {
+    public boolean com() {
         return true;
     }
 }

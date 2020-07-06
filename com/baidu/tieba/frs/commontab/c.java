@@ -240,7 +240,7 @@ public class c implements NetModel.b {
         return (this.hHL == null || w.isEmpty(this.hHL.threadList)) ? false : true;
     }
 
-    public d cbi() {
+    public d cbj() {
         return this.hHL;
     }
 
@@ -248,7 +248,7 @@ public class c implements NetModel.b {
         this.hHX = j;
     }
 
-    public boolean cbj() {
+    public boolean cbk() {
         return this.hHV;
     }
 }

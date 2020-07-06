@@ -133,7 +133,7 @@ public class SingleImageTextView extends RelativeLayout {
                             if (Hz != null) {
                                 TiebaStatic.eventStat(SingleImageTextView.this.mContext, "message_open_detail", "click", 1, "task_type", Hz.iPP, "task_id", Hz.taskId, "loc", "0");
                                 if ((aVar.userType == 1 || aVar.userType == 3) && !"0".equals(Hz.taskId)) {
-                                    com.baidu.tieba.im.b.a.cts().Ht(Hz.taskId);
+                                    com.baidu.tieba.im.b.a.ctt().Ht(Hz.taskId);
                                 }
                             }
                             ao aoVar = new ao("official_message_open_detail");
