@@ -7,114 +7,114 @@ import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class g extends com.facebook.imagepipeline.h.a {
     private boolean mEnabled;
-    private final com.facebook.drawee.a.a.d mKP;
-    private final com.facebook.common.time.b mKQ;
-    private final h mKR = new h();
+    private final com.facebook.drawee.a.a.d mKS;
+    private final com.facebook.common.time.b mKT;
+    private final h mKU = new h();
     @Nullable
-    private c mKS;
+    private c mKV;
     @Nullable
-    private com.facebook.drawee.a.a.a.a.c mKT;
+    private com.facebook.drawee.a.a.a.a.c mKW;
     @Nullable
-    private com.facebook.drawee.a.a.a.a.a mKU;
+    private com.facebook.drawee.a.a.a.a.a mKX;
     @Nullable
-    private com.facebook.imagepipeline.h.b mKV;
+    private com.facebook.imagepipeline.h.b mKY;
     @Nullable
-    private List<f> mKW;
+    private List<f> mKZ;
     @Nullable
-    private b mKq;
+    private b mKt;
 
     public g(com.facebook.common.time.b bVar, com.facebook.drawee.a.a.d dVar) {
-        this.mKQ = bVar;
-        this.mKP = dVar;
+        this.mKT = bVar;
+        this.mKS = dVar;
     }
 
     public void setEnabled(boolean z) {
         this.mEnabled = z;
         if (z) {
-            dAn();
-            if (this.mKq != null) {
-                this.mKP.a(this.mKq);
+            dAr();
+            if (this.mKt != null) {
+                this.mKS.a(this.mKt);
             }
-            if (this.mKU != null) {
-                this.mKP.a(this.mKU);
+            if (this.mKX != null) {
+                this.mKS.a(this.mKX);
             }
-            if (this.mKV != null) {
-                this.mKP.a(this.mKV);
+            if (this.mKY != null) {
+                this.mKS.a(this.mKY);
                 return;
             }
             return;
         }
-        if (this.mKq != null) {
-            this.mKP.b(this.mKq);
+        if (this.mKt != null) {
+            this.mKS.b(this.mKt);
         }
-        if (this.mKU != null) {
-            this.mKP.b(this.mKU);
+        if (this.mKX != null) {
+            this.mKS.b(this.mKX);
         }
-        if (this.mKV != null) {
-            this.mKP.b(this.mKV);
+        if (this.mKY != null) {
+            this.mKS.b(this.mKY);
         }
     }
 
     public void b(@Nullable f fVar) {
         if (fVar != null) {
-            if (this.mKW == null) {
-                this.mKW = new LinkedList();
+            if (this.mKZ == null) {
+                this.mKZ = new LinkedList();
             }
-            this.mKW.add(fVar);
+            this.mKZ.add(fVar);
         }
     }
 
-    public void dAl() {
-        if (this.mKW != null) {
-            this.mKW.clear();
+    public void dAp() {
+        if (this.mKZ != null) {
+            this.mKZ.clear();
         }
     }
 
     public void a(h hVar, int i) {
         hVar.Ia(i);
-        if (this.mEnabled && this.mKW != null && !this.mKW.isEmpty()) {
+        if (this.mEnabled && this.mKZ != null && !this.mKZ.isEmpty()) {
             if (i == 3) {
-                dAm();
+                dAq();
             }
-            e dAp = hVar.dAp();
-            for (f fVar : this.mKW) {
-                fVar.a(dAp, i);
+            e dAt = hVar.dAt();
+            for (f fVar : this.mKZ) {
+                fVar.a(dAt, i);
             }
         }
     }
 
-    private void dAm() {
-        com.facebook.drawee.d.b hierarchy = this.mKP.getHierarchy();
+    private void dAq() {
+        com.facebook.drawee.d.b hierarchy = this.mKS.getHierarchy();
         if (hierarchy != null && hierarchy.getTopLevelDrawable() != null) {
             Rect bounds = hierarchy.getTopLevelDrawable().getBounds();
-            this.mKR.Ic(bounds.width());
-            this.mKR.Id(bounds.height());
+            this.mKU.Ic(bounds.width());
+            this.mKU.Id(bounds.height());
         }
     }
 
-    private void dAn() {
-        if (this.mKU == null) {
-            this.mKU = new com.facebook.drawee.a.a.a.a.a(this.mKQ, this.mKR, this);
+    private void dAr() {
+        if (this.mKX == null) {
+            this.mKX = new com.facebook.drawee.a.a.a.a.a(this.mKT, this.mKU, this);
         }
-        if (this.mKT == null) {
-            this.mKT = new com.facebook.drawee.a.a.a.a.c(this.mKQ, this.mKR);
+        if (this.mKW == null) {
+            this.mKW = new com.facebook.drawee.a.a.a.a.c(this.mKT, this.mKU);
         }
-        if (this.mKq == null) {
-            this.mKq = new com.facebook.drawee.a.a.a.a.b(this.mKR, this);
-        }
-        if (this.mKS == null) {
-            this.mKS = new c(this.mKP.getId(), this.mKq);
-        } else {
-            this.mKS.init(this.mKP.getId());
+        if (this.mKt == null) {
+            this.mKt = new com.facebook.drawee.a.a.a.a.b(this.mKU, this);
         }
         if (this.mKV == null) {
-            this.mKV = new com.facebook.imagepipeline.h.b(this.mKT, this.mKS);
+            this.mKV = new c(this.mKS.getId(), this.mKt);
+        } else {
+            this.mKV.init(this.mKS.getId());
+        }
+        if (this.mKY == null) {
+            this.mKY = new com.facebook.imagepipeline.h.b(this.mKW, this.mKV);
         }
     }
 
     public void reset() {
-        dAl();
+        dAp();
         setEnabled(false);
-        this.mKR.reset();
+        this.mKU.reset();
     }
 }

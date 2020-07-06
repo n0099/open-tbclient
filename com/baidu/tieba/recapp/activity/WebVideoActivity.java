@@ -122,7 +122,7 @@ public class WebVideoActivity extends AdTbWebViewActivity {
         FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getActivity()).inflate(R.layout.ad_web_video_view, (ViewGroup) null, false);
         this.leD = (WebViewContainer) frameLayout.findViewById(R.id.web_scroll);
         this.eYm = (AdBaseWebView) frameLayout.findViewById(R.id.web_web);
-        boV();
+        boW();
         this.leC = (DistributeVideoView) frameLayout.findViewById(R.id.web_video);
         if (TextUtils.isEmpty(this.mVideoUrl) || TextUtils.isEmpty(this.mThumbUrl)) {
             this.leC.setVisibility(8);
@@ -175,12 +175,12 @@ public class WebVideoActivity extends AdTbWebViewActivity {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.eYm.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.topMargin = i;
-            layoutParams.height = (l.getEquipmentHeight(getActivity()) - l.getStatusBarHeight(getActivity())) - cYW();
+            layoutParams.height = (l.getEquipmentHeight(getActivity()) - l.getStatusBarHeight(getActivity())) - cYX();
             this.eYm.setLayoutParams(layoutParams);
         }
     }
 
-    private int cYW() {
+    private int cYX() {
         return l.getDimens(this, R.dimen.ds98);
     }
 }

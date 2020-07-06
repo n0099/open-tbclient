@@ -30,10 +30,10 @@ public class SquareFragment extends BaseFragment {
             SquareFragment.this.lBy.B(true, "");
             SquareFragment.this.hideLoadingView(SquareFragment.this.lBy.getRootView());
             if (z && hVar != null && !hVar.isEmpty()) {
-                SquareFragment.this.lBy.c(SquareFragment.this.lBz.dgP());
+                SquareFragment.this.lBy.c(SquareFragment.this.lBz.dgQ());
                 SquareFragment.this.lBA = true;
                 SquareFragment.this.lBy.hideNoDataView();
-                SquareFragment.this.bUu();
+                SquareFragment.this.bUv();
             }
             if (SquareFragment.this.lBB) {
                 SquareFragment.this.lBB = false;
@@ -45,7 +45,7 @@ public class SquareFragment extends BaseFragment {
             } else {
                 if (SquareFragment.this.hcE > -1) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    TiebaStatic.page(TiebaInitialize.OpKey.OP_SQUARE_ENTER, currentTimeMillis - SquareFragment.this.hcE, SquareFragment.this.lBz.bSv() - SquareFragment.this.hcE, SquareFragment.this.lBz.bSt(), SquareFragment.this.lBz.bSu(), currentTimeMillis - SquareFragment.this.lBz.bSs());
+                    TiebaStatic.page(TiebaInitialize.OpKey.OP_SQUARE_ENTER, currentTimeMillis - SquareFragment.this.hcE, SquareFragment.this.lBz.bSw() - SquareFragment.this.hcE, SquareFragment.this.lBz.bSu(), SquareFragment.this.lBz.bSv(), currentTimeMillis - SquareFragment.this.lBz.bSt());
                     SquareFragment.this.hcE = -1L;
                 }
                 if (!SquareFragment.this.lBA) {
@@ -57,15 +57,15 @@ public class SquareFragment extends BaseFragment {
                 }
             }
             if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                SquareFragment.this.lBy.dgS();
+                SquareFragment.this.lBy.dgT();
                 if (!SquareFragment.this.lBA) {
-                    SquareFragment.this.bUt();
+                    SquareFragment.this.bUu();
                     return;
                 }
                 return;
             }
             SquareFragment.this.dPv.showToast(str);
-            SquareFragment.this.lBy.dgT();
+            SquareFragment.this.lBy.dgU();
         }
     };
     private final NoNetworkView.a flL = new NoNetworkView.a() { // from class: com.baidu.tieba.square.square.SquareFragment.2
@@ -140,12 +140,12 @@ public class SquareFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUt() {
+    public void bUu() {
         this.lBy.c(this.flL);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUu() {
+    public void bUv() {
         this.lBy.d(this.flL);
     }
 
@@ -182,7 +182,7 @@ public class SquareFragment extends BaseFragment {
         boolean z3;
         boolean z4 = false;
         if (this.lBz != null) {
-            boolean z5 = this.lBz.dgP() == null || this.lBz.dgP().isEmpty();
+            boolean z5 = this.lBz.dgQ() == null || this.lBz.dgQ().isEmpty();
             boolean z6 = z;
             if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                 boolean z7 = z5;
@@ -201,9 +201,9 @@ public class SquareFragment extends BaseFragment {
             if (z3 || z4) {
                 cancelAllAsyncTask();
                 if (z4) {
-                    this.lBz.dgQ();
-                } else {
                     this.lBz.dgR();
+                } else {
+                    this.lBz.dgS();
                 }
             }
         }

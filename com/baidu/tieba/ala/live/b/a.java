@@ -26,7 +26,7 @@ public abstract class a extends BdBaseModel {
 
     public abstract void a(PayConfig payConfig);
 
-    public abstract void byB();
+    public abstract void byC();
 
     public a(TbPageContext tbPageContext, PayChannelType payChannelType, InterfaceC0557a interfaceC0557a) {
         super(tbPageContext);
@@ -68,11 +68,11 @@ public abstract class a extends BdBaseModel {
         }
     }
 
-    public HashMap<String, String> byz() {
+    public HashMap<String, String> byA() {
         return this.fOE;
     }
 
-    public String byC() {
+    public String byD() {
         return this.fOF;
     }
 }

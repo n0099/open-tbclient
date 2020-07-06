@@ -4,7 +4,7 @@ public class p {
     private String kac;
     private int lGX;
 
-    public int dil() {
+    public int dim() {
         return this.lGX;
     }
 
@@ -12,7 +12,7 @@ public class p {
         this.lGX = i;
     }
 
-    public String dim() {
+    public String din() {
         return this.kac;
     }
 

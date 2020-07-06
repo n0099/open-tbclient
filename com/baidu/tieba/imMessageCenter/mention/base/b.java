@@ -36,10 +36,10 @@ public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, a aVar, com.baidu.tieba.card.a.a<c> aVar2) {
-        if (aVar == null || aVar2 == null || aVar2.bPg() == null) {
+        if (aVar == null || aVar2 == null || aVar2.bPh() == null) {
             return null;
         }
-        aVar2.bPg().a(aVar);
+        aVar2.bPh().a(aVar);
         return aVar2.getView();
     }
 

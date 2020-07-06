@@ -77,7 +77,7 @@ public class f extends a {
             public void onClick(View view) {
                 if (!TextUtils.isEmpty(f.this.fvt.ftF)) {
                     bc.aWU().a(f.this.mTbPageContext, new String[]{f.this.fvt.ftF}, true);
-                    com.baidu.tieba.ala.alasquare.c.a.buo().c("c12909", f.this.fvt.ftH, 2, f.this.tid);
+                    com.baidu.tieba.ala.alasquare.c.a.bup().c("c12909", f.this.fvt.ftH, 2, f.this.tid);
                 }
             }
         });
@@ -103,13 +103,13 @@ public class f extends a {
                 this.fdZ.setText(title);
             }
             this.mVideoUrl = this.fvA.video_url;
-            com.baidu.tieba.ala.alasquare.c.a.buo().c("c12908", this.fvt.ftH, 2, this.tid);
+            com.baidu.tieba.ala.alasquare.c.a.bup().c("c12908", this.fvt.ftH, 2, this.tid);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(g gVar) {
-        com.baidu.tieba.ala.alasquare.c.a.buo().c("c12910", this.fvt.ftH, 2, this.tid);
+        com.baidu.tieba.ala.alasquare.c.a.bup().c("c12910", this.fvt.ftH, 2, this.tid);
         this.ahm.setVisibility(8);
         this.fvz.setVisibility(8);
         if (gVar != null) {
@@ -132,8 +132,8 @@ public class f extends a {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
-    public void buM() {
-        super.buM();
+    public void buN() {
+        super.buN();
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mContentView.getLayoutParams();
         layoutParams.width = this.mScreenWidth;
         layoutParams.height = this.fnm;

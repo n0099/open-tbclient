@@ -16,8 +16,8 @@ public class y {
             boolean aKe = ahVar.aKe();
             for (int i = 0; i < length; i++) {
                 try {
-                    if (aKe != g.dwI().tM(aKd.getJSONObject(i).getString("id"))) {
-                        Log.w("UBCDebug", " data is " + aKe + "  content " + ahVar.dxa().toString());
+                    if (aKe != g.dwM().tM(aKd.getJSONObject(i).getString("id"))) {
+                        Log.w("UBCDebug", " data is " + aKe + "  content " + ahVar.dxe().toString());
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -33,7 +33,7 @@ public class d extends a {
         this.fnd = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.special_forum.b.d.3
             @Override // java.lang.Runnable
             public void run() {
-                d.this.buN();
+                d.this.buO();
             }
         };
     }
@@ -46,24 +46,24 @@ public class d extends a {
             @Override // com.baidu.tieba.ala.alasquare.live.toplivecard.b.a
             public void S(bu buVar) {
                 if (buVar != null) {
-                    com.baidu.tieba.ala.alasquare.c.a.buo().c("c12909", d.this.fvt.ftH, 1, buVar.getId());
+                    com.baidu.tieba.ala.alasquare.c.a.bup().c("c12909", d.this.fvt.ftH, 1, buVar.getId());
                 }
             }
 
             @Override // com.baidu.tieba.ala.alasquare.live.toplivecard.b.a
             public void T(bu buVar) {
                 if (buVar != null) {
-                    com.baidu.tieba.ala.alasquare.c.a.buo().c("c12910", d.this.fvt.ftH, 1, buVar.getId());
+                    com.baidu.tieba.ala.alasquare.c.a.bup().c("c12910", d.this.fvt.ftH, 1, buVar.getId());
                 }
             }
         });
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
-    public void buM() {
-        super.buM();
+    public void buN() {
+        super.buN();
         if (this.fnb != null) {
-            this.fnb.btC();
+            this.fnb.btD();
         }
     }
 
@@ -75,17 +75,17 @@ public class d extends a {
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
         super.a(aVar);
-        buO();
+        buP();
         if (this.fnb != null) {
             this.fnb.a(this.fnc);
         }
         if (this.fnc != null && this.fnc.aiq != null) {
-            com.baidu.tieba.ala.alasquare.c.a.buo().c("c12908", this.fvt.ftH, 1, this.fnc.aiq.getId());
+            com.baidu.tieba.ala.alasquare.c.a.bup().c("c12908", this.fvt.ftH, 1, this.fnc.aiq.getId());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buN() {
+    public void buO() {
         if (this.fnc != null && this.fnc.aiq != null && this.fnc.aiq.aSJ() != null && this.fnb != null) {
             this.fnb.Bv(this.fnc.aiq.aSJ().hls_url);
         }
@@ -108,7 +108,7 @@ public class d extends a {
                 com.baidu.adp.lib.f.e.lt().removeCallbacks(this.fnd);
                 com.baidu.adp.lib.f.e.lt().postDelayed(this.fnd, 1000L);
             } else if (this.fnb != null) {
-                this.fnb.btD();
+                this.fnb.btE();
             }
         }
     }
@@ -116,12 +116,12 @@ public class d extends a {
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void stopPlay() {
         if (this.fnb != null) {
-            this.fnb.btD();
+            this.fnb.btE();
         }
         com.baidu.adp.lib.f.e.lt().removeCallbacks(this.fnd);
     }
 
-    private void buO() {
+    private void buP() {
         this.fnc = new com.baidu.tieba.ala.alasquare.live.b.c();
         this.fnc.aiq = this.fvt.eSH.get(0);
     }

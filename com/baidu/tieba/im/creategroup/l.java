@@ -39,12 +39,12 @@ public class l extends BaseAdapter {
         a aVar;
         if (view == null) {
             aVar = new a(this.iPm);
-            view = aVar.byQ();
+            view = aVar.byR();
         } else {
             aVar = (a) view.getTag();
         }
         aVar.Gz(getItem(i).toString());
-        if (this.iPm.cpe() == i) {
+        if (this.iPm.cpf() == i) {
             aVar.pc(true);
         } else {
             aVar.pc(false);

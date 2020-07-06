@@ -16,8 +16,8 @@ public class c {
     private List<ImageFileInfo> bjf;
     private final com.baidu.adp.base.e mContext;
     private WriteImagesInfo mWriteImagesInfo;
-    private VideoFileInfo mmQ;
-    private ImageFileInfo mmR;
+    private VideoFileInfo mmT;
+    private ImageFileInfo mmU;
     private int maxImagesAllowed = 9;
     private final List<com.baidu.tbadk.album.a> bjg = new ArrayList();
 
@@ -26,11 +26,11 @@ public class c {
     }
 
     public void a(VideoFileInfo videoFileInfo) {
-        this.mmQ = videoFileInfo;
+        this.mmT = videoFileInfo;
     }
 
-    public VideoFileInfo drj() {
-        return this.mmQ;
+    public VideoFileInfo drn() {
+        return this.mmT;
     }
 
     public boolean IL() {
@@ -38,15 +38,15 @@ public class c {
     }
 
     public boolean IM() {
-        return this.mmQ != null;
+        return this.mmT != null;
     }
 
     public boolean b(VideoFileInfo videoFileInfo) {
-        return (this.mmQ == null || videoFileInfo == null || this.mmQ.videoId != videoFileInfo.videoId) ? false : true;
+        return (this.mmT == null || videoFileInfo == null || this.mmT.videoId != videoFileInfo.videoId) ? false : true;
     }
 
     public void d(ImageFileInfo imageFileInfo) {
-        this.mmR = imageFileInfo;
+        this.mmU = imageFileInfo;
     }
 
     public void addChooseFile(ImageFileInfo imageFileInfo) {
@@ -199,7 +199,7 @@ public class c {
     }
 
     public int getCurrentIndex() {
-        if (this.mmR == null || TextUtils.isEmpty(this.mmR.getFilePath())) {
+        if (this.mmU == null || TextUtils.isEmpty(this.mmU.getFilePath())) {
             return 0;
         }
         if (this.bjf == null || this.bjf.size() == 0) {
@@ -208,7 +208,7 @@ public class c {
         int size = this.bjf.size();
         for (int i = 0; i < size; i++) {
             ImageFileInfo imageFileInfo = this.bjf.get(i);
-            if (imageFileInfo != null && this.mmR.getFilePath().equals(imageFileInfo.getFilePath())) {
+            if (imageFileInfo != null && this.mmU.getFilePath().equals(imageFileInfo.getFilePath())) {
                 return i;
             }
         }

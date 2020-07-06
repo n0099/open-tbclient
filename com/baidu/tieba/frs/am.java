@@ -5,7 +5,7 @@ import tbclient.ItemInfo;
 public interface am {
     void a(ItemInfo itemInfo);
 
-    ItemInfo bXp();
+    ItemInfo bXq();
 
-    boolean bXq();
+    boolean bXr();
 }

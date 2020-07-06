@@ -109,16 +109,16 @@ public class k {
             this.ftd.setText(this.mUserData.getName_show());
         }
         this.kQN = personStatus;
-        cUt();
+        cUu();
     }
 
     public void a(PersonStatus personStatus) {
         this.kQN = personStatus;
-        cUt();
+        cUu();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cUt() {
+    public void cUu() {
         if (this.mIsHost) {
             this.kQL.setVisibility(8);
             this.kQK.setVisibility(8);
@@ -131,11 +131,11 @@ public class k {
         }
     }
 
-    public View cUu() {
+    public View cUv() {
         return this.fta;
     }
 
-    public boolean cUv() {
+    public boolean cUw() {
         return this.mIsHost;
     }
 

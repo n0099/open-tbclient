@@ -36,26 +36,26 @@ public class c {
     }
 
     private static OkHttpClient build() {
-        kVZ = cWd();
+        kVZ = cWe();
         OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(kVZ);
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(okHttp3Interceptor);
         return builder.build();
     }
 
-    private static TurbonetContext cWd() {
-        TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), cWe());
+    private static TurbonetContext cWe() {
+        TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), cWf());
         kVZ = turbonetContext;
         return turbonetContext;
     }
 
-    private static TurbonetConfig cWe() {
+    private static TurbonetConfig cWf() {
         TurbonetConfig turbonetConfig = new TurbonetConfig();
         turbonetConfig.setRequestTimeout(15);
         turbonetConfig.wg(true);
         turbonetConfig.wj(true);
         turbonetConfig.wi(true);
-        turbonetConfig.PB("http://tb-video.bdstatic.com|2");
+        turbonetConfig.PC("http://tb-video.bdstatic.com|2");
         turbonetConfig.wh(true);
         turbonetConfig.e("bdns", "bce_http_dns_account_id", "119799");
         turbonetConfig.e("bdns", "bce_http_dns_secret", "87JNTZjGacgUzuMBYvid");
@@ -70,7 +70,7 @@ public class c {
         } else {
             file.mkdirs();
         }
-        turbonetConfig.PA(file.getAbsolutePath());
+        turbonetConfig.PB(file.getAbsolutePath());
         turbonetConfig.A(3, 10485760L);
         turbonetConfig.e(TbConfig.TMP_LOG_DIR_NAME, "lite_log_in_response_header", true);
         turbonetConfig.e("app", "app_package_name", "com.baidu.tieba");
@@ -93,9 +93,9 @@ public class c {
         return turbonetConfig;
     }
 
-    public static long cWf() {
+    public static long cWg() {
         if (kVZ != null && kWa == 0) {
-            kWa = kVZ.dvO();
+            kWa = kVZ.dvS();
         }
         return kWa;
     }

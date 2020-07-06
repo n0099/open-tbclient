@@ -60,7 +60,7 @@ public class c extends a implements d.b {
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.a
-    protected e bxL() {
+    protected e bxM() {
         this.fLA = new d(getContext());
         this.fLA.a(this);
         this.fLA.a(this.fLB);
@@ -72,7 +72,7 @@ public class c extends a implements d.b {
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.a
-    protected int bxM() {
+    protected int bxN() {
         return a.h.live_guard_club_fragment_rank;
     }
 
@@ -81,16 +81,16 @@ public class c extends a implements d.b {
         this.fLv = (GuardClubRankListView) view.findViewById(a.g.lv);
         this.fLv.setCallback(new GuardClubRankListView.a() { // from class: com.baidu.tieba.ala.guardclub.rank.c.1
             @Override // com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.a
-            public void bxR() {
+            public void bxS() {
                 if (c.this.mVisible && c.this.fLw != null) {
                     c.this.qS(c.this.fLw.getTop());
                 }
             }
 
             @Override // com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.a
-            public void bxS() {
+            public void bxT() {
                 if (c.this.fLA != null) {
-                    c.this.fLA.bxU();
+                    c.this.fLA.bxV();
                 }
             }
         });
@@ -120,9 +120,9 @@ public class c extends a implements d.b {
         this.fLx = (GuardClubRankInfoView) view.findViewById(a.g.guard_club_rank_info);
         this.fLx.setCallback(new GuardClubRankInfoView.a() { // from class: com.baidu.tieba.ala.guardclub.rank.c.3
             @Override // com.baidu.tieba.ala.guardclub.view.GuardClubRankInfoView.a
-            public void bxT() {
+            public void bxU() {
                 if (c.this.fLA != null) {
-                    c.this.fLA.bxO();
+                    c.this.fLA.bxP();
                 }
             }
         });
@@ -134,20 +134,20 @@ public class c extends a implements d.b {
         super.onVisibilityChanged(z);
         if (z) {
             if (this.fLA != null) {
-                this.fLA.bxV();
+                this.fLA.bxW();
             }
             if (this.fLw != null) {
-                this.fLw.byc();
+                this.fLw.byd();
                 qS(this.fLw.getTop());
                 return;
             }
             return;
         }
         if (this.fLv != null) {
-            this.fLv.byd();
+            this.fLv.bye();
         }
         if (this.fLw != null) {
-            this.fLw.bxz();
+            this.fLw.bxA();
         }
     }
 
@@ -194,7 +194,7 @@ public class c extends a implements d.b {
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.d.b
-    public void bxQ() {
+    public void bxR() {
         if (this.fLx != null) {
             this.fLx.setVisibility(8);
         }
@@ -205,7 +205,7 @@ public class c extends a implements d.b {
             commonEmptyView.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.rank.c.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    c.this.fLA.bxU();
+                    c.this.fLA.bxV();
                 }
             });
             if (BdNetTypeUtil.isNetWorkAvailable()) {

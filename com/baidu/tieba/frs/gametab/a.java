@@ -13,7 +13,7 @@ public class a {
         return this.tabId;
     }
 
-    public boolean ccR() {
+    public boolean ccS() {
         return 1 == this.hRE;
     }
 }

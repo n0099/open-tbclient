@@ -7,41 +7,41 @@ import org.json.JSONException;
 /* loaded from: classes.dex */
 public final class TurbonetContext {
     private String mAppName;
-    private String mBU;
-    private TurbonetEngine mBt;
+    private String mBX;
+    private TurbonetEngine mBw;
     private Context mContext;
 
     public TurbonetContext(Context context, String str, String str2, TurbonetConfig turbonetConfig) {
         this.mContext = context;
         this.mAppName = str;
-        this.mBU = str2;
+        this.mBX = str2;
         a(turbonetConfig);
     }
 
-    public TurbonetEngine dvN() {
-        return this.mBt;
+    public TurbonetEngine dvR() {
+        return this.mBw;
     }
 
-    public long dvO() {
-        return this.mBt.duX();
+    public long dvS() {
+        return this.mBw.dvb();
     }
 
     private void a(TurbonetConfig turbonetConfig) {
         TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.mContext);
         if (turbonetConfig == null) {
-            this.mBt = builder.PG(this.mAppName).PF(this.mBU).dvX();
+            this.mBw = builder.PH(this.mAppName).PG(this.mBX).dwb();
         } else {
-            if (turbonetConfig.dvM()) {
-                builder.PE(turbonetConfig.dvL());
+            if (turbonetConfig.dvQ()) {
+                builder.PF(turbonetConfig.dvP());
             }
             try {
-                if (turbonetConfig.dvK().has("nq") && turbonetConfig.dvK().getJSONObject("nq").getBoolean("network_quality_enabled")) {
+                if (turbonetConfig.dvO().has("nq") && turbonetConfig.dvO().getJSONObject("nq").getBoolean("network_quality_enabled")) {
                     builder.F(true, "");
                 }
             } catch (JSONException e) {
                 Log.e("cr_TurbonetContext", "JSON expcetion: " + e);
             }
-            this.mBt = builder.PG(this.mAppName).PF(this.mBU).PH(turbonetConfig.dvK().toString()).dvX();
+            this.mBw = builder.PH(this.mAppName).PG(this.mBX).PI(turbonetConfig.dvO().toString()).dwb();
         }
         Log.v("cr_TurbonetContext", "Turbonet init context success.");
     }

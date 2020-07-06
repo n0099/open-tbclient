@@ -70,7 +70,7 @@ public class c {
         }
     }
 
-    public void bxa() {
+    public void bxb() {
         if (this.fzx != null) {
             if (this.fzx.getView().getParent() == null) {
                 this.aUR.setNextPage(this.fzx);
@@ -80,7 +80,7 @@ public class c {
         }
     }
 
-    public void btI() {
+    public void btJ() {
         if (this.fzx != null) {
             if (this.fzx.getView().getParent() == null) {
                 this.aUR.setNextPage(this.fzx);
@@ -90,7 +90,7 @@ public class c {
         }
     }
 
-    public void btJ() {
+    public void btK() {
         if (this.fzx != null) {
             if (this.fzx.getView().getParent() == null) {
                 this.aUR.setNextPage(this.fzx);
@@ -100,7 +100,7 @@ public class c {
         }
     }
 
-    public void bxv() {
+    public void bxw() {
         this.aUR.setNextPage(null);
     }
 
@@ -134,19 +134,19 @@ public class c {
         }
     }
 
-    public void btN() {
+    public void btO() {
         if (this.bjC != null) {
             this.bjC.setVisibility(8);
         }
     }
 
-    public void byJ() {
+    public void byK() {
         if (this.aUR != null) {
             this.aUR.setVisibility(0);
         }
     }
 
-    public void byK() {
+    public void byL() {
         if (this.aUR != null) {
             this.aUR.setVisibility(4);
         }

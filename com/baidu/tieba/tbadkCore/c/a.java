@@ -617,11 +617,11 @@ public class a {
         }
     }
 
-    public AntiData din() {
+    public AntiData dio() {
         return this.lHc;
     }
 
-    public ErrorData dio() {
+    public ErrorData dip() {
         return this.lHb;
     }
 

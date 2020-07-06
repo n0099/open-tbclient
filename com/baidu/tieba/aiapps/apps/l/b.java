@@ -44,7 +44,7 @@ public class b implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        bro();
+        brp();
         if (this.fdK != null) {
             this.fdK.sendEmptyMessage(1);
         }
@@ -83,7 +83,7 @@ public class b implements Runnable {
         if (this.crq != null) {
             this.crq.a(true, null, this.cqf);
         }
-        brp();
+        brq();
     }
 
     private void i(MediaModel mediaModel) {
@@ -148,17 +148,17 @@ public class b implements Runnable {
                 this.fdK.removeMessages(2);
                 this.fdK = null;
             }
-            b.this.brp();
+            b.this.brq();
         }
     }
 
-    private void bro() {
+    private void brp() {
         this.fdL = new a(this.fdK);
         com.baidu.swan.apps.u.a.afX().registerActivityLifecycleCallbacks(this.fdL);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void brp() {
+    public void brq() {
         if (this.fdL != null) {
             com.baidu.swan.apps.u.a.afX().unregisterActivityLifecycleCallbacks(this.fdL);
             this.fdL = null;

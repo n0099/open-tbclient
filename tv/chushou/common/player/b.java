@@ -5,13 +5,11 @@ public interface b {
 
     void Kd(int i);
 
-    void dJq();
+    void dJA();
 
-    void dJr();
+    void dJB();
 
-    void dJs();
-
-    void dJt();
+    void dJC();
 
     void dJu();
 
@@ -22,4 +20,6 @@ public interface b {
     void dJx();
 
     void dJy();
+
+    void dJz();
 }

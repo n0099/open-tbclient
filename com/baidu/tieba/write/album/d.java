@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class d {
-    private static d mmS;
+    private static d mmV;
     private ContentObserver bji;
     private BroadcastReceiver mReceiver;
     private Handler mHandler = new Handler(Looper.getMainLooper());
@@ -31,16 +31,16 @@ public class d {
         void cp(boolean z);
     }
 
-    public static d drk() {
-        if (mmS == null) {
+    public static d dro() {
+        if (mmV == null) {
             synchronized (d.class) {
-                if (mmS == null) {
-                    mmS = new d();
-                    mmS.init(TbadkCoreApplication.getInst());
+                if (mmV == null) {
+                    mmV = new d();
+                    mmV.init(TbadkCoreApplication.getInst());
                 }
             }
         }
-        return mmS;
+        return mmV;
     }
 
     private d() {
@@ -110,6 +110,6 @@ public class d {
         inst.unregisterReceiver(this.mReceiver);
         inst.getContentResolver().unregisterContentObserver(this.bji);
         this.handler.removeCallbacks(this.bjj);
-        mmS = null;
+        mmV = null;
     }
 }

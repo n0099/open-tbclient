@@ -14,15 +14,15 @@ public class f {
     private ManagerElection gKV;
     private boolean hasMore;
 
-    public List<d> bNt() {
+    public List<d> bNu() {
         return this.gKU;
     }
 
-    public d bNu() {
+    public d bNv() {
         return this.gKT;
     }
 
-    public e bNv() {
+    public e bNw() {
         return this.gKS;
     }
 
@@ -38,7 +38,7 @@ public class f {
         return this.agK;
     }
 
-    public ManagerElection bNw() {
+    public ManagerElection bNx() {
         return this.gKV;
     }
 

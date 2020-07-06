@@ -5,9 +5,9 @@ public interface a {
 
     void Rs();
 
-    boolean dXb();
+    boolean dXf();
 
-    boolean dXc();
+    boolean dXg();
 
     boolean isVisible();
 }

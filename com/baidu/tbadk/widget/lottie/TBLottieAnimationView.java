@@ -199,7 +199,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         this.eLO = false;
     }
 
-    public void bkE() {
+    public void bkF() {
         this.eLO = true;
     }
 }

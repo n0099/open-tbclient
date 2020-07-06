@@ -22,12 +22,12 @@ public class b implements com.baidu.live.liveroom.d.d {
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.c.a
         public void onScrollToBottom() {
             if (b.this.geu != null) {
-                b.this.geu.btu();
+                b.this.geu.btv();
             }
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.c.a
-        public void bDM() {
+        public void bDN() {
             if (b.this.geu != null) {
                 b.this.geu.refresh();
             }
@@ -42,13 +42,13 @@ public class b implements com.baidu.live.liveroom.d.d {
                 b.this.get.Gw();
                 if (ListUtils.isEmpty(list)) {
                     b.this.get.bW(false);
-                    b.this.get.bDN();
+                    b.this.get.bDO();
                     return;
                 }
                 if (z) {
-                    b.this.get.btJ();
+                    b.this.get.btK();
                 } else {
-                    b.this.get.btI();
+                    b.this.get.btJ();
                 }
                 b.this.get.setData(list);
             }
@@ -59,7 +59,7 @@ public class b implements com.baidu.live.liveroom.d.d {
             if (b.this.get != null) {
                 b.this.get.completePullRefresh();
                 b.this.get.Gw();
-                b.this.get.bDN();
+                b.this.get.bDO();
                 if (!ListUtils.isEmpty(b.this.gev)) {
                     BdUtilHelper.showToast(b.this.mTbPageContext.getPageActivity(), str);
                 } else if (BdNetTypeUtil.isNetWorkAvailable()) {

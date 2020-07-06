@@ -20,7 +20,7 @@ public class m implements com.baidu.adp.widget.ListView.q {
         this.height = i;
     }
 
-    public int bXP() {
+    public int bXQ() {
         return this.hzu;
     }
 

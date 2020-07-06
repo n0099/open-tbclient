@@ -21,8 +21,8 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     private final com.baidu.tbadk.h.g ezg;
     private View hEy;
     private Activity mActivity;
-    private View.OnClickListener mhL;
-    private NavigationBarCoverTip.a mhM;
+    private View.OnClickListener mhO;
+    private NavigationBarCoverTip.a mhP;
 
     public static DefaultNavigationBarCoverTip c(Activity activity, String str, String str2) {
         if (activity == null) {
@@ -33,7 +33,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
 
     private DefaultNavigationBarCoverTip(Activity activity) {
         super(activity);
-        this.mhL = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
+        this.mhO = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TbPageContext<?> tbPageContext;
@@ -52,19 +52,19 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                 }
             }
         };
-        this.mhM = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
+        this.mhP = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
             public void Eb() {
             }
 
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
-            public void dqr() {
+            public void dqv() {
                 DefaultNavigationBarCoverTip.this.detach();
             }
         };
         this.mActivity = activity;
-        bro();
-        setCoverTipListener(this.mhM);
+        brp();
+        setCoverTipListener(this.mhP);
     }
 
     public void show() {
@@ -89,7 +89,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             textView.setSingleLine();
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setText(str);
-            tBSpecificationBtn.setOnClickListener(this.mhL);
+            tBSpecificationBtn.setOnClickListener(this.mhO);
             if (TextUtils.isEmpty(str2)) {
                 tBSpecificationBtn.setVisibility(8);
             } else {
@@ -103,7 +103,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
         return this;
     }
 
-    private void bro() {
+    private void brp() {
         try {
             TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(this.ezg);
         } catch (Exception e) {

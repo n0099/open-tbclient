@@ -81,7 +81,7 @@ public class a extends e {
         if (this.lkt != null) {
             View$OnClickListenerC0730a view$OnClickListenerC0730a = new View$OnClickListenerC0730a(this.lkt);
             this.mRootView.setOnClickListener(view$OnClickListenerC0730a);
-            if (cZU()) {
+            if (cZV()) {
                 this.lhv.setOnClickInterceptListener(new b.a() { // from class: com.baidu.tieba.recapp.e.a.1
                     @Override // com.baidu.tieba.ad.download.mvp.b.a
                     public void bu(View view) {
@@ -100,16 +100,16 @@ public class a extends e {
             o(c);
             this.lhv.setData(c);
         }
-        if (!cZU()) {
+        if (!cZV()) {
             this.lhv.x(this.dPv.getUniqueId());
         }
         this.lgK.setTag(this.dPv.getUniqueId());
-        cZV();
+        cZW();
         onChangeSkinType();
     }
 
     private void o(DownloadData downloadData) {
-        if (cZU()) {
+        if (cZV()) {
             if (this.lhv != null) {
                 downloadData.setStatus(this.lhv.getDownloadStatus());
                 return;
@@ -120,7 +120,7 @@ public class a extends e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cZU() {
+    public boolean cZV() {
         return !this.lkj || this.lkk;
     }
 
@@ -155,7 +155,7 @@ public class a extends e {
                 return;
             }
             boolean z = view == a.this.lhv;
-            if (a.this.cZU()) {
+            if (a.this.cZV()) {
                 a.this.lhv.performClick();
             } else if (this.lju != null) {
                 int i = com.baidu.adp.lib.f.b.toInt(this.lju.adPosition, -1);
@@ -252,13 +252,13 @@ public class a extends e {
         this.jrm = cVar;
     }
 
-    private void cZV() {
-        if (cZU() && this.lkt != null) {
+    private void cZW() {
+        if (cZV() && this.lkt != null) {
             String str = this.lkt.dGL;
-            DownloadCacheKey Aq = !TextUtils.isEmpty(str) ? com.baidu.tieba.ad.download.d.bpf().Aq(str) : null;
+            DownloadCacheKey Aq = !TextUtils.isEmpty(str) ? com.baidu.tieba.ad.download.d.bpg().Aq(str) : null;
             if (Aq == null) {
                 Aq = DownloadCacheKey.create(str, this.lkt.apkUrl, this.lkt.dGO);
-                com.baidu.tieba.ad.download.d.bpf().a(Aq, null);
+                com.baidu.tieba.ad.download.d.bpg().a(Aq, null);
             }
             i(Aq);
         }
@@ -267,8 +267,8 @@ public class a extends e {
     private void i(DownloadCacheKey downloadCacheKey) {
         if (downloadCacheKey != null) {
             this.eYA = downloadCacheKey;
-            cZW();
-            AdDownloadData d = com.baidu.tieba.ad.download.d.bpf().d(downloadCacheKey);
+            cZX();
+            AdDownloadData d = com.baidu.tieba.ad.download.d.bpg().d(downloadCacheKey);
             if (d != null) {
                 this.lhv.a(d.getCurrentState());
             } else {
@@ -279,19 +279,19 @@ public class a extends e {
             if (d.extra().getPercent() > 0) {
                 aVar.b((com.baidu.tieba.ad.browser.newstyle.view.a) d);
             }
-            boY();
+            boZ();
         }
     }
 
-    public void boY() {
+    public void boZ() {
         if (this.eYA != null && this.eYB != null) {
-            com.baidu.tieba.ad.download.d.bpf().a(this.eYA, this.eYB);
+            com.baidu.tieba.ad.download.d.bpg().a(this.eYA, this.eYB);
         }
     }
 
-    public void cZW() {
+    public void cZX() {
         if (this.eYA != null && this.eYB != null) {
-            com.baidu.tieba.ad.download.d.bpf().b(this.eYA, this.eYB);
+            com.baidu.tieba.ad.download.d.bpg().b(this.eYA, this.eYB);
         }
     }
 }

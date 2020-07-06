@@ -53,30 +53,30 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, final l lVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.bPg() == null) {
+        if (aVar.bPh() == null) {
             return null;
         }
-        a(lVar, aVar.bPg());
-        aVar.bPg().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.i.1
+        a(lVar, aVar.bPh());
+        aVar.bPh().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.i.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 i.this.a(lVar);
             }
         });
-        return aVar.bPg().getView();
+        return aVar.bPh().getView();
     }
 
     private void a(l lVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
         if (lVar.getPersonCenterData() != null) {
-            this.fxN = aVar.bLT();
-            bLq();
+            this.fxN = aVar.bLU();
+            bLr();
             aVar.so(8);
             aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_center_publish_live));
             aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void bLq() {
+    private void bLr() {
         if (!this.gBg) {
             this.gBg = true;
             if (!com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("live_publish_live_has_showed"), false)) {
@@ -111,12 +111,12 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
         if (lVar != null && lVar.getPersonCenterData() != null) {
             com.baidu.tbadk.core.sharedPref.b.aVP().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("live_publish_live_has_showed"), true);
             a(this.fxN, null, false);
-            bum();
+            bun();
             TiebaStatic.log("c13618");
         }
     }
 
-    private void bum() {
+    private void bun() {
         Plugin plugin2;
         if (Build.VERSION.SDK_INT < 21) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
@@ -137,10 +137,10 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
                 this.frL = new com.baidu.tieba.ueg.d(this.mPageContext);
             }
             if (this.gBf) {
-                if (this.frL.dlI()) {
+                if (this.frL.dlM()) {
                     return;
                 }
-            } else if (this.frL.dlH()) {
+            } else if (this.frL.dlL()) {
                 return;
             }
             if (!BdBaseApplication.getInst().isDebugMode() && (plugin2 = PluginCenter.getInstance().getPlugin("com.baidu.tieba.pluginAla")) != null && !plugin2.isLoaded()) {

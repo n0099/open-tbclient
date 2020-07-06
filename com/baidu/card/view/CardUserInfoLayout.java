@@ -570,9 +570,9 @@ public class CardUserInfoLayout extends LinearLayout implements o {
             boolean z2 = UtilHelper.isDecimal(aSE) && UtilHelper.isDecimal(aSF);
             boolean isSystemLocationProviderEnabled = UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst());
             if (z2 && isSystemLocationProviderEnabled) {
-                AppPosInfo cZJ = com.baidu.tieba.recapp.d.a.cZF().cZJ();
-                String str = cZJ.latitude;
-                String str2 = cZJ.longitude;
+                AppPosInfo cZK = com.baidu.tieba.recapp.d.a.cZG().cZK();
+                String str = cZK.latitude;
+                String str2 = cZK.longitude;
                 if (!UtilHelper.isDecimal(str) || !UtilHelper.isDecimal(str2)) {
                     z = false;
                 }

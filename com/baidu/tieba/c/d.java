@@ -31,11 +31,11 @@ public class d {
         return this.mRootView;
     }
 
-    public ImageView bPB() {
+    public ImageView bPC() {
         return this.gXc;
     }
 
-    public MessageRedDotView bPC() {
+    public MessageRedDotView bPD() {
         return this.gXd;
     }
 

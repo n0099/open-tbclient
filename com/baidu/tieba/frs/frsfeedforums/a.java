@@ -238,7 +238,7 @@ public class a {
         } else {
             this.hIO.setVisibility(8);
         }
-        ccd();
+        cce();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -288,7 +288,7 @@ public class a {
         aVar.b(this.mTbPageContext).aUN();
     }
 
-    private void ccd() {
+    private void cce() {
         an.setBackgroundColor(this.hMI, R.color.cp_bg_line_d);
         an.setBackgroundColor(this.hMG, R.color.cp_bg_line_c);
         an.setBackgroundColor(this.hML, R.color.cp_bg_line_d);

@@ -9,10 +9,10 @@ public class bx extends XMPushService.i {
     final /* synthetic */ XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f905a;
+    final /* synthetic */ String f906a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ byte[] f906a;
+    final /* synthetic */ byte[] f907a;
     final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,8 +21,8 @@ public class bx extends XMPushService.i {
         super(i);
         this.a = xMPushService;
         this.b = i2;
-        this.f906a = bArr;
-        this.f905a = str;
+        this.f907a = bArr;
+        this.f906a = str;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -36,8 +36,8 @@ public class bx extends XMPushService.i {
         l.m572a((Context) this.a);
         ap.a().m542a("5");
         com.xiaomi.push.ab.a(this.b);
-        ftVar = this.a.f807a;
+        ftVar = this.a.f808a;
         ftVar.c(ft.a());
-        this.a.a(this.f906a, this.f905a);
+        this.a.a(this.f907a, this.f906a);
     }
 }

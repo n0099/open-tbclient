@@ -78,7 +78,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     GuideActivity.this.jnY.setOnScrollOutListener(null);
                 }
                 if (!GuideActivity.this.mFromPage.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
-                    GuideActivity.this.boJ();
+                    GuideActivity.this.boK();
                 }
                 CompatibleUtile.setAnim(GuideActivity.this.getPageContext().getPageActivity(), 0, R.anim.left);
                 GuideActivity.this.closeActivity();
@@ -88,7 +88,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     public View.OnClickListener jok = new View.OnClickListener() { // from class: com.baidu.tieba.launcherGuide.tblauncher.GuideActivity.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            GuideActivity.this.cwJ();
+            GuideActivity.this.cwK();
             if (view.getId() == GuideActivity.this.joj.getId()) {
                 TiebaStatic.log(new ao("c13410").dk("uid", TbadkCoreApplication.getCurrentAccount()));
             }
@@ -143,7 +143,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         public void onClick(View view) {
             if (view.getId() == GuideActivity.this.joi.getId()) {
                 TbSingleton.getInstance().mStartGameClicked = true;
-                GuideActivity.this.cwJ();
+                GuideActivity.this.cwK();
             }
         }
     };
@@ -167,10 +167,10 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
             aVg();
             this.joc = com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean(SharedPrefConfig.JUMP_TO_NEW_USER_GUIDE, true);
             if (this.joc) {
-                cwK();
+                cwL();
             }
             try {
-                cwI();
+                cwJ();
                 this.jnX = new b();
                 this.jnY = (BaseViewPager) findViewById(R.id.guide_pager);
                 this.jnY.setAdapter(this.jnX);
@@ -220,23 +220,23 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                 BdLog.detailException(e);
                 this.job = true;
                 this.joc = false;
-                cwJ();
+                cwK();
             } catch (RuntimeException e2) {
                 releaseResources();
                 TbadkApplication.getInst().onAppMemoryLow();
                 BdLog.detailException(e2);
                 this.job = true;
                 this.joc = false;
-                cwJ();
+                cwK();
             }
         } catch (RuntimeException e3) {
             this.job = true;
             this.joc = false;
-            cwJ();
+            cwK();
         }
     }
 
-    private void cwI() {
+    private void cwJ() {
         this.jnV = new ArrayList<>();
         this.jnW = new ArrayList<>();
         for (int i = 0; i < this.joe; i++) {
@@ -247,7 +247,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
             imageView.setBackgroundResource(this.jod[i]);
             Bitmap a2 = a(imageView, this.jod[i]);
             if (a2 == null) {
-                cwJ();
+                cwK();
                 return;
             }
             this.jog.add(a2);
@@ -271,9 +271,9 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cwJ() {
+    public void cwK() {
         if (this.mFromPage != null && !this.mFromPage.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
-            boJ();
+            boK();
         }
         closeActivity();
     }
@@ -346,7 +346,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case 4:
-                cwJ();
+                cwK();
                 return true;
             default:
                 return super.onKeyDown(i, keyEvent);
@@ -354,7 +354,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void boJ() {
+    public void boK() {
         boolean isFirstUse = TbadkApplication.getInst().getIsFirstUse();
         if (this.job) {
             if (!TbadkApplication.getInst().isNeedNewUserLead()) {
@@ -384,7 +384,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         registerListener(this.jom);
     }
 
-    public void cwK() {
+    public void cwL() {
         String currentAccount = TbadkApplication.getCurrentAccount();
         if (TextUtils.isEmpty(currentAccount)) {
             this.joc = false;
@@ -411,7 +411,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cwL() {
+    public boolean cwM() {
         try {
             ContentResolver contentResolver = getContentResolver();
             String aJ = aJ(getBaseContext(), "com.android.launcher.permission.READ_SETTINGS");
@@ -463,7 +463,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(GuideActivity.this.cwL());
+            return Boolean.valueOf(GuideActivity.this.cwM());
         }
 
         /* JADX DEBUG: Method merged with bridge method */

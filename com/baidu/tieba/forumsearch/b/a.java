@@ -30,7 +30,7 @@ public class a extends com.baidu.tieba.card.data.b {
         this.Un = hxR;
     }
 
-    public ArrayList<String> bWO() {
+    public ArrayList<String> bWP() {
         return this.hxU;
     }
 }

@@ -21,7 +21,7 @@ public class b implements com.baidu.live.guardclub.i {
     private static volatile b fIk = null;
     private long currLiveId;
 
-    public static b bxl() {
+    public static b bxm() {
         if (fIk == null) {
             synchronized (b.class) {
                 if (fIk == null) {

@@ -26,7 +26,7 @@ public class b {
         public String title;
     }
 
-    public boolean ctb() {
+    public boolean ctc() {
         return (this.kZH == null || this.kZH.size() == 0) ? false : true;
     }
 

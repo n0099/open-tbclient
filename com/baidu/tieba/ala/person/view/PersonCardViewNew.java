@@ -102,9 +102,9 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bKW();
-
         void bKX();
+
+        void bKY();
     }
 
     public PersonCardViewNew(final PersonCardActivity personCardActivity, boolean z) {
@@ -175,7 +175,7 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
         this.gzZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PersonCardViewNew.this.bLm();
+                PersonCardViewNew.this.bLn();
             }
         });
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gzO.getLayoutParams();
@@ -220,8 +220,8 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
         this.gzY.setOnClickListener(this);
         a(new a.InterfaceC0588a() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.4
             @Override // com.baidu.tieba.ala.person.a.InterfaceC0588a
-            public void bLa() {
-                PersonCardViewNew.this.gzN.bKU();
+            public void bLb() {
+                PersonCardViewNew.this.gzN.bKV();
             }
         });
     }
@@ -296,7 +296,7 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             if (PersonCardViewNew.this.gAy != null) {
-                                PersonCardViewNew.this.gAy.bKX();
+                                PersonCardViewNew.this.gAy.bKY();
                             }
                         }
                     });
@@ -364,7 +364,7 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bLm() {
+    public void bLn() {
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(this.gzN.getActivity());
             this.gzN.finish();
@@ -376,9 +376,9 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
         com.baidu.tieba.ala.person.a aVar = new com.baidu.tieba.ala.person.a(this.gzN.getActivity(), true);
         aVar.a(new a.InterfaceC0588a() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.6
             @Override // com.baidu.tieba.ala.person.a.InterfaceC0588a
-            public void bLa() {
+            public void bLb() {
                 if (PersonCardViewNew.this.gAu != null) {
-                    PersonCardViewNew.this.gAu.bLa();
+                    PersonCardViewNew.this.gAu.bLb();
                 }
             }
         });
@@ -580,7 +580,7 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (PersonCardViewNew.this.gAy != null) {
-                        PersonCardViewNew.this.gAy.bKW();
+                        PersonCardViewNew.this.gAy.bKX();
                     }
                 }
             });
@@ -621,18 +621,18 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.gzY) {
-            bLo();
+            bLp();
         } else if (view == this.gAd) {
-            bLi();
+            bLj();
         } else if (view == this.gAc) {
-            bLn();
+            bLo();
         } else if (view == this.gzO) {
             TiebaInitialize.log("c12266");
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913025, new Object[]{this.gzN, this.bbm}));
         }
     }
 
-    private void bLn() {
+    private void bLo() {
         if (this.gzN != null && this.bbm != null && this.bbm.user_info != null && !TextUtils.isEmpty(this.bbm.user_info.live_id)) {
             try {
                 AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(this.gzN.getPageContext().getPageActivity());
@@ -644,7 +644,7 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
         }
     }
 
-    private void bLi() {
+    private void bLj() {
         if (this.bbm != null) {
             if (!TbadkCoreApplication.isLogin()) {
                 ViewHelper.skipToLoginActivity(this.gzN.getActivity());
@@ -663,7 +663,7 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
         }
     }
 
-    private void bLo() {
+    private void bLp() {
         String str;
         if (this.bbm != null) {
             if (!TbadkCoreApplication.isLogin()) {
@@ -674,10 +674,10 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
             } else {
                 if (this.gAq) {
                     si(1);
-                    this.gzN.bKT();
+                    this.gzN.bKU();
                 } else {
                     si(0);
-                    this.gzN.bKS();
+                    this.gzN.bKT();
                     if (TbadkCoreApplication.getInst().isHaokan()) {
                         AlaStaticItem alaStaticItem = new AlaStaticItem(HKStaticKeys.HK_STATIC_FOLLOW_CLICK);
                         alaStaticItem.addParams("live_id", HKStaticManager.LIVE_ID);
@@ -815,7 +815,7 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
         }
     }
 
-    public Animation byw() {
+    public Animation byx() {
         this.mHandler.removeCallbacksAndMessages(null);
         this.mHandler = null;
         if (this.fNW != null) {

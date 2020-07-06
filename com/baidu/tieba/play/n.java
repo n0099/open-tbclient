@@ -39,7 +39,7 @@ public class n implements d {
     private Runnable kUw = new Runnable() { // from class: com.baidu.tieba.play.n.2
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.kUr && n.this.kUs && n.this.cVc() && n.this.cVE()) {
+            if (n.this.kUr && n.this.kUs && n.this.cVd() && n.this.cVF()) {
                 s.d(n.this.mContext, n.this.kUi, -1);
             }
         }
@@ -47,7 +47,7 @@ public class n implements d {
     private Runnable kUx = new Runnable() { // from class: com.baidu.tieba.play.n.3
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.cVE()) {
+            if (n.this.cVF()) {
                 s.aq(n.this.mContext, n.this.kUi);
             } else if (!n.this.kUj) {
                 s.zW(n.this.kUi);
@@ -56,7 +56,7 @@ public class n implements d {
     };
     private j.c kSR = new j.c() { // from class: com.baidu.tieba.play.n.4
         @Override // com.baidu.tieba.play.j.c
-        public void btG() {
+        public void btH() {
             n.g(n.this);
         }
     };
@@ -83,40 +83,40 @@ public class n implements d {
         this.kUi = str;
         this.mVideoPath = this.kUj ? this.kUi : s.aR(str, this.kUr);
         if (this.kUn != null) {
-            v.a("start_play", this.kUi, cVE(), (int) this.kUn.cVO(), this.kUn.getDuration());
+            v.a("start_play", this.kUi, cVF(), (int) this.kUn.cVP(), this.kUn.getDuration());
         }
         this.kUk = System.currentTimeMillis();
         return this.mVideoPath;
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean cVc() {
+    public boolean cVd() {
         return !StringUtils.isNull(this.mVideoPath) && this.mVideoPath.contains("127.0.0.1");
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean cVd() {
+    public boolean cVe() {
         return this.kUr;
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean cVe() {
+    public boolean cVf() {
         return this.kUs;
     }
 
     @Override // com.baidu.tieba.play.d
-    public int cVf() {
+    public int cVg() {
         return com.baidu.tbadk.coreExtra.model.f.bcY() ? this.kUt : this.kUu;
     }
 
     @Override // com.baidu.tieba.play.d
-    public String cUZ() {
+    public String cVa() {
         return this.kUi;
     }
 
     @Override // com.baidu.tieba.play.d
-    public void cVg() {
-        if (this.kUr && this.kUs && cVc() && cVE()) {
+    public void cVh() {
+        if (this.kUr && this.kUs && cVd() && cVF()) {
             s.d(this.mContext, this.kUi, -1);
         }
     }
@@ -124,7 +124,7 @@ public class n implements d {
     @Override // com.baidu.tieba.play.d
     public void fm(long j) {
         this.kUv = j;
-        cVD();
+        cVE();
         if (this.kUk > 0) {
             this.kUl = System.currentTimeMillis() - this.kUk;
         }
@@ -175,7 +175,7 @@ public class n implements d {
             fn(currentTimeMillis);
             this.mStartTime = 0L;
         }
-        cVA();
+        cVB();
         if (this.fni != null) {
             this.fni.stop();
         }
@@ -183,18 +183,18 @@ public class n implements d {
             ao aoVar = new ao(CommonStatisticKey.VIDEO_PLAY_STATE);
             aoVar.dk("service_ip", this.mHost);
             aoVar.dk("video_url", this.kUi);
-            aoVar.s("video_size", this.kUn.cVO());
+            aoVar.s("video_size", this.kUn.cVP());
             aoVar.ag("video_duration", this.kUn.getDuration());
-            aoVar.dk("video_resolution", this.kUn.cVP());
+            aoVar.dk("video_resolution", this.kUn.cVQ());
             aoVar.ag("loading_count", this.kUm);
             aoVar.s("user_watch_time", this.hGx / 1000);
             aoVar.s("start_play_time", this.kUl);
             TiebaStatic.log(aoVar);
         }
         if (this.kUn != null && this.kUl > 0) {
-            v.a("stop_play", this.kUi, cVE(), (int) this.kUn.cVO(), this.kUn.getDuration());
+            v.a("stop_play", this.kUi, cVF(), (int) this.kUn.cVP(), this.kUn.getDuration());
         }
-        cVz();
+        cVA();
         this.kUl = 0L;
         this.hGx = 0L;
         this.kUm = 0;
@@ -213,13 +213,13 @@ public class n implements d {
         }
     }
 
-    private void cVz() {
+    private void cVA() {
         if (this.kUo != null && this.kUp) {
             TbSingleton.getInstance().putVideoRecord(this.kUo.getThreadId(), (int) (this.kUo.getVideoWatchDuration() / 1000));
         }
     }
 
-    private void cVA() {
+    private void cVB() {
         if (this.hGx >= 0 && this.hGx < 86400000) {
             if (this.hGx > 0) {
                 ao aoVar = new ao(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
@@ -254,7 +254,7 @@ public class n implements d {
     }
 
     @Override // com.baidu.tieba.play.d
-    public void cVa() {
+    public void cVb() {
         com.baidu.adp.lib.f.e.lt().removeCallbacks(this.kUx);
         com.baidu.adp.lib.f.e.lt().removeCallbacks(this.kUw);
         if (this.mStartTime > 0) {
@@ -263,7 +263,7 @@ public class n implements d {
             fn(currentTimeMillis);
             this.mStartTime = 0L;
         }
-        cVA();
+        cVB();
         if (this.fni != null) {
             this.fni.stop();
         }
@@ -271,18 +271,18 @@ public class n implements d {
             ao aoVar = new ao(CommonStatisticKey.VIDEO_PLAY_STATE);
             aoVar.dk("service_ip", this.mHost);
             aoVar.dk("video_url", this.kUi);
-            aoVar.s("video_size", this.kUn.cVO());
+            aoVar.s("video_size", this.kUn.cVP());
             aoVar.ag("video_duration", this.kUn.getDuration());
-            aoVar.dk("video_resolution", this.kUn.cVP());
+            aoVar.dk("video_resolution", this.kUn.cVQ());
             aoVar.ag("loading_count", this.kUm);
             aoVar.s("user_watch_time", this.hGx / 1000);
             aoVar.s("start_play_time", this.kUl);
             TiebaStatic.log(aoVar);
         }
         if (this.kUn != null && this.kUl > 0) {
-            v.a("stop_play", this.kUi, cVE(), (int) this.kUn.cVO(), this.kUn.getDuration());
+            v.a("stop_play", this.kUi, cVF(), (int) this.kUn.cVP(), this.kUn.getDuration());
         }
-        cVz();
+        cVA();
         this.kUl = 0L;
         this.hGx = 0L;
         this.kUm = 0;
@@ -299,7 +299,7 @@ public class n implements d {
             fn(currentTimeMillis);
             this.mStartTime = 0L;
         }
-        cVz();
+        cVA();
         this.kUp = false;
     }
 
@@ -311,15 +311,15 @@ public class n implements d {
             fn(currentTimeMillis);
             this.mStartTime = 0L;
         }
-        cVz();
+        cVA();
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean cVb() {
+    public boolean cVc() {
         return s.zV(this.kUi) != null;
     }
 
-    public void cVB() {
+    public void cVC() {
         this.kUj = true;
     }
 
@@ -328,7 +328,7 @@ public class n implements d {
     }
 
     @Override // com.baidu.tieba.play.d
-    public j cVh() {
+    public j cVi() {
         return this.fni;
     }
 
@@ -338,11 +338,11 @@ public class n implements d {
         }
     }
 
-    public u cVC() {
+    public u cVD() {
         return this.kUn;
     }
 
-    public void cVD() {
+    public void cVE() {
         if (!this.kUr) {
             com.baidu.adp.lib.f.e.lt().removeCallbacks(this.kUx);
             com.baidu.adp.lib.f.e.lt().postDelayed(this.kUx, 100L);
@@ -351,7 +351,7 @@ public class n implements d {
 
     @Override // com.baidu.tieba.play.d
     public void CL(int i) {
-        if (cVE()) {
+        if (cVF()) {
             s.d(this.mContext, this.kUi, i);
         }
     }
@@ -364,13 +364,13 @@ public class n implements d {
 
     @Override // com.baidu.tieba.play.d
     public void zZ(String str) {
-        if (cVE()) {
+        if (cVF()) {
             s.ar(this.mContext, str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cVE() {
+    public boolean cVF() {
         return (this.kUj || this.mVideoPath == null || this.mVideoPath.equals(this.kUi)) ? false : true;
     }
 
@@ -378,7 +378,7 @@ public class n implements d {
         this.kUg = yVar;
     }
 
-    public y cVF() {
+    public y cVG() {
         return this.kUg;
     }
 }

@@ -193,11 +193,11 @@ public class QuickWebView extends BaseWebView {
         try {
             url = new URL(str);
             path = url.getPath();
-            LC = d.cYx().LC(path);
+            LC = d.cYy().LC(path);
         } catch (MalformedURLException e) {
         }
         if (LC != null && !LC.ldn) {
-            String cacheDir = c.cYs().getCacheDir();
+            String cacheDir = c.cYt().getCacheDir();
             String str3 = cacheDir + path + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
             File file = new File(str3);
             if (!str3.contains("/android_asset/") && !file.exists()) {

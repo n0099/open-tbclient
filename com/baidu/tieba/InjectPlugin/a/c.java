@@ -7,7 +7,7 @@ public class c {
         this.eSz = obj;
     }
 
-    public Object bmz() {
+    public Object bmA() {
         return this.eSz;
     }
 }

@@ -114,18 +114,18 @@ public class d {
         }
     }
 
-    public void bHE() {
+    public void bHF() {
         if (this.gmK != null) {
-            this.gmK.bHE();
+            this.gmK.bHF();
         }
         if (this.gmL != null) {
             this.gmL.onStop();
         }
     }
 
-    public void bHF() {
+    public void bHG() {
         if (this.gmK != null) {
-            this.gmK.bHF();
+            this.gmK.bHG();
         }
         if (this.gmH != null) {
             this.gmH.onResume();
@@ -145,16 +145,16 @@ public class d {
         }
     }
 
-    public boolean bHG() {
+    public boolean bHH() {
         if (this.gmK != null) {
-            return this.gmK.bHG();
+            return this.gmK.bHH();
         }
         return false;
     }
 
-    public void bHH() {
+    public void bHI() {
         if (this.gmK != null) {
-            this.gmK.bHH();
+            this.gmK.bHI();
         }
     }
 
@@ -200,7 +200,7 @@ public class d {
         }
     }
 
-    public AlaLiveRecorderPerfData bHJ() {
+    public AlaLiveRecorderPerfData bHK() {
         return this.fYL.ggx;
     }
 
@@ -217,21 +217,21 @@ public class d {
         }
     }
 
-    public void bGU() {
+    public void bGV() {
         if (this.gmH != null) {
-            this.gmH.bGU();
+            this.gmH.bGV();
         }
     }
 
-    public void bHg() {
+    public void bHh() {
         if (this.gmH != null) {
-            this.gmH.bHg();
+            this.gmH.bHh();
         }
     }
 
-    public void bEi() {
+    public void bEj() {
         if (this.gmH != null) {
-            this.gmH.bEi();
+            this.gmH.bEj();
         }
     }
 
@@ -241,20 +241,20 @@ public class d {
         }
     }
 
-    public com.baidu.tieba.ala.liveroom.data.e bHK() {
+    public com.baidu.tieba.ala.liveroom.data.e bHL() {
         return this.glk;
     }
 
-    public boolean bHI() {
+    public boolean bHJ() {
         if (this.gmK != null) {
-            return this.gmK.bHI();
+            return this.gmK.bHJ();
         }
         return false;
     }
 
-    public int bEk() {
+    public int bEl() {
         if (this.fYL != null) {
-            return this.fYL.bEk();
+            return this.fYL.bEl();
         }
         return 0;
     }
@@ -286,12 +286,6 @@ public class d {
         }
     }
 
-    public void bEl() {
-        if (this.gmI != null) {
-            this.gmI.bEl();
-        }
-    }
-
     public void bEm() {
         if (this.gmI != null) {
             this.gmI.bEm();
@@ -301,6 +295,12 @@ public class d {
     public void bEn() {
         if (this.gmI != null) {
             this.gmI.bEn();
+        }
+    }
+
+    public void bEo() {
+        if (this.gmI != null) {
+            this.gmI.bEo();
         }
     }
 

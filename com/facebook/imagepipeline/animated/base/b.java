@@ -5,9 +5,9 @@ public interface b {
 
     c HR(int i);
 
-    int[] dyn();
+    int[] dyr();
 
-    boolean dyo();
+    boolean dys();
 
     int getFrameCount();
 

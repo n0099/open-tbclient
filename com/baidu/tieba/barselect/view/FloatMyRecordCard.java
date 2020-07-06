@@ -82,12 +82,12 @@ public class FloatMyRecordCard extends LinearLayout {
     public void setData(f fVar) {
         String str;
         this.gJz = fVar;
-        if (this.gJz != null && this.gJz.bNv() != null) {
-            e bNv = this.gJz.bNv();
-            if (bNv != null) {
-                this.status = bNv.getStatus();
+        if (this.gJz != null && this.gJz.bNw() != null) {
+            e bNw = this.gJz.bNw();
+            if (bNw != null) {
+                this.status = bNw.getStatus();
             }
-            this.gNk = this.gJz.bNu();
+            this.gNk = this.gJz.bNv();
         }
         if (this.gJz == null || this.gNk == null || this.status != com.baidu.tieba.barselect.a.d.gND) {
             setVisibility(8);
@@ -107,12 +107,12 @@ public class FloatMyRecordCard extends LinearLayout {
         this.gNG.xh(this.gNk.getPortrait());
         this.gNG.setOnClickListener(this.eoP);
         this.dEL.setText(ar.cutChineseAndEnglishWithSuffix(this.gNk.getNickname(), 14, StringHelper.STRING_MORE));
-        setGrade(this.gNk.bNj());
-        if (this.gNk.bNi() < 1000) {
-            String str2 = "0000" + this.gNk.bNi();
+        setGrade(this.gNk.bNk());
+        if (this.gNk.bNj() < 1000) {
+            String str2 = "0000" + this.gNk.bNj();
             str = str2.substring(str2.length() - 4, str2.length());
         } else {
-            str = "" + this.gNk.bNi();
+            str = "" + this.gNk.bNj();
         }
         this.gNg.setText("NO." + str);
         this.gNH.setMyRecordData(this.gNk);
@@ -128,11 +128,11 @@ public class FloatMyRecordCard extends LinearLayout {
                 an.setViewTextColor(this.gNF, R.color.cp_cont_b, 1, i);
             }
             an.setViewTextColor(this.dEL, R.color.cp_cont_b, 1, i);
-            setGrade(this.gNk.bNj());
+            setGrade(this.gNk.bNk());
             an.setViewTextColor(this.gNg, R.color.cp_cont_d, 1, i);
             this.gNH.qJ(i);
             an.setBackgroundColor(this, R.color.cp_bg_line_d, i);
-            setGrade(this.gNk.bNj());
+            setGrade(this.gNk.bNk());
         }
     }
 }

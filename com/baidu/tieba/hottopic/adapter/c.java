@@ -47,10 +47,10 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
 
     private void a(com.baidu.tieba.hottopic.a.a aVar, final com.baidu.tieba.hottopic.data.b bVar) {
         if (aVar != null && bVar != null) {
-            String string = StringUtils.isNull(bVar.clA()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_trend) : bVar.clA();
-            aVar.iFh.setText(bVar.clz());
+            String string = StringUtils.isNull(bVar.clB()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_trend) : bVar.clB();
+            aVar.iFh.setText(bVar.clA());
             aVar.iFf.setText(string);
-            aVar.iFl.startLoad(bVar.cly(), 10, false);
+            aVar.iFl.startLoad(bVar.clz(), 10, false);
             if (StringUtils.isNull(bVar.getName())) {
                 aVar.iFg.setVisibility(8);
                 aVar.iFh.setPadding(0, 0, 0, 0);

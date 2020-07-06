@@ -55,7 +55,7 @@ public class jl {
                 }
             case 13:
                 jh m481a = jiVar.m481a();
-                while (i2 < m481a.f785a) {
+                while (i2 < m481a.f786a) {
                     a(jiVar, m481a.a, i - 1);
                     a(jiVar, m481a.b, i - 1);
                     i2++;
@@ -64,7 +64,7 @@ public class jl {
                 return;
             case 14:
                 jm m482a = jiVar.m482a();
-                while (i2 < m482a.f786a) {
+                while (i2 < m482a.f787a) {
                     a(jiVar, m482a.a, i - 1);
                     i2++;
                 }
@@ -72,7 +72,7 @@ public class jl {
                 return;
             case 15:
                 jg m480a = jiVar.m480a();
-                while (i2 < m480a.f784a) {
+                while (i2 < m480a.f785a) {
                     a(jiVar, m480a.a, i - 1);
                     i2++;
                 }

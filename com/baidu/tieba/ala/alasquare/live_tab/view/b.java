@@ -74,7 +74,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
                         }
                         this.frg.setLayoutParams(layoutParams);
                         this.frh.setLayoutParams(layoutParams2);
-                        buk();
+                        bul();
                         ao aoVar = new ao("c13558");
                         aoVar.dk("entryname", "推荐");
                         TiebaStatic.log(aoVar);
@@ -86,7 +86,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
                         this.fri.onChangeSkinType();
                     }
 
-                    private void buk() {
+                    private void bul() {
                         this.frj = b.this.getRealWidth();
                         this.frk = b.this.getRealHeight();
                         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fri.getLayoutParams();
@@ -115,7 +115,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
         this.dPI = getView().findViewById(R.id.recom_live_bottom_divider);
         this.fqX = (AlaBannerRecyclerView) getView().findViewById(R.id.recycle_view);
         this.fqX.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-        buj();
+        buk();
         this.fqY = new com.baidu.tieba.ala.alasquare.widget.banner.a(getContext(), this.fre, false);
         this.fqX.setAdapter(this.fqY);
     }
@@ -130,7 +130,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
         return this.frd ? this.frb[1] : this.fra;
     }
 
-    private void buj() {
+    private void buk() {
         int realHeight = getRealHeight();
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fqX.getLayoutParams();
         if (layoutParams == null) {
@@ -160,7 +160,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.c cVar) {
         if (cVar != null && cVar.fnU != null) {
             this.frd = w.getCount(cVar.fnU.fnS) == 1;
-            buj();
+            buk();
             this.fqY.setData(cVar.fnU.fnS);
             this.fqY.notifyDataSetChanged();
         }

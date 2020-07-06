@@ -24,7 +24,7 @@ public class c extends AbsThreadDataSupport {
         this.iqY.add(new b());
     }
 
-    public List<b> cjp() {
+    public List<b> cjq() {
         return this.iqY;
     }
 

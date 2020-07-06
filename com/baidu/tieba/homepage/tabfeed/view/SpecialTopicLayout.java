@@ -68,7 +68,7 @@ public class SpecialTopicLayout extends LinearLayout implements n<SpecialColumnL
         this.mTitleColorId = R.color.cp_cont_c;
         this.ajo = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.homepage.tabfeed.view.SpecialTopicLayout.1
             @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-            public void bkm() {
+            public void bkn() {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HomePageTabFeedCollegeSecondActivityConfig(SpecialTopicLayout.this.mPageContext.getPageActivity(), SpecialTopicLayout.this.ixP)));
             }
         };
@@ -153,7 +153,7 @@ public class SpecialTopicLayout extends LinearLayout implements n<SpecialColumnL
     public void D(SpecialColumnListData specialColumnListData) {
         if (specialColumnListData != null) {
             this.mTitle.setText(specialColumnListData.title);
-            this.ixO.setData(specialColumnListData.cky());
+            this.ixO.setData(specialColumnListData.ckz());
             this.ixP = specialColumnListData;
             onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }

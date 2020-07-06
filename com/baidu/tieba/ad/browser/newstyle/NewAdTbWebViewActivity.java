@@ -167,10 +167,10 @@ public class NewAdTbWebViewActivity extends AdBaseWebViewActivity {
         if (this.mNeedCookie) {
             initCookie();
         }
-        bpa();
+        bpb();
     }
 
-    private void bpa() {
+    private void bpb() {
         DownloadCacheKey Ar;
         DownloadCacheKey downloadCacheKey;
         String str = "";
@@ -179,9 +179,9 @@ public class NewAdTbWebViewActivity extends AdBaseWebViewActivity {
             str = intent.getStringExtra(WebViewActivityConfig.TAG_DOWNLOAD_AD_ID);
         }
         if (!TextUtils.isEmpty(str)) {
-            Ar = com.baidu.tieba.ad.download.d.bpf().Aq(str);
+            Ar = com.baidu.tieba.ad.download.d.bpg().Aq(str);
         } else {
-            Ar = com.baidu.tieba.ad.download.d.bpf().Ar(this.mUrl);
+            Ar = com.baidu.tieba.ad.download.d.bpg().Ar(this.mUrl);
         }
         if (Ar == null) {
             if (!TextUtils.isEmpty(str)) {
@@ -197,7 +197,7 @@ public class NewAdTbWebViewActivity extends AdBaseWebViewActivity {
                 downloadCacheKey = Ar;
             }
             if (downloadCacheKey != null) {
-                com.baidu.tieba.ad.download.d.bpf().a(downloadCacheKey, null);
+                com.baidu.tieba.ad.download.d.bpg().a(downloadCacheKey, null);
             } else {
                 return;
             }
@@ -242,13 +242,13 @@ public class NewAdTbWebViewActivity extends AdBaseWebViewActivity {
     public View createWebView() {
         if (this.eYD == null) {
             this.eYD = new TBAdWebView(getPageContext().getPageActivity());
-            boV();
+            boW();
         }
         return this.eYD;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void boV() {
+    public void boW() {
         this.eYD.getSettings().setDatabasePath(getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getAbsolutePath());
         this.eYD.setHorizontalScrollbarOverlay(false);
         this.eYD.setInitialScale(100);
@@ -405,7 +405,7 @@ public class NewAdTbWebViewActivity extends AdBaseWebViewActivity {
     @Override // com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.diA();
+            this.jsBridge.diB();
         }
         if (this.eYD != null) {
             this.eYD.getSettings().setBuiltInZoomControls(true);
@@ -563,7 +563,7 @@ public class NewAdTbWebViewActivity extends AdBaseWebViewActivity {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            int b = com.baidu.tieba.ad.a.boT().b(NewAdTbWebViewActivity.this.getPageContext().getPageActivity(), new String[]{str});
+            int b = com.baidu.tieba.ad.a.boU().b(NewAdTbWebViewActivity.this.getPageContext().getPageActivity(), new String[]{str});
             if (b == 1) {
                 NewAdTbWebViewActivity.this.finish();
                 return true;

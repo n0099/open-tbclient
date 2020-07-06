@@ -22,9 +22,9 @@ public class a {
     /* renamed from: com.baidu.tieba.ala.liveroom.livepager.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0574a {
-        void bmk();
-
         void bml();
+
+        void bmm();
 
         void t(float f, float f2);
     }
@@ -69,14 +69,14 @@ public class a {
                         this.gjF.t(motionEvent.getRawX(), motionEvent.getRawY());
                     }
                 } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.mDownY - motionEvent.getY()) && this.gjF != null) {
-                    this.gjF.bml();
+                    this.gjF.bmm();
                 }
                 if (!this.eSd && this.eSc && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.mDownY - motionEvent.getY()) < 30.0f) {
                     this.mView.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.livepager.a.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (!a.this.eSd && a.this.eSc && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.mDownY - motionEvent.getY()) < 30.0f && a.this.gjF != null) {
-                                a.this.gjF.bmk();
+                                a.this.gjF.bml();
                             }
                         }
                     }, 300L);

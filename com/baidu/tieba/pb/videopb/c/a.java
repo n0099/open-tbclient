@@ -34,7 +34,7 @@ public class a extends b {
         return this.title;
     }
 
-    public String cQn() {
+    public String cQo() {
         return this.sub_title;
     }
 
@@ -46,19 +46,19 @@ public class a extends b {
         return this.link;
     }
 
-    public String cQo() {
+    public String cQp() {
         return this.link_text;
     }
 
-    public Long cQp() {
+    public Long cQq() {
         return this.appear_time;
     }
 
-    public boolean cQq() {
+    public boolean cQr() {
         return this.kyV;
     }
 
-    public long cQr() {
+    public long cQs() {
         return this.kyW;
     }
 

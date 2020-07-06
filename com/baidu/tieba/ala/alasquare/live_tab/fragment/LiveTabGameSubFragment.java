@@ -42,17 +42,17 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements as
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabGameModel.a
         public void e(boolean z, List<q> list) {
             if (z) {
-                LiveTabGameSubFragment.this.btJ();
+                LiveTabGameSubFragment.this.btK();
             } else {
-                LiveTabGameSubFragment.this.btI();
+                LiveTabGameSubFragment.this.btJ();
             }
-            LiveTabGameSubFragment.this.btU();
+            LiveTabGameSubFragment.this.btV();
             LiveTabGameSubFragment.this.setData(list);
         }
 
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabGameModel.a
         public void g(int i, String str, boolean z) {
-            LiveTabGameSubFragment.this.btU();
+            LiveTabGameSubFragment.this.btV();
             if (z) {
                 LiveTabGameSubFragment.this.showToast(R.string.data_load_error);
             }
@@ -64,7 +64,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements as
             if (j.isNetWorkAvailable()) {
                 LiveTabGameSubFragment.this.fot.refresh();
             } else {
-                LiveTabGameSubFragment.this.btU();
+                LiveTabGameSubFragment.this.btV();
             }
         }
     };
@@ -74,7 +74,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements as
             if (!l.isNetOk()) {
                 LiveTabGameSubFragment.this.hideLoadingView();
             } else {
-                LiveTabGameSubFragment.this.fot.btu();
+                LiveTabGameSubFragment.this.fot.btv();
             }
         }
     };
@@ -83,7 +83,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements as
         public void onScrolled(RecyclerView recyclerView, int i, int i2) {
             super.onScrolled(recyclerView, i, i2);
             if (i2 >= 4 && !LiveTabGameSubFragment.this.fon) {
-                LiveTabGameSubFragment.this.btS();
+                LiveTabGameSubFragment.this.btT();
             }
         }
     };
@@ -192,7 +192,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements as
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btU() {
+    public void btV() {
         if (aUi()) {
             u uVar = new u();
             uVar.tabId = 1121;
@@ -204,7 +204,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements as
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btI() {
+    public void btJ() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.Wa.setNextPage(this.fnt);
@@ -216,7 +216,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements as
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btJ() {
+    public void btK() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.Wa.setNextPage(this.fnt);
@@ -279,7 +279,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements as
     }
 
     @Override // com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment
-    public void btT() {
+    public void btU() {
         if (this.fos != null) {
             this.fos.notifyDataSetChanged();
         }
@@ -290,7 +290,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements as
         if (j.isNetWorkAvailable()) {
             this.fot.refresh();
         } else {
-            btU();
+            btV();
         }
     }
 

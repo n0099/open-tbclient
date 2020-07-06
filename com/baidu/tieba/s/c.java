@@ -48,7 +48,7 @@ public class c {
                 if (c.this.lDm != null) {
                     c.this.lDm.clear();
                 }
-                c.this.lDk.dgW();
+                c.this.lDk.dgX();
             }
         }
     };
@@ -59,7 +59,7 @@ public class c {
         MessageManager.getInstance().registerListener(this.dFw);
     }
 
-    public static c dgX() {
+    public static c dgY() {
         if (lDj == null) {
             synchronized (c.class) {
                 if (lDj == null) {
@@ -115,7 +115,7 @@ public class c {
                 this.lDm.put(bdUniqueId.getId(), hashSet);
             }
             String str2 = aoVar.getKey() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str;
-            if (!hashSet.contains(str2) && !cer()) {
+            if (!hashSet.contains(str2) && !ces()) {
                 hashSet.add(str2);
                 this.lDk.a(bdUniqueId, aoVar);
                 if (BdLog.isDebugMode()) {
@@ -125,7 +125,7 @@ public class c {
         }
     }
 
-    private boolean cer() {
+    private boolean ces() {
         if (this.lDn == null) {
             this.lDn = new a();
         }

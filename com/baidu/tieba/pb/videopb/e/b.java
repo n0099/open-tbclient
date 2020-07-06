@@ -181,35 +181,35 @@ public class b extends ad.a {
         }
     }
 
-    public int cQF() {
+    public int cQG() {
         return this.kAe;
     }
 
     public void BZ(int i) {
         this.kAe = i;
         if (i == 0) {
-            cQG();
-        } else if (i == 1) {
             cQH();
-        } else if (i == 2) {
+        } else if (i == 1) {
             cQI();
+        } else if (i == 2) {
+            cQJ();
         }
     }
 
-    private void cQG() {
+    private void cQH() {
         this.kAa.setVisibility(8);
         this.hFI.setEllipsize(null);
         this.hFI.setMaxLines(2);
     }
 
-    private void cQH() {
+    private void cQI() {
         this.kAa.setVisibility(0);
         SvgManager.aWQ().a(this.kzZ, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
         this.hFI.setEllipsize(TextUtils.TruncateAt.END);
         this.hFI.setMaxLines(2);
     }
 
-    private void cQI() {
+    private void cQJ() {
         this.kAa.setVisibility(0);
         SvgManager.aWQ().a(this.kzZ, R.drawable.icon_pure_fold12_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
         this.hFI.setEllipsize(null);

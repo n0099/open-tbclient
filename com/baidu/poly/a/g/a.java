@@ -39,14 +39,14 @@ public final class a {
         Long l = bzQ;
         if (l != null) {
             if (l == null) {
-                q.dQG();
+                q.dQK();
             }
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     Long l2 = bzQ;
                     if (l2 == null) {
-                        q.dQG();
+                        q.dQK();
                     }
                     jSONObject.put("3", l2.longValue());
                     jSONObject.put("4", System.currentTimeMillis());
@@ -62,14 +62,14 @@ public final class a {
         Long l = bzP;
         if (l != null) {
             if (l == null) {
-                q.dQG();
+                q.dQK();
             }
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     Long l2 = bzP;
                     if (l2 == null) {
-                        q.dQG();
+                        q.dQK();
                     }
                     jSONObject.put("1", l2.longValue());
                     jSONObject.put("2", System.currentTimeMillis());

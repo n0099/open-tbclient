@@ -9,7 +9,7 @@ public class a {
     private LiveHorseRaceData hEe;
     private List<LiveHorseRaceData> hEf = new ArrayList();
 
-    public List<LiveHorseRaceData> cag() {
+    public List<LiveHorseRaceData> cah() {
         return this.hEf;
     }
 

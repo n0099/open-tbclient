@@ -83,8 +83,8 @@ public class b implements View.OnClickListener {
         this.fCW = aVar;
         initView();
         initData();
-        bwn();
         bwo();
+        bwp();
         this.fCC.setVisibility(4);
         this.fCC.post(new Runnable() { // from class: com.baidu.tieba.ala.c.b.1
             @Override // java.lang.Runnable
@@ -174,7 +174,7 @@ public class b implements View.OnClickListener {
             this.aED = bpVar.aED;
             str = bpVar.aEE;
             strArr = bpVar.aEF;
-            if (bwp()) {
+            if (bwq()) {
                 this.fCK = this.aED;
             } else {
                 this.fCK = this.fDc;
@@ -239,7 +239,7 @@ public class b implements View.OnClickListener {
         this.fCt.setVisibility(8);
     }
 
-    private void bwn() {
+    private void bwo() {
         this.fCp.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.c.b.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -305,7 +305,7 @@ public class b implements View.OnClickListener {
         });
     }
 
-    private void bwo() {
+    private void bwp() {
         this.fCp.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.ala.c.b.4
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
@@ -355,9 +355,9 @@ public class b implements View.OnClickListener {
                 this.fCp.setText(String.valueOf(this.fCM));
                 return true;
             } else {
-                boolean z3 = bwp() && parseLong < this.aEC;
+                boolean z3 = bwq() && parseLong < this.aEC;
                 this.fCM = parseLong;
-                if (bwp()) {
+                if (bwq()) {
                     this.fCK = this.aED;
                 }
                 if (parseLong < this.fCH || parseLong > this.fCI) {
@@ -368,7 +368,7 @@ public class b implements View.OnClickListener {
                     this.fCr.setVisibility(0);
                     this.fCQ = false;
                 } else {
-                    if (z && this.fCq != null && bwq() && !this.fCq.hasFocus()) {
+                    if (z && this.fCq != null && bwr() && !this.fCq.hasFocus()) {
                         boolean z4 = !this.fDd;
                         if (!z4 && this.fCq.getText() != null) {
                             String obj2 = this.fCq.getText().toString();
@@ -377,7 +377,7 @@ public class b implements View.OnClickListener {
                             }
                         }
                         if (z4) {
-                            if (bwp()) {
+                            if (bwq()) {
                                 long j = this.fCM / this.aED;
                                 if (this.aEw > 0 && j > this.aEw) {
                                     j = this.aEw;
@@ -539,11 +539,11 @@ public class b implements View.OnClickListener {
         }
     }
 
-    private boolean bwp() {
-        return bwq() && this.fCM >= this.aEC && this.fCM <= this.fCI;
+    private boolean bwq() {
+        return bwr() && this.fCM >= this.aEC && this.fCM <= this.fCI;
     }
 
-    private boolean bwq() {
+    private boolean bwr() {
         return this.aEC >= ((long) this.fCH) && this.aED > 0;
     }
 }

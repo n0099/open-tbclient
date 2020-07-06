@@ -52,11 +52,11 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
         this.mPageContext = tbPageContext;
     }
 
-    public boolean cgD() {
+    public boolean cgE() {
         return this.ieD != null && this.ieD.getVisibility() == 0;
     }
 
-    public void cgE() {
+    public void cgF() {
         if (this.ieD.getParent() != null) {
             ((ViewGroup) this.ieD.getParent()).removeView(this.ieD);
             this.ieD = null;
@@ -74,14 +74,14 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof String) {
-            cgE();
+            cgF();
         } else if (view == this.dnB) {
             this.ieD = null;
-            com.baidu.tieba.frs.a.bWV().reset();
+            com.baidu.tieba.frs.a.bWW().reset();
         } else if (view == this.ieB) {
-            if (this.mPageContext == null || this.ieD != null || w.isEmpty(com.baidu.tieba.frs.a.bWV().bWZ())) {
+            if (this.mPageContext == null || this.ieD != null || w.isEmpty(com.baidu.tieba.frs.a.bWW().bXa())) {
                 if (this.ieD == null && getContext() != null) {
-                    new BdTopToast(getContext()).vz(false).OI(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_choose_empty)).aE((ViewGroup) getParent());
+                    new BdTopToast(getContext()).vz(false).OJ(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_choose_empty)).aE((ViewGroup) getParent());
                     return;
                 }
                 return;
@@ -90,7 +90,7 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
             this.ieD.setOnClickListener(this);
             ((ViewGroup) getParent()).addView(this.ieD, -1, -1);
         } else if (this.ieD != null && view == this.ieD) {
-            cgE();
+            cgF();
         }
     }
 

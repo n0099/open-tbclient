@@ -126,12 +126,12 @@ public abstract class a<T extends AbsThreadDataSupport> extends b<T> {
     public void aN(ViewGroup viewGroup) {
         e(viewGroup, aP(viewGroup));
         aO(viewGroup);
-        bNZ();
         bOa();
-        bNY();
+        bOb();
+        bNZ();
     }
 
-    private void bNY() {
+    private void bNZ() {
         if (this.gOH == null || this.gOH.getVisibility() != 0) {
             setMarginsTop(this.fRI, bh(R.dimen.tbds20));
             setMarginsTop(this.gOF, bh(R.dimen.tbds20));
@@ -141,7 +141,7 @@ public abstract class a<T extends AbsThreadDataSupport> extends b<T> {
         setMarginsTop(this.gOF, 0);
     }
 
-    private void bNZ() {
+    private void bOa() {
         if (this.aea != null && this.aea.aPS() != null && this.gOH != null) {
             if (this.aea.aPY() || this.aea.aQa()) {
                 this.gOH.setData(this.aea.aPS());
@@ -151,7 +151,7 @@ public abstract class a<T extends AbsThreadDataSupport> extends b<T> {
         }
     }
 
-    public void bOa() {
+    public void bOb() {
         if (this.aea != null && this.aea.aPS() != null) {
             bu aPS = this.aea.aPS();
             if (this.aea.aPZ()) {
@@ -260,7 +260,7 @@ public abstract class a<T extends AbsThreadDataSupport> extends b<T> {
                 this.gOG = new FollowUserDecorView(this.dPv.getPageActivity());
                 viewGroup.addView(this.gOG);
             }
-            if (bOb()) {
+            if (bOc()) {
                 boolean aPZ = this.aea.aPZ();
                 this.gOG.setPageUniqueId(this.mBdUniqueId);
                 this.gOG.setSvgIconResId(this.aea.aQb() ? R.drawable.icon_pure_add12_svg : 0);
@@ -280,7 +280,7 @@ public abstract class a<T extends AbsThreadDataSupport> extends b<T> {
         }
     }
 
-    private boolean bOb() {
+    private boolean bOc() {
         if (this.aea == null || this.aea.aPS() == null || this.aea.aPS().aSp() == null) {
             return false;
         }

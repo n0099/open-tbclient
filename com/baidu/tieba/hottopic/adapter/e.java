@@ -45,8 +45,8 @@ public class e {
 
     public void a(com.baidu.tieba.hottopic.data.e eVar) {
         ArrayList<q> arrayList;
-        if (eVar.clL() != null) {
-            arrayList = eVar.clL();
+        if (eVar.clM() != null) {
+            arrayList = eVar.clM();
         } else {
             arrayList = new ArrayList<>();
         }

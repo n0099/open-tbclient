@@ -11,11 +11,11 @@ import tbclient.ForumRecommend.LikeForum;
 public class g {
     private ArrayList<f> hbQ = new ArrayList<>();
 
-    public ArrayList<f> bRu() {
+    public ArrayList<f> bRv() {
         return this.hbQ;
     }
 
-    public void bRv() {
+    public void bRw() {
         Iterator<f> it = this.hbQ.iterator();
         while (it.hasNext()) {
             it.next().tn(0);

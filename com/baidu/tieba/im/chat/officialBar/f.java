@@ -69,7 +69,7 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!f.this.iNp) {
-                    if (f.this.iNo.cnS()) {
+                    if (f.this.iNo.cnT()) {
                         f.this.iNv.setVisibility(0);
                     }
                     f.this.a(officialBarTipActivity, true);
@@ -108,7 +108,7 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
         this.iNt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.f.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                officialBarTipActivity.cnP();
+                officialBarTipActivity.cnQ();
                 f.this.a(officialBarTipActivity, false);
             }
         });
@@ -130,11 +130,11 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
         });
     }
 
-    public BdListView cnV() {
+    public BdListView cnW() {
         return this.iNm;
     }
 
-    public OfficialBarTipListAdapter cnW() {
+    public OfficialBarTipListAdapter cnX() {
         return this.iNn;
     }
 
@@ -144,7 +144,7 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
             this.iNq.setVisibility(0);
             this.iNn.oW(true);
             this.iNn.notifyDataSetChanged();
-            if (officialBarTipActivity.cnQ()) {
+            if (officialBarTipActivity.cnR()) {
                 pa(true);
             } else {
                 pa(false);
@@ -153,7 +153,7 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
             this.iNv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.f.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    f.this.iNo.cnR();
+                    f.this.iNo.cnS();
                     f.this.a(officialBarTipActivity, false);
                 }
             });

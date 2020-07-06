@@ -12,57 +12,57 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes.dex */
 public final class c {
-    private boolean nAA;
-    private HashMap<String, Boolean> nAt = new HashMap<>();
-    private HashMap<String, Bitmap> nAu = new HashMap<>();
-    private HashMap<String, String> nAv = new HashMap<>();
-    private HashMap<String, TextPaint> nAw = new HashMap<>();
-    private HashMap<String, StaticLayout> nAx = new HashMap<>();
-    private HashMap<String, m<Canvas, Integer, Boolean>> nAy = new HashMap<>();
-    private HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> nAz = new HashMap<>();
+    private boolean nAD;
+    private HashMap<String, Boolean> nAw = new HashMap<>();
+    private HashMap<String, Bitmap> nAx = new HashMap<>();
+    private HashMap<String, String> nAy = new HashMap<>();
+    private HashMap<String, TextPaint> nAz = new HashMap<>();
+    private HashMap<String, StaticLayout> nAA = new HashMap<>();
+    private HashMap<String, m<Canvas, Integer, Boolean>> nAB = new HashMap<>();
+    private HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> nAC = new HashMap<>();
 
-    public final HashMap<String, Boolean> dLu() {
-        return this.nAt;
-    }
-
-    public final HashMap<String, Bitmap> dLv() {
-        return this.nAu;
-    }
-
-    public final HashMap<String, String> dLw() {
-        return this.nAv;
-    }
-
-    public final HashMap<String, TextPaint> dLx() {
+    public final HashMap<String, Boolean> dLy() {
         return this.nAw;
     }
 
-    public final HashMap<String, StaticLayout> dLy() {
+    public final HashMap<String, Bitmap> dLz() {
         return this.nAx;
     }
 
-    public final HashMap<String, m<Canvas, Integer, Boolean>> dLz() {
+    public final HashMap<String, String> dLA() {
         return this.nAy;
     }
 
-    public final HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> dLA() {
+    public final HashMap<String, TextPaint> dLB() {
         return this.nAz;
     }
 
-    public final boolean dLB() {
+    public final HashMap<String, StaticLayout> dLC() {
         return this.nAA;
     }
 
+    public final HashMap<String, m<Canvas, Integer, Boolean>> dLD() {
+        return this.nAB;
+    }
+
+    public final HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> dLE() {
+        return this.nAC;
+    }
+
+    public final boolean dLF() {
+        return this.nAD;
+    }
+
     public final void xg(boolean z) {
-        this.nAA = z;
+        this.nAD = z;
     }
 
     public final void a(String str, TextPaint textPaint, String str2) {
         q.m(str, "text");
         q.m(textPaint, "textPaint");
         q.m(str2, "forKey");
-        this.nAA = true;
-        this.nAv.put(str2, str);
-        this.nAw.put(str2, textPaint);
+        this.nAD = true;
+        this.nAy.put(str2, str);
+        this.nAz.put(str2, textPaint);
     }
 }

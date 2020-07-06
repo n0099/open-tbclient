@@ -68,13 +68,13 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
                 String str = null;
                 if (view.getId() == R.id.btn_wrapper_title_expand_video_info_item) {
                     if (c.this.Up != null) {
-                        int cQF = ((com.baidu.tieba.pb.videopb.e.b) c.this.Up).cQF();
-                        if (cQF == 1) {
+                        int cQG = ((com.baidu.tieba.pb.videopb.e.b) c.this.Up).cQG();
+                        if (cQG == 1) {
                             ((com.baidu.tieba.pb.videopb.e.b) c.this.Up).BZ(2);
-                        } else if (cQF == 2) {
+                        } else if (cQG == 2) {
                             ((com.baidu.tieba.pb.videopb.e.b) c.this.Up).BZ(1);
                         }
-                        if (c.this.kcE.cHp()) {
+                        if (c.this.kcE.cHq()) {
                             ((com.baidu.tieba.pb.videopb.e.b) c.this.Up).kAc.setVisibility(8);
                         } else {
                             ((com.baidu.tieba.pb.videopb.e.b) c.this.Up).kAc.setVisibility(0);
@@ -183,7 +183,7 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, PostData postData, com.baidu.tieba.pb.videopb.e.b bVar) {
-        if (this.kcE != null && this.kcE.cGN() != null && postData != null) {
+        if (this.kcE != null && this.kcE.cGO() != null && postData != null) {
             com.baidu.tieba.pb.c.a.a(this.fHI.getUniqueId(), this.kcE, postData, 1, 1);
             a(bVar);
             a(bVar, postData);
@@ -198,7 +198,7 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
             String userId = postData.aSp().getUserId();
             String forumId = this.kcE != null ? this.kcE.getForumId() : "";
             String forumName = this.kcE != null ? this.kcE.getForumName() : "";
-            int dhY = postData.dhY();
+            int dhZ = postData.dhZ();
             String id = postData.getId();
             ao aoVar = new ao("c13714");
             aoVar.dk("fid", forumId);
@@ -206,7 +206,7 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
             aoVar.dk("obj_param1", userId);
             aoVar.dk("uid", TbadkCoreApplication.getCurrentAccount());
             aoVar.dk("tid", id);
-            aoVar.ag(TiebaInitialize.Params.OBJ_PARAM2, dhY);
+            aoVar.ag(TiebaInitialize.Params.OBJ_PARAM2, dhZ);
             TiebaStatic.log(aoVar);
         }
     }
@@ -216,24 +216,24 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
     }
 
     private void a(com.baidu.tieba.pb.videopb.e.b bVar, PostData postData) {
-        if (this.kcE != null && this.kcE.cGN() != null && this.kcE.cGN().aSp() != null && postData != null) {
-            a(bVar, this.kcE.cGN().aSp(), postData);
-            a(bVar, this.kcE.cGN().aSp());
-            b(bVar, this.kcE.cGN().aSp());
-            c(bVar, this.kcE.cGN().aSp());
+        if (this.kcE != null && this.kcE.cGO() != null && this.kcE.cGO().aSp() != null && postData != null) {
+            a(bVar, this.kcE.cGO().aSp(), postData);
+            a(bVar, this.kcE.cGO().aSp());
+            b(bVar, this.kcE.cGO().aSp());
+            c(bVar, this.kcE.cGO().aSp());
             c(bVar, postData);
-            d(bVar, this.kcE.cGN().aSp());
-            e(bVar, this.kcE.cGN().aSp());
-            b(bVar, this.kcE.cGN().aSp(), postData);
+            d(bVar, this.kcE.cGO().aSp());
+            e(bVar, this.kcE.cGO().aSp());
+            b(bVar, this.kcE.cGO().aSp(), postData);
         }
     }
 
     private void b(com.baidu.tieba.pb.videopb.e.b bVar, PostData postData) {
         String formatTime;
-        if (this.kcE != null && this.kcE.cGN() != null && postData != null) {
-            bVar.s(this.kcE.cGN().getTitle());
-            if (this.kcE.cGN().aSH() != null) {
-                bVar.eLb.setText(ar.numberUniformFormatExtra(this.kcE.cGN().aSH().play_count.intValue()) + this.mContext.getString(R.string.play));
+        if (this.kcE != null && this.kcE.cGO() != null && postData != null) {
+            bVar.s(this.kcE.cGO().getTitle());
+            if (this.kcE.cGO().aSH() != null) {
+                bVar.eLb.setText(ar.numberUniformFormatExtra(this.kcE.cGO().aSH().play_count.intValue()) + this.mContext.getString(R.string.play));
             }
             if (StringUtils.SimpleDateFormat(new Date(), "yyyy").equals(StringUtils.SimpleDateFormat(new Date(postData.getTime()), "yyyy"))) {
                 formatTime = ar.getFormatTimeShort(postData.getTime());
@@ -241,9 +241,9 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
                 formatTime = ar.getFormatTime(postData.getTime());
             }
             bVar.kAb.setText(formatTime + this.mContext.getString(R.string.send_post));
-            f dib = postData.dib();
-            if (dib != null && !TextUtils.isEmpty(dib.getName()) && !TextUtils.isEmpty(dib.getName().trim())) {
-                bVar.kAc.setText(dib.getName());
+            f dic = postData.dic();
+            if (dic != null && !TextUtils.isEmpty(dic.getName()) && !TextUtils.isEmpty(dic.getName().trim())) {
+                bVar.kAc.setText(dic.getName());
                 bVar.kAc.setVisibility(0);
                 return;
             }
@@ -254,9 +254,9 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
     private void a(com.baidu.tieba.pb.videopb.e.b bVar) {
         if (this.kcE != null) {
             this.kyv = this.kcE.jYP;
-            if (this.kcE.cGN() != null) {
-                this.kyx = this.kcE.cGN().aSl() == 1;
-                this.kyw = this.kcE.cGN().aSk() == 1;
+            if (this.kcE.cGO() != null) {
+                this.kyx = this.kcE.cGO().aSl() == 1;
+                this.kyw = this.kcE.cGO().aSk() == 1;
             }
             bVar.i(this.kyv, this.kyx, this.kyw);
         }
@@ -314,7 +314,7 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
         if (this.kcE != null && metaData != null) {
             this.kyt = metaData.getIs_bawu() == 1;
             this.kyu = metaData.getBawu_type();
-            if (this.kcE.cHp()) {
+            if (this.kcE.cHq()) {
                 bVar.kzS.setVisibility(8);
             } else if (this.kyt && Config.BAWU_TYPE_MANAGER.equals(this.kyu)) {
                 bVar.kzS.setText(R.string.bawu_member_bazhu_tip);
@@ -331,13 +331,13 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
     }
 
     private void c(com.baidu.tieba.pb.videopb.e.b bVar, PostData postData) {
-        if (this.kcE != null && this.kcE.cGN() != null) {
+        if (this.kcE != null && this.kcE.cGO() != null) {
             this.kpG = 0;
-            if (!this.kcE.cGN().aTM()) {
+            if (!this.kcE.cGO().aTM()) {
                 if (postData != null && postData.aSp() != null) {
                     this.kpG = postData.aSp().getLevel_id();
                 }
-                if (!this.kcE.cHp()) {
+                if (!this.kcE.cHq()) {
                     bVar.kzT.setVisibility(0);
                     bVar.BY(this.kpG);
                     return;
@@ -392,7 +392,7 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
             postData.aSp().setIsLike(postData.aSp().hadConcerned());
             this.kpB.a(postData.aSp());
             this.kpB.setTid(threadId);
-            this.kpB.setThreadData(this.kcE.cGN());
+            this.kpB.setThreadData(this.kcE.cGO());
             this.kpB.klT = true;
             this.kpB.BA(r);
             if (ar.equals(TbadkCoreApplication.getCurrentAccount(), metaData.getUserId())) {
@@ -419,11 +419,11 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
     }
 
     private int r(e eVar) {
-        if (eVar == null || eVar.cGN() == null) {
+        if (eVar == null || eVar.cGO() == null) {
             return 0;
         }
-        if (eVar.cGN().aTM()) {
-            return (w.isEmpty(eVar.cHj()) && (eVar.cGM() == null || StringUtils.isNull(eVar.cGM().getForumName()))) ? 0 : 2;
+        if (eVar.cGO().aTM()) {
+            return (w.isEmpty(eVar.cHk()) && (eVar.cGN() == null || StringUtils.isNull(eVar.cGN().getForumName()))) ? 0 : 2;
         }
         return 1;
     }

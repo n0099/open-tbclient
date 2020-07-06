@@ -18,7 +18,7 @@ public class a {
     private String otherParams;
     private DetailPraiseView.a gpV = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
         @Override // com.baidu.tieba.ala.liveroom.praise.DetailPraiseView.a
-        public void bIZ() {
+        public void bJa() {
             if (a.this.gpT != null) {
                 a.this.gpT.l(a.this.gpS, 12);
             }
@@ -83,9 +83,9 @@ public class a {
         }
     }
 
-    public void byd() {
+    public void bye() {
         if (this.gpS != null) {
-            this.gpS.byd();
+            this.gpS.bye();
         }
     }
 

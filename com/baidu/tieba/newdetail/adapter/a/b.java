@@ -41,8 +41,8 @@ public class b extends a<bu, ak<bu>> {
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, bu buVar) {
-                s.bOA().jI(true);
-                com.baidu.tieba.a.d.boA().dh("page_recommend", "show_");
+                s.bOB().jI(true);
+                com.baidu.tieba.a.d.boB().dh("page_recommend", "show_");
                 if (view != null && buVar != null && buVar.aPS() != null && !StringUtils.isNull(buVar.aPS().getTid())) {
                     b.this.f(view, buVar);
                 }

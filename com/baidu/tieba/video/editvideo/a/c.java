@@ -20,8 +20,8 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class c extends BaseAdapter {
     private e dPR;
-    public int lWs;
-    public String lWt;
+    public int lWv;
+    public String lWw;
     private List<MusicData> mList;
 
     public c(e eVar) {
@@ -31,7 +31,7 @@ public class c extends BaseAdapter {
     public void setData(List<MusicData> list) {
         if (list != null) {
             this.mList = list;
-            NZ(this.lWt);
+            Oa(this.lWw);
             notifyDataSetChanged();
         }
     }
@@ -67,17 +67,17 @@ public class c extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.dPR.getPageActivity()).inflate(R.layout.layout_music_item, (ViewGroup) null);
             aVar = new a();
-            aVar.lVz = (TbImageView) view.findViewById(R.id.music_image);
-            aVar.lVC = (TextView) view.findViewById(R.id.music_title);
-            aVar.lVB = view.findViewById(R.id.music_loading);
-            aVar.lVz.setDrawerType(1);
-            aVar.lVz.setIsRound(true);
-            aVar.lVz.setDefaultBgResource(R.color.transparent);
-            aVar.lVz.setDefaultErrorResource(R.drawable.bg_video_cloudmusic);
-            aVar.lVz.setDefaultResource(R.drawable.bg_video_cloudmusic);
-            aVar.lVz.setBorderWidth(l.getDimens(this.dPR.getPageActivity(), R.dimen.ds4));
-            aVar.lVz.setBorderColor(an.getColor(R.color.cp_link_tip_a));
-            aVar.lVz.setConrers(15);
+            aVar.lVC = (TbImageView) view.findViewById(R.id.music_image);
+            aVar.lVF = (TextView) view.findViewById(R.id.music_title);
+            aVar.lVE = view.findViewById(R.id.music_loading);
+            aVar.lVC.setDrawerType(1);
+            aVar.lVC.setIsRound(true);
+            aVar.lVC.setDefaultBgResource(R.color.transparent);
+            aVar.lVC.setDefaultErrorResource(R.drawable.bg_video_cloudmusic);
+            aVar.lVC.setDefaultResource(R.drawable.bg_video_cloudmusic);
+            aVar.lVC.setBorderWidth(l.getDimens(this.dPR.getPageActivity(), R.dimen.ds4));
+            aVar.lVC.setBorderColor(an.getColor(R.color.cp_link_tip_a));
+            aVar.lVC.setConrers(15);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -86,23 +86,23 @@ public class c extends BaseAdapter {
         if (musicData != null) {
             switch (musicData.editMusicType) {
                 case 1:
-                    aVar.lVz.startLoad(String.valueOf((int) R.drawable.icon_video_mute), 24, false);
+                    aVar.lVC.startLoad(String.valueOf((int) R.drawable.icon_video_mute), 24, false);
                     break;
                 case 2:
-                    aVar.lVz.startLoad(String.valueOf((int) R.drawable.icon_video_cloudmusic), 24, false);
+                    aVar.lVC.startLoad(String.valueOf((int) R.drawable.icon_video_cloudmusic), 24, false);
                     break;
                 default:
-                    aVar.lVz.startLoad(musicData.img, 10, false);
+                    aVar.lVC.startLoad(musicData.img, 10, false);
                     break;
             }
-            aVar.lVB.setVisibility(4);
-            aVar.lVC.setTextColor(an.getColor(R.color.cp_cont_j));
-            aVar.lVC.setText(musicData.name);
-            b(aVar.lVC, l.getDimens(this.dPR.getPageActivity(), R.dimen.ds120), musicData.name);
-            if (i == this.lWs) {
-                aVar.lVz.setDrawBorder(true);
+            aVar.lVE.setVisibility(4);
+            aVar.lVF.setTextColor(an.getColor(R.color.cp_cont_j));
+            aVar.lVF.setText(musicData.name);
+            b(aVar.lVF, l.getDimens(this.dPR.getPageActivity(), R.dimen.ds120), musicData.name);
+            if (i == this.lWv) {
+                aVar.lVC.setDrawBorder(true);
             } else {
-                aVar.lVz.setDrawBorder(false);
+                aVar.lVC.setDrawBorder(false);
             }
             if (i == 0) {
                 view.setPadding(l.getDimens(this.dPR.getPageActivity(), R.dimen.ds34), l.getDimens(this.dPR.getPageActivity(), R.dimen.ds44), 0, 0);
@@ -123,12 +123,12 @@ public class c extends BaseAdapter {
     }
 
     public void FZ(int i) {
-        this.lWs = i;
+        this.lWv = i;
         notifyDataSetChanged();
     }
 
-    public void NZ(String str) {
-        this.lWt = str;
+    public void Oa(String str) {
+        this.lWw = str;
         if (!TextUtils.isEmpty(str) && this.mList != null) {
             int i = -1;
             for (int i2 = 0; i2 < this.mList.size(); i2++) {
@@ -139,12 +139,12 @@ public class c extends BaseAdapter {
             if (i == -1) {
                 i = 1;
             }
-            this.lWs = i;
+            this.lWv = i;
         }
     }
 
-    public int dmL() {
-        return this.lWs;
+    public int dmP() {
+        return this.lWv;
     }
 
     public void b(TextView textView, int i, String str) {
@@ -162,9 +162,9 @@ public class c extends BaseAdapter {
 
     /* loaded from: classes10.dex */
     public class a {
-        public View lVB;
-        public TextView lVC;
-        public TbImageView lVz;
+        public TbImageView lVC;
+        public View lVE;
+        public TextView lVF;
 
         public a() {
         }

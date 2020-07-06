@@ -97,8 +97,8 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
         builder.request_times = Integer.valueOf(this.requestTime);
         builder.invoke_source = this.sourceFrom;
-        builder.ad_context_list = com.baidu.tieba.recapp.report.b.cZK().cZL();
-        builder.app_pos = com.baidu.tieba.recapp.d.a.cZF().cZJ();
+        builder.ad_context_list = com.baidu.tieba.recapp.report.b.cZL().cZM();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.cZG().cZK();
         if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
             ay pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
             builder.from_tid = Long.valueOf(com.baidu.adp.lib.f.b.toLong(pbToHomeUpdateData.tid, 0L));

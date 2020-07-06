@@ -166,13 +166,13 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
         }
     }
 
-    public void byc() {
+    public void byd() {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < this.fMx.getChildCount()) {
                 if (this.fMx.getChildAt(i2) instanceof GuardClubRankHeaderAvatarItemView) {
-                    ((GuardClubRankHeaderAvatarItemView) this.fMx.getChildAt(i2)).bxZ();
+                    ((GuardClubRankHeaderAvatarItemView) this.fMx.getChildAt(i2)).bya();
                 }
                 i = i2 + 1;
             } else {
@@ -181,13 +181,13 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
         }
     }
 
-    public void bxz() {
+    public void bxA() {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < this.fMx.getChildCount()) {
                 if (this.fMx.getChildAt(i2) instanceof GuardClubRankHeaderAvatarItemView) {
-                    ((GuardClubRankHeaderAvatarItemView) this.fMx.getChildAt(i2)).bya();
+                    ((GuardClubRankHeaderAvatarItemView) this.fMx.getChildAt(i2)).byb();
                 }
                 i = i2 + 1;
             } else {

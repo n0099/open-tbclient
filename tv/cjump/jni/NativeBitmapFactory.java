@@ -10,9 +10,9 @@ import android.util.Log;
 import java.lang.reflect.Field;
 /* loaded from: classes5.dex */
 public class NativeBitmapFactory {
-    static Field opA = null;
-    static boolean opB = false;
-    static boolean opC = false;
+    static Field opD = null;
+    static boolean opE = false;
+    static boolean opF = false;
 
     private static native Bitmap createBitmap(int i, int i2, int i3, boolean z);
 
@@ -22,69 +22,69 @@ public class NativeBitmapFactory {
 
     private static native boolean release();
 
-    public static boolean dXl() {
-        return Build.VERSION.SDK_INT < 11 || (opB && opA != null);
+    public static boolean dXp() {
+        return Build.VERSION.SDK_INT < 11 || (opE && opD != null);
     }
 
-    public static void dXm() {
-        if (!opC) {
+    public static void dXq() {
+        if (!opF) {
             if (!DeviceUtils.isRealARMArch() && !DeviceUtils.isRealX86Arch()) {
-                opC = true;
-                opB = false;
-            } else if (!opB) {
+                opF = true;
+                opE = false;
+            } else if (!opE) {
                 try {
                     if (Build.VERSION.SDK_INT >= 11 && Build.VERSION.SDK_INT < 23) {
                         System.loadLibrary("ndkbitmap");
-                        opB = true;
+                        opE = true;
                     } else {
-                        opC = true;
-                        opB = false;
+                        opF = true;
+                        opE = false;
                     }
                 } catch (Error e) {
                     e.printStackTrace();
-                    opC = true;
-                    opB = false;
+                    opF = true;
+                    opE = false;
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    opC = true;
-                    opB = false;
+                    opF = true;
+                    opE = false;
                 }
-                if (opB) {
+                if (opE) {
                     if (!init()) {
                         release();
-                        opC = true;
-                        opB = false;
+                        opF = true;
+                        opE = false;
                     } else {
-                        dXo();
-                        if (!dXp()) {
+                        dXs();
+                        if (!dXt()) {
                             release();
-                            opC = true;
-                            opB = false;
+                            opF = true;
+                            opE = false;
                         }
                     }
                 }
-                Log.e("NativeBitmapFactory", "loaded" + opB);
+                Log.e("NativeBitmapFactory", "loaded" + opE);
             }
         }
     }
 
-    public static synchronized void dXn() {
+    public static synchronized void dXr() {
         synchronized (NativeBitmapFactory.class) {
-            boolean z = opB;
-            opA = null;
-            opB = false;
+            boolean z = opE;
+            opD = null;
+            opE = false;
             if (z) {
                 release();
             }
         }
     }
 
-    static void dXo() {
+    static void dXs() {
         try {
-            opA = Bitmap.Config.class.getDeclaredField("nativeInt");
-            opA.setAccessible(true);
+            opD = Bitmap.Config.class.getDeclaredField("nativeInt");
+            opD.setAccessible(true);
         } catch (NoSuchFieldException e) {
-            opA = null;
+            opD = null;
             e.printStackTrace();
         }
     }
@@ -100,11 +100,11 @@ public class NativeBitmapFactory {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static boolean dXp() {
+    private static boolean dXt() {
         Bitmap bitmap;
         boolean z;
         boolean z2 = true;
-        if (opA == null) {
+        if (opD == null) {
             return false;
         }
         Bitmap bitmap2 = null;
@@ -178,10 +178,10 @@ public class NativeBitmapFactory {
 
     public static int f(Bitmap.Config config) {
         try {
-            if (opA == null) {
+            if (opD == null) {
                 return 0;
             }
-            return opA.getInt(config);
+            return opD.getInt(config);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
             return 0;
@@ -198,7 +198,7 @@ public class NativeBitmapFactory {
     public static synchronized Bitmap a(int i, int i2, Bitmap.Config config, boolean z) {
         Bitmap createBitmap;
         synchronized (NativeBitmapFactory.class) {
-            createBitmap = (!opB || opA == null) ? Bitmap.createBitmap(i, i2, config) : b(i, i2, config, z);
+            createBitmap = (!opE || opD == null) ? Bitmap.createBitmap(i, i2, config) : b(i, i2, config, z);
         }
         return createBitmap;
     }

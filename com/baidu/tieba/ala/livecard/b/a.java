@@ -122,13 +122,13 @@ public class a extends com.baidu.tieba.card.b<g> implements y {
     public void a(g gVar) {
         if (gVar != null) {
             this.fSg = gVar;
-            bzh();
+            bzi();
             this.fSe.setData(gVar.lDC);
             onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void bzh() {
+    private void bzi() {
         if (!w.isEmpty(this.fSg.lDC)) {
             CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_CARD_SHOW);
             customMessage.setData(this.fSg.lDC.get(0));

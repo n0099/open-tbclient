@@ -37,7 +37,7 @@ public class h {
         public String notify;
     }
 
-    public boolean bEo() {
+    public boolean bEp() {
         return this.ggC == 0;
     }
 

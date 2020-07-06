@@ -6,10 +6,10 @@ public class w {
     }
 
     public static void n(Object obj, String str) {
-        Sv((obj == null ? "null" : obj.getClass().getName()) + " cannot be cast to " + str);
+        Sw((obj == null ? "null" : obj.getClass().getName()) + " cannot be cast to " + str);
     }
 
-    public static void Sv(String str) {
+    public static void Sw(String str) {
         throw a(new ClassCastException(str));
     }
 

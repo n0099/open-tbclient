@@ -58,11 +58,11 @@ public class b extends d {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cQx() {
+    public void cQy() {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cQw() {
+    public void cQx() {
         this.kWz = 32;
     }
 
@@ -70,25 +70,25 @@ public class b extends d {
     public void onClick(View view) {
         if (view != null) {
             if (view.getId() == R.id.video_mute) {
-                cWp();
+                cWq();
                 return;
             }
             if (!j.isNetWorkAvailable()) {
                 l.showToast(this.mContext, (int) R.string.no_network_guide);
             } else if (this.ajN) {
-                bOj();
+                bOk();
             } else if ("index".equals(this.mFrom) || "frs".equals(this.mFrom) || "concern_tab".equals(this.mFrom) || "video_tab".equals(this.mFrom) || "14".equals(this.mFrom)) {
-                bOk();
+                bOl();
             } else {
-                bOk();
+                bOl();
             }
             if (this.ahw != null) {
-                this.ahw.onClick(cUU());
+                this.ahw.onClick(cUV());
             }
         }
     }
 
-    private void bOj() {
+    private void bOk() {
         if (this.kWf != null) {
             ArrayList arrayList = new ArrayList();
             if (this.kWg != null) {
@@ -103,7 +103,7 @@ public class b extends d {
         }
     }
 
-    private void bOk() {
+    private void bOl() {
         if (this.icg != null) {
             if (this.kWg != null) {
                 this.icg.copyFromThreadInfo(this.kWg);
@@ -123,18 +123,18 @@ public class b extends d {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cQu() {
+    public void cQv() {
         if (this.kWG == this.kWy) {
-            cWh();
+            cWi();
         }
     }
 
-    public void cWh() {
+    public void cWi() {
         BW(this.kWz);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public boolean cWg() {
+    public boolean cWh() {
         return false;
     }
 }

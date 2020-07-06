@@ -35,23 +35,23 @@ public class a {
     private final NewWriteModel.d evL = new NewWriteModel.d() { // from class: com.baidu.tieba.pb.pb.main.emotion.model.a.2
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ad adVar, WriteData writeData, AntiData antiData) {
-            WriteData dev = writeData == null ? a.this.evx.dev() : writeData;
+            WriteData dew = writeData == null ? a.this.evx.dew() : writeData;
             if (z) {
                 a.this.resetData();
-            } else if (dev != null && adVar != null && !TextUtils.isEmpty(adVar.bar())) {
-                dev.setVcodeMD5(adVar.getVcode_md5());
-                dev.setVcodeUrl(adVar.getVcode_pic_url());
-                dev.setVcodeExtra(adVar.bas());
+            } else if (dew != null && adVar != null && !TextUtils.isEmpty(adVar.bar())) {
+                dew.setVcodeMD5(adVar.getVcode_md5());
+                dew.setVcodeUrl(adVar.getVcode_pic_url());
+                dew.setVcodeExtra(adVar.bas());
                 if (com.baidu.tbadk.t.a.zq(adVar.bar())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.hep.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_VCODE_FROM_EMOTION, dev, false, adVar.bar())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.hep.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_VCODE_FROM_EMOTION, dew, false, adVar.bar())));
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.hep.getPageContext().getPageActivity(), dev, RequestResponseCode.REQUEST_VCODE_FROM_EMOTION)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.hep.getPageContext().getPageActivity(), dew, RequestResponseCode.REQUEST_VCODE_FROM_EMOTION)));
                 }
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(a.this.hep.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_VCODE_FROM_EMOTION, dev, postWriteCallBackData.getAccessState())));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(a.this.hep.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_VCODE_FROM_EMOTION, dew, postWriteCallBackData.getAccessState())));
             }
             if (a.this.keM != null) {
-                a.this.keM.callback(z, postWriteCallBackData, adVar, dev, antiData);
+                a.this.keM.callback(z, postWriteCallBackData, adVar, dew, antiData);
             }
         }
     };
@@ -119,44 +119,44 @@ public class a {
     public void b(EmotionImageData emotionImageData, PbModel pbModel, e eVar) {
         boolean z = true;
         if (emotionImageData != null && eVar != null) {
-            if (this.evx.dev() == null && pbModel != null) {
+            if (this.evx.dew() == null && pbModel != null) {
                 this.evx.d(pbModel.yy(null));
             }
-            if (this.evx.dev() != null) {
-                if (eVar.cGN().aTM()) {
-                    this.evx.dev().setCanNoForum(true);
+            if (this.evx.dew() != null) {
+                if (eVar.cGO().aTM()) {
+                    this.evx.dew().setCanNoForum(true);
                     if (eVar.getForum() != null) {
-                        this.evx.dev().setVForumId(eVar.getForum().getId());
-                        this.evx.dev().setVForumName(eVar.getForum().getName());
+                        this.evx.dew().setVForumId(eVar.getForum().getId());
+                        this.evx.dew().setVForumName(eVar.getForum().getName());
                     }
                 } else {
-                    this.evx.dev().setCanNoForum(false);
-                    this.evx.dev().setVForumId("");
-                    this.evx.dev().setVForumName("");
+                    this.evx.dew().setCanNoForum(false);
+                    this.evx.dew().setVForumId("");
+                    this.evx.dew().setVForumName("");
                 }
-                WriteData dev = this.evx.dev();
-                if (this.evw == null || !this.evw.bKs()) {
+                WriteData dew = this.evx.dew();
+                if (this.evw == null || !this.evw.bKt()) {
                     z = false;
                 }
-                dev.setHasLocationData(z);
+                dew.setHasLocationData(z);
                 StringBuilder sb = new StringBuilder("meme,");
                 sb.append(emotionImageData.getPicId()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 sb.append(emotionImageData.getWidth()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 sb.append(emotionImageData.getHeight()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 String str = "#(" + sb.toString() + s.toMd5(sb.toString() + "7S6wbXjEKL9N").toLowerCase() + ")";
                 if (StringUtils.isNull(emotionImageData.getAuthorNameShow())) {
-                    this.evx.dev().setContent(str);
+                    this.evx.dew().setContent(str);
                 } else {
-                    this.evx.dev().setContent(Km(emotionImageData.getAuthorNameShow()) + str);
+                    this.evx.dew().setContent(Km(emotionImageData.getAuthorNameShow()) + str);
                 }
                 if (!TextUtils.isEmpty(emotionImageData.getMemeContSign())) {
-                    this.evx.dev().setMemeContSign(emotionImageData.getMemeContSign());
+                    this.evx.dew().setMemeContSign(emotionImageData.getMemeContSign());
                 }
                 if (!TextUtils.isEmpty(emotionImageData.getMemeText())) {
-                    this.evx.dev().setMemeText(emotionImageData.getMemeText());
+                    this.evx.dew().setMemeText(emotionImageData.getMemeText());
                 }
                 this.evx.b(this.evL);
-                if (!this.evx.djn()) {
+                if (!this.evx.djo()) {
                 }
             }
         }
@@ -187,10 +187,10 @@ public class a {
         if (i2 == -1) {
             if (i == 25017) {
                 if (intent != null) {
-                    WriteData dev = this.evx != null ? this.evx.dev() : null;
+                    WriteData dew = this.evx != null ? this.evx.dew() : null;
                     resetData();
                     if (this.keM != null) {
-                        this.keM.callback(true, null, null, dev, null);
+                        this.keM.callback(true, null, null, dew, null);
                     }
                 }
             } else if (i == 11042) {

@@ -6,7 +6,7 @@ public final class a {
 
     /* renamed from: com.kascend.chushou.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C0814a {
+    public static final class C0815a {
         public static final int abc_fade_in = 2130968576;
         public static final int abc_fade_out = 2130968577;
         public static final int abc_grow_fade_in_from_bottom = 2130968578;
@@ -1881,7 +1881,7 @@ public final class a {
         public static final int toolbar = 2131694185;
 
         /* renamed from: top  reason: collision with root package name */
-        public static final int f1044top = 2131689833;
+        public static final int f1045top = 2131689833;
         public static final int topKeyboardView = 2131698824;
         public static final int topPanel = 2131690081;
         public static final int topRight = 2131698832;

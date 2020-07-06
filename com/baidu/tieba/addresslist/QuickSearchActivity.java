@@ -54,7 +54,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     private void initViews() {
         this.eZS = findViewById(R.id.quick_search_parent);
         adjustResizeForSoftInput();
-        bpw();
+        bpx();
         this.eZW = (ListView) findViewById(R.id.quick_search_result);
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
@@ -85,7 +85,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         });
     }
 
-    private void bpw() {
+    private void bpx() {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.QuickSearchActivity.3
             @Override // android.view.View.OnClickListener

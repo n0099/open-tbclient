@@ -178,7 +178,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String cDH() {
+    public String cDI() {
         return this.threadName;
     }
 
@@ -210,7 +210,7 @@ public class a implements f {
         this.postID = str;
     }
 
-    public boolean cDI() {
+    public boolean cDJ() {
         return this.isHostOnly;
     }
 
@@ -218,7 +218,7 @@ public class a implements f {
         this.isHostOnly = z;
     }
 
-    public boolean cDJ() {
+    public boolean cDK() {
         return this.isSquence;
     }
 
@@ -250,7 +250,7 @@ public class a implements f {
         this.description = str;
     }
 
-    public boolean cDK() {
+    public boolean cDL() {
         return this.jMK;
     }
 

@@ -4,45 +4,45 @@ import com.facebook.drawee.a.a.a.h;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes13.dex */
 public class c extends com.facebook.imagepipeline.h.a {
-    private final h mKR;
-    private final com.facebook.common.time.b mKY;
+    private final h mKU;
+    private final com.facebook.common.time.b mLb;
 
     public c(com.facebook.common.time.b bVar, h hVar) {
-        this.mKY = bVar;
-        this.mKR = hVar;
+        this.mLb = bVar;
+        this.mKU = hVar;
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.h.c
     public void a(ImageRequest imageRequest, Object obj, String str, boolean z) {
-        this.mKR.fP(this.mKY.now());
-        this.mKR.setImageRequest(imageRequest);
-        this.mKR.aZ(obj);
-        this.mKR.setRequestId(str);
-        this.mKR.wu(z);
+        this.mKU.fP(this.mLb.now());
+        this.mKU.setImageRequest(imageRequest);
+        this.mKU.aZ(obj);
+        this.mKU.setRequestId(str);
+        this.mKU.wu(z);
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.h.c
     public void a(ImageRequest imageRequest, String str, boolean z) {
-        this.mKR.fQ(this.mKY.now());
-        this.mKR.setImageRequest(imageRequest);
-        this.mKR.setRequestId(str);
-        this.mKR.wu(z);
-        this.mKR.wt(true);
+        this.mKU.fQ(this.mLb.now());
+        this.mKU.setImageRequest(imageRequest);
+        this.mKU.setRequestId(str);
+        this.mKU.wu(z);
+        this.mKU.wt(true);
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.h.c
     public void a(ImageRequest imageRequest, String str, Throwable th, boolean z) {
-        this.mKR.fQ(this.mKY.now());
-        this.mKR.setImageRequest(imageRequest);
-        this.mKR.setRequestId(str);
-        this.mKR.wu(z);
-        this.mKR.wt(false);
+        this.mKU.fQ(this.mLb.now());
+        this.mKU.setImageRequest(imageRequest);
+        this.mKU.setRequestId(str);
+        this.mKU.wu(z);
+        this.mKU.wt(false);
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.h.c
-    public void QK(String str) {
-        this.mKR.fQ(this.mKY.now());
-        this.mKR.setRequestId(str);
-        this.mKR.ws(true);
+    public void QL(String str) {
+        this.mKU.fQ(this.mLb.now());
+        this.mKU.setRequestId(str);
+        this.mKU.ws(true);
     }
 }

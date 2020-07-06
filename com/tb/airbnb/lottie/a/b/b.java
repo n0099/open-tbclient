@@ -17,6 +17,6 @@ public class b extends f<Integer> {
         }
         int intValue = aVar.Gp.intValue();
         int intValue2 = aVar.Gq.intValue();
-        return (this.nFX == null || (num = (Integer) this.nFX.b(aVar.Ao, aVar.Gs.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f, hG(), getProgress())) == null) ? Integer.valueOf(com.tb.airbnb.lottie.d.b.b(f, intValue, intValue2)) : num;
+        return (this.nGa == null || (num = (Integer) this.nGa.b(aVar.Ao, aVar.Gs.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f, hG(), getProgress())) == null) ? Integer.valueOf(com.tb.airbnb.lottie.d.b.b(f, intValue, intValue2)) : num;
     }
 }

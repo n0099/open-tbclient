@@ -1,8 +1,8 @@
 package com.baidu.turbonet.net.proxy;
 /* loaded from: classes.dex */
 public class ProxyConfig {
-    public static final ProxyConfig mCH = new ProxyConfig();
-    private LibType mCG = LibType.TURBONET;
+    public static final ProxyConfig mCK = new ProxyConfig();
+    private LibType mCJ = LibType.TURBONET;
 
     /* loaded from: classes.dex */
     public enum LibType {
@@ -13,15 +13,15 @@ public class ProxyConfig {
     private ProxyConfig() {
     }
 
-    public boolean dvq() {
-        return this.mCG == LibType.NATIVE;
+    public boolean dvu() {
+        return this.mCJ == LibType.NATIVE;
     }
 
     public String toString() {
-        return this.mCG == LibType.NATIVE ? "NATIVE" : "TURBONET";
+        return this.mCJ == LibType.NATIVE ? "NATIVE" : "TURBONET";
     }
 
     public void a(LibType libType) {
-        this.mCG = libType;
+        this.mCJ = libType;
     }
 }

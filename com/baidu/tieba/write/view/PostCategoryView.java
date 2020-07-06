@@ -26,29 +26,29 @@ public class PostCategoryView extends TextView {
     private TabMenuPopView hXN;
     private LinearLayout hmU;
     private Context mContext;
-    private boolean mrW;
-    private LinearLayout mrX;
-    private Drawable mrY;
-    private Drawable mrZ;
+    private boolean mrZ;
+    private LinearLayout msa;
+    private Drawable msb;
+    private Drawable msc;
 
     public PostCategoryView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        this.mrW = false;
-        this.mrY = an.getDrawable(R.drawable.icon_title_down);
-        this.mrY.setBounds(0, 0, this.mrY.getIntrinsicWidth(), this.mrY.getIntrinsicHeight());
-        this.mrZ = an.getDrawable(R.drawable.icon_title_up);
-        this.mrZ.setBounds(0, 0, this.mrZ.getIntrinsicWidth(), this.mrY.getIntrinsicHeight());
-        setCompoundDrawables(null, null, this.mrY, null);
+        this.mrZ = false;
+        this.msb = an.getDrawable(R.drawable.icon_title_down);
+        this.msb.setBounds(0, 0, this.msb.getIntrinsicWidth(), this.msb.getIntrinsicHeight());
+        this.msc = an.getDrawable(R.drawable.icon_title_up);
+        this.msc.setBounds(0, 0, this.msc.getIntrinsicWidth(), this.msb.getIntrinsicHeight());
+        setCompoundDrawables(null, null, this.msb, null);
         setPadding(0, 0, l.getDimens(getContext(), R.dimen.ds50), 0);
         this.hmU = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.pop_category, (ViewGroup) null);
-        this.mrX = (LinearLayout) this.hmU.findViewById(R.id.pop_category_layout);
-        this.hXN = (TabMenuPopView) this.mrX.findViewById(R.id.pop_category_view);
+        this.msa = (LinearLayout) this.hmU.findViewById(R.id.pop_category_layout);
+        this.hXN = (TabMenuPopView) this.msa.findViewById(R.id.pop_category_view);
         this.hXB = this.hmU.findViewById(R.id.pop_category_grav);
         this.hXB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PostCategoryView.this.dst();
+                PostCategoryView.this.dsx();
             }
         });
     }
@@ -65,10 +65,10 @@ public class PostCategoryView extends TextView {
         this.hXN.setOnItemClickCallBack(aVar);
     }
 
-    public void dss() {
-        if (this.mrW) {
-            setCompoundDrawables(null, null, this.mrY, null);
-            this.mrW = false;
+    public void dsw() {
+        if (this.mrZ) {
+            setCompoundDrawables(null, null, this.msb, null);
+            this.mrZ = false;
         } else {
             a(this);
             if (this.dDF != null) {
@@ -76,8 +76,8 @@ public class PostCategoryView extends TextView {
                 this.dDF.setWidthAsWidthOfDeviceScreen((Activity) this.mContext);
                 this.dDF.setHeight(-1);
                 this.dDF.showWindowInCustomPosition(0, 0);
-                setCompoundDrawables(null, null, this.mrZ, null);
-                this.mrW = true;
+                setCompoundDrawables(null, null, this.msc, null);
+                this.mrZ = true;
             }
         }
         invalidate();
@@ -101,7 +101,7 @@ public class PostCategoryView extends TextView {
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
                     if (postCategoryView != null) {
-                        postCategoryView.dss();
+                        postCategoryView.dsw();
                     }
                 }
             });
@@ -111,15 +111,15 @@ public class PostCategoryView extends TextView {
     public void aYj() {
         an.setBackgroundColor(this, R.color.cp_bg_line_d);
         an.setViewTextColor(this, R.color.cp_cont_b, 1);
-        if (this.mrX != null) {
-            an.setBackgroundColor(this.mrX, R.color.cp_bg_line_d);
+        if (this.msa != null) {
+            an.setBackgroundColor(this.msa, R.color.cp_bg_line_d);
         }
         if (this.hXN != null) {
             this.hXN.aYj();
         }
     }
 
-    public void dst() {
+    public void dsx() {
         if (this.dDF != null) {
             this.dDF.dismiss();
         }

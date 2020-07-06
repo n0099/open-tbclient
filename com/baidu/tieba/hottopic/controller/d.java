@@ -16,7 +16,7 @@ public class d {
     private Runnable iDB = new Runnable() { // from class: com.baidu.tieba.hottopic.controller.d.1
         @Override // java.lang.Runnable
         public void run() {
-            d.this.hjm.cyn();
+            d.this.hjm.cyo();
         }
     };
     private com.baidu.tieba.f.a iac = new com.baidu.tieba.f.a();
@@ -48,12 +48,12 @@ public class d {
         this.iqB = z;
     }
 
-    public void cje() {
-        this.hjm.cje();
+    public void cjf() {
+        this.hjm.cjf();
         this.iqB = false;
     }
 
-    public void clx() {
+    public void cly() {
         if (this.hjm != null && this.iqB) {
             this.hjm.a(this.hBI, this.fmb, this.hCs, 1);
         }
@@ -74,7 +74,7 @@ public class d {
         this.hjm.qs(!z);
         e.lt().removeCallbacks(this.iDB);
         if (z) {
-            this.hjm.cym();
+            this.hjm.cyn();
         } else {
             e.lt().postDelayed(this.iDB, 200L);
         }

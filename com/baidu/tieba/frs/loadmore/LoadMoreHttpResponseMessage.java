@@ -81,7 +81,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                                 }
                             }
                         }
-                        b.cZK().eJ(arrayList);
+                        b.cZL().eJ(arrayList);
                     }
                 }
                 this.bannerListData = null;

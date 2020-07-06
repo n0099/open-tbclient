@@ -280,7 +280,7 @@ public abstract class BaseAdWebView extends WebView {
                 str4 = af;
             }
             this.eYA.mPackageName = str4;
-            AdDownloadData d = d.bpf().d(this.eYA);
+            AdDownloadData d = d.bpg().d(this.eYA);
             d.setupPkgName(str4);
             d.setupDownloadUrl(str);
             a(this.eYA, z);

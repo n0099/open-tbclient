@@ -18,15 +18,15 @@ public class d {
     private long uid;
     private int vote_num;
 
-    public int bNh() {
+    public int bNi() {
         return this.agree_num;
     }
 
-    public int bNi() {
+    public int bNj() {
         return this.gKI;
     }
 
-    public int bNj() {
+    public int bNk() {
         return this.gKJ;
     }
 
@@ -46,11 +46,11 @@ public class d {
         return this.uid;
     }
 
-    public int bNk() {
+    public int bNl() {
         return this.vote_num;
     }
 
-    public String bNl() {
+    public String bNm() {
         return this.apply_declaration;
     }
 
@@ -66,7 +66,7 @@ public class d {
         return this.tid;
     }
 
-    public boolean bNm() {
+    public boolean bNn() {
         return this.gKK;
     }
 

@@ -51,11 +51,11 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
                     } else {
                         this.jMQ.setText(aVar.getDescription());
                     }
-                } else if (aVar.cDH() != null) {
+                } else if (aVar.cDI() != null) {
                     if (aVar.isShareThread()) {
-                        this.jMQ.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.cDH()));
+                        this.jMQ.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.cDI()));
                     } else {
-                        this.jMQ.setText(aVar.cDH());
+                        this.jMQ.setText(aVar.cDI());
                     }
                 }
             }
@@ -69,7 +69,7 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
                 }
             }
             if (aVar.getThreadType() == 49) {
-                this.jMR.setVisibility(aVar.cDK() ? 0 : 8);
+                this.jMR.setVisibility(aVar.cDL() ? 0 : 8);
             } else {
                 this.jMR.setVisibility(8);
             }

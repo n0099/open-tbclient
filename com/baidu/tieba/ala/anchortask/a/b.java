@@ -21,7 +21,7 @@ public class b implements com.baidu.live.b.b {
 
     public b(Activity activity) {
         this.bdo = activity;
-        buX();
+        buY();
     }
 
     @Override // com.baidu.live.b.b
@@ -54,7 +54,7 @@ public class b implements com.baidu.live.b.b {
 
     public void dismiss() {
         if (this.fxj != null) {
-            this.fxj.buY();
+            this.fxj.buZ();
         }
     }
 
@@ -68,7 +68,7 @@ public class b implements com.baidu.live.b.b {
         MessageManager.getInstance().unRegisterListener(this.fxk);
     }
 
-    private void buX() {
+    private void buY() {
         this.fxk = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener

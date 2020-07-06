@@ -46,15 +46,15 @@ public class b extends BdBaseModel {
                         }
                         return;
                     }
-                    com.baidu.tieba.ala.live.personcenter.forbidden.b.a byY = alaForbiddenListResponseMessage.byY();
-                    b.this.totalCount = byY.getTotalCount();
-                    if (aVar.bmJ()) {
-                        b.this.userList = byY.getUserList();
+                    com.baidu.tieba.ala.live.personcenter.forbidden.b.a byZ = alaForbiddenListResponseMessage.byZ();
+                    b.this.totalCount = byZ.getTotalCount();
+                    if (aVar.bmK()) {
+                        b.this.userList = byZ.getUserList();
                     } else {
                         b.this.pn = aVar.getPn();
-                        b.this.userList.addAll(byY.getUserList());
+                        b.this.userList.addAll(byZ.getUserList());
                     }
-                    b.this.hasMore = byY.hasMore();
+                    b.this.hasMore = byZ.hasMore();
                     if (b.this.fQA != null) {
                         b.this.fQA.jM(b.this.hasMore);
                     }
@@ -74,14 +74,14 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void byI() {
+    public void byJ() {
         com.baidu.tieba.ala.live.personcenter.forbidden.message.a aVar = new com.baidu.tieba.ala.live.personcenter.forbidden.message.a();
         aVar.setPn(1);
         aVar.buildParams();
         sendMessage(aVar);
     }
 
-    public void bxC() {
+    public void bxD() {
         com.baidu.tieba.ala.live.personcenter.forbidden.message.a aVar = new com.baidu.tieba.ala.live.personcenter.forbidden.message.a();
         aVar.setPn(this.pn + 1);
         aVar.buildParams();
@@ -90,7 +90,7 @@ public class b extends BdBaseModel {
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     protected boolean loadData() {
-        byI();
+        byJ();
         return true;
     }
 

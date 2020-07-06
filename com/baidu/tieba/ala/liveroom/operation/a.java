@@ -99,9 +99,9 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 String str = null;
                 int i = 3000;
-                if (com.baidu.tieba.ala.liveroom.u.a.bJt().aZA != null) {
-                    str = com.baidu.tieba.ala.liveroom.u.a.bJt().aZA.ayj;
-                    i = com.baidu.tieba.ala.liveroom.u.a.bJt().aZA.duration;
+                if (com.baidu.tieba.ala.liveroom.u.a.bJu().aZA != null) {
+                    str = com.baidu.tieba.ala.liveroom.u.a.bJu().aZA.ayj;
+                    i = com.baidu.tieba.ala.liveroom.u.a.bJu().aZA.duration;
                 }
                 if (!TextUtils.isEmpty(str)) {
                     a.this.b(str, 1000L, i);
@@ -162,7 +162,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                a.this.bIO();
+                a.this.bIP();
             }
         };
         MessageManager.getInstance().registerListener(this.goE);
@@ -223,7 +223,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                 });
             }
             if (TbadkCoreApplication.sAlaLiveSwitchData == null || TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isRotaryTableUnabled()) {
-                bIJ();
+                bIK();
             }
             if (TbadkCoreApplication.sAlaLiveSwitchData != null && TbadkCoreApplication.sAlaLiveSwitchData.isShareBtnUnabled() && this.goy.goT != null) {
                 this.goy.goT.setVisibility(8);
@@ -270,7 +270,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    private void bIJ() {
+    private void bIK() {
         bq bqVar;
         bl blVar;
         if (this.goB != null) {
@@ -292,7 +292,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
             this.goB = new View.OnLayoutChangeListener() { // from class: com.baidu.tieba.ala.liveroom.operation.a.6
                 @Override // android.view.View.OnLayoutChangeListener
                 public void onLayoutChange(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
-                    a.this.bIK();
+                    a.this.bIL();
                 }
             };
             this.goy.gpp.addOnLayoutChangeListener(this.goB);
@@ -310,7 +310,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bIK() {
+    public void bIL() {
         if (this.goy != null && this.goy.gpp != null && this.goy.gpp.getVisibility() == 0) {
             this.goy.gpp.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.operation.a.8
                 @Override // java.lang.Runnable
@@ -346,7 +346,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    public void bIL() {
+    public void bIM() {
         if (this.goy != null && this.goy.gpp != null && this.goB != null) {
             this.goy.gpp.removeOnLayoutChangeListener(this.goB);
         }
@@ -416,7 +416,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         this.otherParams = str;
     }
 
-    public void bIM() {
+    public void bIN() {
         if (this.goy != null) {
             this.goy.setMsgLayoutWidth(false);
             this.goy.gps.setVisibility(8);
@@ -424,7 +424,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    public void bIN() {
+    public void bIO() {
         if (this.goy != null) {
             this.goy.setMsgLayoutWidth(true);
             this.goy.gps.setVisibility(0);
@@ -435,11 +435,11 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     public void l(int i, int i2, int i3) {
         if (this.goy != null) {
             if (i3 == 2) {
-                bIN();
+                bIO();
             } else if (i3 == 1) {
-                bIM();
+                bIN();
             }
-            bIK();
+            bIL();
         }
     }
 
@@ -523,7 +523,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bIO() {
+    public void bIP() {
         if (this.goy != null && this.goy.gpq != null) {
             this.goy.gpq.setScaleX(1.1f);
             this.goy.gpq.setScaleY(1.1f);

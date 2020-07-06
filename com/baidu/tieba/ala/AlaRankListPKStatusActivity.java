@@ -106,14 +106,14 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
             }
         });
         ((TextView) this.mRootView.findViewById(a.g.ala_rank_list_title)).setText(a.i.ala_rank_list_pk_status_panel_title);
-        brG();
+        brH();
         initTabSpec();
         if (UtilHelper.canUseStyleImmersiveSticky() && UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
             h.U(this.mRootView);
         }
     }
 
-    private void brG() {
+    private void brH() {
         this.ffn = (FragmentTabHost) findViewById(a.g.ala_rank_list_tabhost);
         this.ffn.setup(getSupportFragmentManager());
         this.ffn.setTabWidgetViewHeight((int) getResources().getDimension(a.e.sdk_ds80));
@@ -229,7 +229,7 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
         return false;
     }
 
-    private void brH() {
+    private void brI() {
         if (this instanceof Activity) {
             overridePendingTransition(a.C0176a.sdk_activity_open_translate_from_right, a.C0176a.sdk_activity_close_translate_to_right);
         } else {
@@ -239,12 +239,12 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void enterExitAnimation() {
-        brH();
+        brI();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void closeAnimation() {
-        brH();
+        brI();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity

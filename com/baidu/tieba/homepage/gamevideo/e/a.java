@@ -83,7 +83,7 @@ public class a {
         if (cVar != null && (aA = cVar.aA("c13488", true)) != null) {
             if (cVar.aPS() != null) {
                 bu aPS = cVar.aPS();
-                aA.ag("obj_name", aPS.aTS() != null && (aPS.aTS().dia() != null || aPS.aTS().bkW() != null) ? 1 : 0);
+                aA.ag("obj_name", aPS.aTS() != null && (aPS.aTS().dib() != null || aPS.aTS().bkX() != null) ? 1 : 0);
                 if (aPS.aSp() != null) {
                     aA.ag(TiebaInitialize.Params.AB_TYPE, aPS.aSp().hadConcerned() ? 1 : 0);
                 }

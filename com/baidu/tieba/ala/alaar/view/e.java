@@ -35,7 +35,7 @@ public class e {
             this.fke.setVisibility(0);
             if (this.mRootView.getContext().getString(a.i.beauty_yuantu).equals(fVar.getName()) || com.baidu.tieba.ala.alaar.sticker.a.e.Ba(fVar.vr())) {
                 this.fkf.setVisibility(4);
-                bsT();
+                bsU();
             } else if (!TextUtils.isEmpty(fVar.vr()) && com.baidu.tieba.ala.alaar.sticker.a.e.cA(fVar.vr())) {
                 this.fkf.setVisibility(0);
                 startLoadingAnim();
@@ -43,7 +43,7 @@ public class e {
                 this.fkf.setVisibility(0);
                 this.fkf.setRotation(0.0f);
                 this.fkf.setImageResource(a.f.sticker_unload);
-                bsT();
+                bsU();
             }
             this.ecN.setText(fVar.getName());
             c(fVar);
@@ -56,12 +56,12 @@ public class e {
         }
     }
 
-    public void bte() {
+    public void btf() {
         this.ecN.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_cont_i));
         this.flk.setVisibility(4);
     }
 
-    public void btf() {
+    public void btg() {
         this.ecN.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_other_b));
         this.flk.setVisibility(0);
     }
@@ -78,7 +78,7 @@ public class e {
         }
     }
 
-    public void bsT() {
+    public void bsU() {
         if (this.fkg != null && this.fkg.isRunning()) {
             this.fkg.cancel();
         }

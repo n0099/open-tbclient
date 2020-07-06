@@ -22,10 +22,10 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     private boolean isShowing;
     private Handler mHandler;
 
-    public void bAm() {
+    public void bAn() {
         this.mHandler.removeCallbacks(this.fUK);
         this.mHandler.removeCallbacks(this.fUL);
-        bAn();
+        bAo();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
@@ -66,7 +66,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         MessageManager.getInstance().unRegisterListener(this.aHo);
     }
 
-    private void bAn() {
+    private void bAo() {
         if (this.isShowing) {
             if (this.fUJ != null) {
                 this.fUJ.cH(2);
@@ -120,7 +120,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         this.fAa = z;
     }
 
-    public boolean bAo() {
+    public boolean bAp() {
         return this.fAa;
     }
 }

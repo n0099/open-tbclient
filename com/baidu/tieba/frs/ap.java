@@ -5,7 +5,7 @@ public interface ap {
 
     void a(at atVar);
 
-    void bzf();
+    void bzg();
 
     void init();
 }

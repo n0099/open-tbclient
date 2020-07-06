@@ -48,7 +48,7 @@ public class b {
 
     public b(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
-        bFf();
+        bFg();
     }
 
     public void c(ViewGroup viewGroup, boolean z) {
@@ -63,9 +63,9 @@ public class b {
     public void c(q qVar, String str) {
         this.fST = qVar;
         this.giT = false;
-        bFg();
+        bFh();
+        bFv();
         bFu();
-        bFt();
         this.mVid = "";
         if (qVar != null && qVar.mLiveInfo != null && qVar.mLiveInfo.feed_id != null) {
             this.mVid = qVar.mLiveInfo.feed_id;
@@ -74,42 +74,42 @@ public class b {
             str = "";
         }
         this.mOtherParams = str;
-        bFw();
+        bFx();
     }
 
     public void lb(boolean z) {
         this.giF = z;
-        bFs();
+        bFt();
     }
 
     public void lc(boolean z) {
         this.giG = z;
-        bFs();
+        bFt();
     }
 
-    private void bFs() {
+    private void bFt() {
         if (this.giV != null) {
             if (!this.giF || this.giG) {
-                bFz();
+                bFA();
             }
         }
     }
 
     public void Fo() {
         this.giT = false;
-        bFy();
-        bFv();
+        bFz();
+        bFw();
     }
 
     public void release() {
         if (this.giV != null) {
             this.giV.removeCallbacksAndMessages(null);
         }
-        bFv();
+        bFw();
         DZ();
     }
 
-    private void bFf() {
+    private void bFg() {
         this.giQ = new c();
         String string = com.baidu.live.c.vf().getString("guide_speak_show_times_date", "");
         if (!TextUtils.isEmpty(string)) {
@@ -130,7 +130,7 @@ public class b {
         }
     }
 
-    private void bFg() {
+    private void bFh() {
         if (this.giQ == null) {
             this.giQ = new c();
         }
@@ -141,7 +141,7 @@ public class b {
         }
     }
 
-    private void bFt() {
+    private void bFu() {
         if (this.aVB == null) {
             this.aVB = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.guideim.b.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -166,31 +166,31 @@ public class b {
         }
     }
 
-    private void bFu() {
+    private void bFv() {
         if (!this.giQ.giZ) {
             this.giR = new CustomMessageListener(2913043) { // from class: com.baidu.tieba.ala.liveroom.guideim.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    b.this.bFA();
+                    b.this.bFB();
                 }
             };
             MessageManager.getInstance().registerListener(this.giR);
         }
     }
 
-    private void bFv() {
+    private void bFw() {
         if (this.giR != null) {
             MessageManager.getInstance().unRegisterListener(this.giR);
         }
     }
 
-    private void bFw() {
+    private void bFx() {
         int i;
-        bFy();
+        bFz();
         if ((this.fST == null || this.fST.axI == null || (this.fST.axI.isUegBlock <= 0 && this.fST.axI.isBlock <= 0)) && !this.giT && !TbadkCoreApplication.getInst().isMobileBaidu()) {
             if (this.giQ.giZ) {
-                bFv();
+                bFw();
                 return;
             }
             z zVar = com.baidu.live.v.a.Hm().aZp;
@@ -206,13 +206,13 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFx() {
+    public void bFy() {
         String[] strArr;
         int length;
         this.giT = true;
         if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isPopupWindowUnabled()) && this.giF && !this.giG) {
             if (this.giQ.giZ) {
-                bFv();
+                bFw();
                 return;
             }
             z zVar = com.baidu.live.v.a.Hm().aZp;
@@ -229,7 +229,7 @@ public class b {
                                 if (b.this.giU != null && b.this.giU.Dd()) {
                                     MessageManager.getInstance().sendMessage(new CustomMessage(2913100, new ImSendMsgData(str2)));
                                 }
-                                b.this.bFy();
+                                b.this.bFz();
                                 LogManager.getCommonLogger().doClickSpeakGuideButtonLog(b.this.mVid, b.this.mOtherParams, str2);
                                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "msg_clk").setContentExt(null, "popup", null));
                             }
@@ -243,15 +243,15 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFy() {
+    public void bFz() {
         if (this.giV != null) {
             this.giV.removeCallbacksAndMessages(null);
         }
-        bFz();
+        bFA();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFz() {
+    public void bFA() {
         if (this.giW != null) {
             this.giW.setVisibility(8);
         }
@@ -295,15 +295,15 @@ public class b {
             this.giQ.fKO = 1;
         }
         if (this.giQ.fKO >= com.baidu.live.v.a.Hm().aZp.aAr) {
-            bFA();
-            bFv();
+            bFB();
+            bFw();
             return;
         }
         com.baidu.live.c.vf().putString("guide_speak_show_times_date", this.giQ.toJsonString());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFA() {
+    public void bFB() {
         if (this.giV != null) {
             this.giV.removeMessages(1);
         }
@@ -327,10 +327,10 @@ public class b {
             if (bVar != null) {
                 switch (message.what) {
                     case 1:
-                        bVar.bFx();
+                        bVar.bFy();
                         return;
                     case 2:
-                        bVar.bFz();
+                        bVar.bFA();
                         return;
                     default:
                         return;

@@ -299,7 +299,7 @@ public class AlaTopTipView extends TextView {
         }
     }
 
-    public void bJz() {
+    public void bJA() {
         setupPaddings();
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = getRealWidth();

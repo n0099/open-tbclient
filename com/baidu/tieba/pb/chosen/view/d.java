@@ -34,7 +34,7 @@ public class d {
     public interface b {
         void JB(String str);
 
-        void cGD();
+        void cGE();
 
         void eY(String str, String str2);
     }
@@ -53,14 +53,14 @@ public class d {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (d.this.jYb != null) {
-                    d.this.jYb.cGD();
+                    d.this.jYb.cGE();
                 }
             }
         });
         this.jYg = (LinearLayout) this.jYa.findViewById(R.id.chosen_pb_bar_container);
     }
 
-    public View cGG() {
+    public View cGH() {
         return this.jYa;
     }
 

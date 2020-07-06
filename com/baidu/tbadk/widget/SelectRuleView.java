@@ -41,7 +41,7 @@ public class SelectRuleView extends LinearLayout {
 
     public void setData(List<String> list, List<String> list2) {
         if (!w.isEmpty(list) || !w.isEmpty(list2)) {
-            bjx();
+            bjy();
             this.eFS = list;
             this.eFT = list2;
             List<String> arrayList = new ArrayList<>();
@@ -68,7 +68,7 @@ public class SelectRuleView extends LinearLayout {
 
     public void setData(List<String> list, List<String> list2, List<String> list3) {
         if (!w.isEmpty(list2) || !w.isEmpty(list3) || !w.isEmpty(list)) {
-            bjx();
+            bjy();
             this.eFS = list2;
             this.eFT = list3;
             this.eFL = list;
@@ -124,7 +124,7 @@ public class SelectRuleView extends LinearLayout {
         return arrayList;
     }
 
-    private void bjx() {
+    private void bjy() {
         removeAllViews();
     }
 

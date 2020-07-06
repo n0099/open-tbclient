@@ -8,10 +8,10 @@ public class a {
     private List<com.baidu.tieba.newinterest.data.b> jUB = new ArrayList();
 
     public a() {
-        cFq();
+        cFr();
     }
 
-    private void cFq() {
+    private void cFr() {
         this.jUB.add(new com.baidu.tieba.newinterest.data.b(1, "游戏", R.drawable.ic_icon_mask_guide_game_svg, false));
         this.jUB.add(new com.baidu.tieba.newinterest.data.b(2, "生活", R.drawable.ic_icon_pure_module_life_svg, false));
         this.jUB.add(new com.baidu.tieba.newinterest.data.b(3, "动漫", R.drawable.ic_icon_pure_module_comic_svg, false));
@@ -83,7 +83,7 @@ public class a {
         }
     }
 
-    public List<com.baidu.tieba.newinterest.data.b> cFr() {
+    public List<com.baidu.tieba.newinterest.data.b> cFs() {
         return this.jUB;
     }
 }

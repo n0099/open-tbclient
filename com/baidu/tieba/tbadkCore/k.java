@@ -19,7 +19,7 @@ public class k implements com.baidu.adp.widget.ListView.q {
     private String url;
     private int weight;
 
-    public int dhf() {
+    public int dhg() {
         return this.lDY;
     }
 
@@ -27,7 +27,7 @@ public class k implements com.baidu.adp.widget.ListView.q {
         this.lDY = i;
     }
 
-    public int dhg() {
+    public int dhh() {
         return this.jZJ;
     }
 
@@ -51,7 +51,7 @@ public class k implements com.baidu.adp.widget.ListView.q {
         this.title = str;
     }
 
-    public int dhh() {
+    public int dhi() {
         return this.type;
     }
 
@@ -71,11 +71,11 @@ public class k implements com.baidu.adp.widget.ListView.q {
         this.time = i;
     }
 
-    public String dhi() {
+    public String dhj() {
         return this.obj_id;
     }
 
-    public String dhj() {
+    public String dhk() {
         return this.lDX;
     }
 

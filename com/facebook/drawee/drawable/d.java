@@ -7,10 +7,10 @@ import com.baidubce.http.Headers;
 /* loaded from: classes13.dex */
 public class d {
     private int mAlpha = -1;
-    private boolean mMo = false;
+    private boolean mMr = false;
     private ColorFilter mColorFilter = null;
-    private int mMp = -1;
-    private int mMq = -1;
+    private int mMs = -1;
+    private int mMt = -1;
 
     public void setAlpha(int i) {
         this.mAlpha = i;
@@ -18,15 +18,15 @@ public class d {
 
     public void setColorFilter(ColorFilter colorFilter) {
         this.mColorFilter = colorFilter;
-        this.mMo = true;
+        this.mMr = true;
     }
 
     public void setDither(boolean z) {
-        this.mMp = z ? 1 : 0;
+        this.mMs = z ? 1 : 0;
     }
 
     public void setFilterBitmap(boolean z) {
-        this.mMq = z ? 1 : 0;
+        this.mMt = z ? 1 : 0;
     }
 
     @SuppressLint({Headers.RANGE})
@@ -35,14 +35,14 @@ public class d {
             if (this.mAlpha != -1) {
                 drawable.setAlpha(this.mAlpha);
             }
-            if (this.mMo) {
+            if (this.mMr) {
                 drawable.setColorFilter(this.mColorFilter);
             }
-            if (this.mMp != -1) {
-                drawable.setDither(this.mMp != 0);
+            if (this.mMs != -1) {
+                drawable.setDither(this.mMs != 0);
             }
-            if (this.mMq != -1) {
-                drawable.setFilterBitmap(this.mMq != 0);
+            if (this.mMt != -1) {
+                drawable.setFilterBitmap(this.mMt != 0);
             }
         }
     }

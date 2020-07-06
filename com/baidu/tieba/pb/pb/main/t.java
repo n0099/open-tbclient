@@ -24,7 +24,7 @@ public class t {
         this.keK = pbFakeFloorModel;
     }
 
-    public void cIK() {
+    public void cIL() {
         if (this.keJ != null) {
             this.keJ.bgb();
             if (StringUtils.isNull(this.keL)) {
@@ -38,13 +38,13 @@ public class t {
         this.kcE = eVar;
     }
 
-    public void cIL() {
+    public void cIM() {
         if (this.keJ != null && this.keJ.bfa() != null) {
             this.keJ.bfa().bdC();
         }
     }
 
-    public boolean cIM() {
+    public boolean cIN() {
         if (this.keJ == null || this.keJ.bfa() == null) {
             return false;
         }
@@ -59,11 +59,11 @@ public class t {
             this.keJ.a(this.mPageContext);
             this.keJ.b(this.keK);
             if (this.kcE != null) {
-                this.keJ.setThreadData(this.kcE.cGN());
+                this.keJ.setThreadData(this.kcE.cGO());
             }
             this.keJ.bfa().m32if(true);
             this.keJ.k(this.mPageContext);
-            cIN();
+            cIO();
             this.keJ.b(this.keM);
         }
     }
@@ -85,7 +85,7 @@ public class t {
         }
     }
 
-    private void cIN() {
+    private void cIO() {
         if (this.bjv != null && this.keJ != null && this.keJ.bfa() != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
@@ -119,7 +119,7 @@ public class t {
         }
     }
 
-    public com.baidu.tbadk.editortools.pb.h cIO() {
+    public com.baidu.tbadk.editortools.pb.h cIP() {
         return this.keJ;
     }
 }

@@ -4,14 +4,14 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes12.dex */
 public class p {
-    private final com.facebook.common.memory.c mTa;
-    private final r mVo;
-    private final s mVp;
-    private final r mVq;
+    private final com.facebook.common.memory.c mTd;
     private final r mVr;
     private final s mVs;
     private final r mVt;
-    private final s mVu;
+    private final r mVu;
+    private final s mVv;
+    private final r mVw;
+    private final s mVx;
 
     private p(a aVar) {
         r rVar;
@@ -22,107 +22,107 @@ public class p {
         s sVar2;
         r rVar4;
         s sVar3;
-        if (aVar.mVo == null) {
-            rVar = e.dFx();
-        } else {
-            rVar = aVar.mVo;
-        }
-        this.mVo = rVar;
-        if (aVar.mVp == null) {
-            sVar = n.dFC();
-        } else {
-            sVar = aVar.mVp;
-        }
-        this.mVp = sVar;
-        if (aVar.mVq == null) {
-            rVar2 = g.dFx();
-        } else {
-            rVar2 = aVar.mVq;
-        }
-        this.mVq = rVar2;
-        if (aVar.mTa == null) {
-            cVar = com.facebook.common.memory.d.dzl();
-        } else {
-            cVar = aVar.mTa;
-        }
-        this.mTa = cVar;
         if (aVar.mVr == null) {
-            rVar3 = h.dFx();
+            rVar = e.dFB();
         } else {
-            rVar3 = aVar.mVr;
+            rVar = aVar.mVr;
         }
-        this.mVr = rVar3;
+        this.mVr = rVar;
         if (aVar.mVs == null) {
-            sVar2 = n.dFC();
+            sVar = n.dFG();
         } else {
-            sVar2 = aVar.mVs;
+            sVar = aVar.mVs;
         }
-        this.mVs = sVar2;
+        this.mVs = sVar;
         if (aVar.mVt == null) {
-            rVar4 = f.dFx();
+            rVar2 = g.dFB();
         } else {
-            rVar4 = aVar.mVt;
+            rVar2 = aVar.mVt;
         }
-        this.mVt = rVar4;
+        this.mVt = rVar2;
+        if (aVar.mTd == null) {
+            cVar = com.facebook.common.memory.d.dzp();
+        } else {
+            cVar = aVar.mTd;
+        }
+        this.mTd = cVar;
         if (aVar.mVu == null) {
-            sVar3 = n.dFC();
+            rVar3 = h.dFB();
         } else {
-            sVar3 = aVar.mVu;
+            rVar3 = aVar.mVu;
         }
-        this.mVu = sVar3;
-    }
-
-    public r dFF() {
-        return this.mVo;
-    }
-
-    public s dFG() {
-        return this.mVp;
-    }
-
-    public com.facebook.common.memory.c dDA() {
-        return this.mTa;
-    }
-
-    public r dFH() {
-        return this.mVr;
-    }
-
-    public s dFI() {
-        return this.mVs;
+        this.mVu = rVar3;
+        if (aVar.mVv == null) {
+            sVar2 = n.dFG();
+        } else {
+            sVar2 = aVar.mVv;
+        }
+        this.mVv = sVar2;
+        if (aVar.mVw == null) {
+            rVar4 = f.dFB();
+        } else {
+            rVar4 = aVar.mVw;
+        }
+        this.mVw = rVar4;
+        if (aVar.mVx == null) {
+            sVar3 = n.dFG();
+        } else {
+            sVar3 = aVar.mVx;
+        }
+        this.mVx = sVar3;
     }
 
     public r dFJ() {
-        return this.mVq;
+        return this.mVr;
     }
 
-    public r dFK() {
-        return this.mVt;
+    public s dFK() {
+        return this.mVs;
     }
 
-    public s dFL() {
+    public com.facebook.common.memory.c dDE() {
+        return this.mTd;
+    }
+
+    public r dFL() {
         return this.mVu;
     }
 
-    public static a dFM() {
+    public s dFM() {
+        return this.mVv;
+    }
+
+    public r dFN() {
+        return this.mVt;
+    }
+
+    public r dFO() {
+        return this.mVw;
+    }
+
+    public s dFP() {
+        return this.mVx;
+    }
+
+    public static a dFQ() {
         return new a();
     }
 
     /* loaded from: classes12.dex */
     public static class a {
-        private com.facebook.common.memory.c mTa;
-        private r mVo;
-        private s mVp;
-        private r mVq;
+        private com.facebook.common.memory.c mTd;
         private r mVr;
         private s mVs;
         private r mVt;
-        private s mVu;
+        private r mVu;
+        private s mVv;
+        private r mVw;
+        private s mVx;
 
         private a() {
         }
 
-        public p dFN() {
+        public p dFR() {
             return new p(this);
         }
     }

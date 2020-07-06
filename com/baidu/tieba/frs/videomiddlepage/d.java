@@ -17,11 +17,11 @@ public class d {
         this.icd = hVar;
     }
 
-    public com.baidu.tieba.frs.aggregation.g cgm() {
+    public com.baidu.tieba.frs.aggregation.g cgn() {
         if (this.ice == null) {
             this.ice = new com.baidu.tieba.frs.aggregation.g();
         }
-        a(this.ice, this.icd.cgt());
+        a(this.ice, this.icd.cgu());
         return this.ice;
     }
 
@@ -97,7 +97,7 @@ public class d {
         }
     }
 
-    public void caH() {
+    public void caI() {
         if (this.hFU != null) {
             this.hFU.destroy();
             this.hFU = null;
@@ -112,6 +112,6 @@ public class d {
         if (this.rootView != null) {
             this.rootView.clearAnimation();
         }
-        caH();
+        caI();
     }
 }

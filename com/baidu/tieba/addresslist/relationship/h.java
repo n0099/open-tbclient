@@ -10,14 +10,14 @@ public class h {
     private static volatile SQLiteDatabase fbz;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static synchronized void bpW() {
+    public static synchronized void bpX() {
         synchronized (h.class) {
             n.close(fbz);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static synchronized SQLiteDatabase bpX() {
+    public static synchronized SQLiteDatabase bpY() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (h.class) {
             try {

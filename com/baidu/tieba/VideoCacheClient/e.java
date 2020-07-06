@@ -35,10 +35,10 @@ public class e {
                 }
             } else if (message.what == 3) {
                 d.D(e.TAG, "got MSG_CHECK");
-                e.this.bor();
+                e.this.bos();
                 e.this.mHandler.sendMessageDelayed(e.this.mHandler.obtainMessage(3), 5000L);
             } else if (message.what == 4) {
-                e.this.bos();
+                e.this.bot();
             } else if (message.what == 5 && (message.obj instanceof String)) {
                 int i = message.arg1;
                 e.this.ar((String) message.obj, i);
@@ -59,7 +59,7 @@ public class e {
             if (file.exists()) {
                 file.delete();
             }
-            b.boo().boq();
+            b.bop().bor();
             e.this.eUw = false;
             com.baidu.adp.lib.f.e.lt().postDelayed(e.this.eUE, 1000L);
         }
@@ -68,7 +68,7 @@ public class e {
         @Override // java.lang.Runnable
         public void run() {
             if (!e.this.eUw) {
-                e.this.bnw();
+                e.this.bnx();
                 com.baidu.adp.lib.f.e.lt().postDelayed(e.this.eUE, 1000L);
             }
         }
@@ -116,7 +116,7 @@ public class e {
 
     private void dw(String str, String str2) {
         try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("http://127.0.0.1:" + b.boo().getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str + str2)).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("http://127.0.0.1:" + b.bop().getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str + str2)).openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             inputStream.read();
             inputStream.close();
@@ -142,7 +142,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bor() {
+    public void bos() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.eWW >= 86400000) {
             dw("", "delete_expired_files");
@@ -155,11 +155,11 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bos() {
+    public void bot() {
         dw("", "clear_cache");
     }
 
-    public void bnw() {
+    public void bnx() {
         try {
             this.mContext.bindService(new Intent(this.mContext, VideoCacheService.class), this.mServiceConnection, 1);
         } catch (Exception e) {

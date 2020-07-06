@@ -101,7 +101,7 @@ public class l extends c implements com.baidu.tbadk.core.util.f.a {
             } else if (this.dLi.aQV()) {
                 aoVar.ag("obj_type", 2);
             }
-            aoVar.ag("obj_param1", bOQ() ? 2 : 1);
+            aoVar.ag("obj_param1", bOR() ? 2 : 1);
             if (this.dLi.aSp() != null) {
                 aoVar.dk("obj_id", this.dLi.aSp().getUserId());
             }
@@ -109,11 +109,11 @@ public class l extends c implements com.baidu.tbadk.core.util.f.a {
         return aoVar;
     }
 
-    public ao bOX() {
+    public ao bOY() {
         ao aA = aA(gUU, true);
         if (aA != null && aPS() != null) {
             bu aPS = aPS();
-            aA.ag("obj_name", aPS.aTS() != null && (aPS.aTS().dia() != null || aPS.aTS().bkW() != null) ? 1 : 0);
+            aA.ag("obj_name", aPS.aTS() != null && (aPS.aTS().dib() != null || aPS.aTS().bkX() != null) ? 1 : 0);
             if (aPS.aSp() != null) {
                 aA.ag(TiebaInitialize.Params.AB_TYPE, aPS.aSp().hadConcerned() ? 1 : 0);
             }
@@ -153,7 +153,7 @@ public class l extends c implements com.baidu.tbadk.core.util.f.a {
         return b(buVar, -1);
     }
 
-    public ao bPe() {
+    public ao bPf() {
         ao aA = aA(gUX, true);
         if (aA != null && aPS() != null) {
             bu aPS = aPS();

@@ -32,7 +32,7 @@ public class b {
     public void initView() {
         this.mPageContext.getPageActivity().setContentView(R.layout.person_center_more_layout);
         this.kFo.ag(this.mPageContext.getPageActivity().findViewById(R.id.person_more_layout));
-        cRG();
+        cRH();
         this.kFo.setData(this.kFp);
     }
 
@@ -42,7 +42,7 @@ public class b {
         }
     }
 
-    private void cRG() {
+    private void cRH() {
         this.kFp = new ArrayList();
         if (this.kFq != null && !w.isEmpty(this.kFq.mUrlMaps)) {
             for (PersonMoreItemData personMoreItemData : this.kFq.mUrlMaps) {

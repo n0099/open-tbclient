@@ -67,19 +67,19 @@ public class i {
         }
     }
 
-    public void caQ() {
+    public void caR() {
         if (this.hGU != null) {
-            this.hGU.caQ();
+            this.hGU.caR();
         }
     }
 
-    public void caS() {
+    public void caT() {
         if (this.hGU != null && this.mHasMore) {
             this.hGU.LoadData();
         }
     }
 
-    public void caR() {
+    public void caS() {
         if (this.hGU != null) {
             this.hGU.cancelLoadData();
         }

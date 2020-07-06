@@ -46,20 +46,20 @@ public class g extends BaseAdapter {
             this.dPv = tbPageContext;
             this.mActivity = tbPageContext.getPageActivity();
             this.lBJ = new com.baidu.tieba.square.view.a(tbPageContext);
-            CoverFlowView<i> dgV = this.lBJ.dgV();
+            CoverFlowView<i> dgW = this.lBJ.dgW();
             if (tbPageContext.getOrignalPage() instanceof f) {
-                dgV.setSwipeControlInterface((f) tbPageContext.getOrignalPage());
+                dgW.setSwipeControlInterface((f) tbPageContext.getOrignalPage());
             }
-            dgV.setDisableParentEvent(false);
+            dgW.setDisableParentEvent(false);
         }
     }
 
     public void a(h hVar) {
         if (hVar != null) {
             this.lBF = hVar;
-            this.lBG = this.lBF.dgM();
-            this.lBH = this.lBF.dgK();
-            this.lBI = this.lBF.dgL();
+            this.lBG = this.lBF.dgN();
+            this.lBH = this.lBF.dgL();
+            this.lBI = this.lBF.dgM();
             this.lBJ.setData(this.lBG);
         }
     }
@@ -190,7 +190,7 @@ public class g extends BaseAdapter {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         TiebaStatic.eventStat(g.this.dPv.getPageActivity(), "square_bottom_find_more", "click", 1, new Object[0]);
-                        g.this.dgI();
+                        g.this.dgJ();
                     }
                 });
                 return inflate2;
@@ -342,7 +342,7 @@ public class g extends BaseAdapter {
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view2) {
                                     if (aVar.lCa) {
-                                        g.this.dgI();
+                                        g.this.dgJ();
                                     } else {
                                         bc.aWU().b(g.this.dPv, new String[]{aVar.link});
                                     }
@@ -364,7 +364,7 @@ public class g extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dgI() {
+    public void dgJ() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_BAR_FOLDER_FIRST_DIR, new BarFolderFirstDirActivityConfig(this.dPv.getPageActivity(), SingleSquareActivityConfig.makeStatisticsParam("forum_browse", SchemeCollecter.CLASSIFY_ALL))));
     }
 

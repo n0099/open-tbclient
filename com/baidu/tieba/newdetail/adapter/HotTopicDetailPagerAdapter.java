@@ -72,7 +72,7 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
             d dVar = (d) w.getItem(this.mHotTopicDataList, this.YJ);
             if (hotTopicDetailFeedView2 != null && dVar != null) {
                 if (w.isEmpty(dVar.list)) {
-                    this.pageContext.getOrignalPage().Aw(cDW());
+                    this.pageContext.getOrignalPage().Aw(cDX());
                 } else {
                     hotTopicDetailFeedView2.resume();
                 }
@@ -110,37 +110,37 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
     }
 
     public void resume() {
-        HotTopicDetailFeedView cEb = cEb();
-        if (cEb != null) {
-            cEb.resume();
+        HotTopicDetailFeedView cEc = cEc();
+        if (cEc != null) {
+            cEc.resume();
         }
     }
 
     public void pause() {
-        HotTopicDetailFeedView cEb = cEb();
-        if (cEb != null) {
-            cEb.pause();
+        HotTopicDetailFeedView cEc = cEc();
+        if (cEc != null) {
+            cEc.pause();
         }
     }
 
     private void xA(int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
         if (this.iCn != null && AF(i) < this.iCn.size() && (hotTopicDetailFeedView = this.iCn.get(AF(i))) != null) {
-            hotTopicDetailFeedView.buI();
+            hotTopicDetailFeedView.buJ();
         }
     }
 
     private void xB(int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
         if (this.iCn != null && AF(i) < this.iCn.size() && (hotTopicDetailFeedView = this.iCn.get(AF(i))) != null) {
-            hotTopicDetailFeedView.buJ();
+            hotTopicDetailFeedView.buK();
         }
     }
 
     private void xC(int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
         if (this.iCn != null && AF(i) < this.iCn.size() && (hotTopicDetailFeedView = this.iCn.get(AF(i))) != null) {
-            hotTopicDetailFeedView.buK();
+            hotTopicDetailFeedView.buL();
         }
     }
 
@@ -184,7 +184,7 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
     public void AA(int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
         if (this.iCn != null && AF(i) < this.iCn.size() && (hotTopicDetailFeedView = this.iCn.get(AF(i))) != null) {
-            hotTopicDetailFeedView.btN();
+            hotTopicDetailFeedView.btO();
         }
     }
 
@@ -215,11 +215,11 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         return (d) w.getItem(this.mHotTopicDataList, AF(i) % jNE);
     }
 
-    private HotTopicDetailFeedView cEb() {
+    private HotTopicDetailFeedView cEc() {
         return (HotTopicDetailFeedView) w.getItem(this.iCn, this.YJ % jNE);
     }
 
-    public int cDW() {
+    public int cDX() {
         return this.YJ == 1 ? 0 : 1;
     }
 
@@ -227,7 +227,7 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         return i == 1 ? 0 : 1;
     }
 
-    public void cDX() {
+    public void cDY() {
         this.hasInit = true;
     }
 

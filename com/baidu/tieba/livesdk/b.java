@@ -4962,7 +4962,7 @@ public final class b {
         public static final int too_many_face = 2131236789;
 
         /* renamed from: top  reason: collision with root package name */
-        public static final int f1031top = 2131236790;
+        public static final int f1032top = 2131236790;
         public static final int top_announcement = 2131236791;
         public static final int top_success = 2131236792;
         public static final int topic_join = 2131236798;

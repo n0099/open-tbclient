@@ -31,7 +31,7 @@ public class AlaPreLoadMarkImgResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public List<String> bHQ() {
+    public List<String> bHR() {
         return this.gna;
     }
 }

@@ -16,21 +16,21 @@ import java.util.concurrent.atomic.AtomicLong;
 public class bi {
 
     /* renamed from: a  reason: collision with other field name */
-    private static AtomicLong f900a = new AtomicLong(0);
+    private static AtomicLong f901a = new AtomicLong(0);
 
     /* renamed from: a  reason: collision with other field name */
-    private static SimpleDateFormat f899a = new SimpleDateFormat("yyyy/MM/dd");
-    private static String a = f899a.format(Long.valueOf(System.currentTimeMillis()));
+    private static SimpleDateFormat f900a = new SimpleDateFormat("yyyy/MM/dd");
+    private static String a = f900a.format(Long.valueOf(System.currentTimeMillis()));
 
     public static synchronized String a() {
         String str;
         synchronized (bi.class) {
-            String format = f899a.format(Long.valueOf(System.currentTimeMillis()));
+            String format = f900a.format(Long.valueOf(System.currentTimeMillis()));
             if (!TextUtils.equals(a, format)) {
-                f900a.set(0L);
+                f901a.set(0L);
                 a = format;
             }
-            str = format + Constants.ACCEPT_TIME_SEPARATOR_SERVER + f900a.incrementAndGet();
+            str = format + Constants.ACCEPT_TIME_SEPARATOR_SERVER + f901a.incrementAndGet();
         }
         return str;
     }
@@ -57,7 +57,7 @@ public class bi {
                             il ilVar = new il("-1", false);
                             ilVar.d(str);
                             ilVar.b(str2);
-                            ilVar.c(hw.UploadTinyData.f481a);
+                            ilVar.c(hw.UploadTinyData.f482a);
                             ilVar.a(com.xiaomi.push.y.a(iw.a(hpVar)));
                             arrayList.add(ilVar);
                             hpVar = new hp();
@@ -72,7 +72,7 @@ public class bi {
                 il ilVar2 = new il("-1", false);
                 ilVar2.d(str);
                 ilVar2.b(str2);
-                ilVar2.c(hw.UploadTinyData.f481a);
+                ilVar2.c(hw.UploadTinyData.f482a);
                 ilVar2.a(com.xiaomi.push.y.a(iw.a(hpVar)));
                 arrayList.add(ilVar2);
             }
@@ -99,25 +99,25 @@ public class bi {
         if (hqVar == null) {
             com.xiaomi.channel.commonutils.logger.b.m48a("item is null, verfiy ClientUploadDataItem failed.");
             return true;
-        } else if (!z && TextUtils.isEmpty(hqVar.f453a)) {
+        } else if (!z && TextUtils.isEmpty(hqVar.f454a)) {
             com.xiaomi.channel.commonutils.logger.b.m48a("item.channel is null or empty, verfiy ClientUploadDataItem failed.");
             return true;
-        } else if (TextUtils.isEmpty(hqVar.f460d)) {
+        } else if (TextUtils.isEmpty(hqVar.f461d)) {
             com.xiaomi.channel.commonutils.logger.b.m48a("item.category is null or empty, verfiy ClientUploadDataItem failed.");
             return true;
-        } else if (TextUtils.isEmpty(hqVar.f459c)) {
+        } else if (TextUtils.isEmpty(hqVar.f460c)) {
             com.xiaomi.channel.commonutils.logger.b.m48a("item.name is null or empty, verfiy ClientUploadDataItem failed.");
             return true;
-        } else if (!com.xiaomi.push.bf.m157a(hqVar.f460d)) {
+        } else if (!com.xiaomi.push.bf.m157a(hqVar.f461d)) {
             com.xiaomi.channel.commonutils.logger.b.m48a("item.category can only contain ascii char, verfiy ClientUploadDataItem failed.");
             return true;
-        } else if (!com.xiaomi.push.bf.m157a(hqVar.f459c)) {
+        } else if (!com.xiaomi.push.bf.m157a(hqVar.f460c)) {
             com.xiaomi.channel.commonutils.logger.b.m48a("item.name can only contain ascii char, verfiy ClientUploadDataItem failed.");
             return true;
-        } else if (hqVar.f458b == null || hqVar.f458b.length() <= 10240) {
+        } else if (hqVar.f459b == null || hqVar.f459b.length() <= 10240) {
             return false;
         } else {
-            com.xiaomi.channel.commonutils.logger.b.m48a("item.data is too large(" + hqVar.f458b.length() + "), max size for data is 10240 , verfiy ClientUploadDataItem failed.");
+            com.xiaomi.channel.commonutils.logger.b.m48a("item.data is too large(" + hqVar.f459b.length() + "), max size for data is 10240 , verfiy ClientUploadDataItem failed.");
             return true;
         }
     }

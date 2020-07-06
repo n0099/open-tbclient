@@ -45,8 +45,8 @@ public class a implements View.OnClickListener {
                 if (a.this.eXU != null) {
                     a.this.eXU.a(aVar);
                 }
-                if (a.this.eXT != null && a.this.eXU != null && a.this.eXU.boN() != null) {
-                    a.this.eXT.a(a.this.eXU.boN().boR());
+                if (a.this.eXT != null && a.this.eXU != null && a.this.eXU.boO() != null) {
+                    a.this.eXT.a(a.this.eXU.boO().boS());
                 }
             }
         }
@@ -58,7 +58,7 @@ public class a implements View.OnClickListener {
         this.eXT = new b(this.mActivity, this);
         this.eXU = new AccountSafeModel(this.mActivity);
         if (j.isNetWorkAvailable()) {
-            boS();
+            boT();
         } else {
             this.mActivity.showToast(R.string.neterror);
         }
@@ -68,9 +68,9 @@ public class a implements View.OnClickListener {
         return this.eXT.getView();
     }
 
-    private void boS() {
+    private void boT() {
         if (this.eXU != null && !this.eXU.isLoading()) {
-            this.eXU.boP();
+            this.eXU.boQ();
         }
     }
 

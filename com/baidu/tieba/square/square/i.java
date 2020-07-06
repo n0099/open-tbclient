@@ -25,7 +25,7 @@ public class i implements com.baidu.tbadk.core.flow.a.a {
         return this.lCn.getLink();
     }
 
-    public String dgO() {
+    public String dgP() {
         if (this.lCn == null) {
             return null;
         }

@@ -37,7 +37,7 @@ public class GroupAddressEditActivity extends BaseActivity<GroupAddressEditActiv
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.iPg.cpf() || view == this.iPg.getBackButton()) {
+        if (view == this.iPg.cpg() || view == this.iPg.getBackButton()) {
             Intent intent = new Intent();
             if (this.iPi > -1 && this.iPi < this.addresses.length) {
                 intent.putExtra("Selected_Business", this.addresses[this.iPi]);
@@ -57,13 +57,13 @@ public class GroupAddressEditActivity extends BaseActivity<GroupAddressEditActiv
         }
     }
 
-    public int cpe() {
+    public int cpf() {
         return this.iPi;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         this.iPi = i;
-        this.iPg.cpg();
+        this.iPg.cph();
     }
 }

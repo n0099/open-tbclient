@@ -84,14 +84,14 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
     public void onClick(View view) {
         this.ieQ.registerListener();
         if (view == this.hQn) {
-            com.baidu.tieba.frs.b.bXc().reset();
+            com.baidu.tieba.frs.b.bXd().reset();
         } else if (view == this.ieR) {
-            if (!w.isEmpty(com.baidu.tieba.frs.b.bXc().bWZ())) {
+            if (!w.isEmpty(com.baidu.tieba.frs.b.bXd().bXa())) {
                 TiebaStatic.log(new ao("c13122").ag("obj_type", 1));
                 setData(1);
                 FO("2");
             }
-        } else if (view == this.ieS && !w.isEmpty(com.baidu.tieba.frs.b.bXc().bWZ())) {
+        } else if (view == this.ieS && !w.isEmpty(com.baidu.tieba.frs.b.bXd().bXa())) {
             TiebaStatic.log(new ao("c13122").ag("obj_type", 2));
             setData(2);
             FO("2");
@@ -111,15 +111,15 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
         }
     }
 
-    public void bZG() {
+    public void bZH() {
         if (this.ieU != null) {
-            this.ieU.bns();
+            this.ieU.bnt();
         }
     }
 
-    public void bnp() {
+    public void bnq() {
         if (this.ieU != null) {
-            this.ieU.bnp();
+            this.ieU.bnq();
         }
     }
 
@@ -129,9 +129,9 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
                 this.ieU = new com.baidu.tieba.NEGFeedBack.e(this.pageContext, this);
             }
             SparseArray<String> sparseArray = new SparseArray<>();
-            AntiData bXd = com.baidu.tieba.frs.b.bXc().bXd();
-            if (bXd != null && bXd.getDelThreadInfoList() != null) {
-                List<DeleteThreadInfo> delThreadInfoList = bXd.getDelThreadInfoList();
+            AntiData bXe = com.baidu.tieba.frs.b.bXd().bXe();
+            if (bXe != null && bXe.getDelThreadInfoList() != null) {
+                List<DeleteThreadInfo> delThreadInfoList = bXe.getDelThreadInfoList();
                 for (int i2 = 0; i2 < delThreadInfoList.size(); i2++) {
                     if (!TextUtils.isEmpty(delThreadInfoList.get(i2).text_info)) {
                         sparseArray.put(delThreadInfoList.get(i2).text_id, delThreadInfoList.get(i2).text_info);
@@ -139,15 +139,15 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
                 }
             }
             JSONArray jSONArray = new JSONArray();
-            List<bu> bWZ = com.baidu.tieba.frs.b.bXc().bWZ();
-            for (int i3 = 0; i3 < bWZ.size(); i3++) {
-                jSONArray.put(bWZ.get(i3).getTid());
+            List<bu> bXa = com.baidu.tieba.frs.b.bXd().bXa();
+            for (int i3 = 0; i3 < bXa.size(); i3++) {
+                jSONArray.put(bXa.get(i3).getTid());
             }
             ap apVar = new ap();
             apVar.setFeedBackReasonMap(sparseArray);
             apVar.kt(i);
             apVar.M(jSONArray);
-            apVar.setFid(com.baidu.tieba.frs.b.bXc().getForumId());
+            apVar.setFid(com.baidu.tieba.frs.b.bXd().getForumId());
             this.ieU.setDefaultReasonArray(new String[]{getContext().getString(R.string.delete_thread_reason_1), getContext().getString(R.string.delete_thread_reason_2), getContext().getString(R.string.delete_thread_reason_3), getContext().getString(R.string.delete_thread_reason_4), getContext().getString(R.string.delete_thread_reason_5)});
             this.ieU.setData(apVar);
         }

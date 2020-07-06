@@ -41,7 +41,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         super.onCreate(bundle);
         setContentView(R.layout.create_bar_success_activity);
         initData();
-        chN();
+        chO();
     }
 
     private void initData() {
@@ -51,7 +51,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         }
     }
 
-    private void chN() {
+    private void chO() {
         this.mContainer = (LinearLayout) findViewById(R.id.container);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.title);
         if (UtilHelper.canUseStyleImmersiveSticky()) {

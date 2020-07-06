@@ -105,13 +105,13 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             @Override // com.baidu.tieba.play.g.f
             public void onPrepared(g gVar) {
                 PushDialogVideoView.this.hKR = gVar;
-                PushDialogVideoView.this.eKZ.cVQ();
+                PushDialogVideoView.this.eKZ.cVR();
             }
         };
         this.gQZ = new VideoLoadingProgressView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.6
             @Override // com.baidu.tieba.play.VideoLoadingProgressView.a
             public void onAnimationEnd() {
-                PushDialogVideoView.this.bOh();
+                PushDialogVideoView.this.bOi();
             }
         };
         this.Zb = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.7
@@ -121,7 +121,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                     PushDialogVideoView.this.YV = true;
                     PushDialogVideoView.this.jrM.setVisibility(8);
                     PushDialogVideoView.this.gTN.setVisibility(8);
-                    PushDialogVideoView.this.eKZ.cVR();
+                    PushDialogVideoView.this.eKZ.cVS();
                     PushDialogVideoView.this.ajE.setVisibility(8);
                     if (PushDialogVideoView.this.currentState == 1 || PushDialogVideoView.this.currentState == 2) {
                         PushDialogVideoView.this.showProgress();
@@ -146,7 +146,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                 } else {
                     PushDialogVideoView.this.kSa.setVisibility(0);
                 }
-                x.cVV().remove(PushDialogVideoView.this.mVideoUrl);
+                x.cVW().remove(PushDialogVideoView.this.mVideoUrl);
                 PushDialogVideoView.this.currentState = 3;
                 PushDialogVideoView.this.fnh.setRecoveryState(3);
                 if (PushDialogVideoView.this.fnh != null && PushDialogVideoView.this.fnh.getDuration() <= 150000) {
@@ -158,7 +158,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             @Override // com.baidu.tieba.play.g.b
             public boolean onError(g gVar, int i, int i2) {
                 PushDialogVideoView.this.gTN.setVisibility(0);
-                PushDialogVideoView.this.eKZ.cVS();
+                PushDialogVideoView.this.eKZ.cVT();
                 PushDialogVideoView.this.currentState = 4;
                 PushDialogVideoView.this.fnh.setRecoveryState(4);
                 if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
@@ -172,7 +172,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             @Override // java.lang.Runnable
             public void run() {
                 PushDialogVideoView.this.gTN.setVisibility(0);
-                PushDialogVideoView.this.eKZ.cVS();
+                PushDialogVideoView.this.eKZ.cVT();
             }
         };
         this.eUM = new g.InterfaceC0721g() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.11
@@ -249,7 +249,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         };
         this.kSM = new QuickVideoView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.5
             @Override // com.baidu.tieba.play.QuickVideoView.a
-            public void cUW() {
+            public void cUX() {
                 PushDialogVideoView.this.eKZ.startLoading();
                 PushDialogVideoView.this.ajE.setVisibility(0);
                 PushDialogVideoView.this.jrV.setVisibility(8);
@@ -277,13 +277,13 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             @Override // com.baidu.tieba.play.g.f
             public void onPrepared(g gVar) {
                 PushDialogVideoView.this.hKR = gVar;
-                PushDialogVideoView.this.eKZ.cVQ();
+                PushDialogVideoView.this.eKZ.cVR();
             }
         };
         this.gQZ = new VideoLoadingProgressView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.6
             @Override // com.baidu.tieba.play.VideoLoadingProgressView.a
             public void onAnimationEnd() {
-                PushDialogVideoView.this.bOh();
+                PushDialogVideoView.this.bOi();
             }
         };
         this.Zb = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.7
@@ -293,7 +293,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                     PushDialogVideoView.this.YV = true;
                     PushDialogVideoView.this.jrM.setVisibility(8);
                     PushDialogVideoView.this.gTN.setVisibility(8);
-                    PushDialogVideoView.this.eKZ.cVR();
+                    PushDialogVideoView.this.eKZ.cVS();
                     PushDialogVideoView.this.ajE.setVisibility(8);
                     if (PushDialogVideoView.this.currentState == 1 || PushDialogVideoView.this.currentState == 2) {
                         PushDialogVideoView.this.showProgress();
@@ -318,7 +318,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                 } else {
                     PushDialogVideoView.this.kSa.setVisibility(0);
                 }
-                x.cVV().remove(PushDialogVideoView.this.mVideoUrl);
+                x.cVW().remove(PushDialogVideoView.this.mVideoUrl);
                 PushDialogVideoView.this.currentState = 3;
                 PushDialogVideoView.this.fnh.setRecoveryState(3);
                 if (PushDialogVideoView.this.fnh != null && PushDialogVideoView.this.fnh.getDuration() <= 150000) {
@@ -330,7 +330,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             @Override // com.baidu.tieba.play.g.b
             public boolean onError(g gVar, int i, int i2) {
                 PushDialogVideoView.this.gTN.setVisibility(0);
-                PushDialogVideoView.this.eKZ.cVS();
+                PushDialogVideoView.this.eKZ.cVT();
                 PushDialogVideoView.this.currentState = 4;
                 PushDialogVideoView.this.fnh.setRecoveryState(4);
                 if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
@@ -344,7 +344,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             @Override // java.lang.Runnable
             public void run() {
                 PushDialogVideoView.this.gTN.setVisibility(0);
-                PushDialogVideoView.this.eKZ.cVS();
+                PushDialogVideoView.this.eKZ.cVT();
             }
         };
         this.eUM = new g.InterfaceC0721g() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.11
@@ -421,7 +421,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         };
         this.kSM = new QuickVideoView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.5
             @Override // com.baidu.tieba.play.QuickVideoView.a
-            public void cUW() {
+            public void cUX() {
                 PushDialogVideoView.this.eKZ.startLoading();
                 PushDialogVideoView.this.ajE.setVisibility(0);
                 PushDialogVideoView.this.jrV.setVisibility(8);
@@ -449,13 +449,13 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             @Override // com.baidu.tieba.play.g.f
             public void onPrepared(g gVar) {
                 PushDialogVideoView.this.hKR = gVar;
-                PushDialogVideoView.this.eKZ.cVQ();
+                PushDialogVideoView.this.eKZ.cVR();
             }
         };
         this.gQZ = new VideoLoadingProgressView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.6
             @Override // com.baidu.tieba.play.VideoLoadingProgressView.a
             public void onAnimationEnd() {
-                PushDialogVideoView.this.bOh();
+                PushDialogVideoView.this.bOi();
             }
         };
         this.Zb = new Runnable() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.7
@@ -465,7 +465,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                     PushDialogVideoView.this.YV = true;
                     PushDialogVideoView.this.jrM.setVisibility(8);
                     PushDialogVideoView.this.gTN.setVisibility(8);
-                    PushDialogVideoView.this.eKZ.cVR();
+                    PushDialogVideoView.this.eKZ.cVS();
                     PushDialogVideoView.this.ajE.setVisibility(8);
                     if (PushDialogVideoView.this.currentState == 1 || PushDialogVideoView.this.currentState == 2) {
                         PushDialogVideoView.this.showProgress();
@@ -490,7 +490,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                 } else {
                     PushDialogVideoView.this.kSa.setVisibility(0);
                 }
-                x.cVV().remove(PushDialogVideoView.this.mVideoUrl);
+                x.cVW().remove(PushDialogVideoView.this.mVideoUrl);
                 PushDialogVideoView.this.currentState = 3;
                 PushDialogVideoView.this.fnh.setRecoveryState(3);
                 if (PushDialogVideoView.this.fnh != null && PushDialogVideoView.this.fnh.getDuration() <= 150000) {
@@ -502,7 +502,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             @Override // com.baidu.tieba.play.g.b
             public boolean onError(g gVar, int i2, int i22) {
                 PushDialogVideoView.this.gTN.setVisibility(0);
-                PushDialogVideoView.this.eKZ.cVS();
+                PushDialogVideoView.this.eKZ.cVT();
                 PushDialogVideoView.this.currentState = 4;
                 PushDialogVideoView.this.fnh.setRecoveryState(4);
                 if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
@@ -516,7 +516,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             @Override // java.lang.Runnable
             public void run() {
                 PushDialogVideoView.this.gTN.setVisibility(0);
-                PushDialogVideoView.this.eKZ.cVS();
+                PushDialogVideoView.this.eKZ.cVT();
             }
         };
         this.eUM = new g.InterfaceC0721g() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.11
@@ -593,7 +593,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         };
         this.kSM = new QuickVideoView.a() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.5
             @Override // com.baidu.tieba.play.QuickVideoView.a
-            public void cUW() {
+            public void cUX() {
                 PushDialogVideoView.this.eKZ.startLoading();
                 PushDialogVideoView.this.ajE.setVisibility(0);
                 PushDialogVideoView.this.jrV.setVisibility(8);
@@ -683,7 +683,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bOh() {
+    public void bOi() {
         if (this.fnh != null && this.hKR != null) {
             if (this.kSE) {
                 this.fnh.start();
@@ -692,12 +692,12 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             e.lt().removeCallbacks(this.Zb);
             e.lt().postDelayed(this.Zb, 20L);
             e.lt().removeCallbacks(this.jsv);
-            if (this.fnh.cVr()) {
+            if (this.fnh.cVs()) {
                 this.currentState = 1;
                 this.fnh.setRecoveryState(1);
             }
             if (this.hKR != null) {
-                this.mStartPosition = x.cVV().Lc(this.mVideoUrl);
+                this.mStartPosition = x.cVW().Lc(this.mVideoUrl);
                 if (this.mStartPosition != 0) {
                     if (this.fnh != null) {
                         this.fnh.CO(this.mStartPosition);
@@ -714,7 +714,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    public void cOR() {
+    public void cOS() {
         if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
             l.showLongToast(getContext(), getContext().getString(R.string.neterror));
         } else if (this.fnh.isPlaying()) {
@@ -722,12 +722,12 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         } else if (this.YV) {
             axa();
         } else {
-            cUK();
+            cUL();
         }
     }
 
     public void setPauseState() {
-        this.eKZ.cVS();
+        this.eKZ.cVT();
         this.jrV.setVisibility(0);
         this.kSa.setVisibility(8);
         this.currentState = 2;
@@ -746,7 +746,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     }
 
     public void fd(String str, String str2) {
-        cUL();
+        cUM();
         this.kSE = true;
         this.currentState = 0;
         this.fnh.setRecoveryState(0);
@@ -762,7 +762,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     }
 
     public void fe(String str, String str2) {
-        cUL();
+        cUM();
         this.kSE = true;
         this.currentState = 0;
         this.fnh.setRecoveryState(0);
@@ -781,7 +781,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         this.fnh.start();
         this.ajE.setVisibility(8);
         this.jrM.setVisibility(8);
-        this.eKZ.cVS();
+        this.eKZ.cVT();
         showProgress();
         this.jrV.setVisibility(8);
         this.kSa.setVisibility(8);
@@ -803,7 +803,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     public void awZ() {
         if (this.fnh.isPlaying() && this.kSx) {
-            cUJ();
+            cUK();
         }
         this.fnh.pause();
         setPauseState();
@@ -811,7 +811,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     public void stopPlay() {
         if (this.fnh.isPlaying() && this.kSx) {
-            cUJ();
+            cUK();
         }
         this.currentState = 5;
         this.fnh.setRecoveryState(5);
@@ -821,11 +821,11 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         this.YV = false;
         this.kSE = false;
         this.mStartPosition = 0;
-        cla();
+        clb();
     }
 
-    public void cUJ() {
-        x.cVV().bv(this.mVideoUrl, this.fnh.getCurrentPosition());
+    public void cUK() {
+        x.cVW().bv(this.mVideoUrl, this.fnh.getCurrentPosition());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -833,14 +833,14 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         this.jrM.setVisibility(0);
         this.jrV.setVisibility(0);
         this.kSa.setVisibility(8);
-        this.eKZ.cVS();
+        this.eKZ.cVT();
         this.kRX.setVisibility(8);
         this.gTN.setVisibility(8);
         this.mHandler.removeMessages(1);
         this.ajE.setVisibility(z ? 0 : 8);
     }
 
-    public void cla() {
+    public void clb() {
         tE(true);
     }
 
@@ -872,16 +872,16 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    private void cUK() {
+    private void cUL() {
         a(this.mVideoUrl, this.ajO, (a) null, new Object[0]);
     }
 
     public void a(String str, String str2, a aVar, Object... objArr) {
-        cUL();
+        cUM();
         if (objArr != null && objArr.length > 0 && (objArr[0] instanceof Boolean)) {
             this.kSz = ((Boolean) objArr[0]).booleanValue();
         }
-        if (com.baidu.adp.lib.util.j.isMobileNet() && !this.kwy && !h.dmk().dml()) {
+        if (com.baidu.adp.lib.util.j.isMobileNet() && !this.kwy && !h.dmo().dmp()) {
             this.kwp.setVisibility(0);
             this.kwp.setData(this.laM.getDuration(), this.laM.getFileSize());
             return;
@@ -890,9 +890,9 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_VEDIO_START_PLAY));
     }
 
-    private void cUL() {
+    private void cUM() {
         if (com.baidu.adp.lib.util.j.isMobileNet()) {
-            h.dmk().fs(getContext());
+            h.dmo().fs(getContext());
         }
     }
 
@@ -909,10 +909,10 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.gTN) {
-            cUK();
+            cUL();
         } else if (view == this) {
             TiebaStatic.log(new ao("c13199").ag("obj_locate", 2).dk("tid", this.ajO));
-            cOR();
+            cOS();
         } else if (view == this.kSa) {
             fd(this.mVideoUrl, this.ajO);
         } else if (view == this.kwp.getTvPlay()) {

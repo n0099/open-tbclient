@@ -33,7 +33,7 @@ public class a {
             ad.a(new ac<GameForumGuideTabResIdl>() { // from class: com.baidu.tieba.frs.game.strategy.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ac
-                /* renamed from: ccf */
+                /* renamed from: ccg */
                 public GameForumGuideTabResIdl doInBackground() {
                     Wire wire = new Wire(new Class[0]);
                     byte[] bArr = (byte[]) a.this.hvk.get(TbadkCoreApplication.getCurrentAccount() + str);

@@ -55,7 +55,7 @@ public class h implements com.baidu.live.guardclub.k {
     public void a(final ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, String str, String str2) {
         if (viewGroup != null && this.context != null) {
             onDestory();
-            if (bxu()) {
+            if (bxv()) {
                 String str3 = null;
                 as Cj = com.baidu.live.guardclub.g.Ch().Cj();
                 if (Cj != null && !TextUtils.isEmpty(Cj.aCk)) {
@@ -175,7 +175,7 @@ public class h implements com.baidu.live.guardclub.k {
         }
     }
 
-    private boolean bxu() {
+    private boolean bxv() {
         return this.context.getRequestedOrientation() == 0;
     }
 }

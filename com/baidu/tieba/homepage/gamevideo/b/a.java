@@ -32,7 +32,7 @@ public class a {
                     if (a.this.ipL != null) {
                         a.this.ipL.a(aVar);
                     }
-                    a.this.ciN();
+                    a.this.ciO();
                     com.baidu.tbadk.core.sharedPref.b.aVP().putInt("key_game_video_tab_has_choosed_sub_class_id", aVar.sub_class_id);
                     com.baidu.tbadk.core.sharedPref.b.aVP().putString("key_game_video_tab_has_choosed_sub_class_name", aVar.sub_class_name);
                     TiebaStatic.log(new ao("c13485").ag("obj_type", aVar.sub_class_id));
@@ -92,7 +92,7 @@ public class a {
         }
     }
 
-    public void ciN() {
+    public void ciO() {
         if (this.mRootView != null && this.mRootView.getParent() != null) {
             ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
         }

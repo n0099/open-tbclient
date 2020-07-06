@@ -149,7 +149,7 @@ public class a extends BaseAdapter {
                 alaMasterOperationSwitchItemView2 = (AlaMasterOperationSwitchItemView) view;
             } else {
                 AlaMasterOperationSwitchItemView alaMasterOperationSwitchItemView3 = new AlaMasterOperationSwitchItemView(this.mContext, i2);
-                alaMasterOperationSwitchItemView3.setLayoutParams(new AbsListView.LayoutParams(bHw(), bHx()));
+                alaMasterOperationSwitchItemView3.setLayoutParams(new AbsListView.LayoutParams(bHx(), bHy()));
                 alaMasterOperationSwitchItemView2 = alaMasterOperationSwitchItemView3;
             }
             alaMasterOperationSwitchItemView2.setTextResIdAndOnIconIdAndOffIconId(i3, rN(i2), rO(i2));
@@ -160,7 +160,7 @@ public class a extends BaseAdapter {
                 alaMasterOperationEntryItemView = (AlaMasterOperationEntryItemView) view;
             } else {
                 AlaMasterOperationEntryItemView alaMasterOperationEntryItemView2 = new AlaMasterOperationEntryItemView(this.mContext, i2);
-                alaMasterOperationEntryItemView2.setLayoutParams(new AbsListView.LayoutParams(bHw(), bHx()));
+                alaMasterOperationEntryItemView2.setLayoutParams(new AbsListView.LayoutParams(bHx(), bHy()));
                 alaMasterOperationEntryItemView = alaMasterOperationEntryItemView2;
             }
             alaMasterOperationEntryItemView.setTextResIdAndIconResId(i3, rP(i2));
@@ -174,14 +174,14 @@ public class a extends BaseAdapter {
         return i == 1 || i == 2 || i == 3 || i == 4;
     }
 
-    private int bHw() {
+    private int bHx() {
         if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
             return this.gmk;
         }
         return -1;
     }
 
-    private int bHx() {
+    private int bHy() {
         return UtilHelper.getRealScreenOrientation(this.mContext) == 2 ? this.gmm : this.gml;
     }
 

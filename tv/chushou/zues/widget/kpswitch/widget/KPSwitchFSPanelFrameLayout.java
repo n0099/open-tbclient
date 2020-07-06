@@ -8,7 +8,7 @@ import tv.chushou.zues.widget.kpswitch.b;
 import tv.chushou.zues.widget.kpswitch.b.e;
 /* loaded from: classes5.dex */
 public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b {
-    private a onA;
+    private a onD;
 
     public KPSwitchFSPanelFrameLayout(Context context) {
         super(context);
@@ -26,7 +26,7 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b {
     }
 
     private void init() {
-        this.onA = new a(this);
+        this.onD = new a(this);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
@@ -36,6 +36,6 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b {
 
     @Override // tv.chushou.zues.widget.kpswitch.b
     public void wY(boolean z) {
-        this.onA.wY(z);
+        this.onD.wY(z);
     }
 }

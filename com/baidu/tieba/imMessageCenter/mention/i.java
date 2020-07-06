@@ -19,20 +19,20 @@ public class i {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002500 && (httpResponsedMessage instanceof MsgReminderHttpRespMessage)) {
                 h msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData();
                 if (!com.baidu.tbadk.coreExtra.messageCenter.b.bbq() && msgData != null && com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bbX()) {
-                    if (msgData.cuY() >= 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.b.bbo().setMsgBookmark(msgData.cuY());
+                    if (msgData.cuZ() >= 0) {
+                        com.baidu.tbadk.coreExtra.messageCenter.b.bbo().setMsgBookmark(msgData.cuZ());
+                    }
+                    if (msgData.cuX() >= 0) {
+                        com.baidu.tbadk.coreExtra.messageCenter.b.bbo().setMsgAtme(msgData.cuX());
                     }
                     if (msgData.cuW() >= 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.b.bbo().setMsgAtme(msgData.cuW());
+                        com.baidu.tbadk.coreExtra.messageCenter.b.bbo().setMsgReplyme(msgData.cuW());
+                    }
+                    if (msgData.cuY() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bcb()) {
+                        com.baidu.tbadk.coreExtra.messageCenter.b.bbo().setMsgFans(msgData.cuY());
                     }
                     if (msgData.cuV() >= 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.b.bbo().setMsgReplyme(msgData.cuV());
-                    }
-                    if (msgData.cuX() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bcb()) {
-                        com.baidu.tbadk.coreExtra.messageCenter.b.bbo().setMsgFans(msgData.cuX());
-                    }
-                    if (msgData.cuU() >= 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.b.bbo().na(msgData.cuU());
+                        com.baidu.tbadk.coreExtra.messageCenter.b.bbo().na(msgData.cuV());
                     }
                 }
             }
@@ -47,7 +47,7 @@ public class i {
                 i.this.jhp = System.currentTimeMillis();
                 boolean z = !MessageManager.getInstance().getSocketClient().isValid();
                 if (i == 2 || (z && com.baidu.adp.lib.util.j.isNetWorkAvailable())) {
-                    i.this.cva();
+                    i.this.cvb();
                 }
                 i.this.z(1, 600000L);
             }
@@ -61,7 +61,7 @@ public class i {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static synchronized i cuZ() {
+    public static synchronized i cva() {
         i iVar;
         synchronized (i.class) {
             if (jho == null) {
@@ -77,7 +77,7 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cva() {
+    public void cvb() {
         MessageManager.getInstance().sendMessage(new HttpMessage(1002500));
     }
 

@@ -1,50 +1,50 @@
 package kascend.core.utils;
 /* loaded from: classes5.dex */
 public class b {
-    private static final byte[] nOX = new byte[128];
-    private static final char[] nOY = new char[64];
+    private static final byte[] nPa = new byte[128];
+    private static final char[] nPb = new char[64];
 
     static {
         int i = 0;
         for (int i2 = 0; i2 < 128; i2++) {
-            nOX[i2] = -1;
+            nPa[i2] = -1;
         }
         for (int i3 = 90; i3 >= 65; i3--) {
-            nOX[i3] = (byte) (i3 - 65);
+            nPa[i3] = (byte) (i3 - 65);
         }
         for (int i4 = 122; i4 >= 97; i4--) {
-            nOX[i4] = (byte) ((i4 - 97) + 26);
+            nPa[i4] = (byte) ((i4 - 97) + 26);
         }
         for (int i5 = 57; i5 >= 48; i5--) {
-            nOX[i5] = (byte) ((i5 - 48) + 52);
+            nPa[i5] = (byte) ((i5 - 48) + 52);
         }
-        nOX[43] = 62;
-        nOX[47] = 63;
+        nPa[43] = 62;
+        nPa[47] = 63;
         for (int i6 = 0; i6 <= 25; i6++) {
-            nOY[i6] = (char) (i6 + 65);
+            nPb[i6] = (char) (i6 + 65);
         }
         int i7 = 26;
         int i8 = 0;
         while (i7 <= 51) {
-            nOY[i7] = (char) (i8 + 97);
+            nPb[i7] = (char) (i8 + 97);
             i7++;
             i8++;
         }
         int i9 = 52;
         while (i9 <= 61) {
-            nOY[i9] = (char) (i + 48);
+            nPb[i9] = (char) (i + 48);
             i9++;
             i++;
         }
-        nOY[62] = '+';
-        nOY[63] = '/';
+        nPb[62] = '+';
+        nPb[63] = '/';
     }
 
     public static byte[] decode(String str) throws Exception {
-        return Sp(str);
+        return Sq(str);
     }
 
-    public static byte[] Sp(String str) {
+    public static byte[] Sq(String str) {
         if (str == null) {
             return null;
         }
@@ -80,10 +80,10 @@ public class b {
                 if (!l(c4)) {
                     return null;
                 }
-                byte b2 = nOX[c];
-                byte b3 = nOX[c2];
-                byte b4 = nOX[c3];
-                byte b5 = nOX[c4];
+                byte b2 = nPa[c];
+                byte b3 = nPa[c2];
+                byte b4 = nPa[c3];
+                byte b5 = nPa[c4];
                 int i8 = i3 + 1;
                 bArr[i3] = (byte) ((b2 << 2) | (b3 >> 4));
                 int i9 = i8 + 1;
@@ -98,8 +98,8 @@ public class b {
                 int i11 = i10 + 1;
                 char c6 = charArray[i10];
                 if (l(c6)) {
-                    byte b6 = nOX[c5];
-                    byte b7 = nOX[c6];
+                    byte b6 = nPa[c5];
+                    byte b7 = nPa[c6];
                     int i12 = i11 + 1;
                     char c7 = charArray[i11];
                     int i13 = i12 + 1;
@@ -116,7 +116,7 @@ public class b {
                         } else if (k(c7) || !k(c8)) {
                             return null;
                         } else {
-                            byte b8 = nOX[c7];
+                            byte b8 = nPa[c7];
                             if ((b8 & 3) == 0) {
                                 byte[] bArr3 = new byte[(i4 * 3) + 2];
                                 System.arraycopy(bArr, 0, bArr3, 0, i4 * 3);
@@ -127,8 +127,8 @@ public class b {
                             return null;
                         }
                     }
-                    byte b9 = nOX[c7];
-                    byte b10 = nOX[c8];
+                    byte b9 = nPa[c7];
+                    byte b10 = nPa[c8];
                     int i14 = i3 + 1;
                     bArr[i3] = (byte) ((b6 << 2) | (b7 >> 4));
                     int i15 = i14 + 1;
@@ -173,6 +173,6 @@ public class b {
     }
 
     private static boolean l(char c) {
-        return c < 128 && nOX[c] != -1;
+        return c < 128 && nPa[c] != -1;
     }
 }

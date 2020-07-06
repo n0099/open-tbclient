@@ -31,11 +31,11 @@ public class f {
         return this.imageUrl;
     }
 
-    public String cvF() {
+    public String cvG() {
         return this.jki;
     }
 
-    public String cvG() {
+    public String cvH() {
         return this.postId;
     }
 
@@ -51,11 +51,11 @@ public class f {
         return this.index;
     }
 
-    public String blg() {
+    public String blh() {
         return this.eOk;
     }
 
-    public String blm() {
+    public String bln() {
         return this.jkj;
     }
 
@@ -71,11 +71,11 @@ public class f {
         return this.tagName;
     }
 
-    public boolean cvH() {
+    public boolean cvI() {
         return this.jkk;
     }
 
-    public boolean cvI() {
+    public boolean cvJ() {
         return this.isBlockedPic;
     }
 
@@ -83,11 +83,11 @@ public class f {
         return this.isLongPic;
     }
 
-    public long cvJ() {
+    public long cvK() {
         return this.overAllIndex;
     }
 
-    public String cvK() {
+    public String cvL() {
         return this.commentNum;
     }
 
@@ -95,11 +95,11 @@ public class f {
         return this.agreeData;
     }
 
-    public JSONArray cvL() {
+    public JSONArray cvM() {
         return this.jkl;
     }
 
-    public boolean cvM() {
+    public boolean cvN() {
         return this.isFirstPost;
     }
 

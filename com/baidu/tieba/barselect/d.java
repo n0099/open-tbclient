@@ -19,7 +19,7 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void a(f fVar) {
         this.mVoteData = fVar;
         if (fVar != null) {
-            this.gKy = fVar.bNt();
+            this.gKy = fVar.bNu();
         }
         notifyDataSetChanged();
     }

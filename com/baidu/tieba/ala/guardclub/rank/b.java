@@ -55,7 +55,7 @@ public class b implements d.a {
 
         void ax(String str, int i);
 
-        ViewGroup bxx();
+        ViewGroup bxy();
 
         void qP(int i);
 
@@ -70,11 +70,11 @@ public class b implements d.a {
         this.fLp = aVar;
         k(intent);
         Bf();
-        bxP();
+        bxQ();
         Bj();
     }
 
-    public void bxN() {
+    public void bxO() {
         if (this.aNS == null) {
             this.aNS = new com.baidu.live.l.c();
             this.aNS.initListener();
@@ -160,7 +160,7 @@ public class b implements d.a {
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.d.a
-    public void bxO() {
+    public void bxP() {
         if (this.fLp != null) {
             this.fLp.K(new Intent().putExtra("guard_club_rank_hit", true));
         }
@@ -190,7 +190,7 @@ public class b implements d.a {
         MessageManager.getInstance().registerListener(this.aPg);
     }
 
-    private void bxP() {
+    private void bxQ() {
         this.aVB = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.guardclub.rank.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -228,17 +228,17 @@ public class b implements d.a {
         }
         if (this.fLp != null) {
             this.fLp.w(str, j);
-            ViewGroup bxx = this.fLp.bxx();
-            if (bxx != null && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
+            ViewGroup bxy = this.fLp.bxy();
+            if (bxy != null && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
                 if (this.fLt == null) {
                     this.fLt = new h(this.mContext.getPageActivity());
                 }
                 this.fLt.setOtherParams(this.mOtherParams);
                 int[] iArr = new int[2];
-                bxx.getLocationOnScreen(iArr);
+                bxy.getLocationOnScreen(iArr);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
                 layoutParams.topMargin = iArr[1] * (-1);
-                this.fLt.a(bxx, layoutParams, currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow());
+                this.fLt.a(bxy, layoutParams, currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow());
             }
         }
         if (!TextUtils.isEmpty(str2)) {

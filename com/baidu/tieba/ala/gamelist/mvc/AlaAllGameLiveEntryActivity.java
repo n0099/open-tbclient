@@ -47,7 +47,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        bxh();
+        bxi();
         initView();
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_SQUARE_TAB_CONTROLLER, IAlaSquareTabController.class);
         if (runTask != null && runTask.getData() != null) {
@@ -55,7 +55,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         }
     }
 
-    private void bxh() {
+    private void bxi() {
         Intent intent = getIntent();
         if (intent != null) {
             this.fHX = intent.getIntExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_HAS_SEARCH, 0);

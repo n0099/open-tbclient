@@ -57,32 +57,32 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
             OtherSubTabFragment.this.jc(false);
             OtherSubTabFragment.this.hideLoadingView(OtherSubTabFragment.this.mRootView);
             if (w.getCount(OtherSubTabFragment.this.fux.getDatas()) == 0) {
-                OtherSubTabFragment.this.btM();
+                OtherSubTabFragment.this.btN();
                 return;
             }
             OtherSubTabFragment.this.fml.setData(OtherSubTabFragment.this.fux.getDatas());
             if (!OtherSubTabFragment.this.mHasMore) {
-                OtherSubTabFragment.this.buJ();
+                OtherSubTabFragment.this.buK();
             } else {
-                OtherSubTabFragment.this.buI();
+                OtherSubTabFragment.this.buJ();
             }
-            OtherSubTabFragment.this.btN();
+            OtherSubTabFragment.this.btO();
         }
 
         @Override // com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListModel.a
         public void an(int i, String str) {
             OtherSubTabFragment.this.hideLoadingView(OtherSubTabFragment.this.mRootView);
-            OtherSubTabFragment.this.buK();
-            OtherSubTabFragment.this.btM();
+            OtherSubTabFragment.this.buL();
+            OtherSubTabFragment.this.btN();
         }
     };
     private BdListView.e UJ = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.OtherSubTabFragment.3
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (!l.isNetOk()) {
-                OtherSubTabFragment.this.buK();
+                OtherSubTabFragment.this.buL();
             } else if (OtherSubTabFragment.this.mHasMore) {
-                OtherSubTabFragment.this.fux.buP();
+                OtherSubTabFragment.this.fux.buQ();
             }
         }
     };
@@ -185,7 +185,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btM() {
+    public void btN() {
         if (this.mRefreshView == null) {
             this.mRefreshView = new h(getPageContext().getContext(), getNetRefreshListener());
             this.mRefreshView.setTitle(null);
@@ -202,8 +202,8 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment
-    public void buH() {
-        super.buH();
+    public void buI() {
+        super.buI();
         if (this.fml != null) {
             this.fml.smoothScrollToPosition(0);
             this.fml.startPullRefresh();
@@ -231,7 +231,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btN() {
+    public void btO() {
         if (this.fml != null && this.mRefreshView != null) {
             this.fuk = false;
             this.fml.removeHeaderView(this.mRefreshView.getAttachedView());
@@ -239,7 +239,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buI() {
+    public void buJ() {
         this.fml.setNextPage(this.fnt);
         this.fnt.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
         this.fnt.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
@@ -247,7 +247,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buJ() {
+    public void buK() {
         this.fml.setNextPage(this.fnt);
         this.fnt.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
         this.fnt.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
@@ -256,7 +256,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buK() {
+    public void buL() {
         this.fml.setNextPage(this.fnt);
         this.fnt.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
         this.fnt.hideWithoutEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
@@ -308,7 +308,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
             alaLiveInfoCoreData.fillWithInfoData(buVar.aSJ());
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            for (bu buVar2 : this.fux.buG()) {
+            for (bu buVar2 : this.fux.buH()) {
                 alaLiveInfoListCoreData.mLiveInfoList.add(V(buVar2));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, "frs_live_tab_sub_tab", str2, z, "颜值".equals(str) ? str : null, null)));

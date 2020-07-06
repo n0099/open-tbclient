@@ -28,7 +28,7 @@ public class c implements com.baidu.tieba.ala.alaar.sticker.download.a.d {
 
         public a(com.baidu.tieba.ala.alaar.sticker.download.a.c cVar) {
             this.fhs = cVar;
-            this.fhu = this.fhs.bsp();
+            this.fhu = this.fhs.bsq();
         }
 
         @Override // java.lang.Runnable

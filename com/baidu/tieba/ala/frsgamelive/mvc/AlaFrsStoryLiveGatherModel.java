@@ -187,7 +187,7 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
         sendMessage(alaFrsStoryLiveGatherRequestMessage);
     }
 
-    public boolean buP() {
+    public boolean buQ() {
         if (!this.hasMore) {
             return false;
         }
@@ -232,11 +232,11 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
         return this.mDatas;
     }
 
-    public boolean bxc() {
+    public boolean bxd() {
         return this.fGC;
     }
 
-    public List<bu> buG() {
+    public List<bu> buH() {
         return this.fug;
     }
 

@@ -14,7 +14,7 @@ public class a {
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
     private MediaCodec mEncoder;
     private int mTrackIndex;
-    private c mYo;
+    private c mYr;
 
     public a(c cVar) {
         MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 1);
@@ -30,7 +30,7 @@ public class a {
         this.mEncoder.start();
         this.mTrackIndex = -1;
         this.btH = false;
-        this.mYo = cVar;
+        this.mYr = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,7 +65,7 @@ public class a {
         }
     }
 
-    public void dHd() throws Exception {
+    public void dHh() throws Exception {
         ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
         while (true) {
             int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, 10000L);
@@ -78,12 +78,12 @@ public class a {
                     }
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                     Log.d("AudioEncoder", "encoder output format changed: " + outputFormat);
-                    this.mTrackIndex = this.mYo.c(outputFormat);
-                    if (!this.mYo.start()) {
-                        synchronized (this.mYo) {
-                            while (!this.mYo.isStarted()) {
+                    this.mTrackIndex = this.mYr.c(outputFormat);
+                    if (!this.mYr.start()) {
+                        synchronized (this.mYr) {
+                            while (!this.mYr.isStarted()) {
                                 try {
-                                    this.mYo.wait(100L);
+                                    this.mYr.wait(100L);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
@@ -107,7 +107,7 @@ public class a {
                         }
                         byteBuffer.position(this.mBufferInfo.offset);
                         byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                        this.mYo.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                        this.mYr.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
                     }
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
@@ -127,9 +127,9 @@ public class a {
                 this.mEncoder.release();
                 this.mEncoder = null;
             }
-            if (this.mYo != null) {
-                this.mYo.stop();
-                this.mYo = null;
+            if (this.mYr != null) {
+                this.mYr.stop();
+                this.mYr = null;
             }
         } catch (Exception e) {
             e.printStackTrace();

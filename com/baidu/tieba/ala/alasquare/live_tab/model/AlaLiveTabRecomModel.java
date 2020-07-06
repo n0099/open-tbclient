@@ -103,7 +103,7 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
         I(this.mPn, 0, AlaLiveTabFragment.fnB);
     }
 
-    public void btu() {
+    public void btv() {
         if (this.hasMore && !this.foF) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.foL >= 1800000) {

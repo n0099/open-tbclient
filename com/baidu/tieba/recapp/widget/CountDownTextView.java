@@ -25,10 +25,10 @@ public class CountDownTextView extends TextView {
         this.mHandler = null;
         this.llZ = null;
         this.lma = true;
-        dal();
+        dam();
     }
 
-    private void dal() {
+    private void dam() {
         this.fcp = new a();
         this.mHandler = new Handler();
     }
@@ -38,7 +38,7 @@ public class CountDownTextView extends TextView {
         this.mHandler = null;
         this.llZ = null;
         this.lma = true;
-        dal();
+        dam();
     }
 
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
@@ -46,7 +46,7 @@ public class CountDownTextView extends TextView {
         this.mHandler = null;
         this.llZ = null;
         this.lma = true;
-        dal();
+        dam();
     }
 
     public void update(int i) {
@@ -112,10 +112,10 @@ public class CountDownTextView extends TextView {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bqn();
+        bqo();
     }
 
-    private void bqn() {
+    private void bqo() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 

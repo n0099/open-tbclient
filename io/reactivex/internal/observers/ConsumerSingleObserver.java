@@ -55,6 +55,6 @@ public final class ConsumerSingleObserver<T> extends AtomicReference<io.reactive
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.nJC;
+        return this.onError != Functions.nJF;
     }
 }

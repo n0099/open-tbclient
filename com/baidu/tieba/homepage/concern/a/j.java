@@ -144,7 +144,7 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         kVar.sR(kVar.position + 1);
-        com.baidu.tieba.card.s.bOA().e(new ao("c13424"));
+        com.baidu.tieba.card.s.bOB().e(new ao("c13424"));
         akVar.se().setPosition(i);
         if (akVar.se() instanceof com.baidu.tieba.a.e) {
             akVar.se().setPage(this.afG);

@@ -129,16 +129,16 @@ public class e {
             this.eZO.showToast(str);
         }
         if (aVar != null) {
-            if (aVar.cDD() != 0 || z || aVar.getCount() <= 0) {
+            if (aVar.cDE() != 0 || z || aVar.getCount() <= 0) {
             }
-            if (aVar.cDD() < 20) {
+            if (aVar.cDE() < 20) {
                 this.jMn.setHasMore(false);
                 this.jMn.qP(true);
             } else {
                 this.jMn.setHasMore(true);
                 this.jMn.qP(true);
             }
-            this.jMn.setData(aVar.cDC());
+            this.jMn.setData(aVar.cDD());
             a(aVar, z);
         }
         this.jMn.setRefreshing(false);
@@ -167,7 +167,7 @@ public class e {
         this.mNoDataView.setVisibility(0);
     }
 
-    public void cDy() {
+    public void cDz() {
         if (this.mNoDataView.isShown()) {
             this.mNoDataView.e(this.eZO.getPageContext());
         }
@@ -179,12 +179,12 @@ public class e {
             this.eZO.showToast(str);
         }
         if (z2) {
-            cDz();
+            cDA();
         }
         this.jMn.notifyDataSetChanged();
     }
 
-    public void bUh() {
+    public void bUi() {
         this.mProgressBar.setVisibility(0);
     }
 
@@ -207,12 +207,12 @@ public class e {
     public void a(boolean z, String str, com.baidu.tieba.myCollection.baseEditMark.a aVar) {
         if (z) {
             this.eZO.showToast(this.eZO.getPageContext().getString(R.string.delete_success));
-            if (aVar == null || aVar.cDC() == null) {
+            if (aVar == null || aVar.cDD() == null) {
                 this.mProgressBar.setVisibility(8);
                 return;
             }
-            this.jMn.setData(aVar.cDC());
-            if (aVar.cDC().size() == 0) {
+            this.jMn.setData(aVar.cDD());
+            if (aVar.cDD().size() == 0) {
                 if (this.jMq == null) {
                     this.jMq = new a(aVar);
                 } else {
@@ -237,7 +237,7 @@ public class e {
         this.jMn.setData(arrayList);
     }
 
-    private void cDz() {
+    private void cDA() {
         if (this.jMo == null) {
             this.jMo = new com.baidu.tbadk.core.dialog.a(this.eZO.getPageContext().getPageActivity());
             this.jMo.wd(this.eZO.getPageContext().getString(R.string.sync_mark_fail));
@@ -262,14 +262,14 @@ public class e {
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
-        cDA();
+        cDB();
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(this.eZO.getPageContext(), i);
             an.setBackgroundColor(this.mNoDataView, R.color.cp_bg_line_d);
         }
     }
 
-    public void cDA() {
+    public void cDB() {
         this.jMn.notifyDataSetChanged();
     }
 

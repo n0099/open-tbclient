@@ -39,21 +39,21 @@ public class w {
         this.kUS.start();
     }
 
-    public void cVQ() {
+    public void cVR() {
         cancelAnimator();
-        this.kUR.cVQ();
+        this.kUR.cVR();
     }
 
-    public void cVR() {
+    public void cVS() {
         cancelAnimator();
         this.kUT.start();
         this.kUU.start();
     }
 
-    public void cVS() {
+    public void cVT() {
         cancelAnimator();
         this.kUP.setVisibility(8);
-        this.kUR.cVS();
+        this.kUR.cVT();
     }
 
     private void cancelAnimator() {

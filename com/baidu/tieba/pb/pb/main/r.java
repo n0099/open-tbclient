@@ -52,7 +52,7 @@ public class r extends ad.a {
         this.kej = (ImageView) view.findViewById(R.id.pb_thread_type_stamp_first_floor_bottom_part);
         this.kej.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
-        matrix.postTranslate(0.0f, -au.cLF());
+        matrix.postTranslate(0.0f, -au.cLG());
         this.kej.setImageMatrix(matrix);
         this.kek = view.findViewById(R.id.blank_view_above_rich_text);
         this.kel = (TbRichTextView) view.findViewById(R.id.richText);
@@ -88,13 +88,13 @@ public class r extends ad.a {
 
     public void a(@NonNull com.baidu.tieba.pb.data.e eVar, boolean z, boolean z2) {
         if (this.kev != null && eVar != null && eVar.getForum() != null) {
-            if (eVar.cHp() && eVar.cHm()) {
+            if (eVar.cHq() && eVar.cHn()) {
                 this.kev.setVisibility(8);
                 return;
             }
             this.kev.setBottomPlaceHolderVisibility(z2);
             boolean z3 = false;
-            if (!z && !com.baidu.tbadk.core.util.w.isEmpty(eVar.cHj())) {
+            if (!z && !com.baidu.tbadk.core.util.w.isEmpty(eVar.cHk())) {
                 z3 = true;
             }
             bu buVar = new bu();
@@ -103,18 +103,18 @@ public class r extends ad.a {
             buVar.vS(eVar.getForum().getName());
             buVar.vX(eVar.getForum().getFirst_class());
             buVar.vY(eVar.getForum().getSecond_class());
-            if (eVar.cGN() != null) {
-                buVar.setThreadType(eVar.cGN().threadType);
+            if (eVar.cGO() != null) {
+                buVar.setThreadType(eVar.cGO().threadType);
             }
             if (eVar.jYO) {
                 this.kev.setVisibility(8);
-                this.kew.a(buVar, eVar.cGM(), eVar.cHm());
+                this.kew.a(buVar, eVar.cGN(), eVar.cHn());
                 return;
             }
             this.kew.setVisibility(8);
             if (!com.baidu.tbadk.a.d.aNU()) {
                 if (z3) {
-                    this.kev.a(buVar, eVar.cHj());
+                    this.kev.a(buVar, eVar.cHk());
                 } else {
                     this.kev.G(buVar);
                 }

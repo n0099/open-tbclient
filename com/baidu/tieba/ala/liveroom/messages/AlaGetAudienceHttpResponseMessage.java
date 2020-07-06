@@ -21,7 +21,7 @@ public class AlaGetAudienceHttpResponseMessage extends JsonHttpResponsedMessage 
         }
     }
 
-    public k bwd() {
+    public k bwe() {
         return this.fAE;
     }
 }

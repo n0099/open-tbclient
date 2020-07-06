@@ -21,12 +21,12 @@ public class QRCodeStatic {
 
     static {
         TbadkCoreApplication.getInst().RegisterOrUpdateIntent(QRCodeScanActivityConfig.class, QRCodeScanActivity.class);
-        cXZ();
         cYa();
-        cEa();
+        cYb();
+        cEb();
     }
 
-    private static void cXZ() {
+    private static void cYa() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921388, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Bitmap> run(CustomMessage<String> customMessage) {
@@ -37,7 +37,7 @@ public class QRCodeStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cYa() {
+    private static void cYb() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921403, new CustomMessageTask.CustomRunnable<o>() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<o> customMessage) {
@@ -63,7 +63,7 @@ public class QRCodeStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cEa() {
+    private static void cEb() {
         bc.aWU().a(new bc.a() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.3
             @Override // com.baidu.tbadk.core.util.bc.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {

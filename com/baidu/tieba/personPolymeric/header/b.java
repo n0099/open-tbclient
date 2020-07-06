@@ -256,7 +256,7 @@ public class b {
                 this.kOx.setIsclearmode(false);
                 this.kOB.setVisibility(0);
             }
-            if (this.kNp != null && this.kNp.chv() && !TextUtils.isEmpty(this.kNp.goods_url)) {
+            if (this.kNp != null && this.kNp.chw() && !TextUtils.isEmpty(this.kNp.goods_url)) {
                 this.kOC.setVisibility(0);
                 if (this.mIsHost) {
                     TiebaStatic.log(new ao("c13612").dk("obj_param1", "0"));
@@ -360,15 +360,15 @@ public class b {
         }
     }
 
-    public TbImageView cTQ() {
+    public TbImageView cTR() {
         return this.kOv;
     }
 
-    public View cTR() {
+    public View cTS() {
         return this.kOt;
     }
 
-    public View cTS() {
+    public View cTT() {
         return this.kOu;
     }
 
@@ -376,35 +376,35 @@ public class b {
         return this.dEL;
     }
 
-    public TextView cTT() {
+    public TextView cTU() {
         return this.kOd;
     }
 
-    public UserIconBox cTU() {
+    public UserIconBox cTV() {
         return this.kOg;
     }
 
-    public FrameLayout cTV() {
+    public FrameLayout cTW() {
         return this.kOh;
     }
 
-    public FrameLayout cTW() {
+    public FrameLayout cTX() {
         return this.kOk;
     }
 
-    public FrameLayout cTX() {
+    public FrameLayout cTY() {
         return this.kOn;
     }
 
-    public HeadPendantView cTY() {
+    public HeadPendantView cTZ() {
         return this.kOx;
     }
 
-    public View cTZ() {
+    public View cUa() {
         return this.kOC;
     }
 
-    public ImageView cUa() {
+    public ImageView cUb() {
         return this.kOe;
     }
 

@@ -46,12 +46,12 @@ public class d {
         this.fke.startLoad(str, 10, false);
     }
 
-    public void bte() {
+    public void btf() {
         this.ecN.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_cont_i));
         this.flk.setVisibility(4);
     }
 
-    public void btf() {
+    public void btg() {
         this.ecN.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_other_b));
         this.flk.setVisibility(0);
     }

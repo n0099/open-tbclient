@@ -41,7 +41,7 @@ public class d {
         if (this.rootView != null) {
             this.kbx = (PbLandscapeListView) this.rootView.findViewById(R.id.more_god_reply_list);
             this.contentView = this.rootView.findViewById(R.id.more_god_reply_list_content);
-            ccK();
+            ccL();
             this.kbz = this.rootView.findViewById(R.id.more_god_reply_back_curtain);
             this.kbw = (NoNetworkView) this.rootView.findViewById(R.id.more_god_reply_view_no_network);
             this.kby = new b(this.kbv.getPageContext());
@@ -49,7 +49,7 @@ public class d {
         }
     }
 
-    private void ccK() {
+    private void ccL() {
         this.fbi = (NavigationBar) this.rootView.findViewById(R.id.more_god_reply_nav_bar);
         this.jaS = this.fbi.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         ImageView backImageView = this.fbi.getBackImageView();
@@ -73,11 +73,11 @@ public class d {
     }
 
     public boolean isVisible() {
-        return cIj() && this.rootView.getVisibility() == 0;
+        return cIk() && this.rootView.getVisibility() == 0;
     }
 
-    private void cIi() {
-        if (!cIj()) {
+    private void cIj() {
+        if (!cIk()) {
             this.rootView = this.jXS.inflate();
             init();
             if (this.kbt != this.kbu) {
@@ -86,12 +86,12 @@ public class d {
         }
     }
 
-    public boolean cIj() {
+    public boolean cIk() {
         return this.rootView != null;
     }
 
     public void show() {
-        cIi();
+        cIj();
         if (!isVisible() && this.rootView != null) {
             this.rootView.setVisibility(0);
         }
@@ -100,14 +100,14 @@ public class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void rv(boolean z) {
         if (z) {
-            this.kby.bVb();
+            this.kby.bVc();
         } else {
             this.kby.endLoadData();
         }
     }
 
     public void hide() {
-        if (cIj()) {
+        if (cIk()) {
             this.rootView.setVisibility(8);
             this.fbi.setStatusBarVisibility(8);
         }
@@ -115,7 +115,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void y(final Runnable runnable) {
-        if (cIj()) {
+        if (cIk()) {
             this.fbi.setStatusBarVisibility(0);
             this.contentView.animate().translationY(0.0f).setDuration(300L).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.d.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -137,14 +137,14 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void z(Runnable runnable) {
-        if (cIj()) {
+        if (cIk()) {
             a(this.contentView.getHeight(), 0.0f, runnable);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void A(Runnable runnable) {
-        if (cIj()) {
+        if (cIk()) {
             this.contentView.setTranslationY(l.getScreenDimensions(this.kbv.getContext())[1]);
             this.kbz.setAlpha(0.0f);
             a(kbs, 1.0f, runnable);
@@ -152,7 +152,7 @@ public class d {
     }
 
     private void a(float f, float f2, final Runnable runnable) {
-        if (cIj()) {
+        if (cIk()) {
             this.contentView.animate().translationY(f).setDuration(300L).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.d.2
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
@@ -174,7 +174,7 @@ public class d {
 
     public void onChangeSkinType(int i) {
         this.kbu = i;
-        if (cIj()) {
+        if (cIk()) {
             Bc(i);
         }
     }
@@ -191,19 +191,19 @@ public class d {
         return this.kbx;
     }
 
-    public NavigationBar bwV() {
+    public NavigationBar bwW() {
         return this.fbi;
     }
 
-    public View cIk() {
+    public View cIl() {
         return this.jaS;
     }
 
-    public View cIl() {
+    public View cIm() {
         return this.kbz;
     }
 
-    public boolean cIm() {
+    public boolean cIn() {
         if (this.kbx == null || this.kbx.getChildCount() <= 0) {
             return true;
         }
@@ -214,7 +214,7 @@ public class d {
         return false;
     }
 
-    public b cIn() {
+    public b cIo() {
         return this.kby;
     }
 }

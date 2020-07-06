@@ -54,13 +54,13 @@ public class EmotionEditText extends FrameLayout {
         this.kDE = this.mMargin * 2;
         this.kDB = 24;
         this.kDC = 16;
-        FrameLayout.LayoutParams cRp = cRp();
-        addView(this.mEditText, cRp);
-        a(cRp);
+        FrameLayout.LayoutParams cRq = cRq();
+        addView(this.mEditText, cRq);
+        a(cRq);
+        cRp();
         cRo();
-        cRn();
         setTextSize(2, this.kDB);
-        cRq();
+        cRr();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -68,7 +68,7 @@ public class EmotionEditText extends FrameLayout {
         return Math.abs(motionEvent.getRawX() - this.mDownX) < this.hmk && Math.abs(motionEvent.getRawY() - this.mDownY) < this.hmk;
     }
 
-    private void cRn() {
+    private void cRo() {
         this.kDA = new ImageView(getContext());
         this.kDA.setImageResource(R.drawable.icon_frame_enlarge_n);
         this.kDA.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pbextra.emotion.view.EmotionEditText.1
@@ -121,7 +121,7 @@ public class EmotionEditText extends FrameLayout {
         addView(this.mTextView, layoutParams);
     }
 
-    private void cRo() {
+    private void cRp() {
         this.kDz = new ImageView(getContext());
         this.kDz.setImageResource(R.drawable.icon_frame_close_n);
         this.kDz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pbextra.emotion.view.EmotionEditText.2
@@ -136,7 +136,7 @@ public class EmotionEditText extends FrameLayout {
         addView(this.kDz, layoutParams);
     }
 
-    private FrameLayout.LayoutParams cRp() {
+    private FrameLayout.LayoutParams cRq() {
         this.mEditText = new EditText(getContext());
         this.mEditText.setHint(getContext().getResources().getString(R.string.emotion_edit_hint));
         this.mEditText.setBackgroundDrawable(null);
@@ -239,7 +239,7 @@ public class EmotionEditText extends FrameLayout {
         this.mEditText.setFocusableInTouchMode(false);
     }
 
-    public void cRq() {
+    public void cRr() {
         if (!this.kDD) {
             this.kDD = true;
             this.mEditText.setVisibility(4);
@@ -250,7 +250,7 @@ public class EmotionEditText extends FrameLayout {
         }
     }
 
-    public void cRr() {
+    public void cRs() {
         if (this.kDD) {
             this.kDD = false;
             this.mEditText.setVisibility(0);

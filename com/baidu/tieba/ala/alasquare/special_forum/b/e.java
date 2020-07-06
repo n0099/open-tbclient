@@ -94,9 +94,9 @@ public class e {
         }
     }
 
-    public void buM() {
+    public void buN() {
         if (this.fvx != null) {
-            this.fvx.buM();
+            this.fvx.buN();
         }
     }
 

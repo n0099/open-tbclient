@@ -9,18 +9,18 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes12.dex */
 public class JobScheduler {
     private final Executor mExecutor;
-    private final a mWB;
-    private final int mWE;
-    private final Runnable mWC = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
+    private final a mWE;
+    private final int mWH;
+    private final Runnable mWF = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.dGt();
+            JobScheduler.this.dGx();
         }
     };
-    private final Runnable mWD = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
+    private final Runnable mWG = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.dGs();
+            JobScheduler.this.dGw();
         }
     };
     @GuardedBy("this")
@@ -28,11 +28,11 @@ public class JobScheduler {
     @GuardedBy("this")
     int mStatus = 0;
     @GuardedBy("this")
-    JobState mWF = JobState.IDLE;
+    JobState mWI = JobState.IDLE;
     @GuardedBy("this")
-    long mWG = 0;
+    long mWJ = 0;
     @GuardedBy("this")
-    long mWH = 0;
+    long mWK = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes12.dex */
@@ -51,23 +51,23 @@ public class JobScheduler {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes12.dex */
     public static class b {
-        private static ScheduledExecutorService mWK;
+        private static ScheduledExecutorService mWO;
 
-        static ScheduledExecutorService dGw() {
-            if (mWK == null) {
-                mWK = Executors.newSingleThreadScheduledExecutor();
+        static ScheduledExecutorService dGA() {
+            if (mWO == null) {
+                mWO = Executors.newSingleThreadScheduledExecutor();
             }
-            return mWK;
+            return mWO;
         }
     }
 
     public JobScheduler(Executor executor, a aVar, int i) {
         this.mExecutor = executor;
-        this.mWB = aVar;
-        this.mWE = i;
+        this.mWE = aVar;
+        this.mWH = i;
     }
 
-    public void dGq() {
+    public void dGu() {
         com.facebook.imagepipeline.g.e eVar;
         synchronized (this) {
             eVar = this.mEncodedImage;
@@ -91,21 +91,21 @@ public class JobScheduler {
         return true;
     }
 
-    public boolean dGr() {
+    public boolean dGv() {
         boolean z = false;
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         synchronized (this) {
             if (f(this.mEncodedImage, this.mStatus)) {
-                switch (this.mWF) {
+                switch (this.mWI) {
                     case IDLE:
-                        j = Math.max(this.mWH + this.mWE, uptimeMillis);
-                        this.mWG = uptimeMillis;
-                        this.mWF = JobState.QUEUED;
+                        j = Math.max(this.mWK + this.mWH, uptimeMillis);
+                        this.mWJ = uptimeMillis;
+                        this.mWI = JobState.QUEUED;
                         z = true;
                         break;
                     case RUNNING:
-                        this.mWF = JobState.RUNNING_AND_PENDING;
+                        this.mWI = JobState.RUNNING_AND_PENDING;
                         break;
                 }
                 if (z) {
@@ -119,19 +119,19 @@ public class JobScheduler {
 
     private void fW(long j) {
         if (j > 0) {
-            b.dGw().schedule(this.mWD, j, TimeUnit.MILLISECONDS);
+            b.dGA().schedule(this.mWG, j, TimeUnit.MILLISECONDS);
         } else {
-            this.mWD.run();
+            this.mWG.run();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dGs() {
-        this.mExecutor.execute(this.mWC);
+    public void dGw() {
+        this.mExecutor.execute(this.mWF);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dGt() {
+    public void dGx() {
         com.facebook.imagepipeline.g.e eVar;
         int i;
         long uptimeMillis = SystemClock.uptimeMillis();
@@ -140,31 +140,31 @@ public class JobScheduler {
             i = this.mStatus;
             this.mEncodedImage = null;
             this.mStatus = 0;
-            this.mWF = JobState.RUNNING;
-            this.mWH = uptimeMillis;
+            this.mWI = JobState.RUNNING;
+            this.mWK = uptimeMillis;
         }
         try {
             if (f(eVar, i)) {
-                this.mWB.d(eVar, i);
+                this.mWE.d(eVar, i);
             }
         } finally {
             com.facebook.imagepipeline.g.e.e(eVar);
-            dGu();
+            dGy();
         }
     }
 
-    private void dGu() {
+    private void dGy() {
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         boolean z = false;
         synchronized (this) {
-            if (this.mWF == JobState.RUNNING_AND_PENDING) {
-                j = Math.max(this.mWH + this.mWE, uptimeMillis);
+            if (this.mWI == JobState.RUNNING_AND_PENDING) {
+                j = Math.max(this.mWK + this.mWH, uptimeMillis);
                 z = true;
-                this.mWG = uptimeMillis;
-                this.mWF = JobState.QUEUED;
+                this.mWJ = uptimeMillis;
+                this.mWI = JobState.QUEUED;
             } else {
-                this.mWF = JobState.IDLE;
+                this.mWI = JobState.IDLE;
             }
         }
         if (z) {
@@ -176,7 +176,7 @@ public class JobScheduler {
         return com.facebook.imagepipeline.producers.b.Jm(i) || com.facebook.imagepipeline.producers.b.dz(i, 4) || com.facebook.imagepipeline.g.e.f(eVar);
     }
 
-    public synchronized long dGv() {
-        return this.mWH - this.mWG;
+    public synchronized long dGz() {
+        return this.mWK - this.mWJ;
     }
 }

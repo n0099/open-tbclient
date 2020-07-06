@@ -32,20 +32,20 @@ import tv.chushou.zues.utils.e;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class CSDanmuLayout extends DanmakuSurfaceView {
-    public static final String[] oid = {"0xffffffff", "0xff808080", "0xff9825fb", "0xfffc28fc", "0xfffc1368", "0xfffffd38", "0xfffecb2f", "0xfffd9827", "0xfffc6621", "0xfffc361d", "0xff9cfd32", "0xff29fd2e", "0xff2dfffe", "0xff136bfb", "0xff0b24fb"};
-    public static final String[] oie = {Constants.VIA_REPORT_TYPE_JOININ_GROUP, "20", "30"};
-    public static final int[] oif = {5, 1, 4};
+    public static final String[] oig = {"0xffffffff", "0xff808080", "0xff9825fb", "0xfffc28fc", "0xfffc1368", "0xfffffd38", "0xfffecb2f", "0xfffd9827", "0xfffc6621", "0xfffc361d", "0xff9cfd32", "0xff29fd2e", "0xff2dfffe", "0xff136bfb", "0xff0b24fb"};
+    public static final String[] oih = {Constants.VIA_REPORT_TYPE_JOININ_GROUP, "20", "30"};
+    public static final int[] oii = {5, 1, 4};
     private boolean Zh;
     private int borderColor;
     private Context mContext;
     private String mUserID;
-    private boolean ohZ;
-    private float oib;
-    private DanmakuContext oic;
-    private int oig;
-    private tv.chushou.zues.toolkit.richtext.a oih;
-    private a oii;
-    private b.a oij;
+    private boolean oic;
+    private float oie;
+    private DanmakuContext oif;
+    private int oij;
+    private tv.chushou.zues.toolkit.richtext.a oik;
+    private a oil;
+    private b.a oim;
     private int strokeWidth;
 
     /* loaded from: classes5.dex */
@@ -56,8 +56,8 @@ public class CSDanmuLayout extends DanmakuSurfaceView {
     public CSDanmuLayout(Context context, tv.chushou.apollo.a aVar, String str) {
         super(context);
         this.mContext = null;
-        this.oib = 1.0f;
-        this.oij = new b.a() { // from class: tv.chushou.apollo.CSDanmuLayout.1
+        this.oie = 1.0f;
+        this.oim = new b.a() { // from class: tv.chushou.apollo.CSDanmuLayout.1
             @Override // master.flame.danmaku.danmaku.model.android.b.a
             public void e(d dVar, boolean z) {
             }
@@ -67,28 +67,28 @@ public class CSDanmuLayout extends DanmakuSurfaceView {
                 if (dVar != null) {
                     dVar.text = null;
                     dVar.tag = null;
-                    dVar.nTj = null;
+                    dVar.nTm = null;
                     dVar.obj = null;
                 }
             }
         };
         this.mContext = context.getApplicationContext();
-        this.oic = DanmakuContext.dSB();
+        this.oif = DanmakuContext.dSF();
         this.mUserID = str;
         this.Zh = aVar.isFullScreen;
-        this.oig = aVar.oia;
-        this.ohZ = aVar.ohZ;
+        this.oij = aVar.oid;
+        this.oic = aVar.oic;
         this.strokeWidth = aVar.strokeWidth;
         this.borderColor = aVar.borderColor;
         if (!this.Zh) {
-            this.oib = 0.8f;
+            this.oie = 0.8f;
         } else {
-            this.oib = 1.0f;
+            this.oie = 1.0f;
         }
         init();
     }
 
-    public void SM(String str) {
+    public void SN(String str) {
         this.mUserID = str;
     }
 
@@ -100,7 +100,7 @@ public class CSDanmuLayout extends DanmakuSurfaceView {
             if (!h.isEmpty(arrayList)) {
                 aVar.mContentRichText = arrayList;
             }
-            a(aVar, getCurrentTime() + this.oig, true);
+            a(aVar, getCurrentTime() + this.oij, true);
         }
     }
 
@@ -115,13 +115,13 @@ public class CSDanmuLayout extends DanmakuSurfaceView {
     }
 
     public void init() {
-        this.oih = new tv.chushou.apollo.a.b(tv.chushou.zues.utils.a.dip2px(this.mContext, 14.0f), this.mContext);
+        this.oik = new tv.chushou.apollo.a.b(tv.chushou.zues.utils.a.dip2px(this.mContext, 14.0f), this.mContext);
         HashMap hashMap = new HashMap();
         hashMap.put(1, true);
-        this.oic.c(this.ohZ ? 1 : 0, this.strokeWidth).a(new i(), this.oij).xw(false).E(hashMap);
+        this.oif.c(this.oic ? 1 : 0, this.strokeWidth).a(new i(), this.oim).xw(false).E(hashMap);
         setCallback(new c.a() { // from class: tv.chushou.apollo.CSDanmuLayout.2
             @Override // master.flame.danmaku.a.c.a
-            public void dRF() {
+            public void dRJ() {
                 CSDanmuLayout.this.start();
             }
 
@@ -134,17 +134,17 @@ public class CSDanmuLayout extends DanmakuSurfaceView {
             }
 
             @Override // master.flame.danmaku.a.c.a
-            public void dRG() {
+            public void dRK() {
             }
         });
         setOnDanmakuClickListener(new f.a() { // from class: tv.chushou.apollo.CSDanmuLayout.3
             @Override // master.flame.danmaku.a.f.a
             public boolean a(l lVar) {
-                d dSn = lVar.dSn();
-                if (dSn == null || dSn.tag == null || CSDanmuLayout.this.oii == null) {
+                d dSr = lVar.dSr();
+                if (dSr == null || dSr.tag == null || CSDanmuLayout.this.oil == null) {
                     return false;
                 }
-                CSDanmuLayout.this.oii.bu(dSn.tag);
+                CSDanmuLayout.this.oil.bu(dSr.tag);
                 return true;
             }
 
@@ -158,113 +158,113 @@ public class CSDanmuLayout extends DanmakuSurfaceView {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // master.flame.danmaku.danmaku.a.a
-                /* renamed from: dVR */
-                public master.flame.danmaku.danmaku.model.android.d dSX() {
+                /* renamed from: dVV */
+                public master.flame.danmaku.danmaku.model.android.d dTb() {
                     return new master.flame.danmaku.danmaku.model.android.d();
                 }
-            }, this.oic);
+            }, this.oif);
         }
         xA(true);
     }
 
-    public void dVQ() {
+    public void dVU() {
         xo(true);
     }
 
     private void a(tv.chushou.apollo.a.a aVar, long j, boolean z) {
-        int SO;
+        int SP;
         int i;
         if (aVar != null && !h.isEmpty(aVar.mContent) && this.mContext != null) {
-            float SN = SN(oie[1]);
-            int SO2 = SO(oid[0]);
+            float SO = SO(oih[1]);
+            int SP2 = SP(oig[0]);
             int parseColor = Color.parseColor("#E5000000");
-            int i2 = oif[1];
-            if (SN <= 0.0f) {
-                SN = SN(oie[1]);
+            int i2 = oii[1];
+            if (SO <= 0.0f) {
+                SO = SO(oih[1]);
             }
-            float f = SN * this.oib;
+            float f = SO * this.oie;
             String str = aVar.mContent;
             tv.chushou.zues.widget.a.c cVar = new tv.chushou.zues.widget.a.c();
             if (aVar.mType != null) {
                 if (aVar.mType.equals("3")) {
                     cVar.a(aVar.mUserNickname + ":  ", new ForegroundColorSpan(this.mContext.getResources().getColor(b.a.apollo_gift_color)));
                     if (a(this.mContext, cVar, aVar.mContentRichText)) {
-                        SO2 = SO("0xff5959");
+                        SP2 = SP("0xff5959");
                         cVar.append(aVar.mContent);
                     } else {
                         a(this.mContext, cVar, aVar.mContentRichText, ContextCompat.getColor(this.mContext, b.a.apollo_gift_color), -1, null, (int) f, null);
                     }
                 } else if (aVar.mType.equals("2")) {
                     if (a(this.mContext, cVar, aVar.mContentRichText)) {
-                        SO2 = SO("0xff0084");
+                        SP2 = SP("0xff0084");
                         cVar.append(aVar.mContent);
                     } else {
                         if (a(this.mContext, cVar, aVar.mContentRichText, ContextCompat.getColor(this.mContext, b.a.apollo_alarm_color), -1, null, (int) f, null)) {
                             i = 0;
-                            SO = SO2;
+                            SP = SP2;
                         } else {
-                            SO = SO("0xff0084");
+                            SP = SP("0xff0084");
                             i = parseColor;
                         }
                         parseColor = i;
-                        SO2 = SO;
+                        SP2 = SP;
                     }
                 } else if (a(this.mContext, cVar, aVar.mContentRichText)) {
-                    cVar.append(this.oih.Rn(aVar.mContent));
-                } else if (a(this.mContext, cVar, aVar.mContentRichText, ContextCompat.getColor(this.mContext, b.a.apollo_white), -1, null, (int) f, this.oih)) {
+                    cVar.append(this.oik.Ro(aVar.mContent));
+                } else if (a(this.mContext, cVar, aVar.mContentRichText, ContextCompat.getColor(this.mContext, b.a.apollo_white), -1, null, (int) f, this.oik)) {
                     parseColor = 0;
                 }
             } else if (a(this.mContext, cVar, aVar.mContentRichText)) {
-                cVar.append(this.oih.Rn(aVar.mContent));
-            } else if (a(this.mContext, cVar, aVar.mContentRichText, ContextCompat.getColor(this.mContext, b.a.apollo_white), -1, null, (int) f, this.oih)) {
+                cVar.append(this.oik.Ro(aVar.mContent));
+            } else if (a(this.mContext, cVar, aVar.mContentRichText, ContextCompat.getColor(this.mContext, b.a.apollo_white), -1, null, (int) f, this.oik)) {
                 parseColor = 0;
             }
             int i3 = i2 <= 0 ? 1 : i2;
-            d Lg = this.oic.nVf.Lg(1);
+            d Lg = this.oif.nVi.Lg(1);
             if (Lg != null) {
                 Lg.jMK = true;
-                if (this.ohZ) {
-                    Lg.nSZ = parseColor;
+                if (this.oic) {
+                    Lg.nTc = parseColor;
                 }
                 if (i3 == 5 && i3 == 4) {
                     Lg.padding = 20;
                 }
                 if (z) {
-                    Lg.nTb = (byte) 100;
+                    Lg.nTe = (byte) 100;
                     Lg.borderColor = this.borderColor;
                 } else {
-                    Lg.nTb = (byte) 0;
+                    Lg.nTe = (byte) 0;
                 }
                 if ("3".equals(aVar.mType)) {
                     cVar.append("g");
-                    String str2 = "danmu" + aVar.oil.icon;
-                    Drawable Ti = h.Ti(str2);
-                    if (Ti == null) {
-                        Ti = h.Tk(aVar.oil.icon);
-                        if (Ti == null) {
-                            Ti = null;
+                    String str2 = "danmu" + aVar.oio.icon;
+                    Drawable Tj = h.Tj(str2);
+                    if (Tj == null) {
+                        Tj = h.Tl(aVar.oio.icon);
+                        if (Tj == null) {
+                            Tj = null;
                         } else {
-                            h.Q(str2, Ti);
+                            h.Q(str2, Tj);
                         }
                     }
-                    if (Ti == null) {
-                        Ti = this.mContext.getResources().getDrawable(b.C0930b.apollo_default_gift_color);
+                    if (Tj == null) {
+                        Tj = this.mContext.getResources().getDrawable(b.C0931b.apollo_default_gift_color);
                     }
-                    if (Ti != null) {
-                        int intrinsicWidth = Ti.getIntrinsicWidth();
-                        int intrinsicHeight = Ti.getIntrinsicHeight();
+                    if (Tj != null) {
+                        int intrinsicWidth = Tj.getIntrinsicWidth();
+                        int intrinsicHeight = Tj.getIntrinsicHeight();
                         int a2 = ((int) f) + ((int) tv.chushou.zues.utils.a.a(1, 3.0f, this.mContext));
-                        Ti.setBounds(0, 0, (intrinsicWidth * a2) / intrinsicHeight, a2);
-                        cVar.setSpan(new ImageSpan(Ti), cVar.length() - 1, cVar.length(), 33);
+                        Tj.setBounds(0, 0, (intrinsicWidth * a2) / intrinsicHeight, a2);
+                        cVar.setSpan(new ImageSpan(Tj), cVar.length() - 1, cVar.length(), 33);
                     }
                     Lg.text = cVar;
-                    Lg.nSZ = 0;
+                    Lg.nTc = 0;
                 } else {
                     Lg.text = cVar;
                 }
                 Lg.setTime(j);
                 Lg.bnu = f;
-                Lg.textColor = SO2;
+                Lg.textColor = SP2;
                 if (aVar.tag != null) {
                     Lg.setTag(aVar.tag);
                 }
@@ -274,14 +274,14 @@ public class CSDanmuLayout extends DanmakuSurfaceView {
     }
 
     private int getDelayTime() {
-        return new Random(System.currentTimeMillis()).nextInt(this.oig);
+        return new Random(System.currentTimeMillis()).nextInt(this.oij);
     }
 
-    private float SN(String str) {
-        return tv.chushou.zues.utils.a.a(2, Math.min(Math.max(h.parseInt(str), h.parseInt(oie[0])), h.parseInt(oie[2])), this.mContext);
+    private float SO(String str) {
+        return tv.chushou.zues.utils.a.a(2, Math.min(Math.max(h.parseInt(str), h.parseInt(oih[0])), h.parseInt(oih[2])), this.mContext);
     }
 
-    private int SO(String str) {
+    private int SP(String str) {
         if (str == null || !str.startsWith("0x")) {
             return Color.parseColor("#ffffffff");
         }
@@ -291,7 +291,7 @@ public class CSDanmuLayout extends DanmakuSurfaceView {
     public void unInit() {
         release();
         this.mContext = null;
-        this.oic = null;
+        this.oif = null;
     }
 
     public static boolean a(Context context, tv.chushou.zues.widget.a.c cVar, ArrayList<RichText> arrayList) {
@@ -326,11 +326,11 @@ public class CSDanmuLayout extends DanmakuSurfaceView {
             }
             RichText richText = arrayList.get(i5);
             if (richText.mType == 2) {
-                Drawable Ti = h.Ti(richText.mImage);
-                Drawable Tk = Ti == null ? h.Tk(richText.mImage) : Ti;
-                if (Tk != null) {
+                Drawable Tj = h.Tj(richText.mImage);
+                Drawable Tl = Tj == null ? h.Tl(richText.mImage) : Tj;
+                if (Tl != null) {
                     e.d("DanmakuSurfaceView", ": null != drawable");
-                    Drawable newDrawable = Tk.getConstantState().newDrawable();
+                    Drawable newDrawable = Tl.getConstantState().newDrawable();
                     int intrinsicWidth = newDrawable.getIntrinsicWidth();
                     int intrinsicHeight = newDrawable.getIntrinsicHeight();
                     int a2 = ((int) tv.chushou.zues.utils.a.a(1, 3.0f, context)) + i3;
@@ -367,7 +367,7 @@ public class CSDanmuLayout extends DanmakuSurfaceView {
                         }
                     }
                     if (aVar != 0) {
-                        r0 = aVar.Rn(r0);
+                        r0 = aVar.Ro(r0);
                     }
                     if (arrayList2.size() > 0) {
                         cVar.a(r0, arrayList2);
@@ -387,7 +387,7 @@ public class CSDanmuLayout extends DanmakuSurfaceView {
                     }
                 }
                 if (aVar != 0) {
-                    r02 = aVar.Rn(r02);
+                    r02 = aVar.Ro(r02);
                 }
                 cVar.a(r02, new ForegroundColorSpan(Color.parseColor(bQ("#" + Integer.toHexString(i), i2))));
             }
@@ -404,6 +404,6 @@ public class CSDanmuLayout extends DanmakuSurfaceView {
     }
 
     public void setClickDanmuListener(a aVar) {
-        this.oii = aVar;
+        this.oil = aVar;
     }
 }

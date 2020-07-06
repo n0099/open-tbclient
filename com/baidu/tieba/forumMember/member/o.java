@@ -56,10 +56,10 @@ public class o extends com.baidu.tieba.frs.j<p, q> {
                     an.setViewTextColor(qVar.hwH, R.color.cp_cont_b, 1);
                     an.setBackgroundResource(qVar.hwJ, R.drawable.frs_member_manito_bg);
                 }
-                int bWy = pVar.bWy();
-                if (bWy > 0) {
-                    qVar.hwI.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), ar.numberUniformFormat(bWy)));
-                    qVar.hwJ.setTag(R.id.assist_apply_tip, pVar.bWz());
+                int bWz = pVar.bWz();
+                if (bWz > 0) {
+                    qVar.hwI.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), ar.numberUniformFormat(bWz)));
+                    qVar.hwJ.setTag(R.id.assist_apply_tip, pVar.bWA());
                     qVar.hwJ.setOnClickListener(this.mClickListener);
                     qVar.hwJ.setEnabled(true);
                     qVar.hwJ.setClickable(true);

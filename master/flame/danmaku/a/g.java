@@ -5,11 +5,11 @@ import android.content.Context;
 public interface g {
     void clear();
 
-    boolean dRK();
+    boolean dRO();
 
-    long dRL();
+    long dRP();
 
-    boolean dRM();
+    boolean dRQ();
 
     Context getContext();
 

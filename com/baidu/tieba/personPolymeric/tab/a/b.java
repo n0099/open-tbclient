@@ -25,7 +25,7 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bu) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == b.this.mBdUniqueId && b.this.kPf != null && b.this.kPf.cUp()) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bu) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == b.this.mBdUniqueId && b.this.kPf != null && b.this.kPf.cUq()) {
                 b.this.aX((bu) customResponsedMessage.getData());
             }
         }
@@ -94,18 +94,18 @@ public class b {
     public void a(boolean z, bu buVar) {
         bu i;
         boolean z2 = false;
-        if (buVar != null && this.kPf != null && !w.isEmpty(this.kPf.cky()) && this.kPf.cUo() != null && this.kPf.cUo().cUq() != null) {
+        if (buVar != null && this.kPf != null && !w.isEmpty(this.kPf.ckz()) && this.kPf.cUp() != null && this.kPf.cUp().cUr() != null) {
             int i2 = 0;
             while (true) {
-                if (i2 >= this.kPf.cky().size()) {
+                if (i2 >= this.kPf.ckz().size()) {
                     break;
                 }
-                q qVar = this.kPf.cky().get(i2);
+                q qVar = this.kPf.ckz().get(i2);
                 if (qVar != null && (i = com.baidu.tieba.personPolymeric.tab.b.a.i(qVar)) != null && !StringUtils.isNull(i.tid) && i.tid.equals(buVar.tid)) {
                     i.isPrivacy = z;
                     c aB = com.baidu.tieba.personPolymeric.tab.b.a.aB(i);
                     if (aB != null) {
-                        this.kPf.cky().set(i2, aB);
+                        this.kPf.ckz().set(i2, aB);
                         z2 = true;
                         break;
                     }
@@ -113,7 +113,7 @@ public class b {
                 i2++;
             }
             if (z2) {
-                this.kPf.cUo().eD(this.kPf.cky());
+                this.kPf.cUp().eD(this.kPf.ckz());
             }
         }
     }
@@ -122,8 +122,8 @@ public class b {
     public void KV(String str) {
         boolean z;
         bu i;
-        if (!StringUtils.isNull(str) && this.kPf != null && !w.isEmpty(this.kPf.cky()) && this.kPf.cUo() != null && this.kPf.cUo().cUq() != null) {
-            Iterator<q> it = this.kPf.cky().iterator();
+        if (!StringUtils.isNull(str) && this.kPf != null && !w.isEmpty(this.kPf.ckz()) && this.kPf.cUp() != null && this.kPf.cUp().cUr() != null) {
+            Iterator<q> it = this.kPf.ckz().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -137,7 +137,7 @@ public class b {
                 }
             }
             if (z) {
-                this.kPf.cUo().eD(this.kPf.cky());
+                this.kPf.cUp().eD(this.kPf.ckz());
             }
         }
     }
@@ -146,8 +146,8 @@ public class b {
     public void removeThread(String str) {
         boolean z;
         bu i;
-        if (!StringUtils.isNull(str) && this.kPf != null && !w.isEmpty(this.kPf.cky()) && this.kPf.cUo() != null && this.kPf.cUo().cUq() != null) {
-            Iterator<q> it = this.kPf.cky().iterator();
+        if (!StringUtils.isNull(str) && this.kPf != null && !w.isEmpty(this.kPf.ckz()) && this.kPf.cUp() != null && this.kPf.cUp().cUr() != null) {
+            Iterator<q> it = this.kPf.ckz().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -161,7 +161,7 @@ public class b {
                 }
             }
             if (z) {
-                this.kPf.cUo().eD(this.kPf.cky());
+                this.kPf.cUp().eD(this.kPf.ckz());
             }
         }
     }

@@ -17,18 +17,18 @@ import java.util.Map;
 /* loaded from: classes3.dex */
 public class AlaLiveRoomActivityInitialize {
     static {
-        bzn();
         bzo();
-        bzr();
-        bzq();
-        bzs();
         bzp();
+        bzs();
+        bzr();
+        bzt();
+        bzq();
     }
 
-    private static void bzn() {
+    private static void bzo() {
     }
 
-    public static void bzo() {
+    public static void bzp() {
         UrlManager.getInstance().addListener(new UrlManager.UrlDealListener() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomActivityInitialize.1
             /* JADX WARN: Code restructure failed: missing block: B:20:0x0053, code lost:
                 if (com.baidu.live.adp.lib.util.StringUtils.isNull(r0) == false) goto L21;
@@ -60,7 +60,7 @@ public class AlaLiveRoomActivityInitialize {
         });
     }
 
-    private static void bzp() {
+    private static void bzq() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913078, new CustomMessageTask.CustomRunnable<c>() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomActivityInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<c> run(CustomMessage<c> customMessage) {
@@ -71,14 +71,14 @@ public class AlaLiveRoomActivityInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bzq() {
-    }
-
     private static void bzr() {
-        TbadkCoreApplication.getInst().RegisterIntent(l.class, AlaLiveFloatWindowActivity.class);
     }
 
     private static void bzs() {
+        TbadkCoreApplication.getInst().RegisterIntent(l.class, AlaLiveFloatWindowActivity.class);
+    }
+
+    private static void bzt() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_PERSON_ALA_ENTRANCE_LIVE_ID) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomActivityInitialize.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener

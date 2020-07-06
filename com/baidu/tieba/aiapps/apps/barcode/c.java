@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.barcode;
 public class c {
     private static volatile b fcP;
 
-    public static synchronized b bqD() {
+    public static synchronized b bqE() {
         b bVar;
         synchronized (c.class) {
             if (fcP == null) {

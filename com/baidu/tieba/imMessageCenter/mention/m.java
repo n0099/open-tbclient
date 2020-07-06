@@ -130,7 +130,7 @@ public class m extends com.baidu.adp.base.c {
                     m.this.jhF.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                     m.this.jhF.setOnClickListener(null);
                     m.this.jhF.startLoadData();
-                    m.this.jhA.bMW();
+                    m.this.jhA.bMX();
                 }
             }
         };
@@ -139,7 +139,7 @@ public class m extends com.baidu.adp.base.c {
             public void onListPullRefresh(boolean z) {
                 if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     if (m.this.jhA != null) {
-                        m.this.jhA.caX();
+                        m.this.jhA.caY();
                     }
                 } else if (m.this.fpF != null) {
                     m.this.fpF.setRefreshing(false);
@@ -254,7 +254,7 @@ public class m extends com.baidu.adp.base.c {
                 this.Wa.setNextPage(this.jhF);
                 this.jhP = R.color.cp_bg_line_c;
             }
-            cvf();
+            cvg();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -305,8 +305,8 @@ public class m extends com.baidu.adp.base.c {
                     }
                     if (view.getId() == R.id.message_bottom_reply_container) {
                         m.this.jhX = aVar;
-                        if (aVar.cvj()) {
-                            j = com.baidu.adp.lib.f.b.toLong(aVar.cvk(), 0L);
+                        if (aVar.cvk()) {
+                            j = com.baidu.adp.lib.f.b.toLong(aVar.cvl(), 0L);
                         } else {
                             j = com.baidu.adp.lib.f.b.toLong(aVar.getPost_id(), 0L);
                         }
@@ -321,8 +321,8 @@ public class m extends com.baidu.adp.base.c {
                             baijiahaoData = m.this.jhX.getBaijiahaoData();
                         }
                         m.this.jhV.a(j, 2, aVar.getFname(), aVar.getThread_id(), baijiahaoData);
-                        if (aVar.cvl() != null) {
-                            ao ag = new ao(aVar.cvl()).ag("obj_locate", 3);
+                        if (aVar.cvm() != null) {
+                            ao ag = new ao(aVar.cvm()).ag("obj_locate", 3);
                             if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.jiF) {
                                 ag.ag("obj_type", 1);
                             } else {
@@ -356,22 +356,22 @@ public class m extends com.baidu.adp.base.c {
                     m.this.jhF.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                     m.this.jhF.setOnClickListener(null);
                     m.this.jhF.showLoading();
-                    m.this.jhA.bMW();
+                    m.this.jhA.bMX();
                 }
             }
         });
         this.Wa.setOnScrollListener(this.mScrollListener);
         this.Wa.addOnScrollListener(this.jhT);
-        cve();
+        cvf();
         this.jhV = new ReplyMeModel(this.jhA.getPageContext());
         this.jhV.a(this.jie);
-        cvh();
+        cvi();
         pZ(false);
         return this.mRootView;
     }
 
-    private void cve() {
-        cvf();
+    private void cvf() {
+        cvg();
         this.jhI = new com.baidu.tieba.imMessageCenter.mention.base.f(this.jhA.getPageContext());
         this.jhJ = new com.baidu.tieba.imMessageCenter.mention.base.f(this.jhA.getPageContext());
         this.jhI.bk(this.jhA.getString(R.string.at_me), R.drawable.icon_im_at);
@@ -383,7 +383,7 @@ public class m extends com.baidu.adp.base.c {
         this.Wa.setOnHeaderClickListener(this.jhR);
     }
 
-    private void cvf() {
+    private void cvg() {
         if (this.Wa != null) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(this.jhA.getFragmentActivity()).areNotificationsEnabled();
             ao aoVar = new ao("c13616");
@@ -467,7 +467,7 @@ public class m extends com.baidu.adp.base.c {
         }
     }
 
-    public void cvg() {
+    public void cvh() {
         ze(this.jhN);
         zf(this.jhO);
     }
@@ -494,7 +494,7 @@ public class m extends com.baidu.adp.base.c {
         }
     }
 
-    private void cvh() {
+    private void cvi() {
         this.jib = new DataModel<MessageCenterActivity>(com.baidu.adp.base.i.G(this.jhA.getPageContext().getContext())) { // from class: com.baidu.tieba.imMessageCenter.mention.m.2
             @Override // com.baidu.adp.base.BdBaseModel
             public boolean cancelLoadData() {
@@ -519,7 +519,7 @@ public class m extends com.baidu.adp.base.c {
                 writeData.setThreadId(m.this.jhX.getThread_id());
                 writeData.setIsAd(false);
                 writeData.setFloorNum(0);
-                if (m.this.jhX.cvj()) {
+                if (m.this.jhX.cvk()) {
                     writeData.setFloor(m.this.jhZ > 0 ? String.valueOf(m.this.jhZ) : m.this.jhX.getOriginalThreadInfo().postId);
                 } else {
                     writeData.setFloor(m.this.jhX.getPost_id());
@@ -629,7 +629,7 @@ public class m extends com.baidu.adp.base.c {
                 pZ(true);
             }
             if (this.jhW != null && this.jhX != null) {
-                if (this.jhX.cvj() && this.jhX.getReplyer() != null) {
+                if (this.jhX.cvk() && this.jhX.getReplyer() != null) {
                     this.jhW.yI(this.jhX.getReplyer().getName_show());
                     return;
                 } else {
@@ -657,7 +657,7 @@ public class m extends com.baidu.adp.base.c {
                             m.this.pZ(false);
                         }
                         if (m.this.jhW != null && m.this.jhX != null) {
-                            if (!m.this.jhX.cvj() || m.this.jhX.getReplyer() == null) {
+                            if (!m.this.jhX.cvk() || m.this.jhX.getReplyer() == null) {
                                 m.this.jhW.yI(null);
                             } else {
                                 m.this.jhW.yI(m.this.jhX.getReplyer().getName_show());
@@ -700,7 +700,7 @@ public class m extends com.baidu.adp.base.c {
     }
 
     public void onPrimary() {
-        cvf();
+        cvg();
     }
 
     public void zg(int i) {

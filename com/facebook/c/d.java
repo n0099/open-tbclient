@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class d {
-    private static d mQg;
-    private int mQh;
+    private static d mQj;
+    private int mQk;
     @Nullable
-    private List<c.a> mQi;
-    private final c.a mQj = new a();
+    private List<c.a> mQl;
+    private final c.a mQm = new a();
 
     private d() {
-        dCe();
+        dCi();
     }
 
     public void fp(@Nullable List<c.a> list) {
-        this.mQi = list;
-        dCe();
+        this.mQl = list;
+        dCi();
     }
 
     public c r(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.mQh];
-        int a = a(this.mQh, inputStream, bArr);
-        c o = this.mQj.o(bArr, a);
-        if (o == null || o == c.mQe) {
-            if (this.mQi != null) {
-                for (c.a aVar : this.mQi) {
+        byte[] bArr = new byte[this.mQk];
+        int a = a(this.mQk, inputStream, bArr);
+        c o = this.mQm.o(bArr, a);
+        if (o == null || o == c.mQh) {
+            if (this.mQl != null) {
+                for (c.a aVar : this.mQl) {
                     c o2 = aVar.o(bArr, a);
-                    if (o2 != null && o2 != c.mQe) {
+                    if (o2 != null && o2 != c.mQh) {
                         return o2;
                     }
                 }
             }
-            return c.mQe;
+            return c.mQh;
         }
         return o;
     }
 
-    private void dCe() {
-        this.mQh = this.mQj.getHeaderSize();
-        if (this.mQi != null) {
-            for (c.a aVar : this.mQi) {
-                this.mQh = Math.max(this.mQh, aVar.getHeaderSize());
+    private void dCi() {
+        this.mQk = this.mQm.getHeaderSize();
+        if (this.mQl != null) {
+            for (c.a aVar : this.mQl) {
+                this.mQk = Math.max(this.mQk, aVar.getHeaderSize());
             }
         }
     }
@@ -67,19 +67,19 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d dCf() {
+    public static synchronized d dCj() {
         d dVar;
         synchronized (d.class) {
-            if (mQg == null) {
-                mQg = new d();
+            if (mQj == null) {
+                mQj = new d();
             }
-            dVar = mQg;
+            dVar = mQj;
         }
         return dVar;
     }
 
     public static c s(InputStream inputStream) throws IOException {
-        return dCf().r(inputStream);
+        return dCj().r(inputStream);
     }
 
     public static c t(InputStream inputStream) {

@@ -40,7 +40,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         this.mScrollRunnable = new Runnable() { // from class: com.baidu.tieba.frs.ad.FrsAdCommentScrollView.1
             @Override // java.lang.Runnable
             public void run() {
-                FrsAdCommentScrollView.this.caE();
+                FrsAdCommentScrollView.this.caF();
                 FrsAdCommentScrollView.this.mHandler.postDelayed(this, 5000L);
             }
         };
@@ -54,7 +54,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         this.mScrollRunnable = new Runnable() { // from class: com.baidu.tieba.frs.ad.FrsAdCommentScrollView.1
             @Override // java.lang.Runnable
             public void run() {
-                FrsAdCommentScrollView.this.caE();
+                FrsAdCommentScrollView.this.caF();
                 FrsAdCommentScrollView.this.mHandler.postDelayed(this, 5000L);
             }
         };
@@ -68,7 +68,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         this.mScrollRunnable = new Runnable() { // from class: com.baidu.tieba.frs.ad.FrsAdCommentScrollView.1
             @Override // java.lang.Runnable
             public void run() {
-                FrsAdCommentScrollView.this.caE();
+                FrsAdCommentScrollView.this.caF();
                 FrsAdCommentScrollView.this.mHandler.postDelayed(this, 5000L);
             }
         };
@@ -89,7 +89,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
 
     public void bB(boolean z) {
         if (z) {
-            caC();
+            caD();
         }
     }
 
@@ -103,11 +103,11 @@ public class FrsAdCommentScrollView extends LinearLayout {
         this.hFr.addAll(list);
         setVisibility(0);
         this.hFs = 0;
+        caE();
         caD();
-        caC();
     }
 
-    private void caC() {
+    private void caD() {
         this.mHandler.removeCallbacks(this.mScrollRunnable);
         if (w.getCount(this.hFr) >= 2) {
             this.mHandler.postDelayed(this.mScrollRunnable, 5000L);
@@ -115,7 +115,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void caD() {
+    public void caE() {
         j jVar;
         j jVar2 = (j) w.getItem(this.hFr, this.hFs);
         if (this.hFs + 1 >= this.hFr.size()) {
@@ -125,19 +125,19 @@ public class FrsAdCommentScrollView extends LinearLayout {
         }
         if ((this.hFo.getTag() instanceof TextView) && jVar2 != null) {
             String title = jVar2.getTitle();
-            if (jVar2.dhd()) {
+            if (jVar2.dhe()) {
                 title = getContext().getString(R.string.frs_top_ad_lz_reply, title);
             }
             ((TextView) this.hFo.getTag()).setText(title);
         }
         if ((this.hFp.getTag() instanceof TextView) && jVar != null) {
             String title2 = jVar.getTitle();
-            ((TextView) this.hFp.getTag()).setText(jVar.dhd() ? getContext().getString(R.string.frs_top_ad_lz_reply, title2) : title2);
+            ((TextView) this.hFp.getTag()).setText(jVar.dhe() ? getContext().getString(R.string.frs_top_ad_lz_reply, title2) : title2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void caE() {
+    public void caF() {
         final float y = this.hFp.getY();
         this.hFq = ValueAnimator.ofFloat(0.0f, this.hFo.getMeasuredHeight());
         this.hFq.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.ad.FrsAdCommentScrollView.2
@@ -163,7 +163,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
                 FrsAdCommentScrollView.this.hFo = FrsAdCommentScrollView.this.hFp;
                 FrsAdCommentScrollView.this.hFp = frameLayout;
                 FrsAdCommentScrollView.this.hFp.setY(FrsAdCommentScrollView.this.getContext().getResources().getDimensionPixelSize(R.dimen.tbds99));
-                FrsAdCommentScrollView.this.caD();
+                FrsAdCommentScrollView.this.caE();
             }
 
             @Override // android.animation.Animator.AnimatorListener

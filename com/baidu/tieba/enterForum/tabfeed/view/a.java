@@ -69,7 +69,7 @@ public class a {
                     a.this.fnt.setOnClickListener(null);
                     if (a.this.hasMore) {
                         a.this.fnt.showLoading();
-                        a.this.hiU.bSS();
+                        a.this.hiU.bST();
                         return;
                     }
                     a.this.fnt.setText(a.this.hhW.getResources().getString(R.string.list_has_no_more));
@@ -89,7 +89,7 @@ public class a {
                 if (a.this.hjm != null) {
                     a.this.hjm.a(a.this.hhX.getFirstVisiblePosition(), a.this.hhX.getLastVisiblePosition(), this.hjr, true);
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, Boolean.valueOf(a.this.bTg() ? false : true)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, Boolean.valueOf(a.this.bTh() ? false : true)));
             }
         }
 
@@ -114,7 +114,7 @@ public class a {
                 a.this.fnt.setOnClickListener(null);
                 if (a.this.hasMore) {
                     a.this.fnt.showLoading();
-                    a.this.hiU.bSS();
+                    a.this.hiU.bST();
                 }
             }
         }
@@ -192,7 +192,7 @@ public class a {
     };
     private PullLeftRefreshLayout.a ajo = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.enterForum.tabfeed.view.a.6
         @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-        public void bkm() {
+        public void bkn() {
             com.baidu.tieba.enterForum.b.b(a.this.hhW.getPageContext(), a.this.tabName);
             ao aoVar = new ao("c13645");
             aoVar.s("uid", TbadkApplication.getCurrentAccountId());
@@ -266,7 +266,7 @@ public class a {
         }
         jc(false);
         if (bVar != null && this.hjn != null && this.hhX != null && this.fnt != null) {
-            bTe();
+            bTf();
             d(bVar);
             c(bVar);
             if (bVar.hiQ > 0) {
@@ -294,7 +294,7 @@ public class a {
         }
     }
 
-    private void bTe() {
+    private void bTf() {
         if (this.dDu == null) {
             this.dDu = new TextView(this.hhW.getContext());
             this.dDu.setPadding(l.getDimens(this.hhW.getContext(), R.dimen.tbds44), l.getDimens(this.hhW.getContext(), R.dimen.tbds60), 0, l.getDimens(this.hhW.getContext(), R.dimen.tbds24));
@@ -391,12 +391,12 @@ public class a {
 
     public void pause() {
         if (this.hjm != null) {
-            this.hjm.cym();
+            this.hjm.cyn();
             this.hjm.qs(false);
         }
     }
 
-    public void bTf() {
+    public void bTg() {
         if (this.hhX != null) {
             this.hhX.scrollToPosition(0);
         }
@@ -414,14 +414,14 @@ public class a {
         }
     }
 
-    public boolean bTg() {
+    public boolean bTh() {
         return this.hhX == null || this.hhX.getChildCount() == 0 || this.hhX.getChildAt(0).getTop() == 0;
     }
 
     private void tE(int i) {
         String string;
         if (i >= 0) {
-            this.hjh.cao();
+            this.hjh.cap();
             if (i > 0) {
                 string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
             } else {
@@ -436,7 +436,7 @@ public class a {
                 if (this.hjg != null) {
                     this.hjg.removeView(this.hji);
                     this.hjg.addView(this.hji, layoutParams);
-                    this.hji.cam();
+                    this.hji.can();
                 }
             }
         }

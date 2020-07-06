@@ -31,7 +31,7 @@ public class e {
         return String.format("%s_%s_%s", objArr);
     }
 
-    public boolean ceD() {
+    public boolean ceE() {
         return this.hIj;
     }
 
@@ -39,7 +39,7 @@ public class e {
         this.hIj = z;
     }
 
-    public boolean ceE() {
+    public boolean ceF() {
         return this.hYg;
     }
 
@@ -51,7 +51,7 @@ public class e {
         this.hYh = z;
     }
 
-    public boolean ceF() {
+    public boolean ceG() {
         return this.hYh;
     }
 }

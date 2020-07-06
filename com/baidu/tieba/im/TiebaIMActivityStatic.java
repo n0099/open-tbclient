@@ -99,7 +99,6 @@ public class TiebaIMActivityStatic {
         TbadkApplication.getInst().RegisterIntent(AddGroupActivityConfig.class, AddGroupActivity.class);
         TbadkApplication.getInst().RegisterIntent(ForumDetailActivityConfig.class, ForumDetailActivity.class);
         TbadkApplication.getInst().RegisterIntent(RecommendDetailActivityConfig.class, RecommendDetailActivity.class);
-        cmF();
         cmG();
         cmH();
         cmI();
@@ -108,6 +107,7 @@ public class TiebaIMActivityStatic {
         cmL();
         cmM();
         cmN();
+        cmO();
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN) { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -133,9 +133,9 @@ public class TiebaIMActivityStatic {
                     ad.b(new ac<Void>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.8.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.ac
-                        /* renamed from: bpB */
+                        /* renamed from: bpC */
                         public Void doInBackground() {
-                            return l.cpQ().l(linkedList);
+                            return l.cpR().l(linkedList);
                         }
                     }, new com.baidu.tbadk.util.l<Void>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.8.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -260,7 +260,7 @@ public class TiebaIMActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask9);
     }
 
-    private static void cmF() {
+    private static void cmG() {
         bc.aWU().a(new bc.a() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.4
             @Override // com.baidu.tbadk.core.util.bc.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -280,7 +280,7 @@ public class TiebaIMActivityStatic {
         });
     }
 
-    private static void cmG() {
+    private static void cmH() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002509, com.baidu.tieba.tbadkCore.a.a.bE(TbConfig.GET_FORUM_DETAIL, CmdConfigSocket.CMD_FORUM_DETAIL));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
@@ -291,7 +291,7 @@ public class TiebaIMActivityStatic {
         com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_FORUM_DETAIL, ForumDetailSocketResponse.class, false);
     }
 
-    public static boolean cmH() {
+    public static boolean cmI() {
         b(CmdConfigSocket.CMD_QUERY_GROUP_BY_UID, ResponseGroupsByUidMessage.class, false);
         b(CmdConfigSocket.CMD_PUSH_COUNT, ResponsePushCountMessage.class, false);
         b(CmdConfigSocket.CMD_ADD_GROUP, ResponseAddGroupMessage.class, false);
@@ -308,7 +308,7 @@ public class TiebaIMActivityStatic {
         return c.b(i, cls, z);
     }
 
-    private static boolean cmI() {
+    private static boolean cmJ() {
         b(CmdConfigCustom.CMD_REQUEST_GROUP_BY_UID_LOCAL, o.class);
         b(CmdConfigCustom.CMD_CACHE_REQUEST_SEARCH_GROUP, q.class);
         b(CmdConfigCustom.CMD_CACHE_CLEAR_REQUEST_SEARCH_GROUP, p.class);
@@ -326,13 +326,13 @@ public class TiebaIMActivityStatic {
         return c.b(i, cls);
     }
 
-    private static boolean cmJ() {
+    private static boolean cmK() {
         MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.im.message.a());
         MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.im.message.b());
         return true;
     }
 
-    private static void cmK() {
+    private static void cmL() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IM_OFFICIALBARTIP_ACTIVITY_START, new CustomMessageTask.CustomRunnable<OfficialBarTipActivityConfig>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.5
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<OfficialBarTipActivityConfig> customMessage) {
@@ -346,7 +346,7 @@ public class TiebaIMActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cmL() {
+    private static void cmM() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IM_UPDATES_ACTIVITY_START, new CustomMessageTask.CustomRunnable<UpdatesActivityConfig>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<UpdatesActivityConfig> customMessage) {
@@ -361,7 +361,7 @@ public class TiebaIMActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cmM() {
+    private static void cmN() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001535, com.baidu.tieba.tbadkCore.a.a.bE("c/u/user/bigvip", CmdConfigSocket.CMD_GET_RECOMMEND_DETAIL));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
@@ -372,7 +372,7 @@ public class TiebaIMActivityStatic {
         com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_GET_RECOMMEND_DETAIL, RecommendDetailSocketResponseMessage.class, false);
     }
 
-    private static void cmN() {
+    private static void cmO() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IM_VALIDATE_ACTIVITY_START, new CustomMessageTask.CustomRunnable<ValidateActivityConfig>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.7
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ValidateActivityConfig> customMessage) {

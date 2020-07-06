@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class c extends com.baidu.tieba.square.data.a {
     private ArrayList<e> lBp = new ArrayList<>();
 
-    public ArrayList<e> dgF() {
+    public ArrayList<e> dgG() {
         return this.lBp;
     }
 

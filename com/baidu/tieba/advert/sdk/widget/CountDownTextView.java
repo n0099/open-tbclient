@@ -63,7 +63,7 @@ public class CountDownTextView extends TextView {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bqn();
+        bqo();
     }
 
     @Override // android.view.View
@@ -72,7 +72,7 @@ public class CountDownTextView extends TextView {
         if (i == 0) {
             pK(0);
         } else {
-            bqn();
+            bqo();
         }
     }
 
@@ -83,7 +83,7 @@ public class CountDownTextView extends TextView {
         }
     }
 
-    private void bqn() {
+    private void bqo() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 

@@ -91,7 +91,7 @@ public class c {
                 SimpleDraweeView simpleDraweeView = (SimpleDraweeView) cVar.findViewById(a.f.aiapps_guide_image);
                 simpleDraweeView.setVisibility(0);
                 cVar.findViewById(a.f.aiapps_split_line).setVisibility(0);
-                simpleDraweeView.setController(com.facebook.drawee.a.a.c.dzW().wy(true).QH(str).dAN());
+                simpleDraweeView.setController(com.facebook.drawee.a.a.c.dAa().wy(true).QI(str).dAR());
             }
             TextView textView = (TextView) cVar.findViewById(a.f.aiapps_bottom_button);
             textView.setOnTouchListener(new d());

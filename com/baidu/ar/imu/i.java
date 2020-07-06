@@ -5,13 +5,13 @@ public class i {
     private int rw = 0;
 
     /* renamed from: rx  reason: collision with root package name */
-    private boolean f981rx = false;
+    private boolean f982rx = false;
     private boolean ry = false;
     private boolean rz = false;
     private boolean rA = false;
 
     public void H(boolean z) {
-        this.f981rx = z;
+        this.f982rx = z;
     }
 
     public void I(boolean z) {
@@ -35,7 +35,7 @@ public class i {
     }
 
     public boolean dP() {
-        return this.f981rx;
+        return this.f982rx;
     }
 
     public boolean dQ() {

@@ -88,7 +88,7 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
                 this.kBq.setOnClickListener(this);
                 this.kBq.setInterceptOnClick(true);
                 this.kBq.setDefaultResource(R.drawable.icon_click);
-                this.kBq.startLoad(aVar.dhB(), 18, false);
+                this.kBq.startLoad(aVar.dhC(), 18, false);
                 int equipmentWidth = l.getEquipmentWidth(this.mContext) - (l.getDimens(this.mContext, R.dimen.ds30) * 2);
                 float f = imageHeight / imageWidth;
                 if (f > 1.7777778f) {
@@ -113,7 +113,7 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.kBp != null) {
-            com.baidu.tbadk.browser.a.startWebActivity(this.mContext, this.kBp.dhC());
+            com.baidu.tbadk.browser.a.startWebActivity(this.mContext, this.kBp.dhD());
         }
     }
 

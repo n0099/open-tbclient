@@ -112,12 +112,12 @@ public class q extends com.baidu.tieba.frs.j<bt, d<com.baidu.tieba.frs.entelechy
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bt btVar, d dVar) {
-        if (dVar == null || dVar.bPg() == null) {
+        if (dVar == null || dVar.bPh() == null) {
             return null;
         }
-        dVar.bPg().setVideoStatsData(ak(btVar.dLi));
-        dVar.bPg().a(btVar.dLi);
-        dVar.bPg().c(this.fRu);
+        dVar.bPh().setVideoStatsData(ak(btVar.dLi));
+        dVar.bPh().a(btVar.dLi);
+        dVar.bPh().c(this.fRu);
         com.baidu.tieba.frs.d.a.a(btVar.dLi, this.mPageId, this.hIE, getTbPageTag());
         return dVar.getView();
     }

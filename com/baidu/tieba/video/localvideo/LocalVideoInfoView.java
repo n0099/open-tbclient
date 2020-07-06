@@ -14,13 +14,13 @@ import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 /* loaded from: classes10.dex */
 public class LocalVideoInfoView extends RelativeLayout {
-    public static final Object lZy = new Object();
-    private static long lZz = BdKVCache.MILLS_1Hour;
+    public static final Object lZB = new Object();
+    private static long lZC = BdKVCache.MILLS_1Hour;
     private ImageView eqH;
-    private SimpleDateFormat lZA;
-    private SimpleDateFormat lZB;
-    private boolean lZC;
-    private TextView lZx;
+    private TextView lZA;
+    private SimpleDateFormat lZD;
+    private SimpleDateFormat lZE;
+    private boolean lZF;
     private Context mContext;
     private View mRootView;
     private TextView textView;
@@ -28,19 +28,19 @@ public class LocalVideoInfoView extends RelativeLayout {
 
     public LocalVideoInfoView(Context context) {
         super(context);
-        this.lZC = false;
+        this.lZF = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.lZC = false;
+        this.lZF = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.lZC = false;
+        this.lZF = false;
         init(context);
     }
 
@@ -50,17 +50,17 @@ public class LocalVideoInfoView extends RelativeLayout {
         this.eqH = (ImageView) this.mRootView.findViewById(R.id.local_video_selet_thumb);
         this.eqH.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.textView = (TextView) this.mRootView.findViewById(R.id.local_video_select_duration);
-        this.lZx = (TextView) this.mRootView.findViewById(R.id.no_video_title);
+        this.lZA = (TextView) this.mRootView.findViewById(R.id.no_video_title);
         addView(this.mRootView, -1, -1);
-        this.lZB = new SimpleDateFormat("mm:ss");
-        this.lZA = new SimpleDateFormat("HH:mm:ss");
+        this.lZE = new SimpleDateFormat("mm:ss");
+        this.lZD = new SimpleDateFormat("HH:mm:ss");
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.lZB.setTimeZone(timeZone);
-        this.lZA.setTimeZone(timeZone);
+        this.lZE.setTimeZone(timeZone);
+        this.lZD.setTimeZone(timeZone);
     }
 
     public void setDataToView(d dVar) {
-        if (!this.lZC) {
+        if (!this.lZF) {
             if (dVar != null) {
                 if (dVar.getVideoPath().equals(this.videoPath)) {
                     this.eqH.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -79,13 +79,13 @@ public class LocalVideoInfoView extends RelativeLayout {
     }
 
     public void vn(boolean z) {
-        this.lZC = true;
+        this.lZF = true;
         if (z) {
             this.eqH.setScaleType(ImageView.ScaleType.CENTER);
             this.eqH.setImageBitmap(null);
             this.eqH.setImageResource(0);
             this.eqH.setBackgroundColor(getResources().getColor(R.color.cp_bg_line_d));
-            this.lZx.setVisibility(0);
+            this.lZA.setVisibility(0);
             return;
         }
         this.eqH.setScaleType(ImageView.ScaleType.CENTER);
@@ -93,14 +93,14 @@ public class LocalVideoInfoView extends RelativeLayout {
         this.eqH.setImageBitmap(null);
         this.eqH.setBackgroundColor(getResources().getColor(R.color.white_alpha50));
         this.textView.setText("");
-        this.lZx.setVisibility(8);
+        this.lZA.setVisibility(8);
     }
 
     public void a(d dVar) {
-        this.lZC = false;
-        this.lZx.setVisibility(8);
+        this.lZF = false;
+        this.lZA.setVisibility(8);
         this.videoPath = dVar.getVideoPath();
-        if (dVar != null && dVar.dnS()) {
+        if (dVar != null && dVar.dnW()) {
             setDataToView(dVar);
         } else {
             setDataToView(null);
@@ -108,6 +108,6 @@ public class LocalVideoInfoView extends RelativeLayout {
     }
 
     private String fy(long j) {
-        return j > lZz ? this.lZA.format(Long.valueOf(j)) : this.lZB.format(Long.valueOf(j));
+        return j > lZC ? this.lZD.format(Long.valueOf(j)) : this.lZE.format(Long.valueOf(j));
     }
 }

@@ -99,7 +99,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
 
     /* loaded from: classes.dex */
     public interface b {
-        void bjK();
+        void bjL();
     }
 
     /* loaded from: classes.dex */
@@ -265,7 +265,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                 TbImageView.this.stopLoading();
                 if (aVar == null) {
                     if (TbImageView.this.eGw != null) {
-                        TbImageView.this.eGw.bjK();
+                        TbImageView.this.eGw.bjL();
                     }
                 } else {
                     TbImageView.this.e(aVar);
@@ -323,7 +323,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                     String genCacheKey = com.baidu.adp.lib.e.c.ln().genCacheKey(TbImageView.this.mUrl, TbImageView.this.mType);
                     if (genCacheKey != null && genCacheKey.equals(str)) {
                         TbImageView.this.destroyDrawingCache();
-                        bjJ();
+                        bjK();
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodNoParam(TbImageView.mDestroyLayerMethod, TbImageView.this, TbImageView.class);
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodParam(TbImageView.mDestroyLayerWithParamMethod, TbImageView.this, TbImageView.class, false);
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodNoParam(TbImageView.mClearDisplayListMethod, TbImageView.this, TbImageView.class);
@@ -333,7 +333,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                 }
             }
 
-            private void bjJ() {
+            private void bjK() {
                 if (TbImageView.mDestroyLayerMethod == null) {
                     Method unused = TbImageView.mDestroyLayerMethod = com.baidu.adp.lib.OrmObject.a.a.findMethod(TbImageView.class, "destroyLayer", new Object[0]);
                 }
@@ -422,7 +422,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                 TbImageView.this.stopLoading();
                 if (aVar == null) {
                     if (TbImageView.this.eGw != null) {
-                        TbImageView.this.eGw.bjK();
+                        TbImageView.this.eGw.bjL();
                     }
                 } else {
                     TbImageView.this.e(aVar);
@@ -480,7 +480,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                     String genCacheKey = com.baidu.adp.lib.e.c.ln().genCacheKey(TbImageView.this.mUrl, TbImageView.this.mType);
                     if (genCacheKey != null && genCacheKey.equals(str)) {
                         TbImageView.this.destroyDrawingCache();
-                        bjJ();
+                        bjK();
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodNoParam(TbImageView.mDestroyLayerMethod, TbImageView.this, TbImageView.class);
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodParam(TbImageView.mDestroyLayerWithParamMethod, TbImageView.this, TbImageView.class, false);
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodNoParam(TbImageView.mClearDisplayListMethod, TbImageView.this, TbImageView.class);
@@ -490,7 +490,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                 }
             }
 
-            private void bjJ() {
+            private void bjK() {
                 if (TbImageView.mDestroyLayerMethod == null) {
                     Method unused = TbImageView.mDestroyLayerMethod = com.baidu.adp.lib.OrmObject.a.a.findMethod(TbImageView.class, "destroyLayer", new Object[0]);
                 }
@@ -660,7 +660,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         }
         boolean z3 = str.equals(this.mUrl) && i == this.mType && bdUniqueId == this.mPageId;
         if (!z3) {
-            bjC();
+            bjD();
             this.mNeedRecomputeMatrix = true;
             this.mIsGif = false;
             requestLayout();
@@ -709,10 +709,10 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         }
     }
 
-    public void bjC() {
+    public void bjD() {
         if (!TextUtils.isEmpty(this.mUrl)) {
             com.baidu.adp.lib.e.c.ln().a(this.mUrl, this.mType, this.dSd);
-            if (TextUtils.isEmpty(this.mUrl) || bjD()) {
+            if (TextUtils.isEmpty(this.mUrl) || bjE()) {
                 stopLoading();
             }
         }
@@ -878,7 +878,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         this.eGn = f;
     }
 
-    public boolean bjD() {
+    public boolean bjE() {
         return this.mShowLoading;
     }
 
@@ -1094,7 +1094,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         this.eGu |= i;
     }
 
-    public void bjE() {
+    public void bjF() {
         this.eGu = 0;
     }
 

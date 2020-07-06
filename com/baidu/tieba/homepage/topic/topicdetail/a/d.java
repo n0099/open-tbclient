@@ -35,7 +35,7 @@ public class d extends RecyclerView.Adapter<com.baidu.tieba.homepage.topic.topic
     public void onBindViewHolder(com.baidu.tieba.homepage.topic.topicdetail.c.a aVar, int i) {
         e eVar = (e) w.getItem(this.iyc, i);
         if (eVar != null) {
-            TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) aVar.ckF();
+            TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) aVar.ckG();
             topicTimelineCellCardView.setData(eVar);
             topicTimelineCellCardView.onChangeSkinType();
         }

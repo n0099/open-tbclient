@@ -3,17 +3,17 @@ package master.flame.danmaku.danmaku.model;
 public abstract class d {
     public int index;
     public boolean jMK;
-    protected f nSC;
-    public long nSW;
-    public String[] nSX;
-    public float nSY;
-    public int nSZ;
-    public g nTe;
-    public n<?> nTj;
-    public boolean nTk;
-    public String nTl;
-    public boolean nTm;
-    public boolean nTs;
+    protected f nSF;
+    public long nSZ;
+    public String[] nTa;
+    public float nTb;
+    public int nTc;
+    public g nTh;
+    public n<?> nTm;
+    public boolean nTn;
+    public String nTo;
+    public boolean nTp;
+    public boolean nTv;
     public Object obj;
     public float rotationY;
     public Object tag;
@@ -21,122 +21,122 @@ public abstract class d {
     public int textColor;
     private long time;
     public int visibility;
-    public boolean nSV = false;
-    public int nTa = 0;
+    public boolean nSY = false;
+    public int nTd = 0;
     public float bnu = -1.0f;
     public int borderColor = 0;
     public int padding = 0;
-    public byte nTb = 0;
-    public float nTc = -1.0f;
-    public float nTd = -1.0f;
-    private int nTf = 0;
-    public int nTg = 0;
-    public int nTh = 0;
-    public int nTi = -1;
+    public byte nTe = 0;
+    public float nTf = -1.0f;
+    public float nTg = -1.0f;
+    private int nTi = 0;
+    public int nTj = 0;
+    public int nTk = 0;
+    public int nTl = -1;
     public int userId = 0;
     protected int alpha = c.MAX;
-    public int nTn = 0;
-    public int nTo = -1;
-    public j nTp = null;
     public int nTq = 0;
     public int nTr = -1;
+    public j nTs = null;
+    public int nTt = 0;
+    public int nTu = -1;
 
     public abstract void a(m mVar, float f, float f2);
 
     public abstract float[] a(m mVar, long j);
 
-    public abstract float dRZ();
+    public abstract float dSd();
 
-    public abstract float dSa();
+    public abstract float dSe();
 
-    public abstract float dSb();
+    public abstract float dSf();
 
-    public abstract float dSc();
+    public abstract float dSg();
 
     public abstract int getType();
 
     public long getDuration() {
-        return this.nTe.value;
+        return this.nTh.value;
     }
 
     public int a(m mVar) {
         return mVar.n(this);
     }
 
-    public boolean dRT() {
-        return this.nTc > -1.0f && this.nTd > -1.0f && this.nTg == this.nTp.nTB;
+    public boolean dRX() {
+        return this.nTf > -1.0f && this.nTg > -1.0f && this.nTj == this.nTs.nTE;
     }
 
     public void a(m mVar, boolean z) {
         mVar.c(this, z);
-        this.nTg = this.nTp.nTB;
+        this.nTj = this.nTs.nTE;
     }
 
     public boolean isPrepared() {
-        return this.nTi == this.nTp.nTG;
+        return this.nTl == this.nTs.nTJ;
     }
 
     public void b(m mVar, boolean z) {
         mVar.b(this, z);
-        this.nTi = this.nTp.nTG;
+        this.nTl = this.nTs.nTJ;
     }
 
-    public n<?> dRU() {
-        return this.nTj;
+    public n<?> dRY() {
+        return this.nTm;
     }
 
     public boolean isShown() {
-        return this.visibility == 1 && this.nTf == this.nTp.nTC;
+        return this.visibility == 1 && this.nTi == this.nTs.nTF;
     }
 
     public boolean isTimeOut() {
-        return this.nSC == null || gs(this.nSC.nTt);
+        return this.nSF == null || gs(this.nSF.nTw);
     }
 
     public boolean gs(long j) {
-        return j - dSe() >= this.nTe.value;
+        return j - dSi() >= this.nTh.value;
     }
 
-    public boolean dRV() {
-        return this.nSC == null || gt(this.nSC.nTt);
+    public boolean dRZ() {
+        return this.nSF == null || gt(this.nSF.nTw);
     }
 
     public boolean gt(long j) {
-        long dSe = j - dSe();
-        return dSe <= 0 || dSe >= this.nTe.value;
+        long dSi = j - dSi();
+        return dSi <= 0 || dSi >= this.nTh.value;
     }
 
-    public boolean dRW() {
-        return this.nSC == null || this.nSC.nTt < dSe();
+    public boolean dSa() {
+        return this.nSF == null || this.nSF.nTw < dSi();
     }
 
-    public boolean dRX() {
-        if (this.nTo != this.nTp.nTD) {
-            this.nTn = 0;
+    public boolean dSb() {
+        if (this.nTr != this.nTs.nTG) {
+            this.nTq = 0;
             return false;
         }
         return true;
     }
 
-    public boolean dRY() {
-        return this.nTo == this.nTp.nTD && this.nTn != 0;
+    public boolean dSc() {
+        return this.nTr == this.nTs.nTG && this.nTq != 0;
     }
 
     public void setVisibility(boolean z) {
         if (z) {
-            this.nTf = this.nTp.nTC;
+            this.nTi = this.nTs.nTF;
             this.visibility = 1;
             return;
         }
         this.visibility = 0;
     }
 
-    public f dSd() {
-        return this.nSC;
+    public f dSh() {
+        return this.nSF;
     }
 
     public void c(f fVar) {
-        this.nSC = fVar;
+        this.nSF = fVar;
     }
 
     public int getAlpha() {
@@ -148,27 +148,27 @@ public abstract class d {
     }
 
     public void gu(long j) {
-        this.nSW = j;
-        this.nTh = this.nTp.nTF;
+        this.nSZ = j;
+        this.nTk = this.nTs.nTI;
     }
 
     public void setTime(long j) {
         this.time = j;
-        this.nSW = 0L;
+        this.nSZ = 0L;
     }
 
     public long getTime() {
         return this.time;
     }
 
-    public long dSe() {
-        return (this.nTp == null || this.nTp.nTF != this.nTh) ? this.time : this.time + this.nSW;
+    public long dSi() {
+        return (this.nTs == null || this.nTs.nTI != this.nTk) ? this.time : this.time + this.nSZ;
     }
 
-    public boolean dSf() {
-        if (this.nTp == null || this.nTp.nTF != this.nTh) {
+    public boolean dSj() {
+        if (this.nTs == null || this.nTs.nTI != this.nTk) {
             return false;
         }
-        return this.nTs;
+        return this.nTv;
     }
 }

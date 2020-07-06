@@ -220,7 +220,7 @@ public class e implements View.OnClickListener {
     private void initView() {
         String str;
         this.mRootView = LayoutInflater.from(this.activity).inflate(a.h.view_guardclub_info, (ViewGroup) null);
-        bve();
+        bvf();
         zl();
         this.fIE.setOnClickListener(this);
         WindowManager windowManager = (WindowManager) this.activity.getSystemService("window");
@@ -322,7 +322,7 @@ public class e implements View.OnClickListener {
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                e.this.bxm();
+                e.this.bxn();
             }
 
             @Override // android.text.TextWatcher
@@ -332,7 +332,7 @@ public class e implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bxm() {
+    public void bxn() {
         if (this.fIW != null) {
             if (TextUtils.isEmpty(this.fIV.getText())) {
                 this.fIW.setEnabled(false);
@@ -349,7 +349,7 @@ public class e implements View.OnClickListener {
         }
     }
 
-    private void bve() {
+    private void bvf() {
         this.fIF = (LinearLayout) this.mRootView.findViewById(a.g.layout_guard_club_info);
         this.fIE = this.mRootView.findViewById(a.g.space_view);
         this.fIz = this.mRootView.findViewById(a.g.layout_guard_info);
@@ -608,7 +608,7 @@ public class e implements View.OnClickListener {
         this.fIK.fBm.setText((str7 == null || TextUtils.equals(str7, "null")) ? "" : "");
     }
 
-    public void bxn() {
+    public void bxo() {
         this.fIG.setVisibility(8);
         this.fIL.setVisibility(8);
         this.fIY.reset();
@@ -754,7 +754,7 @@ public class e implements View.OnClickListener {
             } else {
                 this.fIV.setText("");
             }
-            layoutParams.bottomMargin = bxo();
+            layoutParams.bottomMargin = bxp();
         } else {
             layoutParams.bottomMargin = 0;
             this.fIA.setVisibility(8);
@@ -763,7 +763,7 @@ public class e implements View.OnClickListener {
         this.fIB.setLayoutParams(layoutParams);
     }
 
-    protected int bxo() {
+    protected int bxp() {
         Rect rect = new Rect();
         this.mRootView.getWindowVisibleDisplayFrame(rect);
         int i = ViewCommonUtil.getScreenFullSize(this.fIy.getPageContext().getPageActivity())[1] - rect.bottom;

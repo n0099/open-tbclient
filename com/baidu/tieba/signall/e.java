@@ -15,7 +15,7 @@ public class e {
         this.mAuthSid = str;
     }
 
-    public String dfy() {
+    public String dfz() {
         this.byb = new y(lwW);
         this.byb.addPostData("authsid", this.mAuthSid);
         this.byb.aWu().aWV().mNeedBackgroundLogin = true;

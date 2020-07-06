@@ -99,9 +99,9 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                     z = ((Boolean) customResponsedMessage.getData()).booleanValue();
                 }
                 if (z) {
-                    ScrollFragmentTabHost.this.buc();
-                } else {
                     ScrollFragmentTabHost.this.bud();
+                } else {
+                    ScrollFragmentTabHost.this.bue();
                 }
             }
         };
@@ -156,11 +156,11 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Boolean) || ScrollFragmentTabHost.this.ipd == null) {
                     return null;
                 }
-                ScrollFragmentTabHost.this.bud();
+                ScrollFragmentTabHost.this.bue();
                 if (customMessage.getData().booleanValue()) {
-                    z = ScrollFragmentTabHost.this.ipd.ciF();
+                    z = ScrollFragmentTabHost.this.ipd.ciG();
                 } else if (!com.baidu.tbadk.a.d.aNV() && ScrollFragmentTabHost.this.ipd.isSticky() && ScrollFragmentTabHost.this.isPrimary) {
-                    ScrollFragmentTabHost.this.ipd.ciF();
+                    ScrollFragmentTabHost.this.ipd.ciG();
                     z = true;
                 } else {
                     z = false;
@@ -208,9 +208,9 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                     z = ((Boolean) customResponsedMessage.getData()).booleanValue();
                 }
                 if (z) {
-                    ScrollFragmentTabHost.this.buc();
-                } else {
                     ScrollFragmentTabHost.this.bud();
+                } else {
+                    ScrollFragmentTabHost.this.bue();
                 }
             }
         };
@@ -265,11 +265,11 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Boolean) || ScrollFragmentTabHost.this.ipd == null) {
                     return null;
                 }
-                ScrollFragmentTabHost.this.bud();
+                ScrollFragmentTabHost.this.bue();
                 if (customMessage.getData().booleanValue()) {
-                    z = ScrollFragmentTabHost.this.ipd.ciF();
+                    z = ScrollFragmentTabHost.this.ipd.ciG();
                 } else if (!com.baidu.tbadk.a.d.aNV() && ScrollFragmentTabHost.this.ipd.isSticky() && ScrollFragmentTabHost.this.isPrimary) {
-                    ScrollFragmentTabHost.this.ipd.ciF();
+                    ScrollFragmentTabHost.this.ipd.ciG();
                     z = true;
                 } else {
                     z = false;
@@ -350,17 +350,17 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                     if (wV == 5) {
                         ScrollFragmentTabHost.this.setScrollShadow(true);
                         for (a aVar : ScrollFragmentTabHost.this.ioY) {
-                            aVar.ciD();
+                            aVar.ciE();
                         }
                     } else if (wV == 1) {
                         ScrollFragmentTabHost.this.setScrollShadow(true);
                         for (a aVar2 : ScrollFragmentTabHost.this.ioY) {
-                            aVar2.ciC();
+                            aVar2.ciD();
                         }
                     } else if (wV == 0) {
                         ScrollFragmentTabHost.this.setScrollShadow(true);
                         for (a aVar3 : ScrollFragmentTabHost.this.ioY) {
-                            aVar3.chY();
+                            aVar3.chZ();
                         }
                     } else if (wV == 6) {
                         ScrollFragmentTabHost.this.setScrollShadow(true);
@@ -369,7 +369,7 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                     } else if (wV == 8) {
                         ScrollFragmentTabHost.this.setScrollShadow(true);
                     } else {
-                        ScrollFragmentTabHost.this.bud();
+                        ScrollFragmentTabHost.this.bue();
                         ScrollFragmentTabHost.this.setScrollShadow(false);
                     }
                 }
@@ -379,12 +379,12 @@ public class ScrollFragmentTabHost extends RelativeLayout {
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
                 if (i == 0 && ScrollFragmentTabHost.this.getCurrentTabType() == 0) {
-                    boolean cit = ScrollFragmentTabHost.this.cit();
-                    TiebaStatic.log(new ao("c12350").ag("obj_type", cit ? 1 : 0));
-                    if (cit && ScrollFragmentTabHost.this.ioV != null) {
+                    boolean ciu = ScrollFragmentTabHost.this.ciu();
+                    TiebaStatic.log(new ao("c12350").ag("obj_type", ciu ? 1 : 0));
+                    if (ciu && ScrollFragmentTabHost.this.ioV != null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RECOMMEND_FRS_TIP_SHOW, 0));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CONCERN_RED_TIP_SHOW));
-                        ScrollFragmentTabHost.this.ioV.cir();
+                        ScrollFragmentTabHost.this.ioV.cis();
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_JUMP_TO_CONCERN_TAB));
                 }
@@ -496,9 +496,9 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         }
     }
 
-    public void ciq() {
+    public void cir() {
         if (this.ioV != null) {
-            this.ioV.ciq();
+            this.ioV.cir();
         }
     }
 
@@ -513,17 +513,17 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         this.ioV.setScrollFragmentTabHost(this);
         this.dSy.setOffscreenPageLimit(2);
         this.dSy.setAdapter(this.ioV);
-        int cio = this.ioV.cio();
+        int cip = this.ioV.cip();
         NewScrollFragmentAdapter newScrollFragmentAdapter = this.ioV;
         if (HomePageStatic.ilv) {
-            cio = 0;
+            cip = 0;
         }
-        this.dSy.setCurrentItem(newScrollFragmentAdapter.wW(cio));
+        this.dSy.setCurrentItem(newScrollFragmentAdapter.wW(cip));
         this.ioS.setViewPager(this.dSy);
         this.ioS.setConcernTabIndex(this.ioV.wW(0));
     }
 
-    public boolean cix() {
+    public boolean ciy() {
         return this.ioV != null && this.ioV.getCount() > 0;
     }
 
@@ -594,7 +594,7 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         an.setBackgroundResource(this.fpG, R.drawable.personalize_tab_shadow);
     }
 
-    private boolean bub() {
+    private boolean buc() {
         return this.fpG.getVisibility() == 0;
     }
 
@@ -609,8 +609,8 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         }
     }
 
-    public void buc() {
-        if (this.ioU && !bub()) {
+    public void bud() {
+        if (this.ioU && !buc()) {
             this.fpG.setVisibility(0);
             if (this.fpJ == null) {
                 this.fpJ = new AlphaAnimation(0.0f, 1.0f);
@@ -621,8 +621,8 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         }
     }
 
-    public void bud() {
-        if (this.ioU && bub()) {
+    public void bue() {
+        if (this.ioU && buc()) {
             if (this.fpK == null) {
                 this.fpK = new AlphaAnimation(1.0f, 0.0f);
                 this.fpK.setFillAfter(true);
@@ -646,14 +646,14 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         }
     }
 
-    public void cis() {
+    public void cit() {
         if (this.ioV != null) {
-            this.ioV.cis();
+            this.ioV.cit();
         }
     }
 
-    public void buH() {
-        this.ioV.buH();
+    public void buI() {
+        this.ioV.buI();
     }
 
     public String getCurrentPageKey() {
@@ -680,16 +680,16 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         }
     }
 
-    public void ciy() {
+    public void ciz() {
         this.ioV.a(this.ipi);
     }
 
     public void ni(boolean z) {
     }
 
-    public void ciz() {
+    public void ciA() {
         if (this.ipd != null && !this.ipd.isSticky() && this.ioS != null && this.ioS.getTaskView() != null && this.ioS.getTaskView().getVisibility() != 0) {
-            this.ioS.ciH();
+            this.ioS.ciI();
         }
     }
 
@@ -703,20 +703,20 @@ public class ScrollFragmentTabHost extends RelativeLayout {
             this.ipf.HH();
             this.ipf = null;
         }
-        ciB();
+        ciC();
     }
 
     public void setShowConcernRedTip(boolean z) {
-        if (this.ioS != null && this.ioV.cip()) {
+        if (this.ioS != null && this.ioV.ciq()) {
             this.ioS.setShowConcernRedTip(z);
         }
     }
 
-    public boolean cit() {
-        if (this.ioS == null || !this.ioV.cip()) {
+    public boolean ciu() {
+        if (this.ioS == null || !this.ioV.ciq()) {
             return false;
         }
-        return this.ioS.cit();
+        return this.ioS.ciu();
     }
 
     public void setVideoThreadId(String str) {
@@ -725,7 +725,7 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         }
     }
 
-    public void ciA() {
+    public void ciB() {
         if (com.baidu.tbadk.core.sharedPref.b.aVP().getInt("key_concern_tab_tips_switch", 0) != 0) {
             int wW = this.ioV != null ? this.ioV.wW(0) : 0;
             if (this.ioX == null) {
@@ -741,7 +741,7 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         }
     }
 
-    public void ciB() {
+    public void ciC() {
         if (this.ioX != null) {
             this.ioX.HH();
         }
@@ -768,13 +768,13 @@ public class ScrollFragmentTabHost extends RelativeLayout {
 
     /* loaded from: classes9.dex */
     public static abstract class a {
-        public void ciC() {
-        }
-
         public void ciD() {
         }
 
-        public void chY() {
+        public void ciE() {
+        }
+
+        public void chZ() {
         }
     }
 }

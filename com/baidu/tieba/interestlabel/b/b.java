@@ -41,15 +41,15 @@ public class b {
         }
     }
 
-    public List<a> cws() {
+    public List<a> cwt() {
         return this.jnc;
     }
 
-    public List<a> cwt() {
+    public List<a> cwu() {
         return this.jmY;
     }
 
-    public List<Integer> cwu() {
+    public List<Integer> cwv() {
         return this.jmZ;
     }
 }

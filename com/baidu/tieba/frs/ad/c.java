@@ -35,27 +35,27 @@ public class c extends com.baidu.tieba.card.data.b {
         }
     }
 
-    public int cas() {
+    public int cat() {
         return this.hFg;
     }
 
-    public String cat() {
+    public String cau() {
         return this.hFd;
     }
 
-    public String cau() {
+    public String cav() {
         return this.dGM;
     }
 
-    public String cav() {
+    public String caw() {
         return this.hFe;
     }
 
-    public String biz() {
+    public String biA() {
         return this.dGN;
     }
 
-    public List<MediaData> caw() {
+    public List<MediaData> cax() {
         return this.hFf;
     }
 
@@ -63,7 +63,7 @@ public class c extends com.baidu.tieba.card.data.b {
         this.isLast = z;
     }
 
-    public boolean cax() {
+    public boolean cay() {
         return this.isLast;
     }
 

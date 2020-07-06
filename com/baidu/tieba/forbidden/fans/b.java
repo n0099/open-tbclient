@@ -79,7 +79,7 @@ public class b extends RecyclerView.Adapter<a> {
         return false;
     }
 
-    public boolean bWi() {
+    public boolean bWj() {
         return w.isEmpty(this.fansList);
     }
 

@@ -30,8 +30,8 @@ public class b extends ad.a {
             this.Vt = qVar;
             com.baidu.tieba.person.data.c cVar = (com.baidu.tieba.person.data.c) qVar;
             an.setImageResource(this.kEV, R.drawable.icon_mine_pic_add);
-            if (cVar.cRE() > 0) {
-                this.kEW.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.have_left_some_picture_upload), Integer.valueOf(cVar.cRE())));
+            if (cVar.cRF() > 0) {
+                this.kEW.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.have_left_some_picture_upload), Integer.valueOf(cVar.cRF())));
             }
             getView().setOnClickListener(this.mClickListener);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());

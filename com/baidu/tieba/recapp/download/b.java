@@ -30,14 +30,14 @@ public class b implements com.baidu.tieba.ad.download.b.a {
         downloadData.setNeedNotify(true);
         downloadData.setNeedInvokeApk(true);
         downloadData.setPosition(0);
-        i.cZe().a(downloadData);
+        i.cZf().a(downloadData);
     }
 
     @Override // com.baidu.tieba.ad.download.b.a
     public void At(String str) {
         DownloadCacheKey downloadCacheKey = this.lfg.get(str);
         if (downloadCacheKey != null) {
-            i.cZe().C(downloadCacheKey.mDownloadUrl, str, true);
+            i.cZf().C(downloadCacheKey.mDownloadUrl, str, true);
         }
     }
 
@@ -55,12 +55,12 @@ public class b implements com.baidu.tieba.ad.download.b.a {
             downloadData.setNeedNotify(true);
             downloadData.setNeedInvokeApk(true);
             downloadData.setPosition(0);
-            i.cZe().a(downloadData);
+            i.cZf().a(downloadData);
         }
     }
 
     @Override // com.baidu.tieba.ad.download.b.a
-    public com.baidu.tieba.ad.download.a.c bpo() {
+    public com.baidu.tieba.ad.download.a.c bpp() {
         return this.lfh;
     }
 
@@ -71,7 +71,7 @@ public class b implements com.baidu.tieba.ad.download.b.a {
 
         @Override // com.baidu.tieba.ad.download.a.c
         public void As(String str) {
-            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bpf().c((DownloadCacheKey) b.this.lfg.get(str));
+            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bpg().c((DownloadCacheKey) b.this.lfg.get(str));
             if (c != null) {
                 Toast.makeText(TbadkCoreApplication.getInst(), TbadkApplication.getInst().getResources().getString(R.string.download_start_tips), 1).show();
                 c.As(str);
@@ -80,7 +80,7 @@ public class b implements com.baidu.tieba.ad.download.b.a {
 
         @Override // com.baidu.tieba.ad.download.a.c
         public void at(String str, int i) {
-            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bpf().c((DownloadCacheKey) b.this.lfg.get(str));
+            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bpg().c((DownloadCacheKey) b.this.lfg.get(str));
             if (c != null) {
                 c.at(str, i);
             }
@@ -88,7 +88,7 @@ public class b implements com.baidu.tieba.ad.download.b.a {
 
         @Override // com.baidu.tieba.ad.download.a.c
         public void a(String str, StopStatus stopStatus) {
-            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bpf().c((DownloadCacheKey) b.this.lfg.get(str));
+            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bpg().c((DownloadCacheKey) b.this.lfg.get(str));
             if (c != null) {
                 c.a(str, stopStatus);
             }
@@ -103,11 +103,11 @@ public class b implements com.baidu.tieba.ad.download.b.a {
                 b.this.lfg.put(str, downloadCacheKey);
             }
             downloadCacheKey.mPackageName = as;
-            com.baidu.tieba.ad.download.d.bpf().d(downloadCacheKey).setupPkgName(as);
-            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bpf().c(downloadCacheKey);
+            com.baidu.tieba.ad.download.d.bpg().d(downloadCacheKey).setupPkgName(as);
+            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bpg().c(downloadCacheKey);
             if (c != null) {
                 if (com.baidu.tieba.ad.download.a.isAppInstalled(TbadkCoreApplication.getInst(), as)) {
-                    c.bpm();
+                    c.bpn();
                 } else {
                     c.onSuccess(str, str2);
                 }
@@ -116,7 +116,7 @@ public class b implements com.baidu.tieba.ad.download.b.a {
 
         @Override // com.baidu.tieba.ad.download.a.c
         public void au(String str, int i) {
-            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bpf().c((DownloadCacheKey) b.this.lfg.get(str));
+            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bpg().c((DownloadCacheKey) b.this.lfg.get(str));
             if (c != null) {
                 c.au(str, i);
             }

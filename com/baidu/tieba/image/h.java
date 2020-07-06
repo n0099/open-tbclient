@@ -38,11 +38,11 @@ public class h {
         }
     }
 
-    public LinkedList<f> cvN() {
+    public LinkedList<f> cvO() {
         return this.jkn;
     }
 
-    public LinkedList<AlaInfoData> cvO() {
+    public LinkedList<AlaInfoData> cvP() {
         return this.jkr;
     }
 
@@ -196,7 +196,7 @@ public class h {
         return builder.build(true);
     }
 
-    public AdvertAppInfo cvP() {
+    public AdvertAppInfo cvQ() {
         return this.jko;
     }
 }

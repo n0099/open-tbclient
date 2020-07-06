@@ -61,7 +61,7 @@ public class OvalActionButton extends ImageView {
     }
 
     private void init() {
-        bjv();
+        bjw();
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setColor(this.color);
@@ -74,7 +74,7 @@ public class OvalActionButton extends ImageView {
         setLayerType(1, null);
     }
 
-    private void bjv() {
+    private void bjw() {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.mSkinType == 0) {
             this.startColor = com.baidu.tieba.tbadkCore.c.dV("#00E1FF");
@@ -313,7 +313,7 @@ public class OvalActionButton extends ImageView {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            bjv();
+            bjw();
             this.color = an.getColor(this.mSkinType, R.color.cp_link_tip_e);
             this.eFr.setColor(an.getColor(R.color.cp_cont_a));
             this.eFo = true;

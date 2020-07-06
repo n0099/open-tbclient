@@ -31,7 +31,7 @@ public class BlankView extends View {
         super(context, attributeSet, i);
     }
 
-    public void ccJ() {
+    public void ccK() {
         if (this.mScroller == null) {
             this.mScroller = new Scroller(getContext());
         }

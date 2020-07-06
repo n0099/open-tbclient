@@ -45,7 +45,7 @@ public class d {
             this.gis.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.guide.d.1
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
-                    d.this.bFb();
+                    d.this.bFc();
                     return false;
                 }
             });
@@ -53,8 +53,8 @@ public class d {
         }
     }
 
-    public boolean bFb() {
-        if (this.git == null || !this.git.bFb()) {
+    public boolean bFc() {
+        if (this.git == null || !this.git.bFc()) {
             return false;
         }
         if (this.gis != null && this.gis.getParent() != null) {

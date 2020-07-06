@@ -231,7 +231,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
                 this.style.left = (float) cVar.getDouble("left");
             }
             if (g(cVar, VerticalTranslateLayout.TOP)) {
-                this.style.f1012top = (float) cVar.getDouble(VerticalTranslateLayout.TOP);
+                this.style.f1013top = (float) cVar.getDouble(VerticalTranslateLayout.TOP);
                 return true;
             }
             return true;

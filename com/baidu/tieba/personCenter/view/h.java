@@ -73,7 +73,7 @@ public class h extends com.baidu.tieba.card.b<i> {
             SvgManager.aWQ().a(this.kHP, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
             this.kHM.setBorderColor(R.color.cp_border_b);
             com.baidu.tbadk.core.util.e.a.aXp().lP(2).lQ(4369).a(R.color.cp_shadow_a, 0.4f, 0, 0, l.getDimens(getContext(), R.dimen.tbds12)).aR(this.iwk);
-            cSa();
+            cSb();
             this.mSkinType = i;
         }
     }
@@ -116,18 +116,18 @@ public class h extends com.baidu.tieba.card.b<i> {
             });
             this.dEL.setText(this.mUserData.getName_show());
             this.kHO.setText(getContext().getString(R.string.person_center_default_introduce));
-            cSa();
+            cSb();
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void cSa() {
-        cSb();
-        cSd();
+    private void cSb() {
         cSc();
+        cSe();
+        cSd();
     }
 
-    private void cSb() {
+    private void cSc() {
         if (this.mUserData == null) {
             this.kHN.setImageDrawable(an.getDrawable(R.drawable.icon_crown_super_non));
             return;
@@ -140,7 +140,7 @@ public class h extends com.baidu.tieba.card.b<i> {
         }
     }
 
-    private void cSc() {
+    private void cSd() {
         int i = R.drawable.icon_mask_boy16_svg;
         if (this.mUserData != null && this.mUserData.getSex() == 2) {
             i = R.drawable.icon_mask_girl16_svg;
@@ -148,7 +148,7 @@ public class h extends com.baidu.tieba.card.b<i> {
         this.dEL.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aWQ().a(i, null), (Drawable) null);
     }
 
-    private void cSd() {
+    private void cSe() {
         if (this.mUserData != null && (this.mUserData.getIsMem() > 0 || this.mUserData.isBigV())) {
             an.setViewTextColor(this.dEL, R.color.cp_cont_h, 1);
         } else {
@@ -168,7 +168,7 @@ public class h extends com.baidu.tieba.card.b<i> {
                 return;
             }
             if (view == this.kHQ) {
-                this.kHQ.dqy();
+                this.kHQ.dqC();
             }
             TiebaStatic.log(new ao("c12523").ag("obj_locate", 1));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(this.mTbPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() != null ? TbadkCoreApplication.getCurrentAccountInfo().isBigV() : false)));

@@ -53,7 +53,7 @@ public class d extends ad.a {
         return list;
     }
 
-    public void cRF() {
+    public void cRG() {
         if (this.ahx != TbadkCoreApplication.getInst().getSkinType()) {
             this.ahx = TbadkCoreApplication.getInst().getSkinType();
             an.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);

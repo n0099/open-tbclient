@@ -19,7 +19,7 @@ public class a {
         bB(13, str);
     }
 
-    public static void diO() {
+    public static void diP() {
         Fg(2);
     }
 
@@ -33,11 +33,11 @@ public class a {
         TiebaDatabase.getInstance().getMainDBDatabaseManager().execSQLNoException("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
     }
 
-    public static ArrayList<String> diP() {
+    public static ArrayList<String> diQ() {
         return Fh(0);
     }
 
-    public static ArrayList<String> diQ() {
+    public static ArrayList<String> diR() {
         return Fh(1);
     }
 
@@ -114,11 +114,11 @@ public class a {
         }
     }
 
-    public static void diR() {
+    public static void diS() {
         Fi(0);
     }
 
-    public static void diS() {
+    public static void diT() {
         Fi(1);
     }
 
@@ -136,7 +136,7 @@ public class a {
         }
     }
 
-    public static ArrayList<MarkData> diT() {
+    public static ArrayList<MarkData> diU() {
         Cursor cursor;
         Throwable th;
         Exception e;
@@ -218,7 +218,7 @@ public class a {
         }
     }
 
-    public static void diU() {
+    public static void diV() {
         if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().length() > 0 && TbadkCoreApplication.getCurrentAccountName() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             try {

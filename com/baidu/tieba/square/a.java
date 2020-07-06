@@ -59,8 +59,8 @@ public class a {
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public Pair<Integer, Integer> dfX() {
-        return this.lyG != null ? this.lyG.dfX() : new Pair<>(0, 0);
+    public Pair<Integer, Integer> dfY() {
+        return this.lyG != null ? this.lyG.dfY() : new Pair<>(0, 0);
     }
 
     public void scrollToPositionWithOffset(int i, int i2) {
@@ -87,8 +87,8 @@ public class a {
         }
     }
 
-    public String dfY() {
-        return this.lyG.dfY();
+    public String dfZ() {
+        return this.lyG.dfZ();
     }
 
     public void b(String str, List<String> list, boolean z) {
@@ -109,9 +109,9 @@ public class a {
         }
     }
 
-    public void dfZ() {
+    public void dga() {
         if (this.lyG != null) {
-            this.lyG.dfZ();
+            this.lyG.dga();
         }
     }
 
@@ -158,7 +158,7 @@ public class a {
     }
 
     public void mB(boolean z) {
-        if (!bSR()) {
+        if (!bSS()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(this.lyD, this.lyI);
                 this.mRefreshView.setLayoutMargin(l.getDimens(this.lyD, R.dimen.ds250));
@@ -168,14 +168,14 @@ public class a {
         }
     }
 
-    private boolean bSR() {
+    private boolean bSS() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
         return false;
     }
 
-    public void btN() {
+    public void btO() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this.lyH);
             this.mRefreshView = null;
@@ -189,7 +189,7 @@ public class a {
         }
     }
 
-    public boolean bSQ() {
+    public boolean bSR() {
         if (this.fwo != null) {
             return this.fwo.isViewAttached();
         }
@@ -197,7 +197,7 @@ public class a {
     }
 
     public void ga(boolean z) {
-        if (!bSQ()) {
+        if (!bSR()) {
             if (this.fwo == null) {
                 this.fwo = new g(this.lyD);
                 this.fwo.setTopMargin(l.getDimens(this.lyD, R.dimen.ds250));
@@ -213,7 +213,7 @@ public class a {
         }
     }
 
-    public void dga() {
+    public void dgb() {
         hideLoadingView();
         hideNoDataView();
         mB(true);
@@ -222,15 +222,15 @@ public class a {
         }
     }
 
-    public void dgb() {
-        btN();
+    public void dgc() {
+        btO();
         hideNoDataView();
         ga(true);
     }
 
-    public void dgc() {
+    public void dgd() {
         hideLoadingView();
-        btN();
+        btO();
         hideNoDataView();
         if (this.lyG != null) {
             this.lyG.hideLoadingView();
@@ -238,19 +238,13 @@ public class a {
         }
     }
 
-    public void dgd() {
+    public void dge() {
         hideLoadingView();
-        btN();
+        btO();
         hideNoDataView();
         if (this.lyG != null) {
             this.lyG.ga(true);
             this.lyG.EL(8);
-        }
-    }
-
-    public void dge() {
-        if (this.lyG != null) {
-            this.lyG.dge();
         }
     }
 
@@ -266,22 +260,28 @@ public class a {
         }
     }
 
-    public void buK() {
+    public void dgh() {
         if (this.lyG != null) {
-            this.lyG.buK();
+            this.lyG.dgh();
+        }
+    }
+
+    public void buL() {
+        if (this.lyG != null) {
+            this.lyG.buL();
         }
     }
 
     public boolean uy(boolean z) {
         if (z) {
             if (j.isNetWorkAvailable()) {
-                dgg();
+                dgh();
             } else {
-                dge();
+                dgf();
             }
             return true;
         }
-        dgf();
+        dgg();
         return false;
     }
 }

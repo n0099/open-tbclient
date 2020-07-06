@@ -65,19 +65,19 @@ public class f extends com.baidu.adp.base.c<MsgReceiveActivity> {
             this.lrR.setText(R.string.stranger_msg_switch);
             this.lrR.setOnSwitchStateChangeListener(this.lrU);
             this.lrR.setLineVisibility(false);
-            dcG();
+            dcH();
             this.lrS = (MsgSettingItemView) this.lrU.findViewById(R.id.item_view_forum_broadcast_msg);
             this.lrS.setText(R.string.receive_forum_broadcast_message);
             this.lrS.setOnSwitchStateChangeListener(this.lrU);
             this.lrS.setLineVisibility(false);
-            dcH();
+            dcI();
             this.lrT = (TbSettingTextTipView) this.lrU.findViewById(R.id.item_view_offical_account_push_msg);
             this.lrT.setOnClickListener(this.aXG);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void dcG() {
+    private void dcH() {
         if (this.lrQ == null || this.lrR == null) {
             return;
         }
@@ -98,7 +98,7 @@ public class f extends com.baidu.adp.base.c<MsgReceiveActivity> {
         }
     }
 
-    private void dcH() {
+    private void dcI() {
         if (this.lrS != null) {
             this.lrS.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bcp());
         }
@@ -125,19 +125,19 @@ public class f extends com.baidu.adp.base.c<MsgReceiveActivity> {
         this.lrT.onChangeSkinType(i);
     }
 
-    public View crQ() {
+    public View crR() {
         return this.mBack;
     }
 
-    public BdSwitchView dcI() {
+    public BdSwitchView dcJ() {
         return this.lrQ.getSwitchView();
     }
 
-    public BdSwitchView dcJ() {
+    public BdSwitchView dcK() {
         return this.lrR.getSwitchView();
     }
 
-    public BdSwitchView dcK() {
+    public BdSwitchView dcL() {
         return this.lrS.getSwitchView();
     }
 

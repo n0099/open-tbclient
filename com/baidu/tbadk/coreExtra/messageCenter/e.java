@@ -190,7 +190,7 @@ public class e implements a {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         if (e.this.eml != null) {
-                            e.this.eml.blY();
+                            e.this.eml.blZ();
                             e.this.eml.dismiss();
                         }
                         ao aoVar = new ao("c13250");
@@ -210,7 +210,7 @@ public class e implements a {
                     }
                 });
             }
-        }).oV(18).a(new boolean[]{false, false, false, true, true, false}).b("年", "月", "日", "时", "分", "秒").ae(2.0f).g(0, 0, 0, 0, 0, 0).iX(false).oW(an.getColor(R.color.cp_bg_line_c)).oY(an.getColor(R.color.cp_cont_b)).oZ(an.getColor(R.color.cp_cont_d)).oX(an.getColor(R.color.black_alpha30)).oU(an.getColor(R.color.cp_bg_line_k)).blQ();
+        }).oV(18).a(new boolean[]{false, false, false, true, true, false}).b("年", "月", "日", "时", "分", "秒").ae(2.0f).g(0, 0, 0, 0, 0, 0).iX(false).oW(an.getColor(R.color.cp_bg_line_c)).oY(an.getColor(R.color.cp_cont_b)).oZ(an.getColor(R.color.cp_cont_d)).oX(an.getColor(R.color.black_alpha30)).oU(an.getColor(R.color.cp_bg_line_k)).blR();
         this.eml.show();
         ao aoVar = new ao("c13249");
         aoVar.dk("uid", TbadkCoreApplication.getCurrentAccount());

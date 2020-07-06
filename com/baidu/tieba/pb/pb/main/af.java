@@ -50,51 +50,51 @@ public class af extends com.baidu.adp.base.c {
         return this.mView;
     }
 
-    public TextView cLg() {
+    public TextView cLh() {
         return this.kjO;
     }
 
-    public TextView cLh() {
+    public TextView cLi() {
         return this.kjX;
     }
 
-    public TextView cLi() {
+    public TextView cLj() {
         return this.dnB;
     }
 
-    public TextView cLj() {
+    public TextView cLk() {
         return this.kjY;
     }
 
-    public TextView cLk() {
+    public TextView cLl() {
         return this.kjT;
     }
 
-    public TextView cLl() {
+    public TextView cLm() {
         return this.kjR;
     }
 
-    public TextView cLm() {
+    public TextView cLn() {
         return this.kjW;
     }
 
-    public TextView cLn() {
+    public TextView cLo() {
         return this.kjP;
     }
 
-    public TextView cLo() {
+    public TextView cLp() {
         return this.kjQ;
     }
 
-    public TextView cLp() {
+    public TextView cLq() {
         return this.kjS;
     }
 
-    public TextView cLq() {
+    public TextView cLr() {
         return this.kjU;
     }
 
-    public TextView cLr() {
+    public TextView cLs() {
         return this.kjV;
     }
 
@@ -123,7 +123,7 @@ public class af extends com.baidu.adp.base.c {
             this.kjT.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.aWQ().a(R.drawable.icon_pure_pb_recommend_toped30_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
             return;
         }
-        this.kjT.setText(R.string.f1302top);
+        this.kjT.setText(R.string.f1303top);
         this.kjT.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.aWQ().a(R.drawable.icon_pure_pb_recommend_top30_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
     }
 
@@ -211,7 +211,7 @@ public class af extends com.baidu.adp.base.c {
         this.dnB.setOnClickListener(this.mClickListener);
     }
 
-    public void cLs() {
+    public void cLt() {
         com.baidu.tbadk.core.util.an.setBackgroundColor(this.kjN, R.color.cp_bg_line_k);
         com.baidu.tbadk.core.util.an.setBackgroundResource(this.kjZ, R.drawable.bg_pb_more_dialog);
         com.baidu.tbadk.core.util.an.setBackgroundResource(this.dnB, R.color.cp_bg_line_k);

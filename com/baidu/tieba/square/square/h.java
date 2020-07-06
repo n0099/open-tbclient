@@ -18,19 +18,19 @@ public class h {
     private ArrayList<d> lBY = new ArrayList<>();
     private boolean isSuccess = true;
 
-    public boolean dgJ() {
+    public boolean dgK() {
         return true;
     }
 
-    public ArrayList<b> dgK() {
+    public ArrayList<b> dgL() {
         return this.lBX;
     }
 
-    public ArrayList<a> dgL() {
+    public ArrayList<a> dgM() {
         return this.lBI;
     }
 
-    public ArrayList<br> dgM() {
+    public ArrayList<br> dgN() {
         return this.lBG;
     }
 
@@ -218,7 +218,7 @@ public class h {
         }
     }
 
-    public String dgN() {
+    public String dgO() {
         JSONObject jSONObject = new JSONObject();
         JSONArray jSONArray = new JSONArray();
         JSONArray jSONArray2 = new JSONArray();

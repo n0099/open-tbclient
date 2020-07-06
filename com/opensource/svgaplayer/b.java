@@ -9,25 +9,25 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes.dex */
 public final class b extends Drawable {
-    private boolean nAo;
-    private int nAp;
-    private final com.opensource.svgaplayer.a.b nAq;
-    private final f nAr;
-    private final c nAs;
+    private boolean nAr;
+    private int nAs;
+    private final com.opensource.svgaplayer.a.b nAt;
+    private final f nAu;
+    private final c nAv;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         q.m(fVar, "videoItem");
         q.m(cVar, "dynamicItem");
-        this.nAr = fVar;
-        this.nAs = cVar;
-        this.nAo = true;
+        this.nAu = fVar;
+        this.nAv = cVar;
+        this.nAr = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.nAq = new com.opensource.svgaplayer.a.b(this.nAr, this.nAs);
+        this.nAt = new com.opensource.svgaplayer.a.b(this.nAu, this.nAv);
     }
 
-    public final f dLt() {
-        return this.nAr;
+    public final f dLx() {
+        return this.nAu;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -37,19 +37,19 @@ public final class b extends Drawable {
     }
 
     public final void xf(boolean z) {
-        if (this.nAo != z) {
-            this.nAo = z;
+        if (this.nAr != z) {
+            this.nAr = z;
             invalidateSelf();
         }
     }
 
-    public final int dLs() {
-        return this.nAp;
+    public final int dLw() {
+        return this.nAs;
     }
 
     public final void KB(int i) {
-        if (this.nAp != i) {
-            this.nAp = i;
+        if (this.nAs != i) {
+            this.nAs = i;
             invalidateSelf();
         }
     }
@@ -61,8 +61,8 @@ public final class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.nAo && canvas != null) {
-            this.nAq.a(canvas, this.nAp, this.scaleType);
+        if (!this.nAr && canvas != null) {
+            this.nAt.a(canvas, this.nAs, this.scaleType);
         }
     }
 

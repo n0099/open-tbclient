@@ -3,8 +3,8 @@ package com.baidu.tieba.recapp;
 public class c implements com.baidu.tieba.InjectPlugin.a.d<b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.InjectPlugin.a.d
-    /* renamed from: cYK */
-    public b bmA() {
+    /* renamed from: cYL */
+    public b bmB() {
         return new b();
     }
 }

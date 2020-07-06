@@ -122,7 +122,7 @@ public class c {
                     c.this.eRp.setCurrentItem(bi - 1);
                 }
                 if (c.this.eRy != null) {
-                    c.this.eRy.blR();
+                    c.this.eRy.blS();
                 }
             }
         });
@@ -145,7 +145,7 @@ public class c {
                     c.this.eRp.setCurrentItem(bi - 1);
                 }
                 if (c.this.eRy != null) {
-                    c.this.eRy.blR();
+                    c.this.eRy.blS();
                 }
             }
         });
@@ -162,7 +162,7 @@ public class c {
         this.eRq.setVisibility(this.eQh[3] ? 0 : 8);
         this.eRr.setVisibility(this.eQh[4] ? 0 : 8);
         this.eRs.setVisibility(this.eQh[5] ? 0 : 8);
-        blZ();
+        bma();
     }
 
     private void i(int i, int i2, int i3, int i4, int i5, int i6) {
@@ -322,7 +322,7 @@ public class c {
                     c.this.a(i8, c.this.eRo.getCurrentItem() + 1, 1, 31, asList, asList2);
                 }
                 if (c.this.eRy != null) {
-                    c.this.eRy.blR();
+                    c.this.eRy.blS();
                 }
             }
         });
@@ -358,7 +358,7 @@ public class c {
                     c.this.a(c.this.eRx, i8, 1, 31, asList, asList2);
                 }
                 if (c.this.eRy != null) {
-                    c.this.eRy.blR();
+                    c.this.eRy.blS();
                 }
             }
         });
@@ -375,7 +375,7 @@ public class c {
         this.eRq.setVisibility(this.eQh[3] ? 0 : 8);
         this.eRr.setVisibility(this.eQh[4] ? 0 : 8);
         this.eRs.setVisibility(this.eQh[5] ? 0 : 8);
-        blZ();
+        bma();
     }
 
     private void a(WheelView wheelView) {
@@ -383,7 +383,7 @@ public class c {
             wheelView.setOnItemSelectedListener(new com.baidu.tbadk.widget.timepicker.wheel.c.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.c.5
                 @Override // com.baidu.tbadk.widget.timepicker.wheel.c.b
                 public void onItemSelected(int i) {
-                    c.this.eRy.blR();
+                    c.this.eRy.blS();
                 }
             });
         }
@@ -418,7 +418,7 @@ public class c {
         }
     }
 
-    private void blZ() {
+    private void bma() {
         this.eRp.setTextSize(this.textSize);
         this.eRo.setTextSize(this.textSize);
         this.eRn.setTextSize(this.textSize);
@@ -427,7 +427,7 @@ public class c {
         this.eRs.setTextSize(this.textSize);
     }
 
-    private void bma() {
+    private void bmb() {
         this.eRp.setTextColorOut(this.textColorOut);
         this.eRo.setTextColorOut(this.textColorOut);
         this.eRn.setTextColorOut(this.textColorOut);
@@ -436,7 +436,7 @@ public class c {
         this.eRs.setTextColorOut(this.textColorOut);
     }
 
-    private void bmb() {
+    private void bmc() {
         this.eRp.setTextColorCenter(this.textColorCenter);
         this.eRo.setTextColorCenter(this.textColorCenter);
         this.eRn.setTextColorCenter(this.textColorCenter);
@@ -445,7 +445,7 @@ public class c {
         this.eRs.setTextColorCenter(this.textColorCenter);
     }
 
-    private void bmc() {
+    private void bmd() {
         this.eRp.setDividerColor(this.dividerColor);
         this.eRo.setDividerColor(this.dividerColor);
         this.eRn.setDividerColor(this.dividerColor);
@@ -454,7 +454,7 @@ public class c {
         this.eRs.setDividerColor(this.dividerColor);
     }
 
-    private void bmd() {
+    private void bme() {
         this.eRp.setDividerType(this.eQR);
         this.eRo.setDividerType(this.eQR);
         this.eRn.setDividerType(this.eQR);
@@ -463,7 +463,7 @@ public class c {
         this.eRs.setDividerType(this.eQR);
     }
 
-    private void bme() {
+    private void bmf() {
         this.eRp.setLineSpacingMultiplier(this.lineSpacingMultiplier);
         this.eRo.setLineSpacingMultiplier(this.lineSpacingMultiplier);
         this.eRn.setLineSpacingMultiplier(this.lineSpacingMultiplier);
@@ -527,7 +527,7 @@ public class c {
 
     public String getTime() {
         if (this.eQo) {
-            return bmf();
+            return bmg();
         }
         StringBuilder sb = new StringBuilder();
         if (this.eRx == this.eQl) {
@@ -542,7 +542,7 @@ public class c {
         return sb.toString();
     }
 
-    private String bmf() {
+    private String bmg() {
         int currentItem;
         boolean z;
         StringBuilder sb = new StringBuilder();
@@ -628,27 +628,27 @@ public class c {
 
     public void setLineSpacingMultiplier(float f) {
         this.lineSpacingMultiplier = f;
-        bme();
+        bmf();
     }
 
     public void setDividerColor(int i) {
         this.dividerColor = i;
-        bmc();
+        bmd();
     }
 
     public void setDividerType(WheelView.DividerType dividerType) {
         this.eQR = dividerType;
-        bmd();
+        bme();
     }
 
     public void setTextColorCenter(int i) {
         this.textColorCenter = i;
-        bmb();
+        bmc();
     }
 
     public void setTextColorOut(int i) {
         this.textColorOut = i;
-        bma();
+        bmb();
     }
 
     public void isCenterLabel(boolean z) {

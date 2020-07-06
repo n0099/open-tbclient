@@ -25,28 +25,28 @@ public class d {
         this.kxJ = eVar;
         setData(eVar);
         this.kxO.setValue(null);
-        this.kxK.setValue(eVar.cGN());
-    }
-
-    public com.baidu.tieba.pb.data.e cPI() {
-        return this.kxJ;
+        this.kxK.setValue(eVar.cGO());
     }
 
     public com.baidu.tieba.pb.data.e cPJ() {
+        return this.kxJ;
+    }
+
+    public com.baidu.tieba.pb.data.e cPK() {
         return this.kck;
     }
 
     public void setData(com.baidu.tieba.pb.data.e eVar) {
         this.kck = eVar;
         if (eVar != null) {
-            this.kxK.setValue(eVar.cGN());
-            if (!w.isEmpty(eVar.cHo())) {
-                aR(eVar.cHo().get(0));
+            this.kxK.setValue(eVar.cGO());
+            if (!w.isEmpty(eVar.cHp())) {
+                aR(eVar.cHp().get(0));
             }
         }
     }
 
-    public p<bu> cPK() {
+    public p<bu> cPL() {
         return this.kxK;
     }
 
@@ -62,7 +62,7 @@ public class d {
         this.kxL = rect;
     }
 
-    public Rect cPL() {
+    public Rect cPM() {
         return this.kxL;
     }
 
@@ -70,11 +70,11 @@ public class d {
         this.kxM = z;
     }
 
-    public boolean cPM() {
+    public boolean cPN() {
         return this.kxM;
     }
 
-    public LinkedList<com.baidu.tieba.pb.data.e> cPN() {
+    public LinkedList<com.baidu.tieba.pb.data.e> cPO() {
         return this.kxN;
     }
 
@@ -86,15 +86,15 @@ public class d {
         this.kxP.setValue(buVar);
     }
 
-    public p<bu> cPO() {
+    public p<bu> cPP() {
         return this.kxO;
     }
 
-    public p<bu> cPP() {
+    public p<bu> cPQ() {
         return this.kxP;
     }
 
-    public p<Boolean> cPQ() {
+    public p<Boolean> cPR() {
         return this.kxQ;
     }
 
@@ -102,7 +102,7 @@ public class d {
         this.kxQ.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> cPR() {
+    public p<Boolean> cPS() {
         return this.kxR;
     }
 
@@ -114,11 +114,11 @@ public class d {
         this.kxS.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> cPS() {
+    public p<Boolean> cPT() {
         return this.kxS;
     }
 
-    public p<Integer> cPT() {
+    public p<Integer> cPU() {
         return this.kxT;
     }
 }

@@ -382,7 +382,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
                 if (NickNameActivitySwitch.isOn() && name_show != null && !name_show.equals(userName)) {
                     this.ahA.setText(com.baidu.tieba.pb.c.aK(this.mContext, this.ahA.getText().toString()));
                     this.ahA.setGravity(16);
-                    this.ahA.setTag(R.id.tag_nick_name_activity, com.baidu.tieba.pb.c.cGx());
+                    this.ahA.setTag(R.id.tag_nick_name_activity, com.baidu.tieba.pb.c.cGy());
                     an.setViewTextColor(this.ahA, R.color.cp_other_f, 1);
                 }
             }

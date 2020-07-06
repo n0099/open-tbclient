@@ -86,7 +86,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         setContentView(this.hee.getView());
         this.hef = new com.baidu.tieba.enterForum.hotuserrank.model.a(getUniqueId());
         this.hef.a(this.hel);
-        bSl();
+        bSm();
         if (!TextUtils.isEmpty(this.heg)) {
             this.hef.En(this.heg);
         } else if (this.mForumId > 0) {
@@ -96,7 +96,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         showLoadingView(this.hee.getView());
     }
 
-    private void bSl() {
+    private void bSm() {
         Uri uri;
         if (getIntent() != null) {
             this.heg = getIntent().getStringExtra(HotUserRankActivityConfig.KEY_CATEGORY);

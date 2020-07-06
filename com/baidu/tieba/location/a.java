@@ -40,9 +40,9 @@ public class a implements com.baidu.adp.lib.c.b {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001330) {
                     if ((!com.baidu.h.a.NR() || ac.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && (customResponsedMessage.getData() instanceof Boolean)) {
                         if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                            com.baidu.adp.lib.c.a.kG().a(a.czk());
+                            com.baidu.adp.lib.c.a.kG().a(a.czl());
                         } else {
-                            com.baidu.adp.lib.c.a.kG().b(a.czk());
+                            com.baidu.adp.lib.c.a.kG().b(a.czl());
                         }
                     }
                 }
@@ -50,7 +50,7 @@ public class a implements com.baidu.adp.lib.c.b {
         });
     }
 
-    public static a czk() {
+    public static a czl() {
         if (jwM == null) {
             synchronized (a.class) {
                 if (jwM == null) {
@@ -150,9 +150,9 @@ public class a implements com.baidu.adp.lib.c.b {
                 }
                 if (a.this.jwO != null) {
                     a.this.jwO.onProviderGetLocation(0, "", a.this.lastAddress, a.this.lastLocationTime, a.this.jwR);
-                    com.baidu.tieba.recapp.d.a.cZF().GB(String.valueOf(a.this.lastAddress.getLatitude()));
-                    com.baidu.tieba.recapp.d.a.cZF().GA(String.valueOf(a.this.lastAddress.getLongitude()));
-                    com.baidu.tieba.recapp.d.a.cZF().fp(System.currentTimeMillis());
+                    com.baidu.tieba.recapp.d.a.cZG().GB(String.valueOf(a.this.lastAddress.getLatitude()));
+                    com.baidu.tieba.recapp.d.a.cZG().GA(String.valueOf(a.this.lastAddress.getLongitude()));
+                    com.baidu.tieba.recapp.d.a.cZG().fp(System.currentTimeMillis());
                 }
             }
         }

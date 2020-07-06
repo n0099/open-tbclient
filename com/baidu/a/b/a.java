@@ -2,6 +2,6 @@ package com.baidu.a.b;
 /* loaded from: classes7.dex */
 public class a {
     public static d sN() {
-        return com.baidu.tieba.write.b.a.b.drE();
+        return com.baidu.tieba.write.b.a.b.drI();
     }
 }

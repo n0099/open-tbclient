@@ -69,10 +69,10 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
             public void onClick(View view) {
                 if (view.getId() == a.g.id_ala_liveroom_attention_guide_cancel_btn) {
                     b.this.fVb = 2;
-                    b.this.bAq();
+                    b.this.bAr();
                 } else if (view.getId() == a.g.id_ala_liveroom_attention_guide_open_btn) {
                     b.this.fVb = 1;
-                    b.this.bAq();
+                    b.this.bAr();
                 } else if (view.getId() == a.g.id_ala_attention_guide_selectbox_wrapper) {
                     b.this.fUV.setSelected(b.this.fUV.isSelected() ? false : true);
                 }
@@ -82,7 +82,7 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                b.this.bAq();
+                b.this.bAr();
             }
         };
         this.fVd = new CustomMessageListener(2913092) { // from class: com.baidu.tieba.ala.liveroom.attentionpop.b.5
@@ -92,7 +92,7 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
                     b.this.fUY = ((Integer) customResponsedMessage.getData()).intValue();
                 }
-                b.this.bAp();
+                b.this.bAq();
             }
         };
         this.mTbPageContext = tbPageContext;
@@ -130,7 +130,7 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    public void bAp() {
+    public void bAq() {
         if (this.fUT == null || !this.fUT.isShowing()) {
             this.fUV.setSelected(true);
             if (this.fUT == null) {
@@ -149,7 +149,7 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bAq() {
+    public void bAr() {
         if (this.fUT != null && this.fUT.isShowing()) {
             this.fUT.dismiss();
         }
@@ -158,7 +158,7 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
         super.onDestroy();
-        bAq();
+        bAr();
         if (this.fUZ != null) {
             this.fUZ.onDestroy();
         }

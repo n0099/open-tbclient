@@ -42,7 +42,7 @@ public class RedPacketCharmView extends RelativeLayout {
                     this.aIh.setVisibility(0);
                     this.fAe.setVisibility(8);
                     this.fAh.setVisibility(0);
-                    bwa();
+                    bwb();
                     return;
                 case 2:
                     this.aIh.setVisibility(8);
@@ -50,7 +50,7 @@ public class RedPacketCharmView extends RelativeLayout {
                     this.fAf.setVisibility(0);
                     this.fAg.setVisibility(8);
                     this.fAh.setVisibility(4);
-                    bwa();
+                    bwb();
                     return;
                 case 3:
                     this.aIh.setVisibility(8);
@@ -58,7 +58,7 @@ public class RedPacketCharmView extends RelativeLayout {
                     this.fAf.setVisibility(8);
                     this.fAg.setVisibility(0);
                     this.fAh.setVisibility(4);
-                    bvZ();
+                    bwa();
                     return;
                 default:
                     return;
@@ -103,7 +103,7 @@ public class RedPacketCharmView extends RelativeLayout {
 
     public void release() {
         this.mAvatar = "";
-        bwa();
+        bwb();
     }
 
     private void init() {
@@ -123,7 +123,7 @@ public class RedPacketCharmView extends RelativeLayout {
         this.aIh.setScaleType(ImageView.ScaleType.CENTER_CROP);
     }
 
-    private void bvZ() {
+    private void bwa() {
         if (this.fAe != null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.fAe, "scaleX", 1.0f, 0.8f, 1.0f);
             ofFloat.setDuration(500L);
@@ -139,7 +139,7 @@ public class RedPacketCharmView extends RelativeLayout {
         }
     }
 
-    private void bwa() {
+    private void bwb() {
         if (this.fAe != null && (this.fAe.getTag() instanceof Animator)) {
             ((Animator) this.fAe.getTag()).cancel();
         }

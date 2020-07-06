@@ -119,15 +119,15 @@ public class TbRichTextCommInfo extends OrmObject {
         return this.mLink;
     }
 
-    public int bkQ() {
+    public int bkR() {
         return this.eNO;
     }
 
-    public String bkR() {
+    public String bkS() {
         return this.eNP;
     }
 
-    public int bkS() {
+    public int bkT() {
         return this.eNR;
     }
 

@@ -53,7 +53,7 @@ public class a {
         private static final a fcG = new a();
     }
 
-    public static a bqz() {
+    public static a bqA() {
         return C0520a.fcG;
     }
 
@@ -223,7 +223,7 @@ public class a {
         });
     }
 
-    public void bqA() {
+    public void bqB() {
         try {
             SapiAccountManager.getInstance().getConfignation();
         } catch (Exception e) {
@@ -279,7 +279,7 @@ public class a {
             return "";
         }
         if (TextUtils.isEmpty(this.fcB.bduss)) {
-            bqA();
+            bqB();
         }
         return this.fcB.bduss;
     }
@@ -292,12 +292,12 @@ public class a {
             return "";
         }
         if (TextUtils.isEmpty(this.fcB.uid)) {
-            bqA();
+            bqB();
         }
         return this.fcB.uid;
     }
 
-    public String bqB() {
+    public String bqC() {
         if (this.fcB == null) {
             if (DEBUG) {
                 throw new NullPointerException("AccountInfo is null");
@@ -305,7 +305,7 @@ public class a {
             return "";
         }
         if (TextUtils.isEmpty(this.fcB.aRD)) {
-            bqA();
+            bqB();
         }
         return this.fcB.aRD;
     }
@@ -318,14 +318,14 @@ public class a {
             return "";
         }
         if (TextUtils.isEmpty(this.fcB.displayName)) {
-            bqA();
+            bqB();
         }
         return this.fcB.displayName;
     }
 
     public boolean isLogin() {
         if (this.fcB != null && TextUtils.isEmpty(this.fcB.bduss)) {
-            bqA();
+            bqB();
         }
         return SapiAccountManager.getInstance().isLogin();
     }

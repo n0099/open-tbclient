@@ -10,13 +10,13 @@ import android.util.Log;
 /* loaded from: classes6.dex */
 public class e {
     public static boolean b;
-    public static volatile e nAa;
+    public static volatile e nAd;
     public Boolean g;
-    public BroadcastReceiver nAf;
-    public a nAb = new a("udid");
-    public a nAc = new a("oaid");
-    public a nAe = new a("vaid");
-    public a nAd = new a("aaid");
+    public BroadcastReceiver nAi;
+    public a nAe = new a("udid");
+    public a nAf = new a("oaid");
+    public a nAh = new a("vaid");
+    public a nAg = new a("aaid");
 
     public static void a(String str) {
         if (b) {
@@ -24,13 +24,13 @@ public class e {
         }
     }
 
-    public static final e dLq() {
-        if (nAa == null) {
+    public static final e dLu() {
+        if (nAd == null) {
             synchronized (e.class) {
-                nAa = new e();
+                nAd = new e();
             }
         }
-        return nAa;
+        return nAd;
     }
 
     public static c y(Cursor cursor) {
@@ -63,18 +63,18 @@ public class e {
         return cVar;
     }
 
-    public a Rt(String str) {
+    public a Ru(String str) {
         if ("oaid".equals(str)) {
-            return this.nAc;
+            return this.nAf;
         }
         if ("vaid".equals(str)) {
-            return this.nAe;
+            return this.nAh;
         }
         if ("aaid".equals(str)) {
-            return this.nAd;
+            return this.nAg;
         }
         if ("udid".equals(str)) {
-            return this.nAb;
+            return this.nAe;
         }
         return null;
     }
@@ -186,11 +186,11 @@ public class e {
     }
 
     public final synchronized void a(Context context) {
-        if (this.nAf == null) {
+        if (this.nAi == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.meizu.flyme.openid.ACTION_OPEN_ID_CHANGE");
-            this.nAf = new d();
-            context.registerReceiver(this.nAf, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
+            this.nAi = new d();
+            context.registerReceiver(this.nAi, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
         }
     }
 

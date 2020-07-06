@@ -49,7 +49,7 @@ public class y extends com.baidu.tieba.frs.j<bt, com.baidu.card.ak<bu>> implemen
                         }
                         return;
                     }
-                    com.baidu.tieba.frs.d.c.ceq().a(com.baidu.tieba.frs.d.d.hIE, buVar, 1);
+                    com.baidu.tieba.frs.d.c.cer().a(com.baidu.tieba.frs.d.d.hIE, buVar, 1);
                 }
             }
         };
@@ -128,6 +128,6 @@ public class y extends com.baidu.tieba.frs.j<bt, com.baidu.card.ak<bu>> implemen
 
     /* JADX INFO: Access modifiers changed from: private */
     public void as(bu buVar) {
-        TiebaStatic.log(new ao("c12126").dk("tid", buVar.getId()).ag("obj_locate", bXM() ? 2 : 1).s("obj_id", buVar.aSJ() == null ? -1L : buVar.aSJ().live_id).ag("obj_type", 1));
+        TiebaStatic.log(new ao("c12126").dk("tid", buVar.getId()).ag("obj_locate", bXN() ? 2 : 1).s("obj_id", buVar.aSJ() == null ? -1L : buVar.aSJ().live_id).ag("obj_type", 1));
     }
 }

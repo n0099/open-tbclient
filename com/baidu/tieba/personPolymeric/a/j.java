@@ -27,10 +27,10 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.j jVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.h> aVar) {
-        com.baidu.tieba.personPolymeric.view.h bPg = aVar.bPg();
-        bPg.a(jVar);
-        bPg.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        bPg.b(this.kLs);
+        com.baidu.tieba.personPolymeric.view.h bPh = aVar.bPh();
+        bPh.a(jVar);
+        bPh.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        bPh.b(this.kLs);
         return aVar.getView();
     }
 

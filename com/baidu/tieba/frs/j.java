@@ -114,7 +114,7 @@ public abstract class j<T, V extends ad.a> extends com.baidu.adp.widget.ListView
         this.hzl = hVar;
     }
 
-    public boolean bXM() {
+    public boolean bXN() {
         return this.hzm;
     }
 

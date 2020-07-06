@@ -145,15 +145,15 @@ public class c {
         this.isShow = false;
     }
 
-    public void dgz() {
+    public void dgA() {
         this.lAn.setVisibility(0);
     }
 
-    public void dgA() {
+    public void dgB() {
         this.lAn.setVisibility(8);
     }
 
-    public void dgB() {
+    public void dgC() {
         if (this.mProgressBar != null) {
             this.mProgressBar.setVisibility(8);
         }
@@ -166,13 +166,13 @@ public class c {
         }
     }
 
-    public void dgC() {
+    public void dgD() {
         this.lAp.setVisibility(4);
         this.lAH.setClickable(false);
         this.lAH.setOnClickListener(null);
     }
 
-    public void dgD() {
+    public void dgE() {
         this.lAp.setVisibility(0);
     }
 }

@@ -32,36 +32,36 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.b> aVar) {
-        if (aVar.bPg() == null) {
+        if (aVar.bPh() == null) {
             return null;
         }
-        aVar.bPg().a(eVar);
-        aVar.bPg().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.bPg().c(new aa<com.baidu.tieba.ala.personcenter.c.e>() { // from class: com.baidu.tieba.ala.personcenter.a.b.1
+        aVar.bPh().a(eVar);
+        aVar.bPh().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.bPh().c(new aa<com.baidu.tieba.ala.personcenter.c.e>() { // from class: com.baidu.tieba.ala.personcenter.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view2, com.baidu.tieba.ala.personcenter.c.e eVar2) {
                 b.this.a(eVar2);
             }
         });
-        return aVar.bPg().getView();
+        return aVar.bPh().getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.personcenter.c.e eVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData;
-        if (eVar != null && (personCenterData = eVar.getPersonCenterData()) != null && personCenterData.bLu() != null) {
+        if (eVar != null && (personCenterData = eVar.getPersonCenterData()) != null && personCenterData.bLv() != null) {
             if (!personCenterData.isHost()) {
                 TiebaStatic.log("c11864");
             } else {
                 TiebaStatic.log("c11857");
             }
-            int i = personCenterData.bLu().level_id;
+            int i = personCenterData.bLv().level_id;
             if (i >= 40) {
                 i = 40;
             }
             int i2 = i + 1;
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterExpActivityConfig(this.mPageContext.getPageActivity(), personCenterData.bLu().level_exp, i, personCenterData.bLu().next_exp, i2 <= 40 ? i2 : 40, personCenterData.isHost())));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterExpActivityConfig(this.mPageContext.getPageActivity(), personCenterData.bLv().level_exp, i, personCenterData.bLv().next_exp, i2 <= 40 ? i2 : 40, personCenterData.isHost())));
         }
     }
 }

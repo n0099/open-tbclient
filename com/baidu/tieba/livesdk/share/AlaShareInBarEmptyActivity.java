@@ -37,7 +37,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         initData(bundle);
-        czg();
+        czh();
     }
 
     private void initData(Bundle bundle) {
@@ -53,7 +53,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
     }
 
-    private void czg() {
+    private void czh() {
         if (!j.isNetWorkAvailable()) {
             showToast(b.C0673b.neterror);
             finish();

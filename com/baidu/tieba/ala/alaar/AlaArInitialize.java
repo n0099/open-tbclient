@@ -20,17 +20,17 @@ import com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView;
 /* loaded from: classes3.dex */
 public class AlaArInitialize {
     static {
-        bsa();
         bsb();
-        brV();
-        brY();
+        bsc();
         brW();
-        brX();
         brZ();
+        brX();
+        brY();
+        bsa();
         TbConfig.AR_SDK_VERSION = a.getVersion();
     }
 
-    public static void brV() {
+    public static void brW() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021158, TbConfig.SERVER_HOST + "liveserver/sys/anticontent");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -40,7 +40,7 @@ public class AlaArInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public static void brW() {
+    public static void brX() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021156, TbConfig.SERVER_HOST + "liveserver/sys/getstreamerstickers");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -50,14 +50,14 @@ public class AlaArInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public static void brX() {
+    public static void brY() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021206, TbConfig.SERVER_ADDRESS + "ala/sticker/setLiveSticker");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(SetPicTxtStickerHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void brY() {
+    private static void brZ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913125, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.alaar.AlaArInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.w.a> run(CustomMessage<Context> customMessage) {
@@ -71,7 +71,7 @@ public class AlaArInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void brZ() {
+    private static void bsa() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913177, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.alaar.AlaArInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<h> run(CustomMessage<Context> customMessage) {
@@ -85,7 +85,7 @@ public class AlaArInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static void bsa() {
+    public static void bsb() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021155, TbConfig.SERVER_HOST + "liveserver/sys/getstickers");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -95,7 +95,7 @@ public class AlaArInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bsb() {
+    private static void bsc() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913176, new CustomMessageTask.CustomRunnable<com.baidu.live.ar.a>() { // from class: com.baidu.tieba.ala.alaar.AlaArInitialize.3
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<ILiveMultiBeautyView> run(CustomMessage<com.baidu.live.ar.a> customMessage) {

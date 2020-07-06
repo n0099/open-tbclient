@@ -28,21 +28,21 @@ public class j extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, m mVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.c> aVar) {
-        if (aVar.bPg() == null) {
+        if (aVar.bPh() == null) {
             return null;
         }
-        a(mVar, aVar.bPg());
-        return aVar.bPg().getView();
+        a(mVar, aVar.bPh());
+        return aVar.bPh().getView();
     }
 
     private void a(m mVar, com.baidu.tieba.ala.personcenter.e.c cVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = mVar.getPersonCenterData();
-        if (personCenterData == null || personCenterData.bLt() == null || TextUtils.isEmpty(personCenterData.bLt().bLs())) {
+        if (personCenterData == null || personCenterData.bLu() == null || TextUtils.isEmpty(personCenterData.bLu().bLt())) {
             cVar.setVisibility(8);
             notifyDataSetChanged();
             return;
         }
-        cVar.DE(personCenterData.bLt().bLs());
+        cVar.DE(personCenterData.bLu().bLt());
         cVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         notifyDataSetChanged();
     }

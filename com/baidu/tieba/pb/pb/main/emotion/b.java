@@ -49,7 +49,7 @@ public class b extends BaseAdapter {
             C0708b c0708b2 = new C0708b();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_sug_emotion, (ViewGroup) null);
             c0708b2.jRE = (EmotionView) view.findViewById(R.id.emotion_view);
-            c0708b2.jRE.bTR();
+            c0708b2.jRE.bTS();
             c0708b2.jRE.setController(this.kpM);
             c0708b2.jRE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.1
                 @Override // android.view.View.OnClickListener

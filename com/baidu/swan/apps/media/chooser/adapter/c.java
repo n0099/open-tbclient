@@ -88,7 +88,7 @@ public class c extends RecyclerView.Adapter<a> {
             ImageRequestBuilder ac = ImageRequestBuilder.ac(Uri.fromFile(new File(mediaModel.getPath())));
             ac.c(new d(this.cqP, this.cqP));
             ac.wM(true);
-            aVar.cqQ.setController(com.facebook.drawee.a.a.c.dzW().c(aVar.cqQ.getController()).wy(false).bc(ac.dHb()).dAN());
+            aVar.cqQ.setController(com.facebook.drawee.a.a.c.dAa().c(aVar.cqQ.getController()).wy(false).bc(ac.dHf()).dAR());
         }
     }
 

@@ -25,27 +25,27 @@ public class CardBasicLayout extends LinearLayout {
     }
 
     public void setData(int i, f fVar) {
-        e bNv;
+        e bNw;
         this.gJz = fVar;
-        if (this.gJz != null && this.gJz.bNv() != null && (bNv = this.gJz.bNv()) != null) {
-            int status = bNv.getStatus();
+        if (this.gJz != null && this.gJz.bNw() != null && (bNw = this.gJz.bNw()) != null) {
+            int status = bNw.getStatus();
             if (status == com.baidu.tieba.barselect.a.d.gNC) {
                 if (i == VoteCandidateCard.gNP) {
                     this.status = a.gNA;
-                    this.gNk = this.gJz.bNu();
+                    this.gNk = this.gJz.bNv();
                     return;
                 }
                 this.status = a.gNx;
-                List<d> bNt = this.gJz.bNt();
-                if (bNt != null && bNt.size() > i) {
-                    this.gNk = bNt.get(i);
+                List<d> bNu = this.gJz.bNu();
+                if (bNu != null && bNu.size() > i) {
+                    this.gNk = bNu.get(i);
                 }
             } else if (status == com.baidu.tieba.barselect.a.d.gND) {
                 if (i == VoteCandidateCard.gNP) {
                     this.status = a.gNz;
-                    List<d> bNt2 = this.gJz.bNt();
-                    if (bNt2 != null && bNt2.size() > 0) {
-                        for (d dVar : bNt2) {
+                    List<d> bNu2 = this.gJz.bNu();
+                    if (bNu2 != null && bNu2.size() > 0) {
+                        for (d dVar : bNu2) {
                             if (dVar.getRank() == 1) {
                                 this.gNk = dVar;
                                 return;
@@ -56,9 +56,9 @@ public class CardBasicLayout extends LinearLayout {
                     return;
                 }
                 this.status = a.gNy;
-                List<d> bNt3 = this.gJz.bNt();
-                if (bNt3 != null && bNt3.size() > i) {
-                    this.gNk = bNt3.get(i);
+                List<d> bNu3 = this.gJz.bNu();
+                if (bNu3 != null && bNu3.size() > i) {
+                    this.gNk = bNu3.get(i);
                     if (this.gNk.getRank() == 1 && i == 0) {
                         this.status = a.gNz;
                     }

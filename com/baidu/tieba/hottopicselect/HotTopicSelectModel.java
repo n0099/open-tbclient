@@ -82,24 +82,24 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
             this.iJb.Gp("");
         } else if (!this.iJd) {
             this.iJd = true;
-            HotTopicSelectNetMessage cmz = cmz();
-            cmz.setPrefix(str);
-            sendMessage(cmz);
+            HotTopicSelectNetMessage cmA = cmA();
+            cmA.setPrefix(str);
+            sendMessage(cmA);
         }
     }
 
-    public void cmy() {
+    public void cmz() {
         this.hxA = "";
         this.iJc = false;
         if (!j.isNetWorkAvailable()) {
             getCacheData();
         } else if (!this.iJd) {
             this.iJd = true;
-            sendMessage(cmz());
+            sendMessage(cmA());
         }
     }
 
-    private HotTopicSelectNetMessage cmz() {
+    private HotTopicSelectNetMessage cmA() {
         HotTopicSelectNetMessage hotTopicSelectNetMessage = new HotTopicSelectNetMessage();
         hotTopicSelectNetMessage.setFid(this.mForumId);
         hotTopicSelectNetMessage.setFirstDir(this.mFirstDir);
@@ -111,7 +111,7 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         this.hxA = str;
     }
 
-    public String bWR() {
+    public String bWS() {
         return this.hxA;
     }
 
@@ -140,7 +140,7 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         }
     }
 
-    private void cmA() {
+    private void cmB() {
         this.eTC = new CustomMessageListener(CmdConfigCustom.CMD_HOT_TOPIC_SELECT_CACHE) { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -169,7 +169,7 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         registerListener(this.eTC);
     }
 
-    private void cmB() {
+    private void cmC() {
         this.iJe = new com.baidu.adp.framework.listener.a(1003186, CmdConfigSocket.CMD_GET_HOTTOPIC_SELECT) { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -202,9 +202,9 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         registerListener(this.iJe);
     }
 
-    public void cmC() {
+    public void cmD() {
+        cmC();
         cmB();
-        cmA();
     }
 
     public void onDestroy() {

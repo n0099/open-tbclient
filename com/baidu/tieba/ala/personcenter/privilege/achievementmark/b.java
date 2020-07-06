@@ -88,14 +88,14 @@ public class b extends BaseAdapter {
             if (aVar.sl(0) != null) {
                 com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b sl = aVar.sl(0);
                 c0595b.gCN.setVisibility(0);
-                c0595b.gCK.setText(sl.bLF() == null ? "" : sl.bLF());
-                if (sl.bLG() != null) {
+                c0595b.gCK.setText(sl.bLG() == null ? "" : sl.bLG());
+                if (sl.bLH() != null) {
                     c0595b.gCL.setDefaultBgResource(R.color.transparent);
-                    c0595b.gCL.startLoad(sl.bLG(), 10, false);
+                    c0595b.gCL.startLoad(sl.bLH(), 10, false);
                 }
-                c(c0595b.gCM, sl.bLH());
-                c(c0595b.gCL, sl.bLH());
-                a(c0595b.gCO, sl.bLL(), sl.price);
+                c(c0595b.gCM, sl.bLI());
+                c(c0595b.gCL, sl.bLI());
+                a(c0595b.gCO, sl.bLM(), sl.price);
                 c0595b.gCN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.b.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
@@ -111,14 +111,14 @@ public class b extends BaseAdapter {
             if (aVar.sl(1) != null) {
                 com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b sl2 = aVar.sl(1);
                 c0595b.gCS.setVisibility(0);
-                c0595b.gCP.setText(sl2.bLF() == null ? "" : sl2.bLF());
-                if (sl2.bLG() != null) {
+                c0595b.gCP.setText(sl2.bLG() == null ? "" : sl2.bLG());
+                if (sl2.bLH() != null) {
                     c0595b.gCQ.setDefaultBgResource(R.color.transparent);
-                    c0595b.gCQ.startLoad(sl2.bLG(), 10, false);
+                    c0595b.gCQ.startLoad(sl2.bLH(), 10, false);
                 }
-                c(c0595b.gCR, sl2.bLH());
-                c(c0595b.gCQ, sl2.bLH());
-                a(c0595b.gCT, sl2.bLL(), sl2.price);
+                c(c0595b.gCR, sl2.bLI());
+                c(c0595b.gCQ, sl2.bLI());
+                a(c0595b.gCT, sl2.bLM(), sl2.price);
                 c0595b.gCS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.b.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
@@ -134,14 +134,14 @@ public class b extends BaseAdapter {
             if (aVar.sl(2) != null) {
                 com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b sl3 = aVar.sl(2);
                 c0595b.gCX.setVisibility(0);
-                c0595b.gCU.setText(sl3.bLF() == null ? "" : sl3.bLF());
-                if (sl3.bLG() != null) {
+                c0595b.gCU.setText(sl3.bLG() == null ? "" : sl3.bLG());
+                if (sl3.bLH() != null) {
                     c0595b.gCV.setDefaultBgResource(R.color.transparent);
-                    c0595b.gCV.startLoad(sl3.bLG(), 10, false);
+                    c0595b.gCV.startLoad(sl3.bLH(), 10, false);
                 }
-                c(c0595b.gCW, sl3.bLH());
-                c(c0595b.gCV, sl3.bLH());
-                a(c0595b.gCY, sl3.bLL(), sl3.price);
+                c(c0595b.gCW, sl3.bLI());
+                c(c0595b.gCV, sl3.bLI());
+                a(c0595b.gCY, sl3.bLM(), sl3.price);
                 c0595b.gCX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.b.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
@@ -159,9 +159,9 @@ public class b extends BaseAdapter {
             } else {
                 c0595b.gCZ.setVisibility(8);
             }
-            if ((aVar.getType() == 1 || aVar.getType() == 2) && aVar.bLB() != null) {
+            if ((aVar.getType() == 1 || aVar.getType() == 2) && aVar.bLC() != null) {
                 c0595b.title.setVisibility(0);
-                c0595b.title.setText(aVar.bLB());
+                c0595b.title.setText(aVar.bLC());
             } else {
                 c0595b.title.setVisibility(8);
             }
@@ -279,7 +279,7 @@ public class b extends BaseAdapter {
             com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b[][] bVarArr = (com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b[][]) Array.newInstance(com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b.class, i, 3);
             for (int i4 = 0; i4 < size; i4++) {
                 bVarArr[i4 / 3][i4 % 3] = list2.get(i4);
-                bVarArr[i4 / 3][i4 % 3].Dz(list.get(i3).bLB());
+                bVarArr[i4 / 3][i4 % 3].Dz(list.get(i3).bLC());
             }
             arrayList2.add(bVarArr);
             i2 = i3 + 1;
@@ -323,7 +323,7 @@ public class b extends BaseAdapter {
                         i9 = i10 + 1;
                     }
                     if (((com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b[][]) arrayList2.get(i6))[0][0] != null) {
-                        aVar.Dz(((com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b[][]) arrayList2.get(i6))[0][0].bLB());
+                        aVar.Dz(((com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b[][]) arrayList2.get(i6))[0][0].bLC());
                     }
                     arrayList.add(aVar);
                     i7 = i8 + 1;

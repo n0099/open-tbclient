@@ -29,7 +29,7 @@ public class b {
         public void onItemClick(int i) {
             b.this.mSortType = i;
             TiebaStatic.log(new ao("c13369").ag("obj_type", i == 1 ? 2 : 1));
-            b.this.bRY();
+            b.this.bRZ();
             if (b.this.hcS != null) {
                 b.this.hcS.tm(b.this.mSortType);
             }
@@ -38,7 +38,7 @@ public class b {
     private View.OnClickListener ebA = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!b.this.haM.bTE()) {
+            if (!b.this.haM.bTF()) {
                 if (view == b.this.mTitle) {
                     if (b.this.hcR == null) {
                         b.this.hcR = new com.baidu.tieba.enterForum.view.a(b.this.mContext);
@@ -87,8 +87,8 @@ public class b {
         }
     }
 
-    public void bRY() {
-        if (bRZ() && this.mTitle != null) {
+    public void bRZ() {
+        if (bSa() && this.mTitle != null) {
             switch (this.mSortType) {
                 case 1:
                     this.mTitle.setText(R.string.level_sort);
@@ -102,14 +102,14 @@ public class b {
         }
     }
 
-    public boolean bRZ() {
+    public boolean bSa() {
         return this.mSortType == 1 || this.mSortType == 2;
     }
 
     public void setSortType(int i) {
-        if (bRZ()) {
+        if (bSa()) {
             this.mSortType = i;
-            bRY();
+            bRZ();
         }
     }
 
@@ -118,7 +118,7 @@ public class b {
     }
 
     public void onChangeSkinType(int i) {
-        if (bRZ()) {
+        if (bSa()) {
             an.setViewTextColor(this.mTitle, R.color.cp_cont_b, i);
             if (this.mTitle != null) {
                 ms(this.hcT);
@@ -132,8 +132,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void ms(boolean z) {
         int i = z ? R.drawable.icon_pure_fold12_svg : R.drawable.icon_pure_unfold12_svg;
-        com.baidu.tieba.enterForum.data.c bTK = this.haM != null ? this.haM.bTK() : null;
-        if (bTK != null && bTK.hbs) {
+        com.baidu.tieba.enterForum.data.c bTL = this.haM != null ? this.haM.bTL() : null;
+        if (bTL != null && bTL.hbs) {
             if (this.haM != null && this.haM.isShow()) {
                 an.setViewTextColor(this.mTitle, (int) R.color.cp_cont_j);
                 this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aWQ().a(i, R.color.cp_cont_c, (SvgManager.SvgResourceStateType) null), (Drawable) null);

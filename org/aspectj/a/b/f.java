@@ -4,16 +4,16 @@ import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
 /* loaded from: classes7.dex */
 abstract class f implements org.aspectj.lang.c {
-    Class nXA;
-    a nXB;
-    private String nXC;
-    ClassLoader nXq = null;
-    String nXz;
-    int nae;
+    String nXC;
+    Class nXD;
+    a nXE;
+    private String nXF;
+    ClassLoader nXt = null;
+    int nah;
     String name;
     private static boolean aqY = true;
     static String[] EMPTY_STRING_ARRAY = new String[0];
-    static Class[] nXD = new Class[0];
+    static Class[] nXG = new Class[0];
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
@@ -27,44 +27,44 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, String str, Class cls) {
-        this.nae = -1;
-        this.nae = i;
+        this.nah = -1;
+        this.nah = i;
         this.name = str;
-        this.nXA = cls;
+        this.nXD = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(h hVar) {
         String str = null;
         if (aqY) {
-            if (this.nXB == null) {
+            if (this.nXE == null) {
                 try {
-                    this.nXB = new b();
+                    this.nXE = new b();
                 } catch (Throwable th) {
                     aqY = false;
                 }
             } else {
-                str = this.nXB.get(hVar.nXO);
+                str = this.nXE.get(hVar.nXR);
             }
         }
         if (str == null) {
             str = b(hVar);
         }
         if (aqY) {
-            this.nXB.set(hVar.nXO, str);
+            this.nXE.set(hVar.nXR, str);
         }
         return str;
     }
 
     public final String toString() {
-        return a(h.nXQ);
+        return a(h.nXT);
     }
 
-    public int dTo() {
-        if (this.nae == -1) {
-            this.nae = Ll(0);
+    public int dTs() {
+        if (this.nah == -1) {
+            this.nah = Ll(0);
         }
-        return this.nae;
+        return this.nah;
     }
 
     public String getName() {
@@ -74,43 +74,43 @@ abstract class f implements org.aspectj.lang.c {
         return this.name;
     }
 
-    public Class dTp() {
-        if (this.nXA == null) {
-            this.nXA = Lm(2);
+    public Class dTt() {
+        if (this.nXD == null) {
+            this.nXD = Lm(2);
         }
-        return this.nXA;
+        return this.nXD;
     }
 
-    public String dTq() {
-        if (this.nXz == null) {
-            this.nXz = dTp().getName();
+    public String dTu() {
+        if (this.nXC == null) {
+            this.nXC = dTt().getName();
         }
-        return this.nXz;
+        return this.nXC;
     }
 
-    private ClassLoader dTr() {
-        if (this.nXq == null) {
-            this.nXq = getClass().getClassLoader();
+    private ClassLoader dTv() {
+        if (this.nXt == null) {
+            this.nXt = getClass().getClassLoader();
         }
-        return this.nXq;
+        return this.nXt;
     }
 
     String Lk(int i) {
         int i2 = 0;
-        int indexOf = this.nXC.indexOf(45);
+        int indexOf = this.nXF.indexOf(45);
         while (true) {
             int i3 = i - 1;
             if (i <= 0) {
                 break;
             }
             i2 = indexOf + 1;
-            indexOf = this.nXC.indexOf(45, i2);
+            indexOf = this.nXF.indexOf(45, i2);
             i = i3;
         }
         if (indexOf == -1) {
-            indexOf = this.nXC.length();
+            indexOf = this.nXF.length();
         }
-        return this.nXC.substring(i2, indexOf);
+        return this.nXF.substring(i2, indexOf);
     }
 
     int Ll(int i) {
@@ -119,7 +119,7 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Class Lm(int i) {
-        return org.aspectj.a.b.b.b(Lk(i), dTr());
+        return org.aspectj.a.b.b.b(Lk(i), dTv());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -128,7 +128,7 @@ abstract class f implements org.aspectj.lang.c {
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i2 = 0; i2 < countTokens; i2++) {
-            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), dTr());
+            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), dTv());
         }
         return clsArr;
     }
@@ -136,37 +136,37 @@ abstract class f implements org.aspectj.lang.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
     public static final class b implements a {
-        private SoftReference nXE;
+        private SoftReference nXH;
 
         public b() {
-            dTt();
+            dTx();
         }
 
         @Override // org.aspectj.a.b.f.a
         public String get(int i) {
-            String[] dTs = dTs();
-            if (dTs == null) {
+            String[] dTw = dTw();
+            if (dTw == null) {
                 return null;
             }
-            return dTs[i];
+            return dTw[i];
         }
 
         @Override // org.aspectj.a.b.f.a
         public void set(int i, String str) {
-            String[] dTs = dTs();
-            if (dTs == null) {
-                dTs = dTt();
+            String[] dTw = dTw();
+            if (dTw == null) {
+                dTw = dTx();
             }
-            dTs[i] = str;
+            dTw[i] = str;
         }
 
-        private String[] dTs() {
-            return (String[]) this.nXE.get();
+        private String[] dTw() {
+            return (String[]) this.nXH.get();
         }
 
-        private String[] dTt() {
+        private String[] dTx() {
             String[] strArr = new String[3];
-            this.nXE = new SoftReference(strArr);
+            this.nXH = new SoftReference(strArr);
             return strArr;
         }
     }

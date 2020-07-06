@@ -24,7 +24,7 @@ public class e extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void bvD();
+        void bvE();
     }
 
     public e(TbPageContext tbPageContext) {
@@ -63,7 +63,7 @@ public class e extends BaseAdapter {
                 public void onClick(View view2) {
                     e.this.a((com.baidu.tieba.ala.category.b.d) e.this.fyJ.get(i), aVar);
                     if (e.this.fyI != null) {
-                        e.this.fyI.bvD();
+                        e.this.fyI.bvE();
                     }
                 }
             });
@@ -74,30 +74,30 @@ public class e extends BaseAdapter {
         com.baidu.tieba.ala.category.b.d dVar = this.fyJ.get(i);
         aVar.fyO.setText(a(dVar));
         aVar.fyO.setSelected(dVar.isChecked());
-        aVar.fyO.setBackgroundResource(dVar.bvN());
+        aVar.fyO.setBackgroundResource(dVar.bvO());
         return view;
     }
 
     public void setTagList(List<com.baidu.tieba.ala.category.b.d> list) {
         if (!ListUtils.isEmpty(list)) {
             this.fyJ = list;
-            bvG();
+            bvH();
             notifyDataSetChanged();
         }
     }
 
-    public List<String> bvE() {
+    public List<String> bvF() {
         ArrayList arrayList = new ArrayList();
         int size = this.fyK.size();
         for (int i = 0; i < size; i++) {
             if (this.fyK.valueAt(i) != null) {
-                arrayList.add(this.fyK.valueAt(i).bvM());
+                arrayList.add(this.fyK.valueAt(i).bvN());
             }
         }
         return arrayList;
     }
 
-    public Set<String> bvF() {
+    public Set<String> bvG() {
         return this.fyL;
     }
 
@@ -105,15 +105,15 @@ public class e extends BaseAdapter {
         this.fyI = bVar;
     }
 
-    private void bvG() {
+    private void bvH() {
         int i;
         int i2 = 0;
         for (com.baidu.tieba.ala.category.b.d dVar : this.fyJ) {
             if (dVar != null) {
                 if (dVar.isChecked() && i2 < 3) {
                     dVar.qu(this.fyK.keyAt(i2));
-                    this.fyK.put(dVar.bvN(), dVar);
-                    this.fyL.add(dVar.bvM());
+                    this.fyK.put(dVar.bvO(), dVar);
+                    this.fyL.add(dVar.bvN());
                     i = i2 + 1;
                 } else {
                     dVar.qu(a.f.bg_tag_unchecked);
@@ -127,24 +127,24 @@ public class e extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.category.b.d dVar, a aVar) {
         if (!dVar.isChecked()) {
-            int bvH = bvH();
-            if (bvH == 0) {
+            int bvI = bvI();
+            if (bvI == 0) {
                 this.mPageContext.showToast(a.i.ala_live_tag_warning, true);
                 return;
             }
             dVar.setChecked(true);
-            dVar.qu(bvH);
-            this.fyK.put(bvH, dVar);
+            dVar.qu(bvI);
+            this.fyK.put(bvI, dVar);
         } else {
             dVar.setChecked(false);
-            this.fyK.put(dVar.bvN(), null);
+            this.fyK.put(dVar.bvO(), null);
             dVar.qu(a.f.bg_tag_unchecked);
         }
         aVar.fyO.setSelected(dVar.isChecked());
-        aVar.fyO.setBackgroundResource(dVar.bvN());
+        aVar.fyO.setBackgroundResource(dVar.bvO());
     }
 
-    private int bvH() {
+    private int bvI() {
         if (this.fyK.valueAt(0) == null) {
             return this.fyK.keyAt(0);
         }
@@ -162,9 +162,9 @@ public class e extends BaseAdapter {
             return "";
         }
         if (dVar.getScore() <= 0) {
-            return dVar.bvM();
+            return dVar.bvN();
         }
-        return dVar.bvM() + " " + (dVar.getScore() > 999 ? "999+" : String.valueOf(dVar.getScore()));
+        return dVar.bvN() + " " + (dVar.getScore() > 999 ? "999+" : String.valueOf(dVar.getScore()));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

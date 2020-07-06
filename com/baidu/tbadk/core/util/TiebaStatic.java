@@ -437,9 +437,9 @@ public class TiebaStatic {
             if (!StringUtils.isNull(sampleId)) {
                 aoVar.dk("sample_id", sampleId);
             }
-            String biw = com.baidu.tbadk.util.a.biv().biw();
-            if (!StringUtils.isNull(biw)) {
-                aoVar.dk("newabtest_result", biw);
+            String bix = com.baidu.tbadk.util.a.biw().bix();
+            if (!StringUtils.isNull(bix)) {
+                aoVar.dk("newabtest_result", bix);
             }
             com.baidu.tbadk.l.e.bhx().c(aoVar);
         }

@@ -40,42 +40,42 @@ public class b extends f implements com.baidu.live.view.web.f {
 
     @Override // com.baidu.live.view.f, android.widget.PopupWindow
     public void dismiss() {
-        if (!bvd()) {
-            buY();
+        if (!bve()) {
+            buZ();
         }
     }
 
     public void aB(String str, int i) {
         View findViewById;
-        int bvb;
         int bvc;
+        int bvd;
         if (!this.mActivity.isFinishing() && (findViewById = this.mActivity.getWindow().getDecorView().findViewById(16908290)) != null) {
             switch (i) {
                 case 0:
                     this.fxp = 80;
-                    bvb = buZ();
-                    bvc = (int) Math.min(ScreenHelper.getRealScreenHeight(this.mActivity) * 0.64f, this.mActivity.getResources().getDimensionPixelOffset(a.e.sdk_ds856));
+                    bvc = bva();
+                    bvd = (int) Math.min(ScreenHelper.getRealScreenHeight(this.mActivity) * 0.64f, this.mActivity.getResources().getDimensionPixelOffset(a.e.sdk_ds856));
                     this.fxn.setCornerRadius(this.fxo, this.fxo, 0.0f, 0.0f);
                     break;
                 case 1:
                     this.fxp = 80;
-                    bvb = buZ();
-                    bvc = bzZ();
+                    bvc = bva();
+                    bvd = bAa();
                     this.fxn.setCornerRadius(this.fxo, this.fxo, 0.0f, 0.0f);
                     break;
                 case 2:
                     this.fxp = 5;
-                    bvb = bvb();
                     bvc = bvc();
+                    bvd = bvd();
                     this.fxn.setCornerRadius(this.fxo, 0.0f, 0.0f, this.fxo);
                     break;
                 default:
+                    bvd = 0;
                     bvc = 0;
-                    bvb = 0;
                     break;
             }
-            setWidth(bvb);
-            setHeight(bvc);
+            setWidth(bvc);
+            setHeight(bvd);
             showAtLocation(findViewById, 85, 0, 0);
             if (i == 2) {
                 W(this.fxn);
@@ -86,34 +86,34 @@ public class b extends f implements com.baidu.live.view.web.f {
     }
 
     public void cA(int i) {
-        int bvb;
+        int bvc;
         int i2 = 0;
         if (this.mActivity.getWindow().getDecorView().findViewById(16908290) != null) {
             switch (i) {
                 case 1:
                     this.fxp = 80;
-                    bvb = buZ();
-                    i2 = bzZ();
+                    bvc = bva();
+                    i2 = bAa();
                     this.fxn.setCornerRadius(this.fxo, this.fxo, 0.0f, 0.0f);
                     break;
                 case 2:
                     this.fxp = 5;
-                    bvb = bvb();
-                    i2 = bvc();
+                    bvc = bvc();
+                    i2 = bvd();
                     this.fxn.setCornerRadius(this.fxo, 0.0f, 0.0f, this.fxo);
                     break;
                 default:
-                    bvb = 0;
+                    bvc = 0;
                     break;
             }
-            update(bvb, i2);
+            update(bvc, i2);
             if (i == 2) {
                 W(this.fxn);
             }
         }
     }
 
-    public void buY() {
+    public void buZ() {
         super.dismiss();
     }
 
@@ -188,15 +188,15 @@ public class b extends f implements com.baidu.live.view.web.f {
         this.bds.setVisibility(8);
     }
 
-    private int buZ() {
+    private int bva() {
         return ScreenHelper.getRealScreenWidth(this.mActivity);
     }
 
-    private int bvb() {
+    private int bvc() {
         return ScreenHelper.getRealScreenHeight(this.mActivity);
     }
 
-    private int bzZ() {
+    private int bAa() {
         int dimensionPixelSize;
         int screenHeight = ScreenHelper.getScreenHeight(this.mActivity) - o.t(this.mActivity);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
@@ -207,7 +207,7 @@ public class b extends f implements com.baidu.live.view.web.f {
         return screenHeight - dimensionPixelSize;
     }
 
-    private int bvc() {
+    private int bvd() {
         return ScreenHelper.getRealScreenHeight(this.mActivity);
     }
 
@@ -230,7 +230,7 @@ public class b extends f implements com.baidu.live.view.web.f {
         }
     }
 
-    private boolean bvd() {
+    private boolean bve() {
         if (getContentView() == null) {
             return false;
         }
@@ -256,7 +256,7 @@ public class b extends f implements com.baidu.live.view.web.f {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    b.this.buY();
+                    b.this.buZ();
                     b.this.fTy = false;
                 }
 

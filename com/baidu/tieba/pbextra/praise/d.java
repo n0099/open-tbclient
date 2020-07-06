@@ -169,7 +169,7 @@ public class d {
         return this.mThreadId;
     }
 
-    public boolean cNT() {
+    public boolean cNU() {
         return this.eud;
     }
 
@@ -200,7 +200,7 @@ public class d {
         messageManager.unRegisterTask(CmdConfigSocket.CMD_GRAFFITI_LIST);
     }
 
-    public String cRu() {
+    public String cRv() {
         return this.kDR;
     }
 
@@ -216,10 +216,10 @@ public class d {
     }
 
     public void Cj(int i) {
-        cRv();
+        cRw();
     }
 
-    private void cRv() {
+    private void cRw() {
         HttpMessage httpMessage = new HttpMessage(1001400);
         httpMessage.addParam("post_id", this.mPostId + "");
         httpMessage.addParam("page_num", this.kDS + "");

@@ -17,10 +17,10 @@ public class b {
     private a eVW = new a();
 
     public b() {
-        bnS();
+        bnT();
     }
 
-    private void bnS() {
+    private void bnT() {
         File[] listFiles;
         File file = new File(i.eWG);
         if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
@@ -33,7 +33,7 @@ public class b {
                     this.eVW.a(dVar);
                 }
             }
-            Collections.sort(this.eVW.bnP(), new AccessTimeComparator());
+            Collections.sort(this.eVW.bnQ(), new AccessTimeComparator());
         }
     }
 
@@ -148,11 +148,11 @@ public class b {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i = 0;
                 while (true) {
-                    if (i >= this.eVW.bnR()) {
+                    if (i >= this.eVW.bnS()) {
                         dVar = null;
                         break;
                     }
-                    d pu = this.eVW.pu((this.eVW.bnR() - 1) - i);
+                    d pu = this.eVW.pu((this.eVW.bnS() - 1) - i);
                     if (pu != null && pu.getFileName() != null && pu.getFileName().equals(zS)) {
                         dVar = pu;
                         break;
@@ -170,25 +170,25 @@ public class b {
                 dVar.cW(currentTimeMillis2);
                 dVar.cX(m.zQ(zS));
                 this.eVW.a(dVar);
-                j.D(TAG, "total cache size: " + ((this.eVW.bnQ() / 1024) / 1024) + "M list size " + this.eVW.bnR());
-                if (this.eVW.bnQ() > 629145600) {
-                    while (this.eVW.bnQ() > 524288000 && this.eVW.bnR() > 2 && bnT()) {
+                j.D(TAG, "total cache size: " + ((this.eVW.bnR() / 1024) / 1024) + "M list size " + this.eVW.bnS());
+                if (this.eVW.bnR() > 629145600) {
+                    while (this.eVW.bnR() > 524288000 && this.eVW.bnS() > 2 && bnU()) {
                     }
-                    bnV();
+                    bnW();
                 }
-                if (m.bok() < 314572800) {
-                    while (m.bok() < 419430400 && this.eVW.bnR() > 2 && bnT()) {
+                if (m.bol() < 314572800) {
+                    while (m.bol() < 419430400 && this.eVW.bnS() > 2 && bnU()) {
                     }
-                    bnV();
+                    bnW();
                 }
                 j.D(TAG, "adjust coast time " + (System.currentTimeMillis() - currentTimeMillis));
             }
         }
     }
 
-    private boolean bnT() {
+    private boolean bnU() {
         d pu = this.eVW.pu(0);
-        if (pu == null || !(e.boa().zH(pu.getFileName()) || e.boa().zJ(pu.getFileName()))) {
+        if (pu == null || !(e.bob().zH(pu.getFileName()) || e.bob().zJ(pu.getFileName()))) {
             this.eVW.remove(0);
             if (pu != null) {
                 File file = new File(i.eWH + pu.getFileName());
@@ -217,14 +217,14 @@ public class b {
         }
     }
 
-    public void bnU() {
+    public void bnV() {
         if (this.eVW != null) {
             long currentTimeMillis = System.currentTimeMillis();
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.eVW.bnR() - 2; i++) {
+            for (int i = 0; i < this.eVW.bnS() - 2; i++) {
                 d pu = this.eVW.pu(i);
                 if (pu != null) {
-                    if (currentTimeMillis - pu.bnY() < 86400000) {
+                    if (currentTimeMillis - pu.bnZ() < 86400000) {
                         break;
                     }
                     arrayList.add(pu);
@@ -232,7 +232,7 @@ public class b {
             }
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 d dVar = (d) arrayList.get(i2);
-                if (dVar == null || (!e.boa().zH(dVar.getFileName()) && !e.boa().zJ(dVar.getFileName()))) {
+                if (dVar == null || (!e.bob().zH(dVar.getFileName()) && !e.bob().zJ(dVar.getFileName()))) {
                     this.eVW.b(dVar);
                     if (dVar != null) {
                         File file = new File(i.eWH + dVar.getFileName());
@@ -241,7 +241,7 @@ public class b {
                     }
                 }
             }
-            bnV();
+            bnW();
         }
     }
 
@@ -272,13 +272,13 @@ public class b {
 
     public void clearCache() {
         if (this.eVW != null) {
-            while (this.eVW.bnR() > 0 && bnT()) {
+            while (this.eVW.bnS() > 0 && bnU()) {
             }
-            bnV();
+            bnW();
         }
     }
 
-    private void bnV() {
+    private void bnW() {
         File[] listFiles;
         File file = new File(i.eWG);
         if (file.exists() && (listFiles = file.listFiles()) != null) {

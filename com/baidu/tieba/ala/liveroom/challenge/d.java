@@ -6,9 +6,9 @@ import com.baidu.live.data.aq;
 public interface d {
     void a(am amVar, aq aqVar, aq aqVar2);
 
-    void bCu();
-
     void bCv();
+
+    void bCw();
 
     void vM();
 }

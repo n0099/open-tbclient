@@ -37,15 +37,15 @@ public final class w {
         try {
             fl flVar = new fl();
             flVar.a(5);
-            flVar.c(kVar.f920a);
+            flVar.c(kVar.f921a);
             flVar.b(a(iiVar));
             flVar.a("SECMSG", "message");
-            String str = kVar.f920a;
-            iiVar.f605a.f532a = str.substring(0, str.indexOf(UgcConstant.AT_RULE_TAG));
-            iiVar.f605a.f536c = str.substring(str.indexOf("/") + 1);
+            String str = kVar.f921a;
+            iiVar.f606a.f533a = str.substring(0, str.indexOf(UgcConstant.AT_RULE_TAG));
+            iiVar.f606a.f537c = str.substring(str.indexOf("/") + 1);
             flVar.a(iw.a(iiVar), kVar.c);
             flVar.a((short) 1);
-            com.xiaomi.channel.commonutils.logger.b.m48a("try send mi push message. packagename:" + iiVar.f610b + " action:" + iiVar.f603a);
+            com.xiaomi.channel.commonutils.logger.b.m48a("try send mi push message. packagename:" + iiVar.f611b + " action:" + iiVar.f604a);
             return flVar;
         } catch (NullPointerException e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -68,8 +68,8 @@ public final class w {
         byte[] a = iw.a(t);
         ii iiVar = new ii();
         ib ibVar = new ib();
-        ibVar.f531a = 5L;
-        ibVar.f532a = "fakeid";
+        ibVar.f532a = 5L;
+        ibVar.f533a = "fakeid";
         iiVar.a(ibVar);
         iiVar.a(ByteBuffer.wrap(a));
         iiVar.a(hmVar);
@@ -81,13 +81,13 @@ public final class w {
     }
 
     private static String a(ii iiVar) {
-        if (iiVar.f604a != null && iiVar.f604a.f520b != null) {
-            String str = iiVar.f604a.f520b.get("ext_traffic_source_pkg");
+        if (iiVar.f605a != null && iiVar.f605a.f521b != null) {
+            String str = iiVar.f605a.f521b.get("ext_traffic_source_pkg");
             if (!TextUtils.isEmpty(str)) {
                 return str;
             }
         }
-        return iiVar.f610b;
+        return iiVar.f611b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

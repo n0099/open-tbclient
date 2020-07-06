@@ -24,7 +24,7 @@ public class p implements com.baidu.adp.widget.ListView.q {
         this.hwG = i;
     }
 
-    public int bWy() {
+    public int bWz() {
         return this.hwD;
     }
 
@@ -36,7 +36,7 @@ public class p implements com.baidu.adp.widget.ListView.q {
         this.hwE = str;
     }
 
-    public String bWz() {
+    public String bWA() {
         return this.hwF;
     }
 

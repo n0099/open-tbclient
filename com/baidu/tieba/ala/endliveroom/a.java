@@ -206,7 +206,7 @@ public class a {
             if (this.mLiveInfo == null) {
                 this.mLiveInfo = new AlaLiveInfoData();
             }
-            bwM();
+            bwN();
             TiebaInitialize.log(new StatisticItem("c11888"));
             JSONObject jSONObject = new JSONObject();
             try {
@@ -238,13 +238,13 @@ public class a {
         }
     }
 
-    public void bwM() {
+    public void bwN() {
         if (this.mView != null && this.mView.getParent() != null) {
             ((ViewGroup) this.mView).removeView(this.mView);
         }
     }
 
-    public boolean bwN() {
+    public boolean bwO() {
         return (getView() == null || getView().getParent() == null) ? false : true;
     }
 

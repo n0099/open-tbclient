@@ -19,24 +19,24 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class FlexboxLayout extends ViewGroup implements a {
-    private int mZA;
-    private int mZB;
+    @Nullable
+    private Drawable mZA;
+    @Nullable
+    private Drawable mZB;
     private int mZC;
-    private int[] mZD;
-    private SparseIntArray mZE;
-    private c mZF;
-    private c.a mZG;
-    private List<b> mZp;
-    private int mZr;
-    private int mZs;
-    private int mZt;
+    private int mZD;
+    private int mZE;
+    private int mZF;
+    private int[] mZG;
+    private SparseIntArray mZH;
+    private c mZI;
+    private c.a mZJ;
+    private List<b> mZs;
     private int mZu;
     private int mZv;
     private int mZw;
-    @Nullable
-    private Drawable mZx;
-    @Nullable
-    private Drawable mZy;
+    private int mZx;
+    private int mZy;
     private int mZz;
 
     public FlexboxLayout(Context context) {
@@ -49,17 +49,17 @@ public class FlexboxLayout extends ViewGroup implements a {
 
     public FlexboxLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mZw = -1;
-        this.mZF = new c(this);
-        this.mZp = new ArrayList();
-        this.mZG = new c.a();
+        this.mZz = -1;
+        this.mZI = new c(this);
+        this.mZs = new ArrayList();
+        this.mZJ = new c.a();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.a.FlexboxLayout, i, 0);
-        this.mZr = obtainStyledAttributes.getInt(d.a.FlexboxLayout_flexDirection, 0);
-        this.mZs = obtainStyledAttributes.getInt(d.a.FlexboxLayout_flexWrap, 0);
-        this.mZt = obtainStyledAttributes.getInt(d.a.FlexboxLayout_justifyContent, 0);
-        this.mZu = obtainStyledAttributes.getInt(d.a.FlexboxLayout_alignItems, 4);
-        this.mZv = obtainStyledAttributes.getInt(d.a.FlexboxLayout_alignContent, 5);
-        this.mZw = obtainStyledAttributes.getInt(d.a.FlexboxLayout_maxLine, -1);
+        this.mZu = obtainStyledAttributes.getInt(d.a.FlexboxLayout_flexDirection, 0);
+        this.mZv = obtainStyledAttributes.getInt(d.a.FlexboxLayout_flexWrap, 0);
+        this.mZw = obtainStyledAttributes.getInt(d.a.FlexboxLayout_justifyContent, 0);
+        this.mZx = obtainStyledAttributes.getInt(d.a.FlexboxLayout_alignItems, 4);
+        this.mZy = obtainStyledAttributes.getInt(d.a.FlexboxLayout_alignContent, 5);
+        this.mZz = obtainStyledAttributes.getInt(d.a.FlexboxLayout_maxLine, -1);
         Drawable drawable = obtainStyledAttributes.getDrawable(d.a.FlexboxLayout_dividerDrawable);
         if (drawable != null) {
             setDividerDrawableHorizontal(drawable);
@@ -75,29 +75,29 @@ public class FlexboxLayout extends ViewGroup implements a {
         }
         int i2 = obtainStyledAttributes.getInt(d.a.FlexboxLayout_showDivider, 0);
         if (i2 != 0) {
-            this.mZA = i2;
-            this.mZz = i2;
+            this.mZD = i2;
+            this.mZC = i2;
         }
         int i3 = obtainStyledAttributes.getInt(d.a.FlexboxLayout_showDividerVertical, 0);
         if (i3 != 0) {
-            this.mZA = i3;
+            this.mZD = i3;
         }
         int i4 = obtainStyledAttributes.getInt(d.a.FlexboxLayout_showDividerHorizontal, 0);
         if (i4 != 0) {
-            this.mZz = i4;
+            this.mZC = i4;
         }
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        if (this.mZE == null) {
-            this.mZE = new SparseIntArray(getChildCount());
+        if (this.mZH == null) {
+            this.mZH = new SparseIntArray(getChildCount());
         }
-        if (this.mZF.d(this.mZE)) {
-            this.mZD = this.mZF.c(this.mZE);
+        if (this.mZI.d(this.mZH)) {
+            this.mZG = this.mZI.c(this.mZH);
         }
-        switch (this.mZr) {
+        switch (this.mZu) {
             case 0:
             case 1:
                 measureHorizontal(i, i2);
@@ -107,7 +107,7 @@ public class FlexboxLayout extends ViewGroup implements a {
                 measureVertical(i, i2);
                 return;
             default:
-                throw new IllegalStateException("Invalid value for the flex direction is set: " + this.mZr);
+                throw new IllegalStateException("Invalid value for the flex direction is set: " + this.mZu);
         }
     }
 
@@ -122,10 +122,10 @@ public class FlexboxLayout extends ViewGroup implements a {
     }
 
     public View JH(int i) {
-        if (i < 0 || i >= this.mZD.length) {
+        if (i < 0 || i >= this.mZG.length) {
             return null;
         }
-        return getChildAt(this.mZD[i]);
+        return getChildAt(this.mZG[i]);
     }
 
     @Override // com.google.android.flexbox.a
@@ -135,55 +135,55 @@ public class FlexboxLayout extends ViewGroup implements a {
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
-        if (this.mZE == null) {
-            this.mZE = new SparseIntArray(getChildCount());
+        if (this.mZH == null) {
+            this.mZH = new SparseIntArray(getChildCount());
         }
-        this.mZD = this.mZF.a(view, i, layoutParams, this.mZE);
+        this.mZG = this.mZI.a(view, i, layoutParams, this.mZH);
         super.addView(view, i, layoutParams);
     }
 
     private void measureHorizontal(int i, int i2) {
-        this.mZp.clear();
-        this.mZG.reset();
-        this.mZF.a(this.mZG, i, i2);
-        this.mZp = this.mZG.mZp;
-        this.mZF.dC(i, i2);
-        if (this.mZu == 3) {
-            for (b bVar : this.mZp) {
+        this.mZs.clear();
+        this.mZJ.reset();
+        this.mZI.a(this.mZJ, i, i2);
+        this.mZs = this.mZJ.mZs;
+        this.mZI.dC(i, i2);
+        if (this.mZx == 3) {
+            for (b bVar : this.mZs) {
                 int i3 = 0;
                 int i4 = Integer.MIN_VALUE;
                 while (true) {
                     int i5 = i3;
                     if (i5 < bVar.mItemCount) {
-                        View JH = JH(bVar.mZi + i5);
+                        View JH = JH(bVar.mZl + i5);
                         if (JH != null && JH.getVisibility() != 8) {
                             LayoutParams layoutParams = (LayoutParams) JH.getLayoutParams();
-                            if (this.mZs != 2) {
-                                i4 = Math.max(i4, layoutParams.bottomMargin + JH.getMeasuredHeight() + Math.max(bVar.mZf - JH.getBaseline(), layoutParams.topMargin));
+                            if (this.mZv != 2) {
+                                i4 = Math.max(i4, layoutParams.bottomMargin + JH.getMeasuredHeight() + Math.max(bVar.mZi - JH.getBaseline(), layoutParams.topMargin));
                             } else {
-                                i4 = Math.max(i4, layoutParams.topMargin + JH.getMeasuredHeight() + Math.max((bVar.mZf - JH.getMeasuredHeight()) + JH.getBaseline(), layoutParams.bottomMargin));
+                                i4 = Math.max(i4, layoutParams.topMargin + JH.getMeasuredHeight() + Math.max((bVar.mZi - JH.getMeasuredHeight()) + JH.getBaseline(), layoutParams.bottomMargin));
                             }
                         }
                         i3 = i5 + 1;
                     }
                 }
-                bVar.mZb = i4;
+                bVar.mZe = i4;
             }
         }
-        this.mZF.aj(i, i2, getPaddingTop() + getPaddingBottom());
-        this.mZF.dHo();
-        I(this.mZr, i, i2, this.mZG.mZq);
+        this.mZI.aj(i, i2, getPaddingTop() + getPaddingBottom());
+        this.mZI.dHs();
+        I(this.mZu, i, i2, this.mZJ.mZt);
     }
 
     private void measureVertical(int i, int i2) {
-        this.mZp.clear();
-        this.mZG.reset();
-        this.mZF.b(this.mZG, i, i2);
-        this.mZp = this.mZG.mZp;
-        this.mZF.dC(i, i2);
-        this.mZF.aj(i, i2, getPaddingLeft() + getPaddingRight());
-        this.mZF.dHo();
-        I(this.mZr, i, i2, this.mZG.mZq);
+        this.mZs.clear();
+        this.mZJ.reset();
+        this.mZI.b(this.mZJ, i, i2);
+        this.mZs = this.mZJ.mZs;
+        this.mZI.dC(i, i2);
+        this.mZI.aj(i, i2, getPaddingLeft() + getPaddingRight());
+        this.mZI.dHs();
+        I(this.mZu, i, i2, this.mZJ.mZt);
     }
 
     private void I(int i, int i2, int i3, int i4) {
@@ -265,11 +265,11 @@ public class FlexboxLayout extends ViewGroup implements a {
     @Override // com.google.android.flexbox.a
     public int getLargestMainSize() {
         int i = Integer.MIN_VALUE;
-        Iterator<b> it = this.mZp.iterator();
+        Iterator<b> it = this.mZs.iterator();
         while (true) {
             int i2 = i;
             if (it.hasNext()) {
-                i = Math.max(i2, it.next().mYZ);
+                i = Math.max(i2, it.next().mZc);
             } else {
                 return i2;
             }
@@ -278,32 +278,32 @@ public class FlexboxLayout extends ViewGroup implements a {
 
     @Override // com.google.android.flexbox.a
     public int getSumOfCrossSize() {
-        int size = this.mZp.size();
+        int size = this.mZs.size();
         int i = 0;
         for (int i2 = 0; i2 < size; i2++) {
-            b bVar = this.mZp.get(i2);
+            b bVar = this.mZs.get(i2);
             if (JI(i2)) {
-                if (dHg()) {
-                    i += this.mZB;
+                if (dHk()) {
+                    i += this.mZE;
                 } else {
-                    i += this.mZC;
+                    i += this.mZF;
                 }
             }
             if (JK(i2)) {
-                if (dHg()) {
-                    i += this.mZB;
+                if (dHk()) {
+                    i += this.mZE;
                 } else {
-                    i += this.mZC;
+                    i += this.mZF;
                 }
             }
-            i += bVar.mZb;
+            i += bVar.mZe;
         }
         return i;
     }
 
     @Override // com.google.android.flexbox.a
-    public boolean dHg() {
-        return this.mZr == 0 || this.mZr == 1;
+    public boolean dHk() {
+        return this.mZu == 0 || this.mZu == 1;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -311,7 +311,7 @@ public class FlexboxLayout extends ViewGroup implements a {
         boolean z2;
         boolean z3;
         int layoutDirection = ViewCompat.getLayoutDirection(this);
-        switch (this.mZr) {
+        switch (this.mZu) {
             case 0:
                 a(layoutDirection == 1, i, i2, i3, i4);
                 return;
@@ -320,7 +320,7 @@ public class FlexboxLayout extends ViewGroup implements a {
                 return;
             case 2:
                 boolean z4 = layoutDirection == 1;
-                if (this.mZs == 2) {
+                if (this.mZv == 2) {
                     z3 = z4 ? false : true;
                 } else {
                     z3 = z4;
@@ -329,7 +329,7 @@ public class FlexboxLayout extends ViewGroup implements a {
                 return;
             case 3:
                 boolean z5 = layoutDirection == 1;
-                if (this.mZs == 2) {
+                if (this.mZv == 2) {
                     z2 = z5 ? false : true;
                 } else {
                     z2 = z5;
@@ -337,15 +337,15 @@ public class FlexboxLayout extends ViewGroup implements a {
                 a(z2, true, i, i2, i3, i4);
                 return;
             default:
-                throw new IllegalStateException("Invalid flex direction is set: " + this.mZr);
+                throw new IllegalStateException("Invalid flex direction is set: " + this.mZu);
         }
     }
 
     private void a(boolean z, int i, int i2, int i3, int i4) {
-        int dHn;
+        int dHr;
         float f;
         float f2;
-        int dHn2;
+        int dHr2;
         float f3;
         float f4;
         int paddingLeft = getPaddingLeft();
@@ -354,51 +354,51 @@ public class FlexboxLayout extends ViewGroup implements a {
         int paddingBottom = (i4 - i2) - getPaddingBottom();
         int paddingTop = getPaddingTop();
         int i6 = 0;
-        int size = this.mZp.size();
+        int size = this.mZs.size();
         while (true) {
             int i7 = i6;
             if (i7 < size) {
-                b bVar = this.mZp.get(i7);
+                b bVar = this.mZs.get(i7);
                 if (JI(i7)) {
-                    paddingBottom -= this.mZB;
-                    paddingTop += this.mZB;
+                    paddingBottom -= this.mZE;
+                    paddingTop += this.mZE;
                 }
                 float f5 = 0.0f;
-                switch (this.mZt) {
+                switch (this.mZw) {
                     case 0:
                         f = paddingLeft;
                         f2 = i5 - paddingRight;
                         break;
                     case 1:
-                        f = (i5 - bVar.mYZ) + paddingRight;
-                        f2 = bVar.mYZ - paddingLeft;
+                        f = (i5 - bVar.mZc) + paddingRight;
+                        f2 = bVar.mZc - paddingLeft;
                         break;
                     case 2:
-                        f = ((i5 - bVar.mYZ) / 2.0f) + paddingLeft;
-                        f2 = (i5 - paddingRight) - ((i5 - bVar.mYZ) / 2.0f);
+                        f = ((i5 - bVar.mZc) / 2.0f) + paddingLeft;
+                        f2 = (i5 - paddingRight) - ((i5 - bVar.mZc) / 2.0f);
                         break;
                     case 3:
                         f = paddingLeft;
-                        f5 = (i5 - bVar.mYZ) / (bVar.dHn() != 1 ? dHn2 - 1 : 1.0f);
+                        f5 = (i5 - bVar.mZc) / (bVar.dHr() != 1 ? dHr2 - 1 : 1.0f);
                         f2 = i5 - paddingRight;
                         break;
                     case 4:
-                        int dHn3 = bVar.dHn();
-                        if (dHn3 != 0) {
-                            f5 = (i5 - bVar.mYZ) / dHn3;
+                        int dHr3 = bVar.dHr();
+                        if (dHr3 != 0) {
+                            f5 = (i5 - bVar.mZc) / dHr3;
                         }
                         f = (f5 / 2.0f) + paddingLeft;
                         f2 = (i5 - paddingRight) - (f5 / 2.0f);
                         break;
                     case 5:
-                        if (bVar.dHn() != 0) {
-                            f5 = (i5 - bVar.mYZ) / (dHn + 1);
+                        if (bVar.dHr() != 0) {
+                            f5 = (i5 - bVar.mZc) / (dHr + 1);
                         }
                         f = paddingLeft + f5;
                         f2 = (i5 - paddingRight) - f5;
                         break;
                     default:
-                        throw new IllegalStateException("Invalid justifyContent is set: " + this.mZt);
+                        throw new IllegalStateException("Invalid justifyContent is set: " + this.mZw);
                 }
                 float max = Math.max(f5, 0.0f);
                 int i8 = 0;
@@ -407,7 +407,7 @@ public class FlexboxLayout extends ViewGroup implements a {
                     float f6 = f;
                     float f7 = f2;
                     if (i9 < bVar.mItemCount) {
-                        int i10 = bVar.mZi + i9;
+                        int i10 = bVar.mZl + i9;
                         View JH = JH(i10);
                         if (JH != null && JH.getVisibility() != 8) {
                             LayoutParams layoutParams = (LayoutParams) JH.getLayoutParams();
@@ -416,26 +416,26 @@ public class FlexboxLayout extends ViewGroup implements a {
                             int i11 = 0;
                             int i12 = 0;
                             if (dE(i10, i9)) {
-                                i11 = this.mZC;
+                                i11 = this.mZF;
                                 f3 = f9 - i11;
                                 f4 = i11 + f8;
                             } else {
                                 f3 = f9;
                                 f4 = f8;
                             }
-                            if (i9 == bVar.mItemCount - 1 && (this.mZA & 4) > 0) {
-                                i12 = this.mZC;
+                            if (i9 == bVar.mItemCount - 1 && (this.mZD & 4) > 0) {
+                                i12 = this.mZF;
                             }
-                            if (this.mZs == 2) {
+                            if (this.mZv == 2) {
                                 if (z) {
-                                    this.mZF.a(JH, bVar, Math.round(f3) - JH.getMeasuredWidth(), paddingBottom - JH.getMeasuredHeight(), Math.round(f3), paddingBottom);
+                                    this.mZI.a(JH, bVar, Math.round(f3) - JH.getMeasuredWidth(), paddingBottom - JH.getMeasuredHeight(), Math.round(f3), paddingBottom);
                                 } else {
-                                    this.mZF.a(JH, bVar, Math.round(f4), paddingBottom - JH.getMeasuredHeight(), Math.round(f4) + JH.getMeasuredWidth(), paddingBottom);
+                                    this.mZI.a(JH, bVar, Math.round(f4), paddingBottom - JH.getMeasuredHeight(), Math.round(f4) + JH.getMeasuredWidth(), paddingBottom);
                                 }
                             } else if (z) {
-                                this.mZF.a(JH, bVar, Math.round(f3) - JH.getMeasuredWidth(), paddingTop, Math.round(f3), paddingTop + JH.getMeasuredHeight());
+                                this.mZI.a(JH, bVar, Math.round(f3) - JH.getMeasuredWidth(), paddingTop, Math.round(f3), paddingTop + JH.getMeasuredHeight());
                             } else {
-                                this.mZF.a(JH, bVar, Math.round(f4), paddingTop, Math.round(f4) + JH.getMeasuredWidth(), paddingTop + JH.getMeasuredHeight());
+                                this.mZI.a(JH, bVar, Math.round(f4), paddingTop, Math.round(f4) + JH.getMeasuredWidth(), paddingTop + JH.getMeasuredHeight());
                             }
                             f6 = f4 + JH.getMeasuredWidth() + max + layoutParams.rightMargin;
                             f7 = f3 - ((JH.getMeasuredWidth() + max) + layoutParams.leftMargin);
@@ -450,8 +450,8 @@ public class FlexboxLayout extends ViewGroup implements a {
                         i8 = i9 + 1;
                     }
                 }
-                paddingTop += bVar.mZb;
-                paddingBottom -= bVar.mZb;
+                paddingTop += bVar.mZe;
+                paddingBottom -= bVar.mZe;
                 i6 = i7 + 1;
             } else {
                 return;
@@ -460,10 +460,10 @@ public class FlexboxLayout extends ViewGroup implements a {
     }
 
     private void a(boolean z, boolean z2, int i, int i2, int i3, int i4) {
-        int dHn;
+        int dHr;
         float f;
         float f2;
-        int dHn2;
+        int dHr2;
         float f3;
         float f4;
         int paddingTop = getPaddingTop();
@@ -473,51 +473,51 @@ public class FlexboxLayout extends ViewGroup implements a {
         int i5 = i4 - i2;
         int i6 = (i3 - i) - paddingRight;
         int i7 = 0;
-        int size = this.mZp.size();
+        int size = this.mZs.size();
         while (true) {
             int i8 = i7;
             if (i8 < size) {
-                b bVar = this.mZp.get(i8);
+                b bVar = this.mZs.get(i8);
                 if (JI(i8)) {
-                    paddingLeft += this.mZC;
-                    i6 -= this.mZC;
+                    paddingLeft += this.mZF;
+                    i6 -= this.mZF;
                 }
                 float f5 = 0.0f;
-                switch (this.mZt) {
+                switch (this.mZw) {
                     case 0:
                         f = paddingTop;
                         f2 = i5 - paddingBottom;
                         break;
                     case 1:
-                        f = (i5 - bVar.mYZ) + paddingBottom;
-                        f2 = bVar.mYZ - paddingTop;
+                        f = (i5 - bVar.mZc) + paddingBottom;
+                        f2 = bVar.mZc - paddingTop;
                         break;
                     case 2:
-                        f = ((i5 - bVar.mYZ) / 2.0f) + paddingTop;
-                        f2 = (i5 - paddingBottom) - ((i5 - bVar.mYZ) / 2.0f);
+                        f = ((i5 - bVar.mZc) / 2.0f) + paddingTop;
+                        f2 = (i5 - paddingBottom) - ((i5 - bVar.mZc) / 2.0f);
                         break;
                     case 3:
                         f = paddingTop;
-                        f5 = (i5 - bVar.mYZ) / (bVar.dHn() != 1 ? dHn2 - 1 : 1.0f);
+                        f5 = (i5 - bVar.mZc) / (bVar.dHr() != 1 ? dHr2 - 1 : 1.0f);
                         f2 = i5 - paddingBottom;
                         break;
                     case 4:
-                        int dHn3 = bVar.dHn();
-                        if (dHn3 != 0) {
-                            f5 = (i5 - bVar.mYZ) / dHn3;
+                        int dHr3 = bVar.dHr();
+                        if (dHr3 != 0) {
+                            f5 = (i5 - bVar.mZc) / dHr3;
                         }
                         f = (f5 / 2.0f) + paddingTop;
                         f2 = (i5 - paddingBottom) - (f5 / 2.0f);
                         break;
                     case 5:
-                        if (bVar.dHn() != 0) {
-                            f5 = (i5 - bVar.mYZ) / (dHn + 1);
+                        if (bVar.dHr() != 0) {
+                            f5 = (i5 - bVar.mZc) / (dHr + 1);
                         }
                         f = paddingTop + f5;
                         f2 = (i5 - paddingBottom) - f5;
                         break;
                     default:
-                        throw new IllegalStateException("Invalid justifyContent is set: " + this.mZt);
+                        throw new IllegalStateException("Invalid justifyContent is set: " + this.mZw);
                 }
                 float max = Math.max(f5, 0.0f);
                 int i9 = 0;
@@ -526,7 +526,7 @@ public class FlexboxLayout extends ViewGroup implements a {
                     float f6 = f;
                     float f7 = f2;
                     if (i10 < bVar.mItemCount) {
-                        int i11 = bVar.mZi + i10;
+                        int i11 = bVar.mZl + i10;
                         View JH = JH(i11);
                         if (JH != null && JH.getVisibility() != 8) {
                             LayoutParams layoutParams = (LayoutParams) JH.getLayoutParams();
@@ -535,26 +535,26 @@ public class FlexboxLayout extends ViewGroup implements a {
                             int i12 = 0;
                             int i13 = 0;
                             if (dE(i11, i10)) {
-                                i12 = this.mZB;
+                                i12 = this.mZE;
                                 f3 = f9 - i12;
                                 f4 = i12 + f8;
                             } else {
                                 f3 = f9;
                                 f4 = f8;
                             }
-                            if (i10 == bVar.mItemCount - 1 && (this.mZz & 4) > 0) {
-                                i13 = this.mZB;
+                            if (i10 == bVar.mItemCount - 1 && (this.mZC & 4) > 0) {
+                                i13 = this.mZE;
                             }
                             if (z) {
                                 if (z2) {
-                                    this.mZF.a(JH, bVar, true, i6 - JH.getMeasuredWidth(), Math.round(f3) - JH.getMeasuredHeight(), i6, Math.round(f3));
+                                    this.mZI.a(JH, bVar, true, i6 - JH.getMeasuredWidth(), Math.round(f3) - JH.getMeasuredHeight(), i6, Math.round(f3));
                                 } else {
-                                    this.mZF.a(JH, bVar, true, i6 - JH.getMeasuredWidth(), Math.round(f4), i6, Math.round(f4) + JH.getMeasuredHeight());
+                                    this.mZI.a(JH, bVar, true, i6 - JH.getMeasuredWidth(), Math.round(f4), i6, Math.round(f4) + JH.getMeasuredHeight());
                                 }
                             } else if (z2) {
-                                this.mZF.a(JH, bVar, false, paddingLeft, Math.round(f3) - JH.getMeasuredHeight(), paddingLeft + JH.getMeasuredWidth(), Math.round(f3));
+                                this.mZI.a(JH, bVar, false, paddingLeft, Math.round(f3) - JH.getMeasuredHeight(), paddingLeft + JH.getMeasuredWidth(), Math.round(f3));
                             } else {
-                                this.mZF.a(JH, bVar, false, paddingLeft, Math.round(f4), paddingLeft + JH.getMeasuredWidth(), Math.round(f4) + JH.getMeasuredHeight());
+                                this.mZI.a(JH, bVar, false, paddingLeft, Math.round(f4), paddingLeft + JH.getMeasuredWidth(), Math.round(f4) + JH.getMeasuredHeight());
                             }
                             f6 = f4 + JH.getMeasuredHeight() + max + layoutParams.bottomMargin;
                             f7 = f3 - ((JH.getMeasuredHeight() + max) + layoutParams.topMargin);
@@ -569,8 +569,8 @@ public class FlexboxLayout extends ViewGroup implements a {
                         i9 = i10 + 1;
                     }
                 }
-                paddingLeft += bVar.mZb;
-                i6 -= bVar.mZb;
+                paddingLeft += bVar.mZe;
+                i6 -= bVar.mZe;
                 i7 = i8 + 1;
             } else {
                 return;
@@ -581,19 +581,19 @@ public class FlexboxLayout extends ViewGroup implements a {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         boolean z = false;
-        if (this.mZy != null || this.mZx != null) {
-            if (this.mZz != 0 || this.mZA != 0) {
+        if (this.mZB != null || this.mZA != null) {
+            if (this.mZC != 0 || this.mZD != 0) {
                 int layoutDirection = ViewCompat.getLayoutDirection(this);
-                switch (this.mZr) {
+                switch (this.mZu) {
                     case 0:
-                        a(canvas, layoutDirection == 1, this.mZs == 2);
+                        a(canvas, layoutDirection == 1, this.mZv == 2);
                         return;
                     case 1:
-                        a(canvas, layoutDirection != 1, this.mZs == 2);
+                        a(canvas, layoutDirection != 1, this.mZv == 2);
                         return;
                     case 2:
                         boolean z2 = layoutDirection == 1;
-                        if (this.mZs != 2) {
+                        if (this.mZv != 2) {
                             r1 = z2;
                         } else if (z2) {
                             r1 = false;
@@ -602,7 +602,7 @@ public class FlexboxLayout extends ViewGroup implements a {
                         return;
                     case 3:
                         boolean z3 = layoutDirection == 1;
-                        if (this.mZs != 2) {
+                        if (this.mZv != 2) {
                             z = z3;
                         } else if (!z3) {
                             z = true;
@@ -623,11 +623,11 @@ public class FlexboxLayout extends ViewGroup implements a {
         int left;
         int paddingLeft = getPaddingLeft();
         int max = Math.max(0, (getWidth() - getPaddingRight()) - paddingLeft);
-        int size = this.mZp.size();
+        int size = this.mZs.size();
         for (int i3 = 0; i3 < size; i3++) {
-            b bVar = this.mZp.get(i3);
+            b bVar = this.mZs.get(i3);
             for (int i4 = 0; i4 < bVar.mItemCount; i4++) {
-                int i5 = bVar.mZi + i4;
+                int i5 = bVar.mZl + i4;
                 View JH = JH(i5);
                 if (JH != null && JH.getVisibility() != 8) {
                     LayoutParams layoutParams = (LayoutParams) JH.getLayoutParams();
@@ -635,17 +635,17 @@ public class FlexboxLayout extends ViewGroup implements a {
                         if (z) {
                             left = JH.getRight() + layoutParams.rightMargin;
                         } else {
-                            left = (JH.getLeft() - layoutParams.leftMargin) - this.mZC;
+                            left = (JH.getLeft() - layoutParams.leftMargin) - this.mZF;
                         }
-                        a(canvas, left, bVar.mTop, bVar.mZb);
+                        a(canvas, left, bVar.mTop, bVar.mZe);
                     }
-                    if (i4 == bVar.mItemCount - 1 && (this.mZA & 4) > 0) {
+                    if (i4 == bVar.mItemCount - 1 && (this.mZD & 4) > 0) {
                         if (z) {
-                            right = (JH.getLeft() - layoutParams.leftMargin) - this.mZC;
+                            right = (JH.getLeft() - layoutParams.leftMargin) - this.mZF;
                         } else {
                             right = layoutParams.rightMargin + JH.getRight();
                         }
-                        a(canvas, right, bVar.mTop, bVar.mZb);
+                        a(canvas, right, bVar.mTop, bVar.mZe);
                     }
                 }
             }
@@ -653,13 +653,13 @@ public class FlexboxLayout extends ViewGroup implements a {
                 if (z2) {
                     i2 = bVar.mBottom;
                 } else {
-                    i2 = bVar.mTop - this.mZB;
+                    i2 = bVar.mTop - this.mZE;
                 }
                 b(canvas, paddingLeft, i2, max);
             }
-            if (JK(i3) && (this.mZz & 4) > 0) {
+            if (JK(i3) && (this.mZC & 4) > 0) {
                 if (z2) {
-                    i = bVar.mTop - this.mZB;
+                    i = bVar.mTop - this.mZE;
                 } else {
                     i = bVar.mBottom;
                 }
@@ -675,11 +675,11 @@ public class FlexboxLayout extends ViewGroup implements a {
         int top2;
         int paddingTop = getPaddingTop();
         int max = Math.max(0, (getHeight() - getPaddingBottom()) - paddingTop);
-        int size = this.mZp.size();
+        int size = this.mZs.size();
         for (int i3 = 0; i3 < size; i3++) {
-            b bVar = this.mZp.get(i3);
+            b bVar = this.mZs.get(i3);
             for (int i4 = 0; i4 < bVar.mItemCount; i4++) {
-                int i5 = bVar.mZi + i4;
+                int i5 = bVar.mZl + i4;
                 View JH = JH(i5);
                 if (JH != null && JH.getVisibility() != 8) {
                     LayoutParams layoutParams = (LayoutParams) JH.getLayoutParams();
@@ -687,17 +687,17 @@ public class FlexboxLayout extends ViewGroup implements a {
                         if (z2) {
                             top2 = JH.getBottom() + layoutParams.bottomMargin;
                         } else {
-                            top2 = (JH.getTop() - layoutParams.topMargin) - this.mZB;
+                            top2 = (JH.getTop() - layoutParams.topMargin) - this.mZE;
                         }
-                        b(canvas, bVar.mLeft, top2, bVar.mZb);
+                        b(canvas, bVar.mLeft, top2, bVar.mZe);
                     }
-                    if (i4 == bVar.mItemCount - 1 && (this.mZz & 4) > 0) {
+                    if (i4 == bVar.mItemCount - 1 && (this.mZC & 4) > 0) {
                         if (z2) {
-                            bottom = (JH.getTop() - layoutParams.topMargin) - this.mZB;
+                            bottom = (JH.getTop() - layoutParams.topMargin) - this.mZE;
                         } else {
                             bottom = layoutParams.bottomMargin + JH.getBottom();
                         }
-                        b(canvas, bVar.mLeft, bottom, bVar.mZb);
+                        b(canvas, bVar.mLeft, bottom, bVar.mZe);
                     }
                 }
             }
@@ -705,13 +705,13 @@ public class FlexboxLayout extends ViewGroup implements a {
                 if (z) {
                     i2 = bVar.mRight;
                 } else {
-                    i2 = bVar.mLeft - this.mZC;
+                    i2 = bVar.mLeft - this.mZF;
                 }
                 a(canvas, i2, paddingTop, max);
             }
-            if (JK(i3) && (this.mZA & 4) > 0) {
+            if (JK(i3) && (this.mZD & 4) > 0) {
                 if (z) {
-                    i = bVar.mLeft - this.mZC;
+                    i = bVar.mLeft - this.mZF;
                 } else {
                     i = bVar.mRight;
                 }
@@ -721,16 +721,16 @@ public class FlexboxLayout extends ViewGroup implements a {
     }
 
     private void a(Canvas canvas, int i, int i2, int i3) {
-        if (this.mZy != null) {
-            this.mZy.setBounds(i, i2, this.mZC + i, i2 + i3);
-            this.mZy.draw(canvas);
+        if (this.mZB != null) {
+            this.mZB.setBounds(i, i2, this.mZF + i, i2 + i3);
+            this.mZB.draw(canvas);
         }
     }
 
     private void b(Canvas canvas, int i, int i2, int i3) {
-        if (this.mZx != null) {
-            this.mZx.setBounds(i, i2, i + i3, this.mZB + i2);
-            this.mZx.draw(canvas);
+        if (this.mZA != null) {
+            this.mZA.setBounds(i, i2, i + i3, this.mZE + i2);
+            this.mZA.draw(canvas);
         }
     }
 
@@ -759,45 +759,10 @@ public class FlexboxLayout extends ViewGroup implements a {
 
     @Override // com.google.android.flexbox.a
     public int getFlexDirection() {
-        return this.mZr;
-    }
-
-    public void setFlexDirection(int i) {
-        if (this.mZr != i) {
-            this.mZr = i;
-            requestLayout();
-        }
-    }
-
-    @Override // com.google.android.flexbox.a
-    public int getFlexWrap() {
-        return this.mZs;
-    }
-
-    public void setFlexWrap(int i) {
-        if (this.mZs != i) {
-            this.mZs = i;
-            requestLayout();
-        }
-    }
-
-    public int getJustifyContent() {
-        return this.mZt;
-    }
-
-    public void setJustifyContent(int i) {
-        if (this.mZt != i) {
-            this.mZt = i;
-            requestLayout();
-        }
-    }
-
-    @Override // com.google.android.flexbox.a
-    public int getAlignItems() {
         return this.mZu;
     }
 
-    public void setAlignItems(int i) {
+    public void setFlexDirection(int i) {
         if (this.mZu != i) {
             this.mZu = i;
             requestLayout();
@@ -805,33 +770,68 @@ public class FlexboxLayout extends ViewGroup implements a {
     }
 
     @Override // com.google.android.flexbox.a
-    public int getAlignContent() {
+    public int getFlexWrap() {
         return this.mZv;
     }
 
-    public void setAlignContent(int i) {
+    public void setFlexWrap(int i) {
         if (this.mZv != i) {
             this.mZv = i;
             requestLayout();
         }
     }
 
-    @Override // com.google.android.flexbox.a
-    public int getMaxLine() {
+    public int getJustifyContent() {
         return this.mZw;
     }
 
-    public void setMaxLine(int i) {
+    public void setJustifyContent(int i) {
         if (this.mZw != i) {
             this.mZw = i;
             requestLayout();
         }
     }
 
+    @Override // com.google.android.flexbox.a
+    public int getAlignItems() {
+        return this.mZx;
+    }
+
+    public void setAlignItems(int i) {
+        if (this.mZx != i) {
+            this.mZx = i;
+            requestLayout();
+        }
+    }
+
+    @Override // com.google.android.flexbox.a
+    public int getAlignContent() {
+        return this.mZy;
+    }
+
+    public void setAlignContent(int i) {
+        if (this.mZy != i) {
+            this.mZy = i;
+            requestLayout();
+        }
+    }
+
+    @Override // com.google.android.flexbox.a
+    public int getMaxLine() {
+        return this.mZz;
+    }
+
+    public void setMaxLine(int i) {
+        if (this.mZz != i) {
+            this.mZz = i;
+            requestLayout();
+        }
+    }
+
     public List<b> getFlexLines() {
-        ArrayList arrayList = new ArrayList(this.mZp.size());
-        for (b bVar : this.mZp) {
-            if (bVar.dHn() != 0) {
+        ArrayList arrayList = new ArrayList(this.mZs.size());
+        for (b bVar : this.mZs) {
+            if (bVar.dHr() != 0) {
                 arrayList.add(bVar);
             }
         }
@@ -841,16 +841,16 @@ public class FlexboxLayout extends ViewGroup implements a {
     @Override // com.google.android.flexbox.a
     public int i(View view, int i, int i2) {
         int i3;
-        if (dHg()) {
-            i3 = dE(i, i2) ? 0 + this.mZC : 0;
-            if ((this.mZA & 4) > 0) {
-                return i3 + this.mZC;
+        if (dHk()) {
+            i3 = dE(i, i2) ? 0 + this.mZF : 0;
+            if ((this.mZD & 4) > 0) {
+                return i3 + this.mZF;
             }
             return i3;
         }
-        i3 = dE(i, i2) ? 0 + this.mZB : 0;
-        if ((this.mZz & 4) > 0) {
-            return i3 + this.mZB;
+        i3 = dE(i, i2) ? 0 + this.mZE : 0;
+        if ((this.mZC & 4) > 0) {
+            return i3 + this.mZE;
         }
         return i3;
     }
@@ -862,14 +862,14 @@ public class FlexboxLayout extends ViewGroup implements a {
 
     @Override // com.google.android.flexbox.a
     public void a(b bVar) {
-        if (dHg()) {
-            if ((this.mZA & 4) > 0) {
-                bVar.mYZ += this.mZC;
-                bVar.mZa += this.mZC;
+        if (dHk()) {
+            if ((this.mZD & 4) > 0) {
+                bVar.mZc += this.mZF;
+                bVar.mZd += this.mZF;
             }
-        } else if ((this.mZz & 4) > 0) {
-            bVar.mYZ += this.mZB;
-            bVar.mZa += this.mZB;
+        } else if ((this.mZC & 4) > 0) {
+            bVar.mZc += this.mZE;
+            bVar.mZd += this.mZE;
         }
     }
 
@@ -886,24 +886,24 @@ public class FlexboxLayout extends ViewGroup implements a {
     @Override // com.google.android.flexbox.a
     public void a(View view, int i, int i2, b bVar) {
         if (dE(i, i2)) {
-            if (dHg()) {
-                bVar.mYZ += this.mZC;
-                bVar.mZa += this.mZC;
+            if (dHk()) {
+                bVar.mZc += this.mZF;
+                bVar.mZd += this.mZF;
                 return;
             }
-            bVar.mYZ += this.mZB;
-            bVar.mZa += this.mZB;
+            bVar.mZc += this.mZE;
+            bVar.mZd += this.mZE;
         }
     }
 
     @Override // com.google.android.flexbox.a
     public void setFlexLines(List<b> list) {
-        this.mZp = list;
+        this.mZs = list;
     }
 
     @Override // com.google.android.flexbox.a
     public List<b> getFlexLinesInternal() {
-        return this.mZp;
+        return this.mZs;
     }
 
     @Override // com.google.android.flexbox.a
@@ -912,12 +912,12 @@ public class FlexboxLayout extends ViewGroup implements a {
 
     @Nullable
     public Drawable getDividerDrawableHorizontal() {
-        return this.mZx;
+        return this.mZA;
     }
 
     @Nullable
     public Drawable getDividerDrawableVertical() {
-        return this.mZy;
+        return this.mZB;
     }
 
     public void setDividerDrawable(Drawable drawable) {
@@ -926,37 +926,37 @@ public class FlexboxLayout extends ViewGroup implements a {
     }
 
     public void setDividerDrawableHorizontal(@Nullable Drawable drawable) {
-        if (drawable != this.mZx) {
-            this.mZx = drawable;
+        if (drawable != this.mZA) {
+            this.mZA = drawable;
             if (drawable != null) {
-                this.mZB = drawable.getIntrinsicHeight();
+                this.mZE = drawable.getIntrinsicHeight();
             } else {
-                this.mZB = 0;
+                this.mZE = 0;
             }
-            dHp();
+            dHt();
             requestLayout();
         }
     }
 
     public void setDividerDrawableVertical(@Nullable Drawable drawable) {
-        if (drawable != this.mZy) {
-            this.mZy = drawable;
+        if (drawable != this.mZB) {
+            this.mZB = drawable;
             if (drawable != null) {
-                this.mZC = drawable.getIntrinsicWidth();
+                this.mZF = drawable.getIntrinsicWidth();
             } else {
-                this.mZC = 0;
+                this.mZF = 0;
             }
-            dHp();
+            dHt();
             requestLayout();
         }
     }
 
     public int getShowDividerVertical() {
-        return this.mZA;
+        return this.mZD;
     }
 
     public int getShowDividerHorizontal() {
-        return this.mZz;
+        return this.mZC;
     }
 
     public void setShowDivider(int i) {
@@ -965,21 +965,21 @@ public class FlexboxLayout extends ViewGroup implements a {
     }
 
     public void setShowDividerVertical(int i) {
-        if (i != this.mZA) {
-            this.mZA = i;
+        if (i != this.mZD) {
+            this.mZD = i;
             requestLayout();
         }
     }
 
     public void setShowDividerHorizontal(int i) {
-        if (i != this.mZz) {
-            this.mZz = i;
+        if (i != this.mZC) {
+            this.mZC = i;
             requestLayout();
         }
     }
 
-    private void dHp() {
-        if (this.mZx == null && this.mZy == null) {
+    private void dHt() {
+        if (this.mZA == null && this.mZB == null) {
             setWillNotDraw(true);
         } else {
             setWillNotDraw(false);
@@ -987,7 +987,7 @@ public class FlexboxLayout extends ViewGroup implements a {
     }
 
     private boolean dE(int i, int i2) {
-        return dF(i, i2) ? dHg() ? (this.mZA & 1) != 0 : (this.mZz & 1) != 0 : dHg() ? (this.mZA & 2) != 0 : (this.mZz & 2) != 0;
+        return dF(i, i2) ? dHk() ? (this.mZD & 1) != 0 : (this.mZC & 1) != 0 : dHk() ? (this.mZD & 2) != 0 : (this.mZC & 2) != 0;
     }
 
     private boolean dF(int i, int i2) {
@@ -1001,15 +1001,15 @@ public class FlexboxLayout extends ViewGroup implements a {
     }
 
     private boolean JI(int i) {
-        if (i < 0 || i >= this.mZp.size()) {
+        if (i < 0 || i >= this.mZs.size()) {
             return false;
         }
-        return JJ(i) ? dHg() ? (this.mZz & 1) != 0 : (this.mZA & 1) != 0 : dHg() ? (this.mZz & 2) != 0 : (this.mZA & 2) != 0;
+        return JJ(i) ? dHk() ? (this.mZC & 1) != 0 : (this.mZD & 1) != 0 : dHk() ? (this.mZC & 2) != 0 : (this.mZD & 2) != 0;
     }
 
     private boolean JJ(int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            if (this.mZp.get(i2).dHn() > 0) {
+            if (this.mZs.get(i2).dHr() > 0) {
                 return false;
             }
         }
@@ -1017,21 +1017,21 @@ public class FlexboxLayout extends ViewGroup implements a {
     }
 
     private boolean JK(int i) {
-        if (i < 0 || i >= this.mZp.size()) {
+        if (i < 0 || i >= this.mZs.size()) {
             return false;
         }
         int i2 = i + 1;
         while (true) {
             int i3 = i2;
-            if (i3 < this.mZp.size()) {
-                if (this.mZp.get(i3).dHn() > 0) {
+            if (i3 < this.mZs.size()) {
+                if (this.mZs.get(i3).dHr() > 0) {
                     return false;
                 }
                 i2 = i3 + 1;
-            } else if (dHg()) {
-                return (this.mZz & 4) != 0;
+            } else if (dHk()) {
+                return (this.mZC & 4) != 0;
             } else {
-                return (this.mZA & 4) != 0;
+                return (this.mZD & 4) != 0;
             }
         }
     }
@@ -1171,7 +1171,7 @@ public class FlexboxLayout extends ViewGroup implements a {
         }
 
         @Override // com.google.android.flexbox.FlexItem
-        public int dHh() {
+        public int dHl() {
             return this.mAlignSelf;
         }
 
@@ -1200,12 +1200,12 @@ public class FlexboxLayout extends ViewGroup implements a {
         }
 
         @Override // com.google.android.flexbox.FlexItem
-        public boolean dHi() {
+        public boolean dHm() {
             return this.mWrapBefore;
         }
 
         @Override // com.google.android.flexbox.FlexItem
-        public float dHj() {
+        public float dHn() {
             return this.mFlexBasisPercent;
         }
 
@@ -1215,7 +1215,7 @@ public class FlexboxLayout extends ViewGroup implements a {
         }
 
         @Override // com.google.android.flexbox.FlexItem
-        public int dHk() {
+        public int dHo() {
             return this.topMargin;
         }
 
@@ -1225,7 +1225,7 @@ public class FlexboxLayout extends ViewGroup implements a {
         }
 
         @Override // com.google.android.flexbox.FlexItem
-        public int dHl() {
+        public int dHp() {
             return this.bottomMargin;
         }
 

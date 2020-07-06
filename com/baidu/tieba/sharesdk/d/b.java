@@ -56,14 +56,14 @@ public class b extends c {
         this.luM = (ImageView) this.mRootView.findViewById(R.id.post_share_screen_shot);
         this.luN = (TextView) this.mRootView.findViewById(R.id.post_share_qcode_comment);
         this.luO = (TbImageView) this.mRootView.findViewById(R.id.post_share_qcode);
-        dek();
+        del();
     }
 
-    private void dek() {
+    private void del() {
     }
 
     @Override // com.baidu.tieba.sharesdk.d.c
-    protected View cbl() {
+    protected View cbm() {
         return LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.pb_post_share_dialog_layout, (ViewGroup) null);
     }
 
@@ -103,7 +103,7 @@ public class b extends c {
             an.c(this.luK, dimens2, R.color.cp_bg_line_d, R.color.cp_bg_line_d);
             an.setImageResource(this.luE, R.drawable.pic_pb_share_logo);
             an.setViewTextColor(this.luH, (int) R.color.cp_cont_b);
-            if (this.luC.cHE()) {
+            if (this.luC.cHF()) {
                 com.baidu.tbadk.core.util.e.a.aXq().lG(0).i(R.color.cp_mask_b_alpha0, R.color.cp_mask_b_alpha50).lL(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10)).aR(this.luI);
             }
             an.setViewTextColor(this.luL, (int) R.color.cp_link_tip_a);
@@ -116,15 +116,15 @@ public class b extends c {
             } else {
                 this.luG.startLoad(this.luC.getThreadImgUrl(), 10, false);
             }
-            if (this.luC.cHE()) {
-                this.luJ.setText(this.luC.cHD());
+            if (this.luC.cHF()) {
+                this.luJ.setText(this.luC.cHE());
             } else {
                 this.luI.setVisibility(8);
                 this.irl.setVisibility(8);
                 this.luJ.setVisibility(8);
             }
-            this.luM.setImageBitmap(this.luC.cHB());
-            this.luO.setImageBitmap(this.luC.cHC());
+            this.luM.setImageBitmap(this.luC.cHC());
+            this.luO.setImageBitmap(this.luC.cHD());
             super.show();
         }
     }

@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class SysUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static Boolean myq;
+    private static Boolean myt;
 
     static {
         $assertionsDisabled = !SysUtils.class.desiredAssertionStatus();
@@ -19,7 +19,7 @@ public class SysUtils {
     private SysUtils() {
     }
 
-    private static int duQ() {
+    private static int duU() {
         FileReader fileReader;
         Pattern compile = Pattern.compile("^MemTotal:\\s+([0-9]+) kB$");
         StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
@@ -58,22 +58,22 @@ public class SysUtils {
 
     @CalledByNative
     public static boolean isLowEndDevice() {
-        if (myq == null) {
-            myq = Boolean.valueOf(duR());
+        if (myt == null) {
+            myt = Boolean.valueOf(duV());
         }
-        return myq.booleanValue();
+        return myt.booleanValue();
     }
 
-    private static boolean duR() {
+    private static boolean duV() {
         if ($assertionsDisabled || CommandLine.isInitialized()) {
-            if (CommandLine.duH().Ps("enable-low-end-device-mode")) {
+            if (CommandLine.duL().Pt("enable-low-end-device-mode")) {
                 return true;
             }
-            if (CommandLine.duH().Ps("disable-low-end-device-mode")) {
+            if (CommandLine.duL().Pt("disable-low-end-device-mode")) {
                 return false;
             }
-            int duQ = duQ();
-            return duQ > 0 && duQ / 1024 <= 512;
+            int duU = duU();
+            return duU > 0 && duU / 1024 <= 512;
         }
         throw new AssertionError();
     }

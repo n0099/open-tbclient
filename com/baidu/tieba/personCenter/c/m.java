@@ -37,7 +37,7 @@ public class m implements c {
         return this.mType;
     }
 
-    public Long cRU() {
+    public Long cRV() {
         return this.kGE;
     }
 
@@ -61,7 +61,7 @@ public class m implements c {
         return this.mLink;
     }
 
-    public Integer cRV() {
+    public Integer cRW() {
         return this.kGG;
     }
 }

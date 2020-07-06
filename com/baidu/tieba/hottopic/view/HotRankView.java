@@ -73,7 +73,7 @@ public class HotRankView extends FrameLayout {
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_REFRESH_VIDEO));
-                ((HotRanklistActivity) HotRankView.this.pageContext.getOrignalPage()).cle();
+                ((HotRanklistActivity) HotRankView.this.pageContext.getOrignalPage()).clf();
             }
         });
         this.fml.setPullRefresh(this.mPullView);
@@ -121,7 +121,7 @@ public class HotRankView extends FrameLayout {
     }
 
     public void A(boolean z, int i) {
-        if (!bSQ()) {
+        if (!bSR()) {
             if (this.fwo == null) {
                 if (i <= 0) {
                     this.fwo = new g(getContext());
@@ -143,7 +143,7 @@ public class HotRankView extends FrameLayout {
         }
     }
 
-    public boolean bSQ() {
+    public boolean bSR() {
         if (this.fwo != null) {
             return this.fwo.isViewAttached();
         }
@@ -151,15 +151,15 @@ public class HotRankView extends FrameLayout {
     }
 
     public void aI(String str, boolean z) {
-        if (!bSR()) {
+        if (!bSS()) {
             if (this.refreshView == null) {
                 this.refreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotRankView.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (j.isNetworkAvailableForImmediately()) {
-                            HotRankView.this.btN();
+                            HotRankView.this.btO();
                             HotRankView.this.A(true, l.getDimens(HotRankView.this.pageContext.getPageActivity(), R.dimen.ds500));
-                            ((HotRanklistActivity) HotRankView.this.pageContext.getOrignalPage()).cle();
+                            ((HotRanklistActivity) HotRankView.this.pageContext.getOrignalPage()).clf();
                         }
                     }
                 });
@@ -171,14 +171,14 @@ public class HotRankView extends FrameLayout {
         }
     }
 
-    public void btN() {
+    public void btO() {
         if (this.refreshView != null) {
             this.refreshView.dettachView(this);
             this.refreshView = null;
         }
     }
 
-    public boolean bSR() {
+    public boolean bSS() {
         if (this.refreshView != null) {
             return this.refreshView.isViewAttached();
         }

@@ -212,9 +212,9 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void a(boolean z, boolean z2, ResponsedMessage<?> responsedMessage) {
         if (m.bhP().bhQ()) {
-            long wR = com.baidu.tieba.homepage.framework.a.cif().wR(1);
-            long createTime = com.baidu.tieba.homepage.framework.a.cif().getCreateTime();
-            com.baidu.tbadk.n.d dVar = new com.baidu.tbadk.n.d(1005, z2, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.cif().wQ(1), false, wR + createTime);
+            long wR = com.baidu.tieba.homepage.framework.a.cig().wR(1);
+            long createTime = com.baidu.tieba.homepage.framework.a.cig().getCreateTime();
+            com.baidu.tbadk.n.d dVar = new com.baidu.tbadk.n.d(1005, z2, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.cig().wQ(1), false, wR + createTime);
             dVar.pageType = 1;
             if (z) {
                 dVar.eBi = wR;
@@ -227,12 +227,12 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void a(int i, boolean z, ResponsedMessage<?> responsedMessage) {
-        if (m.bhP().bhQ() && com.baidu.tieba.homepage.framework.a.cif().getCreateTime() > 0) {
-            long wR = com.baidu.tieba.homepage.framework.a.cif().wR(1);
-            long createTime = com.baidu.tieba.homepage.framework.a.cif().getCreateTime();
-            long wQ = com.baidu.tieba.homepage.framework.a.cif().wQ(1);
+        if (m.bhP().bhQ() && com.baidu.tieba.homepage.framework.a.cig().getCreateTime() > 0) {
+            long wR = com.baidu.tieba.homepage.framework.a.cig().wR(1);
+            long createTime = com.baidu.tieba.homepage.framework.a.cig().getCreateTime();
+            long wQ = com.baidu.tieba.homepage.framework.a.cig().wQ(1);
             long j = wR + createTime;
-            long wP = com.baidu.tieba.homepage.framework.a.cif().wP(1);
+            long wP = com.baidu.tieba.homepage.framework.a.cig().wP(1);
             if (wP > 0) {
                 j = System.currentTimeMillis() - wP;
             }
@@ -241,7 +241,7 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
                 dVar.pageType = i;
                 dVar.bhM();
             }
-            com.baidu.tieba.homepage.framework.a.cif().setCreateTime(0L);
+            com.baidu.tieba.homepage.framework.a.cig().setCreateTime(0L);
         }
     }
 }

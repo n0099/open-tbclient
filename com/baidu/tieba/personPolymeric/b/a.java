@@ -7,7 +7,7 @@ public interface a {
 
     void KR(String str);
 
-    void cTq();
+    void cTr();
 
-    p cTr();
+    p cTs();
 }

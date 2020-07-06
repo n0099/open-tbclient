@@ -44,7 +44,7 @@ public class c extends d {
     }
 
     @Override // com.baidu.tieba.ala.b.d
-    protected int bwi() {
+    protected int bwj() {
         return a.h.ala_choose_num_and_date;
     }
 
@@ -54,7 +54,7 @@ public class c extends d {
         this.fBF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.b.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.brA();
+                c.this.brB();
             }
         });
         this.fBG = (TextView) this.mRootView.findViewById(a.g.choose_bottom_tip);
@@ -100,7 +100,7 @@ public class c extends d {
             this.fCb = alaSdkGetGiftListHttpResponseMessage.AU();
         }
         if (ListUtils.isEmpty(this.fCb)) {
-            bwj();
+            bwk();
         }
         if (this.fCg > 0) {
             Iterator<g> it = this.fCb.iterator();
@@ -121,7 +121,7 @@ public class c extends d {
         this.fBZ.setData(this.fCb);
     }
 
-    private void bwj() {
+    private void bwk() {
         this.fCb = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
             g gVar = new g();

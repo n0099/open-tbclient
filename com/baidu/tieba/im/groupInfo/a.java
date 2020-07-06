@@ -245,63 +245,63 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
         this.iVP.setVisibility(8);
     }
 
-    public RelativeLayout crt() {
+    public RelativeLayout cru() {
         return this.iWs;
     }
 
-    public RelativeLayout cru() {
+    public RelativeLayout crv() {
         return this.iVO;
     }
 
-    public LinearLayout crv() {
+    public LinearLayout crw() {
         return this.iWb;
     }
 
-    public RelativeLayout crw() {
+    public RelativeLayout crx() {
         return this.iWf;
     }
 
-    public RelativeLayout crx() {
+    public RelativeLayout cry() {
         return this.iWr;
     }
 
-    public RelativeLayout cry() {
+    public RelativeLayout crz() {
         return this.iWo;
     }
 
-    public RelativeLayout crz() {
+    public RelativeLayout crA() {
         return this.iVH;
     }
 
-    public View crA() {
+    public View crB() {
         return this.iWl;
     }
 
-    public LinearLayout crB() {
+    public LinearLayout crC() {
         return this.iWy;
     }
 
-    public RelativeLayout crC() {
+    public RelativeLayout crD() {
         return this.iVQ;
     }
 
-    public RelativeLayout crD() {
+    public RelativeLayout crE() {
         return this.iVR;
     }
 
-    public RelativeLayout crE() {
+    public RelativeLayout crF() {
         return this.iVV;
     }
 
-    public View cqn() {
+    public View cqo() {
         return this.iKr;
     }
 
-    public void crF() {
+    public void crG() {
         this.iVG.setVisibility(8);
     }
 
-    public void crG() {
+    public void crH() {
         this.iVG.setVisibility(0);
     }
 
@@ -325,7 +325,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
         }
     }
 
-    public RelativeLayout crH() {
+    public RelativeLayout crI() {
         return this.iWa;
     }
 
@@ -336,15 +336,15 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
     public void a(ResponseGroupInfoLocalMessage.a aVar, boolean z) {
         if (aVar != null) {
             this.isMemGroup = aVar.isMemGroup();
-            this.iWD = aVar.csq();
-            this.iWE = aVar.csr();
+            this.iWD = aVar.csr();
+            this.iWE = aVar.css();
             this.iWB = aVar;
             this.iWC = z;
             if (aVar.getGroup() != null) {
                 gid = aVar.getGroup().getGroupId();
             }
-            if (aVar.csl() != null) {
-                iWF = aVar.csl().getActivityId();
+            if (aVar.csm() != null) {
+                iWF = aVar.csm().getActivityId();
             }
             if (TbadkApplication.getInst().getSkinType() == 1) {
             }
@@ -397,7 +397,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                     this.iVO.setVisibility(8);
                 }
                 this.iVS.removeAllViews();
-                boolean css = aVar.css();
+                boolean cst = aVar.cst();
                 boolean isMemGroup = aVar.isMemGroup();
                 if (isMemGroup) {
                     an.setViewTextColor(this.iWA, R.color.common_color_10009, 1);
@@ -421,18 +421,18 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                     }
                     this.iVS.addView(imageView2);
                 }
-                if (css) {
+                if (cst) {
                     this.iWx.setVisibility(0);
                 } else {
                     this.iWx.setVisibility(8);
                 }
             }
-            if (aVar.csl() != null) {
+            if (aVar.csm() != null) {
                 this.iVH.setVisibility(0);
                 this.iVF.setVisibility(0);
-                GroupActivityData csl = aVar.csl();
-                if (!aVar.csq()) {
-                    if (csl.getIsEnd() != 1) {
+                GroupActivityData csm = aVar.csm();
+                if (!aVar.csr()) {
+                    if (csm.getIsEnd() != 1) {
                         this.iVI.setVisibility(4);
                         this.iVJ.setText(R.string.group_info_activity_not_join_tip);
                     } else {
@@ -441,17 +441,17 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                     }
                 } else {
                     this.iVI.setVisibility(0);
-                    this.iVJ.setText(csl.getgActivityTitle());
-                    if (csl.getIsEnd() != 1) {
+                    this.iVJ.setText(csm.getgActivityTitle());
+                    if (csm.getIsEnd() != 1) {
                         this.iVI.setText(R.string.group_info_activity_doing);
                         an.setViewTextColor(this.iVI, R.color.common_color_10171, 1);
                     } else {
                         this.iVI.setText(R.string.group_activity_end);
                         an.setViewTextColor(this.iVI, R.color.common_color_10168, 1);
                     }
-                    this.iVJ.setText(csl.getgActivityTitle());
+                    this.iVJ.setText(csm.getgActivityTitle());
                 }
-            } else if (aVar.csr()) {
+            } else if (aVar.css()) {
                 this.iVH.setVisibility(0);
                 this.iVF.setVisibility(0);
                 this.iVI.setVisibility(4);
@@ -461,12 +461,12 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                 this.iVF.setVisibility(8);
             }
             this.iWb.removeAllViews();
-            if (aVar.csm() != null && aVar.csm().size() > 0) {
-                List<MemberData> csm = aVar.csm();
-                int size = csm.size();
+            if (aVar.csn() != null && aVar.csn().size() > 0) {
+                List<MemberData> csn = aVar.csn();
+                int size = csn.size();
                 int i2 = size > 5 ? 5 : size;
                 for (int i3 = 0; i3 < i2; i3++) {
-                    MemberData memberData = csm.get(i3);
+                    MemberData memberData = csn.get(i3);
                     HeadImageView headImageView = this.iWc[i3];
                     if (headImageView == null) {
                         headImageView = new HeadImageView(this.iVE.getPageContext().getPageActivity());
@@ -483,7 +483,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                     }
                 }
             }
-            if (aVar.csr()) {
+            if (aVar.css()) {
                 this.iWa.setEnabled(true);
                 this.iWr.setEnabled(true);
                 an.setBackgroundResource(this.iWr, R.drawable.group_info_item);
@@ -501,7 +501,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                 this.iWt.setVisibility(8);
                 this.iVM.setPadding(0, 0, 0, 0);
             }
-            if (aVar.csq()) {
+            if (aVar.csr()) {
                 this.iWg.setVisibility(0);
                 this.iWz.setVisibility(0);
                 if (this.iVV.getParent() != this.iWg) {
@@ -514,7 +514,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                     this.iWi.removeView(this.iVV);
                     this.iWg.addView(this.iVV, 1);
                 }
-                crI();
+                crJ();
             } else {
                 this.iWg.setVisibility(8);
                 this.iWz.setVisibility(8);
@@ -533,9 +533,9 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
             }
             a(aVar);
             if (aVar.getGroup().getIsHidePosition() == 1) {
-                pw(aVar.csr());
+                pw(aVar.css());
             } else {
-                q(aVar.csr(), this.iWm);
+                q(aVar.css(), this.iWm);
             }
             this.bVE.setVisibility(0);
             this.iWd.setVisibility(0);
@@ -547,12 +547,12 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
             if (yA(aVar.getGroup().getFlag())) {
                 px(z);
             } else {
-                crJ();
+                crK();
             }
         }
     }
 
-    public void crI() {
+    public void crJ() {
         this.iWe.setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(R.drawable.icon_brief_jinba), (Drawable) null, (Drawable) null, (Drawable) null);
         an.setViewTextColor(this.iWe, R.color.cp_cont_a, 1);
         this.iWe.setText(this.iVE.getPageContext().getString(R.string.i_want_talk));
@@ -576,7 +576,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
         return ((i & 2) >> 1) != 1;
     }
 
-    private void crJ() {
+    private void crK() {
         this.iWe.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
         this.iWe.setText(this.iVE.getPageContext().getString(R.string.group_info_refuse_join));
         this.iWe.setTextColor(this.iVE.getResources().getColorStateList(R.color.cp_cont_a));
@@ -599,21 +599,21 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
 
     public void a(ResponseGroupInfoLocalMessage.a aVar) {
         if (aVar != null) {
-            this.iVP.setIsManager(aVar.csr());
-            if (aVar.csr()) {
+            this.iVP.setIsManager(aVar.css());
+            if (aVar.css()) {
                 this.iVP.setVisibility(0);
-                if (aVar.csn() != null && aVar.csn().size() == 1 && TextUtils.isEmpty(aVar.csn().get(0).getPicId())) {
+                if (aVar.cso() != null && aVar.cso().size() == 1 && TextUtils.isEmpty(aVar.cso().get(0).getPicId())) {
                     this.iVP.setData(null);
                 } else {
-                    this.iVP.setData(aVar.csn());
+                    this.iVP.setData(aVar.cso());
                 }
-            } else if (aVar.csn() != null && aVar.csn().size() > 0) {
-                if (aVar.csn().size() == 1 && TextUtils.isEmpty(aVar.csn().get(0).getPicId())) {
+            } else if (aVar.cso() != null && aVar.cso().size() > 0) {
+                if (aVar.cso().size() == 1 && TextUtils.isEmpty(aVar.cso().get(0).getPicId())) {
                     this.iVP.setVisibility(8);
                     return;
                 }
                 this.iVP.setVisibility(0);
-                this.iVP.setData(aVar.csn());
+                this.iVP.setData(aVar.cso());
             } else {
                 this.iVP.setVisibility(8);
             }
@@ -717,7 +717,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
         }
     }
 
-    public void crK() {
+    public void crL() {
         ColorStateList colorList = an.getColorList(R.color.cp_cont_a);
         if (colorList != null) {
             this.iWe.setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(R.drawable.icon_brief_attention_disable), (Drawable) null, (Drawable) null, (Drawable) null);

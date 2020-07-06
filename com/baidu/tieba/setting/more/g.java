@@ -60,13 +60,13 @@ public class g extends com.baidu.adp.base.c<MsgRemindActivity> {
 
     public void b(MsgRemindActivity msgRemindActivity) {
         c(msgRemindActivity);
-        dcQ();
-        dcT();
-        dcS();
         dcR();
         dcU();
+        dcT();
+        dcS();
+        dcV();
         d(msgRemindActivity);
-        dcL();
+        dcM();
     }
 
     void c(MsgRemindActivity msgRemindActivity) {
@@ -122,14 +122,14 @@ public class g extends com.baidu.adp.base.c<MsgRemindActivity> {
         this.lsB = (TbSettingTextTipView) msgRemindActivity.findViewById(R.id.msg_receive_item_view);
     }
 
-    private void dcL() {
-        dcM();
+    private void dcM() {
         dcN();
         dcO();
         dcP();
+        dcQ();
     }
 
-    private void dcM() {
+    private void dcN() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
             this.lsq.setVisibility(8);
@@ -145,7 +145,7 @@ public class g extends com.baidu.adp.base.c<MsgRemindActivity> {
         }
     }
 
-    private void dcN() {
+    private void dcO() {
         if (!TbadkCoreApplication.getInst().isMIUIRom()) {
             this.lsj.setLineVisibility(true);
         } else {
@@ -153,7 +153,7 @@ public class g extends com.baidu.adp.base.c<MsgRemindActivity> {
         }
     }
 
-    private void dcO() {
+    private void dcP() {
         boolean appResponseToIntentClass = TbadkCoreApplication.getInst().appResponseToIntentClass(GroupChatActivityConfig.class);
         this.lsh.setLineVisibility(appResponseToIntentClass);
         if (appResponseToIntentClass) {
@@ -163,7 +163,7 @@ public class g extends com.baidu.adp.base.c<MsgRemindActivity> {
         }
     }
 
-    private void dcP() {
+    private void dcQ() {
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(ScreenLockActivityConfig.class)) {
             this.lsj.setVisibility(0);
         } else {
@@ -175,7 +175,7 @@ public class g extends com.baidu.adp.base.c<MsgRemindActivity> {
         return this.mBack;
     }
 
-    private void dcQ() {
+    private void dcR() {
         if (com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bbX()) {
             this.lsb.turnOnNoCallback();
             this.lsc.setVisibility(0);
@@ -191,12 +191,12 @@ public class g extends com.baidu.adp.base.c<MsgRemindActivity> {
         this.lsi.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bcl());
     }
 
-    private void dcR() {
+    private void dcS() {
         if (com.baidu.tbadk.coreExtra.messageCenter.d.bbV().isSignAlertOn()) {
             this.lsn.turnOn();
             this.lso.setVisibility(0);
             this.lsn.setLineVisibility(true);
-            dcV();
+            dcW();
             return;
         }
         this.lsn.turnOff();
@@ -204,7 +204,7 @@ public class g extends com.baidu.adp.base.c<MsgRemindActivity> {
         this.lso.setVisibility(8);
     }
 
-    private void dcS() {
+    private void dcT() {
         if (com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bce()) {
             this.lsk.turnOnNoCallback();
         } else {
@@ -222,7 +222,7 @@ public class g extends com.baidu.adp.base.c<MsgRemindActivity> {
         }
     }
 
-    private void dcT() {
+    private void dcU() {
         if (com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bcn()) {
             this.lsj.turnOnNoCallback();
         } else {
@@ -230,11 +230,11 @@ public class g extends com.baidu.adp.base.c<MsgRemindActivity> {
         }
     }
 
-    private void dcU() {
+    private void dcV() {
         if (com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bcg()) {
             this.lsq.turnOnNoCallback();
             this.lsr.setVisibility(0);
-            dcW();
+            dcX();
             return;
         }
         this.lsq.turnOffNoCallback();
@@ -268,7 +268,7 @@ public class g extends com.baidu.adp.base.c<MsgRemindActivity> {
         this.lsq.setLineVisibility(z);
         if (z) {
             this.lsr.setVisibility(0);
-            dcW();
+            dcX();
             an.setBackgroundResource(this.lsr, R.drawable.more_all);
             return;
         }
@@ -294,7 +294,7 @@ public class g extends com.baidu.adp.base.c<MsgRemindActivity> {
         }
     }
 
-    public void dcV() {
+    public void dcW() {
         if (com.baidu.tbadk.coreExtra.messageCenter.d.bbV().isSignAlertOn()) {
             int signAlertHours = com.baidu.tbadk.coreExtra.messageCenter.d.bbV().getSignAlertHours();
             int signAlertMins = com.baidu.tbadk.coreExtra.messageCenter.d.bbV().getSignAlertMins();
@@ -313,7 +313,7 @@ public class g extends com.baidu.adp.base.c<MsgRemindActivity> {
         }
     }
 
-    public void dcW() {
+    public void dcX() {
         String bci = com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bci();
         String bcj = com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bcj();
         this.lss.setText(bci + Constants.ACCEPT_TIME_SEPARATOR_SERVER + bcj);
@@ -321,113 +321,113 @@ public class g extends com.baidu.adp.base.c<MsgRemindActivity> {
         this.lsy.setText(bcj);
     }
 
-    public BdSwitchView dcX() {
+    public BdSwitchView dcY() {
         return this.lsn.getSwitchView();
     }
 
-    public BdSwitchView dcY() {
+    public BdSwitchView dcZ() {
         return this.lsb.getSwitchView();
     }
 
-    public View dcZ() {
+    public View dda() {
         return this.lso;
     }
 
-    public BdSwitchView dda() {
+    public BdSwitchView ddb() {
         return this.lsq.getSwitchView();
     }
 
-    public View ddb() {
+    public View ddc() {
         return this.lsr;
     }
 
-    public LinearLayout ddc() {
+    public LinearLayout ddd() {
         return this.lsv;
     }
 
-    public LinearLayout ddd() {
+    public LinearLayout dde() {
         return this.lsx;
     }
 
-    public BdSwitchView dde() {
+    public BdSwitchView ddf() {
         return this.lsk.getSwitchView();
     }
 
-    public BdSwitchView ddf() {
+    public BdSwitchView ddg() {
         return this.lsl.getSwitchView();
     }
 
-    public BdSwitchView ddg() {
+    public BdSwitchView ddh() {
         return this.lsm.getSwitchView();
     }
 
-    public BdSwitchView ddh() {
+    public BdSwitchView ddi() {
         return this.lsj.getSwitchView();
     }
 
-    public BdSwitchView ddi() {
+    public BdSwitchView ddj() {
         return this.lsd.getSwitchView();
     }
 
-    public BdSwitchView ddj() {
+    public BdSwitchView ddk() {
         return this.lse.getSwitchView();
     }
 
-    public BdSwitchView ddk() {
+    public BdSwitchView ddl() {
         return this.lsf.getSwitchView();
     }
 
-    public BdSwitchView ddl() {
+    public BdSwitchView ddm() {
         return this.lsh.getSwitchView();
     }
 
-    public BdSwitchView ddm() {
+    public BdSwitchView ddn() {
         return this.lsi.getSwitchView();
     }
 
-    public BdSwitchView ddn() {
+    public BdSwitchView ddo() {
         return this.lsg.getSwitchView();
     }
 
-    public TbSettingTextTipView ddo() {
+    public TbSettingTextTipView ddp() {
         return this.lsB;
     }
 
-    public TextView ddp() {
+    public TextView ddq() {
         return this.mNavigationBar.getCenterText();
     }
 
-    public void ddq() {
+    public void ddr() {
         this.lsd.setOnSwitchStateChangeListener(null);
         this.lsd.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bcc());
         this.lsd.setOnSwitchStateChangeListener(this.lsA);
     }
 
-    public void ddr() {
+    public void dds() {
         this.lse.setOnSwitchStateChangeListener(null);
         this.lse.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bcm());
         this.lse.setOnSwitchStateChangeListener(this.lsA);
     }
 
-    public void dds() {
+    public void ddt() {
         this.lsf.setOnSwitchStateChangeListener(null);
         this.lsf.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bca());
         this.lsf.setOnSwitchStateChangeListener(this.lsA);
     }
 
-    public void ddt() {
+    public void ddu() {
         this.lsg.setOnSwitchStateChangeListener(null);
         this.lsg.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bcb());
         this.lsg.setOnSwitchStateChangeListener(this.lsA);
     }
 
-    public void ddu() {
+    public void ddv() {
         this.lsh.setOnSwitchStateChangeListener(null);
         this.lsh.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bcd());
         this.lsh.setOnSwitchStateChangeListener(this.lsA);
     }
 
-    public void ddv() {
+    public void ddw() {
         this.lsi.setOnSwitchStateChangeListener(null);
         this.lsi.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bcl());
         this.lsi.setOnSwitchStateChangeListener(this.lsA);
@@ -489,7 +489,7 @@ public class g extends com.baidu.adp.base.c<MsgRemindActivity> {
         SvgManager.aWQ().a((ImageView) this.lsx.findViewById(R.id.no_disturb_end_time_arrow), R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
     }
 
-    public void ddw() {
+    public void ddx() {
         com.baidu.tbadk.coreExtra.messageCenter.f.bcq().a(this.lsA.getActivity(), this.iKg);
     }
 

@@ -21,7 +21,7 @@ public class AlaLivePriseGuideView extends LinearLayout {
         initUI();
     }
 
-    public boolean bFb() {
+    public boolean bFc() {
         if (this.giw != null) {
             this.giw.cancelAnimation();
             this.giw = null;

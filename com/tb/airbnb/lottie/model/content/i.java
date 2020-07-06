@@ -7,17 +7,17 @@ public class i implements b {
     private final boolean EJ;
     private final Path.FillType Ei;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.d nGB;
+    private final com.tb.airbnb.lottie.model.a.d nGE;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.a nGt;
+    private final com.tb.airbnb.lottie.model.a.a nGw;
     private final String name;
 
     public i(String str, boolean z, Path.FillType fillType, @Nullable com.tb.airbnb.lottie.model.a.a aVar, @Nullable com.tb.airbnb.lottie.model.a.d dVar) {
         this.name = str;
         this.EJ = z;
         this.Ei = fillType;
-        this.nGt = aVar;
-        this.nGB = dVar;
+        this.nGw = aVar;
+        this.nGE = dVar;
     }
 
     public String getName() {
@@ -25,13 +25,13 @@ public class i implements b {
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.a dOi() {
-        return this.nGt;
+    public com.tb.airbnb.lottie.model.a.a dOm() {
+        return this.nGw;
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.d dNI() {
-        return this.nGB;
+    public com.tb.airbnb.lottie.model.a.d dNM() {
+        return this.nGE;
     }
 
     public Path.FillType ip() {

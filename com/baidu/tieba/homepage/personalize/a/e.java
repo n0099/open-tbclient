@@ -29,13 +29,13 @@ public class e extends com.baidu.tieba.homepage.a<com.baidu.tieba.card.data.e, a
         int i = 0;
         int id = view.getId();
         if (id == R.id.thread_card_root) {
-            TiebaStatic.log(eVar.bOY());
+            TiebaStatic.log(eVar.bOZ());
         } else if (id == R.id.user_avatar || id == R.id.user_name) {
             i = 2;
         } else if (id == R.id.cover_img || id == R.id.bottom_mask) {
         }
         if (i != 0) {
-            com.baidu.tieba.homepage.personalize.c.a.a(eVar.dLi, this.eyE, eVar.bOL(), i);
+            com.baidu.tieba.homepage.personalize.c.a.a(eVar.dLi, this.eyE, eVar.bOM(), i);
         }
     }
 
@@ -46,8 +46,8 @@ public class e extends com.baidu.tieba.homepage.a<com.baidu.tieba.card.data.e, a
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, com.baidu.tieba.card.data.e eVar) {
-                com.baidu.tieba.card.s.bOA().jI(true);
-                com.baidu.tieba.a.d.boA().dh("page_recommend", "show_");
+                com.baidu.tieba.card.s.bOB().jI(true);
+                com.baidu.tieba.a.d.boB().dh("page_recommend", "show_");
                 if (view != null && eVar != null && eVar.aPS() != null && !StringUtils.isNull(eVar.aPS().getTid())) {
                     e.this.a(view, eVar);
                 }
@@ -107,7 +107,7 @@ public class e extends com.baidu.tieba.homepage.a<com.baidu.tieba.card.data.e, a
         akVar.b((ak<com.baidu.tieba.card.data.e>) eVar);
         akVar.se().a(this.adX);
         akVar.se().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.card.s.bOA().e(eVar.bOX());
+        com.baidu.tieba.card.s.bOB().e(eVar.bOY());
         return akVar.getView();
     }
 

@@ -118,9 +118,9 @@ public class c extends com.baidu.adp.framework.b.d {
             httpMessage.addParam("from", from);
         }
         httpMessage.addParam("net_type", String.valueOf(j.netType()));
-        String biW = x.biW();
-        if (!TextUtils.isEmpty(biW)) {
-            httpMessage.addParam("oaid", biW);
+        String biX = x.biX();
+        if (!TextUtils.isEmpty(biX)) {
+            httpMessage.addParam("oaid", biX);
         }
         if (tbHttpMessageTask.isNeedTbs()) {
             httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());

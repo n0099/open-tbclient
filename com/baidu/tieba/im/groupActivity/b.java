@@ -61,7 +61,7 @@ public class b extends c<GroupActivityActivity> {
         this.iUx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupActivity.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.cre();
+                b.this.crf();
                 b.this.iUK.showDialog();
                 TiebaStatic.eventStat(groupActivityActivity.getPageContext().getPageActivity(), "group_activity_edit", "groupclick", 1, new Object[0]);
             }
@@ -111,11 +111,11 @@ public class b extends c<GroupActivityActivity> {
                 if (groupActivityData.getIsEnd() == 1) {
                     this.iUx.setVisibility(8);
                     this.iUL.setVisibility(0);
-                    if (com.baidu.tieba.group.a.chD().chE() || z) {
+                    if (com.baidu.tieba.group.a.chE().chF() || z) {
                         this.iUM.setVisibility(8);
                     } else {
                         this.iUM.setVisibility(0);
-                        com.baidu.tieba.group.a.chD().on(true);
+                        com.baidu.tieba.group.a.chE().on(true);
                         e.lt().postDelayed(new Runnable() { // from class: com.baidu.tieba.im.groupActivity.b.2
                             @Override // java.lang.Runnable
                             public void run() {
@@ -212,20 +212,20 @@ public class b extends c<GroupActivityActivity> {
         this.iUM = null;
     }
 
-    public View crb() {
+    public View crc() {
         return this.iKr;
     }
 
-    public TextView crc() {
+    public TextView crd() {
         return this.iUL;
     }
 
-    public i crd() {
+    public i cre() {
         return this.iUK;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cre() {
+    public void crf() {
         if (this.iUK == null) {
             String[] strArr = {this.iUu.getPageContext().getString(R.string.group_activity_eidt), this.iUu.getPageContext().getString(R.string.group_activity_delete)};
             this.iUK = new i(this.iUu.getPageContext());

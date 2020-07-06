@@ -15,7 +15,7 @@ public final class FlowableThrottleFirstTimed<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nJT.a((j) new DebounceTimedSubscriber(new io.reactivex.subscribers.b(cVar), this.timeout, this.unit, this.scheduler.dPr()));
+        this.nJW.a((j) new DebounceTimedSubscriber(new io.reactivex.subscribers.b(cVar), this.timeout, this.unit, this.scheduler.dPv()));
     }
 
     /* loaded from: classes7.dex */

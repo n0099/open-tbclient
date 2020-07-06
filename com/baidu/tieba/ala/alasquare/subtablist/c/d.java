@@ -74,13 +74,13 @@ public class d {
         this.fwl.setVisibility(i);
     }
 
-    public void buQ() {
+    public void buR() {
         if (this.fnt != null && this.fnt.getView().getParent() != null) {
             this.fml.removeFooterView(this.fnt.getView());
         }
     }
 
-    public void btI() {
+    public void btJ() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.fml.setNextPage(this.fnt);
@@ -168,7 +168,7 @@ public class d {
         }
     }
 
-    public void btN() {
+    public void btO() {
         if (this.refreshView != null) {
             this.refreshView.dettachView(this.mRootView);
             this.refreshView = null;
@@ -297,7 +297,7 @@ public class d {
             }
         }
 
-        private boolean buR() {
+        private boolean buS() {
             return UtilHelper.isSystemLocationProviderEnabled(d.this.mPageContext.getPageActivity());
         }
 
@@ -351,7 +351,7 @@ public class d {
             return textView;
         }
 
-        private void buS() {
+        private void buT() {
             if (this.fwr != null) {
                 int[] iArr = new int[2];
                 this.fwu.getLocationOnScreen(iArr);
@@ -376,7 +376,7 @@ public class d {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == this.fwu) {
-                buS();
+                buT();
             } else if ((view instanceof TextView) && view.getTag() != null && (view.getTag() instanceof String) && !StringUtils.isNull((String) view.getTag())) {
                 if (this.fwr != null) {
                     com.baidu.adp.lib.f.g.dismissPopupWindow(this.fwr, d.this.mPageContext.getPageActivity());
@@ -384,7 +384,7 @@ public class d {
                 if (d.this.fwk != null) {
                     this.fwy = (String) view.getTag();
                     if (this.fwy.contains("距离")) {
-                        if (!buR()) {
+                        if (!buS()) {
                             d.this.mPageContext.showToast(R.string.square_sub_list_no_shared_location);
                             return;
                         } else {

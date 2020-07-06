@@ -8,30 +8,30 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class g {
-    private com.facebook.imagepipeline.f.a mKb;
     @Nullable
-    private j<Boolean> mKe;
-    private p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> mKl;
-    private com.facebook.drawee.components.a mKv;
-    private Executor mKw;
+    private ImmutableList<com.facebook.imagepipeline.f.a> mKA;
+    private com.facebook.imagepipeline.f.a mKe;
     @Nullable
-    private ImmutableList<com.facebook.imagepipeline.f.a> mKx;
+    private j<Boolean> mKh;
+    private p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> mKo;
+    private com.facebook.drawee.components.a mKy;
+    private Executor mKz;
     private Resources mResources;
 
     public void a(Resources resources, com.facebook.drawee.components.a aVar, com.facebook.imagepipeline.f.a aVar2, Executor executor, p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> pVar, @Nullable ImmutableList<com.facebook.imagepipeline.f.a> immutableList, @Nullable j<Boolean> jVar) {
         this.mResources = resources;
-        this.mKv = aVar;
-        this.mKb = aVar2;
-        this.mKw = executor;
-        this.mKl = pVar;
-        this.mKx = immutableList;
-        this.mKe = jVar;
+        this.mKy = aVar;
+        this.mKe = aVar2;
+        this.mKz = executor;
+        this.mKo = pVar;
+        this.mKA = immutableList;
+        this.mKh = jVar;
     }
 
-    public d dAk() {
-        d a = a(this.mResources, this.mKv, this.mKb, this.mKw, this.mKl, this.mKx);
-        if (this.mKe != null) {
-            a.wr(this.mKe.get().booleanValue());
+    public d dAo() {
+        d a = a(this.mResources, this.mKy, this.mKe, this.mKz, this.mKo, this.mKA);
+        if (this.mKh != null) {
+            a.wr(this.mKh.get().booleanValue());
         }
         return a;
     }

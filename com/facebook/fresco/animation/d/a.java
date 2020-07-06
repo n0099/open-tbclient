@@ -3,60 +3,60 @@ package com.facebook.fresco.animation.d;
 import com.facebook.fresco.animation.a.d;
 /* loaded from: classes13.dex */
 public class a implements b {
-    private final d mOO;
-    private long mPI = -1;
+    private final d mOR;
+    private long mPL = -1;
 
     public a(d dVar) {
-        this.mOO = dVar;
+        this.mOR = dVar;
     }
 
     @Override // com.facebook.fresco.animation.d.b
     public int K(long j, long j2) {
-        if (!dCd() && j / dCc() >= this.mOO.getLoopCount()) {
+        if (!dCh() && j / dCg() >= this.mOR.getLoopCount()) {
             return -1;
         }
-        return fU(j % dCc());
+        return fU(j % dCg());
     }
 
-    public long dCc() {
-        if (this.mPI != -1) {
-            return this.mPI;
+    public long dCg() {
+        if (this.mPL != -1) {
+            return this.mPL;
         }
-        this.mPI = 0L;
-        int frameCount = this.mOO.getFrameCount();
+        this.mPL = 0L;
+        int frameCount = this.mOR.getFrameCount();
         for (int i = 0; i < frameCount; i++) {
-            this.mPI += this.mOO.Iv(i);
+            this.mPL += this.mOR.Iv(i);
         }
-        return this.mPI;
+        return this.mPL;
     }
 
     @Override // com.facebook.fresco.animation.d.b
     public long fT(long j) {
         long j2 = 0;
-        long dCc = dCc();
-        if (dCc == 0) {
+        long dCg = dCg();
+        if (dCg == 0) {
             return -1L;
         }
-        if (dCd() || j / dCc() < this.mOO.getLoopCount()) {
-            long j3 = j % dCc;
-            int frameCount = this.mOO.getFrameCount();
+        if (dCh() || j / dCg() < this.mOR.getLoopCount()) {
+            long j3 = j % dCg;
+            int frameCount = this.mOR.getFrameCount();
             for (int i = 0; i < frameCount && j2 <= j3; i++) {
-                j2 += this.mOO.Iv(i);
+                j2 += this.mOR.Iv(i);
             }
             return (j2 - j3) + j;
         }
         return -1L;
     }
 
-    public boolean dCd() {
-        return this.mOO.getLoopCount() == 0;
+    public boolean dCh() {
+        return this.mOR.getLoopCount() == 0;
     }
 
     int fU(long j) {
         int i = 0;
         long j2 = 0;
         do {
-            j2 += this.mOO.Iv(i);
+            j2 += this.mOR.Iv(i);
             i++;
         } while (j >= j2);
         return i - 1;

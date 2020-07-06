@@ -15,7 +15,7 @@ import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public abstract class a implements u {
     private static final boolean DEBUG = AppConfig.isDebug();
-    protected ad mDo = new ad();
+    protected ad mDr = new ad();
 
     public abstract ab a(String str, byte[] bArr, Map<String, String> map) throws IOException;
 
@@ -26,14 +26,14 @@ public abstract class a implements u {
 
     public boolean a(String str, JSONObject jSONObject, boolean z) {
         String str2;
-        boolean dwW = this.mDo.dwW();
-        if (dwW) {
+        boolean dxa = this.mDr.dxa();
+        if (dxa) {
             str2 = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc";
         } else {
             str2 = str + "/ztbox?action=zubc";
         }
         String processUrl = com.baidu.a.b.b.sO().processUrl(str2);
-        if (dwW && !TextUtils.isEmpty(processUrl)) {
+        if (dxa && !TextUtils.isEmpty(processUrl)) {
             processUrl = UrlUtil.addParam(processUrl, "debug", "1");
         }
         if (z) {

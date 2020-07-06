@@ -21,7 +21,7 @@ public class a {
     private a() {
     }
 
-    public static synchronized a bpx() {
+    public static synchronized a bpy() {
         a aVar;
         synchronized (a.class) {
             if (fam == null) {
@@ -49,7 +49,7 @@ public class a {
         if (this.fan != null) {
             Collections.sort(this.fan, new ContactComparator());
         }
-        bpz();
+        bpA();
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
@@ -78,7 +78,7 @@ public class a {
                 }
                 this.fan.add(aVar);
                 Collections.sort(this.fan, new ContactComparator());
-                bpz();
+                bpA();
             }
         }
     }
@@ -109,15 +109,15 @@ public class a {
                     this.fan.removeAll(arrayList);
                 }
             }
-            bpz();
+            bpA();
         }
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> bpy() {
+    public List<com.baidu.tbadk.coreExtra.relationship.a> bpz() {
         return this.fan;
     }
 
-    private void bpz() {
+    private void bpA() {
         for (InterfaceC0515a interfaceC0515a : this.mObservers) {
             interfaceC0515a.bm(this.fan);
         }

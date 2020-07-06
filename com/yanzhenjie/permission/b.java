@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 /* loaded from: classes6.dex */
 public class b {
-    private static final c nHT;
+    private static final c nHW;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
@@ -16,15 +16,15 @@ public class b {
 
     static {
         if (Build.VERSION.SDK_INT >= 23) {
-            nHT = new C0882b();
+            nHW = new C0883b();
         } else {
-            nHT = new a();
+            nHW = new a();
         }
     }
 
     @NonNull
     public static h gl(@NonNull Context context) {
-        return nHT.a(new com.yanzhenjie.permission.b.a(context));
+        return nHW.a(new com.yanzhenjie.permission.b.a(context));
     }
 
     /* loaded from: classes6.dex */
@@ -41,8 +41,8 @@ public class b {
     @RequiresApi(api = 23)
     /* renamed from: com.yanzhenjie.permission.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static class C0882b implements c {
-        private C0882b() {
+    private static class C0883b implements c {
+        private C0883b() {
         }
 
         @Override // com.yanzhenjie.permission.b.c

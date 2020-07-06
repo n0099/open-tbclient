@@ -9,6 +9,6 @@ import java.util.Map;
 public class b implements ILiveScheme {
     @Override // com.baidu.live.tbadk.scheme.ILiveScheme
     public void excute(Context context, Map<String, String> map, SchemeCallback schemeCallback) {
-        com.baidu.tieba.sdk.a.daK().aR(TbadkCoreApplication.getInst(), "");
+        com.baidu.tieba.sdk.a.daL().aR(TbadkCoreApplication.getInst(), "");
     }
 }

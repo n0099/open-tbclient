@@ -4,18 +4,18 @@ import com.facebook.drawee.a.a.a.g;
 import com.facebook.drawee.a.a.a.h;
 /* loaded from: classes13.dex */
 public class b implements com.facebook.drawee.a.a.a.b {
-    private final h mKR;
-    private final g mKo;
+    private final h mKU;
+    private final g mKr;
 
     public b(h hVar, g gVar) {
-        this.mKR = hVar;
-        this.mKo = gVar;
+        this.mKU = hVar;
+        this.mKr = gVar;
     }
 
     @Override // com.facebook.drawee.a.a.a.b
     public void g(String str, int i, boolean z) {
-        this.mKR.Ib(i);
-        this.mKR.wt(z);
-        this.mKo.a(this.mKR, 1);
+        this.mKU.Ib(i);
+        this.mKU.wt(z);
+        this.mKr.a(this.mKU, 1);
     }
 }

@@ -25,7 +25,7 @@ public class b {
                         builder.width(width);
                         builder.height(height);
                         builder.align(1, 8);
-                        builder.point(new Point(com.baidu.swan.apps.x.a.a.b.this.cob.left, com.baidu.swan.apps.x.a.a.b.this.cob.f1006top));
+                        builder.point(new Point(com.baidu.swan.apps.x.a.a.b.this.cob.left, com.baidu.swan.apps.x.a.a.b.this.cob.f1007top));
                         ImageView imageView = new ImageView(AppRuntime.getAppContext());
                         imageView.setImageBitmap(bitmap);
                         imageView.setScaleType(ImageView.ScaleType.FIT_XY);

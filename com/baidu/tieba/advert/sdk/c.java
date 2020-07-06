@@ -34,7 +34,7 @@ public class c {
     });
 
     public c() {
-        bqb();
+        bqc();
     }
 
     public void xp() {
@@ -123,7 +123,7 @@ public class c {
         }
     }
 
-    private void bqb() {
+    private void bqc() {
         com.baidu.prologue.a.b.a.bEl.set(new a(TbadkCoreApplication.getInst()));
     }
 
@@ -162,14 +162,14 @@ public class c {
         @Override // com.baidu.prologue.a.b.a
         @NonNull
         public String userAgent() {
-            String bjj = ah.bjj();
-            if (TextUtils.isEmpty(bjj)) {
-                bjj = "bdtb for Android " + TbConfig.getVersion();
+            String bjk = ah.bjk();
+            if (TextUtils.isEmpty(bjk)) {
+                bjk = "bdtb for Android " + TbConfig.getVersion();
             }
             if (BdLog.isDebugMode()) {
-                BdLog.e("userAgent=" + bjj);
+                BdLog.e("userAgent=" + bjk);
             }
-            return bjj;
+            return bjk;
         }
 
         @Override // com.baidu.prologue.a.b.a
@@ -263,21 +263,21 @@ public class c {
 
         @Override // com.baidu.prologue.a.b.a
         public String ON() {
-            AppPosInfo cZI = com.baidu.tieba.recapp.d.a.cZF().cZI();
-            if (cZI != null) {
-                return cZI.coordinate_type;
+            AppPosInfo cZJ = com.baidu.tieba.recapp.d.a.cZG().cZJ();
+            if (cZJ != null) {
+                return cZJ.coordinate_type;
             }
             return null;
         }
 
         @Override // com.baidu.prologue.a.b.a
         public String[] OO() {
-            AppPosInfo cZI;
-            if (com.baidu.tieba.recapp.d.a.cZF() != null && (cZI = com.baidu.tieba.recapp.d.a.cZF().cZI()) != null) {
+            AppPosInfo cZJ;
+            if (com.baidu.tieba.recapp.d.a.cZG() != null && (cZJ = com.baidu.tieba.recapp.d.a.cZG().cZJ()) != null) {
                 if (BdLog.isDebugMode()) {
-                    BdLog.e("" + cZI.longitude + "|" + cZI.latitude);
+                    BdLog.e("" + cZJ.longitude + "|" + cZJ.latitude);
                 }
-                return new String[]{cZI.longitude, cZI.latitude};
+                return new String[]{cZJ.longitude, cZJ.latitude};
             }
             if (BdLog.isDebugMode()) {
                 BdLog.e("0, 0");
@@ -321,7 +321,7 @@ public class c {
 
         @Override // com.baidu.prologue.a.b.a
         public String OU() {
-            return x.biW();
+            return x.biX();
         }
 
         @Override // com.baidu.prologue.a.b.a

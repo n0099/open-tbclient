@@ -15,21 +15,21 @@ import org.json.JSONObject;
 public class FeedBackModel extends BdBaseModel<TbPageContext> {
     private TbPageContext dPv;
     private int mErrCode;
-    private a msH;
-    private ArrayList<bu> msI;
+    private a msK;
+    private ArrayList<bu> msL;
 
     public FeedBackModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.msH = null;
-        this.msI = null;
+        this.msK = null;
+        this.msL = null;
         this.mErrCode = 0;
         this.dPv = tbPageContext;
-        this.msI = new ArrayList<>();
+        this.msL = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<bu> dsx() {
-        return this.msI;
+    public ArrayList<bu> dsB() {
+        return this.msL;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,11 +38,11 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void Pj(String str) {
-        if (this.msH == null) {
-            this.msH = new a();
-            this.msH.setPriority(3);
-            this.msH.execute(str);
+    public void Pk(String str) {
+        if (this.msK == null) {
+            this.msK = new a();
+            this.msK.setPriority(3);
+            this.msK.execute(str);
         }
     }
 
@@ -76,14 +76,14 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         /* renamed from: c */
         public void onPostExecute(FeedBackModel feedBackModel) {
             super.onPostExecute(feedBackModel);
-            FeedBackModel.this.msH = null;
+            FeedBackModel.this.msK = null;
             FeedBackModel.this.mLoadDataCallBack.callback(feedBackModel);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            FeedBackModel.this.msH = null;
+            FeedBackModel.this.msK = null;
             if (this.byb != null) {
                 this.byb.cancelNetConnect();
             }
@@ -109,7 +109,7 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
                         if (jSONObject2 != null) {
                             bu buVar = new bu();
                             buVar.parserJson(jSONObject2);
-                            this.msI.add(buVar);
+                            this.msL.add(buVar);
                         }
                     }
                 }
@@ -126,8 +126,8 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.msH != null) {
-            this.msH.cancel();
+        if (this.msK != null) {
+            this.msK.cancel();
             return true;
         }
         return true;

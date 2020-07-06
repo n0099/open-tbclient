@@ -7,7 +7,7 @@ public class c implements q {
     public static final BdUniqueId kEK = BdUniqueId.gen();
     private int kEL = 0;
 
-    public int cRE() {
+    public int cRF() {
         return this.kEL;
     }
 

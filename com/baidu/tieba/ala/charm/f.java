@@ -36,7 +36,7 @@ public class f implements com.baidu.live.r.a {
         reset(true);
         if (viewGroup instanceof PendantParentView) {
             this.fzV = (PendantParentView) viewGroup;
-            bvW();
+            bvX();
         }
     }
 
@@ -61,7 +61,7 @@ public class f implements com.baidu.live.r.a {
             return false;
         }
         if (this.fzW == null) {
-            bvW();
+            bvX();
         }
         if (this.fzX == null || (this.fzW != null && this.fzW.indexOfChild(this.fzX) < 0)) {
             this.fzX = new RedPacketCharmView(this.mContext);
@@ -69,7 +69,7 @@ public class f implements com.baidu.live.r.a {
             this.fzX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.f.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    f.this.bvX();
+                    f.this.bvY();
                 }
             });
         }
@@ -98,7 +98,7 @@ public class f implements com.baidu.live.r.a {
                 }
                 break;
             case 3:
-                bvY();
+                bvZ();
                 this.fzX.qw(3);
                 break;
             default:
@@ -143,7 +143,7 @@ public class f implements com.baidu.live.r.a {
         yW();
     }
 
-    private void bvW() {
+    private void bvX() {
         this.fzW = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.charm.f.2
             @Override // com.baidu.live.pendantview.PendantChildView
             public PendantParentView.Position getVerticalPosition() {
@@ -181,7 +181,7 @@ public class f implements com.baidu.live.r.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvX() {
+    public void bvY() {
         if (this.aLQ != null && this.fzY != null) {
             bh bhVar = new bh();
             bhVar.aDC = this.fzY.id;
@@ -196,7 +196,7 @@ public class f implements com.baidu.live.r.a {
     }
 
     private void dr(long j) {
-        bvY();
+        bvZ();
         this.fzZ = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.charm.f.3
             @Override // android.os.CountDownTimer
             public void onTick(long j2) {
@@ -244,7 +244,7 @@ public class f implements com.baidu.live.r.a {
         }
     }
 
-    private void bvY() {
+    private void bvZ() {
         if (this.fzZ != null) {
             this.fzZ.cancel();
         }
@@ -253,7 +253,7 @@ public class f implements com.baidu.live.r.a {
     private void reset(boolean z) {
         this.fAa = true;
         this.fzY = null;
-        bvY();
+        bvZ();
         jx(z);
     }
 

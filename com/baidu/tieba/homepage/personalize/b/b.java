@@ -43,7 +43,7 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, c cVar, a aVar) {
-        s.bOA().e(new ao("c11272"));
+        s.bOB().e(new ao("c11272"));
         aVar.ivA.a(cVar);
         return aVar.getView();
     }

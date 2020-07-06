@@ -43,8 +43,8 @@ public class c {
         this.mContext = context;
     }
 
-    public void cCW() {
-        if (!this.mIsShowing && isMainProcess() && cCX()) {
+    public void cCX() {
+        if (!this.mIsShowing && isMainProcess() && cCY()) {
             if (this.mHandlerThread == null) {
                 this.mHandlerThread = new HandlerThread("splash-thread");
                 this.mHandlerThread.start();
@@ -151,7 +151,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean cCX() {
+    private boolean cCY() {
         List<String> fa = fa(this.mContext);
         if (fa == null || fa.size() == 0) {
             return false;

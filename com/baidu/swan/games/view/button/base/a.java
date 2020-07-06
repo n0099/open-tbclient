@@ -35,7 +35,7 @@ public class a {
     @V8JavascriptField
 
     /* renamed from: top  reason: collision with root package name */
-    public int f1011top;
+    public int f1012top;
     @V8JavascriptField
     public int width;
     @V8JavascriptField
@@ -55,7 +55,7 @@ public class a {
 
     private void m(@NonNull com.baidu.swan.games.binding.model.c cVar) {
         this.left = cVar.optInt("left", this.left);
-        this.f1011top = cVar.optInt(VerticalTranslateLayout.TOP, this.f1011top);
+        this.f1012top = cVar.optInt(VerticalTranslateLayout.TOP, this.f1012top);
         this.width = cVar.optInt("width", this.width);
         this.height = cVar.optInt("height", this.height);
         this.backgroundColor = cVar.optString("backgroundColor", this.backgroundColor);
@@ -100,6 +100,6 @@ public class a {
     }
 
     public String toString() {
-        return "left:" + this.left + ";top:" + this.f1011top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
+        return "left:" + this.left + ";top:" + this.f1012top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
     }
 }

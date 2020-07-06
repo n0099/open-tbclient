@@ -54,23 +54,23 @@ public class c {
     private f lwE = new f();
     private k lwF = new k();
 
-    public boolean deS() {
+    public boolean deT() {
         return (this.lwE == null || StringUtils.isNull(this.lwE.lwX)) ? false : true;
     }
 
-    public String biz() {
+    public String biA() {
         return this.lwE.dGN;
     }
 
-    public String deT() {
+    public String deU() {
         return this.lwE.lwX;
     }
 
-    public String deU() {
+    public String deV() {
         return this.lwF.lyv;
     }
 
-    public String deV() {
+    public String deW() {
         return this.lwF.link;
     }
 
@@ -78,59 +78,59 @@ public class c {
         return this.level;
     }
 
-    public boolean deW() {
+    public boolean deX() {
         return !StringUtils.isNull(this.lwc) && this.lwc.equals("1");
     }
 
-    public String deX() {
+    public String deY() {
         return this.lwd;
     }
 
-    public String cOO() {
+    public String cOP() {
         return this.aCB;
     }
 
-    public String deY() {
+    public String deZ() {
         return this.lwe;
     }
 
-    public String deZ() {
+    public String dfa() {
         return this.lwf;
     }
 
-    public String dfa() {
+    public String dfb() {
         return this.lwg;
     }
 
-    public int dfb() {
+    public int dfc() {
         return this.lwh;
     }
 
-    public String dfc() {
+    public String dfd() {
         return this.lwi;
     }
 
-    public ArrayList<d> dfd() {
+    public ArrayList<d> dfe() {
         return this.lwy;
     }
 
-    public a dfe() {
+    public a dff() {
         return this.lwC;
     }
 
-    public ArrayList<d> dff() {
+    public ArrayList<d> dfg() {
         return this.lwz;
     }
 
-    public ArrayList<d> dfg() {
+    public ArrayList<d> dfh() {
         return this.lwA;
     }
 
-    public boolean dfh() {
+    public boolean dfi() {
         return this.lwj;
     }
 
-    public String dfi() {
+    public String dfj() {
         return this.lwt;
     }
 
@@ -138,19 +138,19 @@ public class c {
         return this.content;
     }
 
-    public int dfj() {
+    public int dfk() {
         return this.lwu;
     }
 
-    public boolean dfk() {
+    public boolean dfl() {
         return this.lwv;
     }
 
-    public int dfl() {
+    public int dfm() {
         return this.lww;
     }
 
-    public int dfm() {
+    public int dfn() {
         return this.lwx;
     }
 
@@ -168,13 +168,13 @@ public class c {
             dVar.uu(false);
             dVar.uv(false);
             a(dVar);
-            dfn();
+            dfo();
             us(true);
         }
     }
 
     private void a(d dVar) {
-        if (dVar.dfq() >= this.level) {
+        if (dVar.dfr() >= this.level) {
             this.lwm++;
             this.lwn--;
         } else {
@@ -183,19 +183,19 @@ public class c {
         }
         this.lwB.remove(String.valueOf(dVar.getForumId()));
         this.lwA.remove(dVar);
-        if (dVar.dfr() + dVar.dfv() >= dVar.dfs()) {
-            dVar.EC(dVar.dfq() + 1);
+        if (dVar.dfs() + dVar.dfw() >= dVar.dft()) {
+            dVar.EC(dVar.dfr() + 1);
             dVar.uw(true);
-            if (dVar.dfq() == this.level) {
+            if (dVar.dfr() == this.level) {
                 this.lwm++;
                 this.lwk--;
             }
         }
         this.lwz.add(dVar);
-        TbadkApplication.getInst().addSignedForum(dVar.getForumName(), dVar.dfv(), -1);
+        TbadkApplication.getInst().addSignedForum(dVar.getForumName(), dVar.dfw(), -1);
     }
 
-    private void dfn() {
+    private void dfo() {
         if (this.lwj) {
             if (this.lwn + this.lwl <= 0) {
                 this.lwv = true;
@@ -212,16 +212,16 @@ public class c {
     public void a(h hVar) {
         this.lww = 0;
         this.lwx = 0;
-        ArrayList<i> dfF = hVar.dfF();
-        int size = dfF.size();
+        ArrayList<i> dfG = hVar.dfG();
+        int size = dfG.size();
         for (int i = 0; i < size; i++) {
-            i iVar = dfF.get(i);
+            i iVar = dfG.get(i);
             d dVar = this.lwB.get(iVar.getForumId() + "");
             if (dVar != null) {
-                if (iVar.dfI() != 0) {
+                if (iVar.dfJ() != 0) {
                     this.lww++;
                     dVar.EA(1);
-                    dVar.EB(iVar.dfJ());
+                    dVar.EB(iVar.dfK());
                     dVar.ED(iVar.getCurScore());
                     dVar.ut(true);
                     dVar.uu(false);
@@ -232,11 +232,11 @@ public class c {
                     dVar.ut(false);
                     dVar.uu(true);
                     dVar.uv(false);
-                    dVar.setErrorMsg(iVar.dfe().getUserMsg());
+                    dVar.setErrorMsg(iVar.dff().getUserMsg());
                 }
             }
         }
-        dfn();
+        dfo();
         us(true);
     }
 
@@ -284,15 +284,15 @@ public class c {
                     if (jSONObject2 != null) {
                         d dVar = new d();
                         dVar.parserJson(jSONObject2);
-                        if (dVar.dfo() == 0) {
+                        if (dVar.dfp() == 0) {
                             if (this.valid == 0) {
                                 if (this.lwj) {
                                     dVar.uu(true);
-                                } else if (dVar.dfq() > this.level) {
+                                } else if (dVar.dfr() > this.level) {
                                     dVar.uu(true);
                                 }
                             }
-                            if (dVar.dfq() >= this.level) {
+                            if (dVar.dfr() >= this.level) {
                                 this.lwn++;
                             } else {
                                 this.lwl++;
@@ -300,13 +300,13 @@ public class c {
                             this.lwA.add(dVar);
                             this.lwB.put(dVar.getForumId() + "", dVar);
                         } else {
-                            if (dVar.dfq() >= this.level) {
+                            if (dVar.dfr() >= this.level) {
                                 this.lwm++;
                             } else {
                                 this.lwk++;
                             }
                             this.lwz.add(dVar);
-                            TbadkApplication.getInst().addSignedForum(dVar.getForumName(), dVar.dfv(), -1);
+                            TbadkApplication.getInst().addSignedForum(dVar.getForumName(), dVar.dfw(), -1);
                         }
                         this.lwy.add(dVar);
                         Collections.sort(this.lwy, new Comparator<d>() { // from class: com.baidu.tieba.signall.c.1
@@ -314,7 +314,7 @@ public class c {
                             @Override // java.util.Comparator
                             /* renamed from: a */
                             public int compare(d dVar2, d dVar3) {
-                                return dVar3.dfq() - dVar2.dfq();
+                                return dVar3.dfr() - dVar2.dfr();
                             }
                         });
                     }

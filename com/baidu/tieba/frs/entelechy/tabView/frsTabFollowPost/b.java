@@ -26,31 +26,31 @@ public class b {
     private FrsTabSortSwitchButton.a hKp = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.b.1
         @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.a
         public boolean va(int i) {
-            if (com.baidu.tieba.frs.b.bXc().bWW() || com.baidu.tieba.frs.a.bWV().bWW()) {
+            if (com.baidu.tieba.frs.b.bXd().bWX() || com.baidu.tieba.frs.a.bWW().bWX()) {
                 return false;
             }
             if (!j.isNetworkAvailableForImmediately()) {
                 b.this.hBW.showToast(R.string.neterror);
                 return false;
-            } else if (b.this.hBW.bXU() == null || b.this.hBW.bXZ() == null) {
+            } else if (b.this.hBW.bXV() == null || b.this.hBW.bYa() == null) {
                 return false;
             } else {
                 if (b.this.hKo == i) {
                     return true;
                 }
-                b.this.hBW.bXU().vF(b.this.hKn.vd(b.this.hKo));
+                b.this.hBW.bXV().vF(b.this.hKn.vd(b.this.hKo));
                 b.this.hKo = i;
                 if (b.this.hKo != 7) {
-                    ab.bjc();
-                    e.djf();
+                    ab.bjd();
+                    e.djg();
                 } else {
-                    e.dje();
+                    e.djf();
                 }
-                b.this.hBW.bXU().vE(b.this.hKn.vd(b.this.hKo));
-                b.this.hBW.bXU().nP(true);
-                b.this.hBW.bXZ().startPullRefresh();
-                b.this.hBW.bXU().nO(true);
-                b.this.cbO();
+                b.this.hBW.bXV().vE(b.this.hKn.vd(b.this.hKo));
+                b.this.hBW.bXV().nP(true);
+                b.this.hBW.bYa().startPullRefresh();
+                b.this.hBW.bXV().nO(true);
+                b.this.cbP();
                 return true;
             }
         }
@@ -60,12 +60,12 @@ public class b {
         this.eEs = str;
     }
 
-    public FrsTabSortSwitchButton cbP() {
+    public FrsTabSortSwitchButton cbQ() {
         return this.hKn;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbO() {
+    public void cbP() {
         ao aoVar = new ao("c11437");
         aoVar.ag("obj_type", this.hKn.vd(this.hKo));
         aoVar.dk("fid", this.eEs);

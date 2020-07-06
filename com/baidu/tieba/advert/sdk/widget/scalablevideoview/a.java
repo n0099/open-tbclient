@@ -14,15 +14,15 @@ public class a {
     public Matrix a(ScalableType scalableType) {
         switch (scalableType) {
             case NONE:
-                return bqw();
+                return bqx();
             case FIT_XY:
-                return bqp();
-            case FIT_CENTER:
-                return bqr();
-            case FIT_START:
                 return bqq();
-            case FIT_END:
+            case FIT_CENTER:
                 return bqs();
+            case FIT_START:
+                return bqr();
+            case FIT_END:
+                return bqt();
             case LEFT_TOP:
                 return b(PivotPoint.LEFT_TOP);
             case LEFT_CENTER:
@@ -60,29 +60,29 @@ public class a {
             case RIGHT_BOTTOM_CROP:
                 return c(PivotPoint.RIGHT_BOTTOM);
             case START_INSIDE:
-                return bqt();
-            case CENTER_INSIDE:
                 return bqu();
-            case END_INSIDE:
+            case CENTER_INSIDE:
                 return bqv();
+            case END_INSIDE:
+                return bqw();
             default:
                 return null;
         }
     }
 
-    private Matrix bqp() {
+    private Matrix bqq() {
         return a(1.0f, 1.0f, PivotPoint.LEFT_TOP);
     }
 
-    private Matrix bqq() {
+    private Matrix bqr() {
         return a(PivotPoint.LEFT_TOP);
     }
 
-    private Matrix bqr() {
+    private Matrix bqs() {
         return a(PivotPoint.CENTER);
     }
 
-    private Matrix bqs() {
+    private Matrix bqt() {
         return a(PivotPoint.RIGHT_BOTTOM);
     }
 
@@ -104,19 +104,19 @@ public class a {
         return a(max / width, max / height, pivotPoint);
     }
 
-    private Matrix bqt() {
-        return (this.fct.getHeight() > this.fcs.getWidth() || this.fct.getHeight() > this.fcs.getHeight()) ? bqq() : b(PivotPoint.LEFT_TOP);
-    }
-
     private Matrix bqu() {
-        return (this.fct.getHeight() > this.fcs.getWidth() || this.fct.getHeight() > this.fcs.getHeight()) ? bqr() : b(PivotPoint.CENTER);
+        return (this.fct.getHeight() > this.fcs.getWidth() || this.fct.getHeight() > this.fcs.getHeight()) ? bqr() : b(PivotPoint.LEFT_TOP);
     }
 
     private Matrix bqv() {
-        return (this.fct.getHeight() > this.fcs.getWidth() || this.fct.getHeight() > this.fcs.getHeight()) ? bqs() : b(PivotPoint.RIGHT_BOTTOM);
+        return (this.fct.getHeight() > this.fcs.getWidth() || this.fct.getHeight() > this.fcs.getHeight()) ? bqs() : b(PivotPoint.CENTER);
     }
 
     private Matrix bqw() {
+        return (this.fct.getHeight() > this.fcs.getWidth() || this.fct.getHeight() > this.fcs.getHeight()) ? bqt() : b(PivotPoint.RIGHT_BOTTOM);
+    }
+
+    private Matrix bqx() {
         return a(this.fct.getWidth() / this.fcs.getWidth(), this.fct.getHeight() / this.fcs.getHeight(), PivotPoint.LEFT_TOP);
     }
 

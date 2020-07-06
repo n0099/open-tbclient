@@ -11,14 +11,14 @@ import android.widget.TextView;
 import tv.chushou.widget.a.b;
 /* loaded from: classes5.dex */
 public class EmptyLoadingView extends RelativeLayout implements View.OnClickListener {
-    private static View.OnClickListener nwH;
+    private static View.OnClickListener nwK;
     private View.OnClickListener mLoginListener;
     private int mType;
-    private ImageView nwI;
-    private TextView nwJ;
-    private AnimationImageView nwK;
-    private TextView nwL;
-    private View.OnClickListener nwM;
+    private ImageView nwL;
+    private TextView nwM;
+    private AnimationImageView nwN;
+    private TextView nwO;
+    private View.OnClickListener nwP;
 
     public EmptyLoadingView(Context context) {
         this(context, null, 0);
@@ -32,18 +32,18 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
         super(context, attributeSet, i);
         this.mType = 4;
         LayoutInflater.from(context.getApplicationContext()).inflate(b.e.commonres_empty_loading_view, (ViewGroup) this, true);
-        this.nwI = (ImageView) findViewById(b.d.iv_empty);
-        this.nwJ = (TextView) findViewById(b.d.tv_desc);
-        this.nwK = (AnimationImageView) findViewById(b.d.iv_loading);
-        this.nwL = (TextView) findViewById(b.d.tv_button);
-        this.nwI.setOnClickListener(this);
-        this.nwJ.setOnClickListener(this);
+        this.nwL = (ImageView) findViewById(b.d.iv_empty);
+        this.nwM = (TextView) findViewById(b.d.tv_desc);
+        this.nwN = (AnimationImageView) findViewById(b.d.iv_loading);
+        this.nwO = (TextView) findViewById(b.d.tv_button);
         this.nwL.setOnClickListener(this);
+        this.nwM.setOnClickListener(this);
+        this.nwO.setOnClickListener(this);
         setOnClickListener(this);
     }
 
     public static void an(View.OnClickListener onClickListener) {
-        nwH = onClickListener;
+        nwK = onClickListener;
     }
 
     @Override // android.view.View.OnClickListener
@@ -53,15 +53,15 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
                 if (this.mLoginListener != null) {
                     this.mLoginListener.onClick(view);
                     return;
-                } else if (nwH != null) {
-                    nwH.onClick(view);
+                } else if (nwK != null) {
+                    nwK.onClick(view);
                     return;
                 } else {
                     return;
                 }
             default:
-                if (this.nwM != null) {
-                    this.nwM.onClick(view);
+                if (this.nwP != null) {
+                    this.nwP.onClick(view);
                     return;
                 }
                 return;
@@ -69,7 +69,7 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
     }
 
     public void setReloadListener(View.OnClickListener onClickListener) {
-        this.nwM = onClickListener;
+        this.nwP = onClickListener;
     }
 
     public void setLoginListener(View.OnClickListener onClickListener) {
@@ -77,15 +77,15 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
     }
 
     public void Ku(int i) {
-        if (this.nwK != null) {
+        if (this.nwN != null) {
             switch (i) {
                 case 1:
                     this.mType = 1;
                     setVisibility(0);
-                    this.nwK.setVisibility(0);
-                    this.nwI.setVisibility(8);
-                    this.nwJ.setVisibility(8);
+                    this.nwN.setVisibility(0);
                     this.nwL.setVisibility(8);
+                    this.nwM.setVisibility(8);
+                    this.nwO.setVisibility(8);
                     return;
                 case 2:
                     this.mType = 2;
@@ -94,48 +94,48 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
                 case 3:
                     this.mType = 3;
                     setVisibility(0);
-                    this.nwK.setVisibility(8);
-                    this.nwI.setVisibility(0);
-                    this.nwI.setImageResource(b.c.commonres_pagestatus_net_error);
-                    this.nwI.setClickable(true);
-                    this.nwJ.setVisibility(0);
-                    this.nwJ.setText(b.f.commonres_pagestatus_net_error);
+                    this.nwN.setVisibility(8);
                     this.nwL.setVisibility(0);
-                    this.nwL.setText(b.f.commonres_pagestatus_action_refresh);
+                    this.nwL.setImageResource(b.c.commonres_pagestatus_net_error);
+                    this.nwL.setClickable(true);
+                    this.nwM.setVisibility(0);
+                    this.nwM.setText(b.f.commonres_pagestatus_net_error);
+                    this.nwO.setVisibility(0);
+                    this.nwO.setText(b.f.commonres_pagestatus_action_refresh);
                     return;
                 case 4:
                     this.mType = 4;
                     setVisibility(0);
-                    this.nwK.setVisibility(8);
-                    this.nwI.setVisibility(0);
-                    this.nwI.setImageResource(b.c.commonres_pagestatus_unknown_error);
-                    this.nwI.setClickable(true);
-                    this.nwJ.setVisibility(0);
-                    this.nwJ.setText(b.f.commonres_pagestatus_unknown);
+                    this.nwN.setVisibility(8);
                     this.nwL.setVisibility(0);
-                    this.nwL.setText(b.f.commonres_pagestatus_action_refresh);
+                    this.nwL.setImageResource(b.c.commonres_pagestatus_unknown_error);
+                    this.nwL.setClickable(true);
+                    this.nwM.setVisibility(0);
+                    this.nwM.setText(b.f.commonres_pagestatus_unknown);
+                    this.nwO.setVisibility(0);
+                    this.nwO.setText(b.f.commonres_pagestatus_action_refresh);
                     return;
                 case 5:
                     this.mType = 5;
                     setVisibility(0);
-                    this.nwK.setVisibility(8);
-                    this.nwI.setVisibility(0);
-                    this.nwI.setImageResource(b.c.commonres_pagestatus_need_login);
-                    this.nwI.setClickable(true);
-                    this.nwJ.setVisibility(8);
+                    this.nwN.setVisibility(8);
                     this.nwL.setVisibility(0);
-                    this.nwL.setText(b.f.commonres_pagestatus_action_login);
+                    this.nwL.setImageResource(b.c.commonres_pagestatus_need_login);
+                    this.nwL.setClickable(true);
+                    this.nwM.setVisibility(8);
+                    this.nwO.setVisibility(0);
+                    this.nwO.setText(b.f.commonres_pagestatus_action_login);
                     return;
                 case 6:
                     this.mType = 6;
                     setVisibility(0);
-                    this.nwK.setVisibility(8);
-                    this.nwI.setVisibility(0);
-                    this.nwI.setImageResource(b.c.commonres_pagestatus_empty);
-                    this.nwI.setClickable(true);
-                    this.nwJ.setVisibility(0);
-                    this.nwJ.setText(b.f.commonres_pagestatus_empty);
-                    this.nwL.setVisibility(8);
+                    this.nwN.setVisibility(8);
+                    this.nwL.setVisibility(0);
+                    this.nwL.setImageResource(b.c.commonres_pagestatus_empty);
+                    this.nwL.setClickable(true);
+                    this.nwM.setVisibility(0);
+                    this.nwM.setText(b.f.commonres_pagestatus_empty);
+                    this.nwO.setVisibility(8);
                     return;
                 default:
                     this.mType = -1;

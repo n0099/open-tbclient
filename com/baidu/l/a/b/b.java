@@ -6,18 +6,18 @@ import com.baidu.l.a.a.d;
 public class b extends d {
     public b(Context context) {
         super(context);
-        this.mFO = "";
-        this.mFM = false;
-        this.mGp = false;
+        this.mFR = "";
+        this.mFP = false;
+        this.mGs = false;
         this.mStatusCode = -100;
     }
 
-    public com.baidu.l.a.a.c dxR() {
+    public com.baidu.l.a.a.c dxV() {
         return this;
     }
 
     @Override // com.baidu.l.a.a.c
-    public com.baidu.l.a.a.c dxQ() {
-        return dxR();
+    public com.baidu.l.a.a.c dxU() {
+        return dxV();
     }
 }

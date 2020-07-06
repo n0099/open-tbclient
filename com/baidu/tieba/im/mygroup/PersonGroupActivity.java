@@ -109,7 +109,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         aVar.a(R.string.share, new a.b() { // from class: com.baidu.tieba.im.mygroup.PersonGroupActivity.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                long bj = b.crW().bj(String.valueOf(j), 1);
+                long bj = b.crX().bj(String.valueOf(j), 1);
                 MessageUtils.createGroupChatMessage(bj, 9, shareFromGameCenterMsgData.toChatMessageContent(), j);
                 MessageUtils.createGroupChatMessage(bj + 1, 1, game2GroupShareDialogView.getLeaveMsg(), j);
                 aVar2.dismiss();
@@ -256,7 +256,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             this.iZv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.mygroup.PersonGroupActivity.6
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    PersonGroupActivity.this.csF();
+                    PersonGroupActivity.this.csG();
                 }
             });
             this.iZw = (LinearLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search_group_btn, (View.OnClickListener) null);
@@ -302,7 +302,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csF() {
+    public void csG() {
         showProgressBar();
         this.iZG.eG(0L);
     }
@@ -357,7 +357,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    public int csG() {
+    public int csH() {
         return this.fHy == 0 ? 0 : 1;
     }
 
@@ -371,11 +371,11 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    public String csH() {
+    public String csI() {
         return this.iZt;
     }
 
-    public boolean csI() {
+    public boolean csJ() {
         return this.isHost;
     }
 
@@ -409,7 +409,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    public PersonGroupModel csJ() {
+    public PersonGroupModel csK() {
         return this.iZG;
     }
 

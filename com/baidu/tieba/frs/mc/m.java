@@ -39,7 +39,7 @@ public class m implements MessageQueue.IdleHandler {
         if (this.hVr != null) {
             this.hVr.b(this.hVs, this.hVt, this.hVu);
             if (this.hUl != null) {
-                this.hUl.bYn();
+                this.hUl.bYo();
             }
         }
         return false;

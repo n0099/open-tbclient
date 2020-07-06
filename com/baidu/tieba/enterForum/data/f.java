@@ -33,11 +33,11 @@ public class f extends t implements com.baidu.tbadk.mvc.b.a {
         kq(1);
     }
 
-    public String bRj() {
+    public String bRk() {
         return this.mContent;
     }
 
-    public int bRk() {
+    public int bRl() {
         return this.hbM;
     }
 
@@ -53,11 +53,11 @@ public class f extends t implements com.baidu.tbadk.mvc.b.a {
         this.hbI = i;
     }
 
-    public int bRl() {
+    public int bRm() {
         return this.hbI;
     }
 
-    public int bRm() {
+    public int bRn() {
         return this.hbK;
     }
 
@@ -65,7 +65,7 @@ public class f extends t implements com.baidu.tbadk.mvc.b.a {
         return this.hbL;
     }
 
-    public int bRn() {
+    public int bRo() {
         return this.hbJ;
     }
 
@@ -81,11 +81,11 @@ public class f extends t implements com.baidu.tbadk.mvc.b.a {
         return this.mAvatar;
     }
 
-    public ThemeColorInfo bRo() {
+    public ThemeColorInfo bRp() {
         return this.hbN;
     }
 
-    public ArrayList<Integer> bRp() {
+    public ArrayList<Integer> bRq() {
         if (this.hbN == null || this.hbN.day == null || this.hbN.night == null || this.hbN.dark == null) {
             return null;
         }
@@ -109,11 +109,11 @@ public class f extends t implements com.baidu.tbadk.mvc.b.a {
         }
     }
 
-    public boolean bRq() {
+    public boolean bRr() {
         return this.hbK == 1 && this.hbL == 1 && this.dKd != null && this.dKd.private_forum_status.intValue() == 1;
     }
 
-    public boolean bRr() {
+    public boolean bRs() {
         return this.hbK == 1 && this.hbL == 1 && this.dKd != null && this.dKd.private_forum_status.intValue() == 1 && this.dKd.private_forum_audit_status.intValue() == 2;
     }
 
@@ -147,7 +147,7 @@ public class f extends t implements com.baidu.tbadk.mvc.b.a {
         }
     }
 
-    public long bRs() {
+    public long bRt() {
         return this.hbP;
     }
 
@@ -155,7 +155,7 @@ public class f extends t implements com.baidu.tbadk.mvc.b.a {
         this.hbP = j;
     }
 
-    public ArrayList<FrsTabItemData> bRt() {
+    public ArrayList<FrsTabItemData> bRu() {
         return this.tabItemDatas;
     }
 }

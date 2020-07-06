@@ -14,7 +14,7 @@ public class a {
     private SimpleUser loQ;
     private int loR;
 
-    public boolean dbl() {
+    public boolean dbm() {
         com.baidu.tbadk.core.sharedPref.b aVP = com.baidu.tbadk.core.sharedPref.b.aVP();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         this.loM = aVP.getInt("post" + currentAccount, 0);
@@ -38,7 +38,7 @@ public class a {
         }
     }
 
-    public int dbm() {
+    public int dbn() {
         return this.loM;
     }
 
@@ -46,7 +46,7 @@ public class a {
         com.baidu.tbadk.core.sharedPref.b.aVP().putInt(str + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public void dbn() {
+    public void dbo() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         com.baidu.tbadk.core.sharedPref.b aVP = com.baidu.tbadk.core.sharedPref.b.aVP();
         aVP.putInt("post" + currentAccount, this.loM);
@@ -61,7 +61,7 @@ public class a {
         this.loM = i;
     }
 
-    public int dbo() {
+    public int dbp() {
         return this.loN;
     }
 
@@ -71,7 +71,7 @@ public class a {
         }
     }
 
-    public int dbp() {
+    public int dbq() {
         return this.esG;
     }
 
@@ -81,7 +81,7 @@ public class a {
         }
     }
 
-    public int dbq() {
+    public int dbr() {
         return this.esD;
     }
 
@@ -91,7 +91,7 @@ public class a {
         }
     }
 
-    public boolean dbr() {
+    public boolean dbs() {
         return this.loO;
     }
 
@@ -106,7 +106,7 @@ public class a {
         }
     }
 
-    public SimpleUser boR() {
+    public SimpleUser boS() {
         return this.loQ;
     }
 
@@ -126,7 +126,7 @@ public class a {
         }
     }
 
-    public int dbs() {
+    public int dbt() {
         return this.loP;
     }
 }

@@ -18,7 +18,7 @@ public class AlaCategoryResponseMessage extends JsonHttpResponsedMessage {
         this.fyW.cV(jSONObject.optJSONObject("data"));
     }
 
-    public b bvO() {
+    public b bvP() {
         return this.fyW;
     }
 }

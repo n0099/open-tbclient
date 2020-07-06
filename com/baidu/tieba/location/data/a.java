@@ -42,7 +42,7 @@ public class a {
         }
     }
 
-    public ArrayList<C0677a> czm() {
+    public ArrayList<C0677a> czn() {
         return this.jxb;
     }
 

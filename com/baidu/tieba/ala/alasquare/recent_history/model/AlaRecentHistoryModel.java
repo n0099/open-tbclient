@@ -107,7 +107,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void btu() {
+    public void btv() {
         if (this.hasMore && !this.foF) {
             this.foF = true;
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST);

@@ -41,7 +41,7 @@ public class TopicVideoControllerView extends RelativeLayout {
                 switch (message.what) {
                     case 1:
                         if (!TopicVideoControllerView.this.mDragging && TopicVideoControllerView.this.mShowing && TopicVideoControllerView.this.eZk != null && TopicVideoControllerView.this.eZk.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoControllerView.this.eZj - (TopicVideoControllerView.this.bpp() % TopicVideoControllerView.this.eZj));
+                            sendMessageDelayed(obtainMessage(1), TopicVideoControllerView.this.eZj - (TopicVideoControllerView.this.bpq() % TopicVideoControllerView.this.eZj));
                             return;
                         }
                         return;
@@ -71,7 +71,7 @@ public class TopicVideoControllerView extends RelativeLayout {
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStopTrackingTouch(SeekBar seekBar) {
                 TopicVideoControllerView.this.mDragging = false;
-                TopicVideoControllerView.this.bpp();
+                TopicVideoControllerView.this.bpq();
                 TopicVideoControllerView.this.mHandler.sendEmptyMessage(1);
             }
         };
@@ -89,7 +89,7 @@ public class TopicVideoControllerView extends RelativeLayout {
                 switch (message.what) {
                     case 1:
                         if (!TopicVideoControllerView.this.mDragging && TopicVideoControllerView.this.mShowing && TopicVideoControllerView.this.eZk != null && TopicVideoControllerView.this.eZk.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoControllerView.this.eZj - (TopicVideoControllerView.this.bpp() % TopicVideoControllerView.this.eZj));
+                            sendMessageDelayed(obtainMessage(1), TopicVideoControllerView.this.eZj - (TopicVideoControllerView.this.bpq() % TopicVideoControllerView.this.eZj));
                             return;
                         }
                         return;
@@ -119,7 +119,7 @@ public class TopicVideoControllerView extends RelativeLayout {
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStopTrackingTouch(SeekBar seekBar) {
                 TopicVideoControllerView.this.mDragging = false;
-                TopicVideoControllerView.this.bpp();
+                TopicVideoControllerView.this.bpq();
                 TopicVideoControllerView.this.mHandler.sendEmptyMessage(1);
             }
         };
@@ -137,7 +137,7 @@ public class TopicVideoControllerView extends RelativeLayout {
                 switch (message.what) {
                     case 1:
                         if (!TopicVideoControllerView.this.mDragging && TopicVideoControllerView.this.mShowing && TopicVideoControllerView.this.eZk != null && TopicVideoControllerView.this.eZk.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoControllerView.this.eZj - (TopicVideoControllerView.this.bpp() % TopicVideoControllerView.this.eZj));
+                            sendMessageDelayed(obtainMessage(1), TopicVideoControllerView.this.eZj - (TopicVideoControllerView.this.bpq() % TopicVideoControllerView.this.eZj));
                             return;
                         }
                         return;
@@ -167,7 +167,7 @@ public class TopicVideoControllerView extends RelativeLayout {
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStopTrackingTouch(SeekBar seekBar) {
                 TopicVideoControllerView.this.mDragging = false;
-                TopicVideoControllerView.this.bpp();
+                TopicVideoControllerView.this.bpq();
                 TopicVideoControllerView.this.mHandler.sendEmptyMessage(1);
             }
         };
@@ -223,7 +223,7 @@ public class TopicVideoControllerView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int bpp() {
+    public int bpq() {
         if (this.eZk == null || this.mDragging) {
             return 0;
         }

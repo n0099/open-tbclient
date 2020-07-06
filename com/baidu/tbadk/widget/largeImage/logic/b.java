@@ -137,7 +137,7 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
         return this.mIsTop;
     }
 
-    public boolean bjo() {
+    public boolean bjp() {
         return this.aeM;
     }
 
@@ -268,7 +268,7 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
     }
 
     private boolean isBigThumbnailBlockOK() {
-        return (this.eKd == null || this.eKd.bkp() == null || this.eKd.bkp().getBitmap() == null || this.eKd.bkp().getBitmap().isRecycled()) ? false : true;
+        return (this.eKd == null || this.eKd.bkq() == null || this.eKd.bkq().getBitmap() == null || this.eKd.bkq().getBitmap().isRecycled()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -277,7 +277,7 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
             if (this.eKd != null) {
                 this.eKd.getWindowInOriginalBitmap();
                 if (isBigThumbnailBlockOK()) {
-                    canvas.drawBitmap(this.eKd.bkp().getBitmap(), this.mDisplayMatrix, null);
+                    canvas.drawBitmap(this.eKd.bkq().getBitmap(), this.mDisplayMatrix, null);
                 }
                 a(this.eKd, false);
                 updateAllBitmapBlock();
@@ -348,7 +348,7 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
     }
 
     public void a(com.baidu.tbadk.widget.largeImage.a.a aVar, com.baidu.tbadk.widget.largeImage.a.b bVar) {
-        if (aVar.bkn().getColumn() == 0 && aVar.bkn().getRow() == 1) {
+        if (aVar.bko().getColumn() == 0 && aVar.bko().getRow() == 1) {
             System.currentTimeMillis();
         }
         a(aVar, bVar.a(aVar), bVar.getWindowInOriginalBitmap());
@@ -359,7 +359,7 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
         int i2 = rect.right < rect2.right ? rect.right : rect2.right;
         int i3 = rect.top > rect2.top ? rect.top : rect2.top;
         int i4 = rect.bottom < rect2.bottom ? rect.bottom : rect2.bottom;
-        int sampleScale = aVar.bkn().getSampleScale();
+        int sampleScale = aVar.bko().getSampleScale();
         aVar.setSrcRect((i - rect.left) / sampleScale, (i3 - rect.top) / sampleScale, (i2 - rect.left) / sampleScale, (i4 - rect.top) / sampleScale);
         aVar.setDstRect((i - rect2.left) / sampleScale, (i3 - rect2.top) / sampleScale, (i2 - rect2.left) / sampleScale, (i4 - rect2.top) / sampleScale);
     }
@@ -426,9 +426,9 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
     private com.baidu.tbadk.widget.largeImage.a.a B(int i, int i2, int i3) {
         com.baidu.tbadk.widget.largeImage.a.a aVar;
         a.C0506a c0506a = new a.C0506a(i, i2, i3);
-        if (this.eKg.bkr() != null && (aVar = this.eKg.bkr().get(c0506a)) != null) {
+        if (this.eKg.bks() != null && (aVar = this.eKg.bks().get(c0506a)) != null) {
             if (aVar.getBitmap() == null || aVar.getBitmap().isRecycled()) {
-                this.eKg.bkr().remove(c0506a);
+                this.eKg.bks().remove(c0506a);
                 return null;
             }
             return aVar;

@@ -36,7 +36,7 @@ public class d {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == d.this.gbf) {
-                d.this.cdb();
+                d.this.cdc();
             } else if (d.this.hCb == null || view != d.this.hCb.getView()) {
                 if (view != d.this.fHw) {
                     if (view == d.this.hSA) {
@@ -81,7 +81,7 @@ public class d {
         return this.hSz != null ? this.hSz.getForumName() : "";
     }
 
-    public NavigationBar bwV() {
+    public NavigationBar bwW() {
         return this.mNavigationBar;
     }
 
@@ -123,7 +123,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cdb() {
+    public void cdc() {
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_CLICK_CLOSE_GAME_FRS_CONFIRM);
         customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, this.dPR.getUniqueId()));
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);

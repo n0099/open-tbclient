@@ -123,8 +123,8 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
         if (viewGroup != null) {
             this.fIb = viewGroup;
             this.gqk = (ViewGroup) this.fIb.findViewById(a.g.ala_live_header_view);
+            bJf();
             bJe();
-            bJd();
             if (!this.gqu && com.baidu.live.v.a.Hm().aZp != null && this.mShowType != 1) {
                 long j = c.vf().getLong("ala_recommend_live_last_show", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
@@ -133,7 +133,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
                     this.mShowType = 2;
                 }
             }
-            bJg();
+            bJh();
         }
     }
 
@@ -164,7 +164,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
         }
     }
 
-    private void bJd() {
+    private void bJe() {
         if (this.gmz == null) {
             this.gmz = new FrameLayout(this.mContext);
         }
@@ -179,7 +179,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
             this.gql.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.liveroom.recommend.a.1
                 @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
                 public void onListPullRefresh(boolean z) {
-                    a.this.bJg();
+                    a.this.bJh();
                     if (!z) {
                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "your_recommend", "pushfresh"));
                     }
@@ -216,7 +216,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
         }
     }
 
-    private void bJe() {
+    private void bJf() {
         this.gqm = LayoutInflater.from(this.mContext).inflate(a.h.ala_recommend_live_header_entrance, (ViewGroup) null);
         this.gqm.setPadding(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds14), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds20));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds78));
@@ -263,7 +263,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
                     return true;
                 } else if (!this.isOpen && f > this.mTouchSlop && Math.abs(f) > Math.abs(f2)) {
                     lv(true);
-                    bJf();
+                    bJg();
                     return true;
                 } else {
                     FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gmz.getLayoutParams();
@@ -317,7 +317,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
             if (this.gqw.getKeyboardVisibility()) {
                 return false;
             }
-            if (!this.gqw.bKf()) {
+            if (!this.gqw.bKg()) {
                 close();
                 return false;
             } else if (this.gqw.getScrollX() != 0) {
@@ -327,7 +327,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
         return true;
     }
 
-    private void bJf() {
+    private void bJg() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "left_slide"));
     }
 
@@ -348,7 +348,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
                 }
                 this.aUR.completePullRefresh();
                 if (z) {
-                    bJg();
+                    bJh();
                 }
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem("1429", LogConfig.KEY_ACCESS, "your_recommend", null));
             }
@@ -356,7 +356,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a implements View.OnClickLis
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJg() {
+    public void bJh() {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
             b(CommonEmptyView.ImgType.NO_NET);
             return;

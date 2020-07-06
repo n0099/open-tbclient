@@ -40,9 +40,9 @@ public class AlaSdkWalletOpaqueActivity extends BaseActivity<AlaSdkWalletOpaqueA
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view") && AlaSdkWalletOpaqueActivity.this.mPayController != null) {
-                Intent byE = AlaSdkWalletOpaqueActivity.this.mPayController.byE();
-                AlaSdkWalletOpaqueActivity.this.setResult(-1, byE);
-                AlaSdkWalletOpaqueActivity.this.b(AlaSdkWalletOpaqueActivity.this.mPayController.byF() == 0, byE);
+                Intent byF = AlaSdkWalletOpaqueActivity.this.mPayController.byF();
+                AlaSdkWalletOpaqueActivity.this.setResult(-1, byF);
+                AlaSdkWalletOpaqueActivity.this.b(AlaSdkWalletOpaqueActivity.this.mPayController.byG() == 0, byF);
             }
         }
     };

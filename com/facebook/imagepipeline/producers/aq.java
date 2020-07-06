@@ -4,40 +4,40 @@ import java.util.Map;
 /* loaded from: classes12.dex */
 public abstract class aq<T> extends com.facebook.common.b.h<T> {
     private final String mRequestId;
-    private final am mVR;
-    private final k<T> mWn;
-    private final String mXz;
+    private final am mVU;
+    private final k<T> mWq;
+    private final String mXC;
 
     @Override // com.facebook.common.b.h
     protected abstract void aN(T t);
 
     public aq(k<T> kVar, am amVar, String str, String str2) {
-        this.mWn = kVar;
-        this.mVR = amVar;
-        this.mXz = str;
+        this.mWq = kVar;
+        this.mVU = amVar;
+        this.mXC = str;
         this.mRequestId = str2;
-        this.mVR.fU(this.mRequestId, this.mXz);
+        this.mVU.fU(this.mRequestId, this.mXC);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
     public void onSuccess(T t) {
-        this.mVR.a(this.mRequestId, this.mXz, this.mVR.QP(this.mRequestId) ? bp(t) : null);
-        this.mWn.h(t, 1);
+        this.mVU.a(this.mRequestId, this.mXC, this.mVU.QQ(this.mRequestId) ? bp(t) : null);
+        this.mWq.h(t, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
     public void onFailure(Exception exc) {
-        this.mVR.a(this.mRequestId, this.mXz, exc, this.mVR.QP(this.mRequestId) ? y(exc) : null);
-        this.mWn.G(exc);
+        this.mVU.a(this.mRequestId, this.mXC, exc, this.mVU.QQ(this.mRequestId) ? y(exc) : null);
+        this.mWq.G(exc);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
-    public void dzd() {
-        this.mVR.b(this.mRequestId, this.mXz, this.mVR.QP(this.mRequestId) ? dGL() : null);
-        this.mWn.dzd();
+    public void dzh() {
+        this.mVU.b(this.mRequestId, this.mXC, this.mVU.QQ(this.mRequestId) ? dGP() : null);
+        this.mWq.dzh();
     }
 
     protected Map<String, String> bp(T t) {
@@ -48,7 +48,7 @@ public abstract class aq<T> extends com.facebook.common.b.h<T> {
         return null;
     }
 
-    protected Map<String, String> dGL() {
+    protected Map<String, String> dGP() {
         return null;
     }
 }

@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class b extends BaseAdapter implements View.OnClickListener {
-    private com.baidu.tieba.video.editvideo.data.a lWp;
+    private com.baidu.tieba.video.editvideo.data.a lWs;
     private List<com.baidu.tieba.video.editvideo.data.a> mList = new ArrayList();
 
     public void setData(List<com.baidu.tieba.video.editvideo.data.a> list) {
         if (list != null) {
             this.mList = list;
             if (this.mList.size() > 0) {
-                this.lWp = this.mList.get(0);
+                this.lWs = this.mList.get(0);
             }
         }
     }
@@ -33,10 +33,10 @@ public class b extends BaseAdapter implements View.OnClickListener {
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
         if (aVar == null) {
             if (this.mList != null) {
-                this.lWp = this.mList.get(0);
+                this.lWs = this.mList.get(0);
             }
         } else {
-            this.lWp = aVar;
+            this.lWs = aVar;
         }
         notifyDataSetChanged();
     }
@@ -65,13 +65,13 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_filter, (ViewGroup) null);
-            aVar.lWq = (TbImageView) view.findViewById(R.id.iv_effect);
-            aVar.lWq.setIsRound(true);
-            aVar.lWq.setDrawerType(1);
-            aVar.lWq.setDefaultBgResource(R.color.transparent);
-            aVar.lWq.setBorderWidth(l.getDimens(viewGroup.getContext(), R.dimen.ds4));
-            aVar.lWq.setBorderColor(an.getColor(R.color.cp_link_tip_a));
-            aVar.lWq.setConrers(15);
+            aVar.lWt = (TbImageView) view.findViewById(R.id.iv_effect);
+            aVar.lWt.setIsRound(true);
+            aVar.lWt.setDrawerType(1);
+            aVar.lWt.setDefaultBgResource(R.color.transparent);
+            aVar.lWt.setBorderWidth(l.getDimens(viewGroup.getContext(), R.dimen.ds4));
+            aVar.lWt.setBorderColor(an.getColor(R.color.cp_link_tip_a));
+            aVar.lWt.setConrers(15);
             aVar.khh = (TextView) view.findViewById(R.id.tv_name);
             an.setViewTextColor(aVar.khh, (int) R.color.cp_cont_j);
             aVar.khh = (TextView) view.findViewById(R.id.tv_name);
@@ -82,15 +82,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (i >= 0 && i < this.mList.size()) {
             com.baidu.tieba.video.editvideo.data.a aVar2 = this.mList.get(i);
             if (aVar2 != null) {
-                aVar.lWq.setTag(aVar2);
-                aVar.lWq.setOnClickListener(this);
-                aVar.lWq.startLoad(String.valueOf(aVar2.lWP), 24, false);
+                aVar.lWt.setTag(aVar2);
+                aVar.lWt.setOnClickListener(this);
+                aVar.lWt.startLoad(String.valueOf(aVar2.lWS), 24, false);
                 aVar.khh.setText(aVar2.name);
             }
-            if (!TextUtils.isEmpty(aVar2.name) && this.lWp != null && TextUtils.equals(aVar2.name, this.lWp.name)) {
-                aVar.lWq.setDrawBorder(true);
+            if (!TextUtils.isEmpty(aVar2.name) && this.lWs != null && TextUtils.equals(aVar2.name, this.lWs.name)) {
+                aVar.lWt.setDrawBorder(true);
             } else {
-                aVar.lWq.setDrawBorder(false);
+                aVar.lWt.setDrawBorder(false);
             }
         }
         return view;
@@ -99,7 +99,7 @@ public class b extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.iv_effect && (view.getTag() instanceof com.baidu.tieba.video.editvideo.data.a)) {
-            this.lWp = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
+            this.lWs = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
             notifyDataSetChanged();
         }
     }
@@ -107,7 +107,7 @@ public class b extends BaseAdapter implements View.OnClickListener {
     /* loaded from: classes10.dex */
     class a {
         TextView khh;
-        TbImageView lWq;
+        TbImageView lWt;
 
         a() {
         }

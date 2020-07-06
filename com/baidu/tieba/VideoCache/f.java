@@ -55,7 +55,7 @@ class f implements Runnable {
         }
         try {
             b(this.eWw);
-            if (this.eWw.bod().contains("/video_cache/pre_load?origin_url=")) {
+            if (this.eWw.boe().contains("/video_cache/pre_load?origin_url=")) {
                 a(this.eWw, this.mSocket, true);
             } else {
                 a(this.eWw, this.mSocket, false);
@@ -127,25 +127,25 @@ class f implements Runnable {
             return false;
         }
         hVar.setTotalLength(zL);
-        if (hVar.bof() < 0) {
+        if (hVar.bog() < 0) {
             hVar.cY(0L);
         }
-        if (hVar.bog() < 0) {
+        if (hVar.boh() < 0) {
             hVar.cZ(zL - 1);
         }
-        long bof = hVar.bof();
         long bog = hVar.bog();
-        j.D(TAG, "range is: " + bof + Constants.ACCEPT_TIME_SEPARATOR_SERVER + bog + " " + this);
-        if (hVar.boe()) {
+        long boh = hVar.boh();
+        j.D(TAG, "range is: " + bog + Constants.ACCEPT_TIME_SEPARATOR_SERVER + boh + " " + this);
+        if (hVar.bof()) {
             printStream.println("HTTP/1.1 206 Partial Content");
         } else {
             printStream.println("HTTP/1.1 200 OK");
         }
         printStream.println("Content-Type: video/mp4");
         printStream.println("Accept-Ranges: bytes");
-        printStream.println("Content-Length: " + ((bog - bof) + 1));
-        if (hVar.boe()) {
-            printStream.println("Content-Range: bytes " + bof + Constants.ACCEPT_TIME_SEPARATOR_SERVER + bog + "/" + zL);
+        printStream.println("Content-Length: " + ((boh - bog) + 1));
+        if (hVar.bof()) {
+            printStream.println("Content-Range: bytes " + bog + Constants.ACCEPT_TIME_SEPARATOR_SERVER + boh + "/" + zL);
         }
         printStream.println("Content-Transfer-Encoding: binary");
         printStream.println();
@@ -335,14 +335,14 @@ class f implements Runnable {
                     }
                     cVar.setTotalLength(hVar.getTotalLength());
                     if (!z) {
-                        c bob = e.boa().bob();
-                        if (bob != null && bob.getVideoUrl() != null && bob.getVideoUrl().equals(cVar.getVideoUrl())) {
-                            bob.close();
-                            e.boa().v(null);
+                        c boc = e.bob().boc();
+                        if (boc != null && boc.getVideoUrl() != null && boc.getVideoUrl().equals(cVar.getVideoUrl())) {
+                            boc.close();
+                            e.bob().v(null);
                         }
-                        e.boa().s(cVar);
-                    } else if (e.boa().u(cVar)) {
-                        e.boa().v(null);
+                        e.bob().s(cVar);
+                    } else if (e.bob().u(cVar)) {
+                        e.bob().v(null);
                         com.baidu.adp.lib.f.a.close((OutputStream) printStream);
                         if (cVar != null) {
                             cVar.close();
@@ -350,14 +350,14 @@ class f implements Runnable {
                         }
                         return;
                     } else {
-                        c bob2 = e.boa().bob();
-                        if (bob2 != null) {
-                            bob2.close();
+                        c boc2 = e.bob().boc();
+                        if (boc2 != null) {
+                            boc2.close();
                         }
                         j.D(TAG, "server handle preload: " + cVar.getVideoUrl());
-                        e.boa().v(cVar);
+                        e.bob().v(cVar);
                     }
-                    cVar.v(hVar.bof(), hVar.bog());
+                    cVar.v(hVar.bog(), hVar.boh());
                     if (this.eWv != null) {
                         while (cVar.canRead()) {
                             int read = cVar.read(this.eWv, 1048576);
@@ -372,9 +372,9 @@ class f implements Runnable {
                     j.D(TAG, "finished! " + this);
                     printStream.flush();
                     if (z) {
-                        e.boa().v(null);
+                        e.bob().v(null);
                     } else {
-                        e.boa().t(cVar);
+                        e.bob().t(cVar);
                     }
                     com.baidu.adp.lib.f.a.close((OutputStream) printStream);
                     if (cVar != null) {

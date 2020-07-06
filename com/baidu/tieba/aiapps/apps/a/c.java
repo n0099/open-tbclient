@@ -32,27 +32,27 @@ import java.util.List;
 public class c implements com.baidu.swan.bdprivate.a.a.a {
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(Context context, Bundle bundle, com.baidu.swan.apps.a.a aVar) {
-        a.bqz().a(context, bundle, aVar);
+        a.bqA().a(context, bundle, aVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public boolean isLogin(Context context) {
-        return a.bqz().isLogin();
+        return a.bqA().isLogin();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getBduss(Context context) {
-        return a.bqz().getBduss();
+        return a.bqA().getBduss();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(String str, ArrayList<String> arrayList, b.a aVar) {
-        a.bqz().b(str, arrayList, aVar);
+        a.bqA().b(str, arrayList, aVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getUid(Context context) {
-        return a.bqz().getUid();
+        return a.bqA().getUid();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -72,14 +72,14 @@ public class c implements com.baidu.swan.bdprivate.a.a.a {
     @Override // com.baidu.swan.bdprivate.a.a.a
     public z cU(Context context) {
         z zVar = new z();
-        zVar.displayName = a.bqz().getDisplayName();
-        zVar.aRD = a.bqz().bqB();
+        zVar.displayName = a.bqA().getDisplayName();
+        zVar.aRD = a.bqA().bqC();
         return zVar;
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void b(com.baidu.swan.apps.a.c cVar) {
-        a.bqz().a(cVar);
+        a.bqA().a(cVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -200,11 +200,11 @@ public class c implements com.baidu.swan.bdprivate.a.a.a {
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(Context context, a.InterfaceC0414a interfaceC0414a) {
-        a.bqz().a(context, "1", interfaceC0414a);
+        a.bqA().a(context, "1", interfaceC0414a);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(Context context, a.InterfaceC0418a interfaceC0418a) {
-        a.bqz().a(context, "1", interfaceC0418a);
+        a.bqA().a(context, "1", interfaceC0418a);
     }
 }

@@ -20,16 +20,16 @@ public interface d {
 
     void a(e eVar);
 
-    View bNA();
-
-    Rect bNI();
-
-    void bNJ();
-
-    void bNy();
-
     @ICameraControl.FlashMode
-    int bNz();
+    int bNA();
+
+    View bNB();
+
+    Rect bNJ();
+
+    void bNK();
+
+    void bNz();
 
     void pause();
 

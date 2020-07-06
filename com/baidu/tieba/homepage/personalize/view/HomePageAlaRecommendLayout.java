@@ -45,7 +45,7 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
                     for (AlaLiveInfo alaLiveInfo : HomePageAlaRecommendLayout.this.mData) {
                         if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.user_info.user_id != null && data.toUid.equals(alaLiveInfo.user_info.user_id.toString())) {
                             HomePageAlaRecommendLayout.this.mData.remove(alaLiveInfo);
-                            HomePageAlaRecommendLayout.this.ckl();
+                            HomePageAlaRecommendLayout.this.ckm();
                             return;
                         }
                     }
@@ -70,16 +70,16 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
     }
 
     public void setData(com.baidu.tieba.homepage.personalize.data.f fVar) {
-        if (fVar == null || w.isEmpty(fVar.cjZ())) {
+        if (fVar == null || w.isEmpty(fVar.cka())) {
             setVisibility(8);
             return;
         }
-        this.mData = fVar.cjZ();
+        this.mData = fVar.cka();
         setVisibility(0);
-        ckl();
+        ckm();
     }
 
-    public void ckl() {
+    public void ckm() {
         if (w.isEmpty(this.mData)) {
             setVisibility(8);
             return;

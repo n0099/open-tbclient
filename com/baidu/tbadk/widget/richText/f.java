@@ -70,7 +70,7 @@ public class f extends ClickableSpan {
     public void updateDrawState(TextPaint textPaint) {
         if (this.textColor != -1) {
             textPaint.setColor(an.getColor(this.textColor));
-        } else if (blp()) {
+        } else if (blq()) {
             textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.cp_link_tip_c));
         } else {
             textPaint.setColor(textPaint.linkColor);
@@ -78,7 +78,7 @@ public class f extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.eOu == 1 && blq()) {
+        } else if (this.eOu == 1 && blr()) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = an.getColor(R.color.cp_bg_line_c);
             } else {
@@ -89,7 +89,7 @@ public class f extends ClickableSpan {
         }
     }
 
-    private boolean blp() {
+    private boolean blq() {
         switch (this.mType) {
             case 2:
             case 16:
@@ -100,7 +100,7 @@ public class f extends ClickableSpan {
         }
     }
 
-    public boolean blq() {
+    public boolean blr() {
         switch (this.mType) {
             case 16:
             case 18:

@@ -221,7 +221,7 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
             } else {
                 this.mRootView.setBackgroundResource(a.f.ala_rank_list_top_corner_bg);
             }
-            brs();
+            brt();
         }
     }
 
@@ -310,10 +310,10 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        brs();
+        brt();
     }
 
-    private void brs() {
+    private void brt() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());

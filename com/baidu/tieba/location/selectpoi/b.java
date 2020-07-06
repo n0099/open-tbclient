@@ -22,10 +22,10 @@ public class b extends BaseAdapter {
 
     public b(TbPageContext<SelectLocationActivity> tbPageContext) {
         this.dPv = tbPageContext;
-        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.diD().getLocationData();
-        this.isShowLocation = !com.baidu.tieba.tbadkCore.location.c.diD().diE();
+        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.diE().getLocationData();
+        this.isShowLocation = !com.baidu.tieba.tbadkCore.location.c.diE().diF();
         if (locationData != null) {
-            this.data = h(locationData.diC(), locationData.diB());
+            this.data = h(locationData.diD(), locationData.diC());
         }
     }
 

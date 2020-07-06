@@ -70,14 +70,14 @@ public class a {
         this.US.setPullRefresh(this.mPullView);
         this.fnt = new PbListView(this.fsN);
         this.fnt.createView();
-        bup();
-    }
-
-    private void bup() {
         buq();
     }
 
     private void buq() {
+        bur();
+    }
+
+    private void bur() {
         if (this.mType == 0) {
             this.fsO = new com.baidu.tieba.ala.alasquare.recent_history.a.b(this.mPageContext);
         } else if (1 == this.mType) {
@@ -96,7 +96,7 @@ public class a {
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 0) {
-                    com.baidu.tieba.ala.alasquare.c.a.buo().brT();
+                    com.baidu.tieba.ala.alasquare.c.a.bup().brU();
                 }
             }
 
@@ -152,7 +152,7 @@ public class a {
         return this.mRootView;
     }
 
-    public ViewGroup bur() {
+    public ViewGroup bus() {
         return this.caS;
     }
 
@@ -167,13 +167,13 @@ public class a {
             this.fsO.setData(list);
         }
         if (z) {
-            btJ();
+            btK();
         } else {
-            btI();
+            btJ();
         }
     }
 
-    private void btI() {
+    private void btJ() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.US.setNextPage(this.fnt);
@@ -183,7 +183,7 @@ public class a {
         }
     }
 
-    private void btJ() {
+    private void btK() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.US.setNextPage(this.fnt);
@@ -193,7 +193,7 @@ public class a {
         }
     }
 
-    public void bus() {
+    public void but() {
         this.US.setNextPage(null);
     }
 

@@ -50,7 +50,7 @@ public class g extends com.baidu.adp.widget.ListView.a<k, ak<k>> implements com.
         this.hFi = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cay */
+            /* renamed from: caz */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(g.this.mPageContext.getPageActivity());
             }
@@ -132,7 +132,7 @@ public class g extends com.baidu.adp.widget.ListView.a<k, ak<k>> implements com.
             }
         };
         this.mPageContext = tbPageContext;
-        cjP();
+        cjQ();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -249,7 +249,7 @@ public class g extends com.baidu.adp.widget.ListView.a<k, ak<k>> implements com.
         this.kLS = i;
     }
 
-    private void cjP() {
+    private void cjQ() {
         k.gUC = "c13542";
     }
 

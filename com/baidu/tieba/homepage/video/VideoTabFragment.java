@@ -73,11 +73,11 @@ public class VideoTabFragment extends BaseFragment implements ao {
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void btP() {
+    public void btQ() {
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void btQ() {
+    public void btR() {
     }
 
     @Override // com.baidu.tieba.frs.ao

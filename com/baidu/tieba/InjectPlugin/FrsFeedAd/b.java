@@ -17,7 +17,7 @@ public class b implements q, com.baidu.tieba.InjectPlugin.a {
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object bmv() {
+    public Object bmw() {
         return this.eSx;
     }
 
@@ -25,7 +25,7 @@ public class b implements q, com.baidu.tieba.InjectPlugin.a {
         this.eSx = obj;
     }
 
-    public int bmw() {
+    public int bmx() {
         return this.eSy;
     }
 
@@ -41,7 +41,7 @@ public class b implements q, com.baidu.tieba.InjectPlugin.a {
         }
     }
 
-    public static List<BdUniqueId> bmx() {
+    public static List<BdUniqueId> bmy() {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < eSw.size(); i++) {
             arrayList.add(eSw.valueAt(i));

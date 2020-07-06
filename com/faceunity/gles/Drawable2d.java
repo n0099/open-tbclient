@@ -9,7 +9,7 @@ public class Drawable2d {
     private FloatBuffer mVertexArray;
     private int mVertexCount;
     private int mVertexStride;
-    private Prefab mYR;
+    private Prefab mYU;
     private static final float[] TRIANGLE_COORDS = {0.0f, 0.57735026f, -0.5f, -0.28867513f, 0.5f, -0.28867513f};
     private static final float[] TRIANGLE_TEX_COORDS = {0.5f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
     private static final FloatBuffer TRIANGLE_BUF = d.createFloatBuffer(TRIANGLE_COORDS);
@@ -57,7 +57,7 @@ public class Drawable2d {
                 throw new RuntimeException("Unknown shape " + prefab);
         }
         this.mTexCoordStride = 8;
-        this.mYR = prefab;
+        this.mYU = prefab;
     }
 
     public FloatBuffer getVertexArray() {
@@ -85,6 +85,6 @@ public class Drawable2d {
     }
 
     public String toString() {
-        return this.mYR != null ? "[Drawable2d: " + this.mYR + "]" : "[Drawable2d: ...]";
+        return this.mYU != null ? "[Drawable2d: " + this.mYU + "]" : "[Drawable2d: ...]";
     }
 }

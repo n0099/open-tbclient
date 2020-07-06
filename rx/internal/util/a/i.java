@@ -10,41 +10,41 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.nPn;
-        long j = this.ogs;
-        long dPG = dPG();
-        long gB = gB(dPG);
+        E[] eArr = this.nPq;
+        long j = this.ogv;
+        long dPK = dPK();
+        long gB = gB(dPK);
         if (b(eArr, gB) != null) {
-            if (dPG - dPH() > j) {
+            if (dPK - dPL() > j) {
                 return false;
             }
             do {
             } while (b(eArr, gB) != null);
             a(eArr, gB, e);
-            gD(1 + dPG);
+            gD(1 + dPK);
             return true;
         }
         a(eArr, gB, e);
-        gD(1 + dPG);
+        gD(1 + dPK);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long dPH;
-        long dVa = dVa();
+        long dPL;
+        long dVe = dVe();
         do {
-            dPH = dPH();
-            if (dPH >= dVa) {
-                long dPG = dPG();
-                if (dPH >= dPG) {
+            dPL = dPL();
+            if (dPL >= dVe) {
+                long dPK = dPK();
+                if (dPL >= dPK) {
                     return null;
                 }
-                gE(dPG);
+                gE(dPK);
             }
-        } while (!W(dPH, 1 + dPH));
-        long gB = gB(dPH);
-        E[] eArr = this.nPn;
+        } while (!W(dPL, 1 + dPL));
+        long gB = gB(dPL);
+        E[] eArr = this.nPq;
         E a = a(eArr, gB);
         b(eArr, gB, null);
         return a;
@@ -53,36 +53,36 @@ public final class i<E> extends m<E> {
     @Override // java.util.Queue
     public E peek() {
         E gC;
-        long dVa = dVa();
+        long dVe = dVe();
         do {
-            long dPH = dPH();
-            if (dPH >= dVa) {
-                long dPG = dPG();
-                if (dPH >= dPG) {
+            long dPL = dPL();
+            if (dPL >= dVe) {
+                long dPK = dPK();
+                if (dPL >= dPK) {
                     return null;
                 }
-                gE(dPG);
+                gE(dPK);
             }
-            gC = gC(gB(dPH));
+            gC = gC(gB(dPL));
         } while (gC == null);
         return gC;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dPH = dPH();
+        long dPL = dPL();
         while (true) {
-            long dPG = dPG();
-            long dPH2 = dPH();
-            if (dPH == dPH2) {
-                return (int) (dPG - dPH2);
+            long dPK = dPK();
+            long dPL2 = dPL();
+            if (dPL == dPL2) {
+                return (int) (dPK - dPL2);
             }
-            dPH = dPH2;
+            dPL = dPL2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dPH() == dPG();
+        return dPL() == dPK();
     }
 }

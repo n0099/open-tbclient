@@ -13,7 +13,7 @@ import java.util.List;
 class aj {
 
     /* renamed from: a  reason: collision with other field name */
-    private static final String[] f850a = {"com.mi.globalbrowser", "com.android.browser"};
+    private static final String[] f851a = {"com.mi.globalbrowser", "com.android.browser"};
     private static String a = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -72,7 +72,7 @@ class aj {
         String str;
         int i = -1;
         while (true) {
-            str = i < 0 ? a : f850a[i];
+            str = i < 0 ? a : f851a[i];
             if (!TextUtils.isEmpty(str)) {
                 intent.setPackage(str);
                 try {
@@ -85,7 +85,7 @@ class aj {
                 }
             }
             int i2 = i + 1;
-            if (i2 >= f850a.length) {
+            if (i2 >= f851a.length) {
                 str = null;
                 break;
             }

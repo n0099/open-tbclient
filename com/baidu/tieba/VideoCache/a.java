@@ -7,11 +7,11 @@ public class a {
     private List<d> eVU = new ArrayList();
     private long eVV = 0;
 
-    public List<d> bnP() {
+    public List<d> bnQ() {
         return this.eVU;
     }
 
-    public long bnQ() {
+    public long bnR() {
         return this.eVV;
     }
 
@@ -19,7 +19,7 @@ public class a {
         if (this.eVU != null) {
             this.eVU.add(dVar);
             if (dVar != null) {
-                this.eVV += dVar.bnZ();
+                this.eVV += dVar.boa();
             }
         }
     }
@@ -28,7 +28,7 @@ public class a {
         if (this.eVU != null) {
             this.eVU.remove(dVar);
             if (dVar != null) {
-                this.eVV -= dVar.bnZ();
+                this.eVV -= dVar.boa();
             }
         }
     }
@@ -37,13 +37,13 @@ public class a {
         if (this.eVU != null) {
             d dVar = this.eVU.get(i);
             if (dVar != null) {
-                this.eVV -= dVar.bnZ();
+                this.eVV -= dVar.boa();
             }
             this.eVU.remove(i);
         }
     }
 
-    public int bnR() {
+    public int bnS() {
         if (this.eVU != null) {
             return this.eVU.size();
         }

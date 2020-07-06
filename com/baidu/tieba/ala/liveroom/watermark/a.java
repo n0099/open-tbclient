@@ -11,7 +11,7 @@ public class a {
     private AlaLiveRoomWatermarkView gvd;
     private TbPageContext mTbPageContext;
 
-    public void bKA() {
+    public void bKB() {
         if (this.gvd != null && this.gvd.getParent() != null) {
             ((ViewGroup) this.gvd.getParent()).removeView(this.gvd);
         }
@@ -23,7 +23,7 @@ public class a {
         }
     }
 
-    public int bKB() {
+    public int bKC() {
         int i = 0;
         if (this.gvd == null || this.gvd.getLayoutParams() == null) {
             return 0;

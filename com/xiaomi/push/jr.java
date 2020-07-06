@@ -4,7 +4,7 @@ public final class jr extends js {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f789a;
+    private byte[] f790a;
     private int b;
 
     @Override // com.xiaomi.push.js
@@ -19,7 +19,7 @@ public final class jr extends js {
             i2 = b;
         }
         if (i2 > 0) {
-            System.arraycopy(this.f789a, this.a, bArr, i, i2);
+            System.arraycopy(this.f790a, this.a, bArr, i, i2);
             a(i2);
         }
         return i2;
@@ -41,7 +41,7 @@ public final class jr extends js {
 
     @Override // com.xiaomi.push.js
     public byte[] a() {
-        return this.f789a;
+        return this.f790a;
     }
 
     @Override // com.xiaomi.push.js
@@ -51,7 +51,7 @@ public final class jr extends js {
 
     @Override // com.xiaomi.push.js
     public void b(byte[] bArr, int i, int i2) {
-        this.f789a = bArr;
+        this.f790a = bArr;
         this.a = i;
         this.b = i + i2;
     }

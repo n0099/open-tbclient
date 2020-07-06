@@ -29,8 +29,8 @@ public class e extends com.baidu.tieba.card.c<z> {
         this.ahw = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.bOc() != null) {
-                    e.this.bOc().a(view, null);
+                if (e.this.bOd() != null) {
+                    e.this.bOd().a(view, null);
                 }
             }
         };

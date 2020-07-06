@@ -59,7 +59,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cdl() {
+    public void cdm() {
         this.hTc.cancelLoadData();
     }
 
@@ -97,7 +97,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         bundle.putBoolean(FrsActivityConfig.GOOD, true);
     }
 
-    public boolean cdm() {
+    public boolean cdn() {
         FrsRequestData frsRequestData = (FrsRequestData) FrsRequestData.objectWithJson(FrsRequestData.jsonWithObject(this.hTd), FrsRequestData.class);
         frsRequestData.setPn(1);
         a(frsRequestData, 3);
@@ -145,7 +145,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
             }
             frsRequestData.setUpdateType(this.mType);
             frsRequestData.setNeedCache(false);
-            cdo();
+            cdp();
         }
     }
 
@@ -257,7 +257,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         }
     }
 
-    public void bYv() {
+    public void bYw() {
         if (this.hzi != null && this.hzi.getForum() != null && this.hzi.getForum().getBannerListData() != null) {
             String lastIds = this.hzi.getForum().getBannerListData().getLastIds();
             if (!TextUtils.isEmpty(lastIds)) {
@@ -270,28 +270,28 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         return this.mType;
     }
 
-    public FrsViewData cdn() {
+    public FrsViewData cdo() {
         return this.hzi;
     }
 
-    private void cdo() {
+    private void cdp() {
         this.hfB = System.currentTimeMillis();
         this.hTc.loadData();
     }
 
-    public long bSs() {
+    public long bSt() {
         return this.hfE;
     }
 
-    public long bSt() {
+    public long bSu() {
         return this.hfC;
     }
 
-    public long bSu() {
+    public long bSv() {
         return this.hfD;
     }
 
-    public long bSv() {
+    public long bSw() {
         return this.hfB;
     }
 
@@ -301,10 +301,10 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
 
     public void qc(int i) {
         this.hTg = i;
-        cdm();
+        cdn();
     }
 
-    public boolean cdp() {
+    public boolean cdq() {
         return this.hTg < 100;
     }
 

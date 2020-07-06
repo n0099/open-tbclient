@@ -14,16 +14,16 @@ public class be {
     private static be a = new be();
 
     /* renamed from: a  reason: collision with other field name */
-    private static String f888a;
+    private static String f889a;
 
     /* renamed from: a  reason: collision with other field name */
-    private al.b f889a;
+    private al.b f890a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ej.a f890a;
+    private ej.a f891a;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<a> f891a = new ArrayList();
+    private List<a> f892a = new ArrayList();
 
     /* loaded from: classes8.dex */
     public static abstract class a {
@@ -45,33 +45,33 @@ public class be {
     public static synchronized String m553a() {
         String str;
         synchronized (be.class) {
-            if (f888a == null) {
+            if (f889a == null) {
                 SharedPreferences sharedPreferences = com.xiaomi.push.t.m577a().getSharedPreferences("XMPushServiceConfig", 0);
-                f888a = sharedPreferences.getString("DeviceUUID", null);
-                if (f888a == null) {
-                    f888a = com.xiaomi.push.i.a(com.xiaomi.push.t.m577a(), false);
-                    if (f888a != null) {
-                        sharedPreferences.edit().putString("DeviceUUID", f888a).commit();
+                f889a = sharedPreferences.getString("DeviceUUID", null);
+                if (f889a == null) {
+                    f889a = com.xiaomi.push.i.a(com.xiaomi.push.t.m577a(), false);
+                    if (f889a != null) {
+                        sharedPreferences.edit().putString("DeviceUUID", f889a).commit();
                     }
                 }
             }
-            str = f888a;
+            str = f889a;
         }
         return str;
     }
 
     private void b() {
-        if (this.f890a == null) {
+        if (this.f891a == null) {
             d();
         }
     }
 
     private void c() {
-        if (this.f889a != null) {
+        if (this.f890a != null) {
             return;
         }
-        this.f889a = new bf(this);
-        gv.a(this.f889a);
+        this.f890a = new bf(this);
+        gv.a(this.f890a);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:27:? A[RETURN, SYNTHETIC] */
@@ -85,14 +85,14 @@ public class be {
             try {
                 bufferedInputStream = new BufferedInputStream(com.xiaomi.push.t.m577a().openFileInput("XMCloudCfg"));
                 try {
-                    this.f890a = ej.a.b(com.xiaomi.push.b.a(bufferedInputStream));
+                    this.f891a = ej.a.b(com.xiaomi.push.b.a(bufferedInputStream));
                     bufferedInputStream.close();
                     com.xiaomi.push.y.a(bufferedInputStream);
                 } catch (Exception e) {
                     e = e;
                     com.xiaomi.channel.commonutils.logger.b.m48a("load config failure: " + e.getMessage());
                     com.xiaomi.push.y.a(bufferedInputStream);
-                    if (this.f890a != null) {
+                    if (this.f891a != null) {
                     }
                 }
             } catch (Throwable th) {
@@ -109,18 +109,18 @@ public class be {
             com.xiaomi.push.y.a(bufferedInputStream);
             throw th;
         }
-        if (this.f890a != null) {
-            this.f890a = new ej.a();
+        if (this.f891a != null) {
+            this.f891a = new ej.a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         try {
-            if (this.f890a != null) {
+            if (this.f891a != null) {
                 BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.t.m577a().openFileOutput("XMCloudCfg", 0));
                 com.xiaomi.push.c a2 = com.xiaomi.push.c.a(bufferedOutputStream);
-                this.f890a.a(a2);
+                this.f891a.a(a2);
                 a2.m170a();
                 bufferedOutputStream.close();
             }
@@ -133,8 +133,8 @@ public class be {
     /* renamed from: a  reason: collision with other method in class */
     public int m556a() {
         b();
-        if (this.f890a != null) {
-            return this.f890a.c();
+        if (this.f891a != null) {
+            return this.f891a.c();
         }
         return 0;
     }
@@ -142,13 +142,13 @@ public class be {
     /* renamed from: a  reason: collision with other method in class */
     public ej.a m557a() {
         b();
-        return this.f890a;
+        return this.f891a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: a  reason: collision with other method in class */
     public synchronized void m558a() {
-        this.f891a.clear();
+        this.f892a.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -158,7 +158,7 @@ public class be {
             c();
         }
         synchronized (this) {
-            aVarArr = (a[]) this.f891a.toArray(new a[this.f891a.size()]);
+            aVarArr = (a[]) this.f892a.toArray(new a[this.f892a.size()]);
         }
         for (a aVar : aVarArr) {
             aVar.a(bVar);
@@ -166,6 +166,6 @@ public class be {
     }
 
     public synchronized void a(a aVar) {
-        this.f891a.add(aVar);
+        this.f892a.add(aVar);
     }
 }

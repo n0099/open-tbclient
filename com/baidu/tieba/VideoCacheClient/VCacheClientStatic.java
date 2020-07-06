@@ -18,7 +18,7 @@ public class VCacheClientStatic {
                 new Thread(new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.VCacheClientStatic.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.boo().eh(TbadkCoreApplication.getInst().getContext());
+                        b.bop().eh(TbadkCoreApplication.getInst().getContext());
                     }
                 }).start();
             }
@@ -26,16 +26,16 @@ public class VCacheClientStatic {
     };
 
     static {
-        bot();
+        bou();
         MessageManager.getInstance().registerListener(eWY);
     }
 
-    private static void bot() {
+    private static void bou() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, new CustomMessageTask.CustomRunnable<i>() { // from class: com.baidu.tieba.VideoCacheClient.VCacheClientStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<i> run(CustomMessage<i> customMessage) {
-                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, b.boo());
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, b.bop());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

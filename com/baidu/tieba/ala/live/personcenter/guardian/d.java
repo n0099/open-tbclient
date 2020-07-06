@@ -16,10 +16,10 @@ public class d {
 
     public d(Context context) {
         this.mContext = context;
-        ag(byQ());
+        ag(byR());
     }
 
-    public View byQ() {
+    public View byR() {
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_guardian_header, (ViewGroup) null);
         }

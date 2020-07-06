@@ -22,7 +22,7 @@ public class AlaGetTargetInfoResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public d bCN() {
+    public d bCO() {
         return this.fZv;
     }
 }

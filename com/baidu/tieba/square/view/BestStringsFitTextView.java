@@ -36,7 +36,7 @@ public class BestStringsFitTextView extends TextView {
         this.lCz = false;
     }
 
-    protected void dgU() {
+    protected void dgV() {
         this.bdF = (getWidth() - getPaddingLeft()) - getPaddingRight();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.textArray.length; i++) {
@@ -58,13 +58,13 @@ public class BestStringsFitTextView extends TextView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.textArray != null && !this.lCz) {
-            dgU();
+            dgV();
         }
     }
 
     public void setTextArray(String[] strArr) {
         this.textArray = strArr;
-        dgU();
+        dgV();
     }
 
     public String getSeperator() {

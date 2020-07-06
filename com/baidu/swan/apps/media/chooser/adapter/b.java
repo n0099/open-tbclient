@@ -71,7 +71,7 @@ public class b extends BaseAdapter {
                     ImageRequestBuilder ac = ImageRequestBuilder.ac(Uri.fromFile(new File(aVar3.crn.get(0).getPath())));
                     ac.c(new d(this.cqw, this.cqw));
                     ac.wM(true);
-                    aVar.cqx.setController(com.facebook.drawee.a.a.c.dzW().wy(false).bc(ac.dHb()).c(aVar.cqx.getController()).dAN());
+                    aVar.cqx.setController(com.facebook.drawee.a.a.c.dAa().wy(false).bc(ac.dHf()).c(aVar.cqx.getController()).dAR());
                 }
             }
         }

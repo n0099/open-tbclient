@@ -9,17 +9,17 @@ import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public final class b extends f {
     private final ByteBuffer mBuffer;
-    private final d mCL;
-    private final g mCN;
-    private boolean mCP;
-    private boolean mCQ;
-    private final UploadDataProvider mCh = new a();
-    private boolean mCO = false;
+    private final d mCO;
+    private final g mCQ;
+    private boolean mCS;
+    private boolean mCT;
+    private final UploadDataProvider mCk = new a();
+    private boolean mCR = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(d dVar, int i, g gVar, boolean z, boolean z2) {
-        this.mCP = false;
-        this.mCQ = false;
+        this.mCS = false;
+        this.mCT = false;
         if (dVar == null) {
             throw new NullPointerException();
         }
@@ -27,15 +27,15 @@ public final class b extends f {
             throw new IllegalArgumentException("chunkLength should be greater than 0");
         }
         this.mBuffer = ByteBuffer.allocate(i);
-        this.mCL = dVar;
-        this.mCN = gVar;
-        this.mCP = z;
-        this.mCQ = z2;
+        this.mCO = dVar;
+        this.mCQ = gVar;
+        this.mCS = z;
+        this.mCT = z2;
     }
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        dwp();
+        dwt();
         this.mBuffer.put((byte) i);
     }
 
@@ -50,36 +50,36 @@ public final class b extends f {
             int min = Math.min(i3, this.mBuffer.remaining());
             this.mBuffer.put(bArr, (i + i2) - i3, min);
             i3 -= min;
-            dwp();
+            dwt();
         }
     }
 
     @Override // com.baidu.turbonet.net.a.f, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         super.close();
-        if (!this.mCO) {
-            this.mCO = true;
+        if (!this.mCR) {
+            this.mCR = true;
             this.mBuffer.flip();
-            if (this.mCP) {
-                this.mCN.HF(this.mCL.getReadTimeout());
+            if (this.mCS) {
+                this.mCQ.HF(this.mCO.getReadTimeout());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void dwm() throws IOException {
+    public void dwq() throws IOException {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void dwn() throws IOException {
+    public void dwr() throws IOException {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public UploadDataProvider dwo() {
-        return this.mCh;
+    public UploadDataProvider dws() {
+        return this.mCk;
     }
 
     /* loaded from: classes.dex */
@@ -97,12 +97,12 @@ public final class b extends f {
             if (byteBuffer.remaining() >= b.this.mBuffer.remaining()) {
                 byteBuffer.put(b.this.mBuffer);
                 b.this.mBuffer.clear();
-                uploadDataSink.wd(b.this.mCO);
-                if (!b.this.mCO) {
-                    b.this.mCN.quit();
+                uploadDataSink.wd(b.this.mCR);
+                if (!b.this.mCR) {
+                    b.this.mCQ.quit();
                     return;
-                } else if (b.this.mCP) {
-                    b.this.mCN.quit();
+                } else if (b.this.mCS) {
+                    b.this.mCQ.quit();
                     return;
                 } else {
                     return;
@@ -121,23 +121,23 @@ public final class b extends f {
         }
     }
 
-    private void dwp() throws IOException {
+    private void dwt() throws IOException {
         if (!this.mBuffer.hasRemaining()) {
-            dwq();
+            dwu();
         }
     }
 
-    private void dwq() throws IOException {
+    private void dwu() throws IOException {
         checkNotClosed();
         this.mBuffer.flip();
-        this.mCN.HF(this.mCL.getReadTimeout());
-        dwC();
+        this.mCQ.HF(this.mCO.getReadTimeout());
+        dwG();
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public void flush() throws IOException {
-        if (this.mCQ && this.mBuffer.position() > 0) {
-            dwq();
+        if (this.mCT && this.mBuffer.position() > 0) {
+            dwu();
         }
     }
 }

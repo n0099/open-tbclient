@@ -40,9 +40,9 @@ public class a extends m<com.baidu.tieba.pb.data.a, C0705a> {
                         return;
                     }
                     a.this.b(a.this.kou);
-                    if (a.this.kou.jYA.cGL()) {
+                    if (a.this.kou.jYA.cGM()) {
                         bc.aWU().a((TbPageContext<?>) a.this.kbv.getPageContext(), new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-                    } else if (a.this.kou.jYA.cGK()) {
+                    } else if (a.this.kou.jYA.cGL()) {
                         a.this.kot.c(a.this.kou);
                     }
                 }
@@ -77,12 +77,12 @@ public class a extends m<com.baidu.tieba.pb.data.a, C0705a> {
 
     private void a(com.baidu.tieba.pb.data.a aVar) {
         String str = aVar.jYA.jYB + "";
-        com.baidu.tieba.s.c.dgX().a(this.kbv.getUniqueId(), com.baidu.tieba.s.a.a(this.kck.cGN().getTid(), str, "", (BaijiahaoData) null), com.baidu.tieba.s.a.a(this.kck.cGN(), PageStayDurationConstants.PageName.PB, "common_exp", aVar.locate, true, str, "", 18));
+        com.baidu.tieba.s.c.dgY().a(this.kbv.getUniqueId(), com.baidu.tieba.s.a.a(this.kck.cGO().getTid(), str, "", (BaijiahaoData) null), com.baidu.tieba.s.a.a(this.kck.cGO(), PageStayDurationConstants.PageName.PB, "common_exp", aVar.locate, true, str, "", 18));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.pb.data.a aVar) {
-        com.baidu.tieba.s.c.dgX().b(this.kbv.getUniqueId(), com.baidu.tieba.s.a.a(this.kck.cGN(), PageStayDurationConstants.PageName.PB, "common_click", 1, aVar.locate, true, aVar.jYA.jYB + "", (String) null, 18));
+        com.baidu.tieba.s.c.dgY().b(this.kbv.getUniqueId(), com.baidu.tieba.s.a.a(this.kck.cGO(), PageStayDurationConstants.PageName.PB, "common_click", 1, aVar.locate, true, aVar.jYA.jYB + "", (String) null, 18));
     }
 
     public void onDestroy() {
@@ -149,12 +149,12 @@ public class a extends m<com.baidu.tieba.pb.data.a, C0705a> {
                     i = i2 < 0 ? 0 : i2;
                 }
                 this.koA.setProgress(i);
-                if (bVar.cGK()) {
+                if (bVar.cGL()) {
                     this.koz.setText(R.string.pb_ad_card_gift_get);
                     an.setViewTextColor(this.koz, (int) R.color.cp_cont_a);
                     an.setBackgroundResource(this.koz, R.drawable.btn_pb_ad_card_gift_get);
                     this.koz.setClickable(true);
-                } else if (bVar.cGL()) {
+                } else if (bVar.cGM()) {
                     this.koz.setText(R.string.pb_ad_card_gift_watch_btn);
                     an.setViewTextColor(this.koz, (int) R.color.cp_cont_a);
                     an.setBackgroundResource(this.koz, R.drawable.btn_pb_ad_card_gift_watch);

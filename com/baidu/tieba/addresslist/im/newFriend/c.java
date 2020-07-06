@@ -87,7 +87,7 @@ public class c extends com.baidu.adp.base.c<NewFriendsActivity> {
         this.faZ.notifyDataSetChanged();
     }
 
-    public a bpM() {
+    public a bpN() {
         return this.faZ;
     }
 }

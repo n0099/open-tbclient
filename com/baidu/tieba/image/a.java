@@ -40,15 +40,15 @@ public class a implements ImagePagerAdapter.a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.jjr != null) {
-                if (a.this.jjt == null || !a.this.jjt.jjG || a.this.jjt.cvt() != view) {
+                if (a.this.jjt == null || !a.this.jjt.jjG || a.this.jjt.cvu() != view) {
                     if (!x.aq((Activity) view.getContext())) {
                         l.showToast((Activity) view.getContext(), (int) R.string.write_external_storage_permission_denied_fun_disable);
                         return;
                     }
                     if (view.getId() == R.id.big_image_ad_title || view.getId() == R.id.big_image_ad_brand || view.getId() == R.id.big_image_ad_tag) {
-                        a.this.jju.cvz();
+                        a.this.jju.cvA();
                     } else {
-                        a.this.jju.cvy();
+                        a.this.jju.cvz();
                     }
                     com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(a.this.jjr));
                     int i = a.this.jjr.dGK;
@@ -58,7 +58,7 @@ public class a implements ImagePagerAdapter.a {
                             if (StringUtils.isNull(str)) {
                                 str = a.this.dPv.getString(R.string.app_name);
                             }
-                            a.this.jju.cvA();
+                            a.this.jju.cvB();
                             if (r.a(a.this.dPv.getPageActivity(), a.this.jjr, 0, str)) {
                                 a.this.jju.HI(a.this.jjr.dGO);
                                 return;
@@ -69,14 +69,14 @@ public class a implements ImagePagerAdapter.a {
                     } else if (i == 1) {
                         r.f(a.this.jjr);
                         a.this.jjr.dGK = 3;
-                        a.this.cvn();
+                        a.this.cvo();
                     } else if (i == 2) {
-                        if (com.baidu.tieba.recapp.download.e.cYY().yo(a.this.jjr.dGO)) {
+                        if (com.baidu.tieba.recapp.download.e.cYZ().yo(a.this.jjr.dGO)) {
                             x.aN(a.this.dPv.getPageActivity(), a.this.jjr.dGO);
                             return;
                         }
                         a.this.jjr.dGK = 0;
-                        a.this.cvn();
+                        a.this.cvo();
                     }
                 }
             }
@@ -86,14 +86,14 @@ public class a implements ImagePagerAdapter.a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.jjr != null) {
-                if (a.this.jjt == null || !a.this.jjt.jjG || a.this.jjt.cvt() != view) {
+                if (a.this.jjt == null || !a.this.jjt.jjG || a.this.jjt.cvu() != view) {
                     if (view.getId() == R.id.big_image_ad_title || view.getId() == R.id.big_image_ad_brand || view.getId() == R.id.big_image_ad_tag) {
-                        a.this.jju.cvz();
+                        a.this.jju.cvA();
                     } else {
-                        a.this.jju.cvy();
+                        a.this.jju.cvz();
                     }
                     com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(a.this.jjr));
-                    q.cYS().cYP().a(a.this.dPv.getPageActivity(), new String[]{a.this.jjr.dGN}, true);
+                    q.cYT().cYQ().a(a.this.dPv.getPageActivity(), new String[]{a.this.jjr.dGN}, true);
                 }
             }
         }
@@ -129,7 +129,7 @@ public class a implements ImagePagerAdapter.a {
         this.jju.d(this.jjr);
     }
 
-    public boolean cvm() {
+    public boolean cvn() {
         if (!this.jjs || this.jjr == null) {
             return false;
         }
@@ -148,7 +148,7 @@ public class a implements ImagePagerAdapter.a {
         if (zh(i)) {
             this.jjt = new b(viewGroup);
             this.jjt.setDragToExitListener(this.eqZ);
-            cvn();
+            cvo();
             viewGroup.addView(this.jjt.getView());
             return this.jjt.getView();
         }
@@ -156,20 +156,20 @@ public class a implements ImagePagerAdapter.a {
     }
 
     private boolean zh(int i) {
-        return cvm() && this.jjq != 0 && i == this.jjq;
+        return cvn() && this.jjq != 0 && i == this.jjq;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cvn() {
+    public void cvo() {
         if (this.jjr != null && this.jjr.dGU != null) {
-            cvo();
+            cvp();
             if (this.jjr.aQk()) {
-                this.jjt.cvu().setVisibility(8);
+                this.jjt.cvv().setVisibility(8);
                 this.jjt.D(this.jjx);
             } else if (this.jjr.aQj()) {
-                this.jjt.cvu().setVisibility(0);
+                this.jjt.cvv().setVisibility(0);
                 this.jjt.D(this.jjw);
-                cvp();
+                cvq();
             }
             if (!TextUtils.isEmpty(this.jjr.dGU.adSource)) {
                 this.jjt.jjF.setText(this.jjr.dGU.adSource);
@@ -195,12 +195,12 @@ public class a implements ImagePagerAdapter.a {
         this.eqZ = dVar;
     }
 
-    private void cvo() {
-        this.jjt.cvt().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
+    private void cvp() {
+        this.jjt.cvu().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void onComplete(String str, boolean z) {
                 if (z) {
-                    a.this.jjt.cvx();
+                    a.this.jjt.cvy();
                 }
             }
 
@@ -208,23 +208,23 @@ public class a implements ImagePagerAdapter.a {
             public void onCancel() {
             }
         });
-        this.jjt.cvt().a(this.jjr.dGU.dHf, this.eps ? 30 : 31, 720, 720, false);
-        if (this.jjt.cvs() != null) {
-            this.jjt.cvs().setIsCdn(this.eps);
-            this.jjt.cvs().setUrl(this.jjr.dGU.dHf, true);
+        this.jjt.cvu().a(this.jjr.dGU.dHf, this.eps ? 30 : 31, 720, 720, false);
+        if (this.jjt.cvt() != null) {
+            this.jjt.cvt().setIsCdn(this.eps);
+            this.jjt.cvt().setUrl(this.jjr.dGU.dHf, true);
         }
     }
 
-    private void cvp() {
+    private void cvq() {
         if (this.jjr != null) {
             String str = this.jjr.dGM;
             if (StringUtils.isNull(str)) {
                 str = this.dPv.getString(R.string.app_name);
             }
-            if (com.baidu.tieba.recapp.download.e.cYY().yo(this.jjr.dGO)) {
+            if (com.baidu.tieba.recapp.download.e.cYZ().yo(this.jjr.dGO)) {
                 this.jjr.dGK = 2;
-            } else if (com.baidu.tieba.recapp.download.e.cYY().fk(this.jjr.dGO, str)) {
-                if (com.baidu.tieba.recapp.download.e.cYY().ym(this.jjr.dGO)) {
+            } else if (com.baidu.tieba.recapp.download.e.cYZ().fk(this.jjr.dGO, str)) {
+                if (com.baidu.tieba.recapp.download.e.cYZ().ym(this.jjr.dGO)) {
                     this.jjr.dGK = 1;
                 } else {
                     this.jjr.dGK = 3;
@@ -242,16 +242,16 @@ public class a implements ImagePagerAdapter.a {
                     this.jjt.HH(string);
                     return;
                 case 1:
-                    this.jjt.cvv();
+                    this.jjt.cvw();
                     return;
                 case 2:
-                    this.jjt.cvw();
+                    this.jjt.cvx();
                     return;
                 case 3:
                     this.jjt.HH(this.dPv.getString(R.string.pb_download_pause));
                     return;
                 default:
-                    this.jjt.cvu().setVisibility(8);
+                    this.jjt.cvv().setVisibility(8);
                     this.jjt.D(null);
                     return;
             }
@@ -276,7 +276,7 @@ public class a implements ImagePagerAdapter.a {
                     if (StringUtils.isNull(str)) {
                         str = a.this.dPv.getString(R.string.app_name);
                     }
-                    a.this.jju.cvA();
+                    a.this.jju.cvB();
                     if (r.a(a.this.dPv.getPageActivity(), a.this.jjr, 0, str)) {
                         a.this.jju.HI(a.this.jjr.dGO);
                     }
@@ -310,16 +310,16 @@ public class a implements ImagePagerAdapter.a {
                     } else if (status == 1) {
                         this.jjr.dGK = 1;
                     }
-                    cvn();
+                    cvo();
                 }
             }
         }
     }
 
-    public void cvq() {
+    public void cvr() {
         if (!this.jjv) {
             this.jjv = true;
-            this.jju.cko();
+            this.jju.ckp();
             com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(this.jjr));
         }
     }

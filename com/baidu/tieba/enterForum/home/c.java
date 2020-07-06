@@ -95,12 +95,12 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
                 if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
                     forumRecommendSocketResponseMessage forumrecommendsocketresponsemessage = (forumRecommendSocketResponseMessage) responsedMessage;
                     if (forumrecommendsocketresponsemessage.getHotSearchInfoData() != null) {
-                        str = forumrecommendsocketresponsemessage.getHotSearchInfoData().bRi();
+                        str = forumrecommendsocketresponsemessage.getHotSearchInfoData().bRj();
                     }
                 } else if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
                     forumRecommendHttpResponseMessage forumrecommendhttpresponsemessage = (forumRecommendHttpResponseMessage) responsedMessage;
                     if (forumrecommendhttpresponsemessage.getHotSearchInfoData() != null) {
-                        str = forumrecommendhttpresponsemessage.getHotSearchInfoData().bRi();
+                        str = forumrecommendhttpresponsemessage.getHotSearchInfoData().bRj();
                     }
                 }
                 if (TextUtils.isEmpty(str)) {
@@ -116,9 +116,9 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                     if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        c.this.buc();
-                    } else {
                         c.this.bud();
+                    } else {
+                        c.this.bue();
                     }
                 }
             }
@@ -135,24 +135,24 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
                 c.this.tq(i);
                 if (c.this.hdi != null && c.this.hdi.size() > i) {
                     if (c.this.hdp != null) {
-                        c.this.hdp.bTy();
+                        c.this.hdp.bTz();
                     }
                     EnterForumTabPagerAdapter.a aVar = (EnterForumTabPagerAdapter.a) c.this.hdi.get(i);
                     if (aVar != null && aVar.fragment != null) {
                         if (aVar.fragment instanceof EnterForumFragment) {
-                            z = ((EnterForumFragment) aVar.fragment).bRR();
+                            z = ((EnterForumFragment) aVar.fragment).bRS();
                         } else if (aVar.fragment instanceof EnterForumTabFeedFragment) {
-                            s.bOA().mc(false);
-                            boolean bRR = ((EnterForumTabFeedFragment) aVar.fragment).bRR();
+                            s.bOB().mc(false);
+                            boolean bRS = ((EnterForumTabFeedFragment) aVar.fragment).bRS();
                             TiebaStatic.log(new ao("c13366").ag("obj_locate", 3).dk("resource_id", ((EnterForumTabFeedFragment) aVar.fragment).getTabName()));
-                            z = bRR;
+                            z = bRS;
                         } else {
                             z = true;
                         }
                         if (!z) {
-                            c.this.buc();
-                        } else {
                             c.this.bud();
+                        } else {
+                            c.this.bue();
                         }
                         if (i == 0) {
                             TiebaStatic.log(new ao("c13366").ag("obj_locate", 1));
@@ -292,7 +292,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         return i;
     }
 
-    public boolean bSa() {
+    public boolean bSb() {
         return this.hdt;
     }
 
@@ -323,7 +323,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         an.a(this.hdl, R.color.cp_bg_line_h, GradientDrawable.Orientation.RIGHT_LEFT);
     }
 
-    public void bSb() {
+    public void bSc() {
         tq(this.hdg.getCurrentItem());
     }
 
@@ -433,7 +433,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    public void bSc() {
+    public void bSd() {
         if (TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4) {
             ap.setStatusBarDarkIcon(getPageContext().getPageActivity().getWindow(), false);
         } else if (this.hdg.getCurrentItem() == 0 && this.hdc.isPrimary()) {
@@ -520,9 +520,9 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buc() {
+    public void bud() {
         if (this.hdd != null && this.hdd.getPaddingTop() < 0) {
-            bSd();
+            bSe();
         } else if (this.hdo != null) {
             this.hdo.clearAnimation();
             if (this.hdo.getVisibility() != 0) {
@@ -537,7 +537,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    public void bud() {
+    public void bue() {
         if (this.hdo != null && this.hdo.getVisibility() != 8) {
             if (this.fpK == null) {
                 this.fpK = new AlphaAnimation(1.0f, 0.0f);
@@ -562,7 +562,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    private void bSd() {
+    private void bSe() {
         if (this.hdo != null && this.hdo.getVisibility() != 8) {
             this.hdo.clearAnimation();
             this.hdo.setVisibility(8);
@@ -588,7 +588,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         return getPageContext().getPageActivity().getWindow().getDecorView();
     }
 
-    public View bSe() {
+    public View bSf() {
         return this.hdd;
     }
 
@@ -610,10 +610,10 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         if (!this.hdc.getActivity().getSupportFragmentManager().isDestroyed()) {
             this.hdt = true;
             if (this.hds == null || !this.hds.b(kVar)) {
-                bSg();
+                bSh();
                 this.hdi.clear();
                 this.hdi.add(this.hdi.get(0));
-                Iterator<j> it = kVar.bRy().iterator();
+                Iterator<j> it = kVar.bRz().iterator();
                 while (it.hasNext()) {
                     j next = it.next();
                     EnterForumTabPagerAdapter.a aVar = new EnterForumTabPagerAdapter.a();
@@ -628,7 +628,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
                     }
                     aVar.tabName = next.getTabName();
                     Bundle bundle = new Bundle();
-                    bundle.putString("tab_code", next.bRx());
+                    bundle.putString("tab_code", next.bRy());
                     bundle.putString("tab_name", next.getTabName());
                     aVar.fragment.setArguments(bundle);
                     this.hdi.add(aVar);
@@ -637,28 +637,28 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
                 this.hdf.notifyDataSetChanged();
                 this.hdh.notifyDataSetChanged();
                 this.hdg.setOffscreenPageLimit(this.hdi.size());
-                bSf();
-            } else if (kVar != null && this.hds != null && w.getCount(this.hdi) - 1 == w.getCount(kVar.bRy())) {
+                bSg();
+            } else if (kVar != null && this.hds != null && w.getCount(this.hdi) - 1 == w.getCount(kVar.bRz())) {
                 if (z) {
                     while (true) {
                         int i2 = i;
-                        if (i2 >= kVar.bRy().size()) {
+                        if (i2 >= kVar.bRz().size()) {
                             break;
                         }
-                        if (this.hdi.get(i2 + 1) != null && kVar.bRy().get(i2) != null) {
-                            this.hdi.get(i2 + 1).hdb = this.hds.b(kVar.bRy().get(i2));
+                        if (this.hdi.get(i2 + 1) != null && kVar.bRz().get(i2) != null) {
+                            this.hdi.get(i2 + 1).hdb = this.hds.b(kVar.bRz().get(i2));
                         }
                         i = i2 + 1;
                     }
                 }
                 this.hds = kVar;
                 this.hdf.notifyDataSetChanged();
-                bSf();
+                bSg();
             }
         }
     }
 
-    private void bSf() {
+    private void bSg() {
         if (TextUtils.isEmpty(this.hdr)) {
             if (this.hdc.getActivity() != null && this.hdc.getActivity().getIntent() != null) {
                 Intent intent = this.hdc.getActivity().getIntent();
@@ -690,7 +690,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    private void bSg() {
+    private void bSh() {
         if (this.hdh != null && this.hdi != null) {
             try {
                 FragmentManager supportFragmentManager = this.hdc.getActivity().getSupportFragmentManager();
@@ -710,7 +710,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    public int bSh() {
+    public int bSi() {
         return this.hdg.getCurrentItem();
     }
 

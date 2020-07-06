@@ -55,7 +55,7 @@ public class d extends i {
     private void createView() {
         if (this.hkS != null && this.gTz != null && this.gTw != null) {
             this.gTz.clear();
-            this.gTz.add(new g(1, getString(this.hkS.bRk() == 1 ? R.string.cancel_top : R.string.f1302top, new Object[0]), this.gTw));
+            this.gTz.add(new g(1, getString(this.hkS.bRl() == 1 ? R.string.cancel_top : R.string.f1303top, new Object[0]), this.gTw));
             this.gTz.add(new g(2, getString(R.string.delete, new Object[0]), this.gTw));
             this.gTw.aL(this.gTz);
         }

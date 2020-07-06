@@ -11,36 +11,36 @@ public class c<T extends com.baidu.tieba.ala.alaar.sticker.model.d> {
     private ArrayMap<String, T> fhG = new ArrayMap<>();
     private File mFolder;
 
-    public static c<com.baidu.tieba.ala.alaar.sticker.model.b> bsw() {
+    public static c<com.baidu.tieba.ala.alaar.sticker.model.b> bsx() {
         if (fhE == null) {
-            fhE = bsx();
+            fhE = bsy();
         }
         return fhE;
     }
 
-    private static synchronized c<com.baidu.tieba.ala.alaar.sticker.model.b> bsx() {
+    private static synchronized c<com.baidu.tieba.ala.alaar.sticker.model.b> bsy() {
         c<com.baidu.tieba.ala.alaar.sticker.model.b> cVar;
         synchronized (c.class) {
             if (fhE == null) {
-                fhE = new c(a.bsr().bst());
+                fhE = new c(a.bss().bsu());
             }
             cVar = fhE;
         }
         return cVar;
     }
 
-    public static c<com.baidu.tieba.ala.alaar.sticker.model.c> bsv() {
+    public static c<com.baidu.tieba.ala.alaar.sticker.model.c> bsw() {
         if (fhF == null) {
-            fhF = bsy();
+            fhF = bsz();
         }
         return fhF;
     }
 
-    private static synchronized c<com.baidu.tieba.ala.alaar.sticker.model.c> bsy() {
+    private static synchronized c<com.baidu.tieba.ala.alaar.sticker.model.c> bsz() {
         c<com.baidu.tieba.ala.alaar.sticker.model.c> cVar;
         synchronized (c.class) {
             if (fhF == null) {
-                fhF = new c(a.bsr().bsu());
+                fhF = new c(a.bss().bsv());
             }
             cVar = fhF;
         }

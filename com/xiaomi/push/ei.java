@@ -16,15 +16,15 @@ public class ei extends ai.a {
     private Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f237a;
+    private SharedPreferences f238a;
 
     /* renamed from: a  reason: collision with other field name */
-    private com.xiaomi.push.service.ak f238a;
+    private com.xiaomi.push.service.ak f239a;
 
     public ei(Context context) {
         this.a = context;
-        this.f237a = context.getSharedPreferences("mipush_extra", 0);
-        this.f238a = com.xiaomi.push.service.ak.a(context);
+        this.f238a = context.getSharedPreferences("mipush_extra", 0);
+        this.f239a = com.xiaomi.push.service.ak.a(context);
     }
 
     private List<hu> a(File file) {
@@ -128,7 +128,7 @@ public class ei extends ai.a {
     }
 
     private void a() {
-        SharedPreferences.Editor edit = this.f237a.edit();
+        SharedPreferences.Editor edit = this.f238a.edit();
         edit.putLong("last_upload_data_timestamp", System.currentTimeMillis() / 1000);
         edit.commit();
     }
@@ -145,15 +145,15 @@ public class ei extends ai.a {
     }
 
     private boolean b() {
-        if (this.f238a.a(hr.Upload3GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f237a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f238a.a(hr.Upload3GFrequency.a(), 432000)));
+        if (this.f239a.a(hr.Upload3GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f238a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f239a.a(hr.Upload3GFrequency.a(), 432000)));
         }
         return false;
     }
 
     private boolean c() {
-        if (this.f238a.a(hr.Upload4GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f237a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f238a.a(hr.Upload4GFrequency.a(), 259200)));
+        if (this.f239a.a(hr.Upload4GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f238a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f239a.a(hr.Upload4GFrequency.a(), 259200)));
         }
         return false;
     }
@@ -183,7 +183,7 @@ public class ei extends ai.a {
                 cif.a(a);
                 byte[] a2 = y.a(iw.a(cif));
                 il ilVar = new il("-1", false);
-                ilVar.c(hw.DataCollection.f481a);
+                ilVar.c(hw.DataCollection.f482a);
                 ilVar.a(a2);
                 dp m226a = dq.a().m226a();
                 if (m226a != null) {

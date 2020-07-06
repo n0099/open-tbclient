@@ -25,7 +25,7 @@ public class c {
         }
     }
 
-    public String bLB() {
+    public String bLC() {
         return this.gDg;
     }
 

@@ -88,11 +88,11 @@ public class e implements b {
             this.mActivity.setContentView(this.mRootView);
         } catch (Exception e) {
             e.printStackTrace();
-            Map<String, String> czS = com.baidu.tieba.mainentrance.a.a.czS();
-            if (czS != null) {
-                int size = czS.size();
+            Map<String, String> czT = com.baidu.tieba.mainentrance.a.a.czT();
+            if (czT != null) {
+                int size = czT.size();
                 int i2 = 0;
-                Iterator<String> it = czS.keySet().iterator();
+                Iterator<String> it = czT.keySet().iterator();
                 while (true) {
                     i = i2;
                     if (!it.hasNext()) {
@@ -123,14 +123,14 @@ public class e implements b {
         }
         this.jyW = new d(this.mRootView, this.mActivity.getPageContext().getPageActivity());
         this.jzl = new c(this.mActivity, this, this.jyW);
-        cAh();
         cAi();
         cAj();
         cAk();
-        czB();
-        cAn();
-        ah.a(this.jyW.cAe(), this.mActivity.getUniqueId());
+        cAl();
+        czC();
+        cAo();
         ah.a(this.jyW.cAf(), this.mActivity.getUniqueId());
+        ah.a(this.jyW.cAg(), this.mActivity.getUniqueId());
         this.mActivity.registerListener(this.jzm);
     }
 
@@ -140,14 +140,14 @@ public class e implements b {
         }
     }
 
-    public void cAh() {
+    public void cAi() {
         View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.mainentrance.a.e.5
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
                     l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), view);
                 } else {
-                    e.this.cAm();
+                    e.this.cAn();
                 }
             }
         };
@@ -157,7 +157,7 @@ public class e implements b {
                 if (i == 3) {
                     if (StringUtils.isNull(e.this.hxA)) {
                         l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), textView);
-                        e.this.cAl();
+                        e.this.cAm();
                         return true;
                     }
                     e.this.b(e.this.hxA, false, 1);
@@ -181,7 +181,7 @@ public class e implements b {
                 if (editable != null) {
                     if (e.this.jzk) {
                         e.this.hxA = editable.toString();
-                        e.this.cAn();
+                        e.this.cAo();
                     }
                     e.this.jyW.lP(!StringUtils.isNull(editable.toString()));
                 }
@@ -190,9 +190,9 @@ public class e implements b {
         View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.mainentrance.a.e.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != e.this.jyW.cAc() || e.this.jyW.cAc().getText() == null) {
-                    if (view == e.this.jyW.cAd()) {
-                        l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), e.this.jyW.cAc());
+                if (view != e.this.jyW.cAd() || e.this.jyW.cAd().getText() == null) {
+                    if (view == e.this.jyW.cAe()) {
+                        l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), e.this.jyW.cAd());
                         com.baidu.adp.lib.f.e.lt().postDelayed(new Runnable() { // from class: com.baidu.tieba.mainentrance.a.e.8.1
                             @Override // java.lang.Runnable
                             public void run() {
@@ -203,9 +203,9 @@ public class e implements b {
                     }
                     return;
                 }
-                e.this.hxA = e.this.jyW.cAc().getText().toString();
+                e.this.hxA = e.this.jyW.cAd().getText().toString();
                 if (StringUtils.isNull(e.this.hxA)) {
-                    e.this.czV();
+                    e.this.czW();
                 }
             }
         };
@@ -215,7 +215,7 @@ public class e implements b {
         this.jyW.setOnClickListener(onClickListener);
     }
 
-    private void cAi() {
+    private void cAj() {
         AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.mainentrance.a.e.9
             /* JADX WARN: Type inference failed for: r0v0, types: [android.widget.Adapter] */
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -256,7 +256,7 @@ public class e implements b {
         this.jyW.onChangeSkinType(this.mActivity.getPageContext(), i);
     }
 
-    private void cAj() {
+    private void cAk() {
         BaseWebView.c cVar = new BaseWebView.c() { // from class: com.baidu.tieba.mainentrance.a.e.11
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
             public void onPageFinished(WebView webView, String str) {
@@ -297,12 +297,12 @@ public class e implements b {
         this.jyW.a(bVar);
     }
 
-    private void cAk() {
-        this.jyW.cAe().addJsPromptInterface(new a());
+    private void cAl() {
+        this.jyW.cAf().addJsPromptInterface(new a());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cAl() {
+    public void cAm() {
         if (this.mHotSearchInfo == null) {
             this.mActivity.showToast(this.mActivity.getResources().getString(R.string.write_keyword));
             return;
@@ -325,15 +325,15 @@ public class e implements b {
                 this.jyW.Ir(str);
                 this.jzk = true;
             }
-            l.hideSoftKeyPad(this.mActivity.getPageContext().getPageActivity(), this.jyW.cAc());
-            this.jyW.cAb();
+            l.hideSoftKeyPad(this.mActivity.getPageContext().getPageActivity(), this.jyW.cAd());
+            this.jyW.cAc();
             String str2 = TbConfig.SQUARE_SEARCH_PAGE + str + ETAG.ITEM_SEPARATOR + FuFaceItem.JK_SUB_TYPE + ETAG.EQUAL + i;
             try {
                 str2 = TbConfig.SQUARE_SEARCH_PAGE + URLEncoder.encode(str, "utf-8");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            this.jyW.cAe().loadUrl(str2);
+            this.jyW.cAf().loadUrl(str2);
             ad.a(new ac<Boolean>() { // from class: com.baidu.tieba.mainentrance.a.e.4
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
@@ -349,29 +349,29 @@ public class e implements b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cAm() {
-        if (!this.jyW.cAg()) {
-            czH();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void czV() {
-        this.jzl.czV();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public void cAn() {
-        if (!StringUtils.isNull(this.hxA)) {
-            czH();
-        } else {
-            czV();
+        if (!this.jyW.cAh()) {
+            czI();
         }
     }
 
-    private void czH() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void czW() {
+        this.jzl.czW();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void cAo() {
+        if (!StringUtils.isNull(this.hxA)) {
+            czI();
+        } else {
+            czW();
+        }
+    }
+
+    private void czI() {
         if (StringUtils.isNull(this.hxA)) {
-            czV();
+            czW();
             return;
         }
         SearchListNetMessage searchListNetMessage = new SearchListNetMessage();
@@ -381,16 +381,16 @@ public class e implements b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String cAo() {
+    public String cAp() {
         JSONObject jSONObject = new JSONObject();
         try {
-            MercatorModel.MercatorData mercatorData = MercatorModel.diV().getMercatorData();
+            MercatorModel.MercatorData mercatorData = MercatorModel.diW().getMercatorData();
             if (mercatorData != null) {
-                d(jSONObject, "mercator_lat", mercatorData.diX());
-                d(jSONObject, "mercator_lon", mercatorData.diW());
-                d(jSONObject, "mercator_city", String.valueOf(mercatorData.diZ()));
-                d(jSONObject, "mercator_radius", mercatorData.diY());
-                d(jSONObject, "mercator_time", String.valueOf(mercatorData.dja()));
+                d(jSONObject, "mercator_lat", mercatorData.diY());
+                d(jSONObject, "mercator_lon", mercatorData.diX());
+                d(jSONObject, "mercator_city", String.valueOf(mercatorData.dja()));
+                d(jSONObject, "mercator_radius", mercatorData.diZ());
+                d(jSONObject, "mercator_time", String.valueOf(mercatorData.djb()));
             }
             d(jSONObject, "mod", Build.MODEL);
             d(jSONObject, "ov", Build.VERSION.RELEASE);
@@ -419,19 +419,19 @@ public class e implements b {
 
     public void b(HotSearchInfoData hotSearchInfoData) {
         this.mHotSearchInfo = hotSearchInfoData;
-        czB();
+        czC();
     }
 
-    public BaseWebView cAp() {
-        return this.jyW.cAe();
+    public BaseWebView cAq() {
+        return this.jyW.cAf();
     }
 
-    private void czB() {
+    private void czC() {
         if (this.jyW != null) {
             if (this.mHotSearchInfo == null) {
                 this.jyW.Iq(this.mActivity.getResources().getString(R.string.search_bar));
             } else {
-                this.jyW.Iq(this.mHotSearchInfo.bRi());
+                this.jyW.Iq(this.mHotSearchInfo.bRj());
             }
         }
     }
@@ -464,7 +464,7 @@ public class e implements b {
                     jsPromptResult.confirm();
                     return true;
                 } else if ("getSearchAdCookie".equals(str2)) {
-                    jsPromptResult.confirm(e.this.cAo());
+                    jsPromptResult.confirm(e.this.cAp());
                     return true;
                 } else {
                     return false;

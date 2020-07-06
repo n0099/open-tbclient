@@ -122,7 +122,7 @@ public class f implements a {
         if (context != null && eVar != null) {
             this.mContext = context;
             this.hXK = eVar;
-            this.hXo = eVar.cev();
+            this.hXo = eVar.cew();
             initView();
         }
     }
@@ -139,7 +139,7 @@ public class f implements a {
     }
 
     @Override // com.baidu.tieba.frs.tab.a
-    public int cet() {
+    public int ceu() {
         return 0;
     }
 }

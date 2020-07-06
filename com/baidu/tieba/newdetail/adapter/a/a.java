@@ -17,7 +17,7 @@ public abstract class a<T, V extends ad.a> extends com.baidu.adp.widget.ListView
         this.jNH = z;
     }
 
-    public boolean cEc() {
+    public boolean cEd() {
         return this.jNH;
     }
 }

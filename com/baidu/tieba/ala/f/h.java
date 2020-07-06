@@ -48,7 +48,7 @@ public class h extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    public void bKO() {
+    public void bKP() {
         sendMessage(new HttpMessage(1021165));
     }
 

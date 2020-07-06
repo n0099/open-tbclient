@@ -85,7 +85,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         dK(this.mCursor);
     }
 
-    public void btW() {
+    public void btX() {
         dK(this.mCursor);
     }
 

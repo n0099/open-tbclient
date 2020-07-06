@@ -34,7 +34,7 @@ public interface a {
             return (TextUtils.isEmpty(this.picUrl) || this.rect.isEmpty()) ? false : true;
         }
 
-        public boolean cxh() {
+        public boolean cxi() {
             return (TextUtils.isEmpty(this.jqp) || this.jqq.isEmpty()) ? false : true;
         }
 

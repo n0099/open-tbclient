@@ -38,14 +38,14 @@ public class a {
                 this.fpM = i;
                 if (this.fpM != 1) {
                     if (a.this.a(recyclerView)) {
-                        a.this.bud();
+                        a.this.bue();
                         return;
                     } else {
-                        a.this.buc();
+                        a.this.bud();
                         return;
                     }
                 }
-                a.this.buc();
+                a.this.bud();
             }
         }
     };
@@ -96,7 +96,7 @@ public class a {
         this.fpF = (BdSwipeRefreshLayout) this.mRootView.findViewById(R.id.ala_live_tab_my_concern_pull_refresh_layout);
         this.fpF.setProgressView(this.mPullView);
         this.fpH = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a(this.mTbPageContext);
-        this.Wa.addAdapters(this.fpH.btV());
+        this.Wa.addAdapters(this.fpH.btW());
     }
 
     private void biq() {
@@ -116,7 +116,7 @@ public class a {
         return this.mRootView;
     }
 
-    public View bua() {
+    public View bub() {
         return this.mContainer;
     }
 
@@ -132,12 +132,12 @@ public class a {
         an.setBackgroundColor(this.Wa, R.color.cp_bg_line_d);
     }
 
-    private boolean bub() {
+    private boolean buc() {
         return this.fpG.getVisibility() == 0;
     }
 
-    public void buc() {
-        if (!bub()) {
+    public void bud() {
+        if (!buc()) {
             this.fpG.setVisibility(0);
             if (this.fpJ == null) {
                 this.fpJ = new AlphaAnimation(0.0f, 1.0f);
@@ -148,8 +148,8 @@ public class a {
         }
     }
 
-    public void bud() {
-        if (bub()) {
+    public void bue() {
+        if (buc()) {
             if (this.fpK == null) {
                 this.fpK = new AlphaAnimation(1.0f, 0.0f);
                 this.fpK.setFillAfter(true);
@@ -188,7 +188,7 @@ public class a {
         this.fpI = interfaceC0532a;
     }
 
-    public RelativeLayout bue() {
+    public RelativeLayout buf() {
         return this.mContainer;
     }
 

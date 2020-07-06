@@ -37,18 +37,18 @@ public class SearchMajorActivity extends BaseActivity<SearchMajorActivity> imple
 
     @Override // com.baidu.tieba.majorsearch.model.SearchMajorModel.a
     public void aX(List<String> list) {
-        if (this.jzq != null && this.jzq.cAx() != null) {
+        if (this.jzq != null && this.jzq.cAy() != null) {
             this.jzq.dQ(list);
-            hideNetRefreshView(this.jzq.cAx().cAs());
+            hideNetRefreshView(this.jzq.cAy().cAt());
         }
     }
 
     @Override // com.baidu.tieba.majorsearch.model.SearchMajorModel.a
     public void b(ErrorData errorData) {
-        if (this.jzq != null && this.jzq.cAx() != null) {
+        if (this.jzq != null && this.jzq.cAy() != null) {
             this.jzq.d(errorData);
             getRefreshView().nR(R.drawable.new_pic_emotion_07);
-            showNetRefreshViewNoClick(this.jzq.cAx().cAs(), null);
+            showNetRefreshViewNoClick(this.jzq.cAy().cAt(), null);
             getRefreshView().yQ(getString(R.string.search_major_no_data));
         }
     }

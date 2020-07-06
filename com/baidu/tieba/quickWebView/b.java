@@ -66,7 +66,7 @@ public class b {
                             str3 = quickWebViewHttpResMsg.getError() + "";
                         }
                         int i = z ? 1 : 0;
-                        String cYt = c.cYs().cYt();
+                        String cYu = c.cYt().cYu();
                         StringBuilder sb = new StringBuilder();
                         sb.append("{");
                         sb.append("\"status\":");
@@ -79,7 +79,7 @@ public class b {
                         sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                         sb.append("\"cache_version\":");
                         sb.append("\"");
-                        sb.append(cYt);
+                        sb.append(cYu);
                         sb.append("\"");
                         sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                         sb.append("\"cache\":");
@@ -105,7 +105,7 @@ public class b {
                 str3 = quickWebViewHttpResMsg.getError() + "";
                 if (z) {
                 }
-                String cYt2 = c.cYs().cYt();
+                String cYu2 = c.cYt().cYu();
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("{");
                 sb2.append("\"status\":");
@@ -118,7 +118,7 @@ public class b {
                 sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 sb2.append("\"cache_version\":");
                 sb2.append("\"");
-                sb2.append(cYt2);
+                sb2.append(cYu2);
                 sb2.append("\"");
                 sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 sb2.append("\"cache\":");
@@ -176,7 +176,7 @@ public class b {
                     }
                 }
                 quickWebViewHttpReqMsg.setUserAgent(this.ldb);
-                quickWebViewHttpReqMsg.addCookie("cache_version", c.cYs().cYt());
+                quickWebViewHttpReqMsg.addCookie("cache_version", c.cYt().cYu());
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003364, quickWebViewBridgeData.url);
                 tbHttpMessageTask.setResponsedClass(QuickWebViewHttpResMsg.class);
                 tbHttpMessageTask.setIsNeedAddCommenParam(false);

@@ -7,8 +7,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class c {
-    private static c lNP;
-    private a lNQ = dkG();
+    private static c lNS;
+    private a lNT = dkK();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,51 +19,51 @@ public class c {
         void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient);
     }
 
-    private boolean dkF() {
+    private boolean dkJ() {
         return com.baidu.tbadk.core.sharedPref.b.aVP().getInt("pref_key_stat_sdk_enable", 1) != 0;
     }
 
     private c() {
     }
 
-    private a dkG() {
+    private a dkK() {
         CustomResponsedMessage runTask;
-        if (!dkF() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
+        if (!dkJ() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
             return null;
         }
         return (a) runTask.getData();
     }
 
-    public static c dkH() {
-        if (lNP == null) {
+    public static c dkL() {
+        if (lNS == null) {
             synchronized (c.class) {
-                if (lNP == null) {
-                    lNP = new c();
+                if (lNS == null) {
+                    lNS = new c();
                 }
             }
         }
-        return lNP;
+        return lNS;
     }
 
     public void autoTrace(Context context) {
-        if (!bng() && this.lNQ != null) {
-            this.lNQ.autoTrace(context);
+        if (!bnh() && this.lNT != null) {
+            this.lNT.autoTrace(context);
         }
     }
 
     public void setAppChannel(Context context, String str, boolean z) {
-        if (!bng() && this.lNQ != null) {
-            this.lNQ.setAppChannel(context, str, z);
+        if (!bnh() && this.lNT != null) {
+            this.lNT.setAppChannel(context, str, z);
         }
     }
 
     public void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient) {
-        if (!bng() && this.lNQ != null) {
-            this.lNQ.trackWebView(context, webView, webChromeClient);
+        if (!bnh() && this.lNT != null) {
+            this.lNT.trackWebView(context, webView, webChromeClient);
         }
     }
 
-    private static boolean bng() {
+    private static boolean bnh() {
         return !com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean("key_secret_is_show", false);
     }
 }

@@ -48,7 +48,7 @@ public class a {
     private ArrayList<ThreadInfo> ivg = new ArrayList<>();
     private ArrayList<App> ivh = new ArrayList<>();
 
-    public int cke() {
+    public int ckf() {
         return this.iva;
     }
 
@@ -147,7 +147,7 @@ public class a {
                 }
             } else {
                 this.ivc.f(z, list);
-                if (ckh()) {
+                if (cki()) {
                     if (builder.banner_list != null && !w.isEmpty(builder.banner_list.app)) {
                         this.ivh.addAll(0, builder.banner_list.app);
                         BannerList.Builder builder3 = new BannerList.Builder(builder.banner_list);
@@ -195,7 +195,7 @@ public class a {
                     }
                 }
             }
-            if (ckh()) {
+            if (cki()) {
                 if (!w.isEmpty(this.ivh) && builder2.banner_list != null) {
                     int count3 = w.getCount(list2) + w.getCount(builder2.banner_list.app);
                     int i2 = 0;
@@ -230,7 +230,7 @@ public class a {
             int count4 = w.getCount(list) + w.getCount(this.ivg);
             this.inz.ivl = count4 - count;
             this.ivb = count4 - count;
-            com.baidu.tieba.recapp.report.b.cZK().eI(arrayList);
+            com.baidu.tieba.recapp.report.b.cZL().eI(arrayList);
         }
     }
 
@@ -254,7 +254,7 @@ public class a {
     }
 
     private List<q> a(List<ThreadInfo> list, List<p> list2, UserFollowLive userFollowLive, int i, int i2, DataRes.Builder builder) {
-        f ckf;
+        f ckg;
         int i3;
         int i4;
         int i5;
@@ -357,7 +357,7 @@ public class a {
                                     ao aj;
                                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(view.getContext(), getLink(), null)));
                                     if (aB instanceof k) {
-                                        aj = ((k) aB).bPa();
+                                        aj = ((k) aB).bPb();
                                     } else {
                                         aj = aB instanceof l ? ((l) aB).aj(null) : null;
                                     }
@@ -445,7 +445,7 @@ public class a {
                         gVar.a(builder.active_center);
                     }
                     if (gVar == null) {
-                        gVar = ckg();
+                        gVar = ckh();
                     }
                     if (gVar != null) {
                         i7++;
@@ -512,9 +512,9 @@ public class a {
                 linkedList.add(0, fVar);
                 fVar.position = -1;
                 int i15 = i7 + 1;
-            } else if (i == 1 && (ckf = ckf()) != null) {
-                linkedList.add(0, ckf);
-                ckf.position = -1;
+            } else if (i == 1 && (ckg = ckg()) != null) {
+                linkedList.add(0, ckg);
+                ckg.position = -1;
                 int i16 = i7 + 1;
             }
         }
@@ -545,7 +545,7 @@ public class a {
         return arrayList;
     }
 
-    private f ckf() {
+    private f ckg() {
         if (this.inz == null || w.isEmpty(this.inz.eSH)) {
             return null;
         }
@@ -557,7 +557,7 @@ public class a {
         return null;
     }
 
-    private g ckg() {
+    private g ckh() {
         if (this.inz == null || w.isEmpty(this.inz.eSH)) {
             return null;
         }
@@ -569,15 +569,15 @@ public class a {
         return null;
     }
 
-    private boolean ckh() {
+    private boolean cki() {
         return this.ivd > 0;
     }
 
-    public boolean cki() {
+    public boolean ckj() {
         return (this.ivg == null || w.isEmpty(this.ivg)) ? false : true;
     }
 
-    public List<ThreadInfo> ckj() {
+    public List<ThreadInfo> ckk() {
         return this.ivg;
     }
 }

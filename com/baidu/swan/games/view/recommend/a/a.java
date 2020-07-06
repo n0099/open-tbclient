@@ -102,7 +102,7 @@ public class a implements b {
     private com.baidu.swan.apps.model.a.a.a aEm() {
         com.baidu.swan.apps.model.a.a.a aVar = new com.baidu.swan.apps.model.a.a.a();
         aVar.gh(com.baidu.swan.games.utils.d.D(this.diZ.left) - this.diX);
-        aVar.gi(com.baidu.swan.games.utils.d.D(this.diZ.f1012top) - this.diX);
+        aVar.gi(com.baidu.swan.games.utils.d.D(this.diZ.f1013top) - this.diX);
         aVar.setWidth(-2);
         aVar.setHeight(-2);
         return aVar;

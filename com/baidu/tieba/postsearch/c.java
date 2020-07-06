@@ -47,7 +47,7 @@ public class c {
         this.bkf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.cqg();
+                c.this.cqh();
             }
         });
         this.kZL.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.postsearch.c.2
@@ -71,13 +71,13 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cqg() {
+    public void cqh() {
         if (this.kZN == null) {
             this.kZN = new com.baidu.tbadk.core.dialog.a(this.kZB.getPageContext().getPageActivity()).we(this.kZB.getPageContext().getString(R.string.alert_clean_history)).a(this.kZB.getPageContext().getString(R.string.clear_all_text), new a.b() { // from class: com.baidu.tieba.postsearch.c.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    c.this.kZB.cXk().cXx();
+                    c.this.kZB.cXl().cXy();
                     c.this.kZL.setVisibility(8);
                     c.this.showNoDataView();
                 }
@@ -112,7 +112,7 @@ public class c {
         ym(R.string.new_text_no_search_record);
     }
 
-    public void cXp() {
+    public void cXq() {
         this.kZL.setVisibility(8);
         ym(R.string.new_text_no_search_result);
     }
@@ -147,11 +147,11 @@ public class c {
         this.kZM.notifyDataSetChanged();
     }
 
-    public void cXq() {
+    public void cXr() {
         this.kZK.setVisibility(8);
     }
 
-    public boolean cXr() {
+    public boolean cXs() {
         return this.kZK.getVisibility() == 0 && !this.kZO && (this.mNoDataView == null || 8 == this.mNoDataView.getVisibility());
     }
 

@@ -316,7 +316,7 @@ public class SignAllForumProgressView extends FrameLayout {
         }, 3000L);
     }
 
-    public void dfO() {
+    public void dfP() {
         this.lyc.setVisibility(8);
     }
 

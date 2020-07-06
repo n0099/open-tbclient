@@ -52,11 +52,11 @@ public class a implements View.OnClickListener {
         }
     }
 
-    public ViewGroup cwz() {
+    public ViewGroup cwA() {
         return this.gJH;
     }
 
-    public int cwA() {
+    public int cwB() {
         return this.jns;
     }
 

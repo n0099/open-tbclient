@@ -16,11 +16,11 @@ public final class f {
     private final List<g> frames;
     private final String imageKey;
 
-    public final String dLQ() {
+    public final String dLU() {
         return this.imageKey;
     }
 
-    public final List<g> dMo() {
+    public final List<g> dMs() {
         return this.frames;
     }
 
@@ -35,7 +35,7 @@ public final class f {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     g gVar = new g(optJSONObject);
-                    if ((!gVar.hW().isEmpty()) && ((SVGAVideoShapeEntity) o.fG(gVar.hW())).dMe() && arrayList.size() > 0) {
+                    if ((!gVar.hW().isEmpty()) && ((SVGAVideoShapeEntity) o.fG(gVar.hW())).dMi() && arrayList.size() > 0) {
                         gVar.fw(((g) o.fH(arrayList)).hW());
                     }
                     arrayList.add(gVar);
@@ -46,7 +46,7 @@ public final class f {
     }
 
     public f(SpriteEntity spriteEntity) {
-        ArrayList dQo;
+        ArrayList dQs;
         q.m(spriteEntity, "obj");
         this.imageKey = spriteEntity.imageKey;
         g gVar = null;
@@ -58,16 +58,16 @@ public final class f {
             for (FrameEntity frameEntity : list2) {
                 q.l((Object) frameEntity, AdvanceSetting.NETWORK_TYPE);
                 g gVar3 = new g(frameEntity);
-                if ((!gVar3.hW().isEmpty()) && ((SVGAVideoShapeEntity) o.fG(gVar3.hW())).dMe() && gVar2 != null) {
+                if ((!gVar3.hW().isEmpty()) && ((SVGAVideoShapeEntity) o.fG(gVar3.hW())).dMi() && gVar2 != null) {
                     gVar3.fw(gVar2.hW());
                 }
                 arrayList.add(gVar3);
                 gVar2 = gVar3;
             }
-            dQo = arrayList;
+            dQs = arrayList;
         } else {
-            dQo = o.dQo();
+            dQs = o.dQs();
         }
-        this.frames = dQo;
+        this.frames = dQs;
     }
 }

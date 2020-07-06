@@ -252,7 +252,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.yuelaou_locate = this.edT;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.cZF().cZI();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.cZG().cZJ();
         builder.load_type = Integer.valueOf(this.eLu);
         builder.obj_locate = this.lEg;
         builder.obj_source = this.lEh;
@@ -265,7 +265,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder2.yoga_lib_version = TbConfig.getCriusLibVersion();
         builder.ad_param = builder2.build(false);
         builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
-        builder.ad_context_list = com.baidu.tieba.recapp.report.b.cZK().cZM();
+        builder.ad_context_list = com.baidu.tieba.recapp.report.b.cZL().cZN();
         builder.up_schema = this.mSchemeUrl;
         com.baidu.tbadk.util.t.a(builder, true, false, true);
         FrsPageReqIdl.Builder builder3 = new FrsPageReqIdl.Builder();

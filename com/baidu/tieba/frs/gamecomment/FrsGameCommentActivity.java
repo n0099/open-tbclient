@@ -134,7 +134,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
                 }
                 FrsGameCommentActivity.this.closeLoadingDialog();
                 FrsGameCommentActivity.this.showLoadingDialog(FrsGameCommentActivity.this.getPageContext().getPageActivity().getString(R.string.frs_game_comment_loading_tip));
-                FrsGameCommentActivity.this.ccr();
+                FrsGameCommentActivity.this.ccs();
             }
         });
         this.hOq.setText(getPageContext().getPageActivity().getString(R.string.send_post));
@@ -198,7 +198,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ccr() {
+    public void ccs() {
         HttpMessage httpMessage = new HttpMessage(1001712);
         httpMessage.addParam(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE, this.mScore);
         httpMessage.addParam("forum_id", this.hOx);

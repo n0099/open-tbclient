@@ -56,7 +56,7 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = dgq();
+            view = dgr();
         }
         if (this.lzc != null) {
             e eVar = this.lzc.lBr.get(i);
@@ -77,11 +77,11 @@ public class a extends BaseAdapter {
         this.lzc = eVar;
     }
 
-    public e dgp() {
+    public e dgq() {
         return this.lzc;
     }
 
-    private View dgq() {
+    private View dgr() {
         View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.forum_list_dir_menu_item, (ViewGroup) null);
         this.lze = new C0739a();
         this.lze.lzf = (ImageView) inflate.findViewById(R.id.menu_choose);

@@ -43,7 +43,7 @@ public abstract class c extends AbsThreadDataSupport implements af {
         this.gUc = str;
     }
 
-    public int bOL() {
+    public int bOM() {
         return this.gUb;
     }
 
@@ -60,11 +60,11 @@ public abstract class c extends AbsThreadDataSupport implements af {
         return this.mSource;
     }
 
-    public String bOM() {
+    public String bON() {
         return this.gUc;
     }
 
-    public String bON() {
+    public String bOO() {
         return this.gUd;
     }
 
@@ -89,7 +89,7 @@ public abstract class c extends AbsThreadDataSupport implements af {
         return this.mExtra;
     }
 
-    public Integer bOO() {
+    public Integer bOP() {
         return this.gUe;
     }
 
@@ -106,18 +106,18 @@ public abstract class c extends AbsThreadDataSupport implements af {
         if (aPS == null || str.length() == 0) {
             return null;
         }
-        ao dk = new ao(str).dk("fid", String.valueOf(aPS.getFid())).dk("tid", String.valueOf(aPS.getTid())).dk("nid", aPS.getNid()).dk("obj_id", getExtra()).dk("obj_param1", getWeight()).ag(TiebaInitialize.Params.OBJ_PARAM2, 1).dk("obj_source", getSource()).ag("obj_locate", bOL()).dk("uid", TbadkCoreApplication.getCurrentAccount()).dk(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.bOr()).dk("ab_tag", bOM());
+        ao dk = new ao(str).dk("fid", String.valueOf(aPS.getFid())).dk("tid", String.valueOf(aPS.getTid())).dk("nid", aPS.getNid()).dk("obj_id", getExtra()).dk("obj_param1", getWeight()).ag(TiebaInitialize.Params.OBJ_PARAM2, 1).dk("obj_source", getSource()).ag("obj_locate", bOM()).dk("uid", TbadkCoreApplication.getCurrentAccount()).dk(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.bOs()).dk("ab_tag", bON());
         if (!z) {
-            dk.ag("obj_type", bOP());
+            dk.ag("obj_type", bOQ());
         } else {
             if (aPS.dNV > 0) {
                 dk.ag("midpageflag", 1);
             } else {
                 dk.ag("midpageflag", 0);
             }
-            dk.ag("is_vertical", bOO().intValue());
+            dk.ag("is_vertical", bOP().intValue());
         }
-        if (aPS.aTS() != null && aPS.aTS().dia() != null && aPS.aTS().dia().bkO() != null && aPS.aTS().dia().bkO().size() > 0) {
+        if (aPS.aTS() != null && aPS.aTS().dib() != null && aPS.aTS().dib().bkP() != null && aPS.aTS().dib().bkP().size() > 0) {
             dk.ag(TiebaInitialize.Params.OBJ_TO, aPS.aTS().lGt ? 2 : 1);
         }
         return dk;
@@ -128,9 +128,9 @@ public abstract class c extends AbsThreadDataSupport implements af {
         if (aPS == null) {
             return null;
         }
-        ao dk = new ao(str).dk("fid", String.valueOf(aPS.getFid())).dk("tid", String.valueOf(aPS.getTid())).ag(TiebaInitialize.Params.OBJ_PARAM2, 1).dk("obj_param1", getWeight()).dk("obj_source", getSource()).ag("obj_locate", bOL()).dk("obj_name", bOM()).dk("uid", TbadkCoreApplication.getCurrentAccount()).dk(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.bOr());
+        ao dk = new ao(str).dk("fid", String.valueOf(aPS.getFid())).dk("tid", String.valueOf(aPS.getTid())).ag(TiebaInitialize.Params.OBJ_PARAM2, 1).dk("obj_param1", getWeight()).dk("obj_source", getSource()).ag("obj_locate", bOM()).dk("obj_name", bON()).dk("uid", TbadkCoreApplication.getCurrentAccount()).dk(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.bOs());
         if (i == 0) {
-            dk.ag("obj_type", bOP());
+            dk.ag("obj_type", bOQ());
         } else {
             dk.ag("obj_type", i);
         }
@@ -138,7 +138,7 @@ public abstract class c extends AbsThreadDataSupport implements af {
         return dk;
     }
 
-    private int bOP() {
+    private int bOQ() {
         int i;
         int i2 = 0;
         bu aPS = aPS();
@@ -178,7 +178,7 @@ public abstract class c extends AbsThreadDataSupport implements af {
         this.gUf = i;
     }
 
-    public boolean bOQ() {
+    public boolean bOR() {
         return this.gUf == 1;
     }
 
@@ -199,7 +199,7 @@ public abstract class c extends AbsThreadDataSupport implements af {
         return apVar;
     }
 
-    public void bOR() {
+    public void bOS() {
         if (this.dLi == null) {
         }
     }

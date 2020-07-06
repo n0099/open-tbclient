@@ -26,11 +26,11 @@ public class a {
         this.hyq = new ArrayList();
     }
 
-    public static a bWV() {
+    public static a bWW() {
         return C0619a.hyw;
     }
 
-    public boolean bWW() {
+    public boolean bWX() {
         return this.hyr;
     }
 
@@ -46,7 +46,7 @@ public class a {
         this.hys = i;
     }
 
-    public int bWX() {
+    public int bWY() {
         return this.hys;
     }
 
@@ -60,11 +60,11 @@ public class a {
         }
     }
 
-    public List<FrsTabInfo> bWY() {
+    public List<FrsTabInfo> bWZ() {
         return this.hyt;
     }
 
-    public List<bu> bWZ() {
+    public List<bu> bXa() {
         return this.hyq;
     }
 
@@ -112,7 +112,7 @@ public class a {
         try {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_MOVE_AREA);
             JSONArray jSONArray = new JSONArray();
-            for (bu buVar : bWV().bWZ()) {
+            for (bu buVar : bWW().bXa()) {
                 if (buVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("thread_id", buVar.getId());
@@ -122,14 +122,14 @@ public class a {
                 }
             }
             httpMessage.addParam("threads", jSONArray.toString());
-            httpMessage.addParam("forum_id", bWV().getForumId());
+            httpMessage.addParam("forum_id", bWW().getForumId());
             MessageManager.getInstance().sendMessage(httpMessage);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public void bXa() {
+    public void bXb() {
         if (!com.baidu.tbadk.core.util.w.isEmpty(this.hyq)) {
             this.hyq.clear();
             if (this.hyv != null) {

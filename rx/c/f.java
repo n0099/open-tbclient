@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
 public class f {
-    private static final f ohc = new f();
-    static final b ohh = new b() { // from class: rx.c.f.1
+    private static final f ohf = new f();
+    static final b ohk = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> ohd = new AtomicReference<>();
-    private final AtomicReference<d> ohe = new AtomicReference<>();
-    private final AtomicReference<h> ohf = new AtomicReference<>();
-    private final AtomicReference<a> ohg = new AtomicReference<>();
-    private final AtomicReference<g> oaY = new AtomicReference<>();
+    private final AtomicReference<b> ohg = new AtomicReference<>();
+    private final AtomicReference<d> ohh = new AtomicReference<>();
+    private final AtomicReference<h> ohi = new AtomicReference<>();
+    private final AtomicReference<a> ohj = new AtomicReference<>();
+    private final AtomicReference<g> obb = new AtomicReference<>();
 
     @Deprecated
-    public static f dVk() {
-        return ohc;
+    public static f dVo() {
+        return ohf;
     }
 
     f() {
     }
 
-    public b dVl() {
-        if (this.ohd.get() == null) {
+    public b dVp() {
+        if (this.ohg.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
-                this.ohd.compareAndSet(null, ohh);
+                this.ohg.compareAndSet(null, ohk);
             } else {
-                this.ohd.compareAndSet(null, (b) a);
-            }
-        }
-        return this.ohd.get();
-    }
-
-    public d dVm() {
-        if (this.ohe.get() == null) {
-            Object a = a(d.class, System.getProperties());
-            if (a == null) {
-                this.ohe.compareAndSet(null, e.dVj());
-            } else {
-                this.ohe.compareAndSet(null, (d) a);
-            }
-        }
-        return this.ohe.get();
-    }
-
-    public h dVn() {
-        if (this.ohf.get() == null) {
-            Object a = a(h.class, System.getProperties());
-            if (a == null) {
-                this.ohf.compareAndSet(null, i.dVx());
-            } else {
-                this.ohf.compareAndSet(null, (h) a);
-            }
-        }
-        return this.ohf.get();
-    }
-
-    public a dVo() {
-        if (this.ohg.get() == null) {
-            Object a = a(a.class, System.getProperties());
-            if (a == null) {
-                this.ohg.compareAndSet(null, new a() { // from class: rx.c.f.2
-                });
-            } else {
-                this.ohg.compareAndSet(null, (a) a);
+                this.ohg.compareAndSet(null, (b) a);
             }
         }
         return this.ohg.get();
+    }
+
+    public d dVq() {
+        if (this.ohh.get() == null) {
+            Object a = a(d.class, System.getProperties());
+            if (a == null) {
+                this.ohh.compareAndSet(null, e.dVn());
+            } else {
+                this.ohh.compareAndSet(null, (d) a);
+            }
+        }
+        return this.ohh.get();
+    }
+
+    public h dVr() {
+        if (this.ohi.get() == null) {
+            Object a = a(h.class, System.getProperties());
+            if (a == null) {
+                this.ohi.compareAndSet(null, i.dVB());
+            } else {
+                this.ohi.compareAndSet(null, (h) a);
+            }
+        }
+        return this.ohi.get();
+    }
+
+    public a dVs() {
+        if (this.ohj.get() == null) {
+            Object a = a(a.class, System.getProperties());
+            if (a == null) {
+                this.ohj.compareAndSet(null, new a() { // from class: rx.c.f.2
+                });
+            } else {
+                this.ohj.compareAndSet(null, (a) a);
+            }
+        }
+        return this.ohj.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g dVp() {
-        if (this.oaY.get() == null) {
+    public g dVt() {
+        if (this.obb.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.oaY.compareAndSet(null, g.dVw());
+                this.obb.compareAndSet(null, g.dVA());
             } else {
-                this.oaY.compareAndSet(null, (g) a);
+                this.obb.compareAndSet(null, (g) a);
             }
         }
-        return this.oaY.get();
+        return this.obb.get();
     }
 }

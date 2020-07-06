@@ -5,9 +5,9 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
 /* loaded from: classes7.dex */
 final class c extends b {
-    private static Class ncV;
-    private final Object ncW = dIf();
-    private final Field ncX = dIg();
+    private static Class ncY;
+    private final Object ncZ = dIj();
+    private final Field nda = dIk();
 
     @Override // com.google.gson.internal.b.b
     public void b(AccessibleObject accessibleObject) {
@@ -21,9 +21,9 @@ final class c extends b {
     }
 
     boolean c(AccessibleObject accessibleObject) {
-        if (this.ncW != null && this.ncX != null) {
+        if (this.ncZ != null && this.nda != null) {
             try {
-                ncV.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.ncW, accessibleObject, Long.valueOf(((Long) ncV.getMethod("objectFieldOffset", Field.class).invoke(this.ncW, this.ncX)).longValue()), true);
+                ncY.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.ncZ, accessibleObject, Long.valueOf(((Long) ncY.getMethod("objectFieldOffset", Field.class).invoke(this.ncZ, this.nda)).longValue()), true);
                 return true;
             } catch (Exception e) {
             }
@@ -31,10 +31,10 @@ final class c extends b {
         return false;
     }
 
-    private static Object dIf() {
+    private static Object dIj() {
         try {
-            ncV = Class.forName("sun.misc.Unsafe");
-            Field declaredField = ncV.getDeclaredField("theUnsafe");
+            ncY = Class.forName("sun.misc.Unsafe");
+            Field declaredField = ncY.getDeclaredField("theUnsafe");
             declaredField.setAccessible(true);
             return declaredField.get(null);
         } catch (Exception e) {
@@ -42,7 +42,7 @@ final class c extends b {
         }
     }
 
-    private static Field dIg() {
+    private static Field dIk() {
         try {
             return AccessibleObject.class.getDeclaredField("override");
         } catch (NoSuchFieldException e) {

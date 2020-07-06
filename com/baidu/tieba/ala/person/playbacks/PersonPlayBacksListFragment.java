@@ -64,7 +64,7 @@ public class PersonPlayBacksListFragment extends BaseFragment {
         initData();
         ag(inflate);
         initListener();
-        bLb();
+        bLc();
         return inflate;
     }
 
@@ -140,11 +140,11 @@ public class PersonPlayBacksListFragment extends BaseFragment {
             } else {
                 this.gxi.nU(a.i.sdk_loading);
             }
-            this.gxe.a(z, ((e) obj).bLe(), 2);
+            this.gxe.a(z, ((e) obj).bLf(), 2);
         }
     }
 
-    private void bLb() {
+    private void bLc() {
         if (JavaTypesHelper.toLong(this.userId, 0L) == 0) {
             this.gxe.a(true, null, 2);
         } else if (this.gzr != null) {

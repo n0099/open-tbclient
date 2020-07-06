@@ -30,7 +30,7 @@ public class c {
         MessageManager.getInstance().registerListener(this.iZp);
     }
 
-    public static c csP() {
+    public static c csQ() {
         if (jap == null) {
             synchronized (c.class) {
                 if (jap == null) {
@@ -73,11 +73,11 @@ public class c {
         return this.iKR;
     }
 
-    public Long csQ() {
-        return com.baidu.tieba.im.memorycache.b.crW().csh().get(this.iKR);
+    public Long csR() {
+        return com.baidu.tieba.im.memorycache.b.crX().csi().get(this.iKR);
     }
 
-    public synchronized List<Long> csR() {
+    public synchronized List<Long> csS() {
         ArrayList arrayList;
         arrayList = new ArrayList();
         for (Long l : this.jaq) {
@@ -88,7 +88,7 @@ public class c {
         return arrayList;
     }
 
-    public synchronized void csS() {
+    public synchronized void csT() {
         this.jaq.clear();
     }
 
@@ -116,7 +116,7 @@ public class c {
         }
     }
 
-    public synchronized boolean csT() {
+    public synchronized boolean csU() {
         boolean z;
         if (this.iKR > 0) {
             z = this.jaq.size() > 0;
@@ -141,7 +141,7 @@ public class c {
         return z;
     }
 
-    public synchronized String csU() {
+    public synchronized String csV() {
         String str;
         str = "";
         for (Long l : this.jaq) {

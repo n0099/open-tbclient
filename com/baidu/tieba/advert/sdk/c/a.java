@@ -25,17 +25,17 @@ public class a {
 
     public static void a(b bVar) {
         if (bVar == null) {
-            bqh();
+            bqi();
         } else {
             TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).edit().putString("bc_splash_info_new", bVar.toString()).apply();
         }
     }
 
-    public static void bqh() {
+    public static void bqi() {
         TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).edit().putString("bc_splash_info_new", "").apply();
     }
 
-    public static void bqi() {
+    public static void bqj() {
         File file = new File(com.baidu.tieba.advert.sdk.b.a.fbV);
         if (file.exists()) {
             n.deleteFileOrDir(file);
@@ -54,7 +54,7 @@ public class a {
         }
     }
 
-    public static String bqj() {
+    public static String bqk() {
         return TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).getString("bc_splash_info_new", "");
     }
 }

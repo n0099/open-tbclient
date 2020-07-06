@@ -39,15 +39,15 @@ public class m extends BaseAdapter {
         a aVar;
         if (view == null) {
             aVar = new a(this.iPw);
-            view = aVar.byQ();
+            view = aVar.byR();
         } else {
             aVar = (a) view.getTag();
         }
-        if (aVar.cnZ() != null) {
+        if (aVar.coa() != null) {
             if (i + 1 == getCount()) {
-                aVar.cnZ().setVisibility(8);
+                aVar.coa().setVisibility(8);
             } else {
-                aVar.cnZ().setVisibility(0);
+                aVar.coa().setVisibility(0);
             }
         }
         aVar.Gz(getItem(i).toString());

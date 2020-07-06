@@ -97,7 +97,7 @@ public class MainBottomLiveTabFragment extends BaseFragment {
             Fragment item = this.flJ.getItem(0);
             if (item instanceof AlaLiveTabFragment) {
                 AlaLiveTabFragment alaLiveTabFragment = (AlaLiveTabFragment) item;
-                if (alaLiveTabFragment.btL()) {
+                if (alaLiveTabFragment.btM()) {
                     alaLiveTabFragment.setUserVisibleHint(true);
                 }
             }

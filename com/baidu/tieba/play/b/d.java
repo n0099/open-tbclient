@@ -23,7 +23,7 @@ public class d implements b {
     }
 
     @Override // com.baidu.tieba.play.b.b
-    public JSONObject cWx() {
+    public JSONObject cWy() {
         String str;
         JSONObject jSONObject = new JSONObject();
         try {

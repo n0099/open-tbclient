@@ -13,7 +13,7 @@ public class a {
         this.fyQ.cV(jSONObject.optJSONObject("cat2"));
     }
 
-    public c bvI() {
+    public c bvJ() {
         return this.fyP;
     }
 
@@ -21,7 +21,7 @@ public class a {
         this.fyP = cVar;
     }
 
-    public c bvJ() {
+    public c bvK() {
         return this.fyQ;
     }
 
@@ -30,10 +30,10 @@ public class a {
     }
 
     public static String a(a aVar) {
-        return (aVar == null || aVar.bvI() == null || aVar.bvI().getId() == null) ? "" : aVar.bvI().getId();
+        return (aVar == null || aVar.bvJ() == null || aVar.bvJ().getId() == null) ? "" : aVar.bvJ().getId();
     }
 
     public static String b(a aVar) {
-        return (aVar == null || aVar.bvJ() == null || aVar.bvJ().getId() == null) ? "" : aVar.bvJ().getId();
+        return (aVar == null || aVar.bvK() == null || aVar.bvK().getId() == null) ? "" : aVar.bvK().getId();
     }
 }

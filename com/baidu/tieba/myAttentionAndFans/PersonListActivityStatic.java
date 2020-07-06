@@ -19,10 +19,10 @@ public class PersonListActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PersonListActivityConfig.class, PersonListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MyForbiddenFansActivityConfig.class, MyForbiddenFansActivity.class);
-        bXw();
+        bXx();
     }
 
-    public static void bXw() {
+    public static void bXx() {
         com.baidu.tbadk.ala.b.aOf().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
             @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {

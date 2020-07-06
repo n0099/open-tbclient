@@ -32,7 +32,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
                 NavigationBarActivity.this.finish();
             }
         });
-        if (dbj()) {
+        if (dbk()) {
             this.loB = (NoNetworkView) ((ViewStub) findViewById(R.id.no_network_viewstub)).inflate();
         }
     }
@@ -40,21 +40,21 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     @Override // android.app.Activity
     public void setContentView(View view) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        if (dbj()) {
+        if (dbk()) {
         }
         this.loC = new RelativeLayout(getPageContext().getContext());
         this.loC.addView(view, new ViewGroup.LayoutParams(-1, -1));
         this.rootView.addView(this.loC, 0, layoutParams);
     }
 
-    protected boolean dbj() {
+    protected boolean dbk() {
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void setContentView(int i) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        if (dbj()) {
+        if (dbk()) {
             layoutParams.addRule(3, R.id.no_network_view);
         } else {
             layoutParams.addRule(3, R.id.no_network_viewstub);

@@ -59,7 +59,7 @@ public class a {
     private f.d iqC = new f.d() { // from class: com.baidu.tieba.homepage.video.d.a.1
         @Override // com.baidu.tbadk.core.view.f.d
         public void onListPullToRefresh(boolean z) {
-            a.this.cje();
+            a.this.cjf();
         }
     };
     private f.b iqD = new f.b() { // from class: com.baidu.tieba.homepage.video.d.a.2
@@ -90,11 +90,11 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            ak cjf;
+            ak cjg;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof KeyEvent)) {
                 KeyEvent keyEvent = (KeyEvent) customResponsedMessage.getData();
-                if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 24 && (cjf = a.this.cjf()) != null && cjf.se() != null) {
-                    cjf.se().b(new a.C0098a(3));
+                if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 24 && (cjg = a.this.cjg()) != null && cjg.se() != null) {
+                    cjg.se().b(new a.C0098a(3));
                 }
             }
         }
@@ -108,7 +108,7 @@ public class a {
                     a.this.hjm.cu(view);
                 }
                 if (view.getTag() instanceof com.baidu.tieba.homepage.personalize.a.f) {
-                    ((com.baidu.tieba.homepage.personalize.a.f) view.getTag()).bPg().stopPlay();
+                    ((com.baidu.tieba.homepage.personalize.a.f) view.getTag()).bPh().stopPlay();
                 }
             }
         }
@@ -126,7 +126,7 @@ public class a {
                 if (this.fpM == 1) {
                     a.this.oJ(true);
                 } else {
-                    a.this.ckV();
+                    a.this.ckW();
                 }
             }
         }
@@ -151,11 +151,11 @@ public class a {
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ak cjf() {
-        if (this.hjm == null || this.hjm.cVl() == null || !(this.hjm.cVl().getTag() instanceof ak)) {
+    public ak cjg() {
+        if (this.hjm == null || this.hjm.cVm() == null || !(this.hjm.cVm().getTag() instanceof ak)) {
             return null;
         }
-        return (ak) this.hjm.cVl().getTag();
+        return (ak) this.hjm.cVm().getTag();
     }
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId, NEGFeedBackView.a aVar) {
@@ -241,7 +241,7 @@ public class a {
         }
     }
 
-    public void btI() {
+    public void btJ() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.Wa.setNextPage(this.fnt);
@@ -265,7 +265,7 @@ public class a {
         }
     }
 
-    public void btJ() {
+    public void btK() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.Wa.setNextPage(this.fnt);
@@ -299,7 +299,7 @@ public class a {
         this.mRefreshView.attachView(this.mContentLayout, false);
     }
 
-    public void btN() {
+    public void btO() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this.mContentLayout);
             this.mRefreshView = null;
@@ -314,7 +314,7 @@ public class a {
         this.imi.c(eVar);
     }
 
-    public void ckU() {
+    public void ckV() {
         ni(false);
     }
 
@@ -328,7 +328,7 @@ public class a {
         this.mIsBackground = z;
     }
 
-    public void chX() {
+    public void chY() {
         ni(true);
     }
 
@@ -337,13 +337,13 @@ public class a {
         this.mIsBackground = z;
         if (this.hjm != null) {
             this.hjm.qs(!z);
-            ak cjf = cjf();
-            if (cjf != null && cjf.se() != null) {
-                z2 = cjf.se().b(new a.C0098a(8, Boolean.valueOf(z)));
+            ak cjg = cjg();
+            if (cjg != null && cjg.se() != null) {
+                z2 = cjg.se().b(new a.C0098a(8, Boolean.valueOf(z)));
             }
             if (!z2) {
                 if (z) {
-                    this.hjm.cje();
+                    this.hjm.cjf();
                 } else if (this.iqB) {
                     this.hjm.a(this.hBI, this.fmb, this.hCs, true);
                 }
@@ -355,15 +355,15 @@ public class a {
         this.iqB = z;
     }
 
-    public void cjd() {
+    public void cje() {
         if (this.hjm != null && this.iqB) {
             this.hjm.a(this.hBI, this.fmb, this.hCs, true);
         }
     }
 
-    public void cje() {
+    public void cjf() {
         if (this.hjm != null) {
-            this.hjm.cje();
+            this.hjm.cjf();
         }
     }
 
@@ -371,7 +371,7 @@ public class a {
         if (this.iBt != null) {
             this.iBt.setData(list);
         }
-        cjd();
+        cje();
     }
 
     public void Ge(String str) {
@@ -419,11 +419,11 @@ public class a {
         return null;
     }
 
-    public void cjg() {
+    public void cjh() {
         aD(new LinkedList());
     }
 
-    public void cjc() {
+    public void cjd() {
         if (this.Wa != null) {
             this.Wa.setSelection(0);
         }
@@ -478,12 +478,12 @@ public class a {
         if (this.hjm != null) {
             this.hjm.destroy();
         }
-        cjh();
+        cji();
         MessageManager.getInstance().unRegisterListener(this.hBs);
         MessageManager.getInstance().unRegisterListener(this.dGa);
     }
 
-    private void cjh() {
+    private void cji() {
         if (this.Wa != null) {
             this.Wa.removeOnScrollListener(this.mScrollListener);
             this.Wa.setRecyclerListener(null);
@@ -504,7 +504,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ckV() {
+    public void ckW() {
         if (a(this.Wa)) {
             oJ(false);
         } else {

@@ -22,7 +22,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     a.b iPt = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.1
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-            UpdateGroupActivity.this.ctD();
+            UpdateGroupActivity.this.ctE();
         }
     };
     a.b iPu = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.2
@@ -107,31 +107,31 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.jbT.cpf()) {
-            if (((d) this.jbT).ctE()) {
+        if (view == this.jbT.cpg()) {
+            if (((d) this.jbT).ctF()) {
                 finish();
-            } else if (this.jbT.ctB() && this.jbT.coV()) {
-                ctD();
+            } else if (this.jbT.ctC() && this.jbT.coW()) {
+                ctE();
             } else {
-                showToast(this.jbT.ctA());
+                showToast(this.jbT.ctB());
             }
-        } else if (view == this.jbT.cou()) {
+        } else if (view == this.jbT.cov()) {
             this.jbT.EO();
-        } else if (view == this.jbT.cty() && !ctC()) {
+        } else if (view == this.jbT.ctz() && !ctD()) {
             finish();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && keyEvent.getRepeatCount() == 0 && ctC()) {
+        if (i == 4 && keyEvent.getRepeatCount() == 0 && ctD()) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private boolean ctC() {
-        if (TextUtils.isEmpty(this.jbT.getText()) || !this.jbT.coV() || this.jbT.getText().equals(this.jbT.ctx())) {
+    private boolean ctD() {
+        if (TextUtils.isEmpty(this.jbT.getText()) || !this.jbT.coW() || this.jbT.getText().equals(this.jbT.cty())) {
             return false;
         }
         this.jbT.showDialog();
@@ -139,7 +139,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ctD() {
+    public void ctE() {
         this.jbT.setIsLoading(true);
         this.jbU.setGroupId(this.jbT.getGroupId());
         if (this.jbV == 1) {

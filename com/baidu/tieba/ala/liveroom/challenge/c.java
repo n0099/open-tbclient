@@ -236,14 +236,14 @@ public class c implements i {
     @Override // com.baidu.live.challenge.i
     public void vP() {
         if (this.fYw != null) {
-            this.fYw.bCW();
+            this.fYw.bCX();
         }
     }
 
     @Override // com.baidu.live.challenge.i
     public void vQ() {
         if (this.fYw != null) {
-            this.fYw.bCX();
+            this.fYw.bCY();
         }
     }
 
@@ -355,7 +355,7 @@ public class c implements i {
         this.fYw.aX(z);
     }
 
-    private void bCt() {
+    private void bCu() {
         if (this.fYv != null) {
             this.fYv.clear();
         }
@@ -364,9 +364,9 @@ public class c implements i {
     @Override // com.baidu.live.challenge.i
     public void vH() {
         if (this.fYw != null) {
-            this.fYw.bCS();
+            this.fYw.bCT();
         }
-        bCt();
+        bCu();
     }
 
     @Override // com.baidu.live.challenge.i
@@ -374,7 +374,7 @@ public class c implements i {
         if (this.fYw != null) {
             this.fYw.onDestroy();
         }
-        bCt();
+        bCu();
     }
 
     @Override // com.baidu.live.challenge.i

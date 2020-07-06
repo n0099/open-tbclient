@@ -20,17 +20,17 @@ public class b extends a<com.baidu.tieba.play.b.d> {
     @Override // com.baidu.tieba.k.a.a
     public void a(com.baidu.tieba.play.b.d dVar) {
         super.a((b) dVar);
-        if (cCT() && this.jJU) {
-            cCU();
+        if (cCU() && this.jJU) {
+            cCV();
         }
     }
 
-    private boolean cCT() {
+    private boolean cCU() {
         return this.list != null && this.list.size() > 30;
     }
 
     @Override // com.baidu.tieba.k.a.c
-    public void cCU() {
+    public void cCV() {
         if (this.list != null && this.list.size() != 0) {
             dU(new ArrayList(this.list));
             this.list.clear();

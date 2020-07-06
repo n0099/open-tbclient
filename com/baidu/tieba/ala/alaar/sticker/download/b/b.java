@@ -14,7 +14,7 @@ public class b implements com.baidu.tieba.ala.alaar.sticker.download.a.b {
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onStarted() {
         this.fhs.setStatus(101);
-        this.fhs.bsp().onStarted();
+        this.fhs.bsq().onStarted();
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b

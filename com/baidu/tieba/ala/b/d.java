@@ -29,7 +29,7 @@ public abstract class d {
 
     public abstract void aF(int i, String str);
 
-    protected abstract int bwi();
+    protected abstract int bwj();
 
     public abstract void confirm();
 
@@ -46,7 +46,7 @@ public abstract class d {
         this.feg = arrayList;
         this.fCg = i;
         this.fCh = i2;
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(bwi(), (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.mContext).inflate(bwj(), (ViewGroup) null);
         frameLayout.removeAllViews();
         frameLayout.addView(this.mRootView);
         initView();
@@ -101,7 +101,7 @@ public abstract class d {
         });
     }
 
-    public void brA() {
+    public void brB() {
         this.fec.EO();
         this.fec.getEditView().setFocusable(true);
         this.fec.getEditView().setFocusableInTouchMode(true);
@@ -114,7 +114,7 @@ public abstract class d {
         }, 100L);
     }
 
-    public void brB() {
+    public void brC() {
         this.fec.setVisibility(8);
         this.fec.getEditView().post(new Runnable() { // from class: com.baidu.tieba.ala.b.d.4
             @Override // java.lang.Runnable

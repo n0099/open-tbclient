@@ -57,10 +57,10 @@ public class b {
     });
 
     public b() {
-        bqb();
+        bqc();
     }
 
-    private void bqb() {
+    private void bqc() {
         com.baidu.mobad.a.e.aE(TbadkCoreApplication.getInst()).newAdContext().setAdServerRequestingTimeout(1000);
     }
 

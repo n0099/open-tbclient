@@ -45,7 +45,7 @@ public class a {
         }
         this.fml.setPullRefresh(this.mPullView);
         this.ikc = new com.baidu.tieba.godSquare.a.a(this.mActivity.getPageContext(), this.fml);
-        this.fml.addAdapters(this.ikc.btV());
+        this.fml.addAdapters(this.ikc.btW());
         this.fml.setNextPage(this.fnt);
     }
 
@@ -64,7 +64,7 @@ public class a {
         this.mActivity.showNetRefreshView(this.mRootView, str, true);
     }
 
-    public void btN() {
+    public void btO() {
         this.fml.setVisibility(0);
         this.mActivity.hideNetRefreshView(this.mRootView);
     }
@@ -83,16 +83,16 @@ public class a {
         this.ikc.notifyDataSetChanged();
     }
 
-    public void chs() {
+    public void cht() {
         this.fnt.startLoadData();
     }
 
-    public void cht() {
+    public void chu() {
         this.fnt.setText(this.mActivity.getResources().getString(R.string.network_ungeilivable));
         this.fnt.endLoadData();
     }
 
-    public void chu() {
+    public void chv() {
         this.fnt.setText(this.mActivity.getResources().getString(R.string.list_no_more));
         this.fnt.endLoadData();
     }

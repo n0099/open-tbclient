@@ -10,11 +10,11 @@ public class g {
     private LinkedList<e> KV = new LinkedList<>();
     private e lfJ = null;
 
-    public h cZh() {
+    public h cZi() {
         return this.lfH;
     }
 
-    public i cZi() {
+    public i cZj() {
         return this.lfI;
     }
 

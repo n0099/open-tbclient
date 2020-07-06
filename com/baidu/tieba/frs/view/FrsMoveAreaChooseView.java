@@ -57,17 +57,17 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof Integer) {
-            cgH();
-        } else if (view == this.hla && this.mPageContext != null && getParent() != null && this.ieL.cgG() >= 0) {
+            cgI();
+        } else if (view == this.hla && this.mPageContext != null && getParent() != null && this.ieL.cgH() >= 0) {
             boolean z = com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean("key_frs_move_area_tip", true);
-            List<FrsTabInfo> bWY = com.baidu.tieba.frs.a.bWV().bWY();
-            FrsTabInfo frsTabInfo = (FrsTabInfo) w.getItem(bWY, this.ieL.cgF());
-            FrsTabInfo frsTabInfo2 = (FrsTabInfo) w.getItem(bWY, this.ieL.cgG());
+            List<FrsTabInfo> bWZ = com.baidu.tieba.frs.a.bWW().bWZ();
+            FrsTabInfo frsTabInfo = (FrsTabInfo) w.getItem(bWZ, this.ieL.cgG());
+            FrsTabInfo frsTabInfo2 = (FrsTabInfo) w.getItem(bWZ, this.ieL.cgH());
             if (frsTabInfo != null && frsTabInfo2 != null) {
                 if (z) {
                     new d().a(this.mPageContext, frsTabInfo, frsTabInfo2);
                 } else {
-                    com.baidu.tieba.frs.a.bWV().bS(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
+                    com.baidu.tieba.frs.a.bWW().bS(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
                 }
                 if (this.ieM != null) {
                     view.setTag("choose_done");
@@ -81,12 +81,12 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         an.setBackgroundColor(this, R.color.cp_mask_b_alpha25);
         an.setBackgroundResource(this.ieK, R.drawable.frs_move_area_choose_bg);
         an.setViewTextColor(this.mTitleView, (int) R.color.cp_cont_c);
-        cgH();
+        cgI();
         an.setBackgroundColor(this.mRecyclerView, R.color.cp_bg_line_k);
     }
 
-    private void cgH() {
-        if (this.ieL.cgG() >= 0) {
+    private void cgI() {
+        if (this.ieL.cgH() >= 0) {
             an.setViewTextColor(this.hla, (int) R.color.cp_link_tip_a);
         } else {
             an.setViewTextColor(this.hla, (int) R.color.cp_link_tip_a_alpha50);

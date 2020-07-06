@@ -72,7 +72,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
         boolean vS(int i);
     }
 
-    public void ces() {
+    public void cet() {
         final be beVar;
         if (this.hoE != null) {
             ArrayList arrayList = new ArrayList();
@@ -287,7 +287,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
                         if (HorizontalTabView.this.hXm != null) {
                             HorizontalTabView.this.hXm.b(HorizontalTabView.this.vK(1));
                         }
-                        HorizontalTabView.this.ces();
+                        HorizontalTabView.this.cet();
                         return;
                     }
                     return;

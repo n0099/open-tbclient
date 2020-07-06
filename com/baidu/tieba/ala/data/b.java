@@ -20,11 +20,11 @@ public class b {
         }
     }
 
-    public boolean bwr() {
+    public boolean bws() {
         return this.fDt != null && this.fDt.status == 5;
     }
 
-    public boolean bws() {
+    public boolean bwt() {
         return this.fDt != null && this.fDt.status == 4;
     }
 
@@ -32,34 +32,34 @@ public class b {
         return this.fDt != null && (this.fDt.status == 2 || this.fDt.status == 3);
     }
 
-    public boolean bwt() {
+    public boolean bwu() {
         return (this.fDt == null || this.fDu == null || this.fDt.status != 2) ? false : true;
     }
 
-    public boolean bwu() {
+    public boolean bwv() {
         return this.fDu != null && this.fDu.fDv == 1;
     }
 
-    public long bwv() {
+    public long bww() {
         if (this.fDu != null) {
             return this.fDu.fDw;
         }
         return 0L;
     }
 
-    public boolean bww() {
+    public boolean bwx() {
         return this.fDu != null && ((this.fDu.fDx && !this.fDu.aRB) || (this.fDu.fDy && !this.fDu.fDz));
     }
 
-    public boolean bwx() {
+    public boolean bwy() {
         return this.fDu != null && (this.fDu.fDx || this.fDu.fDy);
     }
 
-    public boolean bwy() {
+    public boolean bwz() {
         return (this.fDu == null || !this.fDu.fDx || this.fDu.aRB) ? false : true;
     }
 
-    public boolean bwz() {
+    public boolean bwA() {
         return (this.fDu == null || !this.fDu.fDy || this.fDu.fDz) ? false : true;
     }
 

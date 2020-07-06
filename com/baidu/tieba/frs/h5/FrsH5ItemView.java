@@ -55,7 +55,7 @@ public class FrsH5ItemView extends FrameLayout {
         this.mOnReceivedErrorListener = new BaseWebView.f() { // from class: com.baidu.tieba.frs.h5.FrsH5ItemView.3
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
             public void onReceivedError(WebView webView, int i, String str, String str2) {
-                FrsH5ItemView.this.cds();
+                FrsH5ItemView.this.cdt();
                 FrsH5ItemView.this.cuc = true;
             }
         };
@@ -90,7 +90,7 @@ public class FrsH5ItemView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cds() {
+    public void cdt() {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.height = (l.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
         setLayoutParams(layoutParams);

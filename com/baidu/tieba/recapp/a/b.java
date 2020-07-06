@@ -21,7 +21,7 @@ public class b implements e {
         private static b leA = new b();
     }
 
-    public static b cYT() {
+    public static b cYU() {
         return C0728b.leA;
     }
 

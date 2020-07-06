@@ -18,26 +18,26 @@ public class d {
     public String mVersion;
 
     public boolean isLoaded() {
-        return bvp() != null && bvp().exists();
+        return bvq() != null && bvq().exists();
     }
 
     public String getName() {
         return this.mVersion + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMd5;
     }
 
-    public File bvp() {
+    public File bvq() {
         if (this.fxV == null && !TextUtils.isEmpty(this.mVersion)) {
-            this.fxV = new File(bvq(), getName());
+            this.fxV = new File(bvr(), getName());
         }
         return this.fxV;
     }
 
     public String getFilePath() {
-        return bvp().getAbsolutePath();
+        return bvq().getAbsolutePath();
     }
 
-    public String bvq() {
-        return TextUtils.equals(this.mType, "so") ? c.bvn().getAbsolutePath() : c.bvo().getAbsolutePath();
+    public String bvr() {
+        return TextUtils.equals(this.mType, "so") ? c.bvo().getAbsolutePath() : c.bvp().getAbsolutePath();
     }
 
     public String getLoadingFile() {
@@ -69,21 +69,21 @@ public class d {
                 }
             }
             com.baidu.tieba.ala.a.b.a.unzipFile(file, file2.getAbsolutePath());
-            file2.renameTo(bvp());
+            file2.renameTo(bvq());
         } catch (Exception e3) {
             z = false;
             e = e3;
         }
         if (isLoaded()) {
-            if (bvr()) {
+            if (bvs()) {
                 z = true;
                 if (!z) {
                     try {
-                        com.baidu.tieba.ala.a.b.a.deleteDir(bvp());
+                        com.baidu.tieba.ala.a.b.a.deleteDir(bvq());
                     } catch (Exception e4) {
                         e = e4;
                         e.printStackTrace();
-                        com.baidu.tieba.ala.a.b.a.deleteDir(bvp());
+                        com.baidu.tieba.ala.a.b.a.deleteDir(bvq());
                         return z;
                     }
                 }
@@ -98,10 +98,10 @@ public class d {
         return z;
     }
 
-    public boolean bvr() {
+    public boolean bvs() {
         JSONArray optJSONArray;
         try {
-            File file = new File(bvp(), "files.json");
+            File file = new File(bvq(), "files.json");
             if (file == null || !file.exists()) {
                 return false;
             }

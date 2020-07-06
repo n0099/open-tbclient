@@ -30,7 +30,7 @@ public final class SVGAParser$decodeFromURL$2 extends Lambda implements kotlin.j
     @Override // kotlin.jvm.a.b
     public /* bridge */ /* synthetic */ l invoke(InputStream inputStream) {
         invoke2(inputStream);
-        return l.nPb;
+        return l.nPe;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */

@@ -103,7 +103,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         }
     };
 
-    private void bpO() {
+    private void bpP() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001521, TbConfig.SERVER_ADDRESS + TbConfig.SEARCH_FRIEND);
         tbHttpMessageTask.setResponsedClass(ResponseSearchFriendMessage.class);
@@ -120,7 +120,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.SearchFriendActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                SearchFriendActivity.this.fbh.bpQ();
+                SearchFriendActivity.this.fbh.bpR();
             }
         };
         this.eZS.setOnClickListener(onClickListener);
@@ -138,7 +138,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         this.fbh.a(this.fbk);
         TiebaStatic.log("add_new");
         registerListener(this.fbl);
-        bpO();
+        bpP();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -155,7 +155,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.fbh.bpP();
+        this.fbh.bpQ();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

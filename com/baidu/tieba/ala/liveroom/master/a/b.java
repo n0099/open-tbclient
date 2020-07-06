@@ -7,11 +7,11 @@ public interface b {
 
     void b(com.baidu.tieba.ala.liveroom.data.e eVar);
 
-    void bEl();
-
     void bEm();
 
     void bEn();
+
+    void bEo();
 
     void f(short s);
 

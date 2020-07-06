@@ -56,7 +56,7 @@ public class i {
         this.mBdUniqueId = bdUniqueId;
     }
 
-    public boolean cfA() {
+    public boolean cfB() {
         return this.fRT != null && this.fRT.getVisibility() == 0;
     }
 
@@ -100,7 +100,7 @@ public class i {
                 this.fRU.setLayoutParams(layoutParams2);
             }
             if (this.fRT != null) {
-                this.fRT.bnp();
+                this.fRT.bnq();
             }
         }
     }

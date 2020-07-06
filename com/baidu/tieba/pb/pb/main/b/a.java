@@ -133,7 +133,7 @@ public class a {
                         return;
                     }
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(a.this.kqY.getPageContext().getPageActivity(), str3, str2, a.this.kqY.cHV(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(a.this.kqY.getPageContext().getPageActivity(), str3, str2, a.this.kqY.cHW(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     };

@@ -17,11 +17,11 @@ public class c {
     private List<AlaLiveInfoData> gBy = new ArrayList();
     private List<o> gBz = new ArrayList();
 
-    public a bLt() {
+    public a bLu() {
         return this.gBA;
     }
 
-    public AlaUserInfoData bLu() {
+    public AlaUserInfoData bLv() {
         return this.user_info;
     }
 

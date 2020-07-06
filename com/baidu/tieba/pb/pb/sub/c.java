@@ -40,8 +40,8 @@ public class c {
 
     public void b(bu buVar, List<q> list) {
         this.kut.setThreadData(buVar);
-        if (this.ktD.cNU().cKR()) {
-            this.kut.Ku(this.ktD.cNU().cJY());
+        if (this.ktD.cNV().cKS()) {
+            this.kut.Ku(this.ktD.cNV().cJZ());
         }
         this.fml.setData(list);
         this.fml.getAdapter().notifyDataSetChanged();

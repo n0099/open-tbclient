@@ -41,7 +41,7 @@ public final class aw {
             bu aPS = absThreadDataSupport.aPS();
             String aSb = com.baidu.tieba.card.m.aSb();
             if (i == 3) {
-                aSb = com.baidu.tieba.card.m.bOs();
+                aSb = com.baidu.tieba.card.m.bOt();
             }
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(aPS, null, aSb, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
             createFromThreadCfg.setForumId(String.valueOf(aPS.getFid()));
@@ -81,7 +81,7 @@ public final class aw {
             bu aPS = absThreadDataSupport.aPS();
             String aSb = com.baidu.tieba.card.m.aSb();
             if (i == 3) {
-                aSb = com.baidu.tieba.card.m.bOs();
+                aSb = com.baidu.tieba.card.m.bOt();
             }
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(aPS, null, aSb, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
             createFromThreadCfg.setForumId(String.valueOf(aPS.getFid()));

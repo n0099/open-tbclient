@@ -20,7 +20,7 @@ public class AssortView extends View {
     public interface a {
         void Ax(String str);
 
-        void bpv();
+        void bpw();
     }
 
     public AssortView(Context context) {
@@ -87,7 +87,7 @@ public class AssortView extends View {
                     return true;
                 case 1:
                     if (this.fbB != null) {
-                        this.fbB.bpv();
+                        this.fbB.bpw();
                     }
                     this.mPosition = -1;
                     return true;
@@ -107,7 +107,7 @@ public class AssortView extends View {
         }
         this.mPosition = -1;
         if (this.fbB != null) {
-            this.fbB.bpv();
+            this.fbB.bpw();
             return true;
         }
         return true;

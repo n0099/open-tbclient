@@ -195,10 +195,10 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                 this.jOz.setAlpha(0.0f);
             }
         }
-        cEe();
+        cEf();
     }
 
-    private void cEe() {
+    private void cEf() {
         if (this.iDX != null) {
             if (this.iDX.iDG == 1) {
                 this.jOx.setBackgroundResource(R.drawable.bg_pk_btn_select);
@@ -228,7 +228,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
             an.setBackgroundColor(this, R.color.cp_bg_line_d);
             this.jOJ = an.getColorList(R.color.cp_other_b);
             this.jOK = an.getColorList(R.color.cp_link_tip_b);
-            cEe();
+            cEf();
             an.setViewTextColor(this.irc, (int) R.color.cp_cont_d);
             an.setViewTextColor(this.dDu, (int) R.color.cp_cont_b);
             an.setViewTextColor(this.iFF, (int) R.color.cp_cont_b);
@@ -245,13 +245,13 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.pkBtn1) {
-            cEf();
-        } else if (id == R.id.pkBtn2) {
             cEg();
+        } else if (id == R.id.pkBtn2) {
+            cEh();
         }
     }
 
-    private void cEf() {
+    private void cEg() {
         if (!Bp()) {
             TiebaStatic.log(new ao("c13818"));
             if (this.jOz.getVisibility() != 0) {
@@ -262,7 +262,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         }
     }
 
-    private void cEg() {
+    private void cEh() {
         if (!Bp()) {
             TiebaStatic.log(new ao("c13818"));
             if (this.jOz.getVisibility() != 0) {

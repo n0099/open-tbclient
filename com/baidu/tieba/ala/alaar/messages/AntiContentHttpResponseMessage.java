@@ -29,7 +29,7 @@ public class AntiContentHttpResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public boolean bsd() {
+    public boolean bse() {
         return this.bEP == 1;
     }
 }

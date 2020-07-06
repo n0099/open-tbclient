@@ -28,55 +28,55 @@ import com.baidu.tieba.video.CustomVideoView;
 import com.baidu.tieba.video.EditVideoData;
 /* loaded from: classes2.dex */
 public class PreviewVideoView extends FrameLayout {
-    private static int mwI;
-    private static int mwJ;
+    private static int mwL;
+    private static int mwM;
     private String coverPath;
     private b euT;
     private TbImageView iri;
-    private int lZT;
-    private Path mju;
-    private CustomVideoView mwK;
-    protected ImageView mwL;
-    private TBSpecificationBtn mwM;
-    private float mwN;
-    private Paint mwO;
-    private Paint mwP;
+    private int lZW;
+    private Path mjx;
+    private CustomVideoView mwN;
+    protected ImageView mwO;
+    private TBSpecificationBtn mwP;
+    private float mwQ;
+    private Paint mwR;
+    private Paint mwS;
     private RectF rect;
 
     public PreviewVideoView(@NonNull Context context) {
         super(context);
-        this.mju = new Path();
+        this.mjx = new Path();
         this.rect = new RectF();
         init(context);
     }
 
     public PreviewVideoView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mju = new Path();
+        this.mjx = new Path();
         this.rect = new RectF();
         init(context);
     }
 
     public PreviewVideoView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mju = new Path();
+        this.mjx = new Path();
         this.rect = new RectF();
         init(context);
     }
 
     private void init(Context context) {
-        mwI = l.getDimens(getContext(), R.dimen.tbds728);
-        mwJ = l.getDimens(getContext(), R.dimen.tbds658);
+        mwL = l.getDimens(getContext(), R.dimen.tbds728);
+        mwM = l.getDimens(getContext(), R.dimen.tbds658);
         dA(context);
         this.euT = new b();
         this.iri = new TbImageView(context);
         addView(this.iri, new FrameLayout.LayoutParams(-2, -2));
-        this.mwL = new ImageView(context);
+        this.mwO = new ImageView(context);
         int dimens = l.getDimens(context, R.dimen.tbds21);
-        this.mwL.setPadding(dimens, dimens, dimens, dimens);
+        this.mwO.setPadding(dimens, dimens, dimens, dimens);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l.getDimens(context, R.dimen.tbds94), l.getDimens(context, R.dimen.tbds94));
         layoutParams.gravity = 53;
-        addView(this.mwL, layoutParams);
+        addView(this.mwO, layoutParams);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(l.getDimens(context, R.dimen.tbds96), l.getDimens(context, R.dimen.tbds48));
         layoutParams2.gravity = 85;
         int dimens2 = l.getDimens(context, R.dimen.tbds20);
@@ -84,26 +84,26 @@ public class PreviewVideoView extends FrameLayout {
         layoutParams2.bottomMargin = dimens2;
         c cVar = new c();
         cVar.aYU();
-        this.mwM = new TBSpecificationBtn(context);
-        this.mwM.setConfig(cVar);
-        this.mwM.setText(context.getString(R.string.edit));
-        this.mwM.setTextSize(R.dimen.tbds26);
-        addView(this.mwM, layoutParams2);
-        this.mwO = new Paint();
-        this.mwP = new Paint();
+        this.mwP = new TBSpecificationBtn(context);
+        this.mwP.setConfig(cVar);
+        this.mwP.setText(context.getString(R.string.edit));
+        this.mwP.setTextSize(R.dimen.tbds26);
+        addView(this.mwP, layoutParams2);
+        this.mwR = new Paint();
+        this.mwS = new Paint();
         aYi();
     }
 
     private void dA(Context context) {
-        this.mwK = new CustomVideoView(context);
-        addView(this.mwK, new FrameLayout.LayoutParams(-2, -2));
-        this.mwK.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.write.write.video.PreviewVideoView.1
+        this.mwN = new CustomVideoView(context);
+        addView(this.mwN, new FrameLayout.LayoutParams(-2, -2));
+        this.mwN.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.write.write.video.PreviewVideoView.1
             @Override // android.media.MediaPlayer.OnCompletionListener
             public void onCompletion(MediaPlayer mediaPlayer) {
-                PreviewVideoView.this.mwK.start();
+                PreviewVideoView.this.mwN.start();
             }
         });
-        this.mwK.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.write.write.video.PreviewVideoView.2
+        this.mwN.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.write.write.video.PreviewVideoView.2
             @Override // android.media.MediaPlayer.OnPreparedListener
             public void onPrepared(MediaPlayer mediaPlayer) {
                 mediaPlayer.setVolume(0.0f, 0.0f);
@@ -118,18 +118,18 @@ public class PreviewVideoView extends FrameLayout {
         int i4 = 0;
         if (i2 <= 0) {
             i3 = 0;
-        } else if (i / i2 > mwJ / mwI) {
-            i3 = mwJ;
+        } else if (i / i2 > mwM / mwL) {
+            i3 = mwM;
             if (i > 0) {
                 i4 = (int) ((i3 / i) * i2);
             }
         } else {
-            i4 = mwI;
+            i4 = mwL;
             i3 = (int) ((i4 / i2) * i);
         }
-        if (this.mwK.getWidth() != i3 || this.mwK.getHeight() != i4) {
-            this.mwK.setVideoHeight(i4);
-            this.mwK.setVideoWidth(i3);
+        if (this.mwN.getWidth() != i3 || this.mwN.getHeight() != i4) {
+            this.mwN.setVideoHeight(i4);
+            this.mwN.setVideoWidth(i3);
             ViewGroup.LayoutParams layoutParams = this.iri.getLayoutParams();
             layoutParams.width = i3;
             layoutParams.height = i4;
@@ -143,49 +143,49 @@ public class PreviewVideoView extends FrameLayout {
     @Override // android.view.View
     public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
         super.setOnClickListener(onClickListener);
-        this.mwL.setOnClickListener(onClickListener);
+        this.mwO.setOnClickListener(onClickListener);
     }
 
     public void reset() {
-        this.lZT = 0;
-        this.mwN = 0.0f;
+        this.lZW = 0;
+        this.mwQ = 0.0f;
         this.coverPath = null;
-        caG();
+        caH();
     }
 
-    public void Pp(String str) {
+    public void Pq(String str) {
         if (!StringUtils.isNull(str)) {
-            this.mwK.setVideoPath(str);
-            this.mwK.start();
-            this.mwK.seekTo(this.lZT);
+            this.mwN.setVideoPath(str);
+            this.mwN.start();
+            this.mwN.seekTo(this.lZW);
         }
     }
 
-    public void caG() {
-        this.lZT = this.mwK.getCurrentPosition();
-        if (this.mwK != null) {
-            this.mwK.stopPlayback();
-            this.mwK.setVideoURI(null);
+    public void caH() {
+        this.lZW = this.mwN.getCurrentPosition();
+        if (this.mwN != null) {
+            this.mwN.stopPlayback();
+            this.mwN.setVideoURI(null);
         }
         this.iri.setVisibility(0);
     }
 
     public void setVideoInfo(EditVideoData editVideoData) {
-        caG();
+        caH();
         if (editVideoData != null && editVideoData.isLegal()) {
             setVisibility(0);
             this.coverPath = editVideoData.coverPath;
-            dup();
-            Pp(editVideoData.finalPath);
+            dut();
+            Pq(editVideoData.finalPath);
             return;
         }
         setVisibility(8);
     }
 
-    public void dup() {
+    public void dut() {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath(this.coverPath);
-        ImageOperation aW = d.aW(mwJ, mwI);
+        ImageOperation aW = d.aW(mwM, mwL);
         imageFileInfo.clearPageActions();
         imageFileInfo.addPageAction(aW);
         this.iri.setTag(imageFileInfo.toCachedKey(false));
@@ -206,7 +206,7 @@ public class PreviewVideoView extends FrameLayout {
         }, false);
     }
 
-    public void duq() {
+    public void duu() {
         if (this.iri != null && this.iri.getTag() != null) {
             com.baidu.tbadk.imageManager.c.bgz().deletePic(this.iri.getTag().toString());
             com.baidu.tbadk.imageManager.c.bgz().deletePhoto(this.iri.getTag().toString());
@@ -214,31 +214,31 @@ public class PreviewVideoView extends FrameLayout {
     }
 
     public void aYi() {
-        an.setImageResource(this.mwL, R.drawable.ic_post_image_delete_n);
-        this.mwO.setColor(an.getColor(R.color.cp_mask_c_alpha50));
-        this.mwP.setColor(an.getColor(R.color.cp_link_tip_a));
+        an.setImageResource(this.mwO, R.drawable.ic_post_image_delete_n);
+        this.mwR.setColor(an.getColor(R.color.cp_mask_c_alpha50));
+        this.mwS.setColor(an.getColor(R.color.cp_link_tip_a));
     }
 
     public void aD(float f) {
-        this.mwN = f;
+        this.mwQ = f;
         invalidate();
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.mju.reset();
+        this.mjx.reset();
         this.rect.set(0.0f, 0.0f, i, i2);
-        this.mju.addRoundRect(this.rect, l.getDimens(getContext(), R.dimen.tbds10), l.getDimens(getContext(), R.dimen.tbds10), Path.Direction.CW);
+        this.mjx.addRoundRect(this.rect, l.getDimens(getContext(), R.dimen.tbds10), l.getDimens(getContext(), R.dimen.tbds10), Path.Direction.CW);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         canvas.save();
-        canvas.clipPath(this.mju);
+        canvas.clipPath(this.mjx);
         super.dispatchDraw(canvas);
-        canvas.drawRect(0.0f, 0.0f, getWidth(), l.getDimens(getContext(), R.dimen.tbds5), this.mwO);
-        canvas.drawRect(0.0f, 0.0f, getWidth() * this.mwN, l.getDimens(getContext(), R.dimen.tbds5), this.mwP);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), l.getDimens(getContext(), R.dimen.tbds5), this.mwR);
+        canvas.drawRect(0.0f, 0.0f, getWidth() * this.mwQ, l.getDimens(getContext(), R.dimen.tbds5), this.mwS);
         canvas.restore();
     }
 }

@@ -108,7 +108,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.frs.examination.a
-    protected void cbV() {
+    protected void cbW() {
         this.hCa.setOnClickListener(this);
         this.hLH.setOnClickListener(this);
         this.hLP.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.examination.b.3
@@ -129,7 +129,7 @@ public class b extends a {
                 } else {
                     b.this.hLQ.setVisibility(8);
                 }
-                b.this.cbZ();
+                b.this.cca();
             }
         });
     }
@@ -145,7 +145,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.frs.examination.a
-    public void cbX() {
+    public void cbY() {
         if (this.hLG != null) {
             w.f(String.valueOf(this.hLG.forumId), new w.a() { // from class: com.baidu.tieba.frs.examination.b.4
                 @Override // com.baidu.tieba.tbadkCore.w.a
@@ -162,14 +162,14 @@ public class b extends a {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.hCa) {
-            cbW();
+            cbX();
         } else if (view == this.hLH) {
             if (TextUtils.isEmpty(this.hLR) || this.hLR.length() < 20) {
                 l.showToast(this.hep, (int) R.string.other_comment_size_short_tip);
             } else if (this.hLR.length() > 500) {
                 l.showToast(this.hep, (int) R.string.other_comment_size_long_tip);
             } else {
-                this.hLJ.a(this.hLR.toString(), cca(), this.hLG);
+                this.hLJ.a(this.hLR.toString(), ccb(), this.hLG);
             }
         }
     }
@@ -193,7 +193,7 @@ public class b extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbZ() {
+    public void cca() {
         if (!TextUtils.isEmpty(this.hLR) && this.hLR.length() >= 20 && this.hLR.length() <= 500) {
             this.hLH.setAlpha(1.0f);
         } else {
@@ -201,7 +201,7 @@ public class b extends a {
         }
     }
 
-    private String cca() {
+    private String ccb() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new r("", String.valueOf(this.eax.getStarCount()), 2));
         return this.gson.toJson(arrayList);

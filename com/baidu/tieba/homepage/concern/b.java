@@ -34,7 +34,7 @@ public class b {
             aoVar.s("fid", absThreadDataSupport.aPS().getFid());
             aoVar.ag("obj_source", 1);
             if (absThreadDataSupport instanceof com.baidu.tieba.card.data.c) {
-                aoVar.ag("obj_param1", ((com.baidu.tieba.card.data.c) absThreadDataSupport).bOQ() ? 2 : 1);
+                aoVar.ag("obj_param1", ((com.baidu.tieba.card.data.c) absThreadDataSupport).bOR() ? 2 : 1);
             }
             if (absThreadDataSupport.aPS().aSp() != null) {
                 aoVar.dk("uid", absThreadDataSupport.aPS().aSp().getUserId());

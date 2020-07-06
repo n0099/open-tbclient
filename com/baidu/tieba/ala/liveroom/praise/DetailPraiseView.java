@@ -25,7 +25,7 @@ public class DetailPraiseView extends FrameLayout {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bIZ();
+        void bJa();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -208,11 +208,11 @@ public class DetailPraiseView extends FrameLayout {
         lottieAnimationView.bringToFront();
         lottieAnimationView.playAnimation();
         if (this.gpZ != null) {
-            this.gpZ.bIZ();
+            this.gpZ.bJa();
         }
     }
 
-    public void byd() {
+    public void bye() {
         int i = 0;
         while (true) {
             int i2 = i;

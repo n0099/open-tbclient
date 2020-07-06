@@ -55,8 +55,8 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         super.onCreate(bundle);
         as(bundle);
         initUI();
-        bzx();
-        clf();
+        bzy();
+        clg();
     }
 
     private void as(Bundle bundle) {
@@ -77,26 +77,26 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         this.iCS.a(this);
     }
 
-    private void bzx() {
+    private void bzy() {
         registerListener(this.iCZ);
         this.iCR.g(new NoNetworkView.a() { // from class: com.baidu.tieba.hottopic.controller.HotRanklistActivity.1
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void onNetworkChange(boolean z) {
                 if (z && HotRanklistActivity.this.iCS != null) {
                     j jVar = (j) HotRanklistActivity.this.iCX.get(HotRanklistActivity.this.iCR.getCurrentTab());
-                    if (jVar == null || w.isEmpty(jVar.clL())) {
-                        HotRanklistActivity.this.iCR.btN();
+                    if (jVar == null || w.isEmpty(jVar.clM())) {
+                        HotRanklistActivity.this.iCR.btO();
                         HotRanklistActivity.this.iCR.showLoadingView();
-                        HotRanklistActivity.this.cle();
+                        HotRanklistActivity.this.clf();
                     }
                 }
             }
         });
     }
 
-    public void cle() {
+    public void clf() {
         if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-            this.iCR.clW();
+            this.iCR.clX();
         } else if (this.iCS != null) {
             String str = this.iCW ? "0" : "1";
             if (!w.isEmpty(this.iCY)) {
@@ -116,8 +116,8 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
     @Override // com.baidu.tieba.hottopic.controller.HotRanklistModel.a
     public void a(boolean z, j jVar, int i, String str) {
         int i2;
-        this.iCR.clW();
-        hideLoadingView(this.iCR.clU());
+        this.iCR.clX();
+        hideLoadingView(this.iCR.clV());
         if (!z && !StringUtils.isNull(str)) {
             showToast(str);
         }
@@ -159,7 +159,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
             this.iCR.di(this.iCX);
             if (!this.iCW && !w.isEmpty(this.iCX) && !w.isEmpty(this.iCX.get(0).iEF) && !w.isEmpty(this.iCY)) {
                 this.iCW = true;
-                this.iCR.clS();
+                this.iCR.clT();
                 if (i2 >= 0) {
                     this.iCR.setCurrentTab(i2);
                 }
@@ -176,11 +176,11 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         }
     }
 
-    private void clf() {
-        showLoadingView(this.iCR.clU(), true);
+    private void clg() {
+        showLoadingView(this.iCR.clV(), true);
         if (!com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-            hideLoadingView(this.iCR.clU());
-            showNetRefreshView(this.iCR.clU(), getResources().getString(R.string.refresh_view_title_text), null, getResources().getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
+            hideLoadingView(this.iCR.clV());
+            showNetRefreshView(this.iCR.clV(), getResources().getString(R.string.refresh_view_title_text), null, getResources().getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
             setNetRefreshViewEmotionMarginTop(l.getDimens(getActivity(), R.dimen.ds350));
             this.iCR.xG(0);
             this.iCR.xH(8);
@@ -190,10 +190,10 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         this.iCR.xG(8);
         this.iCR.xH(0);
         this.iCR.xI(0);
-        cle();
+        clf();
     }
 
-    public void clg() {
+    public void clh() {
         p pVar;
         if (!w.isEmpty(this.iCY) && (pVar = this.iCY.get(this.iCR.getCurrentTab())) != null) {
             this.iCT.b(null, pVar.shareTitle, pVar.shareUrl, pVar.iyd, pVar.iEV, false);
@@ -204,8 +204,8 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-            hideNetRefreshView(this.iCR.clU());
-            clf();
+            hideNetRefreshView(this.iCR.clV());
+            clg();
         }
     }
 
@@ -214,16 +214,16 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
     public void onDestroy() {
         super.onDestroy();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_ACTIVITY_ON_DESTROY));
-        clh();
-    }
-
-    private void clh() {
-        if (this.iCR != null) {
-            this.iCR.clV();
-        }
+        cli();
     }
 
     private void cli() {
+        if (this.iCR != null) {
+            this.iCR.clW();
+        }
+    }
+
+    private void clj() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
     }
 
@@ -237,7 +237,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
-        cli();
+        clj();
         super.onPause();
     }
 
@@ -255,7 +255,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.iCR.clX()) {
+        if (i == 4 && this.iCR.clY()) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);

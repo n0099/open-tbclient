@@ -67,16 +67,16 @@ public class g {
             this.hvr = false;
         }
         if (z && this.hvr) {
-            bWr();
+            bWs();
             return;
         }
-        bWs();
+        bWt();
         this.hvq.am(arrayList);
         this.hvq.a(pVar);
         this.hvq.notifyDataSetChanged();
     }
 
-    public boolean bWq() {
+    public boolean bWr() {
         return this.hvr;
     }
 
@@ -88,12 +88,12 @@ public class g {
         this.hvq.notifyDataSetChanged();
     }
 
-    public void bWr() {
+    public void bWs() {
         this.US.setVisibility(8);
         this.hvp.showNetRefreshView(this.mRoot, this.hvp.getPageContext().getResources().getString(R.string.no_data_text), true);
     }
 
-    public void bWs() {
+    public void bWt() {
         this.hvp.hideNetRefreshView(this.mRoot);
         this.US.setVisibility(0);
     }

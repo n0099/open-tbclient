@@ -63,15 +63,15 @@ public abstract class ar extends b<AbsThreadDataSupport> implements com.baidu.ti
                     com.baidu.tieba.card.m.a(ar.this.mTitle, ar.this.aea.aPS().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 } else if (c0098a.getActionType() == 2) {
                     if (ar.this.agJ != null) {
-                        ar.this.agJ.bxR();
+                        ar.this.agJ.bxS();
                     }
                 } else if (c0098a.getActionType() == 3) {
                     if (ar.this.agJ != null) {
-                        ar.this.agJ.cQz();
+                        ar.this.agJ.cQA();
                     }
                 } else if (c0098a.getActionType() == 6) {
                     if (ar.this.agJ != null) {
-                        return ar.this.agJ.cWg();
+                        return ar.this.agJ.cWh();
                     }
                 } else if (c0098a.getActionType() == 7) {
                     if (ar.this.agI != null) {
@@ -104,7 +104,7 @@ public abstract class ar extends b<AbsThreadDataSupport> implements com.baidu.ti
             this.mTitle = (TextView) this.mRootView.findViewById(R.id.video_seg_title);
             this.agI = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
             this.agJ = rP();
-            this.agJ.cUU().setBackgroundResource(R.color.transparent);
+            this.agJ.cUV().setBackgroundResource(R.color.transparent);
             this.agJ.setUniqueId(this.agK);
             this.agJ.setFrom(this.mFrom);
         }
@@ -131,12 +131,12 @@ public abstract class ar extends b<AbsThreadDataSupport> implements com.baidu.ti
             int i = layoutParams.width;
             int i2 = layoutParams.height;
             if (this.aea.aPS().aSH().is_vertical.intValue() == 1) {
-                com.baidu.tieba.play.u cVC = this.agJ.cVC();
-                if (cVC != null) {
+                com.baidu.tieba.play.u cVD = this.agJ.cVD();
+                if (cVD != null) {
                     int i3 = (agD / 9) * 16;
                     int i4 = agE;
-                    int videoWidth = cVC.getVideoWidth();
-                    int videoHeight = cVC.getVideoHeight();
+                    int videoWidth = cVD.getVideoWidth();
+                    int videoHeight = cVD.getVideoHeight();
                     layoutParams.width = agD;
                     boolean z2 = i != layoutParams.width;
                     if (videoWidth == 0 || videoHeight == 0) {

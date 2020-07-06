@@ -34,7 +34,7 @@ public class c extends j<l, d> {
     public View a(int i, View view, ViewGroup viewGroup, l lVar, d dVar) {
         super.a(i, view, viewGroup, (ViewGroup) lVar, (l) dVar);
         if (lVar != null) {
-            this.hMW.f(lVar.getForumId(), lVar.dhk());
+            this.hMW.f(lVar.getForumId(), lVar.dhl());
         }
         return view;
     }

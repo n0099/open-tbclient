@@ -104,7 +104,7 @@ public class a {
         }
     }
 
-    public boolean ckE() {
+    public boolean ckF() {
         return this.iyg;
     }
 }

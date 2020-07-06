@@ -10,7 +10,7 @@ public class k {
     private String jZW;
     private boolean jZX;
 
-    public Bitmap cHB() {
+    public Bitmap cHC() {
         return this.jZU;
     }
 
@@ -18,7 +18,7 @@ public class k {
         this.jZU = bitmap;
     }
 
-    public Bitmap cHC() {
+    public Bitmap cHD() {
         return this.jZV;
     }
 
@@ -34,7 +34,7 @@ public class k {
         this.content = str;
     }
 
-    public String cHD() {
+    public String cHE() {
         return this.duringTime;
     }
 
@@ -50,7 +50,7 @@ public class k {
         this.jZW = str;
     }
 
-    public boolean cHE() {
+    public boolean cHF() {
         return this.jZX;
     }
 

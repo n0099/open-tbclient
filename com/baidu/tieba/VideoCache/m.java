@@ -43,7 +43,7 @@ public class m {
         return j;
     }
 
-    public static long bok() {
+    public static long bol() {
         StatFs statFs = new StatFs(TbadkCoreApplication.getInst().getCacheDir().getPath());
         return statFs.getAvailableBlocks() * statFs.getBlockSize();
     }

@@ -3,9 +3,8 @@ package com.baidu.platform.comapi.walknavi.d.a.d;
 import com.baidu.platform.comapi.walknavi.d.a.d.a.c;
 import com.baidu.platform.comapi.walknavi.d.a.d.b;
 import com.baidu.platform.comapi.walknavi.d.a.g.j;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public class d implements c.b {
+class d implements c.b {
     final /* synthetic */ b.C0229b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

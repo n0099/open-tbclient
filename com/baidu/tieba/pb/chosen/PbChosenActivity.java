@@ -223,7 +223,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
 
         @Override // com.baidu.tieba.pb.chosen.view.d.b
-        public void cGD() {
+        public void cGE() {
             if (!j.isNetWorkAvailable()) {
                 BdToast.b(PbChosenActivity.this.getPageContext().getPageActivity(), PbChosenActivity.this.getResources().getString(R.string.neterror)).aUS();
             } else if (PbChosenActivity.this.checkUpIsLogin() && PbChosenActivity.this.chosenData != null && PbChosenActivity.this.chosenData.getThreadInfo() != null && PbChosenActivity.this.chosenData.getThreadInfo().forum.forum_id != null) {
@@ -271,7 +271,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            PbChosenActivity.this.jXl.cGI();
+            PbChosenActivity.this.jXl.cGJ();
             PbChosenActivity.this.jXl.jYp = !PbChosenActivity.this.jXl.jYp;
             PbChosenActivity.this.jXl.rn(PbChosenActivity.this.jXl.jYp);
             if (PbChosenActivity.this.jXl.jYp) {
@@ -286,7 +286,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorString;
             if (responsedMessage != null) {
-                PbChosenActivity.this.jXl.cGI();
+                PbChosenActivity.this.jXl.cGJ();
                 if (responsedMessage.hasError()) {
                     if (StringUtils.isNull(responsedMessage.getErrorString())) {
                         errorString = PbChosenActivity.this.getResources().getString(R.string.neterror);
@@ -422,9 +422,9 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         this.jXm = new c(getPageContext().getPageActivity(), this.jXz);
         this.jXk.a(this.jXD);
         this.jXl.a(this.jXC);
-        this.gWa.addHeaderView(this.jXk.cGG());
+        this.gWa.addHeaderView(this.jXk.cGH());
         BdListViewHelper.a(getActivity(), this.gWa, BdListViewHelper.HeadType.DEFAULT);
-        this.gWa.addFooterView(this.jXl.cGH());
+        this.gWa.addFooterView(this.jXl.cGI());
         this.gWa.addFooterView(this.jXm.getView());
         biq();
         registerListener(this.jXF);
@@ -434,7 +434,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         registerListener(this.esZ);
         registerListener(this.hBa);
         registerListener(this.jXB);
-        cGB();
+        cGC();
         if (getIntent() != null) {
             this.shareUrl = getIntent().getStringExtra(PbChosenActivityConfig.KEY_SHARE_URL);
             this.from = getIntent().getIntExtra("from", 1);
@@ -491,7 +491,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    private void cGB() {
+    private void cGC() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_CHOSEN_PB_READ_CACHE, new com.baidu.tieba.pb.chosen.cache.b());
         CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_CHOSEN_PB_READ_CACHE);
         customMessage.setTag(getUniqueId());
@@ -533,7 +533,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    private DataModel<PbChosenActivity> cGC() {
+    private DataModel<PbChosenActivity> cGD() {
         if (this.jib == null) {
             this.jib = new DataModel<PbChosenActivity>(getPageContext()) { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.10
                 @Override // com.baidu.adp.base.BdBaseModel
@@ -579,8 +579,8 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getPageContext().getLayoutMode().setNightMode(i == 1);
-        getPageContext().getLayoutMode().onModeChanged(this.jXk.cGG());
-        getPageContext().getLayoutMode().onModeChanged(this.jXl.cGH());
+        getPageContext().getLayoutMode().onModeChanged(this.jXk.cGH());
+        getPageContext().getLayoutMode().onModeChanged(this.jXl.cGI());
         this.jXm.onChangeSkinType();
         this.jXn.onChangeSkinType();
         if (this.fbi != null) {
@@ -655,7 +655,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
 
     private void ar(Bundle bundle) {
         g gVar = new g();
-        gVar.a(cGC());
+        gVar.a(cGD());
         this.jXv = (com.baidu.tbadk.editortools.pb.e) gVar.dO(getActivity());
         this.jXv.a(getPageContext());
         this.jXv.a(this.evL);

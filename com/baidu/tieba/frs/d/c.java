@@ -74,7 +74,7 @@ public class c {
         MessageManager.getInstance().registerListener(this.dFw);
     }
 
-    public static c ceq() {
+    public static c cer() {
         if (hWV == null) {
             synchronized (s.class) {
                 if (hWV == null) {
@@ -85,7 +85,7 @@ public class c {
         return hWV;
     }
 
-    private boolean cer() {
+    private boolean ces() {
         if (this.hWT == null) {
             this.hWT = new a();
         }
@@ -127,14 +127,14 @@ public class c {
             }
             if (buVar.getTid() != null && !hashSet.contains(buVar.getTid())) {
                 hashSet.add(buVar.getTid());
-                s.bOA().e(new ao("c11662").ag("obj_param1", 1).dk("post_id", buVar.getTid()));
+                s.bOB().e(new ao("c11662").ag("obj_param1", 1).dk("post_id", buVar.getTid()));
             }
         }
     }
 
     public void a(bu buVar, boolean z) {
         if (buVar != null) {
-            s.bOA().e(new ao("c12125").dk("tid", buVar.getId()).ag("obj_locate", z ? 2 : 1).s("obj_id", buVar.aSJ() != null ? buVar.aSJ().live_id : -1L).ag("obj_type", 1));
+            s.bOB().e(new ao("c12125").dk("tid", buVar.getId()).ag("obj_locate", z ? 2 : 1).s("obj_id", buVar.aSJ() != null ? buVar.aSJ().live_id : -1L).ag("obj_type", 1));
         }
     }
 
@@ -147,7 +147,7 @@ public class c {
             aoVar.dk("obj_param1", buVar.dND);
             aoVar.ag("obj_locate", 1);
             aoVar.dk("tid", buVar.getTid());
-            s.bOA().e(aoVar);
+            s.bOB().e(aoVar);
         }
     }
 
@@ -164,7 +164,7 @@ public class c {
             if (bVar.hWQ >= 0) {
                 tid = tid + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + bVar.hWQ;
             }
-            if (!hashSet.contains(tid) && !cer()) {
+            if (!hashSet.contains(tid) && !ces()) {
                 hashSet.add(tid);
                 ao aoVar = new ao("c11439");
                 aoVar.dk("fid", bVar.hWO);
@@ -183,8 +183,8 @@ public class c {
                 if (buVar.dJw >= 0) {
                     aoVar.ag("obj_floor", buVar.dJw);
                 }
-                boolean z = (buVar.aTS() == null || (buVar.aTS().dia() == null && buVar.aTS().bkW() == null)) ? false : true;
-                if (z && buVar.aTS().dia() != null && buVar.aTS().dia().bkO() != null && buVar.aTS().dia().bkO().size() > 0) {
+                boolean z = (buVar.aTS() == null || (buVar.aTS().dib() == null && buVar.aTS().bkX() == null)) ? false : true;
+                if (z && buVar.aTS().dib() != null && buVar.aTS().dib().bkP() != null && buVar.aTS().dib().bkP().size() > 0) {
                     aoVar.ag("obj_name", buVar.aTS().lGt ? 3 : 2);
                 } else {
                     aoVar.ag("obj_name", z ? 1 : 0);
@@ -199,7 +199,7 @@ public class c {
                 } else if (buVar.aQX()) {
                     aoVar.ag("obj_type", 13);
                 }
-                s.bOA().e(aoVar);
+                s.bOB().e(aoVar);
                 if (buVar.aQV()) {
                     ao aoVar2 = new ao("c12099");
                     aoVar2.dk("fid", bVar.hWO);
@@ -210,13 +210,13 @@ public class c {
                     aoVar2.dk(TiebaInitialize.Params.OBJ_PARAM3, buVar.dND);
                     aoVar2.dk("tid", buVar.getTid());
                     aoVar2.dk("uid", TbadkCoreApplication.getCurrentAccount());
-                    s.bOA().e(aoVar2);
+                    s.bOB().e(aoVar2);
                 }
                 if (bVar.hWP == 501) {
                     ao aoVar3 = new ao("c13259");
                     aoVar3.dk("fid", bVar.hWO);
                     aoVar3.dk("tid", buVar.getTid());
-                    s.bOA().e(aoVar3);
+                    s.bOB().e(aoVar3);
                 }
             }
         }
@@ -224,7 +224,7 @@ public class c {
 
     public void a(b bVar, bu buVar, int i) {
         if (bVar != null && bVar.hWM && buVar != null && buVar.getTid() != null) {
-            s.bOA().mc(true);
+            s.bOB().mc(true);
             ao aoVar = new ao("c11438");
             aoVar.dk("fid", bVar.hWO);
             aoVar.ag("obj_locate", a(bVar));
@@ -267,7 +267,7 @@ public class c {
                 ao aoVar3 = new ao("c13260");
                 aoVar3.dk("fid", bVar.hWO);
                 aoVar3.dk("tid", buVar.getTid());
-                s.bOA().e(aoVar3);
+                s.bOB().e(aoVar3);
             }
             if (buVar.aSp() != null && buVar.aSp().getAlaUserData() != null) {
                 AlaUserInfoData alaUserData = buVar.aSp().getAlaUserData();

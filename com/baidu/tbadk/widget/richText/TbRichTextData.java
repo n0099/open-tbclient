@@ -50,7 +50,7 @@ public class TbRichTextData extends OrmObject {
         return this.mType;
     }
 
-    public ArrayList<d> bkT() {
+    public ArrayList<d> bkU() {
         if (this.eNU == null) {
             this.eNU = new ArrayList<>();
         }
@@ -92,7 +92,7 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public TbRichTextImageInfo bkU() {
+    public TbRichTextImageInfo bkV() {
         if (this.mType != 8) {
             return null;
         }
@@ -105,11 +105,11 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public SpannableStringBuilder bkV() {
+    public SpannableStringBuilder bkW() {
         return this.eNS;
     }
 
-    public TbRichTextVoiceInfo bkW() {
+    public TbRichTextVoiceInfo bkX() {
         if (this.mType == 512 || this.mType == 768) {
             return this.eeA;
         }
@@ -129,7 +129,7 @@ public class TbRichTextData extends OrmObject {
             }
         } else if (this.mType == 8) {
             if (this.eNT != null) {
-                return this.eNT.blj();
+                return this.eNT.blk();
             }
         } else if (this.mType == 17 && this.eNW != null) {
             return this.eNW.mGifInfo.mSharpText;
@@ -148,7 +148,7 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public TbRichTextTextInfo bkX() {
+    public TbRichTextTextInfo bkY() {
         if (this.mType != 1) {
             return null;
         }
@@ -161,7 +161,7 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public j bkY() {
+    public j bkZ() {
         if (this.mType != 32) {
             return null;
         }
@@ -180,15 +180,15 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public TbRichTextEmotionInfo bkZ() {
+    public TbRichTextEmotionInfo bla() {
         return this.eNW;
     }
 
-    public TbRichTextMemeInfo bla() {
+    public TbRichTextMemeInfo blb() {
         return this.eOa;
     }
 
-    public int blb() {
+    public int blc() {
         return this.eOb;
     }
 
@@ -196,7 +196,7 @@ public class TbRichTextData extends OrmObject {
         this.eOb = i;
     }
 
-    public TbRichTextLinkImageInfo blc() {
+    public TbRichTextLinkImageInfo bld() {
         if (this.mType != 1280) {
             return null;
         }
@@ -217,7 +217,7 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public TbRichTextEvaluateItemInfo bld() {
+    public TbRichTextEvaluateItemInfo ble() {
         return this.eOd;
     }
 
@@ -225,7 +225,7 @@ public class TbRichTextData extends OrmObject {
         this.eOc = z;
     }
 
-    public boolean ble() {
+    public boolean blf() {
         return this.eOc;
     }
 

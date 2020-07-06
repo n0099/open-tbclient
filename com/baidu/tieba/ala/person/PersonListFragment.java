@@ -107,7 +107,7 @@ public class PersonListFragment extends BaseFragment {
         initData();
         ag(inflate);
         initListener();
-        bLb();
+        bLc();
         return inflate;
     }
 
@@ -204,7 +204,7 @@ public class PersonListFragment extends BaseFragment {
         }
     }
 
-    private void bLb() {
+    private void bLc() {
         if (JavaTypesHelper.toLong(this.userId, 0L) == 0) {
             this.gxe.a(true, null, this.type);
         } else if (this.gxk == null) {

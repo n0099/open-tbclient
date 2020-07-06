@@ -13,7 +13,7 @@ public class H5Activity extends BaseActivity {
     public static int d = 0;
     public String b;
     private String f;
-    private a nvo;
+    private a nvr;
     public boolean a = true;
     public boolean c = false;
 
@@ -27,9 +27,9 @@ public class H5Activity extends BaseActivity {
         h5Options.c = this.c;
         h5Options.b = this.a;
         h5Options.a = this.b;
-        this.nvo = a.a(h5Options);
+        this.nvr = a.a(h5Options);
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(a.f.fl_fragment, this.nvo);
+        beginTransaction.add(a.f.fl_fragment, this.nvr);
         beginTransaction.commitAllowingStateLoss();
     }
 
@@ -43,9 +43,9 @@ public class H5Activity extends BaseActivity {
         super.onNewIntent(intent);
         e.i(this.v, "onNewIntent");
         a(intent);
-        if (this.nvo != null) {
-            this.nvo.a(this.a);
-            this.nvo.a(this.b);
+        if (this.nvr != null) {
+            this.nvr.a(this.a);
+            this.nvr.a(this.b);
         }
     }
 
@@ -70,8 +70,8 @@ public class H5Activity extends BaseActivity {
 
     @Override // android.support.v7.app.AppCompatActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.nvo != null && this.nvo.a()) {
-            this.nvo.a(i, keyEvent);
+        if (i == 4 && this.nvr != null && this.nvr.a()) {
+            this.nvr.a(i, keyEvent);
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -82,8 +82,8 @@ public class H5Activity extends BaseActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         e.d(this.v, "onActivityResult");
         super.onActivityResult(i, i2, intent);
-        if (this.nvo != null) {
-            this.nvo.onActivityResult(i, i2, intent);
+        if (this.nvr != null) {
+            this.nvr.onActivityResult(i, i2, intent);
         }
     }
 
@@ -93,6 +93,6 @@ public class H5Activity extends BaseActivity {
         if (this.b != null && this.b.contains("bizCode")) {
             d--;
         }
-        this.nvo = null;
+        this.nvr = null;
     }
 }

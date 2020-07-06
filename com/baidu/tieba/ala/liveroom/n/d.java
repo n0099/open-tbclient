@@ -33,7 +33,7 @@ public class d extends BdBaseModel {
                         if (alaDiversionInfoResponseMessage.getError() != 0 || !alaDiversionInfoResponseMessage.isSuccess()) {
                             d.this.gog.aT(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
                         } else {
-                            d.this.gog.a(alaDiversionInfoResponseMessage.bHM());
+                            d.this.gog.a(alaDiversionInfoResponseMessage.bHN());
                         }
                     }
                 }

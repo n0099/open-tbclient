@@ -64,7 +64,7 @@ public class b implements com.baidu.live.w.a {
     private boolean fiD = true;
     private c.a fiF = new c.a() { // from class: com.baidu.tieba.ala.alaar.sticker.view.b.1
         @Override // com.baidu.tieba.ala.alaar.sticker.view.c.a
-        public boolean bsJ() {
+        public boolean bsK() {
             return b.this.fiD;
         }
 
@@ -79,12 +79,12 @@ public class b implements com.baidu.live.w.a {
                 PicStickerItem picStickerItem = (PicStickerItem) fuFaceItem;
                 if (b.this.fio != null && b.this.fio.getChildCount() >= 3) {
                     BdUtilHelper.showToast(b.this.mContext, a.i.ala_live_sticker_max_striker);
-                } else if (!com.baidu.tieba.ala.alaar.sticker.a.f.bsB()) {
+                } else if (!com.baidu.tieba.ala.alaar.sticker.a.f.bsC()) {
                     int i = a.d.sdk_cp_cont_q;
                     AlaLiveStickerInfo alaLiveStickerInfo = new AlaLiveStickerInfo();
                     alaLiveStickerInfo.type = picStickerItem.sticker_type;
                     alaLiveStickerInfo.link = picStickerItem.url;
-                    b.this.bsG();
+                    b.this.bsH();
                     b.this.fit = b.this.a(picStickerItem.sticker_type, picStickerItem.bitmap, i, alaLiveStickerInfo);
                     com.baidu.tieba.ala.alaar.sticker.a.f.a(b.this.aLQ.mLiveInfo.live_id, 1, alaLiveStickerInfo);
                 }
@@ -94,7 +94,7 @@ public class b implements com.baidu.live.w.a {
         }
 
         @Override // com.baidu.tieba.ala.alaar.sticker.view.c.a
-        public void bsK() {
+        public void bsL() {
         }
     };
     private Runnable ert = new Runnable() { // from class: com.baidu.tieba.ala.alaar.sticker.view.b.8
@@ -127,7 +127,7 @@ public class b implements com.baidu.live.w.a {
                 if (((i4 - i2) / 5) + i2 >= b.this.fip.getTopDeletePanelBottom()) {
                     if (b.this.fiu != null) {
                     }
-                    if (!com.baidu.tieba.ala.alaar.sticker.a.f.bsB()) {
+                    if (!com.baidu.tieba.ala.alaar.sticker.a.f.bsC()) {
                         int dip2px = BdUtilHelper.dip2px(b.this.mContext, 98.0f) / 2;
                         int dip2px2 = BdUtilHelper.dip2px(b.this.mContext, 64.0f) / 2;
                         int dip2px3 = BdUtilHelper.dip2px(b.this.mContext, 162.0f) / 2;
@@ -146,8 +146,8 @@ public class b implements com.baidu.live.w.a {
                     }
                 } else if (view.getParent() != null && (view instanceof DragTextView)) {
                     AlaLiveStickerInfo alaLiveStickerInfo2 = (AlaLiveStickerInfo) view.getTag();
-                    if (com.baidu.tieba.ala.alaar.sticker.a.f.bsB()) {
-                        ((DragTextView) view).bsS();
+                    if (com.baidu.tieba.ala.alaar.sticker.a.f.bsC()) {
+                        ((DragTextView) view).bsT();
                         return;
                     }
                     view.setVisibility(4);
@@ -169,7 +169,7 @@ public class b implements com.baidu.live.w.a {
         }
 
         @Override // com.baidu.tieba.ala.alaar.sticker.view.e
-        public void bsM() {
+        public void bsN() {
             int i;
             int i2;
             if (b.this.fir != null) {
@@ -210,8 +210,8 @@ public class b implements com.baidu.live.w.a {
         }
 
         @Override // com.baidu.tieba.ala.alaar.sticker.view.e
-        public boolean bsN() {
-            return !com.baidu.tieba.ala.alaar.sticker.a.f.bsB();
+        public boolean bsO() {
+            return !com.baidu.tieba.ala.alaar.sticker.a.f.bsC();
         }
     };
     private HttpMessageListener fiH = new HttpMessageListener(1021155) { // from class: com.baidu.tieba.ala.alaar.sticker.view.b.12
@@ -232,7 +232,7 @@ public class b implements com.baidu.live.w.a {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             com.baidu.tieba.ala.alaar.messages.d dVar;
             if (!(httpResponsedMessage instanceof SetPicTxtStickerHttpResponseMessage) || httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                com.baidu.tieba.ala.alaar.sticker.a.f.bsA();
+                com.baidu.tieba.ala.alaar.sticker.a.f.bsB();
                 BdUtilHelper.showToast(b.this.mContext, b.this.mContext.getString(a.i.sdk_net_fail_tip));
                 if ((httpResponsedMessage.getOrginalMessage() instanceof com.baidu.tieba.ala.alaar.messages.d) && (dVar = (com.baidu.tieba.ala.alaar.messages.d) httpResponsedMessage.getOrginalMessage()) != null) {
                     DragTextView a = b.this.a(dVar);
@@ -244,12 +244,12 @@ public class b implements com.baidu.live.w.a {
                         return;
                     } else if (dVar.mRequestType == 2) {
                         if (a != null) {
-                            a.bsS();
+                            a.bsT();
                             return;
                         }
                         return;
                     } else if (dVar.mRequestType == 3 && a != null) {
-                        a.bsS();
+                        a.bsT();
                         return;
                     } else {
                         return;
@@ -257,7 +257,7 @@ public class b implements com.baidu.live.w.a {
                 }
                 return;
             }
-            com.baidu.tieba.ala.alaar.sticker.a.f.bsA();
+            com.baidu.tieba.ala.alaar.sticker.a.f.bsB();
             if (httpResponsedMessage.getOrginalMessage() instanceof com.baidu.tieba.ala.alaar.messages.d) {
                 com.baidu.tieba.ala.alaar.messages.d dVar2 = (com.baidu.tieba.ala.alaar.messages.d) httpResponsedMessage.getOrginalMessage();
                 if (dVar2 != null) {
@@ -288,7 +288,7 @@ public class b implements com.baidu.live.w.a {
                         b.this.fiE.remove((AlaLiveStickerInfo) a2.getTag());
                         b.this.a(b.this.aLQ.mLiveInfo.live_id, b.this.fiE);
                         b.this.bw(a2);
-                        b.this.bsH();
+                        b.this.bsI();
                         if (b.this.fiu != null) {
                             b.this.fiu.I(a2);
                         }
@@ -358,7 +358,7 @@ public class b implements com.baidu.live.w.a {
     private Runnable fiL = new Runnable() { // from class: com.baidu.tieba.ala.alaar.sticker.view.b.5
         @Override // java.lang.Runnable
         public void run() {
-            b.this.bsI();
+            b.this.bsJ();
         }
     };
     CustomMessageListener fiM = new CustomMessageListener(2913211) { // from class: com.baidu.tieba.ala.alaar.sticker.view.b.6
@@ -367,7 +367,7 @@ public class b implements com.baidu.live.w.a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
                 b.this.mHandler.removeCallbacks(b.this.fiL);
-                b.this.bsI();
+                b.this.bsJ();
             }
         }
     };
@@ -430,7 +430,7 @@ public class b implements com.baidu.live.w.a {
         if (this.fiq == null) {
             this.fiq = new c(this.mContext, this.fiF);
         } else {
-            this.fiq.bsO();
+            this.fiq.bsP();
         }
         this.fiq.show();
     }
@@ -520,7 +520,7 @@ public class b implements com.baidu.live.w.a {
             this.fis.setTextEditCompleteListener(new AlaTextStickerEditView.a() { // from class: com.baidu.tieba.ala.alaar.sticker.view.b.7
                 @Override // com.baidu.tieba.ala.alaar.sticker.view.AlaTextStickerEditView.a
                 public void Bk(String str2) {
-                    if (str2 != null && b.this.fit != null && !com.baidu.tieba.ala.alaar.sticker.a.f.bsB()) {
+                    if (str2 != null && b.this.fit != null && !com.baidu.tieba.ala.alaar.sticker.a.f.bsC()) {
                         b.this.fit.setText(str2);
                         long j = b.this.aLQ.mLiveInfo.live_id;
                         AlaLiveStickerInfo alaLiveStickerInfo = new AlaLiveStickerInfo((AlaLiveStickerInfo) b.this.fit.getTag());
@@ -530,7 +530,7 @@ public class b implements com.baidu.live.w.a {
                 }
 
                 @Override // com.baidu.tieba.ala.alaar.sticker.view.AlaTextStickerEditView.a
-                public void bsL() {
+                public void bsM() {
                 }
             });
         }
@@ -549,7 +549,7 @@ public class b implements com.baidu.live.w.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bsG() {
+    public void bsH() {
         if (this.fio == null) {
             this.fio = new AlaStickerDragContentView(this.mContext);
         }
@@ -572,7 +572,7 @@ public class b implements com.baidu.live.w.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bsH() {
+    public void bsI() {
         if (this.fio.getChildCount() == 0) {
             if (this.fio != null) {
                 ((ViewGroup) this.fio.getParent()).removeView(this.fio);
@@ -638,7 +638,7 @@ public class b implements com.baidu.live.w.a {
                         }
                     }
                 });
-            } else if (!com.baidu.tieba.ala.alaar.sticker.download.b.bsn().isRunning(fuFaceItem.file)) {
+            } else if (!com.baidu.tieba.ala.alaar.sticker.download.b.bso().isRunning(fuFaceItem.file)) {
                 com.baidu.tieba.ala.alaar.sticker.a.g.a(fuFaceItem, new g.a<FuFaceItem>() { // from class: com.baidu.tieba.ala.alaar.sticker.view.b.11
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.tieba.ala.alaar.sticker.a.g.a
@@ -679,7 +679,7 @@ public class b implements com.baidu.live.w.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bsI() {
+    public void bsJ() {
         FuFaceItem fuFaceItem;
         if (!this.fiD) {
             if (this.fiC != null) {
@@ -791,7 +791,7 @@ public class b implements com.baidu.live.w.a {
                     if (bdImage != null && bdImage.getRawBitmap() != null && str2 != null && str2.equals(str)) {
                         alaLiveStickerInfo.bitmap = bdImage.getRawBitmap();
                         int i2 = a.d.sdk_cp_cont_q;
-                        b.this.bsG();
+                        b.this.bsH();
                         b.this.b(alaLiveStickerInfo.type, alaLiveStickerInfo.bitmap, i2, alaLiveStickerInfo);
                     }
                 }

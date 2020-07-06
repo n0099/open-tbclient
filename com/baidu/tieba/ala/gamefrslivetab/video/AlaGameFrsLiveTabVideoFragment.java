@@ -31,10 +31,10 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ar {
                 if (split.length == 2) {
                     if ("FrsGameLive".equals(split[0]) && 8 == com.baidu.adp.lib.f.b.toInt(split[1], 0)) {
                         if (AlaGameFrsLiveTabVideoFragment.this.fHF != null) {
-                            AlaGameFrsLiveTabVideoFragment.this.fHF.buH();
+                            AlaGameFrsLiveTabVideoFragment.this.fHF.buI();
                         }
                     } else if ("FrsGameLiveLive".equals(split[0]) && 3 == com.baidu.adp.lib.f.b.toInt(split[1], 0) && AlaGameFrsLiveTabVideoFragment.this.fHF != null) {
-                        AlaGameFrsLiveTabVideoFragment.this.fHF.buH();
+                        AlaGameFrsLiveTabVideoFragment.this.fHF.buI();
                     }
                 }
             }
@@ -167,7 +167,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ar {
     }
 
     @Override // com.baidu.tieba.frs.ar
-    public NavigationBar bwV() {
-        return this.fHF.bwV();
+    public NavigationBar bwW() {
+        return this.fHF.bwW();
     }
 }

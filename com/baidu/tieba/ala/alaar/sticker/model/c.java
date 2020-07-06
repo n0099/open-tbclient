@@ -12,10 +12,10 @@ public class c extends b {
 
     @Override // com.baidu.tieba.ala.alaar.sticker.model.b
     public boolean isLoaded() {
-        return bsF() && super.isLoaded();
+        return bsG() && super.isLoaded();
     }
 
-    public boolean bsF() {
+    public boolean bsG() {
         File localFile = getLocalFile();
         com.baidu.minivideo.arface.b.MY();
         if (localFile != null && localFile.exists()) {
@@ -36,7 +36,7 @@ public class c extends b {
             File file = new File(str);
             File MY = com.baidu.minivideo.arface.b.MY();
             com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuAbilityModel", "clearAll lib:" + MY + ", def:" + fhT);
-            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuAbilityModel", "onCompleted-unzip:" + str + "\nto " + getLocalFile().getAbsolutePath() + ", sk:" + bsC());
+            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuAbilityModel", "onCompleted-unzip:" + str + "\nto " + getLocalFile().getAbsolutePath() + ", sk:" + bsD());
             File file2 = new File(getLocalFile() + ".ziping");
             if (file2.exists()) {
                 com.baidu.tieba.ala.alaar.sticker.b.c.deleteFileOrDir(file2);

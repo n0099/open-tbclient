@@ -17,7 +17,7 @@ public class f {
     private f() {
     }
 
-    public static f bpT() {
+    public static f bpU() {
         synchronized (f.class) {
             if (fby == null) {
                 fby = new f();
@@ -44,15 +44,15 @@ public class f {
     }
 
     public boolean c(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        SQLiteDatabase bpX = h.bpX();
+        SQLiteDatabase bpY = h.bpY();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (bpX == null || aVar == null || TextUtils.isEmpty(currentAccount)) {
+        if (bpY == null || aVar == null || TextUtils.isEmpty(currentAccount)) {
             return false;
         }
         try {
             ContentValues b = b(aVar);
-            if (bpX.update("table_" + currentAccount, b, "id = ?", new String[]{String.valueOf(aVar.getUserId())}) == 0) {
-                bpX.insert("table_" + currentAccount, null, b);
+            if (bpY.update("table_" + currentAccount, b, "id = ?", new String[]{String.valueOf(aVar.getUserId())}) == 0) {
+                bpY.insert("table_" + currentAccount, null, b);
                 return true;
             }
             return true;
@@ -64,27 +64,27 @@ public class f {
 
     public synchronized boolean a(a aVar) {
         boolean z;
-        SQLiteDatabase bpX = h.bpX();
+        SQLiteDatabase bpY = h.bpY();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (bpX == null || aVar == null || TextUtils.isEmpty(currentAccount)) {
+        if (bpY == null || aVar == null || TextUtils.isEmpty(currentAccount)) {
             z = false;
         } else {
-            bpX.execSQL("DROP TABLE IF EXISTS table_" + currentAccount);
-            bpX.execSQL("CREATE TABLE IF NOT EXISTS table_" + currentAccount + "(name TEXT NOT NULL UNIQUE, id LONG, name_show TEXT, portrait TEXT, quanpin TEXT, first_letter TEXT, location_hide INT, location_distance TEXT ,location_time LONG, user_type INT);");
-            bpX.beginTransaction();
+            bpY.execSQL("DROP TABLE IF EXISTS table_" + currentAccount);
+            bpY.execSQL("CREATE TABLE IF NOT EXISTS table_" + currentAccount + "(name TEXT NOT NULL UNIQUE, id LONG, name_show TEXT, portrait TEXT, quanpin TEXT, first_letter TEXT, location_hide INT, location_distance TEXT ,location_time LONG, user_type INT);");
+            bpY.beginTransaction();
             try {
                 for (e eVar : aVar.getAddressList()) {
                     for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : eVar.getContacts()) {
-                        bpX.insert("table_" + currentAccount, null, b(aVar2));
+                        bpY.insert("table_" + currentAccount, null, b(aVar2));
                     }
                 }
-                bpX.setTransactionSuccessful();
-                bpX.endTransaction();
+                bpY.setTransactionSuccessful();
+                bpY.endTransaction();
                 z = true;
             } catch (Exception e) {
                 BdLog.e(e.toString());
                 TiebaStatic.printDBExceptionLog(e, "RelationshipDao.addContactItems", new Object[0]);
-                bpX.endTransaction();
+                bpY.endTransaction();
                 z = false;
             }
         }
@@ -92,13 +92,13 @@ public class f {
     }
 
     public boolean dh(long j) {
-        SQLiteDatabase bpX = h.bpX();
+        SQLiteDatabase bpY = h.bpY();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (bpX == null || j < 0 || TextUtils.isEmpty(currentAccount)) {
+        if (bpY == null || j < 0 || TextUtils.isEmpty(currentAccount)) {
             return false;
         }
         try {
-            bpX.delete("table_" + currentAccount, "id = ?", new String[]{String.valueOf(j)});
+            bpY.delete("table_" + currentAccount, "id = ?", new String[]{String.valueOf(j)});
             return true;
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "RelationshipDao.deleteContactItem", new Object[0]);
@@ -106,22 +106,22 @@ public class f {
         }
     }
 
-    public synchronized List<com.baidu.tbadk.coreExtra.relationship.a> bpU() {
+    public synchronized List<com.baidu.tbadk.coreExtra.relationship.a> bpV() {
         ArrayList arrayList;
         String[] strArr;
-        SQLiteDatabase bpX = h.bpX();
+        SQLiteDatabase bpY = h.bpY();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         Cursor cursor = null;
         arrayList = new ArrayList();
-        if (bpX != null && !TextUtils.isEmpty(currentAccount)) {
-            bpX.beginTransaction();
+        if (bpY != null && !TextUtils.isEmpty(currentAccount)) {
+            bpY.beginTransaction();
             try {
                 for (String str : com.baidu.tbadk.coreExtra.relationship.c.enk) {
                     ArrayList arrayList2 = new ArrayList();
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.xM(str);
                     arrayList2.add(aVar);
-                    cursor = bpX.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter=?", new String[]{str});
+                    cursor = bpY.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter=?", new String[]{str});
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
                             com.baidu.tbadk.coreExtra.relationship.a aVar2 = new com.baidu.tbadk.coreExtra.relationship.a();
@@ -141,35 +141,35 @@ public class f {
                     }
                     n.close(cursor);
                 }
-                bpX.setTransactionSuccessful();
+                bpY.setTransactionSuccessful();
                 n.close(cursor);
-                bpX.endTransaction();
+                bpY.endTransaction();
             } catch (Exception e) {
                 BdLog.e(e.toString());
                 TiebaStatic.printDBExceptionLog(e, "RelationshipDao.getContactList", new Object[0]);
                 n.close(cursor);
-                bpX.endTransaction();
+                bpY.endTransaction();
             }
         }
         return arrayList;
     }
 
-    public synchronized ArrayList<com.baidu.tbadk.coreExtra.relationship.a> bpV() {
+    public synchronized ArrayList<com.baidu.tbadk.coreExtra.relationship.a> bpW() {
         ArrayList<com.baidu.tbadk.coreExtra.relationship.a> arrayList;
         String[] strArr;
-        SQLiteDatabase bpX = h.bpX();
+        SQLiteDatabase bpY = h.bpY();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         Cursor cursor = null;
         arrayList = new ArrayList<>();
-        if (bpX != null && !TextUtils.isEmpty(currentAccount)) {
-            bpX.beginTransaction();
+        if (bpY != null && !TextUtils.isEmpty(currentAccount)) {
+            bpY.beginTransaction();
             try {
                 for (String str : com.baidu.tbadk.coreExtra.relationship.c.enk) {
                     ArrayList arrayList2 = new ArrayList();
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.xM(str);
                     arrayList2.add(aVar);
-                    cursor = bpX.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter = ? AND user_type = ? ", new String[]{str, "1"});
+                    cursor = bpY.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter = ? AND user_type = ? ", new String[]{str, "1"});
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
                             com.baidu.tbadk.coreExtra.relationship.a aVar2 = new com.baidu.tbadk.coreExtra.relationship.a();
@@ -189,14 +189,14 @@ public class f {
                     }
                     n.close(cursor);
                 }
-                bpX.setTransactionSuccessful();
+                bpY.setTransactionSuccessful();
                 n.close(cursor);
-                bpX.endTransaction();
+                bpY.endTransaction();
             } catch (Exception e) {
                 BdLog.e(e.toString());
                 TiebaStatic.printDBExceptionLog(e, "RelationshipDao.getOfficialAccountList", new Object[0]);
                 n.close(cursor);
-                bpX.endTransaction();
+                bpY.endTransaction();
             }
         }
         return arrayList;

@@ -142,7 +142,7 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         }
     }
 
-    public void caC() {
+    public void caD() {
         this.isStarting = true;
         invalidate();
     }

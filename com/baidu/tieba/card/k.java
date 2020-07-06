@@ -64,16 +64,16 @@ public class k extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
         this.ahM = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (k.this.bOc() != null) {
-                    k.this.bOc().a(view, k.this.aea);
+                if (k.this.bOd() != null) {
+                    k.this.bOd().a(view, k.this.aea);
                 }
             }
         };
         this.edU = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (k.this.bOc() != null) {
-                    k.this.bOc().a(view, k.this.aea);
+                if (k.this.bOd() != null) {
+                    k.this.bOd().a(view, k.this.aea);
                 }
             }
         };
@@ -215,9 +215,9 @@ public class k extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
                 String aSE = ((com.baidu.tieba.card.data.j) this.aea).dLi.aSE();
                 String aSF = ((com.baidu.tieba.card.data.j) this.aea).dLi.aSF();
                 if (UtilHelper.isDecimal(aSE) && UtilHelper.isDecimal(aSF) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-                    AppPosInfo cZJ = com.baidu.tieba.recapp.d.a.cZF().cZJ();
-                    String str2 = cZJ.latitude;
-                    String str3 = cZJ.longitude;
+                    AppPosInfo cZK = com.baidu.tieba.recapp.d.a.cZG().cZK();
+                    String str2 = cZK.latitude;
+                    String str3 = cZK.longitude;
                     if (UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3) && com.baidu.adp.lib.util.l.GetDistance(Double.parseDouble(str2), Double.parseDouble(str3), Double.parseDouble(aSE), Double.parseDouble(aSF)) <= 50.0d) {
                         this.fSJ.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_recom_reason));
                         this.fSJ.setVisibility(0);
@@ -232,11 +232,11 @@ public class k extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
         } else {
             an.setViewTextColor(this.mTextTitle, R.color.cp_cont_b, 1);
         }
-        bzk();
+        bzl();
         this.fSI.playAnimation();
     }
 
-    public void bzk() {
+    public void bzl() {
         if (com.baidu.tbadk.core.k.aPA().isShowImages() && this.aea != 0 && ((com.baidu.tieba.card.data.j) this.aea).aPS() != null && ((com.baidu.tieba.card.data.j) this.aea).aPS().aSJ() != null) {
             this.eKV.setPlaceHolder(3);
             this.eKV.startLoad(((com.baidu.tieba.card.data.j) this.aea).aPS().aSJ().cover, 10, false);
@@ -246,14 +246,14 @@ public class k extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
         this.fSH.setVisibility(8);
     }
 
-    public View bOf() {
+    public View bOg() {
         if (this.aeg != null) {
             return this.aeg.getAvatar();
         }
         return null;
     }
 
-    public View bOg() {
+    public View bOh() {
         if (this.efc) {
             if (this.aeg != null) {
                 return this.aeg.getUserName();
@@ -279,8 +279,8 @@ public class k extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
     }
 
     private void bM(View view) {
-        if (bOc() != null) {
-            bOc().a(view, this.aea);
+        if (bOd() != null) {
+            bOd().a(view, this.aea);
         }
         if (this.aea != 0 && ((com.baidu.tieba.card.data.j) this.aea).aPS() != null && ((com.baidu.tieba.card.data.j) this.aea).aPS().aSJ() != null) {
             m.DO(((com.baidu.tieba.card.data.j) this.aea).dLi.getId());

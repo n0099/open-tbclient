@@ -25,7 +25,7 @@ public class l {
         this.mStatus = i;
     }
 
-    public int bwA() {
+    public int bwB() {
         return this.fEf;
     }
 
@@ -33,11 +33,11 @@ public class l {
         this.fEf = i;
     }
 
-    public String bwB() {
+    public String bwC() {
         return this.fEg;
     }
 
-    public String bwC() {
+    public String bwD() {
         return this.mIcon;
     }
 
@@ -45,15 +45,15 @@ public class l {
         return this.mName;
     }
 
-    public String bwD() {
+    public String bwE() {
         return this.fEh;
     }
 
-    public String bwE() {
+    public String bwF() {
         return this.feD;
     }
 
-    public String bwF() {
+    public String bwG() {
         return this.fep;
     }
 }

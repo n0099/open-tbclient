@@ -23,13 +23,13 @@ public class j {
                         j.this.gRe.qx();
                     }
                 } else if (currentPosition == j.this.kSQ && j.this.kSR != null) {
-                    j.this.kSR.btG();
+                    j.this.kSR.btH();
                 }
                 if (j.this.kSS != null) {
                     j.this.kSS.bM(duration, currentPosition);
                 }
                 j.this.kSQ = currentPosition;
-                j.this.cVi();
+                j.this.cVj();
             }
         }
     };
@@ -46,7 +46,7 @@ public class j {
 
     /* loaded from: classes.dex */
     public interface c {
-        void btG();
+        void btH();
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
@@ -55,7 +55,7 @@ public class j {
 
     public void start() {
         this.kSQ = 0;
-        cVi();
+        cVj();
     }
 
     public void stop() {
@@ -63,7 +63,7 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cVi() {
+    public void cVj() {
         this.mHandler.removeMessages(1);
         this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.kSP);
     }

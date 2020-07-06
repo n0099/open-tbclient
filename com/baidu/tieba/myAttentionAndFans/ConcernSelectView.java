@@ -113,7 +113,7 @@ public class ConcernSelectView extends FrameLayout {
         }
     }
 
-    public boolean cCY() {
+    public boolean cCZ() {
         return this.jKC.getVisibility() == 0;
     }
 
@@ -178,7 +178,7 @@ public class ConcernSelectView extends FrameLayout {
                 if (this.jKy.getAnimation() == null || this.jKy.getAnimation().hasEnded()) {
                     if (i == 0) {
                         if (this.jKD == null) {
-                            cDa();
+                            cDb();
                         }
                         if (this.jKE != null) {
                             this.jKE.cancel();
@@ -187,7 +187,7 @@ public class ConcernSelectView extends FrameLayout {
                         return;
                     }
                     if (this.jKE == null) {
-                        cCZ();
+                        cDa();
                     }
                     if (this.jKD != null) {
                         this.jKD.cancel();
@@ -198,7 +198,7 @@ public class ConcernSelectView extends FrameLayout {
         }
     }
 
-    private void cCZ() {
+    private void cDa() {
         this.jKE = AnimationUtils.loadAnimation(this.mContext, R.anim.rotate_collapse);
         this.jKE.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.5
             @Override // android.view.animation.Animation.AnimationListener
@@ -216,7 +216,7 @@ public class ConcernSelectView extends FrameLayout {
         });
     }
 
-    private void cDa() {
+    private void cDb() {
         this.jKD = AnimationUtils.loadAnimation(this.mContext, R.anim.rotate_expand);
         this.jKD.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.6
             @Override // android.view.animation.Animation.AnimationListener

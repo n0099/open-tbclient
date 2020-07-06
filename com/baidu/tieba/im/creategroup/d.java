@@ -38,21 +38,21 @@ public class d implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int coa() {
+    public int cob() {
         return this.mIndex;
     }
 
-    public EditText com() {
+    public EditText con() {
         return this.iOg;
     }
 
-    public TextView con() {
+    public TextView coo() {
         return this.iOh;
     }
 
     public void ye(int i) {
         String charSequence2String;
-        if (coo() / 2 > i && (charSequence2String = com.baidu.adp.lib.util.k.charSequence2String(this.iOg.getText(), null)) != null && charSequence2String.length() > 2) {
+        if (cop() / 2 > i && (charSequence2String = com.baidu.adp.lib.util.k.charSequence2String(this.iOg.getText(), null)) != null && charSequence2String.length() > 2) {
             while (com.baidu.tieba.im.util.f.getTextLength(charSequence2String) / 2 > i) {
                 charSequence2String = charSequence2String.substring(0, charSequence2String.length() - 1);
             }
@@ -67,22 +67,22 @@ public class d implements o {
         return this.mView;
     }
 
-    public int coo() {
+    public int cop() {
         return com.baidu.tieba.im.util.f.getTrimmedTextLength(this.iOg);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void cog() {
+    public void coh() {
         this.iNX.setBackgroundDrawable(null);
     }
 
-    public void cop() {
+    public void coq() {
         this.iNW.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
         this.iNW.getLayoutMode().onModeChanged(this.iOh);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void coh() {
+    public void coi() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
         this.iNW.getLayoutMode().setNightMode(z);
         this.iNW.getLayoutMode().onModeChanged(this.mView);
@@ -97,7 +97,7 @@ public class d implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String coj() {
+    public String cok() {
         if (this.mIndex != this.iOa) {
             return this.iNW.getPageContext().getString(R.string.next_step);
         }
@@ -105,7 +105,7 @@ public class d implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean cok() {
+    public boolean col() {
         return false;
     }
 
@@ -115,7 +115,7 @@ public class d implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean col() {
+    public boolean com() {
         return true;
     }
 }

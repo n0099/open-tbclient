@@ -11,7 +11,7 @@ public class RequestHotTopicMessage extends NetMessage {
     private int call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f1027common;
+    private CommonReq f1028common;
     private Long fid;
     private String first_dir;
     private Integer q_type;
@@ -45,11 +45,11 @@ public class RequestHotTopicMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f1027common;
+        return this.f1028common;
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f1027common = commonReq;
+        this.f1028common = commonReq;
     }
 
     public Long getTopicId() {
@@ -112,7 +112,7 @@ public class RequestHotTopicMessage extends NetMessage {
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1197common = getCommon();
+            builder.f1198common = getCommon();
             builder.topic_id = getTopicId();
             builder.topic_name = getTopicName();
             builder.scr_w = getScrW();

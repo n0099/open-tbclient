@@ -40,7 +40,7 @@ public class f extends BdBaseModel {
                         if (alaGetRedPacketInfoResponseMessage.getError() != 0 || !alaGetRedPacketInfoResponseMessage.isSuccess()) {
                             f.this.fgf.aA(alaGetRedPacketInfoResponseMessage.getError(), alaGetRedPacketInfoResponseMessage.getErrorString());
                         } else {
-                            f.this.fgf.b(alaGetRedPacketInfoResponseMessage.bKH());
+                            f.this.fgf.b(alaGetRedPacketInfoResponseMessage.bKI());
                         }
                     }
                 }
@@ -53,11 +53,11 @@ public class f extends BdBaseModel {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021161 && (httpResponsedMessage instanceof AlaSnatchRedPacketResponseMessage)) {
                     AlaSnatchRedPacketResponseMessage alaSnatchRedPacketResponseMessage = (AlaSnatchRedPacketResponseMessage) httpResponsedMessage;
                     if (f.this.fgf != null) {
-                        com.baidu.tieba.ala.data.i bKJ = alaSnatchRedPacketResponseMessage.bKJ();
+                        com.baidu.tieba.ala.data.i bKK = alaSnatchRedPacketResponseMessage.bKK();
                         if (alaSnatchRedPacketResponseMessage.getError() != 0 || !alaSnatchRedPacketResponseMessage.isSuccess()) {
                             f.this.fgf.aB(alaSnatchRedPacketResponseMessage.getError(), alaSnatchRedPacketResponseMessage.getErrorString());
                         } else {
-                            f.this.fgf.b(bKJ);
+                            f.this.fgf.b(bKK);
                         }
                     }
                 }

@@ -38,7 +38,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         public void onScrollToBottom() {
             if (l.isNetOk() && AlaLiveTabMyConcernActivity.this.mHasMore && !AlaLiveTabMyConcernActivity.this.isLoading) {
                 AlaLiveTabMyConcernActivity.this.isLoading = true;
-                AlaLiveTabMyConcernActivity.this.foU.btW();
+                AlaLiveTabMyConcernActivity.this.foU.btX();
             }
         }
 
@@ -58,9 +58,9 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         @Override // com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel.a
         public void c(List<q> list, boolean z, boolean z2) {
             AlaLiveTabMyConcernActivity.this.isLoading = false;
-            AlaLiveTabMyConcernActivity.this.btN();
+            AlaLiveTabMyConcernActivity.this.btO();
             AlaLiveTabMyConcernActivity.this.foT.jc(false);
-            AlaLiveTabMyConcernActivity.this.hideLoadingView(AlaLiveTabMyConcernActivity.this.foT.bua());
+            AlaLiveTabMyConcernActivity.this.hideLoadingView(AlaLiveTabMyConcernActivity.this.foT.bub());
             if (!w.isEmpty(list)) {
                 AlaLiveTabMyConcernActivity.this.foT.setData(list);
             } else {
@@ -72,7 +72,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         @Override // com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel.a
         public void jD(boolean z) {
             AlaLiveTabMyConcernActivity.this.isLoading = false;
-            AlaLiveTabMyConcernActivity.this.hideLoadingView(AlaLiveTabMyConcernActivity.this.foT.bua());
+            AlaLiveTabMyConcernActivity.this.hideLoadingView(AlaLiveTabMyConcernActivity.this.foT.bub());
             AlaLiveTabMyConcernActivity.this.foT.jc(false);
             AlaLiveTabMyConcernActivity.this.jC(z);
         }
@@ -99,7 +99,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         if (!l.isNetOk()) {
             a(R.drawable.new_pic_emotion_08, getResources().getString(R.string.refresh_view_title_text), this.fpa);
         } else {
-            showLoadingView(this.foT.bua(), false, getResources().getDimensionPixelSize(R.dimen.ds340));
+            showLoadingView(this.foT.bub(), false, getResources().getDimensionPixelSize(R.dimen.ds340));
             refreshData();
         }
         registerListener(this.foX);
@@ -171,14 +171,14 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         this.foV.setSubText(null);
         this.foV.setTitle(str);
         this.foV.onChangeSkinType();
-        this.foV.dettachView(this.foT.bue());
-        this.foV.attachView(this.foT.bue());
+        this.foV.dettachView(this.foT.buf());
+        this.foV.attachView(this.foT.buf());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btN() {
+    public void btO() {
         if (this.foV != null) {
-            this.foV.dettachView(this.foT.bue());
+            this.foV.dettachView(this.foT.buf());
         }
     }
 
@@ -204,7 +204,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         if (this.foU != null) {
             this.foU.onDestroy();
         }
-        hideLoadingView(this.foT.bua());
+        hideLoadingView(this.foT.bub());
         if (this.foT != null) {
             this.foT.onDestroy();
         }

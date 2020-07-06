@@ -89,12 +89,12 @@ public class c {
         if (this.hLW != null) {
             this.hLW.a(this.mInputManager);
         }
-        ccb();
+        ccc();
     }
 
-    private void ccb() {
+    private void ccc() {
         this.evx.d(this.hLV);
-        this.evx.djn();
+        this.evx.djo();
         showLoadingDialog();
     }
 

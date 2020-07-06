@@ -19,7 +19,7 @@ public class g extends com.baidu.card.b<AbsThreadDataSupport> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.iwf.ckP();
+        return this.iwf.ckQ();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

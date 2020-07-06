@@ -4,50 +4,50 @@ import master.flame.danmaku.danmaku.model.a.c;
 /* loaded from: classes5.dex */
 class a<T extends c<T>> implements b<T> {
     private final boolean mInfinite;
-    private final d<T> nVI;
-    private final int nVJ;
-    private T nVK;
-    private int nVL;
+    private final d<T> nVL;
+    private final int nVM;
+    private T nVN;
+    private int nVO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(d<T> dVar, int i) {
         if (i <= 0) {
             throw new IllegalArgumentException("The pool limit must be > 0");
         }
-        this.nVI = dVar;
-        this.nVJ = i;
+        this.nVL = dVar;
+        this.nVM = i;
         this.mInfinite = false;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
-    public T dST() {
-        T dSS;
-        if (this.nVK != null) {
-            T t = this.nVK;
-            this.nVK = (T) t.dSP();
-            this.nVL--;
-            dSS = t;
+    public T dSX() {
+        T dSW;
+        if (this.nVN != null) {
+            T t = this.nVN;
+            this.nVN = (T) t.dST();
+            this.nVO--;
+            dSW = t;
         } else {
-            dSS = this.nVI.dSS();
+            dSW = this.nVL.dSW();
         }
-        if (dSS != null) {
-            dSS.bO(null);
-            dSS.xx(false);
-            this.nVI.b(dSS);
+        if (dSW != null) {
+            dSW.bO(null);
+            dSW.xx(false);
+            this.nVL.b(dSW);
         }
-        return dSS;
+        return dSW;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
     public void c(T t) {
-        if (!t.dSN()) {
-            if (this.mInfinite || this.nVL < this.nVJ) {
-                this.nVL++;
-                t.bO(this.nVK);
+        if (!t.dSR()) {
+            if (this.mInfinite || this.nVO < this.nVM) {
+                this.nVO++;
+                t.bO(this.nVN);
                 t.xx(true);
-                this.nVK = t;
+                this.nVN = t;
             }
-            this.nVI.a(t);
+            this.nVL.a(t);
         }
     }
 }

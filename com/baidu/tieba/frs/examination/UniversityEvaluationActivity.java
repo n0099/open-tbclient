@@ -29,7 +29,7 @@ public class UniversityEvaluationActivity extends BaseFragmentActivity {
         } else {
             this.hLT = new b(this, this.hLG, this.hLI);
         }
-        this.hLT.cbX();
+        this.hLT.cbY();
         setContentView(this.hLT.getView());
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
@@ -57,7 +57,7 @@ public class UniversityEvaluationActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            this.hLT.cbW();
+            this.hLT.cbX();
             return true;
         }
         return super.onKeyDown(i, keyEvent);

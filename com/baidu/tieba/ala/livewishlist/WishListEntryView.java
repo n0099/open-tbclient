@@ -49,12 +49,12 @@ public class WishListEntryView extends RelativeLayout {
 
     public void Y(ArrayList<AlaLiveWishListData> arrayList) {
         if (ListUtils.isEmpty(arrayList)) {
-            this.gvC.bMT();
+            this.gvC.bMU();
             this.gvC.ac(null);
             this.gvC.setVisibility(8);
             this.gvD.setVisibility(8);
         } else if (arrayList != null && arrayList.size() == 1) {
-            this.gvC.bMT();
+            this.gvC.bMU();
             this.gvC.ac(null);
             this.gvC.setVisibility(8);
             this.gvD.setVisibility(0);
@@ -62,19 +62,19 @@ public class WishListEntryView extends RelativeLayout {
         } else {
             this.gvD.setVisibility(8);
             this.gvC.setVisibility(0);
-            this.gvC.bMU();
+            this.gvC.bMV();
             this.gvC.ac(arrayList);
         }
     }
 
     public void Z(ArrayList<AlaLiveWishListData> arrayList) {
         if (ListUtils.isEmpty(arrayList)) {
-            this.gvC.bMT();
+            this.gvC.bMU();
             this.gvC.ac(null);
             this.gvC.setVisibility(8);
             this.gvD.setVisibility(8);
         } else if (arrayList != null && arrayList.size() == 1) {
-            this.gvC.bMT();
+            this.gvC.bMU();
             this.gvC.ac(null);
             this.gvC.setVisibility(8);
             this.gvD.setVisibility(0);
@@ -82,7 +82,7 @@ public class WishListEntryView extends RelativeLayout {
         } else {
             this.gvD.setVisibility(8);
             this.gvC.setVisibility(0);
-            this.gvC.bMU();
+            this.gvC.bMV();
             this.gvC.ac(arrayList);
         }
     }

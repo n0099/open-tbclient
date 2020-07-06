@@ -17,11 +17,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
 public class c {
-    public com.heytap.openid.a nec = null;
+    public com.heytap.openid.a nef = null;
     public String b = null;
     public String c = null;
     public final Object d = new Object();
-    public ServiceConnection mGG = new a();
+    public ServiceConnection mGJ = new a();
 
     /* loaded from: classes6.dex */
     public class a implements ServiceConnection {
@@ -30,7 +30,7 @@ public class c {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            c.this.nec = a.AbstractBinderC0811a.a(iBinder);
+            c.this.nef = a.AbstractBinderC0812a.a(iBinder);
             synchronized (c.this.d) {
                 c.this.d.notify();
             }
@@ -38,14 +38,14 @@ public class c {
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            c.this.nec = null;
+            c.this.nef = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class b {
-        public static final c ned = new c(null);
+        public static final c neg = new c(null);
     }
 
     public /* synthetic */ c(a aVar) {
@@ -54,11 +54,11 @@ public class c {
     public synchronized String a(Context context, String str) {
         String str2;
         if (Looper.myLooper() != Looper.getMainLooper()) {
-            if (this.nec == null) {
+            if (this.nef == null) {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                if (context.bindService(intent, this.mGG, 1)) {
+                if (context.bindService(intent, this.mGJ, 1)) {
                     synchronized (this.d) {
                         try {
                             this.d.wait(3000L);
@@ -67,7 +67,7 @@ public class c {
                         }
                     }
                 }
-                if (this.nec == null) {
+                if (this.nef == null) {
                     str2 = "";
                 } else {
                     try {
@@ -139,7 +139,7 @@ public class c {
             }
             this.c = str2;
         }
-        String a2 = ((a.AbstractBinderC0811a.C0812a) this.nec).a(this.b, this.c, str);
+        String a2 = ((a.AbstractBinderC0812a.C0813a) this.nef).a(this.b, this.c, str);
         return TextUtils.isEmpty(a2) ? "" : a2;
     }
 }

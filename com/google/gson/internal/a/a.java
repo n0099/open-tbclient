@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public final class a<E> extends TypeAdapter<Object> {
-    public static final TypeAdapterFactory naU = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.a.1
+    public static final TypeAdapterFactory naX = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.a.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
             Type type = aVar.getType();
@@ -24,23 +24,23 @@ public final class a<E> extends TypeAdapter<Object> {
         }
     };
     private final Class<E> componentType;
-    private final TypeAdapter<E> naV;
+    private final TypeAdapter<E> naY;
 
     public a(Gson gson, TypeAdapter<E> typeAdapter, Class<E> cls) {
-        this.naV = new m(gson, typeAdapter, cls);
+        this.naY = new m(gson, typeAdapter, cls);
         this.componentType = cls;
     }
 
     @Override // com.google.gson.TypeAdapter
     public Object read(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.dHO() == JsonToken.NULL) {
-            aVar.dHT();
+        if (aVar.dHS() == JsonToken.NULL) {
+            aVar.dHX();
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        aVar.dHM();
+        aVar.dHQ();
         while (aVar.hasNext()) {
-            arrayList.add(this.naV.read(aVar));
+            arrayList.add(this.naY.read(aVar));
         }
         aVar.endArray();
         int size = arrayList.size();
@@ -56,14 +56,14 @@ public final class a<E> extends TypeAdapter<Object> {
     @Override // com.google.gson.TypeAdapter
     public void write(com.google.gson.stream.b bVar, Object obj) throws IOException {
         if (obj == null) {
-            bVar.dId();
+            bVar.dIh();
             return;
         }
-        bVar.dHZ();
+        bVar.dId();
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
-            this.naV.write(bVar, Array.get(obj, i));
+            this.naY.write(bVar, Array.get(obj, i));
         }
-        bVar.dIa();
+        bVar.dIe();
     }
 }

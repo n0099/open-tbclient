@@ -14,7 +14,7 @@ import tv.chushou.basis.rxjava.thread.EventThread;
 /* loaded from: classes5.dex */
 public class g {
     public static void y(CharSequence charSequence) {
-        a.d(h.dWe(), charSequence);
+        a.d(h.dWi(), charSequence);
     }
 
     public static void c(Context context, CharSequence charSequence) {
@@ -22,7 +22,7 @@ public class g {
     }
 
     public static void LI(@StringRes int i) {
-        a.showToast(h.dWe(), i);
+        a.showToast(h.dWi(), i);
     }
 
     public static void F(Context context, @StringRes int i) {
@@ -67,41 +67,41 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class a {
-        private static CharSequence okx;
-        private static Toast oky = null;
-        private static long okz = 0;
+        private static CharSequence okA;
+        private static Toast okB = null;
+        private static long okC = 0;
 
         static void d(final Context context, final CharSequence charSequence) {
             if (charSequence != null && charSequence.length() != 0) {
                 if (context == null) {
-                    context = h.dWe();
+                    context = h.dWi();
                 }
                 if (context != null) {
                     Runnable runnable = new Runnable() { // from class: tv.chushou.zues.utils.g.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (a.oky == null) {
-                                Toast unused = a.oky = Toast.makeText(context.getApplicationContext(), (CharSequence) null, 0);
-                                g.c(a.oky);
-                                a.oky.setText(charSequence);
-                                a.oky.show();
-                                CharSequence unused2 = a.okx = charSequence;
-                                long unused3 = a.okz = System.currentTimeMillis();
+                            if (a.okB == null) {
+                                Toast unused = a.okB = Toast.makeText(context.getApplicationContext(), (CharSequence) null, 0);
+                                g.c(a.okB);
+                                a.okB.setText(charSequence);
+                                a.okB.show();
+                                CharSequence unused2 = a.okA = charSequence;
+                                long unused3 = a.okC = System.currentTimeMillis();
                                 return;
                             }
                             long currentTimeMillis = System.currentTimeMillis();
-                            if (charSequence.equals(a.okx)) {
-                                if (currentTimeMillis - a.okz > 2000) {
-                                    a.oky.show();
-                                    long unused4 = a.okz = currentTimeMillis;
+                            if (charSequence.equals(a.okA)) {
+                                if (currentTimeMillis - a.okC > 2000) {
+                                    a.okB.show();
+                                    long unused4 = a.okC = currentTimeMillis;
                                     return;
                                 }
                                 return;
                             }
-                            CharSequence unused5 = a.okx = charSequence;
-                            a.oky.setText(charSequence);
-                            a.oky.show();
-                            long unused6 = a.okz = currentTimeMillis;
+                            CharSequence unused5 = a.okA = charSequence;
+                            a.okB.setText(charSequence);
+                            a.okB.show();
+                            long unused6 = a.okC = currentTimeMillis;
                         }
                     };
                     if (Looper.myLooper() != Looper.getMainLooper()) {
@@ -115,7 +115,7 @@ public class g {
 
         static void showToast(Context context, @StringRes int i) {
             if (context != null) {
-                d(context, h.dWI().getString(i));
+                d(context, h.dWM().getString(i));
             }
         }
     }

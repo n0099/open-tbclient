@@ -34,9 +34,9 @@ public abstract class a implements View.OnClickListener {
 
     public abstract void bfY();
 
-    protected abstract void cbV();
+    protected abstract void cbW();
 
-    public abstract void cbX();
+    public abstract void cbY();
 
     protected abstract void initUI();
 
@@ -47,7 +47,7 @@ public abstract class a implements View.OnClickListener {
         this.hLJ = new c(this.hep, this.hep.getUniqueId(), this.hLG, this.hLI);
         initUI();
         biq();
-        cbV();
+        cbW();
     }
 
     protected void biq() {
@@ -75,7 +75,7 @@ public abstract class a implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cbW() {
+    public void cbX() {
         if (this.hLL == null) {
             this.hLL = new SaveDraftDialogView(this.hep);
             this.hLL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.examination.a.1
@@ -84,7 +84,7 @@ public abstract class a implements View.OnClickListener {
                     if (view != null) {
                         int id = view.getId();
                         if (id == R.id.save_draft_dialog_not_save) {
-                            a.this.cbY();
+                            a.this.cbZ();
                             a.this.hep.finish();
                         } else if (id == R.id.save_draft_dialog_save) {
                             a.this.bfY();
@@ -103,7 +103,7 @@ public abstract class a implements View.OnClickListener {
         this.hLK.showDialog();
     }
 
-    protected void cbY() {
+    protected void cbZ() {
         if (this.hLG != null) {
             w.c(String.valueOf(this.hLG.forumId), (WriteData) null);
         }

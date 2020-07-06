@@ -42,7 +42,7 @@ public class h implements g.a {
         }
     }
 
-    public void cgs() {
+    public void cgt() {
         if (this.icQ != null) {
             this.icQ.setFrom(this.mFrom);
             this.icQ.LoadData();
@@ -53,7 +53,7 @@ public class h implements g.a {
         this.mFrom = str;
     }
 
-    public void btu() {
+    public void btv() {
         if (this.icQ != null && this.mHasMore) {
             this.icQ.setFrom(this.mFrom);
             this.icQ.LoadData();
@@ -88,11 +88,11 @@ public class h implements g.a {
         }
     }
 
-    public VideoSerializeVideoThreadInfo cgt() {
+    public VideoSerializeVideoThreadInfo cgu() {
         return this.icR;
     }
 
-    public void caR() {
+    public void caS() {
         if (this.icQ != null) {
             this.icQ.cancelLoadData();
         }

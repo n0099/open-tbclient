@@ -61,8 +61,8 @@ public class HotTopicTabRankListLayout extends RecyclerView {
     }
 
     public void a(c cVar) {
-        if (cVar != null && cVar.cjp() != null) {
-            this.iqZ.cW(cVar.cjp());
+        if (cVar != null && cVar.cjq() != null) {
+            this.iqZ.cW(cVar.cjq());
         }
     }
 

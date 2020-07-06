@@ -9,16 +9,16 @@ public class al {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Handler f104a;
+    private Handler f105a;
 
     /* renamed from: a  reason: collision with other field name */
-    private a f105a;
+    private a f106a;
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile b f106a;
+    private volatile b f107a;
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile boolean f107a;
+    private volatile boolean f108a;
     private final boolean b;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -26,16 +26,16 @@ public class al {
     public class a extends Thread {
 
         /* renamed from: a  reason: collision with other field name */
-        private final LinkedBlockingQueue<b> f108a;
+        private final LinkedBlockingQueue<b> f109a;
 
         public a() {
             super("PackageProcessor");
-            this.f108a = new LinkedBlockingQueue<>();
+            this.f109a = new LinkedBlockingQueue<>();
         }
 
         private void a(int i, b bVar) {
             try {
-                al.this.f104a.sendMessage(al.this.f104a.obtainMessage(i, bVar));
+                al.this.f105a.sendMessage(al.this.f105a.obtainMessage(i, bVar));
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
             }
@@ -43,7 +43,7 @@ public class al {
 
         public void a(b bVar) {
             try {
-                this.f108a.add(bVar);
+                this.f109a.add(bVar);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -52,10 +52,10 @@ public class al {
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             long j = al.this.a > 0 ? al.this.a : Long.MAX_VALUE;
-            while (!al.this.f107a) {
+            while (!al.this.f108a) {
                 try {
-                    b poll = this.f108a.poll(j, TimeUnit.SECONDS);
-                    al.this.f106a = poll;
+                    b poll = this.f109a.poll(j, TimeUnit.SECONDS);
+                    al.this.f107a = poll;
                     if (poll != null) {
                         a(0, poll);
                         poll.b();
@@ -91,31 +91,31 @@ public class al {
     }
 
     public al(boolean z, int i) {
-        this.f104a = null;
-        this.f107a = false;
+        this.f105a = null;
+        this.f108a = false;
         this.a = 0;
-        this.f104a = new am(this, Looper.getMainLooper());
+        this.f105a = new am(this, Looper.getMainLooper());
         this.b = z;
         this.a = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a() {
-        this.f105a = null;
-        this.f107a = true;
+        this.f106a = null;
+        this.f108a = true;
     }
 
     public synchronized void a(b bVar) {
-        if (this.f105a == null) {
-            this.f105a = new a();
-            this.f105a.setDaemon(this.b);
-            this.f107a = false;
-            this.f105a.start();
+        if (this.f106a == null) {
+            this.f106a = new a();
+            this.f106a.setDaemon(this.b);
+            this.f108a = false;
+            this.f106a.start();
         }
-        this.f105a.a(bVar);
+        this.f106a.a(bVar);
     }
 
     public void a(b bVar, long j) {
-        this.f104a.postDelayed(new an(this, bVar), j);
+        this.f105a.postDelayed(new an(this, bVar), j);
     }
 }

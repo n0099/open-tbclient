@@ -19,7 +19,7 @@ public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
     private String imageUrl;
     private final long mGroupId;
 
-    public static void crg() {
+    public static void crh() {
         iUV = 0L;
     }
 

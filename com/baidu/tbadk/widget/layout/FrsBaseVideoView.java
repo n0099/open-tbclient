@@ -169,7 +169,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
                 this.eKV.clearAnimation();
                 this.eKV.setVisibility(0);
                 this.eLa.setVisibility(0);
-                this.eKZ.cVS();
+                this.eKZ.cVT();
                 this.eKY.setVisibility(8);
                 this.eKX.setVisibility(8);
             }
@@ -186,13 +186,13 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void bky() {
+    private void bkz() {
         com.baidu.adp.lib.f.e.lt().removeCallbacks(this.eLg);
         com.baidu.adp.lib.f.e.lt().removeCallbacks(this.eLh);
     }
 
     private void d(VideoInfo videoInfo) {
-        bky();
+        bkz();
         if (this.eKV != null && this.eKT != null && this.XX != null) {
             if (k.aPA().isShowImages() && this.aeK != null && videoInfo != null) {
                 this.eKT.setVisibility(0);
@@ -234,7 +234,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
     }
 
     public void stopPlay() {
-        bky();
+        bkz();
         v(true, 1);
         if (this.XX != null) {
             this.XX.stopPlayback();

@@ -44,11 +44,11 @@ public class j {
         return this.height;
     }
 
-    public String blF() {
+    public String blG() {
         return this.eOz;
     }
 
-    public boolean blG() {
+    public boolean blH() {
         return this.eOy == 15;
     }
 

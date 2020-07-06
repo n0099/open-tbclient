@@ -173,12 +173,12 @@ public class d extends com.baidu.tieba.card.b<h> implements y {
             if (hVar.lDF.size() > 0) {
                 this.fSB.l(hVar.lDF.get(0), "ala_frs_stage_live_feed_back_type");
             }
-            bzh();
+            bzi();
             onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void bzh() {
+    private void bzi() {
         int mP;
         if (this.fSA != null && w.isEmpty(this.fSA.lDF) && (mP = this.fSC.mP(this.mCurrentIndex)) < this.fSA.lDF.size() && mP >= 0) {
             CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_CARD_SHOW);

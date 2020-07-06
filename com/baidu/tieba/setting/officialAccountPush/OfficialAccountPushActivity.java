@@ -36,16 +36,16 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.official_account_push_activity);
-        bxh();
+        bxi();
+        boD();
         boC();
-        boB();
     }
 
-    private void boB() {
+    private void boC() {
         if (!j.isNetWorkAvailable() && w.isEmpty(this.list)) {
-            ddK();
+            ddL();
         } else if (w.isEmpty(this.list)) {
-            cds();
+            cdt();
         } else if (this.ltd == null) {
             this.ltd = new a(getPageContext());
             this.ltd.setData(this.list);
@@ -57,7 +57,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         }
     }
 
-    private void boC() {
+    private void boD() {
         this.mRootView = (ViewGroup) findViewById(R.id.official_account_push_container);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_CENTER, NavigationBar.ControlType.BACK_BUTTON);
@@ -77,21 +77,21 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         this.mNetworkView.onChangeSkinType(getPageContext(), i);
     }
 
-    private void bxh() {
+    private void bxi() {
         Intent intent = getIntent();
         if (intent != null) {
             this.list = intent.getParcelableArrayListExtra(OfficialAccountPushActivityConfig.OFFICIAL_LIST);
         }
     }
 
-    public void cds() {
+    public void cdt() {
         this.hXJ.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.mm(R.string.no_data_text));
         an.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
     }
 
-    public void ddK() {
+    public void ddL() {
         this.hXJ.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.mm(R.string.refresh_view_title_text));

@@ -49,31 +49,31 @@ public class d extends f implements com.baidu.live.view.web.f {
 
     public void show(String str) {
         View findViewById;
-        int bvb;
         int bvc;
+        int bvd;
         if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && (findViewById = ((Activity) this.mContext).getWindow().getDecorView().findViewById(16908290)) != null) {
             switch (UtilHelper.getRealScreenOrientation(this.mContext)) {
                 case 1:
                     this.fxp = 80;
-                    bvb = buZ();
                     bvc = bva();
+                    bvd = bvb();
                     this.fxn.setCornerRadius(this.fxo, this.fxo, 0.0f, 0.0f);
                     break;
                 case 2:
                     this.fxp = 5;
-                    bvb = bvb();
                     bvc = bvc();
+                    bvd = bvd();
                     this.fxn.setCornerRadius(this.fxo, 0.0f, 0.0f, this.fxo);
                     break;
                 default:
                     this.fxp = 80;
-                    bvb = buZ();
                     bvc = bva();
+                    bvd = bvb();
                     this.fxn.setCornerRadius(this.fxo, this.fxo, 0.0f, 0.0f);
                     break;
             }
-            setWidth(bvb);
-            setHeight(bvc);
+            setWidth(bvc);
+            setHeight(bvd);
             showAtLocation(findViewById, 85, 0, 0);
             if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
                 W(this.fxn);
@@ -84,41 +84,41 @@ public class d extends f implements com.baidu.live.view.web.f {
     }
 
     public void cA(int i) {
-        int bvc;
+        int bvd;
         int i2 = 0;
         if (((Activity) this.mContext).getWindow().getDecorView().findViewById(16908290) != null) {
             switch (i) {
                 case 1:
                     this.fxp = 80;
-                    i2 = buZ();
-                    bvc = bva();
+                    i2 = bva();
+                    bvd = bvb();
                     this.fxn.setCornerRadius(this.fxo, this.fxo, 0.0f, 0.0f);
                     break;
                 case 2:
                     this.fxp = 5;
-                    i2 = bvb();
-                    bvc = bvc();
+                    i2 = bvc();
+                    bvd = bvd();
                     this.fxn.setCornerRadius(this.fxo, 0.0f, 0.0f, this.fxo);
                     break;
                 default:
-                    bvc = 0;
+                    bvd = 0;
                     break;
             }
-            update(i2, bvc);
+            update(i2, bvd);
             if (i == 2) {
                 W(this.fxn);
             }
         }
     }
 
-    public void buY() {
+    public void buZ() {
         super.dismiss();
     }
 
     @Override // com.baidu.live.view.f, android.widget.PopupWindow
     public void dismiss() {
-        if (!bvd()) {
-            buY();
+        if (!bve()) {
+            buZ();
         }
     }
 
@@ -196,19 +196,19 @@ public class d extends f implements com.baidu.live.view.web.f {
         this.bds.setVisibility(8);
     }
 
-    private int buZ() {
+    private int bva() {
         return ScreenHelper.getRealScreenWidth(this.mContext);
     }
 
-    private int bva() {
-        return (buZ() * 470) / 375;
-    }
-
     private int bvb() {
-        return (bvc() * 375) / 470;
+        return (bva() * 470) / 375;
     }
 
     private int bvc() {
+        return (bvd() * 375) / 470;
+    }
+
+    private int bvd() {
         return ScreenHelper.getRealScreenHeight(this.mContext);
     }
 
@@ -231,7 +231,7 @@ public class d extends f implements com.baidu.live.view.web.f {
         }
     }
 
-    private boolean bvd() {
+    private boolean bve() {
         if (getContentView() == null) {
             return false;
         }
@@ -254,7 +254,7 @@ public class d extends f implements com.baidu.live.view.web.f {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    d.this.buY();
+                    d.this.buZ();
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener

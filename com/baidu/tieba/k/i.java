@@ -27,11 +27,11 @@ public interface i {
 
     void cCA();
 
-    String cCB();
+    void cCB();
 
     String cCC();
 
-    void cCv();
+    String cCD();
 
     void cCw();
 

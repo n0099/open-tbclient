@@ -40,7 +40,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
     private at iTF = new at() { // from class: com.baidu.tieba.im.frsgroup.view.FrsGroupActivity.1
         @Override // com.baidu.tieba.frs.at
         public void a(int i, int i2, bb bbVar, ArrayList<q> arrayList) {
-            FrsGroupActivity.this.cqJ();
+            FrsGroupActivity.this.cqK();
             if (w.isEmpty(arrayList)) {
                 String str = "";
                 if (bbVar != null) {
@@ -64,17 +64,17 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
         this.iTC = (FragmentTabWidget) findViewById(R.id.tab_widget);
         this.dSy = (CustomViewPager) findViewById(R.id.fragment_pager);
         initBundle(bundle);
-        cqK();
+        cqL();
         initViewPager();
-        cqI();
+        cqJ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (j.isNetworkAvailableForImmediately()) {
-            this.iTD.get(0).bWu();
-            cqI();
+            this.iTD.get(0).bWv();
+            cqJ();
         }
     }
 
@@ -150,14 +150,14 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
         bundle.putBoolean("show_recommend", this.iTE);
     }
 
-    private void cqI() {
+    private void cqJ() {
         this.dSy.setVisibility(4);
         this.iTC.setVisibility(4);
         showLoadingView(this.mRootView, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cqJ() {
+    public void cqK() {
         this.dSy.setVisibility(0);
         this.iTC.setVisibility(0);
         hideLoadingView(this.mRootView);
@@ -186,7 +186,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
         this.iTE = bundle.getBoolean(FrsGroupActivityConfig.SHOW_RECOMMEND_GROUP, false);
     }
 
-    private void cqK() {
+    private void cqL() {
         if (this.iTE) {
             c yu = yu(1);
             yu.b(this.iTF);
@@ -203,7 +203,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
     private c yu(int i) {
         c cVar = new c(getPageContext());
         cVar.j(i, this.mForumId, this.mForumName);
-        cVar.dy(new com.baidu.tieba.im.frsgroup.view.a.a(this).btV());
+        cVar.dy(new com.baidu.tieba.im.frsgroup.view.a.a(this).btW());
         cVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         this.flI.a(cVar);
         return cVar;
@@ -232,7 +232,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
             super.setPrimaryItem(viewGroup, i, obj);
             if (FrsGroupActivity.this.mCurrentTabIndex != i) {
                 FrsGroupActivity.this.mCurrentTabIndex = i;
-                ((c) FrsGroupActivity.this.iTD.get(FrsGroupActivity.this.mCurrentTabIndex)).bWu();
+                ((c) FrsGroupActivity.this.iTD.get(FrsGroupActivity.this.mCurrentTabIndex)).bWv();
             }
         }
 

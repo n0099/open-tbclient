@@ -70,9 +70,9 @@ public class GuardProxy {
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onPersistentCreate(final Context context, GuardConfigurations guardConfigurations) {
-            cwG();
-            aI(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
             cwH();
+            aI(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
+            cwI();
             new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.c.1
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
@@ -88,9 +88,9 @@ public class GuardProxy {
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonAssistantCreate(final Context context, GuardConfigurations guardConfigurations) {
-            cwG();
-            aI(context, guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME);
             cwH();
+            aI(context, guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME);
+            cwI();
             new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.c.2
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
@@ -107,7 +107,7 @@ public class GuardProxy {
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
             if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                if (cwH()) {
+                if (cwI()) {
                     if (GuardProxy.this.mConfigs != null && GuardProxy.this.mConfigs.LISTENER != null) {
                         GuardProxy.this.mConfigs.LISTENER.onWatchDaemonDaed();
                     }
@@ -119,7 +119,7 @@ public class GuardProxy {
             Process.killProcess(Process.myPid());
         }
 
-        private void cwG() {
+        private void cwH() {
             try {
                 Class<?> cls = Class.forName("android.app.ActivityManagerNative");
                 Object invoke = cls.getMethod("getDefault", new Class[0]).invoke(cls, new Object[0]);
@@ -153,7 +153,7 @@ public class GuardProxy {
             this.jnR.writeInt(0);
         }
 
-        private boolean cwH() {
+        private boolean cwI() {
             try {
                 if (this.mRemote == null || this.jnR == null) {
                     return false;
@@ -391,7 +391,7 @@ public class GuardProxy {
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onPersistentCreate(final Context context, final GuardConfigurations guardConfigurations) {
-            cwG();
+            cwH();
             aI(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
             Thread thread = new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.d.1
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -420,7 +420,7 @@ public class GuardProxy {
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
-            if (cwH()) {
+            if (cwI()) {
                 if (GuardProxy.this.mConfigs != null && GuardProxy.this.mConfigs.LISTENER != null) {
                     GuardProxy.this.mConfigs.LISTENER.onWatchDaemonDaed();
                 }
@@ -428,7 +428,7 @@ public class GuardProxy {
             }
         }
 
-        private void cwG() {
+        private void cwH() {
             try {
                 Class<?> cls = Class.forName("android.app.ActivityManagerNative");
                 Object invoke = cls.getMethod("getDefault", new Class[0]).invoke(cls, new Object[0]);
@@ -462,7 +462,7 @@ public class GuardProxy {
             this.jnR.writeInt(0);
         }
 
-        private boolean cwH() {
+        private boolean cwI() {
             try {
                 if (this.mRemote == null || this.jnR == null) {
                     return false;

@@ -3,31 +3,31 @@ package master.flame.danmaku.danmaku.model.android;
 import master.flame.danmaku.danmaku.model.n;
 /* loaded from: classes5.dex */
 public class e implements master.flame.danmaku.danmaku.model.a.c<e>, n<f> {
-    private e nVD;
-    private boolean nVE;
+    private e nVG;
+    private boolean nVH;
     private int mSize = 0;
     private int referenceCount = 0;
-    private final f nVC = new f();
+    private final f nVF = new f();
 
     public void e(int i, int i2, int i3, boolean z) {
-        this.nVC.f(i, i2, i3, z);
-        this.mSize = this.nVC.bitmap.getRowBytes() * this.nVC.bitmap.getHeight();
+        this.nVF.f(i, i2, i3, z);
+        this.mSize = this.nVF.bitmap.getRowBytes() * this.nVF.bitmap.getHeight();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // master.flame.danmaku.danmaku.model.n
-    /* renamed from: dSL */
+    /* renamed from: dSP */
     public f get() {
-        if (this.nVC.bitmap == null) {
+        if (this.nVF.bitmap == null) {
             return null;
         }
-        return this.nVC;
+        return this.nVF;
     }
 
     @Override // master.flame.danmaku.danmaku.model.n
     public void destroy() {
-        if (this.nVC != null) {
-            this.nVC.recycle();
+        if (this.nVF != null) {
+            this.nVF.recycle();
         }
         this.mSize = 0;
         this.referenceCount = 0;
@@ -42,47 +42,47 @@ public class e implements master.flame.danmaku.danmaku.model.a.c<e>, n<f> {
     @Override // master.flame.danmaku.danmaku.model.a.c
     /* renamed from: a */
     public void bO(e eVar) {
-        this.nVD = eVar;
+        this.nVG = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // master.flame.danmaku.danmaku.model.a.c
-    /* renamed from: dSM */
-    public e dSP() {
-        return this.nVD;
+    /* renamed from: dSQ */
+    public e dST() {
+        return this.nVG;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.c
-    public boolean dSN() {
-        return this.nVE;
+    public boolean dSR() {
+        return this.nVH;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.c
     public void xx(boolean z) {
-        this.nVE = z;
+        this.nVH = z;
     }
 
     @Override // master.flame.danmaku.danmaku.model.n
-    public synchronized boolean dSv() {
+    public synchronized boolean dSz() {
         return this.referenceCount > 0;
     }
 
-    public synchronized void dSO() {
+    public synchronized void dSS() {
         this.referenceCount++;
     }
 
     @Override // master.flame.danmaku.danmaku.model.n
-    public synchronized void dSw() {
+    public synchronized void dSA() {
         this.referenceCount--;
     }
 
     @Override // master.flame.danmaku.danmaku.model.n
     public int width() {
-        return this.nVC.width;
+        return this.nVF.width;
     }
 
     @Override // master.flame.danmaku.danmaku.model.n
     public int height() {
-        return this.nVC.height;
+        return this.nVF.height;
     }
 }

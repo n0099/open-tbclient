@@ -254,7 +254,7 @@ public class a {
         return this.mContentLayout.getDrawingCache();
     }
 
-    public int ccz() {
+    public int ccA() {
         return this.fSq.getBottom();
     }
 

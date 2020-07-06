@@ -22,7 +22,7 @@ public class d {
         this.eSR = i;
     }
 
-    public int bmP() {
+    public int bmQ() {
         return this.eSR;
     }
 

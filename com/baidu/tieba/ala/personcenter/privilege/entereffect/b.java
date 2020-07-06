@@ -38,7 +38,7 @@ public class b {
     };
     private a gEt = new a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.b.2
         @Override // com.baidu.tieba.ala.personcenter.privilege.entereffect.b.a
-        public void bLR() {
+        public void bLS() {
             b.a(b.this);
             if (b.this.gEq != null) {
                 if (b.this.gEq.type != 1 || b.this.gEr > 0) {
@@ -56,7 +56,7 @@ public class b {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bLR();
+        void bLS();
     }
 
     static /* synthetic */ int a(b bVar) {
@@ -117,7 +117,7 @@ public class b {
             this.gEn.addView(this.gEp, layoutParams);
         }
         this.gEp.setData(alaEnterEffectData);
-        this.gEp.bLP();
+        this.gEp.bLQ();
     }
 
     public void onDestory() {

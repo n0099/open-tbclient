@@ -23,28 +23,28 @@ public class NewDetailTopicStatic {
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(TopicDetailActivityConfig.class, HotTopicDetailActivity.class);
-        cEa();
-        clq();
+        cEb();
         clr();
         cls();
+        clt();
     }
 
-    private static void clq() {
+    private static void clr() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_HOT_TOPIC, ResponseSocketHotTopicMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_HOT_TOPIC, 1003041, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
     }
 
-    private static void clr() {
+    private static void cls() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_TOPIC_RELATE_THREAD, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_TOPIC_RELATE_THREAD, 1003042, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
     }
 
-    private static void cls() {
+    private static void clt() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_TOPIC_BLESS, BlessSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_TOPIC_BLESS, 1003065, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
     }
 
-    private static void cEa() {
+    private static void cEb() {
         bc.aWU().a(new bc.a() { // from class: com.baidu.tieba.newdetail.NewDetailTopicStatic.1
             @Override // com.baidu.tbadk.core.util.bc.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {

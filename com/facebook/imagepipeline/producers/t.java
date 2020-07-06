@@ -5,64 +5,64 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class t {
-    private final k<com.facebook.imagepipeline.g.e> mWn;
-    private final ak mWu;
-    private long mWv = 0;
-    private int mWw;
     @Nullable
-    private com.facebook.imagepipeline.common.a mWx;
+    private com.facebook.imagepipeline.common.a mWA;
+    private final k<com.facebook.imagepipeline.g.e> mWq;
+    private final ak mWx;
+    private long mWy = 0;
+    private int mWz;
 
     public t(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.mWn = kVar;
-        this.mWu = akVar;
+        this.mWq = kVar;
+        this.mWx = akVar;
     }
 
-    public k<com.facebook.imagepipeline.g.e> dGk() {
-        return this.mWn;
+    public k<com.facebook.imagepipeline.g.e> dGo() {
+        return this.mWq;
     }
 
-    public ak dGl() {
-        return this.mWu;
-    }
-
-    public String getId() {
-        return this.mWu.getId();
-    }
-
-    public am dFZ() {
-        return this.mWu.dFZ();
-    }
-
-    public Uri getUri() {
-        return this.mWu.dFY().dGQ();
-    }
-
-    public long dGm() {
-        return this.mWv;
-    }
-
-    public void fV(long j) {
-        this.mWv = j;
-    }
-
-    public int dGn() {
-        return this.mWw;
-    }
-
-    public void Jo(int i) {
-        this.mWw = i;
-    }
-
-    @Nullable
-    public com.facebook.imagepipeline.common.a dGo() {
+    public ak dGp() {
         return this.mWx;
     }
 
-    public void c(com.facebook.imagepipeline.common.a aVar) {
-        this.mWx = aVar;
+    public String getId() {
+        return this.mWx.getId();
     }
 
-    public Map<String, String> dGp() {
-        return this.mWu.dFY().dGp();
+    public am dGd() {
+        return this.mWx.dGd();
+    }
+
+    public Uri getUri() {
+        return this.mWx.dGc().dGU();
+    }
+
+    public long dGq() {
+        return this.mWy;
+    }
+
+    public void fV(long j) {
+        this.mWy = j;
+    }
+
+    public int dGr() {
+        return this.mWz;
+    }
+
+    public void Jo(int i) {
+        this.mWz = i;
+    }
+
+    @Nullable
+    public com.facebook.imagepipeline.common.a dGs() {
+        return this.mWA;
+    }
+
+    public void c(com.facebook.imagepipeline.common.a aVar) {
+        this.mWA = aVar;
+    }
+
+    public Map<String, String> dGt() {
+        return this.mWx.dGc().dGt();
     }
 }

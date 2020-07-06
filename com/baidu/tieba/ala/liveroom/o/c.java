@@ -20,7 +20,7 @@ public class c implements a {
 
     public c(Activity activity) {
         this.bdo = activity;
-        buX();
+        buY();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.o.a
@@ -53,7 +53,7 @@ public class c implements a {
 
     public void dismiss() {
         if (this.gov != null) {
-            this.gov.buY();
+            this.gov.buZ();
         }
     }
 
@@ -67,7 +67,7 @@ public class c implements a {
         MessageManager.getInstance().unRegisterListener(this.fxk);
     }
 
-    private void buX() {
+    private void buY() {
         this.fxk = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.o.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener

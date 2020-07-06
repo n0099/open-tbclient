@@ -46,7 +46,7 @@ public class b {
     private b() {
     }
 
-    public static b bqf() {
+    public static b bqg() {
         return fbW;
     }
 
@@ -57,7 +57,7 @@ public class b {
         SplashHttpRequest.sendRequest(new SplashHttpRequest(tbPageContext.getPageActivity(), adInfo));
     }
 
-    public static String bqg() {
+    public static String bqh() {
         return "http://baichuan.baidu.com/rs/adpmobile/successdisplaystatistics";
     }
 

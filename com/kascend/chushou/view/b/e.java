@@ -28,8 +28,8 @@ public class e extends com.kascend.chushou.view.base.a {
     private TextView l;
     private TextView m;
     private boolean n;
-    private Space nve;
-    private Space nvf;
+    private Space nvh;
+    private Space nvi;
     private String o;
     private String p;
     private String q;
@@ -75,8 +75,8 @@ public class e extends com.kascend.chushou.view.base.a {
         this.k = (TextView) this.e.findViewById(a.f.tv_copy);
         this.l = (TextView) this.f.findViewById(a.f.tv_copy);
         this.m = (TextView) this.g.findViewById(a.f.tv_copy);
-        this.nve = (Space) inflate.findViewById(a.f.space_01);
-        this.nvf = (Space) inflate.findViewById(a.f.space_02);
+        this.nvh = (Space) inflate.findViewById(a.f.space_01);
+        this.nvi = (Space) inflate.findViewById(a.f.space_02);
         c();
         return inflate;
     }
@@ -129,8 +129,8 @@ public class e extends com.kascend.chushou.view.base.a {
         String str3;
         MyUserInfo userInfo = LoginManager.Instance().getUserInfo();
         if (userInfo == null) {
-            str = h.dIP().c();
-            str2 = h.dIP().b();
+            str = h.dIT().c();
+            str2 = h.dIT().b();
         } else {
             str = userInfo.mNickname;
             str2 = userInfo.mUserID;
@@ -154,19 +154,19 @@ public class e extends com.kascend.chushou.view.base.a {
             this.h.setText(str);
         }
         if (tv.chushou.zues.utils.h.isEmpty(str2)) {
-            this.nve.setVisibility(8);
+            this.nvh.setVisibility(8);
             this.f.setVisibility(8);
         } else {
-            this.nve.setVisibility(0);
+            this.nvh.setVisibility(0);
             this.f.setVisibility(0);
             this.i.setText(str2);
         }
         if (tv.chushou.zues.utils.h.isEmpty(str3)) {
-            this.nvf.setVisibility(8);
+            this.nvi.setVisibility(8);
             this.g.setVisibility(8);
             return;
         }
-        this.nvf.setVisibility(0);
+        this.nvi.setVisibility(0);
         this.g.setVisibility(0);
         this.j.setText(str3);
     }

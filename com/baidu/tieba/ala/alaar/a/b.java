@@ -15,7 +15,7 @@ public final class b {
     private JSONObject fhi;
     private int fhj = 3;
 
-    public static b bsg() {
+    public static b bsh() {
         return fhh;
     }
 
@@ -23,21 +23,21 @@ public final class b {
         loadData();
     }
 
-    public void bsh() {
+    public void bsi() {
         HttpMessage httpMessage = new HttpMessage(1021204);
         httpMessage.setTag(null);
-        httpMessage.addParam("classification_id", bsj());
+        httpMessage.addParam("classification_id", bsk());
         httpMessage.addParam(HttpConstants.HTTP_HARDWARE, Build.HARDWARE);
         httpMessage.addParam("live_model", Build.MODEL);
         httpMessage.addParam("manufacture", Build.MANUFACTURER);
-        httpMessage.addParam("quality_sign", bsi());
+        httpMessage.addParam("quality_sign", bsj());
         httpMessage.addParam("submodule", "live");
         httpMessage.addParam(HttpConstants.HTTP_BOARD, Build.BOARD);
         httpMessage.addParam("arsdk_version", String.valueOf(com.baidu.minivideo.arface.a.getVersion()));
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private String bsi() {
+    private String bsj() {
         String str = null;
         if (!isEmpty()) {
             str = this.fhi.optString("quality_sign");
@@ -48,7 +48,7 @@ public final class b {
         return str;
     }
 
-    private String bsj() {
+    private String bsk() {
         String str = null;
         if (!isEmpty()) {
             str = this.fhi.optString("classification_id");
@@ -59,14 +59,14 @@ public final class b {
         return str;
     }
 
-    public JSONObject bsk() {
+    public JSONObject bsl() {
         if (isEmpty()) {
             return null;
         }
         return this.fhi.optJSONObject("classification");
     }
 
-    public JSONObject bsl() {
+    public JSONObject bsm() {
         if (isEmpty()) {
             return null;
         }
@@ -144,8 +144,8 @@ public final class b {
                 cU(jSONObject);
             }
             this.fhi = jSONObject;
-            com.baidu.minivideo.arface.b.setGradingConfig(bsk());
-            com.baidu.minivideo.arface.b.Y(bsl());
+            com.baidu.minivideo.arface.b.setGradingConfig(bsl());
+            com.baidu.minivideo.arface.b.Y(bsm());
         }
     }
 
@@ -158,7 +158,7 @@ public final class b {
         }
     }
 
-    private void bsm() {
+    private void bsn() {
         String string = c.vf().getString("ar_grading_quality_config", "");
         if (!TextUtils.isEmpty(string)) {
             try {
@@ -170,8 +170,8 @@ public final class b {
     }
 
     protected void loadData() {
-        bsm();
-        bsh();
+        bsn();
+        bsi();
     }
 
     public boolean isEmpty() {

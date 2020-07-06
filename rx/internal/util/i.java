@@ -8,35 +8,35 @@ import java.util.List;
 import rx.k;
 /* loaded from: classes6.dex */
 public final class i implements k {
-    private volatile boolean obd;
-    private List<k> ogl;
+    private volatile boolean obg;
+    private List<k> ogo;
 
     public i() {
     }
 
     public i(k... kVarArr) {
-        this.ogl = new LinkedList(Arrays.asList(kVarArr));
+        this.ogo = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public i(k kVar) {
-        this.ogl = new LinkedList();
-        this.ogl.add(kVar);
+        this.ogo = new LinkedList();
+        this.ogo.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.obd;
+        return this.obg;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.obd) {
+            if (!this.obg) {
                 synchronized (this) {
-                    if (!this.obd) {
-                        List list = this.ogl;
+                    if (!this.obg) {
+                        List list = this.ogo;
                         if (list == null) {
                             list = new LinkedList();
-                            this.ogl = list;
+                            this.ogo = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class i implements k {
     }
 
     public void a(k kVar) {
-        if (!this.obd) {
+        if (!this.obg) {
             synchronized (this) {
-                List<k> list = this.ogl;
-                if (!this.obd && list != null) {
+                List<k> list = this.ogo;
+                if (!this.obg && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,12 +63,12 @@ public final class i implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.obd) {
+        if (!this.obg) {
             synchronized (this) {
-                if (!this.obd) {
-                    this.obd = true;
-                    List<k> list = this.ogl;
-                    this.ogl = null;
+                if (!this.obg) {
+                    this.obg = true;
+                    List<k> list = this.ogo;
+                    this.ogo = null;
                     t(list);
                 }
             }

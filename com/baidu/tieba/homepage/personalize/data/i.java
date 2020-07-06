@@ -11,7 +11,7 @@ import tbclient.Personalized.DataRes;
 public class i {
     public static boolean iuY = false;
 
-    public static DataRes ckb() {
+    public static DataRes ckc() {
         l<byte[]> dc = com.baidu.tbadk.core.c.a.aUM().dc("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
         if (dc == null) {
             return null;
@@ -28,7 +28,7 @@ public class i {
         }
     }
 
-    public static void ckc() {
+    public static void ckd() {
         l<byte[]> dc = com.baidu.tbadk.core.c.a.aUM().dc("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
         if (dc != null) {
             dc.set("0", new byte[0], 0L);

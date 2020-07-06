@@ -21,11 +21,11 @@ public class f extends com.baidu.adp.base.c<CreateGroupMainActivity> {
         return this.mForumId;
     }
 
-    public View cor() {
+    public View cos() {
         return this.iOo;
     }
 
-    public View cos() {
+    public View cot() {
         return this.iOp;
     }
 

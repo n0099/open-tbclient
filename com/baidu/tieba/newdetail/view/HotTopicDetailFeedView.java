@@ -215,7 +215,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
         this.mRefreshView.getAttachedView().setClickable(false);
     }
 
-    public void btN() {
+    public void btO() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
@@ -263,12 +263,12 @@ public class HotTopicDetailFeedView extends FrameLayout {
 
     public void pause() {
         if (this.hjm != null) {
-            this.hjm.cym();
+            this.hjm.cyn();
             this.hjm.qs(false);
         }
     }
 
-    public void buI() {
+    public void buJ() {
         if (this.hEN != null && this.fnt != null) {
             this.hEN.setNextPage(this.fnt);
             this.fnt.setTextSize(R.dimen.tbfontsize33);
@@ -278,7 +278,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
         }
     }
 
-    public void buJ() {
+    public void buK() {
         if (this.hEN != null && this.fnt != null) {
             this.hEN.setNextPage(this.fnt);
             this.fnt.endLoadData();
@@ -287,7 +287,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
         }
     }
 
-    public void buK() {
+    public void buL() {
         if (this.hEN != null && this.fnt != null) {
             this.hEN.setNextPage(null);
             this.fnt.hideEmptyView();

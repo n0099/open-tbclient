@@ -97,14 +97,14 @@ public class c {
         return this.uniqueId;
     }
 
-    public TbPageContext<BaseFragmentActivity> cii() {
+    public TbPageContext<BaseFragmentActivity> cij() {
         return this.iod;
     }
 
     public void a(com.baidu.tieba.lego.model.a aVar) {
     }
 
-    public com.baidu.tieba.lego.model.a cij() {
+    public com.baidu.tieba.lego.model.a cik() {
         return null;
     }
 
@@ -112,7 +112,7 @@ public class c {
         this.ils = aVar;
     }
 
-    public a cik() {
+    public a cil() {
         return this.ils;
     }
 }

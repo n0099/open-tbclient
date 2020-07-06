@@ -272,8 +272,8 @@ public class ShareItem {
                 forwardInfo.originalBaijiahaoData = buVar.dNX.oriUgcInfo;
                 forwardInfo.originalTid = buVar.dNX.threadId;
                 if (i == 1) {
-                    if (postData != null && postData.dia() != null) {
-                        str = postData.dia().toString();
+                    if (postData != null && postData.dib() != null) {
+                        str = postData.dib().toString();
                     } else if (buVar.getAbstract() != null) {
                         str = buVar.aRQ().toString();
                     }

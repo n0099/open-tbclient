@@ -50,7 +50,7 @@ public class PersonConstellationActivity extends BaseActivity {
                 PersonConstellationActivity.this.finishActivity();
             } else if (view != PersonConstellationActivity.this.gvr) {
                 if (view == PersonConstellationActivity.this.kKq) {
-                    PersonConstellationActivity.this.cSW();
+                    PersonConstellationActivity.this.cSX();
                 }
             } else {
                 PersonConstellationActivity.this.finish();
@@ -153,7 +153,7 @@ public class PersonConstellationActivity extends BaseActivity {
         finish();
     }
 
-    public void cSW() {
+    public void cSX() {
         if (this.eml == null) {
             this.eml = new com.baidu.tbadk.widget.timepicker.a.b.a(getActivity(), this.kKy).a(R.layout.person_birthday_select_layout, new com.baidu.tbadk.widget.timepicker.a.d.a() { // from class: com.baidu.tieba.personExtra.PersonConstellationActivity.3
                 @Override // com.baidu.tbadk.widget.timepicker.a.d.a
@@ -175,13 +175,13 @@ public class PersonConstellationActivity extends BaseActivity {
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view2) {
                             if (PersonConstellationActivity.this.eml != null) {
-                                PersonConstellationActivity.this.eml.blY();
+                                PersonConstellationActivity.this.eml.blZ();
                                 PersonConstellationActivity.this.eml.dismiss();
                             }
                         }
                     });
                 }
-            }).oV(18).a(new boolean[]{true, true, true, false, false, false}).b("年", "月", "日", "时", "分", "秒").ae(2.0f).g(0, 0, 0, 0, 0, 0).iX(false).oW(an.getColor(R.color.cp_bg_line_g)).oY(an.getColor(R.color.cp_cont_b)).oZ(an.getColor(R.color.cp_cont_d)).oX(an.getColor(R.color.black_alpha30)).oU(an.getColor(R.color.cp_bg_line_d)).iW(false).C(this.mRootView).blQ();
+            }).oV(18).a(new boolean[]{true, true, true, false, false, false}).b("年", "月", "日", "时", "分", "秒").ae(2.0f).g(0, 0, 0, 0, 0, 0).iX(false).oW(an.getColor(R.color.cp_bg_line_g)).oY(an.getColor(R.color.cp_cont_b)).oZ(an.getColor(R.color.cp_cont_d)).oX(an.getColor(R.color.black_alpha30)).oU(an.getColor(R.color.cp_bg_line_d)).iW(false).C(this.mRootView).blR();
         }
         this.eml.show();
     }

@@ -8,11 +8,11 @@ import rx.internal.util.RxThreadFactory;
 import rx.k;
 /* loaded from: classes6.dex */
 public final class b extends rx.g implements h {
-    static final int nMx;
-    static final c ofa;
-    static final C0926b ofb;
+    static final int nMA;
+    static final c ofd;
+    static final C0927b ofe;
     final ThreadFactory bAJ;
-    final AtomicReference<C0926b> nMz = new AtomicReference<>(ofb);
+    final AtomicReference<C0927b> nMC = new AtomicReference<>(ofe);
 
     static {
         int intValue = Integer.getInteger("rx.scheduler.max-computation-threads", 0).intValue();
@@ -20,41 +20,41 @@ public final class b extends rx.g implements h {
         if (intValue <= 0 || intValue > availableProcessors) {
             intValue = availableProcessors;
         }
-        nMx = intValue;
-        ofa = new c(RxThreadFactory.NONE);
-        ofa.unsubscribe();
-        ofb = new C0926b(null, 0);
+        nMA = intValue;
+        ofd = new c(RxThreadFactory.NONE);
+        ofd.unsubscribe();
+        ofe = new C0927b(null, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.internal.schedulers.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0926b {
+    public static final class C0927b {
         long n;
-        final int nME;
-        final c[] ofi;
+        final int nMH;
+        final c[] ofl;
 
-        C0926b(ThreadFactory threadFactory, int i) {
-            this.nME = i;
-            this.ofi = new c[i];
+        C0927b(ThreadFactory threadFactory, int i) {
+            this.nMH = i;
+            this.ofl = new c[i];
             for (int i2 = 0; i2 < i; i2++) {
-                this.ofi[i2] = new c(threadFactory);
+                this.ofl[i2] = new c(threadFactory);
             }
         }
 
-        public c dUK() {
-            int i = this.nME;
+        public c dUO() {
+            int i = this.nMH;
             if (i == 0) {
-                return b.ofa;
+                return b.ofd;
             }
-            c[] cVarArr = this.ofi;
+            c[] cVarArr = this.ofl;
             long j = this.n;
             this.n = 1 + j;
             return cVarArr[(int) (j % i)];
         }
 
         public void shutdown() {
-            for (c cVar : this.ofi) {
+            for (c cVar : this.ofl) {
                 cVar.unsubscribe();
             }
         }
@@ -67,76 +67,76 @@ public final class b extends rx.g implements h {
 
     @Override // rx.g
     public g.a createWorker() {
-        return new a(this.nMz.get().dUK());
+        return new a(this.nMC.get().dUO());
     }
 
     @Override // rx.internal.schedulers.h
     public void start() {
-        C0926b c0926b = new C0926b(this.bAJ, nMx);
-        if (!this.nMz.compareAndSet(ofb, c0926b)) {
-            c0926b.shutdown();
+        C0927b c0927b = new C0927b(this.bAJ, nMA);
+        if (!this.nMC.compareAndSet(ofe, c0927b)) {
+            c0927b.shutdown();
         }
     }
 
     @Override // rx.internal.schedulers.h
     public void shutdown() {
-        C0926b c0926b;
+        C0927b c0927b;
         do {
-            c0926b = this.nMz.get();
-            if (c0926b == ofb) {
+            c0927b = this.nMC.get();
+            if (c0927b == ofe) {
                 return;
             }
-        } while (!this.nMz.compareAndSet(c0926b, ofb));
-        c0926b.shutdown();
+        } while (!this.nMC.compareAndSet(c0927b, ofe));
+        c0927b.shutdown();
     }
 
     public k g(rx.functions.a aVar) {
-        return this.nMz.get().dUK().b(aVar, -1L, TimeUnit.NANOSECONDS);
+        return this.nMC.get().dUO().b(aVar, -1L, TimeUnit.NANOSECONDS);
     }
 
     /* loaded from: classes6.dex */
     static final class a extends g.a {
-        private final rx.internal.util.i ofc = new rx.internal.util.i();
-        private final rx.subscriptions.b ofd = new rx.subscriptions.b();
-        private final rx.internal.util.i ofe = new rx.internal.util.i(this.ofc, this.ofd);
-        private final c ofg;
+        private final rx.internal.util.i ofg = new rx.internal.util.i();
+        private final rx.subscriptions.b ofh = new rx.subscriptions.b();
+        private final rx.internal.util.i ofi = new rx.internal.util.i(this.ofg, this.ofh);
+        private final c ofj;
 
         a(c cVar) {
-            this.ofg = cVar;
+            this.ofj = cVar;
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.ofe.unsubscribe();
+            this.ofi.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.ofe.isUnsubscribed();
+            return this.ofi.isUnsubscribed();
         }
 
         @Override // rx.g.a
         public k c(final rx.functions.a aVar) {
-            return isUnsubscribed() ? rx.subscriptions.e.dVO() : this.ofg.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.1
+            return isUnsubscribed() ? rx.subscriptions.e.dVS() : this.ofj.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.1
                 @Override // rx.functions.a
                 public void call() {
                     if (!a.this.isUnsubscribed()) {
                         aVar.call();
                     }
                 }
-            }, 0L, (TimeUnit) null, this.ofc);
+            }, 0L, (TimeUnit) null, this.ofg);
         }
 
         @Override // rx.g.a
         public k a(final rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            return isUnsubscribed() ? rx.subscriptions.e.dVO() : this.ofg.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.2
+            return isUnsubscribed() ? rx.subscriptions.e.dVS() : this.ofj.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.2
                 @Override // rx.functions.a
                 public void call() {
                     if (!a.this.isUnsubscribed()) {
                         aVar.call();
                     }
                 }
-            }, j, timeUnit, this.ofd);
+            }, j, timeUnit, this.ofh);
         }
     }
 

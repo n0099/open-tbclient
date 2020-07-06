@@ -31,12 +31,12 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
         this.lyz = new ForumSquareModel(this, this);
         this.lyA = new a(this);
         this.lyB = new b(this, this.lyA);
-        this.lyB.dgh();
-        cdo();
+        this.lyB.dgi();
+        cdp();
     }
 
-    private void cdo() {
-        this.lyA.dgb();
+    private void cdp() {
+        this.lyA.dgc();
         this.lyz.ML(this.lyC);
     }
 
@@ -63,13 +63,13 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
         boolean z = true;
         if (this.lyz != null && this.lyA != null) {
             if (TextUtils.isEmpty(str) || str.equals(this.lyC)) {
-                String dfY = this.lyA.dfY();
-                if (TextUtils.isEmpty(str) || str.equals(dfY)) {
+                String dfZ = this.lyA.dfZ();
+                if (TextUtils.isEmpty(str) || str.equals(dfZ)) {
                     z = false;
                 }
             }
             this.lyC = str;
-            this.lyA.dgc();
+            this.lyA.dgd();
             this.lyA.b(str, list, z);
             this.lyA.r(list2, this.lyz.s(list2, 300));
             r(str, list2);
@@ -79,11 +79,11 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
     @Override // com.baidu.tieba.square.c
     public void a(String str, ErrorData errorData) {
         if (this.lyA != null && this.lyz != null) {
-            this.lyA.dgc();
+            this.lyA.dgd();
             com.baidu.tieba.square.data.c MK = this.lyz.MK(str);
             if (MK == null || (MK.hasMore && w.isEmpty(MK.getDataList()))) {
-                this.lyA.buK();
-                this.lyA.dfZ();
+                this.lyA.buL();
+                this.lyA.dga();
                 return;
             }
             this.lyA.eO(MK.getDataList());
@@ -94,9 +94,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
     private void r(String str, List<q> list) {
         if (this.lyA != null && this.lyz != null) {
             if (w.isEmpty(list)) {
-                this.lyA.buK();
+                this.lyA.buL();
             } else if (w.getCount(list) < 10) {
-                this.lyA.dgf();
+                this.lyA.dgg();
             } else {
                 this.lyA.uy(this.lyz.MM(str));
             }
@@ -106,11 +106,11 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
     @Override // com.baidu.tieba.square.c
     public void e(ErrorData errorData) {
         if (this.lyA != null) {
-            this.lyA.dga();
+            this.lyA.dgb();
         }
     }
 
-    public void bxS() {
+    public void bxT() {
         String className = getClassName();
         if (this.lyz != null && this.lyA != null) {
             boolean isLoading = this.lyz.isLoading();
@@ -121,9 +121,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
         }
     }
 
-    public void dfW() {
+    public void dfX() {
         if (this.lyA != null) {
-            this.lyA.dgb();
+            this.lyA.dgc();
         }
         if (this.lyz != null) {
             this.lyz.ML(getClassName());
@@ -136,13 +136,13 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
         if (this.lyz != null && this.lyA != null) {
             com.baidu.tieba.square.data.c MK = this.lyz.MK(str);
             if (MK == null || (MK.hasMore && w.isEmpty(MK.getDataList()))) {
-                this.lyA.dgd();
+                this.lyA.dge();
                 r(str, null);
                 this.lyz.ML(str);
                 this.lyA.scrollToPositionWithOffset(0, 0);
                 return;
             }
-            this.lyA.dgc();
+            this.lyA.dgd();
             r(str, MK.getDataList());
             this.lyA.eO(MK.getDataList());
             this.lyA.scrollToPositionWithOffset(MK.lyZ, MK.dZy);
@@ -151,10 +151,10 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
 
     public void MI(String str) {
         com.baidu.tieba.square.data.c MK;
-        Pair<Integer, Integer> dfX;
-        if (this.lyA != null && this.lyz != null && !TextUtils.isEmpty(str) && (MK = this.lyz.MK(str)) != null && (dfX = this.lyA.dfX()) != null) {
-            MK.lyZ = ((Integer) dfX.first).intValue();
-            MK.dZy = ((Integer) dfX.second).intValue();
+        Pair<Integer, Integer> dfY;
+        if (this.lyA != null && this.lyz != null && !TextUtils.isEmpty(str) && (MK = this.lyz.MK(str)) != null && (dfY = this.lyA.dfY()) != null) {
+            MK.lyZ = ((Integer) dfY.first).intValue();
+            MK.dZy = ((Integer) dfY.second).intValue();
         }
     }
 

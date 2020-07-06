@@ -155,7 +155,7 @@ public class a {
                     a.this.fnt.setOnClickListener(null);
                     if (a.this.hasMore) {
                         a.this.fnt.showLoading();
-                        a.this.gJy.bMW();
+                        a.this.gJy.bMX();
                         return;
                     }
                     a.this.fnt.setText(a.this.gJy.getResources().getString(R.string.list_has_no_more));
@@ -168,11 +168,11 @@ public class a {
     };
 
     public void setData(f fVar) {
-        com.baidu.tieba.barselect.data.e bNv;
+        com.baidu.tieba.barselect.data.e bNw;
         if (fVar != null) {
             this.hasMore = fVar.getHasMore();
-            if (fVar.bNv() != null && (bNv = fVar.bNv()) != null) {
-                this.status = bNv.getStatus();
+            if (fVar.bNw() != null && (bNw = fVar.bNw()) != null) {
+                this.status = bNw.getStatus();
                 if (this.status == com.baidu.tieba.barselect.a.d.gND) {
                     this.gJV.setVisibility(8);
                     this.gJY.setVisibility(8);
@@ -193,12 +193,12 @@ public class a {
                 this.gJR.setData(VoteCandidateCard.gNP, fVar);
                 this.gJX.setVisibility(8);
                 this.gJO.setVisibility(8);
-                this.gJV.setRank(fVar.bNv().bNn());
-                if (fVar.bNw() != null) {
-                    ManagerElection bNw = fVar.bNw();
-                    if (!w.isEmpty(bNw.vote_condition_pic) || !w.isEmpty(bNw.vote_condition_title) || !w.isEmpty(bNw.vote_condition)) {
+                this.gJV.setRank(fVar.bNw().bNo());
+                if (fVar.bNx() != null) {
+                    ManagerElection bNx = fVar.bNx();
+                    if (!w.isEmpty(bNx.vote_condition_pic) || !w.isEmpty(bNx.vote_condition_title) || !w.isEmpty(bNx.vote_condition)) {
                         this.gJS.setVisibility(0);
-                        this.gJU.setData(bNw.vote_condition_pic, bNw.vote_condition_title, bNw.vote_condition);
+                        this.gJU.setData(bNx.vote_condition_pic, bNx.vote_condition_title, bNx.vote_condition);
                     } else {
                         this.gJS.setVisibility(8);
                     }
@@ -210,7 +210,7 @@ public class a {
                 this.gJO.setVisibility(8);
                 this.gJS.setVisibility(8);
             }
-            bNf();
+            bNg();
             J(TbadkCoreApplication.getInst().getSkinType(), true);
         }
     }
@@ -307,7 +307,7 @@ public class a {
         this.fns = (NoNetworkView) this.bjv.findViewById(R.id.no_network_view);
     }
 
-    public void bNf() {
+    public void bNg() {
         if (this.status == com.baidu.tieba.barselect.a.d.gND) {
             this.fnt.showEmptyView(l.getDimens(this.gJy, R.dimen.tbds152));
         }
@@ -329,7 +329,7 @@ public class a {
         return this.gJM;
     }
 
-    public PbListView bNg() {
+    public PbListView bNh() {
         return this.fnt;
     }
 
@@ -358,7 +358,7 @@ public class a {
         this.mNoDataView.setVisibility(0);
     }
 
-    public void btM() {
+    public void btN() {
         if (this.gJM != null) {
             this.gJM.setVisibility(8);
         }
@@ -391,7 +391,7 @@ public class a {
                     an.setViewTextColor(this.gJL, R.color.cp_cont_b, 1, i);
                     an.setViewTextColor(this.mNavigationBar.mCenterText, R.color.cp_cont_b, 1, i);
                 } else if (this.gJG <= 0.5d) {
-                    if (this.mVoteData == null || this.mVoteData.bNv() == null || this.mVoteData.bNv().getStatus() > 2 || this.mVoteData.bNv().getStatus() < 1) {
+                    if (this.mVoteData == null || this.mVoteData.bNw() == null || this.mVoteData.bNw().getStatus() > 2 || this.mVoteData.bNw().getStatus() < 1) {
                         an.setImageResource(this.mNavigationBar.getBackImageView(), R.drawable.icon_return_bg_s, i);
                         an.setViewTextColor(this.gJL, R.color.cp_cont_b, 1, i);
                         an.setViewTextColor(this.mNavigationBar.mCenterText, R.color.cp_cont_b, 1, i);

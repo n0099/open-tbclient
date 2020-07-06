@@ -51,14 +51,14 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
         this.kNe = new PersonPostModel.b() { // from class: com.baidu.tieba.personPolymeric.b.j.2
             @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.b
             public void a(PersonPostModel personPostModel, boolean z2) {
-                j.this.kNa.ceu();
+                j.this.kNa.cev();
                 if (personPostModel != null) {
                     l.showToast(j.this.dPv.getContext(), personPostModel.getErrorString());
                 } else {
                     l.showToast(j.this.dPv.getContext(), j.this.dPv.getString(R.string.data_load_error));
                 }
                 if (z2) {
-                    j.this.kNb.buK();
+                    j.this.kNb.buL();
                 }
             }
         };
@@ -72,8 +72,8 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
         this.kNa = new p(baseFragment, fVar, bdUniqueId, z, this.mUserId);
         this.kNa.a(this);
         resetData();
-        this.kMt = this.kMZ.cTy();
-        this.kNb = this.kMZ.cTz();
+        this.kMt = this.kMZ.cTz();
+        this.kNb = this.kMZ.cTA();
         this.mList = new ArrayList(2);
         this.mList.add(new com.baidu.tieba.person.data.e());
         this.mList.add(new com.baidu.tieba.person.data.e());
@@ -104,24 +104,24 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
     public void d(com.baidu.tieba.personPolymeric.c.a aVar) {
         boolean z;
         this.kMH = aVar;
-        this.kNa.ceu();
+        this.kNa.cev();
         this.hep.hideLoadingView(this.mView);
         if (aVar == null) {
             this.kNb.aI(TbadkCoreApplication.getInst().getString(R.string.neterror), true);
-            this.kNb.buK();
+            this.kNb.buL();
             this.kNb.Cw(8);
             return;
         }
-        this.kNb.btN();
-        if (aVar.bXd() != null && aVar.getUserData() != null && aVar.getUserData().isBaijiahaoUser() && ((aVar.bXd().getHide_stat() == 1 && aVar.bXd().getBlock_stat() == 1) || (aVar.bXd().getHide_stat() == 1 && aVar.bXd().getBlock_stat() == 2))) {
+        this.kNb.btO();
+        if (aVar.bXe() != null && aVar.getUserData() != null && aVar.getUserData().isBaijiahaoUser() && ((aVar.bXe().getHide_stat() == 1 && aVar.bXe().getBlock_stat() == 1) || (aVar.bXe().getHide_stat() == 1 && aVar.bXe().getBlock_stat() == 2))) {
             this.kNb.tl(this.mIsHost);
             this.kNb.Cw(8);
             return;
         }
         this.kNb.Cw(0);
-        aVar.cTL();
-        if (aVar.clL() != null) {
-            z = aVar.clL().size() >= 20;
+        aVar.cTM();
+        if (aVar.clM() != null) {
+            z = aVar.clM().size() >= 20;
         } else {
             z = false;
         }
@@ -134,7 +134,7 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
             com.baidu.tbadk.getUserInfo.b.bgs().a(aVar.getUserData());
         }
         com.baidu.tieba.person.data.e eVar = this.mList.get(0);
-        eVar.aR(aVar.clL());
+        eVar.aR(aVar.clM());
         eVar.tb(z);
         this.kNa.a(aVar, z, a(aVar));
     }
@@ -178,9 +178,9 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.a
-    public void cTq() {
+    public void cTr() {
         if (this.kNa != null) {
-            this.kNa.cTq();
+            this.kNa.cTr();
         }
     }
 
@@ -189,7 +189,7 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.a
-    public p cTr() {
+    public p cTs() {
         return this.kNa;
     }
 }

@@ -48,7 +48,7 @@ public class LabelItemView extends LinearLayout {
         this.mPaint.setStrokeWidth(1.0f);
         this.jnj = l.getDimens(getContext(), R.dimen.ds46);
         for (int i = 0; i < 3; i++) {
-            addView(cwy());
+            addView(cwz());
         }
     }
 
@@ -81,7 +81,7 @@ public class LabelItemView extends LinearLayout {
         }
     }
 
-    private TextView cwy() {
+    private TextView cwz() {
         return (TextView) LayoutInflater.from(getContext()).inflate(R.layout.label_recommend_column_item, (ViewGroup) this, false);
     }
 

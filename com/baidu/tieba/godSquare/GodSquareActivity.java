@@ -30,7 +30,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             GodSquareActivity.this.ijX.getListView().completePullRefreshPostDelayed(0L);
             GodSquareActivity.this.ijX.hideLoadingView();
             if (w.isEmpty(list)) {
-                GodSquareActivity.this.ijX.cht();
+                GodSquareActivity.this.ijX.chu();
                 if (w.isEmpty(GodSquareActivity.this.ijY.hvO)) {
                     GodSquareActivity.this.ijX.EY(str);
                     return;
@@ -42,7 +42,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                 }
                 return;
             }
-            GodSquareActivity.this.ijX.btN();
+            GodSquareActivity.this.ijX.btO();
             if (z) {
                 GodSquareActivity.this.ijY.hvO = list;
                 GodSquareActivity.this.ijX.cS(GodSquareActivity.this.ijY.hvO);
@@ -51,9 +51,9 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                 GodSquareActivity.this.ijX.notifyDataSetChanged();
             }
             if (z2) {
-                GodSquareActivity.this.ijX.chs();
+                GodSquareActivity.this.ijX.cht();
             } else {
-                GodSquareActivity.this.ijX.chu();
+                GodSquareActivity.this.ijX.chv();
             }
         }
     };
@@ -76,7 +76,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         public void onNetworkChange(boolean z) {
             if (z) {
                 if (w.isEmpty(GodSquareActivity.this.ijY.hvO)) {
-                    GodSquareActivity.this.chr();
+                    GodSquareActivity.this.chs();
                 } else {
                     GodSquareActivity.this.ijX.startPullRefresh();
                 }
@@ -92,7 +92,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         this.ijX.f(this.flL);
         this.ijY = new b(this.ika, this);
         registerListener(this.dUF);
-        chr();
+        chs();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -106,7 +106,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chr() {
+    public void chs() {
         this.ijX.showLoadingView();
         this.ijY.update();
     }
@@ -115,7 +115,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (j.isNetworkAvailableForImmediately()) {
-            chr();
+            chs();
         }
     }
 
@@ -135,8 +135,8 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         if (this.mHasMore) {
-            this.ijY.btu();
-            this.ijX.chs();
+            this.ijY.btv();
+            this.ijX.cht();
         }
     }
 

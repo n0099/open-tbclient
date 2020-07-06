@@ -442,7 +442,7 @@ public class d implements ap {
     }
 
     @Override // com.baidu.tieba.frs.ap
-    public void bzf() {
+    public void bzg() {
         MessageManager.getInstance().unRegisterListener(this.iRT);
         MessageManager.getInstance().unRegisterListener(this.hvn);
     }

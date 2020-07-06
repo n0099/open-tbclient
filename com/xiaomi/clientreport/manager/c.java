@@ -7,16 +7,16 @@ public class c implements Runnable {
     final /* synthetic */ PerfClientReport a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ a f24a;
+    final /* synthetic */ a f25a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, PerfClientReport perfClientReport) {
-        this.f24a = aVar;
+        this.f25a = aVar;
         this.a = perfClientReport;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f24a.b(this.a);
+        this.f25a.b(this.a);
     }
 }

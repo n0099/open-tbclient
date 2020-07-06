@@ -38,14 +38,14 @@ public class LiveTabRecomSubFragment extends LiveTabBaseSubFragment {
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabRecomModel.a
         public void e(boolean z, List<q> list) {
             if (z) {
-                LiveTabRecomSubFragment.this.btJ();
+                LiveTabRecomSubFragment.this.btK();
             } else {
-                LiveTabRecomSubFragment.this.btI();
+                LiveTabRecomSubFragment.this.btJ();
             }
-            LiveTabRecomSubFragment.this.btU();
+            LiveTabRecomSubFragment.this.btV();
             LiveTabRecomSubFragment.this.setData(list);
             if (w.isEmpty(list)) {
-                LiveTabRecomSubFragment.this.btR();
+                LiveTabRecomSubFragment.this.btS();
             } else {
                 LiveTabRecomSubFragment.this.hideEmptyView();
             }
@@ -53,7 +53,7 @@ public class LiveTabRecomSubFragment extends LiveTabBaseSubFragment {
 
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabRecomModel.a
         public void g(int i, String str, boolean z) {
-            LiveTabRecomSubFragment.this.btU();
+            LiveTabRecomSubFragment.this.btV();
             if (z) {
                 LiveTabRecomSubFragment.this.showToast(R.string.data_load_error);
             }
@@ -65,7 +65,7 @@ public class LiveTabRecomSubFragment extends LiveTabBaseSubFragment {
             if (j.isNetWorkAvailable()) {
                 LiveTabRecomSubFragment.this.foz.refresh();
             } else {
-                LiveTabRecomSubFragment.this.btU();
+                LiveTabRecomSubFragment.this.btV();
             }
         }
     };
@@ -75,7 +75,7 @@ public class LiveTabRecomSubFragment extends LiveTabBaseSubFragment {
             if (!l.isNetOk()) {
                 LiveTabRecomSubFragment.this.hideLoadingView();
             } else {
-                LiveTabRecomSubFragment.this.foz.btu();
+                LiveTabRecomSubFragment.this.foz.btv();
             }
         }
     };
@@ -84,7 +84,7 @@ public class LiveTabRecomSubFragment extends LiveTabBaseSubFragment {
         public void onScrolled(RecyclerView recyclerView, int i, int i2) {
             super.onScrolled(recyclerView, i, i2);
             if (i2 >= 4 && !LiveTabRecomSubFragment.this.fon) {
-                LiveTabRecomSubFragment.this.btS();
+                LiveTabRecomSubFragment.this.btT();
             }
         }
     };
@@ -172,12 +172,12 @@ public class LiveTabRecomSubFragment extends LiveTabBaseSubFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btU() {
+    public void btV() {
         this.f4for.setRefreshing(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btI() {
+    public void btJ() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.Wa.setNextPage(this.fnt);
@@ -189,7 +189,7 @@ public class LiveTabRecomSubFragment extends LiveTabBaseSubFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btJ() {
+    public void btK() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.Wa.setNextPage(this.fnt);
@@ -252,7 +252,7 @@ public class LiveTabRecomSubFragment extends LiveTabBaseSubFragment {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment
-    public void btT() {
+    public void btU() {
         if (this.foy != null) {
             this.foy.notifyDataSetChanged();
         }

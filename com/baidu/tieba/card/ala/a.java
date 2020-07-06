@@ -18,7 +18,7 @@ public class a implements f {
     private j.a gRe = new j.a() { // from class: com.baidu.tieba.card.ala.a.1
         @Override // com.baidu.tieba.play.j.a
         public void qx() {
-            a.this.bOi();
+            a.this.bOj();
         }
     };
     private AlaInfoData gTX;
@@ -46,8 +46,8 @@ public class a implements f {
             if (this.fRK != null && this.aiq.aSJ() != null) {
                 this.gTX = this.aiq.aSJ();
                 this.fRK.setVideoThumbnail(this.gTX.cover);
-                if (this.fnj != null && this.fnj.cVC() != null) {
-                    this.fnj.cVC().c(this.gTX);
+                if (this.fnj != null && this.fnj.cVD() != null) {
+                    this.fnj.cVD().c(this.gTX);
                 }
                 if (z) {
                     this.fRK.setTitle(this.aiq.getTitle());
@@ -82,7 +82,7 @@ public class a implements f {
     public void stopPlay() {
         if (this.fRK != null && this.fRK.getVideoView() != null) {
             this.fRK.getVideoView().stopPlayback();
-            this.fRK.btD();
+            this.fRK.btE();
             if (this.fni != null) {
                 this.fni.stop();
             }
@@ -115,7 +115,7 @@ public class a implements f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bOi() {
+    public void bOj() {
         if (this.aiq == null || this.aiq.aSH() == null) {
         }
     }

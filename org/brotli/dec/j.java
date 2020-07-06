@@ -7,56 +7,56 @@ import java.io.InputStream;
 public final class j {
     int distance;
     int j;
-    int nDb;
-    int nYB;
-    boolean nYC;
-    boolean nYD;
-    boolean nYE;
-    int nYP;
-    int nYQ;
-    byte[] nYR;
-    byte[] nYS;
+    int nDe;
+    byte[] nYB;
+    int nYE;
+    boolean nYF;
+    boolean nYG;
+    boolean nYH;
+    int nYS;
     int nYT;
-    int nYU;
-    int nYV;
+    byte[] nYU;
+    byte[] nYV;
     int nYW;
     int nYX;
     int nYY;
-    byte[] nYZ;
-    int nYw;
-    byte[] nYy;
+    int nYZ;
+    int nYz;
     int nZa;
     int nZb;
-    int nZc;
+    byte[] nZc;
     int nZd;
     int nZe;
     int nZf;
     int nZg;
-    int nZl;
-    int nZm;
-    int nZn;
+    int nZh;
+    int nZi;
+    int nZj;
     int nZo;
+    int nZp;
+    int nZq;
+    int nZr;
     byte[] output;
-    int nYv = 0;
-    final a nYx = new a();
-    final int[] nYz = new int[3240];
-    final int[] nYA = new int[3240];
-    final g nYF = new g();
-    final g nYG = new g();
-    final g nYH = new g();
-    final int[] nYI = new int[3];
-    final int[] nYJ = new int[3];
-    final int[] nYK = new int[6];
-    final int[] nYL = {16, 15, 11, 4};
+    int nYy = 0;
+    final a nYA = new a();
+    final int[] nYC = new int[3240];
+    final int[] nYD = new int[3240];
+    final g nYI = new g();
+    final g nYJ = new g();
+    final g nYK = new g();
+    final int[] nYL = new int[3];
+    final int[] nYM = new int[3];
+    final int[] nYN = new int[6];
+    final int[] nYO = {16, 15, 11, 4};
     int pos = 0;
     int fPC = 0;
-    int nYM = 0;
-    boolean nYN = false;
-    int nYO = 0;
-    int nZh = 0;
-    long nZi = 0;
-    byte[] nZj = new byte[0];
+    int nYP = 0;
+    boolean nYQ = false;
+    int nYR = 0;
     int nZk = 0;
+    long nZl = 0;
+    byte[] nZm = new byte[0];
+    int nZn = 0;
 
     private static int i(a aVar) {
         if (a.a(aVar, 1) == 0) {
@@ -75,27 +75,27 @@ public final class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(j jVar, InputStream inputStream) {
-        if (jVar.nYv != 0) {
+        if (jVar.nYy != 0) {
             throw new IllegalStateException("State MUST be uninitialized");
         }
-        a.a(jVar.nYx, inputStream);
-        int i = i(jVar.nYx);
+        a.a(jVar.nYA, inputStream);
+        int i = i(jVar.nYA);
         if (i == 9) {
             throw new BrotliRuntimeException("Invalid 'windowBits' code");
         }
-        jVar.nZg = 1 << i;
-        jVar.nZf = jVar.nZg - 16;
-        jVar.nYv = 1;
+        jVar.nZj = 1 << i;
+        jVar.nZi = jVar.nZj - 16;
+        jVar.nYy = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void j(j jVar) throws IOException {
-        if (jVar.nYv == 0) {
+        if (jVar.nYy == 0) {
             throw new IllegalStateException("State MUST be initialized");
         }
-        if (jVar.nYv != 11) {
-            jVar.nYv = 11;
-            a.e(jVar.nYx);
+        if (jVar.nYy != 11) {
+            jVar.nYy = 11;
+            a.e(jVar.nYA);
         }
     }
 }

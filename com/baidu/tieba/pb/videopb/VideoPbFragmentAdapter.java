@@ -59,7 +59,7 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
         return this.kxG.get(i);
     }
 
-    public ArrayList<BaseFragment> cPH() {
+    public ArrayList<BaseFragment> cPI() {
         return this.mFragments;
     }
 

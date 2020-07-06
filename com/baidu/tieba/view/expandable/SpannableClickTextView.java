@@ -41,12 +41,12 @@ public class SpannableClickTextView extends TextView {
     }
 
     public void setCustomMovementMethod() {
-        setMovementMethod(a.dqF());
+        setMovementMethod(a.dqJ());
     }
 
     /* loaded from: classes.dex */
     private static class a extends LinkMovementMethod {
-        private static a mkr;
+        private static a mku;
 
         private a() {
         }
@@ -80,11 +80,11 @@ public class SpannableClickTextView extends TextView {
             return Touch.onTouchEvent(textView, spannable, motionEvent);
         }
 
-        public static a dqF() {
-            if (mkr == null) {
-                mkr = new a();
+        public static a dqJ() {
+            if (mku == null) {
+                mku = new a();
             }
-            return mkr;
+            return mku;
         }
     }
 }

@@ -6,19 +6,19 @@ import com.baidu.tbadk.core.d;
 public class a extends d {
     private static final String lzb = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
 
-    public String dgm() {
+    public String dgn() {
         setUrl(lzb);
         return getResult();
     }
 
-    public long dgn() {
+    public long dgo() {
         if (this.byb != null) {
             return this.byb.aWu().aWX().dVs.KD;
         }
         return 0L;
     }
 
-    public long dgo() {
+    public long dgp() {
         if (this.byb != null) {
             return this.byb.aWu().aWX().dVs.connectTime;
         }

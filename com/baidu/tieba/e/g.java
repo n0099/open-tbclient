@@ -11,7 +11,7 @@ public class g extends com.baidu.tieba.card.data.b {
         this.gXU = scoreCardInfo;
     }
 
-    public ScoreCardInfo bPW() {
+    public ScoreCardInfo bPX() {
         return this.gXU;
     }
 

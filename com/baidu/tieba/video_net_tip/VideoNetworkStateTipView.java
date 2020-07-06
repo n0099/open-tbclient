@@ -19,9 +19,9 @@ import com.baidu.tieba.video.h;
 public class VideoNetworkStateTipView extends RelativeLayout {
     private Runnable mHideRunnable;
     private int mSkinType;
-    private TextView mfh;
-    private TextView mfi;
-    private TextView mfj;
+    private TextView mfk;
+    private TextView mfl;
+    private TextView mfm;
 
     public VideoNetworkStateTipView(Context context) {
         super(context);
@@ -61,34 +61,34 @@ public class VideoNetworkStateTipView extends RelativeLayout {
 
     private void init() {
         inflate(getContext(), R.layout.video_network_state_tip, this);
-        this.mfh = (TextView) findViewById(R.id.play);
-        this.mfi = (TextView) findViewById(R.id.free_flow);
-        this.mfi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video_net_tip.VideoNetworkStateTipView.2
+        this.mfk = (TextView) findViewById(R.id.play);
+        this.mfl = (TextView) findViewById(R.id.free_flow);
+        this.mfl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video_net_tip.VideoNetworkStateTipView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.startWebActivity(true, VideoNetworkStateTipView.this.getContext(), VideoNetworkStateTipView.this.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
             }
         });
-        this.mfj = (TextView) findViewById(R.id.play_tips);
+        this.mfm = (TextView) findViewById(R.id.play_tips);
         onChangeSkinType(TbadkApplication.getInst().getSkinType());
     }
 
-    public boolean cQE() {
-        return (hasAgreeToPlay() || h.dmk().dml() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !j.isMobileNet()) ? false : true;
+    public boolean cQF() {
+        return (hasAgreeToPlay() || h.dmo().dmp() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !j.isMobileNet()) ? false : true;
     }
 
-    public void dpF() {
+    public void dpJ() {
         setVisibility(0);
-        this.mfh.setVisibility(0);
-        this.mfi.setVisibility(0);
-        this.mfj.setVisibility(8);
+        this.mfk.setVisibility(0);
+        this.mfl.setVisibility(0);
+        this.mfm.setVisibility(8);
     }
 
-    public void dpG() {
+    public void dpK() {
         setVisibility(0);
-        this.mfh.setVisibility(8);
-        this.mfi.setVisibility(8);
-        this.mfj.setVisibility(0);
+        this.mfk.setVisibility(8);
+        this.mfl.setVisibility(8);
+        this.mfm.setVisibility(0);
         e.lt().removeCallbacks(this.mHideRunnable);
         e.lt().postDelayed(this.mHideRunnable, 3000L);
     }
@@ -106,18 +106,18 @@ public class VideoNetworkStateTipView extends RelativeLayout {
     }
 
     public void setPlayViewOnClickListener(View.OnClickListener onClickListener) {
-        this.mfh.setOnClickListener(onClickListener);
+        this.mfk.setOnClickListener(onClickListener);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            an.setViewTextColor(this.mfh, (int) R.color.cp_cont_a);
-            an.setBackgroundResource(this.mfh, R.drawable.rectangle_background_alpha80);
-            an.setViewTextColor(this.mfi, (int) R.color.cp_cont_a);
-            an.setBackgroundResource(this.mfi, R.drawable.blue_rectangle_background);
-            an.setViewTextColor(this.mfj, (int) R.color.cp_cont_a);
-            an.setBackgroundResource(this.mfj, R.drawable.rectangle_background_alpha80);
+            an.setViewTextColor(this.mfk, (int) R.color.cp_cont_a);
+            an.setBackgroundResource(this.mfk, R.drawable.rectangle_background_alpha80);
+            an.setViewTextColor(this.mfl, (int) R.color.cp_cont_a);
+            an.setBackgroundResource(this.mfl, R.drawable.blue_rectangle_background);
+            an.setViewTextColor(this.mfm, (int) R.color.cp_cont_a);
+            an.setBackgroundResource(this.mfm, R.drawable.rectangle_background_alpha80);
         }
     }
 }

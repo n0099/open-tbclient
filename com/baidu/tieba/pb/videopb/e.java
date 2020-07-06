@@ -29,7 +29,7 @@ public class e extends w {
             this.kxU.L(eVar);
             if (eVar != null) {
                 d dVar = this.kxU;
-                if (eVar.getIsNewUrl() != 1 && !eVar.cHp()) {
+                if (eVar.getIsNewUrl() != 1 && !eVar.cHq()) {
                     z = false;
                 }
                 dVar.setFromCDN(z);
@@ -37,16 +37,16 @@ public class e extends w {
         }
     }
 
-    public com.baidu.tieba.pb.data.e cPI() {
-        return this.kxU.cPI();
+    public com.baidu.tieba.pb.data.e cPJ() {
+        return this.kxU.cPJ();
     }
 
     public boolean isFromCDN() {
         return this.kxU.isFromCDN();
     }
 
-    public com.baidu.tieba.pb.data.e cPJ() {
-        return this.kxU.cPJ();
+    public com.baidu.tieba.pb.data.e cPK() {
+        return this.kxU.cPK();
     }
 
     public void c(com.baidu.tieba.pb.data.e eVar, int i) {
@@ -55,25 +55,25 @@ public class e extends w {
         }
     }
 
-    public p<bu> cPK() {
-        return this.kxU.cPK();
-    }
-
-    public Rect cPL() {
-        if (this.kxU.cPL() == null || this.kxU.cPL().isEmpty()) {
-            return null;
-        }
+    public p<bu> cPL() {
         return this.kxU.cPL();
     }
 
+    public Rect cPM() {
+        if (this.kxU.cPM() == null || this.kxU.cPM().isEmpty()) {
+            return null;
+        }
+        return this.kxU.cPM();
+    }
+
     public void sT(boolean z) {
-        if (this.kxU.cPP().getValue() != null) {
-            com.baidu.tieba.pb.data.e aJ = this.kbF.aJ(this.kxU.cPP().getValue());
+        if (this.kxU.cPQ().getValue() != null) {
+            com.baidu.tieba.pb.data.e aJ = this.kbF.aJ(this.kxU.cPQ().getValue());
             if (aJ != null) {
-                this.kxU.cPN().addLast(this.kxU.cPJ());
+                this.kxU.cPO().addLast(this.kxU.cPK());
                 this.kxU.setData(aJ);
-                this.kxU.aR(!com.baidu.tbadk.core.util.w.isEmpty(aJ.cHo()) ? aJ.cHo().get(0) : null);
-                this.kxU.aQ(this.kxU.cPN().getLast() != null ? this.kxU.cPN().getLast().cGN() : null);
+                this.kxU.aR(!com.baidu.tbadk.core.util.w.isEmpty(aJ.cHp()) ? aJ.cHp().get(0) : null);
+                this.kxU.aQ(this.kxU.cPO().getLast() != null ? this.kxU.cPO().getLast().cGO() : null);
                 this.kbF.Bw(z ? 21 : 22);
                 this.kbF.j(aJ);
                 this.kxU.setIsLoading(true);
@@ -84,45 +84,45 @@ public class e extends w {
     public void aS(bu buVar) {
         com.baidu.tieba.pb.data.e aJ;
         if (buVar != null && (aJ = this.kbF.aJ(buVar)) != null) {
-            this.kxU.cPN().addLast(this.kxU.cPJ());
+            this.kxU.cPO().addLast(this.kxU.cPK());
             this.kxU.setData(aJ);
-            this.kxU.aR(!com.baidu.tbadk.core.util.w.isEmpty(aJ.cHo()) ? aJ.cHo().get(0) : null);
-            this.kxU.aQ(this.kxU.cPN().getLast() != null ? this.kxU.cPN().getLast().cGN() : null);
+            this.kxU.aR(!com.baidu.tbadk.core.util.w.isEmpty(aJ.cHp()) ? aJ.cHp().get(0) : null);
+            this.kxU.aQ(this.kxU.cPO().getLast() != null ? this.kxU.cPO().getLast().cGO() : null);
             this.kbF.Bw(20);
             this.kbF.j(aJ);
             this.kxU.setIsLoading(true);
         }
     }
 
-    public void cPU() {
-        com.baidu.tieba.pb.data.e pollLast = this.kxU.cPN().pollLast();
+    public void cPV() {
+        com.baidu.tieba.pb.data.e pollLast = this.kxU.cPO().pollLast();
         if (pollLast != null) {
             this.kxU.setData(pollLast);
-            this.kxU.aR(!com.baidu.tbadk.core.util.w.isEmpty(pollLast.cHo()) ? pollLast.cHo().get(0) : null);
-            this.kxU.aQ(this.kxU.cPN().peekLast() != null ? this.kxU.cPN().peekLast().cGN() : null);
+            this.kxU.aR(!com.baidu.tbadk.core.util.w.isEmpty(pollLast.cHp()) ? pollLast.cHp().get(0) : null);
+            this.kxU.aQ(this.kxU.cPO().peekLast() != null ? this.kxU.cPO().peekLast().cGO() : null);
             this.kbF.j(pollLast);
             this.kxU.setIsLoading(true);
         }
-    }
-
-    public p<bu> cPO() {
-        return this.kxU.cPO();
     }
 
     public p<bu> cPP() {
         return this.kxU.cPP();
     }
 
-    public p<Boolean> cPQ() {
+    public p<bu> cPQ() {
         return this.kxU.cPQ();
+    }
+
+    public p<Boolean> cPR() {
+        return this.kxU.cPR();
     }
 
     public void sR(boolean z) {
         this.kxU.sR(z);
     }
 
-    public p<Boolean> cPR() {
-        return this.kxU.cPR();
+    public p<Boolean> cPS() {
+        return this.kxU.cPS();
     }
 
     public void sS(boolean z) {
@@ -133,15 +133,15 @@ public class e extends w {
         this.kxU.setIsLoading(z);
     }
 
-    public p<Boolean> cPS() {
-        return this.kxU.cPS();
-    }
-
-    public boolean cPM() {
-        return this.kxU.cPM();
-    }
-
-    public p<Integer> cPT() {
+    public p<Boolean> cPT() {
         return this.kxU.cPT();
+    }
+
+    public boolean cPN() {
+        return this.kxU.cPN();
+    }
+
+    public p<Integer> cPU() {
+        return this.kxU.cPU();
     }
 }

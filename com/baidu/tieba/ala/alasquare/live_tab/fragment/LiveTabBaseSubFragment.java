@@ -31,12 +31,12 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
 
     public abstract void IB();
 
-    public abstract void btT();
+    public abstract void btU();
 
     public abstract void loadData();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void btR() {
+    public void btS() {
         this.fol.setVisibility(0);
         if (this.fom == null) {
             this.fom = new h(this.mContext, null);
@@ -57,7 +57,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void btS() {
+    public void btT() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, false));
         this.fon = true;
     }

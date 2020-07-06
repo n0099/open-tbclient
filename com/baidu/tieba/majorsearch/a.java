@@ -41,8 +41,8 @@ public class a {
 
     private void initView() {
         biq();
-        cAq();
         cAr();
+        cAs();
     }
 
     private void biq() {
@@ -51,7 +51,7 @@ public class a {
         this.mNavigationBar.setCenterTextTitle(this.jzs.getResources().getString(R.string.search_major));
     }
 
-    private void cAq() {
+    private void cAr() {
         this.jzt = (RelativeLayout) this.mRootView.findViewById(R.id.search_container);
         this.jzt.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.majorsearch.a.1
             @Override // android.view.View.OnTouchListener
@@ -82,7 +82,7 @@ public class a {
         this.gKk.requestFocus();
     }
 
-    private void cAr() {
+    private void cAs() {
         this.jzy = (LinearLayout) this.mRootView.findViewById(R.id.layout_container);
         this.jzv = (RecyclerView) this.mRootView.findViewById(R.id.rv_major_list);
         this.jzw = new LinearLayoutManager(this.jzs);
@@ -119,7 +119,7 @@ public class a {
         this.jzv.addOnScrollListener(onScrollListener);
     }
 
-    public LinearLayout cAs() {
+    public LinearLayout cAt() {
         return this.jzy;
     }
 
@@ -151,7 +151,7 @@ public class a {
     public void c(ErrorData errorData) {
         this.jzv.setVisibility(8);
         if (this.jzx != null) {
-            this.jzx.cAu();
+            this.jzx.cAv();
         }
     }
 }

@@ -18,17 +18,17 @@ public class MessageHandleService extends BaseService {
     private static ConcurrentLinkedQueue<a> a = new ConcurrentLinkedQueue<>();
 
     /* renamed from: a  reason: collision with other field name */
-    private static ExecutorService f31a = new ThreadPoolExecutor(1, 1, 15, TimeUnit.SECONDS, new LinkedBlockingQueue());
+    private static ExecutorService f32a = new ThreadPoolExecutor(1, 1, 15, TimeUnit.SECONDS, new LinkedBlockingQueue());
 
     /* loaded from: classes8.dex */
     public static class a {
         private Intent a;
 
         /* renamed from: a  reason: collision with other field name */
-        private PushMessageReceiver f32a;
+        private PushMessageReceiver f33a;
 
         public a(Intent intent, PushMessageReceiver pushMessageReceiver) {
-            this.f32a = pushMessageReceiver;
+            this.f33a = pushMessageReceiver;
             this.a = intent;
         }
 
@@ -38,7 +38,7 @@ public class MessageHandleService extends BaseService {
 
         /* renamed from: a  reason: collision with other method in class */
         public PushMessageReceiver m60a() {
-            return this.f32a;
+            return this.f33a;
         }
     }
 
@@ -59,10 +59,10 @@ public class MessageHandleService extends BaseService {
     }
 
     private static void b(Context context) {
-        if (f31a.isShutdown()) {
+        if (f32a.isShutdown()) {
             return;
         }
-        f31a.execute(new ab(context));
+        f32a.execute(new ab(context));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -85,7 +85,7 @@ public class MessageHandleService extends BaseService {
                                 MiPushCommandMessage miPushCommandMessage = (MiPushCommandMessage) a3;
                                 com.xiaomi.channel.commonutils.logger.b.m48a("begin execute onCommandResult, command=" + miPushCommandMessage.getCommand() + ", resultCode=" + miPushCommandMessage.getResultCode() + ", reason=" + miPushCommandMessage.getReason());
                                 m60a.onCommandResult(context, miPushCommandMessage);
-                                if (TextUtils.equals(miPushCommandMessage.getCommand(), fg.COMMAND_REGISTER.f324a)) {
+                                if (TextUtils.equals(miPushCommandMessage.getCommand(), fg.COMMAND_REGISTER.f325a)) {
                                     m60a.onReceiveRegisterResult(context, miPushCommandMessage);
                                     PushMessageHandler.a(context, miPushCommandMessage);
                                     if (miPushCommandMessage.getResultCode() == 0) {
@@ -129,7 +129,7 @@ public class MessageHandleService extends BaseService {
                     MiPushCommandMessage miPushCommandMessage2 = (MiPushCommandMessage) a2.getSerializableExtra(PushMessageHelper.KEY_COMMAND);
                     com.xiaomi.channel.commonutils.logger.b.m48a("(Local) begin execute onCommandResult, command=" + miPushCommandMessage2.getCommand() + ", resultCode=" + miPushCommandMessage2.getResultCode() + ", reason=" + miPushCommandMessage2.getReason());
                     m60a.onCommandResult(context, miPushCommandMessage2);
-                    if (TextUtils.equals(miPushCommandMessage2.getCommand(), fg.COMMAND_REGISTER.f324a)) {
+                    if (TextUtils.equals(miPushCommandMessage2.getCommand(), fg.COMMAND_REGISTER.f325a)) {
                         m60a.onReceiveRegisterResult(context, miPushCommandMessage2);
                         PushMessageHandler.a(context, miPushCommandMessage2);
                         if (miPushCommandMessage2.getResultCode() == 0) {

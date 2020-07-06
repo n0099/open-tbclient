@@ -156,9 +156,9 @@ public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
 
     public void a(an anVar) {
         if (anVar == null) {
-            bDK();
+            bDL();
         } else if (anVar.aBV < com.baidu.live.v.a.Hm().aZp.aAb) {
-            bDK();
+            bDL();
         } else {
             setVisibility(0);
             String str = anVar.mNickName;
@@ -183,7 +183,7 @@ public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
         this.feG.startAnimation(this.geg);
     }
 
-    public void bDK() {
+    public void bDL() {
         if (this.gef.isAnimating()) {
             this.gef.cancelAnimation();
         }
@@ -200,7 +200,7 @@ public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bDK();
+        bDL();
         MessageManager.getInstance().unRegisterListener(this.geh);
     }
 }

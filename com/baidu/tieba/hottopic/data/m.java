@@ -22,7 +22,7 @@ public class m implements q {
         return iEM;
     }
 
-    public boolean clQ() {
+    public boolean clR() {
         return this.iEN;
     }
 }

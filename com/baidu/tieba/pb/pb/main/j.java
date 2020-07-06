@@ -8,7 +8,7 @@ public class j {
     private com.baidu.adp.lib.cache.l<byte[]> kcX = null;
     private com.baidu.adp.lib.cache.l<byte[]> kcY = null;
 
-    public static synchronized j cII() {
+    public static synchronized j cIJ() {
         j jVar;
         synchronized (j.class) {
             if (kcW == null) {

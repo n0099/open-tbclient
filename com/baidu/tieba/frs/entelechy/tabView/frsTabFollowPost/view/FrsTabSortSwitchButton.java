@@ -95,7 +95,7 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
             public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
                 int i2 = FrsTabSortSwitchButton.this.hKF;
                 FrsTabSortSwitchButton.this.hKG = motionEvent.getX();
-                FrsTabSortSwitchButton.this.hKF = FrsTabSortSwitchButton.this.cbQ();
+                FrsTabSortSwitchButton.this.hKF = FrsTabSortSwitchButton.this.cbR();
                 FrsTabSortSwitchButton.this.hKI = true;
                 if (FrsTabSortSwitchButton.this.hKF != i2) {
                     FrsTabSortSwitchButton.this.vb(i2);
@@ -298,19 +298,19 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
         }
         if (this.hKH && (motionEvent.getAction() == 1 || motionEvent.getAction() == 3)) {
             int i = this.hKF;
-            int cbQ = cbQ();
-            if (Math.abs(cbQ - i) >= 2 || cbQ > i) {
-                this.hKF = cbQ;
-            } else if (cbQ < i) {
-                float floatValue = this.hKK.get(cbQ).floatValue();
-                float floatValue2 = cbQ + 1 < this.hKK.size() ? this.hKK.get(cbQ + 1).floatValue() : floatValue;
+            int cbR = cbR();
+            if (Math.abs(cbR - i) >= 2 || cbR > i) {
+                this.hKF = cbR;
+            } else if (cbR < i) {
+                float floatValue = this.hKK.get(cbR).floatValue();
+                float floatValue2 = cbR + 1 < this.hKK.size() ? this.hKK.get(cbR + 1).floatValue() : floatValue;
                 if (this.hKG >= floatValue && this.hKG <= ((floatValue2 - floatValue) / 2.0f) + floatValue) {
-                    this.hKF = cbQ;
+                    this.hKF = cbR;
                 }
             } else {
-                float floatValue3 = this.hKK.get(cbQ).floatValue();
-                if (this.hKG >= (((cbQ + 1 < this.hKK.size() ? this.hKK.get(cbQ + 1).floatValue() : floatValue3) - floatValue3) / 2.0f) + floatValue3 && cbQ + 1 < this.hKK.size()) {
-                    this.hKF = cbQ + 1;
+                float floatValue3 = this.hKK.get(cbR).floatValue();
+                if (this.hKG >= (((cbR + 1 < this.hKK.size() ? this.hKK.get(cbR + 1).floatValue() : floatValue3) - floatValue3) / 2.0f) + floatValue3 && cbR + 1 < this.hKK.size()) {
+                    this.hKF = cbR + 1;
                 }
             }
             this.hKI = true;
@@ -337,7 +337,7 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int cbQ() {
+    public int cbR() {
         float floatValue;
         int i = this.hKF;
         int i2 = 0;

@@ -5,53 +5,53 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class c {
     final int capacityHint;
-    Object[] nND;
-    Object[] nNE;
-    int nNF;
+    Object[] nNG;
+    Object[] nNH;
+    int nNI;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.nND = new Object[this.capacityHint + 1];
-            this.nNE = this.nND;
-            this.nND[0] = obj;
-            this.nNF = 1;
+            this.nNG = new Object[this.capacityHint + 1];
+            this.nNH = this.nNG;
+            this.nNG[0] = obj;
+            this.nNI = 1;
             this.size = 1;
-        } else if (this.nNF == this.capacityHint) {
+        } else if (this.nNI == this.capacityHint) {
             Object[] objArr = new Object[this.capacityHint + 1];
             objArr[0] = obj;
-            this.nNE[this.capacityHint] = objArr;
-            this.nNE = objArr;
-            this.nNF = 1;
+            this.nNH[this.capacityHint] = objArr;
+            this.nNH = objArr;
+            this.nNI = 1;
             this.size++;
         } else {
-            this.nNE[this.nNF] = obj;
-            this.nNF++;
+            this.nNH[this.nNI] = obj;
+            this.nNI++;
             this.size++;
         }
     }
 
-    public Object[] dPQ() {
-        return this.nND;
+    public Object[] dPU() {
+        return this.nNG;
     }
 
     public int size() {
         return this.size;
     }
 
-    List<Object> dUO() {
+    List<Object> dUS() {
         int i = this.capacityHint;
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] dPQ = dPQ();
+        Object[] dPU = dPU();
         int i4 = 0;
         while (i3 < i2) {
-            arrayList.add(dPQ[i4]);
+            arrayList.add(dPU[i4]);
             i3++;
             i4++;
             if (i4 == i) {
-                dPQ = (Object[]) dPQ[i];
+                dPU = (Object[]) dPU[i];
                 i4 = 0;
             }
         }
@@ -59,6 +59,6 @@ public class c {
     }
 
     public String toString() {
-        return dUO().toString();
+        return dUS().toString();
     }
 }

@@ -37,9 +37,9 @@ public class a {
     public static void a(AbsThreadDataSupport absThreadDataSupport, String str) {
         if (absThreadDataSupport != null && absThreadDataSupport.aPS() != null) {
             if (absThreadDataSupport.aPS().aQV()) {
-                s.bOA().e(l.b(absThreadDataSupport.aPS(), str));
+                s.bOB().e(l.b(absThreadDataSupport.aPS(), str));
             } else {
-                s.bOA().e(l.a(absThreadDataSupport.aPS(), str));
+                s.bOB().e(l.a(absThreadDataSupport.aPS(), str));
             }
         }
     }

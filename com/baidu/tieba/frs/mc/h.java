@@ -42,10 +42,10 @@ public class h extends j {
             }
         };
         this.hUd.registerListener(this.hSK);
-        this.hVm = ceh();
+        this.hVm = cei();
     }
 
-    public final PraiseModel ceh() {
+    public final PraiseModel cei() {
         if (this.hVm == null) {
             this.hVm = new PraiseModel(this.hUd.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.h.1
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
@@ -77,8 +77,8 @@ public class h extends j {
 
     public void vx(int i) {
         ArrayList<q> threadList;
-        FrsViewData bYB = this.hUd.bYB();
-        if (bYB != null && this.hzK != null && (threadList = bYB.getThreadList()) != null) {
+        FrsViewData bYC = this.hUd.bYC();
+        if (bYC != null && this.hzK != null && (threadList = bYC.getThreadList()) != null) {
             Iterator<q> it = threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -98,8 +98,8 @@ public class h extends j {
                     }
                 }
             }
-            this.hzK.bZw().b(threadList, bYB);
-            this.hzK.bZw().notifyDataSetChanged();
+            this.hzK.bZx().b(threadList, bYC);
+            this.hzK.bZx().notifyDataSetChanged();
         }
     }
 

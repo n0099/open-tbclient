@@ -49,20 +49,20 @@ public class ap extends m<com.baidu.tieba.pb.data.l, aq> {
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.l lVar, aq aqVar) {
         super.a(i, view, viewGroup, (ViewGroup) lVar, (com.baidu.tieba.pb.data.l) aqVar);
         if (aqVar != null) {
-            cLC();
+            cLD();
             lVar.kae = this.kck.jYL;
             aqVar.a(lVar);
         }
         return view;
     }
 
-    private void cLC() {
-        if (this.kck != null && this.kck.cGN() != null && this.kck.cGM() != null && this.kck.jYO && !this.klr) {
+    private void cLD() {
+        if (this.kck != null && this.kck.cGO() != null && this.kck.cGN() != null && this.kck.jYO && !this.klr) {
             this.klr = true;
-            boolean isLike = this.kck.cGM().getIsLike();
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ao("common_exp").dk("page_type", PageStayDurationConstants.PageName.PB).ag("obj_isad", 1).ag("obj_floor", 1).ag("obj_adlocate", 9).dk("obj_id", this.kck.cGM().getForumId()).ag("thread_type", this.kck.cGN().getThreadType()).dk("tid", this.kck.cGN().getId()));
+            boolean isLike = this.kck.cGN().getIsLike();
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ao("common_exp").dk("page_type", PageStayDurationConstants.PageName.PB).ag("obj_isad", 1).ag("obj_floor", 1).ag("obj_adlocate", 9).dk("obj_id", this.kck.cGN().getForumId()).ag("thread_type", this.kck.cGO().getThreadType()).dk("tid", this.kck.cGO().getId()));
             if (!isLike) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.ao("common_exp").dk("page_type", PageStayDurationConstants.PageName.PB).ag("obj_isad", 1).ag("obj_floor", 1).ag("obj_adlocate", 10).dk("obj_id", this.kck.cGM().getForumId()).ag("thread_type", this.kck.cGN().getThreadType()).dk("tid", this.kck.cGN().getId()));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.ao("common_exp").dk("page_type", PageStayDurationConstants.PageName.PB).ag("obj_isad", 1).ag("obj_floor", 1).ag("obj_adlocate", 10).dk("obj_id", this.kck.cGN().getForumId()).ag("thread_type", this.kck.cGO().getThreadType()).dk("tid", this.kck.cGO().getId()));
             }
         }
     }

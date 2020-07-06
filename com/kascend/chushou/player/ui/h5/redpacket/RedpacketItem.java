@@ -11,8 +11,8 @@ import com.kascend.chushou.player.ui.h5.d;
 import com.kascend.chushou.view.h5.H5Options;
 /* loaded from: classes5.dex */
 public class RedpacketItem extends FrameLayout {
-    private d nrn;
-    private com.kascend.chushou.widget.cswebview.d nro;
+    private d nrq;
+    private com.kascend.chushou.widget.cswebview.d nrr;
 
     public RedpacketItem(@NonNull Context context) {
         super(context);
@@ -27,9 +27,9 @@ public class RedpacketItem extends FrameLayout {
     }
 
     public void a(e eVar, a aVar) {
-        if (this.nrn != null && this.nrn.getParent() == this) {
-            removeView(this.nrn);
-            this.nrn = null;
+        if (this.nrq != null && this.nrq.getParent() == this) {
+            removeView(this.nrq);
+            this.nrq = null;
         }
         H5Options h5Options = new H5Options();
         h5Options.e = true;
@@ -39,14 +39,14 @@ public class RedpacketItem extends FrameLayout {
         h5Options.a = eVar.b();
         h5Options.d = true;
         h5Options.f = false;
-        this.nrn = new d(getContext(), h5Options, new com.kascend.chushou.widget.cswebview.a().a(new JSInterface(getContext(), aVar)).a(this.nro));
-        addView(this.nrn);
+        this.nrq = new d(getContext(), h5Options, new com.kascend.chushou.widget.cswebview.a().a(new JSInterface(getContext(), aVar)).a(this.nrr));
+        addView(this.nrq);
     }
 
     public void a(com.kascend.chushou.player.ui.h5.c.c cVar) {
-        if (this.nrn != null && this.nrn.getParent() == this) {
-            removeView(this.nrn);
-            this.nrn = null;
+        if (this.nrq != null && this.nrq.getParent() == this) {
+            removeView(this.nrq);
+            this.nrq = null;
         }
         H5Options h5Options = new H5Options();
         h5Options.e = true;
@@ -56,18 +56,18 @@ public class RedpacketItem extends FrameLayout {
         h5Options.a = cVar.o;
         h5Options.d = true;
         h5Options.f = false;
-        this.nrn = new d(getContext(), h5Options, new com.kascend.chushou.widget.cswebview.a().a(new JSInterface(getContext())).a(this.nro));
-        addView(this.nrn);
+        this.nrq = new d(getContext(), h5Options, new com.kascend.chushou.widget.cswebview.a().a(new JSInterface(getContext())).a(this.nrr));
+        addView(this.nrq);
     }
 
     public void a() {
-        if (this.nrn != null && this.nrn.getParent() == this) {
-            removeView(this.nrn);
-            this.nrn = null;
+        if (this.nrq != null && this.nrq.getParent() == this) {
+            removeView(this.nrq);
+            this.nrq = null;
         }
     }
 
     public void setListener(com.kascend.chushou.widget.cswebview.d dVar) {
-        this.nro = dVar;
+        this.nrr = dVar;
     }
 }

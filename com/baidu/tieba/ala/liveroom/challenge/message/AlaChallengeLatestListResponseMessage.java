@@ -31,7 +31,7 @@ public class AlaChallengeLatestListResponseMessage extends JsonHttpResponsedMess
         }
     }
 
-    public List<d> bCF() {
+    public List<d> bCG() {
         return this.fKA;
     }
 }

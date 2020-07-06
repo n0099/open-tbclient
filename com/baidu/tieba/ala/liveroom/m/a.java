@@ -143,7 +143,7 @@ public class a {
                         if (a.this.aRB) {
                             a.this.lf(false);
                         } else {
-                            a.this.bFC();
+                            a.this.bFD();
                         }
                         if (!com.baidu.live.view.a.Ky().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mTbPageContext, false) && updateAttentionMessage.getData().errorString != null && orginalMessage != null && orginalMessage.getTag() == a.this.mTbPageContext.getUniqueId()) {
                             a.this.mTbPageContext.showToast(updateAttentionMessage.getData().errorString);
@@ -177,7 +177,7 @@ public class a {
                         if (orginalMessage != null && orginalMessage.getTag() == a.this.mTbPageContext.getUniqueId()) {
                             a.this.mTbPageContext.showToast(a.this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_unfollow_success_toast));
                         }
-                        a.this.bFC();
+                        a.this.bFD();
                     }
                 }
             }
@@ -251,7 +251,7 @@ public class a {
                         lf(true);
                         return;
                     } else {
-                        bFC();
+                        bFD();
                         return;
                     }
                 }
@@ -287,7 +287,7 @@ public class a {
         }
     }
 
-    public void bFB() {
+    public void bFC() {
         if (this.gjd != null && this.gjd.getView() != null) {
             this.gjd.getView().setVisibility(4);
         }
@@ -300,9 +300,9 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFC() {
+    public void bFD() {
         if (this.gjd != null && !this.aRp) {
-            this.gjd.bFC();
+            this.gjd.bFD();
         }
     }
 
@@ -330,7 +330,7 @@ public class a {
         MessageManager.getInstance().unRegisterListener(this.gfw);
     }
 
-    public boolean bAX() {
+    public boolean bAY() {
         return this.aRB;
     }
 

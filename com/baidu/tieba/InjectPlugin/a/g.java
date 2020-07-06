@@ -21,11 +21,11 @@ public class g {
         return this.pageContext;
     }
 
-    public b bmC() {
+    public b bmD() {
         return this.eSD;
     }
 
-    public int bmD() {
+    public int bmE() {
         return this.eSC;
     }
 }

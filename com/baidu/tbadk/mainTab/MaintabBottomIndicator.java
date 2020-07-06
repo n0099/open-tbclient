@@ -88,7 +88,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         this.eyJ = this.eyI.findViewById(R.id.container_common_item);
         this.eyK = (TBLottieAnimationView) this.eyI.findViewById(R.id.view_bottom_icon);
         this.eyK.setSpeed(1.1f);
-        this.eyK.bkE();
+        this.eyK.bkF();
         this.mTextView = (TextView) this.eyI.findViewById(R.id.view_bottom_text);
         this.eyL = (TBLottieAnimationView) this.eyI.findViewById(R.id.animation_view);
         this.eyL.setFirstLoadInternal(true);

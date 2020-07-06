@@ -7,16 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 final class k {
-    private SQLiteDatabase mEE = f.dxf().dxg();
+    private SQLiteDatabase mEH = f.dxj().dxk();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(l lVar) {
-        this.mEE.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
+        this.mEH.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<l> dxe() {
-        Cursor rawQuery = this.mEE.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
+    public final List<l> dxi() {
+        Cursor rawQuery = this.mEH.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             l lVar = new l();
@@ -34,6 +34,6 @@ final class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(int i) {
-        this.mEE.execSQL("delete from tb_ab_page_log where _id <= " + i);
+        this.mEH.execSQL("delete from tb_ab_page_log where _id <= " + i);
     }
 }

@@ -16,12 +16,12 @@ import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class WeiboSsoSdk {
-    private static WeiboSsoSdk nHI;
-    private static b nHJ;
-    private volatile ReentrantLock nHH = new ReentrantLock(true);
-    private boolean nHK = true;
-    private a nHL;
-    private int nHM;
+    private static WeiboSsoSdk nHL;
+    private static b nHM;
+    private volatile ReentrantLock nHK = new ReentrantLock(true);
+    private boolean nHN = true;
+    private a nHO;
+    private int nHP;
 
     private native String riseWind(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, int i, int i2);
 
@@ -30,17 +30,17 @@ public class WeiboSsoSdk {
     }
 
     private WeiboSsoSdk() throws Exception {
-        if (nHJ == null || !nHJ.dOI()) {
+        if (nHM == null || !nHM.dOM()) {
             throw new Exception("config error");
         }
-        this.nHM = 0;
+        this.nHP = 0;
         new Thread(new Runnable() { // from class: com.weibo.ssosdk.WeiboSsoSdk.1
             @Override // java.lang.Runnable
             public void run() {
                 while (true) {
                     try {
                         Thread.sleep(86400000L);
-                        WeiboSsoSdk.dOF().bP((WeiboSsoSdk.this.nHL == null || TextUtils.isEmpty(WeiboSsoSdk.this.nHL.uh())) ? WeiboSsoSdk.this.dOH() : WeiboSsoSdk.this.nHL.uh(), 2);
+                        WeiboSsoSdk.dOJ().bP((WeiboSsoSdk.this.nHO == null || TextUtils.isEmpty(WeiboSsoSdk.this.nHO.uh())) ? WeiboSsoSdk.this.dOL() : WeiboSsoSdk.this.nHO.uh(), 2);
                     } catch (Exception e) {
                     }
                 }
@@ -51,8 +51,8 @@ public class WeiboSsoSdk {
             public void run() {
                 try {
                     Thread.sleep(60000L);
-                    if (WeiboSsoSdk.this.nHK) {
-                        WeiboSsoSdk.this.bP((WeiboSsoSdk.this.nHL == null || TextUtils.isEmpty(WeiboSsoSdk.this.nHL.uh())) ? WeiboSsoSdk.this.dOH() : WeiboSsoSdk.this.nHL.uh(), 2);
+                    if (WeiboSsoSdk.this.nHN) {
+                        WeiboSsoSdk.this.bP((WeiboSsoSdk.this.nHO == null || TextUtils.isEmpty(WeiboSsoSdk.this.nHO.uh())) ? WeiboSsoSdk.this.dOL() : WeiboSsoSdk.this.nHO.uh(), 2);
                     }
                 } catch (Exception e) {
                 }
@@ -64,9 +64,9 @@ public class WeiboSsoSdk {
         boolean z = false;
         synchronized (WeiboSsoSdk.class) {
             if (bVar != null) {
-                if (bVar.dOI() && nHJ == null) {
-                    nHJ = (b) bVar.clone();
-                    com.weibo.ssosdk.a.init(nHJ.getApplicationContext());
+                if (bVar.dOM() && nHM == null) {
+                    nHM = (b) bVar.clone();
+                    com.weibo.ssosdk.a.init(nHM.getApplicationContext());
                     z = true;
                 }
             }
@@ -74,13 +74,13 @@ public class WeiboSsoSdk {
         return z;
     }
 
-    public static synchronized WeiboSsoSdk dOF() throws Exception {
+    public static synchronized WeiboSsoSdk dOJ() throws Exception {
         WeiboSsoSdk weiboSsoSdk;
         synchronized (WeiboSsoSdk.class) {
-            if (nHI == null) {
-                nHI = new WeiboSsoSdk();
+            if (nHL == null) {
+                nHL = new WeiboSsoSdk();
             }
-            weiboSsoSdk = nHI;
+            weiboSsoSdk = nHL;
         }
         return weiboSsoSdk;
     }
@@ -88,13 +88,13 @@ public class WeiboSsoSdk {
     /* loaded from: classes6.dex */
     public static final class a {
         private String mAid;
-        private String nHO;
+        private String nHR;
 
         public String uh() {
             return this.mAid;
         }
 
-        static a RS(String str) throws Exception {
+        static a RT(String str) throws Exception {
             a aVar = new a();
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -104,7 +104,7 @@ public class WeiboSsoSdk {
                     throw new Exception("error： " + optString + " msg:" + jSONObject.optString("msg", ""));
                 }
                 aVar.mAid = jSONObject2.optString("aid", "");
-                aVar.nHO = jSONObject2.optString("sub", "");
+                aVar.nHR = jSONObject2.optString("sub", "");
                 return aVar;
             } catch (Exception e) {
                 throw e;
@@ -112,7 +112,7 @@ public class WeiboSsoSdk {
         }
     }
 
-    private String RQ(String str) {
+    private String RR(String str) {
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("https://login.sina.com.cn/visitor/signin").openConnection();
             httpURLConnection.setRequestMethod("POST");
@@ -148,44 +148,44 @@ public class WeiboSsoSdk {
     /* JADX INFO: Access modifiers changed from: private */
     public void bP(String str, int i) throws Exception {
         String str2;
-        if (!TextUtils.isEmpty(nHJ.xm(false))) {
-            if (!this.nHH.tryLock()) {
-                this.nHH.lock();
-                this.nHH.unlock();
+        if (!TextUtils.isEmpty(nHM.xm(false))) {
+            if (!this.nHK.tryLock()) {
+                this.nHK.lock();
+                this.nHK.unlock();
                 return;
             }
-            this.nHK = false;
-            String mfp = com.weibo.ssosdk.a.getMfp(nHJ.getApplicationContext());
+            this.nHN = false;
+            String mfp = com.weibo.ssosdk.a.getMfp(nHM.getApplicationContext());
             try {
                 str2 = URLEncoder.encode(str, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 str2 = "";
             }
-            String RQ = RQ(riseWind(nHJ.xm(true), nHJ.getApplicationContext().getPackageName(), str2, mfp, nHJ.xl(true), nHJ.xk(true), nHJ.xj(true), nHJ.xi(true), nHJ.xn(true), nHJ.xh(true), i, this.nHM));
-            this.nHM++;
-            if (RQ != null) {
+            String RR = RR(riseWind(nHM.xm(true), nHM.getApplicationContext().getPackageName(), str2, mfp, nHM.xl(true), nHM.xk(true), nHM.xj(true), nHM.xi(true), nHM.xn(true), nHM.xh(true), i, this.nHP));
+            this.nHP++;
+            if (RR != null) {
                 try {
-                    a RS = a.RS(RQ);
-                    if (RS != null && !TextUtils.isEmpty(RS.uh())) {
-                        RR(RS.uh());
+                    a RT = a.RT(RR);
+                    if (RT != null && !TextUtils.isEmpty(RT.uh())) {
+                        RS(RT.uh());
                     }
                     if (i == 1) {
-                        this.nHL = RS;
+                        this.nHO = RT;
                     }
-                    this.nHH.unlock();
+                    this.nHK.unlock();
                     return;
                 } catch (Exception e2) {
-                    this.nHH.unlock();
+                    this.nHK.unlock();
                     throw e2;
                 }
             }
-            this.nHH.unlock();
+            this.nHK.unlock();
             throw new Exception("network error.");
         }
     }
 
-    public a dOG() throws Exception {
-        if (this.nHL == null) {
+    public a dOK() throws Exception {
+        if (this.nHO == null) {
             Thread thread = new Thread(new Runnable() { // from class: com.weibo.ssosdk.WeiboSsoSdk.3
                 @Override // java.lang.Runnable
                 public void run() {
@@ -198,16 +198,16 @@ public class WeiboSsoSdk {
             thread.start();
             thread.join();
         }
-        if (this.nHL == null) {
+        if (this.nHO == null) {
             throw new Exception("visitor login failed");
         }
-        return this.nHL;
+        return this.nHO;
     }
 
     public String uh() throws Exception {
-        String dOH = dOH();
-        if (TextUtils.isEmpty(dOH)) {
-            if (this.nHL == null || TextUtils.isEmpty(this.nHL.uh())) {
+        String dOL = dOL();
+        if (TextUtils.isEmpty(dOL)) {
+            if (this.nHO == null || TextUtils.isEmpty(this.nHO.uh())) {
                 Thread thread = new Thread(new Runnable() { // from class: com.weibo.ssosdk.WeiboSsoSdk.4
                     @Override // java.lang.Runnable
                     public void run() {
@@ -220,17 +220,17 @@ public class WeiboSsoSdk {
                 thread.start();
                 thread.join();
             }
-            if (this.nHL == null) {
+            if (this.nHO == null) {
                 throw new Exception("visitor login failed");
             }
-            return this.nHL.uh();
+            return this.nHO.uh();
         }
-        return dOH;
+        return dOL;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [378=4] */
     /* JADX INFO: Access modifiers changed from: private */
-    public String dOH() {
+    public String dOL() {
         FileInputStream fileInputStream;
         Throwable th;
         FileInputStream fileInputStream2 = null;
@@ -276,11 +276,11 @@ public class WeiboSsoSdk {
     }
 
     private File KO(int i) {
-        return new File(nHJ.getApplicationContext().getFilesDir(), "weibo_sso_sdk_aid" + i);
+        return new File(nHM.getApplicationContext().getFilesDir(), "weibo_sso_sdk_aid" + i);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [406=4] */
-    private synchronized void RR(String str) {
+    private synchronized void RS(String str) {
         FileOutputStream fileOutputStream;
         if (!TextUtils.isEmpty(str)) {
             FileOutputStream fileOutputStream2 = null;

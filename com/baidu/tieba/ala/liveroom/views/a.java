@@ -51,13 +51,13 @@ public abstract class a implements e {
         }
     };
 
-    protected abstract int bEk();
+    protected abstract int bEl();
 
-    protected abstract com.baidu.tieba.ala.category.b.a bJN();
+    protected abstract com.baidu.tieba.ala.category.b.a bJO();
 
-    protected abstract int bJQ();
+    protected abstract int bJR();
 
-    protected abstract boolean bJR();
+    protected abstract boolean bJS();
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -65,7 +65,7 @@ public abstract class a implements e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bJG() {
+    public void bJH() {
         this.gsD = (EditText) this.mRootView.findViewById(a.g.ala_liveroom_prepare_title);
         this.gsD.setOnFocusChangeListener(this.focusChangeListener);
         this.gsE = (LinearLayout) this.mRootView.findViewById(a.g.ala_live_prepare_locate_layout);
@@ -83,57 +83,57 @@ public abstract class a implements e {
         this.bkF = alaLiveRecorder;
     }
 
-    protected void bJH() {
-        this.bkF.setVideoConfig(LiveRecorderConfigHelper.GG().d(bJQ(), bEk(), bJR()));
-    }
-
-    protected boolean bJI() {
-        return false;
+    protected void bJI() {
+        this.bkF.setVideoConfig(LiveRecorderConfigHelper.GG().d(bJR(), bEl(), bJS()));
     }
 
     protected boolean bJJ() {
         return false;
     }
 
-    public String bJK() {
+    protected boolean bJK() {
+        return false;
+    }
+
+    public String bJL() {
         return com.baidu.live.c.vf().getString(com.baidu.live.c.getSharedPrefKeyWithAccount("key_default_cover"), "");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bJL() {
+    public boolean bJM() {
         if (TextUtils.isEmpty(getLiveTitle().trim())) {
             this.gsD.setText(this.mPageContext.getString(a.i.ala_live_prepare_title));
         }
-        if (TextUtils.isEmpty(bJK())) {
+        if (TextUtils.isEmpty(bJL())) {
             this.mPageContext.showToast(a.i.hk_live_upload_cover);
             return false;
         }
+        boolean bJK = bJK();
         boolean bJJ = bJJ();
-        boolean bJI = bJI();
-        if (bJJ || bJI) {
+        if (bJK || bJJ) {
             return false;
         }
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
             this.mPageContext.showToast(a.i.ala_create_to_retry);
             return false;
         } else if (!aa.wE()) {
-            return bJM();
-        } else if (bJN() == null || bJN().bvI() == null || bJN().bvJ() == null) {
+            return bJN();
+        } else if (bJO() == null || bJO().bvJ() == null || bJO().bvK() == null) {
             this.mPageContext.showToast(a.i.ala_live_prepare_select_livetype_tips);
             return false;
         } else if (this.gsM != null) {
-            this.gsM.d(bJN());
+            this.gsM.d(bJO());
             return false;
         } else {
             return false;
         }
     }
 
-    private boolean bJM() {
+    private boolean bJN() {
         if (this.gsM != null) {
             this.gsK = true;
-            bJH();
-            this.gsM.bHl();
+            bJI();
+            this.gsM.bHm();
             if (TextUtils.isEmpty(this.gsD.getText().toString())) {
                 return true;
             }
@@ -145,7 +145,7 @@ public abstract class a implements e {
 
     public void kW(boolean z) {
         if (z) {
-            bJM();
+            bJN();
         } else {
             this.mPageContext.showToast(a.i.ala_live_prepare_add_category_fail);
         }
@@ -155,7 +155,7 @@ public abstract class a implements e {
         this.gsF.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.a.1
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                a.this.bJP();
+                a.this.bJQ();
                 if (z) {
                     a.this.gsF.setCompoundDrawablesWithIntrinsicBounds(a.this.mPageContext.getResources().getDrawable(a.f.icon_live_video_choose_s), (Drawable) null, (Drawable) null, (Drawable) null);
                 } else {
@@ -167,7 +167,7 @@ public abstract class a implements e {
             this.gsG.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.a.2
                 @Override // android.widget.CompoundButton.OnCheckedChangeListener
                 public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                    a.this.bJP();
+                    a.this.bJQ();
                     if (z) {
                         a.this.gsG.setCompoundDrawablesWithIntrinsicBounds(a.this.mPageContext.getResources().getDrawable(a.f.icon_live_video_choose_s), (Drawable) null, (Drawable) null, (Drawable) null);
                     } else {
@@ -180,7 +180,7 @@ public abstract class a implements e {
             this.gsH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.gsM.bHo();
+                    a.this.gsM.bHp();
                     LogManager.getLiveRecordLogger().doClickLiveRulesButtonLog("");
                 }
             });
@@ -188,13 +188,13 @@ public abstract class a implements e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bJO() {
+    public void bJP() {
         if (this.gsL) {
             BdUtilHelper.hideSoftKeyPad(this.mPageContext.getPageActivity(), this.mRootView);
         }
     }
 
-    protected void bJP() {
+    protected void bJQ() {
     }
 
     public View getView() {
@@ -205,7 +205,7 @@ public abstract class a implements e {
         return this.gsD.getText().toString();
     }
 
-    public boolean bEd() {
+    public boolean bEe() {
         return this.gsJ.isShowLocation();
     }
 
@@ -218,11 +218,11 @@ public abstract class a implements e {
         this.gsF.setChecked(false);
     }
 
-    public boolean bEa() {
+    public boolean bEb() {
         return this.gsF.isChecked();
     }
 
-    public boolean bEb() {
+    public boolean bEc() {
         return this.gsG.isChecked();
     }
 

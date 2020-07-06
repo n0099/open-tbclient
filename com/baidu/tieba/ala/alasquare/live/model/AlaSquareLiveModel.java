@@ -90,7 +90,7 @@ public class AlaSquareLiveModel extends BdBaseModel {
                     AlaSquareLiveModel.this.mDatas = b.a(AlaSquareLiveModel.this.mDatas, linkedList, AlaSquareLiveModel.this.isLoadMore);
                     AlaSquareLiveModel.this.mHasMore = z;
                 }
-                AlaSquareLiveModel.this.btw();
+                AlaSquareLiveModel.this.btx();
                 if (AlaSquareLiveModel.this.fmh != null) {
                     AlaSquareLiveModel.this.fmh.g(z, false, z2);
                 }
@@ -110,12 +110,12 @@ public class AlaSquareLiveModel extends BdBaseModel {
         this.unique_id = bdUniqueId;
         this.fmh = aVar;
         registerListener(this.dzN);
-        bts();
+        btt();
         this.mDatas = new ArrayList();
         this.functionList = new LinkedList<>();
     }
 
-    private static void bts() {
+    private static void btt() {
         com.baidu.tieba.tbadkCore.a.a.a(AlaCmdConfigSocket.CMD_SQUARE_LIVE, AlaSquareLiveSocketResponseMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_SQUARE_LIVE, com.baidu.tieba.tbadkCore.a.a.bE(AlaConfig.SQUARE_LIVE, AlaCmdConfigSocket.CMD_SQUARE_LIVE));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -136,7 +136,7 @@ public class AlaSquareLiveModel extends BdBaseModel {
         return false;
     }
 
-    public void btt() {
+    public void btu() {
         this.fmM = true;
         sendMessage(new AlaSquareLiveRequestMessage(1, false));
     }
@@ -158,7 +158,7 @@ public class AlaSquareLiveModel extends BdBaseModel {
         sendMessage(new AlaSquareLiveRequestMessage(this.mPn, false));
     }
 
-    public void btu() {
+    public void btv() {
         if (hasMore()) {
             this.fmM = false;
             this.isLoadMore = true;
@@ -198,11 +198,11 @@ public class AlaSquareLiveModel extends BdBaseModel {
     public void bu(List<Long> list) {
         if (!w.isEmpty(list) && !this.fmM) {
             this.fmO = list;
-            btt();
+            btu();
         }
     }
 
-    public List<q> btv() {
+    public List<q> btw() {
         return this.fmL;
     }
 
@@ -214,7 +214,7 @@ public class AlaSquareLiveModel extends BdBaseModel {
         return this.functionList;
     }
 
-    public void btw() {
+    public void btx() {
         Pair<List<q>, List<q>> e = b.e(this.mBdPageContext.getString(R.string.square_live_category_title_hotest), this.mDatas);
         if (e != null) {
             this.fmL = (List) e.first;

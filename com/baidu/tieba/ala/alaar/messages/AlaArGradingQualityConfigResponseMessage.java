@@ -15,9 +15,9 @@ public class AlaArGradingQualityConfigResponseMessage extends JsonHttpResponsedM
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && !hasError() && (optJSONObject = jSONObject.optJSONObject("data")) != null && optJSONObject.length() != 0) {
-            JSONObject cT = com.baidu.tieba.ala.alaar.a.b.bsg().cT(optJSONObject);
+            JSONObject cT = com.baidu.tieba.ala.alaar.a.b.bsh().cT(optJSONObject);
             this.fgS = cT;
-            com.baidu.tieba.ala.alaar.a.b.bsg().d(cT, true);
+            com.baidu.tieba.ala.alaar.a.b.bsh().d(cT, true);
         }
     }
 }

@@ -107,7 +107,7 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
 
     private void init() {
         Px();
-        cZB();
+        cZC();
         setOnClickListener(this);
         a(this, FormItemBaseView.DrawableType.ORDINARY_FRAME);
     }
@@ -122,7 +122,7 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
         addView(this.hHl, layoutParams);
     }
 
-    private void cZB() {
+    private void cZC() {
         Drawable drawable = this.mResources.getDrawable(R.drawable.form_picker_arrow);
         this.liT = new ImageView(this.mContext);
         this.liT.setBackgroundDrawable(drawable);
@@ -179,7 +179,7 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
-    public int cZA() {
+    public int cZB() {
         return this.liG;
     }
 
@@ -242,7 +242,7 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.recapp.lego.view.form.PickerView.2
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (!PickerView.this.cZr()) {
+                if (!PickerView.this.cZs()) {
                     PickerView.this.a(PickerView.this, FormItemBaseView.DrawableType.ERROR_FRAME);
                 } else {
                     PickerView.this.a(PickerView.this, FormItemBaseView.DrawableType.ORDINARY_FRAME);
@@ -252,7 +252,7 @@ public class PickerView extends FormItemBaseView implements DatePickerDialog.OnD
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.a
-    public boolean cZr() {
+    public boolean cZs() {
         return !TextUtils.isEmpty(this.lim);
     }
 

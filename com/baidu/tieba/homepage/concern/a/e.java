@@ -95,7 +95,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         kVar.sR(kVar.position + 1);
-        com.baidu.tieba.card.s.bOA().e(kVar.DU("c12351"));
+        com.baidu.tieba.card.s.bOB().e(kVar.DU("c12351"));
         akVar.se().setPosition(i);
         if (akVar.se() instanceof com.baidu.tieba.a.e) {
             akVar.se().setPage(this.afG);

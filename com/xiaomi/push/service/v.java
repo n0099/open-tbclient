@@ -11,19 +11,19 @@ final class v extends XMPushService.i {
     final /* synthetic */ ii a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ XMPushService f938a;
+    final /* synthetic */ XMPushService f939a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f939a;
+    final /* synthetic */ String f940a;
     final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(int i, XMPushService xMPushService, ii iiVar, String str, String str2) {
         super(i);
-        this.f938a = xMPushService;
+        this.f939a = xMPushService;
         this.a = iiVar;
-        this.f939a = str;
+        this.f940a = str;
         this.b = str2;
     }
 
@@ -35,13 +35,13 @@ final class v extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            ii a = p.a((Context) this.f938a, this.a);
-            a.f604a.a(BdStatsConstant.StatsType.ERROR, this.f939a);
-            a.f604a.a(TiebaInitialize.LogFields.REASON, this.b);
-            w.a(this.f938a, a);
+            ii a = p.a((Context) this.f939a, this.a);
+            a.f605a.a(BdStatsConstant.StatsType.ERROR, this.f940a);
+            a.f605a.a(TiebaInitialize.LogFields.REASON, this.b);
+            w.a(this.f939a, a);
         } catch (gd e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.f938a.a(10, e);
+            this.f939a.a(10, e);
         }
     }
 }

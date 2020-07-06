@@ -45,7 +45,7 @@ public class c implements IAdapterData {
         return this.name;
     }
 
-    public List<IAdapterData> bvL() {
+    public List<IAdapterData> bvM() {
         return this.fyT;
     }
 

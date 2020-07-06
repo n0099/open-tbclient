@@ -33,12 +33,12 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
     BannerView.a hSX = new BannerView.a() { // from class: com.baidu.tieba.recapp.b.2
         @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
         public void bdp() {
-            b.this.cdg();
+            b.this.cdh();
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
         public void bdq() {
-            b.this.cdi();
+            b.this.cdj();
         }
     };
     private com.baidu.tieba.InjectPlugin.a.c leh;
@@ -52,8 +52,8 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
     /* renamed from: b */
     public void init(com.baidu.tieba.InjectPlugin.a.c cVar) {
         this.leh = cVar;
-        if (this.leh != null && (this.leh.bmz() instanceof TbPageContext)) {
-            this.mPageContext = (TbPageContext) this.leh.bmz();
+        if (this.leh != null && (this.leh.bmA() instanceof TbPageContext)) {
+            this.mPageContext = (TbPageContext) this.leh.bmA();
         }
     }
 
@@ -78,12 +78,12 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
     }
 
     @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a
-    public void bmu() {
+    public void bmv() {
         if (this.mPageContext != null && this.lei != null) {
             if (this.eoN == null) {
-                cdi();
+                cdj();
             } else if (!this.eoN.isValid()) {
-                cdi();
+                cdj();
             } else {
                 if (!this.hSU) {
                     if (this.hSS == null) {
@@ -131,7 +131,7 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cdi() {
+    public void cdj() {
         if (this.hSS != null && this.lei != null) {
             this.hSU = false;
             this.lei.b(this.leh, this.hSS);
@@ -140,7 +140,7 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cdg() {
+    public void cdh() {
         if (this.eoN != null) {
             String value = this.eoN.getValue();
             String aQu = this.eoN.aQu();
@@ -176,7 +176,7 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
                             break;
                     }
                 } else {
-                    q.cYS().cYP().c(this.mPageContext.getPageActivity(), new String[]{value});
+                    q.cYT().cYQ().c(this.mPageContext.getPageActivity(), new String[]{value});
                     if (!StringUtils.isNull(value) && value.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL)) {
                         TiebaStatic.eventStat(this.mPageContext.getPageActivity(), "frs_banner", "click", 1, "ref_id", CommonStatisticKey.REF_TYPE_FRS_AD, "ref_type", "603");
                     }

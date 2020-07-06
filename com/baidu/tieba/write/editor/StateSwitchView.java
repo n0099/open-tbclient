@@ -13,12 +13,12 @@ public class StateSwitchView extends EditorInfoView {
     private int eaL;
     private int mSkinType;
     private int mState;
-    private String moA;
-    private String moB;
-    private int moC;
-    private int moD;
-    private com.baidu.tbadk.core.util.d.a moE;
-    private com.baidu.tbadk.core.util.d.a moF;
+    private String moD;
+    private String moE;
+    private int moF;
+    private int moG;
+    private com.baidu.tbadk.core.util.d.a moH;
+    private com.baidu.tbadk.core.util.d.a moI;
 
     public StateSwitchView(Context context) {
         super(context);
@@ -49,7 +49,7 @@ public class StateSwitchView extends EditorInfoView {
     private void initUI() {
         int dimension = (int) getResources().getDimension(R.dimen.ds26);
         setPadding(dimension, 0, dimension, 0);
-        bHC();
+        bHD();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -63,15 +63,15 @@ public class StateSwitchView extends EditorInfoView {
         } else {
             this.mState = 0;
         }
-        bHC();
-        dry();
+        bHD();
+        drC();
     }
 
-    private void bHC() {
+    private void bHD() {
         if (this.mState == 1) {
-            setText(this.moB);
+            setText(this.moE);
         } else {
-            setText(this.moA);
+            setText(this.moD);
         }
     }
 
@@ -79,41 +79,41 @@ public class StateSwitchView extends EditorInfoView {
         if (i == 0 || i == 1) {
             this.mState = i;
         }
-        bHC();
-        dry();
+        bHD();
+        drC();
     }
 
     public void setStateString(String str, String str2) {
-        this.moA = str;
-        this.moB = str2;
-        bHC();
+        this.moD = str;
+        this.moE = str2;
+        bHD();
     }
 
     public void setLeftStateDrawable(int i, int i2) {
-        this.moC = i;
-        this.moD = i2;
+        this.moF = i;
+        this.moG = i2;
         this.dPw = false;
-        dry();
+        drC();
     }
 
     public void setLeftStateDrawable(com.baidu.tbadk.core.util.d.a aVar, com.baidu.tbadk.core.util.d.a aVar2) {
         if (aVar != null && aVar2 != null) {
             this.dPw = true;
-            this.moE = aVar;
-            this.moF = aVar2;
-            dry();
+            this.moH = aVar;
+            this.moI = aVar2;
+            drC();
         }
     }
 
-    private void dry() {
+    private void drC() {
         Drawable drawable;
         Drawable drawable2;
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.tbds48);
         if (this.mState == 1) {
-            if (this.dPw && this.moF != null) {
-                drawable2 = this.moF.getDrawable();
+            if (this.dPw && this.moI != null) {
+                drawable2 = this.moI.getDrawable();
             } else {
-                drawable2 = this.moD > 0 ? an.getDrawable(this.moD) : null;
+                drawable2 = this.moG > 0 ? an.getDrawable(this.moG) : null;
             }
             if (drawable2 != null) {
                 drawable2.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
@@ -121,10 +121,10 @@ public class StateSwitchView extends EditorInfoView {
                 setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.ds8));
             }
         } else if (this.mState == 0) {
-            if (this.dPw && this.moE != null) {
-                drawable = this.moE.getDrawable();
+            if (this.dPw && this.moH != null) {
+                drawable = this.moH.getDrawable();
             } else {
-                drawable = this.moD > 0 ? an.getDrawable(this.moC) : null;
+                drawable = this.moG > 0 ? an.getDrawable(this.moF) : null;
             }
             if (drawable != null) {
                 drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
@@ -153,7 +153,7 @@ public class StateSwitchView extends EditorInfoView {
             if (this.eaL > 0) {
                 an.setBackgroundResource(this, this.eaL);
             }
-            dry();
+            drC();
             this.mSkinType = i;
         }
     }

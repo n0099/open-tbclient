@@ -31,7 +31,7 @@ public class MoreModel extends BdBaseModel {
         this.lpA = z;
     }
 
-    public boolean dbG() {
+    public boolean dbH() {
         return this.lpA;
     }
 
@@ -45,7 +45,7 @@ public class MoreModel extends BdBaseModel {
         return false;
     }
 
-    public PersonChangeData dbH() {
+    public PersonChangeData dbI() {
         return this.kMS;
     }
 }

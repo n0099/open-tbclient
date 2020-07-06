@@ -5,7 +5,7 @@ import android.net.Uri;
 public interface b {
     boolean H(Uri uri);
 
-    String dys();
+    String dyw();
 
     int hashCode();
 }

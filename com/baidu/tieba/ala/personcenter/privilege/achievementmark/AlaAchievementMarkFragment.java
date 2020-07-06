@@ -42,7 +42,7 @@ public class AlaAchievementMarkFragment extends AbsFragment {
             } else if (obj instanceof AlaAchievementMarkResponsedMessage) {
                 AlaAchievementMarkResponsedMessage alaAchievementMarkResponsedMessage = (AlaAchievementMarkResponsedMessage) obj;
                 if (AlaAchievementMarkFragment.this.gDa != null) {
-                    AlaAchievementMarkFragment.this.gDa.btN();
+                    AlaAchievementMarkFragment.this.gDa.btO();
                     AlaAchievementMarkFragment.this.gDa.a(alaAchievementMarkResponsedMessage.getAlaUserInfoData(), alaAchievementMarkResponsedMessage.getList());
                 }
             }
@@ -86,7 +86,7 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         if (this.gDb == null) {
             this.gDb = new AlaPersonCenterPrivilegeMarkModel(BdUniqueId.gen(), this.gDd);
         }
-        this.gDb.bLO();
+        this.gDb.bLP();
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsFragment

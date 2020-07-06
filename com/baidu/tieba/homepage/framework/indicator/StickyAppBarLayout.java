@@ -33,9 +33,9 @@ public class StickyAppBarLayout extends AppBarLayout {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
                 if (bool != null) {
                     if (bool.booleanValue()) {
-                        StickyAppBarLayout.this.ciF();
-                    } else if (!StickyAppBarLayout.this.isSticky()) {
                         StickyAppBarLayout.this.ciG();
+                    } else if (!StickyAppBarLayout.this.isSticky()) {
+                        StickyAppBarLayout.this.ciH();
                     }
                 }
             }
@@ -52,9 +52,9 @@ public class StickyAppBarLayout extends AppBarLayout {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
                 if (bool != null) {
                     if (bool.booleanValue()) {
-                        StickyAppBarLayout.this.ciF();
-                    } else if (!StickyAppBarLayout.this.isSticky()) {
                         StickyAppBarLayout.this.ciG();
+                    } else if (!StickyAppBarLayout.this.isSticky()) {
+                        StickyAppBarLayout.this.ciH();
                     }
                 }
             }
@@ -64,10 +64,10 @@ public class StickyAppBarLayout extends AppBarLayout {
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        ciE();
+        ciF();
     }
 
-    private void ciE() {
+    private void ciF() {
         if (getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
             CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) getLayoutParams()).getBehavior();
             if (behavior instanceof StickyAppBarLayoutBehavior) {
@@ -76,27 +76,27 @@ public class StickyAppBarLayout extends AppBarLayout {
         }
     }
 
-    public boolean ciF() {
+    public boolean ciG() {
         if (this.ipk == null) {
-            ciE();
+            ciF();
         }
         if (this.ipk != null) {
-            if (isSticky() && this.ipk.ciK() != null && this.ipk.ciK().getVisibility() == 0) {
-                ciH();
+            if (isSticky() && this.ipk.ciL() != null && this.ipk.ciL().getVisibility() == 0) {
+                ciI();
             }
-            this.ipk.ciI();
+            this.ipk.ciJ();
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ciG() {
+    public boolean ciH() {
         if (this.ipk == null) {
-            ciE();
+            ciF();
         }
         if (this.ipk != null) {
-            this.ipk.ciJ();
+            this.ipk.ciK();
             return true;
         }
         return false;
@@ -104,7 +104,7 @@ public class StickyAppBarLayout extends AppBarLayout {
 
     public boolean isSticky() {
         if (this.ipk == null) {
-            ciE();
+            ciF();
         }
         if (this.ipk != null) {
             return this.ipk.isSticky();
@@ -112,7 +112,7 @@ public class StickyAppBarLayout extends AppBarLayout {
         return false;
     }
 
-    private void ciH() {
+    private void ciI() {
         ao aoVar = new ao("c13422");
         aoVar.ag("obj_type", 1);
         aoVar.ag("obj_locate", 1);

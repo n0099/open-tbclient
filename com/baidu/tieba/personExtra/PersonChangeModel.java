@@ -15,7 +15,7 @@ public class PersonChangeModel extends BdBaseModel {
         }
     }
 
-    public PersonChangeData cSV() {
+    public PersonChangeData cSW() {
         return this.kKn;
     }
 

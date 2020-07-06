@@ -7,18 +7,18 @@ import com.facebook.imagepipeline.c.p;
 import com.facebook.imagepipeline.d.h;
 /* loaded from: classes12.dex */
 public class i {
-    private final com.facebook.common.internal.j<Boolean> mSO;
-    private final boolean mTA;
-    private final c mTB;
-    private final boolean mTr;
-    private final b.a mTs;
-    private final boolean mTt;
-    private final com.facebook.common.g.b mTu;
-    private final boolean mTv;
+    private final com.facebook.common.internal.j<Boolean> mSS;
+    private final int mTA;
+    private final int mTB;
+    private boolean mTC;
+    private final boolean mTD;
+    private final c mTE;
+    private final boolean mTu;
+    private final b.a mTv;
     private final boolean mTw;
-    private final int mTx;
-    private final int mTy;
-    private boolean mTz;
+    private final com.facebook.common.g.b mTx;
+    private final boolean mTy;
+    private final boolean mTz;
 
     /* loaded from: classes12.dex */
     public interface c {
@@ -26,9 +26,6 @@ public class i {
     }
 
     private i(a aVar) {
-        this.mTr = aVar.mTr;
-        this.mTs = aVar.mTs;
-        this.mTt = aVar.mTt;
         this.mTu = aVar.mTu;
         this.mTv = aVar.mTv;
         this.mTw = aVar.mTw;
@@ -36,83 +33,86 @@ public class i {
         this.mTy = aVar.mTy;
         this.mTz = aVar.mTz;
         this.mTA = aVar.mTA;
-        if (aVar.mTB == null) {
-            this.mTB = new b();
+        this.mTB = aVar.mTB;
+        this.mTC = aVar.mTC;
+        this.mTD = aVar.mTD;
+        if (aVar.mTE == null) {
+            this.mTE = new b();
         } else {
-            this.mTB = aVar.mTB;
+            this.mTE = aVar.mTE;
         }
-        this.mSO = aVar.mSO;
+        this.mSS = aVar.mSS;
     }
 
-    public boolean dDL() {
-        return this.mTv;
-    }
-
-    public boolean dDM() {
-        return this.mTr;
-    }
-
-    public boolean dDN() {
-        return this.mTt;
-    }
-
-    public b.a dDO() {
-        return this.mTs;
-    }
-
-    public com.facebook.common.g.b dDP() {
-        return this.mTu;
-    }
-
-    public boolean dDQ() {
-        return this.mTw;
-    }
-
-    public int dDR() {
-        return this.mTx;
-    }
-
-    public int dDS() {
+    public boolean dDP() {
         return this.mTy;
     }
 
-    public boolean dDT() {
-        return this.mTA;
+    public boolean dDQ() {
+        return this.mTu;
     }
 
-    public c dDU() {
-        return this.mTB;
+    public boolean dDR() {
+        return this.mTw;
     }
 
-    public boolean dDV() {
+    public b.a dDS() {
+        return this.mTv;
+    }
+
+    public com.facebook.common.g.b dDT() {
+        return this.mTx;
+    }
+
+    public boolean dDU() {
         return this.mTz;
     }
 
-    public com.facebook.common.internal.j<Boolean> dDW() {
-        return this.mSO;
+    public int dDV() {
+        return this.mTA;
+    }
+
+    public int dDW() {
+        return this.mTB;
+    }
+
+    public boolean dDX() {
+        return this.mTD;
+    }
+
+    public c dDY() {
+        return this.mTE;
+    }
+
+    public boolean dDZ() {
+        return this.mTC;
+    }
+
+    public com.facebook.common.internal.j<Boolean> dEa() {
+        return this.mSS;
     }
 
     /* loaded from: classes12.dex */
     public static class a {
-        public com.facebook.common.internal.j<Boolean> mSO;
-        private c mTB;
-        private final h.a mTC;
-        private b.a mTs;
-        private com.facebook.common.g.b mTu;
-        private boolean mTr = false;
-        private boolean mTt = false;
-        private boolean mTv = false;
+        public com.facebook.common.internal.j<Boolean> mSS;
+        private c mTE;
+        private final h.a mTF;
+        private b.a mTv;
+        private com.facebook.common.g.b mTx;
+        private boolean mTu = false;
         private boolean mTw = false;
-        private int mTx = 0;
-        private int mTy = 0;
-        public boolean mTz = false;
-        private boolean mTA = false;
+        private boolean mTy = false;
+        private boolean mTz = false;
+        private int mTA = 0;
+        private int mTB = 0;
+        public boolean mTC = false;
+        private boolean mTD = false;
 
         public a(h.a aVar) {
-            this.mTC = aVar;
+            this.mTF = aVar;
         }
 
-        public i dDX() {
+        public i dEb() {
             return new i(this);
         }
     }

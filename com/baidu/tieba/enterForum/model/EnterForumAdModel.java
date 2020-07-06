@@ -53,7 +53,7 @@ public class EnterForumAdModel extends BdBaseModel {
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST));
     }
 
-    public com.baidu.tieba.enterForum.data.b bSr() {
+    public com.baidu.tieba.enterForum.data.b bSs() {
         return this.hfs;
     }
 
@@ -61,7 +61,7 @@ public class EnterForumAdModel extends BdBaseModel {
         if (!this.hft) {
             com.baidu.tieba.enterForum.data.b bVar = this.hfs;
             if (this.hfs != null && bVar.isValid()) {
-                c.dgX().b(i.G(context).getUniqueId(), com.baidu.tieba.s.a.b(PageStayDurationConstants.PageName.ENTER_FORUM, "common_fill", true, 1, 5));
+                c.dgY().b(i.G(context).getUniqueId(), com.baidu.tieba.s.a.b(PageStayDurationConstants.PageName.ENTER_FORUM, "common_fill", true, 1, 5));
                 this.hft = true;
             }
         }

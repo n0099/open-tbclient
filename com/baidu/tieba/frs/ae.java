@@ -9,7 +9,7 @@ public class ae {
     private ae() {
     }
 
-    public static ae bZX() {
+    public static ae bZY() {
         return hDT;
     }
 

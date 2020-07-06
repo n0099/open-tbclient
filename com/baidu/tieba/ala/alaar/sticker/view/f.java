@@ -38,15 +38,15 @@ public class f extends i {
         this.fke.setVisibility(0);
         if (fuFaceItem.isResLoaded()) {
             this.fkf.setVisibility(4);
-            bsT();
-        } else if (!TextUtils.isEmpty(fuFaceItem.file) && com.baidu.tieba.ala.alaar.sticker.download.b.bsn().isRunning(fuFaceItem.file)) {
+            bsU();
+        } else if (!TextUtils.isEmpty(fuFaceItem.file) && com.baidu.tieba.ala.alaar.sticker.download.b.bso().isRunning(fuFaceItem.file)) {
             this.fkf.setVisibility(0);
             startLoadingAnim();
         } else {
             this.fkf.setVisibility(0);
             this.fkf.setRotation(0.0f);
             this.fkf.setImageResource(a.f.sticker_unload);
-            bsT();
+            bsU();
         }
         e(fuFaceItem);
     }
@@ -69,7 +69,7 @@ public class f extends i {
         }
     }
 
-    public void bsT() {
+    public void bsU() {
         if (this.fkg != null && this.fkg.isRunning()) {
             this.fkg.cancel();
         }

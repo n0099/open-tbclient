@@ -27,21 +27,21 @@ public class cc extends ai.a {
         ArrayList arrayList4;
         ArrayList arrayList5;
         ArrayList<cb.a> arrayList6;
-        arrayList = this.a.f154a;
+        arrayList = this.a.f155a;
         synchronized (arrayList) {
-            arrayList2 = this.a.f154a;
+            arrayList2 = this.a.f155a;
             if (arrayList2.size() > 0) {
-                arrayList3 = this.a.f154a;
+                arrayList3 = this.a.f155a;
                 if (arrayList3.size() > 1) {
                     cb cbVar = this.a;
-                    arrayList6 = this.a.f154a;
+                    arrayList6 = this.a.f155a;
                     cbVar.a(arrayList6);
                 } else {
                     cb cbVar2 = this.a;
-                    arrayList4 = this.a.f154a;
+                    arrayList4 = this.a.f155a;
                     cbVar2.b((cb.a) arrayList4.get(0));
                 }
-                arrayList5 = this.a.f154a;
+                arrayList5 = this.a.f155a;
                 arrayList5.clear();
                 System.gc();
             }

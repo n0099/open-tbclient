@@ -95,7 +95,7 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public List<com.baidu.tieba.newinterest.data.b> cFk() {
+    public List<com.baidu.tieba.newinterest.data.b> cFl() {
         ArrayList arrayList = new ArrayList();
         for (com.baidu.tieba.newinterest.data.b bVar : this.jTt) {
             if (bVar.isSelected()) {

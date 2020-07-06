@@ -21,7 +21,7 @@ public class AlaGuardThroneResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public a byk() {
+    public a byl() {
         return this.fNx;
     }
 }

@@ -49,12 +49,12 @@ public class PbNavbarUserLayout extends FrameLayout {
         this.eoP = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && PbNavbarUserLayout.this.ksq != null && PbNavbarUserLayout.this.ksq.cIe() != null) {
+                if (view != null && PbNavbarUserLayout.this.ksq != null && PbNavbarUserLayout.this.ksq.cIf() != null) {
                     if (view != null && view.getId() == R.id.pb_title_user_like) {
-                        TiebaStatic.log(new ao("c13697").dk("tid", PbNavbarUserLayout.this.ksq.cIe().cKa()).dk("fid", PbNavbarUserLayout.this.ksq.cIe().getForumId()).s("uid", TbadkCoreApplication.getCurrentAccountId()).ag("obj_type", 2));
+                        TiebaStatic.log(new ao("c13697").dk("tid", PbNavbarUserLayout.this.ksq.cIf().cKb()).dk("fid", PbNavbarUserLayout.this.ksq.cIf().getForumId()).s("uid", TbadkCoreApplication.getCurrentAccountId()).ag("obj_type", 2));
                         return;
                     }
-                    TiebaStatic.log(new ao("c13697").dk("tid", PbNavbarUserLayout.this.ksq.cIe().cKa()).dk("fid", PbNavbarUserLayout.this.ksq.cIe().getForumId()).s("uid", TbadkCoreApplication.getCurrentAccountId()).ag("obj_type", 1));
+                    TiebaStatic.log(new ao("c13697").dk("tid", PbNavbarUserLayout.this.ksq.cIf().cKb()).dk("fid", PbNavbarUserLayout.this.ksq.cIf().getForumId()).s("uid", TbadkCoreApplication.getCurrentAccountId()).ag("obj_type", 1));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(PbNavbarUserLayout.this.getContext(), PbNavbarUserLayout.this.uid, null)));
                 }
             }
@@ -68,12 +68,12 @@ public class PbNavbarUserLayout extends FrameLayout {
         this.eoP = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && PbNavbarUserLayout.this.ksq != null && PbNavbarUserLayout.this.ksq.cIe() != null) {
+                if (view != null && PbNavbarUserLayout.this.ksq != null && PbNavbarUserLayout.this.ksq.cIf() != null) {
                     if (view != null && view.getId() == R.id.pb_title_user_like) {
-                        TiebaStatic.log(new ao("c13697").dk("tid", PbNavbarUserLayout.this.ksq.cIe().cKa()).dk("fid", PbNavbarUserLayout.this.ksq.cIe().getForumId()).s("uid", TbadkCoreApplication.getCurrentAccountId()).ag("obj_type", 2));
+                        TiebaStatic.log(new ao("c13697").dk("tid", PbNavbarUserLayout.this.ksq.cIf().cKb()).dk("fid", PbNavbarUserLayout.this.ksq.cIf().getForumId()).s("uid", TbadkCoreApplication.getCurrentAccountId()).ag("obj_type", 2));
                         return;
                     }
-                    TiebaStatic.log(new ao("c13697").dk("tid", PbNavbarUserLayout.this.ksq.cIe().cKa()).dk("fid", PbNavbarUserLayout.this.ksq.cIe().getForumId()).s("uid", TbadkCoreApplication.getCurrentAccountId()).ag("obj_type", 1));
+                    TiebaStatic.log(new ao("c13697").dk("tid", PbNavbarUserLayout.this.ksq.cIf().cKb()).dk("fid", PbNavbarUserLayout.this.ksq.cIf().getForumId()).s("uid", TbadkCoreApplication.getCurrentAccountId()).ag("obj_type", 1));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(PbNavbarUserLayout.this.getContext(), PbNavbarUserLayout.this.uid, null)));
                 }
             }
@@ -87,12 +87,12 @@ public class PbNavbarUserLayout extends FrameLayout {
         this.eoP = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && PbNavbarUserLayout.this.ksq != null && PbNavbarUserLayout.this.ksq.cIe() != null) {
+                if (view != null && PbNavbarUserLayout.this.ksq != null && PbNavbarUserLayout.this.ksq.cIf() != null) {
                     if (view != null && view.getId() == R.id.pb_title_user_like) {
-                        TiebaStatic.log(new ao("c13697").dk("tid", PbNavbarUserLayout.this.ksq.cIe().cKa()).dk("fid", PbNavbarUserLayout.this.ksq.cIe().getForumId()).s("uid", TbadkCoreApplication.getCurrentAccountId()).ag("obj_type", 2));
+                        TiebaStatic.log(new ao("c13697").dk("tid", PbNavbarUserLayout.this.ksq.cIf().cKb()).dk("fid", PbNavbarUserLayout.this.ksq.cIf().getForumId()).s("uid", TbadkCoreApplication.getCurrentAccountId()).ag("obj_type", 2));
                         return;
                     }
-                    TiebaStatic.log(new ao("c13697").dk("tid", PbNavbarUserLayout.this.ksq.cIe().cKa()).dk("fid", PbNavbarUserLayout.this.ksq.cIe().getForumId()).s("uid", TbadkCoreApplication.getCurrentAccountId()).ag("obj_type", 1));
+                    TiebaStatic.log(new ao("c13697").dk("tid", PbNavbarUserLayout.this.ksq.cIf().cKb()).dk("fid", PbNavbarUserLayout.this.ksq.cIf().getForumId()).s("uid", TbadkCoreApplication.getCurrentAccountId()).ag("obj_type", 1));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(PbNavbarUserLayout.this.getContext(), PbNavbarUserLayout.this.uid, null)));
                 }
             }
@@ -153,17 +153,17 @@ public class PbNavbarUserLayout extends FrameLayout {
     }
 
     public void setData(e eVar, PostData postData, boolean z) {
-        if (eVar != null && eVar.cGN() != null && postData != null && postData.aSp() != null) {
+        if (eVar != null && eVar.cGO() != null && postData != null && postData.aSp() != null) {
             if (this.ksp == null) {
-                bu cGN = eVar.cGN();
+                bu cGO = eVar.cGO();
                 int i = 1;
-                if (cGN.aQX()) {
+                if (cGO.aQX()) {
                     i = 4;
-                } else if (cGN.aQY()) {
+                } else if (cGO.aQY()) {
                     i = 6;
-                } else if (cGN.aUm()) {
+                } else if (cGO.aUm()) {
                     i = 7;
-                } else if (cGN.aUl()) {
+                } else if (cGO.aUl()) {
                     i = 5;
                 }
                 this.ksp = new at(this.ksq.getPageContext(), this.kso, i);
@@ -173,11 +173,11 @@ public class PbNavbarUserLayout extends FrameLayout {
             this.ksp.setTid(eVar.getThreadId());
             this.ksp.a(aSp);
             this.ksp.BA(au.r(eVar));
-            this.ksp.setThreadData(eVar.cGN());
+            this.ksp.setThreadData(eVar.cGO());
             this.uid = aSp.getUserId();
             this.gzP.setText(aSp.getName_show());
             this.ksn.startLoad(p.wz(aSp.getAvater()), 25, false);
-            if (eVar.cGN().aUm() || eVar.cGN().aUl()) {
+            if (eVar.cGO().aUm() || eVar.cGO().aUl()) {
                 this.dDu.setText(R.string.pb_navbar_dynamic);
             } else {
                 this.dDu.setText(R.string.pb_navbar_thread_detail);

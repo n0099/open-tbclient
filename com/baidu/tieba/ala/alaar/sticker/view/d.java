@@ -103,7 +103,7 @@ public class d extends BaseAdapter {
         view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view3) {
-                if (d.this.fjm != null && !d.this.fjm.bsJ()) {
+                if (d.this.fjm != null && !d.this.fjm.bsK()) {
                     BdUtilHelper.showToast(d.this.mContext, a.i.txt_punish_sticker_using);
                 } else if ((gVar instanceof g) || (gVar instanceof h)) {
                     if (d.this.fjm != null) {
@@ -145,9 +145,9 @@ public class d extends BaseAdapter {
             }
             this.fjj = i;
             notifyDataSetChanged();
-        } else if (TextUtils.isEmpty(fuFaceItem.file) || !com.baidu.tieba.ala.alaar.sticker.download.b.bsn().isRunning(fuFaceItem.file)) {
+        } else if (TextUtils.isEmpty(fuFaceItem.file) || !com.baidu.tieba.ala.alaar.sticker.download.b.bso().isRunning(fuFaceItem.file)) {
             if (this.fjm != null) {
-                this.fjm.bsK();
+                this.fjm.bsL();
             }
             a(fuFaceItem, fVar, i);
         }
@@ -173,7 +173,7 @@ public class d extends BaseAdapter {
                 /* renamed from: c */
                 public void aw(FuFaceItem fuFaceItem2) {
                     Log.e("AlaSticker Adapter", "onCompleted:" + fuFaceItem2.name);
-                    if (d.this.fjm == null || d.this.fjm.bsJ()) {
+                    if (d.this.fjm == null || d.this.fjm.bsK()) {
                         if (d.this.fjk != i) {
                             d.this.notifyDataSetChanged();
                             return;

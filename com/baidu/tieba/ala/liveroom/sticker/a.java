@@ -93,11 +93,11 @@ public class a {
         }
     }
 
-    public void bJr() {
+    public void bJs() {
         this.grw.setVisibility(8);
     }
 
-    public void bJs() {
+    public void bJt() {
         this.grw.setVisibility(0);
     }
 }

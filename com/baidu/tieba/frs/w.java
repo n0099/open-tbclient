@@ -29,9 +29,9 @@ public class w {
             this.mTitleView = (TextView) inflate.findViewById(R.id.title);
             this.mTitleView.setText(R.string.frs_recommend_thread_sure_title);
             this.cbI = (TextView) inflate.findViewById(R.id.call_fans_intro);
-            BawuThrones bXh = c.bXg().bXh();
-            if (bXh != null) {
-                this.cbI.setText(String.format(tbPageContext.getString(R.string.frs_recommend_thread_sure_content), bXh.bazhu_level, bXh.total_recommend_num, Integer.valueOf(bXh.total_recommend_num.intValue() - bXh.used_recommend_num.intValue())));
+            BawuThrones bXi = c.bXh().bXi();
+            if (bXi != null) {
+                this.cbI.setText(String.format(tbPageContext.getString(R.string.frs_recommend_thread_sure_content), bXi.bazhu_level, bXi.total_recommend_num, Integer.valueOf(bXi.total_recommend_num.intValue() - bXi.used_recommend_num.intValue())));
             } else {
                 this.cbI.setText(String.format(tbPageContext.getString(R.string.frs_recommend_thread_sure_content), "D", 2, 2));
             }
@@ -41,7 +41,7 @@ public class w {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     w.this.mIsChecked = !w.this.mIsChecked;
-                    w.this.bNW();
+                    w.this.bNX();
                 }
             });
             onChangeSkinType();
@@ -50,7 +50,7 @@ public class w {
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     com.baidu.tbadk.core.sharedPref.b.aVP().putBoolean("key_frs_recommend_tip", !w.this.mIsChecked);
-                    c.bXg().ei(str, str2);
+                    c.bXh().ei(str, str2);
                     w.this.hDn.dismiss();
                     w.this.hDn = null;
                 }
@@ -68,7 +68,7 @@ public class w {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bNW() {
+    public void bNX() {
         Drawable a;
         if (this.gOA != null) {
             ImageView imageView = this.gOA;
@@ -88,7 +88,7 @@ public class w {
         if (this.cbI != null) {
             com.baidu.tbadk.core.util.an.setViewTextColor(this.cbI, (int) R.color.cp_cont_j);
         }
-        bNW();
+        bNX();
         if (this.hDo != null) {
             com.baidu.tbadk.core.util.an.setViewTextColor(this.hDo, (int) R.color.cp_cont_j);
         }

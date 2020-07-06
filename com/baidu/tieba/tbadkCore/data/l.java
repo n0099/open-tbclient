@@ -44,11 +44,11 @@ public class l {
         return this.text;
     }
 
-    public String dhH() {
+    public String dhI() {
         return this.c;
     }
 
-    public SpannableStringBuilder dhI() {
+    public SpannableStringBuilder dhJ() {
         return this.lFE;
     }
 

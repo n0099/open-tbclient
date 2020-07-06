@@ -69,7 +69,7 @@ public class a {
     public a(Activity activity) {
         this.activity = activity;
         initView();
-        bwm();
+        bwn();
     }
 
     private void initView() {
@@ -81,7 +81,7 @@ public class a {
         this.fCj = new b(this.activity, this);
     }
 
-    private static void bwl() {
+    private static void bwm() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021159, TbConfig.SERVER_HOST + "liveserver/redpacket/send");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -91,8 +91,8 @@ public class a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void bwm() {
-        bwl();
+    private void bwn() {
+        bwm();
         MessageManager.getInstance().registerListener(this.fCk);
         MessageManager.getInstance().registerListener(this.notifyDialogDismissListener);
     }

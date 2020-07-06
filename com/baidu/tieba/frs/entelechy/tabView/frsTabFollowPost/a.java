@@ -29,7 +29,7 @@ public class a {
     private FrsTabSortSwitchButton.a hKp = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a.1
         @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.a
         public boolean va(int i) {
-            if (com.baidu.tieba.frs.b.bXc().bWW() || com.baidu.tieba.frs.a.bWV().bWW()) {
+            if (com.baidu.tieba.frs.b.bXd().bWX() || com.baidu.tieba.frs.a.bWW().bWX()) {
                 return false;
             }
             if (!j.isNetworkAvailableForImmediately()) {
@@ -37,13 +37,13 @@ public class a {
                 return false;
             }
             if (a.this.hEc instanceof FrsNewAreaFragment) {
-                if (((FrsNewAreaFragment) a.this.hEc).cee() == null || ((FrsNewAreaFragment) a.this.hEc).cef() == null) {
+                if (((FrsNewAreaFragment) a.this.hEc).cef() == null || ((FrsNewAreaFragment) a.this.hEc).ceg() == null) {
                     return false;
                 }
             } else if (!(a.this.hEc instanceof FrsCommonTabFragment)) {
                 return false;
             } else {
-                if (((FrsCommonTabFragment) a.this.hEc).cbd() == null || ((FrsCommonTabFragment) a.this.hEc).cbe() == null) {
+                if (((FrsCommonTabFragment) a.this.hEc).cbe() == null || ((FrsCommonTabFragment) a.this.hEc).cbf() == null) {
                     return false;
                 }
             }
@@ -52,19 +52,19 @@ public class a {
             }
             a.this.hKo = i;
             if (a.this.hKo != 7) {
-                ab.bjc();
-                e.djf();
+                ab.bjd();
+                e.djg();
             } else {
-                e.dje();
+                e.djf();
             }
             if (a.this.hEc instanceof FrsNewAreaFragment) {
-                ((FrsNewAreaFragment) a.this.hEc).cee().vE(a.this.hKn.vd(a.this.hKo));
-                ((FrsNewAreaFragment) a.this.hEc).cef().startPullRefresh();
+                ((FrsNewAreaFragment) a.this.hEc).cef().vE(a.this.hKn.vd(a.this.hKo));
+                ((FrsNewAreaFragment) a.this.hEc).ceg().startPullRefresh();
             } else {
                 ((FrsCommonTabFragment) a.this.hEc).setSortType(g.vV(a.this.hKn.vd(a.this.hKo)));
-                ((FrsCommonTabFragment) a.this.hEc).cbe().jc(true);
+                ((FrsCommonTabFragment) a.this.hEc).cbf().jc(true);
             }
-            a.this.cbO();
+            a.this.cbP();
             return true;
         }
     };
@@ -74,7 +74,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbO() {
+    public void cbP() {
         ao aoVar = new ao("c11437");
         aoVar.ag("obj_type", this.hKn.vd(this.hKo));
         aoVar.dk("fid", this.eEs);

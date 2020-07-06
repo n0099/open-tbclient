@@ -14,7 +14,7 @@ public class l implements com.baidu.adp.widget.ListView.q {
         return lDZ;
     }
 
-    public List<FeedForumData> dhk() {
+    public List<FeedForumData> dhl() {
         return this.hMN;
     }
 

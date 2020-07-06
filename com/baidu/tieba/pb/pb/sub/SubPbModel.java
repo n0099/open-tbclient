@@ -322,7 +322,7 @@ public class SubPbModel extends DataModel {
                             } else {
                                 nVar = responsedMessage instanceof SubPbSocketResponseMessage ? ((SubPbSocketResponseMessage) responsedMessage).pbFloorData : null;
                             }
-                            if (nVar.cHH().errorno.intValue() != 0) {
+                            if (nVar.cHI().errorno.intValue() != 0) {
                                 if (SubPbModel.this.kuM != null) {
                                     SubPbModel.this.kuM.a(false, nVar.kan.errorno.intValue(), nVar.kan.errmsg, null);
                                     return;
@@ -331,12 +331,12 @@ public class SubPbModel extends DataModel {
                             }
                             if (nVar.aPS() != null && nVar.aPS().aSp() != null) {
                                 nVar.aPS().aSp().getUserId();
-                                if (w.isEmpty(nVar.cHI().aSp().getIconInfo()) && SubPbModel.this.kuO != null) {
-                                    nVar.cHI().aSp().setIconInfo(SubPbModel.this.kuO);
+                                if (w.isEmpty(nVar.cHJ().aSp().getIconInfo()) && SubPbModel.this.kuO != null) {
+                                    nVar.cHJ().aSp().setIconInfo(SubPbModel.this.kuO);
                                 }
                             }
-                            if (nVar.cHI() != null) {
-                                SubPbModel.this.postID = nVar.cHI().getId();
+                            if (nVar.cHJ() != null) {
+                                SubPbModel.this.postID = nVar.cHJ().getId();
                             }
                             if (nVar.aPS() != null) {
                                 SubPbModel.this.kuE = nVar.aPS().getId();
@@ -352,7 +352,7 @@ public class SubPbModel extends DataModel {
                                 SubPbModel.this.e(nVar);
                             }
                             if (SubPbModel.this.kuM != null) {
-                                SubPbModel.this.kuM.a(SubPbModel.this.cOu(), error, errorString, SubPbModel.this.kse);
+                                SubPbModel.this.kuM.a(SubPbModel.this.cOv(), error, errorString, SubPbModel.this.kse);
                             }
                         }
                     }
@@ -367,11 +367,11 @@ public class SubPbModel extends DataModel {
         registerListener(this.ksi);
     }
 
-    public String cJZ() {
+    public String cKa() {
         return this.kuE;
     }
 
-    public String cKa() {
+    public String cKb() {
         return (StringUtils.isNull(this.kuE) || "0".equals(this.kuE)) ? this.oriUgcNid : this.kuE;
     }
 
@@ -384,16 +384,16 @@ public class SubPbModel extends DataModel {
         return this.stType;
     }
 
-    public n cOt() {
+    public n cOu() {
         return this.kse;
     }
 
-    public AntiData bXd() {
+    public AntiData bXe() {
         return this.ejE;
     }
 
-    public boolean cOu() {
-        return (this.kse == null || this.kse.cHI() == null) ? false : true;
+    public boolean cOv() {
+        return (this.kse == null || this.kse.cHJ() == null) ? false : true;
     }
 
     public void a(a aVar) {
@@ -409,7 +409,7 @@ public class SubPbModel extends DataModel {
         markData.setTime(date.getTime());
         markData.setHostMode(false);
         markData.setId(this.kuE);
-        markData.setFloor(postData.dhY());
+        markData.setFloor(postData.dhZ());
         return markData;
     }
 
@@ -419,10 +419,10 @@ public class SubPbModel extends DataModel {
         if (this.keK != null) {
             this.keK.unRegisterListener();
         }
-        bSz();
+        bSA();
     }
 
-    private void bSz() {
+    private void bSA() {
         if (this.hfy != null) {
             this.hfy.destory();
             this.hfy = null;
@@ -441,12 +441,12 @@ public class SubPbModel extends DataModel {
     }
 
     public void Ks(String str) {
-        if (!TextUtils.isEmpty(str) && this.kse != null && this.kse.cHM() != null) {
-            ArrayList<PostData> cHM = this.kse.cHM();
-            int size = cHM.size();
+        if (!TextUtils.isEmpty(str) && this.kse != null && this.kse.cHN() != null) {
+            ArrayList<PostData> cHN = this.kse.cHN();
+            int size = cHN.size();
             for (int i = 0; i < size; i++) {
-                if (str.equals(cHM.get(i).getId())) {
-                    cHM.remove(i);
+                if (str.equals(cHN.get(i).getId())) {
+                    cHN.remove(i);
                     this.kuN++;
                     this.kse.setTotalCount(this.kse.getTotalCount() - 1);
                     return;
@@ -455,27 +455,27 @@ public class SubPbModel extends DataModel {
         }
     }
 
-    protected int cOv() {
-        int bmK = this.kse.bmK();
-        if (bmK == 0) {
-            return bmK + 1;
+    protected int cOw() {
+        int bmL = this.kse.bmL();
+        if (bmL == 0) {
+            return bmL + 1;
         }
         if (this.eLu == 0) {
-            return bmK + 1;
+            return bmL + 1;
         }
-        if (this.eLu == 2 && this.kse.cHM().size() != 0 && this.kse.cHM().size() % this.kse.getPageSize() == 0) {
-            return bmK + 1;
+        if (this.eLu == 2 && this.kse.cHN().size() != 0 && this.kse.cHN().size() % this.kse.getPageSize() == 0) {
+            return bmL + 1;
         }
         if (this.eLu == 3 && this.kuT) {
+            return this.kse.cHL() - 1;
+        }
+        if (this.eLu == 3 && bmL > 0) {
             return this.kse.cHK() - 1;
         }
-        if (this.eLu == 3 && bmK > 0) {
-            return this.kse.cHJ() - 1;
-        }
-        return bmK;
+        return bmL;
     }
 
-    private SubPbRequestMessage cNB() {
+    private SubPbRequestMessage cNC() {
         this.isLoading = true;
         return p(null);
     }
@@ -494,7 +494,7 @@ public class SubPbModel extends DataModel {
             j2 = com.baidu.adp.lib.f.b.toLong(this.postID, 0L);
         }
         if (num == null) {
-            intValue = cOv();
+            intValue = cOw();
         } else {
             intValue = num.intValue();
         }
@@ -521,16 +521,16 @@ public class SubPbModel extends DataModel {
         return BO(0);
     }
 
-    public boolean cOw() {
+    public boolean cOx() {
         return BO(2);
     }
 
-    public void cOx() {
+    public void cOy() {
         int pageSize;
         if (this.kuN > 0 && this.kse != null && (pageSize = this.kse.getPageSize()) > 0) {
-            int bmK = this.kse.bmK();
+            int bmL = this.kse.bmL();
             for (int i = (((this.kuN + pageSize) - 1) / pageSize) - 1; i >= 0; i--) {
-                this.kuY = p(Integer.valueOf(bmK - i));
+                this.kuY = p(Integer.valueOf(bmL - i));
                 this.kuY.setTreatDelPage(true);
                 sendMessage(this.kuY);
             }
@@ -538,7 +538,7 @@ public class SubPbModel extends DataModel {
         this.kuN = 0;
     }
 
-    public boolean cOy() {
+    public boolean cOz() {
         return BO(1);
     }
 
@@ -551,18 +551,18 @@ public class SubPbModel extends DataModel {
             this.isLoading = false;
             return false;
         }
-        cOx();
+        cOy();
         this.eLu = i;
-        this.kuY = cNB();
+        this.kuY = cNC();
         sendMessage(this.kuY);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(n nVar) {
-        ArrayList<PostData> cHM = nVar.cHM();
-        if (cHM == null || cHM.size() == 0) {
-            nVar.setCurrentPage(this.kse.bmK());
+        ArrayList<PostData> cHN = nVar.cHN();
+        if (cHN == null || cHN.size() == 0) {
+            nVar.setCurrentPage(this.kse.bmL());
         }
         if (this.eLu == 1) {
             this.kse = nVar;
@@ -579,7 +579,7 @@ public class SubPbModel extends DataModel {
     public void f(n nVar) {
         if (this.eLu == 1) {
             this.kse = nVar;
-            this.kse.cHL();
+            this.kse.cHM();
         } else if (this.eLu == 2) {
             this.kse.c(nVar, true);
         } else if (this.eLu == 3) {
@@ -589,15 +589,15 @@ public class SubPbModel extends DataModel {
         }
     }
 
-    public boolean cNT() {
+    public boolean cNU() {
         return this.efN;
     }
 
-    public boolean cOz() {
+    public boolean cOA() {
         return this.kam;
     }
 
-    public boolean cOA() {
+    public boolean cOB() {
         return "hot_topic".equals(getStType());
     }
 
@@ -605,11 +605,11 @@ public class SubPbModel extends DataModel {
         this.kam = z;
     }
 
-    public int cHc() {
+    public int cHd() {
         return this.jYW;
     }
 
-    public String cOB() {
+    public String cOC() {
         return this.kuL;
     }
 
@@ -617,13 +617,13 @@ public class SubPbModel extends DataModel {
         this.kuL = str;
     }
 
-    public String cOC() {
+    public String cOD() {
         return this.kuG;
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public WriteData yy(String str) {
-        if (this.kse == null || this.kse.bfV() == null || this.kse.aPS() == null || this.kse.cHI() == null) {
+        if (this.kse == null || this.kse.bfV() == null || this.kse.aPS() == null || this.kse.cHJ() == null) {
             return null;
         }
         WriteData writeData = new WriteData();
@@ -631,7 +631,7 @@ public class SubPbModel extends DataModel {
         writeData.setForumName(this.kse.bfV().getName());
         writeData.setForumId(this.kse.bfV().getId());
         writeData.setFromForumId(this.kuJ);
-        writeData.setFloor(this.kse.cHI().getId());
+        writeData.setFloor(this.kse.cHJ().getId());
         writeData.setType(2);
         writeData.setThreadId(this.kse.aPS().getId());
         writeData.setFloorNum(0);
@@ -640,11 +640,11 @@ public class SubPbModel extends DataModel {
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public boolean bfv() {
-        cOw();
+        cOx();
         return true;
     }
 
-    public boolean cOD() {
+    public boolean cOE() {
         return this.kuX;
     }
 
@@ -656,23 +656,23 @@ public class SubPbModel extends DataModel {
         this.ksh = aVar;
     }
 
-    public SmallTailInfo cOE() {
+    public SmallTailInfo cOF() {
         return this.kuS;
     }
 
-    public boolean cOF() {
+    public boolean cOG() {
         return this.kuQ;
     }
 
-    public ConcurrentHashMap<String, ImageUrlData> cOG() {
+    public ConcurrentHashMap<String, ImageUrlData> cOH() {
         return this.kuV;
     }
 
-    public ArrayList<String> cOH() {
+    public ArrayList<String> cOI() {
         return this.kuU;
     }
 
-    public boolean cOI() {
+    public boolean cOJ() {
         return this.kuW;
     }
 
@@ -684,7 +684,7 @@ public class SubPbModel extends DataModel {
         return this.kuI;
     }
 
-    public AttentionHostData cOJ() {
+    public AttentionHostData cOK() {
         if (this.kuP == null) {
             this.kuP = new AttentionHostData();
             if (this.kse != null && this.kse.aPS() != null && this.kse.aPS().aSp() != null) {
@@ -694,15 +694,15 @@ public class SubPbModel extends DataModel {
         return this.kuP;
     }
 
-    public boolean cKR() {
+    public boolean cKS() {
         return this.pageFromType == 13 || this.pageFromType == 12;
     }
 
-    public int cOK() {
+    public int cOL() {
         return this.pageFromType;
     }
 
-    public String cJY() {
+    public String cJZ() {
         return this.kuH;
     }
 }

@@ -177,6 +177,6 @@ public class CriusTbClipImageView extends TbClipImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView
     public void oi(int i) {
-        bjE();
+        bjF();
     }
 }

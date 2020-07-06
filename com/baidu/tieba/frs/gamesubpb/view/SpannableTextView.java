@@ -57,7 +57,7 @@ public class SpannableTextView extends TextView {
 
     public void f(d dVar) {
         setText(g(dVar));
-        setMovementMethod(a.ccQ());
+        setMovementMethod(a.ccR());
     }
 
     public void setClickListener(a.InterfaceC0624a interfaceC0624a) {
@@ -228,7 +228,7 @@ public class SpannableTextView extends TextView {
             return Touch.onTouchEvent(textView, spannable, motionEvent);
         }
 
-        public static a ccQ() {
+        public static a ccR() {
             if (hRB == null) {
                 hRB = new a();
             }

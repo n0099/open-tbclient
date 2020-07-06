@@ -86,9 +86,9 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
             return;
         }
         if (this.mHasMore) {
-            this.kPk.buI();
-        } else {
             this.kPk.buJ();
+        } else {
+            this.kPk.buK();
         }
         setData(this.kNc.threadList);
     }
@@ -103,7 +103,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void d(User user) {
         this.kPm = user;
-        chR();
+        chS();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -118,10 +118,10 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        chR();
+        chS();
     }
 
-    private void chR() {
+    private void chS() {
         if (isAdded() && isPrimary() && this.kPm != null && !this.mHasInit) {
             this.mHasInit = true;
             tt(true);
@@ -166,7 +166,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
                     showLoadingView(this.kPk.getRootView(), false, getResources().getDimensionPixelSize(R.dimen.ds250));
                 }
                 tv(true);
-                bXG();
+                bXH();
                 return;
             }
             showNetRefreshView(this.kPk.getRootView(), null, false);
@@ -187,9 +187,9 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         tt(true);
     }
 
-    public void bXG() {
+    public void bXH() {
         if (this.kPk != null && this.mHasInit) {
-            this.kPk.bXG();
+            this.kPk.bXH();
         }
     }
 
@@ -227,12 +227,12 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public com.baidu.tieba.personPolymeric.tab.view.a cUo() {
+    public com.baidu.tieba.personPolymeric.tab.view.a cUp() {
         return this.kPk;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public List<q> cky() {
+    public List<q> ckz() {
         if (this.kNc != null) {
             return this.kNc.threadList;
         }
@@ -240,7 +240,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public boolean cUp() {
+    public boolean cUq() {
         return this.isHost && isPrimary() && !this.kPn;
     }
 }

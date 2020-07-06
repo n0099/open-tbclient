@@ -94,10 +94,10 @@ public class GroupActivityStatic {
         c.b(CmdConfigSocket.CMD_REQUEST_GROUP_INFO_BY_ID, ResponseGroupInfoMessage.class, false);
         c.b(CmdConfigCustom.CMD_REQUEST_GROUP_INFO_BY_ID_LOCAL, h.class);
         c.b(CmdConfigCustom.CMD_REQUEST_GROUP_ACTIVITY_BY_ID_LOCAL, d.class);
-        chz();
         chA();
         chB();
         chC();
+        chD();
         MessageManager.getInstance().registerListener(CmdConfigSocket.CMD_REQUEST_GROUP_INFO_BY_ID, new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.group.GroupActivityStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -138,7 +138,7 @@ public class GroupActivityStatic {
         });
     }
 
-    private static void chz() {
+    private static void chA() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IM_APPLE_JOIN_GROUP_ACTIVITY_START, new CustomMessageTask.CustomRunnable<ApplyJoinGroupActivityConfig>() { // from class: com.baidu.tieba.group.GroupActivityStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ApplyJoinGroupActivityConfig> customMessage) {
@@ -152,8 +152,8 @@ public class GroupActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void chA() {
-        ah.bZY().uM(4);
+    private static void chB() {
+        ah.bZZ().uM(4);
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_ADAPTER) { // from class: com.baidu.tieba.group.GroupActivityStatic.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -179,7 +179,7 @@ public class GroupActivityStatic {
         });
     }
 
-    private static void chB() {
+    private static void chC() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START, new CustomMessageTask.CustomRunnable<GroupInfoActivityConfig>() { // from class: com.baidu.tieba.group.GroupActivityStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<GroupInfoActivityConfig> customMessage) {
@@ -198,7 +198,7 @@ public class GroupActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void chC() {
+    private static void chD() {
         bc.aWU().a(new bc.a() { // from class: com.baidu.tieba.group.GroupActivityStatic.7
             @Override // com.baidu.tbadk.core.util.bc.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {

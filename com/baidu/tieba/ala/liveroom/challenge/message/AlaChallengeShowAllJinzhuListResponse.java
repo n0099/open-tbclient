@@ -42,7 +42,7 @@ public class AlaChallengeShowAllJinzhuListResponse extends JsonHttpResponsedMess
         return this.fZp;
     }
 
-    public int bmK() {
+    public int bmL() {
         return this.aLb;
     }
 

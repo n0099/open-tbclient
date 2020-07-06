@@ -645,7 +645,7 @@ public final class a {
         public static final int title_text = 2131690380;
 
         /* renamed from: top  reason: collision with root package name */
-        public static final int f984top = 2131689833;
+        public static final int f985top = 2131689833;
         public static final int topPanel = 2131690081;
         public static final int transverse_divider_line = 2131695830;
         public static final int tv_pose_tip = 2131695716;

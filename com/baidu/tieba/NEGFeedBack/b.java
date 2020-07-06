@@ -79,11 +79,11 @@ public class b {
             this.eTH = new LinearLayout(this.mPageContext.getPageActivity());
             this.eTH.setOrientation(1);
         }
-        List<List<a>> bnl = bnl();
-        if (w.isEmpty(bnl)) {
+        List<List<a>> bnm = bnm();
+        if (w.isEmpty(bnm)) {
             return null;
         }
-        int size = bnl.size();
+        int size = bnm.size();
         if (this.eTK == null) {
             this.eTK = new HashMap<>();
         } else {
@@ -91,7 +91,7 @@ public class b {
         }
         int i = 0;
         while (i < size) {
-            View a2 = a(bnl.get(i), i == size + (-1), this.eTH.getChildAt(i));
+            View a2 = a(bnm.get(i), i == size + (-1), this.eTH.getChildAt(i));
             if (a2 != null && a2.getParent() == null) {
                 this.eTH.addView(a2);
             }
@@ -103,12 +103,12 @@ public class b {
         return this.eTH;
     }
 
-    private List<List<a>> bnl() {
+    private List<List<a>> bnm() {
         int i;
         int i2;
         int i3 = -1;
         if (this.eTF == null || this.eTF.size() == 0) {
-            return bnm();
+            return bnn();
         }
         int size = this.eTF.size();
         int i4 = this.eTE ? 0 : -1;
@@ -137,7 +137,7 @@ public class b {
         return arrayList;
     }
 
-    private List<List<a>> bnm() {
+    private List<List<a>> bnn() {
         if (this.eTG == null || this.eTG.length <= 0) {
             return null;
         }
@@ -266,11 +266,11 @@ public class b {
             this.eTH = new LinearLayout(this.mPageContext.getPageActivity());
             this.eTH.setOrientation(1);
         }
-        List<List<a>> bno = bno();
-        if (w.isEmpty(bno)) {
+        List<List<a>> bnp = bnp();
+        if (w.isEmpty(bnp)) {
             return null;
         }
-        int size = bno.size();
+        int size = bnp.size();
         if (this.eTK == null) {
             this.eTK = new HashMap<>();
         } else {
@@ -278,7 +278,7 @@ public class b {
         }
         int i = 0;
         while (i < size) {
-            View b = b(bno.get(i), i == size + (-1), this.eTH.getChildAt(i));
+            View b = b(bnp.get(i), i == size + (-1), this.eTH.getChildAt(i));
             if (b != null && b.getParent() == null) {
                 this.eTH.addView(b);
             }
@@ -290,7 +290,7 @@ public class b {
         return this.eTH;
     }
 
-    private List<List<a>> bnn() {
+    private List<List<a>> bno() {
         if (this.eTG == null || this.eTG.length <= 0) {
             return null;
         }
@@ -310,9 +310,9 @@ public class b {
         return arrayList;
     }
 
-    private List<List<a>> bno() {
+    private List<List<a>> bnp() {
         if (this.eTF == null || this.eTF.size() == 0) {
-            return bnn();
+            return bno();
         }
         int size = this.eTF.size();
         ArrayList arrayList = new ArrayList();

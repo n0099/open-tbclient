@@ -13,7 +13,7 @@ public class b implements q {
         return hvD;
     }
 
-    public int bWt() {
+    public int bWu() {
         return this.hvE;
     }
 

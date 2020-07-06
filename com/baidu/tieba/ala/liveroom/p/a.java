@@ -48,7 +48,7 @@ public class a extends Dialog implements View.OnClickListener {
 
         void Di(String str);
 
-        void bIY();
+        void bIZ();
 
         void onCancel();
     }
@@ -83,7 +83,7 @@ public class a extends Dialog implements View.OnClickListener {
         if (this.gpH != null) {
             if (view == this.gpB) {
                 if (this.gpG != null && this.gpG.user_info != null) {
-                    if (bIS()) {
+                    if (bIT()) {
                         TiebaInitialize.log("c12271");
                         a(new InterfaceC0577a() { // from class: com.baidu.tieba.ala.liveroom.p.a.1
                             @Override // com.baidu.tieba.ala.liveroom.p.a.InterfaceC0577a
@@ -109,7 +109,7 @@ public class a extends Dialog implements View.OnClickListener {
                 }
             } else if (view == this.gpC) {
                 if (this.gpG != null && this.gpG.user_info != null) {
-                    if (bIR()) {
+                    if (bIS()) {
                         TiebaInitialize.log("c12271");
                         a(new InterfaceC0577a() { // from class: com.baidu.tieba.ala.liveroom.p.a.3
                             @Override // com.baidu.tieba.ala.liveroom.p.a.InterfaceC0577a
@@ -135,7 +135,7 @@ public class a extends Dialog implements View.OnClickListener {
                 }
             } else if (view == this.gpD) {
                 if (this.gpG != null && this.gpG.login_user_info != null) {
-                    if (bIT()) {
+                    if (bIU()) {
                         TiebaInitialize.log("c12270");
                         a(new InterfaceC0577a() { // from class: com.baidu.tieba.ala.liveroom.p.a.5
                             @Override // com.baidu.tieba.ala.liveroom.p.a.InterfaceC0577a
@@ -146,7 +146,7 @@ public class a extends Dialog implements View.OnClickListener {
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.i.ala_person_appoint_admin_confirm_tip), this.gpG.user_info.getNameShow()));
-                    } else if (bIU()) {
+                    } else if (bIV()) {
                         TiebaInitialize.log("c12272");
                         a(new InterfaceC0577a() { // from class: com.baidu.tieba.ala.liveroom.p.a.6
                             @Override // com.baidu.tieba.ala.liveroom.p.a.InterfaceC0577a
@@ -157,14 +157,14 @@ public class a extends Dialog implements View.OnClickListener {
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.i.ala_person_fire_admin_confirm_tip), this.gpG.user_info.getNameShow()));
-                    } else if (bIV()) {
+                    } else if (bIW()) {
                         TiebaInitialize.log("c12269");
                         a(new InterfaceC0577a() { // from class: com.baidu.tieba.ala.liveroom.p.a.7
                             @Override // com.baidu.tieba.ala.liveroom.p.a.InterfaceC0577a
                             public void onConfirm() {
                                 if (a.this.gpG != null && a.this.gpG.login_user_info != null) {
                                     a.this.gpG.login_user_info.is_live_admin = 0;
-                                    a.this.gpH.bIY();
+                                    a.this.gpH.bIZ();
                                 }
                             }
                         }, getContext().getResources().getString(a.i.ala_person_resign_admin_confirm_tip));
@@ -210,13 +210,13 @@ public class a extends Dialog implements View.OnClickListener {
         this.gpG = personUserData;
         this.aVc = z;
         this.aVd = str;
-        if (bIW() || bIX()) {
+        if (bIX() || bIY()) {
             rW(8);
             rX(8);
-        } else if (bIR()) {
+        } else if (bIS()) {
             rW(8);
             this.gpC.setText(a.i.ala_person_relieve_forbidden_forever);
-        } else if (bIS()) {
+        } else if (bIT()) {
             rW(0);
             this.gpB.setText(a.i.ala_person_relieve_forbidden_this);
             this.gpC.setText(a.i.ala_person_forbid_forever);
@@ -225,14 +225,14 @@ public class a extends Dialog implements View.OnClickListener {
             this.gpB.setText(a.i.ala_person_forbid_this);
             this.gpC.setText(a.i.ala_person_forbid_forever);
         }
-        if (bIQ()) {
+        if (bIR()) {
             this.gpD.setVisibility(8);
             this.gpF.setVisibility(8);
-        } else if (bIU()) {
+        } else if (bIV()) {
             this.gpD.setText(a.i.ala_person_fire_admin);
-        } else if (bIT()) {
+        } else if (bIU()) {
             this.gpD.setText(a.i.ala_person_appoint_admin);
-        } else if (bIW() && bIV()) {
+        } else if (bIX() && bIW()) {
             this.gpD.setText(a.i.ala_person_resign_admin);
         } else {
             this.gpD.setVisibility(8);
@@ -244,35 +244,35 @@ public class a extends Dialog implements View.OnClickListener {
         this.gpH = bVar;
     }
 
-    private boolean bIQ() {
+    private boolean bIR() {
         return (this.gpG == null || this.gpG.user_info == null || this.gpG.user_info.is_block <= 0) ? false : true;
     }
 
-    private boolean bIR() {
+    private boolean bIS() {
         return (this.gpG == null || this.gpG.user_info == null || this.gpG.user_info.is_block != 2) ? false : true;
     }
 
-    private boolean bIS() {
+    private boolean bIT() {
         return (this.gpG == null || this.gpG.user_info == null || this.gpG.user_info.is_block != 1) ? false : true;
     }
 
-    private boolean bIT() {
+    private boolean bIU() {
         return this.gpG != null && this.gpG.user_info != null && this.aVc && this.gpG.user_info.is_live_admin == 0;
     }
 
-    private boolean bIU() {
+    private boolean bIV() {
         return this.gpG != null && this.gpG.user_info != null && this.aVc && this.gpG.user_info.is_live_admin == 1;
     }
 
-    private boolean bIV() {
+    private boolean bIW() {
         return (this.gpG == null || this.gpG.login_user_info == null || this.aVc || this.gpG.login_user_info.is_live_admin != 1) ? false : true;
     }
 
-    private boolean bIW() {
+    private boolean bIX() {
         return (this.gpG == null || this.gpG.user_info == null || TextUtils.isEmpty(this.aVd) || !this.aVd.equals(this.gpG.user_info.user_id)) ? false : true;
     }
 
-    private boolean bIX() {
+    private boolean bIY() {
         return (this.gpG == null || this.gpG.user_info == null || this.gpG.user_info.is_live_admin != 1) ? false : true;
     }
 

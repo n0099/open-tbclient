@@ -4,7 +4,7 @@ public final class a {
 
     /* renamed from: tv.chushou.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C0927a {
+    public static final class C0928a {
         public static final int abc_background_cache_hint_selector_material_dark = 2131561407;
         public static final int abc_background_cache_hint_selector_material_light = 2131561408;
         public static final int abc_btn_colored_borderless_text_material = 2131561409;
@@ -1743,7 +1743,7 @@ public final class a {
         public static final int commit_good_layout = 2131693232;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f1300common = 2131689901;
+        public static final int f1301common = 2131689901;
         public static final int common_loading_view = 2131696035;
         public static final int common_progress = 2131693247;
         public static final int common_tab_content = 2131693245;
@@ -3395,7 +3395,7 @@ public final class a {
         public static final int toolbar = 2131694185;
 
         /* renamed from: top  reason: collision with root package name */
-        public static final int f1301top = 2131689833;
+        public static final int f1302top = 2131689833;
         public static final int topDvider = 2131694169;
         public static final int topKeyboardView = 2131698824;
         public static final int topPanel = 2131690081;

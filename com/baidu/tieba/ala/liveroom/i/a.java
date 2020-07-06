@@ -26,9 +26,9 @@ public class a extends Dialog implements View.OnClickListener {
     /* renamed from: com.baidu.tieba.ala.liveroom.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0572a {
-        void bEt();
-
         void bEu();
+
+        void bEv();
     }
 
     public a(Context context) {
@@ -69,13 +69,13 @@ public class a extends Dialog implements View.OnClickListener {
     public void onClick(View view) {
         if (view == this.ghc) {
             if (this.ghd != null) {
-                this.ghd.bEu();
+                this.ghd.bEv();
             }
             dismiss();
             LogManager.getFeedDiversionLogger().doClickGuideFloatDialogLog(this.roomId + "", this.ghh, this.ghi);
         } else if (view == this.mClose) {
             if (this.ghd != null) {
-                this.ghd.bEt();
+                this.ghd.bEu();
             }
             dismiss();
             LogManager.getFeedDiversionLogger().doCloseGuideFloatDialogLog(this.roomId + "", this.ghi);

@@ -348,7 +348,7 @@ public class a {
         }
         c a = g.a(downloadStaticsData, 101, 0);
         a.fm(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, "start");
-        d.cZQ().a(a);
+        d.cZR().a(a);
         if (downloadStaticsData != null && "1".equals(downloadStaticsData.getDa_range_nt())) {
             downloadStaticsData.setDa_range_nt("0");
         }
@@ -379,7 +379,7 @@ public class a {
                 return;
             }
             a.fm(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, str2);
-            d.cZQ().a(a);
+            d.cZR().a(a);
         }
     }
 
@@ -389,7 +389,7 @@ public class a {
             c a = g.a(downloadStaticsData, 101, 0);
             a.setDownloadStaticsData(null);
             a.fm(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, "delete");
-            d.cZQ().a(a);
+            d.cZR().a(a);
         }
     }
 

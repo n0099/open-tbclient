@@ -70,7 +70,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                     }
                 }
                 if (PbHistoryActivity.this.jMM) {
-                    PbHistoryActivity.this.cDL();
+                    PbHistoryActivity.this.cDM();
                     PbHistoryActivity.this.dW(PbHistoryActivity.this.aCA);
                     return;
                 }
@@ -98,7 +98,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                 if (httpResponsedMessage instanceof AlaMGetLiveStatusHttpResponseMessage) {
                     PbHistoryActivity.this.closeLives = ((AlaMGetLiveStatusHttpResponseMessage) httpResponsedMessage).getCloseLives();
                 }
-                PbHistoryActivity.this.cDL();
+                PbHistoryActivity.this.cDM();
                 PbHistoryActivity.this.dW(PbHistoryActivity.this.aCA);
             }
         }
@@ -188,7 +188,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                         }
                         l.showToast(PbHistoryActivity.this.getPageContext().getPageActivity(), (int) R.string.manga_plugin_not_install_tip);
                     } else {
-                        PbActivityConfig createHistoryCfg = new PbActivityConfig(PbHistoryActivity.this.getPageContext().getPageActivity()).createHistoryCfg(aVar.getThreadId(), aVar.bfw(), aVar.cDI(), aVar.cDJ(), null);
+                        PbActivityConfig createHistoryCfg = new PbActivityConfig(PbHistoryActivity.this.getPageContext().getPageActivity()).createHistoryCfg(aVar.getThreadId(), aVar.bfw(), aVar.cDJ(), aVar.cDK(), null);
                         createHistoryCfg.setStartFrom(11);
                         createHistoryCfg.setIsShareThread(aVar.isShareThread());
                         PbHistoryActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createHistoryCfg));
@@ -207,7 +207,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cDL() {
+    public void cDM() {
         if (!w.isEmpty(this.closeLives) && !w.isEmpty(this.aCA)) {
             for (com.baidu.tieba.myCollection.baseHistory.a aVar : this.aCA) {
                 if (!StringUtils.isNull(aVar.getLiveId()) && Long.valueOf(aVar.getLiveId()).longValue() != 0) {

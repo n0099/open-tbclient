@@ -173,24 +173,24 @@ public class d extends ProxyAdkBaseActivity<d> {
         this.lAL.a(this.egK);
     }
 
-    private void dgx() {
-        ForumInfoData[] dgw = this.lAL.dgw();
-        for (int i = 0; i < dgw.length; i++) {
-            int hasLikeForum = TbadkCoreApplication.getInst().hasLikeForum(dgw[i].forum_name);
+    private void dgy() {
+        ForumInfoData[] dgx = this.lAL.dgx();
+        for (int i = 0; i < dgx.length; i++) {
+            int hasLikeForum = TbadkCoreApplication.getInst().hasLikeForum(dgx[i].forum_name);
             if (hasLikeForum == 1) {
-                dgw[i].is_like = 1;
+                dgx[i].is_like = 1;
             } else if (hasLikeForum == -1) {
-                dgw[i].is_like = 0;
+                dgx[i].is_like = 0;
             }
         }
-        this.lAL.a(dgw);
+        this.lAL.a(dgx);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onResume() {
         super.onResume();
-        dgx();
+        dgy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

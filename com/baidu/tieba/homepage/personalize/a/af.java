@@ -71,7 +71,7 @@ public class af {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                af.this.cjS();
+                af.this.cjT();
                 if (af.this.itJ != null) {
                     af.this.bN(af.this.itJ);
                 }
@@ -196,23 +196,23 @@ public class af {
         this.ilw.add(this.iul);
         this.ilw.add(this.iua);
         this.ilw.add(this.ium);
+        cjS();
         cjR();
-        cjQ();
         Ae("page_recommend");
     }
 
-    private void cjQ() {
+    private void cjR() {
         if (!bu.dLW.get()) {
             AdvertAppInfo.dGJ.set(false);
             return;
         }
-        this.iun = com.baidu.tieba.recapp.q.cYS().c(this.mPageContext, AdvertAppInfo.dGA);
-        this.iuo = com.baidu.tieba.recapp.q.cYS().c(this.mPageContext, AdvertAppInfo.dGD);
-        this.iup = com.baidu.tieba.recapp.q.cYS().c(this.mPageContext, AdvertAppInfo.dGE);
-        this.iuq = com.baidu.tieba.recapp.q.cYS().c(this.mPageContext, AdvertAppInfo.dGF);
-        this.iur = com.baidu.tieba.recapp.q.cYS().c(this.mPageContext, AdvertAppInfo.dGG);
-        this.ius = com.baidu.tieba.recapp.q.cYS().c(this.mPageContext, AdvertAppInfo.dGI);
-        this.iut = com.baidu.tieba.recapp.q.cYS().c(this.mPageContext, AdvertAppInfo.dGH);
+        this.iun = com.baidu.tieba.recapp.q.cYT().c(this.mPageContext, AdvertAppInfo.dGA);
+        this.iuo = com.baidu.tieba.recapp.q.cYT().c(this.mPageContext, AdvertAppInfo.dGD);
+        this.iup = com.baidu.tieba.recapp.q.cYT().c(this.mPageContext, AdvertAppInfo.dGE);
+        this.iuq = com.baidu.tieba.recapp.q.cYT().c(this.mPageContext, AdvertAppInfo.dGF);
+        this.iur = com.baidu.tieba.recapp.q.cYT().c(this.mPageContext, AdvertAppInfo.dGG);
+        this.ius = com.baidu.tieba.recapp.q.cYT().c(this.mPageContext, AdvertAppInfo.dGI);
+        this.iut = com.baidu.tieba.recapp.q.cYT().c(this.mPageContext, AdvertAppInfo.dGH);
         this.ilw.add(this.iun);
         this.ilw.add(this.iuo);
         this.ilw.add(this.iup);
@@ -439,21 +439,21 @@ public class af {
         }
     }
 
-    private void cjR() {
-        this.iuv = cjS();
+    private void cjS() {
+        this.iuv = cjT();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cjS() {
+    public boolean cjT() {
         if (this.hTh == null || this.hTh.size() <= 0) {
             this.hTh = new ArrayList();
-            ArrayList<BdUniqueId> dhp = com.baidu.tieba.tbadkCore.t.dhp();
-            if (dhp == null || dhp.size() <= 0) {
+            ArrayList<BdUniqueId> dhq = com.baidu.tieba.tbadkCore.t.dhq();
+            if (dhq == null || dhq.size() <= 0) {
                 return false;
             }
-            int size = dhp.size();
+            int size = dhq.size();
             for (int i = 0; i < size; i++) {
-                com.baidu.tieba.lego.card.a.a a = com.baidu.tieba.lego.d.b.cyD().a(this.mPageContext, dhp.get(i), 2);
+                com.baidu.tieba.lego.card.a.a a = com.baidu.tieba.lego.d.b.cyE().a(this.mPageContext, dhq.get(i), 2);
                 if (this.iuu) {
                     a.setBusinessType(3);
                 }

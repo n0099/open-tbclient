@@ -40,11 +40,11 @@ public class b implements q {
         }
     }
 
-    public int cgR() {
+    public int cgS() {
         return this.gUb;
     }
 
-    public List<a> cgS() {
+    public List<a> cgT() {
         return this.fNt;
     }
 

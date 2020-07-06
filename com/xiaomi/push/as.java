@@ -7,13 +7,13 @@ class as implements ar {
     private Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Class<?> f116a;
+    private Class<?> f117a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Object f117a;
+    private Object f118a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Method f118a = null;
+    private Method f119a = null;
     private Method b = null;
     private Method c = null;
     private Method d = null;
@@ -24,9 +24,9 @@ class as implements ar {
     }
 
     private String a(Context context, Method method) {
-        if (this.f117a != null && method != null) {
+        if (this.f118a != null && method != null) {
             try {
-                Object invoke = method.invoke(this.f117a, context);
+                Object invoke = method.invoke(this.f118a, context);
                 if (invoke != null) {
                     return (String) invoke;
                 }
@@ -39,12 +39,12 @@ class as implements ar {
 
     private void a(Context context) {
         try {
-            this.f116a = t.a(context, "com.android.id.impl.IdProviderImpl");
-            this.f117a = this.f116a.newInstance();
-            this.f118a = this.f116a.getMethod("getUDID", Context.class);
-            this.b = this.f116a.getMethod("getOAID", Context.class);
-            this.c = this.f116a.getMethod("getVAID", Context.class);
-            this.d = this.f116a.getMethod("getAAID", Context.class);
+            this.f117a = t.a(context, "com.android.id.impl.IdProviderImpl");
+            this.f118a = this.f117a.newInstance();
+            this.f119a = this.f117a.getMethod("getUDID", Context.class);
+            this.b = this.f117a.getMethod("getOAID", Context.class);
+            this.c = this.f117a.getMethod("getVAID", Context.class);
+            this.d = this.f117a.getMethod("getAAID", Context.class);
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a("miui load class error", e);
         }
@@ -57,12 +57,12 @@ class as implements ar {
 
     @Override // com.xiaomi.push.ar
     public String a() {
-        return a(this.a, this.f118a);
+        return a(this.a, this.f119a);
     }
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return (this.f116a == null || this.f117a == null) ? false : true;
+        return (this.f117a == null || this.f118a == null) ? false : true;
     }
 
     @Override // com.xiaomi.push.ar

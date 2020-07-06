@@ -34,32 +34,32 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         if (getIntent() == null) {
             finish();
         }
-        bKP();
+        bKQ();
         if (this.mForumId <= 0 || TextUtils.isEmpty(this.hQw)) {
             finish();
         }
-        bzx();
+        bzy();
         this.hQr = new com.baidu.tieba.frs.gamesubpb.view.a(this, this.aLl, this.hQw);
         setContentView(this.hQr.getRootView());
-        this.hQs = new c(this, this.hQr.getListView(), this.hQr.bwV());
-        this.hQs.ccE();
+        this.hQs = new c(this, this.hQr.getListView(), this.hQr.bwW());
+        this.hQs.ccF();
         this.hQs.a(new c.a() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.1
             private boolean hQx = false;
 
             @Override // com.baidu.tieba.frs.gamesubpb.c.a
-            public void ccA() {
+            public void ccB() {
                 FrsGameSubPbActivity.this.hQr.nJ(false);
                 this.hQx = true;
             }
 
             @Override // com.baidu.tieba.frs.gamesubpb.c.a
-            public void ccB() {
+            public void ccC() {
             }
 
             @Override // com.baidu.tieba.frs.gamesubpb.c.a
-            public boolean ccC() {
+            public boolean ccD() {
                 if (!this.hQx) {
-                    return FrsGameSubPbActivity.this.hQr.bSe() != null && FrsGameSubPbActivity.this.hQr.bSe().getTop() == 0;
+                    return FrsGameSubPbActivity.this.hQr.bSf() != null && FrsGameSubPbActivity.this.hQr.bSf().getTop() == 0;
                 }
                 this.hQx = false;
                 return false;
@@ -79,7 +79,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         this.hQt.a(new a.InterfaceC0625a() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.3
             @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0625a
             public void a(boolean z, int i, String str, boolean z2, boolean z3, com.baidu.tieba.frs.gamesubpb.model.b bVar, List<q> list) {
-                if (FrsGameSubPbActivity.this.hQs != null && FrsGameSubPbActivity.this.hQs.ccF()) {
+                if (FrsGameSubPbActivity.this.hQs != null && FrsGameSubPbActivity.this.hQs.ccG()) {
                     FrsGameSubPbActivity.this.hQs.vq(R.color.cp_bg_line_k_alpha10_1);
                 }
                 if (z) {
@@ -100,7 +100,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                     }
                     frsGameSubPbActivity.showNetRefreshView(rootView, str, false);
                     if (FrsGameSubPbActivity.this.hQs != null) {
-                        FrsGameSubPbActivity.this.hQs.ccD();
+                        FrsGameSubPbActivity.this.hQs.ccE();
                     }
                 }
             }
@@ -124,13 +124,13 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         this.hQt.jJ(false);
     }
 
-    private void bzx() {
+    private void bzy() {
         this.aLl = new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if ((view != null || FrsGameSubPbActivity.this.hQr != null) && view == FrsGameSubPbActivity.this.hQr.ccP() && FrsGameSubPbActivity.this.checkUpIsLogin()) {
+                if ((view != null || FrsGameSubPbActivity.this.hQr != null) && view == FrsGameSubPbActivity.this.hQr.ccQ() && FrsGameSubPbActivity.this.checkUpIsLogin()) {
                     if (FrsGameSubPbActivity.this.hQs != null) {
-                        FrsGameSubPbActivity.this.hQs.ccD();
+                        FrsGameSubPbActivity.this.hQs.ccE();
                     }
                     FrsGameSubPbActivity.this.hQr.Fo(null);
                 }
@@ -138,7 +138,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         };
     }
 
-    private void bKP() {
+    private void bKQ() {
         Intent intent = getIntent();
         this.mForumId = intent.getIntExtra(FrsGameSubPbActivityConfig.ARG_FORUM_ID, -1);
         this.hQw = intent.getStringExtra(FrsGameSubPbActivityConfig.ARG_MAIN_TOWER_ID);

@@ -23,8 +23,8 @@ public class BdTopToast extends LinearLayout {
     private Runnable mHideRunnable;
     private ImageView mIconView;
     private View mStatusBarView;
-    private BottomShadowLinearLayout mhm;
-    private boolean mhn;
+    private BottomShadowLinearLayout mhp;
+    private boolean mhq;
 
     public BdTopToast(Context context) {
         this(context, null);
@@ -46,7 +46,7 @@ public class BdTopToast extends LinearLayout {
             addView(this.mStatusBarView, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
         }
         LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
-        this.mhm = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
+        this.mhp = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
         this.mIconView = (ImageView) findViewById(R.id.bd_top_toast_icon);
         this.cbI = (TextView) findViewById(R.id.bd_top_toast_content);
         initAnimation();
@@ -81,11 +81,11 @@ public class BdTopToast extends LinearLayout {
     }
 
     public BdTopToast vz(boolean z) {
-        this.mhn = z;
+        this.mhq = z;
         return this;
     }
 
-    public BdTopToast OI(String str) {
+    public BdTopToast OJ(String str) {
         this.cbI.setText(str);
         return this;
     }
@@ -117,13 +117,13 @@ public class BdTopToast extends LinearLayout {
 
     public void onChangeSkinType() {
         an.setBackgroundColor(this.mStatusBarView, R.color.cp_bg_line_h);
-        if (this.mhn) {
+        if (this.mhq) {
             SvgManager.aWQ().a(this.mIconView, R.drawable.ic_icon_pure_succeed_use_n, (SvgManager.SvgResourceStateType) null);
             an.setViewTextColor(this.cbI, (int) R.color.cp_link_tip_a);
         } else {
             SvgManager.aWQ().a(this.mIconView, R.drawable.ic_icon_pure_defeated_use_n, (SvgManager.SvgResourceStateType) null);
             an.setViewTextColor(this.cbI, (int) R.color.cp_cont_h);
         }
-        this.mhm.onChangeSkinType();
+        this.mhp.onChangeSkinType();
     }
 }

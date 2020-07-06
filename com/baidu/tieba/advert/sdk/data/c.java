@@ -10,7 +10,7 @@ public class c {
     public c(Context context) {
     }
 
-    public String bqd() {
+    public String bqe() {
         return this.mSharedPreferences.getString("splash", "");
     }
 

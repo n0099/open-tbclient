@@ -57,7 +57,7 @@ public class c extends b {
     public void a(e eVar) {
         if (eVar != null) {
             this.dQf = eVar.aRi();
-            byT();
+            byU();
             notifyDataSetChanged();
         }
     }
@@ -106,7 +106,7 @@ public class c extends b {
                     aVar.fBh.setVisibility(0);
                     aVar.fBh.setText(aVar2.intro);
                 }
-                b(aVar.aTj, aVar2.byS(), i);
+                b(aVar.aTj, aVar2.byT(), i);
             }
         }
         return view;

@@ -24,7 +24,7 @@ public class k {
         }
     }
 
-    public ArrayList<j> bRy() {
+    public ArrayList<j> bRz() {
         return this.hbT;
     }
 
@@ -39,7 +39,7 @@ public class k {
         while (it.hasNext()) {
             j next = it.next();
             if (jVar.a(next)) {
-                return jVar.bRw() > next.bRw();
+                return jVar.bRx() > next.bRx();
             }
         }
         return true;

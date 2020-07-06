@@ -85,7 +85,7 @@ public class b {
 
     public void d(AlaLastLiveroomInfo alaLastLiveroomInfo) {
         if (alaLastLiveroomInfo != null) {
-            bCn();
+            bCo();
             this.fYj.startLoad(alaLastLiveroomInfo.getLastAnchorPortrait(), 10, false);
             this.mLastLiveId = alaLastLiveroomInfo.getLastLiveId();
         }
@@ -132,7 +132,7 @@ public class b {
         this.mValueAnimator.start();
     }
 
-    private void bCn() {
+    private void bCo() {
         if (this.fYj != null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fYj.getLayoutParams();
             if (Build.VERSION.SDK_INT >= 17) {
@@ -143,7 +143,7 @@ public class b {
         }
     }
 
-    public void bCo() {
+    public void bCp() {
         if (this.mLastLiveId > 0 && this.mContext != null) {
             AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(this.mContext.getPageActivity());
             alaLiveRoomActivityConfig.addExtraByLiveId(this.mLastLiveId, "", AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_SDK);
@@ -159,7 +159,7 @@ public class b {
         release();
     }
 
-    private RelativeLayout.LayoutParams bCp() {
+    private RelativeLayout.LayoutParams bCq() {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(12);
         layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds204);
@@ -168,7 +168,7 @@ public class b {
 
     public void as(ViewGroup viewGroup) {
         if (this.mView != null && viewGroup != null && this.mView.getParent() == null) {
-            viewGroup.addView(this.mView, bCp());
+            viewGroup.addView(this.mView, bCq());
             if (UtilHelper.getRealScreenOrientation(this.mContext.getPageActivity()) == 2) {
                 hide();
             } else {
@@ -181,7 +181,7 @@ public class b {
         }
     }
 
-    public void bCq() {
+    public void bCr() {
         release();
     }
 
@@ -197,7 +197,7 @@ public class b {
         }
     }
 
-    public void bCr() {
+    public void bCs() {
         if (this.mValueAnimator != null && this.mValueAnimator.isRunning()) {
             this.mValueAnimator.cancel();
         }

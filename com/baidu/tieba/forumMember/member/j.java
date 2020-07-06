@@ -14,7 +14,7 @@ public class j implements com.baidu.adp.widget.ListView.q {
         return hwa;
     }
 
-    public u bWw() {
+    public u bWx() {
         return this.hwb;
     }
 

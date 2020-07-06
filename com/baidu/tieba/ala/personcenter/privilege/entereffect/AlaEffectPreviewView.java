@@ -168,7 +168,7 @@ public class AlaEffectPreviewView extends LinearLayout {
         }
     }
 
-    public void bLP() {
+    public void bLQ() {
         if (getMeasuredWidth() <= 0) {
             measure(0, 0);
         }
@@ -190,7 +190,7 @@ public class AlaEffectPreviewView extends LinearLayout {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (AlaEffectPreviewView.this.gDP != null) {
-                    AlaEffectPreviewView.this.gDP.bLR();
+                    AlaEffectPreviewView.this.gDP.bLS();
                 }
             }
 

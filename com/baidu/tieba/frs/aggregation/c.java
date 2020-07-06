@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.aggregation;
 /* loaded from: classes9.dex */
 public interface c {
-    void caI();
+    void caJ();
 
     void nv(boolean z);
 

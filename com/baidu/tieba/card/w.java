@@ -97,16 +97,16 @@ public class w extends b<bu> implements com.baidu.tieba.a.e {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.aeK != null) {
-            if (bOc() != null) {
-                bOc().a(view, (View) this.aeK, (Object) this.gTf);
+            if (bOd() != null) {
+                bOd().a(view, (View) this.aeK, (Object) this.gTf);
             }
             m.DO(this.aeK.getTid());
             m.a(this.gTe, this.aeK.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-            bOB();
+            bOC();
         }
     }
 
-    private void bOB() {
+    private void bOC() {
         if (this.aeK != null && this.aeK.aSp() != null && this.aeK.aSp().getName_show() != null) {
             if (com.baidu.tbadk.plugins.b.iB(true) && !com.baidu.tbadk.plugins.b.bih()) {
                 HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.aeK.aSp().getName_show() + "", "3");

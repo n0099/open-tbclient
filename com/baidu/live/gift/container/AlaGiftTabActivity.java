@@ -778,7 +778,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
             view.setBackgroundColor(0);
             linearLayout.addView(view, new LinearLayout.LayoutParams(-1, zE()));
             this.mContentLayout.addView(linearLayout, 0);
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dzW().c(simpleDraweeView.getController()).bc(ImageRequestBuilder.ac(Uri.parse(alaLiveGiftUIInfo.getVerticalBgUrl())).a(com.facebook.imagepipeline.common.e.dDb()).a(com.facebook.imagepipeline.common.b.dCQ().c(Bitmap.Config.RGB_565).dCY()).dHb()).wy(true).c(new com.facebook.drawee.controller.c<com.facebook.imagepipeline.g.f>() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.4
+            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dAa().c(simpleDraweeView.getController()).bc(ImageRequestBuilder.ac(Uri.parse(alaLiveGiftUIInfo.getVerticalBgUrl())).a(com.facebook.imagepipeline.common.e.dDf()).a(com.facebook.imagepipeline.common.b.dCU().c(Bitmap.Config.RGB_565).dDc()).dHf()).wy(true).c(new com.facebook.drawee.controller.c<com.facebook.imagepipeline.g.f>() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.4
                 @Override // com.facebook.drawee.controller.c
                 public void g(String str, Object obj) {
                 }
@@ -808,7 +808,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
                 @Override // com.facebook.drawee.controller.c
                 public void fb(String str) {
                 }
-            }).dAN());
+            }).dAR());
         }
     }
 

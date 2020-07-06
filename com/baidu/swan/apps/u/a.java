@@ -51,7 +51,7 @@ public final class a {
     }
 
     public static i afY() {
-        return e.bri();
+        return e.brj();
     }
 
     public static ag afZ() {
@@ -79,7 +79,7 @@ public final class a {
     }
 
     public static h agf() {
-        return com.baidu.tieba.aiapps.apps.barcode.c.bqD();
+        return com.baidu.tieba.aiapps.apps.barcode.c.bqE();
     }
 
     public static u agg() {
@@ -95,7 +95,7 @@ public final class a {
     }
 
     public static com.baidu.swan.apps.adaptation.a.q agj() {
-        return com.baidu.tieba.aiapps.apps.b.b.bqE();
+        return com.baidu.tieba.aiapps.apps.b.b.bqF();
     }
 
     public static j agk() {
@@ -103,15 +103,15 @@ public final class a {
     }
 
     public static com.baidu.swan.apps.adaptation.a.w agl() {
-        return com.baidu.tieba.aiapps.apps.e.a.b.bqK();
+        return com.baidu.tieba.aiapps.apps.e.a.b.bqL();
     }
 
     public static com.baidu.swan.apps.u.b.f agm() {
-        return com.baidu.tieba.aiapps.apps.f.c.brd();
+        return com.baidu.tieba.aiapps.apps.f.c.bre();
     }
 
     public static o agn() {
-        return com.baidu.tieba.aiapps.apps.l.d.brq();
+        return com.baidu.tieba.aiapps.apps.l.d.brr();
     }
 
     public static s ago() {
@@ -119,7 +119,7 @@ public final class a {
     }
 
     public static com.baidu.swan.apps.u.b.d agp() {
-        return com.baidu.tieba.aiapps.apps.d.b.bqJ();
+        return com.baidu.tieba.aiapps.apps.d.b.bqK();
     }
 
     public static p agq() {
@@ -131,7 +131,7 @@ public final class a {
     }
 
     public static com.baidu.swan.apps.adaptation.a.a ags() {
-        return com.baidu.tieba.aiapps.apps.i.c.brk();
+        return com.baidu.tieba.aiapps.apps.i.c.brl();
     }
 
     public static com.baidu.swan.apps.adaptation.a.k agt() {
@@ -159,7 +159,7 @@ public final class a {
     }
 
     public static z agz() {
-        return com.baidu.tieba.aiapps.apps.c.b.bqG();
+        return com.baidu.tieba.aiapps.apps.c.b.bqH();
     }
 
     public static ae agA() {
@@ -176,7 +176,7 @@ public final class a {
     }
 
     public static com.baidu.swan.apps.u.b.g agD() {
-        return com.baidu.tieba.aiapps.apps.j.b.brm();
+        return com.baidu.tieba.aiapps.apps.j.b.brn();
     }
 
     public static aa agE() {
@@ -216,7 +216,7 @@ public final class a {
     }
 
     public static com.baidu.swan.apps.u.b.k agN() {
-        return com.baidu.tieba.aiapps.apps.m.c.brr();
+        return com.baidu.tieba.aiapps.apps.m.c.brs();
     }
 
     public static y agO() {

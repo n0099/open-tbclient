@@ -11,18 +11,18 @@ import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes7.dex */
 public final class ObservableRefCount<T> extends io.reactivex.internal.operators.observable.a<T, T> {
     final ReentrantLock lock;
-    volatile io.reactivex.disposables.a nKB;
-    final AtomicInteger nKC;
-    final io.reactivex.d.a<? extends T> nLE;
+    volatile io.reactivex.disposables.a nKE;
+    final AtomicInteger nKF;
+    final io.reactivex.d.a<? extends T> nLH;
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
         boolean z;
         this.lock.lock();
-        if (this.nKC.incrementAndGet() == 1) {
+        if (this.nKF.incrementAndGet() == 1) {
             AtomicBoolean atomicBoolean = new AtomicBoolean(true);
             try {
-                this.nLE.c(a(uVar, atomicBoolean));
+                this.nLH.c(a(uVar, atomicBoolean));
                 if (z) {
                     return;
                 }
@@ -33,7 +33,7 @@ public final class ObservableRefCount<T> extends io.reactivex.internal.operators
             }
         }
         try {
-            a(uVar, this.nKB);
+            a(uVar, this.nKE);
         } finally {
             this.lock.unlock();
         }
@@ -46,7 +46,7 @@ public final class ObservableRefCount<T> extends io.reactivex.internal.operators
     void a(u<? super T> uVar, io.reactivex.disposables.a aVar) {
         ConnectionObserver connectionObserver = new ConnectionObserver(uVar, aVar, a(aVar));
         uVar.onSubscribe(connectionObserver);
-        this.nLE.subscribe(connectionObserver);
+        this.nLH.subscribe(connectionObserver);
     }
 
     private io.reactivex.disposables.b a(io.reactivex.disposables.a aVar) {
@@ -103,13 +103,13 @@ public final class ObservableRefCount<T> extends io.reactivex.internal.operators
         void cleanup() {
             ObservableRefCount.this.lock.lock();
             try {
-                if (ObservableRefCount.this.nKB == this.currentBase) {
-                    if (ObservableRefCount.this.nLE instanceof io.reactivex.disposables.b) {
-                        ((io.reactivex.disposables.b) ObservableRefCount.this.nLE).dispose();
+                if (ObservableRefCount.this.nKE == this.currentBase) {
+                    if (ObservableRefCount.this.nLH instanceof io.reactivex.disposables.b) {
+                        ((io.reactivex.disposables.b) ObservableRefCount.this.nLH).dispose();
                     }
-                    ObservableRefCount.this.nKB.dispose();
-                    ObservableRefCount.this.nKB = new io.reactivex.disposables.a();
-                    ObservableRefCount.this.nKC.set(0);
+                    ObservableRefCount.this.nKE.dispose();
+                    ObservableRefCount.this.nKE = new io.reactivex.disposables.a();
+                    ObservableRefCount.this.nKF.set(0);
                 }
             } finally {
                 ObservableRefCount.this.lock.unlock();
@@ -120,12 +120,12 @@ public final class ObservableRefCount<T> extends io.reactivex.internal.operators
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public final class a implements g<io.reactivex.disposables.b> {
-        private final AtomicBoolean nKD;
+        private final AtomicBoolean nKG;
         private final u<? super T> observer;
 
         a(u<? super T> uVar, AtomicBoolean atomicBoolean) {
             this.observer = uVar;
-            this.nKD = atomicBoolean;
+            this.nKG = atomicBoolean;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -133,11 +133,11 @@ public final class ObservableRefCount<T> extends io.reactivex.internal.operators
         /* renamed from: f */
         public void accept(io.reactivex.disposables.b bVar) {
             try {
-                ObservableRefCount.this.nKB.a(bVar);
-                ObservableRefCount.this.a(this.observer, ObservableRefCount.this.nKB);
+                ObservableRefCount.this.nKE.a(bVar);
+                ObservableRefCount.this.a(this.observer, ObservableRefCount.this.nKE);
             } finally {
                 ObservableRefCount.this.lock.unlock();
-                this.nKD.set(false);
+                this.nKG.set(false);
             }
         }
     }
@@ -145,22 +145,22 @@ public final class ObservableRefCount<T> extends io.reactivex.internal.operators
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public final class b implements Runnable {
-        private final io.reactivex.disposables.a nKE;
+        private final io.reactivex.disposables.a nKH;
 
         b(io.reactivex.disposables.a aVar) {
-            this.nKE = aVar;
+            this.nKH = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ObservableRefCount.this.lock.lock();
             try {
-                if (ObservableRefCount.this.nKB == this.nKE && ObservableRefCount.this.nKC.decrementAndGet() == 0) {
-                    if (ObservableRefCount.this.nLE instanceof io.reactivex.disposables.b) {
-                        ((io.reactivex.disposables.b) ObservableRefCount.this.nLE).dispose();
+                if (ObservableRefCount.this.nKE == this.nKH && ObservableRefCount.this.nKF.decrementAndGet() == 0) {
+                    if (ObservableRefCount.this.nLH instanceof io.reactivex.disposables.b) {
+                        ((io.reactivex.disposables.b) ObservableRefCount.this.nLH).dispose();
                     }
-                    ObservableRefCount.this.nKB.dispose();
-                    ObservableRefCount.this.nKB = new io.reactivex.disposables.a();
+                    ObservableRefCount.this.nKE.dispose();
+                    ObservableRefCount.this.nKE = new io.reactivex.disposables.a();
                 }
             } finally {
                 ObservableRefCount.this.lock.unlock();

@@ -46,31 +46,31 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
     private RadioButton kIm;
     private HashMap<String, Bitmap> kIt;
     private HashMap<String, ImageView> kIu;
-    private View muX;
-    private View muY;
-    private String mvf;
+    private View mva;
+    private View mvb;
+    private String mvi;
     private ImageView eXF = null;
     private Bitmap mBitmap = null;
     private TextView eXC = null;
     private View mParent = null;
-    private HorizontalScrollView muZ = null;
+    private HorizontalScrollView mvc = null;
     private ProgressBar mProgress = null;
-    private b mva = null;
-    private a mvb = null;
-    private RadioGroup mvc = null;
+    private b mvd = null;
+    private a mve = null;
+    private RadioGroup mvf = null;
     private LinearLayout kIn = null;
     private LinearLayout kIo = null;
     private TextView bjy = null;
     private NavigationBar mNavigationBar = null;
     private Bitmap bhu = null;
-    private c mvd = null;
-    private int mve = 0;
+    private c mvg = null;
+    private int mvh = 0;
     private int mDisplaySize = 0;
     private boolean kJQ = false;
     private boolean dOx = false;
     private final Handler mHandler = new Handler();
     private final Object writeLock = new Object();
-    private final View.OnClickListener mvg = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.WriteImageActivity.6
+    private final View.OnClickListener mvj = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.WriteImageActivity.6
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!WriteImageActivity.this.dOx) {
@@ -79,7 +79,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                     if (WriteImageActivity.this.mProgress.getVisibility() != 0) {
                         if (WriteImageActivity.this.kJQ && WriteImageActivity.this.bhu != null && !WriteImageActivity.this.bhu.isRecycled()) {
                             String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                            if (WriteImageActivity.this.Po(str)) {
+                            if (WriteImageActivity.this.Pp(str)) {
                                 intent.putExtra("change", true);
                                 intent.putExtra("file_name", str);
                             } else {
@@ -113,7 +113,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         Intent intent = getIntent();
         this.iZz = intent.getIntExtra("request", 0);
         this.mDisplaySize = intent.getIntExtra(WriteImageActivityConfig.DISPLAY_SIZE, 0);
-        this.mvf = intent.getStringExtra(WriteImageActivityConfig.FINISH_TEXT);
+        this.mvi = intent.getStringExtra(WriteImageActivityConfig.FINISH_TEXT);
         if (intent.getStringExtra("from") != null && intent.getStringExtra("from").equals("frs")) {
             this.dOx = true;
         }
@@ -125,7 +125,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
             } else {
                 TiebaPrepareImageService.StartService(this.iZz, null, as.aWR().getPostImageSize(), this.mDisplaySize, stringExtra);
             }
-            cmU();
+            cmV();
             return;
         }
         initUI();
@@ -134,14 +134,14 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {
-        if (this.mva != null) {
-            this.mva.cancel();
+        if (this.mvd != null) {
+            this.mvd.cancel();
         }
         this.eXF.setImageDrawable(null);
-        cSs();
+        cSt();
     }
 
-    private void cSs() {
+    private void cSt() {
         synchronized (this.writeLock) {
             if (this.kIu != null) {
                 for (Map.Entry<String, ImageView> entry : this.kIu.entrySet()) {
@@ -168,11 +168,11 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void initData() {
-        if (this.mva != null) {
-            this.mva.cancel();
+        if (this.mvd != null) {
+            this.mvd.cancel();
         }
-        this.mva = new b();
-        this.mva.execute(new Object[0]);
+        this.mvd = new b();
+        this.mvd.execute(new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -190,13 +190,13 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
             this.bhu.recycle();
             this.bhu = null;
         }
-        if (this.mva != null) {
-            this.mva.cancel();
-            this.mva = null;
+        if (this.mvd != null) {
+            this.mvd.cancel();
+            this.mvd = null;
         }
         this.mProgress.setVisibility(8);
         if (this.iZz == 12002 || this.iZz == 12001) {
-            unregisterReceiver(this.mvd);
+            unregisterReceiver(this.mvg);
         }
         TbadkCoreApplication.getInst().delRemoteActivity(this);
     }
@@ -204,7 +204,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            this.mvg.onClick(null);
+            this.mvj.onClick(null);
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -218,7 +218,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         getLayoutMode().onModeChanged(this.mParent);
         an.setBackgroundColor(this.mNavigationBar, R.color.common_color_10222);
         an.setViewTextColor(this.bjy, R.color.cp_cont_g, 1);
-        if (this.muY.isEnabled()) {
+        if (this.mvb.isEnabled()) {
             this.eXC.setTextColor(getResources().getColor(R.color.navi_done_text));
         } else {
             this.eXC.setTextColor(getResources().getColor(R.color.common_color_10231));
@@ -226,7 +226,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onBackBtnOnChangeSkin();
         }
-        an.setNavbarIconSrc((ImageView) ((ViewGroup) this.muX).getChildAt(0), R.drawable.icon_topbar_return_s, R.drawable.icon_topbar_return_s);
+        an.setNavbarIconSrc((ImageView) ((ViewGroup) this.mva).getChildAt(0), R.drawable.icon_topbar_return_s, R.drawable.icon_topbar_return_s);
     }
 
     private void initUI() {
@@ -249,9 +249,9 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         if (this.mBitmap != null) {
             this.eXF.setImageBitmap(this.mBitmap);
         }
-        this.muZ = (HorizontalScrollView) findViewById(R.id.filters_layout);
+        this.mvc = (HorizontalScrollView) findViewById(R.id.filters_layout);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.muX = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.write.write.WriteImageActivity.2
+        this.mva = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.write.write.WriteImageActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!WriteImageActivity.this.dOx) {
@@ -260,7 +260,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                         if (WriteImageActivity.this.mProgress.getVisibility() != 0) {
                             if (WriteImageActivity.this.kJQ && WriteImageActivity.this.bhu != null && !WriteImageActivity.this.bhu.isRecycled()) {
                                 String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                                if (WriteImageActivity.this.Po(str)) {
+                                if (WriteImageActivity.this.Pp(str)) {
                                     intent.putExtra("change", true);
                                     intent.putExtra("file_name", str);
                                 } else {
@@ -282,8 +282,8 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                 WriteImageActivity.this.finish();
             }
         });
-        this.muY = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, (View.OnClickListener) null);
-        this.muY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.WriteImageActivity.3
+        this.mvb = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, (View.OnClickListener) null);
+        this.mvb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.WriteImageActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!WriteImageActivity.this.dOx) {
@@ -296,7 +296,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                         if (WriteImageActivity.this.kJQ) {
                             if (WriteImageActivity.this.bhu != null && !WriteImageActivity.this.bhu.isRecycled()) {
                                 String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                                if (WriteImageActivity.this.Po(str)) {
+                                if (WriteImageActivity.this.Pp(str)) {
                                     intent2.putExtra("change", true);
                                     intent2.putExtra("file_name", str);
                                 } else {
@@ -317,7 +317,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                 Intent intent3 = new Intent();
                 if (WriteImageActivity.this.kJQ && WriteImageActivity.this.bhu != null && !WriteImageActivity.this.bhu.isRecycled()) {
                     String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                    if (WriteImageActivity.this.Po(str2)) {
+                    if (WriteImageActivity.this.Pp(str2)) {
                         intent3.putExtra("filename", str2);
                     }
                 }
@@ -325,33 +325,33 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                 WriteImageActivity.this.finish();
             }
         });
-        this.eXC = (TextView) this.muY.findViewById(R.id.save);
-        if (TextUtils.isEmpty(this.mvf)) {
+        this.eXC = (TextView) this.mvb.findViewById(R.id.save);
+        if (TextUtils.isEmpty(this.mvi)) {
             if (this.dOx || this.iZz != 12003) {
                 this.eXC.setText(getPageContext().getString(R.string.done));
             } else {
                 this.eXC.setText(getPageContext().getString(R.string.delete));
             }
         } else {
-            this.eXC.setText(this.mvf);
+            this.eXC.setText(this.mvi);
         }
-        this.mve = l.dip2px(getPageContext().getPageActivity(), 2.0f);
+        this.mvh = l.dip2px(getPageContext().getPageActivity(), 2.0f);
         this.bjy = this.mNavigationBar.setTitleText(getPageContext().getString(R.string.beautify));
         this.kIo = (LinearLayout) findViewById(R.id.beautify_rotate);
         this.kIn = (LinearLayout) findViewById(R.id.rotate);
         this.kIl = (RadioButton) findViewById(R.id.beautify_btn);
         this.kIm = (RadioButton) findViewById(R.id.rotate_btn);
-        this.mvc = (RadioGroup) findViewById(R.id.beautify_tabs);
+        this.mvf = (RadioGroup) findViewById(R.id.beautify_tabs);
         CompoundButton.OnCheckedChangeListener onCheckedChangeListener = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.write.write.WriteImageActivity.4
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
                 if (z) {
                     if (compoundButton == WriteImageActivity.this.kIl) {
-                        WriteImageActivity.this.muZ.setVisibility(0);
+                        WriteImageActivity.this.mvc.setVisibility(0);
                         WriteImageActivity.this.kIn.setVisibility(8);
                         WriteImageActivity.this.bjy.setText(WriteImageActivity.this.getPageContext().getString(R.string.beautify));
                     } else if (compoundButton == WriteImageActivity.this.kIm) {
-                        WriteImageActivity.this.muZ.setVisibility(8);
+                        WriteImageActivity.this.mvc.setVisibility(8);
                         WriteImageActivity.this.kIn.setVisibility(0);
                         WriteImageActivity.this.bjy.setText(WriteImageActivity.this.getPageContext().getString(R.string.rotate));
                     }
@@ -387,18 +387,18 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         this.kIo.setVisibility(0);
         this.kIm.setPadding(0, this.kIm.getPaddingTop(), this.kIm.getPaddingRight(), this.kIm.getPaddingBottom());
         this.kIm.setChecked(true);
-        this.muZ.setVisibility(8);
-        this.kIl.setVisibility(8);
         this.mvc.setVisibility(8);
+        this.kIl.setVisibility(8);
+        this.mvf.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void KG(String str) {
-        if (this.mvb != null) {
-            this.mvb.cancel();
+        if (this.mve != null) {
+            this.mve.cancel();
         }
-        this.mvb = new a();
-        this.mvb.execute(str);
+        this.mve = new a();
+        this.mve.execute(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -438,13 +438,13 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             WriteImageActivity.this.mProgress.setVisibility(0);
-            WriteImageActivity.this.muY.setEnabled(false);
+            WriteImageActivity.this.mvb.setEnabled(false);
             super.onPreExecute();
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            WriteImageActivity.this.mva = null;
+            WriteImageActivity.this.mvd = null;
             WriteImageActivity.this.mProgress.setVisibility(8);
             super.cancel(true);
         }
@@ -454,8 +454,8 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((b) bitmap);
-            WriteImageActivity.this.muY.setEnabled(true);
-            WriteImageActivity.this.mva = null;
+            WriteImageActivity.this.mvb.setEnabled(true);
+            WriteImageActivity.this.mvd = null;
             WriteImageActivity.this.mBitmap = bitmap;
             WriteImageActivity.this.mProgress.setVisibility(8);
             if (bitmap != null && !bitmap.isRecycled()) {
@@ -465,7 +465,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Po(String str) {
+    public boolean Pp(String str) {
         try {
             n.a(TbConfig.LOCAL_PIC_DIR, str, this.bhu, 90);
             this.eXF.setImageDrawable(null);
@@ -502,7 +502,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             WriteImageActivity.this.mProgress.setVisibility(0);
-            WriteImageActivity.this.muY.setEnabled(false);
+            WriteImageActivity.this.mvb.setEnabled(false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -551,7 +551,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
             }
             this.bitmap = null;
             WriteImageActivity.this.mProgress.setVisibility(8);
-            WriteImageActivity.this.muY.setEnabled(true);
+            WriteImageActivity.this.mvb.setEnabled(true);
             super.cancel(true);
         }
 
@@ -560,7 +560,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             WriteImageActivity.this.mProgress.setVisibility(8);
-            WriteImageActivity.this.muY.setEnabled(true);
+            WriteImageActivity.this.mvb.setEnabled(true);
             if (bitmap != null && !bitmap.isRecycled()) {
                 WriteImageActivity.this.kJQ = true;
                 WriteImageActivity.this.eXF.setImageBitmap(bitmap);
@@ -582,11 +582,11 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         }
     }
 
-    private void cmU() {
-        this.mvd = new c();
+    private void cmV() {
+        this.mvg = new c();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionImageResized());
-        registerReceiver(this.mvd, intentFilter);
+        registerReceiver(this.mvg, intentFilter);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -603,8 +603,8 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                 return;
             }
             WriteImageActivity.this.showToast(intent.getStringExtra(BdStatsConstant.StatsType.ERROR));
-            if (WriteImageActivity.this.muY != null) {
-                WriteImageActivity.this.muY.setEnabled(false);
+            if (WriteImageActivity.this.mvb != null) {
+                WriteImageActivity.this.mvb.setEnabled(false);
             }
         }
     }

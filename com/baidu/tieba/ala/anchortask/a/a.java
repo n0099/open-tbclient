@@ -32,7 +32,7 @@ public class a implements com.baidu.live.b.a {
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.this.buV();
+            a.this.buW();
             a.this.handler.postDelayed(a.this.runnable, 60000L);
         }
     };
@@ -42,7 +42,7 @@ public class a implements com.baidu.live.b.a {
             if (a.this.fxd != null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.fxd));
             }
-            a.this.buV();
+            a.this.buW();
             a.this.handler.removeCallbacksAndMessages(null);
             a.this.handler.postDelayed(a.this.runnable, 60000L);
         }
@@ -55,7 +55,7 @@ public class a implements com.baidu.live.b.a {
                 a.this.fxc = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).fxc;
                 if (a.this.fxc != null && a.this.fxc.fxF != null) {
                     a.this.fxd = a.this.fxc.fxd;
-                    a.this.buW();
+                    a.this.buX();
                     a.this.fxb.a(a.this.fxc.fxF);
                     if (a.this.fxc.fxF.fxt == 2) {
                         a.this.handler.removeCallbacksAndMessages(null);
@@ -120,7 +120,7 @@ public class a implements com.baidu.live.b.a {
         MessageManager.getInstance().registerListener(this.fxh);
     }
 
-    public void buV() {
+    public void buW() {
         if (this.axW != null) {
             long j = this.axW.mLiveInfo.live_id;
             long j2 = this.axW.mLiveInfo.user_id;
@@ -133,7 +133,7 @@ public class a implements com.baidu.live.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buW() {
+    public void buX() {
         if (this.fxc != null && this.fxc.fxF != null) {
             if (!this.fxe) {
                 this.fxe = true;

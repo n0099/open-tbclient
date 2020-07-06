@@ -127,7 +127,7 @@ public class FRSExtraStatic {
                     if (data instanceof ak) {
                         ak akVar = (ak) data;
                         akVar.b(new com.baidu.tieba.frs.gamerecommend.a(akVar.getForumId(), akVar.getForumName()));
-                        for (FrsTabInfo frsTabInfo : akVar.bXD()) {
+                        for (FrsTabInfo frsTabInfo : akVar.bXE()) {
                             if (frsTabInfo.tab_id.intValue() > 100) {
                                 com.baidu.tieba.frs.gametabs.c cVar = new com.baidu.tieba.frs.gametabs.c(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
                                 akVar.b(cVar);
@@ -148,14 +148,14 @@ public class FRSExtraStatic {
             }
         });
         TbadkCoreApplication.getInst().RegisterIntent(FrsMoreFeedForumsConfig.class, FrsMoreFeedForumsActivity.class);
-        bkd();
-        buU();
+        bke();
+        buV();
         if (Build.VERSION.SDK_INT < 24) {
-            com.baidu.tieba.nativecrash.a.cDO();
+            com.baidu.tieba.nativecrash.a.cDP();
         }
     }
 
-    private static void bkd() {
+    private static void bke() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_ADAPTER) { // from class: com.baidu.tieba.frs.FRSExtraStatic.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -167,7 +167,7 @@ public class FRSExtraStatic {
         });
     }
 
-    private static void buU() {
+    private static void buV() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_FRS_MORE_FEED_FORUMS_CONTROLLER, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.frs.FRSExtraStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {

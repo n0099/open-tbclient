@@ -5,9 +5,9 @@ public interface a {
 
     void a(com.baidu.tieba.advert.sdk.data.a aVar);
 
-    void bpY();
-
     void bpZ();
 
     void bqa();
+
+    void bqb();
 }

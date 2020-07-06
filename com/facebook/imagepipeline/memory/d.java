@@ -9,9 +9,9 @@ import javax.annotation.concurrent.NotThreadSafe;
 class d<V> {
     public final int jQp;
     public final int mItemSize;
-    final Queue mVc;
-    private final boolean mVd;
-    private int mVe;
+    final Queue mVf;
+    private final boolean mVg;
+    private int mVh;
 
     public d(int i, int i2, int i3, boolean z) {
         com.facebook.common.internal.g.checkState(i > 0);
@@ -19,46 +19,46 @@ class d<V> {
         com.facebook.common.internal.g.checkState(i3 >= 0);
         this.mItemSize = i;
         this.jQp = i2;
-        this.mVc = new LinkedList();
-        this.mVe = i3;
-        this.mVd = z;
+        this.mVf = new LinkedList();
+        this.mVh = i3;
+        this.mVg = z;
     }
 
-    public boolean dFt() {
-        return this.mVe + dFu() > this.jQp;
+    public boolean dFx() {
+        return this.mVh + dFy() > this.jQp;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int dFu() {
-        return this.mVc.size();
+    public int dFy() {
+        return this.mVf.size();
     }
 
     @Nullable
     public V get() {
         V pop = pop();
         if (pop != null) {
-            this.mVe++;
+            this.mVh++;
         }
         return pop;
     }
 
     @Nullable
     public V pop() {
-        return (V) this.mVc.poll();
+        return (V) this.mVf.poll();
     }
 
-    public void dFv() {
-        this.mVe++;
+    public void dFz() {
+        this.mVh++;
     }
 
     public void release(V v) {
         com.facebook.common.internal.g.checkNotNull(v);
-        if (this.mVd) {
-            com.facebook.common.internal.g.checkState(this.mVe > 0);
-            this.mVe--;
+        if (this.mVg) {
+            com.facebook.common.internal.g.checkState(this.mVh > 0);
+            this.mVh--;
             bo(v);
-        } else if (this.mVe > 0) {
-            this.mVe--;
+        } else if (this.mVh > 0) {
+            this.mVh--;
             bo(v);
         } else {
             com.facebook.common.c.a.h("BUCKET", "Tried to release value %s from an empty bucket!", v);
@@ -66,15 +66,15 @@ class d<V> {
     }
 
     void bo(V v) {
-        this.mVc.add(v);
+        this.mVf.add(v);
     }
 
-    public void dFw() {
-        com.facebook.common.internal.g.checkState(this.mVe > 0);
-        this.mVe--;
+    public void dFA() {
+        com.facebook.common.internal.g.checkState(this.mVh > 0);
+        this.mVh--;
     }
 
-    public int dCy() {
-        return this.mVe;
+    public int dCC() {
+        return this.mVh;
     }
 }

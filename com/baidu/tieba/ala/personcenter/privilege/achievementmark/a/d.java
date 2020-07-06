@@ -17,19 +17,19 @@ public class d {
         }
     }
 
-    public String bLF() {
+    public String bLG() {
         return this.mark_name;
     }
 
-    public int bLN() {
+    public int bLO() {
         return this.gDq;
     }
 
-    public int bLJ() {
+    public int bLK() {
         return this.gDk;
     }
 
-    public String bLG() {
+    public String bLH() {
         return this.mark_pic;
     }
 }

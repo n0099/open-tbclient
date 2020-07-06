@@ -34,15 +34,15 @@ import java.net.URLDecoder;
 import java.util.Map;
 /* loaded from: classes9.dex */
 public class MainTabActivityStatic {
-    private static int lMj = 0;
-    private static boolean lMk = false;
+    private static int lMm = 0;
+    private static boolean lMn = false;
 
     static {
-        bXr();
-        djY();
-        djX();
-        djZ();
-        dka();
+        bXs();
+        dkc();
+        dkb();
+        dkd();
+        dke();
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.START_GO_HOME) { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -130,9 +130,9 @@ public class MainTabActivityStatic {
         if (responsedMessage != null && (responsedMessage instanceof NewsRemindMessage) && (newsRemindMessage = (NewsRemindMessage) responsedMessage) != null) {
             int a = a(newsRemindMessage);
             boolean b = b(newsRemindMessage);
-            if (a != lMj || b != lMk) {
-                lMj = a;
-                lMk = b;
+            if (a != lMm || b != lMn) {
+                lMm = a;
+                lMn = b;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HOME_NOTIFY_MSG, new Pair(Integer.valueOf(a), Boolean.valueOf(b))));
             }
         }
@@ -152,7 +152,7 @@ public class MainTabActivityStatic {
         return newsRemindMessage.hasMsgRemind() || newsRemindMessage.hasChatRemind() || newsRemindMessage.hasNotificationRemind();
     }
 
-    private static void bXr() {
+    private static void bXs() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_MAINTAB, new CustomMessageTask.CustomRunnable<MainTabActivityConfig>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.5
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<MainTabActivityConfig> customMessage) {
@@ -166,7 +166,7 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void djX() {
+    private static void dkb() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.FRIEND_FEED_NEW, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
@@ -181,7 +181,7 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void djY() {
+    private static void dkc() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MSG_NEW, new CustomMessageTask.CustomRunnable<Integer>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.7
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
@@ -195,7 +195,7 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void djZ() {
+    private static void dkd() {
         bc.aWU().a(new bc.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.8
             @Override // com.baidu.tbadk.core.util.bc.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -212,7 +212,7 @@ public class MainTabActivityStatic {
         });
     }
 
-    private static void dka() {
+    private static void dke() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003393, TbConfig.SERVER_ADDRESS + Config.UPLOAD_SCHEMA);
         tbHttpMessageTask.setResponsedClass(HttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

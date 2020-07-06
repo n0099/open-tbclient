@@ -26,7 +26,7 @@ public class al {
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> bXE() {
+    public List<com.baidu.tbadk.mainTab.b> bXF() {
         return this.hyW;
     }
 

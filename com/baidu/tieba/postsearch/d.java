@@ -43,8 +43,8 @@ public class d {
                 if (statusCode == 200 && error == 0) {
                     d.this.kZB.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
                     d.this.CY(intValue);
-                    d.this.cXw();
-                    d.this.cXz();
+                    d.this.cXx();
+                    d.this.cXA();
                     return;
                 }
                 String errorString = postSearchHttpResponseMessage.getErrorString();
@@ -63,7 +63,7 @@ public class d {
             Object data;
             if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
                 d.this.lad = (ArrayList) data;
-                d.this.kZB.cXi();
+                d.this.kZB.cXj();
             }
         }
     };
@@ -79,7 +79,7 @@ public class d {
             return false;
         }
         if (!str.equals(this.hxA)) {
-            cXy();
+            cXz();
         }
         switch (i) {
             case 1:
@@ -126,32 +126,32 @@ public class d {
         return true;
     }
 
-    public void cXv() {
+    public void cXw() {
         this.kZB.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
     }
 
-    public void cXw() {
+    public void cXx() {
         if (!StringUtils.isNull(this.hxA) && !this.hxA.equals(this.kZU)) {
             this.kZB.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.hxA));
             this.kZU = this.hxA;
         }
     }
 
-    public void cXx() {
+    public void cXy() {
         if (this.lad != null) {
             this.lad.clear();
         }
         this.kZB.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
     }
 
-    public void cXy() {
+    public void cXz() {
         this.kZX = 1;
         this.kZY = 1;
         this.kZZ = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cXz() {
+    public void cXA() {
         if (this.lad == null) {
             this.lad = new ArrayList<>();
         }

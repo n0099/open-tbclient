@@ -39,7 +39,7 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bHD() {
+    public void bHE() {
         if (this.fYL != null && this.fYL.ggv != null && this.mCurrentState != 4) {
             this.fYL.ggv.a((short) 4, this.glk);
         }
@@ -61,16 +61,16 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bHE() {
-        super.bHE();
+    public void bHF() {
+        super.bHF();
         if (TbadkCoreApplication.getInst().getResumeNum() <= 0 && this.fYL != null && this.fYL.ggs != null) {
             this.fYL.ggs.enterBackground();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bHF() {
-        super.bHF();
+    public void bHG() {
+        super.bHG();
         this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.a.c.1
             @Override // java.lang.Runnable
             public void run() {

@@ -71,7 +71,7 @@ public class d implements h {
     public boolean gdw = false;
     private a.InterfaceC0569a gfa = new a.InterfaceC0569a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.d.3
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.a.InterfaceC0569a
-        public void bDG() {
+        public void bDH() {
             if (d.this.geH != null && d.this.geH.getParent() != null) {
                 d.this.geN = true;
                 if (d.this.geJ != null) {
@@ -97,13 +97,13 @@ public class d implements h {
                 if (d.this.isHost) {
                     d.this.geQ = true;
                 }
-                d.this.bDR();
                 d.this.bDS();
+                d.this.bDT();
             }
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.a.InterfaceC0569a
-        public void bDH() {
+        public void bDI() {
             if (d.this.geH != null && d.this.geH.getParent() != null) {
                 d.this.geO = false;
                 if (d.this.geJ != null) {
@@ -120,32 +120,32 @@ public class d implements h {
                 d.this.geH.setLiveContainerVisible(false);
                 d.this.geQ = true;
                 d.this.geR = true;
-                d.this.bDR();
                 d.this.bDS();
+                d.this.bDT();
                 d.this.geQ = false;
                 d.this.geR = false;
             }
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.a.InterfaceC0569a
-        public void bDI() {
+        public void bDJ() {
             if (d.this.geH != null && d.this.geH.getParent() != null) {
                 if (!d.this.geO) {
-                    d.this.bDQ();
-                    d.this.bDT();
+                    d.this.bDR();
+                    d.this.bDU();
                 }
                 d.this.geQ = false;
             }
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.a.InterfaceC0569a
-        public void bDJ() {
+        public void bDK() {
             d.this.geR = false;
         }
     };
     private AlaChallengeLiveView.a gfb = new AlaChallengeLiveView.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.d.4
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView.a
-        public void bDE() {
+        public void bDF() {
             d.this.kS(false);
         }
 
@@ -210,7 +210,7 @@ public class d implements h {
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView.a
-        public void bDF() {
+        public void bDG() {
             if (d.this.gdw && d.this.geJ != null) {
                 d.this.geJ.aV(d.this.gdw);
             }
@@ -289,7 +289,7 @@ public class d implements h {
         this.geU = z3;
     }
 
-    private void bDO() {
+    private void bDP() {
         if (this.geH == null) {
             this.geH = new AlaChallengeLiveView(this.mTbPageContext.getPageActivity());
             this.geH.setIsHost(this.isHost);
@@ -305,7 +305,7 @@ public class d implements h {
         }
     }
 
-    private void bDP() {
+    private void bDQ() {
         int i = 0;
         if (this.geH != null && this.mParentView != null) {
             if (this.geH.getParent() != null) {
@@ -332,7 +332,7 @@ public class d implements h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bDQ() {
+    public void bDR() {
         if (this.geH != null && this.geH.getParent() != null) {
             ((ViewGroup) this.geH.getParent()).removeView(this.geH);
         }
@@ -354,23 +354,23 @@ public class d implements h {
             BdLog.e("onMasterPlayerFirstFrame:" + this.geN);
         }
         this.geR = true;
-        bDS();
+        bDT();
     }
 
     @Override // com.baidu.live.challenge.h
     public void bL(int i) {
         if (1 == i) {
             this.geQ = true;
-            bDR();
+            bDS();
         }
         if (2 == i) {
             this.geR = true;
-            bDS();
+            bDT();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bDR() {
+    public void bDS() {
         if (this.geN && this.geQ) {
             this.geI.e(this.geH);
             if (this.geH != null && this.geH.getAnchorAnimLiveBgView() != null) {
@@ -380,7 +380,7 @@ public class d implements h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bDS() {
+    public void bDT() {
         if (this.geN && this.geR) {
             this.geI.d(this.geH);
         }
@@ -450,8 +450,8 @@ public class d implements h {
             if (this.geJ != null) {
                 this.geJ.vL();
             }
-            bDO();
             bDP();
+            bDQ();
             this.geQ = false;
             this.geR = false;
             if (this.geI != null && this.geH != null) {
@@ -464,7 +464,7 @@ public class d implements h {
                 if (this.geI != null) {
                     this.geI.a(this.mTbPageContext.getPageActivity(), this.geH);
                 }
-                bDU();
+                bDV();
                 String str = null;
                 if (aqVar2 != null && aqVar2.aBZ != null) {
                     str = String.valueOf(aqVar2.aBZ.live_id);
@@ -495,8 +495,8 @@ public class d implements h {
             this.geH.setAnchorUserViewBg(aqVar);
         }
         if (this.geH != null) {
+            this.geH.bDD();
             this.geH.bDC();
-            this.geH.bDB();
             this.geI.b(this.mTbPageContext.getPageActivity(), this.geH);
         }
     }
@@ -508,13 +508,13 @@ public class d implements h {
                 this.geJ.aU(true);
             }
             if (this.geH != null) {
-                this.geH.bDA();
+                this.geH.bDB();
             }
             this.geQ = false;
             this.geR = false;
-            bDT();
+            bDU();
             this.mHandler.removeCallbacksAndMessages(null);
-            bDQ();
+            bDR();
             if (this.geZ != null) {
                 this.geZ.release();
                 this.geZ = null;
@@ -524,7 +524,7 @@ public class d implements h {
 
     @Override // com.baidu.live.challenge.h
     public void onDestroy() {
-        bDT();
+        bDU();
         this.geI.a((a.InterfaceC0569a) null);
         this.mHandler.removeCallbacksAndMessages(null);
         if (this.geZ != null) {
@@ -537,7 +537,7 @@ public class d implements h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bDT() {
+    public void bDU() {
         MessageManager.getInstance().unRegisterListener(this.geY);
         if (this.geX != null) {
             this.geX.release();
@@ -547,7 +547,7 @@ public class d implements h {
             this.geH.releaseResource();
         }
         if (this.geK != null) {
-            this.geK.bDy();
+            this.geK.bDz();
         }
         this.geO = false;
         this.geM = false;
@@ -646,7 +646,7 @@ public class d implements h {
         return true;
     }
 
-    private void bDU() {
+    private void bDV() {
         if (this.geY == null) {
             this.geY = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.d.8
                 /* JADX DEBUG: Method merged with bridge method */
@@ -698,12 +698,12 @@ public class d implements h {
     public void c(int i, long j) {
         if (this.geO && i == 3 && j == this.challengeId) {
             if (com.baidu.live.v.a.Hm().aZp == null || com.baidu.live.v.a.Hm().aZp.azY == 1) {
-                bDV();
+                bDW();
             }
         }
     }
 
-    public void bDV() {
+    public void bDW() {
         HttpMessage httpMessage = new HttpMessage(1021199);
         httpMessage.addParam("challenge_id", this.challengeId);
         MessageManager.getInstance().sendMessage(httpMessage);

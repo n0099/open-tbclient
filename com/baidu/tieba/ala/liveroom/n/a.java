@@ -35,11 +35,11 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        bHW();
+        bHX();
         this.mPageContext.registerListener(this.gnm);
     }
 
-    private void bHW() {
+    private void bHX() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021022, TbConfig.SERVER_ADDRESS + "ala/user/setUserStatus");
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -47,7 +47,7 @@ public class a {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public void bHX() {
+    public void bHY() {
         HttpMessage httpMessage = new HttpMessage(1021022);
         httpMessage.setTag(this.mPageContext.getUniqueId());
         MessageManager.getInstance().sendMessage(httpMessage);

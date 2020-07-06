@@ -18,7 +18,7 @@ public class a {
         }
     }
 
-    public int cgu() {
+    public int cgv() {
         return this.icX;
     }
 
@@ -26,7 +26,7 @@ public class a {
         this.icY = j;
     }
 
-    public void cgv() {
+    public void cgw() {
         int i = b.aVP().getInt("nani_key_download_show_rate", 2);
         if (this.icY > 0 && i != 1) {
             b.aVP().putLong("key_horizontal_shown_time", this.icY);

@@ -33,7 +33,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (AlaRecentHistoryFragment.this.fsp != null) {
-                AlaRecentHistoryFragment.this.fsp.btu();
+                AlaRecentHistoryFragment.this.fsp.btv();
             }
         }
     };
@@ -41,10 +41,10 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         @Override // com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel.a
         public void e(boolean z, List<b> list) {
             AlaRecentHistoryFragment.this.fsq.completePullRefresh();
-            AlaRecentHistoryFragment.this.hideLoadingView(AlaRecentHistoryFragment.this.fsq.bur());
+            AlaRecentHistoryFragment.this.hideLoadingView(AlaRecentHistoryFragment.this.fsq.bus());
             AlaRecentHistoryFragment.this.fsq.setData(list, z);
             if (w.isEmpty(list)) {
-                AlaRecentHistoryFragment.this.a(true, AlaRecentHistoryFragment.this.fsq.bur(), AlaRecentHistoryFragment.this.mType == 0 ? AlaRecentHistoryFragment.this.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_living_no_data_tip) : AlaRecentHistoryFragment.this.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_whole_no_data_tip));
+                AlaRecentHistoryFragment.this.a(true, AlaRecentHistoryFragment.this.fsq.bus(), AlaRecentHistoryFragment.this.mType == 0 ? AlaRecentHistoryFragment.this.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_living_no_data_tip) : AlaRecentHistoryFragment.this.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_whole_no_data_tip));
             } else {
                 AlaRecentHistoryFragment.this.a(false, null, null);
             }
@@ -54,11 +54,11 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         public void g(int i, String str, boolean z) {
             AlaRecentHistoryFragment.this.fsq.completePullRefresh();
             if (!z) {
-                AlaRecentHistoryFragment.this.showNetRefreshView(AlaRecentHistoryFragment.this.fsq.bur(), str, false);
+                AlaRecentHistoryFragment.this.showNetRefreshView(AlaRecentHistoryFragment.this.fsq.bus(), str, false);
             } else {
                 AlaRecentHistoryFragment.this.showToast(R.string.square_load_data_failed_tip);
             }
-            AlaRecentHistoryFragment.this.fsq.bus();
+            AlaRecentHistoryFragment.this.fsq.but();
         }
     };
 
@@ -96,9 +96,9 @@ public class AlaRecentHistoryFragment extends BaseFragment {
     }
 
     private void refreshData() {
-        hideNetRefreshView(this.fsq.bur());
+        hideNetRefreshView(this.fsq.bus());
         if (w.getCount(this.fsp.getData()) == 0) {
-            showLoadingView(this.fsq.bur());
+            showLoadingView(this.fsq.bus());
         }
         if (this.fsp != null) {
             this.fsp.refresh();

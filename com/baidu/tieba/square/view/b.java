@@ -50,7 +50,7 @@ public class b {
         this.mPageContext = tbPageContext;
         this.mActivity = tbPageContext.getPageActivity();
         initView();
-        cWI();
+        cWJ();
     }
 
     private void initView() {
@@ -59,8 +59,8 @@ public class b {
         this.lyU = (BdTypeRecyclerView) this.mActivity.findViewById(R.id.rv_right);
     }
 
-    public String dfY() {
-        return this.lCS.dgk();
+    public String dfZ() {
+        return this.lCS.dgl();
     }
 
     public void b(String str, List<String> list, boolean z) {
@@ -71,7 +71,7 @@ public class b {
         }
     }
 
-    public void dfZ() {
+    public void dga() {
         ArrayList arrayList = new ArrayList();
         x xVar = new x();
         xVar.showText = this.mActivity.getString(R.string.forum_square_list_no_data);
@@ -86,13 +86,13 @@ public class b {
 
     public void r(List<q> list, int i) {
         if (w.isEmpty(list)) {
-            dfZ();
+            dga();
             return;
         }
         if (i > 0) {
-            Pair<Integer, Integer> dfX = dfX();
-            int intValue = ((Integer) dfX.first).intValue();
-            int intValue2 = ((Integer) dfX.second).intValue();
+            Pair<Integer, Integer> dfY = dfY();
+            int intValue = ((Integer) dfY.first).intValue();
+            int intValue2 = ((Integer) dfY.second).intValue();
             int i2 = intValue - i;
             if (this.lCT != null && this.lyU != null) {
                 this.lyU.pm();
@@ -103,7 +103,7 @@ public class b {
         this.lCU.setData(list);
     }
 
-    private void cWI() {
+    private void cWJ() {
         this.lCR = new LinearLayoutManager(this.mActivity);
         this.lCQ.setLayoutManager(this.lCR);
         this.lCS = new com.baidu.tieba.square.a.a(this.mActivity);
@@ -158,7 +158,7 @@ public class b {
         }
     }
 
-    public Pair<Integer, Integer> dfX() {
+    public Pair<Integer, Integer> dfY() {
         int firstVisiblePosition = this.lyU.getFirstVisiblePosition();
         View childAt = this.lyU.getChildAt(0);
         return new Pair<>(Integer.valueOf(firstVisiblePosition), Integer.valueOf(childAt != null ? childAt.getTop() : 0));
@@ -182,11 +182,11 @@ public class b {
         }
     }
 
-    public void buK() {
+    public void buL() {
         this.lyU.setNextPage(null);
     }
 
-    public void dge() {
+    public void dgf() {
         this.lyU.setNextPage(this.fnt);
         this.fnt.hideEmptyView();
         this.fnt.getView().setPadding(0, 0, 0, 0);
@@ -194,7 +194,7 @@ public class b {
         this.fnt.endLoadData();
     }
 
-    public void dgf() {
+    public void dgg() {
         this.lyU.setNextPage(this.fnt);
         this.fnt.hideEmptyView();
         this.fnt.getView().setPadding(0, l.getDimens(this.mActivity, R.dimen.tbds62), 0, l.getDimens(this.mActivity, R.dimen.tbds362));
@@ -202,14 +202,14 @@ public class b {
         this.fnt.endLoadData();
     }
 
-    public void dgg() {
+    public void dgh() {
         this.lyU.setNextPage(this.fnt);
         this.fnt.hideEmptyView();
         this.fnt.getView().setPadding(0, 0, 0, 0);
         this.fnt.showLoading();
     }
 
-    private boolean bSQ() {
+    private boolean bSR() {
         if (this.fwo != null) {
             return this.fwo.isViewAttached();
         }
@@ -224,7 +224,7 @@ public class b {
     }
 
     public void ga(boolean z) {
-        if (!bSQ()) {
+        if (!bSR()) {
             if (this.fwo == null) {
                 this.fwo = new g(this.mActivity);
                 this.fwo.setTopMargin(this.mActivity.getResources().getDimensionPixelSize(R.dimen.ds270));

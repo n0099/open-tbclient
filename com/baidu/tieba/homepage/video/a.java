@@ -34,7 +34,7 @@ public class a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             a.this.g(customResponsedMessage);
             if (a.this.iAW != null) {
-                a.this.iAW.cjd();
+                a.this.iAW.cje();
             }
         }
     };
@@ -73,7 +73,7 @@ public class a {
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
                 a.this.iAW.ou(false);
-                a.this.iAV.ckS();
+                a.this.iAV.ckT();
                 TiebaStatic.log(new ao("c13582"));
                 return;
             }
@@ -84,8 +84,8 @@ public class a {
     private BdListView.e iqc = new BdListView.e() { // from class: com.baidu.tieba.homepage.video.a.4
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            a.this.iAW.btJ();
-            a.this.iAV.caS();
+            a.this.iAW.btK();
+            a.this.iAV.caT();
         }
     };
     private b.a iAX = new b.a() { // from class: com.baidu.tieba.homepage.video.a.5
@@ -93,7 +93,7 @@ public class a {
         public void m(int i, String str, boolean z) {
             a.this.iAW.b((f.e) null);
             a.this.iAW.hideLoadingView();
-            a.this.iAW.btN();
+            a.this.iAW.btO();
             if (w.isEmpty(a.this.iAW.getDataList())) {
                 a.this.iAW.l(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.video.a.5.1
                     @Override // android.view.View.OnClickListener
@@ -116,7 +116,7 @@ public class a {
         @Override // com.baidu.tieba.homepage.video.b.b.a
         public void f(int i, boolean z, boolean z2) {
             a.this.iAW.hideLoadingView();
-            a.this.iAW.btN();
+            a.this.iAW.btO();
             if (z || z2) {
                 a.this.iAW.b((f.e) null);
             } else {
@@ -128,7 +128,7 @@ public class a {
             } else if (w.isEmpty(a.this.iAW.getDataList())) {
                 a.this.iAW.showNoDataView();
             } else if (z) {
-                a.this.iAW.btI();
+                a.this.iAW.btJ();
             }
         }
     };
@@ -136,8 +136,8 @@ public class a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.iAW != null && a.this.iAV != null) {
-                a.this.iAW.btJ();
-                a.this.iAV.caS();
+                a.this.iAW.btK();
+                a.this.iAV.caT();
             }
         }
     };
@@ -166,19 +166,19 @@ public class a {
 
     public void loadData() {
         if (this.iAW != null) {
-            this.iAW.cjg();
+            this.iAW.cjh();
             this.iAW.showLoadingView();
         }
         if (this.iAV != null) {
-            this.iAV.ckS();
+            this.iAV.ckT();
         }
     }
 
     public void IB() {
         if (this.iAW != null) {
             this.iAW.ou(false);
-            this.iAW.cje();
-            this.iAW.cjc();
+            this.iAW.cjf();
+            this.iAW.cjd();
             this.iAW.startPullRefresh();
         }
     }
@@ -203,7 +203,7 @@ public class a {
     public void onPause() {
         if (this.iAW != null) {
             this.iAW.onPause();
-            this.iAW.chX();
+            this.iAW.chY();
             this.iAW.setTabInForeBackgroundState(true);
         }
     }
@@ -222,9 +222,9 @@ public class a {
 
     public void setPrimary(boolean z) {
         if (z) {
-            this.iAW.ckU();
+            this.iAW.ckV();
         } else {
-            this.iAW.chX();
+            this.iAW.chY();
         }
     }
 

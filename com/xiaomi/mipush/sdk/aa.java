@@ -7,18 +7,18 @@ final class aa implements Runnable {
     final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ Intent f43a;
+    final /* synthetic */ Intent f44a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(Context context, Intent intent) {
         this.a = context;
-        this.f43a = intent;
+        this.f44a = intent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            this.a.startService(this.f43a);
+            this.a.startService(this.f44a);
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.m48a(e.getMessage());
         }

@@ -75,11 +75,11 @@ public class HotTopicTabFragment extends BaseFragment implements ao, b {
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void btP() {
+    public void btQ() {
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void btQ() {
+    public void btR() {
     }
 
     @Override // com.baidu.tieba.frs.ao
@@ -112,21 +112,21 @@ public class HotTopicTabFragment extends BaseFragment implements ao, b {
         if (w.isEmpty(this.iqI)) {
             if (LoadData) {
                 this.iqH.ga(false);
-                this.iqH.btN();
+                this.iqH.btO();
                 return;
             }
             this.iqH.hideLoadingView();
             this.iqH.mB(false);
         } else if (!LoadData) {
             this.iqH.hideLoadingView();
-            this.iqH.btU();
+            this.iqH.btV();
         }
     }
 
     @Override // com.baidu.tieba.homepage.hotTopic.tab.b
     public void n(int i, List<q> list) {
         this.iqH.hideLoadingView();
-        this.iqH.btU();
+        this.iqH.btV();
         if (i != 0 || w.isEmpty(list)) {
             if (w.isEmpty(this.iqI)) {
                 this.iqH.mB(false);
@@ -136,9 +136,9 @@ public class HotTopicTabFragment extends BaseFragment implements ao, b {
         }
         this.iqH.setData(list);
         if (list.get(list.size() - 1) instanceof x) {
-            this.iqH.cjo();
+            this.iqH.cjp();
         } else {
-            this.iqH.buJ();
+            this.iqH.buK();
         }
         this.iqI = list;
     }

@@ -207,7 +207,7 @@ public class FrsActivityConfig extends IntentConfig {
         }
         frsRequestData.setLastId(null);
         frsRequestData.setYuelaouLocate(stringExtra3);
-        frsRequestData.setLastClickTid(b.toLong(ab.bjb(), 0L));
+        frsRequestData.setLastClickTid(b.toLong(ab.bjc(), 0L));
         frsRequestData.setStType(stringExtra2);
         frsRequestData.ER(1);
         frsRequestData.setNeedCache(true);
@@ -215,9 +215,9 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.fu(longExtra);
         g.a(FI, frsRequestData);
         frsRequestData.setLoadType(1);
-        if (bu.dLW.get() && q.cYS().cYM() != null) {
-            int aS = q.cYS().cYM().aS(stringExtra, false);
-            int aT = q.cYS().cYM().aT(stringExtra, false);
+        if (bu.dLW.get() && q.cYT().cYN() != null) {
+            int aS = q.cYT().cYN().aS(stringExtra, false);
+            int aT = q.cYT().cYN().aT(stringExtra, false);
             if (frsRequestData.getLoadType() == 1) {
                 aS++;
             } else if (frsRequestData.getLoadType() == 2) {

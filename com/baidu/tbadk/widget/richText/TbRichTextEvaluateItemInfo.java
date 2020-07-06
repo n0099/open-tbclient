@@ -36,7 +36,7 @@ public class TbRichTextEvaluateItemInfo extends OrmObject {
         return this.mTags;
     }
 
-    public double blf() {
+    public double blg() {
         return this.mScore;
     }
 

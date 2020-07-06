@@ -60,8 +60,8 @@ public class c extends com.baidu.tieba.card.b<bu> implements com.baidu.tieba.a.e
         this.ahM = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.b.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.bOc() != null) {
-                    c.this.bOc().a(view, c.this.aeK);
+                if (c.this.bOd() != null) {
+                    c.this.bOd().a(view, c.this.aeK);
                 }
             }
         };
@@ -207,7 +207,7 @@ public class c extends com.baidu.tieba.card.b<bu> implements com.baidu.tieba.a.e
         } else {
             this.fuV.setVisibility(8);
         }
-        this.mMaskView.setVisibility((com.baidu.tieba.frs.b.bXc().bWW() || com.baidu.tieba.frs.a.bWV().bWW()) ? 0 : 8);
+        this.mMaskView.setVisibility((com.baidu.tieba.frs.b.bXd().bWX() || com.baidu.tieba.frs.a.bWW().bWX()) ? 0 : 8);
         onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
         sh();
     }
@@ -224,13 +224,13 @@ public class c extends com.baidu.tieba.card.b<bu> implements com.baidu.tieba.a.e
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!com.baidu.tieba.frs.b.bXc().bWW() && !com.baidu.tieba.frs.a.bWV().bWW()) {
+        if (!com.baidu.tieba.frs.b.bXd().bWX() && !com.baidu.tieba.frs.a.bWW().bWX()) {
             if (view == this.fRG || view == this.fRI.getCommentContainer() || this.fSq == view || view == this.fSu.eeP.getCommentContainer()) {
                 if (this.aeK != null) {
                     m.DO(this.aeK.getId());
                 }
-                if (bOc() != null) {
-                    bOc().a(this.fRG, this.aeK);
+                if (bOd() != null) {
+                    bOd().a(this.fRG, this.aeK);
                 }
                 TiebaStatic.log(new ao("c12323"));
                 int i = 5;
@@ -249,8 +249,8 @@ public class c extends com.baidu.tieba.card.b<bu> implements com.baidu.tieba.a.e
                     TiebaStatic.log(aoVar);
                 }
             } else if (view.getId() == R.id.video_container) {
-                if (bOc() != null) {
-                    bOc().a(view, this.aeK);
+                if (bOd() != null) {
+                    bOd().a(view, this.aeK);
                 }
                 TiebaStatic.log(new ao("c12323"));
                 if (this.aeK.aSJ().live_status == 1) {
@@ -310,14 +310,14 @@ public class c extends com.baidu.tieba.card.b<bu> implements com.baidu.tieba.a.e
     }
 
     public int pz(int i) {
-        return com.baidu.tieba.a.d.boA().as(this.afG, i);
-    }
-
-    public ThreadCommentAndPraiseInfoLayout bzi() {
-        return this.fRI;
+        return com.baidu.tieba.a.d.boB().as(this.afG, i);
     }
 
     public ThreadCommentAndPraiseInfoLayout bzj() {
+        return this.fRI;
+    }
+
+    public ThreadCommentAndPraiseInfoLayout bzk() {
         if (this.fSu != null) {
             return this.fSu.eeP;
         }

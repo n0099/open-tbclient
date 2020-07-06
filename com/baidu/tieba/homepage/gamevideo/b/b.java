@@ -48,7 +48,7 @@ public class b {
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             b.this.ipS = false;
-            b.this.ciR();
+            b.this.ciS();
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -66,7 +66,7 @@ public class b {
                     }
                     com.baidu.tbadk.core.sharedPref.b.aVP().putInt("key_game_video_tab_has_choosed_sub_class_id", aVar.sub_class_id);
                     com.baidu.tbadk.core.sharedPref.b.aVP().putString("key_game_video_tab_has_choosed_sub_class_name", aVar.sub_class_name);
-                    b.this.ciR();
+                    b.this.ciS();
                     TiebaStatic.log(new ao("c13489").ag("obj_type", aVar.sub_class_id));
                 }
             }
@@ -75,21 +75,21 @@ public class b {
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.ciQ();
+            b.this.ciR();
         }
     };
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.4
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
             if (b.this.ipP != null) {
-                b.this.ipP.ciU();
+                b.this.ipP.ciV();
             }
         }
     };
     private a.InterfaceC0635a ipU = new a.InterfaceC0635a() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.5
         @Override // com.baidu.tieba.homepage.gamevideo.view.a.InterfaceC0635a
-        public void ciS() {
-            b.this.ciP();
+        public void ciT() {
+            b.this.ciQ();
         }
     };
 
@@ -97,9 +97,9 @@ public class b {
     public interface a {
         void b(com.baidu.tieba.homepage.gamevideo.c.a aVar);
 
-        void ciT();
-
         void ciU();
+
+        void ciV();
     }
 
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -122,11 +122,11 @@ public class b {
         this.ipJ.setAdapter((ListAdapter) this.ipK);
         this.ipJ.setOnItemClickListener(this.mOnItemClickListener);
         this.mRootView.setOnClickListener(this.mOnClickListener);
-        ciO();
+        ciP();
         onChangeSkinType();
     }
 
-    private void ciO() {
+    private void ciP() {
         this.ipQ = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         this.ipQ.setDuration(300L);
         this.ipQ.setFillAfter(true);
@@ -175,32 +175,32 @@ public class b {
                 this.ipN.dismiss();
             }
             this.ipN.showAsDropDown(view, 0, 0);
-            this.ipJ.cjb();
+            this.ipJ.cjc();
             if (this.fqu != null && this.ipQ != null) {
                 this.fqu.startAnimation(this.ipQ);
             }
             if (this.ipP != null) {
-                this.ipP.ciT();
+                this.ipP.ciU();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ciP() {
+    public void ciQ() {
         if (this.ipR != null && this.fqu != null && !this.ipS) {
             this.fqu.startAnimation(this.ipR);
         }
     }
 
-    public void ciQ() {
+    public void ciR() {
         if (this.ipN != null) {
             this.ipN.dismiss();
         }
     }
 
-    public void ciR() {
+    public void ciS() {
         if (this.ipN != null) {
-            this.ipN.buY();
+            this.ipN.buZ();
         }
     }
 
@@ -216,7 +216,7 @@ public class b {
     }
 
     public void onDestroy() {
-        ciR();
+        ciS();
         if (this.ipQ != null) {
             this.ipQ.cancel();
         }

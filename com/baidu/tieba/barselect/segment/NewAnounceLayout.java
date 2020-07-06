@@ -41,7 +41,7 @@ public class NewAnounceLayout extends CardBasicLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 new ao("c13447").aWN();
-                if (NewAnounceLayout.this.gNk != null && NewAnounceLayout.this.gNk.getTid() != 0 && !TextUtils.isEmpty(NewAnounceLayout.this.gNk.bNl())) {
+                if (NewAnounceLayout.this.gNk != null && NewAnounceLayout.this.gNk.getTid() != 0 && !TextUtils.isEmpty(NewAnounceLayout.this.gNk.bNm())) {
                     PbActivityConfig pbActivityConfig = new PbActivityConfig(NewAnounceLayout.this.mContext);
                     pbActivityConfig.createNormalCfg(NewAnounceLayout.this.gNk.getTid() + "", (String) null, (String) null, true);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
@@ -93,7 +93,7 @@ public class NewAnounceLayout extends CardBasicLayout {
             this.gNo.setPadding(0, 0, 0, 0);
             this.gNp.setPadding(0, 0, 0, 0);
         }
-        DM(this.gNk.bNl());
+        DM(this.gNk.bNm());
     }
 
     private void DM(String str) {
@@ -128,7 +128,7 @@ public class NewAnounceLayout extends CardBasicLayout {
             } else if (this.gNl != null) {
                 this.gNl.setBackgroundColor(0);
             }
-            if (TextUtils.isEmpty(this.gNk.bNl())) {
+            if (TextUtils.isEmpty(this.gNk.bNm())) {
                 an.setViewTextColor(this.gNm, R.color.cp_cont_d, 1, i);
             } else {
                 an.setViewTextColor(this.gNm, R.color.cp_cont_b, 1, i);

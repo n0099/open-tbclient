@@ -725,7 +725,7 @@ public class ConstrainImageLayout extends ViewGroup {
     protected void dispatchDraw(Canvas canvas) {
         int childCount;
         super.dispatchDraw(canvas);
-        bkt();
+        bku();
         if (!StringUtils.isNull(this.eKI) && (childCount = getChildCount()) > 0 && getChildAt(childCount - 1) != null && this.eKI != null) {
             TbImageView tbImageView = null;
             int childCount2 = getChildCount();
@@ -746,7 +746,7 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    private void bkt() {
+    private void bku() {
         if (this.eKA != null && getChildCount() > 0) {
             View childAt = getChildAt(0);
             int width = childAt.getWidth();
@@ -788,13 +788,13 @@ public class ConstrainImageLayout extends ViewGroup {
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            bku();
+            bkv();
             this.textPaint.setColor(an.getColor(R.color.cp_cont_a));
             invalidate();
         }
     }
 
-    private void bku() {
+    private void bkv() {
         int childCount = getChildCount();
         if (childCount > 0) {
             for (int i = 0; i < childCount; i++) {

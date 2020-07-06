@@ -31,7 +31,7 @@ public class d {
     private View.OnClickListener fIv = new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.this.bxk();
+            d.this.bxl();
         }
     };
     private HttpMessageListener fIe = new HttpMessageListener(1021137) { // from class: com.baidu.tieba.ala.guardclub.d.2
@@ -41,7 +41,7 @@ public class d {
             GuardClubInfoHttpResponseMessage guardClubInfoHttpResponseMessage;
             if (httpResponsedMessage == null || httpResponsedMessage.hasError() || !(httpResponsedMessage instanceof GuardClubInfoHttpResponseMessage)) {
                 if (d.this.fIu != null) {
-                    d.this.fIu.bxn();
+                    d.this.fIu.bxo();
                 }
             } else if (d.this.fIu != null && (guardClubInfoHttpResponseMessage = (GuardClubInfoHttpResponseMessage) httpResponsedMessage) != null && guardClubInfoHttpResponseMessage.getOrginalMessage().getTag() == d.this.fAz && guardClubInfoHttpResponseMessage != null && guardClubInfoHttpResponseMessage.aRm != null) {
                 d.this.aRm = guardClubInfoHttpResponseMessage.aRm;
@@ -65,7 +65,7 @@ public class d {
                 GuardClubJoinHttpResponseMessage guardClubJoinHttpResponseMessage = (GuardClubJoinHttpResponseMessage) httpResponsedMessage;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     if (d.this.aRm != null && d.this.aRm.id == guardClubJoinHttpResponseMessage.aRu) {
-                        d.this.bxk();
+                        d.this.bxl();
                     }
                 } else if (!guardClubJoinHttpResponseMessage.aRx) {
                     guardClubJoinHttpResponseMessage.aRx = true;
@@ -113,7 +113,7 @@ public class d {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021132 && (httpResponsedMessage instanceof LiveSyncHttpResponseMessage)) {
                 if ((httpResponsedMessage.getError() == 0) && ((LiveSyncHttpResponseMessage) httpResponsedMessage).Ge() != null) {
-                    d.this.bxk();
+                    d.this.bxl();
                 }
             }
         }
@@ -135,7 +135,7 @@ public class d {
         MessageManager.getInstance().registerListener(this.fIh);
         MessageManager.getInstance().registerListener(this.bdY);
         MessageManager.getInstance().registerListener(this.fIw);
-        bxk();
+        bxl();
     }
 
     public View getView() {
@@ -148,7 +148,7 @@ public class d {
         }
     }
 
-    public void bxk() {
+    public void bxl() {
         if (BdNetTypeUtil.isNetWorkAvailable()) {
             com.baidu.live.guardclub.b bVar = new com.baidu.live.guardclub.b();
             bVar.af(this.awn);
@@ -156,7 +156,7 @@ public class d {
             bVar.setTag(this.fAz);
             MessageManager.getInstance().sendMessage(bVar);
         } else if (this.fIu != null) {
-            this.fIu.bxn();
+            this.fIu.bxo();
         }
     }
 

@@ -50,12 +50,12 @@ public class a implements com.baidu.live.liveroom.d.d {
                 a.this.fzn.jS(true);
                 return;
             }
-            a.this.fzn.btN();
+            a.this.fzn.btO();
             a.this.fzn.a(aLaCharmDataList.data, a.this.pn == 0, aLaCharmDataList.userTotalPrice);
             a.this.pn = aLaCharmDataList.pn + 1;
             a.this.mHasMore = aLaCharmDataList.hasMore;
             if (a.this.mHasMore) {
-                a.this.fzn.buI();
+                a.this.fzn.buJ();
             } else {
                 a.this.fzn.BV(a.this.fzp.getPageContext().getResources().getString(a.i.charm_no_more));
             }
@@ -120,7 +120,7 @@ public class a implements com.baidu.live.liveroom.d.d {
         return this.fzn.getRootView();
     }
 
-    public com.baidu.tieba.ala.charm.view.b bvU() {
+    public com.baidu.tieba.ala.charm.view.b bvV() {
         return this.fzn;
     }
 
@@ -153,7 +153,7 @@ public class a implements com.baidu.live.liveroom.d.d {
         return this.fzp.getResources().getString(a.i.audience_list_title);
     }
 
-    public int bvV() {
+    public int bvW() {
         return this.fzq;
     }
 

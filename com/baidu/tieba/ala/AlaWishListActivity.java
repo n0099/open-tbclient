@@ -159,11 +159,11 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
             initView();
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
             this.aKp = false;
-            brU();
+            brV();
         }
     }
 
-    private void brU() {
+    private void brV() {
         this.mTimer = new Timer();
         this.mTimer.schedule(new TimerTask() { // from class: com.baidu.tieba.ala.AlaWishListActivity.9
             @Override // java.util.TimerTask, java.lang.Runnable
@@ -267,17 +267,17 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
             } else {
                 this.mRootView.setBackgroundResource(a.f.ala_wish_list_bg);
             }
-            brs();
+            brt();
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        brs();
+        brt();
     }
 
-    private void brs() {
+    private void brt() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -345,7 +345,7 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
             this.feN.onDestroy();
         }
         if (this.fgp != null) {
-            this.fgp.bKF();
+            this.fgp.bKG();
         }
         if (this.mTimer != null) {
             this.mTimer.cancel();

@@ -35,7 +35,7 @@ public class b {
         this.hlW = aVar;
     }
 
-    public void caR() {
+    public void caS() {
         if (this.kqU != null) {
             this.kqU.cancelLoadData();
         }

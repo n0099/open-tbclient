@@ -107,7 +107,7 @@ public class c {
         this.fGf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.bwX();
+                c.this.bwY();
             }
         });
         if (this.fFT) {
@@ -161,8 +161,8 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bwX() {
-        buS();
+    public void bwY() {
+        buT();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -174,7 +174,7 @@ public class c {
         }
     }
 
-    private void bwY() {
+    private void bwZ() {
         if (this.fws == null) {
             this.fws = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.ala_frs_game_live_sort_panel, (ViewGroup) null);
             this.fGg = (TextView) this.fws.findViewById(R.id.frs_game_live_hot);
@@ -206,14 +206,14 @@ public class c {
             this.fwr.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.c.6
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
-                    c.this.bwZ();
+                    c.this.bxa();
                 }
             });
         }
     }
 
-    private void buS() {
-        bwY();
+    private void buT() {
+        bwZ();
         an.setBackgroundResource(this.fws, R.drawable.bg_ala_frs_game_live_sort_panel);
         an.setBackgroundResource(this.fGg, R.drawable.ala_frs_game_live_sort_selecor);
         an.setBackgroundResource(this.fGh, R.drawable.ala_frs_game_live_sort_selecor);
@@ -232,14 +232,14 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bwZ() {
+    public void bxa() {
     }
 
     public View getRootView() {
         return this.rootView;
     }
 
-    public BdTypeMultiColumnListView bxd() {
+    public BdTypeMultiColumnListView bxe() {
         return this.fFH;
     }
 
@@ -251,7 +251,7 @@ public class c {
         this.fFH.completePullRefresh();
     }
 
-    private void bxe() {
+    private void bxf() {
         if (this.fGJ == null) {
             this.fGJ = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.ala_frs_game_live_recommand_header, (ViewGroup) null);
             this.fGk = (TextView) this.fGJ.findViewById(R.id.frs_game_live_recommand1);
@@ -260,10 +260,10 @@ public class c {
             this.fGn = this.fGJ.findViewById(R.id.frs_game_live_recommand_line1);
             this.fGo = this.fGJ.findViewById(R.id.frs_game_live_recommand_line2);
         }
-        bwW();
+        bwX();
     }
 
-    private void bwW() {
+    private void bwX() {
         an.setViewTextColor(this.fGk, (int) R.color.cp_cont_d);
         an.setViewTextColor(this.fGl, (int) R.color.cp_cont_d);
         an.setViewTextColor(this.fGm, (int) R.color.cp_cont_d);
@@ -276,7 +276,7 @@ public class c {
             list = new LinkedList<>();
         }
         if (z2) {
-            bxe();
+            bxf();
             this.fwm.setVisibility(8);
             if (this.fGJ != null) {
                 this.fFH.removeHeaderView(this.fGJ);
@@ -298,13 +298,13 @@ public class c {
         this.fwm.setVisibility(0);
         this.fGL.setDatas(list);
         if (z) {
-            bxa();
+            bxb();
         } else {
-            btI();
+            btJ();
         }
     }
 
-    public void bxa() {
+    public void bxb() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.fFH.setNextPage(this.fnt);
@@ -314,7 +314,7 @@ public class c {
         }
     }
 
-    public void btI() {
+    public void btJ() {
         if (this.fGK == null) {
             this.fGK = new i(this.mPageContext.getPageActivity());
             this.fGK.createView();
@@ -331,7 +331,7 @@ public class c {
         }
     }
 
-    public void btJ() {
+    public void btK() {
         if (this.fnt != null) {
             if (this.fnt.getView().getParent() == null) {
                 this.fFH.setNextPage(this.fnt);
@@ -361,11 +361,11 @@ public class c {
         this.fGL.b(dVar);
     }
 
-    public NavigationBar bwV() {
+    public NavigationBar bwW() {
         return this.mNavigationBar;
     }
 
-    public void buH() {
+    public void buI() {
         if (this.fFH != null && j.isNetWorkAvailable()) {
             this.fFH.startPullRefresh();
         }

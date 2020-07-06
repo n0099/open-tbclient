@@ -74,16 +74,16 @@ public class c {
         if (aVar == null) {
             return;
         }
-        aVar.a(this, this.eKd, this.mDecoder, bkr());
+        aVar.a(this, this.eKd, this.mDecoder, bks());
         aVar.execute(new Object[0]);
         this.taskList.add(aVar);
     }
 
-    public com.baidu.adp.lib.d.a<a.C0506a, com.baidu.tbadk.widget.largeImage.a.a> bkr() {
+    public com.baidu.adp.lib.d.a<a.C0506a, com.baidu.tbadk.widget.largeImage.a.a> bks() {
         return this.eKl;
     }
 
-    public com.baidu.adp.lib.d.b<com.baidu.tbadk.widget.largeImage.a.a> bks() {
+    public com.baidu.adp.lib.d.b<com.baidu.tbadk.widget.largeImage.a.a> bkt() {
         return this.exI;
     }
 
@@ -100,41 +100,41 @@ public class c {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected Object doInBackground(Object[] objArr) {
-            com.baidu.tbadk.widget.largeImage.a.a bko;
+            com.baidu.tbadk.widget.largeImage.a.a bkp;
             if (this.eKl != null && this.eKn.checkIsVisiable(this.row, this.column, this.sampleScale)) {
                 Rect rect = this.eKn.getRect(this.row, this.column, this.sampleScale);
                 this.eKn.checkAndResizeBitmapRegion(rect);
                 if (!isRectRegionIllegal(rect)) {
                     try {
-                        bko = this.eKp.bks().borrowObject();
-                        if (bko != null) {
-                            if (!bko.isSizeEqual(rect)) {
+                        bkp = this.eKp.bkt().borrowObject();
+                        if (bkp != null) {
+                            if (!bkp.isSizeEqual(rect)) {
                                 System.currentTimeMillis();
-                                bko.clearBitmap();
+                                bkp.clearBitmap();
                             }
                         } else {
-                            bko = this.eKn.bko();
+                            bkp = this.eKn.bkp();
                         }
                     } catch (Throwable th) {
                         TbadkCoreApplication.getInst().onAppMemoryLow();
                         this.eKl.setMaxSize((int) (this.eKl.getMaxSize() * 0.8d));
                         System.gc();
                         try {
-                            bko = this.eKn.bko();
+                            bkp = this.eKn.bkp();
                         } catch (Throwable th2) {
                         }
                     }
                     BitmapFactory.Options options = new BitmapFactory.Options();
                     options.inSampleSize = this.sampleScale;
-                    options.inBitmap = bko.getBitmap();
+                    options.inBitmap = bkp.getBitmap();
                     options.inMutable = true;
                     System.currentTimeMillis();
                     Bitmap decodeRegion = this.mDecoder.decodeRegion(rect, options);
                     if (decodeRegion != null) {
                         decodeRegion.prepareToDraw();
-                        bko.setBitmap(decodeRegion);
-                        bko.setPosition(this.row, this.column, this.sampleScale);
-                        this.eKl.put(bko.bkn(), bko);
+                        bkp.setBitmap(decodeRegion);
+                        bkp.setPosition(this.row, this.column, this.sampleScale);
+                        this.eKl.put(bkp.bko(), bkp);
                         if (this.eKo != null) {
                             this.eKo.onLoadFinished();
                         }

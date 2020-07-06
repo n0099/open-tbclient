@@ -65,9 +65,9 @@ public class PbFakeFloorModel extends DataModel {
                     } else if (responsedMessage instanceof SubPbSocketResponseMessage) {
                         nVar = ((SubPbSocketResponseMessage) responsedMessage).pbFloorData;
                     }
-                    if (nVar != null && nVar.cHM() != null) {
-                        PostData postData = (PostData) w.getItem(nVar.cHM(), nVar.cHM().size() - 1);
-                        if (postData != null && PbFakeFloorModel.this.kse != null && PbFakeFloorModel.this.kse.cHI() != null) {
+                    if (nVar != null && nVar.cHN() != null) {
+                        PostData postData = (PostData) w.getItem(nVar.cHN(), nVar.cHN().size() - 1);
+                        if (postData != null && PbFakeFloorModel.this.kse != null && PbFakeFloorModel.this.kse.cHJ() != null) {
                             if (PbFakeFloorModel.this.kse.aPS() != null && PbFakeFloorModel.this.kse.aPS().aSp() != null && postData.aSp() != null && (userId = PbFakeFloorModel.this.kse.aPS().aSp().getUserId()) != null && userId.equals(postData.aSp().getUserId())) {
                                 z = true;
                             }
@@ -100,7 +100,7 @@ public class PbFakeFloorModel extends DataModel {
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public WriteData yy(String str) {
-        if (this.kse == null || this.kse.bfV() == null || this.kse.aPS() == null || this.kse.cHI() == null) {
+        if (this.kse == null || this.kse.bfV() == null || this.kse.aPS() == null || this.kse.cHJ() == null) {
             return null;
         }
         WriteData writeData = new WriteData();
@@ -113,7 +113,7 @@ public class PbFakeFloorModel extends DataModel {
             writeData.setForumId(this.kse.bfV().getId());
         }
         writeData.setFromForumId(this.mFromForumId);
-        writeData.setFloor(this.kse.cHI().getId());
+        writeData.setFloor(this.kse.cHJ().getId());
         writeData.setType(2);
         writeData.setCanNoForum(aTM);
         writeData.setThreadId(this.kse.aPS().getId());
@@ -125,10 +125,10 @@ public class PbFakeFloorModel extends DataModel {
         this.kse = nVar;
     }
 
-    public void cNA() {
+    public void cNB() {
         if (!this.ksf) {
             cancelMessage();
-            this.ksg = cNB();
+            this.ksg = cNC();
             if (this.ksg != null) {
                 sendMessage(this.ksg);
             }
@@ -137,14 +137,14 @@ public class PbFakeFloorModel extends DataModel {
 
     public void t(PostData postData) {
         if (postData != null) {
-            this.kse.cHI().w(postData);
-            this.kse.cHI().x(postData);
-            this.kse.cHI().uH(true);
+            this.kse.cHJ().w(postData);
+            this.kse.cHJ().x(postData);
+            this.kse.cHJ().uH(true);
         }
     }
 
-    private SubPbRequestMessage cNB() {
-        if (this.kse == null || this.kse.aPS() == null || this.kse.aPS().getId() == null || this.kse.cHI() == null || this.kse.cHI().getId() == null) {
+    private SubPbRequestMessage cNC() {
+        if (this.kse == null || this.kse.aPS() == null || this.kse.aPS().getId() == null || this.kse.cHJ() == null || this.kse.cHJ().getId() == null) {
             this.ksf = false;
             return null;
         }
@@ -152,13 +152,13 @@ public class PbFakeFloorModel extends DataModel {
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
         int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
         int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
-        long j = com.baidu.adp.lib.f.b.toLong(this.kse.cHI().getId(), 0L);
+        long j = com.baidu.adp.lib.f.b.toLong(this.kse.cHJ().getId(), 0L);
         return new SubPbRequestMessage(this.mPageContext.getPageActivity(), com.baidu.adp.lib.f.b.toLong(this.kse.aPS().getId(), 0L), j, 0L, 1, equipmentWidth, equipmentHeight, f, "", 1);
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public boolean bfv() {
-        cNA();
+        cNB();
         return true;
     }
 

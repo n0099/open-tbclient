@@ -33,12 +33,12 @@ public class b {
             if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
                 forumRecommendSocketResponseMessage forumrecommendsocketresponsemessage = (forumRecommendSocketResponseMessage) responsedMessage;
                 if (forumrecommendsocketresponsemessage.getHotSearchInfoData() != null) {
-                    str = forumrecommendsocketresponsemessage.getHotSearchInfoData().bRi();
+                    str = forumrecommendsocketresponsemessage.getHotSearchInfoData().bRj();
                 }
             } else if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
                 forumRecommendHttpResponseMessage forumrecommendhttpresponsemessage = (forumRecommendHttpResponseMessage) responsedMessage;
                 if (forumrecommendhttpresponsemessage.getHotSearchInfoData() != null) {
-                    str = forumrecommendhttpresponsemessage.getHotSearchInfoData().bRi();
+                    str = forumrecommendhttpresponsemessage.getHotSearchInfoData().bRj();
                 }
             }
             if (TextUtils.isEmpty(str)) {
@@ -52,14 +52,14 @@ public class b {
     private final View.OnClickListener lyI = new View.OnClickListener() { // from class: com.baidu.tieba.square.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.lyD.dfW();
+            b.this.lyD.dfX();
         }
     };
     private View.OnClickListener lyK = new View.OnClickListener() { // from class: com.baidu.tieba.square.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TiebaStatic.log(new ao("c13654").s("uid", TbadkCoreApplication.getCurrentAccountId()));
-            b.this.dgj();
+            b.this.dgk();
         }
     };
     private a.InterfaceC0738a lyL = new a.InterfaceC0738a() { // from class: com.baidu.tieba.square.b.4
@@ -84,7 +84,7 @@ public class b {
     private BdListView.e UJ = new BdListView.e() { // from class: com.baidu.tieba.square.b.6
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            b.this.lyD.bxS();
+            b.this.lyD.bxT();
         }
     };
 
@@ -98,17 +98,17 @@ public class b {
         this.lyA.b(this.lyM);
     }
 
-    public void dgh() {
+    public void dgi() {
         String hotSearch = TbSingleton.getInstance().getHotSearch();
         if (!TextUtils.isEmpty(hotSearch)) {
             this.lyA.setSearchHint(hotSearch);
         } else if (!TbadkCoreApplication.getInst().checkInterrupt()) {
             this.lyD.registerListener(this.lyJ);
-            dgi();
+            dgj();
         }
     }
 
-    private void dgi() {
+    private void dgj() {
         forumRecommendRequestMessage forumrecommendrequestmessage = new forumRecommendRequestMessage();
         forumrecommendrequestmessage.set_like_forum(Integer.valueOf(TbadkCoreApplication.isLogin() ? 1 : 0));
         forumrecommendrequestmessage.set_topic(0);
@@ -120,7 +120,7 @@ public class b {
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.square.ForumSquareActivity */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    public void dgj() {
+    public void dgk() {
         if (!j.isNetWorkAvailable()) {
             this.lyD.showToast(R.string.neterror);
         } else if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {

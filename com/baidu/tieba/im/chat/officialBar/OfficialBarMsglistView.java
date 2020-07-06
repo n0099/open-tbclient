@@ -165,7 +165,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         }
     }
 
-    public OfficialSecondMenuPopupWindow cnM() {
+    public OfficialSecondMenuPopupWindow cnN() {
         return this.iMP;
     }
 
@@ -210,7 +210,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         this.iMN.setVisibility(0);
     }
 
-    public a[] cnN() {
+    public a[] cnO() {
         return this.iMQ;
     }
 
@@ -219,7 +219,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
             for (int i = 0; i < 3; i++) {
                 com.baidu.tieba.im.data.b bVar = list.get(i);
                 this.iMQ[i].iMW.setText(bVar.getName());
-                if (bVar.cpr() != 0) {
+                if (bVar.cps() != 0) {
                     this.iMQ[i].iMX.setVisibility(8);
                 }
             }
@@ -316,7 +316,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         }
     }
 
-    public void cnO() {
+    public void cnP() {
         if (this.mLayBottom != null) {
             this.mLayBottom.setVisibility(8);
         }

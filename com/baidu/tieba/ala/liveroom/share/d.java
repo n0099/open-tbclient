@@ -40,7 +40,7 @@ public class d {
     private Runnable grq = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.share.d.1
         @Override // java.lang.Runnable
         public void run() {
-            d.this.bJp();
+            d.this.bJq();
         }
     };
     private View.OnClickListener grr = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.share.d.2
@@ -64,7 +64,7 @@ public class d {
                     return;
                 }
                 d.this.grp = -1;
-                d.this.bJp();
+                d.this.bJq();
             } else if (view.getId() == a.g.ala_prepare_share_img_weixin) {
                 z = d.this.grk.isSelected() ? false : true;
                 d.this.grk.setSelect(z);
@@ -80,7 +80,7 @@ public class d {
                     return;
                 }
                 d.this.grp = -1;
-                d.this.bJp();
+                d.this.bJq();
             } else if (view.getId() == a.g.ala_prepare_share_img_weixin_circle) {
                 boolean z3 = !d.this.grl.isSelected();
                 d.this.grl.setSelect(z3);
@@ -96,7 +96,7 @@ public class d {
                     return;
                 }
                 d.this.grp = -1;
-                d.this.bJp();
+                d.this.bJq();
             } else if (view.getId() == a.g.ala_prepare_share_img_qq) {
                 z = d.this.grm.isSelected() ? false : true;
                 d.this.grm.setSelect(z);
@@ -112,7 +112,7 @@ public class d {
                     return;
                 }
                 d.this.grp = -1;
-                d.this.bJp();
+                d.this.bJq();
             }
         }
     };
@@ -128,7 +128,7 @@ public class d {
             com.baidu.live.c.vf().putBoolean(str, false);
             return;
         }
-        bJp();
+        bJq();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -138,7 +138,7 @@ public class d {
 
     public d(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        bJn();
+        bJo();
         this.mShareChannel = ShareSingleManager.getInstance().buildShareChannel();
     }
 
@@ -182,7 +182,7 @@ public class d {
         this.glX = iShareCallback;
     }
 
-    public boolean bEg() {
+    public boolean bEh() {
         return this.mShareChannel != null && this.grp >= 1 && this.grp <= 4;
     }
 
@@ -285,12 +285,12 @@ public class d {
         this.mShareChannel.shareToQQ(shareEntity, this.glX);
     }
 
-    private void bJn() {
+    private void bJo() {
         this.grp = SharedPrefHelper.getInstance().getInt("prepare_share_type", -1);
     }
 
     private void c(final int[] iArr, final int i, final int i2) {
-        bJo();
+        bJp();
         if (this.grn.getParent() != null) {
             ((ViewGroup) this.grn.getParent()).removeView(this.grn);
         }
@@ -319,7 +319,7 @@ public class d {
         this.mHandler.postDelayed(this.grq, 5000L);
     }
 
-    private void bJo() {
+    private void bJp() {
         String str = null;
         switch (this.grp) {
             case 1:
@@ -338,13 +338,13 @@ public class d {
         this.gro.setText(str);
     }
 
-    public void bJp() {
+    public void bJq() {
         if (this.grn.getParent() != null) {
             ((ViewGroup) this.grn.getParent()).removeView(this.grn);
         }
     }
 
-    public void bJq() {
+    public void bJr() {
         SharedPrefHelper.getInstance().putInt("prepare_share_type", this.grp);
     }
 

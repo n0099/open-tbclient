@@ -53,7 +53,7 @@ public class c {
             this.kpi = (ImageView) this.kpg.findViewById(R.id.pb_thread_type_stamp_title_bottom_part);
             this.kpi.setScaleType(ImageView.ScaleType.MATRIX);
             Matrix matrix = new Matrix();
-            matrix.postTranslate(0.0f, -au.cLF());
+            matrix.postTranslate(0.0f, -au.cLG());
             this.kpi.setImageMatrix(matrix);
             this.kph = (TextView) this.kpg.findViewById(R.id.tv_pb_title);
             this.kph.setLinkTextColor(an.getColor(R.color.cp_link_tip_c));
@@ -83,7 +83,7 @@ public class c {
     }
 
     public void A(com.baidu.tieba.pb.data.e eVar) {
-        if (eVar != null && !eVar.cGN().aQV() && this.kph.getText() != null && this.kph.getText().length() > 0) {
+        if (eVar != null && !eVar.cGO().aQV() && this.kph.getText() != null && this.kph.getText().length() > 0) {
             this.kph.setVisibility(0);
         } else {
             this.kph.setVisibility(8);
@@ -105,10 +105,10 @@ public class c {
     }
 
     public void B(com.baidu.tieba.pb.data.e eVar) {
-        if (eVar != null && eVar.cGN() != null) {
-            SpannableStringBuilder aSZ = eVar.cGN().aSZ();
-            SpannableString aK = au.aK(eVar.cGN());
-            if (!StringUtils.isNull(eVar.cGN().getTitle())) {
+        if (eVar != null && eVar.cGO() != null) {
+            SpannableStringBuilder aSZ = eVar.cGO().aSZ();
+            SpannableString aK = au.aK(eVar.cGO());
+            if (!StringUtils.isNull(eVar.cGO().getTitle())) {
                 if (aK != null) {
                     aSZ.append((CharSequence) aK);
                     this.kph.setText(aSZ, TextView.BufferType.SPANNABLE);
@@ -135,7 +135,7 @@ public class c {
             layoutParams.topMargin = dimens;
             layoutParams.leftMargin = dimens2;
             layoutParams.rightMargin = dimens2;
-            if (eVar.cHp()) {
+            if (eVar.cHq()) {
                 dimens3 = 0;
             }
             layoutParams.bottomMargin = dimens3;
@@ -144,8 +144,8 @@ public class c {
     }
 
     public void D(com.baidu.tieba.pb.data.e eVar) {
-        if (eVar != null && eVar.cGN() != null) {
-            SpannableStringBuilder aSZ = eVar.cGN().aSZ();
+        if (eVar != null && eVar.cGO() != null) {
+            SpannableStringBuilder aSZ = eVar.cGO().aSZ();
             this.kph.setOnTouchListener(new i(aSZ));
             this.kph.setText(aSZ);
             this.kph.setVisibility(0);
@@ -153,7 +153,7 @@ public class c {
     }
 
     public void c(com.baidu.tieba.pb.data.e eVar, boolean z, boolean z2) {
-        if (eVar != null && eVar.cGN() != null && eVar.cGN().aSD() == 0 && !eVar.cGN().aQV()) {
+        if (eVar != null && eVar.cGO() != null && eVar.cGO().aSD() == 0 && !eVar.cGO().aQV()) {
             if (eVar.jYP) {
                 this.kpi.setImageResource(R.drawable.pic_frs_headlines_n);
                 this.kpi.setVisibility(0);
@@ -170,7 +170,7 @@ public class c {
                 this.kpi.setVisibility(8);
             }
             if (this.kpi.getVisibility() == 0 && this.kpi.getLayoutParams() != null) {
-                this.kpi.getLayoutParams().height = au.cLG() - au.cLF();
+                this.kpi.getLayoutParams().height = au.cLH() - au.cLG();
             }
         }
     }

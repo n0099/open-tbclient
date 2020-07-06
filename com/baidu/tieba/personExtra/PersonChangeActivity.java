@@ -130,21 +130,21 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     private final View.OnClickListener kKi = new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.PersonChangeActivity.9
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (PersonChangeActivity.this.kJL.cSV().getSex() != PersonChangeActivity.this.mSex) {
+            if (PersonChangeActivity.this.kJL.cSW().getSex() != PersonChangeActivity.this.mSex) {
                 PersonChangeActivity.this.kJQ = true;
             }
             if (PersonChangeActivity.this.kJQ) {
                 PersonChangeActivity.this.jnG.aUN();
                 return;
             }
-            if (PersonChangeActivity.this.kJL != null && PersonChangeActivity.this.kJL.cSV().getPhotoChanged()) {
+            if (PersonChangeActivity.this.kJL != null && PersonChangeActivity.this.kJL.cSW().getPhotoChanged()) {
                 Intent intent = new Intent();
                 if (PersonChangeActivity.this.kJz.booleanValue()) {
-                    intent.putExtra("person_change_data", PersonChangeActivity.this.kJL.cSV());
+                    intent.putExtra("person_change_data", PersonChangeActivity.this.kJL.cSW());
                 } else {
-                    intent.putExtra("data", PersonChangeActivity.this.kJL.cSV());
+                    intent.putExtra("data", PersonChangeActivity.this.kJL.cSW());
                 }
-                PersonChangeActivity.this.cST();
+                PersonChangeActivity.this.cSU();
                 PersonChangeActivity.this.setResult(-1, intent);
             }
             PersonChangeActivity.this.finish();
@@ -172,9 +172,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof PersonChangeData)) {
                 PersonChangeData personChangeData = (PersonChangeData) customResponsedMessage.getData();
-                if (PersonChangeActivity.this.kJL != null && PersonChangeActivity.this.kJL.cSV() != null && personChangeData != null) {
-                    PersonChangeActivity.this.kJL.cSV().setNickNameLeftDays(personChangeData.getNickNameLeftDays());
-                    PersonChangeActivity.this.kJL.cSV().setMem(personChangeData.getMen());
+                if (PersonChangeActivity.this.kJL != null && PersonChangeActivity.this.kJL.cSW() != null && personChangeData != null) {
+                    PersonChangeActivity.this.kJL.cSW().setNickNameLeftDays(personChangeData.getNickNameLeftDays());
+                    PersonChangeActivity.this.kJL.cSW().setMem(personChangeData.getMen());
                 }
             }
         }
@@ -188,7 +188,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         adjustResizeForSoftInput();
         this.mInputManager = (InputMethodManager) getSystemService("input_method");
         aF(bundle);
-        boC();
+        boD();
         if (bundle != null) {
             this.kJz = Boolean.valueOf(bundle.getBoolean(PersonChangeActivityConfig.IS_FROM_PERSONINFO));
         } else {
@@ -241,7 +241,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.mPermissionJudgement.clearRequestPermissionList();
             this.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
             if (!this.mPermissionJudgement.startRequestPermission(pageActivity)) {
-                cSO();
+                cSP();
             }
         } else if (view == this.kJA) {
             if (!this.ikn && !this.kJR) {
@@ -253,24 +253,24 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 TiebaStatic.log("c10101");
             }
             if (this.ikn) {
-                cSQ();
+                cSR();
             } else if (this.kJR) {
-                cSU();
+                cSV();
             }
         } else if (view == this.kJD) {
-            cSR();
+            cSS();
         } else if (view == this.kJF) {
-            cSM();
+            cSN();
         } else if (view == this.gqU) {
             Cp(800);
         } else if (view == this.kJX) {
             if (Build.VERSION.SDK_INT < 19) {
                 showToast(getPageContext().getPageActivity().getString(R.string.support_modify_nickname));
             } else if (NickNameActivitySwitch.isOn()) {
-                cSK();
+                cSL();
             } else {
-                int nickNameLeftDays = this.kJL.cSV().getNickNameLeftDays();
-                if (this.kJL.cSV().getMen() <= 0) {
+                int nickNameLeftDays = this.kJL.cSW().getNickNameLeftDays();
+                if (this.kJL.cSW().getMen() <= 0) {
                     if (nickNameLeftDays == 0) {
                         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EditNickNameActivityConfig(getPageContext().getPageActivity(), RequestResponseCode.REQUEST_MODIFY_NICKNAME, 0, null)));
                     } else if (nickNameLeftDays > 0 && nickNameLeftDays <= 2000) {
@@ -307,15 +307,15 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 }
             }
         } else if (view == this.kJU) {
-            if (this.kJL == null || this.kJL.cSV() == null || StringUtils.isNull(this.kJL.cSV().getName())) {
+            if (this.kJL == null || this.kJL.cSW() == null || StringUtils.isNull(this.kJL.cSW().getName())) {
                 i(TbadkCoreApplication.getCurrentAccountInfo());
             }
         } else if (view == this.kKf) {
-            PersonConstellationActivity.a(getActivity(), this.kJL.cSV().getBirthdayTime(), this.kJL.cSV().getBirthdayShowStatus());
+            PersonConstellationActivity.a(getActivity(), this.kJL.cSW().getBirthdayTime(), this.kJL.cSW().getBirthdayShowStatus());
         }
     }
 
-    private void cSK() {
+    private void cSL() {
         if (this.kKa == null) {
             View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.person_nickname_act_dialog, (ViewGroup) null);
             this.kKa = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
@@ -323,7 +323,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.kKa.a(R.string.nick_name_confirm, new a.b() { // from class: com.baidu.tieba.personExtra.PersonChangeActivity.13
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(PersonChangeActivity.this.getPageContext().getPageActivity(), null, com.baidu.tieba.pb.c.cGx(), true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(PersonChangeActivity.this.getPageContext().getPageActivity(), null, com.baidu.tieba.pb.c.cGy(), true)));
                     aVar.dismiss();
                 }
             });
@@ -362,13 +362,13 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         this.kJK = false;
         boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
         if (motionEvent.getAction() == 1 && !this.kJK) {
-            cSL();
+            cSM();
         }
         return dispatchTouchEvent;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cSL() {
+    public void cSM() {
         if (this.gqU.getVisibility() == 0) {
             String replaceAll = this.gqU.getText().toString().replaceAll("\\s*", "");
             if (replaceAll.length() > 0) {
@@ -376,18 +376,18 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             } else {
                 this.fBh.setText(getPageContext().getString(R.string.add_intro));
             }
-            if (this.kJL.cSV().getIntro() == null || !this.kJL.cSV().getIntro().equals(replaceAll)) {
+            if (this.kJL.cSW().getIntro() == null || !this.kJL.cSW().getIntro().equals(replaceAll)) {
                 this.kJQ = true;
             }
-            this.kJL.cSV().setIntro(replaceAll);
+            this.kJL.cSW().setIntro(replaceAll);
             HidenSoftKeyPad(this.mInputManager, this.gqU);
         }
     }
 
-    private void cSM() {
+    private void cSN() {
         if (this.gqU.getVisibility() != 0) {
             this.fBh.setVisibility(8);
-            this.gqU.setText(this.kJL.cSV().getIntro());
+            this.gqU.setText(this.kJL.cSW().getIntro());
             this.gqU.setSelection(this.gqU.getText().length());
             this.gqU.requestFocus();
             ShowSoftKeyPad(this.mInputManager, this.gqU);
@@ -445,17 +445,17 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (this.kJL.cSV() != null) {
-            bundle.putString("data", OrmObject.jsonStrWithObject(this.kJL.cSV()));
+        if (this.kJL.cSW() != null) {
+            bundle.putString("data", OrmObject.jsonStrWithObject(this.kJL.cSW()));
         }
     }
 
-    private void boC() {
+    private void boD() {
         this.kJZ = findViewById(R.id.photo_pop_icon);
         this.kJZ.setOnClickListener(this);
         this.hva = (HeadImageView) findViewById(R.id.photo);
         this.hva.setOnClickListener(this);
-        this.hva.startLoad(p.wz(this.kJL.cSV().getPortrait()), 25, false);
+        this.hva.startLoad(p.wz(this.kJL.cSW().getPortrait()), 25, false);
         this.hpL = (LinearLayout) findViewById(R.id.parent);
         this.kJB = (ScrollView) findViewById(R.id.person_change_scroll);
         this.kJD = (RelativeLayout) findViewById(R.id.person_sex);
@@ -484,22 +484,22 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             }
         });
         this.kJC = (TextView) findViewById(R.id.nick_name_show);
-        this.kJC.setText(this.kJL.cSV().getNameShow());
+        this.kJC.setText(this.kJL.cSW().getNameShow());
         this.kJX = findViewById(R.id.person_nickname);
         this.kJX.setOnClickListener(this);
         this.kJY = findViewById(R.id.nick_name_more);
-        cSN();
+        cSO();
         this.kJV = (TextView) findViewById(R.id.user_name_show);
         this.kJU = findViewById(R.id.person_name);
         this.kJW = findViewById(R.id.user_name_more_icon);
         this.kJU.setOnClickListener(this);
-        if (StringUtils.isNull(this.kJL.cSV().getName())) {
+        if (StringUtils.isNull(this.kJL.cSW().getName())) {
             this.kJV.setText(getPageContext().getString(R.string.tip_empty_user_name));
             this.kJT = false;
             this.kJU.setClickable(true);
             this.kJW.setVisibility(0);
         } else {
-            this.kJV.setText(this.kJL.cSV().getName());
+            this.kJV.setText(this.kJL.cSW().getName());
             this.kJT = true;
             this.kJU.setClickable(false);
             this.kJW.setVisibility(8);
@@ -510,8 +510,8 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         this.kJJ = (TextView) findViewById(R.id.intro_text_tip_limit);
         this.fBh = (TextView) findViewById(R.id.intro);
         this.fBh.setVisibility(8);
-        if (this.kJL.cSV().getIntro() != null && this.kJL.cSV().getIntro().length() > 0) {
-            this.fBh.setText(this.kJL.cSV().getIntro());
+        if (this.kJL.cSW().getIntro() != null && this.kJL.cSW().getIntro().length() > 0) {
+            this.fBh.setText(this.kJL.cSW().getIntro());
         } else {
             this.fBh.setText(getPageContext().getString(R.string.add_intro));
         }
@@ -519,9 +519,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         this.gqU.setHint(getResources().getString(R.string.person_default_sign, "o(〃'▽'〃)o"));
         this.gqU.setHintTextColor(an.getColor(R.color.cp_cont_c));
         this.gqU.setCursorVisible(false);
-        if (!ar.isEmpty(this.kJL.cSV().getIntro())) {
-            this.gqU.setText(this.kJL.cSV().getIntro());
-            this.kJH.setText(this.kJL.cSV().getIntro().length() + "");
+        if (!ar.isEmpty(this.kJL.cSW().getIntro())) {
+            this.gqU.setText(this.kJL.cSW().getIntro());
+            this.kJH.setText(this.kJL.cSW().getIntro().length() + "");
         } else {
             this.kJH.setText("0");
         }
@@ -530,7 +530,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
-                    PersonChangeActivity.this.cSL();
+                    PersonChangeActivity.this.cSM();
                 }
             }
         });
@@ -559,7 +559,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 PersonChangeActivity.this.kJH.setText(String.valueOf(length));
                 PersonChangeActivity.this.kJG.setVisibility(0);
                 PersonChangeActivity.this.Cp(0);
-                PersonChangeActivity.this.cSP();
+                PersonChangeActivity.this.cSQ();
                 if (length > 500) {
                     PersonChangeActivity.this.showToast(R.string.over_limit_tip);
                     if (PersonChangeActivity.this.gqU.getSelectionStart() - 1 < 0 || PersonChangeActivity.this.gqU.getSelectionStart() - 1 > PersonChangeActivity.this.gqU.getSelectionEnd()) {
@@ -579,7 +579,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (!editable.toString().replaceAll("\\s*", "").equals(PersonChangeActivity.this.kJL.cSV().getIntro())) {
+                if (!editable.toString().replaceAll("\\s*", "").equals(PersonChangeActivity.this.kJL.cSW().getIntro())) {
                     PersonChangeActivity.this.ikn = true;
                     if (TbadkCoreApplication.getInst().getSkinType() == 2) {
                         an.setViewTextColor(PersonChangeActivity.this.iVr, R.color.navi_op_text, 1);
@@ -589,10 +589,10 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 }
             }
         });
-        if (this.kJL.cSV().getSex() == 1) {
+        if (this.kJL.cSW().getSex() == 1) {
             this.mSex = 1;
             this.kJE.setText(R.string.male);
-        } else if (this.kJL.cSV().getSex() == 2) {
+        } else if (this.kJL.cSW().getSex() == 2) {
             this.mSex = 2;
             this.kJE.setText(R.string.female);
         } else {
@@ -605,22 +605,22 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
-                PersonChangeActivity.this.cSQ();
+                PersonChangeActivity.this.cSR();
             }
         });
         this.jnG.b(getPageContext().getString(R.string.cancel), new a.b() { // from class: com.baidu.tieba.personExtra.PersonChangeActivity.5
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
-                if (PersonChangeActivity.this.kJL.cSV().getPhotoChanged()) {
+                if (PersonChangeActivity.this.kJL.cSW().getPhotoChanged()) {
                     Intent intent = new Intent();
                     if (PersonChangeActivity.this.kJz.booleanValue()) {
-                        intent.putExtra("person_change_data", PersonChangeActivity.this.kJL.cSV());
+                        intent.putExtra("person_change_data", PersonChangeActivity.this.kJL.cSW());
                     } else {
-                        intent.putExtra("data", PersonChangeActivity.this.kJL.cSV());
+                        intent.putExtra("data", PersonChangeActivity.this.kJL.cSW());
                     }
                     PersonChangeActivity.this.setResult(-1, intent);
-                    PersonChangeActivity.this.cST();
+                    PersonChangeActivity.this.cSU();
                 }
                 PersonChangeActivity.this.finish();
             }
@@ -628,21 +628,21 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         this.jnG.b(getPageContext());
         this.kKc = (LinearLayout) findViewById(R.id.person_ala_id_layout);
         this.kKd = (TextView) findViewById(R.id.person_ala_id_show);
-        if (this.kJL.cSV().getAlaId() > 0) {
+        if (this.kJL.cSW().getAlaId() > 0) {
             this.kKc.setVisibility(0);
-            this.kKd.setText(this.kJL.cSV().getAlaId() + "");
+            this.kKd.setText(this.kJL.cSW().getAlaId() + "");
         }
         this.kKe = (TextView) findViewById(R.id.person_forum_age_show);
-        this.kKe.setText(getResources().getString(R.string.person_forum_age_suffix, this.kJL.cSV().getForumAge()));
+        this.kKe.setText(getResources().getString(R.string.person_forum_age_suffix, this.kJL.cSW().getForumAge()));
         this.kKf = (RelativeLayout) findViewById(R.id.person_constellation);
         this.kKf.setOnClickListener(this);
         this.kKg = (TextView) findViewById(R.id.constellation_txt);
         this.kKh = (TextView) findViewById(R.id.age_txt);
-        if (this.kJL.cSV().getBirthdayTime() != 0) {
-            this.kKg.setText(ar.m(new Date(this.kJL.cSV().getBirthdayTime() * 1000)));
+        if (this.kJL.cSW().getBirthdayTime() != 0) {
+            this.kKg.setText(ar.m(new Date(this.kJL.cSW().getBirthdayTime() * 1000)));
         }
-        if (this.kJL.cSV().getUserAge() > 0 && this.kJL.cSV().getBirthdayShowStatus() == 2) {
-            this.kKh.setText(getResources().getString(R.string.person_information_header_age, Integer.valueOf(this.kJL.cSV().getUserAge())));
+        if (this.kJL.cSW().getUserAge() > 0 && this.kJL.cSW().getBirthdayShowStatus() == 2) {
+            this.kKh.setText(getResources().getString(R.string.person_information_header_age, Integer.valueOf(this.kJL.cSW().getUserAge())));
             this.kKh.setVisibility(0);
         } else {
             this.kKh.setVisibility(8);
@@ -655,15 +655,15 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         });
     }
 
-    private void cSN() {
-        if (NickNameActivitySwitch.isOn() || this.kJL.cSV().getNickNameLeftDays() == 0) {
+    private void cSO() {
+        if (NickNameActivitySwitch.isOn() || this.kJL.cSW().getNickNameLeftDays() == 0) {
             this.kJY.setVisibility(0);
         } else {
             this.kJY.setVisibility(8);
         }
     }
 
-    public void cSO() {
+    public void cSP() {
         String[] strArr = {getPageContext().getString(R.string.change_photo), getPageContext().getString(R.string.change_system_photo)};
         com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(getPageContext().getPageActivity());
         bVar.kX(R.string.operation);
@@ -686,7 +686,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cSP() {
+    public void cSQ() {
         int color;
         if (this.gqU.getText().toString().replaceAll("\\s*", "").length() >= 500) {
             color = an.getColor(R.color.common_color_10159);
@@ -703,15 +703,15 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cSQ() {
-        if (this.kJL != null && this.kJL.cSV() != null) {
-            cSL();
+    public void cSR() {
+        if (this.kJL != null && this.kJL.cSW() != null) {
+            cSM();
             if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                 showToast(R.string.neterror);
                 return;
             }
-            this.kJL.cSV().setIntro(this.gqU.getText().toString().replaceAll("\\s*", ""));
-            this.kJL.cSV().setSex(this.mSex);
+            this.kJL.cSW().setIntro(this.gqU.getText().toString().replaceAll("\\s*", ""));
+            this.kJL.cSW().setSex(this.mSex);
             if (this.kJN == null) {
                 this.kJN = new b(this.kJL);
                 this.kJN.setPriority(3);
@@ -720,7 +720,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    private void cSR() {
+    private void cSS() {
         if (this.kJP == null) {
             this.kJP = new com.baidu.tbadk.core.dialog.i(getPageContext());
             final String string = getPageContext().getString(R.string.male);
@@ -739,7 +739,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                             PersonChangeActivity.this.mSex = 2;
                             PersonChangeActivity.this.kJE.setText(string2);
                         }
-                        if (PersonChangeActivity.this.mSex != PersonChangeActivity.this.kJL.cSV().getSex()) {
+                        if (PersonChangeActivity.this.mSex != PersonChangeActivity.this.kJL.cSW().getSex()) {
                             PersonChangeActivity.this.ikn = true;
                             if (TbadkCoreApplication.getInst().getSkinType() == 2) {
                                 an.setViewTextColor(PersonChangeActivity.this.iVr, R.color.navi_op_text, 1);
@@ -757,7 +757,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            cSL();
+            cSM();
             this.kKi.onClick(null);
             return true;
         }
@@ -774,14 +774,14 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     if (intent != null) {
                         long longExtra = intent.getLongExtra("constellation_birthday", 0L);
                         int intExtra = intent.getIntExtra("constellation_show_status", 0);
-                        if (longExtra != this.kJL.cSV().getBirthdayTime() || intExtra != this.kJL.cSV().getBirthdayShowStatus()) {
-                            this.kJL.cSV().setBirthdayShowStatus(intExtra);
-                            this.kJL.cSV().setBirthdayTime(longExtra);
+                        if (longExtra != this.kJL.cSW().getBirthdayTime() || intExtra != this.kJL.cSW().getBirthdayShowStatus()) {
+                            this.kJL.cSW().setBirthdayShowStatus(intExtra);
+                            this.kJL.cSW().setBirthdayTime(longExtra);
                             this.kJQ = true;
                             this.ikn = true;
                             Date date = new Date(longExtra * 1000);
                             this.kKg.setText(ar.m(date));
-                            if (this.kJL.cSV().getBirthdayShowStatus() == 2) {
+                            if (this.kJL.cSW().getBirthdayShowStatus() == 2) {
                                 this.kKh.setText(getResources().getString(R.string.person_information_header_age, Integer.valueOf(o(date))));
                                 this.kKh.setVisibility(0);
                                 return;
@@ -805,8 +805,8 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 case RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW /* 12009 */:
                 case RequestResponseCode.REQUEST_CAMERA_VIEW /* 12010 */:
-                    this.kJL.cSV().setPhotoChanged(true);
-                    cSS();
+                    this.kJL.cSW().setPhotoChanged(true);
+                    cST();
                     this.ikn = true;
                     if (TbadkCoreApplication.getInst().getSkinType() == 2) {
                         an.setViewTextColor(this.iVr, R.color.navi_op_text, 1);
@@ -816,7 +816,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                         return;
                     }
                 case RequestResponseCode.REQUEST_SYSTEM_PHOTO_LIST /* 12014 */:
-                    this.kJL.cSV().setPhotoChanged(true);
+                    this.kJL.cSW().setPhotoChanged(true);
                     if (intent != null) {
                         this.hva.setImageBitmap(null);
                         this.hva.startLoad(intent.getStringExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL), 10, false);
@@ -871,11 +871,11 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     private void KM(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.kJR = true;
-            this.kJL.cSV().setPhotoChanged(true);
-            this.kJL.cSV().setNameShow(str);
-            this.kJL.cSV().setNickNameLeftDays(90);
+            this.kJL.cSW().setPhotoChanged(true);
+            this.kJL.cSW().setNameShow(str);
+            this.kJL.cSW().setNickNameLeftDays(90);
             this.kJC.setText(str);
-            cSN();
+            cSO();
         }
     }
 
@@ -895,7 +895,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EditHeadActivityConfig(getPageContext().getPageActivity(), 12001, RequestResponseCode.REQUEST_CAMERA_VIEW, null, TbadkCoreApplication.getCurrentAccountObj(), 1.0f)));
     }
 
-    private void cSS() {
+    private void cST() {
         if (this.kJM != null) {
             this.kJM.cancel();
         }
@@ -905,9 +905,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cST() {
-        if (this.kJL != null && this.kJL.cSV() != null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_DATA_CHANGED, this.kJL.cSV()));
+    public void cSU() {
+        if (this.kJL != null && this.kJL.cSW() != null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_DATA_CHANGED, this.kJL.cSW()));
         }
     }
 
@@ -957,21 +957,21 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (bitmap != null) {
                 PersonChangeActivity.this.iOz = new com.baidu.adp.widget.ImageView.a(bitmap, false, (String) null);
                 PersonChangeActivity.this.iOz.drawImageTo(PersonChangeActivity.this.hva);
-                com.baidu.tbadk.imageManager.c.bgz().a(PersonChangeActivity.this.kJL.cSV().getPortrait(), PersonChangeActivity.this.iOz, true);
+                com.baidu.tbadk.imageManager.c.bgz().a(PersonChangeActivity.this.kJL.cSW().getPortrait(), PersonChangeActivity.this.iOz, true);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cSU() {
+    public void cSV() {
         Intent intent = new Intent();
         if (this.kJz.booleanValue()) {
-            intent.putExtra("person_change_data", this.kJL.cSV());
+            intent.putExtra("person_change_data", this.kJL.cSW());
         } else {
-            intent.putExtra("data", this.kJL.cSV());
+            intent.putExtra("data", this.kJL.cSW());
         }
         setResult(-1, intent);
-        cST();
+        cSU();
         finish();
     }
 
@@ -1004,7 +1004,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (this.byb != null) {
                 if (this.byb.aWu().aWW().isRequestSuccess()) {
                     PersonChangeActivity.this.showToast(PersonChangeActivity.this.getPageContext().getString(R.string.success));
-                    PersonChangeActivity.this.cSU();
+                    PersonChangeActivity.this.cSV();
                 } else {
                     PersonChangeActivity.this.showToast(this.byb.getErrorString());
                 }
@@ -1025,13 +1025,13 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public String doInBackground(String... strArr) {
             if (this.kJL != null) {
                 this.byb = new y(TbConfig.SERVER_ADDRESS + "c/c/profile/modify");
-                this.byb.addPostData("sex", String.valueOf(this.kJL.cSV().getSex()));
-                this.byb.addPostData("intro", this.kJL.cSV().getIntro());
-                this.byb.addPostData("birthday_time", String.valueOf(this.kJL.cSV().getBirthdayTime()));
-                this.byb.addPostData("birthday_show_status", String.valueOf(this.kJL.cSV().getBirthdayShowStatus()));
+                this.byb.addPostData("sex", String.valueOf(this.kJL.cSW().getSex()));
+                this.byb.addPostData("intro", this.kJL.cSW().getIntro());
+                this.byb.addPostData("birthday_time", String.valueOf(this.kJL.cSW().getBirthdayTime()));
+                this.byb.addPostData("birthday_show_status", String.valueOf(this.kJL.cSW().getBirthdayShowStatus()));
                 this.byb.postMultiNetData();
                 if (this.byb.aWu().aWW().isRequestSuccess()) {
-                    com.baidu.tieba.tbadkCore.util.a.diO();
+                    com.baidu.tieba.tbadkCore.util.a.diP();
                 }
             }
             return null;

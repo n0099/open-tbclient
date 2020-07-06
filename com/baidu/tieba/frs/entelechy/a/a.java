@@ -37,11 +37,11 @@ public class a extends com.baidu.tieba.frs.j<bu, com.baidu.card.ak<bu>> implemen
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, bu buVar) {
-                com.baidu.tieba.card.s.bOA().jI(true);
-                com.baidu.tieba.a.d.boA().dh("page_recommend", "show_");
+                com.baidu.tieba.card.s.bOB().jI(true);
+                com.baidu.tieba.a.d.boB().dh("page_recommend", "show_");
                 if (view != null && buVar != null && !StringUtils.isNull(buVar.getTid())) {
                     if (view.getId() == R.id.thread_card_root) {
-                        com.baidu.tieba.frs.d.c.ceq().a(com.baidu.tieba.frs.d.d.hIE, buVar, 13);
+                        com.baidu.tieba.frs.d.c.cer().a(com.baidu.tieba.frs.d.d.hIE, buVar, 13);
                     }
                     if (view.getId() == R.id.user_name || view.getId() == R.id.user_avatar) {
                         com.baidu.tieba.frs.d.a.a(buVar, 2, a.this.mPageId, com.baidu.tieba.frs.d.d.hIE, a.this.getTbPageTag());
@@ -132,7 +132,7 @@ public class a extends com.baidu.tieba.frs.j<bu, com.baidu.card.ak<bu>> implemen
         if (buVar == null || akVar == null || akVar.getView() == null) {
             return null;
         }
-        com.baidu.tieba.frs.d.c.ceq().a(hIE, buVar);
+        com.baidu.tieba.frs.d.c.cer().a(hIE, buVar);
         akVar.se().setPage(this.afG);
         akVar.se().setPosition(i);
         if (this.hIA == 1) {

@@ -52,11 +52,11 @@ public class a extends j<bu, com.baidu.tieba.card.a.a<w>> implements x {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bu buVar, com.baidu.tieba.card.a.a<w> aVar) {
-        if (aVar == null || aVar.bPg() == null) {
+        if (aVar == null || aVar.bPh() == null) {
             return null;
         }
-        aVar.bPg().c(this.fpn);
-        aVar.bPg().a(buVar);
+        aVar.bPh().c(this.fpn);
+        aVar.bPh().a(buVar);
         return aVar.getView();
     }
 

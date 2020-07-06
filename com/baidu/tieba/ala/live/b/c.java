@@ -84,10 +84,10 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.ala.live.b.a
-    public void byB() {
+    public void byC() {
         HttpMessage httpMessage = new HttpMessage(1001505);
         httpMessage.setTag(getUniqueId());
-        httpMessage.addParam("pay_id", byC());
+        httpMessage.addParam("pay_id", byD());
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
@@ -99,7 +99,7 @@ public class c extends a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(GetOrderHttpResponsedMessage getOrderHttpResponsedMessage) {
         String errorString;
-        be byA = getOrderHttpResponsedMessage.byA();
+        be byB = getOrderHttpResponsedMessage.byB();
         if (getOrderHttpResponsedMessage.hasError() || getOrderHttpResponsedMessage.getError() != 0) {
             if (StringUtils.isNull(getOrderHttpResponsedMessage.getErrorString())) {
                 errorString = this.mPageContext.getResources().getString(a.i.sdk_neterror);
@@ -107,10 +107,10 @@ public class c extends a {
                 errorString = getOrderHttpResponsedMessage.getErrorString();
             }
             a(getOrderHttpResponsedMessage.getError(), errorString, null, null, null, false);
-        } else if (byA == null) {
+        } else if (byB == null) {
             a(getOrderHttpResponsedMessage.getError(), getOrderHttpResponsedMessage.getErrorString(), null, null, null, false);
         } else {
-            a(getOrderHttpResponsedMessage.getError(), getOrderHttpResponsedMessage.getErrorString(), byA.orderId, com.baidu.tieba.ala.live.walletconfig.a.a(byA), byA.pay_channel, "url".equalsIgnoreCase(byA.call_type));
+            a(getOrderHttpResponsedMessage.getError(), getOrderHttpResponsedMessage.getErrorString(), byB.orderId, com.baidu.tieba.ala.live.walletconfig.a.a(byB), byB.pay_channel, "url".equalsIgnoreCase(byB.call_type));
         }
     }
 

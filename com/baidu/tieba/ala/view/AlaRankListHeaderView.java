@@ -83,7 +83,7 @@ public class AlaRankListHeaderView extends LinearLayout {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bwT();
+        void bwU();
     }
 
     /* loaded from: classes3.dex */
@@ -108,7 +108,7 @@ public class AlaRankListHeaderView extends LinearLayout {
                     AlaRankListHeaderView.this.gIe = 0L;
                     AlaRankListHeaderView.this.release();
                     if (AlaRankListHeaderView.this.gIg != null) {
-                        AlaRankListHeaderView.this.gIg.bwT();
+                        AlaRankListHeaderView.this.gIg.bwU();
                     }
                 } else {
                     AlaRankListHeaderView.c(AlaRankListHeaderView.this);
@@ -136,7 +136,7 @@ public class AlaRankListHeaderView extends LinearLayout {
                     AlaRankListHeaderView.this.gIe = 0L;
                     AlaRankListHeaderView.this.release();
                     if (AlaRankListHeaderView.this.gIg != null) {
-                        AlaRankListHeaderView.this.gIg.bwT();
+                        AlaRankListHeaderView.this.gIg.bwU();
                     }
                 } else {
                     AlaRankListHeaderView.c(AlaRankListHeaderView.this);
@@ -161,7 +161,7 @@ public class AlaRankListHeaderView extends LinearLayout {
                     AlaRankListHeaderView.this.gIe = 0L;
                     AlaRankListHeaderView.this.release();
                     if (AlaRankListHeaderView.this.gIg != null) {
-                        AlaRankListHeaderView.this.gIg.bwT();
+                        AlaRankListHeaderView.this.gIg.bwU();
                     }
                 } else {
                     AlaRankListHeaderView.c(AlaRankListHeaderView.this);
@@ -283,7 +283,7 @@ public class AlaRankListHeaderView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bMQ() {
+    public void bMR() {
         if (this.aIN == null) {
             this.aIN = new AnimatorSet();
         }
@@ -365,7 +365,7 @@ public class AlaRankListHeaderView extends LinearLayout {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (AlaRankListHeaderView.this.aUG) {
-                        AlaRankListHeaderView.this.bMQ();
+                        AlaRankListHeaderView.this.bMR();
                     }
                     AlaRankListHeaderView.this.aUG = true;
                 }

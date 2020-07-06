@@ -48,7 +48,7 @@ public class a<T> {
     public a(InterfaceC0617a interfaceC0617a, BaseActivity<T> baseActivity) {
         this.hwY = interfaceC0617a;
         this.mActivity = baseActivity;
-        bWB();
+        bWC();
     }
 
     public void ud(int i) {
@@ -63,7 +63,7 @@ public class a<T> {
         this.mActivity.sendMessage(getLevelInfoReadCacheRequestMessage);
     }
 
-    private void bWB() {
+    private void bWC() {
         this.mActivity.registerListener(this.hvn);
         this.mActivity.registerListener(this.hvm);
     }

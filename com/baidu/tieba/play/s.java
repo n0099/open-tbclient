@@ -13,7 +13,7 @@ public class s {
     private static boolean kUL = true;
     private static boolean kUM = true;
 
-    private static i cVM() {
+    private static i cVN() {
         if (kUK == null) {
             kUL = com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean(SharedPrefConfig.PREFS_SAVE_PALED_VIDEO, true);
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, i.class);
@@ -26,57 +26,57 @@ public class s {
 
     public static String aR(String str, boolean z) {
         if (z) {
-            if (kUM && cVM() != null) {
-                return cVM().aq(str, true);
+            if (kUM && cVN() != null) {
+                return cVN().aq(str, true);
             }
             return str;
-        } else if (kUM && kUL && cVM() != null) {
-            return cVM().zU(str);
+        } else if (kUM && kUL && cVN() != null) {
+            return cVN().zU(str);
         } else {
             return str;
         }
     }
 
     public static String zV(String str) {
-        if (cVM() != null) {
-            return cVM().zV(str);
+        if (cVN() != null) {
+            return cVN().zV(str);
         }
         return null;
     }
 
     public static void d(Context context, String str, int i) {
-        if (cVM() != null) {
-            cVM().d(context, str, i);
+        if (cVN() != null) {
+            cVN().d(context, str, i);
         }
     }
 
     public static void aq(Context context, String str) {
-        if (cVM() != null) {
-            cVM().aq(context, str);
+        if (cVN() != null) {
+            cVN().aq(context, str);
         }
     }
 
     public static void ar(Context context, String str) {
-        if (kUM && kUL && cVM() != null) {
-            cVM().ar(context, str);
+        if (kUM && kUL && cVN() != null) {
+            cVN().ar(context, str);
         }
     }
 
     public static void zW(String str) {
-        if (kUM && kUL && cVM() != null) {
-            cVM().zW(str);
+        if (kUM && kUL && cVN() != null) {
+            cVN().zW(str);
         }
     }
 
     public static void clearCache(Context context) {
-        if (cVM() != null) {
-            cVM().clearCache(context);
+        if (cVN() != null) {
+            cVN().clearCache(context);
         }
     }
 
     public static String zX(String str) {
-        if (cVM() != null) {
-            return cVM().zX(str);
+        if (cVN() != null) {
+            return cVN().zX(str);
         }
         return null;
     }
@@ -85,7 +85,7 @@ public class s {
         kUL = z;
     }
 
-    public static void cVN() {
+    public static void cVO() {
         kUM = SwitchManager.getInstance().findType(VCacheSwitch.CACHE_SWITCH) == 1;
     }
 }

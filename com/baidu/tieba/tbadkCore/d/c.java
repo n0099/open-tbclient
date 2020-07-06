@@ -45,7 +45,7 @@ public class c {
         return lHo.get(str3);
     }
 
-    public static void dir() {
+    public static void dis() {
     }
 
     public static void Fa(int i) {

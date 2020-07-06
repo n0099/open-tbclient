@@ -124,7 +124,7 @@ public class SearchEditView extends RelativeLayout {
         }
     }
 
-    public boolean bTX() {
+    public boolean bTY() {
         return this.hmp.requestFocus();
     }
 }

@@ -41,7 +41,7 @@ public class b extends e {
                 r.aO(b.this.mRootView.getContext(), fVar.scheme);
                 if (b.this.lks != null) {
                     b.this.lks.Du(302);
-                    com.baidu.tieba.recapp.report.d.cZQ().a(b.this.lks);
+                    com.baidu.tieba.recapp.report.d.cZR().a(b.this.lks);
                 }
                 if (b.this.lku != null) {
                     com.baidu.tieba.lego.card.b.c.a(b.this.lku);

@@ -6,19 +6,19 @@ public class r {
     private boolean hjr = false;
     private boolean kUJ = true;
 
-    public int cVI() {
+    public int cVJ() {
         return this.jSs;
     }
 
-    public int cVJ() {
+    public int cVK() {
         return this.kUI;
     }
 
-    public boolean cVK() {
+    public boolean cVL() {
         return this.hjr;
     }
 
-    public boolean cVL() {
+    public boolean cVM() {
         return this.kUJ;
     }
 

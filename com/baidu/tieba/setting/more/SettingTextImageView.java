@@ -44,13 +44,13 @@ public class SettingTextImageView extends FrameLayout {
         this.lsL.invalidate();
     }
 
-    public void ddD() {
+    public void ddE() {
         if (this.lsL != null) {
             this.lsL.setVisibility(8);
         }
     }
 
-    public void ddE() {
+    public void ddF() {
         if (this.lsL != null) {
             this.lsL.setVisibility(0);
         }

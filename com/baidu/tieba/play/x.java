@@ -24,7 +24,7 @@ public class x {
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
     }
 
-    public static x cVV() {
+    public static x cVW() {
         if (kVl == null) {
             synchronized (x.class) {
                 if (kVl == null) {

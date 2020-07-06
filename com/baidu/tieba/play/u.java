@@ -91,7 +91,7 @@ public class u {
         return this.videoHeight;
     }
 
-    public long cVO() {
+    public long cVP() {
         return this.videoSize;
     }
 
@@ -99,7 +99,7 @@ public class u {
         return this.duration;
     }
 
-    public String cVP() {
+    public String cVQ() {
         return this.kUO;
     }
 }

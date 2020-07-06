@@ -60,8 +60,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                     StrangerListActivity.this.d(customResponsedMessage);
                 } else if (customResponsedMessage.getCmd() == 2016001) {
                     StrangerListActivity.this.jfS.setData(null, StrangerListActivity.this.iNe);
-                } else if (customResponsedMessage.getCmd() == 2016011 && StrangerListActivity.this.jfR != null && StrangerListActivity.this.jfR.cuD() != null) {
-                    StrangerListActivity.this.jfR.cuD().notifyDataSetChanged();
+                } else if (customResponsedMessage.getCmd() == 2016011 && StrangerListActivity.this.jfR != null && StrangerListActivity.this.jfR.cuE() != null) {
+                    StrangerListActivity.this.jfR.cuE().notifyDataSetChanged();
                 }
             }
         }
@@ -69,13 +69,13 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     private com.baidu.tieba.im.chat.a.a iNe = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.5
         @Override // com.baidu.tieba.im.chat.a.a
         public void onComplete() {
-            StrangerListActivity.this.cnU();
+            StrangerListActivity.this.cnV();
         }
     };
     private final com.baidu.tieba.im.chat.a.b iNf = new com.baidu.tieba.im.chat.a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.6
         @Override // com.baidu.tieba.im.chat.a.b
         public void onPreExecute() {
-            StrangerListActivity.this.cnT();
+            StrangerListActivity.this.cnU();
         }
 
         @Override // com.baidu.tieba.im.chat.a.b
@@ -90,13 +90,13 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public void onPostExecute() {
             StrangerListActivity.this.yY();
             StrangerListActivity.this.showToast(R.string.delete_success, false);
-            StrangerListActivity.this.cnU();
+            StrangerListActivity.this.cnV();
         }
 
         @Override // com.baidu.tieba.im.chat.a.b
         public void onCanceled() {
             StrangerListActivity.this.yY();
-            StrangerListActivity.this.cnU();
+            StrangerListActivity.this.cnV();
         }
     };
 
@@ -169,7 +169,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         ImMessageCenterShowItemData ya;
-        if (this.jfR != null && this.jfR.cuD() != null && (ya = this.jfR.cuD().getItem(i)) != null) {
+        if (this.jfR != null && this.jfR.cuE() != null && (ya = this.jfR.cuE().getItem(i)) != null) {
             PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this.jfT.getPageContext().getContext(), com.baidu.adp.lib.f.b.toLong(ya.getFriendId(), 0L), ya.getFriendName(), ya.getFriendNameShow(), ya.getFriendPortrait(), 0, 0);
             personalChatActivityConfig.setFollowStatus(0);
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, personalChatActivityConfig));
@@ -179,7 +179,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         final ImMessageCenterShowItemData ya;
-        if (this.jfR == null || this.jfR.cuD() == null || (ya = this.jfR.cuD().getItem(i)) == null) {
+        if (this.jfR == null || this.jfR.cuE() == null || (ya = this.jfR.cuE().getItem(i)) == null) {
             return false;
         }
         final int size = this.jfS.getData().size();
@@ -204,7 +204,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.jfR.cuE() && this.jfU != null) {
+        if (view == this.jfR.cuF() && this.jfU != null) {
             this.jfU.aUN();
         }
     }
@@ -213,8 +213,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.jfR != null && this.jfR.cuD() != null) {
-            this.jfR.cuD().notifyDataSetChanged();
+        if (this.jfR != null && this.jfR.cuE() != null) {
+            this.jfR.cuE().notifyDataSetChanged();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(TbEnum.CustomGroupId.STRANGE_MERGE, -7)));
     }
@@ -253,10 +253,10 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cnT() {
+    public void cnU() {
         yY();
         if (this.iNb == null) {
-            this.iNb = e.cpB().eV(getPageContext().getPageActivity());
+            this.iNb = e.cpC().eV(getPageContext().getPageActivity());
         }
         this.iNb.show();
         this.iNb.setPercent(0);
@@ -274,18 +274,18 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyDataSetChanged() {
-        if (this.jfR != null && this.jfR.cuD() != null) {
-            this.jfR.cuD().notifyDataSetChanged();
+        if (this.jfR != null && this.jfR.cuE() != null) {
+            this.jfR.cuE().notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cnU() {
-        if (this.jfR != null && this.jfR.cuD() != null && this.jfS != null) {
+    public void cnV() {
+        if (this.jfR != null && this.jfR.cuE() != null && this.jfS != null) {
             if (this.jfS != null && this.jfS.isEmpty()) {
                 finish();
             }
-            this.jfR.cuD().setData(this.jfS.getData());
+            this.jfR.cuE().setData(this.jfS.getData());
         }
     }
 }

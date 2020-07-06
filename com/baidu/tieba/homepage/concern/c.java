@@ -98,7 +98,7 @@ public class c {
                 c.this.eEB.k(recyclerView, i);
             }
             if (i == 0) {
-                s.bOA().brT();
+                s.bOB().brU();
             }
         }
 
@@ -153,7 +153,7 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c.this.cid();
+            c.this.cie();
         }
     };
 
@@ -163,9 +163,9 @@ public class c {
 
         void W(boolean z, boolean z2);
 
-        void chZ();
-
         void cia();
+
+        void cib();
 
         void onError(int i, String str);
     }
@@ -201,8 +201,8 @@ public class c {
 
     public void setRecommendFrsNavigationAnimDispatcher(aa aaVar) {
         if (aaVar != null) {
-            this.eEB = aaVar.biZ();
-            this.erl = aaVar.bja();
+            this.eEB = aaVar.bja();
+            this.erl = aaVar.bjb();
         }
     }
 
@@ -214,11 +214,11 @@ public class c {
         }
     }
 
-    public void cib() {
+    public void cic() {
         aPJ();
     }
 
-    public void btu() {
+    public void btv() {
         if (!isLoading() && this.hasMore && this.imn != null) {
             setIsLoading(true);
             this.imn.FX(this.pageTag);
@@ -229,7 +229,7 @@ public class c {
         setIsLoading(false);
         if (i != 0 || dataRes == null || !a(true, z, dataRes)) {
             if (i == 0 && w.getCount(this.imo) == 0 && this.imn != null) {
-                this.imn.cia();
+                this.imn.cib();
                 if (this.imi != null) {
                     this.imi.setRefreshing(false);
                     return;
@@ -246,7 +246,7 @@ public class c {
             if (this.imn != null) {
                 this.imn.W(z, false);
             }
-            bSj();
+            bSk();
         }
         if (this.imi != null) {
             this.imi.setRefreshing(false);
@@ -262,7 +262,7 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void aPJ() {
         if (this.imn != null) {
-            this.imn.chZ();
+            this.imn.cia();
         }
     }
 
@@ -387,7 +387,7 @@ public class c {
         ad.a(new ac<DataRes>() { // from class: com.baidu.tieba.homepage.concern.c.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ac
-            /* renamed from: cie */
+            /* renamed from: cif */
             public DataRes doInBackground() {
                 l<byte[]> dc = com.baidu.tbadk.core.c.a.aUM().dc("tb.concern_page", TbadkCoreApplication.getCurrentAccount());
                 if (dc == null) {
@@ -414,7 +414,7 @@ public class c {
         });
     }
 
-    private void bSj() {
+    private void bSk() {
         if (this.imp != null) {
             DataRes.Builder builder = new DataRes.Builder(this.imp.build(true));
             if (builder.thread_info != null && builder.thread_info.size() > 30) {
@@ -456,7 +456,7 @@ public class c {
         return this.hasMore;
     }
 
-    public boolean cic() {
+    public boolean cid() {
         return this.imr;
     }
 
@@ -493,7 +493,7 @@ public class c {
                     ConcernData concernData = this.imp.thread_info.get(i);
                     if (concernData != null && (threadInfo = concernData.thread_list) != null && threadInfo.tid != null && threadInfo.tid.longValue() == j) {
                         this.imp.thread_info.remove(i);
-                        bSj();
+                        bSk();
                         return;
                     }
                 }
@@ -502,7 +502,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cid() {
+    public void cie() {
         if (this.imp != null && w.getCount(this.imp.thread_info) != 0 && w.getCount(this.imo) != 0) {
             int i = 0;
             while (true) {
@@ -520,7 +520,7 @@ public class c {
             for (int i2 = 0; i2 < this.imp.thread_info.size(); i2++) {
                 if (com.baidu.tieba.homepage.concern.b.b.a(this.imp.thread_info.get(i2))) {
                     this.imp.thread_info.remove(i2);
-                    bSj();
+                    bSk();
                     return;
                 }
             }

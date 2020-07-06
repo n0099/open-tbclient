@@ -66,7 +66,7 @@ public class FrsRedpackRunView extends RelativeLayout {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 FrsRedpackRunView.this.ifj.b(((Activity) FrsRedpackRunView.this.mContext).getWindowManager());
-                FrsRedpackRunView.this.ifj.caC();
+                FrsRedpackRunView.this.ifj.caD();
             }
 
             @Override // android.animation.Animator.AnimatorListener

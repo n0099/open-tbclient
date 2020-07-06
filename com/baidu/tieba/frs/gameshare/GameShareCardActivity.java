@@ -199,7 +199,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
         paint.setTextSize(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.fontsize28));
         paint.setAntiAlias(true);
         paint.setTextAlign(Paint.Align.CENTER);
-        canvas.drawText(TbadkCoreApplication.getInst().getResources().getString(R.string.game_share_slogon), bitmap.getWidth() / 2, this.hPH.ccz() + TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds50), paint);
+        canvas.drawText(TbadkCoreApplication.getInst().getResources().getString(R.string.game_share_slogon), bitmap.getWidth() / 2, this.hPH.ccA() + TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds50), paint);
         canvas.save(31);
         canvas.restore();
     }

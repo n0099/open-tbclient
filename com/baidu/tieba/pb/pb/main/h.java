@@ -24,7 +24,7 @@ public class h extends m<com.baidu.tbadk.core.data.n, i> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: cd */
     public i b(ViewGroup viewGroup) {
-        i iVar = new i(LayoutInflater.from(this.mContext).inflate(R.layout.bjh_recommend_item, (ViewGroup) null), this.kdO.cJI());
+        i iVar = new i(LayoutInflater.from(this.mContext).inflate(R.layout.bjh_recommend_item, (ViewGroup) null), this.kdO.cJJ());
         a(iVar);
         return iVar;
     }
@@ -42,7 +42,7 @@ public class h extends m<com.baidu.tbadk.core.data.n, i> {
                 com.baidu.tbadk.core.util.an.setViewTextColor(iVar.kcT, R.color.cp_cont_d, 1, skinType);
                 com.baidu.tbadk.core.util.an.setViewTextColor(iVar.kcU, R.color.cp_cont_d, 1, skinType);
                 com.baidu.tbadk.core.util.an.b(iVar.jrJ, R.color.cp_bg_line_e, R.color.cp_bg_line_c, skinType);
-                com.baidu.tbadk.core.util.e.a.aXq().lG(0).i(R.color.cp_bg_line_d_alpha0, R.color.cp_cont_b).lL(com.baidu.adp.lib.util.l.getDimens(this.kdO.cJI(), R.dimen.tbds10)).aR(iVar.kcM);
+                com.baidu.tbadk.core.util.e.a.aXq().lG(0).i(R.color.cp_bg_line_d_alpha0, R.color.cp_cont_b).lL(com.baidu.adp.lib.util.l.getDimens(this.kdO.cJJ(), R.dimen.tbds10)).aR(iVar.kcM);
             }
             iVar.mSkinType = skinType;
         }
@@ -63,9 +63,9 @@ public class h extends m<com.baidu.tbadk.core.data.n, i> {
         iVar.rB(this.kcF);
         if (this.kcE != null) {
             iVar.JL(this.kcE.getThreadId());
-            iVar.rC(this.kcE.cHm());
-            if (this.kcE.cGN() != null && this.kcE.cGN().getBaijiahaoData() != null) {
-                iVar.setNid(this.kcE.cGN().getBaijiahaoData().oriUgcNid);
+            iVar.rC(this.kcE.cHn());
+            if (this.kcE.cGO() != null && this.kcE.cGO().getBaijiahaoData() != null) {
+                iVar.setNid(this.kcE.cGO().getBaijiahaoData().oriUgcNid);
             }
             if (this.from == 2) {
                 i2 = 1;
@@ -77,7 +77,7 @@ public class h extends m<com.baidu.tbadk.core.data.n, i> {
             } else {
                 com.baidu.tbadk.core.util.ao.wH("c13533").dk("tid", nVar.getTid()).s("fid", nVar.getFid()).ag("obj_source", i2).ag("obj_locate", nVar.getFloorNum()).dk("obj_id", this.kcE.getThreadId()).aWN();
             }
-            if (this.kcE.cHm()) {
+            if (this.kcE.cHn()) {
                 com.baidu.tbadk.core.util.ao aoVar = new com.baidu.tbadk.core.util.ao("c13588");
                 if (nVar.aUd() != null) {
                     aoVar.dk("fid", nVar.aUd().getForumId());

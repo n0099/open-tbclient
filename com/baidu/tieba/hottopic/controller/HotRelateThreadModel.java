@@ -66,18 +66,18 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
     }
 
     private void a(e eVar, int i) {
-        f clE = eVar.clE();
+        f clF = eVar.clF();
         at pageData = eVar.getPageData();
-        if (clE != null && pageData != null) {
+        if (clF != null && pageData != null) {
             RequestGetTopicRelateThreadMessage requestGetTopicRelateThreadMessage = new RequestGetTopicRelateThreadMessage();
             double d = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
-            requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(com.baidu.adp.lib.f.b.toLong(clE.dYw, 0L)));
-            requestGetTopicRelateThreadMessage.setTopicName(clE.dKw);
-            if (clE.iEo != null && clE.iEp != null) {
-                requestGetTopicRelateThreadMessage.setPmy_topic_id(clE.iEo);
-                requestGetTopicRelateThreadMessage.setPmy_source(clE.iEp);
+            requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(com.baidu.adp.lib.f.b.toLong(clF.dYw, 0L)));
+            requestGetTopicRelateThreadMessage.setTopicName(clF.dKw);
+            if (clF.iEo != null && clF.iEp != null) {
+                requestGetTopicRelateThreadMessage.setPmy_topic_id(clF.iEo);
+                requestGetTopicRelateThreadMessage.setPmy_source(clF.iEp);
             }
             requestGetTopicRelateThreadMessage.setScrH(Integer.valueOf(equipmentHeight));
             requestGetTopicRelateThreadMessage.setScrW(Integer.valueOf(equipmentWidth));

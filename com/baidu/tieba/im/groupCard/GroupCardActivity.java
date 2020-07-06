@@ -43,7 +43,7 @@ public class GroupCardActivity extends BaseActivity<GroupCardActivity> implement
         initData();
     }
 
-    public boolean cnD() {
+    public boolean cnE() {
         Activity pageActivity = getPageContext().getPageActivity();
         if (this.mPermissionJudgement == null) {
             this.mPermissionJudgement = new PermissionJudgePolicy();
@@ -70,24 +70,24 @@ public class GroupCardActivity extends BaseActivity<GroupCardActivity> implement
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.iUP.crj()) {
-            if (cnD()) {
+        if (view == this.iUP.crk()) {
+            if (cnE()) {
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "group_card_save", "click", 1, new Object[0]);
                 this.iUQ.saveImage();
             }
-        } else if (view == this.iUP.crl()) {
+        } else if (view == this.iUP.crm()) {
             finish();
-        } else if (view == this.iUP.crk()) {
+        } else if (view == this.iUP.crl()) {
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "group_card_share", "click", 1, new Object[0]);
             aYB();
         }
     }
 
     private void aYB() {
-        sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig((Context) getPageContext().getPageActivity(), crf(), true, aPm())));
+        sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig((Context) getPageContext().getPageActivity(), crg(), true, aPm())));
     }
 
-    private ShareItem crf() {
+    private ShareItem crg() {
         ShareItem shareItem = new ShareItem();
         shareItem.title = MessageFormat.format(getPageContext().getString(R.string.im_share_title), this.groupName);
         shareItem.content = MessageFormat.format(getPageContext().getString(R.string.im_share_content), this.groupName, String.valueOf(this.groupId));
@@ -129,17 +129,17 @@ public class GroupCardActivity extends BaseActivity<GroupCardActivity> implement
         this.iUQ = new GroupCardModel(this.groupId, this);
         if (this.iUQ != null) {
             int equipmentWidth = l.getEquipmentWidth(getPageContext().getPageActivity()) - l.dip2px(getPageContext().getPageActivity(), 10.0f);
-            int equipmentHeight = (l.getEquipmentHeight(getPageContext().getPageActivity()) - this.iUP.crm().getHeight()) - this.iUP.crn().getHeight();
+            int equipmentHeight = (l.getEquipmentHeight(getPageContext().getPageActivity()) - this.iUP.crn().getHeight()) - this.iUP.cro().getHeight();
             b<com.baidu.adp.widget.ImageView.a> bVar = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.im.groupCard.GroupCardActivity.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.e.b
                 public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                     super.onLoaded((AnonymousClass1) aVar, str, i);
-                    GroupCardActivity.this.iUP.ceu();
+                    GroupCardActivity.this.iUP.cev();
                     if (aVar != null) {
                         GroupCardActivity.this.iUP.i(aVar);
-                        GroupCardActivity.this.iUP.cri();
+                        GroupCardActivity.this.iUP.crj();
                         return;
                     }
                     GroupCardActivity.this.iUP.bh(0, GroupCardActivity.this.getPageContext().getString(R.string.group_card_error));

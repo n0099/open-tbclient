@@ -19,7 +19,7 @@ public class b {
         this.hay = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c bQH() {
+    public com.baidu.tbadk.editortools.emotiontool.c bQI() {
         return this.hay;
     }
 
@@ -27,7 +27,7 @@ public class b {
         this.hav = emotionGroupType;
     }
 
-    public EmotionGroupType bQI() {
+    public EmotionGroupType bQJ() {
         return this.hav;
     }
 
@@ -43,7 +43,7 @@ public class b {
         this.column = i;
     }
 
-    public int bQJ() {
+    public int bQK() {
         return this.column;
     }
 
@@ -51,7 +51,7 @@ public class b {
         this.haA = i;
     }
 
-    public int bQK() {
+    public int bQL() {
         return this.haA;
     }
 
@@ -59,7 +59,7 @@ public class b {
         this.haz = i;
     }
 
-    public int bQL() {
+    public int bQM() {
         return this.haz;
     }
 
@@ -67,7 +67,7 @@ public class b {
         this.haw = i;
     }
 
-    public int bQM() {
+    public int bQN() {
         return this.haw;
     }
 
@@ -75,7 +75,7 @@ public class b {
         this.bkl = i;
     }
 
-    public int bQN() {
+    public int bQO() {
         return this.bkl;
     }
 
@@ -95,7 +95,7 @@ public class b {
         this.hax = i;
     }
 
-    public int bQO() {
+    public int bQP() {
         return this.hax;
     }
 }

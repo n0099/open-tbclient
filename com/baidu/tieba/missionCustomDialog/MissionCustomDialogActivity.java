@@ -41,7 +41,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
     private View.OnClickListener jIC = new View.OnClickListener() { // from class: com.baidu.tieba.missionCustomDialog.MissionCustomDialogActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MissionCustomDialogActivity.this.cBZ();
+            MissionCustomDialogActivity.this.cCa();
         }
     };
     SignItemView.a jID = new SignItemView.a() { // from class: com.baidu.tieba.missionCustomDialog.MissionCustomDialogActivity.3
@@ -219,34 +219,34 @@ public class MissionCustomDialogActivity extends BaseActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 25046 && TbadkCoreApplication.isLogin()) {
-            cBZ();
+            cCa();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cBZ() {
+    public void cCa() {
         TiebaStatic.log(new ao("c13742").ag("obj_source", c.aMo().aMs() ? 2 : 1).ag("obj_type", 2));
         if (this.dAN != null) {
             int curTaskType = this.dAN.getCurTaskType();
             if (curTaskType == 12) {
-                cCa();
-            } else if (curTaskType == 6) {
                 cCb();
-            } else if (curTaskType == 10) {
+            } else if (curTaskType == 6) {
                 cCc();
-            } else if (curTaskType == 7) {
+            } else if (curTaskType == 10) {
                 cCd();
-            } else if (curTaskType == 5) {
+            } else if (curTaskType == 7) {
                 cCe();
-            } else if (curTaskType == 9) {
+            } else if (curTaskType == 5) {
                 cCf();
-            } else if (curTaskType == 13) {
+            } else if (curTaskType == 9) {
                 cCg();
+            } else if (curTaskType == 13) {
+                cCh();
             }
         }
     }
 
-    private void cCa() {
+    private void cCb() {
         if (TbadkCoreApplication.isLogin()) {
             q.aMU().aNc().e(getPageContext());
             q.aMU().aNc().aNj();
@@ -256,7 +256,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getActivity(), true, RequestResponseCode.REQUEST_GUARD_CLUB_RANK)));
     }
 
-    private void cCb() {
+    private void cCc() {
         if (TbadkCoreApplication.isLogin()) {
             q.aMU().aNd().e(getPageContext());
             finish();
@@ -265,7 +265,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getActivity(), true, RequestResponseCode.REQUEST_GUARD_CLUB_RANK)));
     }
 
-    private void cCc() {
+    private void cCd() {
         if (TbadkCoreApplication.isLogin()) {
             q.aMU().aNe().e(getPageContext());
             finish();
@@ -274,7 +274,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getActivity(), true, RequestResponseCode.REQUEST_GUARD_CLUB_RANK)));
     }
 
-    private void cCd() {
+    private void cCe() {
         if (TbadkCoreApplication.isLogin()) {
             q.aMU().aNf().e(getPageContext());
             finish();
@@ -283,7 +283,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getActivity(), true, RequestResponseCode.REQUEST_GUARD_CLUB_RANK)));
     }
 
-    private void cCe() {
+    private void cCf() {
         if (TbadkCoreApplication.isLogin()) {
             q.aMU().aNg().e(getPageContext());
             finish();
@@ -292,7 +292,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getActivity(), true, RequestResponseCode.REQUEST_GUARD_CLUB_RANK)));
     }
 
-    private void cCf() {
+    private void cCg() {
         if (TbadkCoreApplication.isLogin()) {
             q.aMU().aNh().e(getPageContext());
             finish();
@@ -301,7 +301,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getActivity(), true, RequestResponseCode.REQUEST_GUARD_CLUB_RANK)));
     }
 
-    private void cCg() {
+    private void cCh() {
         if (TbadkCoreApplication.isLogin()) {
             q.aMU().aNi().e(getPageContext());
             finish();

@@ -15,7 +15,7 @@ public class a {
         this.fQn = i;
     }
 
-    public int bTP() {
+    public int bTQ() {
         return this.gzh;
     }
 
@@ -23,7 +23,7 @@ public class a {
         this.gzh = i;
     }
 
-    public List<EmotionImageData> bTQ() {
+    public List<EmotionImageData> bTR() {
         return this.hlY;
     }
 

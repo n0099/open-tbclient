@@ -45,21 +45,21 @@ public class a {
                 setSize(bitmap.getWidth(), bitmap.getHeight());
             }
             this.image = bitmap;
+            cRa();
             cQZ();
-            cQY();
             if (this.kCq) {
-                cRc();
-                cRe();
+                cRd();
+                cRf();
                 if (this.kCg >= 0) {
-                    cRd();
+                    cRe();
                 }
             }
-            cRa();
             cRb();
+            cRc();
             if (!this.kCq) {
-                cRe();
+                cRf();
             }
-            cRf();
+            cRg();
             this.kCq = false;
             return true;
         } catch (IOException e) {
@@ -67,7 +67,7 @@ public class a {
         }
     }
 
-    public boolean cQX() {
+    public boolean cQY() {
         boolean z;
         if (this.started) {
             this.started = false;
@@ -122,12 +122,12 @@ public class a {
         return z;
     }
 
-    protected void cQY() {
+    protected void cQZ() {
         int length = this.kCi.length;
         int i = length / 3;
         this.kCj = new byte[i];
         c cVar = new c(this.kCi, length, this.kCs);
-        this.kCl = cVar.cRl();
+        this.kCl = cVar.cRm();
         for (int i2 = 0; i2 < this.kCl.length; i2 += 3) {
             byte b = this.kCl[i2];
             this.kCl[i2] = this.kCl[i2 + 2];
@@ -184,7 +184,7 @@ public class a {
         return i8;
     }
 
-    protected void cQZ() {
+    protected void cRa() {
         int width = this.image.getWidth();
         int height = this.image.getHeight();
         if (width != this.width || height != this.height) {
@@ -212,7 +212,7 @@ public class a {
         return iArr;
     }
 
-    protected void cRa() throws IOException {
+    protected void cRb() throws IOException {
         int i;
         int i2;
         this.kCh.write(33);
@@ -234,7 +234,7 @@ public class a {
         this.kCh.write(0);
     }
 
-    protected void cRb() throws IOException {
+    protected void cRc() throws IOException {
         this.kCh.write(44);
         writeShort(this.x);
         writeShort(this.y);
@@ -247,7 +247,7 @@ public class a {
         }
     }
 
-    protected void cRc() throws IOException {
+    protected void cRd() throws IOException {
         writeShort(this.width);
         writeShort(this.height);
         this.kCh.write(this.kCn | 240);
@@ -255,7 +255,7 @@ public class a {
         this.kCh.write(0);
     }
 
-    protected void cRd() throws IOException {
+    protected void cRe() throws IOException {
         this.kCh.write(33);
         this.kCh.write(255);
         this.kCh.write(11);
@@ -266,7 +266,7 @@ public class a {
         this.kCh.write(0);
     }
 
-    protected void cRe() throws IOException {
+    protected void cRf() throws IOException {
         this.kCh.write(this.kCl, 0, this.kCl.length);
         int length = 768 - this.kCl.length;
         for (int i = 0; i < length; i++) {
@@ -274,7 +274,7 @@ public class a {
         }
     }
 
-    protected void cRf() throws IOException {
+    protected void cRg() throws IOException {
         new b(this.width, this.height, this.kCj, this.kCk).encode(this.kCh);
     }
 

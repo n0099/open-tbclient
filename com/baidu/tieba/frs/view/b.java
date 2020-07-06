@@ -115,9 +115,9 @@ public abstract class b {
 
     public abstract void a(ForumData forumData, FrsViewData frsViewData);
 
-    public abstract void cbm();
+    public abstract void cbA();
 
-    public abstract void cbz();
+    public abstract void cbn();
 
     public abstract void changeSkinType(int i);
 
@@ -133,7 +133,7 @@ public abstract class b {
         ies.put(5, "c0127");
     }
 
-    public boolean cgw() {
+    public boolean cgx() {
         return this.iem;
     }
 
@@ -195,7 +195,7 @@ public abstract class b {
         ofFloat.start();
     }
 
-    public boolean cgx() {
+    public boolean cgy() {
         int[] iArr = new int[2];
         try {
             this.idY.getLocationOnScreen(iArr);
@@ -209,23 +209,23 @@ public abstract class b {
         return this.mParent;
     }
 
-    public View cgy() {
+    public View cgz() {
         return this.idH;
     }
 
-    public BarImageView cgz() {
+    public BarImageView cgA() {
         return this.iea;
     }
 
-    public TextView cgA() {
+    public TextView cgB() {
         return this.bjy;
     }
 
-    public TextView cgB() {
+    public TextView cgC() {
         return this.hym;
     }
 
-    public boolean cfy() {
+    public boolean cfz() {
         return this.ieo;
     }
 
@@ -237,7 +237,7 @@ public abstract class b {
         }
     }
 
-    public boolean cfz() {
+    public boolean cfA() {
         return this.iep;
     }
 
@@ -247,16 +247,16 @@ public abstract class b {
     }
 
     public void onStop() {
-        cgC();
+        cgD();
     }
 
     public void bB(boolean z) {
         if (!z) {
-            cgC();
+            cgD();
         }
     }
 
-    private void cgC() {
+    private void cgD() {
         if (this.idZ != null && this.idZ.isShowing()) {
             this.idZ.dismiss();
         }
@@ -283,7 +283,7 @@ public abstract class b {
         this.idJ.setVisibility(8);
         this.idK.setVisibility(0);
         if (z && !this.ieu) {
-            cbA();
+            cbB();
             this.ieu = true;
         }
     }
@@ -292,7 +292,7 @@ public abstract class b {
         c(false, f);
     }
 
-    protected void cbA() {
+    protected void cbB() {
     }
 
     public void wy(int i) {
@@ -324,25 +324,25 @@ public abstract class b {
         if (i == 0) {
             this.ieo = false;
             this.hZO.setText(this.dPv.getString(R.string.sign));
-            cbp();
+            cbq();
             return;
         }
         this.ieo = true;
         this.hZO.setText(this.dPv.getString(R.string.signed));
-        cbo();
+        cbp();
+    }
+
+    protected void cbq() {
     }
 
     protected void cbp() {
-    }
-
-    protected void cbo() {
     }
 
     public void setMemberType(int i) {
         this.mMemberType = i;
     }
 
-    public void cbB() {
+    public void cbC() {
         if (this.mMemberType != 0) {
             an.setImageResource(this.idY, R.drawable.icon_speed_orange);
         } else {
@@ -370,7 +370,7 @@ public abstract class b {
     public void c(boolean z, float f) {
     }
 
-    public void cbw() {
+    public void cbx() {
     }
 
     public void c(z zVar) {

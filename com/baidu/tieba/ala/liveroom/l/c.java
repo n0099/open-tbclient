@@ -44,13 +44,13 @@ public class c extends Dialog {
     }
 
     public void show(String str) {
-        bFr();
+        bFs();
         this.aIh.startLoad(str, 25, false, false);
         Ez();
         show();
     }
 
-    public String bFo() {
+    public String bFp() {
         return this.giN;
     }
 
@@ -63,10 +63,10 @@ public class c extends Dialog {
     private void Fj() {
         setCancelable(true);
         setCanceledOnTouchOutside(true);
-        bFp();
+        bFq();
     }
 
-    public void bFp() {
+    public void bFq() {
         show();
         Window window = getWindow();
         if (window != null) {
@@ -139,10 +139,10 @@ public class c extends Dialog {
             }
         });
         this.giN = textView.getText().toString();
-        bFq();
+        bFr();
     }
 
-    private void bFq() {
+    private void bFr() {
         at atVar;
         if (com.baidu.live.v.a.Hm().aZp != null && (atVar = com.baidu.live.v.a.Hm().aZp.aAy) != null && !TextUtils.isEmpty(atVar.aCw)) {
             this.aIj.setText(atVar.aCw);
@@ -153,7 +153,7 @@ public class c extends Dialog {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.l.c.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                c.this.bFr();
+                c.this.bFs();
             }
         });
     }
@@ -166,7 +166,7 @@ public class c extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFr() {
+    public void bFs() {
         if (this.aIh != null) {
             this.aIh.stopLoad();
         }

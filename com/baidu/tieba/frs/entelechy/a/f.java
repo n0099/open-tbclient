@@ -41,10 +41,10 @@ public class f extends com.baidu.tieba.frs.j<com.baidu.tieba.tbadkCore.v, a> imp
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.v vVar, a aVar) {
         boolean z = true;
         super.a(i, view, viewGroup, (ViewGroup) vVar, (com.baidu.tieba.tbadkCore.v) aVar);
-        if (vVar.dhu()) {
-            String dhv = vVar.dhv();
-            if (dhv != null) {
-                aVar.hIL.setText(dhv);
+        if (vVar.dhv()) {
+            String dhw = vVar.dhw();
+            if (dhw != null) {
+                aVar.hIL.setText(dhw);
             } else if (this.hzi != null && this.hzi.getForum() != null && this.hzi.getForum().getName() != null) {
                 TextView textView = aVar.hIL;
                 Context context = this.mContext;
@@ -59,9 +59,9 @@ public class f extends com.baidu.tieba.frs.j<com.baidu.tieba.tbadkCore.v, a> imp
             aVar.hIK.setVisibility(8);
             aVar.hIR.setVisibility(8);
         }
-        com.baidu.tieba.tbadkCore.p dhw = vVar.dhw();
-        if (dhw != null && dhw.dhn() && !TextUtils.isEmpty(dhw.dho())) {
-            aVar.hIN.setText(dhw.dho());
+        com.baidu.tieba.tbadkCore.p dhx = vVar.dhx();
+        if (dhx != null && dhx.dho() && !TextUtils.isEmpty(dhx.dhp())) {
+            aVar.hIN.setText(dhx.dhp());
             aVar.hIM.setTag(Integer.valueOf(i));
             aVar.hIM.setOnClickListener(this);
             aVar.hIM.setVisibility(0);
@@ -89,7 +89,7 @@ public class f extends com.baidu.tieba.frs.j<com.baidu.tieba.tbadkCore.v, a> imp
             aVar.hIP.setVisibility(8);
             aVar.hIT.setVisibility(8);
         }
-        if (!this.hII && !vVar.dhu()) {
+        if (!this.hII && !vVar.dhv()) {
             if (z) {
                 aVar.hIK.setVisibility(8);
                 aVar.hIM.setVisibility(8);

@@ -11,28 +11,28 @@ import kotlin.TypeCastException;
 public final class d implements kotlin.sequences.c<kotlin.b.h> {
     private final int bkl;
     private final int limit;
-    private final CharSequence nQL;
-    private final kotlin.jvm.a.m<CharSequence, Integer, Pair<Integer, Integer>> nQM;
+    private final CharSequence nQO;
+    private final kotlin.jvm.a.m<CharSequence, Integer, Pair<Integer, Integer>> nQP;
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: kotlin.jvm.a.m<? super java.lang.CharSequence, ? super java.lang.Integer, kotlin.Pair<java.lang.Integer, java.lang.Integer>> */
     /* JADX WARN: Multi-variable type inference failed */
     public d(CharSequence charSequence, int i, int i2, kotlin.jvm.a.m<? super CharSequence, ? super Integer, Pair<Integer, Integer>> mVar) {
         kotlin.jvm.internal.q.m(charSequence, Config.INPUT_PART);
         kotlin.jvm.internal.q.m(mVar, "getNextMatch");
-        this.nQL = charSequence;
+        this.nQO = charSequence;
         this.bkl = i;
         this.limit = i2;
-        this.nQM = mVar;
+        this.nQP = mVar;
     }
 
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class a implements Iterator<kotlin.b.h> {
-        private int nQN;
-        private int nQO;
-        private kotlin.b.h nQP;
+        private int nQB = -1;
         private int nQQ;
-        private int nQy = -1;
+        private int nQR;
+        private kotlin.b.h nQS;
+        private int nQT;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -41,70 +41,70 @@ public final class d implements kotlin.sequences.c<kotlin.b.h> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.nQN = kotlin.b.l.ap(d.this.bkl, 0, d.this.nQL.length());
-            this.nQO = this.nQN;
+            this.nQQ = kotlin.b.l.ap(d.this.bkl, 0, d.this.nQO.length());
+            this.nQR = this.nQQ;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:9:0x0025, code lost:
-            if (r6.nQQ < r6.nQR.limit) goto L13;
+            if (r6.nQT < r6.nQU.limit) goto L13;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private final void dQZ() {
-            if (this.nQO >= 0) {
+        private final void dRd() {
+            if (this.nQR >= 0) {
                 if (d.this.limit > 0) {
-                    this.nQQ++;
+                    this.nQT++;
                 }
-                if (this.nQO <= d.this.nQL.length()) {
-                    Pair pair = (Pair) d.this.nQM.invoke(d.this.nQL, Integer.valueOf(this.nQO));
+                if (this.nQR <= d.this.nQO.length()) {
+                    Pair pair = (Pair) d.this.nQP.invoke(d.this.nQO, Integer.valueOf(this.nQR));
                     if (pair == null) {
-                        this.nQP = new kotlin.b.h(this.nQN, l.x(d.this.nQL));
-                        this.nQO = -1;
+                        this.nQS = new kotlin.b.h(this.nQQ, l.x(d.this.nQO));
+                        this.nQR = -1;
                     } else {
                         int intValue = ((Number) pair.component1()).intValue();
                         int intValue2 = ((Number) pair.component2()).intValue();
-                        this.nQP = kotlin.b.l.dX(this.nQN, intValue);
-                        this.nQN = intValue + intValue2;
-                        this.nQO = (intValue2 == 0 ? 1 : 0) + this.nQN;
+                        this.nQS = kotlin.b.l.dX(this.nQQ, intValue);
+                        this.nQQ = intValue + intValue2;
+                        this.nQR = (intValue2 == 0 ? 1 : 0) + this.nQQ;
                     }
-                    this.nQy = 1;
+                    this.nQB = 1;
                     return;
                 }
-                this.nQP = new kotlin.b.h(this.nQN, l.x(d.this.nQL));
-                this.nQO = -1;
-                this.nQy = 1;
+                this.nQS = new kotlin.b.h(this.nQQ, l.x(d.this.nQO));
+                this.nQR = -1;
+                this.nQB = 1;
                 return;
             }
-            this.nQy = 0;
-            this.nQP = null;
+            this.nQB = 0;
+            this.nQS = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        /* renamed from: dRa */
+        /* renamed from: dRe */
         public kotlin.b.h next() {
-            if (this.nQy == -1) {
-                dQZ();
+            if (this.nQB == -1) {
+                dRd();
             }
-            if (this.nQy == 0) {
+            if (this.nQB == 0) {
                 throw new NoSuchElementException();
             }
-            kotlin.b.h hVar = this.nQP;
+            kotlin.b.h hVar = this.nQS;
             if (hVar == null) {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.ranges.IntRange");
             }
-            this.nQP = null;
-            this.nQy = -1;
+            this.nQS = null;
+            this.nQB = -1;
             return hVar;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.nQy == -1) {
-                dQZ();
+            if (this.nQB == -1) {
+                dRd();
             }
-            return this.nQy == 1;
+            return this.nQB == 1;
         }
     }
 

@@ -51,14 +51,14 @@ public class VotedAreaLayout extends CardBasicLayout {
             setVisibility(8);
             return;
         }
-        this.ega.setText(ar.numFormatOverWan(this.gNk.bNk()) + "票");
+        this.ega.setText(ar.numFormatOverWan(this.gNk.bNl()) + "票");
         qJ(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setMyRecordData(d dVar) {
         if (dVar != null) {
             this.gNk = dVar;
-            this.ega.setText(ar.numFormatOverWan(this.gNk.bNk()) + "票");
+            this.ega.setText(ar.numFormatOverWan(this.gNk.bNl()) + "票");
         }
     }
 

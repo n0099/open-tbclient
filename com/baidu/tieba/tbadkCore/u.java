@@ -41,7 +41,7 @@ public class u {
         this.fid = str;
     }
 
-    public int dfq() {
+    public int dfr() {
         return this.user_level;
     }
 
@@ -154,7 +154,7 @@ public class u {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> dhk() {
+    public List<FeedForumData> dhl() {
         return this.lEG;
     }
 
@@ -166,7 +166,7 @@ public class u {
         this.mBlockPopInfoData = blockPopInfoData;
     }
 
-    public String dht() {
+    public String dhu() {
         return this.blockUrl;
     }
 

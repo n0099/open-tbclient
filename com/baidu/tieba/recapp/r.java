@@ -52,12 +52,12 @@ public class r {
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.e.cYY().a(advertAppInfo.dGO, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.LJ(advertAppInfo.dGO).intValue(), null, true, false, true, advertAppInfo.dGU.userPortrait, downloadStaticsData, advertAppInfo.dGU.userName);
+        com.baidu.tieba.recapp.download.e.cYZ().a(advertAppInfo.dGO, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.LJ(advertAppInfo.dGO).intValue(), null, true, false, true, advertAppInfo.dGU.userPortrait, downloadStaticsData, advertAppInfo.dGU.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.e.cYY().C(advertAppInfo.apkUrl, advertAppInfo.dGO, true);
+        com.baidu.tieba.recapp.download.e.cYZ().C(advertAppInfo.apkUrl, advertAppInfo.dGO, true);
     }
 
     public static final void aN(Context context, String str) {
@@ -169,15 +169,15 @@ public class r {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        q.cYS().sendFRS(z, str, str2, str3, list, str4);
+        q.cYT().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        q.cYS().a(z, str, str2, str3, str4, list, str5);
+        q.cYT().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int c(TbPageContext tbPageContext, String str, String str2) {
-        if (com.baidu.tieba.a.bmm().bmn() != 1) {
+        if (com.baidu.tieba.a.bmn().bmo() != 1) {
             return f(tbPageContext, str);
         }
         if (tbPageContext == null || TextUtils.isEmpty(str)) {
@@ -232,15 +232,15 @@ public class r {
 
     private static boolean g(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        g cYP = q.cYS().cYP();
-        if (cYP == null) {
+        g cYQ = q.cYT().cYQ();
+        if (cYQ == null) {
             return false;
         }
-        if (cYP.Ai(str)) {
-            cYP.a(tbPageContext.getPageActivity(), strArr, true);
+        if (cYQ.Ai(str)) {
+            cYQ.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return cYP.c(tbPageContext.getPageActivity(), strArr);
+        return cYQ.c(tbPageContext.getPageActivity(), strArr);
     }
 
     public static int aO(Context context, String str) {
@@ -259,14 +259,14 @@ public class r {
 
     private static boolean aP(Context context, String str) {
         String[] strArr = {str};
-        g cYP = q.cYS().cYP();
-        if (cYP == null) {
+        g cYQ = q.cYT().cYQ();
+        if (cYQ == null) {
             return false;
         }
-        if (cYP.Ai(str)) {
-            cYP.a(context, strArr, true);
+        if (cYQ.Ai(str)) {
+            cYQ.a(context, strArr, true);
             return true;
         }
-        return cYP.c(context, strArr);
+        return cYQ.c(context, strArr);
     }
 }

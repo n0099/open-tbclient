@@ -99,7 +99,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             this.rightMargin = this.tbds264;
             oE(true);
             oD(true);
-            cil();
+            cim();
             return;
         }
         this.rightMargin = this.tbds150;
@@ -114,7 +114,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         this.ior = aVar;
     }
 
-    private void cil() {
+    private void cim() {
         final String missionEntranceUrl = TbSingleton.getInstance().getMissionEntranceUrl();
         String missionEntranceIcon = TbSingleton.getInstance().getMissionEntranceIcon();
         if (TextUtils.isEmpty(missionEntranceUrl) || TextUtils.isEmpty(missionEntranceIcon)) {
@@ -161,7 +161,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             if (tag instanceof String) {
                 String str = (String) tag;
                 if (!TextUtils.isEmpty(str)) {
-                    cim();
+                    cin();
                     if (this.ior != null) {
                         this.ior.Ga(str);
                     }
@@ -180,9 +180,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
     }
 
-    public boolean cit() {
+    public boolean ciu() {
         if (this.iwi != null) {
-            return this.iwi.cit();
+            return this.iwi.ciu();
         }
         return false;
     }
@@ -289,7 +289,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
     }
 
-    private void cim() {
+    private void cin() {
         ao aoVar = new ao("c13422");
         aoVar.ag("obj_type", 2);
         aoVar.ag("obj_locate", 1);
@@ -298,7 +298,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         TiebaStatic.log(aoVar);
     }
 
-    public void ciH() {
+    public void ciI() {
         ao aoVar = new ao("c13422");
         aoVar.ag("obj_type", 1);
         aoVar.ag("obj_locate", 1);

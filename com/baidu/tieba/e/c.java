@@ -16,7 +16,7 @@ public class c implements q {
         return gXJ;
     }
 
-    public FeatureCardCompetition bPS() {
+    public FeatureCardCompetition bPT() {
         return this.gXK;
     }
 

@@ -26,11 +26,11 @@ public class i {
     private static final String e = String.valueOf((char) 2);
 
     /* renamed from: a  reason: collision with other field name */
-    private static final String[] f527a = {"--", "a-", "u-", "v-", "o-", "g-"};
+    private static final String[] f528a = {"--", "a-", "u-", "v-", "o-", "g-"};
     private static String f = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private static volatile boolean f526a = false;
+    private static volatile boolean f527a = false;
 
     private static double a(double d2) {
         int i = 1;
@@ -94,7 +94,7 @@ public class i {
 
     /* renamed from: a  reason: collision with other method in class */
     private static String m383a(int i) {
-        return (i <= 0 || i >= f527a.length) ? f527a[0] : f527a[i];
+        return (i <= 0 || i >= f528a.length) ? f528a[0] : f528a[i];
     }
 
     public static String a(Context context) {
@@ -209,8 +209,8 @@ public class i {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (int i = 0; i < f527a.length; i++) {
-            if (str.startsWith(f527a[i])) {
+        for (int i = 0; i < f528a.length; i++) {
+            if (str.startsWith(f528a[i])) {
                 return true;
             }
         }
@@ -434,10 +434,10 @@ public class i {
     public static String d(Context context) {
         u uVar;
         String str;
-        if (!m389c(context) || f526a) {
+        if (!m389c(context) || f527a) {
             return null;
         }
-        f526a = true;
+        f527a = true;
         u filesDir = context.getFilesDir();
         String a2 = y.a(new File((File) filesDir, ".vdevid"));
         try {

@@ -12,9 +12,9 @@ import java.util.List;
 public abstract class a<T> extends BaseAdapter {
     protected Context context;
     protected List<T> data;
-    protected final int nxF;
+    protected final int nxI;
 
-    public abstract void a(C0939a c0939a, T t);
+    public abstract void a(C0940a c0940a, T t);
 
     public a(Context context, List<T> list, int i) {
         this.context = context;
@@ -23,7 +23,7 @@ public abstract class a<T> extends BaseAdapter {
         } else {
             this.data = list;
         }
-        this.nxF = i;
+        this.nxI = i;
     }
 
     @Override // android.widget.Adapter
@@ -49,38 +49,38 @@ public abstract class a<T> extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0939a c0939a;
+        C0940a c0940a;
         if (view == null) {
             view = LayoutInflater.from(this.context).inflate(Kt(getItemViewType(i)), viewGroup, false);
-            c0939a = new C0939a(view);
-            view.setTag(c0939a);
+            c0940a = new C0940a(view);
+            view.setTag(c0940a);
         } else {
-            c0939a = (C0939a) view.getTag();
+            c0940a = (C0940a) view.getTag();
         }
-        a(c0939a, this.data.get(i));
+        a(c0940a, this.data.get(i));
         return view;
     }
 
     protected int Kt(int i) {
-        return this.nxF;
+        return this.nxI;
     }
 
     /* renamed from: tv.chushou.zues.widget.adapterview.abslistview.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0939a {
+    public static class C0940a {
         public View jja;
-        private final SparseArray<View> nxP = new SparseArray<>();
+        private final SparseArray<View> nxS = new SparseArray<>();
 
-        public C0939a(View view) {
+        public C0940a(View view) {
             this.jja = view;
         }
 
         /* JADX WARN: Incorrect return type in method signature: <T:Landroid/view/View;>(I)TT; */
         public View or(int i) {
-            View view = this.nxP.get(i);
+            View view = this.nxS.get(i);
             if (view == null) {
                 View findViewById = this.jja.findViewById(i);
-                this.nxP.put(i, findViewById);
+                this.nxS.put(i, findViewById);
                 return findViewById;
             }
             return view;

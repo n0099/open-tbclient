@@ -60,14 +60,14 @@ public class LinearGradientView extends View {
 
     private void init() {
         this.mPath = new Path();
-        bjt();
+        bju();
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         if (i > 0 && i2 > 0) {
-            this.biq = bju();
+            this.biq = bjv();
         }
     }
 
@@ -76,7 +76,7 @@ public class LinearGradientView extends View {
         super.onDraw(canvas);
         int width = getWidth();
         int height = getHeight();
-        bjs();
+        bjt();
         if (this.eFn == 0) {
             canvas.drawRect(0.0f, 0.0f, width, height, this.eFl);
         } else {
@@ -84,7 +84,7 @@ public class LinearGradientView extends View {
         }
     }
 
-    private void bjs() {
+    private void bjt() {
         if ((getWidth() != this.mWidth || getHeight() != this.mHeight || this.eFm != this.mRadius) && this.eFn != 0) {
             this.mWidth = getWidth();
             this.mHeight = getHeight();
@@ -127,7 +127,7 @@ public class LinearGradientView extends View {
         this.eFi = i4;
         this.eFj = i5;
         this.eFk = i6;
-        this.biq = bju();
+        this.biq = bjv();
         invalidate();
     }
 
@@ -141,7 +141,7 @@ public class LinearGradientView extends View {
             this.eFi = com.baidu.tieba.lego.card.d.a.dV(str4);
             this.eFj = com.baidu.tieba.lego.card.d.a.dV(str5);
             this.eFk = com.baidu.tieba.lego.card.d.a.dV(str6);
-            this.biq = bju();
+            this.biq = bjv();
             invalidate();
         }
     }
@@ -184,26 +184,26 @@ public class LinearGradientView extends View {
         this.eFi = dV2;
         this.eFj = dV3;
         this.eFk = dV4;
-        this.biq = bju();
+        this.biq = bjv();
         invalidate();
     }
 
-    private void bjt() {
+    private void bju() {
         this.bkz = com.baidu.tieba.lego.card.d.a.dV("#2BB8FF");
         this.bnd = com.baidu.tieba.lego.card.d.a.dV("#2BB8FF");
         this.eFh = com.baidu.tieba.lego.card.d.a.dV("#249BD6");
         this.eFi = com.baidu.tieba.lego.card.d.a.dV("#246CD6");
         this.eFj = com.baidu.tieba.lego.card.d.a.dV("#249BD6");
         this.eFk = com.baidu.tieba.lego.card.d.a.dV("#246CD6");
-        this.biq = bju();
+        this.biq = bjv();
     }
 
     public void setDefaultGradientColor() {
-        bjt();
+        bju();
         invalidate();
     }
 
-    private LinearGradient bju() {
+    private LinearGradient bjv() {
         int i;
         int i2;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
@@ -227,7 +227,7 @@ public class LinearGradientView extends View {
 
     public void changeSkinType(int i) {
         if (this.mSkinType != i) {
-            this.biq = bju();
+            this.biq = bjv();
             invalidate();
         }
         this.mSkinType = i;

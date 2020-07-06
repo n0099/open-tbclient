@@ -10,7 +10,7 @@ public class LineCountNotifyTextView extends TextView {
 
     /* loaded from: classes.dex */
     public interface a {
-        void bjr();
+        void bjs();
     }
 
     public LineCountNotifyTextView(Context context, AttributeSet attributeSet) {
@@ -25,7 +25,7 @@ public class LineCountNotifyTextView extends TextView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.eFg != null) {
-            this.eFg.bjr();
+            this.eFg.bjs();
         }
     }
 }

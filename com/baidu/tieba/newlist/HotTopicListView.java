@@ -125,14 +125,14 @@ public class HotTopicListView extends RelativeLayout {
             @Override // java.lang.Runnable
             public void run() {
                 if (HotTopicListView.this.iaw) {
-                    HotTopicListView.this.cfF();
+                    HotTopicListView.this.cfG();
                 }
             }
         };
         this.iaF = new PullRefreshFrameLayout.a() { // from class: com.baidu.tieba.newlist.HotTopicListView.4
             @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.a
             public void aYg() {
-                HotTopicListView.this.cfE();
+                HotTopicListView.this.cfF();
             }
         };
         this.mPageContext = tbPageContext;
@@ -198,22 +198,22 @@ public class HotTopicListView extends RelativeLayout {
         }
     }
 
-    public void cfF() {
+    public void cfG() {
         this.iaw = false;
         if (this.jNp != null) {
             this.jNp.aYe();
         }
     }
 
-    public void btU() {
+    public void btV() {
         if (this.iaw) {
-            cfF();
+            cfG();
             e.lt().removeCallbacks(this.iaG);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfE() {
+    public void cfF() {
         e.lt().postDelayed(this.iaG, 5000L);
         this.iaw = true;
         this.jUP.loadData();
@@ -292,14 +292,14 @@ public class HotTopicListView extends RelativeLayout {
         }
     }
 
-    public void btN() {
+    public void btO() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this.jNo);
             this.mRefreshView = null;
         }
     }
 
-    public void buJ() {
+    public void buK() {
         this.icy.setNextPage(this.fnt);
         this.fnt.endLoadData();
         this.fnt.showEmptyView(0);
@@ -314,9 +314,9 @@ public class HotTopicListView extends RelativeLayout {
 
     public void destroy() {
         hideLoadingView();
-        btN();
+        btO();
         if (this.iaw) {
-            cfF();
+            cfG();
         }
         if (this.ecC != null) {
             this.ecC.cancel();

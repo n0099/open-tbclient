@@ -116,13 +116,13 @@ public class FoldedGridView extends BdGridView implements AdapterView.OnItemClic
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.f
-    public boolean cck() {
+    public boolean ccl() {
         return getNumColumns() > 0;
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.f
     public int getArrowIndex() {
-        if (cck()) {
+        if (ccl()) {
             return getNumColumns() - 1;
         }
         return -1;
@@ -139,8 +139,8 @@ public class FoldedGridView extends BdGridView implements AdapterView.OnItemClic
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         if (view == this.hNQ) {
-            if (this.hNU != null && this.hNU.ccm()) {
-                ccl();
+            if (this.hNU != null && this.hNU.ccn()) {
+                ccm();
             }
         } else if (this.hNV != null && this.hNU != null) {
             int vo = this.hNU.vo(i);
@@ -149,7 +149,7 @@ public class FoldedGridView extends BdGridView implements AdapterView.OnItemClic
         }
     }
 
-    private void ccl() {
+    private void ccm() {
         this.hNT = !this.hNT;
         ca(this.hNQ);
         if (this.hNU != null) {

@@ -82,7 +82,7 @@ public class b {
         }
     }
 
-    private Drawable bxX() {
+    private Drawable bxY() {
         if (this.fLQ != null) {
             return this.fLQ;
         }
@@ -96,7 +96,7 @@ public class b {
         return this.fLQ;
     }
 
-    private Drawable bxY() {
+    private Drawable bxZ() {
         if (this.fLR != null) {
             return this.fLR;
         }
@@ -169,13 +169,13 @@ public class b {
     public void aH(int i, String str) {
         switch (i) {
             case 0:
-                this.mView.setBackgroundDrawable(bxX());
+                this.mView.setBackgroundDrawable(bxY());
                 this.fLL.setImageResource(a.f.gcb_icon_enter_not_join);
                 this.fLM.setCurrentText(this.mContext.getString(a.i.guard_club));
                 this.aXv.setVisibility(0);
                 return;
             case 1:
-                this.mView.setBackgroundDrawable(bxY());
+                this.mView.setBackgroundDrawable(bxZ());
                 this.fLL.setImageResource(a.f.gcb_icon_enter_joined);
                 this.fLM.setCurrentText(str);
                 this.aXv.setVisibility(8);

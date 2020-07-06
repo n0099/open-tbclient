@@ -39,16 +39,16 @@ public class k {
         this.lft.setOnClickPendingIntent(R.id.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
     }
 
-    public RemoteViews cZb() {
+    public RemoteViews cZc() {
         return this.lft;
     }
 
-    public void cZc() {
+    public void cZd() {
         this.lft.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
         this.lft.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
     }
 
-    public void cZd() {
+    public void cZe() {
         this.lft.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.downloading_app_paused));
         this.lft.setImageViewResource(R.id.download_btn, R.drawable.notify_start_bg);
     }

@@ -103,26 +103,26 @@ public class a {
         this.hQI = frsGameSubPbActivity;
         this.mForumId = i;
         this.hQw = str;
-        ccG();
         ccH();
         ccI();
+        ccJ();
     }
 
-    private void ccG() {
+    private void ccH() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003379, TbConfig.SERVER_ADDRESS + "game/client/selectSubComment");
         tbHttpMessageTask.setResponsedClass(FrsSelectSubCommentReponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         this.hQI.registerListener(1003379, this.hQN);
     }
 
-    private void ccH() {
+    private void ccI() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003380, TbConfig.SERVER_ADDRESS + "game/client/addSubComment");
         tbHttpMessageTask.setResponsedClass(FrsAddSubCommentResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         this.hQI.registerListener(1003380, this.hQO);
     }
 
-    private void ccI() {
+    private void ccJ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003381, TbConfig.SERVER_ADDRESS + "game/client/deleteSubComment");
         tbHttpMessageTask.setResponsedClass(FrsDeleteSubCommentResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

@@ -20,7 +20,7 @@ public class g {
     private g() {
     }
 
-    public static synchronized g cnX() {
+    public static synchronized g cnY() {
         g gVar;
         synchronized (g.class) {
             if (iNO == null) {

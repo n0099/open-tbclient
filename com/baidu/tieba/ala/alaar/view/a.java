@@ -91,9 +91,9 @@ public class a extends BaseAdapter {
         if (eVar != null) {
             eVar.b(getItem(i));
             if (this.fjj == i) {
-                eVar.btf();
+                eVar.btg();
             } else {
-                eVar.bte();
+                eVar.btf();
             }
         }
         if (i == 0 && this.fld != 0) {

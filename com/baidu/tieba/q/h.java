@@ -3,7 +3,7 @@ package com.baidu.tieba.q;
 public class h {
     private static volatile g lvX;
 
-    public static synchronized g deP() {
+    public static synchronized g deQ() {
         g gVar;
         synchronized (h.class) {
             if (lvX == null) {

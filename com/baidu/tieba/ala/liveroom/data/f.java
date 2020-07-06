@@ -21,7 +21,7 @@ public class f {
     public TbPageContext pageContext;
     public ViewGroup rootView;
 
-    public int bEk() {
+    public int bEl() {
         return this.liveType;
     }
 
@@ -50,12 +50,6 @@ public class f {
         }
     }
 
-    public void bEl() {
-        if (this.ggv != null) {
-            this.ggv.bEl();
-        }
-    }
-
     public void bEm() {
         if (this.ggv != null) {
             this.ggv.bEm();
@@ -65,6 +59,12 @@ public class f {
     public void bEn() {
         if (this.ggv != null) {
             this.ggv.bEn();
+        }
+    }
+
+    public void bEo() {
+        if (this.ggv != null) {
+            this.ggv.bEo();
         }
     }
 }

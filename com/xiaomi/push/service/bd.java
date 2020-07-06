@@ -24,8 +24,8 @@ public class bd implements ServiceConnection {
         Messenger messenger;
         synchronized (this.a) {
             this.a.b = new Messenger(iBinder);
-            this.a.f887b = false;
-            list = this.a.f885a;
+            this.a.f888b = false;
+            list = this.a.f886a;
             for (Message message : list) {
                 try {
                     messenger = this.a.b;
@@ -34,7 +34,7 @@ public class bd implements ServiceConnection {
                     com.xiaomi.channel.commonutils.logger.b.a(e);
                 }
             }
-            list2 = this.a.f885a;
+            list2 = this.a.f886a;
             list2.clear();
         }
     }
@@ -42,6 +42,6 @@ public class bd implements ServiceConnection {
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
         this.a.b = null;
-        this.a.f887b = false;
+        this.a.f888b = false;
     }
 }

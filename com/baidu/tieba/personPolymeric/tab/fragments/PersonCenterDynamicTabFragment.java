@@ -100,7 +100,7 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
         this.kPn = false;
         hideNetRefreshView(this.kPk.getRootView());
         hideLoadingView(this.kPk.getRootView());
-        this.kPk.buK();
+        this.kPk.buL();
         if (z) {
             showNetRefreshView(this.kPk.getRootView(), null, false);
         }
@@ -112,9 +112,9 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
         hideNetRefreshView(this.kPk.getRootView());
         hideLoadingView(this.kPk.getRootView());
         if (z) {
-            this.kPk.buI();
-        } else {
             this.kPk.buJ();
+        } else {
+            this.kPk.buK();
         }
         this.mDataList = com.baidu.tieba.personPolymeric.tab.b.a.eB(list);
         this.kPk.eD(this.mDataList);
@@ -130,16 +130,16 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
                     showLoadingView(this.kPk.getRootView(), false, getResources().getDimensionPixelSize(R.dimen.ds250));
                 }
                 this.kPl.IB();
-                bXG();
+                bXH();
                 return;
             }
             showNetRefreshView(this.kPk.getRootView(), null, false);
         }
     }
 
-    public void bXG() {
+    public void bXH() {
         if (this.kPk != null && this.mHasInit) {
-            this.kPk.bXG();
+            this.kPk.bXH();
         }
     }
 
@@ -165,7 +165,7 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
     public void onScrollToBottom() {
         if (this.kPl != null && this.mHasInit && !this.kPn && j.isNetWorkAvailable() && this.kPl.isHasMore()) {
             this.kPn = true;
-            this.kPl.btW();
+            this.kPl.btX();
         }
     }
 
@@ -183,8 +183,8 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
         if (isAdded() && isPrimary() && !this.mHasInit) {
             this.mHasInit = true;
             tt(true);
-            if (TbSingleton.getInstance().isShowShoubaiDynamicGuide() && this.kPo != null && !this.kPo.cUn() && this.isHost) {
-                this.kPo.cUm();
+            if (TbSingleton.getInstance().isShowShoubaiDynamicGuide() && this.kPo != null && !this.kPo.cUo() && this.isHost) {
+                this.kPo.cUn();
             }
         }
     }
@@ -217,17 +217,17 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public com.baidu.tieba.personPolymeric.tab.view.a cUo() {
+    public com.baidu.tieba.personPolymeric.tab.view.a cUp() {
         return this.kPk;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public List<q> cky() {
+    public List<q> ckz() {
         return this.mDataList;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public boolean cUp() {
+    public boolean cUq() {
         return this.isHost && isPrimary() && !this.kPn;
     }
 }

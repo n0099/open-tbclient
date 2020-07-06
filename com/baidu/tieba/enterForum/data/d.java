@@ -59,7 +59,7 @@ public class d {
         }
     }
 
-    public g bQY() {
+    public g bQZ() {
         return this.hbw;
     }
 
@@ -71,7 +71,7 @@ public class d {
         this.hbx = bhVar;
     }
 
-    public bh bQZ() {
+    public bh bRa() {
         return this.hbx;
     }
 
@@ -79,7 +79,7 @@ public class d {
         this.hby = forumCreateInfoData;
     }
 
-    public ForumCreateInfoData bRa() {
+    public ForumCreateInfoData bRb() {
         return this.hby;
     }
 
@@ -87,7 +87,7 @@ public class d {
         this.hbz = privateForumPopInfoData;
     }
 
-    public PrivateForumPopInfoData bRb() {
+    public PrivateForumPopInfoData bRc() {
         return this.hbz;
     }
 
@@ -99,7 +99,7 @@ public class d {
         return this.isSucc;
     }
 
-    public boolean bRc() {
+    public boolean bRd() {
         return System.currentTimeMillis() / com.baidu.tbadk.data.d.NEARBY_GUIDE_TIME.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.d.NEARBY_GUIDE_TIME.longValue();
     }
 
@@ -119,7 +119,7 @@ public class d {
         this.hbA = kVar;
     }
 
-    public k bRd() {
+    public k bRe() {
         return this.hbA;
     }
 }

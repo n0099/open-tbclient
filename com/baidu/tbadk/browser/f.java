@@ -233,8 +233,8 @@ public class f {
         if (this.dDL == null) {
             com.baidu.tieba.view.a aVar = new com.baidu.tieba.view.a(this.dDt);
             ArrayList arrayList = new ArrayList();
-            a.C0761a c0761a = new a.C0761a(this.dDt.getString(R.string.report_text), aVar);
-            c0761a.a(new a.c() { // from class: com.baidu.tbadk.browser.f.5
+            a.C0762a c0762a = new a.C0762a(this.dDt.getString(R.string.report_text), aVar);
+            c0762a.a(new a.c() { // from class: com.baidu.tbadk.browser.f.5
                 @Override // com.baidu.tieba.view.a.c
                 public void onClick() {
                     if (f.this.dDL != null && f.this.dDt != null) {
@@ -245,7 +245,7 @@ public class f {
                     }
                 }
             });
-            arrayList.add(c0761a);
+            arrayList.add(c0762a);
             aVar.a(new a.b() { // from class: com.baidu.tbadk.browser.f.6
                 @Override // com.baidu.tieba.view.a.b
                 public void onClick() {
@@ -311,7 +311,7 @@ public class f {
             if (shareItem.enA) {
                 ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.dDt, shareItem, true, (SparseArray<String>) null);
                 shareDialogConfig.mShowMoreForumShare = true;
-                com.baidu.tieba.c.f.bPD().b(shareDialogConfig);
+                com.baidu.tieba.c.f.bPE().b(shareDialogConfig);
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig((Context) this.dDt, shareItem, true, aPm())));

@@ -14,19 +14,19 @@ public class he {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f433a;
+    private long f434a;
 
     /* renamed from: a  reason: collision with other field name */
-    private hd f435a;
+    private hd f436a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f436a;
+    private String f437a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f437a = false;
+    private boolean f438a = false;
 
     /* renamed from: a  reason: collision with other field name */
-    private bb f434a = bb.a();
+    private bb f435a = bb.a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes8.dex */
@@ -35,24 +35,24 @@ public class he {
     }
 
     private fi a(bb.a aVar) {
-        if (aVar.f126a == 0) {
-            if (aVar.f127a instanceof fi) {
-                return (fi) aVar.f127a;
+        if (aVar.f127a == 0) {
+            if (aVar.f128a instanceof fi) {
+                return (fi) aVar.f128a;
             }
             return null;
         }
         fi m330a = m330a();
         m330a.a(fh.CHANNEL_STATS_COUNTER.a());
-        m330a.c(aVar.f126a);
-        m330a.c(aVar.f128a);
+        m330a.c(aVar.f127a);
+        m330a.c(aVar.f129a);
         return m330a;
     }
 
     private fj a(int i) {
         ArrayList arrayList = new ArrayList();
-        fj fjVar = new fj(this.f436a, arrayList);
-        if (!az.d(this.f435a.f430a)) {
-            fjVar.a(i.m(this.f435a.f430a));
+        fj fjVar = new fj(this.f437a, arrayList);
+        if (!az.d(this.f436a.f431a)) {
+            fjVar.a(i.m(this.f436a.f431a));
         }
         jq jqVar = new jq(i);
         ji a2 = new jo.a().a(jqVar);
@@ -60,7 +60,7 @@ public class he {
             fjVar.b(a2);
         } catch (jc e) {
         }
-        LinkedList<bb.a> m155a = this.f434a.m155a();
+        LinkedList<bb.a> m155a = this.f435a.m155a();
         while (m155a.size() > 0) {
             try {
                 fi a3 = a(m155a.getLast());
@@ -84,7 +84,7 @@ public class he {
     public static hd a() {
         hd hdVar;
         synchronized (a.a) {
-            hdVar = a.a.f435a;
+            hdVar = a.a.f436a;
         }
         return hdVar;
     }
@@ -96,11 +96,11 @@ public class he {
 
     /* renamed from: a  reason: collision with other method in class */
     private void m329a() {
-        if (!this.f437a || System.currentTimeMillis() - this.f433a <= this.a) {
+        if (!this.f438a || System.currentTimeMillis() - this.f434a <= this.a) {
             return;
         }
-        this.f437a = false;
-        this.f433a = 0L;
+        this.f438a = false;
+        this.f434a = 0L;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -108,9 +108,9 @@ public class he {
     public synchronized fi m330a() {
         fi fiVar;
         fiVar = new fi();
-        fiVar.a(az.m134a((Context) this.f435a.f430a));
-        fiVar.f328a = (byte) 0;
-        fiVar.f332b = 1;
+        fiVar.a(az.m134a((Context) this.f436a.f431a));
+        fiVar.f329a = (byte) 0;
+        fiVar.f333b = 1;
         fiVar.d((int) (System.currentTimeMillis() / 1000));
         return fiVar;
     }
@@ -122,7 +122,7 @@ public class he {
         fjVar = null;
         if (b()) {
             int i = FormCard.WIDTH_DEFAULT_SIZE;
-            if (!az.d(this.f435a.f430a)) {
+            if (!az.d(this.f436a.f431a)) {
                 i = 375;
             }
             fjVar = a(i);
@@ -138,34 +138,34 @@ public class he {
             if (i3 <= 604800000) {
                 i2 = i3;
             }
-            if (this.a == i2 && this.f437a) {
+            if (this.a == i2 && this.f438a) {
                 return;
             }
-            this.f437a = true;
-            this.f433a = System.currentTimeMillis();
+            this.f438a = true;
+            this.f434a = System.currentTimeMillis();
             this.a = i2;
-            com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i2 + " start = " + this.f433a);
+            com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i2 + " start = " + this.f434a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(fi fiVar) {
-        this.f434a.a(fiVar);
+        this.f435a.a(fiVar);
     }
 
     public synchronized void a(XMPushService xMPushService) {
-        this.f435a = new hd(xMPushService);
-        this.f436a = "";
+        this.f436a = new hd(xMPushService);
+        this.f437a = "";
         com.xiaomi.push.service.be.a().a(new hf(this));
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m333a() {
-        return this.f437a;
+        return this.f438a;
     }
 
     boolean b() {
         m329a();
-        return this.f437a && this.f434a.m154a() > 0;
+        return this.f438a && this.f435a.m154a() > 0;
     }
 }

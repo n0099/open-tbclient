@@ -9,7 +9,7 @@ public class h {
     private long eWB = 0;
     private long eWC = 0;
 
-    public String bod() {
+    public String boe() {
         return this.eWx;
     }
 
@@ -25,7 +25,7 @@ public class h {
         this.dCs = str;
     }
 
-    public boolean boe() {
+    public boolean bof() {
         return this.eWy;
     }
 
@@ -33,7 +33,7 @@ public class h {
         this.eWy = z;
     }
 
-    public long bof() {
+    public long bog() {
         return this.eWz;
     }
 
@@ -41,7 +41,7 @@ public class h {
         this.eWz = j;
     }
 
-    public long bog() {
+    public long boh() {
         return this.eWA;
     }
 
@@ -61,7 +61,7 @@ public class h {
         this.eWC = j;
     }
 
-    public long boh() {
+    public long boi() {
         return this.eWC;
     }
 }

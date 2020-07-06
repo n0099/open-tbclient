@@ -50,7 +50,7 @@ public class a extends g {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
-    protected int bCY() {
+    protected int bCZ() {
         return this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds510);
     }
 

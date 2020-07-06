@@ -108,14 +108,14 @@ public class f implements com.baidu.live.q.c {
         public void a(int i, String str, Object obj) {
             if (i == 0 && obj != null && (obj instanceof AlaGetHourRankListResponseMessage)) {
                 AlaGetHourRankListResponseMessage alaGetHourRankListResponseMessage = (AlaGetHourRankListResponseMessage) obj;
-                m bKG = alaGetHourRankListResponseMessage.bKG();
+                m bKH = alaGetHourRankListResponseMessage.bKH();
                 if (alaGetHourRankListResponseMessage.getOrginalMessage() != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag() == f.this.gIJ) {
-                    f.this.d(bKG);
+                    f.this.d(bKH);
                 } else if (alaGetHourRankListResponseMessage.getOrginalMessage() != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag() == f.this.aZD) {
-                    f.this.e(bKG);
+                    f.this.e(bKH);
                 }
-                f.this.gIF = bKG.bwG();
-                f.this.gIN = bKG.bwH();
+                f.this.gIF = bKH.bwH();
+                f.this.gIN = bKH.bwI();
             }
             if (!f.this.gIM && f.this.gIT != null) {
                 f.this.mHandler.removeCallbacks(f.this.gIT);
@@ -183,7 +183,7 @@ public class f implements com.baidu.live.q.c {
     /* JADX INFO: Access modifiers changed from: private */
     public void e(m mVar) {
         if (mVar != null) {
-            this.gIS.put(mVar.Ji(), Long.valueOf(mVar.bwJ()));
+            this.gIS.put(mVar.Ji(), Long.valueOf(mVar.bwK()));
             if (a(this.gIL, mVar)) {
                 this.gIO = System.currentTimeMillis();
                 dR(f(mVar), b(this.gIL, mVar));
@@ -195,11 +195,11 @@ public class f implements com.baidu.live.q.c {
                     this.mTextView.setText(f(mVar));
                     this.mRootView.setVisibility(0);
                     this.gom = BdUtilHelper.getTextWidth(this.mPaint, f(mVar));
-                } else if (mVar.bwK() != null && !this.gIP) {
+                } else if (mVar.bwL() != null && !this.gIP) {
                     b(this.mTextView, f(mVar));
                 }
             }
-            this.gIe = mVar.bwI();
+            this.gIe = mVar.bwJ();
             startCountDown();
         }
     }
@@ -211,38 +211,38 @@ public class f implements com.baidu.live.q.c {
     }
 
     private boolean a(m mVar, m mVar2) {
-        if (mVar2 == null || System.currentTimeMillis() - this.gIO < this.gIN * 1000 || mVar == null || mVar.bwK() == null) {
+        if (mVar2 == null || System.currentTimeMillis() - this.gIO < this.gIN * 1000 || mVar == null || mVar.bwL() == null) {
             return false;
         }
-        if (mVar.bwK().fEo > 0 || mVar2.bwK().fEo <= 0) {
-            return (mVar.bwK().fEo > 0 || mVar2.bwK().fEo > 0) ? true : true;
+        if (mVar.bwL().fEo > 0 || mVar2.bwL().fEo <= 0) {
+            return (mVar.bwL().fEo > 0 || mVar2.bwL().fEo > 0) ? true : true;
         }
         return false;
     }
 
     private String f(m mVar) {
-        if (mVar.bwK().fEo < 1) {
+        if (mVar.bwL().fEo < 1) {
             return this.mContext.getString(a.i.hour_rank_list_entry_no);
         }
-        return String.format(this.mContext.getString(a.i.hour_rank_list_entry_text_def), StringHelper.formatForHourRankValue(mVar.bwK().fEo) + "");
+        return String.format(this.mContext.getString(a.i.hour_rank_list_entry_text_def), StringHelper.formatForHourRankValue(mVar.bwL().fEo) + "");
     }
 
     private String b(m mVar, m mVar2) {
-        if (mVar.bwK().fEo == mVar2.bwK().fEo) {
+        if (mVar.bwL().fEo == mVar2.bwL().fEo) {
             this.gIQ = "change";
-            if (mVar2.bwK().fEo <= 0) {
+            if (mVar2.bwL().fEo <= 0) {
                 return this.mContext.getString(a.i.hour_rank_list_entry_diff_no);
             }
-            if (mVar2.bwK().fEo == 1) {
-                return String.format(this.mContext.getString(a.i.hour_rank_list_entry_diff_down), StringHelper.formatForHourRankValue(mVar2.bwK().fEp - mVar2.bwK().fEr) + "");
-            } else if (mVar2.bwK().fEo <= 1) {
+            if (mVar2.bwL().fEo == 1) {
+                return String.format(this.mContext.getString(a.i.hour_rank_list_entry_diff_down), StringHelper.formatForHourRankValue(mVar2.bwL().fEp - mVar2.bwL().fEr) + "");
+            } else if (mVar2.bwL().fEo <= 1) {
                 return "";
             } else {
-                return String.format(this.mContext.getString(a.i.hour_rank_list_entry_diff_up), StringHelper.formatForHourRankValue((mVar2.bwK().fEq - mVar2.bwK().fEp) + 1) + "");
+                return String.format(this.mContext.getString(a.i.hour_rank_list_entry_diff_up), StringHelper.formatForHourRankValue((mVar2.bwL().fEq - mVar2.bwL().fEp) + 1) + "");
             }
         }
         this.gIQ = "up_down";
-        int i = mVar2.bwK().fEo - mVar.bwK().fEo;
+        int i = mVar2.bwL().fEo - mVar.bwL().fEo;
         return i < 0 ? String.format(this.mContext.getString(a.i.hour_rank_list_entry_updown_up), (-i) + "") : i > 0 ? String.format(this.mContext.getString(a.i.hour_rank_list_entry_updown_down), i + "") : "";
     }
 

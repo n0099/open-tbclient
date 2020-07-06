@@ -19,7 +19,7 @@ public class c extends RecyclerView.Adapter<a> implements View.OnClickListener {
     private FrsMoveAreaChooseView ieD;
     private int ieF;
     private int ieG = -1;
-    private List<FrsTabInfo> ieE = com.baidu.tieba.frs.a.bWV().bWY();
+    private List<FrsTabInfo> ieE = com.baidu.tieba.frs.a.bWW().bWZ();
     private SparseArray<FrsTabInfo> ieH = new SparseArray<>();
 
     public c(FrsMoveAreaChooseView frsMoveAreaChooseView) {
@@ -31,8 +31,8 @@ public class c extends RecyclerView.Adapter<a> implements View.OnClickListener {
                 int i2 = i;
                 if (i2 < this.ieE.size()) {
                     FrsTabInfo frsTabInfo = this.ieE.get(i2);
-                    if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.bWV().bWX())) {
-                        if (frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.bWV().bWX()) {
+                    if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.bWW().bWY())) {
+                        if (frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.bWW().bWY()) {
                             this.ieF = i2;
                         }
                         this.ieH.append(i2, frsTabInfo);
@@ -45,11 +45,11 @@ public class c extends RecyclerView.Adapter<a> implements View.OnClickListener {
         }
     }
 
-    public int cgF() {
+    public int cgG() {
         return this.ieF;
     }
 
-    public int cgG() {
+    public int cgH() {
         return this.ieG;
     }
 
@@ -86,10 +86,10 @@ public class c extends RecyclerView.Adapter<a> implements View.OnClickListener {
             if (this.ieH.get(intValue) != null) {
                 if (this.ieD != null && this.ieD.getContext() != null && this.ieD.getParent() != null) {
                     if (intValue == this.ieF) {
-                        new BdTopToast(this.ieD.getContext()).vz(false).OI(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_cur_tip)).aE((ViewGroup) this.ieD.getParent());
+                        new BdTopToast(this.ieD.getContext()).vz(false).OJ(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_cur_tip)).aE((ViewGroup) this.ieD.getParent());
                         return;
                     } else {
-                        new BdTopToast(this.ieD.getContext()).vz(false).OI(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_no_tip)).aE((ViewGroup) this.ieD.getParent());
+                        new BdTopToast(this.ieD.getContext()).vz(false).OJ(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_no_tip)).aE((ViewGroup) this.ieD.getParent());
                         return;
                     }
                 }

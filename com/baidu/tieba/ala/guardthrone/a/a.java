@@ -76,11 +76,11 @@ public class a implements b {
     @Override // com.baidu.live.h.b
     public void onDestroy() {
         if (this.fNf != null) {
-            this.fNf.byw();
+            this.fNf.byx();
             this.fNf.onDestroy();
         }
         if (this.fNg != null) {
-            this.fNg.byw();
+            this.fNg.byx();
             this.fNg.onDestroy();
         }
     }

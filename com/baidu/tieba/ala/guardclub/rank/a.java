@@ -11,16 +11,16 @@ public abstract class a extends SupportXFragment {
     protected boolean mInitialed;
     protected boolean mVisible;
 
-    protected abstract e bxL();
+    protected abstract e bxM();
 
-    protected abstract int bxM();
+    protected abstract int bxN();
 
     protected abstract void onInflate(View view, Bundle bundle);
 
     @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.fLo = bxL();
-        this.mView = layoutInflater.inflate(bxM(), viewGroup, false);
+        this.fLo = bxM();
+        this.mView = layoutInflater.inflate(bxN(), viewGroup, false);
         onInflate(this.mView, bundle);
         return this.mView;
     }

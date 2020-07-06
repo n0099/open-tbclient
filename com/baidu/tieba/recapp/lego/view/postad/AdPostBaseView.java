@@ -91,7 +91,7 @@ public abstract class AdPostBaseView extends PostAdBaseView<AdPost> {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.postad.PostAdBaseView
-    protected View cxy() {
+    protected View cxz() {
         this.rootView = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null);
         this.rootView.setOnClickListener(this.gRs);
         this.lge = this.rootView.findViewById(R.id.thread_multi_del_ad_mask_view);
@@ -145,7 +145,7 @@ public abstract class AdPostBaseView extends PostAdBaseView<AdPost> {
         if (!TextUtils.isEmpty(this.ljg.preloadLegoCardStr)) {
             str2 = LO(str2);
         }
-        a.boT().c(this.dPv.getPageActivity(), new String[]{str2});
+        a.boU().c(this.dPv.getPageActivity(), new String[]{str2});
         if (this.jrl != null) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("da_area", str);
@@ -209,7 +209,7 @@ public abstract class AdPostBaseView extends PostAdBaseView<AdPost> {
         a2(adPost);
         a(adPost, this.gRl);
         an.setBackgroundColor(this.gRl, R.color.cp_bg_line_e);
-        if ((b.bXc().bWW() || com.baidu.tieba.frs.a.bWV().bWW()) && isInFrsAllThread()) {
+        if ((b.bXd().bWX() || com.baidu.tieba.frs.a.bWW().bWX()) && isInFrsAllThread()) {
             this.lge.setVisibility(0);
             an.setBackgroundColor(this.lge, R.color.cp_bg_line_d);
             return;
@@ -223,7 +223,7 @@ public abstract class AdPostBaseView extends PostAdBaseView<AdPost> {
 
     private void a(AdPost adPost, View view) {
         if (adPost != null) {
-            if (!k.aPA().isShowImages() || adPost.feedData.cZj().size() == 0) {
+            if (!k.aPA().isShowImages() || adPost.feedData.cZk().size() == 0) {
             }
             if (adPost.adData.type == 1) {
             }

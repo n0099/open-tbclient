@@ -76,10 +76,10 @@ public class d {
         this.jya = (FrameLayout) this.mRootView.findViewById(R.id.frame_layout);
         this.mNoDataView = NoDataViewFactory.a(this.mContext, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.mContext.getResources().getDimension(R.dimen.ds200)), null, null);
         this.jya.addView(this.mNoDataView, 0);
-        czX();
-        czz();
         czY();
+        czA();
         czZ();
+        cAa();
     }
 
     private void biq() {
@@ -144,51 +144,51 @@ public class d {
         }
     }
 
-    private void czX() {
+    private void czY() {
         this.jzd = (QuickWebView) this.mRootView.findViewById(R.id.search_history_webview);
         this.jzd.tU(true);
         this.jze = this.mRootView.findViewById(R.id.search_webview_mask);
     }
 
-    private void czz() {
+    private void czA() {
         this.jyi = (BdListView) this.mRootView.findViewById(R.id.home_lv_search_suggest);
         this.jyk = new com.baidu.tieba.mainentrance.searchSuggestList.b(this.mContext, null);
         this.jzg = new com.baidu.tieba.mainentrance.searchSuggestList.a(this.mContext, null);
     }
 
-    private void czY() {
+    private void czZ() {
         this.jzc = (QuickWebView) this.mRootView.findViewById(R.id.search_result_webview);
         this.jzc.tU(true);
     }
 
-    private void czZ() {
+    private void cAa() {
         this.gKk.setText("");
         this.gKk.requestFocus();
         this.gKm.setText(this.mContext.getString(R.string.cancel));
     }
 
-    public void cAa() {
+    public void cAb() {
         this.jzd.setVisibility(0);
         this.jyi.setVisibility(8);
         this.jzc.setVisibility(8);
         this.mNoDataView.setVisibility(8);
     }
 
-    public void czK() {
+    public void czL() {
         this.jyi.setVisibility(8);
         this.jzd.setVisibility(8);
         this.jzc.setVisibility(8);
         this.mNoDataView.setVisibility(0);
     }
 
-    public void czI() {
+    public void czJ() {
         this.jyi.setVisibility(0);
         this.jzd.setVisibility(8);
         this.jzc.setVisibility(8);
         this.mNoDataView.setVisibility(8);
     }
 
-    public void cAb() {
+    public void cAc() {
         this.jyi.setVisibility(8);
         this.jzd.setVisibility(8);
         this.jzc.setVisibility(0);
@@ -214,7 +214,7 @@ public class d {
 
     public void i(List<String> list, String str) {
         if (!w.isEmpty(list)) {
-            czI();
+            czJ();
             this.jyk.Ii(str);
             this.jyk.setData(list);
             this.jyi.setAdapter((ListAdapter) this.jyk);
@@ -223,7 +223,7 @@ public class d {
 
     public void j(List<ForumInfo> list, String str) {
         if (!w.isEmpty(list) && !TextUtils.isEmpty(str)) {
-            czI();
+            czJ();
             this.jzg.Ii(str);
             this.jzg.dN(list);
             this.jyi.setAdapter((ListAdapter) this.jzg);
@@ -275,23 +275,23 @@ public class d {
         this.jzc.setOnLoadUrlListener(bVar);
     }
 
-    public EditText cAc() {
+    public EditText cAd() {
         return this.gKk;
     }
 
-    public TextView cAd() {
+    public TextView cAe() {
         return this.gKm;
     }
 
-    public QuickWebView cAe() {
+    public QuickWebView cAf() {
         return this.jzc;
     }
 
-    public QuickWebView cAf() {
+    public QuickWebView cAg() {
         return this.jzd;
     }
 
-    public boolean cAg() {
+    public boolean cAh() {
         return this.jyi.getVisibility() == 0;
     }
 

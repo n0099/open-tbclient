@@ -6,102 +6,102 @@ import android.os.SystemClock;
 import java.util.Arrays;
 /* loaded from: classes13.dex */
 public class f extends a {
-    private static boolean mMx = true;
+    private static boolean mMA = true;
     int mAlpha;
-    private final Drawable[] mMf;
-    int mMr;
-    int mMs;
-    int[] mMt;
-    int[] mMu;
-    boolean[] mMv;
-    int mMw;
+    private final Drawable[] mMi;
+    int mMu;
+    int mMv;
+    int[] mMw;
+    int[] mMx;
+    boolean[] mMy;
+    int mMz;
     long mStartTimeMs;
 
     public f(Drawable[] drawableArr) {
         super(drawableArr);
         com.facebook.common.internal.g.d(drawableArr.length >= 1, "At least one layer required!");
-        this.mMf = drawableArr;
-        this.mMt = new int[drawableArr.length];
-        this.mMu = new int[drawableArr.length];
+        this.mMi = drawableArr;
+        this.mMw = new int[drawableArr.length];
+        this.mMx = new int[drawableArr.length];
         this.mAlpha = 255;
-        this.mMv = new boolean[drawableArr.length];
-        this.mMw = 0;
+        this.mMy = new boolean[drawableArr.length];
+        this.mMz = 0;
         resetInternal();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void invalidateSelf() {
-        if (this.mMw == 0) {
+        if (this.mMz == 0) {
             super.invalidateSelf();
         }
     }
 
-    public void dAT() {
-        this.mMw++;
+    public void dAX() {
+        this.mMz++;
     }
 
-    public void dAU() {
-        this.mMw--;
+    public void dAY() {
+        this.mMz--;
         invalidateSelf();
     }
 
     public void Ii(int i) {
-        this.mMs = i;
-        if (this.mMr == 1) {
-            this.mMr = 0;
+        this.mMv = i;
+        if (this.mMu == 1) {
+            this.mMu = 0;
         }
     }
 
     private void resetInternal() {
-        this.mMr = 2;
-        Arrays.fill(this.mMt, 0);
-        this.mMt[0] = 255;
-        Arrays.fill(this.mMu, 0);
-        this.mMu[0] = 255;
-        Arrays.fill(this.mMv, false);
-        this.mMv[0] = true;
+        this.mMu = 2;
+        Arrays.fill(this.mMw, 0);
+        this.mMw[0] = 255;
+        Arrays.fill(this.mMx, 0);
+        this.mMx[0] = 255;
+        Arrays.fill(this.mMy, false);
+        this.mMy[0] = true;
     }
 
     public void Ij(int i) {
-        this.mMr = 0;
-        this.mMv[i] = true;
+        this.mMu = 0;
+        this.mMy[i] = true;
         invalidateSelf();
     }
 
     public void Ik(int i) {
-        this.mMr = 0;
-        this.mMv[i] = false;
+        this.mMu = 0;
+        this.mMy[i] = false;
         invalidateSelf();
     }
 
-    public void dAV() {
-        this.mMr = 0;
-        Arrays.fill(this.mMv, true);
+    public void dAZ() {
+        this.mMu = 0;
+        Arrays.fill(this.mMy, true);
         invalidateSelf();
     }
 
-    public void dAW() {
-        this.mMr = 2;
-        for (int i = 0; i < this.mMf.length; i++) {
-            this.mMu[i] = this.mMv[i] ? 255 : 0;
+    public void dBa() {
+        this.mMu = 2;
+        for (int i = 0; i < this.mMi.length; i++) {
+            this.mMx[i] = this.mMy[i] ? 255 : 0;
         }
         invalidateSelf();
     }
 
     private boolean aG(float f) {
         boolean z = true;
-        for (int i = 0; i < this.mMf.length; i++) {
-            this.mMu[i] = (int) (((this.mMv[i] ? 1 : -1) * 255 * f) + this.mMt[i]);
-            if (this.mMu[i] < 0) {
-                this.mMu[i] = 0;
+        for (int i = 0; i < this.mMi.length; i++) {
+            this.mMx[i] = (int) (((this.mMy[i] ? 1 : -1) * 255 * f) + this.mMw[i]);
+            if (this.mMx[i] < 0) {
+                this.mMx[i] = 0;
             }
-            if (this.mMu[i] > 255) {
-                this.mMu[i] = 255;
+            if (this.mMx[i] > 255) {
+                this.mMx[i] = 255;
             }
-            if (this.mMv[i] && this.mMu[i] < 255) {
+            if (this.mMy[i] && this.mMx[i] < 255) {
                 z = false;
             }
-            if (!this.mMv[i] && this.mMu[i] > 0) {
+            if (!this.mMy[i] && this.mMx[i] > 0) {
                 z = false;
             }
         }
@@ -111,26 +111,26 @@ public class f extends a {
     @Override // com.facebook.drawee.drawable.a, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         boolean z = true;
-        switch (this.mMr) {
+        switch (this.mMu) {
             case 0:
-                System.arraycopy(this.mMu, 0, this.mMt, 0, this.mMf.length);
-                this.mStartTimeMs = dAX();
-                if (mMx && this.mMs != 0) {
+                System.arraycopy(this.mMx, 0, this.mMw, 0, this.mMi.length);
+                this.mStartTimeMs = dBb();
+                if (mMA && this.mMv != 0) {
                     r0 = 0.0f;
                 }
                 boolean aG = aG(r0);
-                this.mMr = aG ? 2 : 1;
+                this.mMu = aG ? 2 : 1;
                 z = aG;
                 break;
             case 1:
-                com.facebook.common.internal.g.checkState(this.mMs > 0);
-                boolean aG2 = aG(mMx ? ((float) (dAX() - this.mStartTimeMs)) / this.mMs : 1.0f);
-                this.mMr = aG2 ? 2 : 1;
+                com.facebook.common.internal.g.checkState(this.mMv > 0);
+                boolean aG2 = aG(mMA ? ((float) (dBb() - this.mStartTimeMs)) / this.mMv : 1.0f);
+                this.mMu = aG2 ? 2 : 1;
                 z = aG2;
                 break;
         }
-        for (int i = 0; i < this.mMf.length; i++) {
-            a(canvas, this.mMf[i], (this.mMu[i] * this.mAlpha) / 255);
+        for (int i = 0; i < this.mMi.length; i++) {
+            a(canvas, this.mMi[i], (this.mMx[i] * this.mAlpha) / 255);
         }
         if (!z) {
             invalidateSelf();
@@ -139,9 +139,9 @@ public class f extends a {
 
     private void a(Canvas canvas, Drawable drawable, int i) {
         if (drawable != null && i > 0) {
-            this.mMw++;
+            this.mMz++;
             drawable.mutate().setAlpha(i);
-            this.mMw--;
+            this.mMz--;
             drawable.draw(canvas);
         }
     }
@@ -159,7 +159,7 @@ public class f extends a {
         return this.mAlpha;
     }
 
-    protected long dAX() {
+    protected long dBb() {
         return SystemClock.uptimeMillis();
     }
 }

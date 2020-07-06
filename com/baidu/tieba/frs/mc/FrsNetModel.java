@@ -61,7 +61,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
         this.byh = frsRequestData;
     }
 
-    public FrsRequestData cdZ() {
+    public FrsRequestData cea() {
         return (FrsRequestData) this.byh;
     }
 
@@ -90,19 +90,19 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
         this.hUZ = mvcNetMessage;
     }
 
-    public boolean cea() {
+    public boolean ceb() {
         return this.hUW;
     }
 
-    public ResponsedMessage ceb() {
+    public ResponsedMessage cec() {
         return this.hUX;
     }
 
-    public Message cec() {
+    public Message ced() {
         return this.hUY;
     }
 
-    public MvcNetMessage ced() {
+    public MvcNetMessage cee() {
         return this.hUZ;
     }
 }

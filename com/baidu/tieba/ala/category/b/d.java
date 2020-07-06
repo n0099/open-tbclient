@@ -12,7 +12,7 @@ public class d implements IAdapterData {
     private String member;
     private int score;
 
-    public String bvM() {
+    public String bvN() {
         return this.member;
     }
 
@@ -28,7 +28,7 @@ public class d implements IAdapterData {
         this.checked = z;
     }
 
-    public int bvN() {
+    public int bvO() {
         return this.fyV;
     }
 

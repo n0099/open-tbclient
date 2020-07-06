@@ -15,11 +15,11 @@ import com.baidu.tieba.R;
 public class VoteCountDownView extends LinearLayout {
     private a krX;
     private Context mContext;
-    private View miJ;
-    private View miK;
-    private TextView miM;
-    private TextView miN;
-    private CountDownTimer miO;
+    private View miM;
+    private View miN;
+    private TextView miP;
+    private TextView miQ;
+    private CountDownTimer miR;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -46,8 +46,8 @@ public class VoteCountDownView extends LinearLayout {
     }
 
     private void dr(long j) {
-        if (this.miO == null) {
-            this.miO = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.view.VoteCountDownView.1
+        if (this.miR == null) {
+            this.miR = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.view.VoteCountDownView.1
                 @Override // android.os.CountDownTimer
                 public void onTick(long j2) {
                     long j3 = j2 + 60000;
@@ -57,37 +57,37 @@ public class VoteCountDownView extends LinearLayout {
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
                     VoteCountDownView.this.setContent(0L, 0L);
-                    VoteCountDownView.this.brN();
+                    VoteCountDownView.this.brO();
                 }
             };
-            this.miO.start();
+            this.miR.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void brN() {
+    public void brO() {
         if (this.krX != null) {
             this.krX.RB();
         }
     }
 
     private void sq() {
-        this.miJ = findViewById(R.id.hour_num_container);
-        this.miK = findViewById(R.id.minute_num_container);
-        this.miM = (TextView) findViewById(R.id.hour_num_count_down_view);
-        this.miN = (TextView) findViewById(R.id.minute_num_count_down_view);
+        this.miM = findViewById(R.id.hour_num_container);
+        this.miN = findViewById(R.id.minute_num_container);
+        this.miP = (TextView) findViewById(R.id.hour_num_count_down_view);
+        this.miQ = (TextView) findViewById(R.id.minute_num_count_down_view);
     }
 
     public void setContent(long j, long j2) {
-        this.miN.setText(String.valueOf(j2));
-        this.miM.setText(String.valueOf(j));
+        this.miQ.setText(String.valueOf(j2));
+        this.miP.setText(String.valueOf(j));
     }
 
     public void qJ(int i) {
-        an.setBackgroundResource(this.miJ, R.drawable.bg_gradient_round, i);
-        an.setBackgroundResource(this.miK, R.drawable.bg_gradient_round, i);
-        an.setViewTextColor(this.miM, R.color.cp_cont_a, 1, i);
-        an.setViewTextColor(this.miM, R.color.cp_cont_a, 1, i);
+        an.setBackgroundResource(this.miM, R.drawable.bg_gradient_round, i);
+        an.setBackgroundResource(this.miN, R.drawable.bg_gradient_round, i);
+        an.setViewTextColor(this.miP, R.color.cp_cont_a, 1, i);
+        an.setViewTextColor(this.miP, R.color.cp_cont_a, 1, i);
     }
 
     public void setData(long j) {

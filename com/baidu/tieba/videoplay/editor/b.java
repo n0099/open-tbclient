@@ -61,7 +61,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                                 aVar.bac().showToast((int) R.string.over_limit_tip);
                                 return;
                             case 8:
-                                aVar.dqg();
+                                aVar.dqk();
                                 if (b.this.a(aVar.bac(), 11001)) {
                                     aVar.bfX();
                                     return;

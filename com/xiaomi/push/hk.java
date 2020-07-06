@@ -9,13 +9,13 @@ public class hk {
     private static volatile hk a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Context f441a;
+    private final Context f442a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Map<String, hl> f442a = new HashMap();
+    private Map<String, hl> f443a = new HashMap();
 
     private hk(Context context) {
-        this.f441a = context;
+        this.f442a = context;
     }
 
     public static hk a(Context context) {
@@ -47,11 +47,11 @@ public class hk {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public hl a() {
-        hl hlVar = this.f442a.get("UPLOADER_PUSH_CHANNEL");
+        hl hlVar = this.f443a.get("UPLOADER_PUSH_CHANNEL");
         if (hlVar != null) {
             return hlVar;
         }
-        hl hlVar2 = this.f442a.get("UPLOADER_HTTP");
+        hl hlVar2 = this.f443a.get("UPLOADER_HTTP");
         if (hlVar2 == null) {
             return null;
         }
@@ -60,7 +60,7 @@ public class hk {
 
     /* renamed from: a  reason: collision with other method in class */
     Map<String, hl> m336a() {
-        return this.f442a;
+        return this.f443a;
     }
 
     public void a(hl hlVar, String str) {
@@ -84,12 +84,12 @@ public class hk {
                 hqVar.f(com.xiaomi.push.service.bi.a());
             }
             hqVar.g(str);
-            com.xiaomi.push.service.bj.a(this.f441a, hqVar);
+            com.xiaomi.push.service.bj.a(this.f442a, hqVar);
             return true;
         }
     }
 
     public boolean a(String str, String str2, long j, String str3) {
-        return a(this.f441a.getPackageName(), this.f441a.getPackageName(), str, str2, j, str3);
+        return a(this.f442a.getPackageName(), this.f442a.getPackageName(), str, str2, j, str3);
     }
 }

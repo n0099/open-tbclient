@@ -62,16 +62,16 @@ public class a {
         this.fbE = new WeakReference<>(splashAdView);
         splashAdView.setBCAdCallBack(new com.baidu.tieba.advert.sdk.a.a() { // from class: com.baidu.tieba.advert.sdk.a.2
             @Override // com.baidu.tieba.advert.sdk.a.a
-            public void bpY() {
+            public void bpZ() {
                 com.baidu.tieba.advert.sdk.data.b entryInfoData;
                 SplashAdView splashAdView2 = (SplashAdView) a.this.fbE.get();
                 if (splashAdView2 != null) {
-                    a.this.fbD = splashAdView.bqm();
+                    a.this.fbD = splashAdView.bqn();
                     a.this.AM(a.this.fbD);
                 }
                 ao aoVar = new ao("c13319");
                 if (splashAdView2 != null && (entryInfoData = splashAdView2.getEntryInfoData()) != null) {
-                    if (entryInfoData.bqc()) {
+                    if (entryInfoData.bqd()) {
                         aoVar.dk("obj_source", entryInfoData.videoJumpUrl);
                     } else {
                         aoVar.dk("obj_source", entryInfoData.redirectUrl);
@@ -85,11 +85,11 @@ public class a {
             }
 
             @Override // com.baidu.tieba.advert.sdk.a.a
-            public void bpZ() {
+            public void bqa() {
             }
 
             @Override // com.baidu.tieba.advert.sdk.a.a
-            public void bqa() {
+            public void bqb() {
             }
 
             @Override // com.baidu.tieba.advert.sdk.a.a
@@ -101,7 +101,7 @@ public class a {
             }
         });
         try {
-            z = splashAdView.bql();
+            z = splashAdView.bqm();
         } catch (Throwable th) {
             z = false;
         }

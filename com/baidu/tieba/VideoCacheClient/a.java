@@ -115,13 +115,13 @@ public class a {
                     }
                 }
                 if (!a.this.eWS) {
-                    String bon = a.this.bon();
-                    if (bon != null && !bon.isEmpty()) {
-                        File file = new File(c.eWH + b.zS(bon) + "/header_downloaded");
+                    String boo = a.this.boo();
+                    if (boo != null && !boo.isEmpty()) {
+                        File file = new File(c.eWH + b.zS(boo) + "/header_downloaded");
                         if (file.exists()) {
-                            d.D(a.TAG, "header exists " + bon);
+                            d.D(a.TAG, "header exists " + boo);
                         } else {
-                            d.D(a.TAG, "client preload start: " + bon);
+                            d.D(a.TAG, "client preload start: " + boo);
                             j = 0;
                             i = 0;
                             i2 = 0;
@@ -140,8 +140,8 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(bon);
-                                    int port = b.boo().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(boo);
+                                    int port = b.bop().getPort();
                                     socket = new Socket();
                                     try {
                                         socket.connect(new InetSocketAddress("127.0.0.1", port), 5000);
@@ -198,7 +198,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.D(a.TAG, "client preload check1: " + bon);
+                                            d.D(a.TAG, "client preload check1: " + boo);
                                             int i4 = i;
                                             while (true) {
                                                 try {
@@ -250,7 +250,7 @@ public class a {
                                 i = i3;
                                 j = j2;
                             }
-                            d.D(a.TAG, "client preload end: " + bon);
+                            d.D(a.TAG, "client preload end: " + boo);
                         }
                     }
                 } else {
@@ -293,7 +293,7 @@ public class a {
         this.mThread.start();
     }
 
-    public static a bom() {
+    public static a bon() {
         if (eWR == null) {
             synchronized (a.class) {
                 if (eWR == null) {
@@ -305,7 +305,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String bon() {
+    public synchronized String boo() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 

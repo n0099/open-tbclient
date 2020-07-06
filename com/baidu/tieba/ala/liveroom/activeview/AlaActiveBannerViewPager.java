@@ -108,7 +108,7 @@ public class AlaActiveBannerViewPager extends ViewPager {
         setOnTouchListener(this.eEC);
     }
 
-    public void bAa() {
+    public void bAb() {
         if (getAdapter().getCount() > 1) {
             setCurrentItem(1);
             this.mHandler.removeCallbacks(this.mRunnable);

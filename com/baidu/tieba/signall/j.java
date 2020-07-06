@@ -94,43 +94,43 @@ public class j extends com.baidu.adp.base.c<SignAllForumActivity> {
     public void a(c cVar, boolean z) {
         if (cVar != null) {
             this.lwP = cVar;
-            dfP();
-            ArrayList<d> dfd = cVar.dfd();
+            dfQ();
+            ArrayList<d> dfe = cVar.dfe();
             this.lyn.c(this.lwP);
-            if (dfd.size() == lyk) {
+            if (dfe.size() == lyk) {
                 this.lyt.setVisibility(0);
-                this.lyt.setText(cVar.dfa());
+                this.lyt.setText(cVar.dfb());
             } else {
                 this.lyt.setVisibility(8);
             }
-            String deU = this.lwP.deU();
-            if (!StringUtils.isNull(deU)) {
-                this.lym.a(this.lyl, deU, this.lwP.deV());
+            String deV = this.lwP.deV();
+            if (!StringUtils.isNull(deV)) {
+                this.lym.a(this.lyl, deV, this.lwP.deW());
                 return;
             }
-            this.lym.dfO();
+            this.lym.dfP();
         }
     }
 
-    private void dfP() {
+    private void dfQ() {
         if (this.lwP != null) {
-            this.lym.setHasPrivilege(this.lwP.dfh());
-            this.lym.setmCurrentStatus(this.lwP.dfj());
+            this.lym.setHasPrivilege(this.lwP.dfi());
+            this.lym.setmCurrentStatus(this.lwP.dfk());
             TextView message1 = this.lym.getMessage1();
-            SpannableString spannableString = new SpannableString(this.lwP.deX() + this.lwP.cOO() + this.lwP.deY());
+            SpannableString spannableString = new SpannableString(this.lwP.deY() + this.lwP.cOP() + this.lwP.deZ());
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(TbadkApplication.getInst().getResources().getColor(R.color.common_color_10191));
-            int length = this.lwP.deX().length();
-            spannableString.setSpan(foregroundColorSpan, length, this.lwP.cOO().length() + length, 33);
+            int length = this.lwP.deY().length();
+            spannableString.setSpan(foregroundColorSpan, length, this.lwP.cOP().length() + length, 33);
             message1.setText(spannableString);
-            this.lym.getMessage2().setText(this.lwP.deZ());
+            this.lym.getMessage2().setText(this.lwP.dfa());
             this.lyq.setText(this.lwP.getContent());
-            if (TextUtils.isEmpty(this.lwP.dfi())) {
+            if (TextUtils.isEmpty(this.lwP.dfj())) {
                 this.lyr.setText(R.string.member_buy_open);
             } else {
-                this.lyr.setText(this.lwP.dfi());
+                this.lyr.setText(this.lwP.dfj());
             }
             this.lym.setVisibility(0);
-            if (this.lwP.dfh() || TbadkApplication.getInst().getIntentClass(MemberPrivilegeActivityConfig.class) == null) {
+            if (this.lwP.dfi() || TbadkApplication.getInst().getIntentClass(MemberPrivilegeActivityConfig.class) == null) {
                 this.lyp.setVisibility(8);
             } else {
                 this.lyp.setVisibility(0);
@@ -154,7 +154,7 @@ public class j extends com.baidu.adp.base.c<SignAllForumActivity> {
         this.US.setOnItemClickListener(onItemClickListener);
     }
 
-    public SignAllForumProgressView dfQ() {
+    public SignAllForumProgressView dfR() {
         return this.lym;
     }
 
@@ -162,19 +162,19 @@ public class j extends com.baidu.adp.base.c<SignAllForumActivity> {
         return this.mProgressBar;
     }
 
-    public BdListView dfR() {
+    public BdListView dfS() {
         return this.US;
     }
 
-    public c dfS() {
+    public c dfT() {
         return this.lwP;
     }
 
-    public g dfT() {
+    public g dfU() {
         return this.lyn;
     }
 
-    public LinearLayout dfU() {
+    public LinearLayout dfV() {
         return this.lys;
     }
 
@@ -182,7 +182,7 @@ public class j extends com.baidu.adp.base.c<SignAllForumActivity> {
         this.US.setSelection(i);
     }
 
-    public RelativeLayout bLS() {
+    public RelativeLayout bLT() {
         return this.mRootView;
     }
 }

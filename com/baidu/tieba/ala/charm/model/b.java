@@ -36,11 +36,11 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
                     int error = responsedMessage.getError();
                     if (responsedMessage instanceof OnlineListHttpResponseMessage) {
                         OnlineListHttpResponseMessage onlineListHttpResponseMessage = (OnlineListHttpResponseMessage) responsedMessage;
-                        j = onlineListHttpResponseMessage.bwc();
-                        k bwd = onlineListHttpResponseMessage.bwd();
-                        alaLiveUserInfoData = onlineListHttpResponseMessage.bwe();
-                        j2 = onlineListHttpResponseMessage.bwf();
-                        kVar = bwd;
+                        j = onlineListHttpResponseMessage.bwd();
+                        k bwe = onlineListHttpResponseMessage.bwe();
+                        alaLiveUserInfoData = onlineListHttpResponseMessage.bwf();
+                        j2 = onlineListHttpResponseMessage.bwg();
+                        kVar = bwe;
                     } else {
                         kVar = null;
                         j = 0;

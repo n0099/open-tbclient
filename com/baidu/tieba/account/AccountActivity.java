@@ -65,7 +65,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && AccountActivity.this.eXi != null) {
-                AccountActivity.this.boB();
+                AccountActivity.this.boC();
                 if (AccountActivity.this.eXj != null) {
                     AccountActivity.this.eXj.setData(AccountActivity.this.eXi);
                     AccountActivity.this.eXj.notifyDataSetChanged();
@@ -80,7 +80,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    AccountActivity.this.boE();
+                    AccountActivity.this.boF();
                     return;
                 case 2:
                     if (message.obj instanceof AccountData) {
@@ -99,9 +99,9 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_activity);
-        boB();
-        this.eXk = new com.baidu.tieba.account.safeManage.a(this);
         boC();
+        this.eXk = new com.baidu.tieba.account.safeManage.a(this);
+        boD();
         registerListener(this.eXq);
     }
 
@@ -119,11 +119,11 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void boB() {
+    public void boC() {
         this.eXi = com.baidu.tbadk.core.a.b.aPF();
     }
 
-    private void boC() {
+    private void boD() {
         this.mContainer = (RelativeLayout) findViewById(R.id.account_container);
         this.eXm = new View.OnClickListener() { // from class: com.baidu.tieba.account.AccountActivity.2
             @Override // android.view.View.OnClickListener
@@ -163,7 +163,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         addCustomView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.account.AccountActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!AccountActivity.this.eXj.boI()) {
+                if (!AccountActivity.this.eXj.boJ()) {
                     AccountActivity.this.eXj.jk(true);
                     AccountActivity.this.eXl.setText(R.string.done);
                     if (TbadkCoreApplication.getInst().getSkinType() == 2) {
@@ -186,7 +186,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
         this.mList.addHeaderView(textView);
-        boG();
+        boH();
         this.mList.setAdapter((ListAdapter) this.eXj);
         this.mList.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.account.AccountActivity.4
             /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.account.AccountActivity */
@@ -195,7 +195,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 AccountData accountData;
                 if (AccountActivity.this.eXj.getItemId(i) >= 0) {
-                    if (!AccountActivity.this.eXj.boI() && (accountData = (AccountData) AccountActivity.this.eXj.getItem(i)) != null && accountData.getIsActive() != 1) {
+                    if (!AccountActivity.this.eXj.boJ() && (accountData = (AccountData) AccountActivity.this.eXj.getItem(i)) != null && accountData.getIsActive() != 1) {
                         if (TbadkCoreApplication.getInst().shouldNeedCheckUserNameDialog() && TextUtils.isEmpty(accountData.getAccount())) {
                             AccountActivity.this.i(accountData);
                             return;
@@ -209,10 +209,10 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                 TbadkCoreApplication.getInst().login(AccountActivity.this.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(AccountActivity.this.getPageContext().getPageActivity())));
             }
         });
-        boD();
+        boE();
     }
 
-    private void boD() {
+    private void boE() {
         View rootView = this.eXk.getRootView();
         rootView.setLayoutParams(new AbsListView.LayoutParams(-2, -2));
         this.mList.addFooterView(rootView);
@@ -260,7 +260,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         this.eXn = new d(accountData);
         this.eXn.setPriority(3);
         if (this.eXn != null) {
-            if (boF()) {
+            if (boG()) {
                 this.mHandler.removeMessages(2);
                 Message obtainMessage = this.mHandler.obtainMessage(2);
                 obtainMessage.obj = accountData;
@@ -380,14 +380,14 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             });
             this.eXo = new a(z, accountData);
             this.eXo.setPriority(3);
-            boE();
+            boF();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void boE() {
+    public void boF() {
         if (this.eXo != null) {
-            if (boF()) {
+            if (boG()) {
                 this.mHandler.removeMessages(1);
                 this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 200L);
                 return;
@@ -532,7 +532,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         }
     }
 
-    private boolean boF() {
+    private boolean boG() {
         return MessageManager.getInstance().getSocketClient().getProcessingResponsedMessageNum() > 0;
     }
 
@@ -549,7 +549,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         }
     }
 
-    private void boG() {
+    private void boH() {
         this.eXr = new TextView(this);
         this.eXr.setGravity(16);
         this.eXr.setPadding(l.getDimens(this, R.dimen.tbds44), 0, 0, 0);

@@ -105,7 +105,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements ar {
                 String[] split = ((String) customResponsedMessage.getData()).split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                 if (split.length == 2) {
                     if ("FrsInfoTab".equals(split[0]) || "FrsRankList".equals(split[0])) {
-                        SpecialFrsWebFragment.this.buH();
+                        SpecialFrsWebFragment.this.buI();
                     }
                 }
             }
@@ -142,7 +142,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements ar {
                 SpecialFrsWebFragment.this.caj.setVisibility(0);
                 SpecialFrsWebFragment.this.hSt.setVisibility(8);
                 SpecialFrsWebFragment.this.fqf = true;
-                SpecialFrsWebFragment.this.buH();
+                SpecialFrsWebFragment.this.buI();
                 return;
             }
             SpecialFrsWebFragment.this.showToast(R.string.neterror);
@@ -497,7 +497,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements ar {
             this.hSr.onDestroy();
         }
         if (this.jsBridge != null) {
-            this.jsBridge.diA();
+            this.jsBridge.diB();
         }
         if (this.fHJ != null) {
             this.fHJ.getSettings().setBuiltInZoomControls(true);
@@ -725,9 +725,9 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements ar {
     }
 
     @Override // com.baidu.tieba.frs.ar
-    public NavigationBar bwV() {
+    public NavigationBar bwW() {
         if (this.hSr != null) {
-            return this.hSr.bwV();
+            return this.hSr.bwW();
         }
         return null;
     }
@@ -758,7 +758,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements ar {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buH() {
+    public void buI() {
         if (!this.isLoading && !TextUtils.isEmpty(this.mUrl) && j.isNetWorkAvailable()) {
             loadUrl(this.mUrl);
         }

@@ -35,7 +35,7 @@ public class b {
         return this.postNum;
     }
 
-    public TbRichText cXS() {
+    public TbRichText cXT() {
         return this.lbf;
     }
 }

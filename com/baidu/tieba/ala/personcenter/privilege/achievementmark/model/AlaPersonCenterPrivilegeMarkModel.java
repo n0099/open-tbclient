@@ -43,7 +43,7 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bLO() {
+    public void bLP() {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
         httpMessage.addParam("user_id", TbadkApplication.getCurrentAccount());
         httpMessage.setTag(this.unique_id);

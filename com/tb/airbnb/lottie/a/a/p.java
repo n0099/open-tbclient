@@ -6,24 +6,24 @@ import com.tb.airbnb.lottie.a.b.a;
 import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class p implements l, a.InterfaceC0864a {
+public class p implements l, a.InterfaceC0865a {
     private boolean Cb;
     private final com.tb.airbnb.lottie.f lottieDrawable;
-    private final com.tb.airbnb.lottie.a.b.a<?, Path> nFS;
+    private final com.tb.airbnb.lottie.a.b.a<?, Path> nFV;
     @Nullable
-    private r nFw;
+    private r nFz;
     private final String name;
     private final Path path = new Path();
 
     public p(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.k kVar) {
         this.name = kVar.getName();
         this.lottieDrawable = fVar;
-        this.nFS = kVar.dOj().dNC();
-        aVar.a(this.nFS);
-        this.nFS.b(this);
+        this.nFV = kVar.dOn().dNG();
+        aVar.a(this.nFV);
+        this.nFV.b(this);
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0864a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0865a
     public void hq() {
         invalidate();
     }
@@ -40,9 +40,9 @@ public class p implements l, a.InterfaceC0864a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).dNs() == ShapeTrimPath.Type.Simultaneously) {
-                    this.nFw = (r) bVar;
-                    this.nFw.a(this);
+                if ((bVar instanceof r) && ((r) bVar).dNw() == ShapeTrimPath.Type.Simultaneously) {
+                    this.nFz = (r) bVar;
+                    this.nFz.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -57,9 +57,9 @@ public class p implements l, a.InterfaceC0864a {
             return this.path;
         }
         this.path.reset();
-        this.path.set(this.nFS.getValue());
+        this.path.set(this.nFV.getValue());
         this.path.setFillType(Path.FillType.EVEN_ODD);
-        com.tb.airbnb.lottie.d.f.a(this.path, this.nFw);
+        com.tb.airbnb.lottie.d.f.a(this.path, this.nFz);
         this.Cb = true;
         return this.path;
     }

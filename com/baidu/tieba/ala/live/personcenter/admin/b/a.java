@@ -25,7 +25,7 @@ public class a {
         }
     }
 
-    public int byG() {
+    public int byH() {
         return this.maxCount;
     }
 

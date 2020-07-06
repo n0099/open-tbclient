@@ -69,7 +69,7 @@ public class RelationshipStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2002014) {
-                    h.bpW();
+                    h.bpX();
                 }
             }
         });

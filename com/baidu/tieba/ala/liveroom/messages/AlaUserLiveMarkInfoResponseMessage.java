@@ -29,7 +29,7 @@ public class AlaUserLiveMarkInfoResponseMessage extends JsonHttpResponsedMessage
         }
     }
 
-    public List<AlaLiveMarkData> bHS() {
+    public List<AlaLiveMarkData> bHT() {
         return this.gnc;
     }
 }

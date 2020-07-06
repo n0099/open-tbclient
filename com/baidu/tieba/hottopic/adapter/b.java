@@ -31,13 +31,13 @@ public class b {
 
     public void a(com.baidu.tieba.hottopic.data.j jVar, String str) {
         ArrayList<q> arrayList;
-        if (jVar.clL() != null) {
-            arrayList = jVar.clL();
+        if (jVar.clM() != null) {
+            arrayList = jVar.clM();
         } else {
             arrayList = new ArrayList<>();
         }
         if (this.iBY != null) {
-            this.iBY.clb();
+            this.iBY.clc();
         }
         if (this.iBW != null) {
             this.iBW.Gj(str);

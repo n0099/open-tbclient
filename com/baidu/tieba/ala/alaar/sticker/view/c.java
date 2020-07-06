@@ -34,9 +34,9 @@ public class c extends Dialog {
     public interface a {
         void a(FuFaceItem fuFaceItem, String str);
 
-        boolean bsJ();
+        boolean bsK();
 
-        void bsK();
+        void bsL();
     }
 
     public c(@NonNull Context context, a aVar) {
@@ -79,19 +79,19 @@ public class c extends Dialog {
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
-        bsP();
+        bsQ();
         setContentView(a.h.ala_master_sticker_layout);
         ViewGroup.LayoutParams layoutParams = findViewById(a.g.ala_master_sticker_root_view).getLayoutParams();
         if (layoutParams != null) {
             layoutParams.width = BdUtilHelper.getScreenDimensions(getContext())[0];
         }
         this.fiS = (AlaStickerTabHost) findViewById(a.g.ala_master_sticker_view_pager);
-        bsQ();
+        bsR();
         MessageManager.getInstance().registerListener(this.fiY);
         MessageManager.getInstance().registerListener(this.fiH);
     }
 
-    public void bsO() {
+    public void bsP() {
         com.baidu.tieba.ala.alaar.sticker.a.f.a(this.fiW, SocialConstants.PARAM_AVATAR_URI, 1, 50);
         com.baidu.tieba.ala.alaar.sticker.a.f.a(this.fiX, "text", 1, 50);
     }
@@ -101,7 +101,7 @@ public class c extends Dialog {
         MessageManager.getInstance().unRegisterListener(this.fiH);
     }
 
-    private void bsP() {
+    private void bsQ() {
         Window window = getWindow();
         if (window != null) {
             WindowManager.LayoutParams attributes = window.getAttributes();
@@ -110,7 +110,7 @@ public class c extends Dialog {
         }
     }
 
-    private void bsQ() {
+    private void bsR() {
         LinkedList linkedList = new LinkedList();
         this.fiT = new com.baidu.tieba.ala.alaar.sticker.view.a(getContext(), 1, this.fil);
         linkedList.add(this.fiT);

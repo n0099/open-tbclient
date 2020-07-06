@@ -105,7 +105,7 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
         this.jNA = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.1
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrolled(RecyclerView recyclerView, int i, int i2) {
-                HotTopicDetailView.this.cDZ();
+                HotTopicDetailView.this.cEa();
             }
         };
         this.iaw = false;
@@ -162,14 +162,14 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
             @Override // java.lang.Runnable
             public void run() {
                 if (HotTopicDetailView.this.iaw) {
-                    HotTopicDetailView.this.cfF();
+                    HotTopicDetailView.this.cfG();
                 }
             }
         };
         this.iaF = new PullRefreshFrameLayout.a() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.9
             @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.a
             public void aYg() {
-                HotTopicDetailView.this.cfE();
+                HotTopicDetailView.this.cfF();
             }
         };
         this.iGD = new ClickableSpan() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.10
@@ -202,7 +202,7 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
                 HotTopicDetailView.this.jNr.setText(HotTopicDetailView.this.MN);
-                HotTopicDetailView.this.clZ();
+                HotTopicDetailView.this.cma();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -308,7 +308,7 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
         float f = 1.0f - ((i2 * 1.0f) / jNk);
         this.jNm.setAlpha(f);
         this.mNavigationBar.getCenterText().setAlpha(f);
-        cDZ();
+        cEa();
         if (f > 0.1d) {
             ap.setStatusBarDarkIcon(this.mPageContext.getPageActivity().getWindow(), true);
         } else {
@@ -324,7 +324,7 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cDZ() {
+    public void cEa() {
         if (this.bLt + this.mNavigationBar.getHeight() >= this.jNs.getY()) {
             an.setBackgroundColor(this.heq, R.color.cp_bg_line_h);
             if (this.mSkinType == 0) {
@@ -338,7 +338,7 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfF() {
+    public void cfG() {
         this.iaw = false;
         if (this.jNp != null) {
             this.jNp.aYe();
@@ -346,7 +346,7 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
-    public void cDS() {
+    public void cDT() {
         if (this.fwo == null) {
             this.fwo = new g(getContext(), getContext().getResources().getDimensionPixelSize(R.dimen.ds386));
         }
@@ -354,16 +354,16 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
-    public void cDT() {
+    public void cDU() {
         if (this.fwo != null) {
             this.fwo.dettachView(this.jNo);
         }
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
-    public void btU() {
+    public void btV() {
         if (this.iaw) {
-            cfF();
+            cfG();
             com.baidu.adp.lib.f.e.lt().removeCallbacks(this.iaG);
         }
     }
@@ -388,7 +388,7 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
-    public void cDU() {
+    public void cDV() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this.jNo);
             this.mRefreshView = null;
@@ -418,9 +418,9 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
     @Override // com.baidu.tieba.newdetail.a.b
     public void f(@NonNull e eVar) {
         this.jNB = eVar;
-        if (this.jNB.clE() != null) {
-            this.iGQ.setTopicId(this.jNB.clE().dYw);
-            this.iGQ.yD(this.jNB.clE().dKw);
+        if (this.jNB.clF() != null) {
+            this.iGQ.setTopicId(this.jNB.clF().dYw);
+            this.iGQ.yD(this.jNB.clF().dKw);
         }
         h(eVar);
     }
@@ -428,13 +428,13 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
     @Override // com.baidu.tieba.newdetail.a.b
     public void a(d dVar, boolean z, int i) {
         if (this.jNB != null) {
-            this.jNy.c(this.jNB.clK());
+            this.jNy.c(this.jNB.clL());
         }
         this.jNy.a(dVar, z, i);
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
-    public e cDV() {
+    public e cDW() {
         return this.jNB;
     }
 
@@ -444,20 +444,20 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
-    public int cDW() {
-        return this.jNy.cDW();
+    public int cDX() {
+        return this.jNy.cDX();
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
-    public void cDX() {
-        this.jNy.cDX();
+    public void cDY() {
+        this.jNy.cDY();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfE() {
+    public void cfF() {
         com.baidu.adp.lib.f.e.lt().postDelayed(this.iaG, 5000L);
         this.iaw = true;
-        this.jNl.Av(cDW());
+        this.jNl.Av(cDX());
     }
 
     private void biq() {
@@ -474,7 +474,7 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clZ() {
+    public void cma() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) this.MN);
         String string = getResources().getString(R.string.hot_topic_detail);
@@ -492,18 +492,18 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
 
     private void h(@NonNull e eVar) {
         biq();
-        this.jNq.setTopicInfo(eVar.clE());
-        a(eVar.clE());
+        this.jNq.setTopicInfo(eVar.clF());
+        a(eVar.clF());
         g(eVar);
-        List<q> clM = eVar.clM();
-        if (w.isEmpty(clM)) {
+        List<q> clN = eVar.clN();
+        if (w.isEmpty(clN)) {
             this.jNw.setVisibility(8);
         } else {
-            this.jNw.setData(clM);
+            this.jNw.setData(clN);
             this.jNw.setVisibility(0);
         }
-        if (eVar.clE() != null) {
-            String str = eVar.clE().dKw;
+        if (eVar.clF() != null) {
+            String str = eVar.clF().dKw;
             if (ae.getTextLengthWithEmoji(str) > 15) {
                 str = ae.subStringWithEmoji(str, 15) + StringHelper.STRING_MORE;
             }
@@ -568,13 +568,13 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
 
     @Override // com.baidu.tieba.newdetail.a.b
     public void destroy() {
-        cDT();
         cDU();
+        cDV();
         if (this.jNy != null) {
             this.jNy.destroy();
         }
         if (this.iaw) {
-            cfF();
+            cfG();
         }
         if (this.ecC != null) {
             this.ecC.cancel();
@@ -588,22 +588,22 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
     @Override // com.baidu.tieba.newdetail.a.b
     public void g(e eVar) {
         com.baidu.tieba.hottopic.data.a aVar = null;
-        if (eVar.clG() != null) {
-            aVar = eVar.clG();
-            aVar.iDJ = 3;
-        } else if (eVar.clH() != null) {
+        if (eVar.clH() != null) {
             aVar = eVar.clH();
-            aVar.iDJ = 2;
+            aVar.iDJ = 3;
         } else if (eVar.clI() != null) {
             aVar = eVar.clI();
+            aVar.iDJ = 2;
+        } else if (eVar.clJ() != null) {
+            aVar = eVar.clJ();
             aVar.iDJ = 1;
         }
         this.jNq.setBlessInfo(aVar);
-        if (eVar.clF() == null) {
+        if (eVar.clG() == null) {
             this.jNv.setVisibility(8);
             return;
         }
         this.jNv.setVisibility(0);
-        this.jNv.a(eVar.clF());
+        this.jNv.a(eVar.clG());
     }
 }

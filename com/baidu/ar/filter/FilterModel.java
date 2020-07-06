@@ -6,7 +6,7 @@ public class FilterModel {
     private String im;
 
     /* renamed from: pl  reason: collision with root package name */
-    private String f980pl;
+    private String f981pl;
     private List<Object> pm;
 
     public String getFilterName() {
@@ -14,7 +14,7 @@ public class FilterModel {
     }
 
     public String getFilterType() {
-        return this.f980pl;
+        return this.f981pl;
     }
 
     public List<Object> getUniformList() {
@@ -26,7 +26,7 @@ public class FilterModel {
     }
 
     public void setFilterType(String str) {
-        this.f980pl = str;
+        this.f981pl = str;
     }
 
     public void setUniformList(List<Object> list) {

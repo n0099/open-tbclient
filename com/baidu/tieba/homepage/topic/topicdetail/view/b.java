@@ -64,7 +64,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                             case 8:
                                 if (b.this.a(aVar.bac(), 11001)) {
                                     aVar.bfX();
-                                    TiebaStatic.log(new ao("c13363").dk("topic_id", String.valueOf(aVar.ckH())));
+                                    TiebaStatic.log(new ao("c13363").dk("topic_id", String.valueOf(aVar.ckI())));
                                     return;
                                 }
                                 return;

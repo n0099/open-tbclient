@@ -49,11 +49,11 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
             }
             for (int i3 = 0; i3 < size2; i3++) {
                 if (i3 >= size) {
-                    com.baidu.tieba.ala.livecard.a.d bze = bze();
-                    bze.o(this.mPageContext.getUniqueId());
-                    bze.a(cVar);
-                    this.fRy.add(bze);
-                    dVar = bze;
+                    com.baidu.tieba.ala.livecard.a.d bzf = bzf();
+                    bzf.o(this.mPageContext.getUniqueId());
+                    bzf.a(cVar);
+                    this.fRy.add(bzf);
+                    dVar = bzf;
                 } else {
                     dVar = this.fRy.get(i3);
                 }
@@ -65,7 +65,7 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         }
     }
 
-    private com.baidu.tieba.ala.livecard.a.d bze() {
+    private com.baidu.tieba.ala.livecard.a.d bzf() {
         return new com.baidu.tieba.ala.livecard.a.d(this.mPageContext, this.agK);
     }
 

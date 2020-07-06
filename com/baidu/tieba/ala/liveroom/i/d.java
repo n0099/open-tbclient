@@ -55,7 +55,7 @@ public class d {
         this.ghw.setWidth(context.getResources().getDimensionPixelSize(a.e.sdk_ds4));
     }
 
-    public PendantChildView bEx() {
+    public PendantChildView bEy() {
         return this.ghy;
     }
 

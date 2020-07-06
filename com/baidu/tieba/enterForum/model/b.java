@@ -10,14 +10,14 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.switchs.HttpsConnSwitch;
 /* loaded from: classes9.dex */
 public class b {
-    public static boolean bSA() {
+    public static boolean bSB() {
         if (j.isNetWorkAvailable()) {
             return SwitchManager.getInstance().findType(HttpsConnSwitch.KEY) == 1;
         }
         return false;
     }
 
-    public static void bSB() {
+    public static void bSC() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.enterForum.model.b.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */

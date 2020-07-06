@@ -66,7 +66,7 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c
         }
     }
 
-    public TextView bLT() {
+    public TextView bLU() {
         if (this.gFd != null) {
             return this.gFd;
         }

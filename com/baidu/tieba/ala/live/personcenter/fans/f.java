@@ -59,17 +59,17 @@ public class f extends BdBaseModel<PersonListActivity> {
                         }
                         return;
                     }
-                    e byX = ((ResponseNetPersonListMessage) httpResponsedMessage).byX();
-                    if (byX != null) {
-                        if (!StringUtils.isNull(byX.dKa)) {
-                            f.this.fQr = byX.dKa;
-                            f.this.fQq = byX.type;
+                    e byY = ((ResponseNetPersonListMessage) httpResponsedMessage).byY();
+                    if (byY != null) {
+                        if (!StringUtils.isNull(byY.dKa)) {
+                            f.this.fQr = byY.dKa;
+                            f.this.fQq = byY.type;
                         }
-                        byX.type = f.this.fQq;
-                        byX.dKa = f.this.fQr;
+                        byY.type = f.this.fQq;
+                        byY.dKa = f.this.fQr;
                     }
                     if (f.this.fQi != null) {
-                        f.this.fQi.a(byX, false);
+                        f.this.fQi.a(byY, false);
                     }
                 }
             }
@@ -78,7 +78,7 @@ public class f extends BdBaseModel<PersonListActivity> {
         this.aTm = false;
         this.mId = null;
         this.fQi = aVar;
-        bts();
+        btt();
     }
 
     public void setId(String str) {
@@ -97,11 +97,11 @@ public class f extends BdBaseModel<PersonListActivity> {
         this.aTm = z;
     }
 
-    public boolean byV() {
+    public boolean byW() {
         return this.aTm;
     }
 
-    private void bts() {
+    private void btt() {
         String str;
         MessageManager messageManager = MessageManager.getInstance();
         if (this.aTm) {
@@ -121,7 +121,7 @@ public class f extends BdBaseModel<PersonListActivity> {
         return false;
     }
 
-    public void byW() {
+    public void byX() {
         HttpMessage httpMessage = new HttpMessage(1002004);
         HashMap hashMap = new HashMap();
         if (this.aTm) {

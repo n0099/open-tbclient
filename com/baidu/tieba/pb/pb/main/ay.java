@@ -12,7 +12,7 @@ public class ay implements CustomMessageTask.CustomRunnable<Object> {
             return null;
         }
         PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
-        byte[] aN = j.cII().aN(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
+        byte[] aN = j.cIJ().aN(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
         PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
         pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
         pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());

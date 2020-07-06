@@ -202,15 +202,15 @@ public class a {
                 }
             }
             a.this.izC = (PostData) sparseArray2.get(R.id.tag_clip_board);
-            if (a.this.izC == null || a.this.kyB.cPl() == null) {
+            if (a.this.izC == null || a.this.kyB.cPm() == null) {
                 return true;
             }
-            if (!a.this.kyB.cPl().aOo() || a.this.izC.getId() == null || !a.this.izC.getId().equals(a.this.kyB.cIe().aSx())) {
+            if (!a.this.kyB.cPm().aOo() || a.this.izC.getId() == null || !a.this.izC.getId().equals(a.this.kyB.cIf().aSx())) {
                 z = false;
             } else {
                 z = true;
             }
-            boolean z3 = a.this.kyB.cIe().getPbData() != null && a.this.kyB.cIe().getPbData().cHp();
+            boolean z3 = a.this.kyB.cIf().getPbData() != null && a.this.kyB.cIf().getPbData().cHq();
             if (a.this.kfw == null) {
                 a.this.kfw = new k(a.this.kyB.getContext());
                 a.this.kfw.a(a.this.kgA);
@@ -339,7 +339,7 @@ public class a {
                             sparseArray7.put(R.id.tag_del_post_is_self, Boolean.valueOf(z6));
                             sparseArray7.put(R.id.tag_del_post_id, sparseArray2.get(R.id.tag_del_post_id));
                             sparseArray7.put(R.id.tag_del_post_type, sparseArray2.get(R.id.tag_del_post_type));
-                            if (a.this.kyB.cIe().getPbData().cHc() == 1002 && !z6) {
+                            if (a.this.kyB.cIf().getPbData().cHd() == 1002 && !z6) {
                                 gVar6 = new g(6, TbadkCoreApplication.getInst().getString(R.string.report_text), a.this.kfw);
                             } else {
                                 gVar6 = new g(6, TbadkCoreApplication.getInst().getString(R.string.delete), a.this.kfw);
@@ -358,7 +358,7 @@ public class a {
                 a.this.kfw.aL(arrayList);
                 a.this.kfv = new i(a.this.kyB.getPageContext(), a.this.kfw);
                 a.this.kfv.showDialog();
-                TiebaStatic.log(new ao("c13272").dk("tid", a.this.kyB.cIe().cJZ()).dk("fid", a.this.kyB.cIe().getForumId()).dk("uid", a.this.kyB.cIe().getPbData().cGN().aSp().getUserId()).dk("post_id", a.this.kyB.cIe().bfw()).ag("obj_source", z2 ? 2 : 1));
+                TiebaStatic.log(new ao("c13272").dk("tid", a.this.kyB.cIf().cKa()).dk("fid", a.this.kyB.cIf().getForumId()).dk("uid", a.this.kyB.cIf().getPbData().cGO().aSp().getUserId()).dk("post_id", a.this.kyB.cIf().bfw()).ag("obj_source", z2 ? 2 : 1));
             }
             return true;
         }
@@ -416,19 +416,19 @@ public class a {
                     TiebaStatic.log(new ao("c11739").ag("obj_locate", 2));
                     if (a.this.kyB.checkUpIsLogin()) {
                         a.this.cD(view);
-                        if (a.this.kyB.cIe().getPbData().cGN() != null && a.this.kyB.cIe().getPbData().cGN().aSp() != null && a.this.kyB.cIe().getPbData().cGN().aSp().getUserId() != null && a.this.kyB.cPl() != null) {
-                            int h = a.this.h(a.this.kyB.cIe().getPbData());
-                            bu cGN = a.this.kyB.cIe().getPbData().cGN();
-                            if (cGN.aQX()) {
+                        if (a.this.kyB.cIf().getPbData().cGO() != null && a.this.kyB.cIf().getPbData().cGO().aSp() != null && a.this.kyB.cIf().getPbData().cGO().aSp().getUserId() != null && a.this.kyB.cPm() != null) {
+                            int h = a.this.h(a.this.kyB.cIf().getPbData());
+                            bu cGO = a.this.kyB.cIf().getPbData().cGO();
+                            if (cGO.aQX()) {
                                 i2 = 2;
-                            } else if (cGN.aQY()) {
+                            } else if (cGO.aQY()) {
                                 i2 = 3;
-                            } else if (cGN.aUl()) {
+                            } else if (cGO.aUl()) {
                                 i2 = 4;
                             } else {
-                                i2 = cGN.aUm() ? 5 : 1;
+                                i2 = cGO.aUm() ? 5 : 1;
                             }
-                            TiebaStatic.log(new ao("c12526").dk("tid", a.this.kyB.cIe().cJZ()).ag("obj_locate", 2).dk("obj_id", a.this.kyB.cIe().getPbData().cGN().aSp().getUserId()).ag("obj_type", a.this.kyB.cPl().aOo() ? 0 : 1).ag("obj_source", h).ag("obj_param1", i2));
+                            TiebaStatic.log(new ao("c12526").dk("tid", a.this.kyB.cIf().cKa()).ag("obj_locate", 2).dk("obj_id", a.this.kyB.cIf().getPbData().cGO().aSp().getUserId()).ag("obj_type", a.this.kyB.cPm().aOo() ? 0 : 1).ag("obj_source", h).ag("obj_param1", i2));
                             return;
                         }
                         return;
@@ -534,50 +534,50 @@ public class a {
         }
     };
 
-    public void cJf() {
+    public void cJg() {
         com.baidu.tieba.pb.data.e pbData;
-        bu cGN;
+        bu cGO;
         boolean z = true;
-        if (this.kyB != null && this.kyB.cIe() != null && this.kyB.cIe().getPbData() != null && (cGN = (pbData = this.kyB.cIe().getPbData()).cGN()) != null && cGN.aSp() != null) {
-            this.kyB.cLJ();
-            boolean equals = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), cGN.aSp().getUserId());
+        if (this.kyB != null && this.kyB.cIf() != null && this.kyB.cIf().getPbData() != null && (cGO = (pbData = this.kyB.cIf().getPbData()).cGO()) != null && cGO.aSp() != null) {
+            this.kyB.cLK();
+            boolean equals = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), cGO.aSp().getUserId());
             ag agVar = new ag();
-            int cHc = this.kyB.cIe().getPbData().cHc();
-            if (cHc == 1 || cHc == 3) {
+            int cHd = this.kyB.cIf().getPbData().cHd();
+            if (cHd == 1 || cHd == 3) {
                 agVar.kkl = true;
                 agVar.kkk = true;
-                agVar.kkq = cGN.aSk() == 1;
-                agVar.kkp = cGN.aSl() == 1;
+                agVar.kkq = cGO.aSk() == 1;
+                agVar.kkp = cGO.aSl() == 1;
             } else {
                 agVar.kkl = false;
                 agVar.kkk = false;
             }
-            if (cHc == 1002 && !equals) {
+            if (cHd == 1002 && !equals) {
                 agVar.kkr = true;
             }
             agVar.kki = rI(equals);
-            agVar.kkm = cJg();
+            agVar.kkm = cJh();
             agVar.kkj = rJ(equals);
-            agVar.Ef = this.kyB.cIe().cKb();
+            agVar.Ef = this.kyB.cIf().cKc();
             agVar.kkf = true;
             agVar.kke = rH(equals);
             agVar.kko = TbadkCoreApplication.getInst().getSkinType() == 1;
             agVar.kkn = true;
-            agVar.isHostOnly = this.kyB.cIe().getHostMode();
+            agVar.isHostOnly = this.kyB.cIf().getHostMode();
             agVar.kkh = true;
-            if (cGN.aSH() == null) {
+            if (cGO.aSH() == null) {
                 agVar.kkg = true;
             } else {
                 agVar.kkg = false;
             }
-            if (pbData.cHp()) {
+            if (pbData.cHq()) {
                 agVar.kkf = false;
                 agVar.kkh = false;
                 agVar.kkg = false;
                 agVar.kkk = false;
                 agVar.kkl = false;
             }
-            if (!TbSingleton.getInstance().mShowCallFans || !equals || pbData.cHp()) {
+            if (!TbSingleton.getInstance().mShowCallFans || !equals || pbData.cHq()) {
                 z = false;
             }
             agVar.kks = z;
@@ -588,16 +588,16 @@ public class a {
     private boolean rI(boolean z) {
         boolean z2;
         z zVar;
-        if (this.kyB == null || this.kyB.cIe() == null || this.kyB.cIe().getPbData() == null) {
+        if (this.kyB == null || this.kyB.cIf() == null || this.kyB.cIf().getPbData() == null) {
             return false;
         }
-        com.baidu.tieba.pb.data.e pbData = this.kyB.cIe().getPbData();
-        bu cGN = pbData.cGN();
-        if (cGN != null) {
-            if (cGN.aQX() || cGN.aQY()) {
+        com.baidu.tieba.pb.data.e pbData = this.kyB.cIf().getPbData();
+        bu cGO = pbData.cGO();
+        if (cGO != null) {
+            if (cGO.aQX() || cGO.aQY()) {
                 return false;
             }
-            if (cGN.aUl() || cGN.aUm()) {
+            if (cGO.aUl() || cGO.aUm()) {
                 return z;
             }
         }
@@ -605,12 +605,12 @@ public class a {
             return true;
         }
         if (pbData.getForum() == null || !pbData.getForum().isBlockBawuDelete) {
-            if (pbData.cHc() != 0) {
-                return pbData.cHc() != 3;
+            if (pbData.cHd() != 0) {
+                return pbData.cHd() != 3;
             }
-            List<bq> cHj = pbData.cHj();
-            if (w.getCount(cHj) > 0) {
-                for (bq bqVar : cHj) {
+            List<bq> cHk = pbData.cHk();
+            if (w.getCount(cHk) > 0) {
+                for (bq bqVar : cHk) {
                     if (bqVar != null && (zVar = bqVar.dKO) != null && zVar.dIC && !zVar.dID && (zVar.type == 1 || zVar.type == 2)) {
                         z2 = true;
                         break;
@@ -624,17 +624,17 @@ public class a {
     }
 
     private boolean rJ(boolean z) {
-        if (z || this.kyB == null || this.kyB.cIe() == null || this.kyB.cIe().getPbData() == null) {
+        if (z || this.kyB == null || this.kyB.cIf() == null || this.kyB.cIf().getPbData() == null) {
             return false;
         }
-        return ((this.kyB.cIe().getPbData().getForum() != null && this.kyB.cIe().getPbData().getForum().isBlockBawuDelete) || this.kyB.cIe().getPbData().cHc() == 0 || this.kyB.cIe().getPbData().cHc() == 3) ? false : true;
+        return ((this.kyB.cIf().getPbData().getForum() != null && this.kyB.cIf().getPbData().getForum().isBlockBawuDelete) || this.kyB.cIf().getPbData().cHd() == 0 || this.kyB.cIf().getPbData().cHd() == 3) ? false : true;
     }
 
-    private boolean cJg() {
-        if (this.kyB == null || this.kyB.cIe() == null || !this.kyB.cIe().cKb()) {
+    private boolean cJh() {
+        if (this.kyB == null || this.kyB.cIf() == null || !this.kyB.cIf().cKc()) {
             return false;
         }
-        return this.kyB.cIe().getPageData() == null || this.kyB.cIe().getPageData().aRg() != 0;
+        return this.kyB.cIf().getPageData() == null || this.kyB.cIf().getPageData().aRg() != 0;
     }
 
     public void a(ag agVar) {
@@ -672,21 +672,21 @@ public class a {
             if (agVar != null) {
                 this.ksB.kkb = agVar.kkr;
                 if (agVar.kkr) {
-                    this.ksB.cLl().setText(R.string.report_text);
+                    this.ksB.cLm().setText(R.string.report_text);
                     this.ksB.rZ(false);
                 }
             }
             this.ksB.rY(agVar != null ? agVar.kks : false);
-            if (!TbSingleton.getInstance().mCanCallFans && this.kyB.cIe() != null && this.kyB.cIe().getPbData() != null && this.kyB.cIe().getPbData().getThreadId() != null && this.kyB.cIe().getPbData().getThreadId().equals(TbSingleton.getInstance().mCallFansTid)) {
-                this.ksB.cLo().setText(R.string.have_called_fans_short);
+            if (!TbSingleton.getInstance().mCanCallFans && this.kyB.cIf() != null && this.kyB.cIf().getPbData() != null && this.kyB.cIf().getPbData().getThreadId() != null && this.kyB.cIf().getPbData().getThreadId().equals(TbSingleton.getInstance().mCallFansTid)) {
+                this.ksB.cLp().setText(R.string.have_called_fans_short);
             }
-            cNE();
+            cNF();
         }
     }
 
-    private void cNE() {
+    private void cNF() {
         if (this.ksB != null) {
-            this.ksB.cLs();
+            this.ksB.cLt();
         }
     }
 
@@ -704,13 +704,13 @@ public class a {
         com.baidu.adp.lib.f.e.lt().postDelayed(this.runnable, 100L);
     }
 
-    public void cNF() {
+    public void cNG() {
         if (this.ksA != null) {
             com.baidu.adp.lib.f.g.dismissDialog(this.ksA, this.kyB.getPageContext().getPageActivity());
         }
     }
 
-    public af cNG() {
+    public af cNH() {
         return this.ksB;
     }
 
@@ -727,7 +727,7 @@ public class a {
                     return;
                 }
                 Object[] objArr = (Object[]) obj;
-                String valueOf = String.valueOf(a.this.kyB.cIe().getPbData().getUserData().getUserId());
+                String valueOf = String.valueOf(a.this.kyB.cIf().getPbData().getUserData().getUserId());
                 String str = "";
                 if (objArr.length > 1) {
                     str = String.valueOf(objArr[1]);
@@ -744,7 +744,7 @@ public class a {
                 if (objArr.length > 4) {
                     str4 = String.valueOf(objArr[4]);
                 }
-                a.this.kyB.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(a.this.kyB.getPageContext().getPageActivity(), a.this.kyB.cIe().getPbData().getForum().getId(), a.this.kyB.cIe().getPbData().getForum().getName(), a.this.kyB.cIe().getPbData().cGN().getId(), valueOf, str, str3, str2, str4)));
+                a.this.kyB.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(a.this.kyB.getPageContext().getPageActivity(), a.this.kyB.cIf().getPbData().getForum().getId(), a.this.kyB.cIf().getPbData().getForum().getName(), a.this.kyB.cIf().getPbData().cGO().getId(), valueOf, str, str3, str2, str4)));
             }
         };
     }
@@ -768,21 +768,21 @@ public class a {
         PostData I;
         if (postData != null) {
             boolean z = false;
-            if (postData.getId() != null && postData.getId().equals(this.kyB.cIe().aSx())) {
+            if (postData.getId() != null && postData.getId().equals(this.kyB.cIf().aSx())) {
                 z = true;
             }
-            MarkData o = this.kyB.cIe().o(postData);
-            if (this.kyB.cIe().getPbData() != null && this.kyB.cIe().getPbData().cHp() && (I = this.kyB.I(this.kyB.cIe().getPbData())) != null) {
-                o = this.kyB.cIe().o(I);
+            MarkData o = this.kyB.cIf().o(postData);
+            if (this.kyB.cIf().getPbData() != null && this.kyB.cIf().getPbData().cHq() && (I = this.kyB.I(this.kyB.cIf().getPbData())) != null) {
+                o = this.kyB.cIf().o(I);
             }
             if (o != null) {
-                this.kyB.cMi();
-                if (this.kyB.cPl() != null) {
-                    this.kyB.cPl().a(o);
+                this.kyB.cMj();
+                if (this.kyB.cPm() != null) {
+                    this.kyB.cPm().a(o);
                     if (!z) {
-                        this.kyB.cPl().aOq();
+                        this.kyB.cPm().aOq();
                     } else {
-                        this.kyB.cPl().aOp();
+                        this.kyB.cPm().aOp();
                     }
                 }
             }
@@ -790,14 +790,14 @@ public class a {
     }
 
     public int h(com.baidu.tieba.pb.data.e eVar) {
-        if (eVar != null && eVar.cGN() != null) {
-            if (eVar.cGN().getThreadType() == 0) {
+        if (eVar != null && eVar.cGO() != null) {
+            if (eVar.cGO().getThreadType() == 0) {
                 return 1;
             }
-            if (eVar.cGN().getThreadType() == 54) {
+            if (eVar.cGO().getThreadType() == 54) {
                 return 2;
             }
-            if (eVar.cGN().getThreadType() == 40) {
+            if (eVar.cGO().getThreadType() == 40) {
                 return 3;
             }
             return 4;
@@ -807,21 +807,21 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean rH(boolean z) {
-        if (this.kyB.cIe() == null || this.kyB.cIe().getPbData() == null) {
+        if (this.kyB.cIf() == null || this.kyB.cIf().getPbData() == null) {
             return false;
         }
-        return ((this.kyB.cIe().getPbData().cHc() != 0) || this.kyB.cIe().getPbData().cGN() == null || this.kyB.cIe().getPbData().cGN().aSp() == null || TextUtils.equals(this.kyB.cIe().getPbData().cGN().aSp().getUserId(), TbadkCoreApplication.getCurrentAccount()) || z) ? false : true;
+        return ((this.kyB.cIf().getPbData().cHd() != 0) || this.kyB.cIf().getPbData().cGO() == null || this.kyB.cIf().getPbData().cGO().aSp() == null || TextUtils.equals(this.kyB.cIf().getPbData().cGO().aSp().getUserId(), TbadkCoreApplication.getCurrentAccount()) || z) ? false : true;
     }
 
     public void JO(String str) {
-        if (this.kyB.cIe() != null && this.kyB.cIe().getPbData() != null && this.kyB.cIe().getPbData().cHp()) {
-            String format = String.format(TbConfig.URL_BJH_REPORT, this.kyB.cIe().cJZ(), str);
-            bu cGN = this.kyB.cIe().getPbData().cGN();
-            if (cGN.aQX()) {
+        if (this.kyB.cIf() != null && this.kyB.cIf().getPbData() != null && this.kyB.cIf().getPbData().cHq()) {
+            String format = String.format(TbConfig.URL_BJH_REPORT, this.kyB.cIf().cKa(), str);
+            bu cGO = this.kyB.cIf().getPbData().cGO();
+            if (cGO.aQX()) {
                 format = format + "&channelid=33833";
-            } else if (cGN.aUk()) {
+            } else if (cGO.aUk()) {
                 format = format + "&channelid=33842";
-            } else if (cGN.aQY()) {
+            } else if (cGO.aQY()) {
                 format = format + "&channelid=33840";
             }
             JP(format);
@@ -883,7 +883,7 @@ public class a {
         }
     }
 
-    public void cJB() {
+    public void cJC() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.kyB.getPageContext().getPageActivity());
         aVar.we(this.kyB.getResources().getString(R.string.mute_is_super_member_function));
         aVar.a(R.string.open_now, new a.b() { // from class: com.baidu.tieba.pb.videopb.b.a.19
@@ -964,10 +964,10 @@ public class a {
             if (this.ieU == null && this.kyB.getView() != null) {
                 this.ieU = new e(this.kyB.getPageContext(), this.kyB.getView());
             }
-            AntiData bXd = bXd();
+            AntiData bXe = bXe();
             SparseArray<String> sparseArray = new SparseArray<>();
-            if (bXd != null && bXd.getDelThreadInfoList() != null) {
-                List<DeleteThreadInfo> delThreadInfoList = bXd.getDelThreadInfoList();
+            if (bXe != null && bXe.getDelThreadInfoList() != null) {
+                List<DeleteThreadInfo> delThreadInfoList = bXe.getDelThreadInfoList();
                 for (int i2 = 0; i2 < delThreadInfoList.size(); i2++) {
                     if (!TextUtils.isEmpty(delThreadInfoList.get(i2).text_info)) {
                         sparseArray.put(delThreadInfoList.get(i2).text_id, delThreadInfoList.get(i2).text_info);
@@ -993,11 +993,11 @@ public class a {
         }
     }
 
-    public AntiData bXd() {
-        if (this.kyB.cIe() == null || this.kyB.cIe().getPbData() == null) {
+    public AntiData bXe() {
+        if (this.kyB.cIf() == null || this.kyB.cIf().getPbData() == null) {
             return null;
         }
-        return this.kyB.cIe().getPbData().getAnti();
+        return this.kyB.cIf().getPbData().getAnti();
     }
 
     public void cJ(View view) {
@@ -1097,7 +1097,7 @@ public class a {
         this.kmv.showDialog();
     }
 
-    public void cIY() {
+    public void cIZ() {
         if (this.keT == null) {
             this.keT = new com.baidu.tbadk.core.dialog.b(this.kyB.getPageContext().getPageActivity());
             this.keT.a(new String[]{this.kyB.getPageContext().getString(R.string.call_phone), this.kyB.getPageContext().getString(R.string.sms_phone), this.kyB.getPageContext().getString(R.string.search_in_baidu)}, new b.a() { // from class: com.baidu.tieba.pb.videopb.b.a.5
@@ -1107,13 +1107,13 @@ public class a {
                         TiebaStatic.eventStat(a.this.kyB.getPageContext().getPageActivity(), "pb_phone_call", NotificationCompat.CATEGORY_CALL);
                         a.this.kbB = a.this.kbB.trim();
                         UtilHelper.callPhone(a.this.kyB.getPageContext().getPageActivity(), a.this.kbB);
-                        new com.baidu.tieba.pb.pb.main.b(a.this.kyB.cIe().cJZ(), a.this.kbB, "1").start();
+                        new com.baidu.tieba.pb.pb.main.b(a.this.kyB.cIf().cKa(), a.this.kbB, "1").start();
                         bVar.dismiss();
                     } else if (i == 1) {
                         TiebaStatic.eventStat(a.this.kyB.getPageContext().getPageActivity(), "pb_phone_sms", LoginConstants.SMS_LOGIN);
                         a.this.kbB = a.this.kbB.trim();
                         UtilHelper.smsPhone(a.this.kyB.getPageContext().getPageActivity(), a.this.kbB);
-                        new com.baidu.tieba.pb.pb.main.b(a.this.kyB.cIe().cJZ(), a.this.kbB, "2").start();
+                        new com.baidu.tieba.pb.pb.main.b(a.this.kyB.cIf().cKa(), a.this.kbB, "2").start();
                         bVar.dismiss();
                     } else if (i == 2) {
                         a.this.kbB = a.this.kbB.trim();
@@ -1128,18 +1128,18 @@ public class a {
     public void cQ(final View view) {
         String[] strArr;
         int i = 0;
-        if (this.kyB != null && this.kyB.cIe() != null) {
+        if (this.kyB != null && this.kyB.cIf() != null) {
             final i iVar = new i(this.kyB.getPageContext());
-            if (this.kyB.cIe().getPbData().jYL == null || this.kyB.cIe().getPbData().jYL.size() <= 0) {
+            if (this.kyB.cIf().getPbData().jYL == null || this.kyB.cIf().getPbData().jYL.size() <= 0) {
                 strArr = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.sort_type_new), TbadkCoreApplication.getInst().getResources().getString(R.string.sort_type_old)};
             } else {
-                String[] strArr2 = new String[this.kyB.cIe().getPbData().jYL.size()];
+                String[] strArr2 = new String[this.kyB.cIf().getPbData().jYL.size()];
                 while (true) {
                     int i2 = i;
-                    if (i2 >= this.kyB.cIe().getPbData().jYL.size()) {
+                    if (i2 >= this.kyB.cIf().getPbData().jYL.size()) {
                         break;
                     }
-                    strArr2[i2] = this.kyB.cIe().getPbData().jYL.get(i2).sort_name + TbadkCoreApplication.getInst().getResources().getString(R.string.sort_static);
+                    strArr2[i2] = this.kyB.cIf().getPbData().jYL.get(i2).sort_name + TbadkCoreApplication.getInst().getResources().getString(R.string.sort_static);
                     i = i2 + 1;
                 }
                 strArr = strArr2;
@@ -1149,20 +1149,20 @@ public class a {
                 public void a(k kVar, int i3, View view2) {
                     int i4 = 2;
                     iVar.dismiss();
-                    if (a.this.kyB.cIe().getSortType() == 1 && i3 == 1) {
+                    if (a.this.kyB.cIf().getSortType() == 1 && i3 == 1) {
                         i4 = 0;
-                    } else if (a.this.kyB.cIe().getSortType() == 2 && i3 == 0) {
+                    } else if (a.this.kyB.cIf().getSortType() == 2 && i3 == 0) {
                         i4 = 1;
-                    } else if (a.this.kyB.cIe().getSortType() != 3 || i3 == 2) {
-                        i4 = (i3 != 2 || a.this.kyB.cIe().getSortType() == 3) ? 0 : 3;
+                    } else if (a.this.kyB.cIf().getSortType() != 3 || i3 == 2) {
+                        i4 = (i3 != 2 || a.this.kyB.cIf().getSortType() == 3) ? 0 : 3;
                     }
                     TiebaStatic.log("c12097");
                     TiebaStatic.log(new ao("c12097").ag("obj_source", view.getId() != R.id.pb_sort ? 1 : 0).ag("obj_type", i4));
-                    if (a.this.kyB.cIe().getPbData().jYL != null && a.this.kyB.cIe().getPbData().jYL.size() > i3) {
-                        i3 = a.this.kyB.cIe().getPbData().jYL.get(i3).sort_type.intValue();
+                    if (a.this.kyB.cIf().getPbData().jYL != null && a.this.kyB.cIf().getPbData().jYL.size() > i3) {
+                        i3 = a.this.kyB.cIf().getPbData().jYL.get(i3).sort_type.intValue();
                     }
-                    boolean Bu = a.this.kyB.cIe().Bu(i3);
-                    view.setTag(Integer.valueOf(a.this.kyB.cIe().cKs()));
+                    boolean Bu = a.this.kyB.cIf().Bu(i3);
+                    view.setTag(Integer.valueOf(a.this.kyB.cIf().cKt()));
                     if (Bu) {
                         a.this.kyB.setIsLoading(true);
                     }
@@ -1192,8 +1192,8 @@ public class a {
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     TiebaStatic.log(new ao("c12528").dk("obj_id", metaData.getUserId()).ag("obj_locate", 1));
                     aVar2.dismiss();
-                    if (a.this.kyB.cPw() != null) {
-                        a.this.kyB.cPw().a(metaData.hadConcerned() ? false : true, metaData.getPortrait(), metaData.getUserId(), metaData.isGod(), "6", a.this.kyB.getPageContext().getUniqueId(), a.this.kyB.cIe().getForumId(), "0");
+                    if (a.this.kyB.cPx() != null) {
+                        a.this.kyB.cPx().a(metaData.hadConcerned() ? false : true, metaData.getPortrait(), metaData.getUserId(), metaData.isGod(), "6", a.this.kyB.getPageContext().getUniqueId(), a.this.kyB.cIf().getForumId(), "0");
                     }
                 }
             });
@@ -1283,7 +1283,7 @@ public class a {
         this.gXx.setDialogVisiable(true);
     }
 
-    public void bJm() {
+    public void bJn() {
         if (this.gXx != null) {
             this.gXx.setDialogVisiable(false);
         }
@@ -1296,7 +1296,7 @@ public class a {
         }
         k kVar = new k(this.kyB.getContext());
         ArrayList arrayList = new ArrayList();
-        if (this.kyB.cIe().getPbData() != null && this.kyB.cIe().getPbData().cGN() != null && !this.kyB.cIe().getPbData().cGN().isBjh()) {
+        if (this.kyB.cIf().getPbData() != null && this.kyB.cIf().getPbData().cGO() != null && !this.kyB.cIf().getPbData().cGO().isBjh()) {
             arrayList.add(new g(0, this.kyB.getPageContext().getString(R.string.save_to_emotion), kVar));
         }
         if (!z) {
@@ -1355,7 +1355,7 @@ public class a {
                 }
             });
             this.kmB = (TextView) this.kmz.findViewById(R.id.dialog_button_ok);
-            this.kmB.setOnClickListener(this.kyB.cPm());
+            this.kmB.setOnClickListener(this.kyB.cPn());
         }
         this.kmA.removeAllViews();
         this.gTC = new ArrayList();
@@ -1432,7 +1432,7 @@ public class a {
         MessageManager.getInstance().sendMessage(userMuteCheckCustomMessage);
     }
 
-    public void cMD() {
+    public void cME() {
         if (this.kmw != null) {
             this.kmw.dismiss();
         }
@@ -1447,40 +1447,40 @@ public class a {
         }
     }
 
-    public void cPZ() {
+    public void cQa() {
         if (this.kfv != null) {
             this.kfv.dismiss();
         }
+    }
+
+    public void cMD() {
+        aFg();
+        this.kyB.cLK();
+        if (this.kfv != null) {
+            this.kfv.dismiss();
+        }
+        cME();
     }
 
     public void cMC() {
         aFg();
-        this.kyB.cLJ();
+        this.kyB.cLK();
         if (this.kfv != null) {
             this.kfv.dismiss();
         }
-        cMD();
-    }
-
-    public void cMB() {
-        aFg();
-        this.kyB.cLJ();
-        if (this.kfv != null) {
-            this.kfv.dismiss();
-        }
-        this.kyB.bYx();
-        cMD();
+        this.kyB.bYy();
+        cME();
     }
 
     public Object getExtra() {
         return this.mExtra;
     }
 
-    public View.OnLongClickListener cPo() {
+    public View.OnLongClickListener cPp() {
         return this.mOnLongClickListener;
     }
 
-    public com.baidu.tbadk.core.dialog.b cQa() {
+    public com.baidu.tbadk.core.dialog.b cQb() {
         return this.keT;
     }
 
@@ -1488,11 +1488,11 @@ public class a {
         this.kbB = str;
     }
 
-    public String cMh() {
+    public String cMi() {
         return this.kmD;
     }
 
-    public View cMg() {
+    public View cMh() {
         if (this.kmz != null) {
             return this.kmz.findViewById(R.id.dialog_button_ok);
         }

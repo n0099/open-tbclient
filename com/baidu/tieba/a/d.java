@@ -15,7 +15,7 @@ public class d {
     private a eXg;
     private List<ao> eXh;
 
-    public static d boA() {
+    public static d boB() {
         if (eXf == null) {
             synchronized (c.class) {
                 if (eXf == null) {
@@ -57,7 +57,7 @@ public class d {
     }
 
     public void dh(String str, String str2) {
-        if (!w.isEmpty(this.eXh) && this.eXc != null && this.eXc.boy()) {
+        if (!w.isEmpty(this.eXh) && this.eXc != null && this.eXc.boz()) {
             int i = -1;
             for (ao aoVar : this.eXh) {
                 if (aoVar != null) {
@@ -75,7 +75,7 @@ public class d {
     }
 
     public void a(String str, String str2, ao aoVar) {
-        if (aoVar != null && this.eXc != null && this.eXc.boy()) {
+        if (aoVar != null && this.eXc != null && this.eXc.boz()) {
             HashMap hashMap = new HashMap();
             List<Object> params = aoVar.getParams();
             if (params != null) {
@@ -99,14 +99,14 @@ public class d {
     }
 
     public void onPageStart(String str) {
-        if (ar.isEmpty(str) || this.eXc == null || !this.eXc.boy()) {
-            com.baidu.ubs.analytics.a.Qa(str);
+        if (ar.isEmpty(str) || this.eXc == null || !this.eXc.boz()) {
+            com.baidu.ubs.analytics.a.Qb(str);
         }
     }
 
     public void onPageEnd(String str) {
-        if (ar.isEmpty(str) || this.eXc == null || !this.eXc.boy()) {
-            com.baidu.ubs.analytics.a.Qb(str);
+        if (ar.isEmpty(str) || this.eXc == null || !this.eXc.boz()) {
+            com.baidu.ubs.analytics.a.Qc(str);
         }
     }
 

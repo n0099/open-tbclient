@@ -8,7 +8,7 @@ public class a implements com.baidu.tieba.sdk.b.a {
     private c jwa = new c() { // from class: com.baidu.tieba.livesdk.a.a.1
         @Override // com.baidu.c.a.a.c
         public void onLoginStatusChanged(boolean z, boolean z2) {
-            com.baidu.tieba.sdk.a.daK().daL();
+            com.baidu.tieba.sdk.a.daL().daM();
         }
     };
 
@@ -18,7 +18,7 @@ public class a implements com.baidu.tieba.sdk.b.a {
     }
 
     @Override // com.baidu.tieba.sdk.b.a
-    public com.baidu.tieba.sdk.c.a cyY() {
+    public com.baidu.tieba.sdk.c.a cyZ() {
         com.baidu.c.a.a.b KU;
         if (this.brh.isLogin() && (KU = this.brh.KU()) != null) {
             return a(KU);
@@ -27,7 +27,7 @@ public class a implements com.baidu.tieba.sdk.b.a {
     }
 
     @Override // com.baidu.tieba.sdk.b.a
-    public void cyZ() {
+    public void cza() {
         this.brh.login();
     }
 

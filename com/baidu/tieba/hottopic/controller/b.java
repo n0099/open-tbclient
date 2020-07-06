@@ -73,7 +73,7 @@ public class b {
     }
 
     public void a(final ShareFromTopicMsgData shareFromTopicMsgData, final long j, final String str, final long j2, e eVar) {
-        if (eVar != null && eVar.clE() != null) {
+        if (eVar != null && eVar.clF() != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.iDr.getActivity());
             final ShareCardView shareCardView = new ShareCardView(this.iDr.getActivity());
             shareCardView.setData(shareFromTopicMsgData);
@@ -102,7 +102,7 @@ public class b {
     }
 
     public void a(final ShareFromTopicMsgData shareFromTopicMsgData, final long j, final String str, final String str2, final String str3, e eVar) {
-        if (eVar != null && eVar.clE() != null) {
+        if (eVar != null && eVar.clF() != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.iDr.getActivity());
             final ShareCardView shareCardView = new ShareCardView(this.iDr.getActivity());
             shareCardView.setData(shareFromTopicMsgData);

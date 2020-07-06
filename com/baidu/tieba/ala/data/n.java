@@ -53,7 +53,7 @@ public class n {
         this.fEu = z;
     }
 
-    public boolean bwL() {
+    public boolean bwM() {
         return this.fEu;
     }
 

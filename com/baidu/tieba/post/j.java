@@ -14,7 +14,7 @@ public class j implements com.baidu.tieba.k.h {
         private static final com.baidu.tieba.k.h kZt = new j();
     }
 
-    public static com.baidu.tieba.k.h cWS() {
+    public static com.baidu.tieba.k.h cWT() {
         return a.kZt;
     }
 
@@ -23,44 +23,44 @@ public class j implements com.baidu.tieba.k.h {
     }
 
     @Override // com.baidu.tieba.k.h
-    public void cCr() {
+    public void cCs() {
         this.mUuid = UUID.randomUUID().toString();
     }
 
     @Override // com.baidu.tieba.k.h
     public void bn(int i, String str) {
-        cWT().o(this.mUuid, i, str);
+        cWU().o(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.k.h
     public void bo(int i, String str) {
-        cWT().p(this.mUuid, i, str);
+        cWU().p(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.k.h
     public void bp(int i, String str) {
-        cWT().q(this.mUuid, i, str);
-    }
-
-    @Override // com.baidu.tieba.k.h
-    public void cCs() {
-        cWT().IT(this.mUuid);
-    }
-
-    @Override // com.baidu.tieba.k.h
-    public void l(int i, int i2, String str) {
-        cWT().e(this.mUuid, i, i2, str);
+        cWU().q(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.k.h
     public void cCt() {
-        cWT().IU(this.mUuid);
+        cWU().IT(this.mUuid);
+    }
+
+    @Override // com.baidu.tieba.k.h
+    public void l(int i, int i2, String str) {
+        cWU().e(this.mUuid, i, i2, str);
+    }
+
+    @Override // com.baidu.tieba.k.h
+    public void cCu() {
+        cWU().IU(this.mUuid);
         gY(this.mUuid);
     }
 
     @Override // com.baidu.tieba.k.h
     public void bq(int i, String str) {
-        cWT().r(this.mUuid, i, str);
+        cWU().r(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.k.h
@@ -72,20 +72,20 @@ public class j implements com.baidu.tieba.k.h {
                 com.baidu.tieba.k.d.IS(this.jJm);
                 this.zl.remove(this.mUuid);
             }
-            cCr();
-            cWT().eP(this.jJm, str);
+            cCs();
+            cWU().eP(this.jJm, str);
             this.jJm = null;
         }
     }
 
     @Override // com.baidu.tieba.k.h
-    public void cCu() {
+    public void cCv() {
         this.jJm = this.mUuid;
     }
 
     @Override // com.baidu.tieba.k.h
     public void IY(String str) {
-        cWT().eQ(this.mUuid, str);
+        cWU().eQ(this.mUuid, str);
         if (IV(this.mUuid) || IW(this.mUuid)) {
             gY(this.mUuid);
         } else {
@@ -96,11 +96,11 @@ public class j implements com.baidu.tieba.k.h {
     }
 
     public boolean IV(String str) {
-        return cWT().IV(str);
+        return cWU().IV(str);
     }
 
     public boolean IW(String str) {
-        return cWT().IW(str);
+        return cWU().IW(str);
     }
 
     public void gY(String str) {
@@ -111,15 +111,15 @@ public class j implements com.baidu.tieba.k.h {
         }
     }
 
-    private com.baidu.tieba.k.f cWT() {
+    private com.baidu.tieba.k.f cWU() {
         com.baidu.tieba.k.f fVar = this.zl.get(this.mUuid);
         if (fVar == null) {
-            return cWU();
+            return cWV();
         }
         return fVar;
     }
 
-    private com.baidu.tieba.k.f cWU() {
+    private com.baidu.tieba.k.f cWV() {
         i iVar = new i(this.mUuid);
         this.zl.put(this.mUuid, iVar);
         return iVar;

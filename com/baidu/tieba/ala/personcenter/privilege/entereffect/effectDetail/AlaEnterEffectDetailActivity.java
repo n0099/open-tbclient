@@ -110,15 +110,15 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         this.gEI = getIntent().getStringExtra("key_selected_effect_id");
         this.gEJ = new a(getActivity(), this.gEH);
         this.gEJ.a(this.gEN);
-        this.gEJ.bLS().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.2
+        this.gEJ.bLT().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaEnterEffectDetailActivity.this.setResult(0);
                 AlaEnterEffectDetailActivity.this.finish();
             }
         });
-        setContentView(this.gEJ.bLS());
-        this.gEK = new com.baidu.tieba.ala.personcenter.privilege.entereffect.b(getActivity(), this.gEJ.bLS());
+        setContentView(this.gEJ.bLT());
+        this.gEK = new com.baidu.tieba.ala.personcenter.privilege.entereffect.b(getActivity(), this.gEJ.bLT());
         this.gCE = new com.baidu.tieba.ala.personcenter.privilege.b(getPageContext());
         this.gCE.a(new b.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.3
             @Override // com.baidu.tieba.ala.personcenter.privilege.b.a

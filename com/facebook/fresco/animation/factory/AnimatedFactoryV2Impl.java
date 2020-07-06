@@ -3,11 +3,11 @@ package com.facebook.fresco.animation.factory;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
+import com.facebook.cache.common.b;
 import com.facebook.common.b.i;
 import com.facebook.common.internal.d;
 import com.facebook.common.internal.j;
 import com.facebook.common.time.RealtimeSinceBootClock;
-import com.facebook.imagepipeline.animated.impl.b;
 import com.facebook.imagepipeline.b.f;
 import com.facebook.imagepipeline.c.h;
 import com.facebook.imagepipeline.d.e;
@@ -19,31 +19,31 @@ import javax.annotation.concurrent.NotThreadSafe;
 /* loaded from: classes13.dex */
 public class AnimatedFactoryV2Impl implements com.facebook.imagepipeline.animated.a.a {
     @Nullable
-    private com.facebook.imagepipeline.f.a mKb;
-    private final f mOM;
+    private com.facebook.imagepipeline.f.a mKe;
+    private final f mOP;
+    private final e mPA;
+    private final h<b, c> mPB;
     @Nullable
-    private b mPA;
+    private com.facebook.imagepipeline.animated.a.d mPC;
     @Nullable
-    private com.facebook.imagepipeline.animated.b.a mPB;
-    private final e mPx;
-    private final h<com.facebook.cache.common.b, c> mPy;
+    private com.facebook.imagepipeline.animated.impl.b mPD;
     @Nullable
-    private com.facebook.imagepipeline.animated.a.d mPz;
+    private com.facebook.imagepipeline.animated.b.a mPE;
 
     @d
-    public AnimatedFactoryV2Impl(f fVar, e eVar, h<com.facebook.cache.common.b, c> hVar) {
-        this.mOM = fVar;
-        this.mPx = eVar;
-        this.mPy = hVar;
+    public AnimatedFactoryV2Impl(f fVar, e eVar, h<b, c> hVar) {
+        this.mOP = fVar;
+        this.mPA = eVar;
+        this.mPB = hVar;
     }
 
     @Override // com.facebook.imagepipeline.animated.a.a
     @Nullable
     public com.facebook.imagepipeline.f.a fW(Context context) {
-        if (this.mKb == null) {
-            this.mKb = dBW();
+        if (this.mKe == null) {
+            this.mKe = dCa();
         }
-        return this.mKb;
+        return this.mKe;
     }
 
     @Override // com.facebook.imagepipeline.animated.a.a
@@ -51,7 +51,7 @@ public class AnimatedFactoryV2Impl implements com.facebook.imagepipeline.animate
         return new com.facebook.imagepipeline.decoder.b() { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.1
             @Override // com.facebook.imagepipeline.decoder.b
             public c a(com.facebook.imagepipeline.g.e eVar, int i, com.facebook.imagepipeline.g.h hVar, com.facebook.imagepipeline.common.b bVar) {
-                return AnimatedFactoryV2Impl.this.dBY().a(eVar, bVar, config);
+                return AnimatedFactoryV2Impl.this.dCc().a(eVar, bVar, config);
             }
         };
     }
@@ -61,24 +61,24 @@ public class AnimatedFactoryV2Impl implements com.facebook.imagepipeline.animate
         return new com.facebook.imagepipeline.decoder.b() { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.2
             @Override // com.facebook.imagepipeline.decoder.b
             public c a(com.facebook.imagepipeline.g.e eVar, int i, com.facebook.imagepipeline.g.h hVar, com.facebook.imagepipeline.common.b bVar) {
-                return AnimatedFactoryV2Impl.this.dBY().b(eVar, bVar, config);
+                return AnimatedFactoryV2Impl.this.dCc().b(eVar, bVar, config);
             }
         };
     }
 
-    private a dBW() {
+    private a dCa() {
         j<Integer> jVar = new j<Integer>() { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.internal.j
-            /* renamed from: dCb */
+            /* renamed from: dCf */
             public Integer get() {
                 return 2;
             }
         };
-        return new a(dBZ(), i.dze(), new com.facebook.common.b.c(this.mPx.dDi()), RealtimeSinceBootClock.get(), this.mOM, this.mPy, jVar, new j<Integer>() { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.4
+        return new a(dCd(), i.dzi(), new com.facebook.common.b.c(this.mPA.dDm()), RealtimeSinceBootClock.get(), this.mOP, this.mPB, jVar, new j<Integer>() { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.internal.j
-            /* renamed from: dCb */
+            /* renamed from: dCf */
             public Integer get() {
                 return 3;
             }
@@ -86,39 +86,39 @@ public class AnimatedFactoryV2Impl implements com.facebook.imagepipeline.animate
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.facebook.imagepipeline.animated.b.a dBX() {
-        if (this.mPB == null) {
-            this.mPB = new com.facebook.imagepipeline.animated.b.a();
+    public com.facebook.imagepipeline.animated.b.a dCb() {
+        if (this.mPE == null) {
+            this.mPE = new com.facebook.imagepipeline.animated.b.a();
         }
-        return this.mPB;
+        return this.mPE;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.facebook.imagepipeline.animated.a.d dBY() {
-        if (this.mPz == null) {
-            this.mPz = dCa();
+    public com.facebook.imagepipeline.animated.a.d dCc() {
+        if (this.mPC == null) {
+            this.mPC = dCe();
         }
-        return this.mPz;
+        return this.mPC;
     }
 
-    private b dBZ() {
-        if (this.mPA == null) {
-            this.mPA = new b() { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.5
+    private com.facebook.imagepipeline.animated.impl.b dCd() {
+        if (this.mPD == null) {
+            this.mPD = new com.facebook.imagepipeline.animated.impl.b() { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.5
                 @Override // com.facebook.imagepipeline.animated.impl.b
                 public com.facebook.imagepipeline.animated.base.a a(com.facebook.imagepipeline.animated.base.d dVar, Rect rect) {
-                    return new com.facebook.imagepipeline.animated.impl.a(AnimatedFactoryV2Impl.this.dBX(), dVar, rect);
+                    return new com.facebook.imagepipeline.animated.impl.a(AnimatedFactoryV2Impl.this.dCb(), dVar, rect);
                 }
             };
         }
-        return this.mPA;
+        return this.mPD;
     }
 
-    private com.facebook.imagepipeline.animated.a.d dCa() {
-        return new com.facebook.imagepipeline.animated.a.e(new b() { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.6
+    private com.facebook.imagepipeline.animated.a.d dCe() {
+        return new com.facebook.imagepipeline.animated.a.e(new com.facebook.imagepipeline.animated.impl.b() { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.6
             @Override // com.facebook.imagepipeline.animated.impl.b
             public com.facebook.imagepipeline.animated.base.a a(com.facebook.imagepipeline.animated.base.d dVar, Rect rect) {
-                return new com.facebook.imagepipeline.animated.impl.a(AnimatedFactoryV2Impl.this.dBX(), dVar, rect);
+                return new com.facebook.imagepipeline.animated.impl.a(AnimatedFactoryV2Impl.this.dCb(), dVar, rect);
             }
-        }, this.mOM);
+        }, this.mOP);
     }
 }

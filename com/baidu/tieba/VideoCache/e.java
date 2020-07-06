@@ -16,7 +16,7 @@ public class e {
     private e() {
     }
 
-    public static e boa() {
+    public static e bob() {
         if (eWr == null) {
             synchronized (e.class) {
                 if (eWr == null) {
@@ -96,7 +96,7 @@ public class e {
         this.eWt = cVar;
     }
 
-    public c bob() {
+    public c boc() {
         return this.eWt;
     }
 

@@ -13,7 +13,7 @@ public class a {
     private static a fsk;
     private List<ao> eXh;
 
-    public static a buo() {
+    public static a bup() {
         if (fsk == null) {
             synchronized (a.class) {
                 if (fsk == null) {
@@ -46,7 +46,7 @@ public class a {
         }
     }
 
-    public void brT() {
+    public void brU() {
         if (w.getCount(this.eXh) != 0) {
             for (ao aoVar : this.eXh) {
                 if (aoVar != null) {

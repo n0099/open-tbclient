@@ -53,10 +53,10 @@ public class a {
                 a.this.hTA = frsLiveTipResponseMessage.infoCoreData;
                 a.this.hTB = frsLiveTipResponseMessage.listCoreData;
                 if (a.this.hTw != null) {
-                    a.this.hTw.cao();
+                    a.this.hTw.cap();
                 }
                 if (a.this.hTy != 0) {
-                    a.this.cdu();
+                    a.this.cdv();
                 }
             }
         }
@@ -69,17 +69,17 @@ public class a {
             }
         }
     };
-    private int hTx = cdy();
+    private int hTx = cdz();
 
     public a(FrsFragment frsFragment, int i) {
         this.hBW = frsFragment;
         this.mForumId = i;
     }
 
-    public void cdt() {
+    public void cdu() {
         if (this.hBW != null && this.hBW.isAdded()) {
             if (System.currentTimeMillis() - getLastShowTime() >= 1800000) {
-                if (this.hBW.bYq() && isFirst()) {
+                if (this.hBW.bYr() && isFirst()) {
                     this.isFirst = false;
                     return;
                 }
@@ -92,23 +92,23 @@ public class a {
         }
     }
 
-    public void cdu() {
+    public void cdv() {
         if (!StringUtils.isNull(this.hTz) && this.hTA != null) {
-            if (this.hTy != 2 || cdy() < 3) {
+            if (this.hTy != 2 || cdz() < 3) {
                 initView(this.hBW.getPageContext().getPageActivity());
                 if (this.hOn != null) {
                     this.hOn.setText(this.hTz);
                 }
                 onChangeSkinType();
-                bMG();
+                bMH();
                 saveLastShowTime();
             }
         }
     }
 
-    public void cdv() {
+    public void cdw() {
         if (this.hBW != null) {
-            this.hBW.bXX().wi(49);
+            this.hBW.bXY().wi(49);
         }
     }
 
@@ -125,7 +125,7 @@ public class a {
             this.hTu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.live.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.cdw();
+                    a.this.cdx();
                 }
             });
             this.hOn = (TextView) this.hTu.findViewById(R.id.frs_hot_live_tip_content);
@@ -140,10 +140,10 @@ public class a {
         }
     }
 
-    private void bMG() {
-        p bXZ;
+    private void bMH() {
+        p bYa;
         FrameLayout frameLayout;
-        if (this.hBW != null && (bXZ = this.hBW.bXZ()) != null && bXZ.getListView() != null && (frameLayout = (FrameLayout) bXZ.bZx()) != null) {
+        if (this.hBW != null && (bYa = this.hBW.bYa()) != null && bYa.getListView() != null && (frameLayout = (FrameLayout) bYa.bZy()) != null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds56));
             if (this.hTw == null) {
                 this.hTw = new bc();
@@ -158,8 +158,8 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cdw() {
-        cdz();
+    public void cdx() {
+        cdA();
         if (this.hTA != null && this.hBW != null && this.hBW.isAdded()) {
             boolean equals = TextUtils.equals(getUserId(), String.valueOf(this.hTA.userID));
             String str = "";
@@ -174,7 +174,7 @@ public class a {
                 TiebaStatic.log(new ao("c12331"));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(this.hBW.getPageContext().getPageActivity(), this.hTA, this.hTB, str, getUserId(), equals, null, null)));
-            if (this.hBW.bYB().getForum().isGameForumType()) {
+            if (this.hBW.bYC().getForum().isGameForumType()) {
                 CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_GAME_FRS_JUMP_TO_LIVE_TAB);
                 customMessage.setTag(this.hBW.getBaseFragmentActivity().getUniqueId());
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_GAME_FRS_JUMP_TO_LIVE_TAB);
@@ -185,7 +185,7 @@ public class a {
             e.lt().post(new Runnable() { // from class: com.baidu.tieba.frs.live.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.cdv();
+                    a.this.cdw();
                 }
             });
         }
@@ -194,23 +194,23 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void qj() {
         if (this.hTy == 2) {
-            cdx();
+            cdy();
         }
         if (this.hTw != null) {
             this.hTw.hideTip();
         }
     }
 
-    private void cdx() {
+    private void cdy() {
         this.hTx++;
         com.baidu.tbadk.core.sharedPref.b.aVP().putInt(SharedPrefConfig.FRS_HOT_LIVE_TIP_CLOSE_NUM + getUserId(), this.hTx);
     }
 
-    private int cdy() {
+    private int cdz() {
         return com.baidu.tbadk.core.sharedPref.b.aVP().getInt(SharedPrefConfig.FRS_HOT_LIVE_TIP_CLOSE_NUM + getUserId(), 0);
     }
 
-    private void cdz() {
+    private void cdA() {
         this.hTx = 0;
         com.baidu.tbadk.core.sharedPref.b.aVP().putInt(SharedPrefConfig.FRS_HOT_LIVE_TIP_CLOSE_NUM + getUserId(), this.hTx);
     }
@@ -240,7 +240,7 @@ public class a {
 
     public void onDestory() {
         if (this.hTw != null) {
-            this.hTw.cao();
+            this.hTw.cap();
         }
         e.lt().removeCallbacks(this.hTE);
         if (this.hTC != null) {

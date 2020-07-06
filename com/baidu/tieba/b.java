@@ -15,7 +15,7 @@ public class b {
         }
     }
 
-    public int bmp() {
+    public int bmq() {
         String string;
         if (TbadkCoreApplication.getCurrentAccount() == null) {
             string = com.baidu.tbadk.core.sharedPref.b.aVP().getString(SharedPrefConfig.APP_ENTRANCE_NO_LOGIN_KEY, "");

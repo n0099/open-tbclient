@@ -20,7 +20,7 @@ public class ActivityTaskWatchHttpResponseMessage extends JsonHttpResponsedMessa
         }
     }
 
-    public a bJv() {
+    public a bJw() {
         return this.grI;
     }
 }

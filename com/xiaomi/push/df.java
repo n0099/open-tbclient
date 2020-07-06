@@ -34,10 +34,10 @@ public class df {
                 if (ixVar != null) {
                     try {
                         if (ixVar instanceof id) {
-                            String str = ((id) ixVar).f568d;
+                            String str = ((id) ixVar).f569d;
                             return (TextUtils.isEmpty(str) || fa.a(fa.m264a(str)) == -1) ? a : fa.a(fa.m264a(str));
                         } else if (ixVar instanceof il) {
-                            String str2 = ((il) ixVar).f627d;
+                            String str2 = ((il) ixVar).f628d;
                             if (TextUtils.isEmpty(str2)) {
                                 return a;
                             }

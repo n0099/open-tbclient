@@ -30,15 +30,15 @@ public class a implements i, k {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921022 && (customResponsedMessage.getData() instanceof String)) {
-                com.baidu.tieba.ad.a.boT().c(TbadkCoreApplication.getInst(), new String[]{(String) customResponsedMessage.getData()});
+                com.baidu.tieba.ad.a.boU().c(TbadkCoreApplication.getInst(), new String[]{(String) customResponsedMessage.getData()});
             }
         }
     };
     private HashMap<String, f> ldV = new HashMap<>();
     private int ldW = 0;
-    private String ldX = cYI();
+    private String ldX = cYJ();
 
-    public static a cYD() {
+    public static a cYE() {
         if (ldS == null) {
             synchronized (a.class) {
                 if (ldS == null) {
@@ -54,7 +54,7 @@ public class a implements i, k {
     }
 
     @Override // com.baidu.tieba.recapp.i
-    public void cYE() {
+    public void cYF() {
         if (!this.ldY) {
             Runnable runnable = new Runnable() { // from class: com.baidu.tieba.recapp.a.2
                 @Override // java.lang.Runnable
@@ -97,7 +97,7 @@ public class a implements i, k {
     }
 
     private void l(String str, boolean z, boolean z2) {
-        cYJ();
+        cYK();
         f fVar = this.ldV.get(str);
         if (fVar == null) {
             fVar = new f();
@@ -134,7 +134,7 @@ public class a implements i, k {
 
     private int m(String str, boolean z, boolean z2) {
         f fVar = this.ldV.get(str);
-        if (fVar == null || !LE(cYI())) {
+        if (fVar == null || !LE(cYJ())) {
             return 0;
         }
         return fVar.ap(z, z2);
@@ -157,7 +157,7 @@ public class a implements i, k {
     }
 
     @Override // com.baidu.tieba.recapp.k
-    public void cYF() {
+    public void cYG() {
         if (!this.ldZ) {
             Runnable runnable = new Runnable() { // from class: com.baidu.tieba.recapp.a.3
                 @Override // java.lang.Runnable
@@ -186,24 +186,24 @@ public class a implements i, k {
     }
 
     @Override // com.baidu.tieba.recapp.k
-    public void cYG() {
+    public void cYH() {
         com.baidu.adp.lib.cache.l<String> lVar = this.ldU.get();
         if (lVar != null) {
-            cYJ();
+            cYK();
             this.ldW++;
             lVar.asyncSet(this.ldX, Integer.toString(this.ldW), 86400000L);
         }
     }
 
     @Override // com.baidu.tieba.recapp.k
-    public int cYH() {
-        if (LE(cYI())) {
+    public int cYI() {
+        if (LE(cYJ())) {
             return this.ldW;
         }
         return 0;
     }
 
-    private String cYI() {
+    private String cYJ() {
         return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(new Date());
     }
 
@@ -214,12 +214,12 @@ public class a implements i, k {
         return this.ldX.equals(str);
     }
 
-    private void cYJ() {
-        String cYI = cYI();
-        if (!LE(cYI)) {
+    private void cYK() {
+        String cYJ = cYJ();
+        if (!LE(cYJ)) {
             this.ldV.clear();
             this.ldW = 0;
-            this.ldX = cYI;
+            this.ldX = cYJ;
         }
     }
 

@@ -5,9 +5,9 @@ public interface ao {
 
     void aYj();
 
-    void btP();
-
     void btQ();
+
+    void btR();
 
     void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.aa aaVar);
 

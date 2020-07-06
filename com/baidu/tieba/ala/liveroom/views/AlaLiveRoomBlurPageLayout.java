@@ -225,11 +225,11 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements com.baidu.
                     this.mRootView.addView(alaLiveView, i, alaLiveView.getLayoutParams());
                 }
             }
-            bJZ();
+            bKa();
         }
     }
 
-    public void bJU() {
+    public void bJV() {
         if (this.gkj != null) {
             this.mRootView.removeView(this.gkj);
         }
@@ -292,17 +292,17 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements com.baidu.
         if (this.gtM != null) {
             this.mRootView.addView(this.gtM, i, layoutParams);
         }
-        bJZ();
+        bKa();
     }
 
-    public void bJV() {
+    public void bJW() {
         if (this.gtM != null) {
             this.mRootView.removeView(this.gtM);
         }
         this.gtM = null;
     }
 
-    public void bJW() {
+    public void bJX() {
         if (this.gtJ.getAlpha() == 1.0f) {
             this.gtJ.clearAnimation();
             this.mHandler.postDelayed(this.gtQ, 300L);
@@ -313,14 +313,14 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements com.baidu.
         this.gtJ.setVisibility(8);
     }
 
-    public void bJX() {
+    public void bJY() {
         this.mHandler.removeCallbacks(this.gtQ);
         this.gtJ.clearAnimation();
         this.gtJ.setAlpha(0.0f);
         this.gtJ.setVisibility(8);
     }
 
-    public void bJY() {
+    public void bJZ() {
         this.mHandler.removeCallbacks(this.gtQ);
         this.gtJ.clearAnimation();
         this.gtJ.setAlpha(1.0f);
@@ -448,7 +448,7 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements com.baidu.
         }
     }
 
-    public void bJZ() {
+    public void bKa() {
         if (this.gtN != null && this.gtN.getParent() != null) {
             ((ViewGroup) this.gtN.getParent()).removeView(this.gtN);
         }
@@ -460,7 +460,7 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements com.baidu.
         }
     }
 
-    public boolean bKa() {
+    public boolean bKb() {
         return (this.gtN == null || this.gtN.getParent() == null) ? false : true;
     }
 
@@ -474,7 +474,7 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements com.baidu.
         return this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds160);
     }
 
-    public void bKb() {
+    public void bKc() {
         View findViewWithTag = findViewWithTag("AlaLivePraiseGuideController");
         if (findViewWithTag != null) {
             removeView(findViewWithTag);

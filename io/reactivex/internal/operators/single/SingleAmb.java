@@ -7,18 +7,18 @@ import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public final class SingleAmb<T> extends w<T> {
-    private final Iterable<? extends aa<? extends T>> nJU;
-    private final aa<? extends T>[] nMe;
+    private final Iterable<? extends aa<? extends T>> nJX;
+    private final aa<? extends T>[] nMh;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
         int length;
-        aa<? extends T>[] aaVarArr = this.nMe;
+        aa<? extends T>[] aaVarArr = this.nMh;
         if (aaVarArr == null) {
             aa<? extends T>[] aaVarArr2 = new aa[8];
             try {
                 int i = 0;
-                for (aa<? extends T> aaVar : this.nJU) {
+                for (aa<? extends T> aaVar : this.nJX) {
                     if (aaVar == null) {
                         EmptyDisposable.error(new NullPointerException("One of the sources is null"), yVar);
                         return;

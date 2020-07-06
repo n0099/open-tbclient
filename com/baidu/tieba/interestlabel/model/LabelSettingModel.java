@@ -60,7 +60,7 @@ public class LabelSettingModel extends BdBaseModel {
         this.jmT = aVar;
     }
 
-    public void cwv() {
+    public void cww() {
         if (!j.isNetworkAvailableForImmediately()) {
             if (this.jmT != null) {
                 this.jmT.a(LabelRequestEnum.GET_LABEL, null, -1);

@@ -56,7 +56,7 @@ public class a extends RecyclerView.Adapter<b> {
             an.setBackgroundColor(bVar.itemView, R.color.cp_bg_line_c);
             an.setViewTextColor(bVar.lyS, (int) R.color.cp_cont_j);
         }
-        if ("推荐".equals(dgk())) {
+        if ("推荐".equals(dgl())) {
             ao aoVar = new ao("c13641");
             aoVar.s("uid", TbadkApplication.getCurrentAccountId());
             aoVar.ag("obj_locate", 3);
@@ -99,7 +99,7 @@ public class a extends RecyclerView.Adapter<b> {
         notifyDataSetChanged();
     }
 
-    public String dgk() {
+    public String dgl() {
         return EG(this.lyP);
     }
 

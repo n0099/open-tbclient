@@ -26,7 +26,7 @@ public class i extends j<com.baidu.tieba.e.h, a> {
         this.hJU = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<CardFrsGameSpecialTopicItemView>() { // from class: com.baidu.tieba.frs.gamerecommend.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: ccu */
+            /* renamed from: ccv */
             public CardFrsGameSpecialTopicItemView makeObject() {
                 CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView = new CardFrsGameSpecialTopicItemView(i.this.mContext);
                 cardFrsGameSpecialTopicItemView.setForumId(i.this.mForumId);
@@ -70,12 +70,12 @@ public class i extends j<com.baidu.tieba.e.h, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.h hVar, a aVar) {
-        if (hVar != null && hVar.bPX() != null) {
+        if (hVar != null && hVar.bPY() != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            aVar.hPm.setText(hVar.bPX().title);
+            aVar.hPm.setText(hVar.bPY().title);
             aVar.hPm.setTextColor(an.getColor(skinType, R.color.cp_cont_b));
             aVar.hPo.setPageContext(this.mPageContext);
-            aVar.hPo.setData(hVar.bPX().sub_nodes);
+            aVar.hPo.setData(hVar.bPY().sub_nodes);
             aVar.hPn.setMaxOverScrollDistance(aVar.hPo.getChildItemWidth());
             aVar.hPl.setBackgroundColor(an.getColor(skinType, R.color.cp_bg_line_d));
             an.setBackgroundResource(aVar.hOZ, R.color.cp_bg_line_e);

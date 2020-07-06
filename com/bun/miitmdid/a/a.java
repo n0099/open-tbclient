@@ -9,16 +9,16 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 /* loaded from: classes6.dex */
 public class a implements b {
-    public C0790a mGs = new C0790a();
+    public C0791a mGv = new C0791a();
 
     /* renamed from: com.bun.miitmdid.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0790a {
-        public com.bun.miitmdid.a.a.a mGt;
-        public com.bun.miitmdid.a.a.b mGu;
-        public c mGv;
+    public class C0791a {
+        public com.bun.miitmdid.a.a.a mGw;
+        public com.bun.miitmdid.a.a.b mGx;
+        public c mGy;
 
-        public C0790a() {
+        public C0791a() {
         }
     }
 
@@ -30,9 +30,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_HUAWEI) != null) {
-            aVar.mGs.mGt = new com.bun.miitmdid.a.a.a();
+            aVar.mGv.mGw = new com.bun.miitmdid.a.a.a();
         }
-        return aVar.mGs.mGt != null;
+        return aVar.mGv.mGw != null;
     }
 
     private static boolean b(a aVar, JSONObject jSONObject) {
@@ -40,9 +40,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_XIAOMI) != null) {
-            aVar.mGs.mGv = new c();
+            aVar.mGv.mGy = new c();
         }
-        return aVar.mGs.mGv != null;
+        return aVar.mGv.mGy != null;
     }
 
     private static boolean c(a aVar, JSONObject jSONObject) {
@@ -53,9 +53,9 @@ public class a implements b {
         com.bun.miitmdid.a.a.b bVar = new com.bun.miitmdid.a.a.b();
         if (optJSONObject != null) {
             bVar.a = optJSONObject.optString("appid");
-            aVar.mGs.mGu = bVar;
+            aVar.mGv.mGx = bVar;
         }
-        return aVar.mGs.mGu != null;
+        return aVar.mGv.mGx != null;
     }
 
     public static a fQ(Context context) {
@@ -82,6 +82,6 @@ public class a implements b {
 
     @Override // com.bun.miitmdid.a.b
     public String a() {
-        return (this.mGs == null || this.mGs.mGu == null || this.mGs.mGu.a == null) ? "" : this.mGs.mGu.a;
+        return (this.mGv == null || this.mGv.mGx == null || this.mGv.mGx.a == null) ? "" : this.mGv.mGx.a;
     }
 }

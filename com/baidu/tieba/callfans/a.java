@@ -37,11 +37,11 @@ public class a {
         this.mThreadId = str;
     }
 
-    public void bNV() {
+    public void bNW() {
         if (!TbSingleton.getInstance().mCanCallFans) {
             this.dPv.showToast(R.string.have_used_call_fans_this_week);
         } else if (b.aVP().getBoolean("key_call_fans_no_tip_again", false)) {
-            bNX();
+            bNY();
         } else {
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.dPv.getPageActivity());
             aVar.kW(1);
@@ -50,12 +50,12 @@ public class a {
             this.fBh = (TextView) inflate.findViewById(R.id.call_fans_intro);
             this.gOB = (TextView) inflate.findViewById(R.id.no_tip_again_text);
             this.gOA = (ImageView) inflate.findViewById(R.id.checkbox);
-            bNW();
+            bNX();
             this.gOA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.callfans.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.gOC = !a.this.gOC;
-                    a.this.bNW();
+                    a.this.bNX();
                     b.aVP().putBoolean("key_call_fans_no_tip_again", a.this.gOC);
                 }
             });
@@ -64,7 +64,7 @@ public class a {
             aVar.a(this.dPv.getString(R.string.call_fans), new a.b() { // from class: com.baidu.tieba.callfans.a.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    a.this.bNX();
+                    a.this.bNY();
                     aVar.dismiss();
                 }
             });
@@ -80,7 +80,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bNW() {
+    public void bNX() {
         Drawable a;
         if (this.gOA != null) {
             ImageView imageView = this.gOA;
@@ -96,7 +96,7 @@ public class a {
     public void onChangeSkinType() {
         an.setViewTextColor(this.mTitle, (int) R.color.cp_cont_b);
         an.setViewTextColor(this.fBh, (int) R.color.cp_cont_j);
-        bNW();
+        bNX();
         an.setViewTextColor(this.gOB, (int) R.color.cp_cont_j);
     }
 
@@ -109,7 +109,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bNX() {
+    public void bNY() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CALL_FANS);
         httpMessage.addParam("thread_id", this.mThreadId);
         MessageManager.getInstance().sendMessage(httpMessage);

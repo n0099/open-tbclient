@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.entelechy.b;
 public interface c {
     void P(boolean z, boolean z2);
 
-    boolean cbM();
+    boolean cbN();
 
     void nF(boolean z);
 

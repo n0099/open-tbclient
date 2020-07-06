@@ -46,7 +46,7 @@ public class a implements d {
             }
             a.this.fAj.completePullRefresh();
             a.this.fAj.hideLoadingView();
-            a.this.fAj.bwb();
+            a.this.fAj.bwc();
             a.this.fAk = true;
         }
     };

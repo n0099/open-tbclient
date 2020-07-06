@@ -52,11 +52,11 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    public void bJz() {
+    public void bJA() {
         if (!this.grX.isEmpty()) {
             for (AlaTopTipView alaTopTipView : this.grX) {
                 if (alaTopTipView != null) {
-                    alaTopTipView.bJz();
+                    alaTopTipView.bJA();
                 }
             }
         }

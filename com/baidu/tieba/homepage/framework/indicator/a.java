@@ -11,13 +11,13 @@ public class a {
     private final List<t> ioR = new ArrayList();
 
     public a() {
-        List<t> ciu = ciu();
-        if (!w.isEmpty(ciu)) {
-            this.ioR.addAll(ciu);
+        List<t> civ = civ();
+        if (!w.isEmpty(civ)) {
+            this.ioR.addAll(civ);
         }
     }
 
-    private List<t> ciu() {
+    private List<t> civ() {
         ArrayList arrayList = new ArrayList();
         try {
             JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.aVP().getString("key_index_tab_info_list", "[]"));
@@ -34,11 +34,11 @@ public class a {
         return arrayList;
     }
 
-    public List<t> civ() {
+    public List<t> ciw() {
         return this.ioR;
     }
 
-    public int ciw() {
+    public int cix() {
         return this.ioQ;
     }
 }

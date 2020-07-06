@@ -14,11 +14,11 @@ import com.baidu.tieba.ala.view.f;
 public class AlaRankListActivityInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(o.class, AlaRankListActivity.class);
-        brE();
         brF();
+        brG();
     }
 
-    private static void brE() {
+    private static void brF() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913036, new CustomMessageTask.CustomRunnable<com.baidu.live.q.a>() { // from class: com.baidu.tieba.ala.AlaRankListActivityInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.q.c> run(CustomMessage<com.baidu.live.q.a> customMessage) {
@@ -33,7 +33,7 @@ public class AlaRankListActivityInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void brF() {
+    private static void brG() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913040) { // from class: com.baidu.tieba.ala.AlaRankListActivityInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener

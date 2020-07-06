@@ -41,7 +41,7 @@ public class a {
         jMS = null;
     }
 
-    public static synchronized a cDM() {
+    public static synchronized a cDN() {
         a aVar;
         synchronized (a.class) {
             if (jMS == null) {

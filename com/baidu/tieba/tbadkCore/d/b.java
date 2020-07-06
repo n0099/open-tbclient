@@ -26,28 +26,28 @@ public class b {
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e diq;
-        if (this.lHl != null && (diq = diq()) != null) {
+        e dir;
+        if (this.lHl != null && (dir = dir()) != null) {
             if (z) {
-                if (diq.lHs != null) {
-                    diq.lHs.num++;
+                if (dir.lHs != null) {
+                    dir.lHs.num++;
                     if (z2) {
-                        diq.lHs.lHp += j2;
-                        diq.lHs.size += j;
+                        dir.lHs.lHp += j2;
+                        dir.lHs.size += j;
                     } else {
-                        diq.lHs.lHq++;
+                        dir.lHs.lHq++;
                     }
                 } else {
                     return;
                 }
-            } else if (diq.lHt != null) {
-                diq.lHt.num++;
+            } else if (dir.lHt != null) {
+                dir.lHt.num++;
                 if (z2) {
-                    diq.lHt.lHp += j3;
-                    diq.lHt.size += j;
+                    dir.lHt.lHp += j3;
+                    dir.lHt.size += j;
                     j2 = j3;
                 } else {
-                    diq.lHt.lHq++;
+                    dir.lHt.lHq++;
                     j2 = j3;
                 }
             } else {
@@ -55,7 +55,7 @@ public class b {
             }
             this.lHl = null;
             if (z2) {
-                c.a(diq, 10);
+                c.a(dir, 10);
             }
             if (this.mLogType == "frsStat") {
                 if (!z2 || j2 > 3000) {
@@ -74,19 +74,19 @@ public class b {
     }
 
     public void destory() {
-        e diq;
-        if (this.lHl != null && (diq = diq()) != null && diq.lHu != null) {
+        e dir;
+        if (this.lHl != null && (dir = dir()) != null && dir.lHu != null) {
             long timeCost = this.lHl.getTimeCost();
             if (timeCost > 3000) {
-                d dVar = diq.lHu;
+                d dVar = dir.lHu;
                 dVar.lHp = timeCost + dVar.lHp;
-                diq.lHu.num++;
-                c.a(diq, 10);
+                dir.lHu.num++;
+                c.a(dir, 10);
             }
         }
     }
 
-    private e diq() {
+    private e dir() {
         return c.E(this.mLogType, getNetType(), this.mIsJson);
     }
 

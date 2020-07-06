@@ -43,7 +43,7 @@ public class b {
             @Override // java.lang.Runnable
             public void run() {
                 b.this.handler.removeCallbacksAndMessages(null);
-                b.this.bQv();
+                b.this.bQw();
             }
         };
         this.gZi = new com.baidu.tieba.tbadkCore.e.a();
@@ -51,7 +51,7 @@ public class b {
         this.gZj = new ActivityLifeCycleListener();
     }
 
-    public static b bQu() {
+    public static b bQv() {
         return a.gZm;
     }
 
@@ -91,7 +91,7 @@ public class b {
                         try {
                             b.this.Ec(str);
                         } catch (Throwable th) {
-                            b.this.bQv();
+                            b.this.bQw();
                         }
                     }
                 }, 1000L);
@@ -99,7 +99,7 @@ public class b {
             }
             if (this.gZh != null && this.gZh.isShowing()) {
                 if (this.gZh.getContentView() == null || this.gZh.getContentView().getContext() != currentActivity) {
-                    bQv();
+                    bQw();
                 } else {
                     return;
                 }
@@ -118,7 +118,7 @@ public class b {
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
                 public void onReceivedError(WebView webView, int i, String str2, String str3) {
                     b.this.handler.removeCallbacksAndMessages(null);
-                    b.this.bQv();
+                    b.this.bQw();
                 }
             });
             baseWebView.setBackgroundColor(0);
@@ -138,7 +138,7 @@ public class b {
                             try {
                                 b.this.dZ(str, str2);
                             } catch (Throwable th) {
-                                b.this.bQv();
+                                b.this.bQw();
                             }
                         }
                     }, 1000L);
@@ -160,7 +160,7 @@ public class b {
                             return;
                         }
                         TiebaStatic.log(new ao("c13451").ag("obj_type", 2));
-                        b.this.bQv();
+                        b.this.bQw();
                     }
                 });
                 tBLottieAnimationView.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.easterEgg.b.9
@@ -171,7 +171,7 @@ public class b {
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        b.this.bQv();
+                        b.this.bQw();
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
@@ -188,7 +188,7 @@ public class b {
         }
     }
 
-    public void bQv() {
+    public void bQw() {
         if (this.gZh != null && this.gZh.isShowing()) {
             try {
                 this.gZh.dismiss();

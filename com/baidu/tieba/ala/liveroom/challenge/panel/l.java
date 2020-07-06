@@ -37,7 +37,7 @@ public class l extends g {
                 }
                 if (l.this.gaK != null) {
                     l.this.gaK.we();
-                    l.this.gaK.bDm();
+                    l.this.gaK.bDn();
                 }
             }
         };
@@ -45,7 +45,7 @@ public class l extends g {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (l.this.gaK != null) {
-                    l.this.gaK.bDn();
+                    l.this.gaK.bDo();
                 }
             }
         };
@@ -91,7 +91,7 @@ public class l extends g {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
-    public int bCY() {
+    public int bCZ() {
         return this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds440) + this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds88);
     }
 

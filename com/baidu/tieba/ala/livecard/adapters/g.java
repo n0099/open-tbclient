@@ -75,8 +75,8 @@ public class g extends j<bt, a> implements com.baidu.tieba.a.f, y {
                 aVar.fRw.setPage(this.afG);
             }
             aVar.fRw.setForumName(this.mForumName);
-            i.a(aVar.fRw.bzi(), this.hzi);
             i.a(aVar.fRw.bzj(), this.hzi);
+            i.a(aVar.fRw.bzk(), this.hzi);
             aVar.fRw.a(btVar.dLi);
             btVar.dLi.aTB();
         }

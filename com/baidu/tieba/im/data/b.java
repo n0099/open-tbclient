@@ -43,7 +43,7 @@ public class b {
         this.name = str;
     }
 
-    public int cpr() {
+    public int cps() {
         return this.iPN;
     }
 
@@ -67,7 +67,7 @@ public class b {
         this.content = str;
     }
 
-    public List<b> cps() {
+    public List<b> cpt() {
         return this.sub_menu;
     }
 

@@ -33,9 +33,9 @@ public class MercatorModel {
                     String version = TbConfig.getVersion();
                     String cuid = TbadkCoreApplication.getInst().getCuid();
                     String clientIP = UtilHelper.getClientIP();
-                    com.baidu.tieba.recapp.d.a.cZF().GB(valueOf);
-                    com.baidu.tieba.recapp.d.a.cZF().GA(valueOf2);
-                    com.baidu.tieba.recapp.d.a.cZF().fp(System.currentTimeMillis());
+                    com.baidu.tieba.recapp.d.a.cZG().GB(valueOf);
+                    com.baidu.tieba.recapp.d.a.cZG().GA(valueOf2);
+                    com.baidu.tieba.recapp.d.a.cZG().fp(System.currentTimeMillis());
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MERCATOR);
                     httpMessage.addParam("cuid", cuid);
                     httpMessage.addParam("cip", clientIP);
@@ -57,7 +57,7 @@ public class MercatorModel {
         com.baidu.adp.lib.c.a.kG().a(true, this.fwz);
     }
 
-    public static MercatorModel diV() {
+    public static MercatorModel diW() {
         return a.lIQ;
     }
 
@@ -115,23 +115,23 @@ public class MercatorModel {
             this.lIP = j;
         }
 
-        public String diW() {
+        public String diX() {
             return this.lIL;
         }
 
-        public String diX() {
+        public String diY() {
             return this.lIM;
         }
 
-        public String diY() {
+        public String diZ() {
             return this.lIN;
         }
 
-        public int diZ() {
+        public int dja() {
             return this.lIO;
         }
 
-        public long dja() {
+        public long djb() {
             return this.lIP;
         }
     }

@@ -5,13 +5,13 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 /* loaded from: classes5.dex */
 public class b extends a {
-    private final String nOU;
-    private final String nOV;
+    private final String nOX;
+    private final String nOY;
 
     public b(Context context) {
         super(context);
-        this.nOU = "com_kascend_prefs";
-        this.nOV = "key_device";
+        this.nOX = "com_kascend_prefs";
+        this.nOY = "key_device";
     }
 
     @Override // kascend.core.a.a
@@ -20,7 +20,7 @@ public class b extends a {
     }
 
     @Override // kascend.core.a.a
-    public void So(String str) {
+    public void Sp(String str) {
         if (!TextUtils.isEmpty(str)) {
             SharedPreferences.Editor edit = this.context.getSharedPreferences("com_kascend_prefs", 0).edit();
             edit.putString("key_device", str);

@@ -43,16 +43,16 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                 }
             }
         };
-        chF();
         chG();
+        chH();
     }
 
-    private void chF() {
+    private void chG() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_BFB_INFO, BfbInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_BFB_INFO, 1003100, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    private void chG() {
+    private void chH() {
         registerListener(this.hvm);
     }
 
@@ -71,7 +71,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
         this.ikI = aVar;
     }
 
-    public void chH() {
+    public void chI() {
         MessageManager.getInstance().unRegisterListener(this.hvm);
         MessageManager.getInstance().unRegisterTask(CmdConfigSocket.CMD_GET_BFB_INFO);
         MessageManager.getInstance().unRegisterTask(1003100);

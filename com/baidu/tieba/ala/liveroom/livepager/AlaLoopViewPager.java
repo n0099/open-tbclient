@@ -28,7 +28,7 @@ public class AlaLoopViewPager extends AlaVerticalViewPagerNew {
 
     @Override // com.baidu.tieba.ala.liveroom.livepager.AlaVerticalViewPagerNew
     public PagerAdapter getAdapter() {
-        return this.gjz != null ? this.gjz.bFK() : this.gjz;
+        return this.gjz != null ? this.gjz.bFL() : this.gjz;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.livepager.AlaVerticalViewPagerNew
@@ -85,7 +85,7 @@ public class AlaLoopViewPager extends AlaVerticalViewPagerNew {
                 }
                 this.gjB = f;
                 if (AlaLoopViewPager.this.gjy != null) {
-                    if (AlaLoopViewPager.this.gjz != null && i != AlaLoopViewPager.this.gjz.bFJ() - 1) {
+                    if (AlaLoopViewPager.this.gjz != null && i != AlaLoopViewPager.this.gjz.bFK() - 1) {
                         AlaLoopViewPager.this.gjy.onPageScrolled(i, f, i2);
                     } else if (f > 0.5d) {
                         AlaLoopViewPager.this.gjy.onPageScrolled(0, 0.0f, 0);
@@ -141,7 +141,7 @@ public class AlaLoopViewPager extends AlaVerticalViewPagerNew {
                 }
                 this.gjB = f;
                 if (AlaLoopViewPager.this.gjy != null) {
-                    if (AlaLoopViewPager.this.gjz != null && i != AlaLoopViewPager.this.gjz.bFJ() - 1) {
+                    if (AlaLoopViewPager.this.gjz != null && i != AlaLoopViewPager.this.gjz.bFK() - 1) {
                         AlaLoopViewPager.this.gjy.onPageScrolled(i, f, i2);
                     } else if (f > 0.5d) {
                         AlaLoopViewPager.this.gjy.onPageScrolled(0, 0.0f, 0);

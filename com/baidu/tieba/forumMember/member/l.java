@@ -32,8 +32,8 @@ public class l extends com.baidu.tieba.frs.j<m, n> {
                 } else if (view.getId() == R.id.title_text_view) {
                     Object tag = view.getTag();
                     m mVar = ((tag instanceof Integer) && (l.this.getItem(((Integer) tag).intValue()) instanceof m)) ? (m) l.this.getItem(((Integer) tag).intValue()) : null;
-                    if (mVar != null && mVar.bWx() != null) {
-                        String[] split = !StringUtils.isNull(mVar.bWx().member_group_type) ? mVar.bWx().member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
+                    if (mVar != null && mVar.bWy() != null) {
+                        String[] split = !StringUtils.isNull(mVar.bWy().member_group_type) ? mVar.bWy().member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
                         if (split == null || split.length != 2) {
                             str = "";
                         } else {
@@ -61,18 +61,18 @@ public class l extends com.baidu.tieba.frs.j<m, n> {
     @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
         super.a(i, view, viewGroup, (ViewGroup) mVar, (m) nVar);
-        if (mVar != null && mVar.bWx() != null) {
-            MemberGroupInfo bWx = mVar.bWx();
-            if (bWx.member_group_list != null && bWx.member_group_list.size() > 0 && !StringUtils.isNull(bWx.member_group_type)) {
+        if (mVar != null && mVar.bWy() != null) {
+            MemberGroupInfo bWy = mVar.bWy();
+            if (bWy.member_group_list != null && bWy.member_group_list.size() > 0 && !StringUtils.isNull(bWy.member_group_type)) {
                 nVar.mTitleView.setTag(Integer.valueOf(i));
                 String str = "";
-                String[] split = !StringUtils.isNull(bWx.member_group_type) ? bWx.member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
+                String[] split = !StringUtils.isNull(bWy.member_group_type) ? bWy.member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
                 if (split != null && split.length == 2) {
                     str = split[1];
                 }
-                nVar.mTitleView.setText(str + "(" + bWx.member_group_num + ")");
+                nVar.mTitleView.setText(str + "(" + bWy.member_group_num + ")");
                 int i2 = 0;
-                for (BawuRoleInfoPub bawuRoleInfoPub : bWx.member_group_list) {
+                for (BawuRoleInfoPub bawuRoleInfoPub : bWy.member_group_list) {
                     if (i2 > 3) {
                         break;
                     } else if (bawuRoleInfoPub != null) {

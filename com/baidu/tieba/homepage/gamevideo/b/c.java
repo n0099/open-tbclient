@@ -43,7 +43,7 @@ public class c {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             c.this.g(customResponsedMessage);
             if (c.this.ipW != null) {
-                c.this.ipW.cjd();
+                c.this.ipW.cje();
             }
         }
     };
@@ -89,18 +89,18 @@ public class c {
     private final View.OnClickListener iqb = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!c.this.ipW.cjl()) {
+            if (!c.this.ipW.cjm()) {
                 c.this.ipW.ov(true);
                 if (c.this.ipZ.isShowing()) {
-                    c.this.ipZ.ciQ();
-                    c.this.ipW.cjk();
-                    an.setBackgroundResource(c.this.ipW.cji(), R.color.cp_bg_line_h);
+                    c.this.ipZ.ciR();
+                    c.this.ipW.cjl();
+                    an.setBackgroundResource(c.this.ipW.cjj(), R.color.cp_bg_line_h);
                     return;
                 }
-                c.this.ipZ.ch(c.this.ipW.cji());
-                c.this.ipW.cjj();
-                an.setBackgroundResource(c.this.ipW.cji(), R.color.cp_bg_line_d);
-                if (c.this.ipX != null && !w.isEmpty(c.this.ipX.ciX())) {
+                c.this.ipZ.ch(c.this.ipW.cjj());
+                c.this.ipW.cjk();
+                an.setBackgroundResource(c.this.ipW.cjj(), R.color.cp_bg_line_d);
+                if (c.this.ipX != null && !w.isEmpty(c.this.ipX.ciY())) {
                     TiebaStatic.log("c13490");
                 }
             }
@@ -111,7 +111,7 @@ public class c {
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
                 c.this.ipX.xi(c.this.dYs);
-                c.this.ciV();
+                c.this.ciW();
                 c.this.ipW.ou(false);
                 return;
             }
@@ -122,26 +122,26 @@ public class c {
     private BdListView.e iqc = new BdListView.e() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.5
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            c.this.ipW.btJ();
+            c.this.ipW.btK();
             c.this.ipX.xj(c.this.dYs);
-            c.this.ciV();
+            c.this.ciW();
         }
     };
     private b.a iqd = new b.a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.6
         @Override // com.baidu.tieba.homepage.gamevideo.d.b.a
         public void e(int i, boolean z, boolean z2) {
             c.this.ipW.hideLoadingView();
-            c.this.ipW.btN();
+            c.this.ipW.btO();
             if (z || z2) {
                 c.this.ipW.b((f.e) null);
             } else {
                 c.this.ipW.b(c.this.xh(i));
             }
-            if (!c.this.ciW()) {
-                if (!w.isEmpty(c.this.ipX.ciX()) && !StringUtils.isNull(com.baidu.tbadk.core.sharedPref.b.aVP().getString("key_game_video_tab_has_choosed_sub_class_name", ""))) {
+            if (!c.this.ciX()) {
+                if (!w.isEmpty(c.this.ipX.ciY()) && !StringUtils.isNull(com.baidu.tbadk.core.sharedPref.b.aVP().getString("key_game_video_tab_has_choosed_sub_class_name", ""))) {
                     c.this.ipW.ow(c.this.ipZ.isShowing());
-                    c.this.ipW.cjm();
-                    c.this.ipZ.setData(c.this.ipX.ciX());
+                    c.this.ipW.cjn();
+                    c.this.ipZ.setData(c.this.ipX.ciY());
                 }
                 if (i != 0) {
                     c.this.ipW.aD(c.this.ipX.getDataList());
@@ -149,7 +149,7 @@ public class c {
                 } else if (w.isEmpty(c.this.ipW.getDataList())) {
                     c.this.ipW.showNoDataView();
                 } else if (z) {
-                    c.this.ipW.btI();
+                    c.this.ipW.btJ();
                 }
             }
         }
@@ -158,7 +158,7 @@ public class c {
         public void l(int i, String str, boolean z) {
             c.this.ipW.b((f.e) null);
             c.this.ipW.hideLoadingView();
-            c.this.ipW.btN();
+            c.this.ipW.btO();
             if (w.isEmpty(c.this.ipW.getDataList())) {
                 c.this.ipW.l(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.6.1
                     @Override // android.view.View.OnClickListener
@@ -182,14 +182,14 @@ public class c {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (c.this.ipW != null && c.this.ipX != null) {
-                c.this.ipW.btJ();
+                c.this.ipW.btK();
                 c.this.ipX.xj(c.this.dYs);
             }
         }
     };
     private b.a iqf = new b.a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.8
         @Override // com.baidu.tieba.homepage.gamevideo.b.b.a
-        public void ciT() {
+        public void ciU() {
             c.this.ipW.ni(true);
         }
 
@@ -207,7 +207,7 @@ public class c {
         }
 
         @Override // com.baidu.tieba.homepage.gamevideo.b.b.a
-        public void ciU() {
+        public void ciV() {
             if (c.this.ipW != null) {
                 c.this.ipW.ow(false);
                 c.this.ipW.ni(false);
@@ -259,13 +259,13 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ciV() {
+    public void ciW() {
         TiebaStatic.log(new ao("c13493").ag("obj_type", this.dYs));
     }
 
     public void loadData() {
         if (this.ipW != null) {
-            this.ipW.cjg();
+            this.ipW.cjh();
             this.ipW.showLoadingView();
         }
         if (this.ipX != null) {
@@ -275,10 +275,10 @@ public class c {
 
     public void IB() {
         if (this.ipW != null) {
-            this.ipW.cjc();
+            this.ipW.cjd();
             this.ipW.startPullRefresh();
             this.ipW.ou(false);
-            this.ipW.cje();
+            this.ipW.cjf();
         }
     }
 
@@ -294,11 +294,11 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ciW() {
-        if (this.ipX == null || w.isEmpty(this.ipX.ciX()) || (!(this.ipX.ciY() || this.dYs == 0) || this.ipY == null)) {
+    public boolean ciX() {
+        if (this.ipX == null || w.isEmpty(this.ipX.ciY()) || (!(this.ipX.ciZ() || this.dYs == 0) || this.ipY == null)) {
             return false;
         }
-        this.ipY.setData(this.ipX.ciX());
+        this.ipY.setData(this.ipX.ciY());
         this.ipY.bA((ViewGroup) this.ipW.getRootView());
         com.baidu.tbadk.core.sharedPref.b.aVP().remove("key_game_video_tab_has_choosed_sub_class_id");
         com.baidu.tbadk.core.sharedPref.b.aVP().remove("key_game_video_tab_has_choosed_sub_class_name");
@@ -327,16 +327,16 @@ public class c {
             this.ipY.onChangeSkinType();
         }
         if (this.ipZ.isShowing()) {
-            an.setBackgroundResource(this.ipW.cji(), R.color.cp_bg_line_d);
+            an.setBackgroundResource(this.ipW.cjj(), R.color.cp_bg_line_d);
         } else {
-            an.setBackgroundResource(this.ipW.cji(), R.color.cp_bg_line_h);
+            an.setBackgroundResource(this.ipW.cjj(), R.color.cp_bg_line_h);
         }
     }
 
     public void onPause() {
         if (this.ipW != null) {
             this.ipW.onPause();
-            this.ipW.chX();
+            this.ipW.chY();
             this.ipW.setTabInForeBackgroundState(true);
         }
     }
@@ -369,9 +369,9 @@ public class c {
             return;
         }
         if (this.ipZ != null) {
-            this.ipZ.ciR();
+            this.ipZ.ciS();
         }
-        this.ipW.chX();
+        this.ipW.chY();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

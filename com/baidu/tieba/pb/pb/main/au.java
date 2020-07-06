@@ -34,7 +34,7 @@ public class au {
         return intent;
     }
 
-    public static int cLE() {
+    public static int cLF() {
         return klW[new Random().nextInt(klW.length)];
     }
 
@@ -84,20 +84,20 @@ public class au {
         }
     }
 
-    public static int cLF() {
+    public static int cLG() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds88);
     }
 
-    public static int cLG() {
+    public static int cLH() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds195);
     }
 
     public static int r(com.baidu.tieba.pb.data.e eVar) {
-        if (eVar == null || eVar.cGN() == null) {
+        if (eVar == null || eVar.cGO() == null) {
             return 0;
         }
-        if (eVar.cGN().aTM()) {
-            return (com.baidu.tbadk.core.util.w.isEmpty(eVar.cHj()) && (eVar.cGM() == null || StringUtils.isNull(eVar.cGM().getForumName()))) ? 0 : 2;
+        if (eVar.cGO().aTM()) {
+            return (com.baidu.tbadk.core.util.w.isEmpty(eVar.cHk()) && (eVar.cGN() == null || StringUtils.isNull(eVar.cGN().getForumName()))) ? 0 : 2;
         }
         return 1;
     }

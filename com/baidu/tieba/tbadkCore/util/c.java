@@ -17,7 +17,7 @@ public class c extends d {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory() != null) {
-                    TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().djc();
+                    TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().djd();
                 }
             }
         });
@@ -42,7 +42,7 @@ public class c extends d {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.d
-    public void djc() {
+    public void djd() {
         synchronized (this) {
             this.lIS.clear();
             this.lIR.clear();

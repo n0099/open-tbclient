@@ -65,7 +65,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
                     if (PbBusinessPromotionContainer.this.aiq != null && PbBusinessPromotionContainer.this.aiq.getFid() == longValue && PbBusinessPromotionContainer.this.isShowing) {
                         PbBusinessPromotionContainer.this.kAo = false;
-                        PbBusinessPromotionContainer.this.cQJ();
+                        PbBusinessPromotionContainer.this.cQK();
                     }
                 }
             }
@@ -78,7 +78,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
                     if (PbBusinessPromotionContainer.this.aiq != null && PbBusinessPromotionContainer.this.aiq.getFid() == longValue && PbBusinessPromotionContainer.this.isShowing) {
                         PbBusinessPromotionContainer.this.kAo = true;
-                        PbBusinessPromotionContainer.this.cQJ();
+                        PbBusinessPromotionContainer.this.cQK();
                     }
                 }
             }
@@ -112,12 +112,12 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         if (!this.mHasInit) {
             this.mHasInit = true;
             this.kAo = bqVar.getIsLike();
-            cQJ();
+            cQK();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cQJ() {
+    public void cQK() {
         if (this.kAo) {
             this.gjf.setText(getResources().getString(R.string.followed));
             an.setViewTextColor(this.gjf, (int) R.color.cp_cont_d);

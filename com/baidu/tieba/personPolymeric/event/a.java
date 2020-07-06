@@ -65,7 +65,7 @@ public class a implements f {
                     }
                     return;
                 case 5:
-                    com.baidu.tieba.p.a.daq().g(2, false, this.isHost);
+                    com.baidu.tieba.p.a.dar().g(2, false, this.isHost);
                     if (userData != null) {
                         TiebaStatic.log(new ao("c11597").ag("obj_locate", 3).ag("obj_type", this.kOa).ag("obj_source", this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mPageContext.getPageActivity(), false, userData.getUserId(), userData.getSex())));

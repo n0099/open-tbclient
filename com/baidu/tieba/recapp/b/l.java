@@ -13,9 +13,9 @@ public class l extends ad.a implements com.baidu.tieba.play.f {
         this.hTt = eVar;
     }
 
-    public void cxE() {
+    public void cxF() {
         if (this.hTt != null) {
-            this.hTt.cxE();
+            this.hTt.cxF();
         }
     }
 

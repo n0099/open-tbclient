@@ -78,26 +78,26 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         initData();
     }
 
-    public void coT() {
+    public void coU() {
         this.iOV.startLoad();
     }
 
-    public void coU() {
+    public void coV() {
         if (this.iOV != null) {
             this.iOV.cancelLoad();
             this.iOV = null;
         }
     }
 
-    public void cpj() {
+    public void cpk() {
         this.iPA.setVisibility(8);
     }
 
-    public void cpk() {
+    public void cpl() {
         this.iPA.setVisibility(0);
     }
 
-    public void cpg() {
+    public void cph() {
         if (this.iPI != null) {
             this.iPI.notifyDataSetChanged();
         }
@@ -159,24 +159,24 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         this.iOV = new com.baidu.tieba.im.util.b(this.iPx);
         this.iOV.setUniqueId(this.iPx.getUniqueId());
         if (!ac.d(this.iPx, RequestResponseCode.REQUEST_BUY_TBEAN_FROM_JOIN_GUARDCLUB)) {
-            coT();
+            coU();
         }
     }
 
-    public void cpl() {
+    public void cpm() {
         this.iPB.setText(R.string.address_pos_list);
         this.iPD.setText(R.string.location_loading);
         this.iPE.setVisibility(8);
         this.iNV = 3;
-        cpn();
+        cpo();
     }
 
-    public void cpm() {
+    public void cpn() {
         this.iPB.setText(R.string.address_locate_noaddresslist);
         this.iPD.setText(R.string.address_locate_failed_tryagain);
         this.iPE.setVisibility(0);
         this.iNV = 2;
-        cpn();
+        cpo();
     }
 
     public void K(String[] strArr) {
@@ -189,26 +189,26 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         } else {
             this.iPB.setText(R.string.address_locate_noaddresslist);
         }
-        cpn();
+        cpo();
     }
 
-    public void coe() {
+    public void cof() {
         this.iPB.setText(R.string.address_pos_list);
         this.iPD.setText(R.string.address_locate_failed_opengps);
         this.iPE.setVisibility(0);
         this.iNV = 1;
-        cpn();
+        cpo();
     }
 
     public void onResume() {
         Drawable[] compoundDrawables = this.iPD.getCompoundDrawables();
         if (compoundDrawables != null && compoundDrawables.length > 0 && (compoundDrawables[0] instanceof AnimationDrawable)) {
             this.iPG = (AnimationDrawable) compoundDrawables[0];
-            cpn();
+            cpo();
         }
     }
 
-    private void cpn() {
+    private void cpo() {
         if (this.iPG != null) {
             if (this.iNV == 3) {
                 this.iPG.start();
@@ -227,7 +227,7 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         this.iPe = str;
     }
 
-    public View cpf() {
+    public View cpg() {
         return this.eDq;
     }
 
@@ -235,15 +235,15 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         return this.eDr;
     }
 
-    public View cpo() {
+    public View cpp() {
         return this.iPy;
     }
 
-    public View cpp() {
+    public View cpq() {
         return this.iPC;
     }
 
-    public int coc() {
+    public int cod() {
         return this.iNV;
     }
 

@@ -85,7 +85,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
         registerListener(this.lwU);
     }
 
-    public boolean dfx() {
+    public boolean dfy() {
         return this.lwT;
     }
 
@@ -144,7 +144,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
         return true;
     }
 
-    public ResponsedMessage<?> ceb() {
+    public ResponsedMessage<?> cec() {
         return this.hUX;
     }
 }

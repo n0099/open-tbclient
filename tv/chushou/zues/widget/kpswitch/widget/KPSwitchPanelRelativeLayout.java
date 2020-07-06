@@ -7,7 +7,7 @@ import tv.chushou.zues.widget.kpswitch.a;
 import tv.chushou.zues.widget.kpswitch.b;
 /* loaded from: classes5.dex */
 public class KPSwitchPanelRelativeLayout extends RelativeLayout implements a, b {
-    private tv.chushou.zues.widget.kpswitch.a.b onB;
+    private tv.chushou.zues.widget.kpswitch.a.b onE;
 
     public KPSwitchPanelRelativeLayout(Context context) {
         super(context);
@@ -25,30 +25,30 @@ public class KPSwitchPanelRelativeLayout extends RelativeLayout implements a, b 
     }
 
     private void init(AttributeSet attributeSet) {
-        this.onB = new tv.chushou.zues.widget.kpswitch.a.b(this, attributeSet);
+        this.onE = new tv.chushou.zues.widget.kpswitch.a.b(this, attributeSet);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (!this.onB.eo(i)) {
+        if (!this.onE.eo(i)) {
             super.setVisibility(i);
         }
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        int[] Z = this.onB.Z(i, i2);
+        int[] Z = this.onE.Z(i, i2);
         super.onMeasure(Z[0], Z[1]);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dXb() {
-        return this.onB.dXb();
+    public boolean dXf() {
+        return this.onE.dXf();
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
     public boolean isVisible() {
-        return this.onB.isVisible();
+        return this.onE.isVisible();
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
@@ -58,29 +58,29 @@ public class KPSwitchPanelRelativeLayout extends RelativeLayout implements a, b 
 
     @Override // tv.chushou.zues.widget.kpswitch.a
     public void Rs() {
-        this.onB.Rs();
+        this.onE.Rs();
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
-        this.onB.setIgnoreRecommendHeight(z);
+        this.onE.setIgnoreRecommendHeight(z);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
     public void LS(int i) {
-        this.onB.LT(i);
+        this.onE.LT(i);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
     public void wY(boolean z) {
-        this.onB.xO(z);
+        this.onE.xO(z);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dXc() {
-        return this.onB.dXc();
+    public boolean dXg() {
+        return this.onE.dXg();
     }
 
     public void setPanelEnabled(boolean z) {
-        this.onB.setPanelEnabled(z);
+        this.onE.setPanelEnabled(z);
     }
 }

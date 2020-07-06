@@ -1,21 +1,21 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes12.dex */
 public class a implements aj<com.facebook.imagepipeline.g.e> {
-    private final aj<com.facebook.imagepipeline.g.e> mVP;
+    private final aj<com.facebook.imagepipeline.g.e> mVS;
 
     public a(aj<com.facebook.imagepipeline.g.e> ajVar) {
-        this.mVP = ajVar;
+        this.mVS = ajVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.mVP.c(new C0807a(kVar), akVar);
+        this.mVS.c(new C0808a(kVar), akVar);
     }
 
     /* renamed from: com.facebook.imagepipeline.producers.a$a  reason: collision with other inner class name */
     /* loaded from: classes12.dex */
-    private static class C0807a extends n<com.facebook.imagepipeline.g.e, com.facebook.imagepipeline.g.e> {
-        private C0807a(k<com.facebook.imagepipeline.g.e> kVar) {
+    private static class C0808a extends n<com.facebook.imagepipeline.g.e, com.facebook.imagepipeline.g.e> {
+        private C0808a(k<com.facebook.imagepipeline.g.e> kVar) {
             super(kVar);
         }
 
@@ -25,13 +25,13 @@ public class a implements aj<com.facebook.imagepipeline.g.e> {
         /* renamed from: a */
         public void g(com.facebook.imagepipeline.g.e eVar, int i) {
             if (eVar == null) {
-                dGk().h(null, i);
+                dGo().h(null, i);
                 return;
             }
             if (!com.facebook.imagepipeline.g.e.d(eVar)) {
-                eVar.dFd();
+                eVar.dFh();
             }
-            dGk().h(eVar, i);
+            dGo().h(eVar, i);
         }
     }
 }

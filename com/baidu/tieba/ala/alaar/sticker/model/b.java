@@ -32,14 +32,14 @@ public class b implements d {
         this.fhY.setFile(this.ckZ);
     }
 
-    public String bsC() {
+    public String bsD() {
         if (this.fhX == null) {
             return null;
         }
         return this.fhX.fhS;
     }
 
-    public Sticker.AbilityModel bsD() {
+    public Sticker.AbilityModel bsE() {
         return this.fhY;
     }
 
@@ -67,15 +67,15 @@ public class b implements d {
         if (aVar != null) {
             this.fhV.push(aVar);
         }
-        bsE();
+        bsF();
     }
 
-    private void bsE() {
+    private void bsF() {
         if (!isLoaded() && !isLoading()) {
             synchronized (this) {
                 if (!isLoaded() && !isLoading()) {
                     this.fhW = new a();
-                    com.baidu.tieba.ala.alaar.sticker.download.b.bsn().a(this.fhX.mUrl, this.mFolder, this.fhU.getName(), this.fhW);
+                    com.baidu.tieba.ala.alaar.sticker.download.b.bso().a(this.fhX.mUrl, this.mFolder, this.fhU.getName(), this.fhW);
                 }
             }
         }

@@ -108,12 +108,12 @@ public class a {
                 this.fRU.setLayoutParams(layoutParams2);
             }
             if (this.fRT != null) {
-                this.fRT.bnp();
+                this.fRT.bnq();
             }
         }
     }
 
-    public View bzg() {
+    public View bzh() {
         return this.fRT;
     }
 

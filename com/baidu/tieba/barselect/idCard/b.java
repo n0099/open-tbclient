@@ -61,14 +61,14 @@ public class b implements d {
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
             b.this.gLn = surfaceTexture;
-            b.this.bNE();
+            b.this.bNF();
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
             b.this.bI(b.this.gLf.getWidth(), b.this.gLf.getHeight());
             b.this.lS(false);
-            b.this.bNC();
+            b.this.bND();
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
@@ -78,7 +78,7 @@ public class b implements d {
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-            b.this.bNC();
+            b.this.bND();
         }
     };
     private Comparator<Camera.Size> gLo = new Comparator<Camera.Size>() { // from class: com.baidu.tieba.barselect.idCard.b.5
@@ -96,7 +96,7 @@ public class b implements d {
         return i;
     }
 
-    public int bNx() {
+    public int bNy() {
         return this.rotation;
     }
 
@@ -115,8 +115,8 @@ public class b implements d {
             }
             try {
                 yuvImage.compressToJpeg(new Rect(0, 0, this.gLj.width, this.gLj.height), 80, byteArrayOutputStream);
-                if (this.gLh.i(byteArrayOutputStream.toByteArray(), bNx()) == 0) {
-                    bND();
+                if (this.gLh.i(byteArrayOutputStream.toByteArray(), bNy()) == 0) {
+                    bNE();
                 }
                 if (byteArrayOutputStream != null) {
                     try {
@@ -169,7 +169,7 @@ public class b implements d {
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
-    public void bNy() {
+    public void bNz() {
         lS(true);
     }
 
@@ -182,7 +182,7 @@ public class b implements d {
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
-    public int bNz() {
+    public int bNA() {
         return this.gKZ;
     }
 
@@ -232,7 +232,7 @@ public class b implements d {
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
-    public View bNA() {
+    public View bNB() {
         return this.gLg;
     }
 
@@ -255,7 +255,7 @@ public class b implements d {
                 this.gLc.setPictureSize(bZ.width, bZ.height);
                 this.camera.setParameters(this.gLc);
                 this.gLa.set(true);
-                bNF();
+                bNG();
                 c.execute(new Runnable() { // from class: com.baidu.tieba.barselect.idCard.b.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -297,10 +297,10 @@ public class b implements d {
     }
 
     private void QO() {
-        bNB();
+        bNC();
     }
 
-    private void bNB() {
+    private void bNC() {
         TextureView textureView = new TextureView(this.context);
         this.gLf.gLu = textureView;
         this.gLf.a(textureView);
@@ -309,7 +309,7 @@ public class b implements d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bNC() {
+    public void bND() {
         if (this.buffer == null) {
             this.buffer = new byte[((this.gLg.getWidth() * this.gLg.getHeight()) * ImageFormat.getBitsPerPixel(17)) / 8];
         }
@@ -319,7 +319,7 @@ public class b implements d {
         }
     }
 
-    private void bND() {
+    private void bNE() {
         if (this.camera != null && this.gLm == 1) {
             this.camera.setPreviewCallback(null);
             stopPreview();
@@ -327,7 +327,7 @@ public class b implements d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bNE() {
+    public void bNF() {
         try {
             if (this.camera == null) {
                 Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
@@ -345,7 +345,7 @@ public class b implements d {
             }
             bI(this.gLf.getWidth(), this.gLf.getHeight());
             this.camera.setPreviewTexture(this.gLn);
-            bNC();
+            bND();
             lS(false);
         } catch (IOException e) {
             e.printStackTrace();
@@ -356,22 +356,22 @@ public class b implements d {
     public void lS(boolean z) {
         if (ActivityCompat.checkSelfPermission(this.context, PermissionRequest.RESOURCE_VIDEO_CAPTURE) != 0) {
             if (z && this.gLd != null) {
-                this.gLd.bNS();
+                this.gLd.bNT();
             }
         } else if (this.camera == null) {
-            bNE();
+            bNF();
         } else {
             this.camera.startPreview();
-            bNG();
+            bNH();
         }
     }
 
-    private void bNF() {
+    private void bNG() {
         this.camera.cancelAutoFocus();
-        c.bNT();
+        c.bNU();
     }
 
-    private void bNG() {
+    private void bNH() {
         c.v(new Runnable() { // from class: com.baidu.tieba.barselect.idCard.b.4
             @Override // java.lang.Runnable
             public void run() {
@@ -398,7 +398,7 @@ public class b implements d {
                 this.gLj = bZ(this.camera.getParameters().getSupportedPreviewSizes());
                 this.gLc.setPreviewSize(this.gLj.width, this.gLj.height);
                 this.gLf.setRatio((1.0f * this.gLj.width) / this.gLj.height);
-                this.camera.setDisplayOrientation(bNH());
+                this.camera.setDisplayOrientation(bNI());
                 stopPreview();
                 this.camera.setParameters(this.gLc);
             } catch (Exception e) {
@@ -461,7 +461,7 @@ public class b implements d {
         this.camera.setParameters(this.gLc);
     }
 
-    private int bNH() {
+    private int bNI() {
         switch (this.gKY) {
             case 0:
             default:
@@ -524,12 +524,12 @@ public class b implements d {
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
-    public Rect bNI() {
+    public Rect bNJ() {
         return this.gLe;
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
-    public void bNJ() {
+    public void bNK() {
         this.gLa.set(false);
     }
 }

@@ -16,7 +16,7 @@ public class f implements q {
         return gXR;
     }
 
-    public FeatureCardGame bPV() {
+    public FeatureCardGame bPW() {
         return this.gXS;
     }
 

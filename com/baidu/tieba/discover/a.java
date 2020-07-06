@@ -95,7 +95,7 @@ public class a {
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             findViewById.getLayoutParams().height = UtilHelper.getStatusBarHeight();
         }
-        bxg();
+        bxh();
     }
 
     public BaseWebView getWebView() {
@@ -107,7 +107,7 @@ public class a {
         this.gYc.loadUrl(str);
     }
 
-    public void bxf() {
+    public void bxg() {
         if (this.mLoadSuccess) {
             this.gYc.loadUrl("javascript:window.reload_page()");
         } else {
@@ -115,13 +115,13 @@ public class a {
         }
     }
 
-    public void bPY() {
+    public void bPZ() {
         if (this.gYc != null) {
             this.gYc.loadUrl("javascript:__js_bridge_discovery_enter_action()");
         }
     }
 
-    public void bPZ() {
+    public void bQa() {
         if (this.gYc != null) {
             this.gYc.loadUrl("javascript:__js_bridge_discovery_leave_action()");
         }
@@ -142,18 +142,18 @@ public class a {
         }
     }
 
-    public void bwk() {
-        btN();
+    public void bwl() {
+        btO();
         this.gYc.setVisibility(0);
     }
 
-    public void btM() {
+    public void btN() {
         String string = TbadkCoreApplication.getInst().getString(R.string.neterror);
         if (this.mRefreshView == null) {
             this.mRefreshView = new h(this.mPageContext.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.discover.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.bxf();
+                    a.this.bxg();
                 }
             });
             this.mRefreshView.onChangeSkinType();
@@ -165,14 +165,14 @@ public class a {
         this.mRefreshView.setLayoutMargin(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds280));
     }
 
-    public void btN() {
+    public void btO() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this.mRootView);
             this.mRefreshView = null;
         }
     }
 
-    private void bxg() {
+    private void bxh() {
         if (this.gYc != null) {
             this.gYc.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.discover.a.3
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
@@ -199,16 +199,16 @@ public class a {
                 public void onPageFinished(WebView webView, String str) {
                     a.this.hideLoadingView();
                     if (j.isNetWorkAvailable()) {
-                        a.this.bwk();
+                        a.this.bwl();
                         a.this.mLoadSuccess = true;
-                        a.this.bPY();
+                        a.this.bPZ();
                     }
                 }
             });
             this.gYc.setOnReceivedErrorListener(new BaseWebView.f() { // from class: com.baidu.tieba.discover.a.6
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
                 public void onReceivedError(WebView webView, int i, String str, String str2) {
-                    a.this.btM();
+                    a.this.btN();
                 }
             });
         }

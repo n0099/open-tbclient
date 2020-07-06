@@ -49,7 +49,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View cxy() {
+    protected View cxz() {
         this.mRootView = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null);
         this.lgc = (ViewStub) this.mRootView.findViewById(R.id.ad_custom_view_stub);
         this.lgc.setLayoutResource(getCustomLayout());

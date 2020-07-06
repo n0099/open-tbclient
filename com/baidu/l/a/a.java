@@ -7,44 +7,44 @@ import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
 public class a {
-    private static boolean mFW = false;
-    private static long mFX = 10080;
-    private static long mFY = 10;
-    private static final AtomicBoolean mFZ = new AtomicBoolean(false);
-    private static HashMap<Integer, Boolean> mGa = new HashMap<>();
-    public static HashMap<Integer, Long> mGb = new HashMap<>();
+    private static boolean mFZ = false;
+    private static long mGa = 10080;
+    private static long mGb = 10;
+    private static final AtomicBoolean mGc = new AtomicBoolean(false);
+    private static HashMap<Integer, Boolean> mGd = new HashMap<>();
+    public static HashMap<Integer, Long> mGe = new HashMap<>();
 
     public static synchronized void fL(Context context) {
         synchronized (a.class) {
-            if (!mFZ.get()) {
+            if (!mGc.get()) {
                 SharedPreferences fM = fM(context);
-                Iterator<Integer> it = b.mGc.iterator();
+                Iterator<Integer> it = b.mGf.iterator();
                 while (it.hasNext()) {
                     int intValue = it.next().intValue();
-                    mGb.put(Integer.valueOf(intValue), Long.valueOf(fM.getLong("cache_" + intValue, 10080L)));
-                    mGa.put(Integer.valueOf(intValue), Boolean.valueOf(fM.getBoolean("close_" + intValue, false)));
+                    mGe.put(Integer.valueOf(intValue), Long.valueOf(fM.getLong("cache_" + intValue, 10080L)));
+                    mGd.put(Integer.valueOf(intValue), Boolean.valueOf(fM.getBoolean("close_" + intValue, false)));
                 }
-                mGb.put(20001, Long.MAX_VALUE);
-                mGa.put(20001, true);
-                mFZ.set(true);
+                mGe.put(20001, Long.MAX_VALUE);
+                mGd.put(20001, true);
+                mGc.set(true);
             }
         }
     }
 
-    public static boolean dxJ() {
+    public static boolean dxN() {
         return false;
     }
 
     public static boolean HL(int i) {
-        if (mGa.containsKey(Integer.valueOf(i))) {
-            return mGa.get(Integer.valueOf(i)).booleanValue();
+        if (mGd.containsKey(Integer.valueOf(i))) {
+            return mGd.get(Integer.valueOf(i)).booleanValue();
         }
         return true;
     }
 
     public static long HM(int i) {
-        if (mGb.containsKey(Integer.valueOf(i))) {
-            return mGb.get(Integer.valueOf(i)).longValue();
+        if (mGe.containsKey(Integer.valueOf(i))) {
+            return mGe.get(Integer.valueOf(i)).longValue();
         }
         return Long.MAX_VALUE;
     }

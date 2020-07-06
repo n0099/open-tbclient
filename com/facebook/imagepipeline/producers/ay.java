@@ -7,29 +7,29 @@ import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class ay implements aj<com.facebook.imagepipeline.g.e> {
     private final Executor mExecutor;
-    private final com.facebook.common.memory.g mQZ;
-    private final aj<com.facebook.imagepipeline.g.e> mVP;
+    private final com.facebook.common.memory.g mRd;
+    private final aj<com.facebook.imagepipeline.g.e> mVS;
 
     public ay(Executor executor, com.facebook.common.memory.g gVar, aj<com.facebook.imagepipeline.g.e> ajVar) {
         this.mExecutor = (Executor) com.facebook.common.internal.g.checkNotNull(executor);
-        this.mQZ = (com.facebook.common.memory.g) com.facebook.common.internal.g.checkNotNull(gVar);
-        this.mVP = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
+        this.mRd = (com.facebook.common.memory.g) com.facebook.common.internal.g.checkNotNull(gVar);
+        this.mVS = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.mVP.c(new a(kVar, akVar), akVar);
+        this.mVS.c(new a(kVar, akVar), akVar);
     }
 
     /* loaded from: classes12.dex */
     private class a extends n<com.facebook.imagepipeline.g.e, com.facebook.imagepipeline.g.e> {
-        private final ak mWu;
-        private TriState mXS;
+        private final ak mWx;
+        private TriState mXV;
 
         public a(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
             super(kVar);
-            this.mWu = akVar;
-            this.mXS = TriState.UNSET;
+            this.mWx = akVar;
+            this.mXV = TriState.UNSET;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -37,16 +37,16 @@ public class ay implements aj<com.facebook.imagepipeline.g.e> {
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
         public void g(@Nullable com.facebook.imagepipeline.g.e eVar, int i) {
-            if (this.mXS == TriState.UNSET && eVar != null) {
-                this.mXS = ay.l(eVar);
+            if (this.mXV == TriState.UNSET && eVar != null) {
+                this.mXV = ay.l(eVar);
             }
-            if (this.mXS == TriState.NO) {
-                dGk().h(eVar, i);
+            if (this.mXV == TriState.NO) {
+                dGo().h(eVar, i);
             } else if (Jm(i)) {
-                if (this.mXS == TriState.YES && eVar != null) {
-                    ay.this.a(eVar, dGk(), this.mWu);
+                if (this.mXV == TriState.YES && eVar != null) {
+                    ay.this.a(eVar, dGo(), this.mWx);
                 } else {
-                    dGk().h(eVar, i);
+                    dGo().h(eVar, i);
                 }
             }
         }
@@ -56,22 +56,22 @@ public class ay implements aj<com.facebook.imagepipeline.g.e> {
     public void a(com.facebook.imagepipeline.g.e eVar, k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
         com.facebook.common.internal.g.checkNotNull(eVar);
         final com.facebook.imagepipeline.g.e b = com.facebook.imagepipeline.g.e.b(eVar);
-        this.mExecutor.execute(new aq<com.facebook.imagepipeline.g.e>(kVar, akVar.dFZ(), "WebpTranscodeProducer", akVar.getId()) { // from class: com.facebook.imagepipeline.producers.ay.1
+        this.mExecutor.execute(new aq<com.facebook.imagepipeline.g.e>(kVar, akVar.dGd(), "WebpTranscodeProducer", akVar.getId()) { // from class: com.facebook.imagepipeline.producers.ay.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.common.b.h
-            /* renamed from: dGx */
+            /* renamed from: dGB */
             public com.facebook.imagepipeline.g.e getResult() throws Exception {
-                com.facebook.common.memory.i dzp = ay.this.mQZ.dzp();
+                com.facebook.common.memory.i dzt = ay.this.mRd.dzt();
                 try {
-                    ay.a(b, dzp);
-                    com.facebook.common.references.a e = com.facebook.common.references.a.e(dzp.dzq());
+                    ay.a(b, dzt);
+                    com.facebook.common.references.a e = com.facebook.common.references.a.e(dzt.dzu());
                     com.facebook.imagepipeline.g.e eVar2 = new com.facebook.imagepipeline.g.e(e);
                     eVar2.c(b);
                     com.facebook.common.references.a.c(e);
                     return eVar2;
                 } finally {
-                    dzp.close();
+                    dzt.close();
                 }
             }
 
@@ -101,9 +101,9 @@ public class ay implements aj<com.facebook.imagepipeline.g.e> {
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
-            public void dzd() {
+            public void dzh() {
                 com.facebook.imagepipeline.g.e.e(b);
-                super.dzd();
+                super.dzh();
             }
         });
     }
@@ -113,12 +113,12 @@ public class ay implements aj<com.facebook.imagepipeline.g.e> {
         com.facebook.common.internal.g.checkNotNull(eVar);
         com.facebook.c.c t = com.facebook.c.d.t(eVar.getInputStream());
         if (com.facebook.c.b.b(t)) {
-            com.facebook.imagepipeline.nativecode.c dFV = com.facebook.imagepipeline.nativecode.d.dFV();
-            if (dFV == null) {
+            com.facebook.imagepipeline.nativecode.c dFZ = com.facebook.imagepipeline.nativecode.d.dFZ();
+            if (dFZ == null) {
                 return TriState.NO;
             }
-            return TriState.valueOf(!dFV.d(t));
-        } else if (t == com.facebook.c.c.mQe) {
+            return TriState.valueOf(!dFZ.d(t));
+        } else if (t == com.facebook.c.c.mQh) {
             return TriState.UNSET;
         } else {
             return TriState.NO;
@@ -129,12 +129,12 @@ public class ay implements aj<com.facebook.imagepipeline.g.e> {
     public static void a(com.facebook.imagepipeline.g.e eVar, com.facebook.common.memory.i iVar) throws Exception {
         InputStream inputStream = eVar.getInputStream();
         com.facebook.c.c t = com.facebook.c.d.t(inputStream);
-        if (t == com.facebook.c.b.mPY || t == com.facebook.c.b.mQa) {
-            com.facebook.imagepipeline.nativecode.d.dFV().b(inputStream, iVar, 80);
-            eVar.c(com.facebook.c.b.mPU);
-        } else if (t == com.facebook.c.b.mPZ || t == com.facebook.c.b.mQb) {
-            com.facebook.imagepipeline.nativecode.d.dFV().f(inputStream, iVar);
-            eVar.c(com.facebook.c.b.mPV);
+        if (t == com.facebook.c.b.mQb || t == com.facebook.c.b.mQd) {
+            com.facebook.imagepipeline.nativecode.d.dFZ().b(inputStream, iVar, 80);
+            eVar.c(com.facebook.c.b.mPX);
+        } else if (t == com.facebook.c.b.mQc || t == com.facebook.c.b.mQe) {
+            com.facebook.imagepipeline.nativecode.d.dFZ().f(inputStream, iVar);
+            eVar.c(com.facebook.c.b.mPY);
         } else {
             throw new IllegalArgumentException("Wrong image format");
         }

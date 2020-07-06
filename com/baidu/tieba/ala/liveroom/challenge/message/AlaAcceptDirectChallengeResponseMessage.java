@@ -27,11 +27,11 @@ public class AlaAcceptDirectChallengeResponseMessage extends JsonHttpResponsedMe
         }
     }
 
-    public com.baidu.live.challenge.a bCC() {
+    public com.baidu.live.challenge.a bCD() {
         return this.fZn;
     }
 
-    public boolean bCD() {
+    public boolean bCE() {
         return this.fZm == 1;
     }
 }

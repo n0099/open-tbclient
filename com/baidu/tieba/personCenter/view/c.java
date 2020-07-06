@@ -76,7 +76,7 @@ public class c {
 
     public void b(com.baidu.tieba.personCenter.c.f fVar) {
         if (fVar != null) {
-            this.kHc.setData(fVar.cRP());
+            this.kHc.setData(fVar.cRQ());
         }
     }
 
@@ -91,12 +91,12 @@ public class c {
     public void initView() {
         this.mTitle = this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(R.string.mine));
         this.kHd.a(this.mPageContext.getPageActivity(), this.mNavigationBar);
-        this.kHd.dqv();
+        this.kHd.dqz();
         this.kHd.setOnViewResponseListener(null);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public boolean bSR() {
+    public boolean bSS() {
         if (this.refreshView != null) {
             return this.refreshView.isViewAttached();
         }
@@ -107,14 +107,14 @@ public class c {
         this.kHg = aVar;
     }
 
-    public void btM() {
-        if (!bSR()) {
+    public void btN() {
+        if (!bSS()) {
             if (this.refreshView == null) {
                 this.refreshView = new com.baidu.tbadk.k.h(this.mPageContext.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.c.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (j.isNetworkAvailableForImmediately()) {
-                            c.this.btN();
+                            c.this.btO();
                             if (c.this.kHg != null) {
                                 c.this.kHg.cT(view);
                             }
@@ -128,7 +128,7 @@ public class c {
         }
     }
 
-    public void btN() {
+    public void btO() {
         if (this.refreshView != null) {
             this.refreshView.dettachView(this.kHf);
             this.refreshView = null;
@@ -156,7 +156,7 @@ public class c {
 
     public void onDestroy() {
         if (this.kHc != null) {
-            this.kHc.cRM();
+            this.kHc.cRN();
         }
     }
 
@@ -164,15 +164,15 @@ public class c {
         this.kHd.ac(i, z);
     }
 
-    public void cRL() {
-        if (this.kHc != null) {
-            this.kHc.cRL();
-        }
-    }
-
     public void cRM() {
         if (this.kHc != null) {
             this.kHc.cRM();
+        }
+    }
+
+    public void cRN() {
+        if (this.kHc != null) {
+            this.kHc.cRN();
         }
     }
 }

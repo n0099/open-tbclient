@@ -19,7 +19,7 @@ public class j {
     private j() {
     }
 
-    public static j biI() {
+    public static j biJ() {
         return eEd;
     }
 

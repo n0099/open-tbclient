@@ -41,7 +41,7 @@ public class b {
         }
 
         @Override // com.baidu.tieba.ala.liveroom.p.a.b
-        public void bIY() {
+        public void bIZ() {
             b.this.fPf.ay(b.this.mUserId, b.this.mLiveId);
         }
 

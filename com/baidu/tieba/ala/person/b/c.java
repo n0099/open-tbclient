@@ -25,10 +25,10 @@ public class c {
 
     private void initView() {
         this.avn = new AlaLiveRoomPanelTabHost(this.mPageContext.getPageActivity());
-        bwh();
+        bwi();
     }
 
-    private void bwh() {
+    private void bwi() {
         this.avk.add(new d(this.mPageContext, 0, this.mUserId, this.fAz));
         this.avk.add(new d(this.mPageContext, 1, this.mUserId, this.fAz));
         this.avn.setData(this.avk);

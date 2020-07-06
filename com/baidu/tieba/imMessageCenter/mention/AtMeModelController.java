@@ -39,7 +39,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    AtMeModelController.this.jgj.cuG();
+                    AtMeModelController.this.jgj.cuH();
                 }
             }
         };
@@ -64,8 +64,8 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bPk() {
-        if (!this.jgl.isLoading() && this.gVU.bhm() && cuF()) {
+    public boolean bPl() {
+        if (!this.jgl.isLoading() && this.gVU.bhm() && cuG()) {
             this.gVU.it(true);
             this.gVU.iv(true);
             this.jgk.e(this.jgn);
@@ -78,8 +78,8 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean cdm() {
-        if (this.jgl.isLoading() || !cuF()) {
+    public boolean cdn() {
+        if (this.jgl.isLoading() || !cuG()) {
             return false;
         }
         this.jgn = null;
@@ -89,22 +89,22 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
         return true;
     }
 
-    protected boolean cuF() {
+    protected boolean cuG() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
         if (this.jgo != null && this.jgo.jhr != null) {
             this.jgo.jhr.clear();
         }
-        this.jgj.cuG();
+        this.jgj.cuH();
         this.jgj.a(this.jgo);
         return false;
     }
 
-    public boolean bPj() {
-        if (cuF()) {
+    public boolean bPk() {
+        if (cuG()) {
             if (this.jgj != null) {
-                this.jgj.cuH();
+                this.jgj.cuI();
             }
             this.jgm.a((com.baidu.tbadk.mvc.b.e) this.jgk);
             return true;
@@ -114,11 +114,11 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
 
     protected boolean a(b bVar, c cVar) {
         if (bVar.getUpdateType() != 4) {
-            this.jgo.cvb().clear();
+            this.jgo.cvc().clear();
         }
         this.jgo.a(cVar);
-        if (cVar != null && cVar.cvb() != null && cVar.cvb().size() > 0) {
-            this.jgn = cVar.cvb().get(cVar.cvb().size() - 1);
+        if (cVar != null && cVar.cvc() != null && cVar.cvc().size() > 0) {
+            this.jgn = cVar.cvc().get(cVar.cvc().size() - 1);
             if (this.jgo.getPage() != null) {
                 this.gVU.iu(this.jgo.getPage().aRf() == 1);
             } else {
@@ -137,7 +137,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
         this.gVU.is(false);
         com.baidu.tbadk.coreExtra.messageCenter.b.bbo().bbD();
         if (!TbadkCoreApplication.isLogin()) {
-            this.jgo.cvb().clear();
+            this.jgo.cvc().clear();
         } else {
             this.jgj.c(this.gVU);
         }
@@ -163,7 +163,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<c> mvcHttpResponsedMessage, MvcHttpMessage<b, c> mvcHttpMessage, MvcNetMessage<b, c> mvcNetMessage) {
         c cVar;
-        this.jgj.cuG();
+        this.jgj.cuH();
         if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
             cVar = mvcHttpResponsedMessage.getData();
             r1 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
@@ -189,7 +189,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<c, ?> mvcSocketResponsedMessage, MvcSocketMessage<b, c> mvcSocketMessage, MvcNetMessage<b, c> mvcNetMessage) {
         c cVar;
-        this.jgj.cuG();
+        this.jgj.cuH();
         if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
             cVar = mvcSocketResponsedMessage.getData();
             r1 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;

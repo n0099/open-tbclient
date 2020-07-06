@@ -54,9 +54,9 @@ public class b extends com.baidu.tieba.card.b<e> {
     /* renamed from: b */
     public void a(e eVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = eVar.getPersonCenterData();
-        if (personCenterData != null && personCenterData.bLu() != null) {
+        if (personCenterData != null && personCenterData.bLv() != null) {
             this.gFs = eVar;
-            if (personCenterData.bLu().live_status != 1 && !personCenterData.isHost()) {
+            if (personCenterData.bLv().live_status != 1 && !personCenterData.isHost()) {
                 this.gFr.setVisibility(8);
                 this.gFl.setVisibility(8);
                 this.gFm.setVisibility(8);
@@ -65,7 +65,7 @@ public class b extends com.baidu.tieba.card.b<e> {
                 this.gFl.setVisibility(0);
                 this.gFm.setVisibility(0);
             }
-            int i = personCenterData.bLu().level_id;
+            int i = personCenterData.bLv().level_id;
             if (i > 40) {
                 i = 40;
             }
@@ -92,12 +92,12 @@ public class b extends com.baidu.tieba.card.b<e> {
                 this.gFi.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_5));
                 this.gFn.setBackgroundResource(R.drawable.icon_live_level_5);
             }
-            this.gFp.setMax(personCenterData.bLu().next_exp);
-            this.gFp.setProgress(personCenterData.bLu().level_exp);
+            this.gFp.setMax(personCenterData.bLv().next_exp);
+            this.gFp.setProgress(personCenterData.bLv().level_exp);
             StringBuilder sb = new StringBuilder();
-            sb.append(Integer.toString(personCenterData.bLu().level_exp));
+            sb.append(Integer.toString(personCenterData.bLv().level_exp));
             int length = sb.length();
-            sb.append("/").append(Integer.toString(personCenterData.bLu().next_exp));
+            sb.append("/").append(Integer.toString(personCenterData.bLv().next_exp));
             SpannableString spannableString = new SpannableString(sb.toString());
             spannableString.setSpan(new ForegroundColorSpan(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_exp_text)), 0, length, 33);
             spannableString.setSpan(new ForegroundColorSpan(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.cp_cont_g)), length, sb.length(), 33);
@@ -105,7 +105,7 @@ public class b extends com.baidu.tieba.card.b<e> {
             if (i >= 40) {
                 this.gFm.setText(R.string.ala_level_max_tips);
             } else {
-                this.gFm.setText(String.format(this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_level_next_tips), Integer.valueOf(personCenterData.bLu().next_exp - personCenterData.bLu().level_exp)));
+                this.gFm.setText(String.format(this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_level_next_tips), Integer.valueOf(personCenterData.bLv().next_exp - personCenterData.bLv().level_exp)));
             }
         }
     }
@@ -125,8 +125,8 @@ public class b extends com.baidu.tieba.card.b<e> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (bOc() != null) {
-            bOc().a(view, this.gFs);
+        if (bOd() != null) {
+            bOd().a(view, this.gFs);
         }
     }
 }

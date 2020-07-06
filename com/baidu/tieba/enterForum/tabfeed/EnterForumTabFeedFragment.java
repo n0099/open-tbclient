@@ -41,7 +41,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
         if (this.him == null) {
             this.him = new EnterForumTabFeedNetModel(getPageContext(), this, getUniqueId());
             this.him.ec(this.tabCode, this.tabName);
-            this.him.bTb();
+            this.him.bTc();
         }
     }
 
@@ -72,13 +72,13 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        s.bOA().mc(false);
+        s.bOB().mc(false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        s.bOA().mc(false);
+        s.bOB().mc(false);
         if (this.him != null) {
             this.him.destory();
         }
@@ -139,9 +139,9 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
     }
 
     @Override // com.baidu.tieba.enterForum.tabfeed.b
-    public void bSS() {
+    public void bST() {
         if (this.him != null) {
-            this.him.btu();
+            this.him.btv();
         }
     }
 
@@ -149,7 +149,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
         if (this.him != null) {
             if (this.hin != null && z) {
                 if (this.him.hasData()) {
-                    this.hin.bTf();
+                    this.hin.bTg();
                     this.hin.jc(true);
                 } else {
                     hideNetRefreshView(this.rootView);
@@ -228,9 +228,9 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
         }
     }
 
-    public boolean bRR() {
+    public boolean bRS() {
         if (this.hin != null) {
-            return this.hin.bTg();
+            return this.hin.bTh();
         }
         return true;
     }

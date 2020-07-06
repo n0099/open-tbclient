@@ -61,16 +61,16 @@ public class r extends com.baidu.tieba.frs.j<s, t> {
                     an.setViewTextColor(tVar.hwH, R.color.cp_cont_b, 1);
                     an.setBackgroundResource(tVar.hwJ, R.drawable.frs_member_manito_bg);
                 }
-                int bWA = sVar.bWA();
+                int bWB = sVar.bWB();
                 String string2 = this.mContext.getResources().getString(R.string.tbtitle_quota_is_full);
-                if (bWA == -1) {
-                    int bWy = sVar.bWy();
-                    String numberUniformFormat = ar.numberUniformFormat(bWy);
-                    if (bWy > 0) {
+                if (bWB == -1) {
+                    int bWz = sVar.bWz();
+                    String numberUniformFormat = ar.numberUniformFormat(bWz);
+                    if (bWz > 0) {
                         string = String.format(this.mContext.getResources().getString(R.string.tbtitle_apply_assist_left_num_tip), numberUniformFormat);
                         tVar.hwJ.setOnClickListener(this.mClickListener);
                         tVar.hwI.setText(string);
-                        tVar.hwJ.setTag(R.id.private_apply_tip, sVar.bWz());
+                        tVar.hwJ.setTag(R.id.private_apply_tip, sVar.bWA());
                         tVar.hwJ.setEnabled(z);
                         tVar.hwJ.setClickable(z);
                         tVar.hwI.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, an.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
@@ -80,18 +80,18 @@ public class r extends com.baidu.tieba.frs.j<s, t> {
                     string = string2;
                     tVar.hwJ.setOnClickListener(this.mClickListener);
                     tVar.hwI.setText(string);
-                    tVar.hwJ.setTag(R.id.private_apply_tip, sVar.bWz());
+                    tVar.hwJ.setTag(R.id.private_apply_tip, sVar.bWA());
                     tVar.hwJ.setEnabled(z);
                     tVar.hwJ.setClickable(z);
                     tVar.hwI.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, an.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                     tVar.mSkinType = this.mSkinType;
                 } else {
-                    if (bWA == 0) {
+                    if (bWB == 0) {
                         string = this.mContext.getResources().getString(R.string.tbtitle_is_assist);
-                    } else if (bWA == 1) {
+                    } else if (bWB == 1) {
                         string = this.mContext.getResources().getString(R.string.tbtitle_assist_applying);
                     } else {
-                        if (bWA == 2) {
+                        if (bWB == 2) {
                             string = this.mContext.getResources().getString(R.string.tbtitle_assist_apply_failed);
                         }
                         z = false;
@@ -99,7 +99,7 @@ public class r extends com.baidu.tieba.frs.j<s, t> {
                     }
                     tVar.hwJ.setOnClickListener(this.mClickListener);
                     tVar.hwI.setText(string);
-                    tVar.hwJ.setTag(R.id.private_apply_tip, sVar.bWz());
+                    tVar.hwJ.setTag(R.id.private_apply_tip, sVar.bWA());
                     tVar.hwJ.setEnabled(z);
                     tVar.hwJ.setClickable(z);
                     tVar.hwI.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, an.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);

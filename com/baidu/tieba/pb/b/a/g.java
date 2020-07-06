@@ -52,20 +52,20 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence cOL() {
+    public CharSequence cOM() {
         return this.kvq;
     }
 
-    public int cON() {
+    public int cOO() {
         return this.kvr;
     }
 
-    public String cOO() {
+    public String cOP() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean cOM() {
+    public boolean cON() {
         return (this.kvr > 0 && this.kvr < 3) || !StringUtils.isNull(this.color);
     }
 

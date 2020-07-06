@@ -19,20 +19,20 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class EmotionButton extends View {
-    private static final int mhP = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds3);
-    private static int mhQ = 1;
+    private static final int mhS = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+    private static int mhT = 1;
     private RectF avT;
     private float bnu;
     private int endColor;
     private int height;
     private Paint mPaint;
     private TextPaint mTextPaint;
-    private int mhR;
-    private int mhS;
-    private int mhT;
     private int mhU;
-    private LinearGradient mhV;
-    private LinearGradient mhW;
+    private int mhV;
+    private int mhW;
+    private int mhX;
+    private LinearGradient mhY;
+    private LinearGradient mhZ;
     private int startColor;
     private String text;
     private int width;
@@ -61,12 +61,12 @@ public class EmotionButton extends View {
     }
 
     private void init(Context context) {
-        this.mhR = an.getColor(R.color.cp_link_tip_a_alpha50);
+        this.mhU = an.getColor(R.color.cp_link_tip_a_alpha50);
         this.startColor = an.getColor(R.color.cp_link_tip_a);
         this.endColor = an.getColor(R.color.cp_link_tip_b);
-        this.mhS = an.getColor(R.color.cp_link_tip_a_alpha50);
-        this.mhT = an.getColor(R.color.cp_link_tip_a_alpha50);
-        this.mhU = an.getColor(R.color.cp_link_tip_b_alpha50);
+        this.mhV = an.getColor(R.color.cp_link_tip_a_alpha50);
+        this.mhW = an.getColor(R.color.cp_link_tip_a_alpha50);
+        this.mhX = an.getColor(R.color.cp_link_tip_b_alpha50);
         this.mPaint = new Paint();
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mTextPaint = new TextPaint(1);
@@ -78,7 +78,7 @@ public class EmotionButton extends View {
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0 || motionEvent.getAction() == 1) {
-                    int unused = EmotionButton.mhQ = motionEvent.getAction();
+                    int unused = EmotionButton.mhT = motionEvent.getAction();
                     EmotionButton.this.invalidate();
                     return false;
                 }
@@ -108,13 +108,13 @@ public class EmotionButton extends View {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = i;
         this.height = i2;
-        this.mhV = new LinearGradient(5.0f, 10.0f, this.width - 5, this.height - 10, this.endColor, this.startColor, Shader.TileMode.MIRROR);
-        this.mhW = new LinearGradient(5.0f, 10.0f, this.width - 5, this.height - 10, this.mhU, this.mhT, Shader.TileMode.MIRROR);
+        this.mhY = new LinearGradient(5.0f, 10.0f, this.width - 5, this.height - 10, this.endColor, this.startColor, Shader.TileMode.MIRROR);
+        this.mhZ = new LinearGradient(5.0f, 10.0f, this.width - 5, this.height - 10, this.mhX, this.mhW, Shader.TileMode.MIRROR);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        if (mhQ == 0) {
+        if (mhT == 0) {
             ah(canvas);
         } else {
             ag(canvas);
@@ -122,8 +122,8 @@ public class EmotionButton extends View {
     }
 
     private void ag(Canvas canvas) {
-        this.mPaint.setShader(this.mhV);
-        this.mPaint.setShadowLayer(mhP, 2.0f, 2.0f, this.mhR);
+        this.mPaint.setShader(this.mhY);
+        this.mPaint.setShadowLayer(mhS, 2.0f, 2.0f, this.mhU);
         if (this.avT == null) {
             this.avT = new RectF();
         }
@@ -139,8 +139,8 @@ public class EmotionButton extends View {
     }
 
     private void ah(Canvas canvas) {
-        this.mPaint.setShader(this.mhW);
-        this.mPaint.setShadowLayer(mhP, 2.0f, 2.0f, this.mhS);
+        this.mPaint.setShader(this.mhZ);
+        this.mPaint.setShadowLayer(mhS, 2.0f, 2.0f, this.mhV);
         if (this.avT == null) {
             this.avT = new RectF();
         }

@@ -25,7 +25,7 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         d dVar = null;
-        if (BdBaseApplication.getInst() != null && (dVar = com.baidu.tieba.sdk.d.a.daO().daT()) != null) {
+        if (BdBaseApplication.getInst() != null && (dVar = com.baidu.tieba.sdk.d.a.daP().daU()) != null) {
             dVar.a(this);
         }
         super.onCreate(bundle);
@@ -37,8 +37,8 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
             super.finish();
             return;
         }
-        com.baidu.tieba.sdk.a.daK().daM();
-        this.lnS = com.baidu.tieba.sdk.a.daK().a(this);
+        com.baidu.tieba.sdk.a.daL().daN();
+        this.lnS = com.baidu.tieba.sdk.a.daL().a(this);
         this.lnS.a(this.lnT);
         if (dVar != null) {
             dVar.b(this);
@@ -49,9 +49,9 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
     protected void onStart() {
         super.onStart();
         this.lnS.onStart();
-        d daT = com.baidu.tieba.sdk.d.a.daO().daT();
-        if (daT != null) {
-            daT.e(this);
+        d daU = com.baidu.tieba.sdk.d.a.daP().daU();
+        if (daU != null) {
+            daU.e(this);
         }
     }
 
@@ -59,9 +59,9 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
     protected void onResume() {
         super.onResume();
         this.lnS.onResume();
-        d daT = com.baidu.tieba.sdk.d.a.daO().daT();
-        if (daT != null) {
-            daT.c(this);
+        d daU = com.baidu.tieba.sdk.d.a.daP().daU();
+        if (daU != null) {
+            daU.c(this);
         }
     }
 
@@ -69,9 +69,9 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
     protected void onPause() {
         super.onPause();
         this.lnS.onPause();
-        d daT = com.baidu.tieba.sdk.d.a.daO().daT();
-        if (daT != null) {
-            daT.d(this);
+        d daU = com.baidu.tieba.sdk.d.a.daP().daU();
+        if (daU != null) {
+            daU.d(this);
         }
     }
 
@@ -79,9 +79,9 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
     protected void onStop() {
         super.onStop();
         this.lnS.onStop();
-        d daT = com.baidu.tieba.sdk.d.a.daO().daT();
-        if (daT != null) {
-            daT.f(this);
+        d daU = com.baidu.tieba.sdk.d.a.daP().daU();
+        if (daU != null) {
+            daU.f(this);
         }
     }
 
@@ -117,16 +117,16 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
 
     @Override // android.app.Activity
     protected void onDestroy() {
-        d daT = com.baidu.tieba.sdk.d.a.daO().daT();
-        if (daT != null) {
-            daT.g(this);
+        d daU = com.baidu.tieba.sdk.d.a.daP().daU();
+        if (daU != null) {
+            daU.g(this);
         }
         super.onDestroy();
         if (this.lnS != null) {
             this.lnS.onDestroy();
         }
-        if (daT != null) {
-            daT.h(this);
+        if (daU != null) {
+            daU.h(this);
         }
     }
 

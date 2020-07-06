@@ -23,7 +23,7 @@ public class c extends AsyncTask<Void, Void, String> {
         this.orientation = i;
     }
 
-    public c cYe() {
+    public c cYf() {
         if (Build.VERSION.SDK_INT >= 11) {
             executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         } else {

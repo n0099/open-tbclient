@@ -69,7 +69,7 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
             }
         };
         this.mPageContext = tbPageContext;
-        cjP();
+        cjQ();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -195,7 +195,7 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
         this.kLR = i;
     }
 
-    private void cjP() {
+    private void cjQ() {
         k.gUC = "c13542";
     }
 

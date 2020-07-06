@@ -12,7 +12,7 @@ public class a implements com.baidu.tieba.r.a {
         private static a eZu = new a();
     }
 
-    public static a bpr() {
+    public static a bps() {
         return C0513a.eZu;
     }
 

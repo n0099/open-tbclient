@@ -120,7 +120,7 @@ public class d extends a {
     }
 
     @Override // com.baidu.tieba.frs.examination.a
-    protected void cbV() {
+    protected void cbW() {
         this.hCa.setOnClickListener(this);
         this.hLH.setOnClickListener(this);
         this.hMl.setOnClickListener(this);
@@ -142,7 +142,7 @@ public class d extends a {
                 } else {
                     d.this.hMq.setVisibility(4);
                 }
-                d.this.cbZ();
+                d.this.cca();
             }
         });
         this.hMi.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.examination.d.4
@@ -163,7 +163,7 @@ public class d extends a {
                 } else {
                     d.this.hMr.setVisibility(4);
                 }
-                d.this.cbZ();
+                d.this.cca();
             }
         });
         this.hMh.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.frs.examination.d.5
@@ -193,7 +193,7 @@ public class d extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbZ() {
+    public void cca() {
         if (!TextUtils.isEmpty(this.hMo) && this.hMo.length() >= 20 && !TextUtils.isEmpty(this.hMp) && this.hMp.length() >= 20 && !this.hep.getString(R.string.select_subject).equals(this.hMd.getText()) && this.hMo.length() <= 500 && this.hMp.length() <= 500) {
             this.hLH.setAlpha(1.0f);
         } else {
@@ -234,7 +234,7 @@ public class d extends a {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.hCa) {
-            cbW();
+            cbX();
         } else if (view == this.hMl) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SearchMajorActivityConfig(this.hep, RequestResponseCode.REQUEST_REAL_AUTHEN)));
         } else if (view == this.hLH) {
@@ -249,12 +249,12 @@ public class d extends a {
             } else if (this.hMp.length() > 500) {
                 l.showToast(this.hep, (int) R.string.subject_comment_lenght_error_tip);
             } else {
-                this.hLJ.a("学校评价：" + ((Object) this.hMo) + "\n专业评价：" + ((Object) this.hMp), cca(), this.hLG);
+                this.hLJ.a("学校评价：" + ((Object) this.hMo) + "\n专业评价：" + ((Object) this.hMp), ccb(), this.hLG);
             }
         }
     }
 
-    private String cca() {
+    private String ccb() {
         ArrayList arrayList = new ArrayList();
         int starCount = this.hMn.getStarCount();
         int starCount2 = this.hMm.getStarCount();
@@ -276,7 +276,7 @@ public class d extends a {
                 this.hMd.setText(stringExtra);
                 an.setViewTextColor(this.hMd, (int) R.color.cp_cont_b);
                 SvgManager.aWQ().a(this.hMj, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                cbZ();
+                cca();
             }
         }
     }
@@ -307,7 +307,7 @@ public class d extends a {
     }
 
     @Override // com.baidu.tieba.frs.examination.a
-    public void cbX() {
+    public void cbY() {
         if (this.hLG != null) {
             w.f(String.valueOf(this.hLG.forumId), new w.a() { // from class: com.baidu.tieba.frs.examination.d.7
                 @Override // com.baidu.tieba.tbadkCore.w.a

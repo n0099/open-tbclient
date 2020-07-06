@@ -20,12 +20,12 @@ public class f extends ak.a {
         Context context;
         boolean z;
         Context context2;
-        context = this.a.f77a;
+        context = this.a.f78a;
         boolean a = com.xiaomi.push.service.ak.a(context).a(hr.AggregatePushSwitch.a(), true);
-        z = this.a.f80a;
+        z = this.a.f81a;
         if (z != a) {
-            this.a.f80a = a;
-            context2 = this.a.f77a;
+            this.a.f81a = a;
+            context2 = this.a.f78a;
             h.b(context2);
         }
     }

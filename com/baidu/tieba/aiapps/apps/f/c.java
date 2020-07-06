@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.f;
 public class c {
     private static volatile b fdn;
 
-    public static synchronized b brd() {
+    public static synchronized b bre() {
         b bVar;
         synchronized (c.class) {
             if (fdn == null) {

@@ -44,7 +44,7 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void onNetworkChange(boolean z) {
                 if (z && LabelSettingView.this.jnF.getCount() == 0 && LabelSettingView.this.jnC != null) {
-                    LabelSettingView.this.jnC.cwp();
+                    LabelSettingView.this.jnC.cwq();
                 }
             }
         };
@@ -84,7 +84,7 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !w.isEmpty(bVar.cwt())) {
+        if (bVar != null && !w.isEmpty(bVar.cwu())) {
             this.jnE.setVisibility(0);
             this.jnF.setData(bVar);
             this.jnF.notifyDataSetChanged();
@@ -96,8 +96,8 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         this.jnD.setSelected(z);
     }
 
-    public boolean cwF() {
-        return (this.jnF == null || w.equalList(this.jnF.cwq(), this.jnF.cwr())) ? false : true;
+    public boolean cwG() {
+        return (this.jnF == null || w.equalList(this.jnF.cwr(), this.jnF.cws())) ? false : true;
     }
 
     public void showDialog() {
@@ -136,19 +136,19 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.dDv) {
-            if (cwF()) {
+            if (cwG()) {
                 showDialog();
             } else {
                 this.mPageContext.getPageActivity().finish();
             }
         } else if (view == this.jnD && this.jnC != null && this.jnH) {
             TiebaStatic.log(new ao("c12237").dk("uid", TbadkCoreApplication.getCurrentAccount()));
-            this.jnC.dE(this.jnF.cwr());
+            this.jnC.dE(this.jnF.cws());
         }
     }
 
     public void ga(boolean z) {
-        if (!bSQ()) {
+        if (!bSR()) {
             if (this.fwo == null) {
                 this.fwo = new g(getContext());
                 this.fwo.onChangeSkinType();
@@ -164,7 +164,7 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         }
     }
 
-    public boolean bSQ() {
+    public boolean bSR() {
         if (this.fwo != null) {
             return this.fwo.isViewAttached();
         }
@@ -172,13 +172,13 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
     }
 
     public void mB(boolean z) {
-        if (!bSR()) {
+        if (!bSS()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.interestlabel.view.LabelSettingView.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (j.isNetworkAvailableForImmediately() && LabelSettingView.this.jnC != null) {
-                            LabelSettingView.this.jnC.cwp();
+                            LabelSettingView.this.jnC.cwq();
                         }
                     }
                 });
@@ -190,14 +190,14 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         }
     }
 
-    public void btN() {
+    public void btO() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
         }
     }
 
-    public boolean bSR() {
+    public boolean bSS() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -216,6 +216,6 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         }
         this.jnG.dismiss();
         hideLoadingView();
-        btN();
+        btO();
     }
 }

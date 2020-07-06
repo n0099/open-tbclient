@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class DynamicUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
-    private a mhO;
+    private a mhR;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -68,8 +68,8 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void bc(View view) {
-        if (this.mhO != null) {
-            this.mhO.bR(view);
+        if (this.mhR != null) {
+            this.mhR.bR(view);
         }
     }
 
@@ -83,6 +83,6 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     public void setOnClickEvent(a aVar) {
-        this.mhO = aVar;
+        this.mhR = aVar;
     }
 }

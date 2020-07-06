@@ -36,7 +36,7 @@ public class a implements IEventProcessor {
     protected Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f27a;
+    private HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f28a;
 
     public a(Context context) {
         a(context);
@@ -437,15 +437,15 @@ public class a implements IEventProcessor {
     @Override // com.xiaomi.clientreport.processor.d
     /* renamed from: a  reason: collision with other method in class */
     public void mo55a(com.xiaomi.clientreport.data.a aVar) {
-        if ((aVar instanceof EventClientReport) && this.f27a != null) {
+        if ((aVar instanceof EventClientReport) && this.f28a != null) {
             EventClientReport eventClientReport = (EventClientReport) aVar;
             String a = a((com.xiaomi.clientreport.data.a) eventClientReport);
-            ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f27a.get(a);
+            ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f28a.get(a);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
             }
             arrayList.add(eventClientReport);
-            this.f27a.put(a, arrayList);
+            this.f28a.put(a, arrayList);
         }
     }
 
@@ -469,12 +469,12 @@ public class a implements IEventProcessor {
 
     @Override // com.xiaomi.clientreport.processor.d
     public void b() {
-        if (this.f27a == null) {
+        if (this.f28a == null) {
             return;
         }
-        if (this.f27a.size() > 0) {
-            for (String str : this.f27a.keySet()) {
-                ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f27a.get(str);
+        if (this.f28a.size() > 0) {
+            for (String str : this.f28a.keySet()) {
+                ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f28a.get(str);
                 if (arrayList != null && arrayList.size() > 0) {
                     com.xiaomi.clientreport.data.a[] aVarArr = new com.xiaomi.clientreport.data.a[arrayList.size()];
                     arrayList.toArray(aVarArr);
@@ -482,7 +482,7 @@ public class a implements IEventProcessor {
                 }
             }
         }
-        this.f27a.clear();
+        this.f28a.clear();
     }
 
     @Override // com.xiaomi.clientreport.processor.IEventProcessor
@@ -523,7 +523,7 @@ public class a implements IEventProcessor {
 
     @Override // com.xiaomi.clientreport.processor.IEventProcessor
     public void setEventMap(HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap) {
-        this.f27a = hashMap;
+        this.f28a = hashMap;
     }
 
     @Override // com.xiaomi.clientreport.processor.IEventProcessor

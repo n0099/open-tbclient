@@ -80,7 +80,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
                 if (split.length == 2 && "FrsSportsRecommendTab".equals(split[0]) && 25 == com.baidu.adp.lib.f.b.toInt(split[1], 0)) {
                     FrsSportsRecommendFragment.this.WW.setExpanded(true, false);
                     FrsSportsRecommendFragment.this.hHB.setSelection(0);
-                    FrsSportsRecommendFragment.this.buH();
+                    FrsSportsRecommendFragment.this.buI();
                 }
             }
         }
@@ -125,7 +125,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
                         }
                         if (FrsSportsRecommendFragment.this.mNavigationBar != null) {
                             FrsSportsRecommendFragment.this.mNavigationBar.getBarBgView().setAlpha(f);
-                            FrsSportsRecommendFragment.this.bZr();
+                            FrsSportsRecommendFragment.this.bZs();
                         }
                         FrsSportsRecommendFragment.this.h(i, f);
                         FrsSportsRecommendFragment.this.hWz = i;
@@ -147,7 +147,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         super.onCreateView(layoutInflater, viewGroup, bundle);
         this.hHB.nA(true);
-        ceo();
+        cep();
         this.fsS = (CollapsingToolbarLayout) this.mRootView.findViewById(R.id.frs_collapse_layout);
         this.biD = this.mRootView.findViewById(R.id.statebar_view);
         this.hCz = this.mRootView.findViewById(R.id.statebar_view_holder);
@@ -214,12 +214,12 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
                 this.mNavigationBar.getBackground().mutate().setAlpha(0);
             }
         }
-        bZr();
+        bZs();
     }
 
     @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tieba.frs.as
     public void aYg() {
-        cep();
+        ceq();
         if (this.hHC != null) {
             this.hHC.ej(this.hHX);
         }
@@ -241,7 +241,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             if (this.hWx != null && this.hHD != null && this.hHD.getForum() != null) {
                 this.hWx.a(dVar.hIc, this.hHD.getForum().getId());
             }
-            if (this.hHC != null && this.hHC.cbj()) {
+            if (this.hHC != null && this.hHC.cbk()) {
                 tE(dVar.hHY);
             }
             if (!w.isEmpty(dVar.threadList)) {
@@ -282,7 +282,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     public void hideLoadingView(View view) {
     }
 
-    private void ceo() {
+    private void cep() {
         if (this.mNavigationBar == null) {
             this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
             this.mNavigationBar.getBarBgView().setAlpha(0.0f);
@@ -342,7 +342,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             }
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hWt.getLayoutParams();
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.hWu.getLayoutParams();
-            if (this.hHB.cbh().getFirstCompletelyVisiblePosition() != 0) {
+            if (this.hHB.cbi().getFirstCompletelyVisiblePosition() != 0) {
                 this.hWt.setVisibility(8);
                 this.hWu.setVisibility(0);
                 if (layoutParams2.topMargin != 0) {
@@ -392,7 +392,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bZr() {
+    public void bZs() {
         if (this.mNavigationBar != null) {
             float f = 0.0f;
             if (this.mNavigationBar.getBarBgView() != null) {
@@ -462,7 +462,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
         this.hTw.a(this.hOn, this.dlv, layoutParams, 2000);
     }
 
-    private void cep() {
+    private void ceq() {
         this.WW.setExpanded(true);
     }
 

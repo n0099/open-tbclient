@@ -26,20 +26,20 @@ public class b extends BaseAdapter {
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !w.isEmpty(bVar.cwt())) {
+        if (bVar != null && !w.isEmpty(bVar.cwu())) {
             this.mLabelDataSet = bVar;
-            this.jmY = bVar.cwt();
-            if (!w.isEmpty(bVar.cwu())) {
-                this.jmZ = new ArrayList(bVar.cwu());
+            this.jmY = bVar.cwu();
+            if (!w.isEmpty(bVar.cwv())) {
+                this.jmZ = new ArrayList(bVar.cwv());
             }
         }
     }
 
-    public List<Integer> cwq() {
-        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.cwu();
+    public List<Integer> cwr() {
+        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.cwv();
     }
 
-    public List<Integer> cwr() {
+    public List<Integer> cws() {
         return this.jmZ;
     }
 

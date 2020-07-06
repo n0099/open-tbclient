@@ -15,7 +15,7 @@ public class b extends a {
     private b() {
     }
 
-    public static b ctn() {
+    public static b cto() {
         return jbB;
     }
 
@@ -43,7 +43,7 @@ public class b extends a {
         return groupSettingItemData;
     }
 
-    public void cpy() {
+    public void cpz() {
         super.y(GroupSettingItemData.class);
     }
 
@@ -82,7 +82,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected com.baidu.adp.lib.cache.l<String> ctm() {
+    protected com.baidu.adp.lib.cache.l<String> ctn() {
         return com.baidu.tbadk.core.c.a.aUM().wc("tb.im_group_setting");
     }
 
@@ -98,13 +98,13 @@ public class b extends a {
                 }
                 return;
             }
-            com.baidu.adp.lib.cache.l<String> ctm = ctm();
+            com.baidu.adp.lib.cache.l<String> ctn = ctn();
             String str = uid + UgcConstant.AT_RULE_TAG + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
             synchronized (this.jbz) {
                 this.jbz.put(str, groupSettingItemData);
             }
-            ctm.setForever(str, jsonStrWithObject);
+            ctn.setForever(str, jsonStrWithObject);
         }
     }
 
@@ -127,9 +127,9 @@ public class b extends a {
             ad.b(new ac<Void>() { // from class: com.baidu.tieba.im.settingcache.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ac
-                /* renamed from: bpB */
+                /* renamed from: bpC */
                 public Void doInBackground() {
-                    b.this.ctm().setForever(str, OrmObject.jsonStrWithObject(groupSettingItemData));
+                    b.this.ctn().setForever(str, OrmObject.jsonStrWithObject(groupSettingItemData));
                     return null;
                 }
             }, lVar);
@@ -145,9 +145,9 @@ public class b extends a {
             ad.b(new ac<Void>() { // from class: com.baidu.tieba.im.settingcache.b.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ac
-                /* renamed from: bpB */
+                /* renamed from: bpC */
                 public Void doInBackground() {
-                    b.this.ctm().remove(str3);
+                    b.this.ctn().remove(str3);
                     return null;
                 }
             }, lVar);

@@ -5,7 +5,7 @@ import com.baidu.adp.base.BdBaseApplication;
 public class c {
     private static c eDN;
 
-    public static c biA() {
+    public static c biB() {
         if (eDN == null) {
             eDN = new c();
         }

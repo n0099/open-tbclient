@@ -46,7 +46,7 @@ public class ag extends SparseArray<ap> {
                 ap valueAt = valueAt(i2);
                 if (valueAt != null) {
                     valueAt.a(null);
-                    valueAt.bzf();
+                    valueAt.bzg();
                 }
                 i = i2 + 1;
             } else {

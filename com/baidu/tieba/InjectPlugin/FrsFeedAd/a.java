@@ -22,7 +22,7 @@ public class a extends f {
             b bVar = (b) obj;
             com.baidu.tieba.InjectPlugin.a.a pm = ((com.baidu.tieba.InjectPlugin.a.b) this.eSv).pm(1);
             if (pm instanceof d) {
-                return ((d) pm).getView(i, view, viewGroup, bVar.bmv());
+                return ((d) pm).getView(i, view, viewGroup, bVar.bmw());
             }
             return null;
         }
@@ -34,7 +34,7 @@ public class a extends f {
         if (b.n(getType()) != -1 && (obj instanceof b)) {
             com.baidu.tieba.InjectPlugin.a.a pm = ((com.baidu.tieba.InjectPlugin.a.b) this.eSv).pm(1);
             if (pm instanceof d) {
-                return ((d) pm).a(viewGroup, ((b) obj).bmv());
+                return ((d) pm).a(viewGroup, ((b) obj).bmw());
             }
             return null;
         }
@@ -46,7 +46,7 @@ public class a extends f {
         if (obj instanceof b) {
             com.baidu.tieba.InjectPlugin.a.a pm = ((com.baidu.tieba.InjectPlugin.a.b) this.eSv).pm(1);
             if (pm instanceof d) {
-                ((d) pm).a(i, viewGroup, aVar, ((b) obj).bmv());
+                ((d) pm).a(i, viewGroup, aVar, ((b) obj).bmw());
             }
         }
     }

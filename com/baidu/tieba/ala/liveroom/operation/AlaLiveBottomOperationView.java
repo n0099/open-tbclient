@@ -339,7 +339,7 @@ public class AlaLiveBottomOperationView extends FrameLayout {
             if (!com.baidu.live.v.a.Hm().Hp()) {
                 z = false;
             }
-            y yVar = com.baidu.tieba.ala.liveroom.u.a.bJt().aZA;
+            y yVar = com.baidu.tieba.ala.liveroom.u.a.bJu().aZA;
             if (yVar == null) {
                 z2 = false;
             } else if (yVar.ayi == 1 || TextUtils.isEmpty(yVar.iconUrl)) {
@@ -357,7 +357,7 @@ public class AlaLiveBottomOperationView extends FrameLayout {
                 this.goR.setAlpha(0.0f);
                 this.gpm.setVisibility(8);
                 this.gpj.setVisibility(0);
-                bIP();
+                bIQ();
                 if (alaLiveInfoData != null) {
                     long j = alaLiveInfoData.live_id;
                     if (!this.gpx.contains(Long.valueOf(j))) {
@@ -442,7 +442,7 @@ public class AlaLiveBottomOperationView extends FrameLayout {
         MessageManager.getInstance().registerListener(this.aWc);
     }
 
-    private void bIP() {
+    private void bIQ() {
         if (this.gpv == null) {
             this.gpv = new a();
         }

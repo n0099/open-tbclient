@@ -73,7 +73,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         setContentView(R.layout.image_activity_2);
         initData(bundle);
         initUI();
-        cmP();
+        cmQ();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -90,7 +90,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        cmP();
+        cmQ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -229,7 +229,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             public void onPageSelected(int i) {
                 AbsMsgImageActivity.this.cx(AbsMsgImageActivity.this.mIndex, i);
                 AbsMsgImageActivity.this.mIndex = i;
-                AbsMsgImageActivity.this.ccN();
+                AbsMsgImageActivity.this.ccO();
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -307,7 +307,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         this.iJr.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
         this.iJr.setOnPageChangeListener(this.mOnPageChangeListener);
         this.iJr.setItemOnclickListener(this.mOnClickListener);
-        this.iJr.setCurrentItem(cmO(), false);
+        this.iJr.setCurrentItem(cmP(), false);
         this.iJr.setOnScrollOutListener(this.iJs);
         this.iJr.setItemOnLongClickListener(onLongClickListener);
         this.iJr.setHasNext(false);
@@ -319,7 +319,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ccN() {
+    public void ccO() {
         if (this.iJn != null) {
             String valueOf = String.valueOf(this.mIndex + 1);
             if (this.mCount > 0) {
@@ -335,7 +335,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    private int cmO() {
+    private int cmP() {
         if (this.iJn != null && this.iJn.size() > 0) {
             int size = this.iJn.size();
             if (this.mIndex >= size) {
@@ -388,7 +388,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         this.iJz = new HashMap<>();
     }
 
-    private void cmP() {
+    private void cmQ() {
         if (TextUtils.isEmpty(this.id)) {
             finish();
         }
@@ -431,7 +431,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                         AbsMsgImageActivity.this.mIndex = AbsMsgImageActivity.this.mCount - 1;
                     }
                     AbsMsgImageActivity.this.mTextView.setVisibility(0);
-                    AbsMsgImageActivity.this.ccN();
+                    AbsMsgImageActivity.this.ccO();
                     AbsMsgImageActivity.this.iJr.setIsFromCDN(true);
                     AbsMsgImageActivity.this.iJr.setAllowLocalUrl(true);
                     AbsMsgImageActivity.this.iJr.setAssistUrls(hashMap);

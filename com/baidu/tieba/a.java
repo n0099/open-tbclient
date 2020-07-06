@@ -12,7 +12,7 @@ public class a {
     private a() {
     }
 
-    public static a bmm() {
+    public static a bmn() {
         return eSf;
     }
 
@@ -25,11 +25,11 @@ public class a {
         }
     }
 
-    public int bmn() {
+    public int bmo() {
         return this.eSh;
     }
 
-    public boolean bmo() {
+    public boolean bmp() {
         return this.eSi == 1;
     }
 }

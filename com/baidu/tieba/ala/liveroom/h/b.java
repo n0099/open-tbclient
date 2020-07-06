@@ -66,8 +66,8 @@ public class b {
         if (this.ggY % 15 == 0) {
             this.mLastTime = currentTimeMillis;
             try {
-                jSONObject.put("memory", a.bEp().bEs());
-                jSONObject.put(c.i, a.bEp().bEq());
+                jSONObject.put("memory", a.bEq().bEt());
+                jSONObject.put(c.i, a.bEq().bEr());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

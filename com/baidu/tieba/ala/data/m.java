@@ -16,15 +16,15 @@ public class m extends BaseData {
     private ArrayList<g> fgO;
     private long fgo;
 
-    public long bwG() {
+    public long bwH() {
         return this.fEk;
     }
 
-    public long bwH() {
+    public long bwI() {
         return this.fEl;
     }
 
-    public long bwI() {
+    public long bwJ() {
         return this.fEj;
     }
 
@@ -32,7 +32,7 @@ public class m extends BaseData {
         return this.fEi;
     }
 
-    public long bwJ() {
+    public long bwK() {
         return this.fEm;
     }
 
@@ -40,7 +40,7 @@ public class m extends BaseData {
         return this.fgO;
     }
 
-    public n bwK() {
+    public n bwL() {
         return this.fEn;
     }
 

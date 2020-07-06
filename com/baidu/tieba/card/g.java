@@ -111,11 +111,11 @@ public class g extends b<com.baidu.tieba.e.d> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.e.d dVar) {
-        if (dVar != null && dVar.bPT() != null) {
-            if (!TextUtils.isEmpty(dVar.bPT().title)) {
-                this.gPH.setText(dVar.bPT().title);
+        if (dVar != null && dVar.bPU() != null) {
+            if (!TextUtils.isEmpty(dVar.bPU().title)) {
+                this.gPH.setText(dVar.bPU().title);
             }
-            List<bu> list = dVar.bPT().sub_nodes;
+            List<bu> list = dVar.bPU().sub_nodes;
             if (com.baidu.tbadk.core.util.w.getCount(list) >= 1) {
                 this.gPM = new com.baidu.tieba.e.a();
                 this.gPM.setData(list.get(0));

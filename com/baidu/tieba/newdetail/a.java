@@ -36,21 +36,21 @@ public interface a {
 
         void a(d dVar, boolean z, int i);
 
-        void btU();
+        void btV();
 
         void c(long j, long j2, int i);
-
-        void cDS();
 
         void cDT();
 
         void cDU();
 
-        e cDV();
+        void cDV();
 
-        int cDW();
+        e cDW();
 
-        void cDX();
+        int cDX();
+
+        void cDY();
 
         void destroy();
 

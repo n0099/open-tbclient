@@ -44,7 +44,7 @@ public class b extends g {
         this.eSH = list;
     }
 
-    public List<Object> bmG() {
+    public List<Object> bmH() {
         return this.eSJ;
     }
 
@@ -52,7 +52,7 @@ public class b extends g {
         this.eSJ = list;
     }
 
-    public List<q> bmH() {
+    public List<q> bmI() {
         return this.eSI;
     }
 
@@ -60,7 +60,7 @@ public class b extends g {
         this.eSI = list;
     }
 
-    public boolean bmI() {
+    public boolean bmJ() {
         return this.eSK;
     }
 
@@ -68,7 +68,7 @@ public class b extends g {
         this.eSK = z;
     }
 
-    public boolean bmJ() {
+    public boolean bmK() {
         return this.eSL;
     }
 
@@ -76,7 +76,7 @@ public class b extends g {
         this.eSL = z;
     }
 
-    public int bmK() {
+    public int bmL() {
         return this.currentPage;
     }
 
@@ -92,7 +92,7 @@ public class b extends g {
         this.ahx = i;
     }
 
-    public boolean bmL() {
+    public boolean bmM() {
         return this.eSM;
     }
 
@@ -116,7 +116,7 @@ public class b extends g {
         this.forumId = str;
     }
 
-    public String bmM() {
+    public String bmN() {
         return this.eSN;
     }
 
@@ -124,7 +124,7 @@ public class b extends g {
         this.eSN = str;
     }
 
-    public String bmN() {
+    public String bmO() {
         return this.eSO;
     }
 
@@ -132,7 +132,7 @@ public class b extends g {
         this.eSO = str;
     }
 
-    public String bmO() {
+    public String bmP() {
         return this.eSP;
     }
 

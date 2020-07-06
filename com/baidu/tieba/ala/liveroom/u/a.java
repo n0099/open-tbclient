@@ -6,7 +6,7 @@ public class a {
     private static volatile a grz;
     public y aZA = new y();
 
-    public static a bJt() {
+    public static a bJu() {
         if (grz == null) {
             synchronized (a.class) {
                 if (grz == null) {

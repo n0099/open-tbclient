@@ -35,7 +35,7 @@ public class g {
             this.fJs.onDestory();
         }
         if (this.fJr != null) {
-            this.fJr.bxt();
+            this.fJr.bxu();
         }
     }
 }

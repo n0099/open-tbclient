@@ -47,7 +47,7 @@ public class a {
         this.aUP.add(this.fph);
     }
 
-    public List<com.baidu.adp.widget.ListView.a> btV() {
+    public List<com.baidu.adp.widget.ListView.a> btW() {
         return this.aUP;
     }
 }

@@ -79,12 +79,12 @@ public class f {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                f.this.cPW();
+                f.this.cPX();
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                f.this.cPW();
+                f.this.cPX();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -113,7 +113,7 @@ public class f {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                f.this.cPV();
+                f.this.cPW();
                 if (f.this.kyh != null) {
                     f.this.kyh.onAnimationEnd(animator);
                 }
@@ -121,7 +121,7 @@ public class f {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                f.this.cPV();
+                f.this.cPW();
                 if (f.this.kyh != null) {
                     f.this.kyh.onAnimationCancel(animator);
                 }
@@ -134,7 +134,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cPV() {
+    public void cPW() {
         this.isPlaying = false;
         for (View view : this.kyi) {
             view.setAlpha(1.0f);
@@ -142,7 +142,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cPW() {
+    public void cPX() {
         if (this.mMaskView != null) {
             this.mMaskView.setAlpha(1.0f);
         }
@@ -162,7 +162,7 @@ public class f {
     public void b(Rect rect, Rect rect2) {
         this.kyc = rect;
         this.kyd = rect2;
-        if (cPX()) {
+        if (cPY()) {
             init();
         }
     }
@@ -211,7 +211,7 @@ public class f {
         }
     }
 
-    public boolean cPX() {
+    public boolean cPY() {
         return (!this.kye || this.kyc == null || this.kyc.isEmpty() || this.kyd == null || this.kyd.isEmpty()) ? false : true;
     }
 

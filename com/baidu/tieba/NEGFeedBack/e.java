@@ -140,7 +140,7 @@ public class e {
         this.eUa.setDefaultReasonArray(strArr);
     }
 
-    public void bnp() {
+    public void bnq() {
         if (this.mPopupWindow != null) {
             this.mPopupWindow.dismiss();
             this.mPopupWindow = null;
@@ -212,13 +212,13 @@ public class e {
                 this.eUo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.e.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        JSONObject bnt = e.this.bnt();
+                        JSONObject bnu = e.this.bnu();
                         if (e.this.mFrom == "3" || e.this.mFrom == "4" || e.this.mFrom == "1") {
-                            e.this.bnp();
-                        } else if (bnt != null) {
+                            e.this.bnq();
+                        } else if (bnu != null) {
                             e.this.showLoadingView();
                             CustomMessage customMessage = new CustomMessage(2016489, e.this.mPageContext.getUniqueId());
-                            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2016489, bnt);
+                            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2016489, bnu);
                             customResponsedMessage.setOrginalMessage(customMessage);
                             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                         }
@@ -243,7 +243,7 @@ public class e {
         this.eDA.setDialogVisiable(true);
     }
 
-    public void bns() {
+    public void bnt() {
         if (this.eDA != null) {
             this.eDA.setDialogVisiable(false);
         }
@@ -278,7 +278,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject bnt() {
+    public JSONObject bnu() {
         int i;
         JSONObject jSONObject = new JSONObject();
         if (this.eTR == null) {

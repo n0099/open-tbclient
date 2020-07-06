@@ -82,7 +82,7 @@ public class h extends j<bt, com.baidu.tieba.ala.livecard.a.e> implements com.ba
                 eVar.fRN.setPage(this.afG);
             }
             eVar.fRN.setForumName(this.mForumName);
-            eVar.fRN.ku(bXM());
+            eVar.fRN.ku(bXN());
             eVar.fRN.a(btVar.dLi);
             btVar.dLi.aTB();
         }

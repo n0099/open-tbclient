@@ -19,11 +19,11 @@ public class b {
         this.hyx = new ArrayList<>();
     }
 
-    public static b bXc() {
+    public static b bXd() {
         return a.hyA;
     }
 
-    public boolean bWW() {
+    public boolean bWX() {
         return this.hyy;
     }
 
@@ -52,7 +52,7 @@ public class b {
         return true;
     }
 
-    public List<bu> bWZ() {
+    public List<bu> bXa() {
         return this.hyx;
     }
 
@@ -92,7 +92,7 @@ public class b {
         private static b hyA = new b();
     }
 
-    public AntiData bXd() {
+    public AntiData bXe() {
         return this.ejE;
     }
 
@@ -136,7 +136,7 @@ public class b {
         }
     }
 
-    public boolean bXe() {
+    public boolean bXf() {
         return this.hyz;
     }
 }

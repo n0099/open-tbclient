@@ -8,15 +8,15 @@ import java.util.Map;
 import master.flame.danmaku.danmaku.model.android.a;
 /* loaded from: classes5.dex */
 public class h extends b {
-    private static final Map<Float, Float> nVH = new HashMap();
+    private static final Map<Float, Float> nVK = new HashMap();
 
     protected Float b(master.flame.danmaku.danmaku.model.d dVar, Paint paint) {
         Float valueOf = Float.valueOf(paint.getTextSize());
-        Float f = nVH.get(valueOf);
+        Float f = nVK.get(valueOf);
         if (f == null) {
             Paint.FontMetrics fontMetrics = paint.getFontMetrics();
             Float valueOf2 = Float.valueOf(fontMetrics.leading + (fontMetrics.descent - fontMetrics.ascent));
-            nVH.put(valueOf, valueOf2);
+            nVK.put(valueOf, valueOf2);
             return valueOf2;
         }
         return f;
@@ -27,24 +27,24 @@ public class h extends b {
         String[] strArr;
         float f = 0.0f;
         Float valueOf = Float.valueOf(0.0f);
-        if (dVar.nSX == null) {
+        if (dVar.nTa == null) {
             if (dVar.text != null) {
                 f = textPaint.measureText(dVar.text.toString());
                 valueOf = b(dVar, textPaint);
             }
-            dVar.nTc = f;
-            dVar.nTd = valueOf.floatValue();
+            dVar.nTf = f;
+            dVar.nTg = valueOf.floatValue();
             return;
         }
         Float b = b(dVar, textPaint);
         float f2 = 0.0f;
-        for (String str : dVar.nSX) {
+        for (String str : dVar.nTa) {
             if (str.length() > 0) {
                 f2 = Math.max(textPaint.measureText(str), f2);
             }
         }
-        dVar.nTc = f2;
-        dVar.nTd = dVar.nSX.length * b.floatValue();
+        dVar.nTf = f2;
+        dVar.nTg = dVar.nTa.length * b.floatValue();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -69,7 +69,7 @@ public class h extends b {
     }
 
     @Override // master.flame.danmaku.danmaku.model.android.b
-    public void a(master.flame.danmaku.danmaku.model.d dVar, Canvas canvas, float f, float f2, boolean z, a.C0907a c0907a) {
+    public void a(master.flame.danmaku.danmaku.model.d dVar, Canvas canvas, float f, float f2, boolean z, a.C0908a c0908a) {
         float f3;
         float f4;
         float f5;
@@ -84,27 +84,27 @@ public class h extends b {
             f3 = f9;
             f4 = f8;
         }
-        c0907a.xv(z);
-        TextPaint d = c0907a.d(dVar, z);
+        c0908a.xv(z);
+        TextPaint d = c0908a.d(dVar, z);
         b(dVar, canvas, f, f2);
-        if (dVar.nSX != null) {
-            String[] strArr = dVar.nSX;
+        if (dVar.nTa != null) {
+            String[] strArr = dVar.nTa;
             if (strArr.length == 1) {
-                if (c0907a.p(dVar)) {
-                    c0907a.a(dVar, d, true);
+                if (c0908a.p(dVar)) {
+                    c0908a.a(dVar, d, true);
                     float ascent = f3 - d.ascent();
-                    if (c0907a.nUz) {
-                        f7 = f4 + c0907a.nUr;
-                        ascent += c0907a.nUs;
+                    if (c0908a.nUC) {
+                        f7 = f4 + c0908a.nUu;
+                        ascent += c0908a.nUv;
                     } else {
                         f7 = f4;
                     }
                     a(dVar, strArr[0], canvas, f7, ascent, d);
                 }
-                c0907a.a(dVar, d, false);
+                c0908a.a(dVar, d, false);
                 a(dVar, strArr[0], canvas, f4, f3 - d.ascent(), d, z);
             } else {
-                float length = (dVar.nTd - (dVar.padding * 2)) / strArr.length;
+                float length = (dVar.nTg - (dVar.padding * 2)) / strArr.length;
                 int i = 0;
                 while (true) {
                     int i2 = i;
@@ -112,45 +112,45 @@ public class h extends b {
                         break;
                     }
                     if (strArr[i2] != null && strArr[i2].length() != 0) {
-                        if (c0907a.p(dVar)) {
-                            c0907a.a(dVar, d, true);
+                        if (c0908a.p(dVar)) {
+                            c0908a.a(dVar, d, true);
                             float ascent2 = ((i2 * length) + f3) - d.ascent();
-                            if (c0907a.nUz) {
-                                f6 = f4 + c0907a.nUr;
-                                ascent2 += c0907a.nUs;
+                            if (c0908a.nUC) {
+                                f6 = f4 + c0908a.nUu;
+                                ascent2 += c0908a.nUv;
                             } else {
                                 f6 = f4;
                             }
                             a(dVar, strArr[i2], canvas, f6, ascent2, d);
                         }
-                        c0907a.a(dVar, d, false);
+                        c0908a.a(dVar, d, false);
                         a(dVar, strArr[i2], canvas, f4, ((i2 * length) + f3) - d.ascent(), d, z);
                     }
                     i = i2 + 1;
                 }
             }
         } else {
-            if (c0907a.p(dVar)) {
-                c0907a.a(dVar, d, true);
+            if (c0908a.p(dVar)) {
+                c0908a.a(dVar, d, true);
                 float ascent3 = f3 - d.ascent();
-                if (c0907a.nUz) {
-                    f5 = f4 + c0907a.nUr;
-                    ascent3 += c0907a.nUs;
+                if (c0908a.nUC) {
+                    f5 = f4 + c0908a.nUu;
+                    ascent3 += c0908a.nUv;
                 } else {
                     f5 = f4;
                 }
                 a(dVar, (String) null, canvas, f5, ascent3, d);
             }
-            c0907a.a(dVar, d, false);
+            c0908a.a(dVar, d, false);
             a(dVar, null, canvas, f4, f3 - d.ascent(), d, z);
         }
-        if (dVar.nTa != 0) {
-            Paint r = c0907a.r(dVar);
-            float f10 = (dVar.nTd + f2) - c0907a.nUq;
-            canvas.drawLine(f, f10, f + dVar.nTc, f10, r);
+        if (dVar.nTd != 0) {
+            Paint r = c0908a.r(dVar);
+            float f10 = (dVar.nTg + f2) - c0908a.nUt;
+            canvas.drawLine(f, f10, f + dVar.nTf, f10, r);
         }
         if (dVar.borderColor != 0) {
-            canvas.drawRect(f, f2, f + dVar.nTc, f2 + dVar.nTd, c0907a.q(dVar));
+            canvas.drawRect(f, f2, f + dVar.nTf, f2 + dVar.nTg, c0908a.q(dVar));
         }
     }
 }

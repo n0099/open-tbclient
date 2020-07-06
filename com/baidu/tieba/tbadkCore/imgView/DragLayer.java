@@ -55,7 +55,7 @@ public class DragLayer extends FrameLayout {
         return this.lId;
     }
 
-    public void diz() {
+    public void diA() {
         if (this.lId != null) {
             if (this.lId.bm != null) {
                 this.lId.bm.recycle();
@@ -81,6 +81,6 @@ public class DragLayer extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        diz();
+        diA();
     }
 }

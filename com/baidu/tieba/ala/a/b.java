@@ -12,24 +12,24 @@ public class b extends g implements j {
 
     public b(String str) {
         this.fxT = str;
-        bvg();
+        bvh();
     }
 
-    private void bvg() {
+    private void bvh() {
         this.fxS = c.By(this.fxT);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aLt() {
-        if (bvw() != null) {
-            bvw().b(this);
+        if (bvx() != null) {
+            bvx().b(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvh() {
-        if (bvw() != null) {
-            bvw().a(this);
+    public void bvi() {
+        if (bvx() != null) {
+            bvx().a(this);
         }
     }
 
@@ -43,26 +43,26 @@ public class b extends g implements j {
 
     @Override // com.baidu.tieba.ala.a.j
     public void load() {
-        if (bvw() != null) {
-            bvw().a(this, getProgress());
+        if (bvx() != null) {
+            bvx().a(this, getProgress());
         }
-        bvi();
+        bvj();
     }
 
-    public void bvi() {
+    public void bvj() {
         if (this.fxS == null) {
             aLt();
         } else if (!this.mIsLoading) {
             this.mIsLoading = true;
             if (!this.fxS.isLoaded()) {
-                bvj();
+                bvk();
             } else {
-                bvh();
+                bvi();
             }
         }
     }
 
-    private void bvj() {
+    private void bvk() {
         DownloadData downloadData = new DownloadData();
         downloadData.setType(20);
         downloadData.setUrl(this.fxS.mUrl);
@@ -79,8 +79,8 @@ public class b extends g implements j {
                     return;
                 }
                 b.this.cRj = downloadData2.getProcess();
-                if (b.this.bvw() != null) {
-                    b.this.bvw().a(b.this, b.this.getProgress());
+                if (b.this.bvx() != null) {
+                    b.this.bvx().a(b.this, b.this.getProgress());
                 }
             }
 
@@ -100,7 +100,7 @@ public class b extends g implements j {
                     if (!b.this.fxS.onResLoaded(downloadData2.getPath())) {
                         b.this.aLt();
                     } else {
-                        b.this.bvh();
+                        b.this.bvi();
                     }
                 }
             }
@@ -118,7 +118,7 @@ public class b extends g implements j {
     }
 
     @Override // com.baidu.tieba.ala.a.j
-    public g bvk() {
+    public g bvl() {
         return this;
     }
 

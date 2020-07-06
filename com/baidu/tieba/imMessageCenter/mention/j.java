@@ -18,7 +18,7 @@ public class j implements com.baidu.tbadk.mvc.b.j {
     protected at page = new at();
     protected h jhs = new h();
 
-    public ArrayList<FeedData> cvb() {
+    public ArrayList<FeedData> cvc() {
         return this.jhr;
     }
 

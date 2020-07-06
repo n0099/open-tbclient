@@ -42,16 +42,16 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
                     TbTitleActivity.this.hwT.ue(b.toInt(TbTitleActivity.this.mForumId, 0));
                     return;
                 }
+                TbTitleActivity.this.hwS.bWG();
                 TbTitleActivity.this.hwS.bWF();
-                TbTitleActivity.this.hwS.bWE();
                 TbTitleActivity.this.hwS.a(dataRes);
                 TbTitleActivity.this.hwS.ct(dataRes.level_info);
             } else if (i != 0 || dataRes == null) {
-                TbTitleActivity.this.hwS.bWF();
+                TbTitleActivity.this.hwS.bWG();
                 TbTitleActivity.this.hwS.EZ(str);
             } else {
+                TbTitleActivity.this.hwS.bWG();
                 TbTitleActivity.this.hwS.bWF();
-                TbTitleActivity.this.hwS.bWE();
                 TbTitleActivity.this.hwS.a(dataRes);
                 TbTitleActivity.this.hwS.ct(dataRes.level_info);
             }
@@ -84,7 +84,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         public void callback(Object obj) {
             boolean z = false;
             if (obj != null && (obj instanceof u)) {
-                e.dgY().aV(TbTitleActivity.this.mForumName, false);
+                e.dgZ().aV(TbTitleActivity.this.mForumName, false);
                 z = true;
             }
             if (!z) {
@@ -127,7 +127,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         super.onCreate(bundle);
         this.hwS = new com.baidu.tieba.forumMember.tbtitle.a.a(this, this.hwV);
         this.hwS.g(this.hwW);
-        buv();
+        buw();
         this.hwT = new com.baidu.tieba.forumMember.tbtitle.model.a<>(this.hwU, this);
         Intent intent = getIntent();
         if (intent != null) {
@@ -151,7 +151,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    com.baidu.tieba.im.settingcache.d.ctp().A(TbadkCoreApplication.getCurrentAccount(), String.valueOf(str), z);
+                    com.baidu.tieba.im.settingcache.d.ctq().A(TbadkCoreApplication.getCurrentAccount(), String.valueOf(str), z);
                 }
                 return null;
             }
@@ -159,7 +159,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(2));
     }
 
-    private void buv() {
+    private void buw() {
         this.egK = new LikeModel(getPageContext());
         this.egK.setLoadDataCallBack(this.egP);
     }

@@ -16,7 +16,7 @@ public class e extends a {
     private e() {
     }
 
-    public static e ctq() {
+    public static e ctr() {
         return jbJ;
     }
 
@@ -43,7 +43,7 @@ public class e extends a {
         return personalSettingItemData;
     }
 
-    public void cpy() {
+    public void cpz() {
         super.y(PersonalSettingItemData.class);
     }
 
@@ -57,7 +57,7 @@ public class e extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> ctm() {
+    protected l<String> ctn() {
         return com.baidu.tbadk.core.c.a.aUM().wc("tb.im_personal_chat_setting");
     }
 
@@ -73,13 +73,13 @@ public class e extends a {
                 }
                 return;
             }
-            l<String> ctm = ctm();
+            l<String> ctn = ctn();
             String str = myUid + UgcConstant.AT_RULE_TAG + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
             synchronized (this.jbz) {
                 this.jbz.put(str, personalSettingItemData);
             }
-            ctm.setForever(str, jsonStrWithObject);
+            ctn.setForever(str, jsonStrWithObject);
         }
     }
 
@@ -102,9 +102,9 @@ public class e extends a {
             ad.b(new ac<Void>() { // from class: com.baidu.tieba.im.settingcache.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ac
-                /* renamed from: bpB */
+                /* renamed from: bpC */
                 public Void doInBackground() {
-                    e.this.ctm().setForever(str, OrmObject.jsonStrWithObject(personalSettingItemData));
+                    e.this.ctn().setForever(str, OrmObject.jsonStrWithObject(personalSettingItemData));
                     return null;
                 }
             }, lVar);

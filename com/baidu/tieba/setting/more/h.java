@@ -108,19 +108,19 @@ public class h extends com.baidu.adp.base.c<SystemHelpSettingActivity> {
         }
     }
 
-    public BdSwitchView ddF() {
+    public BdSwitchView ddG() {
         return this.lsV;
     }
 
-    public BdSwitchView ddG() {
+    public BdSwitchView ddH() {
         return this.lsU;
     }
 
-    public TbSettingTextTipView ddH() {
+    public TbSettingTextTipView ddI() {
         return this.lsS;
     }
 
-    public TbSettingTextTipView ddI() {
+    public TbSettingTextTipView ddJ() {
         return this.lsT;
     }
 
@@ -136,7 +136,7 @@ public class h extends com.baidu.adp.base.c<SystemHelpSettingActivity> {
         an.setBackgroundResource(this.lsS, R.drawable.more_all);
     }
 
-    public TbSettingTextNewDotView ddJ() {
+    public TbSettingTextNewDotView ddK() {
         return this.lsW;
     }
 }

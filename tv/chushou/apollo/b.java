@@ -32,7 +32,7 @@ public final class b {
 
     /* renamed from: tv.chushou.apollo.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C0930b {
+    public static final class C0931b {
         public static final int apollo_default_gift_color = 2130838180;
         public static final int zues_bg_cancel_selector = 2130845791;
         public static final int zues_bg_confirm_selector = 2130845792;

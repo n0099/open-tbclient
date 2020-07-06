@@ -54,8 +54,8 @@ import com.baidu.tieba.write.write.vote.WriteVoteActivity;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class WriteActivityStatic {
-    private static int muV = 11;
-    private static int muW = 18;
+    private static int muY = 11;
+    private static int muZ = 18;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -75,8 +75,8 @@ public class WriteActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(AccountAccessActivityConfig.class, AccountAccessActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(WriteVoteActivityConfig.class, WriteVoteActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AddLinkActivityConfig.class, AddLinkActivity.class);
-        LocationModel.diJ();
-        chF();
+        LocationModel.diK();
+        chG();
         bc.aWU().a(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new bc.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
             @Override // com.baidu.tbadk.core.util.bc.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
@@ -93,7 +93,7 @@ public class WriteActivityStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void L(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= muW && Build.VERSION.SDK_INT >= muV) {
+        if (Build.VERSION.SDK_INT <= muZ && Build.VERSION.SDK_INT >= muY) {
             P(tbPageContext);
         } else {
             Q(tbPageContext);
@@ -132,7 +132,7 @@ public class WriteActivityStatic {
         });
     }
 
-    public static void chF() {
+    public static void chG() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.c.c> run(CustomMessage<Object> customMessage) {

@@ -8,12 +8,12 @@ import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class f implements j<e> {
     private final Context mContext;
-    private final g mKd;
-    private final com.facebook.imagepipeline.d.g mKr;
-    private final Set<com.facebook.drawee.controller.c> mKu;
+    private final g mKg;
+    private final com.facebook.imagepipeline.d.g mKu;
+    private final Set<com.facebook.drawee.controller.c> mKx;
 
     public f(Context context, @Nullable b bVar) {
-        this(context, com.facebook.imagepipeline.d.j.dDY(), bVar);
+        this(context, com.facebook.imagepipeline.d.j.dEc(), bVar);
     }
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, @Nullable b bVar) {
@@ -22,20 +22,20 @@ public class f implements j<e> {
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, Set<com.facebook.drawee.controller.c> set, @Nullable b bVar) {
         this.mContext = context;
-        this.mKr = jVar.dzY();
-        if (bVar != null && bVar.dzU() != null) {
-            this.mKd = bVar.dzU();
+        this.mKu = jVar.dAc();
+        if (bVar != null && bVar.dzY() != null) {
+            this.mKg = bVar.dzY();
         } else {
-            this.mKd = new g();
+            this.mKg = new g();
         }
-        this.mKd.a(context.getResources(), com.facebook.drawee.components.a.dAq(), jVar.fW(context), i.dze(), this.mKr.dDm(), bVar != null ? bVar.dzT() : null, bVar != null ? bVar.dzV() : null);
-        this.mKu = set;
+        this.mKg.a(context.getResources(), com.facebook.drawee.components.a.dAu(), jVar.fW(context), i.dzi(), this.mKu.dDq(), bVar != null ? bVar.dzX() : null, bVar != null ? bVar.dzZ() : null);
+        this.mKx = set;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: dAj */
+    /* renamed from: dAn */
     public e get() {
-        return new e(this.mContext, this.mKd, this.mKr, this.mKu);
+        return new e(this.mContext, this.mKg, this.mKu, this.mKx);
     }
 }

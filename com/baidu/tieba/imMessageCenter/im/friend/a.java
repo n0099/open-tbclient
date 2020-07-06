@@ -76,7 +76,7 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private C0661a cuc() {
+    private C0661a cud() {
         C0661a c0661a = new C0661a();
         c0661a.rootView = LayoutInflater.from(this.jez.getPageContext().getContext()).inflate(R.layout.im_black_list_item, (ViewGroup) null);
         c0661a.jeB = (HeadImageView) c0661a.rootView.findViewById(R.id.header_view);
@@ -91,7 +91,7 @@ public class a extends BaseAdapter {
     private C0661a a(Object obj, BlackListItemData blackListItemData) {
         C0661a c0661a;
         if (obj == null) {
-            c0661a = cuc();
+            c0661a = cud();
         } else {
             c0661a = (C0661a) obj;
         }

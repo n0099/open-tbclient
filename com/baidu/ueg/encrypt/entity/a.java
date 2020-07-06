@@ -1,19 +1,19 @@
 package com.baidu.ueg.encrypt.entity;
 /* loaded from: classes8.dex */
 public class a {
-    private EncryptAlgorithm mFK;
-    private String mFL;
+    private EncryptAlgorithm mFN;
+    private String mFO;
 
     public a(EncryptAlgorithm encryptAlgorithm, String str) {
-        this.mFK = encryptAlgorithm;
-        this.mFL = str;
+        this.mFN = encryptAlgorithm;
+        this.mFO = str;
     }
 
-    public EncryptAlgorithm dxE() {
-        return this.mFK;
+    public EncryptAlgorithm dxI() {
+        return this.mFN;
     }
 
-    public String dxF() {
-        return this.mFL;
+    public String dxJ() {
+        return this.mFO;
     }
 }

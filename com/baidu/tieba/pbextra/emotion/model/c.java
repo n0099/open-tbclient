@@ -31,7 +31,7 @@ class c {
         }
     }
 
-    public byte[] cRi() {
+    public byte[] cRj() {
         byte[] bArr = new byte[768];
         int[] iArr = new int[256];
         for (int i = 0; i < 256; i++) {
@@ -50,7 +50,7 @@ class c {
         return bArr;
     }
 
-    public void cRj() {
+    public void cRk() {
         int i;
         int i2;
         int i3 = 0;
@@ -103,7 +103,7 @@ class c {
         }
     }
 
-    public void cRk() {
+    public void cRl() {
         int i;
         if (this.kDd < 1509) {
             this.kDe = 1;
@@ -256,14 +256,14 @@ class c {
         }
     }
 
-    public byte[] cRl() {
+    public byte[] cRm() {
+        cRl();
+        cRn();
         cRk();
-        cRm();
-        cRj();
-        return cRi();
+        return cRj();
     }
 
-    public void cRm() {
+    public void cRn() {
         for (int i = 0; i < 256; i++) {
             int[] iArr = this.kDf[i];
             iArr[0] = iArr[0] >> 4;

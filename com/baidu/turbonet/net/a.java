@@ -19,10 +19,10 @@ class a {
     public long mRequestTime;
     public long mStartTime;
     public String mUrl;
-    public int mAP = -14;
-    public int mAQ = -1;
-    public long mAR = -1;
-    public long mAS = -1;
+    public int mAS = -14;
+    public int mAT = -1;
+    public long mAU = -1;
+    public long mAV = -1;
     public long bPf = -1;
 
     public a(String str) {
@@ -33,46 +33,46 @@ class a {
         this.mRequestTime = System.currentTimeMillis();
     }
 
-    public void dvr() {
-        this.mAS = (System.nanoTime() / 1000) - this.mStartTime;
+    public void dvv() {
+        this.mAV = (System.nanoTime() / 1000) - this.mStartTime;
     }
 
-    public void dvs() {
+    public void dvw() {
         this.bPf = (System.nanoTime() / 1000) - this.mStartTime;
     }
 
     public void a(TurbonetEngine turbonetEngine) {
-        Log.v("HTTPMetrics", String.format("url:%s, method:%s, netCode:%d, httpCode:%d, bytesReceived:%d, requestTime:%d, firstByteTime:%d, durationTime:%d", this.mUrl, this.dac, Integer.valueOf(this.mAP), Integer.valueOf(this.mAQ), Long.valueOf(this.mAR), Long.valueOf(this.mRequestTime), Long.valueOf(this.mAS), Long.valueOf(this.bPf)));
-        turbonetEngine.a(this.mUrl, this.dac, this.mAP, this.mAQ, this.mAR, this.mRequestTime, this.mAS, this.bPf);
+        Log.v("HTTPMetrics", String.format("url:%s, method:%s, netCode:%d, httpCode:%d, bytesReceived:%d, requestTime:%d, firstByteTime:%d, durationTime:%d", this.mUrl, this.dac, Integer.valueOf(this.mAS), Integer.valueOf(this.mAT), Long.valueOf(this.mAU), Long.valueOf(this.mRequestTime), Long.valueOf(this.mAV), Long.valueOf(this.bPf)));
+        turbonetEngine.a(this.mUrl, this.dac, this.mAS, this.mAT, this.mAU, this.mRequestTime, this.mAV, this.bPf);
     }
 
     public void w(Exception exc) {
         if (exc instanceof SocketTimeoutException) {
-            this.mAP = -1;
+            this.mAS = -1;
         } else if (exc instanceof UnknownHostException) {
-            this.mAP = -2;
+            this.mAS = -2;
         } else if (exc instanceof ConnectException) {
-            this.mAP = -5;
+            this.mAS = -5;
         } else if (exc instanceof ProtocolException) {
-            this.mAP = -3;
+            this.mAS = -3;
         } else if (exc instanceof BindException) {
-            this.mAP = -4;
+            this.mAS = -4;
         } else if (exc instanceof SSLHandshakeException) {
-            this.mAP = -8;
+            this.mAS = -8;
         } else if (exc instanceof SSLProtocolException) {
-            this.mAP = -9;
+            this.mAS = -9;
         } else if (exc instanceof RemoteException) {
-            this.mAP = -13;
+            this.mAS = -13;
         } else if (exc instanceof NoRouteToHostException) {
-            this.mAP = -6;
+            this.mAS = -6;
         } else if (exc instanceof PortUnreachableException) {
-            this.mAP = -7;
+            this.mAS = -7;
         } else if (exc instanceof SSLKeyException) {
-            this.mAP = -10;
+            this.mAS = -10;
         } else if (exc instanceof SSLPeerUnverifiedException) {
-            this.mAP = -11;
+            this.mAS = -11;
         } else {
-            this.mAP = -14;
+            this.mAS = -14;
         }
     }
 }

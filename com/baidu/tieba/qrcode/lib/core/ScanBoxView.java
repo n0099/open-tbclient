@@ -133,11 +133,11 @@ public class ScanBoxView extends View {
             a(obtainStyledAttributes.getIndex(i), obtainStyledAttributes);
         }
         obtainStyledAttributes.recycle();
+        cYo();
         cYn();
-        cYm();
     }
 
-    private void cYm() {
+    private void cYn() {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.outWidth = this.lcb;
         options.outHeight = this.lcb;
@@ -215,7 +215,7 @@ public class ScanBoxView extends View {
         }
     }
 
-    private void cYn() {
+    private void cYo() {
         if (this.lcB != null) {
             this.lcH = ((BitmapDrawable) this.lcB).getBitmap();
         }
@@ -240,7 +240,7 @@ public class ScanBoxView extends View {
         setIsBarcode(this.lcp);
     }
 
-    public void cYo() {
+    public void cYp() {
         this.lca.setColor(this.lct);
         setIsBarcode(false);
         invalidate();
@@ -254,7 +254,7 @@ public class ScanBoxView extends View {
             ab(canvas);
             ac(canvas);
             aa(canvas);
-            cYp();
+            cYq();
         }
     }
 
@@ -393,7 +393,7 @@ public class ScanBoxView extends View {
         }
     }
 
-    private void cYp() {
+    private void cYq() {
         if (this.lcp) {
             if (this.lcC == null) {
                 this.lbZ += this.lbV;
@@ -443,10 +443,10 @@ public class ScanBoxView extends View {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        cYq();
+        cYr();
     }
 
-    private void cYq() {
+    private void cYr() {
         int i;
         if (this.lcp) {
             i = this.mTopOffset + this.lco;
@@ -520,7 +520,7 @@ public class ScanBoxView extends View {
                 this.mTopOffset = (i - this.lcd) / 2;
             }
         }
-        cYq();
+        cYr();
         postInvalidate();
     }
 
