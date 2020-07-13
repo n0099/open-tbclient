@@ -73,7 +73,7 @@ public class ImagePickerPlugin implements FlutterPlugin, MethodChannel.MethodCal
             @Override // com.example.image_picker.PostAsyncTask.PostCallback
             public void onFailure(PostAsyncTask.ResultData resultData) {
                 if (resultData != null) {
-                    ImagePickerPlugin.notifyFlutter(resultData.error_code, resultData.error_msg, resultData.url);
+                    ImagePickerPlugin.notifyFlutter(resultData.error_code, resultData.error_msg, "");
                 }
             }
         };

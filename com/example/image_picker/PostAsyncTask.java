@@ -5,6 +5,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.y;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
@@ -34,6 +35,7 @@ public class PostAsyncTask extends BdAsyncTask<String, Object, ResultData> {
         y yVar = new y(TbConfig.SERVER_ADDRESS + "c/c/bawu/updateAvatar");
         yVar.addPostData("forum_id", this.barId);
         yVar.addPostData(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, this.url);
+        yVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
         String postNetData = yVar.postNetData();
         if (yVar.aWu().aWW().isRequestSuccess()) {
             try {

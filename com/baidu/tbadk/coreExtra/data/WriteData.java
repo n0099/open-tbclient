@@ -103,7 +103,7 @@ public class WriteData extends OrmObject implements Serializable {
     private String mShareSummaryImgType;
     private int mShareSummaryImgWidth;
     private String mShareSummaryTitle;
-    private SpanGroupManager mSpanGroupManager;
+    private transient SpanGroupManager mSpanGroupManager;
     private String mSubPbReplyPrefix;
     private int mTabId;
     private String mTabName;
