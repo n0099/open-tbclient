@@ -969,6 +969,9 @@ public class g {
                     if (position < 0) {
                         a(nVar4, 23);
                     } else {
+                        if (position == 0) {
+                            position = this.kcm ? 3 : 2;
+                        }
                         cGQ.add(position, nVar4);
                         TiebaStatic.eventStat(this.kbv.getPageContext().getContext(), CommonStatisticKey.PB_SHOW_APP, "", 1, "app_name", nVar4.dhN().apk_name);
                     }
