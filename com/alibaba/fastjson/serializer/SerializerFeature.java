@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.serializer;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public enum SerializerFeature {
     QuoteFieldNames,
     UseSingleQuotes,

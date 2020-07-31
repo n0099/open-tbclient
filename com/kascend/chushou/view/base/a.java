@@ -15,10 +15,10 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import com.kascend.chushou.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class a extends DialogFragment {
     protected Context b;
-    protected ProgressDialog nvl = null;
+    protected ProgressDialog nDU = null;
 
     public abstract View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle);
 

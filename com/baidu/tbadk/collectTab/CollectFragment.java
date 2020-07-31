@@ -9,47 +9,47 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.BaseFragment;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public abstract class CollectFragment extends BaseFragment {
-    protected boolean dFo = false;
-    private final CustomMessageListener dFp = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.collectTab.CollectFragment.1
+    protected boolean dLl = false;
+    private final CustomMessageListener dLm = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.collectTab.CollectFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                CollectFragment.this.kj(CollectFragment.this.getType());
-                if (!CollectFragment.this.dFo) {
+                CollectFragment.this.kC(CollectFragment.this.getType());
+                if (!CollectFragment.this.dLl) {
                     CollectFragment.this.p(false, CollectFragment.this.getType());
                 }
             }
         }
     };
 
-    public abstract boolean aPx();
+    public abstract boolean aTs();
 
     public abstract int getType();
 
-    public boolean aPw() {
-        return this.dFo;
+    public boolean aTr() {
+        return this.dLl;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        registerListener(this.dFp);
+        registerListener(this.dLm);
     }
 
     @Override // android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        MessageManager.getInstance().unRegisterListener(this.dFp);
+        MessageManager.getInstance().unRegisterListener(this.dLm);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void kj(int i) {
+    public void kC(int i) {
         Bundle bundle = new Bundle();
-        this.dFo = !aPx() && j.isNetWorkAvailable();
-        bundle.putBoolean("is_enable_edit", this.dFo);
+        this.dLl = !aTs() && j.isNetWorkAvailable();
+        bundle.putBoolean("is_enable_edit", this.dLl);
         bundle.putInt("fragment_type", i);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE, bundle));
     }

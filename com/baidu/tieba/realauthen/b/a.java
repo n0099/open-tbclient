@@ -9,7 +9,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.lang.reflect.Field;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static void a(EditText editText, InputFilter[] inputFilterArr) {
         if (editText != null) {

@@ -3,13 +3,13 @@ package com.baidu.swan.mini.e;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b {
-    public static String ti(String str) {
-        return aj(str, true);
+    public static String ul(String str) {
+        return ai(str, true);
     }
 
-    private static String aj(String str, boolean z) {
+    private static String ai(String str, boolean z) {
         if (str == null) {
             return "";
         }

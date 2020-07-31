@@ -3,7 +3,7 @@ package com.google.zxing.common.detector;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class WhiteRectangleDetector {
     private static final int CORR = 1;
     private static final int INIT_SIZE = 10;

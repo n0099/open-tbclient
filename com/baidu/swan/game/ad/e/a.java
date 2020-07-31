@@ -1,37 +1,46 @@
 package com.baidu.swan.game.ad.e;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes11.dex */
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+/* loaded from: classes9.dex */
 public class a {
-    private static final byte[] cWk = {48, 75, 97, 106, 68, 55, 65, 90, 99, 70, 50, 81, 110, 80, 114, 53, 102, 119, 105, 72, 82, 78, 121, 103, 109, 117, 112, 85, 84, 73, 88, 120, 54, 57, 66, 87, 98, 45, 104, 77, 67, 71, 74, 111, 95, 86, 56, 69, 115, 107, 122, 49, 89, 100, 118, 76, 51, 52, 108, Constants.SHORT_PING_CMD_TYPE, 116, 113, 83, 79};
-    private static final byte[] cWl = new byte[128];
+    private static volatile a dbK;
+    private List<k> mCallbacks = new CopyOnWriteArrayList();
 
-    static {
-        for (int i = 0; i < cWk.length; i++) {
-            cWl[cWk[i]] = (byte) i;
+    public static a aAQ() {
+        if (dbK == null) {
+            synchronized (a.class) {
+                if (dbK == null) {
+                    dbK = new a();
+                }
+            }
+        }
+        return dbK;
+    }
+
+    public void a(k kVar) {
+        if (kVar != null && !this.mCallbacks.contains(kVar)) {
+            this.mCallbacks.add(kVar);
         }
     }
 
-    public String encode(String str) {
-        int i = 0;
-        if (TextUtils.isEmpty(str)) {
-            return "";
+    public void aa(int i, String str) {
+        for (k kVar : this.mCallbacks) {
+            if (i == 16) {
+                kVar.aBj();
+            } else if (i == 17) {
+                kVar.rL(str);
+            }
+            b(kVar);
         }
-        for (int length = str.getBytes().length % 3; length > 0 && length < 3; length++) {
-            str = str + "$";
+    }
+
+    public void b(k kVar) {
+        if (this.mCallbacks.contains(kVar)) {
+            this.mCallbacks.remove(kVar);
         }
-        byte[] bytes = str.getBytes();
-        byte[] bArr = new byte[(bytes.length / 3) * 4];
-        int i2 = 0;
-        while (i2 < bytes.length) {
-            bArr[i] = cWk[(bytes[i2] & 252) >> 2];
-            bArr[i + 1] = cWk[((bytes[i2] & 3) << 4) + ((bytes[i2 + 1] & 240) >> 4)];
-            bArr[i + 2] = cWk[((bytes[i2 + 1] & 15) << 2) + ((bytes[i2 + 2] & 192) >> 6)];
-            bArr[i + 3] = cWk[bytes[i2 + 2] & 63];
-            i2 += 3;
-            i += 4;
-        }
-        return new String(bArr);
+    }
+
+    private a() {
     }
 }

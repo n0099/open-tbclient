@@ -3,7 +3,7 @@ package com.baidu.tieba.pushdialog.data;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.pushdialog.PushDialogStatic;
 import tbclient.GetLockWindowTid.GetLockWindowTidResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class PullTidSocketResponseMessage extends SocketResponsedMessage {
     private String tid;
 

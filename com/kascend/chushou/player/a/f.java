@@ -17,7 +17,7 @@ import com.kascend.chushou.a;
 import com.kascend.chushou.constants.ChatInfo;
 import com.kascend.chushou.constants.RoomInfo;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f extends b {
     private TextView d;
     private TextView e;
@@ -28,7 +28,7 @@ public class f extends b {
     private List<c> j;
     private boolean k;
     private TextView l;
-    private ScrollView ngb;
+    private ScrollView noN;
 
     public f(Context context) {
         super(context);
@@ -57,7 +57,7 @@ public class f extends b {
 
     private void b() {
         this.h = (LinearLayout) findViewById(a.f.ll_dialog_operate);
-        this.ngb = (ScrollView) findViewById(a.f.scroll_content);
+        this.noN = (ScrollView) findViewById(a.f.scroll_content);
         this.d = (TextView) findViewById(a.f.tvDlgUserTitle);
         this.e = (TextView) findViewById(a.f.tv_header);
         this.f = (LinearLayout) findViewById(a.f.ll_operate_content);
@@ -103,21 +103,21 @@ public class f extends b {
         if (this.e.isShown()) {
             dip2px += tv.chushou.zues.utils.a.dip2px(this.i, 58.0f);
         }
-        if (dip2px > (tv.chushou.zues.utils.a.gw(this.i).y - tv.chushou.zues.utils.a.dip2px(this.i, 80.0f)) - tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(this.i)) {
-            ViewGroup.LayoutParams layoutParams = this.ngb.getLayoutParams();
-            layoutParams.height = ((tv.chushou.zues.utils.a.gw(this.i).y - tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(this.i)) - tv.chushou.zues.utils.a.dip2px(this.i, 80.0f)) - tv.chushou.zues.utils.a.dip2px(this.i, 58.0f);
+        if (dip2px > (tv.chushou.zues.utils.a.gE(this.i).y - tv.chushou.zues.utils.a.dip2px(this.i, 80.0f)) - tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(this.i)) {
+            ViewGroup.LayoutParams layoutParams = this.noN.getLayoutParams();
+            layoutParams.height = ((tv.chushou.zues.utils.a.gE(this.i).y - tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(this.i)) - tv.chushou.zues.utils.a.dip2px(this.i, 80.0f)) - tv.chushou.zues.utils.a.dip2px(this.i, 58.0f);
             if (this.e.isShown()) {
                 layoutParams.height -= tv.chushou.zues.utils.a.dip2px(this.i, 58.0f);
             }
             if (this.d.isShown()) {
                 layoutParams.height -= tv.chushou.zues.utils.a.dip2px(this.i, 58.0f);
             }
-            this.ngb.setLayoutParams(layoutParams);
+            this.noN.setLayoutParams(layoutParams);
             return;
         }
-        ViewGroup.LayoutParams layoutParams2 = this.ngb.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = this.noN.getLayoutParams();
         layoutParams2.height = -2;
-        this.ngb.setLayoutParams(layoutParams2);
+        this.noN.setLayoutParams(layoutParams2);
     }
 
     private void d() {
@@ -150,8 +150,8 @@ public class f extends b {
         this.f.addView(inflate);
         inflate.setOnClickListener(new tv.chushou.zues.a() { // from class: com.kascend.chushou.player.a.f.2
             @Override // tv.chushou.zues.a
-            public void ds(View view) {
-                cVar.nfS.a(cVar.c);
+            public void dy(View view) {
+                cVar.noE.a(cVar.c);
                 if (cVar.c == a.i.dialog_report) {
                     f.this.k = !f.this.k;
                     f.this.c();
@@ -187,9 +187,9 @@ public class f extends b {
         this.g.addView(inflate);
         inflate.setOnClickListener(new tv.chushou.zues.a() { // from class: com.kascend.chushou.player.a.f.3
             @Override // tv.chushou.zues.a
-            public void ds(View view) {
+            public void dy(View view) {
                 f.this.dismiss();
-                cVar.nfS.a(cVar.c);
+                cVar.noE.a(cVar.c);
             }
         });
     }

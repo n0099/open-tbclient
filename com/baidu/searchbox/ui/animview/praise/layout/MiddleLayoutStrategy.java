@@ -2,7 +2,7 @@ package com.baidu.searchbox.ui.animview.praise.layout;
 
 import android.graphics.Rect;
 import com.baidu.searchbox.ui.animview.base.IResourceProvider;
-/* loaded from: classes13.dex */
+/* loaded from: classes7.dex */
 public class MiddleLayoutStrategy extends BaseLayoutStrategy {
     private static final float PRAISELEVEL_FACTOR_POS_X_BASED_PRAISELEVEL = 0.5f;
 

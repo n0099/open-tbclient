@@ -3,9 +3,9 @@ package com.baidu.cesium.c.d;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import javax.crypto.BadPaddingException;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public final class b {
-    public static final SecureRandom akD = new SecureRandom();
+    public static final SecureRandom aky = new SecureRandom();
 
     public static int a(BigInteger bigInteger) {
         return (bigInteger.bitLength() + 7) >> 3;
@@ -39,7 +39,7 @@ public final class b {
     }
 
     public static byte[] a(byte[] bArr, d dVar) {
-        return a(bArr, dVar.sE(), dVar.sF());
+        return a(bArr, dVar.sG(), dVar.sH());
     }
 
     private static byte[] a(byte[] bArr, BigInteger bigInteger, BigInteger bigInteger2) {

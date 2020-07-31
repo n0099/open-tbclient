@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import com.baidu.live.tbadk.TbConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BlockBitmap {
     private static final String TAG = BlockBitmap.class.getSimpleName();
     private Bitmap mBitmap;
@@ -90,7 +90,7 @@ public class BlockBitmap {
         return this.mPositionInOriginBitmap;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Position {
         int column;
         int row;

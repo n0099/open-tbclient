@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetChallengeMvpToastInfoResponseMessage extends JsonHttpResponsedMessage {
-    public List<b> fZy;
+    public List<b> geG;
     public String toast;
     public int type;
 
@@ -22,13 +22,13 @@ public class GetChallengeMvpToastInfoResponseMessage extends JsonHttpResponsedMe
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONArray optJSONArray = optJSONObject.optJSONArray("sticker");
-            this.fZy = new ArrayList();
+            this.geG = new ArrayList();
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     b bVar = new b();
                     bVar.parse(optJSONObject2);
-                    this.fZy.add(bVar);
+                    this.geG.add(bVar);
                 }
             }
             this.type = optJSONObject.optInt("type");

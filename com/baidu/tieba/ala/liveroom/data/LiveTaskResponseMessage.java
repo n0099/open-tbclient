@@ -4,13 +4,13 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LiveTaskResponseMessage extends JsonHttpResponsedMessage {
     public String btnText;
-    public long ggK;
-    public int ggL;
-    public String ggM;
-    public String ggN;
+    public long glK;
+    public int glL;
+    public String glM;
+    public String glN;
     public String message;
     public String scheme;
     public String url;
@@ -27,15 +27,15 @@ public class LiveTaskResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject != null) {
                 this.message = optJSONObject.optString("message");
                 this.btnText = optJSONObject.optString("btnText");
-                this.ggK = optJSONObject.optLong("toastDuration");
+                this.glK = optJSONObject.optLong("toastDuration");
                 this.url = optJSONObject.optString("url");
                 this.scheme = optJSONObject.optString("schema");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
             if (optJSONObject2 != null) {
-                this.ggL = optJSONObject2.optInt(BaseJsonData.TAG_ERRNO);
-                this.ggM = optJSONObject2.optString(BaseJsonData.TAG_ERRMSG);
-                this.ggN = optJSONObject2.optString("usermsg");
+                this.glL = optJSONObject2.optInt(BaseJsonData.TAG_ERRNO);
+                this.glM = optJSONObject2.optString(BaseJsonData.TAG_ERRMSG);
+                this.glN = optJSONObject2.optString("usermsg");
             }
         }
     }

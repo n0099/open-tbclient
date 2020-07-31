@@ -11,7 +11,7 @@ import com.baidu.ala.recorder.video.VideoFormat;
 import com.baidu.ala.recorder.video.camera.AlaCameraRecorder;
 import com.baidu.live.adp.lib.util.BdLog;
 @TargetApi(16)
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class CPUCaremaOperator implements ICameraOperator {
     private Activity mActivity;
     private Camera mCamera;

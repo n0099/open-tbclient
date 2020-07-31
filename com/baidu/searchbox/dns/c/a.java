@@ -1,7 +1,7 @@
 package com.baidu.searchbox.dns.c;
 
 import android.text.TextUtils;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class a {
     private com.baidu.searchbox.dns.d.a.a w;
     private com.baidu.searchbox.dns.d.a x;
@@ -26,8 +26,8 @@ public class a {
     }
 
     /* renamed from: com.baidu.searchbox.dns.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes13.dex */
-    public static class C0273a {
+    /* loaded from: classes6.dex */
+    public static class C0276a {
         private final long A;
         private int B;
         private String C;
@@ -35,7 +35,7 @@ public class a {
         private final com.baidu.searchbox.dns.d.a x;
         private final com.baidu.searchbox.dns.d.a.a z;
 
-        public C0273a(long j, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
+        public C0276a(long j, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
             this.B = -1;
             this.D = -1L;
             this.A = j;

@@ -15,7 +15,7 @@ import com.baidu.sapi2.permissions.PassPermissions;
 import com.baidu.sapi2.permissions.PermissionsCallback;
 import com.baidu.sapi2.permissions.PermissionsDTO;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class SmsService {
     public static void registerReceiver(final Context context, final Handler handler, final RequestSMSCallback requestSMSCallback) {
         PermissionsDTO permissionsDTO = new PermissionsDTO();

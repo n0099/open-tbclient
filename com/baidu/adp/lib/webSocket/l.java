@@ -37,15 +37,15 @@ public class l {
         this.OO = lVar.OO;
     }
 
-    public boolean nk() {
+    public boolean nl() {
         return this.Pz;
     }
 
-    public int nl() {
+    public int nm() {
         return this.Px;
     }
 
-    public int nm() {
+    public int nn() {
         return this.Py;
     }
 
@@ -53,27 +53,27 @@ public class l {
         return this.PD;
     }
 
-    public int nn() {
+    public int no() {
         return this.PE;
     }
 
-    public int no() {
+    public int np() {
         return this.PF;
     }
 
-    public boolean np() {
+    public boolean nq() {
         return this.PG;
     }
 
-    public boolean nq() {
+    public boolean nr() {
         return this.PH;
     }
 
-    public String nr() {
+    public String ns() {
         return this.OO;
     }
 
-    public void ce(String str) {
+    public void cc(String str) {
         this.OO = str;
     }
 }

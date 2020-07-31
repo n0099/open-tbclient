@@ -3,7 +3,7 @@ package com.baidu.searchbox.datachannel;
 import android.text.TextUtils;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ugc.model.UgcConstant;
-/* loaded from: classes13.dex */
+/* loaded from: classes12.dex */
 public class Contract {
     public static final String ACCOUNT_LOGIN_STATUS = "com.baidu.channel.account.loginstatus";
     public static final String ACTION_DATA_CHANNEL_DEMO = "com.baidu.channel.demo";

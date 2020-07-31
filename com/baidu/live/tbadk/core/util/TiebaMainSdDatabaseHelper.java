@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.core.util;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.live.adp.base.db.SDCardDatabaseHelper;
 import com.baidu.live.tbadk.TbConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TiebaMainSdDatabaseHelper extends SDCardDatabaseHelper {
     public static final int DATABASE_VERSION = 11;
 

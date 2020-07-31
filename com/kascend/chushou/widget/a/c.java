@@ -1,7 +1,7 @@
 package com.kascend.chushou.widget.a;
 
 import com.kascend.chushou.constants.ParserRet;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c implements d<ParserRet> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kascend.chushou.widget.a.d

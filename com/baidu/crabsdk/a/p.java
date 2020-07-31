@@ -2,16 +2,16 @@ package com.baidu.crabsdk.a;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public final class p extends n {
-    private static final LinkedHashMap<Long, String> alY = new LinkedHashMap<>();
+    private static final LinkedHashMap<Long, String> alT = new LinkedHashMap<>();
     private int X;
-    private Thread alZ;
+    private Thread alU;
 
     private p(Thread thread, int i, long j) {
         super(j);
         this.X = a.X;
-        this.alZ = thread;
+        this.alU = thread;
         this.X = i;
     }
 
@@ -21,14 +21,14 @@ public final class p extends n {
 
     public static ArrayList<String> c(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (alY) {
-            for (Long l : alY.keySet()) {
+        synchronized (alT) {
+            for (Long l : alT.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(alY.get(l));
+                    arrayList.add(alT.get(l));
                 }
             }
         }
-        com.baidu.crabsdk.c.a.di("result : " + arrayList.toString());
+        com.baidu.crabsdk.c.a.dh("result : " + arrayList.toString());
         return arrayList;
     }
 
@@ -36,14 +36,14 @@ public final class p extends n {
     @Override // com.baidu.crabsdk.a.n
     public final void o() {
         StringBuilder sb = new StringBuilder();
-        for (StackTraceElement stackTraceElement : this.alZ.getStackTrace()) {
+        for (StackTraceElement stackTraceElement : this.alU.getStackTrace()) {
             sb.append(stackTraceElement.toString()).append("\r\n");
         }
-        synchronized (alY) {
-            if (alY.size() == this.X && this.X > 0) {
-                alY.remove(alY.keySet().iterator().next());
+        synchronized (alT) {
+            if (alT.size() == this.X && this.X > 0) {
+                alT.remove(alT.keySet().iterator().next());
             }
-            alY.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            alT.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.searchbox.network.request;
 import com.baidu.searchbox.network.AbstractHttpManager;
 import com.baidu.searchbox.network.core.Request;
 import com.baidu.searchbox.network.core.RequestBody;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class HeadRequest extends HttpRequest<HeadRequestBuilder> {
     public HeadRequest(HeadRequestBuilder headRequestBuilder) {
         super(headRequestBuilder);
@@ -44,7 +44,7 @@ public class HeadRequest extends HttpRequest<HeadRequestBuilder> {
         return 0L;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public static class HeadRequestBuilder extends HttpRequestBuilder<HeadRequestBuilder> {
         public HeadRequestBuilder(AbstractHttpManager abstractHttpManager) {
             super(abstractHttpManager);

@@ -7,10 +7,10 @@ import com.airbnb.lottie.model.a.l;
 import com.airbnb.lottie.model.content.Mask;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class Layer {
-    private final float Ao;
-    private final List<Mask> CQ;
+    private final float Aq;
+    private final List<Mask> CW;
     private final l EG;
     @Nullable
     private final j FA;
@@ -35,7 +35,7 @@ public class Layer {
     private final com.airbnb.lottie.e composition;
     private final List<com.airbnb.lottie.model.content.b> shapes;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes20.dex */
     public enum LayerType {
         PreComp,
         Solid,
@@ -46,7 +46,7 @@ public class Layer {
         Unknown
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes20.dex */
     public enum MatteType {
         None,
         Add,
@@ -62,13 +62,13 @@ public class Layer {
         this.Fr = layerType;
         this.Fs = j2;
         this.Ft = str2;
-        this.CQ = list2;
+        this.CW = list2;
         this.EG = lVar;
         this.Fu = i;
         this.Fv = i2;
         this.Fw = i3;
         this.Fx = f;
-        this.Ao = f2;
+        this.Aq = f2;
         this.Fy = i4;
         this.Fz = i5;
         this.FA = jVar;
@@ -90,7 +90,7 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float iY() {
-        return this.Ao / this.composition.hb();
+        return this.Aq / this.composition.hb();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -125,7 +125,7 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<Mask> hK() {
-        return this.CQ;
+        return this.CW;
     }
 
     public LayerType jc() {

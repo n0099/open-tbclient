@@ -1,56 +1,51 @@
 package com.baidu.tieba.pb.videopb.videoView;
 
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.j;
-import com.baidu.tbadk.a.d;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.data.l;
+import com.baidu.tieba.pb.data.n;
 import com.baidu.tieba.tbadkCore.data.p;
 import com.baidu.tieba.view.SortSwitchButton;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.PbPage.PbSortType;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class b {
-    private int aQB;
-    private int aQC;
-    private View.OnClickListener ebA;
-    private SortSwitchButton.a kcv;
-    private l klH;
-    private TextView klu;
-    private SortSwitchButton klv;
-    private TextView kzK;
-    private TextView kzL;
+    private int aRU;
+    private int aRV;
+    private View.OnClickListener ehM;
+    private TextView kIM;
+    private TextView kIN;
+    private SortSwitchButton.a kkX;
+    private n kuF;
+    private SortSwitchButton kut;
     private View mRootView;
-    public boolean klK = d.aNQ();
-    private int klF = 0;
-    private int kzM = 0;
-    private SortSwitchButton.a kgn = new SortSwitchButton.a() { // from class: com.baidu.tieba.pb.videopb.videoView.b.1
+    private int kuD = 0;
+    private int kIO = 0;
+    private SortSwitchButton.a kpe = new SortSwitchButton.a() { // from class: com.baidu.tieba.pb.videopb.videoView.b.1
         @Override // com.baidu.tieba.view.SortSwitchButton.a
-        public boolean va(int i) {
-            if (b.this.kcv != null) {
-                return b.this.kcv.va(i);
+        public boolean vs(int i) {
+            if (b.this.kkX != null) {
+                return b.this.kkX.vs(i);
             }
             return true;
         }
     };
-    private View.OnClickListener klL = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.videoView.b.2
+    private View.OnClickListener kuI = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.videoView.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.ebA != null) {
-                b.this.ebA.onClick(view);
+            if (b.this.ehM != null) {
+                b.this.ehM.onClick(view);
             }
             if (j.isNetWorkAvailable()) {
                 if (view == null || !(view.getTag() instanceof Boolean) || ((Boolean) view.getTag()).booleanValue()) {
-                    if (view != b.this.kzK) {
-                        if (view == b.this.kzL) {
+                    if (view != b.this.kIM) {
+                        if (view == b.this.kIN) {
                             b.this.setSelection(1);
                             return;
                         }
@@ -61,55 +56,45 @@ public class b {
             }
         }
     };
-    private View.OnClickListener klM = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.videoView.b.3
+    private View.OnClickListener kuJ = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.videoView.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.ebA != null) {
-                b.this.ebA.onClick(view);
+            if (b.this.ehM != null) {
+                b.this.ehM.onClick(view);
             }
         }
     };
 
     public void setSelection(int i) {
-        this.kzM = i;
+        this.kIO = i;
         if (i == 0) {
-            this.kzK.setTypeface(Typeface.defaultFromStyle(1));
-            this.kzL.setTypeface(Typeface.defaultFromStyle(0));
-            this.kzK.setTextColor(this.aQB);
-            this.kzL.setTextColor(this.aQC);
+            this.kIM.setTypeface(Typeface.defaultFromStyle(1));
+            this.kIN.setTypeface(Typeface.defaultFromStyle(0));
+            this.kIM.setTextColor(this.aRU);
+            this.kIN.setTextColor(this.aRV);
         } else if (i == 1) {
-            this.kzK.setTypeface(Typeface.defaultFromStyle(0));
-            this.kzL.setTypeface(Typeface.defaultFromStyle(1));
-            this.kzK.setTextColor(this.aQC);
-            this.kzL.setTextColor(this.aQB);
+            this.kIM.setTypeface(Typeface.defaultFromStyle(0));
+            this.kIN.setTypeface(Typeface.defaultFromStyle(1));
+            this.kIM.setTextColor(this.aRV);
+            this.kIN.setTextColor(this.aRU);
         }
     }
 
     public b(View view) {
         if (view != null) {
             this.mRootView = view;
-            this.kzK = (TextView) this.mRootView.findViewById(R.id.all_reply);
-            this.kzK.setOnClickListener(this.klL);
-            this.kzL = (TextView) this.mRootView.findViewById(R.id.owner_reply);
-            this.kzL.setOnClickListener(this.klL);
-            if (this.klK) {
-                this.klv = (SortSwitchButton) this.mRootView.findViewById(R.id.video_pb_sort_switch_btn);
-                this.klv.setOnSwitchChangeListener(this.kgn);
-            } else {
-                this.klu = (TextView) this.mRootView.findViewById(R.id.pb_sort_type);
-                this.klu.setOnClickListener(this.klM);
-                this.klu.setVisibility(0);
-            }
-            if (this.klK) {
-                this.klv.changeState(2);
-            } else {
-                bt(2, "");
-            }
+            this.kIM = (TextView) this.mRootView.findViewById(R.id.all_reply);
+            this.kIM.setOnClickListener(this.kuI);
+            this.kIN = (TextView) this.mRootView.findViewById(R.id.owner_reply);
+            this.kIN.setOnClickListener(this.kuI);
+            this.kut = (SortSwitchButton) this.mRootView.findViewById(R.id.video_pb_sort_switch_btn);
+            this.kut.setOnSwitchChangeListener(this.kpe);
+            this.kut.changeState(2);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void sb(boolean z) {
+    public void sG(boolean z) {
         if (z) {
             setSelection(1);
         } else {
@@ -117,97 +102,69 @@ public class b {
         }
     }
 
-    public void bt(int i, String str) {
-        this.klF = i;
-        this.klu.setVisibility(0);
-        if (str.length() > 0) {
-            this.klu.setText(str);
-        } else if (this.klF == 0) {
-            this.klu.setText(R.string.sort_type_new);
-        } else if (this.klF == 1) {
-            this.klu.setText(R.string.sort_type_old);
-        } else if (this.klF == 2) {
-            this.klu.setText(R.string.sort_type_hot);
-        }
-    }
-
     public void onChangeSkinType(int i) {
-        an.setBackgroundColor(this.mRootView, R.color.cp_bg_line_e);
-        this.aQB = an.getColor(R.color.cp_cont_b);
-        this.aQC = an.getColor(R.color.cp_cont_j);
-        setSelection(this.kzM);
-        if (this.klK) {
-            this.klv.onChangeSkinType();
-            return;
-        }
-        an.setViewTextColor(this.klu, (int) R.color.cp_cont_j);
-        this.klu.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aWQ().a(R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null);
+        ao.setBackgroundColor(this.mRootView, R.color.cp_bg_line_e);
+        this.aRU = ao.getColor(R.color.cp_cont_b);
+        this.aRV = ao.getColor(R.color.cp_cont_j);
+        setSelection(this.kIO);
+        this.kut.onChangeSkinType();
     }
 
-    public void a(l lVar) {
-        this.klH = lVar;
-        if (lVar != null) {
-            if (lVar.Un == l.jZY) {
-                this.kzK.setClickable(true);
-                this.kzK.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
-                this.kzL.setVisibility(0);
-                sb(lVar.kad);
+    public void a(n nVar) {
+        this.kuF = nVar;
+        if (nVar != null) {
+            if (nVar.Uh == n.kiE) {
+                this.kIM.setClickable(true);
+                this.kIM.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
+                this.kIN.setVisibility(0);
+                sG(nVar.kiJ);
             }
-            if (lVar.isDynamic) {
-                this.kzL.setVisibility(8);
-                if (this.klK) {
-                    this.klv.setVisibility(8);
-                } else {
-                    this.klu.setVisibility(8);
-                }
+            if (nVar.isDynamic) {
+                this.kIN.setVisibility(8);
+                this.kut.setVisibility(8);
             } else {
-                this.kzL.setVisibility(0);
-                if (this.klK) {
-                    if (lVar.kae != null) {
-                        this.klv.setVisibility(0);
-                        int i = 0;
-                        while (true) {
-                            if (i >= lVar.kae.size()) {
-                                i = 0;
-                                break;
-                            } else if (lVar.kae.get(i) != null && lVar.sortType == lVar.kae.get(i).sort_type.intValue()) {
-                                break;
-                            } else {
-                                i++;
-                            }
+                this.kIN.setVisibility(0);
+                if (nVar.kiK != null) {
+                    this.kut.setVisibility(0);
+                    int i = 0;
+                    while (true) {
+                        if (i >= nVar.kiK.size()) {
+                            i = 0;
+                            break;
+                        } else if (nVar.kiK.get(i) != null && nVar.sortType == nVar.kiK.get(i).sort_type.intValue()) {
+                            break;
+                        } else {
+                            i++;
                         }
-                        o(lVar.kae, i);
                     }
-                } else {
-                    this.klu.setVisibility(0);
-                    bt(lVar.sortType, lVar.kac);
+                    m(nVar.kiK, i);
                 }
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void o(List<PbSortType> list, int i) {
-        if (w.isEmpty(list)) {
-            this.klv.setVisibility(8);
+    public void m(List<PbSortType> list, int i) {
+        if (x.isEmpty(list)) {
+            this.kut.setVisibility(8);
             return;
         }
         ArrayList arrayList = new ArrayList();
         for (PbSortType pbSortType : list) {
             p pVar = new p();
-            pVar.EX(pbSortType.sort_type.intValue());
-            pVar.Ng(pbSortType.sort_name);
+            pVar.Ft(pbSortType.sort_type.intValue());
+            pVar.NO(pbSortType.sort_name);
             arrayList.add(pVar);
         }
-        this.klv.setVisibility(0);
-        this.klv.setData(arrayList, i);
+        this.kut.setVisibility(0);
+        this.kut.setData(arrayList, i);
     }
 
     public void setOnSwitchChangeListener(SortSwitchButton.a aVar) {
-        this.kcv = aVar;
+        this.kkX = aVar;
     }
 
-    public void V(View.OnClickListener onClickListener) {
-        this.ebA = onClickListener;
+    public void W(View.OnClickListener onClickListener) {
+        this.ehM = onClickListener;
     }
 }

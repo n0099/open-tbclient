@@ -1,18 +1,18 @@
 package com.baidu.ubc;
 
 import com.baidu.android.util.sp.SharedPrefsWrapper;
-/* loaded from: classes13.dex */
+/* loaded from: classes9.dex */
 public class ag extends SharedPrefsWrapper {
     public ag() {
         super("com.baidu.searchbox_ubc");
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes9.dex */
     private static final class a {
-        private static final ag mEw = new ag();
+        private static final ag mMA = new ag();
     }
 
-    public static ag dxc() {
-        return a.mEw;
+    public static ag dAp() {
+        return a.mMA;
     }
 }

@@ -15,22 +15,22 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.statistic.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimationView, b> {
     @NonNull
-    private String bUz;
+    private String bVr;
 
     public a(@Nullable Context context, @NonNull b bVar, @NonNull String str) {
         super(context, bVar);
-        this.bUz = str;
+        this.bVr = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    /* renamed from: bw */
-    public LottieAnimationView aZ(@NonNull Context context) {
+    /* renamed from: bz */
+    public LottieAnimationView ba(@NonNull Context context) {
         return new LottieAnimationView(context);
     }
 
@@ -38,21 +38,21 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     /* renamed from: a */
-    public void ab(@NonNull LottieAnimationView lottieAnimationView) {
-        super.ab(lottieAnimationView);
+    public void ae(@NonNull LottieAnimationView lottieAnimationView) {
+        super.ae(lottieAnimationView);
         try {
-            b bVar = (b) Wp();
+            b bVar = (b) WW();
             lottieAnimationView.loop(bVar.loop);
             lottieAnimationView.enableMergePathsForKitKatAndAbove(true);
-            lottieAnimationView.setAnimationFromJson(this.bUz, bVar.bUt);
+            lottieAnimationView.setAnimationFromJson(this.bVr, bVar.bVl);
             if (bVar.autoPlay) {
                 lottieAnimationView.playAnimation();
             }
             if (!bVar.loop) {
                 d(lottieAnimationView, bVar);
             }
-        } catch (IllegalStateException e) {
-            aS(this.bUz, e.apO());
+        } catch (Exception e) {
+            aT(this.bVr, e.arx());
         }
     }
 
@@ -81,7 +81,7 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
     }
 
     private void c(@NonNull LottieAnimationView lottieAnimationView, @NonNull b bVar) {
-        if (Wt()) {
+        if (Xa()) {
             if (DEBUG) {
                 Log.d("Component-AnimationView", "renderAction");
             }
@@ -101,9 +101,9 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
         final JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject.put("wvID", bVar.bUu);
+            jSONObject.put("wvID", bVar.bVm);
             jSONObject.put("vtype", "ended");
-            jSONObject2.putOpt("animationViewId", bVar.bUt);
+            jSONObject2.putOpt("animationViewId", bVar.bVl);
             jSONObject.put("data", jSONObject2.toString());
         } catch (JSONException e) {
             if (DEBUG) {
@@ -117,8 +117,8 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                com.baidu.swan.apps.view.b.b.a.a(bVar.bUu, bVar.bUt, "animateview", "ended", jSONObject);
-                c.d("Component-AnimationView", "progress: " + lottieAnimationView.getProgress());
+                com.baidu.swan.apps.view.b.b.a.a(bVar.bVm, bVar.bVl, "animateview", "ended", jSONObject);
+                c.i("Component-AnimationView", "progress: " + lottieAnimationView.getProgress());
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -127,12 +127,12 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                c.d("Component-AnimationView", "onAnimationRepeat ");
+                c.i("Component-AnimationView", "onAnimationRepeat ");
             }
         });
     }
 
-    public static void aS(String str, String str2) {
+    public static void aT(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("json", str);
@@ -150,6 +150,6 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
         if (DEBUG) {
             Log.d("Component-AnimationView", "reportLottieAnimationCrash: " + jSONObject2);
         }
-        new c.a(10009).oA(jSONObject2).oz(e.apO()).ait();
+        new c.a(10009).pj(jSONObject2).pi(e.arx()).aeU();
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.log.LogManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class QuanminFirstChargeLogger implements IFirstChargeLogger {
     @Override // com.baidu.live.tbadk.log.IFirstChargeLogger
     public void doDisplayLiveFirstChargePopupLog(String str, String str2, String str3, String str4) {

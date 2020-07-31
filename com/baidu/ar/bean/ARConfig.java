@@ -6,7 +6,7 @@ import com.baidu.ar.constants.ARConfigKey;
 import com.baidu.ar.f.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class ARConfig {
     private static final String AR_SDK_SALT_FIGURE = "777078ec21930de508131ba36035de6b";
     public static final int LAUNCH_AR_TAB = 2;

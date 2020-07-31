@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.core.j;
 
 import com.baidu.swan.pms.model.PMSAppInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public interface d {
-    void f(PMSAppInfo pMSAppInfo);
+    void i(PMSAppInfo pMSAppInfo);
 
-    void g(PMSAppInfo pMSAppInfo);
+    void j(PMSAppInfo pMSAppInfo);
 
     void onFailed(int i);
 }

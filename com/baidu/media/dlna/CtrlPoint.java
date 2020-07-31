@@ -6,23 +6,29 @@ import android.os.Message;
 import com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider;
 import com.baidu.media.duplayer.Keep;
 import java.lang.ref.WeakReference;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class CtrlPoint extends CtrlPointProvider {
     private long b;
-    CtrlPointProvider.CtrlPointListener buh;
+    CtrlPointProvider.CtrlPointListener buD;
     private Handler c = new Handler(Looper.getMainLooper()) { // from class: com.baidu.media.dlna.CtrlPoint.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    if (CtrlPoint.this.buh != null) {
-                        CtrlPoint.this.buh.onPrepared();
+                    if (CtrlPoint.this.buD != null) {
+                        CtrlPoint.this.buD.onPrepared();
                         break;
                     }
                     break;
                 case 2:
-                    if (CtrlPoint.this.buh != null) {
-                        CtrlPoint.this.buh.onComplete();
+                    if (CtrlPoint.this.buD != null) {
+                        CtrlPoint.this.buD.onComplete();
+                        break;
+                    }
+                    break;
+                case 3:
+                    if (CtrlPoint.this.buD != null) {
+                        CtrlPoint.this.buD.onError(message.arg1, message.arg2);
                         break;
                     }
                     break;
@@ -32,6 +38,7 @@ public class CtrlPoint extends CtrlPointProvider {
     };
 
     public CtrlPoint(long j) {
+        this.b = 0L;
         this.b = j;
     }
 
@@ -67,6 +74,18 @@ public class CtrlPoint extends CtrlPointProvider {
     }
 
     @Keep
+    private static void onError(Object obj, int i, int i2) {
+        CtrlPoint ctrlPoint;
+        if (obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || ctrlPoint.c == null) {
+            return;
+        }
+        Message obtain = Message.obtain(ctrlPoint.c, 3);
+        obtain.arg1 = i;
+        obtain.arg2 = i2;
+        obtain.sendToTarget();
+    }
+
+    @Keep
     private static void onPrepared(Object obj) {
         CtrlPoint ctrlPoint;
         if (obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || ctrlPoint.c == null) {
@@ -77,57 +96,84 @@ public class CtrlPoint extends CtrlPointProvider {
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public long getCurrentTime() {
-        return nativeCtrlPointGetCurrentPos(this.b);
+        if (this.b != 0) {
+            return nativeCtrlPointGetCurrentPos(this.b);
+        }
+        return 0L;
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public long getDuration() {
-        return nativeCtrlPointDuration(this.b);
+        if (this.b != 0) {
+            return nativeCtrlPointDuration(this.b);
+        }
+        return 0L;
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public int getPlaybackVolume() {
-        return nativeCtrlPointGetPlaybackVolume(this.b);
+        if (this.b != 0) {
+            return nativeCtrlPointGetPlaybackVolume(this.b);
+        }
+        return 0;
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void pause() {
-        nativeCtrlPointPause(this.b);
+        if (this.b != 0) {
+            nativeCtrlPointPause(this.b);
+        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void play() {
-        nativeCtrlPointPlay(this.b);
+        if (this.b != 0) {
+            nativeCtrlPointPlay(this.b);
+        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void seek(long j) {
-        nativeCtrlPointSeek(this.b, j);
+        if (this.b != 0) {
+            nativeCtrlPointSeek(this.b, j);
+        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void setAVTransportUrl(String str) {
+        if (this.b == 0 || str == null || str.length() <= 0) {
+            return;
+        }
         nativeCtrlPointSetAVTransportURI(this.b, str);
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void setListener(CtrlPointProvider.CtrlPointListener ctrlPointListener) {
-        this.buh = ctrlPointListener;
-        nativeCtrlPointSetListener(this.b, new WeakReference(this));
+        if (this.b != 0) {
+            this.buD = ctrlPointListener;
+            nativeCtrlPointSetListener(this.b, new WeakReference(this));
+        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void setPlaybackVolume(int i) {
-        nativeCtrlPointSetPlaybackVolume(this.b, i);
+        if (this.b != 0) {
+            nativeCtrlPointSetPlaybackVolume(this.b, i);
+        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void shutdown() {
-        nativeCtrlPointShutdown(this.b);
+        if (this.b != 0) {
+            nativeCtrlPointShutdown(this.b);
+            this.b = 0L;
+        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void stop() {
-        nativeCtrlPointStop(this.b);
+        if (this.b != 0) {
+            nativeCtrlPointStop(this.b);
+        }
     }
 }

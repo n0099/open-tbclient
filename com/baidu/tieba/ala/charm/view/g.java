@@ -10,9 +10,9 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g extends BaseAdapter {
-    private ArrayList<j> dQf = new ArrayList<>();
+    private ArrayList<j> dWx = new ArrayList<>();
     private TbPageContext mPageContext;
 
     public g(TbPageContext tbPageContext) {
@@ -21,28 +21,28 @@ public class g extends BaseAdapter {
 
     public void setData(List<j> list) {
         if (list != null) {
-            this.dQf.clear();
-            this.dQf.addAll(list);
+            this.dWx.clear();
+            this.dWx.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dQf == null) {
+        if (this.dWx == null) {
             return 0;
         }
-        return this.dQf.size();
+        return this.dWx.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: qB */
+    /* renamed from: qQ */
     public j getItem(int i) {
-        if (this.dQf == null) {
+        if (this.dWx == null) {
             return null;
         }
-        return this.dQf.get(i);
+        return this.dWx.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -57,23 +57,23 @@ public class g extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.h.sdk_charm_list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.fBz = (CharmItemView) view.findViewById(a.g.item);
+            aVar2.fGJ = (CharmItemView) view.findViewById(a.g.item);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        if (aVar != null && getItem(i) != null && (alaLiveUserInfoData = getItem(i).axp) != null) {
-            aVar.fBz.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
-            aVar.fBz.fBq.setData(alaLiveUserInfoData);
+        if (aVar != null && getItem(i) != null && (alaLiveUserInfoData = getItem(i).ayC) != null) {
+            aVar.fGJ.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
+            aVar.fGJ.fGA.setData(alaLiveUserInfoData);
         }
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private class a {
-        private CharmItemView fBz;
+        private CharmItemView fGJ;
 
         private a() {
         }

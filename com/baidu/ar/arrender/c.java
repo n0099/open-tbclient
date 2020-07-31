@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class c extends e implements OrientationManager.OrientationListener, j {
     private static boolean hp = true;
     private a Q;
@@ -50,7 +50,7 @@ public class c extends e implements OrientationManager.OrientationListener, j {
     private long hs;
     private List<String> u;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(int i, int i2);
     }

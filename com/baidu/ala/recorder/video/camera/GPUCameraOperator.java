@@ -37,7 +37,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class GPUCameraOperator implements ICameraOperator {
     private static final int DEFAULT_ROTATE = 0;
     private static final int MAX_DROP_FIRST_FRAMES = 5;

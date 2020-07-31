@@ -2,9 +2,9 @@ package com.baidu.live.p;
 
 import android.view.View;
 import com.baidu.live.data.AlaLiveInfoData;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface f {
-    void bY(boolean z);
+    void bZ(boolean z);
 
     void c(AlaLiveInfoData alaLiveInfoData);
 

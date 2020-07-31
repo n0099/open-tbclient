@@ -2,7 +2,7 @@ package com.baidu.searchbox.ugc.webjs;
 
 import android.text.TextUtils;
 import java.io.Serializable;
-/* loaded from: classes13.dex */
+/* loaded from: classes19.dex */
 public class IconsInfo implements Serializable {
     public String enable;
     public String msg;

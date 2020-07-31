@@ -10,6 +10,7 @@ public class AgreeData implements Serializable {
     public BaijiahaoData baijiahaoData;
     public int cardType;
     public boolean isFromImageViewer;
+    public String keyFromHomePage;
     public String mImageViewerFromPage;
     public String nid;
     public String recomAbTag;

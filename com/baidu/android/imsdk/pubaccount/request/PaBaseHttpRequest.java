@@ -32,8 +32,9 @@ public abstract class PaBaseHttpRequest extends BaseHttpRequest {
             case 0:
                 return Constants.URL_HTTP_ONLINE;
             case 1:
-            case 2:
                 return Constants.URL_HTTP_RD;
+            case 2:
+                return Constants.URL_HTTP_QA;
             case 3:
                 return Constants.URL_HTTP_BOX;
             default:

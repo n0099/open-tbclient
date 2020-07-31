@@ -2,7 +2,7 @@ package com.baidu.media.duplayer;
 
 import android.content.Context;
 import java.lang.reflect.Method;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static Object a;
     private static Method b;
@@ -16,10 +16,10 @@ public class a {
         try {
             a = Class.forName("com.baidu.crashpad.ZwCrashpad").getConstructor(new Class[0]).newInstance(new Object[0]);
             Class<?> cls = Class.forName("com.baidu.crashpad.ZwCrashpad");
-            b = com.baidu.media.duplayer.a.c.a(cls, "doInit", Context.class, String[].class);
-            d = com.baidu.media.duplayer.a.c.a(cls, "setStatisticParam", String.class);
-            c = com.baidu.media.duplayer.a.c.a(cls, "setEnabled", Boolean.TYPE);
-            e = com.baidu.media.duplayer.a.c.a(cls, "setCrashKeyValue", String.class, String.class);
+            b = com.baidu.media.duplayer.a.a.a(cls, "doInit", Context.class, String[].class);
+            d = com.baidu.media.duplayer.a.a.a(cls, "setStatisticParam", String.class);
+            c = com.baidu.media.duplayer.a.a.a(cls, "setEnabled", Boolean.TYPE);
+            e = com.baidu.media.duplayer.a.a.a(cls, "setCrashKeyValue", String.class, String.class);
             f = true;
         } catch (Error e2) {
             e2.printStackTrace();

@@ -23,15 +23,15 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ah;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.util.Base64Encoder;
 import com.baidu.webkit.internal.ETAG;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static String dDc;
+    public static String dIZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String parseWebViewUrl(String str, String str2) {
@@ -47,8 +47,8 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void uQ(String str) {
-        dDc = str;
+    public static void vS(String str) {
+        dIZ = str;
     }
 
     public static void startWebActivity(Context context, String str) {
@@ -80,7 +80,7 @@ public class a {
     }
 
     public static void startWebActivity(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        aOK();
+        aSF();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -95,7 +95,7 @@ public class a {
     }
 
     public static void startWebActivity(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
-        aOK();
+        aSF();
         try {
             if (!StringUtils.isNull(str2)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3, z6);
@@ -126,7 +126,7 @@ public class a {
     }
 
     public static String appendParams(String str, List<Pair<String, String>> list) {
-        if (!ar.isEmpty(str) && list != null) {
+        if (!as.isEmpty(str) && list != null) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") < 0) {
@@ -146,7 +146,7 @@ public class a {
     }
 
     public static String appendCuidParam(String str) {
-        if (!ar.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+        if (!as.isEmpty(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -170,7 +170,7 @@ public class a {
     }
 
     public static String appendVersionCode(String str) {
-        return (ar.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
+        return (as.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
     public static void initCookie(Context context) {
@@ -183,7 +183,7 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.aPB().vz(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.aTw().wB(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(c)) {
@@ -232,7 +232,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void aOK() {
-        new ah("open_webview", true).start();
+    private static void aSF() {
+        new ai("open_webview", true).start();
     }
 }

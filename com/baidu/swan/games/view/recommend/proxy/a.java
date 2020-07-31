@@ -2,61 +2,61 @@ package com.baidu.swan.games.view.recommend.proxy;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.aq.al;
 import com.baidu.swan.games.view.c;
 import com.baidu.swan.games.view.recommend.a.a;
 import com.baidu.swan.games.view.recommend.a.b;
 import com.baidu.swan.games.view.recommend.a.d;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a implements b {
-    private b djO;
+    private b dpI;
 
-    public a(final int i, @NonNull final d dVar, final a.InterfaceC0448a interfaceC0448a) {
-        aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.1
+    public a(final int i, @NonNull final d dVar, final a.InterfaceC0461a interfaceC0461a) {
+        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.1
             @Override // java.lang.Runnable
             public void run() {
-                Context aDE = c.aDE();
-                if (aDE == null) {
+                Context aHu = c.aHu();
+                if (aHu == null) {
                     com.baidu.swan.apps.console.c.e("RecommendButton", "context is null.");
                     return;
                 }
-                a.this.djO = com.baidu.swan.games.view.recommend.a.a.a(i, aDE, dVar);
-                a.this.djO.a(interfaceC0448a);
+                a.this.dpI = com.baidu.swan.games.view.recommend.a.a.a(i, aHu, dVar);
+                a.this.dpI.a(interfaceC0461a);
             }
         });
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.b
     public void a(final com.baidu.swan.games.view.recommend.model.a aVar) {
-        aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.2
+        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.djO != null) {
-                    a.this.djO.a(aVar);
+                if (a.this.dpI != null) {
+                    a.this.dpI.a(aVar);
                 }
             }
         });
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.b
-    public void a(final a.InterfaceC0448a interfaceC0448a) {
-        aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.3
+    public void a(final a.InterfaceC0461a interfaceC0461a) {
+        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.djO != null) {
-                    a.this.djO.a(interfaceC0448a);
+                if (a.this.dpI != null) {
+                    a.this.dpI.a(interfaceC0461a);
                 }
             }
         });
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.b
-    public void el(final boolean z) {
-        aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.4
+    public void et(final boolean z) {
+        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.4
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.djO != null) {
-                    a.this.djO.el(z);
+                if (a.this.dpI != null) {
+                    a.this.dpI.et(z);
                 }
             }
         });
@@ -64,11 +64,11 @@ public class a implements b {
 
     @Override // com.baidu.swan.games.view.recommend.a
     public void show() {
-        aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.5
+        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.5
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.djO != null) {
-                    a.this.djO.show();
+                if (a.this.dpI != null) {
+                    a.this.dpI.show();
                 }
             }
         });
@@ -76,11 +76,11 @@ public class a implements b {
 
     @Override // com.baidu.swan.games.view.recommend.a
     public void hide() {
-        aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.6
+        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.6
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.djO != null) {
-                    a.this.djO.hide();
+                if (a.this.dpI != null) {
+                    a.this.dpI.hide();
                 }
             }
         });
@@ -88,11 +88,11 @@ public class a implements b {
 
     @Override // com.baidu.swan.games.view.recommend.a
     public void destroy() {
-        aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.7
+        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.7
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.djO != null) {
-                    a.this.djO.destroy();
+                if (a.this.dpI != null) {
+                    a.this.dpI.destroy();
                 }
             }
         });
@@ -100,11 +100,11 @@ public class a implements b {
 
     @Override // com.baidu.swan.games.view.recommend.a.b
     public void update() {
-        aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.8
+        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.8
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.djO != null) {
-                    a.this.djO.update();
+                if (a.this.dpI != null) {
+                    a.this.dpI.update();
                 }
             }
         });

@@ -4,7 +4,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static File a(String str) {
         if (WebKitFactory.getContext() == null) {

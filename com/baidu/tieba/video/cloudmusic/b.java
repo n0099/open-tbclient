@@ -3,43 +3,43 @@ package com.baidu.tieba.video.cloudmusic;
 import com.baidu.tieba.video.cloudmusic.c;
 import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.video.cloudmusic.model.CloudMusicModel;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class b implements c.a {
-    private final CloudMusicModel lVs;
-    private final c.b lVt;
+    private final CloudMusicModel mcI;
+    private final c.b mcJ;
 
     public b(CloudMusicModel cloudMusicModel, c.b bVar) {
-        this.lVs = cloudMusicModel;
-        this.lVt = bVar;
+        this.mcI = cloudMusicModel;
+        this.mcJ = bVar;
         bVar.a(this);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void dmz() {
-        this.lVt.vg(true);
-        this.lVs.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
+    public void dpK() {
+        this.mcJ.vK(true);
+        this.mcI.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.video.cloudmusic.model.a
             /* renamed from: b */
             public void aJ(CloudMusicData cloudMusicData) {
-                b.this.lVt.vg(false);
+                b.this.mcJ.vK(false);
                 if (cloudMusicData != null) {
-                    b.this.lVt.vh(false);
+                    b.this.mcJ.vL(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        b.this.lVt.vh(true);
+                        b.this.mcJ.vL(true);
                         return;
                     } else {
-                        b.this.lVt.a(cloudMusicData);
+                        b.this.mcJ.a(cloudMusicData);
                         return;
                     }
                 }
-                b.this.lVt.vh(true);
+                b.this.mcJ.vL(true);
             }
         });
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void caS() {
-        this.lVs.cancelLoadData();
+    public void ceq() {
+        this.mcI.cancelLoadData();
     }
 }

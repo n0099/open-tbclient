@@ -1,7 +1,7 @@
 package com.baidu.ar.npc;
 
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class u implements Runnable {
     final /* synthetic */ HashMap a;
     final /* synthetic */ ArBridge b;

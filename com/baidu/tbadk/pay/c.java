@@ -10,22 +10,22 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
-    private static c eAw = null;
+    private static c eGL = null;
 
     private c() {
     }
 
-    public static synchronized c bhE() {
+    public static synchronized c blp() {
         c cVar;
         synchronized (c.class) {
-            if (eAw == null) {
-                eAw = new c();
+            if (eGL == null) {
+                eGL = new c();
             }
-            cVar = eAw;
+            cVar = eGL;
         }
         return cVar;
     }
@@ -46,7 +46,7 @@ public class c {
 
     public void a(String str, TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            bc.aWU().b(tbPageContext, new String[]{str});
+            bd.baV().b(tbPageContext, new String[]{str});
         }
     }
 

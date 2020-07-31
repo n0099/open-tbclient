@@ -1,5 +1,5 @@
 package com.heytap.mcssdk.mode;
-/* loaded from: classes8.dex */
+/* loaded from: classes20.dex */
 public class SubscribeResult {
     private String mContent;
     private String mSubscribeId;

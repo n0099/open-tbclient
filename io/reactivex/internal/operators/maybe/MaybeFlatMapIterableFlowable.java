@@ -55,7 +55,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
                 this.it = it;
                 drain();
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.L(th);
+                io.reactivex.exceptions.a.K(th);
                 this.actual.onError(th);
             }
         }
@@ -98,7 +98,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
                                 return;
                             }
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.L(th);
+                            io.reactivex.exceptions.a.K(th);
                             cVar.onError(th);
                             return;
                         }
@@ -106,7 +106,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
                         return;
                     }
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.L(th2);
+                    io.reactivex.exceptions.a.K(th2);
                     cVar.onError(th2);
                     return;
                 }
@@ -144,7 +144,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
                                                 return;
                                             }
                                         } catch (Throwable th) {
-                                            io.reactivex.exceptions.a.L(th);
+                                            io.reactivex.exceptions.a.K(th);
                                             cVar.onError(th);
                                             return;
                                         }
@@ -152,7 +152,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
                                         return;
                                     }
                                 } catch (Throwable th2) {
-                                    io.reactivex.exceptions.a.L(th2);
+                                    io.reactivex.exceptions.a.K(th2);
                                     cVar.onError(th2);
                                     return;
                                 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.screenlocknotify;
 
 import tbclient.GetMoreMsg.MsgContent;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class d {
     public String content;
     public int customGroupType;
@@ -9,10 +9,10 @@ public class d {
     public String groupId;
     public String groupName;
     public boolean isAcceptNotify;
-    public boolean kNg;
+    public boolean kWe;
     public long lastTime;
-    public String lnD = "";
-    public long lnE;
+    public String luY = "";
+    public long luZ;
     public long msgId;
     public int msgType;
     public String nameShow;

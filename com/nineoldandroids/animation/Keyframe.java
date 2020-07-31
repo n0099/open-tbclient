@@ -10,7 +10,7 @@ public abstract class Keyframe implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public abstract Keyframe m45clone();
+    public abstract Keyframe m46clone();
 
     public abstract Object getValue();
 

@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class e implements c {
     @Override // com.baidu.swan.apps.media.image.a.c
     public Bitmap decode(Context context, Uri uri) throws Exception {
@@ -50,7 +50,7 @@ public class e implements c {
                 inputStream = context.getContentResolver().openInputStream(uri);
                 decodeStream = BitmapFactory.decodeStream(inputStream, null, options);
             } finally {
-                com.baidu.swan.e.d.closeSafely(inputStream);
+                com.baidu.swan.d.d.closeSafely(inputStream);
             }
         }
         if (decodeStream == null) {

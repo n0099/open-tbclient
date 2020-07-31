@@ -3,7 +3,7 @@ package com.airbnb.lottie.model.content;
 import android.graphics.PointF;
 import com.airbnb.lottie.a.a.n;
 import com.airbnb.lottie.model.a.m;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class f implements b {
     private final m<PointF, PointF> DY;
     private final com.airbnb.lottie.model.a.b ED;

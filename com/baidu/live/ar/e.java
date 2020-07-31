@@ -1,12 +1,12 @@
 package com.baidu.live.ar;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e {
-    private String auW;
-    private String avd;
-    private String ave;
-    private String avf;
+    private String auS;
+    private String auZ;
+    private String ava;
+    private String avb;
     private String mFile;
     private String mId;
     private String mName;
@@ -16,17 +16,17 @@ public class e {
         if (jSONObject != null) {
             this.mId = jSONObject.optString("id");
             this.mName = jSONObject.optString("name");
-            this.avd = jSONObject.optString("bgurl");
+            this.auZ = jSONObject.optString("bgurl");
             this.mType = jSONObject.optString("type");
-            this.ave = jSONObject.optString("current");
+            this.ava = jSONObject.optString("current");
             this.mFile = jSONObject.optString("feature_file");
-            this.avf = jSONObject.optString("feature_file_token");
-            this.auW = jSONObject.optString("thinface_value");
+            this.avb = jSONObject.optString("feature_file_token");
+            this.auS = jSONObject.optString("thinface_value");
         }
     }
 
     public String vq() {
-        return this.avd;
+        return this.auZ;
     }
 
     public String vr() {
@@ -42,10 +42,10 @@ public class e {
     }
 
     public String vs() {
-        return this.ave;
+        return this.ava;
     }
 
     public String vt() {
-        return this.auW;
+        return this.auS;
     }
 }

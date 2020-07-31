@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.TimeZone;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public final class JSONScanner extends JSONLexerBase {
     private final int len;
     private final String text;

@@ -1,13 +1,12 @@
 package com.baidu.live.tbadk;
 
 import android.content.Context;
-import com.baidu.down.utils.Constants;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTaskParallel;
 import com.baidu.live.adp.lib.util.Base64;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TiebaIMConfig {
     public static final String GET_DOUBLE_FOLLOW_LIST = "c/u/user/get_double_follows";
     public static final int MAX_IMAGES_IN_GROUP_GALLARY = 1000;
@@ -19,7 +18,7 @@ public class TiebaIMConfig {
     public static final BdUniqueId IM_ASYCTASK_UNIQUEID = BdUniqueId.gen();
     private static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, IM_ASYCTASK_UNIQUEID);
     public static String url = "ws://im.tieba.baidu.com:8000";
-    public static int[] reconStrategy = {30, 60, 300, Constants.HTTP_DNS_INAVAILABLE_TIME, 1800, 3600, 7200, 14400};
+    public static int[] reconStrategy = {30, 60, 300, 600, 1800, 3600, 7200, 14400};
     public static String POST_IMAGE_PATH = "post_image";
     public static int POST_IMAGE_DEFAULT_WIDTH = 30;
     public static int POST_IMAGE_DEFAULT_HEIGHT = 30;

@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.view.View;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.videochat.player.LivePlayer;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private LivePlayer blo;
-    private com.baidu.live.p.b blp;
+    private LivePlayer blI;
+    private com.baidu.live.p.b blJ;
     private Activity mActivity;
 
     public b(Activity activity) {
@@ -15,40 +15,40 @@ public class b {
     }
 
     public void a(com.baidu.live.p.b bVar) {
-        this.blp = bVar;
+        this.blJ = bVar;
     }
 
     public void e(AlaLiveInfoData alaLiveInfoData) {
-        if (this.blo == null) {
-            this.blo = new LivePlayer(this.mActivity);
-            this.blo.setIPlayerCallBack(new com.baidu.live.p.b() { // from class: com.baidu.live.videochat.a.b.1
+        if (this.blI == null) {
+            this.blI = new LivePlayer(this.mActivity);
+            this.blI.setIPlayerCallBack(new com.baidu.live.p.b() { // from class: com.baidu.live.videochat.a.b.1
                 @Override // com.baidu.live.p.b
-                public void bL(int i) {
-                    if (b.this.blp != null) {
-                        b.this.blp.bL(i);
+                public void bR(int i) {
+                    if (b.this.blJ != null) {
+                        b.this.blJ.bR(i);
                     }
                 }
             });
         }
-        this.blo.c(alaLiveInfoData);
+        this.blI.c(alaLiveInfoData);
     }
 
-    public void JS() {
-        if (this.blo != null) {
-            this.blo.setIPlayerCallBack(null);
-            this.blo.bY(true);
-            this.blo.destroy();
-            this.blo = null;
+    public void JZ() {
+        if (this.blI != null) {
+            this.blI.setIPlayerCallBack(null);
+            this.blI.bZ(true);
+            this.blI.destroy();
+            this.blI = null;
         }
     }
 
     public boolean isStarted() {
-        return this.blo != null;
+        return this.blI != null;
     }
 
-    public View JN() {
-        if (this.blo != null) {
-            return this.blo.getLivePlayer();
+    public View JU() {
+        if (this.blI != null) {
+            return this.blI.getLivePlayer();
         }
         return null;
     }

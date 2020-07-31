@@ -5,21 +5,27 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.android.app.event.EventBusWrapper;
-/* loaded from: classes11.dex */
+import com.baidu.swan.apps.a;
+/* loaded from: classes7.dex */
 public class NetworkErrorView extends CommonEmptyView {
     public NetworkErrorView(Context context) {
         super(context);
-        this.mRefreshTextBtn.setVisibility(0);
+        init();
     }
 
     public NetworkErrorView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mRefreshTextBtn.setVisibility(0);
+        init();
     }
 
     public NetworkErrorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
+        init();
+    }
+
+    private void init() {
         this.mRefreshTextBtn.setVisibility(0);
+        setTitle(getContext().getString(a.h.aiapps_common_emptyview_detail_text));
     }
 
     public void setReloadClickListener(View.OnClickListener onClickListener) {
@@ -54,19 +60,19 @@ public class NetworkErrorView extends CommonEmptyView {
     @Override // android.view.View
     public void setVisibility(int i) {
         if (i == 0) {
-            an(this);
+            aq(this);
         }
         super.setVisibility(i);
     }
 
-    public static void an(View view) {
+    public static void aq(View view) {
         a aVar = new a(1);
         aVar.arg0 = 1;
         aVar.obj = view;
         EventBusWrapper.post(aVar);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public int arg0;
         public int messageId;

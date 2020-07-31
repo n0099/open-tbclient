@@ -4,9 +4,9 @@ import android.graphics.PointF;
 import android.support.annotation.FloatRange;
 import android.support.annotation.Nullable;
 import android.view.animation.Interpolator;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a<T> {
-    public final float Ao;
+    public final float Aq;
     @Nullable
     public final T Gp;
     @Nullable
@@ -31,7 +31,7 @@ public class a<T> {
         this.Gp = t;
         this.Gq = t2;
         this.Gr = interpolator;
-        this.Ao = f;
+        this.Aq = f;
         this.Gs = f2;
     }
 
@@ -44,7 +44,7 @@ public class a<T> {
         this.Gp = t;
         this.Gq = t;
         this.Gr = null;
-        this.Ao = Float.MIN_VALUE;
+        this.Aq = Float.MIN_VALUE;
         this.Gs = Float.valueOf(Float.MAX_VALUE);
     }
 
@@ -53,7 +53,7 @@ public class a<T> {
             return 0.0f;
         }
         if (this.Gt == Float.MIN_VALUE) {
-            this.Gt = (this.Ao - this.composition.gU()) / this.composition.hb();
+            this.Gt = (this.Aq - this.composition.gU()) / this.composition.hb();
         }
         return this.Gt;
     }
@@ -66,7 +66,7 @@ public class a<T> {
             if (this.Gs == null) {
                 this.Gu = 1.0f;
             } else {
-                this.Gu = iY() + ((this.Gs.floatValue() - this.Ao) / this.composition.hb());
+                this.Gu = iY() + ((this.Gs.floatValue() - this.Aq) / this.composition.hb());
             }
         }
         return this.Gu;
@@ -81,6 +81,6 @@ public class a<T> {
     }
 
     public String toString() {
-        return "Keyframe{startValue=" + this.Gp + ", endValue=" + this.Gq + ", startFrame=" + this.Ao + ", endFrame=" + this.Gs + ", interpolator=" + this.Gr + '}';
+        return "Keyframe{startValue=" + this.Gp + ", endValue=" + this.Gq + ", startFrame=" + this.Aq + ", endFrame=" + this.Gs + ", interpolator=" + this.Gr + '}';
     }
 }

@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.cyberplayer.sdk.m;
+import com.baidu.cyberplayer.sdk.n;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,7 +15,7 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.concurrent.locks.ReentrantLock;
 import tv.chushou.basis.http.HttpConsts;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class d {
     private String a = null;
     private String b = null;
@@ -187,7 +187,7 @@ public class d {
 
     public void a(Context context) {
         String b;
-        if (context == null || (b = m.b(context)) == null) {
+        if (context == null || (b = n.b(context)) == null) {
             return;
         }
         new File(b).mkdirs();

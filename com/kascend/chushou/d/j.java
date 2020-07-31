@@ -7,10 +7,10 @@ import com.kascend.chushou.constants.VideoPlayInfo;
 import com.kascend.chushou.player.c.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class j {
-    private static j neY = null;
-    private final LruCache<String, VideoPlayInfo> neX = new LruCache<String, VideoPlayInfo>(50) { // from class: com.kascend.chushou.d.j.1
+    private static j nnH = null;
+    private final LruCache<String, VideoPlayInfo> nnG = new LruCache<String, VideoPlayInfo>(50) { // from class: com.kascend.chushou.d.j.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
@@ -19,7 +19,7 @@ public class j {
             return 1;
         }
     };
-    private final LruCache<String, VideoPlayInfo> abU = new LruCache<String, VideoPlayInfo>(100) { // from class: com.kascend.chushou.d.j.2
+    private final LruCache<String, VideoPlayInfo> abP = new LruCache<String, VideoPlayInfo>(100) { // from class: com.kascend.chushou.d.j.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
@@ -29,59 +29,59 @@ public class j {
         }
     };
 
-    public static j dIZ() {
-        if (neY == null) {
+    public static j dMu() {
+        if (nnH == null) {
             synchronized (j.class) {
-                if (neY == null) {
-                    neY = new j();
+                if (nnH == null) {
+                    nnH = new j();
                 }
             }
         }
-        return neY;
+        return nnH;
     }
 
     private j() {
     }
 
-    public VideoPlayInfo L(String str, long j) {
-        return a(this.neX, str, j);
+    public VideoPlayInfo K(String str, long j) {
+        return a(this.nnG, str, j);
     }
 
     public void a(String str) {
-        this.neX.remove(str);
+        this.nnG.remove(str);
     }
 
     public void a(String str, List<PlayUrl> list) {
-        a(this.neX, str, list);
+        a(this.nnG, str, list);
     }
 
     public void a(final String str, final String str2) {
-        if (M(str, 600000L) == null) {
-            com.kascend.chushou.player.c.a.dJN().a(str, str2, new a.InterfaceC0820a() { // from class: com.kascend.chushou.d.j.3
-                @Override // com.kascend.chushou.player.c.a.InterfaceC0820a
+        if (L(str, 600000L) == null) {
+            com.kascend.chushou.player.c.a.dNi().a(str, str2, new a.InterfaceC0829a() { // from class: com.kascend.chushou.d.j.3
+                @Override // com.kascend.chushou.player.c.a.InterfaceC0829a
                 public void a(ParserRet parserRet) {
                     if (parserRet.mRc == 0 && parserRet.mData != null) {
-                        j.dIZ().a(str + str2, (ArrayList) parserRet.mData);
+                        j.dMu().a(str + str2, (ArrayList) parserRet.mData);
                     }
                 }
             });
         }
     }
 
-    public VideoPlayInfo M(String str, long j) {
-        return a(this.abU, str, j);
+    public VideoPlayInfo L(String str, long j) {
+        return a(this.abP, str, j);
     }
 
     public void b(String str) {
-        this.abU.remove(str);
+        this.abP.remove(str);
     }
 
     public void t(String str, List<PlayUrl> list) {
-        a(this.abU, str, list);
+        a(this.abP, str, list);
     }
 
     public void a(String str, int i) {
-        VideoPlayInfo videoPlayInfo = this.abU.get(str);
+        VideoPlayInfo videoPlayInfo = this.abP.get(str);
         if (videoPlayInfo != null) {
             videoPlayInfo.mPos = i;
         }

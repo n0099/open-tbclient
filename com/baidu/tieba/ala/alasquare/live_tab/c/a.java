@@ -3,86 +3,86 @@ package com.baidu.tieba.ala.alasquare.live_tab.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.ala.data.SdkLiveInfoData;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.ala.alasquare.live_tab.b.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private boolean dOx;
-    private String eEs;
-    private String foo;
+    private boolean dUI;
+    private String eKO;
+    private String ftz;
     private boolean hasMore = false;
-    private List<String> fqH = new ArrayList();
-    private List<SdkLiveInfoData> fqI = new ArrayList();
-    private List<q> fqJ = new ArrayList();
+    private List<String> fvR = new ArrayList();
+    private List<SdkLiveInfoData> fvS = new ArrayList();
+    private List<q> fvT = new ArrayList();
 
     public a(List<SdkLiveInfoData> list, boolean z, String str, String str2) {
-        this.dOx = false;
+        this.dUI = false;
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            this.dOx = true;
+            this.dUI = true;
         }
-        this.eEs = str;
-        this.foo = str2;
-        k(list, z);
+        this.eKO = str;
+        this.ftz = str2;
+        i(list, z);
     }
 
-    public boolean k(List<SdkLiveInfoData> list, boolean z) {
+    public boolean i(List<SdkLiveInfoData> list, boolean z) {
         if (list == null) {
             return false;
         }
-        boolean bw = bw(list);
+        boolean bA = bA(list);
         this.hasMore = z;
-        return bw;
+        return bA;
     }
 
-    private boolean bw(List<SdkLiveInfoData> list) {
-        if (w.isEmpty(list)) {
+    private boolean bA(List<SdkLiveInfoData> list) {
+        if (x.isEmpty(list)) {
             return false;
         }
         ArrayList arrayList = new ArrayList();
         for (SdkLiveInfoData sdkLiveInfoData : list) {
             if (sdkLiveInfoData != null) {
                 String str = sdkLiveInfoData.roomId;
-                if (!this.fqH.contains(str)) {
+                if (!this.fvR.contains(str)) {
                     arrayList.add(sdkLiveInfoData);
-                    this.fqH.add(str);
+                    this.fvR.add(str);
                 }
             }
         }
-        if (w.isEmpty(arrayList)) {
+        if (x.isEmpty(arrayList)) {
             return false;
         }
-        this.fqI.addAll(arrayList);
-        this.fqJ = bx(this.fqI);
-        return !w.isEmpty(this.fqJ);
+        this.fvS.addAll(arrayList);
+        this.fvT = bB(this.fvS);
+        return !x.isEmpty(this.fvT);
     }
 
-    private ArrayList<q> bx(List<SdkLiveInfoData> list) {
+    private ArrayList<q> bB(List<SdkLiveInfoData> list) {
         ArrayList<q> arrayList = new ArrayList<>();
         int size = list.size();
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             com.baidu.tieba.ala.alasquare.a.a aVar = new com.baidu.tieba.ala.alasquare.a.a();
-            aVar.flQ = list.get(i);
+            aVar.fqY = list.get(i);
             aVar.isLeft = true;
-            aVar.dOx = this.dOx;
-            aVar.fid = this.eEs;
-            aVar.fname = this.foo;
+            aVar.dUI = this.dUI;
+            aVar.fid = this.eKO;
+            aVar.fname = this.ftz;
             aVar.position = i + 1;
-            eVar.fnW = aVar;
+            eVar.ftf = aVar;
             if (i + 1 < size) {
                 com.baidu.tieba.ala.alasquare.a.a aVar2 = new com.baidu.tieba.ala.alasquare.a.a();
-                aVar2.flQ = list.get(i + 1);
-                aVar2.dOx = this.dOx;
-                aVar2.fid = this.eEs;
-                aVar2.fname = this.foo;
+                aVar2.fqY = list.get(i + 1);
+                aVar2.dUI = this.dUI;
+                aVar2.fid = this.eKO;
+                aVar2.fname = this.ftz;
                 aVar2.position = i + 2;
-                eVar.fnX = aVar2;
+                eVar.ftg = aVar2;
                 aVar2.isRight = true;
             } else {
                 aVar.isLeft = false;
-                aVar.flR = true;
+                aVar.fqZ = true;
             }
             arrayList.add(eVar);
         }
@@ -95,22 +95,22 @@ public class a {
 
     public List<q> getData() {
         ArrayList arrayList = new ArrayList();
-        if (!w.isEmpty(this.fqJ)) {
-            arrayList.addAll(this.fqJ);
+        if (!x.isEmpty(this.fvT)) {
+            arrayList.addAll(this.fvT);
         }
         return arrayList;
     }
 
     public void clear() {
         this.hasMore = false;
-        if (this.fqH != null) {
-            this.fqH.clear();
+        if (this.fvR != null) {
+            this.fvR.clear();
         }
-        if (this.fqI != null) {
-            this.fqI.clear();
+        if (this.fvS != null) {
+            this.fvS.clear();
         }
-        if (this.fqJ != null) {
-            this.fqJ.clear();
+        if (this.fvT != null) {
+            this.fvT.clear();
         }
     }
 }

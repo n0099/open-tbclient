@@ -5,22 +5,22 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e {
-    public String awJ;
-    public List<a> awK = new ArrayList();
-    public boolean awL;
+    public String axW;
+    public List<a> axX = new ArrayList();
+    public boolean axY;
     public String mName;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
-        public String awM;
-        public int awN;
+        public String axZ;
+        public int aya;
         public String ip;
         public String status;
     }
 
-    private int eu(String str) {
+    private int et(String str) {
         if (str == null || str.length() == 0) {
             return 0;
         }
@@ -33,23 +33,23 @@ public class e {
         return str.contains("电信") ? 3 : 0;
     }
 
-    public void ev(String str) {
+    public void eu(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.awL = jSONObject.optInt("switch", 1) == 1;
+            this.axY = jSONObject.optInt("switch", 1) == 1;
             this.mName = jSONObject.optString("name");
-            this.awJ = jSONObject.optString("rname");
+            this.axW = jSONObject.optString("rname");
             JSONArray optJSONArray = jSONObject.optJSONArray("ipInfo");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                     if (jSONObject2 != null) {
                         a aVar = new a();
-                        aVar.awM = jSONObject2.optString("idc");
+                        aVar.axZ = jSONObject2.optString("idc");
                         aVar.ip = jSONObject2.optString(TableDefine.UserInfoColumns.COLUMN_IP);
-                        aVar.awN = eu(jSONObject2.optString("isp"));
+                        aVar.aya = et(jSONObject2.optString("isp"));
                         aVar.status = jSONObject2.optString("status");
-                        this.awK.add(aVar);
+                        this.axX.add(aVar);
                     }
                 }
             }
@@ -60,10 +60,10 @@ public class e {
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(String.format("mName:%s, mRanme:%s mIpList.size():%d\n", this.mName, this.awJ, Integer.valueOf(this.awK.size())));
-        for (int i = 0; i < this.awK.size(); i++) {
-            a aVar = this.awK.get(i);
-            stringBuffer.append(String.format("ip:%s isp:%d status:%s idc:%s\n", aVar.ip, Integer.valueOf(aVar.awN), aVar.status, aVar.awM));
+        stringBuffer.append(String.format("mName:%s, mRanme:%s mIpList.size():%d\n", this.mName, this.axW, Integer.valueOf(this.axX.size())));
+        for (int i = 0; i < this.axX.size(); i++) {
+            a aVar = this.axX.get(i);
+            stringBuffer.append(String.format("ip:%s isp:%d status:%s idc:%s\n", aVar.ip, Integer.valueOf(aVar.aya), aVar.status, aVar.axZ));
         }
         return stringBuffer.toString();
     }

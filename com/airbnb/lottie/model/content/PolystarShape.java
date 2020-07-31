@@ -2,9 +2,9 @@ package com.airbnb.lottie.model.content;
 
 import android.graphics.PointF;
 import com.airbnb.lottie.model.a.m;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class PolystarShape implements b {
-    private final Type Cp;
+    private final Type Cr;
     private final m<PointF, PointF> DY;
     private final com.airbnb.lottie.model.a.b EA;
     private final com.airbnb.lottie.model.a.b EB;
@@ -14,7 +14,7 @@ public class PolystarShape implements b {
     private final com.airbnb.lottie.model.a.b Ez;
     private final String name;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes20.dex */
     public enum Type {
         Star(1),
         Polygon(2);
@@ -38,7 +38,7 @@ public class PolystarShape implements b {
 
     public PolystarShape(String str, Type type, com.airbnb.lottie.model.a.b bVar, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3, com.airbnb.lottie.model.a.b bVar4, com.airbnb.lottie.model.a.b bVar5, com.airbnb.lottie.model.a.b bVar6) {
         this.name = str;
-        this.Cp = type;
+        this.Cr = type;
         this.Ex = bVar;
         this.DY = mVar;
         this.Ea = bVar2;
@@ -53,7 +53,7 @@ public class PolystarShape implements b {
     }
 
     public Type iC() {
-        return this.Cp;
+        return this.Cr;
     }
 
     public com.airbnb.lottie.model.a.b iD() {

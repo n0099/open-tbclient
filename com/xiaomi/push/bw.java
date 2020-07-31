@@ -5,17 +5,17 @@ import android.database.Cursor;
 import com.xiaomi.push.cb;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class bw extends cb.b<Long> {
     private long a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f150a;
+    private String f146a;
 
     public bw(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i, String str6) {
         super(str, list, str2, strArr, str3, str4, str5, i);
         this.a = 0L;
-        this.f150a = str6;
+        this.f146a = str6;
     }
 
     public static bw a(String str) {

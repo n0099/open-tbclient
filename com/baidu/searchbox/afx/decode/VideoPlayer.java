@@ -18,8 +18,7 @@ import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import tv.danmaku.ijk.media.player.IMediaFormat;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class VideoPlayer {
     private static final int DEFAULT_FPS = 25;
     public static final int MEDIA_INFO_EXTRA_NONE = 0;
@@ -43,7 +42,7 @@ public class VideoPlayer {
     private volatile long mStartFrameTimeUs = 0;
     private volatile int mPlayFrames = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface FrameCallback {
         void loopReset();
 
@@ -52,7 +51,7 @@ public class VideoPlayer {
         void reset();
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnInfoListener {
         boolean onInfo(VideoPlayer videoPlayer, int i, int i2);
     }
@@ -200,7 +199,7 @@ public class VideoPlayer {
         mediaExtractor.selectTrack(selectVideoTrackIndex);
         if (mediaCodec == null) {
             MediaFormat trackFormat = mediaExtractor.getTrackFormat(selectVideoTrackIndex);
-            mediaCodec = MediaCodec.createDecoderByType(trackFormat.getString(IMediaFormat.KEY_MIME));
+            mediaCodec = MediaCodec.createDecoderByType(trackFormat.getString("mime"));
             if (this.mOutputSurface == null) {
                 throw new IllegalStateException("The output surface is not prepared.");
             }
@@ -254,7 +253,7 @@ public class VideoPlayer {
     private static int selectVideoTrackIndex(MediaExtractor mediaExtractor) {
         int trackCount = mediaExtractor.getTrackCount();
         for (int i = 0; i < trackCount; i++) {
-            if (mediaExtractor.getTrackFormat(i).getString(IMediaFormat.KEY_MIME).startsWith("video/")) {
+            if (mediaExtractor.getTrackFormat(i).getString("mime").startsWith("video/")) {
                 return i;
             }
         }
@@ -422,7 +421,7 @@ public class VideoPlayer {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class PlayTask implements Runnable {
         private static final int MSG_PLAY_ERROR = 1;
         private static final int MSG_PLAY_STOPPED = 0;
@@ -500,7 +499,7 @@ public class VideoPlayer {
             }
         }
 
-        /* loaded from: classes13.dex */
+        /* loaded from: classes6.dex */
         private static class LocalHandler extends Handler {
             private OnVideoEndedListener mOnEndedListener;
             private OnVideoErrorListener mOnErrorListener;

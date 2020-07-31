@@ -6,12 +6,12 @@ import com.baidu.tbadk.util.t;
 import tbclient.CommonReq;
 import tbclient.TopicList.DataReq;
 import tbclient.TopicList.TopicListReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class RequestHotRanklistMessage extends NetMessage {
     private String call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f1027common;
+    private CommonReq f981common;
     private long fid;
     private String list_type;
     private String need_tab_list;
@@ -21,11 +21,11 @@ public class RequestHotRanklistMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f1027common = commonReq;
+        this.f981common = commonReq;
     }
 
     public CommonReq getCommon() {
-        return this.f1027common;
+        return this.f981common;
     }
 
     public String getCallFrom() {
@@ -60,7 +60,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1284common = getCommon();
+            builder.f1230common = getCommon();
             builder.call_from = getCallFrom();
             builder.list_type = getListType();
             builder.need_tab_list = getNeedTabList();

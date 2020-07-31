@@ -14,39 +14,39 @@ import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopic
 import com.baidu.tieba.homepage.topic.topictab.message.ResponseHttpGetTopicListMessage;
 import com.baidu.tieba.homepage.topic.topictab.message.ResponseSocketGetTopicListMessage;
 import com.baidu.tieba.tbadkCore.a.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class TopicStatic {
     public static String Tag = "tag";
 
     static {
-        ckB();
-        ckC();
-        ckD();
-        ckA();
-        ckE();
+        cob();
+        coc();
+        cod();
+        coa();
+        coe();
     }
 
-    private static void ckA() {
+    private static void coa() {
         a.a(309661, HotTopicTabSocketResponse.class, false, false);
         a.a(309661, CmdConfigHttp.CMD_HOT_TOPIC_TAB, TbConfig.URL_GET_HOT_TOPIC_TAB, HotTopicTabHttpResponse.class, false, false, true, false);
     }
 
-    private static void ckB() {
+    private static void cob() {
         a.a(309628, ResponseSocketGetTopicListMessage.class, false, false);
         a.a(309628, CmdConfigHttp.CMD_TOPIC_LIST, TbConfig.URL_GET_TAB_TOPIC_LIST, ResponseHttpGetTopicListMessage.class, false, false, true, false);
     }
 
-    private static void ckC() {
+    private static void coc() {
         a.a(309629, ResponseSocketGetTopicDetailMessage.class, false, false);
         a.a(309629, CmdConfigHttp.CMD_TOPIC_DETAIL, TbConfig.URL_GET_TOPIC_DETAIL, ResponseHttpGetTopicDetailMessage.class, false, false, true, false);
     }
 
-    private static void ckD() {
+    private static void cod() {
         a.a(309631, ResponseSocketGetTopicThreadMessage.class, false, false);
         a.a(309631, CmdConfigHttp.CMD_TOPIC_THREAD, TbConfig.URL_GET_TOPIC_THREAD, ResponseHttpGetTopicThreadMessage.class, false, false, true, false);
     }
 
-    private static void ckE() {
+    private static void coe() {
         a.a(CmdConfigSocket.CMD_TOPIC_BLESS, BlessSocketResponseMessage.class, false, false);
         a.a(CmdConfigSocket.CMD_TOPIC_BLESS, 1003065, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
     }

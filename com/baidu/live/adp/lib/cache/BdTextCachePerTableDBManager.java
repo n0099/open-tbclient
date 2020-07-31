@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.live.adp.base.db.DatabaseManager;
 import com.baidu.live.adp.lib.safe.BdCloseHelper;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BdTextCachePerTableDBManager extends BdCacheBaseDBManager<String> {
     public BdTextCachePerTableDBManager(DatabaseManager databaseManager) {
         super(databaseManager);

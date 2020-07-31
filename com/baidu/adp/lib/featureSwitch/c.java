@@ -48,7 +48,7 @@ public class c {
         return this.Ka;
     }
 
-    public boolean aa(int i) {
+    public boolean ac(int i) {
         if (this.Kb.getMaxCrashTimes() >= 0 && this.JZ >= this.Kb.getMaxCrashTimes() + 2) {
             i = this.Kb.getOffType();
         }
@@ -57,7 +57,7 @@ public class c {
         }
         this.Ka = i;
         this.Kb.j(this.Ka, false);
-        ab(i);
+        ad(i);
         return true;
     }
 
@@ -71,9 +71,9 @@ public class c {
             for (String str2 : this.Kb.kA()) {
                 if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
                     this.JZ++;
-                    ac(this.JZ);
+                    ae(this.JZ);
                     if (this.JZ >= this.Kb.getMaxCrashTimes()) {
-                        ab(this.Kb.getOffType());
+                        ad(this.Kb.getOffType());
                         this.Ka = this.Kb.getOffType();
                         this.Kb.j(this.Kb.getOffType(), false);
                         return true;
@@ -86,9 +86,9 @@ public class c {
             for (String str3 : this.Kb.getSwitchLibs()) {
                 if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
                     this.JZ++;
-                    ac(this.JZ);
+                    ae(this.JZ);
                     if (this.JZ >= this.Kb.getMaxCrashTimes()) {
-                        ab(this.Kb.getOffType());
+                        ad(this.Kb.getOffType());
                         this.Ka = this.Kb.getOffType();
                         this.Kb.j(this.Kb.getOffType(), false);
                         return true;
@@ -100,7 +100,7 @@ public class c {
         return false;
     }
 
-    private void ab(int i) {
+    private void ad(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
         edit.putInt(this.Kb.getName() + JY, i);
         edit.commit();
@@ -114,7 +114,7 @@ public class c {
         return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.Kb.getName() + JX, -1);
     }
 
-    private void ac(int i) {
+    private void ae(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
         edit.putInt(this.Kb.getName() + JX, i);
         edit.commit();
@@ -124,7 +124,7 @@ public class c {
         this.JZ = 0;
     }
 
-    public void ad(int i) {
+    public void af(int i) {
         this.JZ = i;
     }
 }

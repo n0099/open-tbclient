@@ -6,7 +6,7 @@ import com.baidu.sapi2.ServiceManager;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class QrLoginUtils {
     public static String getJoinQrLoginPromptInfo(String str) {
         if (TextUtils.isEmpty(str)) {

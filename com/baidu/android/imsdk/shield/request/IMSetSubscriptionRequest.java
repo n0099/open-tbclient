@@ -15,8 +15,8 @@ public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public static final String TAG = "IMSetSubscriptionRequest";
     private int mCategory;
 
-    public IMSetSubscriptionRequest(Context context, int i, long j, List<Long> list, String str, String str2) {
-        super(context, j, list, str2, str);
+    public IMSetSubscriptionRequest(Context context, int i, long j, List<Long> list, List<String> list2, String str, String str2) {
+        super(context, j, list, list2, str2, str);
         this.mCategory = i;
     }
 

@@ -7,17 +7,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private final ArrayList<MetaData> moq = new ArrayList<>();
-    private HashMap<String, String> mor = null;
+    private final ArrayList<MetaData> mwp = new ArrayList<>();
+    private HashMap<String, String> mwq = null;
 
     public void h(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.mor == null) {
-                        this.mor = new HashMap<>();
+                    if (this.mwq == null) {
+                        this.mwq = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -30,9 +30,9 @@ public class b {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.moq.add(metaData);
+                        this.mwp.add(metaData);
                         if (z) {
-                            this.mor.put(metaData.getName_show(), metaData.getPortrait());
+                            this.mwq.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -40,7 +40,7 @@ public class b {
         }
     }
 
-    public void OU(String str) {
+    public void PF(String str) {
         try {
             h(new JSONObject(str), true);
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class b {
         }
     }
 
-    public ArrayList<MetaData> drA() {
-        return this.moq;
+    public ArrayList<MetaData> duM() {
+        return this.mwp;
     }
 }

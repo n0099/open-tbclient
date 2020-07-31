@@ -9,12 +9,12 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    protected long fgo;
-    private boolean iKD;
-    private boolean iKE;
-    protected int iKF;
-    protected com.baidu.adp.lib.b.a iKw;
-    protected com.baidu.adp.lib.b.b iKx;
+    protected long flq;
+    protected com.baidu.adp.lib.b.a iQB;
+    protected com.baidu.adp.lib.b.b iQC;
+    private boolean iQI;
+    private boolean iQJ;
+    protected int iQK;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.ad$a] */
@@ -26,44 +26,44 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
 
     public e(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.iKw = null;
-        this.iKx = null;
-        this.fgo = 0L;
-        this.iKD = false;
-        this.iKE = false;
+        this.iQB = null;
+        this.iQC = null;
+        this.flq = 0L;
+        this.iQI = false;
+        this.iQJ = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.b.a aVar) {
-        this.iKw = aVar;
+        this.iQB = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
-        this.iKx = bVar;
+        this.iQC = bVar;
     }
 
-    private void cnx() {
-        this.fgo = System.currentTimeMillis() / 1000;
+    private void cqX() {
+        this.flq = System.currentTimeMillis() / 1000;
     }
 
-    public boolean cny() {
-        return this.iKD;
+    public boolean cqY() {
+        return this.iQI;
     }
 
-    public void oS(boolean z) {
-        this.iKD = z;
+    public void px(boolean z) {
+        this.iQI = z;
     }
 
-    public boolean cnz() {
-        return this.iKE;
+    public boolean cqZ() {
+        return this.iQJ;
     }
 
-    public void oT(boolean z) {
-        this.iKE = z;
+    public void py(boolean z) {
+        this.iQJ = z;
     }
 
-    public void xY(int i) {
-        this.iKF = i;
+    public void yq(int i) {
+        this.iQK = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -71,21 +71,21 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        cnx();
+        cqX();
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class a<T> extends ad.a {
-        private T iKG;
+        private T iQL;
 
         public a(View view, T t) {
             super(view);
-            this.iKG = t;
+            this.iQL = t;
         }
 
-        public T cnA() {
-            return this.iKG;
+        public T cra() {
+            return this.iQL;
         }
     }
 }

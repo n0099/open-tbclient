@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends Dialog {
     private TextView a;
     private TextView b;
@@ -22,7 +22,7 @@ public class a extends Dialog {
     private boolean j;
 
     /* renamed from: com.baidu.platform.comapi.walknavi.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface InterfaceC0233a {
         void a();
     }
@@ -44,12 +44,12 @@ public class a extends Dialog {
         this(activity, R.dimen.pass_liveness_face_round_width);
         View a = com.baidu.platform.comapi.wnplatform.o.a.a.a(activity, R.layout.abc_action_mode_bar, null);
         setContentView(a);
-        this.a = (TextView) a.findViewById(R.raw.lottie_use_home_cj_n_2);
-        this.b = (TextView) a.findViewById(R.raw.lottie_use_home_refresh_n_2);
-        this.c = (TextView) a.findViewById(R.raw.lottie_use_message_cj_n_2);
-        this.d = (TextView) a.findViewById(R.raw.lottie_use_my_cj_n_1);
-        this.e = (LinearLayout) a.findViewById(R.raw.lottie_use_message_cj_n_1);
-        this.f = (LinearLayout) a.findViewById(R.raw.lottie_use_my_cj_n_2);
+        this.a = (TextView) a.findViewById(R.raw.lottie_tab_my_1);
+        this.b = (TextView) a.findViewById(R.raw.lottie_use_home_refresh_n);
+        this.c = (TextView) a.findViewById(R.raw.lottie_use_jinba_cj_n_2);
+        this.d = (TextView) a.findViewById(R.raw.lottie_use_message_cj_n_1);
+        this.e = (LinearLayout) a.findViewById(R.raw.lottie_use_jinba_cj_n_1);
+        this.f = (LinearLayout) a.findViewById(R.raw.lottie_use_message_cj_n_2);
         this.c.setOnClickListener(new b(this));
         this.d.setOnClickListener(new c(this));
         this.i = false;

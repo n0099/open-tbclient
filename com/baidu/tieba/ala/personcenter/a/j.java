@@ -6,20 +6,20 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.personcenter.c.m;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class j extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.c>> {
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), m.gBK);
+        super(tbPageContext.getPageActivity(), m.gHh);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aK */
+    /* renamed from: aL */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.c> b(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.ala.personcenter.e.c(this.mPageContext));
     }
@@ -28,21 +28,21 @@ public class j extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, m mVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.c> aVar) {
-        if (aVar.bPh() == null) {
+        if (aVar.bSs() == null) {
             return null;
         }
-        a(mVar, aVar.bPh());
-        return aVar.bPh().getView();
+        a(mVar, aVar.bSs());
+        return aVar.bSs().getView();
     }
 
     private void a(m mVar, com.baidu.tieba.ala.personcenter.e.c cVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = mVar.getPersonCenterData();
-        if (personCenterData == null || personCenterData.bLu() == null || TextUtils.isEmpty(personCenterData.bLu().bLt())) {
+        if (personCenterData == null || personCenterData.bOC() == null || TextUtils.isEmpty(personCenterData.bOC().bOB())) {
             cVar.setVisibility(8);
             notifyDataSetChanged();
             return;
         }
-        cVar.DE(personCenterData.bLu().bLt());
+        cVar.Ep(personCenterData.bOC().bOB());
         cVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         notifyDataSetChanged();
     }

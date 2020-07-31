@@ -2,7 +2,7 @@ package com.bun.miitmdid.supplier.i;
 
 import android.content.Context;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class a {
     private static Object a;
     private static Class<?> b;

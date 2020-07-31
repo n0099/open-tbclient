@@ -10,14 +10,14 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.data.ShareEntity;
 import com.baidu.live.tbadk.share.single.ShareSingleManager;
 import com.baidu.live.tbadk.share.single.interfaces.IShareChannel;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaLandscapeShareView extends LinearLayout implements View.OnClickListener {
-    private ShareEntity grb;
-    private a grc;
+    private ShareEntity gwx;
+    private a gwy;
     private TbPageContext mContext;
     private IShareChannel mShareChannel;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     interface a {
         void onClick(View view);
     }
@@ -25,8 +25,8 @@ public class AlaLandscapeShareView extends LinearLayout implements View.OnClickL
     public AlaLandscapeShareView(TbPageContext tbPageContext, ShareEntity shareEntity, a aVar) {
         super(tbPageContext.getPageActivity());
         this.mContext = tbPageContext;
-        this.grb = shareEntity;
-        this.grc = aVar;
+        this.gwx = shareEntity;
+        this.gwy = aVar;
         this.mShareChannel = ShareSingleManager.getInstance().buildShareChannel();
         initView();
     }
@@ -51,20 +51,20 @@ public class AlaLandscapeShareView extends LinearLayout implements View.OnClickL
         }
         int id = view.getId();
         if (id == a.g.ala_sdk_weixin_container) {
-            this.grb.shareType = 2;
-            this.mShareChannel.shareToWeixin(this.grb, null);
+            this.gwx.shareType = 2;
+            this.mShareChannel.shareToWeixin(this.gwx, null);
         } else if (id == a.g.ala_sdk_timeline_container) {
-            this.grb.shareType = 3;
-            this.mShareChannel.shareToWeixinCircle(this.grb, null);
+            this.gwx.shareType = 3;
+            this.mShareChannel.shareToWeixinCircle(this.gwx, null);
         } else if (id == a.g.ala_sdk_qq_container) {
-            this.grb.shareType = 4;
-            this.mShareChannel.shareToQQ(this.grb, null);
+            this.gwx.shareType = 4;
+            this.mShareChannel.shareToQQ(this.gwx, null);
         } else if (id == a.g.ala_sdk_sina_container) {
-            this.grb.shareType = 1;
-            this.mShareChannel.shareToSinaWeibo(this.grb, null);
+            this.gwx.shareType = 1;
+            this.mShareChannel.shareToSinaWeibo(this.gwx, null);
         }
-        if (this.grc != null) {
-            this.grc.onClick(view);
+        if (this.gwy != null) {
+            this.gwy.onClick(view);
         }
     }
 }

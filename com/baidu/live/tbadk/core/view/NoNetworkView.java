@@ -20,7 +20,7 @@ import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.coreextra.NoNetworkMoreActivity;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NoNetworkView extends RelativeLayout implements View.OnClickListener {
     private static final int GONE = 0;
     private static final int SHOW_NO_NET = 1;
@@ -33,7 +33,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     private TextView mGuide;
     private final ArrayList<NetworkChangeListener> networkChangeListeners;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface NetworkChangeListener {
         void onNetworkChange(boolean z);
     }

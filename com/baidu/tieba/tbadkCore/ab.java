@@ -1,42 +1,42 @@
 package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bu;
-import com.baidu.tbadk.core.data.bw;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.ca;
 /* loaded from: classes.dex */
-public class ab extends bu {
-    public static final BdUniqueId lET = BdUniqueId.gen();
-    private boolean ftM = false;
-    private bw lEU;
-    private bz lEV;
+public class ab extends bv {
+    public static final BdUniqueId lMi = BdUniqueId.gen();
+    private boolean fyT = false;
+    private bx lMj;
+    private ca lMk;
 
-    @Override // com.baidu.tbadk.core.data.bu, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tbadk.core.data.bv, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return lET;
+        return lMi;
     }
 
-    public boolean dhy() {
-        return this.ftM;
+    public boolean dkG() {
+        return this.fyT;
     }
 
-    public void uE(boolean z) {
-        this.ftM = z;
+    public void vi(boolean z) {
+        this.fyT = z;
     }
 
-    public bw dhz() {
-        return this.lEU;
+    public bx dkH() {
+        return this.lMj;
     }
 
-    public void a(bw bwVar) {
-        this.lEU = bwVar;
+    public void a(bx bxVar) {
+        this.lMj = bxVar;
     }
 
-    public bz dhA() {
-        return this.lEV;
+    public ca dkI() {
+        return this.lMk;
     }
 
-    public void a(bz bzVar) {
-        this.lEV = bzVar;
+    public void a(ca caVar) {
+        this.lMk = caVar;
     }
 }

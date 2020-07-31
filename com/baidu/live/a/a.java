@@ -7,20 +7,20 @@ import android.text.TextUtils;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.im.p;
-/* loaded from: classes3.dex */
+import com.baidu.live.im.n;
+/* loaded from: classes4.dex */
 public class a {
-    private static Application.ActivityLifecycleCallbacks atO;
+    private static Application.ActivityLifecycleCallbacks atK;
 
     public static void d(Application application) {
-        if (atO == null) {
-            atO = new C0156a();
+        if (atK == null) {
+            atK = new C0155a();
         }
-        application.registerActivityLifecycleCallbacks(atO);
+        application.registerActivityLifecycleCallbacks(atK);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean o(Activity activity) {
+    public static boolean p(Activity activity) {
         String className = activity.getComponentName().getClassName();
         if (className.contains("AlaMasterLiveRoomActivity") || className.contains("LivePlayerActivity") || className.contains("AlaLiveEndActivity")) {
             return true;
@@ -36,18 +36,18 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0156a implements Application.ActivityLifecycleCallbacks {
-        private p atP;
-        private CustomMessageListener atQ;
+    /* loaded from: classes4.dex */
+    public static class C0155a implements Application.ActivityLifecycleCallbacks {
+        private n atL;
+        private CustomMessageListener atM;
 
-        private C0156a() {
-            this.atQ = new CustomMessageListener(2913191) { // from class: com.baidu.live.a.a.a.1
+        private C0155a() {
+            this.atM = new CustomMessageListener(2913191) { // from class: com.baidu.live.a.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (C0156a.this.atP != null) {
-                        C0156a.this.atP.Dw();
+                    if (C0155a.this.atL != null) {
+                        C0155a.this.atL.DP();
                     }
                 }
             };
@@ -59,12 +59,12 @@ public class a {
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
-            if (a.o(activity)) {
-                if (this.atP == null) {
-                    this.atP = new p();
+            if (a.p(activity)) {
+                if (this.atL == null) {
+                    this.atL = new n();
                 }
-                this.atP.init(String.valueOf(activity.hashCode()));
-                MessageManager.getInstance().registerListener(this.atQ);
+                this.atL.init(String.valueOf(activity.hashCode()));
+                MessageManager.getInstance().registerListener(this.atM);
             }
         }
 
@@ -86,11 +86,11 @@ public class a {
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
-            if (a.o(activity)) {
-                if (this.atP != null) {
-                    this.atP.destroy(String.valueOf(activity.hashCode()));
+            if (a.p(activity)) {
+                if (this.atL != null) {
+                    this.atL.destroy(String.valueOf(activity.hashCode()));
                 }
-                MessageManager.getInstance().unRegisterListener(this.atQ);
+                MessageManager.getInstance().unRegisterListener(this.atM);
             }
         }
     }

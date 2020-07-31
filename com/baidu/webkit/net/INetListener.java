@@ -2,7 +2,7 @@ package com.baidu.webkit.net;
 
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.net.BdNet;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public interface INetListener extends INoProGuard {
     void onNetDownloadComplete(BdNet bdNet);
 

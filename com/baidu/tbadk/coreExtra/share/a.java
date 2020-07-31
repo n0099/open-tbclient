@@ -1,76 +1,106 @@
 package com.baidu.tbadk.coreExtra.share;
 
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.y;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.text.TextUtils;
+import com.baidu.adp.base.i;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.R;
+import com.baidu.tieba.tbadkCore.x;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0491a enm;
-
-    /* renamed from: com.baidu.tbadk.coreExtra.share.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0491a {
-        void e(ShareItem shareItem);
+    public static void a(ShareItem shareItem, final Context context, final int i) {
+        if (shareItem != null && !TextUtils.isEmpty(shareItem.content) && !TextUtils.isEmpty(shareItem.title) && (context instanceof Activity)) {
+            com.baidu.adp.lib.util.a.copyToClipboard(shareItem.euo);
+            Activity activity = (Activity) context;
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
+            aVar.xk(context.getString(R.string.command_share_tips));
+            aVar.xl(shareItem.euo);
+            aVar.setAutoNight(false);
+            aVar.hJ(true);
+            aVar.setTitleShowCenter(true);
+            aVar.a(j(i, context), new a.b() { // from class: com.baidu.tbadk.coreExtra.share.a.1
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                    a.i(i, context);
+                    aVar2.dismiss();
+                }
+            });
+            aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tbadk.coreExtra.share.a.2
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                    aVar2.dismiss();
+                }
+            }).b(i.G(activity));
+            aVar.aYL();
+        }
     }
 
-    public void c(final ShareItem shareItem) {
-        new BdAsyncTask<ShareItem, Integer, ShareItem>() { // from class: com.baidu.tbadk.coreExtra.share.a.1
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            /* renamed from: a */
-            public ShareItem doInBackground(ShareItem... shareItemArr) {
-                ShareItem shareItem2;
-                String str = null;
-                if (shareItemArr == null || shareItemArr.length < 1 || (shareItem2 = shareItemArr[0]) == null) {
-                    return null;
-                }
-                String str2 = shareItem2.tid;
-                y yVar = new y();
-                yVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
-                if (shareItem2.typeShareToSmallApp == 4) {
-                    yVar.addPostData("forum_id", shareItem.fid);
-                    yVar.addPostData("type", "2");
-                } else {
-                    yVar.addPostData("thread_id", str2);
-                    yVar.addPostData("type", "3");
-                }
-                String postNetData = yVar.postNetData();
-                if (ar.isEmpty(postNetData)) {
-                    return shareItem2;
-                }
-                try {
-                    str = new JSONObject(postNetData).optString(BigdayActivityConfig.IMG_URL);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-                if (shareItem2.typeShareToSmallApp != 4) {
-                    shareItem2.enV = str;
-                    shareItem2.imageUri = Uri.parse(str);
-                }
-                return shareItem2;
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void i(int i, Context context) {
+        Intent intent = null;
+        if (i == 3 || i == 2) {
+            if (!u(context, i)) {
+                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_wechat_not_install)).aYR();
+                return;
             }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            /* renamed from: d */
-            public void onPostExecute(ShareItem shareItem2) {
-                super.onPostExecute(shareItem2);
-                if (a.this.enm != null) {
-                    a.this.enm.e(shareItem2);
-                }
+            intent = new Intent("android.intent.action.MAIN");
+            ComponentName componentName = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI");
+            intent.addCategory("android.intent.category.LAUNCHER");
+            intent.addFlags(268435456);
+            intent.setComponent(componentName);
+            context.startActivity(intent);
+        } else if (i == 8 || i == 4) {
+            if (!u(context, i)) {
+                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_qq_not_install)).aYR();
+                return;
             }
-        }.execute(shareItem);
+            intent = context.getPackageManager().getLaunchIntentForPackage("com.tencent.mobileqq");
+            intent.addFlags(268435456);
+            context.startActivity(intent);
+        } else if (i == 6) {
+            if (!u(context, i)) {
+                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_sina_weibo_not_install)).aYR();
+                return;
+            }
+            intent = new Intent();
+            intent.setAction("android.intent.action.VIEW");
+            intent.addCategory("android.intent.category.DEFAULT");
+            intent.setData(Uri.parse("sinaweibo://splash"));
+            intent.addFlags(268435456);
+        }
+        if (intent != null) {
+            context.startActivity(intent);
+        }
     }
 
-    public void a(InterfaceC0491a interfaceC0491a) {
-        this.enm = interfaceC0491a;
+    public static boolean u(Context context, int i) {
+        if (i == 3 || i == 2) {
+            return x.isInstalledPackage(context, "com.tencent.mm");
+        }
+        if (i == 8 || i == 4) {
+            return x.isInstalledPackage(context, "com.tencent.mobileqq");
+        }
+        if (i == 6) {
+            return x.isInstalledPackage(context, "com.sina.weibo");
+        }
+        return true;
+    }
+
+    private static String j(int i, Context context) {
+        if (i == 3 || i == 2) {
+            return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.wechat));
+        }
+        if (i == 8 || i == 4) {
+            return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.qq));
+        }
+        if (i == 6) {
+            return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.sinaweibo));
+        }
+        return null;
     }
 }

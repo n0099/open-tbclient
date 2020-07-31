@@ -2,7 +2,7 @@ package com.baidu.sofire.b;
 
 import com.baidu.mobstat.Config;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class b {
     private static final String[] a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", Config.APP_VERSION_CODE, "b", "c", "d", "e", "f"};
 

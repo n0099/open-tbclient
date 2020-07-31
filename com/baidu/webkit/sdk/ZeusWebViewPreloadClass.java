@@ -2,7 +2,6 @@ package com.baidu.webkit.sdk;
 
 import android.text.TextUtils;
 import com.a.a.a.a.a.a.a;
-import com.baidu.webkit.internal.ABTestConstants;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.internal.daemon.ZeusThreadPoolUtil;
 import java.io.BufferedReader;
@@ -15,7 +14,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class ZeusWebViewPreloadClass {
     private static final String CLOUD_SETTINGS_KEY = "preload_webview_class";
     private static final int CLOUD_SETTINGS_VALUE_CLOSE = 0;
@@ -56,10 +55,7 @@ public class ZeusWebViewPreloadClass {
     }
 
     private boolean isAbTestEnabled() {
-        IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
-        boolean z = abTestInterface != null ? abTestInterface.getSwitch(ABTestConstants.ZEUS_INIT_WEBVIEW_PRELOAD_CLASS_KEY, false) : false;
-        Log.i(LOG_TAG, "preloadAbtestEnabled=" + z);
-        return z;
+        return true;
     }
 
     private boolean isCloudSettingsEnabled() {

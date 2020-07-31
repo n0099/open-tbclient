@@ -2,7 +2,7 @@ package com.baidu.webkit.internal.monitor;
 
 import com.baidu.webkit.internal.Base64;
 import com.baidu.webkit.sdk.WebKitFactory;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class c implements com.baidu.webkit.logsdk.b {
     private static String[] a;
 

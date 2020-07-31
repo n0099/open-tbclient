@@ -1,7 +1,7 @@
 package com.baidu.live.data;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class t {
-    public boolean axZ;
+    public boolean azm;
     public String groupId;
     public String liveId;
     public int tabType;

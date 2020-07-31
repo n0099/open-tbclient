@@ -3,7 +3,7 @@ package com.baidu.tieba.livesdk.k;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.adp.widget.ICustomToast;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements ICustomToast {
     @Override // com.baidu.live.adp.widget.ICustomToast
     public void showToast(String str, int i) {

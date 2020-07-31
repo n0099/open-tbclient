@@ -18,8 +18,7 @@ import java.util.Map;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public final class g {
     private static Map<String, Object> Z(Context context) {
         HashMap hashMap = new HashMap();
@@ -42,15 +41,15 @@ public final class g {
         }
         hashMap.put("recordId", System.currentTimeMillis() + UUID.randomUUID().toString());
         hashMap.put(BdStatsConstant.StatsKey.UNAME, t.getUserName());
-        hashMap.put("uid", t.tk());
+        hashMap.put("uid", t.R());
         hashMap.put("batVN", "7.5.1");
         hashMap.put("nativeVN", CrabSDK.NDK_VERSION);
         hashMap.put("developerName", com.baidu.crabsdk.a.a);
-        hashMap.put("isRoot", Integer.valueOf(com.baidu.crabsdk.b.q.ti()));
-        hashMap.put(PushClientConstants.TAG_PKG_NAME, com.baidu.crabsdk.b.p.J());
-        hashMap.put("appLabel", com.baidu.crabsdk.b.p.tg());
+        hashMap.put("isRoot", Integer.valueOf(com.baidu.crabsdk.b.q.tk()));
+        hashMap.put(PushClientConstants.TAG_PKG_NAME, com.baidu.crabsdk.b.p.ti());
+        hashMap.put("appLabel", com.baidu.crabsdk.b.p.tj());
         hashMap.put("appVN", com.baidu.crabsdk.b.p.L());
-        hashMap.put("appVC", Integer.valueOf(com.baidu.crabsdk.b.p.th()));
+        hashMap.put("appVC", Integer.valueOf(com.baidu.crabsdk.b.p.M()));
         hashMap.put("model", Build.MODEL);
         hashMap.put(Constants.PHONE_BRAND, Build.BRAND);
         hashMap.put("os", "Android");
@@ -59,7 +58,7 @@ public final class g {
         hashMap.put("startupTime", Long.valueOf(com.baidu.crabsdk.b.a.p()));
         hashMap.put("curPage", com.baidu.crabsdk.b.a.r());
         hashMap.put("locale", com.baidu.crabsdk.b.i.B());
-        hashMap.put("allThreadStacks", com.baidu.crabsdk.b.s.tj());
+        hashMap.put("allThreadStacks", com.baidu.crabsdk.b.s.Q());
         hashMap.put("appCurConfig", com.baidu.crabsdk.b.f.d(context));
         hashMap.put("internalStorageInfo", com.baidu.crabsdk.b.r.O());
         hashMap.put("CUID", com.baidu.crabsdk.b.h.z());
@@ -87,7 +86,7 @@ public final class g {
             if (!CrabSDK.NDK_VERSION.equals("-1")) {
                 jSONObject.put("ndkVN", CrabSDK.NDK_VERSION);
             }
-            com.baidu.crabsdk.c.a.di("agent is " + jSONObject.toString());
+            com.baidu.crabsdk.c.a.dh("agent is " + jSONObject.toString());
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();
@@ -98,7 +97,7 @@ public final class g {
     public static Map<String, Object> a(Context context, Throwable th, boolean z) {
         Map<String, Object> Z = Z(context);
         if (com.baidu.crabsdk.a.q) {
-            com.baidu.crabsdk.c.a.di("SEND_PRIVACYINFORMATION true");
+            com.baidu.crabsdk.c.a.dh("SEND_PRIVACYINFORMATION true");
             Z = a(Z, context, z);
         }
         try {
@@ -133,9 +132,9 @@ public final class g {
             if (z) {
                 map.put(StatisticConstants.SCREENSHOT, new byte[0]);
             } else if (com.baidu.crabsdk.a.m) {
-                byte[] te = com.baidu.crabsdk.b.a.te();
-                com.baidu.crabsdk.c.a.v("截图大小：" + (te.length / 1024) + "KB");
-                map.put(StatisticConstants.SCREENSHOT, te);
+                byte[] tg = com.baidu.crabsdk.b.a.tg();
+                com.baidu.crabsdk.c.a.v("截图大小：" + (tg.length / 1024) + "KB");
+                map.put(StatisticConstants.SCREENSHOT, tg);
             } else {
                 map.put(StatisticConstants.SCREENSHOT, new byte[0]);
             }
@@ -152,10 +151,10 @@ public final class g {
             map.put("errorType", th.getClass().getName());
             String h = com.baidu.crabsdk.c.c.h(th);
             map.put("errorLine", h);
-            com.baidu.crabsdk.c.a.di("errorLine: " + h);
+            com.baidu.crabsdk.c.a.dh("errorLine: " + h);
             String i = com.baidu.crabsdk.c.c.i(th);
             map.put("errorOriLine", i);
-            com.baidu.crabsdk.c.a.di("errorOriLine: " + i);
+            com.baidu.crabsdk.c.a.dh("errorOriLine: " + i);
             map.put("errorTrace", Log.getStackTraceString(th));
         }
         return map;
@@ -165,18 +164,18 @@ public final class g {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("recordId", System.currentTimeMillis() + UUID.randomUUID().toString());
         jSONObject.put(BdStatsConstant.StatsKey.UNAME, t.getUserName());
-        jSONObject.put("uid", t.tk());
+        jSONObject.put("uid", t.R());
         jSONObject.put("channel", com.baidu.crabsdk.a.b);
         jSONObject.put("usersCustom", t.T());
         jSONObject.put("javaLine", "N/A");
         jSONObject.put("errorTrace", "N/A");
-        jSONObject.put("appVC", com.baidu.crabsdk.b.p.th());
+        jSONObject.put("appVC", com.baidu.crabsdk.b.p.M());
         jSONObject.put("batVN", "7.5.1");
         jSONObject.put("nativeVN", CrabSDK.NDK_VERSION);
-        jSONObject.put(PushClientConstants.TAG_PKG_NAME, com.baidu.crabsdk.b.p.J());
-        jSONObject.put("appLabel", com.baidu.crabsdk.b.p.tg());
+        jSONObject.put(PushClientConstants.TAG_PKG_NAME, com.baidu.crabsdk.b.p.ti());
+        jSONObject.put("appLabel", com.baidu.crabsdk.b.p.tj());
         jSONObject.put("appVN", com.baidu.crabsdk.b.p.L());
-        jSONObject.put("soLibs", i.dy(context.getApplicationInfo().nativeLibraryDir));
+        jSONObject.put("soLibs", i.dx(context.getApplicationInfo().nativeLibraryDir));
         jSONObject.put("procName", CrabSDK.CURRENT_PNAME);
         if (com.baidu.crabsdk.a.L) {
             jSONObject.put(FilterImageAction.ACTION_NAME, 2);
@@ -187,12 +186,12 @@ public final class g {
         jSONObject.put("os", "Android");
         jSONObject.put("osVN", Build.VERSION.RELEASE);
         jSONObject.put("osVC", Build.VERSION.SDK_INT);
-        jSONObject.put("isRoot", com.baidu.crabsdk.b.q.ti());
+        jSONObject.put("isRoot", com.baidu.crabsdk.b.q.tk());
         jSONObject.put("model", Build.MODEL);
         jSONObject.put(Constants.PHONE_BRAND, Build.BRAND);
         jSONObject.put("cpuabi", Build.CPU_ABI);
         jSONObject.put("CUID", com.baidu.crabsdk.b.h.z());
-        jSONObject.put(IjkMediaMeta.IJKM_KEY_LANGUAGE, com.baidu.crabsdk.b.i.getLanguage());
+        jSONObject.put("language", com.baidu.crabsdk.b.i.getLanguage());
         jSONObject.put("country", com.baidu.crabsdk.b.i.getCountry());
         jSONObject.put("appCurConfig", com.baidu.crabsdk.b.f.d(context));
         jSONObject.put("sysMemInfo", com.baidu.crabsdk.b.m.D());
@@ -209,14 +208,14 @@ public final class g {
             return;
         }
         map.put("did", map.get("CUID"));
-        map.put(IjkMediaMeta.IJKM_KEY_LANGUAGE, com.baidu.crabsdk.b.i.getLanguage());
+        map.put("language", com.baidu.crabsdk.b.i.getLanguage());
         map.put("country", com.baidu.crabsdk.b.i.getCountry());
         map.put("sdkVN", map.get("batVN"));
         map.put("reportOsVN", Build.VERSION.RELEASE);
         map.put("reportAppVN", com.baidu.crabsdk.b.p.L());
-        map.put("reportAppVC", Integer.valueOf(com.baidu.crabsdk.b.p.th()));
+        map.put("reportAppVC", Integer.valueOf(com.baidu.crabsdk.b.p.M()));
         map.put("reportSdkVN", "7.5.1");
-        map.put("appName", com.baidu.crabsdk.b.p.tg());
+        map.put("appName", com.baidu.crabsdk.b.p.tj());
         map.put("occurrenceTime", com.baidu.crabsdk.a.C.format(map.get("phoneTime") != null ? map.get("phoneTime") : Long.valueOf(System.currentTimeMillis())));
         map.put("cpuInfo", map.get("myAppCPUStat"));
         map.put("diskInfo", map.get("internalStorageInfo"));
@@ -234,7 +233,7 @@ public final class g {
     public static JSONObject c(long j, boolean z) {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put(BdStatsConstant.StatsKey.UNAME, t.getUserName());
-        jSONObject.put("uid", t.tk());
+        jSONObject.put("uid", t.R());
         jSONObject.put("channel", com.baidu.crabsdk.a.b);
         jSONObject.put("usersCustom", t.T());
         jSONObject.put("javaLine", "N/A");
@@ -254,7 +253,7 @@ public final class g {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("os", "android");
-            jSONObject.put("uid", t.tk());
+            jSONObject.put("uid", t.R());
             jSONObject.put("appVN", com.baidu.crabsdk.b.p.L());
             jSONObject.put("channel", com.baidu.crabsdk.a.b);
             jSONObject.put(PushClientConstants.TAG_PKG_NAME, com.baidu.crabsdk.a.d);

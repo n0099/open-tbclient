@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.alasquare.widget.banner;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface d {
     void ax(Object obj);
 }

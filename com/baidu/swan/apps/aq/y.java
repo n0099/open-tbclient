@@ -1,31 +1,33 @@
 package com.baidu.swan.apps.aq;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes11.dex */
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import com.baidu.swan.apps.a;
+/* loaded from: classes7.dex */
 public final class y {
-    private static SharedPreferences mPreference = null;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    private static SharedPreferences getPreference() {
-        if (mPreference == null) {
-            mPreference = PreferenceManager.getDefaultSharedPreferences(getAppContext());
+    public static void decorateSrcATopMode(Context context, Drawable drawable) {
+        decorateSrcATopMode(context, drawable, 255);
+    }
+
+    public static void decorateSrcATopMode(Context context, Drawable drawable, int i) {
+        decorateSpecificMode(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
+    }
+
+    public static void decorateSpecificMode(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
+        if (context != null && drawable != null) {
+            int uiCoverLayerColor = getUiCoverLayerColor(context);
+            if (i >= 0 && i < 255) {
+                uiCoverLayerColor = Color.argb((Color.alpha(uiCoverLayerColor) * i) / 255, Color.red(uiCoverLayerColor), Color.green(uiCoverLayerColor), Color.blue(uiCoverLayerColor));
+            }
+            drawable.setColorFilter(uiCoverLayerColor, mode);
         }
-        return mPreference;
     }
 
-    public static boolean getBoolean(String str, boolean z) {
-        return getPreference().getBoolean(str, z);
-    }
-
-    public static void setBoolean(String str, boolean z) {
-        SharedPreferences.Editor edit = getPreference().edit();
-        edit.putBoolean(str, z);
-        edit.apply();
-    }
-
-    private static Context getAppContext() {
-        return AppRuntime.getAppContext();
+    public static int getUiCoverLayerColor(Context context) {
+        return context.getResources().getColor(a.c.aiapps_ui_cover_layer_color);
     }
 }

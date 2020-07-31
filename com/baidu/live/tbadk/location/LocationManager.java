@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.location;
 
 import com.baidu.live.tbadk.location.interfaces.ILocation;
 import com.baidu.live.tbadk.location.interfaces.ILocationBuilder;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LocationManager {
     private ILocation mLocation;
     private ILocationBuilder mLocationBuilder;
@@ -33,7 +33,7 @@ public class LocationManager {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class InstanceHolder {
         private static final LocationManager sInst = new LocationManager();
     }

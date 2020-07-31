@@ -5,7 +5,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class w {
     public static String a = "Volley";
     public static boolean b = Log.isLoggable(a, 2);
@@ -52,7 +52,7 @@ public class w {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static final boolean a = w.b;
         private final List<C0221a> b = new ArrayList();
@@ -60,7 +60,7 @@ public class w {
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.pano.platform.a.w$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public static class C0221a {
             public final String a;
             public final long b;

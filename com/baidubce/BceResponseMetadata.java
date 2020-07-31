@@ -1,7 +1,7 @@
 package com.baidubce;
 
 import java.util.Date;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class BceResponseMetadata {
     private String bceContentSha256;
     private String bceRequestId;

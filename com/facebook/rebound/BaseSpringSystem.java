@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class BaseSpringSystem {
     private final SpringLooper mSpringLooper;
     private final Map<String, Spring> mSpringRegistry = new HashMap();

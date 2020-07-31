@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.an;
 
 import java.util.Locale;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class c<ValueT> {
-    private a<ValueT> cNG;
+    private a<ValueT> cRb;
     public final String id;
     private ValueT mValue;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public interface a<ValueT> {
-        ValueT asK() throws IllegalStateException;
+        ValueT auL() throws IllegalStateException;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.swan.apps.an.e */
@@ -17,27 +17,27 @@ public final class c<ValueT> {
     /* JADX WARN: Multi-variable type inference failed */
     public c(String str) {
         this.id = str;
-        e.atW().a(this);
+        e.avX().a(this);
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.id, atV());
+        return String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.id, avW());
     }
 
     public c<ValueT> a(a<ValueT> aVar) {
-        this.cNG = aVar;
+        this.cRb = aVar;
         update();
         return this;
     }
 
     public boolean update() {
-        return b(this.cNG);
+        return b(this.cRb);
     }
 
     public boolean b(a<ValueT> aVar) {
         if (aVar != null) {
             try {
-                return T(aVar.asK());
+                return T(aVar.auL());
             } catch (IllegalStateException e) {
                 com.baidu.swan.apps.console.c.w("Tracer", "index update IllegalStateException " + e.getMessage());
                 return false;
@@ -50,11 +50,11 @@ public final class c<ValueT> {
     /* JADX WARN: Multi-variable type inference failed */
     public boolean T(ValueT valuet) {
         this.mValue = valuet;
-        e.atW().b(this);
+        e.avX().b(this);
         return true;
     }
 
-    public CharSequence atV() {
+    public CharSequence avW() {
         return this.mValue == null ? "" : this.mValue.toString();
     }
 }

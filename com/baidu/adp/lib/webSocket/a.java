@@ -21,19 +21,19 @@ public class a extends OutputStream {
         this.mBuffer.clear();
     }
 
-    public ByteBuffer mO() {
+    public ByteBuffer mP() {
         return this.mBuffer;
     }
 
-    public Buffer mP() {
+    public Buffer mQ() {
         return this.mBuffer.flip();
     }
 
-    public Buffer mQ() {
+    public Buffer mR() {
         return this.mBuffer.clear();
     }
 
-    public int mR() {
+    public int mS() {
         return this.mBuffer.remaining();
     }
 
@@ -74,7 +74,7 @@ public class a extends OutputStream {
         write(str.getBytes("UTF-8"));
     }
 
-    public synchronized void mS() throws IOException {
+    public synchronized void mT() throws IOException {
         write(13);
         write(10);
     }

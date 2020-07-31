@@ -1,24 +1,24 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 /* loaded from: classes.dex */
 public class k {
-    private static String hzq;
-    public static k hzp = null;
-    private static bu aiq = null;
+    private static String hFf;
+    public static k hFe = null;
+    private static bv aii = null;
 
-    public static synchronized void an(bu buVar) {
+    public static synchronized void ak(bv bvVar) {
         synchronized (k.class) {
-            hzq = buVar.tid;
-            aiq = buVar;
+            hFf = bvVar.tid;
+            aii = bvVar;
         }
     }
 
-    public static bu bXO() {
-        return aiq;
+    public static bv cbk() {
+        return aii;
     }
 
-    public static String bXP() {
-        return hzq;
+    public static String cbl() {
+        return hFf;
     }
 }

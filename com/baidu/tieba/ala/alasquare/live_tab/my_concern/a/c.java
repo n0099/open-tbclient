@@ -5,44 +5,44 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.live_tab.b.k;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.o;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.f> {
-    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.e fpk;
-    private o fpl;
+    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.e fuv;
+    private o fuw;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), k.foh);
+        super(tbPageContext.getPageActivity(), k.ftr);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: K */
+    /* renamed from: L */
     public com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.f b(ViewGroup viewGroup) {
-        this.fpk = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.e(this.mPageContext, viewGroup);
-        if (this.fpl != null) {
-            this.fpk.a(this.fpl);
+        this.fuv = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.e(this.mPageContext, viewGroup);
+        if (this.fuw != null) {
+            this.fuv.a(this.fuw);
         }
-        return new com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.f(this.fpk);
+        return new com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.f(this.fuv);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, k kVar, com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.f fVar) {
-        if (fVar == null || fVar.fpk == null) {
+        if (fVar == null || fVar.fuv == null) {
             return null;
         }
-        fVar.fpk.a(kVar);
+        fVar.fuv.a(kVar);
         return fVar.getView();
     }
 
     public void a(o oVar) {
-        this.fpl = oVar;
-        if (this.fpk != null) {
-            this.fpk.a(this.fpl);
+        this.fuw = oVar;
+        if (this.fuv != null) {
+            this.fuv.a(this.fuw);
         }
     }
 }

@@ -2,13 +2,13 @@ package com.baidu.sapi2.utils;
 
 import android.app.Activity;
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class p {
     private View a;
     int b;
     private a c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public interface a {
         void keyBoardHide(int i);
 

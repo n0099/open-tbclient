@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import org.apache.http.HttpEntity;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public class BufferedHttpEntity extends HttpEntityWrapper {
     public BufferedHttpEntity(HttpEntity httpEntity) throws IOException {
         super(null);

@@ -38,7 +38,7 @@ import android.view.animation.Animation;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes6.dex */
+/* loaded from: classes12.dex */
 public class Fragment implements aa, j, ComponentCallbacks, View.OnCreateContextMenuListener {
     static final int ACTIVITY_CREATED = 2;
     static final int CREATED = 1;
@@ -97,7 +97,7 @@ public class Fragment implements aa, j, ComponentCallbacks, View.OnCreateContext
     k mLifecycleRegistry = new k(this);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes12.dex */
     public interface OnStartEnterTransitionListener {
         void onStartEnterTransition();
 
@@ -121,7 +121,7 @@ public class Fragment implements aa, j, ComponentCallbacks, View.OnCreateContext
         return this.mViewModelStore;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes12.dex */
     public static class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: android.support.v4.app.Fragment.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -163,7 +163,7 @@ public class Fragment implements aa, j, ComponentCallbacks, View.OnCreateContext
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes12.dex */
     public static class InstantiationException extends RuntimeException {
         public InstantiationException(String str, Exception exc) {
             super(str, exc);
@@ -1525,7 +1525,7 @@ public class Fragment implements aa, j, ComponentCallbacks, View.OnCreateContext
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes12.dex */
     public static class AnimationInfo {
         private Boolean mAllowEnterTransitionOverlap;
         private Boolean mAllowReturnTransitionOverlap;

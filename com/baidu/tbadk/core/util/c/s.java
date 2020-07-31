@@ -31,18 +31,18 @@ public class s extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean aXi() {
+    public boolean bbj() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean aXj() {
+    public boolean bbk() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.c.a
-    public com.baidu.adp.lib.Disk.ops.c wU(String str) {
+    public com.baidu.adp.lib.Disk.ops.c yc(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -50,13 +50,13 @@ public class s extends a {
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a yO = com.baidu.tbadk.imageManager.c.bgz().yO(str);
-        if (yO != null) {
-            yO.Ue.resourceFromType = "memory";
-            yO.Ue.costTime = 0L;
-            yO.Ue.isScuess = true;
+        com.baidu.adp.widget.ImageView.a zV = com.baidu.tbadk.imageManager.c.bkk().zV(str);
+        if (zV != null) {
+            zV.TY.resourceFromType = "memory";
+            zV.TY.costTime = 0L;
+            zV.TY.isScuess = true;
         }
-        return yO;
+        return zV;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -82,7 +82,7 @@ public class s extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean s(Bitmap bitmap) {
+    public boolean v(Bitmap bitmap) {
         return bitmap.getNinePatchChunk() != null && NinePatch.isNinePatchChunk(bitmap.getNinePatchChunk());
     }
 
@@ -98,7 +98,7 @@ public class s extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int aXk() {
+    public int bbl() {
         return this.procType;
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.AddGroup.AddGroupReqIdl;
 import protobuf.AddGroup.DataReq;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class RequestAddGroupMessage extends TbSocketMessage {
     private String business;
     private int flag;

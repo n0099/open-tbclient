@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d extends com.baidu.platform.comapi.walknavi.a {
     private List<com.baidu.platform.comapi.wnplatform.c.a> f;
     private c i;
@@ -175,7 +175,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends Handler {
         private a() {
         }

@@ -3,7 +3,7 @@ package com.baidu.platform.core.b;
 import com.baidu.mapapi.search.geocode.GeoCodeOption;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface d {
     void a();
 

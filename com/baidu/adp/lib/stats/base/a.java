@@ -8,36 +8,56 @@ import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 /* loaded from: classes.dex */
 public class a {
-    private String MP;
-    protected String Nd;
-    protected String Ng;
-    protected j Ni;
+    private String MO;
+    protected String Nc;
+    protected String Nf;
+    protected j Nh;
+    private StringBuffer MP = new StringBuffer();
     private StringBuffer MQ = new StringBuffer();
     private StringBuffer MR = new StringBuffer();
-    private StringBuffer MS = new StringBuffer();
+    private int MS = 0;
     private int MT = 0;
     private int MU = 0;
-    private int MV = 0;
-    private long MA = 0;
+    private long Mz = 0;
+    private long MV = 0;
     private long MW = 0;
-    private long MX = 0;
-    protected long MY = 0;
+    protected long MX = 0;
+    private long MY = 0;
     private long MZ = 0;
     private long Na = 0;
-    private long Nb = 0;
-    protected int Nc = 50;
-    protected final String Ne = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
+    protected int Nb = 50;
+    protected final String Nd = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
     protected boolean mUseSdCard = false;
-    protected boolean Nf = false;
+    protected boolean Ne = false;
     protected boolean mMustSuccess = false;
     private boolean isUploading = false;
-    private boolean Nh = false;
+    private boolean Ng = false;
 
     public a(j jVar) {
-        this.Ni = jVar;
+        this.Nh = jVar;
     }
 
     public synchronized void a(com.baidu.adp.lib.stats.a aVar) {
+        if (aVar != null) {
+            try {
+                try {
+                    this.MP.append(aVar.toString());
+                    this.MP.append("\r\n");
+                    this.MS++;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+            } catch (OutOfMemoryError e2) {
+                e2.printStackTrace();
+            }
+        }
+        if (this.Nh != null) {
+            this.Nh.o(this);
+        }
+        this.Mz = System.currentTimeMillis();
+    }
+
+    public synchronized void b(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
@@ -51,39 +71,19 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Ni != null) {
-            this.Ni.o(this);
+        if (this.Nh != null) {
+            this.Nh.o(this);
         }
-        this.MA = System.currentTimeMillis();
-    }
-
-    public synchronized void b(com.baidu.adp.lib.stats.a aVar) {
-        if (aVar != null) {
-            try {
-                try {
-                    this.MR.append(aVar.toString());
-                    this.MR.append("\r\n");
-                    this.MU++;
-                } catch (Exception e) {
-                    BdLog.e(e);
-                }
-            } catch (OutOfMemoryError e2) {
-                e2.printStackTrace();
-            }
-        }
-        if (this.Ni != null) {
-            this.Ni.o(this);
-        }
-        this.MW = System.currentTimeMillis();
+        this.MV = System.currentTimeMillis();
     }
 
     public synchronized void c(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 if (aVar.lw() != null) {
-                    this.MS.append(aVar.lw().lJ().toString());
-                    this.MS.append("\r\n");
-                    this.MV++;
+                    this.MR.append(aVar.lw().lJ().toString());
+                    this.MR.append("\r\n");
+                    this.MU++;
                 }
             } catch (Exception e) {
                 BdLog.e(e);
@@ -91,59 +91,59 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Ni != null) {
-            this.Ni.o(this);
+        if (this.Nh != null) {
+            this.Nh.o(this);
         }
-        this.MX = System.currentTimeMillis();
+        this.MW = System.currentTimeMillis();
     }
 
     public int lL() {
-        return this.MT;
+        return this.MS;
     }
 
     public int lM() {
-        return this.MU;
+        return this.MT;
     }
 
     public int lN() {
-        return this.MV;
+        return this.MU;
     }
 
     public long lO() {
-        return this.MY;
-    }
-
-    public void J(long j) {
-        this.MY = j;
-    }
-
-    public long lP() {
-        return this.MA;
-    }
-
-    public long lQ() {
-        return this.MW;
-    }
-
-    public long lR() {
         return this.MX;
     }
 
+    public void J(long j) {
+        this.MX = j;
+    }
+
+    public long lP() {
+        return this.Mz;
+    }
+
+    public long lQ() {
+        return this.MV;
+    }
+
+    public long lR() {
+        return this.MW;
+    }
+
     public String lS() {
-        if (TextUtils.isEmpty(this.Ng)) {
+        if (TextUtils.isEmpty(this.Nf)) {
             StringBuilder sb = new StringBuilder(30);
-            sb.append(this.Nd);
+            sb.append(this.Nc);
             sb.append(BdStatisticsManager.getInstance().getProcessName());
             sb.append("Writing");
             sb.append(BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
-            this.Ng = sb.toString();
+            this.Nf = sb.toString();
         }
-        return this.Ng;
+        return this.Nf;
     }
 
     public String lT() {
         StringBuilder sb = new StringBuilder(40);
-        sb.append(this.Nd);
+        sb.append(this.Nc);
         sb.append(System.currentTimeMillis());
         sb.append(BdStatisticsManager.getInstance().getProcessName());
         sb.append("Uploading");
@@ -152,55 +152,55 @@ public class a {
     }
 
     public long lU() {
-        return this.MZ;
+        return this.MY;
     }
 
     public long lV() {
-        return this.Na;
+        return this.MZ;
     }
 
     public long lW() {
-        return this.Nb;
+        return this.Na;
     }
 
     public void K(long j) {
-        this.MZ = j;
+        this.MY = j;
     }
 
     public void L(long j) {
-        this.Na = j;
+        this.MZ = j;
     }
 
     public void M(long j) {
-        this.Nb = j;
+        this.Na = j;
     }
 
     public synchronized void lX() {
+        this.MP = new StringBuffer();
+        this.MS = 0;
+        this.MY = 0L;
+    }
+
+    public synchronized void lY() {
         this.MQ = new StringBuffer();
         this.MT = 0;
         this.MZ = 0L;
     }
 
-    public synchronized void lY() {
+    public synchronized void lZ() {
         this.MR = new StringBuffer();
         this.MU = 0;
         this.Na = 0L;
     }
 
-    public synchronized void lZ() {
-        this.MS = new StringBuffer();
-        this.MV = 0;
-        this.Nb = 0L;
-    }
-
-    public void bW(String str) {
+    public void bU(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.MP = str;
+            this.MO = str;
         }
     }
 
     public String ma() {
-        return this.MP;
+        return this.MO;
     }
 
     public boolean mb() {
@@ -212,11 +212,11 @@ public class a {
     }
 
     public boolean mc() {
-        return this.Nh;
+        return this.Ng;
     }
 
     public void ar(boolean z) {
-        this.Nh = z;
+        this.Ng = z;
     }
 
     public String md() {
@@ -228,15 +228,15 @@ public class a {
     }
 
     public StringBuffer mf() {
-        return this.MQ;
+        return this.MP;
     }
 
     public StringBuffer mg() {
-        return this.MR;
+        return this.MQ;
     }
 
     public StringBuffer mh() {
-        return this.MS;
+        return this.MR;
     }
 
     public boolean mi() {
@@ -244,7 +244,7 @@ public class a {
     }
 
     public boolean mj() {
-        return this.Nf;
+        return this.Ne;
     }
 
     public boolean mk() {
@@ -252,10 +252,10 @@ public class a {
     }
 
     public String ml() {
-        return this.Nd;
+        return this.Nc;
     }
 
-    public static String bX(String str) {
+    public static String bV(String str) {
         if ("net".equals(str) || "op".equals(str) || "crash".equals(str) || "msg".equals(str)) {
             return BdStatsConstant.StatsType.ERROR;
         }

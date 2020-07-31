@@ -10,7 +10,7 @@ import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.searchbox.account.contants.LoginConstants;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class i extends DynamicPwdLoginCallback {
     final /* synthetic */ SmsLoginView a;
 

@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.baidu.platform.comapi.walknavi.g.c.a;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class h implements a.c {
     final /* synthetic */ c a;
 

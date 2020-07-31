@@ -15,7 +15,7 @@ import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class FileClientSessionCache {
     public static final int MAX_SIZE = 12;
     private static final Logger logger = Logger.getLogger(FileClientSessionCache.class.getName());
@@ -24,7 +24,7 @@ public final class FileClientSessionCache {
     private FileClientSessionCache() {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     static class Impl implements SSLClientSessionCache {
         Map<String, File> accessOrder = newAccessOrder();
         final File directory;
@@ -232,7 +232,7 @@ public final class FileClientSessionCache {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class CacheFile extends File {
         long lastModified;
         final String name;

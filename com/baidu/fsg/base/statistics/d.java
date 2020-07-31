@@ -8,7 +8,7 @@ import java.io.StringWriter;
 import java.lang.Thread;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 class d implements Thread.UncaughtExceptionHandler {
     private Thread.UncaughtExceptionHandler a;
     private Context b;
@@ -20,7 +20,7 @@ class d implements Thread.UncaughtExceptionHandler {
         this();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private static class a {
         private static d a = new d(null);
 

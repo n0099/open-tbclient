@@ -10,14 +10,14 @@ public class AlaBroadcastGiftToastData extends m implements Parcelable {
     public static final Parcelable.Creator<AlaBroadcastGiftToastData> CREATOR = new Parcelable.Creator<AlaBroadcastGiftToastData>() { // from class: com.baidu.tbadk.core.data.AlaBroadcastGiftToastData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: I */
+        /* renamed from: K */
         public AlaBroadcastGiftToastData createFromParcel(Parcel parcel) {
             return new AlaBroadcastGiftToastData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: kp */
+        /* renamed from: kJ */
         public AlaBroadcastGiftToastData[] newArray(int i) {
             return new AlaBroadcastGiftToastData[i];
         }

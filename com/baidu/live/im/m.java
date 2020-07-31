@@ -1,130 +1,97 @@
 package com.baidu.live.im;
 
-import com.baidu.live.data.AlaLiveMarkData;
-import com.baidu.live.data.bb;
-import com.baidu.live.data.bo;
+import android.text.TextUtils;
+import android.util.Log;
+import com.alibaba.fastjson.asm.Opcodes;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.message.CustomMessage;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.adp.framework.task.CustomMessageTask;
+import com.baidu.live.adp.lib.util.BdUtilHelper;
+import com.baidu.live.data.q;
+import com.baidu.live.gift.t;
+import com.baidu.live.im.data.ImSendMsgData;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-/* loaded from: classes3.dex */
+import java.util.Map;
+/* loaded from: classes4.dex */
 public class m {
-    private List<AlaLiveMarkData> aTH;
-    private boolean aUD;
-    private String aUE;
+    private q avf;
 
-    public static m Dm() {
-        return a.aUF;
+    public void g(q qVar) {
+        Log.i("i", "@@@ localText imsdmctrl ent");
+        DN();
+        a(qVar);
     }
 
-    private List<bo> a(boolean z, int i, List<bo> list, bo[] boVarArr, bo[] boVarArr2) {
-        boolean z2 = true;
-        if (list == null) {
-            list = new ArrayList<>();
+    public void a(q qVar) {
+        this.avf = qVar;
+    }
+
+    public void zy() {
+        Log.i("i", "@@@ localText imsdmctrl oqt");
+        this.avf = null;
+        DO();
+    }
+
+    private void DN() {
+        Log.i("i", "@@@ localText imsdmctrl reg");
+        CustomMessageTask customMessageTask = new CustomMessageTask(2913100, new CustomMessageTask.CustomRunnable<ImSendMsgData>() { // from class: com.baidu.live.im.m.1
+            @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
+            public CustomResponsedMessage<?> run(CustomMessage<ImSendMsgData> customMessage) {
+                if (customMessage != null && customMessage.getData() != null) {
+                    Log.i("i", "@@@ localText imsdmctrl run");
+                    m.this.b(customMessage.getData());
+                    return null;
+                }
+                return null;
+            }
+        });
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    private void DO() {
+        Log.i("i", "@@@ localText imsdmctrl unr");
+        MessageManager.getInstance().unRegisterTask(2913100);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(ImSendMsgData imSendMsgData) {
+        Log.i("i", "@@@ localText imsdmctrl onsm");
+        if (!BR()) {
+            Log.i("i", "@@@ localText imsdmctrl nolg");
+            return;
         }
-        boolean z3 = com.baidu.live.v.a.Hm().aZp != null && com.baidu.live.v.a.Hm().aZp.aAK && (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardThroneSwitchUnabled());
-        bb bbVar = com.baidu.live.v.a.Hm().bdV;
-        boolean z4 = TbadkCoreApplication.getInst().isMobileBaidu() || !(bbVar == null || bbVar.aCW == null || bbVar.aCW.aER) || (TbadkCoreApplication.sAlaLiveSwitchData != null && TbadkCoreApplication.sAlaLiveSwitchData.isNobleInfoSwitchUnabled());
-        boolean z5 = boVarArr != null && boVarArr.length > 0 && z3;
-        boolean z6 = i > 2;
-        if (boVarArr2 == null || boVarArr2.length <= 0 || z4) {
-            z2 = false;
+        Log.i("i", "@@@ localText imsdmctrl mt=" + ((int) imSendMsgData.msgType));
+        switch (imSendMsgData.msgType) {
+            case Opcodes.IAND /* 126 */:
+                a(imSendMsgData);
+                return;
+            default:
+                Log.i("i", "@@@ localText imsdmctrl sd");
+                MessageManager.getInstance().sendMessage(new CustomMessage(2913043, imSendMsgData));
+                return;
         }
-        if (z && z6) {
-            if (z2) {
-                list.addAll(0, Arrays.asList(boVarArr2));
-            }
-            if (z5) {
-                list.addAll(0, Arrays.asList(boVarArr));
-            }
-        } else if (z) {
-            if (z5) {
-                list.addAll(0, Arrays.asList(boVarArr));
-            }
-            if (z2) {
-                list.addAll(Arrays.asList(boVarArr2));
-            }
-        } else if (z6) {
-            if (z2) {
-                list.addAll(0, Arrays.asList(boVarArr2));
-            }
-            if (z5) {
-                list.addAll(Arrays.asList(boVarArr));
-            }
+    }
+
+    private void a(ImSendMsgData imSendMsgData) {
+        Map<String, Integer> zp = t.zn().zp();
+        if (zp != null && zp.containsKey(imSendMsgData.barrageId) && zp.get(imSendMsgData.barrageId).intValue() > 0) {
+            imSendMsgData.barrageCardInfo = new com.baidu.live.im.data.b(true, String.valueOf(this.avf.ayC.userId), String.valueOf(this.avf.mLiveInfo.live_id));
+        }
+        MessageManager.getInstance().sendMessage(new CustomMessage(2913101, imSendMsgData));
+    }
+
+    private boolean BR() {
+        if (!TbadkCoreApplication.isLogin()) {
+            BdUtilHelper.showToast(TbadkCoreApplication.getInst(), a.i.sdk_not_login);
+            return false;
+        } else if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow())) {
+            BdUtilHelper.showToast(TbadkCoreApplication.getInst(), a.i.sdk_username_empty);
+            return false;
         } else {
-            if (z5) {
-                list.addAll(Arrays.asList(boVarArr));
-            }
-            if (z2) {
-                list.addAll(Arrays.asList(boVarArr2));
-            }
+            return true;
         }
-        return list;
-    }
-
-    public bo[] Dn() {
-        return e(false, 0);
-    }
-
-    public bo[] e(boolean z, int i) {
-        List<bo> list;
-        bb bbVar = com.baidu.live.v.a.Hm().bdV;
-        if (bbVar == null || bbVar.aCW == null || !bbVar.aCW.aEJ || bbVar.aCT == null) {
-            list = null;
-        } else {
-            bo[] boVarArr = bbVar.aCT.aDN;
-            list = a(z, i, (boVarArr == null || boVarArr.length <= 0) ? null : new ArrayList(Arrays.asList(boVarArr)), bbVar.aCT.aDT, bbVar.aCT.aDU);
-        }
-        if (list == null || list.isEmpty()) {
-            return null;
-        }
-        return (bo[]) list.toArray(new bo[list.size()]);
-    }
-
-    public boolean Do() {
-        return this.aUD;
-    }
-
-    public void setSwitchStatus(boolean z) {
-        this.aUD = z;
-    }
-
-    public String Dp() {
-        return this.aUE;
-    }
-
-    public void setSelectId(String str) {
-        this.aUE = str;
-    }
-
-    public List<AlaLiveMarkData> Dq() {
-        return this.aTH;
-    }
-
-    public void L(List<AlaLiveMarkData> list) {
-        if (this.aTH == null) {
-            this.aTH = new ArrayList();
-        }
-        this.aTH.clear();
-        if (list != null && !list.isEmpty()) {
-            this.aTH.addAll(list);
-        }
-    }
-
-    public void release() {
-        this.aUD = false;
-        this.aUE = null;
-        if (this.aTH != null) {
-            this.aTH.clear();
-        }
-    }
-
-    private m() {
-        this.aUD = false;
-    }
-
-    /* loaded from: classes3.dex */
-    private static class a {
-        private static final m aUF = new m();
     }
 }

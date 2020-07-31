@@ -8,27 +8,27 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.Modifier;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class p extends o {
     static boolean DEBUG = false;
-    private j dsB;
-    final com.baidu.swan.support.v4.b.g<a> dtn = new com.baidu.swan.support.v4.b.g<>();
-    final com.baidu.swan.support.v4.b.g<a> dto = new com.baidu.swan.support.v4.b.g<>();
+    private j dyr;
+    final com.baidu.swan.support.v4.b.g<a> dzd = new com.baidu.swan.support.v4.b.g<>();
+    final com.baidu.swan.support.v4.b.g<a> dze = new com.baidu.swan.support.v4.b.g<>();
     boolean mRetaining;
     boolean mStarted;
     final String mWho;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public final class a implements c.a<Object>, c.b<Object> {
-        o.a<Object> dtp;
-        com.baidu.swan.support.v4.a.c<Object> dtq;
-        boolean dtr;
-        boolean dtt;
-        boolean dtu;
-        boolean dtv;
-        a dtw;
-        final /* synthetic */ p dtx;
+        o.a<Object> dzf;
+        com.baidu.swan.support.v4.a.c<Object> dzg;
+        boolean dzh;
+        boolean dzi;
+        boolean dzj;
+        boolean dzk;
+        a dzl;
+        final /* synthetic */ p dzm;
         final Bundle mArgs;
         Object mData;
         boolean mDeliveredData;
@@ -38,60 +38,60 @@ public class p extends o {
         boolean mStarted;
 
         void start() {
-            if (this.mRetaining && this.dtt) {
+            if (this.mRetaining && this.dzi) {
                 this.mStarted = true;
             } else if (!this.mStarted) {
                 this.mStarted = true;
                 if (p.DEBUG) {
                     Log.v("LoaderManager", "  Starting: " + this);
                 }
-                if (this.dtq == null && this.dtp != null) {
-                    this.dtq = this.dtp.e(this.mId, this.mArgs);
+                if (this.dzg == null && this.dzf != null) {
+                    this.dzg = this.dzf.e(this.mId, this.mArgs);
                 }
-                if (this.dtq != null) {
-                    if (this.dtq.getClass().isMemberClass() && !Modifier.isStatic(this.dtq.getClass().getModifiers())) {
-                        throw new IllegalArgumentException("Object returned from onCreateLoader must not be a non-static inner member class: " + this.dtq);
+                if (this.dzg != null) {
+                    if (this.dzg.getClass().isMemberClass() && !Modifier.isStatic(this.dzg.getClass().getModifiers())) {
+                        throw new IllegalArgumentException("Object returned from onCreateLoader must not be a non-static inner member class: " + this.dzg);
                     }
-                    if (!this.dtv) {
-                        this.dtq.a(this.mId, this);
-                        this.dtq.a((c.a<Object>) this);
-                        this.dtv = true;
+                    if (!this.dzk) {
+                        this.dzg.a(this.mId, this);
+                        this.dzg.a((c.a<Object>) this);
+                        this.dzk = true;
                     }
-                    this.dtq.startLoading();
+                    this.dzg.startLoading();
                 }
             }
         }
 
-        void aIO() {
+        void aMG() {
             if (p.DEBUG) {
                 Log.v("LoaderManager", "  Retaining: " + this);
             }
             this.mRetaining = true;
-            this.dtt = this.mStarted;
+            this.dzi = this.mStarted;
             this.mStarted = false;
-            this.dtp = null;
+            this.dzf = null;
         }
 
-        void aIL() {
+        void aMD() {
             if (this.mRetaining) {
                 if (p.DEBUG) {
                     Log.v("LoaderManager", "  Finished Retaining: " + this);
                 }
                 this.mRetaining = false;
-                if (this.mStarted != this.dtt && !this.mStarted) {
+                if (this.mStarted != this.dzi && !this.mStarted) {
                     stop();
                 }
             }
-            if (this.mStarted && this.dtr && !this.dtu) {
-                b(this.dtq, this.mData);
+            if (this.mStarted && this.dzh && !this.dzj) {
+                b(this.dzg, this.mData);
             }
         }
 
-        void aIP() {
-            if (this.mStarted && this.dtu) {
-                this.dtu = false;
-                if (this.dtr) {
-                    b(this.dtq, this.mData);
+        void aMH() {
+            if (this.mStarted && this.dzj) {
+                this.dzj = false;
+                if (this.dzh) {
+                    b(this.dzg, this.mData);
                 }
             }
         }
@@ -101,11 +101,11 @@ public class p extends o {
                 Log.v("LoaderManager", "  Stopping: " + this);
             }
             this.mStarted = false;
-            if (!this.mRetaining && this.dtq != null && this.dtv) {
-                this.dtv = false;
-                this.dtq.a((c.b<Object>) this);
-                this.dtq.b(this);
-                this.dtq.stopLoading();
+            if (!this.mRetaining && this.dzg != null && this.dzk) {
+                this.dzk = false;
+                this.dzg.a((c.b<Object>) this);
+                this.dzg.b(this);
+                this.dzg.stopLoading();
             }
         }
 
@@ -117,47 +117,47 @@ public class p extends o {
             this.mDestroyed = true;
             boolean z = this.mDeliveredData;
             this.mDeliveredData = false;
-            if (this.dtp != null && this.dtq != null && this.dtr && z) {
+            if (this.dzf != null && this.dzg != null && this.dzh && z) {
                 if (p.DEBUG) {
                     Log.v("LoaderManager", "  Reseting: " + this);
                 }
-                if (this.dtx.dsB != null) {
-                    String str2 = this.dtx.dsB.dsA.mNoTransactionsBecause;
-                    this.dtx.dsB.dsA.mNoTransactionsBecause = "onLoaderReset";
+                if (this.dzm.dyr != null) {
+                    String str2 = this.dzm.dyr.dyq.mNoTransactionsBecause;
+                    this.dzm.dyr.dyq.mNoTransactionsBecause = "onLoaderReset";
                     str = str2;
                 } else {
                     str = null;
                 }
                 try {
-                    this.dtp.a(this.dtq);
+                    this.dzf.a(this.dzg);
                 } finally {
-                    if (this.dtx.dsB != null) {
-                        this.dtx.dsB.dsA.mNoTransactionsBecause = str;
+                    if (this.dzm.dyr != null) {
+                        this.dzm.dyr.dyq.mNoTransactionsBecause = str;
                     }
                 }
             }
-            this.dtp = null;
+            this.dzf = null;
             this.mData = null;
-            this.dtr = false;
-            if (this.dtq != null) {
-                if (this.dtv) {
-                    this.dtv = false;
-                    this.dtq.a((c.b<Object>) this);
-                    this.dtq.b(this);
+            this.dzh = false;
+            if (this.dzg != null) {
+                if (this.dzk) {
+                    this.dzk = false;
+                    this.dzg.a((c.b<Object>) this);
+                    this.dzg.b(this);
                 }
-                this.dtq.reset();
+                this.dzg.reset();
             }
-            if (this.dtw != null) {
-                this.dtw.destroy();
+            if (this.dzl != null) {
+                this.dzl.destroy();
             }
         }
 
         void b(com.baidu.swan.support.v4.a.c<Object> cVar, Object obj) {
             String str;
-            if (this.dtp != null) {
-                if (this.dtx.dsB != null) {
-                    String str2 = this.dtx.dsB.dsA.mNoTransactionsBecause;
-                    this.dtx.dsB.dsA.mNoTransactionsBecause = "onLoadFinished";
+            if (this.dzf != null) {
+                if (this.dzm.dyr != null) {
+                    String str2 = this.dzm.dyr.dyq.mNoTransactionsBecause;
+                    this.dzm.dyr.dyq.mNoTransactionsBecause = "onLoadFinished";
                     str = str2;
                 } else {
                     str = null;
@@ -166,11 +166,11 @@ public class p extends o {
                     if (p.DEBUG) {
                         Log.v("LoaderManager", "  onLoadFinished in " + cVar + ": " + cVar.dataToString(obj));
                     }
-                    this.dtp.a(cVar, obj);
+                    this.dzf.a(cVar, obj);
                     this.mDeliveredData = true;
                 } finally {
-                    if (this.dtx.dsB != null) {
-                        this.dtx.dsB.dsA.mNoTransactionsBecause = str;
+                    if (this.dzm.dyr != null) {
+                        this.dzm.dyr.dyq.mNoTransactionsBecause = str;
                     }
                 }
             }
@@ -183,7 +183,7 @@ public class p extends o {
             sb.append(" #");
             sb.append(this.mId);
             sb.append(" : ");
-            com.baidu.swan.support.v4.b.c.buildShortClassTag(this.dtq, sb);
+            com.baidu.swan.support.v4.b.c.buildShortClassTag(this.dzg, sb);
             sb.append("}}");
             return sb.toString();
         }
@@ -196,17 +196,17 @@ public class p extends o {
             printWriter.println(this.mArgs);
             printWriter.print(str);
             printWriter.print("mCallbacks=");
-            printWriter.println(this.dtp);
+            printWriter.println(this.dzf);
             printWriter.print(str);
             printWriter.print("mLoader=");
-            printWriter.println(this.dtq);
-            if (this.dtq != null) {
-                this.dtq.dump(str + "  ", fileDescriptor, printWriter, strArr);
+            printWriter.println(this.dzg);
+            if (this.dzg != null) {
+                this.dzg.dump(str + "  ", fileDescriptor, printWriter, strArr);
             }
-            if (this.dtr || this.mDeliveredData) {
+            if (this.dzh || this.mDeliveredData) {
                 printWriter.print(str);
                 printWriter.print("mHaveData=");
-                printWriter.print(this.dtr);
+                printWriter.print(this.dzh);
                 printWriter.print("  mDeliveredData=");
                 printWriter.println(this.mDeliveredData);
                 printWriter.print(str);
@@ -217,22 +217,22 @@ public class p extends o {
             printWriter.print("mStarted=");
             printWriter.print(this.mStarted);
             printWriter.print(" mReportNextStart=");
-            printWriter.print(this.dtu);
+            printWriter.print(this.dzj);
             printWriter.print(" mDestroyed=");
             printWriter.println(this.mDestroyed);
             printWriter.print(str);
             printWriter.print("mRetaining=");
             printWriter.print(this.mRetaining);
             printWriter.print(" mRetainingStarted=");
-            printWriter.print(this.dtt);
+            printWriter.print(this.dzi);
             printWriter.print(" mListenerRegistered=");
-            printWriter.println(this.dtv);
-            if (this.dtw != null) {
+            printWriter.println(this.dzk);
+            if (this.dzl != null) {
                 printWriter.print(str);
                 printWriter.println("Pending Loader ");
-                printWriter.print(this.dtw);
+                printWriter.print(this.dzl);
                 printWriter.println(":");
-                this.dtw.dump(str + "  ", fileDescriptor, printWriter, strArr);
+                this.dzl.dump(str + "  ", fileDescriptor, printWriter, strArr);
             }
         }
     }
@@ -240,17 +240,17 @@ public class p extends o {
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(String str, j jVar, boolean z) {
         this.mWho = str;
-        this.dsB = jVar;
+        this.dyr = jVar;
         this.mStarted = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(j jVar) {
-        this.dsB = jVar;
+        this.dyr = jVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aIJ() {
+    public void aMB() {
         if (DEBUG) {
             Log.v("LoaderManager", "Starting in " + this);
         }
@@ -261,8 +261,8 @@ public class p extends o {
             return;
         }
         this.mStarted = true;
-        for (int size = this.dtn.size() - 1; size >= 0; size--) {
-            this.dtn.valueAt(size).start();
+        for (int size = this.dzd.size() - 1; size >= 0; size--) {
+            this.dzd.valueAt(size).start();
         }
     }
 
@@ -277,14 +277,14 @@ public class p extends o {
             Log.w("LoaderManager", "Called doStop when not started: " + this, runtimeException);
             return;
         }
-        for (int size = this.dtn.size() - 1; size >= 0; size--) {
-            this.dtn.valueAt(size).stop();
+        for (int size = this.dzd.size() - 1; size >= 0; size--) {
+            this.dzd.valueAt(size).stop();
         }
         this.mStarted = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aIK() {
+    public void aMC() {
         if (DEBUG) {
             Log.v("LoaderManager", "Retaining in " + this);
         }
@@ -296,35 +296,35 @@ public class p extends o {
         }
         this.mRetaining = true;
         this.mStarted = false;
-        for (int size = this.dtn.size() - 1; size >= 0; size--) {
-            this.dtn.valueAt(size).aIO();
+        for (int size = this.dzd.size() - 1; size >= 0; size--) {
+            this.dzd.valueAt(size).aMG();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aIL() {
+    public void aMD() {
         if (this.mRetaining) {
             if (DEBUG) {
                 Log.v("LoaderManager", "Finished Retaining in " + this);
             }
             this.mRetaining = false;
-            for (int size = this.dtn.size() - 1; size >= 0; size--) {
-                this.dtn.valueAt(size).aIL();
+            for (int size = this.dzd.size() - 1; size >= 0; size--) {
+                this.dzd.valueAt(size).aMD();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aIM() {
-        for (int size = this.dtn.size() - 1; size >= 0; size--) {
-            this.dtn.valueAt(size).dtu = true;
+    public void aME() {
+        for (int size = this.dzd.size() - 1; size >= 0; size--) {
+            this.dzd.valueAt(size).dzj = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aIN() {
-        for (int size = this.dtn.size() - 1; size >= 0; size--) {
-            this.dtn.valueAt(size).aIP();
+    public void aMF() {
+        for (int size = this.dzd.size() - 1; size >= 0; size--) {
+            this.dzd.valueAt(size).aMH();
         }
     }
 
@@ -334,18 +334,18 @@ public class p extends o {
             if (DEBUG) {
                 Log.v("LoaderManager", "Destroying Active in " + this);
             }
-            for (int size = this.dtn.size() - 1; size >= 0; size--) {
-                this.dtn.valueAt(size).destroy();
+            for (int size = this.dzd.size() - 1; size >= 0; size--) {
+                this.dzd.valueAt(size).destroy();
             }
-            this.dtn.clear();
+            this.dzd.clear();
         }
         if (DEBUG) {
             Log.v("LoaderManager", "Destroying Inactive in " + this);
         }
-        for (int size2 = this.dto.size() - 1; size2 >= 0; size2--) {
-            this.dto.valueAt(size2).destroy();
+        for (int size2 = this.dze.size() - 1; size2 >= 0; size2--) {
+            this.dze.valueAt(size2).destroy();
         }
-        this.dto.clear();
+        this.dze.clear();
     }
 
     public String toString() {
@@ -353,35 +353,35 @@ public class p extends o {
         sb.append("LoaderManager{");
         sb.append(Integer.toHexString(System.identityHashCode(this)));
         sb.append(" in ");
-        com.baidu.swan.support.v4.b.c.buildShortClassTag(this.dsB, sb);
+        com.baidu.swan.support.v4.b.c.buildShortClassTag(this.dyr, sb);
         sb.append("}}");
         return sb.toString();
     }
 
     public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        if (this.dtn.size() > 0) {
+        if (this.dzd.size() > 0) {
             printWriter.print(str);
             printWriter.println("Active Loaders:");
             String str2 = str + "    ";
-            for (int i = 0; i < this.dtn.size(); i++) {
-                a valueAt = this.dtn.valueAt(i);
+            for (int i = 0; i < this.dzd.size(); i++) {
+                a valueAt = this.dzd.valueAt(i);
                 printWriter.print(str);
                 printWriter.print("  #");
-                printWriter.print(this.dtn.keyAt(i));
+                printWriter.print(this.dzd.keyAt(i));
                 printWriter.print(": ");
                 printWriter.println(valueAt.toString());
                 valueAt.dump(str2, fileDescriptor, printWriter, strArr);
             }
         }
-        if (this.dto.size() > 0) {
+        if (this.dze.size() > 0) {
             printWriter.print(str);
             printWriter.println("Inactive Loaders:");
             String str3 = str + "    ";
-            for (int i2 = 0; i2 < this.dto.size(); i2++) {
-                a valueAt2 = this.dto.valueAt(i2);
+            for (int i2 = 0; i2 < this.dze.size(); i2++) {
+                a valueAt2 = this.dze.valueAt(i2);
                 printWriter.print(str);
                 printWriter.print("  #");
-                printWriter.print(this.dto.keyAt(i2));
+                printWriter.print(this.dze.keyAt(i2));
                 printWriter.print(": ");
                 printWriter.println(valueAt2.toString());
                 valueAt2.dump(str3, fileDescriptor, printWriter, strArr);
@@ -391,10 +391,10 @@ public class p extends o {
 
     @Override // com.baidu.swan.support.v4.app.o
     public boolean hasRunningLoaders() {
-        int size = this.dtn.size();
+        int size = this.dzd.size();
         boolean z = false;
         for (int i = 0; i < size; i++) {
-            a valueAt = this.dtn.valueAt(i);
+            a valueAt = this.dzd.valueAt(i);
             z |= valueAt.mStarted && !valueAt.mDeliveredData;
         }
         return z;

@@ -7,14 +7,14 @@ import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.baidu.cyberplayer.sdk.l;
+import com.baidu.cyberplayer.sdk.m;
 import com.baidubce.http.Headers;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public final class DpSessionDatasUploader {
     @Keep
     public static final String SAILOR_MONITOR = "sailor_monitor";
@@ -46,10 +46,10 @@ public final class DpSessionDatasUploader {
             a3 = a(str.getBytes(), false);
             cfgBoolValue = false;
         }
-        if (a(l.a(a3), a2, cfgBoolValue)) {
+        if (a(m.a(a3), a2, cfgBoolValue)) {
             a();
         } else {
-            a(Base64.encode(l.a(a(str.getBytes(), false)), 2), i);
+            a(Base64.encode(m.a(a(str.getBytes(), false)), 2), i);
         }
     }
 
@@ -66,7 +66,7 @@ public final class DpSessionDatasUploader {
     private static byte[] a(byte[] bArr, boolean z) {
         if (z) {
             try {
-                return l.b(bArr);
+                return m.b(bArr);
             } catch (IOException e) {
                 e.printStackTrace();
                 return null;

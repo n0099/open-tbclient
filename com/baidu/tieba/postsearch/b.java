@@ -1,22 +1,22 @@
 package com.baidu.tieba.postsearch;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.at;
+import com.baidu.tbadk.core.data.au;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class b {
-    public List<a> kZH = new ArrayList();
-    public at huJ = new at();
+    public List<a> lgY = new ArrayList();
+    public au hAv = new au();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes18.dex */
     public static class a {
         public String content;
         public String fname;
-        public int kZI;
-        public int kZJ;
+        public int is_floor;
+        public int lgZ;
         public String name;
         public String name_show;
         public long pid;
@@ -26,21 +26,21 @@ public class b {
         public String title;
     }
 
-    public boolean ctc() {
-        return (this.kZH == null || this.kZH.size() == 0) ? false : true;
+    public boolean cxe() {
+        return (this.lgY == null || this.lgY.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
-        return this.huJ != null && this.huJ.aRf() == 1;
+        return this.hAv != null && this.hAv.aVb() == 1;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.huJ.parserJson(jSONObject.getJSONObject("page"));
+                this.hAv.parserJson(jSONObject.getJSONObject("page"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.kZH.clear();
+                    this.lgY.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -64,12 +64,12 @@ public class b {
                                 aVar.content = optString4;
                                 aVar.fname = optString5;
                                 aVar.tid = optLong3;
-                                aVar.kZI = optInt;
-                                aVar.kZJ = optInt2;
+                                aVar.is_floor = optInt;
+                                aVar.lgZ = optInt2;
                                 aVar.name = optString2;
                                 aVar.name_show = optString;
                                 aVar.thread_type = optInt3;
-                                this.kZH.add(aVar);
+                                this.lgY.add(aVar);
                             }
                         }
                     }

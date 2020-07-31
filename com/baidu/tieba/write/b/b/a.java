@@ -21,13 +21,13 @@ import com.baidu.searchbox.account.params.LogoutParams;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.write.b.a.c;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements BoxAccountManager {
-    private static boolean mpk = false;
+    private static boolean mxj = false;
     private static String mUid = "";
     private static String mBduss = "";
     private static String mZid = "";
@@ -38,46 +38,46 @@ public class a implements BoxAccountManager {
 
     public void initData() {
         e.a(BoxAccountManager.SERVICE_REFERENCE, new b());
-        mUid = com.baidu.tbadk.core.sharedPref.b.aVP().getString("key_dynamic_publish_uid", "");
-        mBduss = com.baidu.tbadk.core.sharedPref.b.aVP().getString("key_dynamic_publish_bduss", "");
-        mZid = com.baidu.tbadk.core.sharedPref.b.aVP().getString("key_dynamic_publish_zid", "");
-        c.bK(mBduss);
+        mUid = com.baidu.tbadk.core.sharedPref.b.aZP().getString("key_dynamic_publish_uid", "");
+        mBduss = com.baidu.tbadk.core.sharedPref.b.aZP().getString("key_dynamic_publish_bduss", "");
+        mZid = com.baidu.tbadk.core.sharedPref.b.aZP().getString("key_dynamic_publish_zid", "");
+        c.bI(mBduss);
         com.baidu.tieba.write.b.a.a.setZid(mZid);
     }
 
-    public void vP(boolean z) {
+    public void wt(boolean z) {
         if (TbadkCoreApplication.isLogin()) {
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo != null) {
                 String id = currentAccountInfo.getID();
                 String bduss = currentAccountInfo.getBDUSS();
                 String gz = FH.gz(TbadkCoreApplication.getInst());
-                com.baidu.tbadk.core.sharedPref.b.aVP().putString("key_dynamic_publish_uid", id);
-                com.baidu.tbadk.core.sharedPref.b.aVP().putString("key_dynamic_publish_bduss", bduss);
-                com.baidu.tbadk.core.sharedPref.b.aVP().putString("key_dynamic_publish_zid", gz);
-                c.bK(mBduss);
+                com.baidu.tbadk.core.sharedPref.b.aZP().putString("key_dynamic_publish_uid", id);
+                com.baidu.tbadk.core.sharedPref.b.aZP().putString("key_dynamic_publish_bduss", bduss);
+                com.baidu.tbadk.core.sharedPref.b.aZP().putString("key_dynamic_publish_zid", gz);
+                c.bI(mBduss);
                 com.baidu.tieba.write.b.a.a.setZid(mZid);
-                com.baidu.tbadk.core.sharedPref.b.aVP().putBoolean("key_dynamic_publish_login_status", true);
-                mpk = true;
+                com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean("key_dynamic_publish_login_status", true);
+                mxj = true;
                 return;
             }
             logout();
             if (z) {
-                be.checkUpIsLogin(TbadkCoreApplication.getInst());
+                bf.checkUpIsLogin(TbadkCoreApplication.getInst());
                 return;
             }
             return;
         }
         logout();
         if (z) {
-            be.checkUpIsLogin(TbadkCoreApplication.getInst());
+            bf.checkUpIsLogin(TbadkCoreApplication.getInst());
         }
     }
 
     public void logout() {
-        com.baidu.tbadk.core.sharedPref.b.aVP().putBoolean("key_dynamic_publish_login_status", false);
-        mpk = false;
-        c.drJ();
+        com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean("key_dynamic_publish_login_status", false);
+        mxj = false;
+        c.duV();
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
@@ -90,13 +90,13 @@ public class a implements BoxAccountManager {
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
     public boolean isLogin() {
-        mpk = com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean("key_dynamic_publish_login_status", false);
-        return mpk;
+        mxj = com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean("key_dynamic_publish_login_status", false);
+        return mxj;
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
     public boolean isLogin(int i) {
-        return mpk;
+        return mxj;
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager

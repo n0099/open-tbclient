@@ -6,9 +6,9 @@ import com.baidu.tbadk.editortools.l;
 public class b extends l {
     public b(Context context, int i) {
         super(context, (String) null, 11);
-        this.euA = true;
-        this.euz = 6;
-        this.etH = c.u(context, i);
-        this.euB = new int[]{12, 13, 9};
+        this.eAT = true;
+        this.eAS = 6;
+        this.ezZ = c.v(context, i);
+        this.eAU = new int[]{12, 13, 9};
     }
 }

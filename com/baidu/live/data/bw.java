@@ -1,6 +1,6 @@
 package com.baidu.live.data;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bw {
-    public Object extra;
-    public String tabName;
+    public String aGu;
+    public String link;
 }

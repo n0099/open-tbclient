@@ -10,12 +10,14 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
 import com.baidu.live.tbadk.core.view.TbListCommonPullView;
 import com.baidu.tieba.ala.live.personcenter.admin.c.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private b fPd;
-    private c fPe;
-    private com.baidu.live.o.b fPf;
-    private CustomMessageListener fPg = new CustomMessageListener(2913050, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.1
+    private b fUw;
+    private c fUx;
+    private com.baidu.live.o.b fUy;
+    public String mLiveId;
+    public TbPageContext pageContext;
+    private CustomMessageListener fUz = new CustomMessageListener(2913050, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -34,8 +36,8 @@ public class a {
                     @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                     public void onClick(BdAlertDialog bdAlertDialog2) {
                         bdAlertDialog2.dismiss();
-                        a.this.fPf.ax(bVar.getUserId(), a.this.mLiveId);
-                        a.this.fPd.a(bVar);
+                        a.this.fUy.ax(bVar.getUserId(), a.this.mLiveId);
+                        a.this.fUw.a(bVar);
                     }
                 });
                 if (TbadkCoreApplication.getInst().isMobileBaidu()) {
@@ -47,39 +49,39 @@ public class a {
             }
         }
     };
-    private b.a fPh = new b.a() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2
+    private b.a fUA = new b.a() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2
         @Override // com.baidu.tieba.ala.live.personcenter.admin.c.b.a
-        public void jM(boolean z) {
-            a.this.fPe.completePullRefresh();
-            a.this.fPe.hideNoDataView();
-            if (a.this.fPd.getUserList().size() == 0) {
-                a.this.fPe.bxw();
-                a.this.fPe.byL();
-                a.this.fPe.showNoDataView();
+        public void kq(boolean z) {
+            a.this.fUx.completePullRefresh();
+            a.this.fUx.hideNoDataView();
+            if (a.this.fUw.getUserList().size() == 0) {
+                a.this.fUx.bAM();
+                a.this.fUx.bBZ();
+                a.this.fUx.showNoDataView();
                 return;
             }
-            a.this.fPe.btO();
-            a.this.fPe.byK();
-            a.this.fPe.f(a.this.fPd.getUserList(), a.this.fPd.byH());
+            a.this.fUx.bwX();
+            a.this.fUx.bBY();
+            a.this.fUx.f(a.this.fUw.getUserList(), a.this.fUw.bBV());
             if (z) {
-                a.this.fPe.bxb();
+                a.this.fUx.bAr();
             } else {
-                a.this.fPe.bxw();
+                a.this.fUx.bAM();
             }
         }
 
         @Override // com.baidu.tieba.ala.live.personcenter.admin.c.b.a
-        public void an(int i, String str) {
-            a.this.fPe.completePullRefresh();
-            a.this.fPe.hideNoDataView();
-            if (a.this.fPd.getUserList().size() <= 0) {
-                a.this.fPe.bxw();
-                a.this.fPe.byL();
-                a.this.fPe.a(a.i.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2.1
+        public void ao(int i, String str) {
+            a.this.fUx.completePullRefresh();
+            a.this.fUx.hideNoDataView();
+            if (a.this.fUw.getUserList().size() <= 0) {
+                a.this.fUx.bAM();
+                a.this.fUx.bBZ();
+                a.this.fUx.a(a.i.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.fPe.btO();
-                        a.this.fPd.byJ();
+                        a.this.fUx.bwX();
+                        a.this.fUw.bBX();
                     }
                 });
                 return;
@@ -87,8 +89,6 @@ public class a {
             a.this.getPageContext().showToast(str, true);
         }
     };
-    public String mLiveId;
-    public TbPageContext pageContext;
 
     public TbPageContext getPageContext() {
         return this.pageContext;
@@ -97,31 +97,31 @@ public class a {
     public a(TbPageContext tbPageContext, View view, String str) {
         this.pageContext = tbPageContext;
         this.mLiveId = str;
-        bB(view);
+        bH(view);
     }
 
-    private void bB(View view) {
-        this.fPd = new b(getPageContext());
-        this.fPd.a(this.fPh);
-        this.fPf = new com.baidu.live.o.b(getPageContext());
-        this.fPe = new c(getPageContext(), view);
-        this.fPe.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.3
+    private void bH(View view) {
+        this.fUw = new b(getPageContext());
+        this.fUw.a(this.fUA);
+        this.fUy = new com.baidu.live.o.b(getPageContext());
+        this.fUx = new c(getPageContext(), view);
+        this.fUx.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.3
             @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
             public void onListPullRefresh(boolean z) {
-                a.this.fPd.byJ();
+                a.this.fUw.bBX();
             }
         });
-        this.fPe.bxw();
+        this.fUx.bAM();
     }
 
     public void onCreate(Bundle bundle) {
-        getPageContext().registerListener(this.fPg);
-        this.fPd.byJ();
+        getPageContext().registerListener(this.fUz);
+        this.fUw.bBX();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.fPe != null) {
-            this.fPe.onChangeSkinType(i);
+        if (this.fUx != null) {
+            this.fUx.onChangeSkinType(i);
         }
     }
 }

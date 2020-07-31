@@ -1,6 +1,6 @@
 package org.apache.http.params;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public abstract class HttpAbstractParamBean {
     protected final HttpParams params;
 

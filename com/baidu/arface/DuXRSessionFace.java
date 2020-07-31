@@ -14,11 +14,12 @@ import com.baidu.ar.dumix.face.FaceListener;
 import com.baidu.ar.dumix.face.FaceSession;
 import com.baidu.smallgame.sdk.permission.PermissionListener;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
+import io.flutter.plugin.platform.PlatformPlugin;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.ByteBuffer;
 import java.util.List;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class DuXRSessionFace {
     private static final boolean DEBUG = false;
     private static final int FACE_INPUT_IMAGE_BGR = 0;
@@ -41,7 +42,7 @@ public class DuXRSessionFace {
     private Handler mSessionHandler;
     private HandlerThread mSessionThread;
     private int mTextureId;
-    private int mPreviewWidth = 1280;
+    private int mPreviewWidth = PlatformPlugin.DEFAULT_SYSTEM_UI;
     private int mPreviewHeight = 720;
     private SurfaceTexture mSurfaceTexture = null;
     private boolean mAlgoInited = false;
@@ -80,8 +81,8 @@ public class DuXRSessionFace {
             return;
         }
         this.mTextureId = i3;
-        if (com.baidu.smallgame.sdk.a.bJr != null) {
-            com.baidu.smallgame.sdk.a.bJr.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.arface.DuXRSessionFace.1
+        if (com.baidu.smallgame.sdk.a.bJQ != null) {
+            com.baidu.smallgame.sdk.a.bJQ.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.arface.DuXRSessionFace.1
                 @Override // com.baidu.smallgame.sdk.permission.PermissionListener
                 public void onPermissionResult(String str, int i4) {
                     if (i4 == 0) {
@@ -220,7 +221,7 @@ public class DuXRSessionFace {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);

@@ -4,47 +4,47 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public final class p {
-    private static PackageManager amA;
-    private static PackageInfo amB;
-    private static String amC;
+    private static PackageManager amv;
+    private static PackageInfo amw;
+    private static String amx;
     private static Context mContext;
 
-    public static String J() {
-        return mContext.getPackageName();
+    public static String L() {
+        return TextUtils.isEmpty(com.baidu.crabsdk.a.o) ? amw == null ? "N/A" : amw.versionName : com.baidu.crabsdk.a.o;
     }
 
-    public static String L() {
-        return TextUtils.isEmpty(com.baidu.crabsdk.a.o) ? amB == null ? "N/A" : amB.versionName : com.baidu.crabsdk.a.o;
+    public static int M() {
+        if (amw == null) {
+            return 0;
+        }
+        return amw.versionCode;
     }
 
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            amA = context.getPackageManager();
+            amv = context.getPackageManager();
             try {
-                amB = amA.getPackageInfo(mContext.getPackageName(), 0);
+                amw = amv.getPackageInfo(mContext.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e) {
                 com.baidu.crabsdk.c.a.a("PackageCollector.init fail.", e);
             }
         }
     }
 
-    public static String tg() {
-        if (amC == null) {
-            if (amB == null) {
-                return "N/A";
-            }
-            amC = amB.applicationInfo.loadLabel(amA).toString();
-        }
-        return amC;
+    public static String ti() {
+        return mContext.getPackageName();
     }
 
-    public static int th() {
-        if (amB == null) {
-            return 0;
+    public static String tj() {
+        if (amx == null) {
+            if (amw == null) {
+                return "N/A";
+            }
+            amx = amw.applicationInfo.loadLabel(amv).toString();
         }
-        return amB.versionCode;
+        return amx;
     }
 }

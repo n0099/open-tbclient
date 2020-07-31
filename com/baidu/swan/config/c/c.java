@@ -3,9 +3,10 @@ package com.baidu.swan.config.c;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.e.d;
-import com.baidu.swan.e.i;
-import com.baidu.swan.e.j;
+import com.baidu.swan.d.d;
+import com.baidu.swan.d.g;
+import com.baidu.swan.d.h;
+import com.baidu.swan.d.i;
 import com.tencent.open.SocialOperation;
 import java.io.File;
 import java.util.HashSet;
@@ -13,53 +14,53 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private static volatile c cTF;
-    private volatile boolean cTH = false;
-    private a cTG = new a();
+    private static volatile c cYi;
+    private volatile boolean cYk = false;
+    private a cYj = new a();
 
-    public static c awf() {
-        if (cTF == null) {
+    public static c ayT() {
+        if (cYi == null) {
             synchronized (c.class) {
-                if (cTF == null) {
-                    cTF = new c();
+                if (cYi == null) {
+                    cYi = new c();
                 }
             }
         }
-        return cTF;
+        return cYi;
     }
 
     private c() {
     }
 
     public String getHostName() {
-        String qn = qn("hostName");
-        if (TextUtils.isEmpty(qn)) {
+        String rg = rg("hostName");
+        if (TextUtils.isEmpty(rg)) {
             if (com.baidu.swan.config.c.DEBUG) {
                 throw new IllegalStateException("获取 HostName-宿主名称 失败");
             }
             return "";
         }
-        return qn;
+        return rg;
     }
 
-    public String sU() {
-        String qn = qn("schemeHead");
-        if (TextUtils.isEmpty(qn)) {
+    public String sW() {
+        String rg = rg("schemeHead");
+        if (TextUtils.isEmpty(rg)) {
             if (com.baidu.swan.config.c.DEBUG) {
                 throw new IllegalStateException("获取 SchemeHead-协议头 失败");
             }
             return "";
         }
-        return qn;
+        return rg;
     }
 
-    public Set<String> awg() {
-        Set<String> stringSet = this.cTG.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+    public Set<String> ayU() {
+        Set<String> stringSet = this.cYj.getStringSet(SocialOperation.GAME_SIGNATURE, null);
         if (stringSet == null) {
-            if (awh()) {
-                return this.cTG.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+            if (ayV()) {
+                return this.cYj.getStringSet(SocialOperation.GAME_SIGNATURE, null);
             }
             return null;
         }
@@ -70,11 +71,11 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String qn = qn("shareCallBackUrl");
-        if (!TextUtils.isEmpty(qn)) {
-            String addParam = i.addParam(i.addParam(qn, "type", String.valueOf(i)), "appKey", str);
+        String rg = rg("shareCallBackUrl");
+        if (!TextUtils.isEmpty(rg)) {
+            String addParam = h.addParam(h.addParam(rg, "type", String.valueOf(i)), "appKey", str);
             if (!TextUtils.isEmpty(str2)) {
-                return i.addParam(addParam, "path", str2);
+                return h.addParam(addParam, "path", g.df(str2));
             }
             return addParam;
         }
@@ -83,7 +84,7 @@ public class c {
 
     private void a(String str, String str2, String str3, int i, Set<String> set) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && i >= 0) {
-            SharedPreferences.Editor putInt = this.cTG.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallBackUrl", str3).putInt("version", i);
+            SharedPreferences.Editor putInt = this.cYj.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallBackUrl", str3).putInt("version", i);
             if (set != null && !set.isEmpty()) {
                 putInt.putStringSet(SocialOperation.GAME_SIGNATURE, set);
             }
@@ -91,14 +92,14 @@ public class c {
         }
     }
 
-    private String qn(String str) {
+    private String rg(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String string = this.cTG.getString(str, "");
+        String string = this.cYj.getString(str, "");
         if (TextUtils.isEmpty(string)) {
-            if (awh()) {
-                String string2 = this.cTG.getString(str, "");
+            if (ayV()) {
+                String string2 = this.cYj.getString(str, "");
                 if (TextUtils.isEmpty(string2)) {
                     return null;
                 }
@@ -109,11 +110,11 @@ public class c {
         return string;
     }
 
-    private synchronized boolean awh() {
+    private synchronized boolean ayV() {
         boolean z;
         HashSet hashSet = null;
         synchronized (this) {
-            if (this.cTH) {
+            if (this.cYk) {
                 z = true;
             } else {
                 String readAssetData = d.readAssetData(AppRuntime.getAppContext(), "config/union-cfg.json");
@@ -138,7 +139,7 @@ public class c {
                             }
                         }
                         a(optString, optString2, optString3, optInt, hashSet);
-                        this.cTH = true;
+                        this.cYk = true;
                         z = true;
                     } catch (JSONException e) {
                         if (com.baidu.swan.config.c.DEBUG) {
@@ -153,8 +154,8 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
-    public static class a extends j {
+    /* loaded from: classes10.dex */
+    public static class a extends i {
         a() {
             super("swan_host_info_config_sp_name");
         }

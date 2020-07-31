@@ -9,13 +9,14 @@ import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ad;
 import com.baidu.tieba.R;
 import java.io.File;
 /* loaded from: classes.dex */
 public class x {
-    public static final void aN(Context context, String str) {
+    public static final void aM(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
-            com.baidu.adp.lib.util.l.showToast(context, (int) R.string.download_error);
+            com.baidu.adp.lib.util.l.showToast(context, R.string.download_error);
             return;
         }
         File GetFile = com.baidu.tbadk.core.util.n.GetFile(str.replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk");
@@ -36,11 +37,11 @@ public class x {
         }
     }
 
-    public static boolean aq(Activity activity) {
+    public static boolean ar(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean checkWriteExternalStorage = com.baidu.tbadk.core.util.ac.checkWriteExternalStorage(activity);
+        boolean checkWriteExternalStorage = ad.checkWriteExternalStorage(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }

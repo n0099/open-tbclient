@@ -22,6 +22,7 @@ import com.baidu.webkit.internal.daemon.ZeusThreadPoolUtil;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.baidu.webkit.net.BdNetEngine;
 import com.baidu.webkit.sdk.IABTestInterface;
+import com.baidu.webkit.sdk.ICronetListenerInterface;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.VideoCloudSetting;
 import com.baidu.webkit.sdk.WebKitFactory;
@@ -46,14 +47,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class WebSettingsGlobalBlink implements INoProGuard {
     private static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
     private static final String DEFAULT_MULTIPROCESS_MODELS = "TRT-AL00A,TRT-AL00,TRT-TL10A,TRT-TL10,SLA-AL00,SLA-TL10,DLI-AL10,DLI-TL20,SM-C5000";
     private static final String DEFAULT_SECRECT_KEY = "SFIyRVI=";
     private static final String ENGINE_STAT_URL = "https://browserkernel.baidu.com/timing_txt/browser7_7.searchbox8_3.js.encrypt";
     private static final String FAKE_BAIDU_URL = "https://browserkernel.baidu.com/fakebaidu";
-    private static final String HTTP_DNS_URL = "https://180.76.76.112/v6/0010";
+    private static final String HTTP_DNS_URL_HOST = "https://httpsdns.baidu.com/v6/0010";
+    private static final String HTTP_DNS_URL_IP = "https://180.76.76.112/v6/0010";
     private static final String KEY_GUM_WHITE_LIST = "gum_white_list";
     protected static final String LOGTAG = "WebSettingsGlobalBlink";
     private static final String MF_JS_URL = "https://browserkernel.baidu.com/adblock/magicfilter.js?";
@@ -74,11 +76,13 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     private static boolean mChromiumNetInit = false;
     private static String mCloudSettings = null;
     private static final String mDateFomat = "yyyy-MM-dd HH:mm:ss";
+    private static boolean mDoubleLogEnabled;
     private static boolean mFirstGetLogEnable;
     private static boolean mHijackEnv;
     private static boolean mHttpDnsNetChangedAfterPause;
     private static long mHttpDnsUpdateTime;
     private static boolean mHttpDnsUpdated;
+    private static boolean mIpv6HttpdnsEnv;
     private static boolean mLogEnable;
     private static boolean mLogsdkEnabled;
     private static long mQuicCheckTime;
@@ -89,11 +93,8 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     private static boolean mUseLogSdk;
     private static boolean mUseT5Log;
     private static HashSet<String> sBlackListModels;
-    private static String sCatmsTimestamp;
-    private static Boolean sCookieMonitorEnabled;
     private static HashSet<String> sDeviceSet;
     private static boolean sDitingMaxHit;
-    private static String sECuid;
     private static JSONObject sMf30InitInfo;
     private static Boolean sMultiprocessEnabled;
     public static int zeusNetLogLevel;
@@ -199,6 +200,13 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             setAltServiceToBlink(str);
         }
         setNeedDownloadCloudResource(WebKitFactory.getNeedDownloadCloudResource());
+        ICronetListenerInterface cronetListenerInterface = WebViewFactory.getCronetListenerInterface();
+        if (cronetListenerInterface == null) {
+            Log.e(LOGTAG, "ICronetListenerInterface null");
+            return;
+        }
+        Log.e(LOGTAG, "ICronetListenerInterface not null");
+        cronetListenerInterface.notifyCronetInit();
     }
 
     public static void clearNetworkFlow() {
@@ -280,10 +288,6 @@ public class WebSettingsGlobalBlink implements INoProGuard {
 
     public static String getBrowserVersion() {
         return mBrowserVersion;
-    }
-
-    public static String getCatmsTimestamp() {
-        return sCatmsTimestamp;
     }
 
     public static long getChromiumHandle() {
@@ -452,6 +456,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         return "";
     }
 
+    public static boolean getDoubleLogEnabled() {
+        return mDoubleLogEnabled;
+    }
+
     public static int getDownTraffic() {
         try {
             if (WebViewFactory.hasProvider()) {
@@ -463,10 +471,6 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             Log.w(LOGTAG, "getDownTraffic error:" + th);
         }
         return 0;
-    }
-
-    public static String getECuid() {
-        return sECuid;
     }
 
     public static boolean getEnableEngineStat() {
@@ -482,6 +486,16 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         return true;
     }
 
+    public static int getEnableNqeQuicByAb() {
+        IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
+        if (abTestInterface != null) {
+            int i = abTestInterface.getSwitch(ABTestConstants.ENABLE_QUIC_BY_NQE, 0);
+            Log.i(LOGTAG, "[debug] getEnableNqeQuicByAb AbTestValue = " + i);
+            return i;
+        }
+        return 0;
+    }
+
     public static boolean getEnableProxy() {
         try {
             if (WebViewFactory.hasProvider()) {
@@ -493,6 +507,16 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             com.a.a.a.a.a.a.a.a(th);
         }
         return false;
+    }
+
+    public static int getEnableQuicByInit() {
+        IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
+        if (abTestInterface != null) {
+            int i = abTestInterface.getSwitch(ABTestConstants.ENABLE_QUIC_BY_INIT, 0);
+            Log.i(LOGTAG, "[debug] getEnableQuicByInit AbTestValue = " + i);
+            return i;
+        }
+        return 0;
     }
 
     public static boolean getEnableSpdy() {
@@ -631,16 +655,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static String getHttpDnsUrl() {
-        try {
-            return getHttpDnsUrlEngine();
-        } catch (Throwable th) {
-            Log.w(LOGTAG, "getHttpDnsUrl error " + th);
-            return null;
-        }
-    }
-
-    public static String getHttpDnsUrlEngine() {
+    public static String getHttpDnsUrlHOST() {
         try {
             String httpDnsUrl = WebViewFactory.hasProvider() ? WebViewFactory.getProvider().getSettingsStatics().getHttpDnsUrl() : null;
             if (httpDnsUrl != null) {
@@ -648,13 +663,31 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                     return httpDnsUrl;
                 }
             }
-            return HTTP_DNS_URL;
+            return HTTP_DNS_URL_HOST;
         } catch (UnsatisfiedLinkError e) {
             com.a.a.a.a.a.a.a.a(e);
-            return HTTP_DNS_URL;
+            return HTTP_DNS_URL_HOST;
         } catch (Throwable th) {
             com.a.a.a.a.a.a.a.a(th);
-            return HTTP_DNS_URL;
+            return HTTP_DNS_URL_HOST;
+        }
+    }
+
+    public static String getHttpDnsUrlIP() {
+        try {
+            String httpDnsUrl = WebViewFactory.hasProvider() ? WebViewFactory.getProvider().getSettingsStatics().getHttpDnsUrl() : null;
+            if (httpDnsUrl != null) {
+                if (httpDnsUrl.length() > 0) {
+                    return httpDnsUrl;
+                }
+            }
+            return HTTP_DNS_URL_IP;
+        } catch (UnsatisfiedLinkError e) {
+            com.a.a.a.a.a.a.a.a(e);
+            return HTTP_DNS_URL_IP;
+        } catch (Throwable th) {
+            com.a.a.a.a.a.a.a.a(th);
+            return HTTP_DNS_URL_IP;
         }
     }
 
@@ -690,6 +723,17 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             com.a.a.a.a.a.a.a.a(th);
         }
         return false;
+    }
+
+    public static boolean getIpv6HttpdnsEnv() {
+        try {
+            boolean z = CfgFileUtils.get(CfgFileUtils.KEY_HTTP_DNS_IPV6_ENV, false);
+            Log.i(LOGTAG, "getIpv6HttpdnsEnv " + z);
+            return z;
+        } catch (Exception e) {
+            Log.e(LOGTAG, "getIpv6HttpdnsEnv error: " + e);
+            return false;
+        }
     }
 
     public static int getKeepAliveTime() {
@@ -1537,21 +1581,6 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         return ("Xiaomi".equals(Build.MANUFACTURER) || Build.HOST.contains("miui")) && Build.VERSION.INCREMENTAL.split("\\.").length == 3;
     }
 
-    public static boolean isCookieMonitorEnabled() {
-        if (sCookieMonitorEnabled != null) {
-            return sCookieMonitorEnabled.booleanValue();
-        }
-        IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
-        if (abTestInterface != null) {
-            boolean z = abTestInterface.getSwitch(ABTestConstants.ENGINE_COOKIE_USAGE, false);
-            Log.i(LOGTAG, "cookie monitor switch value: " + z);
-            Boolean valueOf = Boolean.valueOf(z);
-            sCookieMonitorEnabled = valueOf;
-            return valueOf.booleanValue();
-        }
-        return false;
-    }
-
     public static boolean isEffectiveDate(Date date, Date date2, Date date3) {
         if (date.getTime() == date2.getTime() || date.getTime() == date3.getTime()) {
             return true;
@@ -1768,7 +1797,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
 
     private static boolean isWhiteListedDevice() {
         try {
-            String GetCloudSettingsValue = GetCloudSettingsValue("multiple_process_devices");
+            String GetCloudSettingsValue = GetCloudSettingsValue(ABTestConstants.MULTIPLE_PROCESS_DEVICES_KEY);
             if (GetCloudSettingsValue != null) {
                 if (GetCloudSettingsValue.equals("false")) {
                     return false;
@@ -2043,11 +2072,6 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         mBrowserVersion = str;
     }
 
-    public static void setCatmsTimestamp(String str) {
-        sCatmsTimestamp = str;
-        Log.i(LOGTAG, "setCatmsTimestamp: " + sCatmsTimestamp);
-    }
-
     public static void setClientIP(String str) {
         try {
             if (WebViewFactory.hasProvider()) {
@@ -2138,11 +2162,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void setDitingMaxEnabled(boolean z, boolean z2) {
-        boolean z3 = z && !getAbtestStringValue("diting_max_enable").equals("false");
+    public static void setDitingMaxEnabled(boolean z, boolean z2, boolean z3) {
         try {
             if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().getSettingsStatics().setDitingMaxEnabled(z3, z2);
+                WebViewFactory.getProvider().getSettingsStatics().setDitingMaxEnabled(z, z2, z3);
             }
         } catch (UnsatisfiedLinkError e) {
             com.a.a.a.a.a.a.a.a(e);
@@ -2155,9 +2178,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         sDitingMaxHit = z;
     }
 
-    public static void setECuid(String str) {
-        sECuid = str;
-        Log.i(LOGTAG, "setECuid: " + sECuid);
+    public static void setDoubleLogEnabled(boolean z) {
+        Log.w(LOGTAG, "setDoubleLogEnabled " + z);
+        mDoubleLogEnabled = z;
     }
 
     public static void setEnableEngineStat(boolean z) {
@@ -2248,6 +2271,19 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         try {
             if (WebViewFactory.hasProvider()) {
                 WebViewFactory.getProvider().getSettingsStatics().setFastPac(str);
+            }
+        } catch (UnsatisfiedLinkError e) {
+            com.a.a.a.a.a.a.a.a(e);
+        } catch (Throwable th) {
+            com.a.a.a.a.a.a.a.a(th);
+        }
+    }
+
+    public static void setFileInIOEnabled(boolean z) {
+        try {
+            Log.w(LOGTAG, "setFileInIOEnabled " + z);
+            if (WebViewFactory.hasProvider()) {
+                WebViewFactory.getProvider().getSettingsStatics().setFileInIOEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
             com.a.a.a.a.a.a.a.a(e);
@@ -2376,6 +2412,15 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             }
         } catch (UnsatisfiedLinkError e) {
             com.a.a.a.a.a.a.a.a(e);
+        } catch (Throwable th) {
+            com.a.a.a.a.a.a.a.a(th);
+        }
+    }
+
+    public static void setIpv6HttpdnsEnv(boolean z) {
+        Log.w(LOGTAG, "setIpv6HttpdnsEnv " + z);
+        try {
+            CfgFileUtils.set(CfgFileUtils.KEY_HTTP_DNS_IPV6_ENV, z);
         } catch (Throwable th) {
             com.a.a.a.a.a.a.a.a(th);
         }

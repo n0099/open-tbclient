@@ -66,10 +66,10 @@ public class b {
         this.Nw = str2;
         this.Nv = cVar;
         if (this.Nv != null) {
-            this.Nv.Ms = Build.MODEL;
-            this.Nv.Mv = Build.VERSION.RELEASE;
+            this.Nv.Mr = Build.MODEL;
+            this.Nv.Mu = Build.VERSION.RELEASE;
             this.Nv.mNetType = com.baidu.adp.lib.stats.d.getNetType(BdBaseApplication.getInst());
-            this.Nv.Mu = String.valueOf(j.netType());
+            this.Nv.Mt = String.valueOf(j.netType());
         }
         try {
             MessageManager.getInstance().registerListener(this.Ny);
@@ -88,7 +88,7 @@ public class b {
         if (this.Nv.mUid != null || str != null) {
             if (this.Nv.mUid == null || !this.Nv.mUid.equals(str)) {
                 this.Nv.mUid = str;
-                this.Nv.Mt = str2;
+                this.Nv.Ms = str2;
                 this.Nv.mBduss = str3;
             }
         }
@@ -97,7 +97,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void mt() {
         this.Nv.mNetType = com.baidu.adp.lib.stats.d.getNetType(BdBaseApplication.getInst());
-        this.Nv.Mu = String.valueOf(j.netType());
+        this.Nv.Mt = String.valueOf(j.netType());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -182,14 +182,14 @@ public class b {
         ArrayList<String> arrayList;
         ArrayList arrayList2;
         if (BdStatisticsManager.getInstance().isMainProcess() && aVar != null) {
-            ArrayList<String> bZ = com.baidu.adp.lib.stats.switchs.a.mn().bZ(aVar.ma());
+            ArrayList<String> bX = com.baidu.adp.lib.stats.switchs.a.mn().bX(aVar.ma());
             if (!z) {
                 boolean onlyWifiUpload = com.baidu.adp.lib.stats.switchs.a.mn().onlyWifiUpload(aVar.ma(), null);
                 boolean isWifiNet = j.isWifiNet();
                 if (!onlyWifiUpload || isWifiNet) {
-                    if (bZ != null && bZ.size() > 0) {
+                    if (bX != null && bX.size() > 0) {
                         ArrayList<String> arrayList3 = new ArrayList<>();
-                        Iterator<String> it = bZ.iterator();
+                        Iterator<String> it = bX.iterator();
                         while (it.hasNext()) {
                             String next = it.next();
                             if (!com.baidu.adp.lib.stats.switchs.a.mn().isUpload(aVar.ma(), next)) {

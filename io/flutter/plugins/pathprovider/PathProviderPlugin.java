@@ -11,7 +11,7 @@ import io.flutter.util.PathUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private MethodChannel channel;
     private Context context;
@@ -23,17 +23,20 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
         pathProviderPlugin.channel.setMethodCallHandler(pathProviderPlugin);
     }
 
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         this.channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "plugins.flutter.io/path_provider");
         this.context = flutterPluginBinding.getApplicationContext();
         this.channel.setMethodCallHandler(this);
     }
 
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        this.channel.setMethodCallHandler((MethodChannel.MethodCallHandler) null);
+        this.channel.setMethodCallHandler(null);
         this.channel = null;
     }
 
+    @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
     public void onMethodCall(MethodCall methodCall, @NonNull MethodChannel.Result result) {
         String str = methodCall.method;
         char c = 65535;

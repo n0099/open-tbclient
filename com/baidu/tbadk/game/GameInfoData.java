@@ -9,7 +9,7 @@ import tbclient.GetGameCenter.RecommendGame;
 import tbclient.GetGameDetailNew.CodeInfo;
 import tbclient.GetGameDetailNew.GiftPkgInfo;
 import tbclient.GetNewGameList.NewGameInfo;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     public static final int APP_TYPE = 1;
     public static final int H5_TYPE = 2;

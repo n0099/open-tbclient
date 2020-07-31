@@ -3,22 +3,22 @@ package com.baidu.tieba.ala.alasquare.live.toplivecard;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tieba.view.AlaPlayAnimationView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
-    private boolean fmZ;
+    private boolean fsj;
 
     public NoActiveStopAlaPlayAnimationView(Context context) {
         super(context);
-        this.fmZ = false;
+        this.fsj = false;
     }
 
     public NoActiveStopAlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fmZ = false;
+        this.fsj = false;
     }
 
     public void setFromSpecialForum(boolean z) {
-        this.fmZ = z;
+        this.fsj = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -31,7 +31,7 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
     @Override // com.baidu.tieba.view.AlaPlayAnimationView, android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (!this.fmZ) {
+        if (!this.fsj) {
             startPlayAnimation();
         }
     }

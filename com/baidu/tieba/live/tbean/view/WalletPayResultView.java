@@ -22,7 +22,7 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.tbadk.widget.VCenterTextSpan;
 import com.baidu.tieba.live.tbean.BuyTBeanStringUlti;
 import com.baidu.tieba.live.tbean.data.CustomData;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WalletPayResultView extends LinearLayout {
     private Context mContext;
     private TextView mIconInfoTv;

@@ -12,7 +12,7 @@ import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.platform.base.d {
     private static final String b = b.class.getSimpleName();
     private String c;

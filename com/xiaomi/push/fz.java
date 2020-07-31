@@ -9,17 +9,17 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class fz extends fs {
     protected Exception a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected Socket f384a;
+    protected Socket f380a;
     protected XMPushService b;
     private int c;
 
     /* renamed from: c  reason: collision with other field name */
-    String f385c;
+    String f381c;
     private String d;
     protected volatile long e;
     protected volatile long f;
@@ -28,7 +28,7 @@ public abstract class fz extends fs {
     public fz(XMPushService xMPushService, ft ftVar) {
         super(xMPushService, ftVar);
         this.a = null;
-        this.f385c = null;
+        this.f381c = null;
         this.e = 0L;
         this.f = 0L;
         this.g = 0L;
@@ -36,11 +36,11 @@ public abstract class fz extends fs {
     }
 
     private void a(ft ftVar) {
-        a(ftVar.c(), ftVar.mo295a());
+        a(ftVar.c(), ftVar.mo296a());
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:49:0x028d, code lost:
-        if (android.text.TextUtils.equals(r11, com.xiaomi.push.az.m134a((android.content.Context) r16.b)) != false) goto L34;
+        if (android.text.TextUtils.equals(r11, com.xiaomi.push.az.m135a((android.content.Context) r16.b)) != false) goto L34;
      */
     /* JADX WARN: Removed duplicated region for block: B:20:0x010a  */
     /* JADX WARN: Removed duplicated region for block: B:45:0x021e  */
@@ -66,7 +66,7 @@ public abstract class fz extends fs {
             arrayList.add(str);
         }
         this.g = 0L;
-        String m134a = az.m134a((Context) this.b);
+        String m135a = az.m135a((Context) this.b);
         StringBuilder sb = new StringBuilder();
         Iterator<String> it = arrayList.iterator();
         while (true) {
@@ -76,24 +76,24 @@ public abstract class fz extends fs {
             }
             String next = it.next();
             long currentTimeMillis = System.currentTimeMillis();
-            this.f365a++;
+            this.f361a++;
             try {
-                com.xiaomi.channel.commonutils.logger.b.m48a("begin to connect to " + next);
-                this.f384a = a();
-                this.f384a.connect(cx.m207a(next, i), CoolPraiseGuideLottieView.ANIM_DURATION);
-                com.xiaomi.channel.commonutils.logger.b.m48a("tcp connected");
-                this.f384a.setTcpNoDelay(true);
+                com.xiaomi.channel.commonutils.logger.b.m49a("begin to connect to " + next);
+                this.f380a = a();
+                this.f380a.connect(cx.m208a(next, i), CoolPraiseGuideLottieView.ANIM_DURATION);
+                com.xiaomi.channel.commonutils.logger.b.m49a("tcp connected");
+                this.f380a.setTcpNoDelay(true);
                 this.d = next;
                 a();
                 z = true;
                 try {
-                    this.f366a = System.currentTimeMillis() - currentTimeMillis;
-                    this.f375b = m134a;
+                    this.f362a = System.currentTimeMillis() - currentTimeMillis;
+                    this.f371b = m135a;
                     if (a != null) {
-                        a.b(next, this.f366a, 0L);
+                        a.b(next, this.f362a, 0L);
                     }
                     this.g = SystemClock.elapsedRealtime();
-                    com.xiaomi.channel.commonutils.logger.b.m48a("connected to " + next + " in " + this.f366a);
+                    com.xiaomi.channel.commonutils.logger.b.m49a("connected to " + next + " in " + this.f362a);
                     break;
                 } catch (Exception e2) {
                     e = e2;
@@ -107,8 +107,8 @@ public abstract class fz extends fs {
                         if (a != null) {
                             a.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, this.a);
                         }
-                        if (!TextUtils.equals(m134a, az.m134a((Context) this.b))) {
-                            cz.a().m217c();
+                        if (!TextUtils.equals(m135a, az.m135a((Context) this.b))) {
+                            cz.a().m218c();
                             if (!z) {
                             }
                         }
@@ -140,8 +140,8 @@ public abstract class fz extends fs {
                         if (a != null) {
                             a.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, this.a);
                         }
-                        if (!TextUtils.equals(m134a, az.m134a((Context) this.b))) {
-                            cz.a().m217c();
+                        if (!TextUtils.equals(m135a, az.m135a((Context) this.b))) {
+                            cz.a().m218c();
                             if (!z) {
                             }
                         }
@@ -157,7 +157,7 @@ public abstract class fz extends fs {
             }
             z2 = z;
         }
-        cz.a().m217c();
+        cz.a().m218c();
         if (!z) {
             throw new gd(sb.toString());
         }
@@ -192,9 +192,9 @@ public abstract class fz extends fs {
     public synchronized void a(int i, Exception exc) {
         if (b() != 2) {
             a(2, i, exc);
-            this.f370a = "";
+            this.f366a = "";
             try {
-                this.f384a.close();
+                this.f380a.close();
             } catch (Throwable th) {
             }
             this.e = 0L;
@@ -209,7 +209,7 @@ public abstract class fz extends fs {
             this.c++;
             if (this.c >= 2) {
                 String a = a();
-                com.xiaomi.channel.commonutils.logger.b.m48a("max short conn time reached, sink down current host:" + a);
+                com.xiaomi.channel.commonutils.logger.b.m49a("max short conn time reached, sink down current host:" + a);
                 a(a, 0L, exc);
                 this.c = 0;
             }
@@ -220,12 +220,12 @@ public abstract class fz extends fs {
         cv a = cz.a().a(ft.a(), false);
         if (a != null) {
             a.b(str, j, 0L, exc);
-            cz.a().m217c();
+            cz.a().m218c();
         }
     }
 
     /* renamed from: a */
-    protected abstract void mo284a(boolean z);
+    protected abstract void mo285a(boolean z);
 
     @Override // com.xiaomi.push.fs
     public void a(fl[] flVarArr) {
@@ -243,7 +243,7 @@ public abstract class fz extends fs {
     @Override // com.xiaomi.push.fs
     public void b(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
-        mo284a(z);
+        mo285a(z);
         if (z) {
             return;
         }
@@ -252,7 +252,7 @@ public abstract class fz extends fs {
 
     @Override // com.xiaomi.push.fs
     public String c() {
-        return this.f370a;
+        return this.f366a;
     }
 
     public void c(int i, Exception exc) {
@@ -263,10 +263,10 @@ public abstract class fz extends fs {
     public synchronized void e() {
         try {
             if (c() || b()) {
-                com.xiaomi.channel.commonutils.logger.b.m48a("WARNING: current xmpp has connected");
+                com.xiaomi.channel.commonutils.logger.b.m49a("WARNING: current xmpp has connected");
             } else {
                 a(0, 0, (Exception) null);
-                a(this.f367a);
+                a(this.f363a);
             }
         } catch (IOException e) {
             throw new gd(e);

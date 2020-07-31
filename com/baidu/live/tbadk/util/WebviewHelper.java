@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WebviewHelper {
     public static final String TAG = "WebviewHelper";
 
@@ -108,7 +108,7 @@ public class WebviewHelper {
         return bundle;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class TiebaCookieInfo {
         public String BDUSS;
         public String PTOKEN;

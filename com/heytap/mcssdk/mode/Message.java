@@ -1,5 +1,5 @@
 package com.heytap.mcssdk.mode;
-/* loaded from: classes8.dex */
+/* loaded from: classes20.dex */
 public abstract class Message {
     public static final String APP_ID = "appID";
     public static final String APP_PACKAGE = "appPackage";

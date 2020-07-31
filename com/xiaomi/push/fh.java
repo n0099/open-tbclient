@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public enum fh {
     TCP_CONN_FAIL(1),
     TCP_CONN_TIME(2),
@@ -14,7 +14,7 @@ public enum fh {
     CHANNEL_ONLINE_RATE(8),
     GSLB_REQUEST_SUCCESS(10000),
     GSLB_TCP_NOACCESS(10101),
-    GSLB_TCP_NETUNREACH(Constants.REQUEST_APPBAR),
+    GSLB_TCP_NETUNREACH(10102),
     GSLB_TCP_CONNREFUSED(Constants.REQUEST_QQ_SHARE),
     GSLB_TCP_NOROUTETOHOST(Constants.REQUEST_QZONE_SHARE),
     GSLB_TCP_TIMEOUT(Constants.REQUEST_QQ_FAVORITES),
@@ -62,10 +62,10 @@ public enum fh {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f327a;
+    private final int f323a;
 
     fh(int i) {
-        this.f327a = i;
+        this.f323a = i;
     }
 
     public static fh a(int i) {
@@ -92,7 +92,7 @@ public enum fh {
                 return GSLB_REQUEST_SUCCESS;
             case 10101:
                 return GSLB_TCP_NOACCESS;
-            case Constants.REQUEST_APPBAR /* 10102 */:
+            case 10102:
                 return GSLB_TCP_NETUNREACH;
             case Constants.REQUEST_QQ_SHARE /* 10103 */:
                 return GSLB_TCP_CONNREFUSED;
@@ -186,6 +186,6 @@ public enum fh {
     }
 
     public int a() {
-        return this.f327a;
+        return this.f323a;
     }
 }

@@ -3,81 +3,82 @@ package com.baidu.tieba.pb.view;
 import android.animation.ValueAnimator;
 import android.view.animation.Interpolator;
 import android.widget.ImageView;
+import com.baidu.adp.lib.f.e;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.coreExtra.share.e;
-/* loaded from: classes9.dex */
+import com.baidu.tbadk.coreExtra.share.f;
+/* loaded from: classes16.dex */
 public class c {
-    private ImageView kBm;
-    private boolean ecu = false;
-    private Runnable kBn = new Runnable() { // from class: com.baidu.tieba.pb.view.c.1
+    private ImageView kKo;
+    private boolean eiE = false;
+    private Runnable kKp = new Runnable() { // from class: com.baidu.tieba.pb.view.c.1
         @Override // java.lang.Runnable
         public void run() {
-            c.this.ecu = true;
-            int bdj = e.bdj();
-            if (bdj > 0) {
-                SvgManager.aWQ().a(c.this.kBm, bdj, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                if (c.this.eJX != null) {
-                    c.this.eJX.start();
+            c.this.eiE = true;
+            int bgQ = f.bgQ();
+            if (bgQ > 0) {
+                SvgManager.baR().a(c.this.kKo, bgQ, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                if (c.this.eQt != null) {
+                    c.this.eQt.start();
                 }
             }
         }
     };
-    private ValueAnimator eJX = new ValueAnimator();
+    private ValueAnimator eQt = new ValueAnimator();
 
     public c(ImageView imageView) {
-        this.kBm = imageView;
-        this.eJX.setDuration(4000L);
-        this.eJX.setFloatValues(0.0f, 1.0f);
-        this.eJX.setInterpolator(new Interpolator() { // from class: com.baidu.tieba.pb.view.c.2
+        this.kKo = imageView;
+        this.eQt.setDuration(4000L);
+        this.eQt.setFloatValues(0.0f, 1.0f);
+        this.eQt.setInterpolator(new Interpolator() { // from class: com.baidu.tieba.pb.view.c.2
             @Override // android.animation.TimeInterpolator
             public float getInterpolation(float f) {
                 return (float) (1.075d + (0.075d * Math.sin((18.84955592153876d * f) - 1.5707963267948966d)));
             }
         });
-        this.eJX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.view.c.3
+        this.eQt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.view.c.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (c.this.kBm != null) {
-                    c.this.kBm.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                    c.this.kBm.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (c.this.kKo != null) {
+                    c.this.kKo.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    c.this.kKo.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
     }
 
-    public void cQN() {
-        if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().bam()) {
-            com.baidu.adp.lib.f.e.lt().removeCallbacks(this.kBn);
-            long ban = TbSingleton.getInstance().getSharePanelConfData().ban() * 1000;
-            if (ban <= 0) {
-                ban = 3000;
+    public void cUD() {
+        if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().bej()) {
+            e.lt().removeCallbacks(this.kKp);
+            long bek = TbSingleton.getInstance().getSharePanelConfData().bek() * 1000;
+            if (bek <= 0) {
+                bek = 3000;
             }
-            com.baidu.adp.lib.f.e.lt().postDelayed(this.kBn, ban);
+            e.lt().postDelayed(this.kKp, bek);
         }
     }
 
     public void setEnable(boolean z) {
-        this.ecu = z;
+        this.eiE = z;
     }
 
     public boolean isEnable() {
-        return this.ecu;
+        return this.eiE;
     }
 
     public void onDestroy() {
-        com.baidu.adp.lib.f.e.lt().removeCallbacks(this.kBn);
-        if (this.eJX != null) {
-            this.eJX.removeAllListeners();
-            this.eJX.removeAllUpdateListeners();
-            this.eJX.cancel();
+        e.lt().removeCallbacks(this.kKp);
+        if (this.eQt != null) {
+            this.eQt.removeAllListeners();
+            this.eQt.removeAllUpdateListeners();
+            this.eQt.cancel();
         }
     }
 
     public void onChangeSkinType() {
-        int bdj;
-        if (this.ecu && TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().bam() && (bdj = e.bdj()) > 0) {
-            SvgManager.aWQ().a(this.kBm, bdj, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        int bgQ;
+        if (this.eiE && TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().bej() && (bgQ = f.bgQ()) > 0) {
+            SvgManager.baR().a(this.kKo, bgQ, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 }

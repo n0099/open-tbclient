@@ -14,366 +14,366 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.k;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class e extends com.baidu.adp.base.c<MoreActivity> {
-    private View lrA;
-    private View lrB;
-    private View lrC;
-    private View lrD;
-    private RelativeLayout lrE;
-    private BdSwitchView lrF;
-    private RelativeLayout lrG;
-    private BdSwitchView lrH;
-    private MoreActivity lrf;
-    private d lrg;
-    private com.baidu.tbadk.core.dialog.i lrh;
-    private k lri;
-    private SettingTextNormalImageView lrj;
-    private SettingTextImageView lrk;
-    private TbSettingTextTipView lrl;
-    private TbSettingTextTipView lrm;
-    private TbSettingTextTipView lrn;
-    private TbSettingTextTipView lro;
-    private TbSettingTextTipView lrp;
-    private TbSettingTextTipView lrq;
-    private SettingTextVersionView lrr;
-    private TbSettingTextTipView lrs;
-    private TbSettingTextTipView lrt;
-    private TbSettingTextNewDotView lru;
-    private TextView lrv;
-    private RelativeLayout lrw;
-    private View lrx;
-    private View lry;
-    private View lrz;
+    private k lyA;
+    private SettingTextNormalImageView lyB;
+    private SettingTextImageView lyC;
+    private TbSettingTextTipView lyD;
+    private TbSettingTextTipView lyE;
+    private TbSettingTextTipView lyF;
+    private TbSettingTextTipView lyG;
+    private TbSettingTextTipView lyH;
+    private TbSettingTextTipView lyI;
+    private SettingTextVersionView lyJ;
+    private TbSettingTextTipView lyK;
+    private TbSettingTextTipView lyL;
+    private TbSettingTextNewDotView lyM;
+    private TextView lyN;
+    private RelativeLayout lyO;
+    private View lyP;
+    private View lyQ;
+    private View lyR;
+    private View lyS;
+    private View lyT;
+    private View lyU;
+    private View lyV;
+    private RelativeLayout lyW;
+    private BdSwitchView lyX;
+    private RelativeLayout lyY;
+    private BdSwitchView lyZ;
+    private MoreActivity lyx;
+    private d lyy;
+    private com.baidu.tbadk.core.dialog.i lyz;
     private NavigationBar mNavigationBar;
 
     public e(MoreActivity moreActivity, d dVar) {
         super(moreActivity.getPageContext());
-        this.lrz = null;
-        this.lrA = null;
-        this.lrB = null;
-        this.lrC = null;
-        this.lrD = null;
-        this.lrE = null;
-        this.lrF = null;
-        this.lrG = null;
-        this.lrH = null;
-        this.lrf = moreActivity;
-        this.lrg = dVar;
-        this.lrf.setContentView(R.layout.more_activity);
-        bdD();
-        dcB();
+        this.lyR = null;
+        this.lyS = null;
+        this.lyT = null;
+        this.lyU = null;
+        this.lyV = null;
+        this.lyW = null;
+        this.lyX = null;
+        this.lyY = null;
+        this.lyZ = null;
+        this.lyx = moreActivity;
+        this.lyy = dVar;
+        this.lyx.setContentView(R.layout.more_activity);
+        bhm();
+        dfI();
     }
 
-    public void dcz() {
+    public void dfG() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            this.lrk.setVisibility(8);
+            this.lyC.setVisibility(8);
         } else {
-            this.lrk.setVisibility(0);
+            this.lyC.setVisibility(0);
         }
     }
 
-    public void aU(String str, boolean z) {
+    public void aR(String str, boolean z) {
         if (str == null || str.length() <= 0) {
-            if (this.lrk != null) {
-                this.lrk.ddE();
+            if (this.lyC != null) {
+                this.lyC.dgL();
                 return;
             }
             return;
         }
-        this.lrk.ddF();
-        this.lrk.setIcon(str, z);
+        this.lyC.dgM();
+        this.lyC.setIcon(str, z);
     }
 
-    public void dcA() {
-        if (this.lrr != null) {
-            this.lrr.refresh();
+    public void dfH() {
+        if (this.lyJ != null) {
+            this.lyJ.refresh();
         }
-        if (this.lru != null) {
-            this.lru.refresh();
+        if (this.lyM != null) {
+            this.lyM.refresh();
         }
     }
 
-    public void dcB() {
+    public void dfI() {
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            this.lrF.turnOn();
+            this.lyX.turnOn();
         } else {
-            this.lrF.turnOff();
+            this.lyX.turnOff();
         }
     }
 
-    public void Ed(int i) {
+    public void Ez(int i) {
         if (TbadkCoreApplication.getInst().getSkinType() != i) {
             if (i == 1) {
                 onChangeSkinType(i);
                 TbadkCoreApplication.getInst().setSkinType(i);
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), TbConfig.ST_TYPE_EYESHIELD_MODE, null, 1, new Object[0]);
-                TiebaStatic.log(new ao(TbadkCoreStatisticKey.SET_NIGHT_MODE).dk("obj_type", "1").dk("obj_source", "0"));
+                TiebaStatic.log(new ap(TbadkCoreStatisticKey.SET_NIGHT_MODE).dn("obj_type", "1").dn("obj_source", "0"));
             } else if (i == 0 || i == 4) {
                 onChangeSkinType(i);
                 TbadkCoreApplication.getInst().setSkinType(i);
-                TiebaStatic.log(new ao(TbadkCoreStatisticKey.SET_NIGHT_MODE).dk("obj_type", "0").dk("obj_source", "0"));
+                TiebaStatic.log(new ap(TbadkCoreStatisticKey.SET_NIGHT_MODE).dn("obj_type", "0").dn("obj_source", "0"));
             }
             BitmapHelper.clearCashBitmap();
         }
     }
 
-    public void dbD() {
-        this.lrk.recycle();
-        this.lrl.recycle();
-        this.lrm.recycle();
-        this.lrn.recycle();
-        this.lrp.recycle();
-        this.lrq.recycle();
-        this.lrr.recycle();
-        this.lrs.recycle();
-        this.lrt.recycle();
+    public void deK() {
+        this.lyC.recycle();
+        this.lyD.recycle();
+        this.lyE.recycle();
+        this.lyF.recycle();
+        this.lyH.recycle();
+        this.lyI.recycle();
+        this.lyJ.recycle();
+        this.lyK.recycle();
+        this.lyL.recycle();
     }
 
     public void onChangeSkinType(int i) {
-        nq(i);
-        if (this.lri != null) {
-            this.lrf.getLayoutMode().setNightMode(i == 1);
-            this.lrf.getLayoutMode().onModeChanged(this.lri.getView());
+        nI(i);
+        if (this.lyA != null) {
+            this.lyx.getLayoutMode().setNightMode(i == 1);
+            this.lyx.getLayoutMode().onModeChanged(this.lyA.getView());
         }
         if (i == 1) {
-            this.lrF.turnOnNoCallback();
+            this.lyX.turnOnNoCallback();
         } else {
-            this.lrF.turnOffNoCallback();
+            this.lyX.turnOffNoCallback();
         }
     }
 
-    public void nq(int i) {
-        an.setBackgroundColor(this.lrw, R.color.cp_bg_line_d);
+    public void nI(int i) {
+        ao.setBackgroundColor(this.lyO, R.color.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.lrk.nq(i);
-        this.lrf.getLayoutMode().setNightMode(i == 1);
-        this.lrf.getLayoutMode().onModeChanged(this.lrw);
+        this.lyC.nI(i);
+        this.lyx.getLayoutMode().setNightMode(i == 1);
+        this.lyx.getLayoutMode().onModeChanged(this.lyO);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        dcA();
-        this.lrF.setBackgroundRes(an.getBitmap(R.drawable.bg_switch_open), an.getBitmap(R.drawable.bg_switch_close), an.getBitmap(R.drawable.btn_handle));
-        this.lrH.setBackgroundRes(an.getBitmap(R.drawable.bg_switch_open), an.getBitmap(R.drawable.bg_switch_close), an.getBitmap(R.drawable.btn_handle));
-        an.setBackgroundColor(this.lrx, R.color.cp_bg_line_d);
-        this.lrj.setLocalIcon(an.lr(R.drawable.icon_mine_list_baidu));
-        if (this.lri != null) {
-            this.lri.onChangeSkinType();
+        dfH();
+        this.lyX.setBackgroundRes(ao.getBitmap(R.drawable.bg_switch_open), ao.getBitmap(R.drawable.bg_switch_close), ao.getBitmap(R.drawable.btn_handle));
+        this.lyZ.setBackgroundRes(ao.getBitmap(R.drawable.bg_switch_open), ao.getBitmap(R.drawable.bg_switch_close), ao.getBitmap(R.drawable.btn_handle));
+        ao.setBackgroundColor(this.lyP, R.color.cp_bg_line_d);
+        this.lyB.setLocalIcon(ao.lL(R.drawable.icon_mine_list_baidu));
+        if (this.lyA != null) {
+            this.lyA.onChangeSkinType();
         }
-        this.lrj.nq(i);
-        this.lrk.nq(i);
-        this.lrl.onChangeSkinType(i);
-        this.lrm.onChangeSkinType(i);
-        this.lrn.onChangeSkinType(i);
-        this.lro.onChangeSkinType(i);
-        this.lrp.onChangeSkinType(i);
-        this.lrq.onChangeSkinType(i);
-        this.lrr.onChangeSkinType(i);
-        this.lrs.onChangeSkinType(i);
-        this.lrt.onChangeSkinType(i);
-        this.lru.onChangeSkinType(i);
+        this.lyB.nI(i);
+        this.lyC.nI(i);
+        this.lyD.onChangeSkinType(i);
+        this.lyE.onChangeSkinType(i);
+        this.lyF.onChangeSkinType(i);
+        this.lyG.onChangeSkinType(i);
+        this.lyH.onChangeSkinType(i);
+        this.lyI.onChangeSkinType(i);
+        this.lyJ.onChangeSkinType(i);
+        this.lyK.onChangeSkinType(i);
+        this.lyL.onChangeSkinType(i);
+        this.lyM.onChangeSkinType(i);
     }
 
-    private void bdD() {
+    private void bhm() {
         View.OnClickListener clickListener = getClickListener();
-        this.lrw = (RelativeLayout) this.lrf.findViewById(R.id.parent);
-        this.lrx = this.lrf.findViewById(R.id.scroll);
-        this.lrf.findViewById(R.id.head_top_view).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-        this.mNavigationBar = (NavigationBar) this.lrf.findViewById(R.id.view_navigation_bar);
-        this.lry = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setCenterTextTitle(this.lrf.getPageContext().getString(R.string.setup));
+        this.lyO = (RelativeLayout) this.lyx.findViewById(R.id.parent);
+        this.lyP = this.lyx.findViewById(R.id.scroll);
+        this.lyx.findViewById(R.id.head_top_view).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        this.mNavigationBar = (NavigationBar) this.lyx.findViewById(R.id.view_navigation_bar);
+        this.lyQ = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setCenterTextTitle(this.lyx.getPageContext().getString(R.string.setup));
         this.mNavigationBar.showBottomLine();
-        this.lrj = (SettingTextNormalImageView) this.lrf.findViewById(R.id.accountSafeSetting);
-        this.lrk = (SettingTextImageView) this.lrf.findViewById(R.id.personInfo);
-        this.lrl = (TbSettingTextTipView) this.lrf.findViewById(R.id.interest_label_setting);
-        this.lrl.setTopLineVisibility(true);
-        this.lrm = (TbSettingTextTipView) this.lrf.findViewById(R.id.accountManager);
-        this.lrm.setTopLineVisibility(true);
-        this.lrn = (TbSettingTextTipView) this.lrf.findViewById(R.id.browseSetting);
-        this.lrn.setBottomLineVisibility(true);
-        this.lro = (TbSettingTextTipView) this.lrf.findViewById(R.id.adSetting);
-        this.lro.setBottomLineVisibility(true);
-        this.lrp = (TbSettingTextTipView) this.lrf.findViewById(R.id.messageSetting);
-        this.lrp.setBottomLineVisibility(true);
-        this.lrn.setBottomLineVisibility(true);
-        this.lrq = (TbSettingTextTipView) this.lrf.findViewById(R.id.secretSetting);
-        this.lrq.setBottomLineVisibility(true);
-        this.lrr = (SettingTextVersionView) this.lrf.findViewById(R.id.versionInfo);
-        this.lrs = (TbSettingTextTipView) this.lrf.findViewById(R.id.feedBack);
-        this.lrs.setTopLineVisibility(true);
-        this.lrs.setBottomLineVisibility(true);
-        this.lrt = (TbSettingTextTipView) this.lrf.findViewById(R.id.recommend);
+        this.lyB = (SettingTextNormalImageView) this.lyx.findViewById(R.id.accountSafeSetting);
+        this.lyC = (SettingTextImageView) this.lyx.findViewById(R.id.personInfo);
+        this.lyD = (TbSettingTextTipView) this.lyx.findViewById(R.id.interest_label_setting);
+        this.lyD.setTopLineVisibility(true);
+        this.lyE = (TbSettingTextTipView) this.lyx.findViewById(R.id.accountManager);
+        this.lyE.setTopLineVisibility(true);
+        this.lyF = (TbSettingTextTipView) this.lyx.findViewById(R.id.browseSetting);
+        this.lyF.setBottomLineVisibility(true);
+        this.lyG = (TbSettingTextTipView) this.lyx.findViewById(R.id.adSetting);
+        this.lyG.setBottomLineVisibility(true);
+        this.lyH = (TbSettingTextTipView) this.lyx.findViewById(R.id.messageSetting);
+        this.lyH.setBottomLineVisibility(true);
+        this.lyF.setBottomLineVisibility(true);
+        this.lyI = (TbSettingTextTipView) this.lyx.findViewById(R.id.secretSetting);
+        this.lyI.setBottomLineVisibility(true);
+        this.lyJ = (SettingTextVersionView) this.lyx.findViewById(R.id.versionInfo);
+        this.lyK = (TbSettingTextTipView) this.lyx.findViewById(R.id.feedBack);
+        this.lyK.setTopLineVisibility(true);
+        this.lyK.setBottomLineVisibility(true);
+        this.lyL = (TbSettingTextTipView) this.lyx.findViewById(R.id.recommend);
         if (!TbadkCoreApplication.getInst().getIsAppOn()) {
-            this.lrt.setVisibility(8);
-            this.lrt.setBottomLineVisibility(false);
+            this.lyL.setVisibility(8);
+            this.lyL.setBottomLineVisibility(false);
         } else {
-            this.lrt.setVisibility(0);
-            this.lrt.setBottomLineVisibility(true);
+            this.lyL.setVisibility(0);
+            this.lyL.setBottomLineVisibility(true);
         }
-        this.lru = (TbSettingTextNewDotView) this.lrf.findViewById(R.id.systemhelpsetting);
-        this.lrv = (TextView) this.lrf.findViewById(R.id.quit);
-        this.lrE = (RelativeLayout) this.lrf.findViewById(R.id.eyeshield_mode);
-        this.lrF = (BdSwitchView) this.lrf.findViewById(R.id.item_switch);
-        l.addToParentArea(this.lrf.getPageContext().getPageActivity(), this.lrF, 10, 10, 10, 10);
-        this.lrG = (RelativeLayout) this.lrf.findViewById(R.id.follow_system_day_night_mode);
-        this.lrH = (BdSwitchView) this.lrf.findViewById(R.id.follow_system_item_switch);
-        l.addToParentArea(this.lrf.getPageContext().getPageActivity(), this.lrH, 10, 10, 10, 10);
-        this.lrz = this.lrf.findViewById(R.id.divide_view2);
-        this.lrA = this.lrf.findViewById(R.id.divide_view1);
-        this.lrB = this.lrf.findViewById(R.id.divide_view3);
-        this.lrC = this.lrf.findViewById(R.id.divide_view4);
-        this.lrD = this.lrf.findViewById(R.id.divide_view5);
-        dcA();
-        dcz();
-        this.lrk.ddE();
-        nq(TbadkCoreApplication.getInst().getSkinType());
-        this.lrA.setVisibility(0);
-        this.lrB.setVisibility(0);
-        this.lrC.setVisibility(0);
-        this.lrD.setVisibility(0);
-        ab(clickListener);
-        if (!dcC()) {
-            this.lrn.setTip(this.lrf.getResources().getString(R.string.browsing_settings_tip_no_night));
-            this.lrz.setVisibility(8);
-            this.lrE.setVisibility(8);
+        this.lyM = (TbSettingTextNewDotView) this.lyx.findViewById(R.id.systemhelpsetting);
+        this.lyN = (TextView) this.lyx.findViewById(R.id.quit);
+        this.lyW = (RelativeLayout) this.lyx.findViewById(R.id.eyeshield_mode);
+        this.lyX = (BdSwitchView) this.lyx.findViewById(R.id.item_switch);
+        l.addToParentArea(this.lyx.getPageContext().getPageActivity(), this.lyX, 10, 10, 10, 10);
+        this.lyY = (RelativeLayout) this.lyx.findViewById(R.id.follow_system_day_night_mode);
+        this.lyZ = (BdSwitchView) this.lyx.findViewById(R.id.follow_system_item_switch);
+        l.addToParentArea(this.lyx.getPageContext().getPageActivity(), this.lyZ, 10, 10, 10, 10);
+        this.lyR = this.lyx.findViewById(R.id.divide_view2);
+        this.lyS = this.lyx.findViewById(R.id.divide_view1);
+        this.lyT = this.lyx.findViewById(R.id.divide_view3);
+        this.lyU = this.lyx.findViewById(R.id.divide_view4);
+        this.lyV = this.lyx.findViewById(R.id.divide_view5);
+        dfH();
+        dfG();
+        this.lyC.dgL();
+        nI(TbadkCoreApplication.getInst().getSkinType());
+        this.lyS.setVisibility(0);
+        this.lyT.setVisibility(0);
+        this.lyU.setVisibility(0);
+        this.lyV.setVisibility(0);
+        ac(clickListener);
+        if (!dfJ()) {
+            this.lyF.setTip(this.lyx.getResources().getString(R.string.browsing_settings_tip_no_night));
+            this.lyR.setVisibility(8);
+            this.lyW.setVisibility(8);
         } else {
-            this.lrz.setVisibility(0);
-            this.lrE.setVisibility(0);
+            this.lyR.setVisibility(0);
+            this.lyW.setVisibility(0);
         }
-        this.lrG.setVisibility(dcD() ? 0 : 8);
-        if (com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean("key_is_follow_system_mode", false)) {
-            this.lrH.turnOnNoCallback();
+        this.lyY.setVisibility(dfK() ? 0 : 8);
+        if (com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean("key_is_follow_system_mode", false)) {
+            this.lyZ.turnOnNoCallback();
         } else {
-            this.lrH.turnOffNoCallback();
+            this.lyZ.turnOffNoCallback();
         }
     }
 
-    private boolean dcC() {
+    private boolean dfJ() {
         return MessageManager.getInstance().runTask(CmdConfigCustom.CMD_NIGHT_RESOURCE_AVAILABLE, Boolean.class) != null;
     }
 
-    private boolean dcD() {
-        if (dcC()) {
+    private boolean dfK() {
+        if (dfJ()) {
             if (Build.VERSION.SDK_INT >= 29) {
                 return true;
             }
-            return com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean("key_is_dark_mode_notify_shown", false);
+            return com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean("key_is_dark_mode_notify_shown", false);
         }
         return false;
     }
 
-    private void aaH() {
-        this.lri = new k(getPageContext().getPageActivity());
-        this.lri.setTitleText(getPageContext().getString(R.string.quit_account_tip));
+    private void abJ() {
+        this.lyA = new k(getPageContext().getPageActivity());
+        this.lyA.setTitleText(getPageContext().getString(R.string.quit_account_tip));
         ArrayList arrayList = new ArrayList();
-        final com.baidu.tbadk.core.dialog.g gVar = new com.baidu.tbadk.core.dialog.g(getPageContext().getString(R.string.quite_current_account), this.lri);
+        final com.baidu.tbadk.core.dialog.g gVar = new com.baidu.tbadk.core.dialog.g(getPageContext().getString(R.string.quite_current_account), this.lyA);
         gVar.setTextColor(R.color.cp_cont_h);
         arrayList.add(gVar);
-        this.lrf.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.lrf.getLayoutMode().onModeChanged(this.lri.getView());
+        this.lyx.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.lyx.getLayoutMode().onModeChanged(this.lyA.getView());
         k.c cVar = new k.c() { // from class: com.baidu.tieba.setting.more.e.1
             @Override // com.baidu.tbadk.core.dialog.k.c
             public void a(k kVar, int i, View view) {
                 if (i == gVar.getId()) {
-                    e.this.yY();
-                    e.this.lrg.DY(12);
+                    e.this.zA();
+                    e.this.lyy.Eu(12);
                 }
             }
         };
         k.a aVar = new k.a() { // from class: com.baidu.tieba.setting.more.e.2
             @Override // com.baidu.tbadk.core.dialog.k.a
             public void onClick() {
-                e.this.yY();
+                e.this.zA();
             }
         };
-        this.lri.aL(arrayList);
-        this.lri.a(cVar);
-        this.lri.a(aVar);
-        this.lrh = new com.baidu.tbadk.core.dialog.i(this.mContext);
-        this.lrh.setCanceledOnTouchOutside(true);
-        this.lrh.a(this.lri);
+        this.lyA.aS(arrayList);
+        this.lyA.a(cVar);
+        this.lyA.a(aVar);
+        this.lyz = new com.baidu.tbadk.core.dialog.i(this.mContext);
+        this.lyz.setCanceledOnTouchOutside(true);
+        this.lyz.a(this.lyA);
     }
 
-    private void ab(View.OnClickListener onClickListener) {
-        this.lrj.setOnClickListener(onClickListener);
-        this.lry.setOnClickListener(onClickListener);
-        this.lrk.setOnClickListener(onClickListener);
-        this.lrl.setOnClickListener(onClickListener);
-        this.lrm.setOnClickListener(onClickListener);
-        this.lrn.setOnClickListener(onClickListener);
-        this.lro.setOnClickListener(onClickListener);
-        this.lrp.setOnClickListener(onClickListener);
-        this.lrq.setOnClickListener(onClickListener);
-        this.lrr.setOnClickListener(onClickListener);
-        this.lrs.setOnClickListener(onClickListener);
-        this.lrt.setOnClickListener(onClickListener);
-        this.lru.setOnClickListener(onClickListener);
-        this.lrv.setOnClickListener(onClickListener);
-        this.lrF.setOnSwitchStateChangeListener(this.lrf);
-        this.lrH.setOnSwitchStateChangeListener(this.lrf);
+    private void ac(View.OnClickListener onClickListener) {
+        this.lyB.setOnClickListener(onClickListener);
+        this.lyQ.setOnClickListener(onClickListener);
+        this.lyC.setOnClickListener(onClickListener);
+        this.lyD.setOnClickListener(onClickListener);
+        this.lyE.setOnClickListener(onClickListener);
+        this.lyF.setOnClickListener(onClickListener);
+        this.lyG.setOnClickListener(onClickListener);
+        this.lyH.setOnClickListener(onClickListener);
+        this.lyI.setOnClickListener(onClickListener);
+        this.lyJ.setOnClickListener(onClickListener);
+        this.lyK.setOnClickListener(onClickListener);
+        this.lyL.setOnClickListener(onClickListener);
+        this.lyM.setOnClickListener(onClickListener);
+        this.lyN.setOnClickListener(onClickListener);
+        this.lyX.setOnSwitchStateChangeListener(this.lyx);
+        this.lyZ.setOnSwitchStateChangeListener(this.lyx);
     }
 
     private View.OnClickListener getClickListener() {
         return new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.e.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == e.this.lry) {
-                    e.this.lrg.DY(0);
-                } else if (view == e.this.lrk) {
-                    e.this.lrg.DY(1);
-                } else if (view == e.this.lrl) {
-                    e.this.lrg.DY(15);
-                } else if (view == e.this.lrm) {
-                    e.this.lrg.DY(2);
-                } else if (view == e.this.lrn) {
-                    e.this.lrg.DY(3);
-                } else if (view == e.this.lrp) {
-                    e.this.lrg.DY(4);
-                } else if (view == e.this.lrq) {
-                    e.this.lrg.DY(9);
-                } else if (view == e.this.lrr) {
-                    e.this.lrg.DY(6);
-                } else if (view == e.this.lrs) {
-                    e.this.lrg.DY(7);
-                } else if (view == e.this.lrt) {
-                    e.this.lrg.DY(8);
-                } else if (view == e.this.lru) {
-                    e.this.lrg.DY(5);
-                } else if (view == e.this.lrv) {
-                    e.this.lrg.DY(10);
-                } else if (view == e.this.lrj) {
-                    e.this.lrg.DY(13);
-                } else if (view == e.this.lro) {
-                    e.this.lrg.DY(16);
+                if (view == e.this.lyQ) {
+                    e.this.lyy.Eu(0);
+                } else if (view == e.this.lyC) {
+                    e.this.lyy.Eu(1);
+                } else if (view == e.this.lyD) {
+                    e.this.lyy.Eu(15);
+                } else if (view == e.this.lyE) {
+                    e.this.lyy.Eu(2);
+                } else if (view == e.this.lyF) {
+                    e.this.lyy.Eu(3);
+                } else if (view == e.this.lyH) {
+                    e.this.lyy.Eu(4);
+                } else if (view == e.this.lyI) {
+                    e.this.lyy.Eu(9);
+                } else if (view == e.this.lyJ) {
+                    e.this.lyy.Eu(6);
+                } else if (view == e.this.lyK) {
+                    e.this.lyy.Eu(7);
+                } else if (view == e.this.lyL) {
+                    e.this.lyy.Eu(8);
+                } else if (view == e.this.lyM) {
+                    e.this.lyy.Eu(5);
+                } else if (view == e.this.lyN) {
+                    e.this.lyy.Eu(10);
+                } else if (view == e.this.lyB) {
+                    e.this.lyy.Eu(13);
+                } else if (view == e.this.lyG) {
+                    e.this.lyy.Eu(16);
                 }
             }
         };
     }
 
-    public void dcE() {
-        if (this.lrh == null) {
-            aaH();
+    public void dfL() {
+        if (this.lyz == null) {
+            abJ();
         }
-        this.lrh.showDialog();
+        this.lyz.showDialog();
     }
 
-    public void yY() {
-        if (this.lrh != null) {
-            this.lrh.dismiss();
+    public void zA() {
+        if (this.lyz != null) {
+            this.lyz.dismiss();
         }
     }
 
-    public BdSwitchView dcF() {
-        return this.lrF;
+    public BdSwitchView dfM() {
+        return this.lyX;
     }
 
-    public BdSwitchView dcG() {
-        return this.lrH;
+    public BdSwitchView dfN() {
+        return this.lyZ;
     }
 }

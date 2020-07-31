@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public final class PersonalChatActivityStaticAutoGenerateUrlCollectorImpl implements d {
     @Override // com.baidu.adp.framework.a.d
     public Map<String, ArrayList<String>> getConfigRouterMap() {
@@ -20,6 +20,8 @@ public final class PersonalChatActivityStaticAutoGenerateUrlCollectorImpl implem
         arrayList.add("SelectFriendActivityConfig");
         arrayList.add("StrangerListActivityConfig");
         arrayList.add("AddFriendActivityConfig");
+        arrayList.add("ReplyMeActivityConfig");
+        arrayList.add("OfficialNotificationActivityConfig");
         arrayList.add(UrlSchemaHelper.GOTO_PERSONAL_CHAT);
         arrayList.add(UrlSchemaHelper.HTTPS_JUMP_TO_CHAT);
         hashMap.put("com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic", arrayList);

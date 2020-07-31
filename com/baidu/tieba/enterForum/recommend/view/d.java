@@ -4,25 +4,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.recommend.b.e;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class d extends com.baidu.tieba.card.b<e> {
-    private View hhK;
+    private View hnu;
     private int mSkinType;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.hhK = getView().findViewById(R.id.card_recommend_list_placeholder);
+        this.hnu = getView().findViewById(R.id.card_recommend_list_placeholder);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            an.setBackgroundColor(getView(), R.color.cp_bg_line_e);
+            ao.setBackgroundColor(getView(), R.color.cp_bg_line_e);
         }
     }
 
@@ -35,9 +35,9 @@ public class d extends com.baidu.tieba.card.b<e> {
     @Override // com.baidu.tieba.card.b
     public void a(e eVar) {
         if (eVar != null) {
-            ViewGroup.LayoutParams layoutParams = this.hhK.getLayoutParams();
-            layoutParams.height = l.getDimens(this.mContext, eVar.hgk);
-            this.hhK.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams = this.hnu.getLayoutParams();
+            layoutParams.height = l.getDimens(this.mContext, eVar.hlU);
+            this.hnu.setLayoutParams(layoutParams);
         }
     }
 

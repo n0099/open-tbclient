@@ -12,10 +12,10 @@ import android.view.ViewConfiguration;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.aq.ag;
+import com.baidu.swan.apps.aq.ai;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class FloatButton extends FullScreenFloatView {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -37,15 +37,15 @@ public class FloatButton extends FullScreenFloatView {
     }
 
     public void setFloatButtonDefaultPosition() {
-        findViewById(a.f.float_imgview).setBottom(ag.F(191.0f));
+        findViewById(a.f.float_imgview).setBottom(ai.F(191.0f));
     }
 
     public void setFloatButtonStyle(JSONObject jSONObject) {
         View findViewById = findViewById(a.f.float_imgview);
         String optString = jSONObject != null ? jSONObject.optString("backgroundColor", "#4E4E4E") : "#4E4E4E";
         if (findViewById instanceof Button) {
-            ((GradientDrawable) findViewById.getBackground()).setColor(SwanAppConfigData.dV(optString));
-            ((Button) findViewById).setTextColor(SwanAppConfigData.dV("#FFFFFF"));
+            ((GradientDrawable) findViewById.getBackground()).setColor(SwanAppConfigData.dU(optString));
+            ((Button) findViewById).setTextColor(SwanAppConfigData.dU("#FFFFFF"));
             findViewById.setAlpha((float) 0.8999999761581421d);
         }
     }
@@ -57,63 +57,63 @@ public class FloatButton extends FullScreenFloatView {
         Rect rect = new Rect();
         switch (motionEvent.getAction()) {
             case 0:
-                this.cAl.getHitRect(rect);
+                this.cCY.getHitRect(rect);
                 if (rect.contains((int) x, (int) y)) {
-                    this.cAs = x;
-                    this.bjK = y;
-                    this.cAq = true;
-                    this.cAp = true;
-                    postDelayed(this.cAt, ViewConfiguration.getTapTimeout());
+                    this.cDf = x;
+                    this.bke = y;
+                    this.cDd = true;
+                    this.cDc = true;
+                    postDelayed(this.cDg, ViewConfiguration.getTapTimeout());
                     break;
                 }
                 break;
             case 1:
-                if (this.cAp) {
-                    if (this.cAu != null) {
-                        this.cAu.onClick();
+                if (this.cDc) {
+                    if (this.cDh != null) {
+                        this.cDh.onClick();
                     }
-                    removeCallbacks(this.cAt);
-                } else if (this.cAq && this.cAu != null) {
-                    this.cAu.aiQ();
+                    removeCallbacks(this.cDg);
+                } else if (this.cDd && this.cDh != null) {
+                    this.cDh.akg();
                 }
                 if (DEBUG) {
-                    Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.cAp);
+                    Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.cDc);
                 }
-                if (this.cAr && !this.cAp && x >= 0.0f && x <= this.cAo && y >= 0.0f && y <= this.mParentHeight + this.cAn) {
-                    this.cAl.animate().x(this.cAo - this.cAm).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+                if (this.cDe && !this.cDc && x >= 0.0f && x <= this.cDb && y >= 0.0f && y <= this.mParentHeight + this.cDa) {
+                    this.cCY.animate().x(this.cDb - this.cCZ).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
                 }
-                this.cAp = false;
-                this.cAq = false;
+                this.cDc = false;
+                this.cDd = false;
                 break;
             case 2:
-                float abs = Math.abs(x - this.cAs);
-                float abs2 = Math.abs(y - this.bjK);
+                float abs = Math.abs(x - this.cDf);
+                float abs2 = Math.abs(y - this.bke);
                 if (Math.sqrt((abs * abs) + (abs2 * abs2)) > 10.0d) {
-                    this.cAp = false;
+                    this.cDc = false;
                 }
                 n(x, y);
                 break;
             case 3:
-                this.cAp = false;
-                this.cAq = false;
+                this.cDc = false;
+                this.cDd = false;
                 break;
             case 4:
-                this.cAp = false;
-                this.cAq = false;
+                this.cDc = false;
+                this.cDd = false;
                 break;
         }
-        return this.cAp | this.cAq;
+        return this.cDc | this.cDd;
     }
 
     private void n(float f, float f2) {
-        if (this.cAl != null) {
+        if (this.cCY != null) {
             if (DEBUG) {
                 Log.e("FloatButton", "move--> x = " + f + ", y = " + f2);
             }
-            int i = (int) (f - (this.cAm / 2));
-            int i2 = (int) (f2 - (this.cAn / 2));
-            int i3 = this.cAo - this.cAm;
-            int i4 = (this.mParentHeight - this.cAn) - 168;
+            int i = (int) (f - (this.cCZ / 2));
+            int i2 = (int) (f2 - (this.cDa / 2));
+            int i3 = this.cDb - this.cCZ;
+            int i4 = (this.mParentHeight - this.cDa) - 168;
             if (i <= 0) {
                 i = 0;
             }
@@ -129,8 +129,8 @@ public class FloatButton extends FullScreenFloatView {
             if (DEBUG) {
                 Log.e("FloatButton", "move--> left = 0, top = 288, mStatusBarHeight = " + this.mStatusBarHeight);
             }
-            this.cAl.setX(i3);
-            this.cAl.setY(i4);
+            this.cCY.setX(i3);
+            this.cCY.setY(i4);
             requestLayout();
         }
     }

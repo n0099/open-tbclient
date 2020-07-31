@@ -5,14 +5,14 @@ import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class RouteLineInfo implements Parcelable {
     public static final Parcelable.Creator<RouteLineInfo> CREATOR = new b();
     private boolean a;
     private String b;
     private CopyOnWriteArrayList<RouteSectionInfo> c;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class RouteSectionInfo implements Parcelable {
         public static final Parcelable.Creator<RouteSectionInfo> CREATOR = new c();
         private LatLng a;

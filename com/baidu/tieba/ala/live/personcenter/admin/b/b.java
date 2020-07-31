@@ -5,20 +5,20 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements IAdapterData {
-    public static final BdUniqueId fPb = BdUniqueId.gen();
-    private String fDX;
+    public static final BdUniqueId fUu = BdUniqueId.gen();
+    private String fJs;
     private String portrait;
     private int sex;
     private String userId;
     private String userName;
 
-    public void cV(JSONObject jSONObject) {
+    public void db(JSONObject jSONObject) {
         this.userId = jSONObject.optString("user_id");
         this.userName = jSONObject.optString("user_name");
         if (!jSONObject.isNull("user_nickname")) {
-            this.fDX = jSONObject.optString("user_nickname");
+            this.fJs = jSONObject.optString("user_nickname");
         }
         this.portrait = jSONObject.optString("bd_portrait");
         if (StringUtils.isNull(this.portrait)) {
@@ -31,8 +31,8 @@ public class b implements IAdapterData {
         return this.userId;
     }
 
-    public String bdc() {
-        return !TextUtils.isEmpty(this.fDX) ? this.fDX : this.userName;
+    public String bgJ() {
+        return !TextUtils.isEmpty(this.fJs) ? this.fJs : this.userName;
     }
 
     public String getPortrait() {
@@ -41,6 +41,6 @@ public class b implements IAdapterData {
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return fPb;
+        return fUu;
     }
 }

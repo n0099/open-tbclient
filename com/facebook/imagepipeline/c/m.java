@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.c;
 
 import com.facebook.common.memory.PooledByteBuffer;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class m {
     public static o<com.facebook.cache.common.b, PooledByteBuffer> a(h<com.facebook.cache.common.b, PooledByteBuffer> hVar, final n nVar) {
         nVar.b(hVar);
@@ -14,13 +14,13 @@ public class m {
             }
 
             @Override // com.facebook.imagepipeline.c.r
-            public void dCw() {
-                n.this.dCK();
+            public void dFI() {
+                n.this.dFW();
             }
 
             @Override // com.facebook.imagepipeline.c.r
-            public void dCx() {
-                n.this.dCJ();
+            public void dFJ() {
+                n.this.dFV();
             }
         });
     }

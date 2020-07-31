@@ -2,7 +2,7 @@ package com.baidu.webkit.sdk.dumper;
 
 import com.a.a.a.a.a.a.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.webkit.internal.e;
+import com.baidu.webkit.internal.d;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.BufferedReader;
@@ -29,7 +29,7 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class ZeusLogUploader {
     public static final String ADD_UPLOAD_FILE_FLAG = "uploadfailed";
     private static final int BUFF_SIZE = 4096;
@@ -59,7 +59,7 @@ public final class ZeusLogUploader {
     private static boolean sIsEnabled = true;
     private static boolean mUploadCrashLogFailedEncrypt = true;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public static class LogFilter implements FilenameFilter {
         String mLogType;
 
@@ -84,7 +84,7 @@ public final class ZeusLogUploader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public class MyRunner implements Runnable {
         String cuid;
         boolean deletAfterUpload;
@@ -197,7 +197,7 @@ public final class ZeusLogUploader {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public interface OnFinishedListener {
         void onFinished(String str, int i, String str2);
     }
@@ -303,13 +303,13 @@ public final class ZeusLogUploader {
             long currentTimeMillis = System.currentTimeMillis();
             byte[] bArr3 = new byte[i];
             System.arraycopy(bArr, 0, bArr3, 0, i);
-            e eVar = new e(mEncryptKey);
+            d dVar = new d(mEncryptKey);
             if (z) {
-                eVar.a();
+                dVar.a();
                 bArr2 = new byte[bArr3.length];
-                eVar.a(bArr3, bArr3.length, bArr2);
+                dVar.a(bArr3, bArr3.length, bArr2);
             } else {
-                bArr2 = eVar.a(bArr3);
+                bArr2 = dVar.a(bArr3);
             }
             long currentTimeMillis2 = System.currentTimeMillis();
             Object[] objArr = new Object[2];
@@ -495,8 +495,8 @@ public final class ZeusLogUploader {
         return 12 < bArr.length && ADD_UPLOAD_FILE_FLAG.equals(new String(bArr, bArr.length + (-12), 12));
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0062 A[ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0086 A[Catch: Exception -> 0x00a8, TRY_ENTER, TRY_LEAVE, TryCatch #8 {Exception -> 0x00a8, blocks: (B:22:0x0053, B:42:0x0086), top: B:88:0x0053 }] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0065 A[Catch: Exception -> 0x00aa, TRY_LEAVE, TryCatch #2 {Exception -> 0x00aa, blocks: (B:24:0x0056, B:26:0x0065), top: B:73:0x0056 }] */
+    /* JADX WARN: Removed duplicated region for block: B:97:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -511,6 +511,9 @@ public final class ZeusLogUploader {
         FileOutputStream fileOutputStream = null;
         byteArrayOutputStream3 = null;
         Log.d(TAG, "CRASHPAD encryptUploadFailedFile 1 file=" + str);
+        if (str == null) {
+            return 5;
+        }
         int i2 = z ? 6 : 7;
         File file = new File(str);
         if (file.exists()) {
@@ -524,74 +527,74 @@ public final class ZeusLogUploader {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (Exception e2) {
-                byteArrayOutputStream = null;
-                dataInputStream2 = null;
-            } catch (Throwable th2) {
-                th = th2;
-                dataInputStream = null;
-            }
-            try {
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = dataInputStream.read(bArr);
-                    if (read != -1) {
-                        byteArrayOutputStream2.write(bArr, 0, read);
-                    } else {
-                        try {
-                            break;
-                        } catch (Exception e3) {
-                            i2 = 5;
+                try {
+                    byte[] bArr = new byte[1024];
+                    while (true) {
+                        int read = dataInputStream.read(bArr);
+                        if (read != -1) {
+                            byteArrayOutputStream2.write(bArr, 0, read);
+                        } else {
+                            try {
+                                break;
+                            } catch (Exception e2) {
+                                i2 = 5;
+                            }
                         }
                     }
-                }
-                byteArrayOutputStream2.close();
-                try {
-                    dataInputStream.close();
-                    i = i2;
-                    byteArrayOutputStream = byteArrayOutputStream2;
-                } catch (Exception e4) {
-                    byteArrayOutputStream = byteArrayOutputStream2;
-                    i = 5;
-                }
-            } catch (Exception e5) {
-                byteArrayOutputStream = byteArrayOutputStream2;
-                dataInputStream2 = dataInputStream;
-                if (byteArrayOutputStream != null) {
-                    try {
-                        byteArrayOutputStream.close();
-                    } catch (Exception e6) {
-                    }
-                }
-                if (dataInputStream2 != null) {
-                    try {
-                        dataInputStream2.close();
-                        i = 5;
-                    } catch (Exception e7) {
-                        i = 5;
-                    }
-                } else {
-                    i = 5;
-                }
-                doEncryptUploadFailedFile = doEncryptUploadFailedFile(byteArrayOutputStream.toByteArray(), byteArrayOutputStream.toByteArray().length, z);
-                if (doEncryptUploadFailedFile != null) {
-                }
-            } catch (Throwable th3) {
-                th = th3;
-                byteArrayOutputStream3 = byteArrayOutputStream2;
-                if (byteArrayOutputStream3 != null) {
-                    try {
-                        byteArrayOutputStream3.close();
-                    } catch (Exception e8) {
-                    }
-                }
-                if (dataInputStream != null) {
+                    byteArrayOutputStream2.close();
                     try {
                         dataInputStream.close();
-                    } catch (Exception e9) {
+                        i = i2;
+                        byteArrayOutputStream = byteArrayOutputStream2;
+                    } catch (Exception e3) {
+                        byteArrayOutputStream = byteArrayOutputStream2;
+                        i = 5;
                     }
+                } catch (Exception e4) {
+                    byteArrayOutputStream = byteArrayOutputStream2;
+                    dataInputStream2 = dataInputStream;
+                    if (byteArrayOutputStream != null) {
+                        try {
+                            byteArrayOutputStream.close();
+                        } catch (Exception e5) {
+                        }
+                    }
+                    if (dataInputStream2 != null) {
+                        try {
+                            dataInputStream2.close();
+                            i = 5;
+                        } catch (Exception e6) {
+                            i = 5;
+                        }
+                    } else {
+                        i = 5;
+                    }
+                    doEncryptUploadFailedFile = doEncryptUploadFailedFile(byteArrayOutputStream.toByteArray(), byteArrayOutputStream.toByteArray().length, z);
+                    if (doEncryptUploadFailedFile == null) {
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    byteArrayOutputStream3 = byteArrayOutputStream2;
+                    if (byteArrayOutputStream3 != null) {
+                        try {
+                            byteArrayOutputStream3.close();
+                        } catch (Exception e7) {
+                        }
+                    }
+                    if (dataInputStream != null) {
+                        try {
+                            dataInputStream.close();
+                        } catch (Exception e8) {
+                        }
+                    }
+                    throw th;
                 }
-                throw th;
+            } catch (Exception e9) {
+                byteArrayOutputStream = null;
+                dataInputStream2 = null;
+            } catch (Throwable th3) {
+                th = th3;
+                dataInputStream = null;
             }
         } else {
             i = i2;
@@ -599,31 +602,31 @@ public final class ZeusLogUploader {
         }
         try {
             doEncryptUploadFailedFile = doEncryptUploadFailedFile(byteArrayOutputStream.toByteArray(), byteArrayOutputStream.toByteArray().length, z);
-            if (doEncryptUploadFailedFile != null) {
-                return 5;
-            }
-            FileOutputStream fileOutputStream2 = new FileOutputStream(new File(str), false);
-            try {
-                fileOutputStream2.write(doEncryptUploadFailedFile);
-                if (z) {
-                    fileOutputStream2.write(ADD_UPLOAD_FILE_FLAG.getBytes());
-                }
-                fileOutputStream2.flush();
-                fileOutputStream2.close();
-                return i;
-            } catch (Exception e10) {
-                fileOutputStream = fileOutputStream2;
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                        return 5;
-                    } catch (IOException e11) {
-                        a.a(e11);
-                        return 5;
+            if (doEncryptUploadFailedFile == null) {
+                FileOutputStream fileOutputStream2 = new FileOutputStream(new File(str), false);
+                try {
+                    fileOutputStream2.write(doEncryptUploadFailedFile);
+                    if (z) {
+                        fileOutputStream2.write(ADD_UPLOAD_FILE_FLAG.getBytes());
                     }
+                    fileOutputStream2.flush();
+                    fileOutputStream2.close();
+                    return i;
+                } catch (Exception e10) {
+                    fileOutputStream = fileOutputStream2;
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.close();
+                            return 5;
+                        } catch (IOException e11) {
+                            a.a(e11);
+                            return 5;
+                        }
+                    }
+                    return 5;
                 }
-                return 5;
             }
+            return 5;
         } catch (Exception e12) {
         }
     }

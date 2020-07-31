@@ -7,41 +7,41 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
-    public b aGg;
-    public String aGh;
+    public b aHB;
+    public String aHC;
     public ArrayList<String> unZipFilesPathList;
     public String upZipDirPath;
     public String videoPath;
 
     public String getDynamicGiftId() {
-        if (this.aGg == null) {
+        if (this.aHB == null) {
             return null;
         }
-        return this.aGg.giftId;
+        return this.aHB.giftId;
     }
 
     public boolean isLandScapeZip() {
-        if (this.aGg == null || this.aGg.aGe == null) {
+        if (this.aHB == null || this.aHB.aHz == null) {
             return false;
         }
-        return this.aGg.aGe.isLandScape();
+        return this.aHB.aHz.isLandScape();
     }
 
-    public boolean xu() {
-        if (this.aGg == null || this.aGg.aGe == null) {
+    public boolean xW() {
+        if (this.aHB == null || this.aHB.aHz == null) {
             return false;
         }
-        return this.aGg.aGe.xu();
+        return this.aHB.aHz.xW();
     }
 
-    public String xv() {
+    public String xX() {
         File[] listFiles;
         if (!TextUtils.isEmpty(this.videoPath)) {
             return this.videoPath;
         }
-        if (TextUtils.isEmpty(this.aGh) || (listFiles = new File(this.aGh).listFiles()) == null || listFiles.length == 0 || listFiles[0] == null) {
+        if (TextUtils.isEmpty(this.aHC) || (listFiles = new File(this.aHC).listFiles()) == null || listFiles.length == 0 || listFiles[0] == null) {
             return null;
         }
         this.videoPath = listFiles[0].getAbsolutePath();

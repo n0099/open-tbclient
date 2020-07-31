@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class ResponseGetNaniVideoMessage extends JsonHttpResponsedMessage {
     private boolean mHasMore;
     private List<VideoItemData> mVideoItemDatas;

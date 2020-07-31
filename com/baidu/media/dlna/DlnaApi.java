@@ -9,18 +9,18 @@ import com.baidu.media.duplayer.Keep;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class DlnaApi {
-    private static DlnaProvider.DlnaSearchListener buj = null;
+    private static DlnaProvider.DlnaSearchListener buF = null;
     private static Handler b = new Handler(Looper.getMainLooper()) { // from class: com.baidu.media.dlna.DlnaApi.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    DlnaApi.buj.onDeviceChangeNotification((Map) message.obj);
+                    DlnaApi.buF.onDeviceChangeNotification((Map) message.obj);
                     break;
                 case 2:
-                    DlnaApi.buj.onRefreshFinishNotification();
+                    DlnaApi.buF.onRefreshFinishNotification(message.arg1, message.arg2);
                     break;
             }
             super.handleMessage(message);
@@ -46,17 +46,20 @@ public class DlnaApi {
     }
 
     @Keep
-    private static void onRefreshFinished() {
-        Message.obtain(b, 2).sendToTarget();
+    private static void onRefreshFinished(int i, int i2) {
+        Message obtain = Message.obtain(b, 2);
+        obtain.arg1 = i;
+        obtain.arg2 = i2;
+        obtain.sendToTarget();
     }
 
     public static void search(DlnaProvider.DlnaSearchListener dlnaSearchListener) {
-        buj = dlnaSearchListener;
+        buF = dlnaSearchListener;
         nativeSearch();
     }
 
     public static void stop() {
-        buj = null;
+        buF = null;
         nativeStop();
     }
 }

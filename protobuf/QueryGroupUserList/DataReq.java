@@ -2,7 +2,7 @@ package protobuf.QueryGroupUserList;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public final class DataReq extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.INT64)
     public final Long groupId;
@@ -49,7 +49,7 @@ public final class DataReq extends Message {
         this.orderType = builder.orderType;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes17.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Long groupId;
         public Integer offset;

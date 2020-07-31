@@ -11,24 +11,24 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
-import com.baidu.tbadk.core.data.bu;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.layout.FrsBaseVideoView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
-public class w extends b<bu> implements com.baidu.tieba.a.e {
-    private bu aeK;
-    private String afG;
-    private final View eVD;
-    private HeadImageView gKr;
-    private TextView gTc;
-    private TextView gTd;
-    private TextView gTe;
-    private t gTf;
-    private FrsBaseVideoView gTg;
+/* loaded from: classes15.dex */
+public class w extends b<bv> implements com.baidu.tieba.a.e {
+    private bv aeA;
+    private String afx;
+    private final View fbk;
+    private HeadImageView gPX;
+    private TextView gYH;
+    private TextView gYI;
+    private TextView gYJ;
+    private t gYK;
+    private FrsBaseVideoView gYL;
     private TbPageContext<?> mPageContext;
 
     public w(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
@@ -36,25 +36,25 @@ public class w extends b<bu> implements com.baidu.tieba.a.e {
         View view = getView();
         view.setOnClickListener(this);
         this.mPageContext = tbPageContext;
-        this.gKr = (HeadImageView) view.findViewById(R.id.topic_icon);
-        this.gKr.setIsRound(true);
-        this.gKr.setDefaultResource(R.drawable.pic_head_topic);
-        this.gTc = (TextView) view.findViewById(R.id.card_topic_name);
-        this.gTe = (TextView) view.findViewById(R.id.card_thread_title);
-        this.gTd = (TextView) view.findViewById(R.id.card_reply_time);
-        this.eVD = view.findViewById(R.id.card_divider_line);
-        this.gTg = (FrsBaseVideoView) view.findViewById(R.id.base_video_view);
-        this.gTg.setClickListener(this);
+        this.gPX = (HeadImageView) view.findViewById(R.id.topic_icon);
+        this.gPX.setIsRound(true);
+        this.gPX.setDefaultResource(R.drawable.pic_head_topic);
+        this.gYH = (TextView) view.findViewById(R.id.card_topic_name);
+        this.gYJ = (TextView) view.findViewById(R.id.card_thread_title);
+        this.gYI = (TextView) view.findViewById(R.id.card_reply_time);
+        this.fbk = view.findViewById(R.id.card_divider_line);
+        this.gYL = (FrsBaseVideoView) view.findViewById(R.id.base_video_view);
+        this.gYL.setClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.gKr.invalidate();
-        an.setViewTextColor(this.gTc, (int) R.color.cp_cont_b);
-        an.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
-        an.setBackgroundColor(this.eVD, R.color.cp_bg_line_c);
-        if (this.gTg != null) {
-            this.gTg.onChangeSkinType(i);
+        this.gPX.invalidate();
+        ao.setViewTextColor(this.gYH, R.color.cp_cont_b);
+        ao.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
+        ao.setBackgroundColor(this.fbk, R.color.cp_bg_line_c);
+        if (this.gYL != null) {
+            this.gYL.onChangeSkinType(i);
         }
     }
 
@@ -65,61 +65,61 @@ public class w extends b<bu> implements com.baidu.tieba.a.e {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
-    public void a(bu buVar) {
-        if (buVar == null) {
+    public void a(bv bvVar) {
+        if (bvVar == null) {
             if (getView() != null) {
                 getView().setVisibility(8);
                 return;
             }
             return;
         }
-        this.aeK = buVar;
+        this.aeA = bvVar;
         if (getView() != null) {
             getView().setVisibility(0);
             getView().setOnClickListener(this);
         }
-        if (this.gTg != null) {
-            this.gTg.a(this.aeK, buVar.aRX());
+        if (this.gYL != null) {
+            this.gYL.a(this.aeA, bvVar.aVT());
         }
-        if (buVar.aSp() != null) {
-            this.gTc.setText(buVar.aSp().getName_show());
+        if (bvVar.aWl() != null) {
+            this.gYH.setText(bvVar.aWl().getName_show());
         }
-        this.gTd.setText(ar.getFormatTime(buVar.aSi() * 1000));
-        String str = buVar.aTU() + "：";
+        this.gYI.setText(as.getFormatTime(bvVar.aWe() * 1000));
+        String str = bvVar.aXQ() + "：";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        spannableStringBuilder.append((CharSequence) buVar.x(false, true));
-        spannableStringBuilder.setSpan(new ForegroundColorSpan(an.getColor(R.color.cp_link_tip_c)), 0, str.length(), 33);
-        this.gTe.setText(spannableStringBuilder);
-        m.a(this.gTe, this.aeK.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        spannableStringBuilder.append((CharSequence) bvVar.y(false, true));
+        spannableStringBuilder.setSpan(new ForegroundColorSpan(ao.getColor(R.color.cp_link_tip_c)), 0, str.length(), 33);
+        this.gYJ.setText(spannableStringBuilder);
+        m.a(this.gYJ, this.aeA.getTid(), R.color.cp_cont_b, R.color.cp_cont_d);
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aeK != null) {
-            if (bOd() != null) {
-                bOd().a(view, (View) this.aeK, (Object) this.gTf);
+        if (this.aeA != null) {
+            if (bRn() != null) {
+                bRn().a(view, (View) this.aeA, (Object) this.gYK);
             }
-            m.DO(this.aeK.getTid());
-            m.a(this.gTe, this.aeK.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-            bOC();
+            m.Ez(this.aeA.getTid());
+            m.a(this.gYJ, this.aeA.getTid(), R.color.cp_cont_b, R.color.cp_cont_d);
+            bRM();
         }
     }
 
-    private void bOC() {
-        if (this.aeK != null && this.aeK.aSp() != null && this.aeK.aSp().getName_show() != null) {
-            if (com.baidu.tbadk.plugins.b.iB(true) && !com.baidu.tbadk.plugins.b.bih()) {
-                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.aeK.aSp().getName_show() + "", "3");
-                createNormalConfig.setExtra(this.aeK.getFid(), this.aeK.aTX(), this.aeK.aTY(), com.baidu.adp.lib.f.b.toLong(this.aeK.getTid(), 0L));
+    private void bRM() {
+        if (this.aeA != null && this.aeA.aWl() != null && this.aeA.aWl().getName_show() != null) {
+            if (com.baidu.tbadk.plugins.b.jg(true) && !com.baidu.tbadk.plugins.b.blS()) {
+                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.aeA.aWl().getName_show() + "", "3");
+                createNormalConfig.setExtra(this.aeA.getFid(), this.aeA.aXT(), this.aeA.aXU(), com.baidu.adp.lib.f.b.toLong(this.aeA.getTid(), 0L));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createNormalConfig));
                 return;
             }
-            bc.aWU().b(this.mPageContext, new String[]{this.aeK.aTZ()});
+            bd.baV().b(this.mPageContext, new String[]{this.aeA.aXV()});
         }
     }
 
     @Override // com.baidu.tieba.a.e
     public void setPage(String str) {
-        this.afG = str;
+        this.afx = str;
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ErrorData implements Serializable {
     private static final long serialVersionUID = -2582050549890612990L;
     public int error_code = -1;

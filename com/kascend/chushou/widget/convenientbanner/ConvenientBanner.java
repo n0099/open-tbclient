@@ -17,173 +17,173 @@ import com.kascend.chushou.widget.convenientbanner.view.CBLoopViewPager;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ConvenientBanner<T> extends RelativeLayout {
-    private boolean bVr;
+    private boolean bWj;
     private List<T> mDatas;
-    private boolean nxA;
-    private boolean nxB;
-    private com.kascend.chushou.widget.convenientbanner.b.a nxC;
-    private com.kascend.chushou.widget.convenientbanner.d.a nxD;
-    private c nxE;
-    private a nxF;
-    private b nxG;
-    private int[] nxu;
-    private ArrayList<ImageView> nxv;
-    private CBLoopViewPager nxw;
-    private ViewGroup nxx;
-    private long nxy;
-    private boolean nxz;
+    private int[] nGd;
+    private ArrayList<ImageView> nGe;
+    private CBLoopViewPager nGf;
+    private ViewGroup nGg;
+    private long nGh;
+    private boolean nGi;
+    private boolean nGj;
+    private boolean nGk;
+    private com.kascend.chushou.widget.convenientbanner.b.a nGl;
+    private com.kascend.chushou.widget.convenientbanner.d.a nGm;
+    private c nGn;
+    private a nGo;
+    private b nGp;
     private boolean visible;
 
     public ConvenientBanner(Context context) {
         super(context);
-        this.nxv = new ArrayList<>();
-        this.nxy = -1L;
-        this.nxA = false;
-        this.nxB = true;
+        this.nGe = new ArrayList<>();
+        this.nGh = -1L;
+        this.nGj = false;
+        this.nGk = true;
         this.visible = false;
-        this.bVr = true;
+        this.bWj = true;
         init(context);
     }
 
     public ConvenientBanner(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nxv = new ArrayList<>();
-        this.nxy = -1L;
-        this.nxA = false;
-        this.nxB = true;
+        this.nGe = new ArrayList<>();
+        this.nGh = -1L;
+        this.nGj = false;
+        this.nGk = true;
         this.visible = false;
-        this.bVr = true;
+        this.bWj = true;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.c.ConvenientBanner);
-        this.nxB = obtainStyledAttributes.getBoolean(a.c.ConvenientBanner_banner_canLoop, true);
-        this.nxy = obtainStyledAttributes.getInteger(a.c.ConvenientBanner_banner_autoTurningTime, -1);
+        this.nGk = obtainStyledAttributes.getBoolean(a.c.ConvenientBanner_banner_canLoop, true);
+        this.nGh = obtainStyledAttributes.getInteger(a.c.ConvenientBanner_banner_autoTurningTime, -1);
         obtainStyledAttributes.recycle();
         init(context);
     }
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(a.b.banner_layout, (ViewGroup) this, true);
-        this.nxw = (CBLoopViewPager) inflate.findViewById(a.C0846a.banner_loop_viewpager);
-        this.nxx = (ViewGroup) inflate.findViewById(a.C0846a.banner_indicator);
-        this.nxG = new b(context, 0, false);
-        this.nxG.setItemPrefetchEnabled(true);
-        this.nxG.setInitialPrefetchItemCount(1);
-        this.nxw.setLayoutManager(this.nxG);
-        this.nxw.setFocusableInTouchMode(false);
-        this.nxw.requestFocus();
-        this.nxC = new com.kascend.chushou.widget.convenientbanner.b.a();
-        this.nxF = new a(this);
+        this.nGf = (CBLoopViewPager) inflate.findViewById(a.C0855a.banner_loop_viewpager);
+        this.nGg = (ViewGroup) inflate.findViewById(a.C0855a.banner_indicator);
+        this.nGp = new b(context, 0, false);
+        this.nGp.setItemPrefetchEnabled(true);
+        this.nGp.setInitialPrefetchItemCount(1);
+        this.nGf.setLayoutManager(this.nGp);
+        this.nGf.setFocusableInTouchMode(false);
+        this.nGf.requestFocus();
+        this.nGl = new com.kascend.chushou.widget.convenientbanner.b.a();
+        this.nGo = new a(this);
     }
 
     public ConvenientBanner a(com.kascend.chushou.widget.convenientbanner.c.a<T> aVar, List<T> list) {
         this.mDatas = list;
-        this.nxw.setAdapter(new com.kascend.chushou.widget.convenientbanner.a.a(aVar, this.mDatas, this.nxB, this));
-        if (this.nxu != null) {
-            r(this.nxu);
+        this.nGf.setAdapter(new com.kascend.chushou.widget.convenientbanner.a.a(aVar, this.mDatas, this.nGk, this));
+        if (this.nGd != null) {
+            r(this.nGd);
         }
-        this.nxC.Kw(this.nxB ? this.mDatas.size() : 0);
-        this.nxC.a(this.nxw);
+        this.nGl.KQ(this.nGk ? this.mDatas.size() : 0);
+        this.nGl.a(this.nGf);
         return this;
     }
 
     public void notifyDataSetChanged() {
-        this.nxw.getAdapter().notifyDataSetChanged();
+        this.nGf.getAdapter().notifyDataSetChanged();
         if (this.mDatas != null && this.mDatas.size() > 0) {
-            this.nxC.setCurrentItem(0);
+            this.nGl.setCurrentItem(0);
         }
-        if (this.nxu != null) {
-            r(this.nxu);
+        if (this.nGd != null) {
+            r(this.nGd);
         }
     }
 
     public ConvenientBanner r(int[] iArr) {
-        this.nxx.removeAllViews();
-        this.nxv.clear();
-        this.nxu = iArr;
+        this.nGg.removeAllViews();
+        this.nGe.clear();
+        this.nGd = iArr;
         if (this.mDatas != null) {
             for (int i = 0; i < this.mDatas.size(); i++) {
                 ImageView imageView = new ImageView(getContext());
                 imageView.setPadding(5, 0, 5, 0);
-                if (this.nxC.dLm() % this.mDatas.size() == i) {
+                if (this.nGl.dOH() % this.mDatas.size() == i) {
                     imageView.setImageResource(iArr[1]);
                 } else {
                     imageView.setImageResource(iArr[0]);
                 }
-                this.nxv.add(imageView);
-                this.nxx.addView(imageView);
+                this.nGe.add(imageView);
+                this.nGg.addView(imageView);
             }
             if (this.mDatas.size() > 1) {
-                this.nxx.setVisibility(0);
-                this.nxG.xd(true);
+                this.nGg.setVisibility(0);
+                this.nGp.xI(true);
             } else {
-                this.nxx.setVisibility(8);
-                this.nxG.xd(false);
+                this.nGg.setVisibility(8);
+                this.nGp.xI(false);
             }
-            this.nxD = new com.kascend.chushou.widget.convenientbanner.d.a(this.nxv, iArr);
-            this.nxC.a(this.nxD);
-            if (this.nxE != null) {
-                this.nxD.a(this.nxE);
+            this.nGm = new com.kascend.chushou.widget.convenientbanner.d.a(this.nGe, iArr);
+            this.nGl.a(this.nGm);
+            if (this.nGn != null) {
+                this.nGm.a(this.nGn);
             }
         }
         return this;
     }
 
     public c getOnPageChangeListener() {
-        return this.nxE;
+        return this.nGn;
     }
 
     public int getCurrentItem() {
-        return this.nxC.dLl();
+        return this.nGl.dOG();
     }
 
     public int getFaceCurrentItem() {
-        return this.nxC.getCurrentItem();
+        return this.nGl.getCurrentItem();
     }
 
     public ConvenientBanner h(int i, int i2, int i3, int i4, int i5) {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nxx.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nGg.getLayoutParams();
         layoutParams.gravity = i;
         layoutParams.topMargin = i3;
         layoutParams.leftMargin = i2;
         layoutParams.rightMargin = i4;
         layoutParams.bottomMargin = i5;
-        this.nxx.setLayoutParams(layoutParams);
+        this.nGg.setLayoutParams(layoutParams);
         return this;
     }
 
-    public ConvenientBanner gd(long j) {
+    public ConvenientBanner gq(long j) {
         if (j >= 0) {
-            if (this.nxz) {
-                dLj();
+            if (this.nGi) {
+                dOE();
             }
-            this.nxA = true;
-            this.nxy = j;
-            this.nxz = true;
-            postDelayed(this.nxF, j);
+            this.nGj = true;
+            this.nGh = j;
+            this.nGi = true;
+            postDelayed(this.nGo, j);
         }
         return this;
     }
 
-    public ConvenientBanner dLi() {
-        gd(this.nxy);
+    public ConvenientBanner dOD() {
+        gq(this.nGh);
         return this;
     }
 
-    public void dLj() {
-        this.nxz = false;
-        removeCallbacks(this.nxF);
+    public void dOE() {
+        this.nGi = false;
+        removeCallbacks(this.nGo);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (action == 1 || action == 3 || action == 4) {
-            if (this.nxA) {
-                gd(this.nxy);
+            if (this.nGj) {
+                gq(this.nGh);
             }
-        } else if (action == 0 && this.nxA) {
-            dLj();
+        } else if (action == 0 && this.nGj) {
+            dOE();
         }
         return super.dispatchTouchEvent(motionEvent);
     }
@@ -192,60 +192,60 @@ public class ConvenientBanner<T> extends RelativeLayout {
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         this.visible = i == 0;
-        if (this.bVr && this.visible && this.nxA) {
-            dLi();
+        if (this.bWj && this.visible && this.nGj) {
+            dOD();
         } else {
-            dLj();
+            dOE();
         }
     }
 
     @Override // android.view.View
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        this.bVr = z;
-        if (this.bVr && this.visible && this.nxA) {
-            dLi();
+        this.bWj = z;
+        if (this.bWj && this.visible && this.nGj) {
+            dOD();
         } else {
-            dLj();
+            dOE();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Runnable {
-        private final WeakReference<ConvenientBanner> hLA;
+        private final WeakReference<ConvenientBanner> hRz;
 
         a(ConvenientBanner convenientBanner) {
-            this.hLA = new WeakReference<>(convenientBanner);
+            this.hRz = new WeakReference<>(convenientBanner);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ConvenientBanner convenientBanner = this.hLA.get();
-            if (convenientBanner != null && convenientBanner.nxw != null && convenientBanner.nxz) {
-                convenientBanner.nxC.setCurrentItem(convenientBanner.nxC.getCurrentItem() + 1, true);
-                convenientBanner.postDelayed(convenientBanner.nxF, convenientBanner.nxy);
+            ConvenientBanner convenientBanner = this.hRz.get();
+            if (convenientBanner != null && convenientBanner.nGf != null && convenientBanner.nGi) {
+                convenientBanner.nGl.setCurrentItem(convenientBanner.nGl.getCurrentItem() + 1, true);
+                convenientBanner.postDelayed(convenientBanner.nGo, convenientBanner.nGh);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b extends LinearLayoutManager {
-        private boolean nxH;
+        private boolean nGq;
 
         b(Context context, int i, boolean z) {
             super(context, i, z);
-            this.nxH = true;
+            this.nGq = true;
         }
 
         @Override // android.support.v7.widget.LinearLayoutManager, android.support.v7.widget.RecyclerView.LayoutManager
         public boolean canScrollHorizontally() {
-            return this.nxH && super.canScrollHorizontally();
+            return this.nGq && super.canScrollHorizontally();
         }
 
-        void xd(boolean z) {
-            this.nxH = z;
+        void xI(boolean z) {
+            this.nGq = z;
         }
     }
 }

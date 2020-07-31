@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.b.b;
 
 import com.meizu.cloud.pushsdk.b.c.k;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class a extends Exception {
     private String a;
     private int b;

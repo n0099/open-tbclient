@@ -12,12 +12,12 @@ import kotlin.h;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class CSTVWifiReceiver extends BroadcastReceiver {
     public static final a a = new a(null);
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         private a() {
         }
@@ -39,16 +39,16 @@ public final class CSTVWifiReceiver extends BroadcastReceiver {
             ConnectivityManager connectivityManager = (ConnectivityManager) systemService;
             NetworkInfo networkInfo = connectivityManager.getNetworkInfo(1);
             NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(0);
-            boolean z = b.dIM().a;
-            boolean z2 = b.dIM().b;
+            boolean z = b.dMh().a;
+            boolean z2 = b.dMh().b;
             if (networkInfo != null) {
-                b.dIM().a = q.l(networkInfo.getState(), NetworkInfo.State.CONNECTED);
+                b.dMh().a = q.l(networkInfo.getState(), NetworkInfo.State.CONNECTED);
             }
             if (networkInfo2 != null) {
-                b.dIM().b = q.l(networkInfo2.getState(), NetworkInfo.State.CONNECTED);
+                b.dMh().b = q.l(networkInfo2.getState(), NetworkInfo.State.CONNECTED);
             }
-            com.kascend.cstvsdk.utils.a.nzY.a(b.dIM().b ? 1 : 2);
-            if (z != b.dIM().a || z2 != b.dIM().b) {
+            com.kascend.cstvsdk.utils.a.nIH.a(b.dMh().b ? 1 : 2);
+            if (z != b.dMh().a || z2 != b.dMh().b) {
                 tv.chushou.zues.a.a.post(new j(1));
             }
         }

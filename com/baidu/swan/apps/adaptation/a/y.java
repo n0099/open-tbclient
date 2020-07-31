@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.adaptation.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public interface y {
-    void TT();
+    void Ut();
 
-    void TU();
+    void Uu();
 
-    void TV();
+    void Uv();
 }

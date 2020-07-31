@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ac {
-    public int aBi;
-    public ArrayList<ab> aBj;
+    public int aCv;
+    public ArrayList<ab> aCw;
 
     public void parserJson(JSONObject jSONObject) {
-        this.aBi = jSONObject.optInt("received");
-        this.aBj = new ArrayList<>();
+        this.aCv = jSONObject.optInt("received");
+        this.aCw = new ArrayList<>();
         JSONArray optJSONArray = jSONObject.optJSONArray("task_list");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
@@ -20,17 +20,17 @@ public class ac {
                 if (optJSONObject != null) {
                     ab abVar = new ab();
                     abVar.parseJson(optJSONObject);
-                    this.aBj.add(abVar);
+                    this.aCw.add(abVar);
                 }
             }
         }
     }
 
-    public boolean wK() {
-        if (!ListUtils.isEmpty(this.aBj)) {
-            Iterator<ab> it = this.aBj.iterator();
+    public boolean xm() {
+        if (!ListUtils.isEmpty(this.aCw)) {
+            Iterator<ab> it = this.aCw.iterator();
             while (it.hasNext()) {
-                if (it.next().wJ()) {
+                if (it.next().xl()) {
                     return true;
                 }
             }
@@ -38,12 +38,12 @@ public class ac {
         return false;
     }
 
-    public ab wL() {
-        if (!ListUtils.isEmpty(this.aBj)) {
-            Iterator<ab> it = this.aBj.iterator();
+    public ab xn() {
+        if (!ListUtils.isEmpty(this.aCw)) {
+            Iterator<ab> it = this.aCw.iterator();
             while (it.hasNext()) {
                 ab next = it.next();
-                if (next.wH()) {
+                if (next.xj()) {
                     return next;
                 }
             }

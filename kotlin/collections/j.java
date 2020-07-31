@@ -52,7 +52,7 @@ public class j extends i {
     public static final List<Byte> a(byte[] bArr, kotlin.b.h hVar) {
         kotlin.jvm.internal.q.m(bArr, "receiver$0");
         kotlin.jvm.internal.q.m(hVar, "indices");
-        return hVar.isEmpty() ? o.dQs() : f.au(f.o(bArr, hVar.dQW().intValue(), hVar.dQX().intValue() + 1));
+        return hVar.isEmpty() ? o.dTO() : f.au(f.p(bArr, hVar.dUs().intValue(), hVar.dUt().intValue() + 1));
     }
 
     public static final kotlin.b.h av(byte[] bArr) {
@@ -76,18 +76,18 @@ public class j extends i {
 
     public static final <T> HashSet<T> Q(T[] tArr) {
         kotlin.jvm.internal.q.m(tArr, "receiver$0");
-        return (HashSet) f.a(tArr, new HashSet(af.KY(tArr.length)));
+        return (HashSet) f.a(tArr, new HashSet(af.Ls(tArr.length)));
     }
 
     public static final <T> Set<T> R(T[] tArr) {
         kotlin.jvm.internal.q.m(tArr, "receiver$0");
         switch (tArr.length) {
             case 0:
-                return al.dQz();
+                return al.dTV();
             case 1:
                 return al.bK(tArr[0]);
             default:
-                return (Set) f.a(tArr, new LinkedHashSet(af.KY(tArr.length)));
+                return (Set) f.a(tArr, new LinkedHashSet(af.Ls(tArr.length)));
         }
     }
 }

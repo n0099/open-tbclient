@@ -3,13 +3,13 @@ package com.baidu.live.data;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class y {
-    public String awR;
-    public int ayh;
-    public int ayi;
-    public String ayj;
-    public String ayk;
+    public String aye;
+    public int azu;
+    public int azv;
+    public String azw;
+    public String azx;
     public int duration;
     public String iconUrl;
     public int limit;
@@ -18,15 +18,15 @@ public class y {
     public void parseJson(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.ayh = optJSONObject.optInt("interval");
+            this.azu = optJSONObject.optInt("interval");
             this.picUrl = optJSONObject.optString("pic_url");
-            this.ayi = optJSONObject.optInt("is_super_customer");
-            this.awR = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
+            this.azv = optJSONObject.optInt("is_month_super_customer");
+            this.aye = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
             this.limit = optJSONObject.optInt(Constants.EXTRA_CONFIG_LIMIT);
             this.duration = optJSONObject.optInt("duration");
-            this.ayj = optJSONObject.optString("toast_text");
+            this.azw = optJSONObject.optString("toast_text");
             this.iconUrl = optJSONObject.optString("icon_url");
-            this.ayk = optJSONObject.optString("btn_url");
+            this.azx = optJSONObject.optString("btn_url");
         }
     }
 }

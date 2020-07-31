@@ -39,31 +39,30 @@ public class MvcJsonHttpResponsedMessage<D extends j> extends MvcHttpResponsedMe
     protected JSONObject parseServerResponsedData(String str) {
         JSONObject jSONObject;
         Exception e;
-        ErrorData errorData;
         if (str == null) {
             return null;
         }
         try {
-            errorData = new ErrorData();
+            ErrorData errorData = new ErrorData();
             jSONObject = new JSONObject(str);
-        } catch (Exception e2) {
-            jSONObject = null;
-            e = e2;
-        }
-        try {
-            errorData.parserJson(str);
-            setError(errorData.getError_code());
-            if (getError() == -1) {
+            try {
+                errorData.parserJson(str);
+                setError(errorData.getError_code());
+                if (getError() == -1) {
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
+                } else if (getError() != 0) {
+                    setErrorString(errorData.getError_msg());
+                }
+                return jSONObject;
+            } catch (Exception e2) {
+                e = e2;
+                BdLog.e(e.getMessage());
                 setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
-            } else if (getError() != 0) {
-                setErrorString(errorData.getError_msg());
+                return jSONObject;
             }
-            return jSONObject;
         } catch (Exception e3) {
+            jSONObject = null;
             e = e3;
-            BdLog.e(e.getMessage());
-            setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
-            return jSONObject;
         }
     }
 
@@ -80,24 +79,24 @@ public class MvcJsonHttpResponsedMessage<D extends j> extends MvcHttpResponsedMe
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<String> dd;
+        l<String> dg;
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
             MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
             if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof com.baidu.tbadk.mvc.b.e)) {
                 com.baidu.tbadk.mvc.b.e eVar = (com.baidu.tbadk.mvc.b.e) mvcHttpMessage.getRequestData();
                 String cacheKey = eVar.getCacheKey();
-                String bgR = eVar.bgR();
+                String bkC = eVar.bkC();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(bgR) && bArr != null) {
-                    if (eVar.bgS()) {
-                        l<byte[]> dc = a.aUM().dc(bgR, currentAccount);
-                        if (dc != null) {
-                            dc.setForever(cacheKey, bArr);
+                if (cacheKey != null && !TextUtils.isEmpty(bkC) && bArr != null) {
+                    if (eVar.bkD()) {
+                        l<byte[]> df = a.aYG().df(bkC, currentAccount);
+                        if (df != null) {
+                            df.setForever(cacheKey, bArr);
                         }
-                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (dd = a.aUM().dd(bgR, currentAccount)) != null) {
+                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (dg = a.aYG().dg(bkC, currentAccount)) != null) {
                         try {
-                            dd.setForever(cacheKey, new String(bArr, "UTF-8"));
+                            dg.setForever(cacheKey, new String(bArr, "UTF-8"));
                         } catch (UnsupportedEncodingException e) {
                             e.printStackTrace();
                         }

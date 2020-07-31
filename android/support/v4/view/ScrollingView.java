@@ -1,5 +1,5 @@
 package android.support.v4.view;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public interface ScrollingView {
     int computeHorizontalScrollExtent();
 

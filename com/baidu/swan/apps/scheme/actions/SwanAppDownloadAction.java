@@ -8,10 +8,10 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class SwanAppDownloadAction extends aa {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public enum SwanAppDownloadType {
         TYPE_QUERY_STATUS("queryStatus"),
         TYPE_START_DOWNLOAD("startDownload"),
@@ -70,7 +70,7 @@ public class SwanAppDownloadAction extends aa {
             return true;
         } else {
             if (eVar != null) {
-                eVar.apY().b(context, "mapp_i_app_download", new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction.1
+                eVar.arH().b(context, "mapp_i_app_download", new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.aq.e.b
                     /* renamed from: a */
@@ -95,7 +95,7 @@ public class SwanAppDownloadAction extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONObject jSONObject, SwanAppDownloadType swanAppDownloadType) {
-        boolean a = com.baidu.swan.apps.u.a.agh().a(context, unitedSchemeEntity, swanAppDownloadType, jSONObject, callbackHandler);
+        boolean a = com.baidu.swan.apps.t.a.aht().a(context, unitedSchemeEntity, swanAppDownloadType, jSONObject, callbackHandler);
         if (a) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0, "success");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, unitedSchemeEntity.result);

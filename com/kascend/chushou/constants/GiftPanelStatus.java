@@ -1,7 +1,7 @@
 package com.kascend.chushou.constants;
 
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GiftPanelStatus {
     public View mGeneralGiftView;
     public int mGiftTabId;

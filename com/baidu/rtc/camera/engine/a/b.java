@@ -1,20 +1,21 @@
 package com.baidu.rtc.camera.engine.a;
 
 import com.baidu.rtc.camera.engine.model.AspectRatio;
-/* loaded from: classes6.dex */
+import io.flutter.plugin.platform.PlatformPlugin;
+/* loaded from: classes7.dex */
 public final class b {
-    private static final b bHK = new b();
-    public AspectRatio bHA;
-    public float bHB;
-    public int bHC;
-    public int bHD;
-    public int bHE;
-    public int bHF;
-    public boolean bHG;
-    public boolean bHH;
-    public com.baidu.rtc.camera.engine.b.a bHI;
-    public com.baidu.rtc.camera.engine.b.b bHJ;
-    public boolean bHz;
+    private static final b bIj = new b();
+    public boolean bHY;
+    public AspectRatio bHZ;
+    public float bIa;
+    public int bIb;
+    public int bIc;
+    public int bId;
+    public int bIe;
+    public boolean bIf;
+    public boolean bIg;
+    public com.baidu.rtc.camera.engine.b.a bIh;
+    public com.baidu.rtc.camera.engine.b.b bIi;
     public int cameraId;
     public int orientation;
     public int previewHeight;
@@ -25,29 +26,29 @@ public final class b {
     }
 
     private void reset() {
-        this.bHz = false;
-        this.bHA = AspectRatio.Ratio_16_9;
-        this.bHB = 0.5625f;
-        this.bHC = 30;
-        this.bHD = 0;
-        this.bHE = 1280;
-        this.bHF = 720;
+        this.bHY = false;
+        this.bHZ = AspectRatio.Ratio_16_9;
+        this.bIa = 0.5625f;
+        this.bIb = 30;
+        this.bIc = 0;
+        this.bId = PlatformPlugin.DEFAULT_SYSTEM_UI;
+        this.bIe = 720;
         this.previewWidth = 0;
         this.previewHeight = 0;
         this.orientation = 0;
-        this.bHG = false;
+        this.bIf = false;
         this.cameraId = 1;
-        this.bHH = false;
-        this.bHI = null;
-        this.bHJ = null;
+        this.bIg = false;
+        this.bIh = null;
+        this.bIi = null;
     }
 
-    public static b Qw() {
-        return bHK;
+    public static b QL() {
+        return bIj;
     }
 
-    public void de(boolean z) {
-        this.bHG = z;
+    public void dg(boolean z) {
+        this.bIf = z;
         if (z) {
             this.cameraId = 0;
         } else {

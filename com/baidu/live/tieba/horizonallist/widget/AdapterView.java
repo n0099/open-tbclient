@@ -16,12 +16,12 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Adapter;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AdapterView<T extends Adapter> extends ViewGroup {
-    e bfM;
-    c bfN;
-    d bfO;
-    private AdapterView<T>.f bfP;
+    e bgf;
+    c bgg;
+    d bgh;
+    private AdapterView<T>.f bgi;
     AccessibilityManager mAccessibilityManager;
     protected boolean mBlockLayoutRequests;
     public boolean mDataChanged;
@@ -50,17 +50,17 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     protected int mSyncPosition;
     protected long mSyncWidth;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a(AdapterView<?> adapterView, View view, int i, long j);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         boolean b(AdapterView<?> adapterView, View view, int i, long j);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface e {
         void c(AdapterView<?> adapterView, View view, int i, long j);
 
@@ -125,20 +125,20 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     public void setOnItemClickListener(c cVar) {
-        this.bfN = cVar;
+        this.bgg = cVar;
     }
 
     public final c getOnItemClickListener() {
-        return this.bfN;
+        return this.bgg;
     }
 
     public boolean performItemClick(View view, int i, long j) {
-        if (this.bfN != null) {
+        if (this.bgg != null) {
             playSoundEffect(0);
             if (view != null) {
                 view.sendAccessibilityEvent(1);
             }
-            this.bfN.a(this, view, i, j);
+            this.bgg.a(this, view, i, j);
             return true;
         }
         return false;
@@ -148,22 +148,22 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         if (!isLongClickable()) {
             setLongClickable(true);
         }
-        this.bfO = dVar;
+        this.bgh = dVar;
     }
 
     public final d getOnItemLongClickListener() {
-        return this.bfO;
+        return this.bgh;
     }
 
     public void setOnItemSelectedListener(e eVar) {
-        this.bfM = eVar;
+        this.bgf = eVar;
     }
 
     public final e getOnItemSelectedListener() {
-        return this.bfM;
+        return this.bgf;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements ContextMenu.ContextMenuInfo {
         public long id;
         public int position;
@@ -377,7 +377,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         dispatchThawSelfOnly(sparseArray);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class b extends DataSetObserver {
         private Parcelable mInstanceState = null;
 
@@ -422,11 +422,11 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        removeCallbacks(this.bfP);
+        removeCallbacks(this.bgi);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements Runnable {
         private f() {
         }
@@ -443,12 +443,12 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     void selectionChanged() {
-        if (this.bfM != null || this.mAccessibilityManager.isEnabled()) {
+        if (this.bgf != null || this.mAccessibilityManager.isEnabled()) {
             if (this.mInLayout || this.mBlockLayoutRequests) {
-                if (this.bfP == null) {
-                    this.bfP = new f();
+                if (this.bgi == null) {
+                    this.bgi = new f();
                 }
-                post(this.bfP);
+                post(this.bgi);
                 return;
             }
             fireOnSelected();
@@ -458,13 +458,13 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fireOnSelected() {
-        if (this.bfM != null) {
+        if (this.bgf != null) {
             int selectedItemPosition = getSelectedItemPosition();
             if (selectedItemPosition >= 0) {
-                this.bfM.c(this, getSelectedView(), selectedItemPosition, getAdapter().getItemId(selectedItemPosition));
+                this.bgf.c(this, getSelectedView(), selectedItemPosition, getAdapter().getItemId(selectedItemPosition));
                 return;
             }
-            this.bfM.d(this);
+            this.bgf.d(this);
         }
     }
 

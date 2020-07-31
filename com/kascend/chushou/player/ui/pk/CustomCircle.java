@@ -3,19 +3,19 @@ package com.kascend.chushou.player.ui.pk;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CustomCircle implements Parcelable {
     public static final Parcelable.Creator<CustomCircle> CREATOR = new Parcelable.Creator<CustomCircle>() { // from class: com.kascend.chushou.player.ui.pk.CustomCircle.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: am */
+        /* renamed from: ao */
         public CustomCircle createFromParcel(Parcel parcel) {
             return new CustomCircle(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Kp */
+        /* renamed from: KJ */
         public CustomCircle[] newArray(int i) {
             return new CustomCircle[i];
         }

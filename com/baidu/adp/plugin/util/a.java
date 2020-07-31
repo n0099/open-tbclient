@@ -22,7 +22,7 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0030a {
-        public boolean TC;
+        public boolean Tx;
         public String mErrMsg;
     }
 
@@ -73,7 +73,7 @@ public class a {
                         @Override // java.util.Comparator
                         public int compare(Object obj, Object obj2) {
                             if ((obj instanceof String) && (obj2 instanceof String)) {
-                                return a.I((String) obj, (String) obj2);
+                                return a.H((String) obj, (String) obj2);
                             }
                             return 0;
                         }
@@ -126,14 +126,14 @@ public class a {
                 declaredMethod.invoke(pathList, str2, null);
                 Object combineArray = combineArray(C(pathList), C(pathList2));
                 if (combineArray instanceof File[]) {
-                    Arrays.sort((File[]) combineArray, oY());
+                    Arrays.sort((File[]) combineArray, oZ());
                     list = combineArray;
                 } else {
                     boolean z2 = combineArray instanceof List;
                     list = combineArray;
                     if (z2) {
                         List list4 = (List) combineArray;
-                        Collections.sort(list4, oY());
+                        Collections.sort(list4, oZ());
                         list = list4;
                     }
                 }
@@ -147,14 +147,14 @@ public class a {
                 setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(B(pathList), B(pathList2)) : combineArray(B(pathList2), B(pathList)));
                 Object combineArray2 = combineArray(C(pathList), C(pathList2));
                 if (combineArray2 instanceof File[]) {
-                    Arrays.sort((File[]) combineArray2, oY());
+                    Arrays.sort((File[]) combineArray2, oZ());
                     list3 = combineArray2;
                 } else {
                     boolean z3 = combineArray2 instanceof List;
                     list3 = combineArray2;
                     if (z3) {
                         List list5 = (List) combineArray2;
-                        Collections.sort(list5, oY());
+                        Collections.sort(list5, oZ());
                         list3 = list5;
                     }
                 }
@@ -168,14 +168,14 @@ public class a {
                 setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(B(pathList), B(pathList2)) : combineArray(B(pathList2), B(pathList)));
                 Object combineArray3 = combineArray(C(pathList), C(pathList2));
                 if (combineArray3 instanceof File[]) {
-                    Arrays.sort((File[]) combineArray3, oY());
+                    Arrays.sort((File[]) combineArray3, oZ());
                     list2 = combineArray3;
                 } else {
                     boolean z4 = combineArray3 instanceof List;
                     list2 = combineArray3;
                     if (z4) {
                         List list6 = (List) combineArray3;
-                        Collections.sort(list6, oY());
+                        Collections.sort(list6, oZ());
                         list2 = list6;
                     }
                 }
@@ -218,7 +218,7 @@ public class a {
         return c0030a == null ? a(true, null) : c0030a;
     }
 
-    private static void setField(Object obj, Class<?> cls, String str, Object obj2) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
+    public static void setField(Object obj, Class<?> cls, String str, Object obj2) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
         Field declaredField = cls.getDeclaredField(str);
         declaredField.setAccessible(true);
         declaredField.set(obj, obj2);
@@ -262,7 +262,7 @@ public class a {
         return obj;
     }
 
-    private static Object e(Object obj, Object obj2) {
+    public static Object e(Object obj, Object obj2) {
         Class<?> componentType = obj.getClass().getComponentType();
         int length = Array.getLength(obj);
         int i = length + 1;
@@ -279,12 +279,12 @@ public class a {
 
     private static C0030a a(boolean z, Throwable th) {
         C0030a c0030a = new C0030a();
-        c0030a.TC = z;
+        c0030a.Tx = z;
         c0030a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0030a;
     }
 
-    private static Object getPathList(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException, ClassNotFoundException {
+    public static Object getPathList(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException, ClassNotFoundException {
         return getField(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
     }
 
@@ -292,7 +292,7 @@ public class a {
         return getField(obj, obj.getClass(), "dexElements");
     }
 
-    private static Object C(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
+    public static Object C(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
         return getField(obj, obj.getClass(), "nativeLibraryDirectories");
     }
 
@@ -316,21 +316,22 @@ public class a {
         }
     }
 
-    private static final Comparator<File> oY() {
+    private static final Comparator<File> oZ() {
         return new Comparator<File>() { // from class: com.baidu.adp.plugin.util.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
+            /* renamed from: c */
             public int compare(File file, File file2) {
                 if (file == null || file2 == null) {
                     return 0;
                 }
-                return a.I(file.getAbsolutePath(), file2.getAbsolutePath());
+                return a.H(file.getAbsolutePath(), file2.getAbsolutePath());
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final int I(String str, String str2) {
+    public static final int H(String str, String str2) {
         if (str == null || str2 == null) {
             return 0;
         }

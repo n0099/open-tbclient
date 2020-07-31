@@ -10,11 +10,11 @@ import com.baidu.mapapi.search.core.RouteStep;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ParcelCreator"})
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
     public static final Parcelable.Creator<IndoorRouteLine> CREATOR = new g();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class IndoorRouteStep extends RouteStep {
         private RouteNode d;
         private RouteNode e;
@@ -24,7 +24,7 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
         private List<IndoorStepNode> i;
         private List<Double> j;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public static class IndoorStepNode {
             private String a;
             private int b;

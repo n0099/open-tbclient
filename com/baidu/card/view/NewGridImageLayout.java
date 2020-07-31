@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.PollData;
 import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tbadk.core.k;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.view.VoteView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.layout.GridImageLayout;
@@ -36,32 +36,35 @@ import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class NewGridImageLayout extends LinearLayout implements View.OnClickListener, n<AbsThreadDataSupport> {
-    public TextView aeA;
-    private AbsThreadDataSupport aea;
-    private View.OnClickListener aeb;
-    private int aew;
-    private aa<AbsThreadDataSupport> afH;
-    public VoteView agO;
-    private boolean agw;
-    private int aiG;
-    protected boolean aiQ;
-    private final int aiW;
-    public GridImageLayout aiX;
-    private boolean aiY;
-    private LinkedList<MediaData> aiZ;
-    private boolean aik;
-    public PlayVoiceBntNew aiw;
-    private boolean aiy;
-    private boolean aiz;
-    private com.baidu.tbadk.widget.richText.a aja;
+    private AbsThreadDataSupport adQ;
+    private View.OnClickListener adR;
+    private int aem;
+    public TextView aeq;
+    private aa<AbsThreadDataSupport> afy;
+    public VoteView agF;
+    private boolean agn;
+    protected boolean aiI;
+    private final int aiQ;
+    public GridImageLayout aiR;
+    private boolean aiS;
+    public boolean aiT;
+    private LinkedList<MediaData> aiU;
+    private com.baidu.tbadk.widget.richText.a aiV;
+    private boolean aib;
+    public PlayVoiceBntNew aio;
+    private boolean aiq;
+    private boolean air;
+    private int aiy;
     private Context mContext;
     private String mFrom;
     public TextView mTitle;
-    private static final int aiu = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
-    private static final int aeF = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-    private static final int aiv = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds7);
+    private static final int aim = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+    private static final int aev = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+    private static final int aiO = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds31);
+    private static final int aiP = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds16);
+    private static final int ain = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds7);
 
     public NewGridImageLayout(Context context) {
         this(context, null);
@@ -69,14 +72,15 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
 
     public NewGridImageLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aiW = l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
-        this.aik = true;
-        this.aiy = false;
-        this.aiz = false;
-        this.aiY = false;
-        this.aiG = 0;
-        this.aiQ = false;
-        this.agw = false;
+        this.aiQ = l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
+        this.aib = true;
+        this.aiq = false;
+        this.air = false;
+        this.aiS = false;
+        this.aiT = true;
+        this.aiy = 0;
+        this.aiI = false;
+        this.agn = false;
         this.mContext = context;
         initUI();
     }
@@ -85,46 +89,47 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
         LayoutInflater.from(getContext()).inflate(R.layout.new_grid_image_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.aeA = (TextView) findViewById(R.id.thread_card_abstract);
+        this.aeq = (TextView) findViewById(R.id.thread_card_abstract);
         this.mTitle = (TextView) findViewById(R.id.thread_card_title);
-        this.aiw = (PlayVoiceBntNew) findViewById(R.id.thread_card_voice);
-        this.aiw.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.NewGridImageLayout.1
+        this.aio = (PlayVoiceBntNew) findViewById(R.id.thread_card_voice);
+        this.aio.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.NewGridImageLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 aa<AbsThreadDataSupport> subClickListener = NewGridImageLayout.this.getSubClickListener();
                 if (subClickListener != null) {
                     view.setTag("2");
-                    subClickListener.a(view, NewGridImageLayout.this.aea);
+                    subClickListener.a(view, NewGridImageLayout.this.adQ);
                 }
             }
         });
-        this.aiX = (GridImageLayout) findViewById(R.id.thread_card_img_more_container);
-        this.aiX.setSupportGifPlay(false);
-        this.aiX.setCornerStyle(1);
-        this.aiX.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.NewGridImageLayout.2
+        this.aiR = (GridImageLayout) findViewById(R.id.thread_card_img_more_container);
+        com.baidu.tbadk.a.b.a.e(this.aiR, R.dimen.tbds23, R.dimen.tbds14);
+        this.aiR.setSupportGifPlay(false);
+        this.aiR.setCornerStyle(1);
+        this.aiR.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.NewGridImageLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 aa<AbsThreadDataSupport> subClickListener = NewGridImageLayout.this.getSubClickListener();
                 if (subClickListener != null) {
                     view.setTag("1");
-                    subClickListener.a(view, NewGridImageLayout.this.aea);
+                    subClickListener.a(view, NewGridImageLayout.this.adQ);
                 }
             }
         });
-        this.aja = new com.baidu.tbadk.widget.richText.a();
+        this.aiV = new com.baidu.tbadk.widget.richText.a();
         int i = l.getScreenDimensions(this.mContext)[0];
-        this.aja.eNz = i - l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds88);
-        this.aja.eNA = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        this.aiX.setLayoutStrategy(this.aja);
-        this.aiZ = new LinkedList<>();
-        this.aiX.setOnImageClickListener(new TbRichTextView.i() { // from class: com.baidu.card.view.NewGridImageLayout.3
+        this.aiV.eTU = i - l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds88);
+        this.aiV.eTV = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        this.aiR.setLayoutStrategy(this.aiV);
+        this.aiU = new LinkedList<>();
+        this.aiR.setOnImageClickListener(new TbRichTextView.i() { // from class: com.baidu.card.view.NewGridImageLayout.3
             @Override // com.baidu.tbadk.widget.richText.TbRichTextView.i
             public void a(View view, String str, int i2, boolean z, boolean z2) {
-                aw.a(view, NewGridImageLayout.this.aja.mIsFromCDN, (List<MediaData>) NewGridImageLayout.this.aiZ, i2, NewGridImageLayout.this.aea.aPS(), NewGridImageLayout.this.mFrom, true);
+                ax.a(view, NewGridImageLayout.this.aiV.mIsFromCDN, (List<MediaData>) NewGridImageLayout.this.aiU, i2, NewGridImageLayout.this.adQ.aTN(), NewGridImageLayout.this.mFrom, true);
             }
         });
-        this.agO = (VoteView) findViewById(R.id.thread_card_vote);
-        this.agO.setBgColor(R.color.cp_bg_line_e);
+        this.agF = (VoteView) findViewById(R.id.thread_card_vote);
+        this.agF.setBgColor(R.color.cp_bg_line_e);
     }
 
     public void setFrom(String str) {
@@ -132,62 +137,64 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
     }
 
     public void setCornerStyle(int i) {
-        this.aiX.setCornerStyle(i);
+        this.aiR.setCornerStyle(i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.n
     /* renamed from: b */
     public void D(final AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport != null && absThreadDataSupport.aPS() != null) {
-            bu aPS = absThreadDataSupport.aPS();
-            OriginalThreadInfo originalThreadInfo = aPS.dNX;
-            if (originalThreadInfo != null && this.aiY) {
-                this.aeA.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize39));
+        if (absThreadDataSupport != null && absThreadDataSupport.aTN() != null) {
+            bv aTN = absThreadDataSupport.aTN();
+            OriginalThreadInfo originalThreadInfo = aTN.dUi;
+            if (originalThreadInfo != null && this.aiS) {
+                this.aeq.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize39));
+                this.aeq.setLineSpacing(l.getDimens(this.mContext, R.dimen.tbds15), 1.0f);
                 this.mTitle.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize39));
                 this.mTitle.setVisibility(8);
-                if (originalThreadInfo.dID) {
-                    aw.a(this.aeA, this.mTitle, new SpannableString(originalThreadInfo.title), aPS, this.aiW, this.aiY, this.agw);
-                    an.setViewTextColor(this.aeA, (int) R.color.cp_cont_c);
+                if (originalThreadInfo.dOO) {
+                    ax.a(this.aeq, this.mTitle, new SpannableString(originalThreadInfo.title), aTN, this.aiQ, this.aiS, this.agn);
+                    ao.setViewTextColor(this.aeq, R.color.cp_cont_c);
                 } else {
-                    aw.a(this.aeA, this.mTitle, originalThreadInfo.dJC, aPS, this.aiW, this.aiY, this.agw);
+                    ax.a(this.aeq, this.mTitle, originalThreadInfo.dPO, aTN, this.aiQ, this.aiS, this.agn);
                 }
                 if (a(originalThreadInfo.pollData)) {
                     View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.card.view.NewGridImageLayout.4
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            aw.a(absThreadDataSupport.aPS().dNX, NewGridImageLayout.this.mContext, NewGridImageLayout.this.aew);
+                            ax.a(absThreadDataSupport.aTN().dUi, NewGridImageLayout.this.mContext, NewGridImageLayout.this.aem);
                         }
                     };
-                    this.agO.setOnClickListener(onClickListener);
-                    this.agO.setOnItemClickListener(onClickListener);
-                    this.agO.setIsTransmit(true);
-                    this.agO.setData(originalThreadInfo.pollData, originalThreadInfo.threadId, originalThreadInfo.forumId);
-                    this.agO.setVisibility(0);
+                    this.agF.setOnClickListener(onClickListener);
+                    this.agF.setOnItemClickListener(onClickListener);
+                    this.agF.setIsTransmit(true);
+                    this.agF.setData(originalThreadInfo.pollData, originalThreadInfo.threadId, originalThreadInfo.forumId);
+                    this.agF.setVisibility(0);
                 } else {
-                    this.agO.setVisibility(8);
+                    this.agF.setVisibility(8);
                 }
             } else {
-                this.agO.setVisibility(8);
-                this.aeA.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize44));
+                this.agF.setVisibility(8);
+                this.aeq.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize44));
+                this.aeq.setLineSpacing(l.getDimens(this.mContext, R.dimen.tbds17), 1.0f);
                 this.mTitle.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize44));
-                aw.a(this.mTitle, aPS, this.agw);
-                aw.a(this.aeA, this.mTitle, aPS.aRQ(), aPS, this.aiW, this.aiY, this.agw);
+                ax.a(this.mTitle, aTN, this.agn);
+                ax.a(this.aeq, this.mTitle, aTN.aVM(), aTN, this.aiQ, this.aiS, this.agn);
             }
-            if (o(aPS)) {
-                p(aPS);
+            if (o(aTN)) {
+                p(aTN);
             }
-            setVoiceData(aPS);
-            sh();
-            this.aea = absThreadDataSupport;
-            if (this.aea.aPS().dNX != null) {
-                if (aPS.isShareThread) {
-                    if (this.aea.aPS().dNX != null) {
-                        if (!this.aea.aPS().dNX.dID) {
-                            this.aiX.setOnImageClickListener(new TbRichTextView.i() { // from class: com.baidu.card.view.NewGridImageLayout.5
+            setVoiceData(aTN);
+            sj();
+            this.adQ = absThreadDataSupport;
+            if (this.adQ.aTN().dUi != null) {
+                if (aTN.isShareThread) {
+                    if (this.adQ.aTN().dUi != null) {
+                        if (!this.adQ.aTN().dUi.dOO) {
+                            this.aiR.setOnImageClickListener(new TbRichTextView.i() { // from class: com.baidu.card.view.NewGridImageLayout.5
                                 @Override // com.baidu.tbadk.widget.richText.TbRichTextView.i
                                 public void a(View view, String str, int i, boolean z, boolean z2) {
-                                    aw.a(NewGridImageLayout.this.aea.aPS().dNX, NewGridImageLayout.this.mContext, 2);
+                                    ax.a(NewGridImageLayout.this.adQ.aTN().dUi, NewGridImageLayout.this.mContext, 2);
                                 }
                             });
                         }
@@ -195,16 +202,16 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
                         return;
                     }
                 }
-                if (!this.aea.aPS().dNX.dID) {
-                    this.aiX.setOnImageClickListener(new TbRichTextView.i() { // from class: com.baidu.card.view.NewGridImageLayout.6
+                if (!this.adQ.aTN().dUi.dOO) {
+                    this.aiR.setOnImageClickListener(new TbRichTextView.i() { // from class: com.baidu.card.view.NewGridImageLayout.6
                         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.i
                         public void a(View view, String str, int i, boolean z, boolean z2) {
-                            aw.a(view, true, (List<MediaData>) NewGridImageLayout.this.aiZ, i, NewGridImageLayout.this.aea.aPS().dNX.aQQ(), NewGridImageLayout.this.mFrom, NewGridImageLayout.this.aea.aPS().dNX.dJA);
+                            ax.a(view, true, (List<MediaData>) NewGridImageLayout.this.aiU, i, NewGridImageLayout.this.adQ.aTN().dUi.aUM(), NewGridImageLayout.this.mFrom, NewGridImageLayout.this.adQ.aTN().dUi.dPM);
                         }
                     });
                 }
-                if (this.aiY) {
-                    if (this.aea.aPS().dNX == null || this.aea.aPS().dNX.dID) {
+                if (this.aiS) {
+                    if (this.adQ.aTN().dUi == null || this.adQ.aTN().dUi.dOO) {
                         setOnClickListener(null);
                     } else {
                         setOnClickListener(this);
@@ -218,56 +225,78 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
         }
     }
 
-    private void setVoiceData(bu buVar) {
-        if (buVar != null) {
-            if (this.aiY) {
-                this.aiw.ah(new View.OnClickListener() { // from class: com.baidu.card.view.NewGridImageLayout.7
+    private void setVoiceData(bv bvVar) {
+        if (bvVar != null) {
+            if (this.aiS) {
+                this.aio.ai(new View.OnClickListener() { // from class: com.baidu.card.view.NewGridImageLayout.7
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (NewGridImageLayout.this.aeb != null) {
-                            NewGridImageLayout.this.aeb.onClick(view);
+                        if (NewGridImageLayout.this.adR != null) {
+                            NewGridImageLayout.this.adR.onClick(view);
                         }
                     }
                 });
             }
-            ArrayList<VoiceData.VoiceModel> aSC = (!buVar.isShareThread || buVar.dNX == null) ? buVar.aSC() : buVar.dNX.dJB;
-            if (w.isEmpty(aSC)) {
-                this.aiw.setVisibility(8);
-                this.aiz = false;
+            ArrayList<VoiceData.VoiceModel> aWy = (!bvVar.isShareThread || bvVar.dUi == null) ? bvVar.aWy() : bvVar.dUi.dPN;
+            if (x.isEmpty(aWy)) {
+                this.aio.setVisibility(8);
+                this.air = false;
                 return;
             }
-            this.aiw.setVisibility(0);
-            VoiceData.VoiceModel voiceModel = aSC.get(0);
-            this.aiw.setVoiceModel(voiceModel);
-            this.aiw.setTag(voiceModel);
-            this.aiw.aYi();
+            this.aio.setVisibility(0);
+            VoiceData.VoiceModel voiceModel = aWy.get(0);
+            this.aio.setVoiceModel(voiceModel);
+            this.aio.setTag(voiceModel);
+            this.aio.changeSkin();
             if (voiceModel != null) {
-                this.aiw.yU(voiceModel.voice_status.intValue());
+                this.aio.zt(voiceModel.voice_status.intValue());
             }
-            this.aiw.bCo();
-            this.aiz = true;
+            this.aio.bFz();
+            this.air = true;
         }
     }
 
-    private void sh() {
-        if (this.aeA.getVisibility() != 0 && this.mTitle.getVisibility() != 0) {
-            if (this.aiy) {
-                setMarginsTop(this.aiw, aiu);
-            } else if (this.aiz) {
-                setMarginsTop(this.aiw, aiv);
+    private void sj() {
+        if (this.aiS && this.aiT) {
+            if (this.aeq.getVisibility() != 0 && this.mTitle.getVisibility() != 0) {
+                if (this.aiq) {
+                    setMarginsTop(this.aiR, 0);
+                    setMarginsTop(this.aio, aiO);
+                    setMarginsTop(this.agF, aiO);
+                    return;
+                } else if (this.air) {
+                    setMarginsTop(this.aiR, 0);
+                    setMarginsTop(this.aio, 0);
+                    setMarginsTop(this.agF, aiO);
+                    return;
+                } else {
+                    setMarginsTop(this.aiR, 0);
+                    setMarginsTop(this.aio, 0);
+                    setMarginsTop(this.agF, 0);
+                    return;
+                }
             }
-        } else if (this.aiw != null && this.aiw.getLayoutParams() != null) {
-            if (this.aiy) {
-                setMarginsTop(this.aiw, aiu);
-            } else if (this.aiz) {
-                setMarginsTop(this.aiw, aeF);
+            setMarginsTop(this.aiR, aiP);
+            setMarginsTop(this.aio, aiO);
+            setMarginsTop(this.agF, aiO);
+        } else if (this.aeq.getVisibility() != 0 && this.mTitle.getVisibility() != 0) {
+            if (this.aiq) {
+                setMarginsTop(this.aio, aim);
+            } else if (this.air) {
+                setMarginsTop(this.aio, ain);
+            }
+        } else if (this.aio != null && this.aio.getLayoutParams() != null) {
+            if (this.aiq) {
+                setMarginsTop(this.aio, aim);
+            } else if (this.air) {
+                setMarginsTop(this.aio, aev);
             }
         }
     }
 
     public void setObjectPool(b<ImageView> bVar, b<GifView> bVar2) {
-        if (this.aiX != null) {
-            this.aiX.setObjectPool(bVar, bVar2);
+        if (this.aiR != null) {
+            this.aiR.setObjectPool(bVar, bVar2);
         }
     }
 
@@ -282,75 +311,78 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
     }
 
     public aa<AbsThreadDataSupport> getSubClickListener() {
-        return this.afH;
+        return this.afy;
     }
 
     public void setSubClickListener(aa<AbsThreadDataSupport> aaVar) {
-        this.afH = aaVar;
+        this.afy = aaVar;
     }
 
-    private boolean o(bu buVar) {
-        if (this.aea == null || this.aea.aPS() == null) {
+    private boolean o(bv bvVar) {
+        if (this.adQ == null || this.adQ.aTN() == null) {
             return true;
         }
-        if (this.aea.aPS().getTid() == null || this.aea.aPS().getTid().equals(buVar.getTid())) {
-            return (!buVar.isShareThread || buVar.dNX == null) ? !c(buVar.aSy(), this.aea.aPS().aSy()) : this.aea.aPS().dNX == null || !c(buVar.dNX.dJx, this.aea.aPS().dNX.dJx);
+        if (this.adQ.aTN().getTid() == null || this.adQ.aTN().getTid().equals(bvVar.getTid())) {
+            return (!bvVar.isShareThread || bvVar.dUi == null) ? !c(bvVar.aWu(), this.adQ.aTN().aWu()) : this.adQ.aTN().dUi == null || !c(bvVar.dUi.dPJ, this.adQ.aTN().dUi.dPJ);
         }
         return true;
     }
 
-    private void p(bu buVar) {
+    private void p(bv bvVar) {
         boolean z;
         ArrayList<MediaData> arrayList;
         String b;
-        ArrayList<MediaData> aSy = buVar.aSy();
-        String aRZ = buVar.aRZ();
-        if (!buVar.isShareThread || buVar.dNX == null) {
+        ArrayList<MediaData> aWu = bvVar.aWu();
+        String aVV = bvVar.aVV();
+        if (!bvVar.isShareThread || bvVar.dUi == null) {
             z = false;
-            arrayList = aSy;
-        } else if (buVar.dNX.dID) {
-            this.aiX.setVisibility(8);
+            arrayList = aWu;
+        } else if (bvVar.dUi.dOO) {
+            this.aiR.setVisibility(8);
             return;
         } else {
             z = true;
-            arrayList = buVar.dNX.dJx;
+            arrayList = bvVar.dUi.dPJ;
         }
-        if (k.aPA().isShowImages() && w.getCount(arrayList) != 0) {
-            this.aiZ.clear();
+        if (k.aTv().isShowImages() && x.getCount(arrayList) != 0) {
+            this.aiU.clear();
             for (int i = 0; i < arrayList.size(); i++) {
-                MediaData mediaData = (MediaData) w.getItem(arrayList, i);
-                if (mediaData != null && mediaData.getType() == 3 && (z || (aRZ != null && aRZ.equals(mediaData.getPostId() + "")))) {
-                    this.aiZ.add(mediaData);
+                MediaData mediaData = (MediaData) x.getItem(arrayList, i);
+                if (mediaData != null && mediaData.getType() == 3 && (z || (aVV != null && aVV.equals(mediaData.getPostId() + "")))) {
+                    this.aiU.add(mediaData);
                 }
             }
-            if (w.getCount(this.aiZ) > 0) {
-                this.aiX.setVisibility(0);
+            if (x.getCount(this.aiU) > 0) {
+                this.aiq = true;
+                this.aiR.setVisibility(0);
                 ArrayList<TbRichTextImageInfo> arrayList2 = new ArrayList<>();
-                for (int i2 = 0; i2 < this.aiZ.size(); i2++) {
-                    MediaData mediaData2 = (MediaData) w.getItem(this.aiZ, i2);
+                for (int i2 = 0; i2 < this.aiU.size(); i2++) {
+                    MediaData mediaData2 = (MediaData) x.getItem(this.aiU, i2);
                     String originalUrl = mediaData2.getOriginalUrl();
-                    if (this.aiZ.size() > 1) {
+                    if (this.aiU.size() > 1) {
                         b = a(mediaData2);
                     } else {
                         b = b(mediaData2);
                     }
                     TbRichTextImageInfo tbRichTextImageInfo = new TbRichTextImageInfo();
                     tbRichTextImageInfo.setSrc(b);
-                    tbRichTextImageInfo.zu(originalUrl);
-                    tbRichTextImageInfo.iV(mediaData2.isLongPic());
+                    tbRichTextImageInfo.AC(originalUrl);
+                    tbRichTextImageInfo.jA(mediaData2.isLongPic());
                     if (mediaData2.picWidth > 0 && mediaData2.picHeight > 0) {
                         tbRichTextImageInfo.setWidth(mediaData2.picWidth);
                         tbRichTextImageInfo.setHeight(mediaData2.picHeight);
                     }
                     arrayList2.add(tbRichTextImageInfo);
                 }
-                this.aiX.setData(arrayList2);
+                this.aiR.setData(arrayList2);
                 return;
             }
-            this.aiX.setVisibility(8);
+            this.aiq = false;
+            this.aiR.setVisibility(8);
             return;
         }
-        this.aiX.setVisibility(8);
+        this.aiq = false;
+        this.aiR.setVisibility(8);
     }
 
     private String a(MediaData mediaData) {
@@ -425,42 +457,42 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
     }
 
     public void setFromCDN(boolean z) {
-        this.aik = z;
+        this.aib = z;
     }
 
     public void setPreloadSizeReadyCallback(com.baidu.adp.widget.a.b bVar) {
     }
 
     public void setTransmit(boolean z) {
-        this.aiY = z;
+        this.aiS = z;
     }
 
     public void setJumpToPbListener(View.OnClickListener onClickListener) {
-        this.aeb = onClickListener;
+        this.adR = onClickListener;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aeb != null) {
-            this.aeb.onClick(view);
+        if (this.adR != null) {
+            this.adR.onClick(view);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aiX != null) {
-            this.aiX.onChangeSkinType();
+        if (this.aiR != null) {
+            this.aiR.onChangeSkinType();
         }
-        if (this.agO != null) {
-            this.agO.onChangeSkinType(i);
+        if (this.agF != null) {
+            this.agF.onChangeSkinType(i);
         }
     }
 
     public void setNeedFrsTabName(boolean z) {
-        this.agw = z;
+        this.agn = z;
     }
 
     public void setFromForPb(int i) {
-        this.aew = i;
+        this.aem = i;
     }
 
     private boolean a(PollData pollData) {

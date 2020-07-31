@@ -4,7 +4,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.search.route.IndoorRoutePlanOption;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class g extends com.baidu.platform.base.e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(IndoorRoutePlanOption indoorRoutePlanOption) {

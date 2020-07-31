@@ -8,7 +8,7 @@ import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public class SocketHttpClientConnection extends AbstractHttpClientConnection implements HttpInetConnection {
     public SocketHttpClientConnection() {
         throw new RuntimeException("Stub!");

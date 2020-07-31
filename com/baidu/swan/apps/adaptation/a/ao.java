@@ -1,9 +1,16 @@
 package com.baidu.swan.apps.adaptation.a;
 
-import com.baidu.searchbox.v8engine.JsObject;
-/* loaded from: classes11.dex */
+import android.content.Context;
+import com.baidu.swan.apps.core.container.NgWebView;
+/* loaded from: classes7.dex */
 public interface ao {
-    com.baidu.swan.games.a.c a(com.baidu.swan.games.f.b bVar, JsObject jsObject);
+    void a(NgWebView ngWebView);
 
-    com.baidu.swan.games.a.b b(com.baidu.swan.games.f.b bVar, JsObject jsObject);
+    void a(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z);
+
+    void a(NgWebView ngWebView, String str);
+
+    void p(String str, Context context);
+
+    void q(String str, Context context);
 }

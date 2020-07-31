@@ -20,15 +20,16 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
+import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private RelativeLayout jKq;
-    private TextView jKr;
-    private Runnable jKs;
-    private Runnable jKt;
+    private RelativeLayout jSO;
+    private TextView jSP;
+    private Runnable jSQ;
+    private Runnable jSR;
     private Context mContext;
     private Handler mHandler;
     private HandlerThread mHandlerThread;
@@ -43,8 +44,8 @@ public class c {
         this.mContext = context;
     }
 
-    public void cCX() {
-        if (!this.mIsShowing && isMainProcess() && cCY()) {
+    public void cGF() {
+        if (!this.mIsShowing && isMainProcess() && cGG()) {
             if (this.mHandlerThread == null) {
                 this.mHandlerThread = new HandlerThread("splash-thread");
                 this.mHandlerThread.start();
@@ -52,73 +53,73 @@ public class c {
             if (this.mHandler == null) {
                 this.mHandler = new Handler(this.mHandlerThread.getLooper());
             }
-            if (this.jKs == null) {
-                this.jKs = new Runnable() { // from class: com.baidu.tieba.m.c.1
+            if (this.jSQ == null) {
+                this.jSQ = new Runnable() { // from class: com.baidu.tieba.m.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (c.this.jKq != null) {
-                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.jKq);
+                        if (c.this.jSO != null) {
+                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.jSO);
                             c.this.clean();
                         }
                     }
                 };
             }
-            if (this.jKt == null) {
-                this.jKt = new Runnable() { // from class: com.baidu.tieba.m.c.2
+            if (this.jSR == null) {
+                this.jSR = new Runnable() { // from class: com.baidu.tieba.m.c.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.Jh(c.this.mContext.getString(R.string.data_init));
+                        c.this.JT(c.this.mContext.getString(R.string.data_init));
                     }
                 };
             }
-            this.mHandler.removeCallbacks(this.jKt);
-            this.mHandler.postAtFrontOfQueue(this.jKt);
+            this.mHandler.removeCallbacks(this.jSR);
+            this.mHandler.postAtFrontOfQueue(this.jSR);
             this.mIsShowing = true;
-            this.mHandler.postDelayed(this.jKs, 20000L);
+            this.mHandler.postDelayed(this.jSQ, 20000L);
         }
     }
 
     public void hide() {
-        if (this.jKq != null && this.jKr != null) {
-            this.mHandler.removeCallbacks(this.jKs);
-            this.mHandler.post(this.jKs);
+        if (this.jSO != null && this.jSP != null) {
+            this.mHandler.removeCallbacks(this.jSQ);
+            this.mHandler.post(this.jSQ);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void clean() {
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.jKs);
-            this.mHandler.removeCallbacks(this.jKt);
-            this.jKt = null;
-            this.jKs = null;
+            this.mHandler.removeCallbacks(this.jSQ);
+            this.mHandler.removeCallbacks(this.jSR);
+            this.jSR = null;
+            this.jSQ = null;
             this.mHandler = null;
         }
         if (this.mHandlerThread != null) {
             this.mHandlerThread.quit();
         }
-        if (this.jKr != null) {
-            this.jKr = null;
+        if (this.jSP != null) {
+            this.jSP = null;
         }
-        if (this.jKq != null) {
-            this.jKq = null;
+        if (this.jSO != null) {
+            this.jSO = null;
         }
         this.mIsShowing = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Jh(String str) {
-        if (this.jKr == null) {
-            this.jKr = new b(this.mContext);
-            this.jKr.setTextSize(1, 18.0f);
+    public void JT(String str) {
+        if (this.jSP == null) {
+            this.jSP = new b(this.mContext);
+            this.jSP.setTextSize(1, 18.0f);
         }
-        this.jKr.setText(str);
-        this.jKq = new RelativeLayout(this.mContext);
-        this.jKq.setBackgroundResource(R.drawable.pic_splash_logo);
+        this.jSP.setText(str);
+        this.jSO = new RelativeLayout(this.mContext);
+        this.jSO.setBackgroundResource(R.drawable.pic_splash_logo);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
         layoutParams.addRule(15);
-        this.jKq.addView(this.jKr, layoutParams);
+        this.jSO.addView(this.jSP, layoutParams);
         WindowManager.LayoutParams layoutParams2 = new WindowManager.LayoutParams();
         layoutParams2.type = 2005;
         layoutParams2.format = 1;
@@ -127,8 +128,8 @@ public class c {
         layoutParams2.y = 0;
         layoutParams2.width = -1;
         layoutParams2.height = -1;
-        layoutParams2.flags = 1280;
-        ((WindowManager) this.mContext.getSystemService("window")).addView(this.jKq, layoutParams2);
+        layoutParams2.flags = PlatformPlugin.DEFAULT_SYSTEM_UI;
+        ((WindowManager) this.mContext.getSystemService("window")).addView(this.jSO, layoutParams2);
     }
 
     private boolean isMainProcess() {
@@ -151,15 +152,15 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean cCY() {
-        List<String> fa = fa(this.mContext);
-        if (fa == null || fa.size() == 0) {
+    private boolean cGG() {
+        List<String> fe = fe(this.mContext);
+        if (fe == null || fe.size() == 0) {
             return false;
         }
         ActivityManager.RunningTaskInfo runningTaskInfo = ((ActivityManager) this.mContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(1).get(0);
         String shortString = runningTaskInfo.baseActivity.toShortString();
         String shortString2 = runningTaskInfo.topActivity.toShortString();
-        for (String str : fa) {
+        for (String str : fe) {
             if (shortString.equals(str) || shortString2.equals(str)) {
                 return true;
             }
@@ -169,7 +170,7 @@ public class c {
         return false;
     }
 
-    private List<String> fa(Context context) {
+    private List<String> fe(Context context) {
         PackageManager packageManager = context.getPackageManager();
         Intent intent = new Intent("com.baidu.tieba.SPLASH_PIPELINE_ACTION");
         intent.setPackage(context.getPackageName());
@@ -188,9 +189,9 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends TextView {
-        private LinearGradient biq;
-        private Matrix jKv;
-        private int jKw;
+        private LinearGradient biK;
+        private Matrix jST;
+        private int jSU;
         private boolean mAnimating;
         private Paint mPaint;
         private int mViewWidth;
@@ -198,20 +199,20 @@ public class c {
         public b(Context context) {
             super(context);
             this.mViewWidth = 0;
-            this.jKw = 0;
+            this.jSU = 0;
             this.mAnimating = true;
         }
 
         @Override // android.widget.TextView, android.view.View
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
-            if (this.mAnimating && this.jKv != null) {
-                this.jKw += this.mViewWidth / 10;
-                if (this.jKw > this.mViewWidth * 2) {
-                    this.jKw = -this.mViewWidth;
+            if (this.mAnimating && this.jST != null) {
+                this.jSU += this.mViewWidth / 10;
+                if (this.jSU > this.mViewWidth * 2) {
+                    this.jSU = -this.mViewWidth;
                 }
-                this.jKv.setTranslate(this.jKw, 0.0f);
-                this.biq.setLocalMatrix(this.jKv);
+                this.jST.setTranslate(this.jSU, 0.0f);
+                this.biK.setLocalMatrix(this.jST);
                 postInvalidateDelayed(50L);
             }
         }
@@ -223,9 +224,9 @@ public class c {
                 this.mViewWidth = getMeasuredWidth();
                 if (this.mViewWidth > 0) {
                     this.mPaint = getPaint();
-                    this.biq = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
-                    this.mPaint.setShader(this.biq);
-                    this.jKv = new Matrix();
+                    this.biK = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
+                    this.mPaint.setShader(this.biK);
+                    this.jST = new Matrix();
                 }
             }
         }

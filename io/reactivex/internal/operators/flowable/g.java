@@ -25,7 +25,7 @@ public final class g {
                             }
                             cVar.onSubscribe(new ScalarSubscription(cVar, call));
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.L(th);
+                            io.reactivex.exceptions.a.K(th);
                             EmptySubscription.error(th, cVar);
                             return true;
                         }
@@ -34,12 +34,12 @@ public final class g {
                     }
                     return true;
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.L(th2);
+                    io.reactivex.exceptions.a.K(th2);
                     EmptySubscription.error(th2, cVar);
                     return true;
                 }
             } catch (Throwable th3) {
-                io.reactivex.exceptions.a.L(th3);
+                io.reactivex.exceptions.a.K(th3);
                 EmptySubscription.error(th3, cVar);
                 return true;
             }

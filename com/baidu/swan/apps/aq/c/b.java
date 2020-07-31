@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.aq.c;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public abstract class b<TargeT> implements c {
     final String name;
 

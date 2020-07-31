@@ -1,5 +1,6 @@
 package com.baidu.android.imsdk.db;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,6 +8,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.sync.SyncAllMessage;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.pubaccount.PaManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
@@ -406,6 +408,10 @@ public class DBVersionManager {
             }
             if (i3 == 44 && i2 >= 45) {
                 new Version44And45Handler().onUpgrade(sQLiteDatabase, i3, i2);
+                i3 = 45;
+            }
+            if (i3 == 45 && i2 >= 46) {
+                new Version45And46Handler().onUpgrade(sQLiteDatabase, i3, i2);
             }
             Cursor cursor = null;
             try {
@@ -422,20 +428,19 @@ public class DBVersionManager {
                             LogUtils.e(TAG, "close curse exception");
                         }
                     }
-                } catch (Throwable th) {
+                } catch (Exception e2) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                    LogUtils.e(TAG, "database exception, check table dialog_record exist");
                     if (cursor != null) {
                         try {
                             cursor.close();
-                        } catch (Exception e2) {
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                        } catch (Exception e3) {
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
                             LogUtils.e(TAG, "close curse exception");
                         }
                     }
-                    throw th;
                 }
-            } catch (Exception e3) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
-                LogUtils.e(TAG, "database exception, check table dialog_record exist");
+            } catch (Throwable th) {
                 if (cursor != null) {
                     try {
                         cursor.close();
@@ -444,7 +449,45 @@ public class DBVersionManager {
                         LogUtils.e(TAG, "close curse exception");
                     }
                 }
+                throw th;
             }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class Version45And46Handler implements VersionHandler {
+        public Version45And46Handler() {
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE message ADD COLUMN template_type INTEGER DEFAULT 0 ");
+                if (AccountManager.getAppid(DBVersionManager.this.mContext) == 405384) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put(TableDefine.PaSubscribeColumns.COLUMN_SUBTYPE, (Integer) 29);
+                    ContentValues contentValues2 = new ContentValues();
+                    contentValues2.put(TableDefine.SessionColumns.COLUMN_CHAT_TYPE, (Integer) 29);
+                    if (Constants.getEnv(DBVersionManager.this.mContext) == 0) {
+                        sQLiteDatabase.update(TableDefine.DB_TABLE_PA_SUBSCRIBE, contentValues, "paid = ?", new String[]{Long.toString(17592194956492L)});
+                        sQLiteDatabase.update(TableDefine.DB_TABLE_PA_SUBSCRIBE, contentValues, "paid = ?", new String[]{Long.toString(17592195132261L)});
+                        sQLiteDatabase.update(TableDefine.DB_TABLE_CHAT_SESSION, contentValues2, "paid = ?", new String[]{Long.toString(17592194956492L)});
+                        sQLiteDatabase.update(TableDefine.DB_TABLE_CHAT_SESSION, contentValues2, "paid = ?", new String[]{Long.toString(17592195132261L)});
+                    } else {
+                        sQLiteDatabase.update(TableDefine.DB_TABLE_PA_SUBSCRIBE, contentValues, "paid = ?", new String[]{Long.toString(17592186059247L)});
+                        sQLiteDatabase.update(TableDefine.DB_TABLE_PA_SUBSCRIBE, contentValues, "paid = ?", new String[]{Long.toString(17592186061416L)});
+                        sQLiteDatabase.update(TableDefine.DB_TABLE_CHAT_SESSION, contentValues2, "paid = ?", new String[]{Long.toString(17592186059247L)});
+                        sQLiteDatabase.update(TableDefine.DB_TABLE_CHAT_SESSION, contentValues2, "paid = ?", new String[]{Long.toString(17592186061416L)});
+                    }
+                }
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(DBVersionManager.this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(LogUtils.TAG, "onUpgrade:45->46", e);
+            }
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         }
     }
 

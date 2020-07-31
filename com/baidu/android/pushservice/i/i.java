@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class i {
     public static String a(Context context, String str) {
         return context.getSharedPreferences("pst", 0).getString(str, "");

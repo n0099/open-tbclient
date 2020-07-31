@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LoadSo {
     static final String[] SO_NAME_ARRAY = {"bd_idl_pass_token", "idl_license", "FaceSDK"};
     static final String ZIP_VERSION = "3.0.0";
@@ -84,7 +84,7 @@ public class LoadSo {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class StatService {
         private static final String EXCEPTION_INFO = "exception_info";
         private static final String EXCEPTION_ZIP_VERSION = "execption_zip_version";

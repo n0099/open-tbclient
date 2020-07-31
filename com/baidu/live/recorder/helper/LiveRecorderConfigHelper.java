@@ -10,6 +10,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.v.a;
 import com.baidu.tbadk.TbConfig;
+import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,31 +18,30 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LiveRecorderConfigHelper {
-    private static volatile LiveRecorderConfigHelper bbB;
-    private e bby = new e();
-    private boolean bbz = false;
-    private boolean bbA = false;
+    private static volatile LiveRecorderConfigHelper bbT;
+    private e bbQ = new e();
+    private boolean bbR = false;
+    private boolean bbS = false;
 
     public VideoResolution f(boolean z, boolean z2) {
         if (!z2) {
-            return cL(a.Hm().aZp.ayT);
+            return cM(a.Hs().aZn.aAg);
         }
         if (TbadkCoreApplication.getInst().isOther()) {
             if (z && z2) {
-                return cL(a.Hm().aZp.azb);
+                return cM(a.Hs().aZn.aAo);
             }
             if (!z && z2) {
-                return cL(a.Hm().aZp.azc);
+                return cM(a.Hs().aZn.aAp);
             }
             return VideoResolution.P540;
         }
         return VideoResolution.RTC;
     }
 
-    private VideoResolution cL(int i) {
+    private VideoResolution cM(int i) {
         if (i == 1) {
             return VideoResolution.P720;
         }
@@ -57,15 +57,15 @@ public class LiveRecorderConfigHelper {
         return VideoResolution.P540;
     }
 
-    public static LiveRecorderConfigHelper GG() {
-        if (bbB == null) {
+    public static LiveRecorderConfigHelper GN() {
+        if (bbT == null) {
             synchronized (LiveRecorderConfigHelper.class) {
-                if (bbB == null) {
-                    bbB = new LiveRecorderConfigHelper();
+                if (bbT == null) {
+                    bbT = new LiveRecorderConfigHelper();
                 }
             }
         }
-        return bbB;
+        return bbT;
     }
 
     public AlaLiveVideoConfig d(int i, int i2, boolean z) {
@@ -74,17 +74,17 @@ public class LiveRecorderConfigHelper {
             videoResolution = f(true, false);
         }
         if (videoResolution == null) {
-            videoResolution = cL(i);
+            videoResolution = cM(i);
         }
-        if (i2 == 1 && !a.Hm().aZp.ayU) {
+        if (i2 == 1 && !a.Hs().aZn.aAh) {
             videoResolution = VideoResolution.P360;
         }
-        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(fG(a.Hm().aZp.ayW), fG(a.Hm().aZp.ayX), a.Hm().aZp.increaseThreshold, a.Hm().aZp.decreaseThreshold, a.Hm().aZp.increaseCount, a.Hm().aZp.ayU, a.Hm().aZp.ayV, videoResolution.getWidth(), videoResolution.getHeight()).setIsLandscape(z);
+        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(fE(a.Hs().aZn.aAj), fE(a.Hs().aZn.aAk), a.Hs().aZn.increaseThreshold, a.Hs().aZn.decreaseThreshold, a.Hs().aZn.increaseCount, a.Hs().aZn.aAh, a.Hs().aZn.aAi, videoResolution.getWidth(), videoResolution.getHeight()).setIsLandscape(z);
         if (i2 == 1) {
             isLandscape.setPreviewWidth(720);
-            isLandscape.setPreviewHeight(1280);
-            if (a.Hm().aZp != null) {
-                isLandscape.setSupportFaceStyle(a.Hm().aZp.azj);
+            isLandscape.setPreviewHeight(PlatformPlugin.DEFAULT_SYSTEM_UI);
+            if (a.Hs().aZn != null) {
+                isLandscape.setSupportFaceStyle(a.Hs().aZn.aAw);
             }
             return isLandscape;
         } else if (i2 == 2) {
@@ -99,38 +99,38 @@ public class LiveRecorderConfigHelper {
     public void a(boolean z, AlaLiveVideoConfig alaLiveVideoConfig) {
         if (alaLiveVideoConfig != null) {
             if (z) {
-                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(fG(a.Hm().aZp.ayZ));
+                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(fE(a.Hs().aZn.aAm));
             } else {
-                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(fG(a.Hm().aZp.aza));
+                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(fE(a.Hs().aZn.aAn));
             }
         }
     }
 
-    public void GH() {
-        if (!this.bbz) {
-            this.bby.ev(a.Hm().aZp.ayY);
-            AlaNdkAdapter.setDomainConfigEnable(this.bby.awL ? 1 : 0);
-            if (this.bby.awK.size() > 0 && this.bby.awJ.length() > 0 && this.bby.awL) {
-                for (int i = 0; i < this.bby.awK.size(); i++) {
-                    e.a aVar = this.bby.awK.get(i);
+    public void GO() {
+        if (!this.bbR) {
+            this.bbQ.eu(a.Hs().aZn.aAl);
+            AlaNdkAdapter.setDomainConfigEnable(this.bbQ.axY ? 1 : 0);
+            if (this.bbQ.axX.size() > 0 && this.bbQ.axW.length() > 0 && this.bbQ.axY) {
+                for (int i = 0; i < this.bbQ.axX.size(); i++) {
+                    e.a aVar = this.bbQ.axX.get(i);
                     if (aVar != null && aVar.ip != null && aVar.ip.length() > 0) {
-                        AlaNdkAdapter.setDomainConfig(this.bby.awJ, aVar.ip, aVar.awN);
+                        AlaNdkAdapter.setDomainConfig(this.bbQ.axW, aVar.ip, aVar.aya);
                     }
                 }
             }
-            this.bbz = true;
+            this.bbR = true;
         }
     }
 
-    public void GI() {
-        if (!this.bbA) {
-            AlaNdkAdapter.setHttpDnsEnable(a.Hm().aZp.azd ? 1 : 0);
-            AlaNdkAdapter.setPushOptTimestamp(a.Hm().aZp.azf ? 1 : 0);
-            this.bbA = true;
+    public void GP() {
+        if (!this.bbS) {
+            AlaNdkAdapter.setHttpDnsEnable(a.Hs().aZn.aAq ? 1 : 0);
+            AlaNdkAdapter.setPushOptTimestamp(a.Hs().aZn.aAs ? 1 : 0);
+            this.bbS = true;
         }
     }
 
-    private List<DynamicBitRateConfig.DynamicBitRateItem> fG(String str) {
+    private List<DynamicBitRateConfig.DynamicBitRateItem> fE(String str) {
         JSONArray jSONArray;
         int length;
         int i;
@@ -150,17 +150,17 @@ public class LiveRecorderConfigHelper {
         ArrayList arrayList = new ArrayList();
         for (int i2 = 0; i2 < length; i2++) {
             JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-            int optInt = optJSONObject.optInt(IjkMediaMeta.IJKM_KEY_BITRATE);
+            int optInt = optJSONObject.optInt("bitrate");
             int optInt2 = optJSONObject.optInt("frame");
             Log.i("iveRecordConfigHelper", "@@ old bitrate = " + optInt);
             Log.i("iveRecordConfigHelper", "@@ old     fps = " + optInt2);
             try {
                 HashMap hashMap = new HashMap();
-                hashMap.put(IjkMediaMeta.IJKM_KEY_BITRATE, Integer.valueOf(optInt));
+                hashMap.put("bitrate", Integer.valueOf(optInt));
                 hashMap.put("fps", Integer.valueOf(optInt2));
                 Map<String, Object> process = ExtraParamsManager.getInstance().buildParamsExtra().process(hashMap);
-                if (process.containsKey(IjkMediaMeta.IJKM_KEY_BITRATE)) {
-                    optInt = ((Integer) process.get(IjkMediaMeta.IJKM_KEY_BITRATE)).intValue();
+                if (process.containsKey("bitrate")) {
+                    optInt = ((Integer) process.get("bitrate")).intValue();
                 }
                 i = process.containsKey("fps") ? ((Integer) process.get("fps")).intValue() : optInt2;
                 try {
@@ -184,9 +184,9 @@ public class LiveRecorderConfigHelper {
         return arrayList;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum VideoResolution {
-        P720(1, 1280, 720),
+        P720(1, PlatformPlugin.DEFAULT_SYSTEM_UI, 720),
         P576(2, 1024, 576),
         P540(3, TbConfig.HEAD_IMG_SIZE, 540),
         P360(4, 640, 360),

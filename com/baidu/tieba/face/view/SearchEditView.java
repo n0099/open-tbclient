@@ -15,21 +15,21 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class SearchEditView extends RelativeLayout {
-    private EditText hmp;
-    private ImageView hmq;
-    private ImageView hmr;
-    private LinearLayout hms;
-    private a hmt;
+    private EditText hsb;
+    private ImageView hsc;
+    private ImageView hsd;
+    private LinearLayout hse;
+    private a hsf;
 
     /* loaded from: classes.dex */
     public interface a {
-        void Es(String str);
+        void Fd(String str);
 
-        void Et(String str);
+        void Fe(String str);
     }
 
     public SearchEditView(Context context) {
@@ -49,14 +49,14 @@ public class SearchEditView extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.emotion_search_edit, (ViewGroup) this, true);
-        this.hmp = (EditText) findViewById(R.id.edit_search);
-        this.hmq = (ImageView) findViewById(R.id.iv_search);
-        this.hmr = (ImageView) findViewById(R.id.iv_del_all);
-        this.hms = (LinearLayout) findViewById(R.id.iv_del_all_layout);
-        an.setImageResource(this.hmq, R.drawable.icon_emotion_search);
-        an.setImageResource(this.hmr, R.drawable.del_search_btn);
-        an.setViewTextColor(this.hmp, (int) R.color.cp_cont_b);
-        this.hmp.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.face.view.SearchEditView.1
+        this.hsb = (EditText) findViewById(R.id.edit_search);
+        this.hsc = (ImageView) findViewById(R.id.iv_search);
+        this.hsd = (ImageView) findViewById(R.id.iv_del_all);
+        this.hse = (LinearLayout) findViewById(R.id.iv_del_all_layout);
+        ao.setImageResource(this.hsc, R.drawable.icon_emotion_search);
+        ao.setImageResource(this.hsd, R.drawable.del_search_btn);
+        ao.setViewTextColor(this.hsb, R.color.cp_cont_b);
+        this.hsb.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.face.view.SearchEditView.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -67,33 +67,33 @@ public class SearchEditView extends RelativeLayout {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (SearchEditView.this.hmt != null) {
-                    SearchEditView.this.hmt.Et(editable.toString().trim());
+                if (SearchEditView.this.hsf != null) {
+                    SearchEditView.this.hsf.Fe(editable.toString().trim());
                 }
                 if (editable.toString().trim().length() == 0) {
-                    SearchEditView.this.hms.setVisibility(4);
+                    SearchEditView.this.hse.setVisibility(4);
                 } else {
-                    SearchEditView.this.hms.setVisibility(0);
+                    SearchEditView.this.hse.setVisibility(0);
                 }
             }
         });
-        this.hmp.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.face.view.SearchEditView.2
+        this.hsb.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.face.view.SearchEditView.2
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 3) {
-                    String trim = SearchEditView.this.hmp.getText().toString().trim();
-                    if (!TextUtils.isEmpty(trim) && SearchEditView.this.hmt != null) {
-                        SearchEditView.this.hmt.Es(trim);
+                    String trim = SearchEditView.this.hsb.getText().toString().trim();
+                    if (!TextUtils.isEmpty(trim) && SearchEditView.this.hsf != null) {
+                        SearchEditView.this.hsf.Fd(trim);
                     }
                     return true;
                 }
                 return false;
             }
         });
-        this.hms.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.face.view.SearchEditView.3
+        this.hse.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.face.view.SearchEditView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                SearchEditView.this.hmp.setText("");
+                SearchEditView.this.hsb.setText("");
             }
         });
         onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
@@ -101,30 +101,30 @@ public class SearchEditView extends RelativeLayout {
 
     public void onChangeSkin(int i) {
         if (i == 0) {
-            this.hmp.setHintTextColor(getResources().getColor(R.color.cp_cont_d));
+            this.hsb.setHintTextColor(getResources().getColor(R.color.cp_cont_d));
         } else {
-            this.hmp.setHintTextColor(getResources().getColor(R.color.cp_cont_d_1));
+            this.hsb.setHintTextColor(getResources().getColor(R.color.cp_cont_d_1));
         }
     }
 
     public void setCallback(a aVar) {
-        this.hmt = aVar;
+        this.hsf = aVar;
     }
 
     public void setText(String str) {
         if (str != null) {
-            this.hmp.setText(str);
-            this.hmp.setSelection(str.length());
+            this.hsb.setText(str);
+            this.hsb.setSelection(str.length());
         }
     }
 
     public void setSelection(int i) {
-        if (i <= this.hmp.getText().length()) {
-            this.hmp.setSelection(i);
+        if (i <= this.hsb.getText().length()) {
+            this.hsb.setSelection(i);
         }
     }
 
-    public boolean bTY() {
-        return this.hmp.requestFocus();
+    public boolean bXr() {
+        return this.hsb.requestFocus();
     }
 }

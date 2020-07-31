@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.alaar.sticker.download;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     private int maxThreadNum = 10;
     private int threadNum = 2;

@@ -2,7 +2,7 @@ package com.baidu.android.pushservice;
 
 import com.baidu.live.tbadk.core.util.NetWorkErr;
 import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class PushConstants {
     public static final int LOGIN_TYPE_API_KEY = 0;
 

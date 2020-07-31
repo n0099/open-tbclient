@@ -1,11 +1,11 @@
 package org.brotli.dec;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public final class d {
-    private static final int[] nYg = {1, 2, 3, 4, 0, 5, 17, 6, 16, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-    private static final int[] nYh = {3, 2, 1, 0, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2};
-    private static final int[] nYi = {0, 0, 0, 0, -1, 1, -2, 2, -3, 3, -1, 1, -2, 2, -3, 3};
-    private static final int[] nYj = {131072, 131076, 131075, 196610, 131072, 131076, 131075, 262145, 131072, 131076, 131075, 196610, 131072, 131076, 131075, 262149};
+    private static final int[] ogQ = {1, 2, 3, 4, 0, 5, 17, 6, 16, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+    private static final int[] ogR = {3, 2, 1, 0, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2};
+    private static final int[] ogS = {0, 0, 0, 0, -1, 1, -2, 2, -3, 3, -1, 1, -2, 2, -3, 3};
+    private static final int[] ogT = {131072, 131076, 131075, 196610, 131072, 131076, 131075, 262145, 131072, 131076, 131075, 196610, 131072, 131076, 131075, 262149};
 
     private static int h(a aVar) {
         if (a.a(aVar, 1) != 0) {
@@ -19,14 +19,14 @@ public final class d {
     }
 
     private static void a(a aVar, j jVar) {
-        jVar.nYF = a.a(aVar, 1) == 1;
-        jVar.nYE = 0;
-        jVar.nYG = false;
-        jVar.nYH = false;
-        if (!jVar.nYF || a.a(aVar, 1) == 0) {
+        jVar.ohp = a.a(aVar, 1) == 1;
+        jVar.oho = 0;
+        jVar.ohq = false;
+        jVar.ohr = false;
+        if (!jVar.ohp || a.a(aVar, 1) == 0) {
             int a = a.a(aVar, 2) + 4;
             if (a == 7) {
-                jVar.nYH = true;
+                jVar.ohr = true;
                 if (a.a(aVar, 1) != 0) {
                     throw new BrotliRuntimeException("Corrupted reserved bit");
                 }
@@ -37,7 +37,7 @@ public final class d {
                         if (a3 == 0 && i + 1 == a2 && a2 > 1) {
                             throw new BrotliRuntimeException("Exuberant nibble");
                         }
-                        jVar.nYE = (a3 << (i * 8)) | jVar.nYE;
+                        jVar.oho = (a3 << (i * 8)) | jVar.oho;
                     }
                 } else {
                     return;
@@ -48,18 +48,18 @@ public final class d {
                     if (a4 == 0 && i2 + 1 == a && a > 4) {
                         throw new BrotliRuntimeException("Exuberant nibble");
                     }
-                    jVar.nYE = (a4 << (i2 * 4)) | jVar.nYE;
+                    jVar.oho = (a4 << (i2 * 4)) | jVar.oho;
                 }
             }
-            jVar.nYE++;
-            if (!jVar.nYF) {
-                jVar.nYG = a.a(aVar, 1) == 1;
+            jVar.oho++;
+            if (!jVar.ohp) {
+                jVar.ohq = a.a(aVar, 1) == 1;
             }
         }
     }
 
     private static int a(int[] iArr, int i, a aVar) {
-        int i2 = (int) (aVar.nXZ >>> aVar.bitOffset);
+        int i2 = (int) (aVar.ogJ >>> aVar.bitOffset);
         int i3 = i + (i2 & 255);
         int i4 = iArr[i3] >> 16;
         int i5 = iArr[i3] & 65535;
@@ -75,11 +75,11 @@ public final class d {
     private static int b(int[] iArr, int i, a aVar) {
         a.b(aVar);
         int a = a(iArr, i, aVar);
-        return i.nYq[a] + a.a(aVar, i.nYr[a]);
+        return i.oha[a] + a.a(aVar, i.ohb[a]);
     }
 
     private static int a(int i, int[] iArr, int i2) {
-        return i < 16 ? iArr[(nYh[i] + i2) & 3] + nYi[i] : (i - 16) + 1;
+        return i < 16 ? iArr[(ogR[i] + i2) & 3] + ogS[i] : (i - 16) + 1;
     }
 
     private static void b(int[] iArr, int i) {
@@ -121,7 +121,7 @@ public final class d {
         while (i7 < i && i11 > 0) {
             a.a(aVar);
             a.b(aVar);
-            int i12 = ((int) (aVar.nXZ >>> aVar.bitOffset)) & 31;
+            int i12 = ((int) (aVar.ogJ >>> aVar.bitOffset)) & 31;
             aVar.bitOffset += iArr3[i12] >> 16;
             int i13 = 65535 & iArr3[i12];
             if (i13 < 16) {
@@ -236,11 +236,11 @@ public final class d {
             int i6 = 32;
             int i7 = 0;
             for (int i8 = a; i8 < 18 && i6 > 0; i8++) {
-                int i9 = nYg[i8];
+                int i9 = ogQ[i8];
                 a.b(aVar);
-                int i10 = ((int) (aVar.nXZ >>> aVar.bitOffset)) & 15;
-                aVar.bitOffset += nYj[i10] >> 16;
-                int i11 = nYj[i10] & 65535;
+                int i10 = ((int) (aVar.ogJ >>> aVar.bitOffset)) & 15;
+                aVar.bitOffset += ogT[i10] >> 16;
+                int i11 = ogT[i10] & 65535;
                 iArr4[i9] = i11;
                 if (i11 != 0) {
                     i6 -= 32 >> i11;
@@ -262,7 +262,7 @@ public final class d {
         a.a(aVar);
         int h = h(aVar) + 1;
         if (h == 1) {
-            l.w(bArr, 0, i);
+            l.x(bArr, 0, i);
             return h;
         }
         int a = a.a(aVar, 1) == 1 ? a.a(aVar, 4) + 1 : 0;
@@ -303,12 +303,12 @@ public final class d {
 
     private static void a(j jVar, int i) {
         int i2;
-        a aVar = jVar.nYA;
-        int[] iArr = jVar.nYN;
+        a aVar = jVar.ohk;
+        int[] iArr = jVar.ohx;
         int i3 = i * 2;
         a.b(aVar);
-        int a = a(jVar.nYC, i * 1080, aVar);
-        jVar.nYL[i] = b(jVar.nYD, i * 1080, aVar);
+        int a = a(jVar.ohm, i * 1080, aVar);
+        jVar.ohv[i] = b(jVar.ohn, i * 1080, aVar);
         if (a == 1) {
             i2 = iArr[i3 + 1] + 1;
         } else if (a == 0) {
@@ -316,8 +316,8 @@ public final class d {
         } else {
             i2 = a - 2;
         }
-        if (i2 >= jVar.nYM[i]) {
-            i2 -= jVar.nYM[i];
+        if (i2 >= jVar.ohw[i]) {
+            i2 -= jVar.ohw[i];
         }
         iArr[i3] = iArr[i3 + 1];
         iArr[i3 + 1] = i2;
@@ -325,27 +325,27 @@ public final class d {
 
     private static void a(j jVar) {
         a(jVar, 0);
-        int i = jVar.nYN[1];
-        jVar.nYW = i << 6;
-        jVar.nYR = jVar.nYV[jVar.nYW] & 255;
-        jVar.nYS = jVar.nYI.nYp[jVar.nYR];
-        byte b = jVar.nYU[i];
-        jVar.nYY = c.nYf[b];
-        jVar.nYZ = c.nYf[b + 1];
+        int i = jVar.ohx[1];
+        jVar.ohG = i << 6;
+        jVar.ohB = jVar.ohF[jVar.ohG] & 255;
+        jVar.ohC = jVar.ohs.ogZ[jVar.ohB];
+        byte b = jVar.ohE[i];
+        jVar.ohI = c.ogP[b];
+        jVar.ohJ = c.ogP[b + 1];
     }
 
     private static void b(j jVar) {
         a(jVar, 1);
-        jVar.nZa = jVar.nYJ.nYp[jVar.nYN[3]];
+        jVar.ohK = jVar.oht.ogZ[jVar.ohx[3]];
     }
 
     private static void c(j jVar) {
         a(jVar, 2);
-        jVar.nYX = jVar.nYN[5] << 2;
+        jVar.ohH = jVar.ohx[5] << 2;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x0022, code lost:
-        if (r8.nZj >= 16384) goto L13;
+        if (r8.ohT >= 16384) goto L13;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -354,66 +354,66 @@ public final class d {
         int i;
         int i2;
         int i3 = 16384;
-        int i4 = jVar.nZj;
-        if (i4 > jVar.nZl) {
-            while ((i4 >> 1) > ((int) jVar.nZl) + jVar.nZm.length) {
+        int i4 = jVar.ohT;
+        if (i4 > jVar.ohV) {
+            while ((i4 >> 1) > ((int) jVar.ohV) + jVar.ohW.length) {
                 i4 >>= 1;
             }
-            if (!jVar.nYF) {
+            if (!jVar.ohp) {
                 if (i4 < 16384) {
                 }
             }
         }
         i3 = i4;
-        if (i3 > jVar.nZk) {
+        if (i3 > jVar.ohU) {
             byte[] bArr = new byte[i3 + 37];
-            if (jVar.nYB != null) {
-                System.arraycopy(jVar.nYB, 0, bArr, 0, jVar.nZk);
-            } else if (jVar.nZm.length != 0) {
-                int length = jVar.nZm.length;
-                if (length > jVar.nZi) {
-                    i2 = length - jVar.nZi;
-                    i = jVar.nZi;
+            if (jVar.ohl != null) {
+                System.arraycopy(jVar.ohl, 0, bArr, 0, jVar.ohU);
+            } else if (jVar.ohW.length != 0) {
+                int length = jVar.ohW.length;
+                if (length > jVar.ohS) {
+                    i2 = length - jVar.ohS;
+                    i = jVar.ohS;
                 } else {
                     i = length;
                     i2 = 0;
                 }
-                System.arraycopy(jVar.nZm, i2, bArr, 0, i);
+                System.arraycopy(jVar.ohW, i2, bArr, 0, i);
                 jVar.pos = i;
-                jVar.nZn = i;
+                jVar.ohX = i;
             }
-            jVar.nYB = bArr;
-            jVar.nZk = i3;
+            jVar.ohl = bArr;
+            jVar.ohU = i3;
         }
     }
 
     private static void e(j jVar) {
-        a aVar = jVar.nYA;
-        if (jVar.nYF) {
-            jVar.nYz = 10;
-            jVar.nZr = jVar.pos;
-            jVar.nDe = 0;
-            jVar.nYy = 12;
+        a aVar = jVar.ohk;
+        if (jVar.ohp) {
+            jVar.ohj = 10;
+            jVar.oib = jVar.pos;
+            jVar.nLM = 0;
+            jVar.ohi = 12;
             return;
         }
-        jVar.nYI.nYo = null;
-        jVar.nYI.nYp = null;
-        jVar.nYJ.nYo = null;
-        jVar.nYJ.nYp = null;
-        jVar.nYK.nYo = null;
-        jVar.nYK.nYp = null;
+        jVar.ohs.ogY = null;
+        jVar.ohs.ogZ = null;
+        jVar.oht.ogY = null;
+        jVar.oht.ogZ = null;
+        jVar.ohu.ogY = null;
+        jVar.ohu.ogZ = null;
         a.a(aVar);
         a(aVar, jVar);
-        if (jVar.nYE != 0 || jVar.nYH) {
-            if (jVar.nYG || jVar.nYH) {
+        if (jVar.oho != 0 || jVar.ohr) {
+            if (jVar.ohq || jVar.ohr) {
                 a.f(aVar);
-                jVar.nYy = jVar.nYH ? 4 : 5;
+                jVar.ohi = jVar.ohr ? 4 : 5;
             } else {
-                jVar.nYy = 2;
+                jVar.ohi = 2;
             }
-            if (!jVar.nYH) {
-                jVar.nZl += jVar.nYE;
-                if (jVar.nZk < jVar.nZj) {
+            if (!jVar.ohr) {
+                jVar.ohV += jVar.oho;
+                if (jVar.ohU < jVar.ohT) {
                     d(jVar);
                 }
             }
@@ -421,109 +421,109 @@ public final class d {
     }
 
     private static void f(j jVar) {
-        a aVar = jVar.nYA;
+        a aVar = jVar.ohk;
         for (int i = 0; i < 3; i++) {
-            jVar.nYM[i] = h(aVar) + 1;
-            jVar.nYL[i] = 268435456;
-            if (jVar.nYM[i] > 1) {
-                a(jVar.nYM[i] + 2, jVar.nYC, i * 1080, aVar);
-                a(26, jVar.nYD, i * 1080, aVar);
-                jVar.nYL[i] = b(jVar.nYD, i * 1080, aVar);
+            jVar.ohw[i] = h(aVar) + 1;
+            jVar.ohv[i] = 268435456;
+            if (jVar.ohw[i] > 1) {
+                a(jVar.ohw[i] + 2, jVar.ohm, i * 1080, aVar);
+                a(26, jVar.ohn, i * 1080, aVar);
+                jVar.ohv[i] = b(jVar.ohn, i * 1080, aVar);
             }
         }
         a.a(aVar);
-        jVar.nZf = a.a(aVar, 2);
-        jVar.nZd = (a.a(aVar, 4) << jVar.nZf) + 16;
-        jVar.nZe = (1 << jVar.nZf) - 1;
-        int i2 = (48 << jVar.nZf) + jVar.nZd;
-        jVar.nYU = new byte[jVar.nYM[0]];
+        jVar.ohP = a.a(aVar, 2);
+        jVar.ohN = (a.a(aVar, 4) << jVar.ohP) + 16;
+        jVar.ohO = (1 << jVar.ohP) - 1;
+        int i2 = (48 << jVar.ohP) + jVar.ohN;
+        jVar.ohE = new byte[jVar.ohw[0]];
         int i3 = 0;
-        while (i3 < jVar.nYM[0]) {
-            int min = Math.min(i3 + 96, jVar.nYM[0]);
+        while (i3 < jVar.ohw[0]) {
+            int min = Math.min(i3 + 96, jVar.ohw[0]);
             while (i3 < min) {
-                jVar.nYU[i3] = (byte) (a.a(aVar, 2) << 1);
+                jVar.ohE[i3] = (byte) (a.a(aVar, 2) << 1);
                 i3++;
             }
             a.a(aVar);
         }
-        jVar.nYV = new byte[jVar.nYM[0] << 6];
-        int a = a(jVar.nYM[0] << 6, jVar.nYV, aVar);
-        jVar.nYQ = true;
+        jVar.ohF = new byte[jVar.ohw[0] << 6];
+        int a = a(jVar.ohw[0] << 6, jVar.ohF, aVar);
+        jVar.ohA = true;
         int i4 = 0;
         while (true) {
-            if (i4 < (jVar.nYM[0] << 6)) {
-                if (jVar.nYV[i4] == (i4 >> 6)) {
+            if (i4 < (jVar.ohw[0] << 6)) {
+                if (jVar.ohF[i4] == (i4 >> 6)) {
                     i4++;
                 } else {
-                    jVar.nYQ = false;
+                    jVar.ohA = false;
                     break;
                 }
             } else {
                 break;
             }
         }
-        jVar.nZc = new byte[jVar.nYM[2] << 2];
-        int a2 = a(jVar.nYM[2] << 2, jVar.nZc, aVar);
-        g.a(jVar.nYI, 256, a);
-        g.a(jVar.nYJ, 704, jVar.nYM[1]);
-        g.a(jVar.nYK, i2, a2);
-        g.a(jVar.nYI, aVar);
-        g.a(jVar.nYJ, aVar);
-        g.a(jVar.nYK, aVar);
-        jVar.nYW = 0;
-        jVar.nYX = 0;
-        jVar.nYY = c.nYf[jVar.nYU[0]];
-        jVar.nYZ = c.nYf[jVar.nYU[0] + 1];
-        jVar.nYR = 0;
-        jVar.nYS = jVar.nYI.nYp[0];
-        jVar.nZa = jVar.nYJ.nYp[0];
-        int[] iArr = jVar.nYN;
-        int[] iArr2 = jVar.nYN;
-        jVar.nYN[4] = 1;
+        jVar.ohM = new byte[jVar.ohw[2] << 2];
+        int a2 = a(jVar.ohw[2] << 2, jVar.ohM, aVar);
+        g.a(jVar.ohs, 256, a);
+        g.a(jVar.oht, 704, jVar.ohw[1]);
+        g.a(jVar.ohu, i2, a2);
+        g.a(jVar.ohs, aVar);
+        g.a(jVar.oht, aVar);
+        g.a(jVar.ohu, aVar);
+        jVar.ohG = 0;
+        jVar.ohH = 0;
+        jVar.ohI = c.ogP[jVar.ohE[0]];
+        jVar.ohJ = c.ogP[jVar.ohE[0] + 1];
+        jVar.ohB = 0;
+        jVar.ohC = jVar.ohs.ogZ[0];
+        jVar.ohK = jVar.oht.ogZ[0];
+        int[] iArr = jVar.ohx;
+        int[] iArr2 = jVar.ohx;
+        jVar.ohx[4] = 1;
         iArr2[2] = 1;
         iArr[0] = 1;
-        int[] iArr3 = jVar.nYN;
-        int[] iArr4 = jVar.nYN;
-        jVar.nYN[5] = 0;
+        int[] iArr3 = jVar.ohx;
+        int[] iArr4 = jVar.ohx;
+        jVar.ohx[5] = 0;
         iArr4[3] = 0;
         iArr3[1] = 0;
     }
 
     private static void g(j jVar) {
-        a aVar = jVar.nYA;
-        byte[] bArr = jVar.nYB;
-        if (jVar.nYE <= 0) {
+        a aVar = jVar.ohk;
+        byte[] bArr = jVar.ohl;
+        if (jVar.oho <= 0) {
             a.d(aVar);
-            jVar.nYy = 1;
+            jVar.ohi = 1;
             return;
         }
-        int min = Math.min(jVar.nZk - jVar.pos, jVar.nYE);
+        int min = Math.min(jVar.ohU - jVar.pos, jVar.oho);
         a.a(aVar, bArr, jVar.pos, min);
-        jVar.nYE -= min;
+        jVar.oho -= min;
         jVar.pos += min;
-        if (jVar.pos == jVar.nZk) {
-            jVar.nYz = 5;
-            jVar.nZr = jVar.nZk;
-            jVar.nDe = 0;
-            jVar.nYy = 12;
+        if (jVar.pos == jVar.ohU) {
+            jVar.ohj = 5;
+            jVar.oib = jVar.ohU;
+            jVar.nLM = 0;
+            jVar.ohi = 12;
             return;
         }
         a.d(aVar);
-        jVar.nYy = 1;
+        jVar.ohi = 1;
     }
 
     private static boolean h(j jVar) {
-        if (jVar.nZn != 0) {
-            jVar.nDe += jVar.nZn;
-            jVar.nZn = 0;
+        if (jVar.ohX != 0) {
+            jVar.nLM += jVar.ohX;
+            jVar.ohX = 0;
         }
-        int min = Math.min(jVar.nZp - jVar.nZq, jVar.nZr - jVar.nDe);
+        int min = Math.min(jVar.ohZ - jVar.oia, jVar.oib - jVar.nLM);
         if (min != 0) {
-            System.arraycopy(jVar.nYB, jVar.nDe, jVar.output, jVar.nZo + jVar.nZq, min);
-            jVar.nZq += min;
-            jVar.nDe = min + jVar.nDe;
+            System.arraycopy(jVar.ohl, jVar.nLM, jVar.output, jVar.ohY + jVar.oia, min);
+            jVar.oia += min;
+            jVar.nLM = min + jVar.nLM;
         }
-        return jVar.nZq < jVar.nZp;
+        return jVar.oia < jVar.ohZ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -531,7 +531,7 @@ public final class d {
         if (bArr == null) {
             bArr = new byte[0];
         }
-        jVar.nZm = bArr;
+        jVar.ohW = bArr;
     }
 
     /*  JADX ERROR: IF instruction can be used only in fallback mode
@@ -597,14 +597,14 @@ public final class d {
     */
     public static void i(org.brotli.dec.j r11) {
         /*
-            int r0 = r11.nYy
+            int r0 = r11.ohi
             if (r0 != 0) goto Ld
             java.lang.IllegalStateException r0 = new java.lang.IllegalStateException
             java.lang.String r1 = "Can't decompress until initialized"
             r0.<init>(r1)
             throw r0
         Ld:
-            int r0 = r11.nYy
+            int r0 = r11.ohi
             r1 = 11
             if (r0 != r1) goto L1c
             java.lang.IllegalStateException r0 = new java.lang.IllegalStateException
@@ -612,16 +612,16 @@ public final class d {
             r0.<init>(r1)
             throw r0
         L1c:
-            org.brotli.dec.a r7 = r11.nYA
-            int r0 = r11.nZk
+            org.brotli.dec.a r7 = r11.ohk
+            int r0 = r11.ohU
             int r1 = r0 + (-1)
-            byte[] r0 = r11.nYB
+            byte[] r0 = r11.ohl
             r6 = r1
         L25:
-            int r1 = r11.nYy
+            int r1 = r11.ohi
             r2 = 10
             if (r1 == r2) goto L3d1
-            int r1 = r11.nYy
+            int r1 = r11.ohi
             switch(r1) {
                 case 1: goto L4c;
                 case 2: goto L64;
@@ -643,13 +643,13 @@ public final class d {
             r1.<init>()
             java.lang.String r2 = "Unexpected state "
             java.lang.StringBuilder r1 = r1.append(r2)
-            int r2 = r11.nYy
+            int r2 = r11.ohi
             java.lang.StringBuilder r1 = r1.append(r2)
             java.lang.String r1 = r1.toString()
             r0.<init>(r1)
             throw r0
         L4c:
-            int r0 = r11.nYE
+            int r0 = r11.oho
             if (r0 >= 0) goto L59
             org.brotli.dec.BrotliRuntimeException r0 = new org.brotli.dec.BrotliRuntimeException
             java.lang.String r1 = "Invalid metablock length"
@@ -657,99 +657,99 @@ public final class d {
             throw r0
         L59:
             e(r11)
-            int r0 = r11.nZk
+            int r0 = r11.ohU
             int r1 = r0 + (-1)
-            byte[] r0 = r11.nYB
+            byte[] r0 = r11.ohl
             r6 = r1
             goto L25
         L64:
             f(r11)
             r1 = 3
-            r11.nYy = r1
+            r11.ohi = r1
         L6a:
-            int r1 = r11.nYE
+            int r1 = r11.oho
             if (r1 > 0) goto L72
             r1 = 1
-            r11.nYy = r1
+            r11.ohi = r1
             goto L25
         L72:
             org.brotli.dec.a.a(r7)
-            int[] r1 = r11.nYL
+            int[] r1 = r11.ohv
             r2 = 1
             r1 = r1[r2]
             if (r1 != 0) goto L7f
             b(r11)
         L7f:
-            int[] r1 = r11.nYL
+            int[] r1 = r11.ohv
             r2 = 1
             r3 = r1[r2]
             int r3 = r3 + (-1)
             r1[r2] = r3
             org.brotli.dec.a.b(r7)
-            org.brotli.dec.g r1 = r11.nYJ
-            int[] r1 = r1.nYo
-            int r2 = r11.nZa
+            org.brotli.dec.g r1 = r11.oht
+            int[] r1 = r1.ogY
+            int r2 = r11.ohK
             int r2 = a(r1, r2, r7)
             int r1 = r2 >>> 6
             r3 = 0
-            r11.nZb = r3
+            r11.ohL = r3
             r3 = 2
             if (r1 < r3) goto La2
             int r1 = r1 + (-2)
             r3 = -1
-            r11.nZb = r3
+            r11.ohL = r3
         La2:
-            int[] r3 = org.brotli.dec.i.nYw
+            int[] r3 = org.brotli.dec.i.ohg
             r3 = r3[r1]
             int r4 = r2 >>> 3
             r4 = r4 & 7
             int r3 = r3 + r4
-            int[] r4 = org.brotli.dec.i.nYx
+            int[] r4 = org.brotli.dec.i.ohh
             r1 = r4[r1]
             r2 = r2 & 7
             int r1 = r1 + r2
-            int[] r2 = org.brotli.dec.i.nYs
+            int[] r2 = org.brotli.dec.i.ohc
             r2 = r2[r3]
-            int[] r4 = org.brotli.dec.i.nYt
+            int[] r4 = org.brotli.dec.i.ohd
             r3 = r4[r3]
             int r3 = org.brotli.dec.a.a(r7, r3)
             int r2 = r2 + r3
-            r11.nYT = r2
-            int[] r2 = org.brotli.dec.i.nYu
+            r11.ohD = r2
+            int[] r2 = org.brotli.dec.i.ohe
             r2 = r2[r1]
-            int[] r3 = org.brotli.dec.i.nYv
+            int[] r3 = org.brotli.dec.i.ohf
             r1 = r3[r1]
             int r1 = org.brotli.dec.a.a(r7, r1)
             int r1 = r1 + r2
-            r11.nZg = r1
+            r11.ohQ = r1
             r1 = 0
             r11.j = r1
             r1 = 6
-            r11.nYy = r1
+            r11.ohi = r1
         Ld6:
-            boolean r1 = r11.nYQ
+            boolean r1 = r11.ohA
             if (r1 == 0) goto L139
         Lda:
             int r1 = r11.j
-            int r2 = r11.nYT
+            int r2 = r11.ohD
             if (r1 >= r2) goto L124
             org.brotli.dec.a.a(r7)
-            int[] r1 = r11.nYL
+            int[] r1 = r11.ohv
             r2 = 0
             r1 = r1[r2]
             if (r1 != 0) goto Led
             a(r11)
         Led:
-            int[] r1 = r11.nYL
+            int[] r1 = r11.ohv
             r2 = 0
             r3 = r1[r2]
             int r3 = r3 + (-1)
             r1[r2] = r3
             org.brotli.dec.a.b(r7)
             int r1 = r11.pos
-            org.brotli.dec.g r2 = r11.nYI
-            int[] r2 = r2.nYo
-            int r3 = r11.nYS
+            org.brotli.dec.g r2 = r11.ohs
+            int[] r2 = r2.ogY
+            int r3 = r11.ohC
             int r2 = a(r2, r3, r7)
             byte r2 = (byte) r2
             r0[r1] = r2
@@ -761,25 +761,25 @@ public final class d {
             r11.pos = r2
             if (r1 != r6) goto Lda
             r1 = 6
-            r11.nYz = r1
-            int r1 = r11.nZk
-            r11.nZr = r1
+            r11.ohj = r1
+            int r1 = r11.ohU
+            r11.oib = r1
             r1 = 0
-            r11.nDe = r1
+            r11.nLM = r1
             r1 = 12
-            r11.nYy = r1
+            r11.ohi = r1
         L124:
-            int r1 = r11.nYy
+            int r1 = r11.ohi
             r2 = 6
             if (r1 != r2) goto L25
-            int r1 = r11.nYE
-            int r2 = r11.nYT
+            int r1 = r11.oho
+            int r2 = r11.ohD
             int r1 = r1 - r2
-            r11.nYE = r1
-            int r1 = r11.nYE
+            r11.oho = r1
+            int r1 = r11.oho
             if (r1 > 0) goto L1b7
             r1 = 3
-            r11.nYy = r1
+            r11.ohi = r1
             goto L25
         L139:
             int r1 = r11.pos
@@ -794,39 +794,39 @@ public final class d {
             r1 = r1 & 255(0xff, float:3.57E-43)
         L14b:
             int r3 = r11.j
-            int r4 = r11.nYT
+            int r4 = r11.ohD
             if (r3 >= r4) goto L124
             org.brotli.dec.a.a(r7)
-            int[] r3 = r11.nYL
+            int[] r3 = r11.ohv
             r4 = 0
             r3 = r3[r4]
             if (r3 != 0) goto L15e
             a(r11)
         L15e:
-            byte[] r3 = r11.nYV
-            int r4 = r11.nYW
-            int[] r5 = org.brotli.dec.c.nYe
-            int r8 = r11.nYY
+            byte[] r3 = r11.ohF
+            int r4 = r11.ohG
+            int[] r5 = org.brotli.dec.c.ogO
+            int r8 = r11.ohI
             int r8 = r8 + r2
             r5 = r5[r8]
-            int[] r8 = org.brotli.dec.c.nYe
-            int r9 = r11.nYZ
+            int[] r8 = org.brotli.dec.c.ogO
+            int r9 = r11.ohJ
             int r1 = r1 + r9
             r1 = r8[r1]
             r1 = r1 | r5
             int r1 = r1 + r4
             r1 = r3[r1]
             r1 = r1 & 255(0xff, float:3.57E-43)
-            int[] r3 = r11.nYL
+            int[] r3 = r11.ohv
             r4 = 0
             r5 = r3[r4]
             int r5 = r5 + (-1)
             r3[r4] = r5
             org.brotli.dec.a.b(r7)
-            org.brotli.dec.g r3 = r11.nYI
-            int[] r3 = r3.nYo
-            org.brotli.dec.g r4 = r11.nYI
-            int[] r4 = r4.nYp
+            org.brotli.dec.g r3 = r11.ohs
+            int[] r3 = r3.ogY
+            org.brotli.dec.g r4 = r11.ohs
+            int[] r4 = r4.ogZ
             r1 = r4[r1]
             int r1 = a(r3, r1, r7)
             int r3 = r11.pos
@@ -840,13 +840,13 @@ public final class d {
             r11.pos = r4
             if (r3 != r6) goto L1b3
             r1 = 6
-            r11.nYz = r1
-            int r1 = r11.nZk
-            r11.nZr = r1
+            r11.ohj = r1
+            int r1 = r11.ohU
+            r11.oib = r1
             r1 = 0
-            r11.nDe = r1
+            r11.nLM = r1
             r1 = 12
-            r11.nYy = r1
+            r11.ohi = r1
             goto L124
         L1b3:
             r10 = r2
@@ -854,28 +854,28 @@ public final class d {
             r1 = r10
             goto L14b
         L1b7:
-            int r1 = r11.nZb
+            int r1 = r11.ohL
             if (r1 >= 0) goto L229
             org.brotli.dec.a.a(r7)
-            int[] r1 = r11.nYL
+            int[] r1 = r11.ohv
             r2 = 2
             r1 = r1[r2]
             if (r1 != 0) goto L1c8
             c(r11)
         L1c8:
-            int[] r1 = r11.nYL
+            int[] r1 = r11.ohv
             r2 = 2
             r3 = r1[r2]
             int r3 = r3 + (-1)
             r1[r2] = r3
             org.brotli.dec.a.b(r7)
-            org.brotli.dec.g r1 = r11.nYK
-            int[] r2 = r1.nYo
-            org.brotli.dec.g r1 = r11.nYK
-            int[] r3 = r1.nYp
-            byte[] r4 = r11.nZc
-            int r5 = r11.nYX
-            int r1 = r11.nZg
+            org.brotli.dec.g r1 = r11.ohu
+            int[] r2 = r1.ogY
+            org.brotli.dec.g r1 = r11.ohu
+            int[] r3 = r1.ogZ
+            byte[] r4 = r11.ohM
+            int r5 = r11.ohH
+            int r1 = r11.ohQ
             r8 = 4
             if (r1 <= r8) goto L242
             r1 = 3
@@ -885,41 +885,41 @@ public final class d {
             r1 = r1 & 255(0xff, float:3.57E-43)
             r1 = r3[r1]
             int r1 = a(r2, r1, r7)
-            r11.nZb = r1
-            int r1 = r11.nZb
-            int r2 = r11.nZd
+            r11.ohL = r1
+            int r1 = r11.ohL
+            int r2 = r11.ohN
             if (r1 < r2) goto L229
-            int r1 = r11.nZb
-            int r2 = r11.nZd
+            int r1 = r11.ohL
+            int r2 = r11.ohN
             int r1 = r1 - r2
-            r11.nZb = r1
-            int r1 = r11.nZb
-            int r2 = r11.nZe
+            r11.ohL = r1
+            int r1 = r11.ohL
+            int r2 = r11.ohO
             r1 = r1 & r2
-            int r2 = r11.nZb
-            int r3 = r11.nZf
+            int r2 = r11.ohL
+            int r3 = r11.ohP
             int r2 = r2 >>> r3
-            r11.nZb = r2
-            int r2 = r11.nZb
+            r11.ohL = r2
+            int r2 = r11.ohL
             int r2 = r2 >>> 1
             int r2 = r2 + 1
-            int r3 = r11.nZb
+            int r3 = r11.ohL
             r3 = r3 & 1
             int r3 = r3 + 2
             int r3 = r3 << r2
             int r3 = r3 + (-4)
-            int r4 = r11.nZd
+            int r4 = r11.ohN
             int r1 = r1 + r4
             int r2 = org.brotli.dec.a.a(r7, r2)
             int r2 = r2 + r3
-            int r3 = r11.nZf
+            int r3 = r11.ohP
             int r2 = r2 << r3
             int r1 = r1 + r2
-            r11.nZb = r1
+            r11.ohL = r1
         L229:
-            int r1 = r11.nZb
-            int[] r2 = r11.nYO
-            int r3 = r11.nYP
+            int r1 = r11.ohL
+            int[] r2 = r11.ohy
+            int r3 = r11.ohz
             int r1 = a(r1, r2, r3)
             r11.distance = r1
             int r1 = r11.distance
@@ -929,45 +929,45 @@ public final class d {
             r0.<init>(r1)
             throw r0
         L242:
-            int r1 = r11.nZg
+            int r1 = r11.ohQ
             int r1 = r1 + (-2)
             goto L1e6
         L247:
-            int r1 = r11.fPC
-            int r2 = r11.nZi
+            int r1 = r11.fUV
+            int r2 = r11.ohS
             if (r1 == r2) goto L267
             int r1 = r11.pos
-            int r2 = r11.nZi
+            int r2 = r11.ohS
             if (r1 >= r2) goto L267
             int r1 = r11.pos
-            r11.fPC = r1
+            r11.fUV = r1
         L257:
             int r1 = r11.pos
-            r11.nZh = r1
+            r11.ohR = r1
             int r1 = r11.distance
-            int r2 = r11.fPC
+            int r2 = r11.fUV
             if (r1 <= r2) goto L26c
             r1 = 9
-            r11.nYy = r1
+            r11.ohi = r1
             goto L25
         L267:
-            int r1 = r11.nZi
-            r11.fPC = r1
+            int r1 = r11.ohS
+            r11.fUV = r1
             goto L257
         L26c:
-            int r1 = r11.nZb
+            int r1 = r11.ohL
             if (r1 <= 0) goto L280
-            int[] r1 = r11.nYO
-            int r2 = r11.nYP
+            int[] r1 = r11.ohy
+            int r2 = r11.ohz
             r2 = r2 & 3
             int r3 = r11.distance
             r1[r2] = r3
-            int r1 = r11.nYP
+            int r1 = r11.ohz
             int r1 = r1 + 1
-            r11.nYP = r1
+            r11.ohz = r1
         L280:
-            int r1 = r11.nZg
-            int r2 = r11.nYE
+            int r1 = r11.ohQ
+            int r2 = r11.oho
             if (r1 <= r2) goto L28f
             org.brotli.dec.BrotliRuntimeException r0 = new org.brotli.dec.BrotliRuntimeException
             java.lang.String r1 = "Invalid backward reference"
@@ -977,14 +977,14 @@ public final class d {
             r1 = 0
             r11.j = r1
             r1 = 7
-            r11.nYy = r1
+            r11.ohi = r1
         L295:
             int r1 = r11.pos
             int r2 = r11.distance
             int r1 = r1 - r2
             r3 = r1 & r6
             int r2 = r11.pos
-            int r1 = r11.nZg
+            int r1 = r11.ohQ
             int r4 = r11.j
             int r8 = r1 - r4
             int r1 = r3 + r8
@@ -1007,22 +1007,22 @@ public final class d {
             int r1 = r11.j
             int r1 = r1 + r8
             r11.j = r1
-            int r1 = r11.nYE
+            int r1 = r11.oho
             int r1 = r1 - r8
-            r11.nYE = r1
+            r11.oho = r1
             int r1 = r11.pos
             int r1 = r1 + r8
             r11.pos = r1
         L2cc:
-            int r1 = r11.nYy
+            int r1 = r11.ohi
             r2 = 7
             if (r1 != r2) goto L25
             r1 = 3
-            r11.nYy = r1
+            r11.ohi = r1
             goto L25
         L2d6:
             int r1 = r11.j
-            int r2 = r11.nZg
+            int r2 = r11.ohQ
             if (r1 >= r2) goto L2cc
             int r1 = r11.pos
             int r2 = r11.pos
@@ -1031,9 +1031,9 @@ public final class d {
             r2 = r2 & r6
             r2 = r0[r2]
             r0[r1] = r2
-            int r1 = r11.nYE
+            int r1 = r11.oho
             int r1 = r1 + (-1)
-            r11.nYE = r1
+            r11.oho = r1
             int r1 = r11.j
             int r1 = r1 + 1
             r11.j = r1
@@ -1042,68 +1042,68 @@ public final class d {
             r11.pos = r2
             if (r1 != r6) goto L2d6
             r1 = 7
-            r11.nYz = r1
-            int r1 = r11.nZk
-            r11.nZr = r1
+            r11.ohj = r1
+            int r1 = r11.ohU
+            r11.oib = r1
             r1 = 0
-            r11.nDe = r1
+            r11.nLM = r1
             r1 = 12
-            r11.nYy = r1
+            r11.ohi = r1
             goto L2cc
         L30b:
-            int r1 = r11.nZg
+            int r1 = r11.ohQ
             r2 = 4
             if (r1 < r2) goto L37a
-            int r1 = r11.nZg
+            int r1 = r11.ohQ
             r2 = 24
             if (r1 > r2) goto L37a
-            int[] r1 = org.brotli.dec.e.nYk
-            int r2 = r11.nZg
+            int[] r1 = org.brotli.dec.e.ogU
+            int r2 = r11.ohQ
             r1 = r1[r2]
             int r2 = r11.distance
-            int r3 = r11.fPC
+            int r3 = r11.fUV
             int r2 = r2 - r3
             int r2 = r2 + (-1)
-            int[] r3 = org.brotli.dec.e.nYl
-            int r4 = r11.nZg
+            int[] r3 = org.brotli.dec.e.ogV
+            int r4 = r11.ohQ
             r3 = r3[r4]
             r4 = 1
             int r4 = r4 << r3
             int r4 = r4 + (-1)
             r4 = r4 & r2
             int r5 = r2 >>> r3
-            int r2 = r11.nZg
+            int r2 = r11.ohQ
             int r2 = r2 * r4
             int r3 = r1 + r2
-            org.brotli.dec.k[] r1 = org.brotli.dec.k.nZu
+            org.brotli.dec.k[] r1 = org.brotli.dec.k.oie
             int r1 = r1.length
             if (r5 >= r1) goto L371
-            int r1 = r11.nZh
+            int r1 = r11.ohR
             byte[] r2 = org.brotli.dec.e.getData()
-            int r4 = r11.nZg
-            org.brotli.dec.k[] r8 = org.brotli.dec.k.nZu
+            int r4 = r11.ohQ
+            org.brotli.dec.k[] r8 = org.brotli.dec.k.oie
             r5 = r8[r5]
             int r1 = org.brotli.dec.k.a(r0, r1, r2, r3, r4, r5)
-            int r2 = r11.nZh
+            int r2 = r11.ohR
             int r2 = r2 + r1
-            r11.nZh = r2
+            r11.ohR = r2
             int r2 = r11.pos
             int r2 = r2 + r1
             r11.pos = r2
-            int r2 = r11.nYE
+            int r2 = r11.oho
             int r1 = r2 - r1
-            r11.nYE = r1
-            int r1 = r11.nZh
-            int r2 = r11.nZk
+            r11.oho = r1
+            int r1 = r11.ohR
+            int r2 = r11.ohU
             if (r1 < r2) goto L383
             r1 = 8
-            r11.nYz = r1
-            int r1 = r11.nZk
-            r11.nZr = r1
+            r11.ohj = r1
+            int r1 = r11.ohU
+            r11.oib = r1
             r1 = 0
-            r11.nDe = r1
+            r11.nLM = r1
             r1 = 12
-            r11.nYy = r1
+            r11.ohi = r1
             goto L25
         L371:
             org.brotli.dec.BrotliRuntimeException r0 = new org.brotli.dec.BrotliRuntimeException
@@ -1117,31 +1117,31 @@ public final class d {
             throw r0
         L383:
             r1 = 3
-            r11.nYy = r1
+            r11.ohi = r1
             goto L25
         L388:
-            int r1 = r11.nZk
+            int r1 = r11.ohU
             r2 = 0
-            int r3 = r11.nZh
-            int r4 = r11.nZk
+            int r3 = r11.ohR
+            int r4 = r11.ohU
             int r3 = r3 - r4
             java.lang.System.arraycopy(r0, r1, r0, r2, r3)
             r1 = 3
-            r11.nYy = r1
+            r11.ohi = r1
             goto L25
         L398:
-            int r1 = r11.nYE
+            int r1 = r11.oho
             if (r1 <= 0) goto L3ab
             org.brotli.dec.a.a(r7)
             r1 = 8
             org.brotli.dec.a.a(r7, r1)
-            int r1 = r11.nYE
+            int r1 = r11.oho
             int r1 = r1 + (-1)
-            r11.nYE = r1
+            r11.oho = r1
             goto L398
         L3ab:
             r1 = 1
-            r11.nYy = r1
+            r11.ohi = r1
             goto L25
         L3b0:
             g(r11)
@@ -1153,22 +1153,22 @@ public final class d {
             return
         L3bc:
             int r1 = r11.pos
-            int r2 = r11.nZi
+            int r2 = r11.ohS
             if (r1 < r2) goto L3c6
-            int r1 = r11.nZi
-            r11.fPC = r1
+            int r1 = r11.ohS
+            r11.fUV = r1
         L3c6:
             int r1 = r11.pos
             r1 = r1 & r6
             r11.pos = r1
-            int r1 = r11.nYz
-            r11.nYy = r1
+            int r1 = r11.ohj
+            r11.ohi = r1
             goto L25
         L3d1:
-            int r0 = r11.nYy
+            int r0 = r11.ohi
             r1 = 10
             if (r0 != r1) goto L3bb
-            int r0 = r11.nYE
+            int r0 = r11.oho
             if (r0 >= 0) goto L3e4
             org.brotli.dec.BrotliRuntimeException r0 = new org.brotli.dec.BrotliRuntimeException
             java.lang.String r1 = "Invalid metablock length"
@@ -1176,7 +1176,7 @@ public final class d {
             throw r0
         L3e4:
             org.brotli.dec.a.f(r7)
-            org.brotli.dec.a r0 = r11.nYA
+            org.brotli.dec.a r0 = r11.ohk
             r1 = 1
             org.brotli.dec.a.a(r0, r1)
             goto L3bb

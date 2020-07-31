@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.UpgradeMemberGroup.DataReq;
 import protobuf.UpgradeMemberGroup.UpgradeMemberGroupReqIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class RequestUpgradeMemberGroupMessage extends TbSocketMessage {
     private int flag;
     private long groupId;

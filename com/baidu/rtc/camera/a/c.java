@@ -9,28 +9,28 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import com.baidu.rtc.camera.a.d;
 import java.nio.FloatBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private FloatBuffer bHo;
-    private FloatBuffer bHp;
-    private int bHr;
-    private int bHs;
+    private FloatBuffer bHN;
+    private FloatBuffer bHO;
+    private int bHQ;
+    private int bHR;
     private Context mContext;
     private Handler mHandler;
     private HandlerThread mThread;
     private int mVideoHeight;
     private int mVideoWidth;
     private volatile boolean mIsGoingRelase = false;
-    private d.a bHq = null;
+    private d.a bHP = null;
     private long mEncoderCostMs = 0;
     private int mEncoderCostCount = 0;
     private long mLastInputEncodeMS = 0;
     private long mLastOutputEncodeMS = 0;
-    private d bHl = null;
-    private com.baidu.rtc.camera.filter.a.c bHm = null;
-    private com.baidu.rtc.camera.filter.glfilter.a.a bHn = null;
-    private com.baidu.rtc.camera.filter.a.a bHh = null;
+    private d bHK = null;
+    private com.baidu.rtc.camera.filter.a.c bHL = null;
+    private com.baidu.rtc.camera.filter.glfilter.a.a bHM = null;
+    private com.baidu.rtc.camera.filter.a.a bHG = null;
 
     public c(Context context) {
         this.mThread = null;
@@ -42,37 +42,37 @@ public class c {
     }
 
     public void a(final EGLContext eGLContext, d.a aVar) {
-        this.bHq = aVar;
+        this.bHP = aVar;
         this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.camera.a.c.1
             @Override // java.lang.Runnable
             public void run() {
                 c.this.b(eGLContext, new d.a() { // from class: com.baidu.rtc.camera.a.c.1.1
                     @Override // com.baidu.rtc.camera.a.d.a
                     public void onFormatChanged(MediaFormat mediaFormat) {
-                        if (!c.this.mIsGoingRelase && c.this.bHq != null) {
-                            c.this.bHq.onFormatChanged(mediaFormat);
+                        if (!c.this.mIsGoingRelase && c.this.bHP != null) {
+                            c.this.bHP.onFormatChanged(mediaFormat);
                         }
                     }
 
                     @Override // com.baidu.rtc.camera.a.d.a
                     public void onCodecConfig(byte[] bArr, int i, int i2) {
-                        if (!c.this.mIsGoingRelase && c.this.bHq != null) {
-                            c.this.bHq.onCodecConfig(bArr, i, i2);
+                        if (!c.this.mIsGoingRelase && c.this.bHP != null) {
+                            c.this.bHP.onCodecConfig(bArr, i, i2);
                         }
                     }
 
                     @Override // com.baidu.rtc.camera.a.d.a
                     public void onCodecData(byte[] bArr, int i, int i2, int i3, long j) {
                         c.this.mLastOutputEncodeMS = System.currentTimeMillis();
-                        if (!c.this.mIsGoingRelase && c.this.bHq != null) {
-                            c.this.bHq.onCodecData(bArr, i, i2, i3, j);
+                        if (!c.this.mIsGoingRelase && c.this.bHP != null) {
+                            c.this.bHP.onCodecData(bArr, i, i2, i3, j);
                         }
                     }
 
                     @Override // com.baidu.rtc.camera.a.d.a
                     public void onCodecError(int i) {
-                        if (!c.this.mIsGoingRelase && c.this.bHq != null) {
-                            c.this.bHq.onCodecError(i);
+                        if (!c.this.mIsGoingRelase && c.this.bHP != null) {
+                            c.this.bHP.onCodecError(i);
                         }
                     }
                 });
@@ -83,20 +83,20 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(EGLContext eGLContext, d.a aVar) {
         try {
-            this.bHo = com.baidu.rtc.camera.filter.glfilter.utils.a.createFloatBuffer(com.baidu.rtc.camera.filter.glfilter.utils.b.bIz);
-            this.bHp = com.baidu.rtc.camera.filter.glfilter.utils.a.createFloatBuffer(com.baidu.rtc.camera.filter.glfilter.utils.b.bIA);
-            this.bHl = new d(aVar);
-            this.bHl.a(aVar);
-            this.bHh = new com.baidu.rtc.camera.filter.a.a(eGLContext, 1);
-            this.bHm = new com.baidu.rtc.camera.filter.a.c(this.bHh, this.bHl.getInputSurface(), true);
-            this.bHm.makeCurrent();
-            if (this.bHn == null) {
-                this.bHn = new com.baidu.rtc.camera.filter.glfilter.a.a(this.mContext);
+            this.bHN = com.baidu.rtc.camera.filter.glfilter.utils.a.createFloatBuffer(com.baidu.rtc.camera.filter.glfilter.utils.b.bIY);
+            this.bHO = com.baidu.rtc.camera.filter.glfilter.utils.a.createFloatBuffer(com.baidu.rtc.camera.filter.glfilter.utils.b.bIZ);
+            this.bHK = new d(aVar);
+            this.bHK.a(aVar);
+            this.bHG = new com.baidu.rtc.camera.filter.a.a(eGLContext, 1);
+            this.bHL = new com.baidu.rtc.camera.filter.a.c(this.bHG, this.bHK.getInputSurface(), true);
+            this.bHL.makeCurrent();
+            if (this.bHM == null) {
+                this.bHM = new com.baidu.rtc.camera.filter.glfilter.a.a(this.mContext);
             }
-            this.mVideoWidth = b.Qu().encodeWidth;
-            this.mVideoHeight = b.Qu().encodeHeight;
-            this.bHn.U(this.bHr, this.bHs);
-            this.bHn.V(this.mVideoWidth, this.mVideoHeight);
+            this.mVideoWidth = b.QJ().encodeWidth;
+            this.mVideoHeight = b.QJ().encodeHeight;
+            this.bHM.U(this.bHQ, this.bHR);
+            this.bHM.V(this.mVideoWidth, this.mVideoHeight);
         } catch (Exception e) {
             e.printStackTrace();
             if (aVar != null) {
@@ -112,8 +112,8 @@ public class c {
                 public void run() {
                     c.this.mLastInputEncodeMS = System.currentTimeMillis();
                     c.this.h(i, j);
-                    if (c.this.mLastInputEncodeMS > 0 && c.this.mLastOutputEncodeMS > 0 && c.this.mLastInputEncodeMS > c.this.mLastOutputEncodeMS + 1000 && c.this.bHq != null) {
-                        c.this.bHq.onCodecError(2);
+                    if (c.this.mLastInputEncodeMS > 0 && c.this.mLastOutputEncodeMS > 0 && c.this.mLastInputEncodeMS > c.this.mLastOutputEncodeMS + 1000 && c.this.bHP != null) {
+                        c.this.bHP.onCodecError(2);
                     }
                 }
             });
@@ -123,14 +123,14 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void h(int i, long j) {
         try {
-            this.bHm.makeCurrent();
-            this.bHl.drainEncoder(false);
-            if (this.bHn != null) {
+            this.bHL.makeCurrent();
+            this.bHK.drainEncoder(false);
+            if (this.bHM != null) {
                 GLES30.glViewport(0, 0, this.mVideoWidth, this.mVideoHeight);
-                this.bHn.a(i, this.bHo, this.bHp);
+                this.bHM.a(i, this.bHN, this.bHO);
             }
-            this.bHm.setPresentationTime(j);
-            this.bHm.swapBuffers();
+            this.bHL.setPresentationTime(j);
+            this.bHL.swapBuffers();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -161,23 +161,23 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void doRelease() {
         com.baidu.rtc.camera.filter.glfilter.utils.a.checkGlError("mVideoEncoder start");
-        if (this.bHl != null) {
-            this.bHl.drainEncoder(true);
-            this.bHl.release();
-            this.bHl = null;
+        if (this.bHK != null) {
+            this.bHK.drainEncoder(true);
+            this.bHK.release();
+            this.bHK = null;
         }
-        if (this.bHm != null) {
-            this.bHm.release();
-            this.bHm = null;
+        if (this.bHL != null) {
+            this.bHL.release();
+            this.bHL = null;
         }
-        if (this.bHn != null) {
-            this.bHn.release();
-            this.bHn = null;
+        if (this.bHM != null) {
+            this.bHM.release();
+            this.bHM = null;
         }
         com.baidu.rtc.camera.filter.glfilter.utils.a.checkGlError("mVideoEncoder start");
-        if (this.bHh != null) {
-            this.bHh.release();
-            this.bHh = null;
+        if (this.bHG != null) {
+            this.bHG.release();
+            this.bHG = null;
         }
     }
 }

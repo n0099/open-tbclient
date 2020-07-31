@@ -1,11 +1,11 @@
 package com.baidu.prologue.business.c;
 
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface a {
-    View Pt();
+    View PI();
 
-    void Px();
+    void PM();
 
     int getLayoutId();
 }

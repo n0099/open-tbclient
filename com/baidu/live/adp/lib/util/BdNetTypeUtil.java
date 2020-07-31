@@ -12,7 +12,7 @@ import android.telephony.TelephonyManager;
 import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.framework.MessageManager;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BdNetTypeUtil {
     public static final String NATION_CODE = "460";
     public static final int NETWORK_CLASS_2_G = 1;
@@ -299,7 +299,7 @@ public class BdNetTypeUtil {
         return bdNetTypeUtil;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static class NetChangeReceiver extends BroadcastReceiver {
         private NetChangeReceiver() {
         }

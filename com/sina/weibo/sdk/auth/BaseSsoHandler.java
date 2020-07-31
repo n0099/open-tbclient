@@ -24,7 +24,7 @@ import com.sina.weibo.sdk.web.WeiboCallbackManager;
 import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
 import com.sina.weibo.sdk.web.param.AuthWebViewRequestParam;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BaseSsoHandler {
     public static final String OAUTH2_BASE_URL = "https://open.weibo.cn/oauth2/authorize?";
     private static final String TAG = "BaseSsoHandler";
@@ -35,7 +35,7 @@ public class BaseSsoHandler {
     protected int ssoRequestType = 3;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public enum AuthType {
         ALL,
         SsoOnly,

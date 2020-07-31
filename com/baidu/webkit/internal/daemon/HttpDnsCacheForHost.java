@@ -2,6 +2,7 @@ package com.baidu.webkit.internal.daemon;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.a.a.a.a.a.a.a;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.net.BdNet;
@@ -10,7 +11,7 @@ import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class HttpDnsCacheForHost implements INetListener {
     private static final String JSON_KEY_DATA = "data";
     private static final String JSON_KEY_EXTINFO = "ext-info";
@@ -62,22 +63,22 @@ public class HttpDnsCacheForHost implements INetListener {
             }
             bdNet.start(bdNetTask, true);
         } catch (Exception e) {
-            com.a.a.a.a.a.a.a.a(e);
+            a.a(e);
         }
     }
 
     public String getUrl(Context context) {
-        String httpDnsUrl = WebSettingsGlobalBlink.getHttpDnsUrl();
-        if (httpDnsUrl != null) {
-            Log.d(LOG_TAG, "urlNative!=null: " + httpDnsUrl);
+        String httpDnsUrlIP = WebSettingsGlobalBlink.getHttpDnsUrlIP();
+        if (httpDnsUrlIP != null) {
+            Log.d(LOG_TAG, "urlNative!=null: " + httpDnsUrlIP);
         } else {
             Log.d(LOG_TAG, "urlNative==null ");
-            httpDnsUrl = SERVER_URL;
+            httpDnsUrlIP = SERVER_URL;
         }
         if (this.mExternalHost != null) {
-            httpDnsUrl = (httpDnsUrl + TARGET_EXTERNALHOST) + this.mExternalHost;
+            httpDnsUrlIP = (httpDnsUrlIP + TARGET_EXTERNALHOST) + this.mExternalHost;
         }
-        String transHttpsUrl = transHttpsUrl(httpDnsUrl);
+        String transHttpsUrl = transHttpsUrl(httpDnsUrlIP);
         Log.d("cronet", "http_dns cloud url " + transHttpsUrl);
         return transHttpsUrl;
     }
@@ -98,7 +99,7 @@ public class HttpDnsCacheForHost implements INetListener {
         try {
             WebSettingsGlobalBlink.setHttpDnsDnFailed(this.mExternalHost);
         } catch (Exception e) {
-            com.a.a.a.a.a.a.a.a(e);
+            a.a(e);
         }
     }
 
@@ -144,7 +145,7 @@ public class HttpDnsCacheForHost implements INetListener {
             }
             WebSettingsGlobalBlink.setHttpDnsCache(str, 3);
         } catch (Exception e) {
-            com.a.a.a.a.a.a.a.a(e);
+            a.a(e);
         }
     }
 

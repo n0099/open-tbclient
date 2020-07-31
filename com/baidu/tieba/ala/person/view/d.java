@@ -10,9 +10,9 @@ import com.baidu.live.adp.widget.listview.BdIListPage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d extends BdIListPage {
-    private View eAd;
+    private View eGt;
     private TbPageContext<?> mContext;
     private int padding;
     private TextView mTextView = null;
@@ -31,36 +31,36 @@ public class d extends BdIListPage {
         this.mRoot = LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.h.ala_person_loadmore_layout, (ViewGroup) null);
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
         this.mTextView = (TextView) this.mRoot.findViewById(a.g.th_more_text);
-        this.eAd = this.mRoot.findViewById(a.g.th_more_view);
-        this.eAd.setVisibility(8);
+        this.eGt = this.mRoot.findViewById(a.g.th_more_view);
+        this.eGt.setVisibility(8);
         this.mProgressBar = (ProgressBar) this.mRoot.findViewById(a.g.progress);
         a(this.mContext, TbadkCoreApplication.getInst().getSkinType());
-        this.eAd.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        this.eGt.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         return this.mRoot;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        this.mContext.getLayoutMode().onModeChanged(this.eAd);
+        this.mContext.getLayoutMode().onModeChanged(this.eGt);
         return true;
     }
 
     public void hide() {
-        this.eAd.setVisibility(8);
+        this.eGt.setVisibility(8);
         this.mRoot.setPadding(0, 0, 0, 0);
     }
 
     public void display() {
-        this.eAd.setVisibility(0);
+        this.eGt.setVisibility(0);
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
     }
 
-    public void nU(int i) {
+    public void om(int i) {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(i);
-        this.eAd.setVisibility(0);
+        this.eGt.setVisibility(0);
     }
 
-    public void sj(int i) {
+    public void sB(int i) {
         this.mProgressBar.setVisibility(8);
         this.mTextView.setText(i);
     }

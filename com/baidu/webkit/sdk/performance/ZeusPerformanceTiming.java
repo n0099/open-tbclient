@@ -16,14 +16,14 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class ZeusPerformanceTiming {
     private static final String CONFIG_FILE = "startup_timing_log";
     private static final String KEY_AMOUNT_FREE_DISK_SPACE = "AmountFreeDiskSpace";
     private static final String KEY_AMOUNT_PHYSICAL_MEMORY = "AmountPhysicalMemory";
     private static final String KEY_APP_NEW_WEBVIEW = "app_new_webview";
     private static final String KEY_BROWSER_STARTUP = "p1";
-    private static final String KEY_BROWSER_STARTUP_THREAD = "p1-thread";
+    private static final String KEY_BROWSER_STARTUP_THREAD = "p1_thread";
     private static final String KEY_BUILD_DATE_UTC = "BuildDateUTC";
     private static final String KEY_CHECK_USE_T7 = "k_p0";
     private static final String KEY_CHECK_USE_T7_THREAD = "k_p0_thread";
@@ -49,6 +49,8 @@ public class ZeusPerformanceTiming {
     private static final String KEY_MIN_CPU_FREQ = "MinCpuFreq";
     private static final String KEY_NEW_SYS_WEBVIEW = "new_sys_webview";
     private static final String KEY_NEW_WEBVIEW = "new_webview";
+    private static final String KEY_NEW_WEBVIEW_METHOD = "new_webview_method";
+    private static final String KEY_NEW_WEBVIEW_METHOD_THREAD = "new_webview_method_thread";
     private static final String KEY_NEW_WEBVIEW_THREAD = "new_webview_thread";
     private static final String KEY_NEW_ZEUS_CL = "k_p2";
     private static final String KEY_NEW_ZEUS_CL_THREAD = "k_p2_thread";
@@ -65,27 +67,29 @@ public class ZeusPerformanceTiming {
     private static final String KEY_WEBKIT_INIT_STATISTICS = "webkit_init_statistics";
     private static final String KEY_WEBKIT_WEBVIEW_START_DIFF = "init_webkit_webview_start_diff";
     private static final String KEY_WEBVIEWCHROMIUM_CONSTRUCT = "p0";
-    private static final String KEY_WEBVIEWCHROMIUM_CONSTRUCT_THREAD = "p0-thread";
+    private static final String KEY_WEBVIEWCHROMIUM_CONSTRUCT_THREAD = "p0_thread";
     private static final String KEY_WEBVIEWCHROMIUM_INIT = "webviewchromium_init";
     private static final String KEY_WEBVIEWCHROMIUM_INIT_FOR_REAL = "p4";
-    private static final String KEY_WEBVIEWCHROMIUM_INIT_FOR_REAL_THREAD = "p4-thread";
+    private static final String KEY_WEBVIEWCHROMIUM_INIT_FOR_REAL_THREAD = "p4_thread";
     private static final String KEY_WEBVIEWCHROMIUM_INIT_THREAD = "webviewchromium_init_thread";
     private static final String KEY_WEBVIEW_CONTENT_CLIENT_ADAPTER_CREATED = "p2";
-    private static final String KEY_WEBVIEW_CONTENT_CLIENT_ADAPTER_CREATED_THREAD = "p2-thread";
+    private static final String KEY_WEBVIEW_CONTENT_CLIENT_ADAPTER_CREATED_THREAD = "p2_thread";
     private static final String KEY_WEBVIEW_DEFAULT_SETTINGS = "p5";
-    private static final String KEY_WEBVIEW_DEFAULT_SETTINGS_THREAD = "p5-thread";
+    private static final String KEY_WEBVIEW_DEFAULT_SETTINGS_THREAD = "p5_thread";
     private static final String KEY_WEBVIEW_PROVIDER_INIT = "webview_provider_init";
     private static final String KEY_WEBVIEW_PROVIDER_INIT_THREAD = "webview_provider_init_thread";
     private static final String KEY_WEBVIEW_WAITING_RESOURCE = "webview_waiting_resource";
     private static final String KEY_WEBVIEW_ZWSETTINGS_CREATED = "p3";
-    private static final String KEY_WEBVIEW_ZWSETTINGS_CREATED_THREAD = "p3-thread";
+    private static final String KEY_WEBVIEW_ZWSETTINGS_CREATED_THREAD = "p3_thread";
     private static final String KEY_ZEUS_WEBVIEW_LOAD_CLASS = "zeus_webview_load_class";
     private static final int MONITOR_TYPE_STARTUP_TIMING = 12300;
     public static final int RECORD_FROM_FORCE_INIT = 2;
     public static final int RECORD_FROM_WEBVIEW_INIT = 1;
     public static final String SERVER_TYPE_T7_INIT = "t7_init";
     private static long mBrowserStartUpEnd;
+    private static long mBrowserStartUpStart;
     private static long mBrowserStartUpThreadEnd;
+    private static long mBrowserStartUpThreadStart;
     private static long mFetchDefaultPackageInfoEnd;
     private static long mFetchDefaultPackageInfoStart;
     private static long mFetchDefaultPackageInfoThreadEnd;
@@ -104,7 +108,9 @@ public class ZeusPerformanceTiming {
     private static boolean mIsMainThread;
     private static String mMainThreadStack;
     private static long mNewContentsClientAdapterEnd;
+    private static long mNewContentsClientAdapterStart;
     private static long mNewContentsClientAdapterThreadEnd;
+    private static long mNewContentsClientAdapterThreadStart;
     private static long mNewSysWebViewEnd;
     private static long mNewSysWebViewStart;
     private static long mNewSysWebViewThreadEnd;
@@ -296,6 +302,8 @@ public class ZeusPerformanceTiming {
             jSONObject.put(KEY_GET_PROVIDER_THREAD, initProviderInMainThread());
             jSONObject.put(KEY_NEW_WEBVIEW, newWebViewTime());
             jSONObject.put(KEY_NEW_WEBVIEW_THREAD, newWebViewThreadTime());
+            jSONObject.put(KEY_NEW_WEBVIEW_METHOD, newWebViewMethodTime());
+            jSONObject.put(KEY_NEW_WEBVIEW_METHOD_THREAD, newWebViewMethodThreadTime());
             jSONObject.put(KEY_CHECK_USE_T7, checkUseT7Time());
             jSONObject.put(KEY_FETCH_PACKAGE_INFO, fetchPackageInfoTime());
             jSONObject.put(KEY_NEW_ZEUS_CL, newZeusClassLoaderTime());
@@ -484,18 +492,23 @@ public class ZeusPerformanceTiming {
         mBrowserStartUpThreadEnd = getCurrentThreadTimeMillis(mBrowserStartUpThreadEnd);
     }
 
+    public static void newBrowserStartUpStart() {
+        mBrowserStartUpStart = getCurrentTimeMillis(mBrowserStartUpStart);
+        mBrowserStartUpThreadStart = getCurrentThreadTimeMillis(mBrowserStartUpThreadStart);
+    }
+
     public static long newBrowserStartUpThreadTime() {
-        if (mBrowserStartUpThreadEnd <= 0 || mNewWebViewProviderInitThreadStart <= 0 || mBrowserStartUpThreadEnd <= mNewWebViewProviderInitThreadStart) {
+        if (mBrowserStartUpThreadEnd <= 0 || mBrowserStartUpThreadStart <= 0 || mBrowserStartUpThreadEnd <= mBrowserStartUpThreadStart) {
             return 0L;
         }
-        return mBrowserStartUpThreadEnd - mNewWebViewProviderInitThreadStart;
+        return mBrowserStartUpThreadEnd - mBrowserStartUpThreadStart;
     }
 
     public static long newBrowserStartUpTime() {
-        if (mBrowserStartUpEnd <= 0 || mNewWebViewProviderInitStart <= 0 || mBrowserStartUpEnd <= mNewWebViewProviderInitStart) {
+        if (mBrowserStartUpEnd <= 0 || mBrowserStartUpStart <= 0 || mBrowserStartUpEnd <= mBrowserStartUpStart) {
             return 0L;
         }
-        return mBrowserStartUpEnd - mNewWebViewProviderInitStart;
+        return mBrowserStartUpEnd - mBrowserStartUpStart;
     }
 
     public static void newContentsClientAdapterEnd() {
@@ -503,18 +516,23 @@ public class ZeusPerformanceTiming {
         mNewContentsClientAdapterThreadEnd = getCurrentThreadTimeMillis(mNewContentsClientAdapterThreadEnd);
     }
 
+    public static void newContentsClientAdapterStart() {
+        mNewContentsClientAdapterStart = getCurrentTimeMillis(mNewContentsClientAdapterStart);
+        mNewContentsClientAdapterThreadStart = getCurrentThreadTimeMillis(mNewContentsClientAdapterThreadStart);
+    }
+
     public static long newContentsClientAdapterThreadTime() {
-        if (mNewContentsClientAdapterThreadEnd <= 0 || mBrowserStartUpThreadEnd <= 0 || mNewContentsClientAdapterThreadEnd <= mBrowserStartUpThreadEnd) {
+        if (mNewContentsClientAdapterThreadEnd <= 0 || mNewContentsClientAdapterThreadStart <= 0 || mNewContentsClientAdapterThreadEnd <= mNewContentsClientAdapterThreadStart) {
             return 0L;
         }
-        return mNewContentsClientAdapterThreadEnd - mBrowserStartUpThreadEnd;
+        return mNewContentsClientAdapterThreadEnd - mNewContentsClientAdapterThreadStart;
     }
 
     public static long newContentsClientAdapterTime() {
-        if (mNewContentsClientAdapterEnd <= 0 || mBrowserStartUpEnd <= 0 || mNewContentsClientAdapterEnd <= mBrowserStartUpEnd) {
+        if (mNewContentsClientAdapterEnd <= 0 || mNewContentsClientAdapterStart <= 0 || mNewContentsClientAdapterEnd <= mNewContentsClientAdapterStart) {
             return 0L;
         }
-        return mNewContentsClientAdapterEnd - mBrowserStartUpEnd;
+        return mNewContentsClientAdapterEnd - mNewContentsClientAdapterStart;
     }
 
     public static void newSysWebViewEnd() {
@@ -638,6 +656,17 @@ public class ZeusPerformanceTiming {
         sWebViewInitTimingList.add(Long.valueOf(System.currentTimeMillis() - sWebViewInitTiming));
     }
 
+    public static long newWebViewMethodThreadTime() {
+        return (mNewWebViewThreadEnd <= 0 || mNewWebViewThreadStart <= 0 || mNewWebViewThreadEnd <= mNewWebViewThreadStart) ? mNewWebViewThreadEnd - mNewWebViewThreadStart : mNewWebViewThreadEnd - mNewWebViewThreadStart;
+    }
+
+    public static long newWebViewMethodTime() {
+        if (mNewWebViewEnd <= 0 || mNewWebViewStart <= 0) {
+            return 0L;
+        }
+        return mNewWebViewEnd - mNewWebViewStart;
+    }
+
     public static void newWebViewProviderInitEnd() {
         mNewWebViewProviderInitEnd = getCurrentTimeMillis(mNewWebViewProviderInitEnd);
         mNewWebViewProviderInitThreadEnd = getCurrentThreadTimeMillis(mNewWebViewProviderInitThreadEnd);
@@ -684,14 +713,11 @@ public class ZeusPerformanceTiming {
     }
 
     public static long newWebViewThreadTime() {
-        return mNewWebViewThreadEnd - mNewWebViewThreadStart;
+        return newWebViewChromiumConstructorThreadTime() + newBrowserStartUpThreadTime() + newContentsClientAdapterThreadTime() + newZwSettingsThreadTime() + newWebViewChromiumInitForRealThreadTime() + newWebViewDefaultSettingsThreadTime();
     }
 
     public static long newWebViewTime() {
-        if (mNewWebViewEnd <= 0 || mNewWebViewStart <= 0) {
-            return 0L;
-        }
-        return mNewWebViewEnd - mNewWebViewStart;
+        return newWebViewChromiumConstructorTime() + newBrowserStartUpTime() + newContentsClientAdapterTime() + newZwSettingsTime() + newWebViewChromiumInitForRealTime() + newWebViewDefaultSettingsTime();
     }
 
     public static void newZeusClassLoaderEnd() {

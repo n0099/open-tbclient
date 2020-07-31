@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetHorseRaceLampList.DataRes;
 import tbclient.GetHorseRaceLampList.LiveList;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a {
-    private LiveHorseRaceData hEe;
-    private List<LiveHorseRaceData> hEf = new ArrayList();
+    private LiveHorseRaceData hKc;
+    private List<LiveHorseRaceData> hKd = new ArrayList();
 
-    public List<LiveHorseRaceData> cah() {
-        return this.hEf;
+    public List<LiveHorseRaceData> cdE() {
+        return this.hKd;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.hEe = new LiveHorseRaceData();
+            this.hKc = new LiveHorseRaceData();
             List<LiveList> list = dataRes.live_list;
             if (list != null) {
                 int i = 0;
@@ -24,7 +24,7 @@ public class a {
                     if (i2 < list.size()) {
                         LiveHorseRaceData liveHorseRaceData = new LiveHorseRaceData();
                         liveHorseRaceData.parserProtobuf(list.get(i2));
-                        this.hEf.add(liveHorseRaceData);
+                        this.hKd.add(liveHorseRaceData);
                         i = i2 + 1;
                     } else {
                         return;

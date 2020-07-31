@@ -3,7 +3,7 @@ package com.facebook.common.internal;
 import java.util.Arrays;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nullable;
-/* loaded from: classes13.dex */
+/* loaded from: classes12.dex */
 public final class f {
     @CheckReturnValue
     public static boolean equal(@Nullable Object obj, @Nullable Object obj2) {
@@ -27,17 +27,17 @@ public final class f {
         return replaceAll.substring(lastIndexOf + 1);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class a {
         private final String className;
-        private C0794a mIG;
-        private C0794a mIH;
-        private boolean mII;
+        private C0803a mQI;
+        private C0803a mQJ;
+        private boolean mQK;
 
         private a(String str) {
-            this.mIG = new C0794a();
-            this.mIH = this.mIG;
-            this.mII = false;
+            this.mQI = new C0803a();
+            this.mQJ = this.mQI;
+            this.mQK = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -45,56 +45,56 @@ public final class f {
             return G(str, obj);
         }
 
-        public a aZ(String str, boolean z) {
+        public a aW(String str, boolean z) {
             return G(str, String.valueOf(z));
         }
 
-        public a bM(String str, int i) {
+        public a bK(String str, int i) {
             return G(str, String.valueOf(i));
         }
 
         public String toString() {
-            boolean z = this.mII;
+            boolean z = this.mQK;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0794a c0794a = this.mIG.mIJ; c0794a != null; c0794a = c0794a.mIJ) {
-                if (!z || c0794a.value != null) {
+            for (C0803a c0803a = this.mQI.mQL; c0803a != null; c0803a = c0803a.mQL) {
+                if (!z || c0803a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c0794a.name != null) {
-                        append.append(c0794a.name).append('=');
+                    if (c0803a.name != null) {
+                        append.append(c0803a.name).append('=');
                     }
-                    append.append(c0794a.value);
+                    append.append(c0803a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C0794a dzj() {
-            C0794a c0794a = new C0794a();
-            this.mIH.mIJ = c0794a;
-            this.mIH = c0794a;
-            return c0794a;
+        private C0803a dCv() {
+            C0803a c0803a = new C0803a();
+            this.mQJ.mQL = c0803a;
+            this.mQJ = c0803a;
+            return c0803a;
         }
 
         private a G(String str, @Nullable Object obj) {
-            C0794a dzj = dzj();
-            dzj.value = obj;
-            dzj.name = (String) g.checkNotNull(str);
+            C0803a dCv = dCv();
+            dCv.value = obj;
+            dCv.name = (String) g.checkNotNull(str);
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes13.dex */
-        public static final class C0794a {
-            C0794a mIJ;
+        /* loaded from: classes12.dex */
+        public static final class C0803a {
+            C0803a mQL;
             @Nullable
             String name;
             @Nullable
             Object value;
 
-            private C0794a() {
+            private C0803a() {
             }
         }
     }

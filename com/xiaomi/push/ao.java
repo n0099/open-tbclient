@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import android.os.Looper;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ao {
     public static void a() {
         if (Looper.getMainLooper().getThread() == Thread.currentThread()) {

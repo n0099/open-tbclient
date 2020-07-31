@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public final class GroupLastId extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 3, type = Message.Datatype.INT64)
     public final List<Long> excludeMid;
@@ -42,7 +42,7 @@ public final class GroupLastId extends Message {
         this.excludeMid = immutableCopyOf(builder.excludeMid);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static final class Builder extends Message.Builder<GroupLastId> {
         public List<Long> excludeMid;
         public Long groupId;

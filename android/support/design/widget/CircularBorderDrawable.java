@@ -10,7 +10,7 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.ColorUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 class CircularBorderDrawable extends Drawable {
     private static final float DRAW_STROKE_WIDTH_MULTIPLE = 1.3333f;
     private ColorStateList mBorderTint;

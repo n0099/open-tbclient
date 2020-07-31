@@ -5,9 +5,9 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetNuomiOrderHttpResponsedMessage extends JsonHttpResponsedMessage {
-    private HashMap<String, String> fOB;
+    private HashMap<String, String> fTU;
     private String orderId;
 
     public GetNuomiOrderHttpResponsedMessage() {
@@ -18,28 +18,28 @@ public class GetNuomiOrderHttpResponsedMessage extends JsonHttpResponsedMessage 
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.fOB = new HashMap<>();
+            this.fTU = new HashMap<>();
             this.orderId = jSONObject.optString("tpOrderId");
-            this.fOB.put("dealId", jSONObject.optString("dealId"));
-            this.fOB.put("appKey", jSONObject.optString("appKey"));
-            this.fOB.put("tpOrderId", jSONObject.optString("tpOrderId"));
-            this.fOB.put("timestamp", jSONObject.optString("timestamp"));
-            this.fOB.put("totalAmount", jSONObject.optString("totalAmount"));
-            this.fOB.put(CashierData.RETURN_URL, jSONObject.optString(CashierData.RETURN_URL));
-            this.fOB.put(TbEnum.SystemMessage.KEY_USER_ID, jSONObject.optString(TbEnum.SystemMessage.KEY_USER_ID));
-            this.fOB.put(CashierData.NOTIFY_URL, jSONObject.optString(CashierData.NOTIFY_URL));
-            this.fOB.put("dealTitle", jSONObject.optString("dealTitle"));
-            this.fOB.put("returnData", jSONObject.optString("returnData"));
-            this.fOB.put("nativeAppId", jSONObject.optString("nativeAppId"));
-            this.fOB.put("channel", jSONObject.optString("channel"));
-            this.fOB.put(CashierData.DEVICE_TYPE, jSONObject.optString(CashierData.DEVICE_TYPE));
-            this.fOB.put("rsaSign", jSONObject.optString("rsaSign"));
-            this.fOB.put("bizInfo", jSONObject.optString("bizInfo"));
+            this.fTU.put("dealId", jSONObject.optString("dealId"));
+            this.fTU.put("appKey", jSONObject.optString("appKey"));
+            this.fTU.put("tpOrderId", jSONObject.optString("tpOrderId"));
+            this.fTU.put("timestamp", jSONObject.optString("timestamp"));
+            this.fTU.put("totalAmount", jSONObject.optString("totalAmount"));
+            this.fTU.put(CashierData.RETURN_URL, jSONObject.optString(CashierData.RETURN_URL));
+            this.fTU.put(TbEnum.SystemMessage.KEY_USER_ID, jSONObject.optString(TbEnum.SystemMessage.KEY_USER_ID));
+            this.fTU.put(CashierData.NOTIFY_URL, jSONObject.optString(CashierData.NOTIFY_URL));
+            this.fTU.put("dealTitle", jSONObject.optString("dealTitle"));
+            this.fTU.put("returnData", jSONObject.optString("returnData"));
+            this.fTU.put("nativeAppId", jSONObject.optString("nativeAppId"));
+            this.fTU.put("channel", jSONObject.optString("channel"));
+            this.fTU.put(CashierData.DEVICE_TYPE, jSONObject.optString(CashierData.DEVICE_TYPE));
+            this.fTU.put("rsaSign", jSONObject.optString("rsaSign"));
+            this.fTU.put("bizInfo", jSONObject.optString("bizInfo"));
         }
     }
 
-    public HashMap<String, String> byA() {
-        return this.fOB;
+    public HashMap<String, String> bBO() {
+        return this.fTU;
     }
 
     public String getOrderId() {

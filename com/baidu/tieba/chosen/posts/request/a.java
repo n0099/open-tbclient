@@ -6,26 +6,26 @@ import com.baidu.tbadk.util.t;
 import java.util.HashMap;
 import tbclient.HotThread.DataReq;
 import tbclient.HotThread.HotThreadReqIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class a implements e, h {
     private int requestCount;
 
-    public void bPp() {
+    public void bSA() {
         this.requestCount++;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> bgU() {
+    public HashMap<String, Object> bkF() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> bgV() {
+    public HashMap<String, String> bkG() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.l
-    public Object ir(boolean z) {
+    public Object iW(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.pn = Integer.valueOf(this.requestCount);
         HotThreadReqIdl.Builder builder2 = new HotThreadReqIdl.Builder();
@@ -40,12 +40,12 @@ public class a implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String bgR() {
+    public String bkC() {
         return "tb.pb_normal";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean bgS() {
+    public boolean bkD() {
         return true;
     }
 

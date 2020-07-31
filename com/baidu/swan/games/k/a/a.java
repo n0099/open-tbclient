@@ -7,14 +7,13 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.r.e;
+import com.baidu.swan.apps.r.d;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.swan.e.d;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/debugGameCore");
@@ -33,23 +32,23 @@ public class a extends aa {
                 Toast.makeText(context, a.h.aiapps_debug_swan_core_url_empty, 1).show();
                 return false;
             }
-            com.baidu.swan.games.l.a.c(optString, new e.b() { // from class: com.baidu.swan.games.k.a.a.1
-                @Override // com.baidu.swan.apps.r.e.b
+            com.baidu.swan.games.l.a.c(optString, new d.b() { // from class: com.baidu.swan.games.k.a.a.1
+                @Override // com.baidu.swan.apps.r.d.b
                 public void dE(int i) {
                 }
 
-                @Override // com.baidu.swan.apps.r.e.b
+                @Override // com.baidu.swan.apps.r.d.b
                 public void onSuccess() {
-                    File adS = b.adS();
-                    File adQ = b.adQ();
-                    if (adS.exists() && d.unzipFile(adS.getPath(), adQ.getPath())) {
+                    File afj = b.afj();
+                    File afh = b.afh();
+                    if (afj.exists() && com.baidu.swan.d.d.unzipFile(afj.getPath(), afh.getPath())) {
                         Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_download_success, 1).show();
                     } else {
                         Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_download_failed, 1).show();
                     }
                 }
 
-                @Override // com.baidu.swan.apps.r.e.b
+                @Override // com.baidu.swan.apps.r.d.b
                 public void onFailed() {
                     Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_download_failed, 1).show();
                 }

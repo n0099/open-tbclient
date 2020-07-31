@@ -18,7 +18,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class SegAR extends com.baidu.ar.c {
     private static final String TAG = SegAR.class.getSimpleName();
     private static final float[] tW = {0.0f, -1.0f, 1.0f, 0.0f};

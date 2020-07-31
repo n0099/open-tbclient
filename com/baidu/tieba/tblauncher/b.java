@@ -6,12 +6,12 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class b implements com.baidu.tbadk.core.e.a {
-    private a lMo;
+    private a lTB;
 
     @Override // com.baidu.tbadk.core.e.a
-    public void b(Context context, int i, boolean z) {
+    public void c(Context context, int i, boolean z) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(i, z)));
     }
 
@@ -21,7 +21,7 @@ public class b implements com.baidu.tbadk.core.e.a {
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public void dG(Context context) {
+    public void dL(Context context) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
             q(context, 1);
@@ -31,29 +31,29 @@ public class b implements com.baidu.tbadk.core.e.a {
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public void c(Context context, int i, boolean z) {
+    public void d(Context context, int i, boolean z) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public Class<?> aVG() {
+    public Class<?> aZG() {
         return MainTabActivity.class;
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public String aVH() {
+    public String aZH() {
         return MainTabActivity.class.getName();
     }
 
     @Override // com.baidu.tbadk.core.e.a
     public int getCurrentTabType() {
-        if (this.lMo != null) {
-            return this.lMo.getCurrentTabType();
+        if (this.lTB != null) {
+            return this.lTB.getCurrentTabType();
         }
         return -1;
     }
 
     public void a(a aVar) {
-        this.lMo = aVar;
+        this.lTB = aVar;
     }
 }

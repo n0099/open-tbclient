@@ -5,7 +5,7 @@ import android.net.Uri;
 import android.view.View;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface a {
     void a(c cVar);
 
@@ -15,7 +15,7 @@ public interface a {
 
     void c(Uri uri);
 
-    void cJ(int i);
+    void cK(int i);
 
     void d(Context context, Uri uri);
 

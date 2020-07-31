@@ -1,5 +1,5 @@
 package com.baidu.mapapi.walknavi.model;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class WalkRouteDetailInfo {
     public float altitude;
     public double avSpeed;

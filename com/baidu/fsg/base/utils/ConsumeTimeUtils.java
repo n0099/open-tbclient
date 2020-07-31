@@ -1,7 +1,7 @@
 package com.baidu.fsg.base.utils;
 
 import android.os.SystemClock;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ConsumeTimeUtils {
     TimeResult a;
     String b = "ConsumeTime";
@@ -26,7 +26,7 @@ public class ConsumeTimeUtils {
         this.c = str;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public final class TimeResult {
         long a = 0;
         long b = 0;

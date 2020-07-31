@@ -3,7 +3,7 @@ package com.baidu.tieba.square;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.data.ErrorData;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public interface c {
     void a(String str, ErrorData errorData);
 

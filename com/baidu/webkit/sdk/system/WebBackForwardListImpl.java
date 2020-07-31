@@ -4,7 +4,7 @@ import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.sdk.WebBackForwardList;
 import com.baidu.webkit.sdk.WebHistoryItem;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 final class WebBackForwardListImpl extends WebBackForwardList implements Cloneable {
     private static Method cloneMethod;
     private final android.webkit.WebBackForwardList mList;

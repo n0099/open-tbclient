@@ -2,7 +2,7 @@ package com.baidu.tieba.write.write.sticker.b;
 
 import android.graphics.PointF;
 import android.view.MotionEvent;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static PointF R(MotionEvent motionEvent) {
         if (motionEvent == null) {

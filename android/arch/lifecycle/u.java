@@ -3,7 +3,7 @@ package android.arch.lifecycle;
 import android.arch.lifecycle.Lifecycle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class u {
     private final Handler mHandler = new Handler();
     private final k yX;
@@ -43,7 +43,7 @@ public class u {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Runnable {
         private final k yX;
         final Lifecycle.Event zg;

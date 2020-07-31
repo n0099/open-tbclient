@@ -3,14 +3,14 @@ package com.facebook.common.c;
 import android.util.Log;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-/* loaded from: classes13.dex */
+/* loaded from: classes12.dex */
 public class b implements c {
-    public static final b mIO = new b();
-    private String mIP = "unknown";
-    private int mIQ = 5;
+    public static final b mQQ = new b();
+    private String mQR = "unknown";
+    private int mQS = 5;
 
-    public static b dzo() {
-        return mIO;
+    public static b dCA() {
+        return mQQ;
     }
 
     private b() {
@@ -18,7 +18,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.mIQ <= i;
+        return this.mQS <= i;
     }
 
     @Override // com.facebook.common.c.c
@@ -62,16 +62,16 @@ public class b implements c {
     }
 
     private void q(int i, String str, String str2) {
-        Log.println(i, QC(str), str2);
+        Log.println(i, Rn(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, QC(str), j(str2, th));
+        Log.println(i, Rn(str), j(str2, th));
     }
 
-    private String QC(String str) {
-        if (this.mIP != null) {
-            return this.mIP + ":" + str;
+    private String Rn(String str) {
+        if (this.mQR != null) {
+            return this.mQR + ":" + str;
         }
         return str;
     }

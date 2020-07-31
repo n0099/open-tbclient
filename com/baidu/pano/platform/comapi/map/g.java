@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class g extends TimerTask {
     final /* synthetic */ e a;
 

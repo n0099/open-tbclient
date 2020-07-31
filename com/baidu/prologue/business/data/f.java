@@ -2,31 +2,31 @@ package com.baidu.prologue.business.data;
 
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.prologue.a.c.j;
+import com.baidu.prologue.a.c.k;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static void h(e eVar) {
-        j.setLong("last_show_time", System.currentTimeMillis() / 1000);
+        k.setLong("last_show_time", System.currentTimeMillis() / 1000);
         i(eVar);
     }
 
     public static long getLastShowTime() {
-        return j.getLong("last_show_time", 0L);
+        return k.getLong("last_show_time", 0L);
     }
 
     private static void i(e eVar) {
         boolean z = false;
-        String string = j.getString("today_show_list", "");
+        String string = k.getString("today_show_list", "");
         String valueOf = String.valueOf(System.currentTimeMillis());
         try {
             JSONArray jSONArray = new JSONArray(string);
             if (jSONArray.length() > 0) {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (TextUtils.equals(optJSONObject.optString("k"), eVar.bEL)) {
+                    if (TextUtils.equals(optJSONObject.optString("k"), eVar.bFi)) {
                         optJSONObject.put("t", TextUtils.concat(valueOf, PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, optJSONObject.optString("t")).toString());
                         jSONArray.put(i, optJSONObject);
                         break;
@@ -36,19 +36,19 @@ public class f {
             z = true;
             if (z) {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("k", eVar.bEL);
+                jSONObject.put("k", eVar.bFi);
                 jSONObject.put("t", valueOf);
                 jSONArray.put(jSONObject);
             }
-            j.setString("today_show_list", jSONArray.toString());
+            k.setString("today_show_list", jSONArray.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public static JSONArray Pr() {
+    public static JSONArray PG() {
         int i = 0;
-        String string = j.getString("today_show_list", "");
+        String string = k.getString("today_show_list", "");
         JSONArray jSONArray = new JSONArray();
         try {
             JSONArray jSONArray2 = new JSONArray(string);
@@ -70,7 +70,7 @@ public class f {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        j.setString("today_show_list", jSONArray.toString());
+        k.setString("today_show_list", jSONArray.toString());
         return jSONArray;
     }
 }

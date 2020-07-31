@@ -5,18 +5,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.AbsDelegateAdapter;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends AbsDelegateAdapter<com.baidu.tieba.ala.category.b.c, b> {
-    private String fyD;
+    private String fDK;
 
     public a(Context context, BdUniqueId bdUniqueId) {
-        super(context, com.baidu.tieba.ala.category.b.c.fyS, bdUniqueId);
+        super(context, com.baidu.tieba.ala.category.b.c.fDZ, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
-    /* renamed from: Z */
+    /* renamed from: aa */
     public b onCreateViewHolder(ViewGroup viewGroup) {
         return new b(this.mContext, this.mPageId);
     }
@@ -26,12 +26,12 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.ala.category.b.c, b> {
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.category.b.c cVar, b bVar) {
-        bVar.a(cVar, this.fyD);
+        bVar.a(cVar, this.fDK);
         return view;
     }
 
-    public void BA(String str) {
-        this.fyD = str;
+    public void Cl(String str) {
+        this.fDK = str;
         notifyDataSetChanged();
     }
 }

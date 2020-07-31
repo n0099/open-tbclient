@@ -2,20 +2,15 @@ package com.baidu.swan.games.q;
 
 import kotlin.h;
 @h
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class b {
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [29=5] */
-    public static final Integer sn(String str) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [28=4] */
+    public static final Integer tm(String str) {
         if (str != null) {
             switch (str.hashCode()) {
                 case -1727084929:
                     if (str.equals("menuAttention")) {
                         return 38;
-                    }
-                    break;
-                case -1554996882:
-                    if (str.equals("menuAbout")) {
-                        return 36;
                     }
                     break;
                 case -1538208320:

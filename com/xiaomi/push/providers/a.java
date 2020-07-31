@@ -7,15 +7,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.ar.constants.HttpConstants;
 import com.xiaomi.channel.commonutils.logger.b;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends SQLiteOpenHelper {
     private static int a = 1;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Object f798a = new Object();
+    public static final Object f794a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private static final String[] f799a = {"package_name", "TEXT", "message_ts", " LONG DEFAULT 0 ", "bytes", " LONG DEFAULT 0 ", HttpConstants.NETWORK_TYPE, " INT DEFAULT -1 ", "rcv", " INT DEFAULT -1 ", "imsi", "TEXT"};
+    private static final String[] f795a = {"package_name", "TEXT", "message_ts", " LONG DEFAULT 0 ", "bytes", " LONG DEFAULT 0 ", HttpConstants.NETWORK_TYPE, " INT DEFAULT -1 ", "rcv", " INT DEFAULT -1 ", "imsi", "TEXT"};
 
     public a(Context context) {
         super(context, "traffic.db", (SQLiteDatabase.CursorFactory) null, a);
@@ -23,11 +23,11 @@ public class a extends SQLiteOpenHelper {
 
     private void a(SQLiteDatabase sQLiteDatabase) {
         StringBuilder sb = new StringBuilder("CREATE TABLE traffic(_id INTEGER  PRIMARY KEY ,");
-        for (int i = 0; i < f799a.length - 1; i += 2) {
+        for (int i = 0; i < f795a.length - 1; i += 2) {
             if (i != 0) {
                 sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             }
-            sb.append(f799a[i]).append(" ").append(f799a[i + 1]);
+            sb.append(f795a[i]).append(" ").append(f795a[i + 1]);
         }
         sb.append(");");
         sQLiteDatabase.execSQL(sb.toString());
@@ -35,7 +35,7 @@ public class a extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        synchronized (f798a) {
+        synchronized (f794a) {
             try {
                 a(sQLiteDatabase);
             } catch (SQLException e) {

@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class e {
     private BufferedWriter d;
     private String a = "EncryptionWriter";
@@ -22,7 +22,7 @@ public class e {
     private d c = new d("lo");
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes5.dex */
     public class a implements Comparator<File> {
         a() {
         }

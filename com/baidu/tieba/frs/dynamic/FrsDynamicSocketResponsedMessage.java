@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.dynamic;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import tbclient.StarTrends.StarTrendsResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<a, StarTrendsResIdl> {
     public a responseData;
 

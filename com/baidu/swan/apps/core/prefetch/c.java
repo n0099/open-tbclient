@@ -2,34 +2,34 @@ package com.baidu.swan.apps.core.prefetch;
 
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class c {
-    private static final b cdI = new a();
+    private static final b cfp = new a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public interface b {
-        boolean jO(@NonNull String str);
+        boolean kh(@NonNull String str);
     }
 
-    public static boolean jO(String str) {
-        return aby().jO(str);
+    public static boolean kh(String str) {
+        return acA().kh(str);
     }
 
-    private static b aby() {
-        return cdI;
+    private static b acA() {
+        return cfp;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static class a implements b {
-        private static final String[] cdJ = {"Gz7Grjwr0GhpGSDIhtUk6RB1EiBCRmHK"};
+        private static final String[] cfq = {"Gz7Grjwr0GhpGSDIhtUk6RB1EiBCRmHK"};
 
         @Override // com.baidu.swan.apps.core.prefetch.c.b
-        public boolean jO(@NonNull String str) {
+        public boolean kh(@NonNull String str) {
             if (TextUtils.isEmpty(str)) {
                 return true;
             }
-            for (String str2 : cdJ) {
+            for (String str2 : cfq) {
                 if (str.startsWith(str2)) {
                     return false;
                 }

@@ -2,8 +2,9 @@ package com.baidu.swan.pms;
 
 import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.swan.pms.node.b.f;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public interface b {
     void a(com.baidu.swan.pms.node.a.a aVar);
 
@@ -11,31 +12,33 @@ public interface b {
 
     void a(String str, String str2, String str3, int i, JSONObject jSONObject);
 
-    String agW();
+    String ail();
 
-    String agX();
+    String aim();
 
-    String agY();
+    String ain();
 
-    String agZ();
+    String aio();
 
-    String aha();
+    String aip();
 
-    String ahb();
+    String aiq();
 
-    String ahc();
+    String air();
 
-    String ahd();
+    String ais();
 
-    String ahe();
+    String ait();
 
-    String ahf();
+    String aiu();
 
-    CookieManager ahg();
+    CookieManager aiv();
 
-    String ahh();
+    String aiw();
 
-    com.baidu.swan.pms.c.f ahi();
+    com.baidu.swan.pms.c.f aix();
+
+    void b(JSONArray jSONArray, String str, String str2);
 
     String getProcessName();
 

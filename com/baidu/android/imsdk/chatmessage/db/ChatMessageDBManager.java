@@ -1287,6 +1287,7 @@ public class ChatMessageDBManager extends DBBase {
                     contentValues.put(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, chatMsg.getServiceType());
                     contentValues.put(TableDefine.MessageColumns.COLUME_TIPS_CODE, Integer.valueOf(chatMsg.getTipsCode()));
                     contentValues.put(TableDefine.MessageColumns.COLUME_TIPS, chatMsg.getTips());
+                    contentValues.put(TableDefine.MessageColumns.COLUME_TEMPLATE, Integer.valueOf(chatMsg.getTemplateType()));
                     return openDatabase.insert("message", null, contentValues);
                 }
             } catch (Exception e) {
@@ -1298,7 +1299,7 @@ public class ChatMessageDBManager extends DBBase {
         return -1L;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1193=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1194=4] */
     private long isMsgExist(SQLiteDatabase sQLiteDatabase, ChatMsg chatMsg) {
         Cursor cursor;
         String[] strArr;
@@ -1375,7 +1376,7 @@ public class ChatMessageDBManager extends DBBase {
         return j;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1286=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1287=4] */
     private long isDuplicateMsg(SQLiteDatabase sQLiteDatabase, ChatMsg chatMsg) {
         Cursor cursor;
         String[] strArr;
@@ -1512,7 +1513,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1469=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1470=4] */
     /* JADX WARN: Removed duplicated region for block: B:33:0x0277  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1679,7 +1680,7 @@ public class ChatMessageDBManager extends DBBase {
         return -1009;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1573=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1574=4] */
     public List<Long> setPaMsgReadByChatTypes(List<Integer> list, long j) {
         ArrayList arrayList = new ArrayList();
         if (list == null || list.size() <= 0) {
@@ -1864,7 +1865,7 @@ public class ChatMessageDBManager extends DBBase {
         return delete;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1779=5, 1780=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1780=5, 1781=4] */
     /* JADX WARN: Removed duplicated region for block: B:36:0x0079 A[Catch: all -> 0x0045, TryCatch #2 {, blocks: (B:4:0x0006, B:6:0x000c, B:15:0x0040, B:16:0x0043, B:23:0x004c, B:24:0x004f, B:36:0x0079, B:37:0x007c, B:30:0x006f, B:31:0x0072), top: B:46:0x0006 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -2019,7 +2020,7 @@ public class ChatMessageDBManager extends DBBase {
         return delMsgsOfCertainContacterForSingle(chatObject, j);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1975=4, 1976=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1976=4, 1977=4] */
     private int delMsgsOfCertainContacterForSingle(ChatObject chatObject, long j) {
         int delete;
         synchronized (mSyncLock) {
@@ -2079,7 +2080,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2058=4, 2059=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2059=4, 2060=4] */
     private int delMsgsOfPaByPaId(long j) {
         int i;
         int i2;
@@ -2250,7 +2251,7 @@ public class ChatMessageDBManager extends DBBase {
         return j;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2202=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2203=4] */
     public int getUnReadMsgCount(ChatObject chatObject) {
         Cursor cursor;
         int i;
@@ -2494,7 +2495,7 @@ public class ChatMessageDBManager extends DBBase {
         return 1 == i ? GroupMessageDAOImpl.getDraftMsg(this.mContext, String.valueOf(j)) : getDraftMsgForSingle(i, j);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2485=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2486=4] */
     /* JADX WARN: Removed duplicated region for block: B:30:0x007b A[Catch: all -> 0x0051, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x000a, B:7:0x0012, B:16:0x004b, B:17:0x004f, B:30:0x007b, B:31:0x007e, B:26:0x0072), top: B:38:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -2557,7 +2558,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2514=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2515=4] */
     /* JADX WARN: Removed duplicated region for block: B:30:0x0074 A[Catch: all -> 0x004a, TryCatch #4 {, blocks: (B:4:0x0004, B:6:0x000a, B:7:0x0012, B:16:0x0044, B:17:0x0048, B:30:0x0074, B:31:0x0077, B:26:0x006b), top: B:41:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -2620,15 +2621,14 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x01e0 A[ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0336  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x01ef A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x0345  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private ChatMsg construChatMsg(Cursor cursor) {
         int i;
         Exception e;
-        JSONObject jSONObject;
         ChatMsg newChatMsg;
         int i2 = cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_ROW_ID));
         int i3 = cursor.getInt(cursor.getColumnIndex("type"));
@@ -2653,67 +2653,68 @@ public class ChatMessageDBManager extends DBBase {
         String string6 = cursor.getString(cursor.getColumnIndex(TableDefine.MessageColumns.COLUME_SERVICE_TYPE));
         int i9 = cursor.getInt(cursor.getColumnIndex(TableDefine.MessageColumns.COLUME_TIPS_CODE));
         String string7 = cursor.getString(cursor.getColumnIndex(TableDefine.MessageColumns.COLUME_TIPS));
+        int i10 = cursor.getInt(cursor.getColumnIndex(TableDefine.MessageColumns.COLUME_TEMPLATE));
         if (i3 == 80) {
             try {
-                jSONObject = new JSONObject(new JSONObject(new JSONObject(new JSONObject(string).optString("text")).optString("msg")).optString("ext"));
+                JSONObject jSONObject = new JSONObject(new JSONObject(new JSONObject(new JSONObject(string).optString("text")).optString("msg")).optString("ext"));
                 i = jSONObject.optInt("type", -1);
-            } catch (Exception e2) {
-                i = i3;
-                e = e2;
-            }
-            try {
-                if (i == 1) {
-                    i = 0;
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("text", jSONObject.optString("body"));
-                    string = jSONObject2.toString();
-                } else if (i == 0) {
-                    if (jSONObject.has("content") && !jSONObject.has("body")) {
+                try {
+                    if (i == 1) {
                         i = 0;
-                        JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put("text", new JSONObject(jSONObject.optString("content")).optString("text"));
-                        string = jSONObject3.toString();
-                    } else {
-                        JSONArray jSONArray = new JSONArray(jSONObject.optString("body"));
-                        int length = jSONArray.length();
-                        if (length == 1) {
-                            i3 = 8;
-                            JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                            JSONObject jSONObject4 = new JSONObject();
-                            jSONObject4.put("title", optJSONObject.optString("title"));
-                            jSONObject4.put("article_url", optJSONObject.optString("url"));
-                            jSONObject4.put("cover", optJSONObject.optString("headImage"));
-                            string = jSONObject4.toString();
-                            i = 8;
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("text", jSONObject.optString("body"));
+                        string = jSONObject2.toString();
+                    } else if (i == 0) {
+                        if (jSONObject.has("content") && !jSONObject.has("body")) {
+                            i = 0;
+                            JSONObject jSONObject3 = new JSONObject();
+                            jSONObject3.put("text", new JSONObject(jSONObject.optString("content")).optString("text"));
+                            string = jSONObject3.toString();
                         } else {
-                            i = i3;
-                        }
-                        if (length > 1) {
-                            i = 9;
-                            JSONArray jSONArray2 = new JSONArray();
-                            for (int i10 = 0; i10 < length; i10++) {
-                                JSONObject optJSONObject2 = jSONArray.optJSONObject(i10);
-                                JSONObject jSONObject5 = new JSONObject();
-                                jSONObject5.put("title", optJSONObject2.optString("title"));
-                                jSONObject5.put("article_url", optJSONObject2.optString("url"));
-                                jSONObject5.put("cover", optJSONObject2.optString("headImage"));
-                                jSONArray2.put(jSONObject5);
+                            JSONArray jSONArray = new JSONArray(jSONObject.optString("body"));
+                            int length = jSONArray.length();
+                            if (length == 1) {
+                                i3 = 8;
+                                JSONObject optJSONObject = jSONArray.optJSONObject(0);
+                                JSONObject jSONObject4 = new JSONObject();
+                                jSONObject4.put("title", optJSONObject.optString("title"));
+                                jSONObject4.put("article_url", optJSONObject.optString("url"));
+                                jSONObject4.put("cover", optJSONObject.optString("headImage"));
+                                string = jSONObject4.toString();
+                                i = 8;
+                            } else {
+                                i = i3;
                             }
-                            JSONObject jSONObject6 = new JSONObject();
-                            jSONObject6.put("articles", jSONArray2);
-                            string = jSONObject6.toString();
+                            if (length > 1) {
+                                i = 9;
+                                JSONArray jSONArray2 = new JSONArray();
+                                for (int i11 = 0; i11 < length; i11++) {
+                                    JSONObject optJSONObject2 = jSONArray.optJSONObject(i11);
+                                    JSONObject jSONObject5 = new JSONObject();
+                                    jSONObject5.put("title", optJSONObject2.optString("title"));
+                                    jSONObject5.put("article_url", optJSONObject2.optString("url"));
+                                    jSONObject5.put("cover", optJSONObject2.optString("headImage"));
+                                    jSONArray2.put(jSONObject5);
+                                }
+                                JSONObject jSONObject6 = new JSONObject();
+                                jSONObject6.put("articles", jSONArray2);
+                                string = jSONObject6.toString();
+                            }
                         }
+                    } else {
+                        string = jSONObject.optString("content");
                     }
-                } else {
-                    string = jSONObject.optString("content");
+                } catch (Exception e2) {
+                    e = e2;
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "du construChatMsg:", e);
+                    newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i6, i, i7);
+                    if (newChatMsg != null) {
+                    }
                 }
             } catch (Exception e3) {
+                i = i3;
                 e = e3;
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                LogUtils.e(TAG, "du construChatMsg:", e);
-                newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i6, i, i7);
-                if (newChatMsg != null) {
-                }
             }
         } else {
             i = i3;
@@ -2747,6 +2748,7 @@ public class ChatMessageDBManager extends DBBase {
         newChatMsg.setServiceType(string6);
         newChatMsg.setTipsCode(i9);
         newChatMsg.setTips(string7);
+        newChatMsg.setTemplateType(i10);
         return newChatMsg;
     }
 
@@ -2857,7 +2859,7 @@ public class ChatMessageDBManager extends DBBase {
         return IMConfigInternal.getInstance().getIMConfig(this.mContext).getPaidCondition(str, str2, j);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2822=5, 2823=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2825=5, 2826=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x007c */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00d8 */
     /* JADX WARN: Multi-variable type inference failed */
@@ -2936,7 +2938,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2968=7, 2969=6] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2971=7, 2972=6] */
     /* JADX WARN: Code restructure failed: missing block: B:100:0x02ab, code lost:
         com.baidu.android.imsdk.utils.LogUtils.d(com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager.TAG, "cursor is moveToPrevious failed!");
      */
@@ -3400,7 +3402,7 @@ public class ChatMessageDBManager extends DBBase {
         return delete;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3323=5, 3324=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3326=5, 3327=4] */
     public List<ChatSession> getGroupSession() {
         Cursor cursor = null;
         synchronized (mSyncLock) {
@@ -3467,7 +3469,7 @@ public class ChatMessageDBManager extends DBBase {
         LogUtils.d(TAG, "---delPaLocalInfosByPaType---paids is null ---- ");
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3382=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3385=4] */
     /* JADX WARN: Removed duplicated region for block: B:30:0x0079 A[Catch: all -> 0x004f, TryCatch #4 {, blocks: (B:4:0x0004, B:6:0x000a, B:7:0x0012, B:16:0x0049, B:17:0x004d, B:30:0x0079, B:31:0x007c, B:26:0x0070), top: B:41:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -3530,7 +3532,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3435=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3438=4] */
     /* JADX WARN: Removed duplicated region for block: B:42:0x00e4 A[Catch: all -> 0x00dd, TRY_ENTER, TryCatch #4 {, blocks: (B:4:0x0007, B:6:0x0026, B:7:0x002e, B:10:0x0031, B:21:0x007d, B:22:0x0080, B:42:0x00e4, B:43:0x00e7, B:33:0x00d7, B:34:0x00da), top: B:53:0x0007 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -3644,7 +3646,7 @@ public class ChatMessageDBManager extends DBBase {
         return j;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3506=5, 3507=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3509=5, 3510=4] */
     public long getMaxReliableMsgId(long j) {
         long j2;
         Cursor cursor = null;
@@ -3699,7 +3701,7 @@ public class ChatMessageDBManager extends DBBase {
         return j2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3536=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3539=4] */
     /* JADX WARN: Removed duplicated region for block: B:13:0x006b A[Catch: all -> 0x00a7, TRY_ENTER, TryCatch #3 {, blocks: (B:13:0x006b, B:14:0x006e, B:29:0x00a3, B:30:0x00a6, B:23:0x0098, B:24:0x009b), top: B:40:0x0006 }] */
     /* JADX WARN: Removed duplicated region for block: B:29:0x00a3 A[Catch: all -> 0x00a7, TryCatch #3 {, blocks: (B:13:0x006b, B:14:0x006e, B:29:0x00a3, B:30:0x00a6, B:23:0x0098, B:24:0x009b), top: B:40:0x0006 }] */
     /*
@@ -3820,7 +3822,7 @@ public class ChatMessageDBManager extends DBBase {
         return i;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3645=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3648=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x0055 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x005f */
     /* JADX WARN: Multi-variable type inference failed */

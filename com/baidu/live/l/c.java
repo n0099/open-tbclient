@@ -9,30 +9,30 @@ import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.data.af;
+import com.baidu.live.data.ag;
 import com.baidu.live.message.AlaGiftRefreshScoresHttpResponseMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends BdBaseModel {
-    private com.baidu.live.d aZK;
+    private com.baidu.live.d aZI;
     private Handler handler = new Handler();
-    private HttpMessageListener aZL = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES) { // from class: com.baidu.live.l.c.1
+    private HttpMessageListener aZJ = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES) { // from class: com.baidu.live.l.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGiftRefreshScoresHttpResponseMessage)) {
                 AlaGiftRefreshScoresHttpResponseMessage alaGiftRefreshScoresHttpResponseMessage = (AlaGiftRefreshScoresHttpResponseMessage) httpResponsedMessage;
                 if (alaGiftRefreshScoresHttpResponseMessage.getError() == 0) {
-                    af FW = alaGiftRefreshScoresHttpResponseMessage.FW();
-                    TbadkCoreApplication.getInst().currentAccountTdouNum = FW.mTDouScores;
-                    TbadkCoreApplication.getInst().currentAccountFlowerNum = FW.mPetalTotal;
+                    ag FQ = alaGiftRefreshScoresHttpResponseMessage.FQ();
+                    TbadkCoreApplication.getInst().currentAccountTdouNum = FQ.mTDouScores;
+                    TbadkCoreApplication.getInst().currentAccountFlowerNum = FQ.mPetalTotal;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA));
                 }
-                if (c.this.aZK != null) {
+                if (c.this.aZI != null) {
                     c.this.handler.post(new Runnable() { // from class: com.baidu.live.l.c.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            c.this.aZK.vg();
+                            c.this.aZI.vg();
                         }
                     });
                 }
@@ -41,11 +41,11 @@ public class c extends BdBaseModel {
     };
 
     public void initListener() {
-        registerListener(this.aZL);
+        registerListener(this.aZJ);
     }
 
     public void a(com.baidu.live.d dVar) {
-        this.aZK = dVar;
+        this.aZI = dVar;
     }
 
     public boolean refreshCurUserScores() {
@@ -69,7 +69,7 @@ public class c extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.aZL);
+        MessageManager.getInstance().unRegisterListener(this.aZJ);
         this.handler.removeCallbacksAndMessages(null);
     }
 }

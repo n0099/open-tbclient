@@ -4,18 +4,18 @@ import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.account.AccountLoginCoreHelper;
 import com.baidu.live.tbadk.core.data.AccountData;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends AccountLoginCoreHelper {
-    private static a loA = null;
+    private static a lvR = null;
 
     private a() {
     }
 
-    public static a dbj() {
-        if (loA == null) {
-            loA = new a();
+    public static a deq() {
+        if (lvR == null) {
+            lvR = new a();
         }
-        return loA;
+        return lvR;
     }
 
     @Override // com.baidu.live.tbadk.core.account.AccountLoginCoreHelper

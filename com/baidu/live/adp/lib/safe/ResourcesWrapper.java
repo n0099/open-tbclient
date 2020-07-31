@@ -14,7 +14,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.BdErrorInfo;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResourcesWrapper extends Resources {
     private static final ColorStateList EMPTY_COLORSTATELIST = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
     private Resources innerResources;

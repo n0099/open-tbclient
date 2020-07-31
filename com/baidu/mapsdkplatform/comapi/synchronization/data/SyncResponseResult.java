@@ -2,7 +2,7 @@ package com.baidu.mapsdkplatform.comapi.synchronization.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class SyncResponseResult implements Parcelable {
     public static final Parcelable.Creator<SyncResponseResult> CREATOR = new j();
     private RouteLineInfo a;

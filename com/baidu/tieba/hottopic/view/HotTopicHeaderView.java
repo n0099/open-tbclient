@@ -26,75 +26,75 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotRanklistActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoMiddlePageActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.PagerSlidingTabStrip;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.data.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class HotTopicHeaderView extends LinearLayout {
-    private String MN;
+    private String MK;
     private View dividerLine;
-    private com.baidu.tbadk.widget.layout.e eLG;
-    private View hhK;
-    private int iGA;
-    private f iGB;
-    private View.OnClickListener iGC;
-    private ClickableSpan iGD;
-    private ClickableSpan iGE;
-    private TbImageView iGl;
-    private TextView iGm;
-    private TextView iGn;
-    private TextView iGo;
-    private LinearLayout iGp;
-    private LinearLayout iGq;
-    private ImageView iGr;
-    private TextView iGs;
-    private TextView iGt;
-    private PagerSlidingTabStrip iGu;
-    private View iGv;
-    private ImageView iGw;
-    private boolean iGx;
-    private int iGy;
-    private int iGz;
+    private com.baidu.tbadk.widget.layout.e eSb;
+    private View hnu;
+    private View iMA;
+    private ImageView iMB;
+    private boolean iMC;
+    private int iMD;
+    private int iME;
+    private int iMF;
+    private f iMG;
+    private View.OnClickListener iMH;
+    private ClickableSpan iMI;
+    private ClickableSpan iMJ;
+    private TbImageView iMq;
+    private TextView iMr;
+    private TextView iMs;
+    private TextView iMt;
+    private LinearLayout iMu;
+    private LinearLayout iMv;
+    private ImageView iMw;
+    private TextView iMx;
+    private TextView iMy;
+    private PagerSlidingTabStrip iMz;
     private int mSkinType;
 
     public HotTopicHeaderView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.iGx = false;
-        this.MN = "";
-        this.iGz = 0;
-        this.iGA = 0;
-        this.iGC = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.1
+        this.iMC = false;
+        this.MK = "";
+        this.iME = 0;
+        this.iMF = 0;
+        this.iMH = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HotTopicHeaderView.this.iGB != null && !StringUtils.isNull(HotTopicHeaderView.this.iGB.iEr)) {
-                    com.baidu.tbadk.browser.a.startWebActivity(HotTopicHeaderView.this.getContext(), HotTopicHeaderView.this.iGB.iEr);
+                if (HotTopicHeaderView.this.iMG != null && !StringUtils.isNull(HotTopicHeaderView.this.iMG.iKv)) {
+                    com.baidu.tbadk.browser.a.startWebActivity(HotTopicHeaderView.this.getContext(), HotTopicHeaderView.this.iMG.iKv);
                 }
             }
         };
-        this.iGD = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.4
+        this.iMI = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.4
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                spannableStringBuilder.append((CharSequence) HotTopicHeaderView.this.MN);
-                if (HotTopicHeaderView.this.MN.length() > 500) {
+                spannableStringBuilder.append((CharSequence) HotTopicHeaderView.this.MK);
+                if (HotTopicHeaderView.this.MK.length() > 500) {
                     spannableStringBuilder.append((CharSequence) "...  ");
                 }
                 String str = HotTopicHeaderView.this.getResources().getString(R.string.hot_topic_coll) + "  ";
                 spannableStringBuilder.append((CharSequence) str);
                 SpannableString spannableString = new SpannableString(spannableStringBuilder);
-                spannableString.setSpan(HotTopicHeaderView.this.iGE, spannableString.length() - str.length(), spannableString.length(), 33);
-                HotTopicHeaderView.this.iGo.setText(spannableString);
-                HotTopicHeaderView.this.iGo.setHeight(HotTopicHeaderView.this.iGy * HotTopicHeaderView.this.iGo.getLineHeight());
-                int lineCount = HotTopicHeaderView.this.iGo.getLineCount() * HotTopicHeaderView.this.iGo.getLineHeight();
-                if (lineCount > HotTopicHeaderView.this.iGy * HotTopicHeaderView.this.iGo.getLineHeight()) {
-                    HotTopicHeaderView.this.iGo.scrollTo(0, lineCount - (HotTopicHeaderView.this.iGy * HotTopicHeaderView.this.iGo.getLineHeight()));
+                spannableString.setSpan(HotTopicHeaderView.this.iMJ, spannableString.length() - str.length(), spannableString.length(), 33);
+                HotTopicHeaderView.this.iMt.setText(spannableString);
+                HotTopicHeaderView.this.iMt.setHeight(HotTopicHeaderView.this.iMD * HotTopicHeaderView.this.iMt.getLineHeight());
+                int lineCount = HotTopicHeaderView.this.iMt.getLineCount() * HotTopicHeaderView.this.iMt.getLineHeight();
+                if (lineCount > HotTopicHeaderView.this.iMD * HotTopicHeaderView.this.iMt.getLineHeight()) {
+                    HotTopicHeaderView.this.iMt.scrollTo(0, lineCount - (HotTopicHeaderView.this.iMD * HotTopicHeaderView.this.iMt.getLineHeight()));
                 }
-                HotTopicHeaderView.this.iGo.requestLayout();
+                HotTopicHeaderView.this.iMt.requestLayout();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -102,11 +102,11 @@ public class HotTopicHeaderView extends LinearLayout {
                 textPaint.setColor(HotTopicHeaderView.this.getResources().getColor(R.color.cp_link_tip_c));
             }
         };
-        this.iGE = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.5
+        this.iMJ = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.5
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
-                HotTopicHeaderView.this.iGo.setText(HotTopicHeaderView.this.MN);
-                HotTopicHeaderView.this.cma();
+                HotTopicHeaderView.this.iMt.setText(HotTopicHeaderView.this.MK);
+                HotTopicHeaderView.this.cpA();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -120,37 +120,37 @@ public class HotTopicHeaderView extends LinearLayout {
     public HotTopicHeaderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.iGx = false;
-        this.MN = "";
-        this.iGz = 0;
-        this.iGA = 0;
-        this.iGC = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.1
+        this.iMC = false;
+        this.MK = "";
+        this.iME = 0;
+        this.iMF = 0;
+        this.iMH = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HotTopicHeaderView.this.iGB != null && !StringUtils.isNull(HotTopicHeaderView.this.iGB.iEr)) {
-                    com.baidu.tbadk.browser.a.startWebActivity(HotTopicHeaderView.this.getContext(), HotTopicHeaderView.this.iGB.iEr);
+                if (HotTopicHeaderView.this.iMG != null && !StringUtils.isNull(HotTopicHeaderView.this.iMG.iKv)) {
+                    com.baidu.tbadk.browser.a.startWebActivity(HotTopicHeaderView.this.getContext(), HotTopicHeaderView.this.iMG.iKv);
                 }
             }
         };
-        this.iGD = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.4
+        this.iMI = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.4
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                spannableStringBuilder.append((CharSequence) HotTopicHeaderView.this.MN);
-                if (HotTopicHeaderView.this.MN.length() > 500) {
+                spannableStringBuilder.append((CharSequence) HotTopicHeaderView.this.MK);
+                if (HotTopicHeaderView.this.MK.length() > 500) {
                     spannableStringBuilder.append((CharSequence) "...  ");
                 }
                 String str = HotTopicHeaderView.this.getResources().getString(R.string.hot_topic_coll) + "  ";
                 spannableStringBuilder.append((CharSequence) str);
                 SpannableString spannableString = new SpannableString(spannableStringBuilder);
-                spannableString.setSpan(HotTopicHeaderView.this.iGE, spannableString.length() - str.length(), spannableString.length(), 33);
-                HotTopicHeaderView.this.iGo.setText(spannableString);
-                HotTopicHeaderView.this.iGo.setHeight(HotTopicHeaderView.this.iGy * HotTopicHeaderView.this.iGo.getLineHeight());
-                int lineCount = HotTopicHeaderView.this.iGo.getLineCount() * HotTopicHeaderView.this.iGo.getLineHeight();
-                if (lineCount > HotTopicHeaderView.this.iGy * HotTopicHeaderView.this.iGo.getLineHeight()) {
-                    HotTopicHeaderView.this.iGo.scrollTo(0, lineCount - (HotTopicHeaderView.this.iGy * HotTopicHeaderView.this.iGo.getLineHeight()));
+                spannableString.setSpan(HotTopicHeaderView.this.iMJ, spannableString.length() - str.length(), spannableString.length(), 33);
+                HotTopicHeaderView.this.iMt.setText(spannableString);
+                HotTopicHeaderView.this.iMt.setHeight(HotTopicHeaderView.this.iMD * HotTopicHeaderView.this.iMt.getLineHeight());
+                int lineCount = HotTopicHeaderView.this.iMt.getLineCount() * HotTopicHeaderView.this.iMt.getLineHeight();
+                if (lineCount > HotTopicHeaderView.this.iMD * HotTopicHeaderView.this.iMt.getLineHeight()) {
+                    HotTopicHeaderView.this.iMt.scrollTo(0, lineCount - (HotTopicHeaderView.this.iMD * HotTopicHeaderView.this.iMt.getLineHeight()));
                 }
-                HotTopicHeaderView.this.iGo.requestLayout();
+                HotTopicHeaderView.this.iMt.requestLayout();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -158,11 +158,11 @@ public class HotTopicHeaderView extends LinearLayout {
                 textPaint.setColor(HotTopicHeaderView.this.getResources().getColor(R.color.cp_link_tip_c));
             }
         };
-        this.iGE = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.5
+        this.iMJ = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.5
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
-                HotTopicHeaderView.this.iGo.setText(HotTopicHeaderView.this.MN);
-                HotTopicHeaderView.this.cma();
+                HotTopicHeaderView.this.iMt.setText(HotTopicHeaderView.this.MK);
+                HotTopicHeaderView.this.cpA();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -176,37 +176,37 @@ public class HotTopicHeaderView extends LinearLayout {
     public HotTopicHeaderView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.iGx = false;
-        this.MN = "";
-        this.iGz = 0;
-        this.iGA = 0;
-        this.iGC = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.1
+        this.iMC = false;
+        this.MK = "";
+        this.iME = 0;
+        this.iMF = 0;
+        this.iMH = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HotTopicHeaderView.this.iGB != null && !StringUtils.isNull(HotTopicHeaderView.this.iGB.iEr)) {
-                    com.baidu.tbadk.browser.a.startWebActivity(HotTopicHeaderView.this.getContext(), HotTopicHeaderView.this.iGB.iEr);
+                if (HotTopicHeaderView.this.iMG != null && !StringUtils.isNull(HotTopicHeaderView.this.iMG.iKv)) {
+                    com.baidu.tbadk.browser.a.startWebActivity(HotTopicHeaderView.this.getContext(), HotTopicHeaderView.this.iMG.iKv);
                 }
             }
         };
-        this.iGD = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.4
+        this.iMI = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.4
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                spannableStringBuilder.append((CharSequence) HotTopicHeaderView.this.MN);
-                if (HotTopicHeaderView.this.MN.length() > 500) {
+                spannableStringBuilder.append((CharSequence) HotTopicHeaderView.this.MK);
+                if (HotTopicHeaderView.this.MK.length() > 500) {
                     spannableStringBuilder.append((CharSequence) "...  ");
                 }
                 String str = HotTopicHeaderView.this.getResources().getString(R.string.hot_topic_coll) + "  ";
                 spannableStringBuilder.append((CharSequence) str);
                 SpannableString spannableString = new SpannableString(spannableStringBuilder);
-                spannableString.setSpan(HotTopicHeaderView.this.iGE, spannableString.length() - str.length(), spannableString.length(), 33);
-                HotTopicHeaderView.this.iGo.setText(spannableString);
-                HotTopicHeaderView.this.iGo.setHeight(HotTopicHeaderView.this.iGy * HotTopicHeaderView.this.iGo.getLineHeight());
-                int lineCount = HotTopicHeaderView.this.iGo.getLineCount() * HotTopicHeaderView.this.iGo.getLineHeight();
-                if (lineCount > HotTopicHeaderView.this.iGy * HotTopicHeaderView.this.iGo.getLineHeight()) {
-                    HotTopicHeaderView.this.iGo.scrollTo(0, lineCount - (HotTopicHeaderView.this.iGy * HotTopicHeaderView.this.iGo.getLineHeight()));
+                spannableString.setSpan(HotTopicHeaderView.this.iMJ, spannableString.length() - str.length(), spannableString.length(), 33);
+                HotTopicHeaderView.this.iMt.setText(spannableString);
+                HotTopicHeaderView.this.iMt.setHeight(HotTopicHeaderView.this.iMD * HotTopicHeaderView.this.iMt.getLineHeight());
+                int lineCount = HotTopicHeaderView.this.iMt.getLineCount() * HotTopicHeaderView.this.iMt.getLineHeight();
+                if (lineCount > HotTopicHeaderView.this.iMD * HotTopicHeaderView.this.iMt.getLineHeight()) {
+                    HotTopicHeaderView.this.iMt.scrollTo(0, lineCount - (HotTopicHeaderView.this.iMD * HotTopicHeaderView.this.iMt.getLineHeight()));
                 }
-                HotTopicHeaderView.this.iGo.requestLayout();
+                HotTopicHeaderView.this.iMt.requestLayout();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -214,11 +214,11 @@ public class HotTopicHeaderView extends LinearLayout {
                 textPaint.setColor(HotTopicHeaderView.this.getResources().getColor(R.color.cp_link_tip_c));
             }
         };
-        this.iGE = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.5
+        this.iMJ = new ClickableSpan() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.5
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
-                HotTopicHeaderView.this.iGo.setText(HotTopicHeaderView.this.MN);
-                HotTopicHeaderView.this.cma();
+                HotTopicHeaderView.this.iMt.setText(HotTopicHeaderView.this.MK);
+                HotTopicHeaderView.this.cpA();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -230,175 +230,175 @@ public class HotTopicHeaderView extends LinearLayout {
     }
 
     private void init(Context context) {
-        this.iGz = l.getDimens(context, R.dimen.tbds418);
+        this.iME = l.getDimens(context, R.dimen.tbds418);
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.hot_topic_topicinfo_item, (ViewGroup) this, true);
-        this.hhK = findViewById(R.id.hot_topic_info_place_holder);
-        this.iGl = (TbImageView) findViewById(R.id.hot_topic_info_picture);
-        this.iGl.setOnClickListener(this.iGC);
-        this.iGm = (TextView) findViewById(R.id.hot_topic_info_title);
-        this.iGn = (TextView) findViewById(R.id.hot_topic_info_threadcount);
-        this.iGo = (TextView) findViewById(R.id.hot_topic_info_abstract);
+        this.hnu = findViewById(R.id.hot_topic_info_place_holder);
+        this.iMq = (TbImageView) findViewById(R.id.hot_topic_info_picture);
+        this.iMq.setOnClickListener(this.iMH);
+        this.iMr = (TextView) findViewById(R.id.hot_topic_info_title);
+        this.iMs = (TextView) findViewById(R.id.hot_topic_info_threadcount);
+        this.iMt = (TextView) findViewById(R.id.hot_topic_info_abstract);
         this.dividerLine = findViewById(R.id.divider_line);
         this.dividerLine.setVisibility(8);
-        this.iGp = (LinearLayout) findViewById(R.id.hot_topic_ranking_item);
-        this.iGq = (LinearLayout) findViewById(R.id.hot_topic_ranking_content);
-        this.iGs = (TextView) findViewById(R.id.hot_topic_ranklist_title);
-        this.iGr = (ImageView) findViewById(R.id.ranklist_pic_r);
-        this.iGt = (TextView) findViewById(R.id.hot_topic_look_ranklist);
-        this.iGu = (PagerSlidingTabStrip) findViewById(R.id.hot_topic_tab_strip);
-        this.iGu.b(l.getDimens(context, R.dimen.ds32), l.getDimens(context, R.dimen.ds1), l.getDimens(context, R.dimen.ds4), true);
-        this.iGv = findViewById(R.id.tab_divider_line);
-        this.iGv.setVisibility(8);
-        this.iGw = (ImageView) findViewById(R.id.hot_topic_tab_strip_bottomline);
+        this.iMu = (LinearLayout) findViewById(R.id.hot_topic_ranking_item);
+        this.iMv = (LinearLayout) findViewById(R.id.hot_topic_ranking_content);
+        this.iMx = (TextView) findViewById(R.id.hot_topic_ranklist_title);
+        this.iMw = (ImageView) findViewById(R.id.ranklist_pic_r);
+        this.iMy = (TextView) findViewById(R.id.hot_topic_look_ranklist);
+        this.iMz = (PagerSlidingTabStrip) findViewById(R.id.hot_topic_tab_strip);
+        this.iMz.b(l.getDimens(context, R.dimen.ds32), l.getDimens(context, R.dimen.ds1), l.getDimens(context, R.dimen.ds4), true);
+        this.iMA = findViewById(R.id.tab_divider_line);
+        this.iMA.setVisibility(8);
+        this.iMB = (ImageView) findViewById(R.id.hot_topic_tab_strip_bottomline);
         onChangeSkinType();
     }
 
     public void setOnSizeChangeListener(com.baidu.tbadk.widget.layout.e eVar) {
-        this.eLG = eVar;
+        this.eSb = eVar;
     }
 
     public void setViewPager(ViewPager viewPager) {
-        if (this.iGu != null) {
-            this.iGu.setViewPager(viewPager);
+        if (this.iMz != null) {
+            this.iMz.setViewPager(viewPager);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cma() {
+    public void cpA() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append((CharSequence) this.MN);
+        spannableStringBuilder.append((CharSequence) this.MK);
         String string = getResources().getString(R.string.hot_topic_detail);
-        SpannableStringBuilder spannableStringBuilder2 = (SpannableStringBuilder) spannableStringBuilder.subSequence(0, (this.iGo.getLayout().getLineEnd(2) - string.length()) - ("...  ".length() / 2));
+        SpannableStringBuilder spannableStringBuilder2 = (SpannableStringBuilder) spannableStringBuilder.subSequence(0, (this.iMt.getLayout().getLineEnd(2) - string.length()) - ("...  ".length() / 2));
         spannableStringBuilder2.append((CharSequence) "...  ");
         int length = spannableStringBuilder2.length();
         spannableStringBuilder2.append((CharSequence) string);
         SpannableString spannableString = new SpannableString(spannableStringBuilder2);
-        spannableString.setSpan(this.iGD, length - 1, spannableString.length(), 33);
-        this.iGo.setText(spannableString);
-        this.iGo.setHeight(this.iGo.getLineHeight() * 3);
-        this.iGo.scrollTo(0, 0);
-        this.iGo.requestLayout();
+        spannableString.setSpan(this.iMI, length - 1, spannableString.length(), 33);
+        this.iMt.setText(spannableString);
+        this.iMt.setHeight(this.iMt.getLineHeight() * 3);
+        this.iMt.scrollTo(0, 0);
+        this.iMt.requestLayout();
     }
 
     public void setData(final f fVar) {
-        if (fVar != null && !StringUtils.isNull(fVar.dKw)) {
-            this.iGB = fVar;
-            this.iGx = true;
-            this.iGl.setDefaultBgResource(R.color.cp_bg_line_e);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iGl.getLayoutParams();
-            layoutParams.height = this.iGz;
-            this.iGl.setLayoutParams(layoutParams);
-            if (!StringUtils.isNull(fVar.iEj) && StringUtils.isNull(fVar.videoUrl)) {
-                this.iGl.startLoad(fVar.iEj, 10, false);
-                this.hhK.setVisibility(8);
+        if (fVar != null && !StringUtils.isNull(fVar.dQI)) {
+            this.iMG = fVar;
+            this.iMC = true;
+            this.iMq.setDefaultBgResource(R.color.cp_bg_line_e);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iMq.getLayoutParams();
+            layoutParams.height = this.iME;
+            this.iMq.setLayoutParams(layoutParams);
+            if (!StringUtils.isNull(fVar.iKn) && StringUtils.isNull(fVar.videoUrl)) {
+                this.iMq.startLoad(fVar.iKn, 10, false);
+                this.hnu.setVisibility(8);
             } else {
-                this.iGl.setVisibility(8);
-                this.hhK.setVisibility(0);
+                this.iMq.setVisibility(8);
+                this.hnu.setVisibility(0);
             }
-            this.iGm.setSingleLine();
-            fVar.dKw = fVar.dKw.trim();
-            if (!StringUtils.isNull(fVar.dKw)) {
-                this.iGm.setText(com.baidu.tieba.hottopic.b.a.aP(fVar.dKw, 10));
+            this.iMr.setSingleLine();
+            fVar.dQI = fVar.dQI.trim();
+            if (!StringUtils.isNull(fVar.dQI)) {
+                this.iMr.setText(com.baidu.tieba.hottopic.b.a.aO(fVar.dQI, 10));
             } else {
-                this.iGm.setText("");
+                this.iMr.setText("");
             }
-            this.iGm.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.2
+            this.iMr.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.2
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
-                    HotTopicHeaderView.this.iGA = HotTopicHeaderView.this.iGm.getMeasuredHeight();
-                    HotTopicHeaderView.this.iGm.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                    HotTopicHeaderView.this.iMF = HotTopicHeaderView.this.iMr.getMeasuredHeight();
+                    HotTopicHeaderView.this.iMr.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 }
             });
-            this.iGn.setText(TbadkCoreApplication.getInst().getString(R.string.hot_topic_info_threadCount).replace("%s", ar.longNumFormatOver9999wan(fVar.postNum)));
-            if (StringUtils.isNull(fVar.iEi)) {
-                this.iGo.setVisibility(8);
+            this.iMs.setText(TbadkCoreApplication.getInst().getString(R.string.hot_topic_info_threadCount).replace("%s", as.longNumFormatOver9999wan(fVar.postNum)));
+            if (StringUtils.isNull(fVar.iKm)) {
+                this.iMt.setVisibility(8);
             } else {
-                if (k.byteLength(fVar.iEi) > 500) {
-                    this.MN = ar.cutChineseAndEnglishWithSuffix(fVar.iEi, 500, "");
+                if (k.byteLength(fVar.iKm) > 500) {
+                    this.MK = as.cutChineseAndEnglishWithSuffix(fVar.iKm, 500, "");
                 } else {
-                    this.MN = fVar.iEi;
+                    this.MK = fVar.iKm;
                 }
-                this.iGo.setText(this.MN);
-                this.iGy = this.iGo.getLineCount();
-                if (this.iGy > 3) {
-                    this.iGo.setMovementMethod(LinkMovementMethod.getInstance());
-                    cma();
+                this.iMt.setText(this.MK);
+                this.iMD = this.iMt.getLineCount();
+                if (this.iMD > 3) {
+                    this.iMt.setMovementMethod(LinkMovementMethod.getInstance());
+                    cpA();
                 }
-                this.iGo.setVisibility(0);
-                this.iGo.setHighlightColor(getResources().getColor(R.color.transparent));
+                this.iMt.setVisibility(0);
+                this.iMt.setHighlightColor(getResources().getColor(R.color.transparent));
             }
-            if (fVar.iEk > 0 && fVar.iEk <= 20) {
-                this.iGp.setVisibility(0);
-                this.iGs.setText(fVar.dKw.trim() + getResources().getString(R.string.hot_topic_cur_rank) + fVar.iEk);
-                this.iGq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.3
+            if (fVar.iKo > 0 && fVar.iKo <= 20) {
+                this.iMu.setVisibility(0);
+                this.iMx.setText(fVar.dQI.trim() + getResources().getString(R.string.hot_topic_cur_rank) + fVar.iKo);
+                this.iMv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicHeaderView.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotRanklistActivityConfig(view.getContext()).createNormalConfig(VideoMiddlePageActivityConfig.FROM_HOTTOPIC, fVar.tagType)));
-                        TiebaStatic.log(new ao("c10813").dk("obj_name", fVar.dKw));
+                        TiebaStatic.log(new ap("c10813").dn("obj_name", fVar.dQI));
                     }
                 });
                 this.dividerLine.setVisibility(0);
             } else {
                 this.dividerLine.setVisibility(8);
-                this.iGp.setVisibility(8);
+                this.iMu.setVisibility(8);
             }
-            this.iGu.notifyDataSetChanged();
-            this.iGv.setVisibility(0);
+            this.iMz.notifyDataSetChanged();
+            this.iMA.setVisibility(0);
         }
     }
 
-    public boolean cmb() {
-        return this.iGx;
+    public boolean cpB() {
+        return this.iMC;
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            an.setBackgroundColor(this, R.color.cp_bg_line_d);
-            an.setBackgroundColor(this.iGu, R.color.cp_bg_line_d);
-            an.setViewTextColor(this.iGm, R.color.cp_cont_b, 1);
-            an.setViewTextColor(this.iGn, R.color.cp_cont_h, 1);
-            an.setViewTextColor(this.iGo, R.color.cp_cont_c, 1);
-            an.setBackgroundColor(this.dividerLine, R.color.cp_bg_line_e);
-            an.setBackgroundColor(this.iGv, R.color.cp_bg_line_e);
-            an.setViewTextColor(this.iGs, R.color.cp_cont_b, 1);
-            an.setViewTextColor(this.iGt, R.color.cp_cont_j, 1);
-            an.setBackgroundResource(this.iGr, R.drawable.icon_arrow_more_gray);
-            an.setBackgroundResource(this.iGq, R.drawable.hot_topic_ranklist_bg);
-            an.setBackgroundColor(this.iGw, R.color.cp_bg_line_c);
-            this.iGu.onChangeSkinType();
+            ao.setBackgroundColor(this, R.color.cp_bg_line_d);
+            ao.setBackgroundColor(this.iMz, R.color.cp_bg_line_d);
+            ao.setViewTextColor(this.iMr, R.color.cp_cont_b, 1);
+            ao.setViewTextColor(this.iMs, R.color.cp_cont_h, 1);
+            ao.setViewTextColor(this.iMt, R.color.cp_cont_c, 1);
+            ao.setBackgroundColor(this.dividerLine, R.color.cp_bg_line_e);
+            ao.setBackgroundColor(this.iMA, R.color.cp_bg_line_e);
+            ao.setViewTextColor(this.iMx, R.color.cp_cont_b, 1);
+            ao.setViewTextColor(this.iMy, R.color.cp_cont_j, 1);
+            ao.setBackgroundResource(this.iMw, R.drawable.icon_arrow_more_gray);
+            ao.setBackgroundResource(this.iMv, R.drawable.hot_topic_ranklist_bg);
+            ao.setBackgroundColor(this.iMB, R.color.cp_bg_line_c);
+            this.iMz.onChangeSkinType();
         }
     }
 
     public void setHeaderBottomLineShow(boolean z) {
-        if (this.iGw != null) {
-            this.iGw.setVisibility(z ? 0 : 8);
+        if (this.iMB != null) {
+            this.iMB.setVisibility(z ? 0 : 8);
         }
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        if (this.eLG != null) {
-            this.eLG.d(this, i, i2, i3, i4);
+        if (this.eSb != null) {
+            this.eSb.d(this, i, i2, i3, i4);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public int getNavigationBarSwitchHeight() {
-        boolean z = (this.iGB == null || StringUtils.isNull(this.iGB.iEj)) ? false : true;
-        int i = this.iGA;
-        if (this.hhK != null) {
-            i += this.hhK.getMeasuredHeight();
+        boolean z = (this.iMG == null || StringUtils.isNull(this.iMG.iKn)) ? false : true;
+        int i = this.iMF;
+        if (this.hnu != null) {
+            i += this.hnu.getMeasuredHeight();
         }
-        return z ? this.iGA + this.iGz : i;
+        return z ? this.iMF + this.iME : i;
     }
 
-    public void xJ(int i) {
-        ((LinearLayout.LayoutParams) this.hhK.getLayoutParams()).height = i;
-        this.hhK.postInvalidate();
+    public void yb(int i) {
+        ((LinearLayout.LayoutParams) this.hnu.getLayoutParams()).height = i;
+        this.hnu.postInvalidate();
     }
 }

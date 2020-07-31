@@ -6,7 +6,7 @@ import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 import org.apache.http.cookie.SetCookie;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public class BasicPathHandler implements CookieAttributeHandler {
     public BasicPathHandler() {
         throw new RuntimeException("Stub!");

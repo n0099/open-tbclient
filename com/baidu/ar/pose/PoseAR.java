@@ -13,7 +13,7 @@ import com.baidu.ar.c.l;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class PoseAR extends c {
     public static final String MDL_MAGIC_FILTER_CUTOFFSLOPE = "cutoffSlope";
     public static final String MDL_MAGIC_FILTER_MIN_CUTOFFFREQ = "min_cutofffreq";

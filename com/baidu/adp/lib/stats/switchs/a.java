@@ -27,7 +27,7 @@ public class a {
             switch (message.what) {
                 case 1:
                     if (message.obj instanceof BdUploadStatMsgData) {
-                        g.mu().cc(((BdUploadStatMsgData) message.obj).parentType);
+                        g.mu().ca(((BdUploadStatMsgData) message.obj).parentType);
                         return;
                     }
                     return;
@@ -108,12 +108,12 @@ public class a {
                 bdStatSwitchData.parserJson(a.this.Nq.Nt);
             }
             a.this.Nl = false;
-            if (a.this.mIsMainProcess && a.this.bY(a.this.Nq.Nt)) {
+            if (a.this.mIsMainProcess && a.this.bW(a.this.Nq.Nt)) {
                 String mp = a.this.mp();
                 if (!TextUtils.isEmpty(mp) && !mp.equals(a.this.Nq.Nt)) {
                     a.this.Nl = true;
                     bdStatSwitchData.parserJson(mp);
-                    a.this.Nq.ca(mp);
+                    a.this.Nq.bY(mp);
                 }
             }
             return bdStatSwitchData;
@@ -139,7 +139,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bY(String str) {
+    public boolean bW(String str) {
         return TextUtils.isEmpty(str) || System.currentTimeMillis() - this.Nq.Ns >= 86400000;
     }
 
@@ -215,28 +215,28 @@ public class a {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.Np.isWrite(com.baidu.adp.lib.stats.base.a.bX(str), str2);
+        return this.Np.isWrite(com.baidu.adp.lib.stats.base.a.bV(str), str2);
     }
 
     public boolean isUpload(String str, String str2) {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.Np.isUpload(com.baidu.adp.lib.stats.base.a.bX(str), str2);
+        return this.Np.isUpload(com.baidu.adp.lib.stats.base.a.bV(str), str2);
     }
 
     public boolean onlyWifiUpload(String str, String str2) {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.Np.onlyWifiUpload(com.baidu.adp.lib.stats.base.a.bX(str), str2);
+        return this.Np.onlyWifiUpload(com.baidu.adp.lib.stats.base.a.bV(str), str2);
     }
 
     public boolean isExactWriteFile(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return this.Np.isExactWriteFile(com.baidu.adp.lib.stats.base.a.bX(str));
+        return this.Np.isExactWriteFile(com.baidu.adp.lib.stats.base.a.bV(str));
     }
 
     public int getMaxAlertCount(String str, int i) {
@@ -251,10 +251,10 @@ public class a {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return true;
         }
-        return this.Np.smallFlowUpload(com.baidu.adp.lib.stats.base.a.bX(str), str2);
+        return this.Np.smallFlowUpload(com.baidu.adp.lib.stats.base.a.bV(str), str2);
     }
 
-    public ArrayList<String> bZ(String str) {
+    public ArrayList<String> bX(String str) {
         return this.Np.getChiledTypes(str);
     }
 

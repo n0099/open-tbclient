@@ -1,7 +1,7 @@
 package org.apache.commons.codec.digest4util;
 
 import java.util.zip.Checksum;
-/* loaded from: classes13.dex */
+/* loaded from: classes7.dex */
 public class XXHash32 implements Checksum {
     private static final int BUF_SIZE = 16;
     private static final int PRIME1 = -1640531535;

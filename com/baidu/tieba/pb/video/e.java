@@ -3,8 +3,8 @@ package com.baidu.tieba.pb.video;
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-/* loaded from: classes9.dex */
+import com.baidu.tbadk.core.util.ap;
+/* loaded from: classes16.dex */
 public class e extends com.baidu.tbadk.core.view.userLike.c {
     public e(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar) {
         super(tbPageContext, bVar);
@@ -13,8 +13,8 @@ public class e extends com.baidu.tbadk.core.view.userLike.c {
     @Override // com.baidu.tbadk.core.view.userLike.c, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (this.ehD != null) {
-            TiebaStatic.log(new ao("c11924").dk("obj_id", this.ehD.getUserId()));
+        if (this.enO != null) {
+            TiebaStatic.log(new ap("c11924").dn("obj_id", this.enO.getUserId()));
         }
     }
 }

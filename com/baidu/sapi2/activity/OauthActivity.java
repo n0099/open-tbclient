@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
-import com.baidu.f.a.a;
+import com.baidu.g.a.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class OauthActivity extends BaseActivity {
     private static final String A = "2.0.0";
     private static final int B = -201;

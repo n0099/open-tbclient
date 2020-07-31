@@ -4,13 +4,8 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class f {
-    public static boolean A() {
-        NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-
     private static String M(int i, String str) {
         switch (i) {
             case 1:
@@ -40,10 +35,15 @@ public class f {
         }
     }
 
+    public static boolean Oz() {
+        NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
     private static NetworkInfo getActiveNetworkInfo() {
         ConnectivityManager connectivityManager;
-        Context Os = g.Os();
-        if (Os != null && (connectivityManager = (ConnectivityManager) Os.getSystemService("connectivity")) != null) {
+        Context OA = g.OA();
+        if (OA != null && (connectivityManager = (ConnectivityManager) OA.getSystemService("connectivity")) != null) {
             return connectivityManager.getActiveNetworkInfo();
         }
         return null;

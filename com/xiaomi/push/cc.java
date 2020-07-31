@@ -4,7 +4,7 @@ import com.xiaomi.push.ai;
 import com.xiaomi.push.cb;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class cc extends ai.a {
     final /* synthetic */ cb a;
 
@@ -15,7 +15,7 @@ public class cc extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo160a() {
+    public int mo161a() {
         return 100957;
     }
 
@@ -27,21 +27,21 @@ public class cc extends ai.a {
         ArrayList arrayList4;
         ArrayList arrayList5;
         ArrayList<cb.a> arrayList6;
-        arrayList = this.a.f155a;
+        arrayList = this.a.f151a;
         synchronized (arrayList) {
-            arrayList2 = this.a.f155a;
+            arrayList2 = this.a.f151a;
             if (arrayList2.size() > 0) {
-                arrayList3 = this.a.f155a;
+                arrayList3 = this.a.f151a;
                 if (arrayList3.size() > 1) {
                     cb cbVar = this.a;
-                    arrayList6 = this.a.f155a;
+                    arrayList6 = this.a.f151a;
                     cbVar.a(arrayList6);
                 } else {
                     cb cbVar2 = this.a;
-                    arrayList4 = this.a.f155a;
+                    arrayList4 = this.a.f151a;
                     cbVar2.b((cb.a) arrayList4.get(0));
                 }
-                arrayList5 = this.a.f155a;
+                arrayList5 = this.a.f151a;
                 arrayList5.clear();
                 System.gc();
             }

@@ -9,7 +9,7 @@ import com.baidu.android.common.ui.R;
 import com.baidu.searchbox.skin.NightModeHelper;
 import com.baidu.searchbox.skin.callback.NightModeChangeListener;
 import com.baidu.searchbox.ui.SmoothProgressBar;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class BdProgressDialog extends ProgressDialog {
     private static final int CANCELABLE_TIME = 5000;
     private boolean mDetached;

@@ -7,8 +7,8 @@ import com.baidu.tbadk.editortools.l;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a extends l {
-    private static final int[] evi = {4, 17, 24, 3, 9, 6, 44};
-    private InputView evj;
+    private static final int[] eBB = {4, 17, 24, 3, 9, 6, 44};
+    private InputView eBC;
 
     public a(Context context, boolean z) {
         super(context, (String) null, 3);
@@ -18,17 +18,17 @@ public class a extends l {
     public a(Context context, boolean z, boolean z2) {
         super(context, (String) null, 3);
         init(context, z);
-        if (this.evj != null) {
-            this.evj.setNeedFaceMaxCount(z2);
+        if (this.eBC != null) {
+            this.eBC.setNeedFaceMaxCount(z2);
         }
     }
 
     private void init(Context context, boolean z) {
-        this.euA = false;
-        this.euz = 2;
-        this.euB = evi;
-        this.evj = new InputView(context, z);
-        this.etH = this.evj;
+        this.eAT = false;
+        this.eAS = 2;
+        this.eAU = eBB;
+        this.eBC = new InputView(context, z);
+        this.ezZ = this.eBC;
         RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -1);
         layoutParams.topMargin = context.getResources().getDimensionPixelSize(R.dimen.ds14);
         layoutParams.bottomMargin = context.getResources().getDimensionPixelSize(R.dimen.ds14);
@@ -36,10 +36,10 @@ public class a extends l {
         layoutParams.rightMargin = context.getResources().getDimensionPixelSize(R.dimen.ds12);
         layoutParams.weight = 1.0f;
         layoutParams.gravity = 80;
-        ((View) this.etH).setLayoutParams(layoutParams);
+        ((View) this.ezZ).setLayoutParams(layoutParams);
     }
 
     public void setIsOnlyLocalEmotion(boolean z) {
-        ((InputView) this.etH).setIsOnlyLocalEmotion(z);
+        ((InputView) this.ezZ).setIsOnlyLocalEmotion(z);
     }
 }

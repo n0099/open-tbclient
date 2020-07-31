@@ -1,5 +1,5 @@
 package com.baidu.sapi2.dto;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class PassNameValuePair {
     public String name;
     public String value;

@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.data.AlaLiveStreamSessionInfo;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class h {
     public static String d(AlaLiveInfoData alaLiveInfoData) {
         if (alaLiveInfoData == null || alaLiveInfoData.session_info == null) {
@@ -15,7 +15,7 @@ public class h {
         return TextUtils.isEmpty(flvUrl) ? alaLiveInfoData.session_info.getRtmpUrl(AlaLiveStreamSessionInfo.STREAM_LEVEL_DEFAULT) : flvUrl;
     }
 
-    public static String fF(String str) {
+    public static String fD(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
@@ -36,12 +36,12 @@ public class h {
         if (str == null || TextUtils.isEmpty(str) || str2 == null || TextUtils.isEmpty(str2)) {
             return false;
         }
-        String fF = fF(str);
-        String fF2 = fF(str2);
-        if (fF == null || fF2 == null) {
+        String fD = fD(str);
+        String fD2 = fD(str2);
+        if (fD == null || fD2 == null) {
             return str.equals(str2);
         }
-        return fF.equals(fF2);
+        return fD.equals(fD2);
     }
 
     public static boolean aA(String str, String str2) {

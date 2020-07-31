@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.topic.topicdetail.message;
 
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.homepage.topic.topicdetail.b.c;
 import com.squareup.wire.Wire;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicThread.NewTopicThreadResIdl;
 import tbclient.NewTopicThread.TopicThread;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
     private boolean hasMore;
     private List<q> mDataList;
@@ -35,7 +35,7 @@ public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
         if (newTopicThreadResIdl != null) {
             setError(newTopicThreadResIdl.error.errorno.intValue());
             setErrorString(newTopicThreadResIdl.error.usermsg);
-            if (getError() == 0 && newTopicThreadResIdl.data != null && !w.isEmpty(newTopicThreadResIdl.data.thread_list)) {
+            if (getError() == 0 && newTopicThreadResIdl.data != null && !x.isEmpty(newTopicThreadResIdl.data.thread_list)) {
                 if (newTopicThreadResIdl.data.has_more.intValue() == 1) {
                     this.hasMore = true;
                 }

@@ -4,9 +4,9 @@ import com.baidu.swan.pms.a.g;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class e {
-    public static JSONObject aIf() {
+    public static JSONObject aLX() {
         return a(Node.values());
     }
 
@@ -20,9 +20,9 @@ public class e {
             for (Node node : nodeArr) {
                 if (node != null && (provider = Node.getProvider(node)) != null) {
                     if (node.isDataArray()) {
-                        jSONObject.put(node.getName(), provider.aId());
+                        jSONObject.put(node.getName(), provider.aLV());
                     } else {
-                        jSONObject.put(node.getName(), provider.aIe());
+                        jSONObject.put(node.getName(), provider.aLW());
                     }
                 }
             }

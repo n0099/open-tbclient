@@ -20,7 +20,7 @@ import okhttp3.Dns;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class RequestCall implements Cancelable {
     private static final String TAG = RequestCall.class.getSimpleName();
     private OkHttpClient client;

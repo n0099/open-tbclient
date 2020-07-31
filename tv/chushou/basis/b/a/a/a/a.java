@@ -3,7 +3,7 @@ package tv.chushou.basis.b.a.a.a;
 import java.io.UnsupportedEncodingException;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
     private final String ALGORITHM_NAME = "DES";
     private final String CHARSET = "utf-8";
@@ -23,7 +23,7 @@ public final class a {
             cipher.init(1, new SecretKeySpec(this.keyBytes, "DES"));
             return cipher.doFinal(bArr);
         } catch (Exception e) {
-            tv.chushou.basis.d.b.dWj().e("CipherUtil", "", e);
+            tv.chushou.basis.d.b.dZF().e("CipherUtil", "", e);
             return new byte[0];
         }
     }
@@ -34,7 +34,7 @@ public final class a {
             cipher.init(2, new SecretKeySpec(this.keyBytes, "DES"));
             return cipher.doFinal(bArr);
         } catch (Exception e) {
-            tv.chushou.basis.d.b.dWj().e("CipherUtil", "", e);
+            tv.chushou.basis.d.b.dZF().e("CipherUtil", "", e);
             return new byte[0];
         }
     }

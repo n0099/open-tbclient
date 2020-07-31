@@ -1,30 +1,29 @@
 package com.baidu.live.data;
 
-import com.baidu.ar.pose.PoseAR;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ar {
-    public long aCb;
-    public int aCc;
-    public long createTime;
-    public String eventDesc;
-    public int eventType;
-    public long id;
-    public long liveId;
-    public long sendTime;
-    public long updateTime;
+    public AlaLiveUserInfoData aDb;
+    public AlaLiveInfoData aDu;
+    public am aDv;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.id = jSONObject.optLong("id");
-            this.eventType = jSONObject.optInt(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY);
-            this.aCb = jSONObject.optLong("sender_uid");
-            this.liveId = jSONObject.optLong("live_id");
-            this.eventDesc = jSONObject.optString("event_desc");
-            this.createTime = jSONObject.optLong("create_time");
-            this.updateTime = jSONObject.optLong("update_time");
-            this.sendTime = jSONObject.optLong("send_time");
-            this.aCc = jSONObject.optInt("send_flag");
+            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
+            if (optJSONObject != null) {
+                this.aDb = new AlaLiveUserInfoData();
+                this.aDb.parserJson(optJSONObject);
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("live_info");
+            if (optJSONObject2 != null) {
+                this.aDu = new AlaLiveInfoData();
+                this.aDu.parserJson(optJSONObject2);
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("rank_info");
+            if (optJSONObject3 != null) {
+                this.aDv = new am();
+                this.aDv.parserJson(optJSONObject3);
+            }
         }
     }
 }

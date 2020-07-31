@@ -10,7 +10,7 @@ import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.IProgressCallback;
 import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 class c extends com.baidu.ar.d.a<String, Void> {
     private IProgressCallback pS;
     private ARCaseBundleInfo wg;

@@ -1,33 +1,31 @@
 package com.baidu.live.im;
 
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface k {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        boolean Dd();
+        boolean DF();
 
-        void De();
+        void DG();
 
-        void Df();
+        void DH();
 
-        void Dg();
+        void DI();
 
-        boolean Dh();
+        boolean DJ();
 
-        int Di();
+        int DK();
 
-        void fw(String str);
+        void fv(String str);
     }
 
-    void Cz();
+    j DC();
 
-    j Da();
+    com.baidu.live.view.input.a DD();
 
-    com.baidu.live.view.input.a Db();
-
-    int Dc();
+    int DE();
 
     void a(a aVar);
 
@@ -35,7 +33,7 @@ public interface k {
 
     void a(boolean z, int i, int i2, String str);
 
-    void f(Map<String, Integer> map);
+    void g(Map<String, Integer> map);
 
     int getImMsgListViewHeight();
 
@@ -46,4 +44,6 @@ public interface k {
     void setFromMaster(boolean z);
 
     void setLogData(String str, String str2);
+
+    void vD();
 }

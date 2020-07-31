@@ -1,35 +1,35 @@
 package com.baidu.ubc;
 
 import android.text.TextUtils;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class k {
-    private String duA;
-    private String duB;
-    private int duC;
-    private String duD;
-    private int duE;
-    private int duF;
-    private String duG;
+    private String dAp;
+    private String dAq;
+    private int dAr;
+    private String dAs;
+    private int dAt;
+    private int dAu;
+    private String dAv;
     private String mCategory;
-    private String mEj;
-    private String mEk;
-    private String mEl;
-    private String mEm;
     private String mId;
+    private String mMn;
+    private String mMo;
+    private String mMp;
+    private String mMq;
     private int mRate;
     private String mType;
     private String mVersion;
 
     public k(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.duA = str2;
-        this.duB = str3;
-        this.duC = i;
+        this.dAp = str2;
+        this.dAq = str3;
+        this.dAr = i;
         this.mType = str4;
-        this.duD = str5;
+        this.dAs = str5;
     }
 
-    public void jH(int i) {
+    public void ka(int i) {
         this.mRate = i;
     }
 
@@ -37,47 +37,47 @@ public class k {
         this.mCategory = str;
     }
 
-    public void jI(int i) {
-        this.duE = i;
+    public void kb(int i) {
+        this.dAt = i;
     }
 
-    public void jJ(int i) {
-        this.duF = i;
+    public void kc(int i) {
+        this.dAu = i;
     }
 
-    public void PT(String str) {
-        this.mEj = str;
+    public void QE(String str) {
+        this.mMn = str;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String aJp() {
-        return this.duA;
+    public String aNh() {
+        return this.dAp;
     }
 
-    public String aJq() {
-        return this.duB;
+    public String aNi() {
+        return this.dAq;
     }
 
     public int getTimeout() {
-        return this.duC;
+        return this.dAr;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String aJr() {
-        return this.duD;
+    public String aNj() {
+        return this.dAs;
     }
 
-    public String dwO() {
-        return this.mEj;
+    public String dAb() {
+        return this.mMn;
     }
 
-    public int aJs() {
+    public int aNk() {
         return this.mRate;
     }
 
@@ -85,28 +85,28 @@ public class k {
         return this.mCategory;
     }
 
-    public int aJt() {
-        return this.duE;
+    public int aNl() {
+        return this.dAt;
     }
 
-    public int aJu() {
-        return this.duF;
+    public int aNm() {
+        return this.dAu;
     }
 
-    public void tV(String str) {
-        this.duG = str;
+    public void uY(String str) {
+        this.dAv = str;
     }
 
-    public String aJv() {
-        return this.duG;
+    public String aNn() {
+        return this.dAv;
     }
 
-    public String dwP() {
-        return this.mEk;
+    public String dAc() {
+        return this.mMo;
     }
 
-    public void PU(String str) {
-        this.mEk = str;
+    public void QF(String str) {
+        this.mMo = str;
     }
 
     public void setVersion(String str) {
@@ -117,19 +117,19 @@ public class k {
         return TextUtils.isEmpty(this.mVersion) ? "0" : this.mVersion;
     }
 
-    public void PV(String str) {
-        this.mEl = str;
+    public void QG(String str) {
+        this.mMp = str;
     }
 
-    public String dwQ() {
-        return this.mEl;
+    public String dAd() {
+        return this.mMp;
     }
 
-    public void PW(String str) {
-        this.mEm = str;
+    public void QH(String str) {
+        this.mMq = str;
     }
 
-    public String dwR() {
-        return this.mEm;
+    public String dAe() {
+        return this.mMq;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.live.tieba.pb.interactionpopupwindow;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CustomDialogData implements IBaseDialogData {
     public static final String POS_LEFT = "left";
     public static final int TYPE_ADD_THREAD = 2;
@@ -15,14 +15,14 @@ public class CustomDialogData implements IBaseDialogData {
     public Button rightButton;
     public int type = -1;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Button implements Serializable {
         public String action;
         public String image;
         public String text;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Head implements Serializable {
         public String imageUrl;
         public String text;

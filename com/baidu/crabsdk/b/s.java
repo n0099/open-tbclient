@@ -1,8 +1,19 @@
 package com.baidu.crabsdk.b;
 
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public final class s {
+    public static String Q() {
+        StringBuilder sb = new StringBuilder();
+        Map<Thread, StackTraceElement[]> allStackTraces = Thread.getAllStackTraces();
+        if (allStackTraces != null && allStackTraces.size() > 0) {
+            for (Map.Entry<Thread, StackTraceElement[]> entry : allStackTraces.entrySet()) {
+                sb.append(a(entry.getKey())).append("\n");
+            }
+        }
+        return sb.toString();
+    }
+
     public static String a(Thread thread) {
         String name;
         StringBuilder sb = new StringBuilder();
@@ -74,7 +85,7 @@ public final class s {
         return sb.toString();
     }
 
-    public static Thread dh(String str) {
+    public static Thread dg(String str) {
         Map<Thread, StackTraceElement[]> allStackTraces = Thread.getAllStackTraces();
         if (allStackTraces != null && allStackTraces.size() > 0) {
             for (Thread thread : allStackTraces.keySet()) {
@@ -84,16 +95,5 @@ public final class s {
             }
         }
         return null;
-    }
-
-    public static String tj() {
-        StringBuilder sb = new StringBuilder();
-        Map<Thread, StackTraceElement[]> allStackTraces = Thread.getAllStackTraces();
-        if (allStackTraces != null && allStackTraces.size() > 0) {
-            for (Map.Entry<Thread, StackTraceElement[]> entry : allStackTraces.entrySet()) {
-                sb.append(a(entry.getKey())).append("\n");
-            }
-        }
-        return sb.toString();
     }
 }

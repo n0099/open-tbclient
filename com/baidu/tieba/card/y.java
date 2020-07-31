@@ -1,7 +1,7 @@
 package com.baidu.tieba.card;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public interface y {
-    void qX(int i);
+    void rn(int i);
 
     void setForumName(String str);
 }

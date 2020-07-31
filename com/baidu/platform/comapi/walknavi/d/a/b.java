@@ -7,7 +7,7 @@ import com.baidu.platform.comapi.walknavi.d.a.g.g;
 import java.io.File;
 import java.lang.ref.SoftReference;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static boolean a = true;
     private Context b;
@@ -24,7 +24,7 @@ public class b {
     private boolean k = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public enum c {
         INITIAL_STATE,
         QUERYING,
@@ -126,7 +126,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.d.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class C0227b implements f.a<JSONObject> {
         private SoftReference<b> a;
 
@@ -249,7 +249,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a implements com.baidu.platform.comapi.walknavi.d.a.f.a<String> {
         private SoftReference<b> a;
 

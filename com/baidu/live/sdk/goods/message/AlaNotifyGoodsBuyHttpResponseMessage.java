@@ -2,7 +2,7 @@ package com.baidu.live.sdk.goods.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaNotifyGoodsBuyHttpResponseMessage extends JsonHttpResponsedMessage {
     public AlaNotifyGoodsBuyHttpResponseMessage() {
         super(1021202);

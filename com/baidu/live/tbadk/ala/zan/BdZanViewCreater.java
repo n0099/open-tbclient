@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.ala.zan;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BdZanViewCreater {
     private static BdZanViewCreater sBdZanViewCreater = new BdZanViewCreater();
     private IAlaBdZanBuilder mIAlaBdZanBuilder;

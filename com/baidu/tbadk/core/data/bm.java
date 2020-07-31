@@ -1,52 +1,42 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.User;
+import com.baidu.adp.lib.util.StringUtils;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes.dex */
-public class bm extends AbsThreadDataSupport {
-    public static final BdUniqueId dIb = BdUniqueId.gen();
-    private boolean dKA;
-    private List<MetaData> dKB = new ArrayList();
-    public int dKp;
-    public String title;
+public class bm {
+    private String uid = "";
+    private String uname = "";
+    private String portrait = "";
+    private String institute = "";
+    private int isLike = -1;
 
-    public void aF(List<User> list) {
-        if (list != null) {
-            int min = Math.min(list.size(), 10);
-            for (int i = 0; i < min; i++) {
-                MetaData metaData = new MetaData();
-                metaData.parserProtobuf(list.get(i));
-                this.dKB.add(metaData);
-            }
+    public void a(SchoolRecomUserInfo schoolRecomUserInfo) {
+        if (schoolRecomUserInfo != null) {
+            this.uid = StringUtils.string(schoolRecomUserInfo.uid);
+            this.uname = schoolRecomUserInfo.uname;
+            this.portrait = schoolRecomUserInfo.portrait;
+            this.institute = schoolRecomUserInfo.institute;
+            this.isLike = schoolRecomUserInfo.is_liked.intValue();
         }
     }
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        return dIb;
+    public String getUid() {
+        return this.uid;
     }
 
-    @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bu aPS() {
-        return null;
+    public String aVw() {
+        return this.uname;
     }
 
-    @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ap aPU() {
-        return new ap();
+    public String getPortrait() {
+        return this.portrait;
     }
 
-    public List<MetaData> aRC() {
-        return this.dKB;
+    public String aVx() {
+        return this.institute;
     }
 
-    public boolean aRD() {
-        return this.dKA;
-    }
-
-    public void gV(boolean z) {
-        this.dKA = z;
+    public int getIsLike() {
+        return this.isLike;
     }
 }

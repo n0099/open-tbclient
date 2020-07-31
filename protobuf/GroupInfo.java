@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public final class GroupInfo extends Message {
     public static final String DEFAULT_ALBUM = "";
     public static final String DEFAULT_AUTHORNAME = "";
@@ -328,7 +328,7 @@ public final class GroupInfo extends Message {
         this.authorNameShow = builder.authorNameShow;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static final class Builder extends Message.Builder<GroupInfo> {
         public Integer activeDay;
         public String album;

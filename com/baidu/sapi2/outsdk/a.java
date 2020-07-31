@@ -15,7 +15,7 @@ import com.cmic.sso.sdk.auth.TokenListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class a {
     static final String a = "rsa2048";
 

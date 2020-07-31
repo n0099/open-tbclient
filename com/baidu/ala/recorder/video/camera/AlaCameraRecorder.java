@@ -20,7 +20,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 @TargetApi(16)
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AlaCameraRecorder extends TextureView implements TextureView.SurfaceTextureListener, IFaceUnityOperator, IVideoRecorder, ICameraStatusHandler {
     private static final boolean IS_OPEN_TAG = false;
     private static final String LOG_TAG = "ala_camera_recorder";
@@ -43,7 +43,7 @@ public class AlaCameraRecorder extends TextureView implements TextureView.Surfac
     private AlaLiveVideoConfig mVideoConfig;
     private IVideoRecorder.IVideoDataCallBack mVideoDataCallback;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface SurfaceHolder {
         Surface getSurface();
 

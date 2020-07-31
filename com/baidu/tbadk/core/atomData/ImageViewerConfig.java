@@ -8,10 +8,11 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.switchs.IdentifyImageSwitch;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
@@ -61,152 +62,216 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String URL = "url";
     public static final String USER_ID = "user_id";
 
-    public ImageViewerConfig(Context context) {
+    private ImageViewerConfig(Context context, a aVar) {
         super(context);
-    }
-
-    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3, boolean z4, boolean z5) {
+        Intent intent;
         ImageUrlData imageUrlData;
-        Intent intent = getIntent();
-        intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
-        if (arrayList != null && arrayList.size() > 0) {
-            intent.putExtra(IS_DATA_VALID, DATA_VALID);
-            intent.putStringArrayListExtra("url", arrayList);
-            intent.putExtra("index", i);
-            intent.putExtra("is_pv", true);
-            intent.putExtra(PV_TYPE, "pb");
-            intent.putExtra(PARAM_IS_CDN, z);
-            intent.putExtra("fname", str);
-            intent.putExtra("fid", str2);
-            intent.putExtra("tid", str3);
-            intent.putExtra(LAST_ID, str4);
-            intent.putExtra(REVERSE_MODE, z2);
-            intent.putExtra(ASSIST_URLS, concurrentHashMap);
-            intent.putExtra(IS_SHOW_AD, z3);
-            intent.putExtra(NEED_BROADCAST, z4);
-            intent.putExtra(SEE_HOST, z5);
-            int size = arrayList.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                String str5 = arrayList.get(i2);
-                if (!StringUtils.isNull(str5)) {
-                    ImageUrlData imageUrlData2 = null;
-                    if (concurrentHashMap != null) {
-                        imageUrlData2 = concurrentHashMap.get(str5);
+        if (aVar != null && (intent = getIntent()) != null) {
+            intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
+            if (aVar.data != null && aVar.data.size() > 0) {
+                intent.putExtra(IS_DATA_VALID, DATA_VALID);
+                intent.putStringArrayListExtra("url", aVar.data);
+                intent.putExtra("index", aVar.index);
+                intent.putExtra("is_pv", true);
+                intent.putExtra(PV_TYPE, "pb");
+                intent.putExtra(PARAM_IS_CDN, aVar.dLE);
+                intent.putExtra("fname", aVar.forumName);
+                intent.putExtra("fid", aVar.forumId);
+                intent.putExtra("tid", aVar.threadId);
+                intent.putExtra(LAST_ID, aVar.lastId);
+                intent.putExtra(REVERSE_MODE, aVar.dLF);
+                intent.putExtra(ASSIST_URLS, aVar.dLG);
+                intent.putExtra(IS_SHOW_AD, aVar.dLH);
+                intent.putExtra(NEED_BROADCAST, aVar.dLI);
+                intent.putExtra(SEE_HOST, aVar.dLJ);
+                int size = aVar.data.size();
+                for (int i = 0; i < size; i++) {
+                    String str = (String) aVar.data.get(i);
+                    if (!StringUtils.isNull(str)) {
+                        ImageUrlData imageUrlData2 = aVar.dLG != null ? (ImageUrlData) aVar.dLG.get(str) : null;
+                        if (imageUrlData2 == null) {
+                            ImageUrlData imageUrlData3 = new ImageUrlData();
+                            imageUrlData3.imageUrl = str;
+                            imageUrlData = imageUrlData3;
+                        } else {
+                            imageUrlData = imageUrlData2;
+                        }
+                        imageUrlData.overAllIndex = i + 1;
                     }
-                    if (imageUrlData2 == null) {
-                        ImageUrlData imageUrlData3 = new ImageUrlData();
-                        imageUrlData3.imageUrl = str5;
-                        imageUrlData = imageUrlData3;
-                    } else {
-                        imageUrlData = imageUrlData2;
-                    }
-                    imageUrlData.overAllIndex = i2 + 1;
                 }
+                TbadkCoreApplication.getInst();
+                intent.putExtra(IS_LOGIN, TbadkCoreApplication.isLogin());
+                AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+                if (currentAccountObj != null) {
+                    intent.putExtra("user_id", currentAccountObj.getID());
+                    intent.putExtra(ACCOUNT_BDUSS, currentAccountObj.getBDUSS());
+                    intent.putExtra(ACCOUNT_STOKEN, currentAccountObj.getStoken());
+                    intent.putExtra(ACCOUNT_TBS, currentAccountObj.getTbs());
+                }
+            } else {
+                intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
             }
-            TbadkCoreApplication.getInst();
-            intent.putExtra(IS_LOGIN, TbadkCoreApplication.isLogin());
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj != null) {
-                intent.putExtra("user_id", currentAccountObj.getID());
-                intent.putExtra(ACCOUNT_BDUSS, currentAccountObj.getBDUSS());
-                intent.putExtra(ACCOUNT_STOKEN, currentAccountObj.getStoken());
-                intent.putExtra(ACCOUNT_TBS, currentAccountObj.getTbs());
+            if (aVar.dLK != null) {
+                intent.putExtra(IS_BJH, aVar.dLK.aUV());
+                if (aVar.dLK.aUV()) {
+                    intent.putExtra(PARAM_IS_CDN, true);
+                }
+                intent.putExtra("nid", aVar.dLK.getNid());
+                intent.putExtra(IntentConfig.CARD_TYPE, aVar.dLK.aYk());
+                intent.putExtra(IntentConfig.RECOM_SOURCE, aVar.dLK.mRecomSource);
+                intent.putExtra("ab_tag", aVar.dLK.mRecomAbTag);
+                intent.putExtra("weight", aVar.dLK.mRecomWeight);
+                intent.putExtra("extra", aVar.dLK.mRecomExtra);
             }
-        } else {
-            intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
+            if (!TextUtils.isEmpty(aVar.postId)) {
+                intent.putExtra("post_id", aVar.postId);
+            }
+            intent.putExtra(IS_CAN_DRAG, aVar.dLL);
+            if (aVar.dLM != null && aVar.dLN != null) {
+                int statusBarHeight = !UtilHelper.canUseStyleImmersiveSticky() ? UtilHelper.getStatusBarHeight() : 0;
+                JSONArray jSONArray = new JSONArray();
+                jSONArray.put((int) aVar.dLN.left);
+                jSONArray.put((int) (aVar.dLN.top - statusBarHeight));
+                jSONArray.put((int) aVar.dLN.right);
+                jSONArray.put((int) (aVar.dLN.bottom - statusBarHeight));
+                jSONArray.put(aVar.dLM.left);
+                jSONArray.put(aVar.dLM.top - statusBarHeight);
+                jSONArray.put(aVar.dLM.right);
+                jSONArray.put(aVar.dLM.bottom - statusBarHeight);
+                intent.putExtra("source_rect_in_screen", jSONArray.toString());
+            }
+            intent.putExtra(IS_SHOW_HOST, aVar.dLO);
+            if (aVar.dLP) {
+                intent.putExtra(IS_DYNAMIC_CARD, true);
+                intent.putExtra(IS_SHOW_BOTTOM_CONTAINER, false);
+                intent.putExtra(IS_SHOW_HOST, false);
+            }
+            intent.putExtra(IS_IDENTIFY_IMAGE, IdentifyImageSwitch.isOn());
+            intent.putExtra(IS_FROM_AI_APP, aVar.dLQ);
         }
-        return this;
     }
 
-    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3) {
-        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, concurrentHashMap, z3, false, true);
-    }
+    /* loaded from: classes.dex */
+    public static final class a {
+        private boolean dLE;
+        private boolean dLF;
+        private ConcurrentHashMap<String, ImageUrlData> dLG;
+        private boolean dLH;
+        private boolean dLI;
+        private bv dLK;
+        private Rect dLM;
+        private RectF dLN;
+        private boolean dLP;
+        private boolean dLQ;
+        private ArrayList<String> data;
+        private String forumName;
+        private String lastId;
+        private String postId;
+        private int index = 0;
+        private String forumId = "";
+        private String threadId = "";
+        private boolean dLJ = true;
+        private boolean dLL = true;
+        private boolean dLO = true;
 
-    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2) {
-        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, null, false, false, true);
-    }
-
-    public ImageViewerConfig setIsCanDrag(boolean z) {
-        getIntent().putExtra(IS_CAN_DRAG, z);
-        return this;
-    }
-
-    public ImageViewerConfig setIsShowHost(boolean z) {
-        getIntent().putExtra(IS_SHOW_HOST, z);
-        return this;
-    }
-
-    public ImageViewerConfig makeDynamicCard() {
-        getIntent().putExtra(IS_DYNAMIC_CARD, true);
-        getIntent().putExtra(IS_SHOW_BOTTOM_CONTAINER, false);
-        getIntent().putExtra(IS_SHOW_HOST, false);
-        return this;
-    }
-
-    public ImageViewerConfig setSrcRectInScreen(Rect rect, RectF rectF) {
-        if (rect == null || rectF == null) {
-            return null;
-        }
-        int i = 0;
-        if (!UtilHelper.canUseStyleImmersiveSticky()) {
-            i = UtilHelper.getStatusBarHeight();
-        }
-        JSONArray jSONArray = new JSONArray();
-        try {
-            jSONArray.put((int) rectF.left);
-            jSONArray.put((int) (rectF.top - i));
-            jSONArray.put((int) rectF.right);
-            jSONArray.put((int) (rectF.bottom - i));
-            jSONArray.put(rect.left);
-            jSONArray.put(rect.top - i);
-            jSONArray.put(rect.right);
-            jSONArray.put(rect.bottom - i);
-            getIntent().putExtra("source_rect_in_screen", jSONArray.toString());
+        public a s(ArrayList<String> arrayList) {
+            this.data = arrayList;
             return this;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
         }
-    }
 
-    public ImageViewerConfig setIsIdentifyImage(boolean z) {
-        getIntent().putExtra(IS_IDENTIFY_IMAGE, z);
-        return this;
-    }
-
-    public ImageViewerConfig setIsFromAiApp(boolean z) {
-        getIntent().putExtra(IS_FROM_AI_APP, z);
-        return this;
-    }
-
-    public ImageViewerConfig setThreadType(int i) {
-        if (i >= 0) {
-            getIntent().putExtra("thread_type", i);
+        public a kG(int i) {
+            this.index = i;
+            return this;
         }
-        return this;
-    }
 
-    public ImageViewerConfig setThreadData(bu buVar) {
-        Intent intent = getIntent();
-        if (buVar != null && intent != null) {
-            intent.putExtra(IS_BJH, buVar.aQZ());
-            if (buVar.aQZ()) {
-                intent.putExtra(PARAM_IS_CDN, true);
-            }
-            getIntent().putExtra("nid", buVar.getNid());
-            getIntent().putExtra(IntentConfig.CARD_TYPE, buVar.aUp());
-            getIntent().putExtra(IntentConfig.RECOM_SOURCE, buVar.mRecomSource);
-            getIntent().putExtra("ab_tag", buVar.mRecomAbTag);
-            getIntent().putExtra("weight", buVar.mRecomWeight);
-            getIntent().putExtra("extra", buVar.mRecomExtra);
+        public a wE(String str) {
+            this.forumName = str;
+            return this;
         }
-        return this;
-    }
 
-    public ImageViewerConfig setPostId(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            getIntent().putExtra("post_id", str);
+        public a wF(String str) {
+            this.forumId = str;
+            return this;
         }
-        return this;
+
+        public a wG(String str) {
+            this.threadId = str;
+            return this;
+        }
+
+        public a hl(boolean z) {
+            this.dLE = z;
+            return this;
+        }
+
+        public a wH(String str) {
+            this.lastId = str;
+            return this;
+        }
+
+        public a hm(boolean z) {
+            this.dLF = z;
+            return this;
+        }
+
+        public a a(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
+            this.dLG = concurrentHashMap;
+            return this;
+        }
+
+        public a hn(boolean z) {
+            this.dLH = z;
+            return this;
+        }
+
+        public a ho(boolean z) {
+            this.dLI = z;
+            return this;
+        }
+
+        public a hp(boolean z) {
+            this.dLJ = z;
+            return this;
+        }
+
+        public a r(bv bvVar) {
+            this.dLK = bvVar;
+            return this;
+        }
+
+        public a wI(String str) {
+            this.postId = str;
+            return this;
+        }
+
+        public a hq(boolean z) {
+            this.dLL = z;
+            return this;
+        }
+
+        public a a(Rect rect, RectF rectF) {
+            this.dLM = rect;
+            this.dLN = rectF;
+            return this;
+        }
+
+        public a hr(boolean z) {
+            this.dLO = z;
+            return this;
+        }
+
+        public a hs(boolean z) {
+            this.dLP = z;
+            return this;
+        }
+
+        public a ht(boolean z) {
+            this.dLQ = z;
+            return this;
+        }
+
+        public ImageViewerConfig dI(Context context) {
+            return new ImageViewerConfig(context, this);
+        }
     }
 }

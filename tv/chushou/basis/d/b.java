@@ -5,30 +5,30 @@ import android.app.Application;
 import android.support.annotation.Nullable;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static volatile b oiY;
+    private static volatile b orI;
     private static volatile Application sApplication;
-    private final Map<String, Class<?>> oiZ = new TreeMap();
-    private final Map<String, Object> oja = new TreeMap();
-    private static final tv.chushou.a.a.c.b oiX = tv.chushou.a.a.c.a.dWu();
+    private final Map<String, Class<?>> orJ = new TreeMap();
+    private final Map<String, Object> orK = new TreeMap();
+    private static final tv.chushou.a.a.c.b orH = tv.chushou.a.a.c.a.dZQ();
     private static volatile boolean sDebug = false;
 
     public static synchronized void a(a aVar) {
         synchronized (b.class) {
             sDebug = aVar.debug;
             sApplication = aVar.application;
-            oiX.showLog(aVar.debug);
-            oiX.xK(aVar.ojb);
+            orH.showLog(aVar.debug);
+            orH.yp(aVar.orL);
         }
     }
 
-    public static boolean OJ() {
+    public static boolean OY() {
         return sDebug;
     }
 
     @SuppressLint({"PrivateApi"})
-    public static Application dWi() {
+    public static Application dZE() {
         if (sApplication != null) {
             return sApplication;
         }
@@ -45,32 +45,32 @@ public class b {
         return sApplication;
     }
 
-    public static tv.chushou.a.a.c.b dWj() {
-        return oiX;
+    public static tv.chushou.a.a.c.b dZF() {
+        return orH;
     }
 
-    public static b dWk() {
-        if (oiY == null) {
+    public static b dZG() {
+        if (orI == null) {
             synchronized (b.class) {
-                if (oiY == null) {
-                    oiY = new b();
+                if (orI == null) {
+                    orI = new b();
                 }
             }
         }
-        return oiY;
+        return orI;
     }
 
     public void e(Class<?> cls, Class<?> cls2) {
         if (cls != null && cls2 != null) {
             if (!cls.isAssignableFrom(cls2)) {
-                dWj().e("Router", "apiImpl must implements interface api");
+                dZF().e("Router", "apiImpl must implements interface api");
                 return;
             }
             String name = cls.getName();
-            if (this.oiZ.get(name) != null) {
+            if (this.orJ.get(name) != null) {
                 throw new IllegalStateException("Component " + name + " already has an implementation");
             }
-            this.oiZ.put(name, cls2);
+            this.orJ.put(name, cls2);
         }
     }
 
@@ -85,24 +85,24 @@ public class b {
         synchronized (this) {
             if (cls != null) {
                 String name = cls.getName();
-                Object obj = this.oja.get(name);
+                Object obj = this.orK.get(name);
                 if (obj != null) {
                     t2 = (tv.chushou.basis.d.a) obj;
                 } else {
-                    Class<?> cls2 = this.oiZ.get(name);
+                    Class<?> cls2 = this.orJ.get(name);
                     if (cls2 != null) {
                         try {
                             ?? r0 = (tv.chushou.basis.d.a) cls2.newInstance();
                             try {
-                                r0.init(dWi());
-                                this.oja.put(name, r0);
+                                r0.init(dZE());
+                                this.orK.put(name, r0);
                                 t = r0;
                             } catch (Exception e) {
                                 t2 = r0;
                                 e = e;
-                                dWj().e("Router", "component " + name + " newInstance failed", e);
+                                dZF().e("Router", "component " + name + " newInstance failed", e);
                                 if (t2 == null) {
-                                    dWj().e(null, "Router getComponet:" + cls.getName() + " failed");
+                                    dZF().e(null, "Router getComponet:" + cls.getName() + " failed");
                                 }
                                 return t2;
                             }
@@ -113,8 +113,8 @@ public class b {
                         t = null;
                     }
                     t2 = t;
-                    if (t2 == null && OJ()) {
-                        dWj().e(null, "Router getComponet:" + cls.getName() + " failed");
+                    if (t2 == null && OY()) {
+                        dZF().e(null, "Router getComponet:" + cls.getName() + " failed");
                     }
                 }
             }
@@ -122,17 +122,17 @@ public class b {
         return t2;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         Application application;
         boolean debug;
-        boolean ojb;
+        boolean orL;
 
         public a(Application application) {
             this.application = application;
         }
 
-        public a xJ(boolean z) {
+        public a yo(boolean z) {
             this.debug = z;
             return this;
         }

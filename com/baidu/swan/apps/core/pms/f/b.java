@@ -3,33 +3,32 @@ package com.baidu.swan.apps.core.pms.f;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.r.a.a;
-import com.baidu.swan.apps.r.e;
-import com.baidu.swan.e.d;
+import com.baidu.swan.apps.r.d;
 import com.baidu.swan.games.l.a;
 import com.baidu.swan.pms.model.g;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static String jI(String str) {
-        return bg(str, "swan_sub_package_zip");
+    public static String kb(String str) {
+        return bk(str, "swan_sub_package_zip");
     }
 
-    public static String be(String str, String str2) {
-        return jI(e.d.bm(str, str2).getPath());
+    public static String bi(String str, String str2) {
+        return kb(d.C0380d.bq(str, str2).getPath());
     }
 
-    public static String jJ(String str) {
-        return bg(str, "swan_sub_package_zip");
+    public static String kc(String str) {
+        return bk(str, "swan_sub_package_zip");
     }
 
-    public static String bf(String str, String str2) {
-        return jJ(a.c.bm(str, str2).getPath());
+    public static String bj(String str, String str2) {
+        return kc(a.c.bq(str, str2).getPath());
     }
 
-    private static String bg(String str, String str2) {
+    private static String bk(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
@@ -43,14 +42,14 @@ public class b {
         return null;
     }
 
-    public static boolean i(g gVar) {
+    public static boolean j(g gVar) {
         if (gVar == null || TextUtils.isEmpty(gVar.appId)) {
             return false;
         }
-        return f(new File(gVar.filePath), new File(e.d.bm(gVar.appId, String.valueOf(gVar.versionCode)).getPath(), gVar.pkgName));
+        return g(new File(gVar.filePath), new File(d.C0380d.bq(gVar.appId, String.valueOf(gVar.versionCode)).getPath(), gVar.pkgName));
     }
 
-    public static boolean f(File file, File file2) {
+    public static boolean g(File file, File file2) {
         boolean unzipFile;
         if (file == null || file2 == null) {
             return false;
@@ -68,11 +67,11 @@ public class b {
             }
             return false;
         } else {
-            a.b w = com.baidu.swan.apps.r.a.a.w(file);
-            if (w.type != -1) {
-                unzipFile = com.baidu.swan.apps.r.a.a.a(w.clr, file2, w.type).isSuccess;
+            a.b x = com.baidu.swan.apps.r.a.a.x(file);
+            if (x.type != -1) {
+                unzipFile = com.baidu.swan.apps.r.a.a.a(x.cnw, file2, x.type).isSuccess;
             } else {
-                unzipFile = d.unzipFile(file.getAbsolutePath(), file2.getAbsolutePath());
+                unzipFile = com.baidu.swan.d.d.unzipFile(file.getAbsolutePath(), file2.getAbsolutePath());
             }
             if (unzipFile) {
                 if (DEBUG) {
@@ -92,6 +91,6 @@ public class b {
         if (list == null || list.isEmpty()) {
             return false;
         }
-        return list.get(0).dqt;
+        return list.get(0).dwl;
     }
 }

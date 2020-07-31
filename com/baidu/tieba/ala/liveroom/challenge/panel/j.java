@@ -23,27 +23,27 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.widget.CommonEmptyView;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class j extends g {
-    private CommonEmptyView baR;
-    private View.OnClickListener fCe;
-    public a gaY;
-    private EditText gbd;
-    private View gbe;
-    private ImageView gbf;
-    private i gbg;
-    private TextView gbh;
-    private String gbi;
-    private TextWatcher gbj;
-    private View.OnFocusChangeListener gbk;
-    private View.OnTouchListener gbl;
+    private CommonEmptyView baQ;
+    private View.OnClickListener fHo;
+    public a ggg;
+    private EditText ggl;
+    private View ggm;
+    private ImageView ggn;
+    private i ggo;
+    private TextView ggp;
+    private String ggq;
+    private TextWatcher ggr;
+    private View.OnFocusChangeListener ggs;
+    private View.OnTouchListener ggt;
     private View.OnClickListener mClickListener;
     private boolean mHasMore;
     private BdListView mListView;
     private TextView.OnEditorActionListener mOnEditorActionListener;
     private int pn;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void f(com.baidu.live.challenge.d dVar);
     }
@@ -51,39 +51,39 @@ public class j extends g {
     public j(Context context, m mVar) {
         super(context, mVar);
         this.pn = 1;
-        this.fCe = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.j.1
+        this.fHo = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 j.this.pn = 1;
-                if (TextUtils.isEmpty(j.this.gbi)) {
-                    j.this.gaK.bB(j.this.pn, 30);
+                if (TextUtils.isEmpty(j.this.ggq)) {
+                    j.this.gfS.bE(j.this.pn, 30);
                 } else {
-                    j.this.gaK.i(j.this.pn, 10, j.this.gbi);
+                    j.this.gfS.i(j.this.pn, 10, j.this.ggq);
                 }
             }
         };
-        this.gaY = new a() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.j.3
+        this.ggg = new a() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.j.3
             @Override // com.baidu.tieba.ala.liveroom.challenge.panel.j.a
             public void f(com.baidu.live.challenge.d dVar) {
                 if (dVar != null) {
-                    j.this.gaK.V(dVar.userId);
+                    j.this.gfS.V(dVar.userId);
                 }
             }
         };
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.j.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != j.this.gbf) {
-                    if (view == j.this.gbe) {
-                        j.this.gbd.setText("");
+                if (view != j.this.ggn) {
+                    if (view == j.this.ggm) {
+                        j.this.ggl.setText("");
                         return;
                     }
                     return;
                 }
-                j.this.gaK.bDn();
+                j.this.gfS.bGy();
             }
         };
-        this.gbj = new TextWatcher() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.j.5
+        this.ggr = new TextWatcher() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.j.5
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -92,21 +92,21 @@ public class j extends g {
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                 j.this.pn = 1;
                 if (charSequence == null || charSequence.length() == 0) {
-                    j.this.gbi = "";
-                    j.this.gbe.setVisibility(8);
-                    j.this.gaK.bB(j.this.pn, 30);
+                    j.this.ggq = "";
+                    j.this.ggm.setVisibility(8);
+                    j.this.gfS.bE(j.this.pn, 30);
                     return;
                 }
-                j.this.gbi = charSequence.toString();
-                j.this.gbe.setVisibility(0);
-                j.this.gaK.i(j.this.pn, 10, j.this.gbi);
+                j.this.ggq = charSequence.toString();
+                j.this.ggm.setVisibility(0);
+                j.this.gfS.i(j.this.pn, 10, j.this.ggq);
             }
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
             }
         };
-        this.gbk = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.j.6
+        this.ggs = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.j.6
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
@@ -124,45 +124,45 @@ public class j extends g {
                 return false;
             }
         };
-        this.gbl = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.j.8
+        this.ggt = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.j.8
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 BdUtilHelper.hideSoftKeyPad(j.this.mContext, view);
                 return false;
             }
         };
-        this.gbf = (ImageView) this.mRootView.findViewById(a.g.ala_challenge_user_choose_back);
-        this.gbf.setOnClickListener(this.mClickListener);
+        this.ggn = (ImageView) this.mRootView.findViewById(a.g.ala_challenge_user_choose_back);
+        this.ggn.setOnClickListener(this.mClickListener);
         this.mListView = (BdListView) this.mRootView.findViewById(a.g.ala_challenge_user_list);
-        this.gbg = new i(context);
-        this.gbg.a(this.gaY);
-        this.mListView.setAdapter((ListAdapter) this.gbg);
+        this.ggo = new i(context);
+        this.ggo.a(this.ggg);
+        this.mListView.setAdapter((ListAdapter) this.ggo);
         this.mListView.setOnSrollToBottomListener(new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.j.2
             @Override // com.baidu.live.adp.widget.listview.BdListView.OnScrollToBottomListener
             public void onScrollToBottom() {
                 if (j.this.mHasMore) {
-                    if (TextUtils.isEmpty(j.this.gbi)) {
-                        j.this.gaK.bB(j.this.pn, 30);
+                    if (TextUtils.isEmpty(j.this.ggq)) {
+                        j.this.gfS.bE(j.this.pn, 30);
                     } else {
-                        j.this.gaK.i(j.this.pn, 10, j.this.gbi);
+                        j.this.gfS.i(j.this.pn, 10, j.this.ggq);
                     }
                 }
             }
         });
-        this.gbh = new TextView(this.mContext);
-        this.gbh.setTextColor(this.mContext.getResources().getColor(a.d.sdk_white_alpha50));
-        this.gbh.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_fontsize24));
-        this.gbh.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds28), 0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds28));
-        this.gbh.setGravity(17);
-        this.gbe = this.mRootView.findViewById(a.g.delete_search_pk_textview);
-        this.gbe.setOnClickListener(this.mClickListener);
-        this.gbd = (EditText) this.mRootView.findViewById(a.g.search_pk_edittext);
-        this.gbd.addTextChangedListener(this.gbj);
-        this.gbd.setOnFocusChangeListener(this.gbk);
-        this.gbd.setOnEditorActionListener(this.mOnEditorActionListener);
-        this.gbd.setOnTouchListener(this.gbl);
-        this.mListView.setOnTouchListener(this.gbl);
-        this.mRootView.setOnTouchListener(this.gbl);
+        this.ggp = new TextView(this.mContext);
+        this.ggp.setTextColor(this.mContext.getResources().getColor(a.d.sdk_white_alpha50));
+        this.ggp.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_fontsize24));
+        this.ggp.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds28), 0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds28));
+        this.ggp.setGravity(17);
+        this.ggm = this.mRootView.findViewById(a.g.delete_search_pk_textview);
+        this.ggm.setOnClickListener(this.mClickListener);
+        this.ggl = (EditText) this.mRootView.findViewById(a.g.search_pk_edittext);
+        this.ggl.addTextChangedListener(this.ggr);
+        this.ggl.setOnFocusChangeListener(this.ggs);
+        this.ggl.setOnEditorActionListener(this.mOnEditorActionListener);
+        this.ggl.setOnTouchListener(this.ggt);
+        this.mListView.setOnTouchListener(this.ggt);
+        this.mRootView.setOnTouchListener(this.ggt);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
@@ -180,70 +180,70 @@ public class j extends g {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
     public boolean onBackKeyDown() {
-        this.gaK.bDn();
+        this.gfS.bGy();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
-    public int bCZ() {
+    public int bGk() {
         return this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds560) * 2;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
-    public void bDq() {
-        super.bDq();
-        BdUtilHelper.hideSoftKeyPad(this.mContext, this.gbd);
+    public void bGB() {
+        super.bGB();
+        BdUtilHelper.hideSoftKeyPad(this.mContext, this.ggl);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
     public void hide() {
         super.hide();
-        if (this.gbg != null) {
+        if (this.ggo != null) {
             this.mListView.setSelection(0);
-            this.mListView.removeFooterView(this.gbh);
-            this.gbg.bDt();
+            this.mListView.removeFooterView(this.ggp);
+            this.ggo.bGE();
         }
-        this.gbd.setText("");
-        btO();
+        this.ggl.setText("");
+        bwX();
     }
 
     public void j(com.baidu.live.challenge.d dVar) {
-        if (this.gbg != null) {
-            this.gbg.i(dVar);
+        if (this.ggo != null) {
+            this.ggo.i(dVar);
         }
     }
 
-    public void bDg() {
-        if (this.gbg != null) {
-            this.gbg.notifyDataSetChanged();
+    public void bGr() {
+        if (this.ggo != null) {
+            this.ggo.notifyDataSetChanged();
         }
     }
 
     public void a(int i, CommonEmptyView.ImgType imgType) {
         if (this.mContext != null) {
-            if (this.baR == null) {
-                this.baR = new CommonEmptyView(this.mContext);
+            if (this.baQ == null) {
+                this.baQ = new CommonEmptyView(this.mContext);
                 if (this.mRootView instanceof RelativeLayout) {
-                    this.baR.addToParent((RelativeLayout) this.mRootView);
+                    this.baQ.addToParent((RelativeLayout) this.mRootView);
                 } else if (this.mRootView instanceof FrameLayout) {
-                    this.baR.addToParent((FrameLayout) this.mRootView);
+                    this.baQ.addToParent((FrameLayout) this.mRootView);
                 }
             }
-            this.baR.setTitle(i);
-            this.baR.setup(imgType, CommonEmptyView.StyleType.DARK);
+            this.baQ.setTitle(i);
+            this.baQ.setup(imgType, CommonEmptyView.StyleType.DARK);
             if (imgType == CommonEmptyView.ImgType.NO_NET || imgType == CommonEmptyView.ImgType.SERVER_ERROR) {
-                this.baR.setRefreshButton(a.i.ala_click_retry, this.fCe);
+                this.baQ.setRefreshButton(a.i.ala_click_retry, this.fHo);
             }
-            this.baR.setVisibility(0);
+            this.baQ.setVisibility(0);
         }
     }
 
-    public void btO() {
-        if (this.baR != null) {
-            this.baR.setVisibility(8);
+    public void bwX() {
+        if (this.baQ != null) {
+            this.baQ.setVisibility(8);
         }
     }
 
@@ -252,7 +252,7 @@ public class j extends g {
         if (bVar != null && this.mRootView.getParent() != null) {
             if (ListUtils.isEmpty(list) && bVar.pn == 1) {
                 this.mListView.setVisibility(8);
-                if (TextUtils.isEmpty(this.gbi)) {
+                if (TextUtils.isEmpty(this.ggq)) {
                     a(a.i.ala_challenge_empty_challenger, CommonEmptyView.ImgType.NO_DATA);
                     return;
                 } else if (TbadkCoreApplication.getInst().isQuanmin()) {
@@ -264,38 +264,38 @@ public class j extends g {
                 }
             }
             this.mListView.setVisibility(0);
-            btO();
+            bwX();
             if (bVar.pn == 1) {
-                this.gbg.setDatas(list);
+                this.ggo.setDatas(list);
             } else {
-                this.gbg.bT(list);
+                this.ggo.bX(list);
             }
             this.pn = bVar.pn + 1;
             this.mHasMore = bVar.hasMore;
             if (bVar.hasMore) {
-                buJ();
+                bxS();
             } else {
-                buK();
+                bxT();
             }
         }
     }
 
-    private void buJ() {
-        this.gbh.setText(this.mContext.getString(a.i.sdk_loading_text_with_ellipsis));
-        this.mListView.removeFooterView(this.gbh);
-        this.mListView.addFooterView(this.gbh);
+    private void bxS() {
+        this.ggp.setText(this.mContext.getString(a.i.sdk_loading_text_with_ellipsis));
+        this.mListView.removeFooterView(this.ggp);
+        this.mListView.addFooterView(this.ggp);
     }
 
-    private void buK() {
-        this.gbh.setText(this.mContext.getString(a.i.sdk_list_no_more));
-        this.mListView.removeFooterView(this.gbh);
-        this.mListView.addFooterView(this.gbh);
+    private void bxT() {
+        this.ggp.setText(this.mContext.getString(a.i.sdk_list_no_more));
+        this.mListView.removeFooterView(this.ggp);
+        this.mListView.addFooterView(this.ggp);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aR(int i, String str) {
+    public void aT(int i, String str) {
         BdUtilHelper.showToast(this.mContext, str);
-        if (this.gbg.getCount() <= 0 || this.pn == 1) {
+        if (this.ggo.getCount() <= 0 || this.pn == 1) {
             if (this.mListView.getVisibility() == 0) {
                 this.mListView.setVisibility(8);
             }

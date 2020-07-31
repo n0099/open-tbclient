@@ -13,7 +13,7 @@ public abstract class ab implements Iterator<Float> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: dQw */
+    /* renamed from: dTS */
     public final Float next() {
         return Float.valueOf(nextFloat());
     }

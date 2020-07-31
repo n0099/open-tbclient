@@ -16,7 +16,7 @@ import com.baidu.pano.platform.comapi.map.InnerPanoramaView;
 import com.baidu.pano.platform.plugin.indooralbum.IndoorAlbumPlugin;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PanoramaView extends FrameLayout {
     public static final int COORDTYPE_BD09LL = 2;
     public static final int COORDTYPE_BD09MC = 3;
@@ -117,7 +117,7 @@ public class PanoramaView extends FrameLayout {
                                 double optDouble = jSONObject2.optDouble("X");
                                 double optDouble2 = jSONObject2.optDouble("Y");
                                 switch (i) {
-                                    case 65537:
+                                    case PanoramaView.PANOTYPE_INTERIOR /* 65537 */:
                                         if (jSONObject2.has("interstartpid")) {
                                             String optString4 = jSONObject2.optString("interstartpid");
                                             if (!TextUtils.isEmpty(optString)) {
@@ -136,7 +136,7 @@ public class PanoramaView extends FrameLayout {
                                             PanoramaView.this.b.onLoadPanoramaError(PanoramaView.this.a.a(201));
                                             break;
                                         }
-                                    case 65538:
+                                    case PanoramaView.PANOTYPE_STREET /* 65538 */:
                                         IndoorAlbumPlugin.getInstance().onDestroyView();
                                         if (!TextUtils.isEmpty(optString2)) {
                                             b bVar = new b(PanoramaView.this.getContext(), z, optString3);
@@ -325,7 +325,7 @@ public class PanoramaView extends FrameLayout {
         this.a.a(this.b);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public enum ImageDefinition {
         ImageDefinitionLow(3),
         ImageDefinitionMiddle(4),

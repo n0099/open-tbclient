@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.searchbox.ui.util.PorterDuffModeHelper;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class BdBaseImageView extends ImageView {
     private int mColorFilter;
     private boolean mFlagShouldDecorate;

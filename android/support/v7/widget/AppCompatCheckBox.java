@@ -12,7 +12,7 @@ import android.support.v7.appcompat.R;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.widget.CheckBox;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AppCompatCheckBox extends CheckBox implements TintableCompoundButton {
     private final AppCompatCompoundButtonHelper mCompoundButtonHelper;
 

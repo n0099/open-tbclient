@@ -36,7 +36,7 @@ import javax.microedition.khronos.opengles.GL10;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BaiduMap {
     public static final int MAP_TYPE_NONE = 3;
     public static final int MAP_TYPE_NORMAL = 1;
@@ -87,24 +87,24 @@ public class BaiduMap {
     public static int mapStatusReason = 0;
     private static final String e = BaiduMap.class.getSimpleName();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnBaseIndoorMapListener {
         void onBaseIndoorMapMode(boolean z, MapBaseIndoorMapInfo mapBaseIndoorMapInfo);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnMapClickListener {
         void onMapClick(LatLng latLng);
 
         boolean onMapPoiClick(MapPoi mapPoi);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnMapDoubleClickListener {
         void onMapDoubleClick(LatLng latLng);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnMapDrawFrameCallback {
         void onMapDrawFrame(MapStatus mapStatus);
 
@@ -112,22 +112,22 @@ public class BaiduMap {
         void onMapDrawFrame(GL10 gl10, MapStatus mapStatus);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnMapLoadedCallback {
         void onMapLoaded();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnMapLongClickListener {
         void onMapLongClick(LatLng latLng);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnMapRenderCallback {
         void onMapRenderFinished();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnMapStatusChangeListener {
         public static final int REASON_API_ANIMATION = 2;
         public static final int REASON_DEVELOPER_ANIMATION = 3;
@@ -142,17 +142,17 @@ public class BaiduMap {
         void onMapStatusChangeStart(MapStatus mapStatus, int i);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnMapTouchListener {
         void onTouch(MotionEvent motionEvent);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnMarkerClickListener {
         boolean onMarkerClick(Marker marker);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnMarkerDragListener {
         void onMarkerDrag(Marker marker);
 
@@ -161,22 +161,22 @@ public class BaiduMap {
         void onMarkerDragStart(Marker marker);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnMyLocationClickListener {
         boolean onMyLocationClick();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnPolylineClickListener {
         boolean onPolylineClick(Polyline polyline);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface OnSynchronizationListener {
         void onMapStatusChangeReason(int i);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface SnapshotReadyCallback {
         void onSnapshotReady(Bitmap bitmap);
     }

@@ -5,25 +5,25 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private List<IAdapterData> fyR;
+    private List<IAdapterData> fDY;
 
-    public void cV(JSONObject jSONObject) {
+    public void db(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("list")) != null) {
-            this.fyR = new ArrayList();
+            this.fDY = new ArrayList();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 c cVar = new c();
-                cVar.cV(optJSONObject);
-                this.fyR.add(cVar);
+                cVar.db(optJSONObject);
+                this.fDY.add(cVar);
             }
         }
     }
 
-    public List<IAdapterData> bvL() {
-        return this.fyR;
+    public List<IAdapterData> byU() {
+        return this.fDY;
     }
 }

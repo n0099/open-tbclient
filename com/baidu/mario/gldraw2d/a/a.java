@@ -4,7 +4,7 @@ import android.graphics.SurfaceTexture;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.baidu.mario.gldraw2d.b.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends b {
     private boolean mReleaseSurface;
     private Surface mSurface;
@@ -40,7 +40,7 @@ public class a extends b {
         if (this.mSurface == null) {
             throw new RuntimeException("not yet implemented for SurfaceTexture");
         }
-        this.brP = aVar;
+        this.bsk = aVar;
         createWindowSurface(this.mSurface);
     }
 }

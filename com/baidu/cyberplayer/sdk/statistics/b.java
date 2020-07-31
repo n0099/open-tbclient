@@ -2,14 +2,14 @@ package com.baidu.cyberplayer.sdk.statistics;
 
 import android.content.Context;
 import android.os.Build;
-import com.baidu.cyberplayer.sdk.m;
+import com.baidu.cyberplayer.sdk.n;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class b {
     private ArrayList<c> a = new ArrayList<>();
     private c b;
@@ -18,7 +18,7 @@ public class b {
         String networkStatisticsData = DpNetworkUtils.getNetworkStatisticsData(context);
         this.b = new c(DpStatConstants.SESSION_TYPE_DP_INIT_COMMON);
         this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "timestamp", System.currentTimeMillis()));
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "CPU", m.g()));
+        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "CPU", n.g()));
         this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "MODEL", Build.MODEL));
         this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "HARDWARE", Build.HARDWARE));
         this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "network", networkStatisticsData));

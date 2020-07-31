@@ -11,7 +11,7 @@ import com.baidu.ar.audio.AudioParams;
 import com.baidu.ar.audio.EasyAudioCallback;
 import com.baidu.ar.audio.IEasyAudio;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class a implements OnRenderFinishedListener, IRecord {
     private static final String TAG = a.class.getSimpleName();
     private DuMixOutput aa;
@@ -30,7 +30,7 @@ public class a implements OnRenderFinishedListener, IRecord {
     private long sL = 0;
 
     /* renamed from: com.baidu.ar.record.a$3  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     static /* synthetic */ class AnonymousClass3 {
         static final /* synthetic */ int[] $SwitchMap$com$baidu$ar$arplay$core$engine$rotate$Orientation = new int[Orientation.values().length];
 

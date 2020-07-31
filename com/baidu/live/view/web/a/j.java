@@ -18,14 +18,14 @@ import com.baidu.live.tbadk.scheme.SchemeCallback;
 import com.baidu.live.tbadk.scheme.SchemeUtils;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class j extends com.baidu.live.view.web.a {
-    private SchemeCallback bpg;
+    private SchemeCallback bpB;
     private Context context;
 
     public j(Context context, SchemeCallback schemeCallback) {
         this.context = context;
-        this.bpg = schemeCallback;
+        this.bpB = schemeCallback;
     }
 
     @Override // com.baidu.live.view.web.a
@@ -34,7 +34,7 @@ public class j extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void fX(String str) {
+    public void fW(String str) {
         Log.d("JsInterface", "@@ JsInterface-impl WkBridgeJsInterface params = " + str);
         if (str != null && str.contains("rmb_baiducloud://")) {
             if (this.context instanceof Activity) {
@@ -54,10 +54,10 @@ public class j extends com.baidu.live.view.web.a {
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, faceRecognitionActivityConfig));
             }
-        } else if (this.bpg == null) {
+        } else if (this.bpB == null) {
             SchemeUtils.openScheme(str);
         } else {
-            SchemeUtils.openScheme(str, this.bpg);
+            SchemeUtils.openScheme(str, this.bpB);
         }
     }
 
@@ -68,8 +68,8 @@ public class j extends com.baidu.live.view.web.a {
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
             List<ResolveInfo> queryIntentActivities = (this.context == null || (packageManager = this.context.getPackageManager()) == null) ? null : packageManager.queryIntentActivities(intent, 0);
             boolean z2 = (queryIntentActivities == null || queryIntentActivities.isEmpty()) ? false : true;
-            if (this.bpg != null) {
-                this.bpg.doJsCallback(z2 ? 1 : 0, "", null, str2);
+            if (this.bpB != null) {
+                this.bpB.doJsCallback(z2 ? 1 : 0, "", null, str2);
             }
             if (z && z2 && this.context != null) {
                 intent.addFlags(268435456);

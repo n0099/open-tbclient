@@ -11,7 +11,7 @@ import com.baidu.android.pushservice.f.a;
 import com.baidu.android.pushservice.g;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PushService extends Service {
     private boolean a = false;
     private Handler b = new Handler();

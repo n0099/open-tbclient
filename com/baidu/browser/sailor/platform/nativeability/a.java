@@ -27,9 +27,9 @@ import java.io.File;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class a {
-    private static BroadcastReceiver adD;
+    private static BroadcastReceiver adx;
     private static final SparseArray<BdLightappKernelJsCallback> b = new SparseArray<>();
 
     public static String a() {
@@ -110,9 +110,9 @@ public final class a {
     }
 
     public static void b() {
-        if (adD != null) {
-            BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(adD);
-            adD = null;
+        if (adx != null) {
+            BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(adx);
+            adx = null;
         }
     }
 
@@ -151,10 +151,10 @@ public final class a {
         BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(str, str2);
         bdLightappKernelJsCallback.setCallbackListener(aVar);
         b.put(10, bdLightappKernelJsCallback);
-        if (adD == null) {
-            adD = new d();
+        if (adx == null) {
+            adx = new d();
         }
-        BdSailorPlatform.getInstance().getAppContext().registerReceiver(adD, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        BdSailorPlatform.getInstance().getAppContext().registerReceiver(adx, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
     }
 
     public static void d(String str, String str2, BdLightappKernelJsCallback.a aVar) {
@@ -165,12 +165,12 @@ public final class a {
             return;
         }
         b.remove(10);
-        if (adD == null) {
+        if (adx == null) {
             bdLightappKernelJsCallback.sendFailCallBack("not start yet");
             return;
         }
-        BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(adD);
-        adD = null;
+        BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(adx);
+        adx = null;
         bdLightappKernelJsCallback.sendSuccCallBack();
     }
 

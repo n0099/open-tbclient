@@ -2,14 +2,14 @@ package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.x;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GuessLikeThreadInfo;
 import tbclient.PbPage.GuessLikeStruct;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class CardHListViewData extends b implements Serializable {
     private static final int MAX_COUNT = 9;
     private static final int MIN_COUNT = 3;
@@ -31,16 +31,16 @@ public class CardHListViewData extends b implements Serializable {
     }
 
     public void parseProtobuf(GuessLikeStruct guessLikeStruct) {
-        if (guessLikeStruct != null && w.getCount(guessLikeStruct.thread_list) >= 3) {
-            this.title = ar.trim(guessLikeStruct.title);
+        if (guessLikeStruct != null && x.getCount(guessLikeStruct.thread_list) >= 3) {
+            this.title = as.trim(guessLikeStruct.title);
             List<GuessLikeThreadInfo> list = guessLikeStruct.thread_list;
-            if (w.getCount(list) > 9) {
-                list = w.subList(list, 0, 9);
+            if (x.getCount(list) > 9) {
+                list = x.subList(list, 0, 9);
             }
-            if (!w.isEmpty(list)) {
+            if (!x.isEmpty(list)) {
                 this.mList.clear();
                 for (GuessLikeThreadInfo guessLikeThreadInfo : list) {
-                    if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !ar.isEmptyStringAfterTrim(guessLikeThreadInfo.recom_cover) && !ar.isEmptyStringAfterTrim(guessLikeThreadInfo.title)) {
+                    if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !as.isEmptyStringAfterTrim(guessLikeThreadInfo.recom_cover) && !as.isEmptyStringAfterTrim(guessLikeThreadInfo.title)) {
                         CardHListViewNormalItemData cardHListViewNormalItemData = new CardHListViewNormalItemData();
                         cardHListViewNormalItemData.parseProtobuf(guessLikeThreadInfo);
                         this.mList.add(cardHListViewNormalItemData);

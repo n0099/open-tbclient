@@ -1,25 +1,53 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.PbPage.NewsInfo;
+import java.util.ArrayList;
+import tbclient.PbPresent;
+import tbclient.PbPresentList;
 /* loaded from: classes.dex */
 public class aw {
-    public String buttonText;
-    public String dJK;
-    public String dJL;
-    public int dom;
-    public int position = 0;
-    public String subtitle;
-    public String summary;
+    private ArrayList<a> dPV;
+    private int total;
 
-    public void a(NewsInfo newsInfo) {
-        if (newsInfo != null) {
-            this.dJK = newsInfo.news_link;
-            this.summary = newsInfo.summary;
-            this.position = newsInfo.position.intValue();
-            this.dom = newsInfo.news_type.intValue();
-            this.dJL = newsInfo.news_icon;
-            this.subtitle = newsInfo.subtitle;
-            this.buttonText = newsInfo.button_text;
+    /* loaded from: classes.dex */
+    public static class a {
+        public int giftId;
+        public String giftName;
+        public int num;
+        public String thumbnailUrl;
+    }
+
+    public void a(PbPresent pbPresent) {
+        if (pbPresent != null) {
+            this.total = pbPresent.total.intValue();
+            if (pbPresent.list != null && pbPresent.list.size() > 0) {
+                this.dPV = new ArrayList<>();
+                for (PbPresentList pbPresentList : pbPresent.list) {
+                    if (pbPresentList != null) {
+                        a aVar = new a();
+                        aVar.giftId = pbPresentList.gift_id.intValue();
+                        aVar.giftName = pbPresentList.gift_name;
+                        aVar.thumbnailUrl = pbPresentList.thumbnail_url;
+                        aVar.num = pbPresentList.num.intValue();
+                        this.dPV.add(aVar);
+                    }
+                }
+            }
         }
+    }
+
+    public int getTotal() {
+        return this.total;
+    }
+
+    public void setTotal(int i) {
+        this.total = i;
+    }
+
+    public ArrayList<a> aVd() {
+        return this.dPV;
+    }
+
+    public void x(ArrayList<a> arrayList) {
+        this.dPV = arrayList;
     }
 }

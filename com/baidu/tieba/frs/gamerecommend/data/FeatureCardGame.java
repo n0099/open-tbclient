@@ -1,9 +1,9 @@
 package com.baidu.tieba.frs.gamerecommend.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class FeatureCardGame extends OrmObject {
     public Integer floor;
     public List<FeatureCardGameSubNode> sub_nodes;
@@ -11,6 +11,6 @@ public class FeatureCardGame extends OrmObject {
     public Integer type;
 
     public boolean isValid() {
-        return !w.isEmpty(this.sub_nodes);
+        return !x.isEmpty(this.sub_nodes);
     }
 }

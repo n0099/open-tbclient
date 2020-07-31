@@ -1,38 +1,33 @@
 package com.baidu.poly.a.d;
 
-import android.graphics.Bitmap;
-import android.util.LruCache;
-/* loaded from: classes11.dex */
+import android.widget.ImageView;
+/* loaded from: classes9.dex */
 public class b {
-    private LruCache<String, Bitmap> bzo = new a(((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
+    private static b bzu;
+    private c bzv;
 
-    /* loaded from: classes11.dex */
-    class a extends LruCache<String, Bitmap> {
-        a(int i) {
-            super(i);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.util.LruCache
-        /* renamed from: d */
-        public int sizeOf(String str, Bitmap bitmap) {
-            return bitmap.getByteCount() / 1024;
-        }
+    public b(c cVar) {
+        this.bzv = cVar;
     }
 
-    private Bitmap gB(String str) {
-        return this.bzo.get(str);
+    public static b Og() {
+        return bzu;
     }
 
-    public void e(String str, Bitmap bitmap) {
-        String g = com.baidu.poly.a.f.b.g(str);
-        if (gB(g) == null) {
-            this.bzo.put(g, bitmap);
+    public static void a(c cVar) {
+        if (bzu == null) {
+            synchronized (b.class) {
+                if (bzu == null) {
+                    bzu = new b(cVar);
+                }
+            }
         }
     }
 
-    public Bitmap gC(String str) {
-        return gB(com.baidu.poly.a.f.b.g(str));
+    public void b(ImageView imageView, String str) {
+        c cVar = this.bzv;
+        if (cVar != null) {
+            cVar.a(imageView, str);
+        }
     }
 }

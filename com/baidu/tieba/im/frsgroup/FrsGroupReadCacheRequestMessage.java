@@ -2,7 +2,7 @@ package com.baidu.tieba.im.frsgroup;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class FrsGroupReadCacheRequestMessage extends CustomMessage<Object> {
     private String forumName;
     private int type;

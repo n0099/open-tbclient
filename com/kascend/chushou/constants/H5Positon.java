@@ -2,7 +2,7 @@ package com.kascend.chushou.constants;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class H5Positon implements Parcelable {
     public static final Parcelable.Creator<H5Positon> CREATOR = new Parcelable.Creator<H5Positon>() { // from class: com.kascend.chushou.constants.H5Positon.1
         /* JADX DEBUG: Method merged with bridge method */

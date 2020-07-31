@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import com.baidu.webkit.sdk.Log;
@@ -28,7 +29,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 import java.io.BufferedWriter;
 import java.lang.reflect.Method;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class WebViewImpl extends WebView implements WebViewProvider {
     private final WebView.DelegateAdapter mDelegate;
     private WebSettings mSettings;
@@ -37,7 +38,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     private WebViewClient mWebViewClient;
     private final WebView.PrivateAccess mWebViewPrivateAccess;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     private class FindAdapter implements WebView.FindListener {
         private final WebView.FindListener mListener;
 
@@ -51,7 +52,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     private class PictureAdapter implements WebView.PictureListener {
         private final WebView.PictureListener mListener;
 
@@ -65,7 +66,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public class WebViewTransportImpl extends WebView.WebViewTransport {
         private WebView.WebViewTransport mTransport;
         private com.baidu.webkit.sdk.WebView mWebViewGeneric;
@@ -101,6 +102,13 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         com.baidu.webkit.sdk.WebView webView2 = this.mWebView;
         webView2.getClass();
         this.mDelegate = new WebView.DelegateAdapter(this);
+    }
+
+    private InputMethodManager getInputMethodManager() {
+        if (this.mWebView.getContext() != null) {
+            return (InputMethodManager) this.mWebView.getContext().getSystemService("input_method");
+        }
+        return null;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
@@ -707,7 +715,11 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     public final boolean super_onTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0 && !this.mWebView.isFocused()) {
+        boolean z = false;
+        if (getInputMethodManager() != null && !getInputMethodManager().isActive(this)) {
+            z = true;
+        }
+        if (motionEvent.getAction() == 0 && (!this.mWebView.isFocused() || z)) {
             this.mWebView.requestFocus();
         }
         return super.onTouchEvent(motionEvent);

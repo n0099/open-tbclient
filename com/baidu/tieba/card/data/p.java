@@ -3,11 +3,11 @@ package com.baidu.tieba.card.data;
 import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes.dex */
 public interface p extends q {
-    boolean bOT();
+    boolean bSe();
 
     int getPosition();
 
-    void mf(boolean z);
+    void mK(boolean z);
 
-    void mg(boolean z);
+    void mL(boolean z);
 }

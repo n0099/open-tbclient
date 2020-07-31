@@ -3,7 +3,7 @@ package com.baidu.fsg.face.base.c;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import com.baidu.fsg.base.utils.ResUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static final int ERROR_CODE_NETWORK_UNAVAILABLE = -201;
     public static final int ERROR_CODE_NO_LOGIN = 101;

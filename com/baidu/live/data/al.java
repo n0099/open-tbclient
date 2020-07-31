@@ -1,29 +1,39 @@
 package com.baidu.live.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class al {
-    public List<ak> aBH;
-    public String liveId;
+    public AlaLiveUserInfoData aDb;
+    public int rank;
+    public int type;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.liveId = jSONObject.optString("live_id");
-            JSONArray optJSONArray = jSONObject.optJSONArray("list");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.aBH = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        ak akVar = new ak();
-                        akVar.parserJson(optJSONObject);
-                        this.aBH.add(akVar);
-                    }
-                }
+            this.type = jSONObject.optInt("type");
+            this.rank = jSONObject.optInt("rank");
+            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
+            if (optJSONObject != null) {
+                this.aDb = new AlaLiveUserInfoData();
+                this.aDb.parserJson(optJSONObject);
             }
         }
+    }
+
+    public boolean xq() {
+        return this.type == 1;
+    }
+
+    public boolean isFirst() {
+        return this.rank == 1;
+    }
+
+    public boolean a(al alVar) {
+        if (alVar != null && alVar.type == this.type && alVar.rank == this.rank) {
+            if (this.aDb == null || alVar.aDb == null) {
+                return true;
+            }
+            return alVar.aDb.userId == this.aDb.userId;
+        }
+        return false;
     }
 }

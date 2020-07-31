@@ -11,7 +11,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class VodJsonResponseHandler extends BceJsonResponseHandler {
     @Override // com.baidubce.http.handler.BceJsonResponseHandler, com.baidubce.http.handler.HttpResponseHandler
     public boolean handle(BceHttpResponse bceHttpResponse, AbstractBceResponse abstractBceResponse) throws Exception {

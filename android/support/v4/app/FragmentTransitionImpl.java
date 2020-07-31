@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes12.dex */
 public abstract class FragmentTransitionImpl {
     public abstract void addTarget(Object obj, View view);
 

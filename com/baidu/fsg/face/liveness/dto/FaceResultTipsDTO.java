@@ -2,7 +2,7 @@ package com.baidu.fsg.face.liveness.dto;
 
 import com.baidu.fsg.base.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FaceResultTipsDTO implements NoProguard, Serializable {
     public String cancel_msg;
     public String confirm_msg;

@@ -7,7 +7,7 @@ import io.reactivex.i;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import tv.chushou.basis.rxjava.thread.EventThread;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ProducerEvent extends Event {
     private final int hashCode;
     private final Method method;

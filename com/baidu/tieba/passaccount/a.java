@@ -2,8 +2,8 @@ package com.baidu.tieba.passaccount;
 
 import android.app.Activity;
 import com.tencent.mm.sdk.modelbase.BaseResp;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class a {
-    public Activity jVc;
-    public BaseResp jVd;
+    public Activity kdB;
+    public BaseResp kdC;
 }

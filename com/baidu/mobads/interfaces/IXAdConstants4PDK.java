@@ -2,7 +2,7 @@ package com.baidu.mobads.interfaces;
 
 import com.baidu.fsg.face.base.b.c;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public interface IXAdConstants4PDK {
     public static final String EVENT_ERROR = "EVENT_ERROR";
     public static final String EVENT_REQUEST_COMPLETE = "EVENT_REQUEST_COMPLETE";
@@ -13,7 +13,7 @@ public interface IXAdConstants4PDK {
     public static final String EVENT_SLOT_PRELOADED = "EVENT_SLOT_PRELOADED";
     public static final String EVENT_SLOT_STARTED = "EVENT_SLOT_STARTED";
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public enum VideoAssetPlayMode {
         VIDEO_ASSET_AUTO_PLAY_TYPE_ATTENDED("VIDEO_ASSET_AUTO_PLAY_TYPE_ATTENDED"),
         VIDEO_ASSET_AUTO_PLAY_TYPE_UNATTENDED("VIDEO_ASSET_AUTO_PLAY_TYPE_UNATTENDED");
@@ -39,7 +39,7 @@ public interface IXAdConstants4PDK {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public enum ScreenSizeMode {
         NORMAL("normal"),
         FULL_SCREEN("full_screen");
@@ -65,7 +65,7 @@ public interface IXAdConstants4PDK {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public enum VideoState {
         IDLE("IDLE"),
         PLAYING("PLAYING"),
@@ -93,7 +93,7 @@ public interface IXAdConstants4PDK {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public enum ActivityState {
         CREATE("CREATE"),
         START("START"),
@@ -124,7 +124,7 @@ public interface IXAdConstants4PDK {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public enum SlotState {
         IDEL("idel"),
         LOADING("loading"),
@@ -155,7 +155,7 @@ public interface IXAdConstants4PDK {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public enum SlotType {
         SLOT_TYPE_JSSDK("jssdk"),
         SLOT_TYPE_CPU(c.i),
@@ -190,7 +190,7 @@ public interface IXAdConstants4PDK {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public enum VisitorAction {
         PAUSE_BUTTON_CLICKED("PAUSE_BUTTON_CLICKED"),
         RESUME_BUTTON_CLICKED("RESUME_BUTTON_CLICKED");

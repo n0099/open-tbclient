@@ -9,14 +9,15 @@ import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.engine.pixel.PixelType;
 import com.baidu.ar.c.j;
 import com.baidu.ar.callback.ICallbackWith;
-/* loaded from: classes3.dex */
+import io.flutter.plugin.platform.PlatformPlugin;
+/* loaded from: classes11.dex */
 public class e extends j {
     private static final String TAG = e.class.getSimpleName();
     private HandlerThread kO;
     private a xF;
     private b xG;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     private static final class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -49,7 +50,7 @@ public class e extends j {
     public e(com.baidu.ar.vo.a.b bVar, b bVar2) {
         this.xG = bVar2;
         this.mm = new PixelReadParams(PixelType.NV21);
-        this.mm.setOutputWidth(1280);
+        this.mm.setOutputWidth(PlatformPlugin.DEFAULT_SYSTEM_UI);
         this.mm.setOutputHeight(720);
     }
 

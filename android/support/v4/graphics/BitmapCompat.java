@@ -4,11 +4,11 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public final class BitmapCompat {
     static final BitmapCompatBaseImpl IMPL;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     static class BitmapCompatBaseImpl {
         BitmapCompatBaseImpl() {
         }
@@ -26,7 +26,7 @@ public final class BitmapCompat {
     }
 
     @RequiresApi(18)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     static class BitmapCompatApi18Impl extends BitmapCompatBaseImpl {
         BitmapCompatApi18Impl() {
         }
@@ -43,7 +43,7 @@ public final class BitmapCompat {
     }
 
     @RequiresApi(19)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     static class BitmapCompatApi19Impl extends BitmapCompatApi18Impl {
         BitmapCompatApi19Impl() {
         }

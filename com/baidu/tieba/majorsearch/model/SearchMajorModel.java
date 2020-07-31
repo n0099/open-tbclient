@@ -8,20 +8,20 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import com.baidu.tieba.majorsearch.message.SearchMajorHttpResponsedMessage;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class SearchMajorModel extends BdBaseModel {
-    a jzH;
+    a jIl;
     private HttpMessageListener mHttpMessageListener;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes18.dex */
     public interface a {
-        void aX(List<String> list);
-
         void b(ErrorData errorData);
+
+        void bd(List<String> list);
     }
 
     public SearchMajorModel(e eVar, a aVar) {
@@ -48,17 +48,17 @@ public class SearchMajorModel extends BdBaseModel {
                     } else {
                         searchMajorHttpResponsedMessage = (SearchMajorHttpResponsedMessage) httpResponsedMessage;
                     }
-                    if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !w.isEmpty(searchMajorHttpResponsedMessage.getData().jzG)) {
-                        SearchMajorModel.this.jzH.aX(searchMajorHttpResponsedMessage.getData().jzG);
+                    if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !x.isEmpty(searchMajorHttpResponsedMessage.getData().jIk)) {
+                        SearchMajorModel.this.jIl.bd(searchMajorHttpResponsedMessage.getData().jIk);
                     } else {
-                        SearchMajorModel.this.jzH.b(errorData);
+                        SearchMajorModel.this.jIl.b(errorData);
                     }
                 }
             }
         };
         this.mHttpMessageListener.setSelfListener(true);
         registerListener(this.mHttpMessageListener);
-        this.jzH = aVar;
+        this.jIl = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

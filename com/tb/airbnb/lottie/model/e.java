@@ -6,11 +6,11 @@ import android.support.annotation.RestrictTo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e {
     private final List<String> DM;
     @Nullable
-    private f nGs;
+    private f nPa;
 
     public e(String... strArr) {
         this.DM = Arrays.asList(strArr);
@@ -18,12 +18,12 @@ public class e {
 
     private e(e eVar) {
         this.DM = new ArrayList(eVar.DM);
-        this.nGs = eVar.nGs;
+        this.nPa = eVar.nPa;
     }
 
     @CheckResult
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public e RP(String str) {
+    public e SA(String str) {
         e eVar = new e(this);
         eVar.DM.add(str);
         return eVar;
@@ -32,14 +32,14 @@ public class e {
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public e a(f fVar) {
         e eVar = new e(this);
-        eVar.nGs = fVar;
+        eVar.nPa = fVar;
         return eVar;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public f dNE() {
-        return this.nGs;
+    public f dRa() {
+        return this.nPa;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -103,6 +103,6 @@ public class e {
     }
 
     public String toString() {
-        return "KeyPath{keys=" + this.DM + ",resolved=" + (this.nGs != null) + '}';
+        return "KeyPath{keys=" + this.DM + ",resolved=" + (this.nPa != null) + '}';
     }
 }

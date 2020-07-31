@@ -2,7 +2,7 @@ package com.baidu.ueg.lib;
 
 import java.nio.charset.Charset;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes8.dex */
+/* loaded from: classes20.dex */
 public class c {
     public static final Charset ISO_8859_1 = Charset.forName("ISO-8859-1");
     public static final Charset US_ASCII = Charset.forName("US-ASCII");

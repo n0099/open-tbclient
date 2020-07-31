@@ -1,37 +1,37 @@
 package com.kascend.chushou.widget.cswebview;
 
 import com.kascend.chushou.constants.JSInterface;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     private Object d;
-    private d nrr;
-    private JSInterface nxW;
-    private com.kascend.chushou.toolkit.b nya;
+    private d nAb;
+    private JSInterface nGF;
+    private com.kascend.chushou.toolkit.b nGJ;
 
-    public d dLn() {
-        return this.nrr;
+    public d dOI() {
+        return this.nAb;
     }
 
     public a a(d dVar) {
-        this.nrr = dVar;
+        this.nAb = dVar;
         return this;
     }
 
-    public com.kascend.chushou.toolkit.b dLo() {
-        return this.nya;
+    public com.kascend.chushou.toolkit.b dOJ() {
+        return this.nGJ;
     }
 
     public a a(com.kascend.chushou.toolkit.b bVar) {
-        this.nya = bVar;
+        this.nGJ = bVar;
         return this;
     }
 
-    public JSInterface dLp() {
-        return this.nxW;
+    public JSInterface dOK() {
+        return this.nGF;
     }
 
     public a a(JSInterface jSInterface) {
-        this.nxW = jSInterface;
+        this.nGF = jSInterface;
         return this;
     }
 

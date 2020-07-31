@@ -8,12 +8,12 @@ import java.util.List;
 import org.json.JSONObject;
 import tv.chushou.zues.utils.g;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class a {
     protected TextView b;
     protected Context c;
     protected List<c> a = new ArrayList();
-    protected com.kascend.chushou.c.b neP = new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.a.1
+    protected com.kascend.chushou.c.b nny = new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.a.1
         @Override // com.kascend.chushou.c.b
         public void a() {
         }
@@ -23,7 +23,7 @@ public abstract class a {
             int optInt = jSONObject.optInt("code", -1);
             String optString = jSONObject.optString("message", "");
             if (optInt == 0) {
-                g.LI(a.i.report_success);
+                g.Mc(a.i.report_success);
             } else {
                 a(optInt, optString);
             }

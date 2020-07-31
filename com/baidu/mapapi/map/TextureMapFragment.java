@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class TextureMapFragment extends Fragment {
     private static final String a = TextureMapFragment.class.getSimpleName();
     private TextureMapView b;

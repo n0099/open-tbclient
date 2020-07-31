@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.component.components.b;
 
-import com.baidu.swan.apps.aq.ag;
+import com.baidu.swan.apps.aq.ai;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class c extends com.baidu.swan.apps.component.a.c.b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c() {
@@ -14,8 +14,8 @@ public final class c extends com.baidu.swan.apps.component.a.c.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
-            if (this.bUe != null) {
-                this.lineSpace = ag.D((float) this.bUe.optDouble("lineHeight", 0.0d));
+            if (this.bUW != null) {
+                this.lineSpace = ai.D((float) this.bUW.optDouble("lineHeight", 0.0d));
             }
         }
     }

@@ -1,5 +1,6 @@
 package okhttp3.internal.ws;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 import java.io.IOException;
 import java.util.Random;
@@ -8,7 +9,7 @@ import okio.BufferedSink;
 import okio.ByteString;
 import okio.Sink;
 import okio.Timeout;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 final class WebSocketWriter {
     boolean activeWriter;
     final Buffer buffer = new Buffer();
@@ -145,7 +146,7 @@ final class WebSocketWriter {
         this.sink.emit();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes14.dex */
     final class FrameSink implements Sink {
         boolean closed;
         long contentLength;
@@ -161,7 +162,7 @@ final class WebSocketWriter {
                 throw new IOException("closed");
             }
             WebSocketWriter.this.buffer.write(buffer, j);
-            boolean z = this.isFirstFrame && this.contentLength != -1 && WebSocketWriter.this.buffer.size() > this.contentLength - 8192;
+            boolean z = this.isFirstFrame && this.contentLength != -1 && WebSocketWriter.this.buffer.size() > this.contentLength - PlaybackStateCompat.ACTION_PLAY_FROM_URI;
             long completeSegmentByteCount = WebSocketWriter.this.buffer.completeSegmentByteCount();
             if (completeSegmentByteCount > 0 && !z) {
                 WebSocketWriter.this.writeMessageFrame(this.formatOpcode, completeSegmentByteCount, this.isFirstFrame, false);

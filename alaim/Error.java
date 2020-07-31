@@ -2,7 +2,7 @@ package alaim;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Error extends Message {
     public static final Integer DEFAULT_ERRORNO = 0;
     public static final Long DEFAULT_LOGID = 0L;
@@ -49,7 +49,7 @@ public final class Error extends Message {
         this.time = builder.time;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder extends Message.Builder<Error> {
         public Integer errorno;
         public Long logid;

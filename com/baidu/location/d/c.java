@@ -3,7 +3,7 @@ package com.baidu.location.d;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
     static c c;
     String a = "firll.dat";

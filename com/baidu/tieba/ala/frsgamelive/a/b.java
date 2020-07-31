@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.frsgamelive.c.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsgamelive.b.b, b.a> {
     private TbPageContext<?> mPageContext;
 
@@ -18,7 +18,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsga
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ac */
+    /* renamed from: ad */
     public b.a b(ViewGroup viewGroup) {
         return new b.a(new com.baidu.tieba.ala.frsgamelive.c.b(this.mPageContext));
     }

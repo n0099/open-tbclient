@@ -7,17 +7,17 @@ import android.os.AsyncTask;
 import android.text.TextUtils;
 import com.baidu.webkit.sdk.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class g extends AsyncTask<Uri, Void, String> {
-    final /* synthetic */ int adp;
-    final /* synthetic */ BdLightappKernelClient adq;
-    final /* synthetic */ ContentResolver adr;
+    final /* synthetic */ int adj;
+    final /* synthetic */ BdLightappKernelClient adk;
+    final /* synthetic */ ContentResolver adl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(BdLightappKernelClient bdLightappKernelClient, ContentResolver contentResolver, int i) {
-        this.adq = bdLightappKernelClient;
-        this.adr = contentResolver;
-        this.adp = i;
+        this.adk = bdLightappKernelClient;
+        this.adl = contentResolver;
+        this.adj = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,7 +27,7 @@ public class g extends AsyncTask<Uri, Void, String> {
     public String doInBackground(Uri... uriArr) {
         Cursor cursor = null;
         try {
-            Cursor query = this.adr.query(uriArr[0], new String[]{"_data"}, null, null, null);
+            Cursor query = this.adl.query(uriArr[0], new String[]{"_data"}, null, null, null);
             if (query != null) {
                 try {
                     if (query.moveToNext()) {
@@ -60,10 +60,10 @@ public class g extends AsyncTask<Uri, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     public void onPostExecute(String str) {
-        if (this.adq.mActivity == null || this.adq.mActivity.isFinishing()) {
+        if (this.adk.mActivity == null || this.adk.mActivity.isFinishing()) {
             Log.w("BdLightappKernelClient", "mActivity is null or finished.");
         } else {
-            this.adq.cloudaHandleResult(this.adp, str, !TextUtils.isEmpty(str));
+            this.adk.cloudaHandleResult(this.adj, str, !TextUtils.isEmpty(str));
         }
     }
 }

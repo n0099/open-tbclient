@@ -2,7 +2,7 @@ package com.baidu.ar;
 
 import android.graphics.SurfaceTexture;
 import com.baidu.ar.arrender.Texture;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class DuMixOutput2 extends DuMixOutput {
     private Texture bA;
 

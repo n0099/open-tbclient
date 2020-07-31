@@ -4,10 +4,10 @@ import android.graphics.Bitmap;
 import android.view.Surface;
 import android.view.View;
 import java.nio.Buffer;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public interface i {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(int i, int i2, Buffer buffer);
 

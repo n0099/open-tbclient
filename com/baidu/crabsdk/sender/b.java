@@ -15,14 +15,14 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public final class b extends a {
-    private static int anL = 5;
-    private boolean anK;
+    private static int anH = 5;
+    private boolean anG;
 
     public b(Context context) {
         super(context);
-        this.anK = false;
+        this.anG = false;
     }
 
     private static void a(Map<String, Object> map) {
@@ -35,7 +35,7 @@ public final class b extends a {
             }
             String substring = str.substring(5);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("logcat -d -v time", (String[]) null, new File("/")).getInputStream()), 8192);
-            String J = com.baidu.crabsdk.b.p.J();
+            String ti = com.baidu.crabsdk.b.p.ti();
             boolean z = true;
             int i = 0;
             while (true) {
@@ -72,7 +72,7 @@ public final class b extends a {
                         }
                     }
                 }
-                if (readLine.contains("ActivityManager") || readLine.contains(J)) {
+                if (readLine.contains("ActivityManager") || readLine.contains(ti)) {
                     sb.append(readLine).append("\n");
                 }
                 i = i2;
@@ -84,7 +84,7 @@ public final class b extends a {
         }
     }
 
-    private static Map<String, Object> dK(String str) {
+    private static Map<String, Object> dJ(String str) {
         String str2;
         String str3;
         HashMap hashMap = new HashMap();
@@ -96,14 +96,14 @@ public final class b extends a {
         try {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(str)));
             String readLine = bufferedReader.readLine();
-            String J = com.baidu.crabsdk.b.p.J();
+            String ti = com.baidu.crabsdk.b.p.ti();
             while (true) {
                 if (readLine == null) {
                     break;
                 }
                 if (readLine.startsWith("-----") && readLine.endsWith("-----") && readLine.contains(" pid ") && readLine.contains(" at ")) {
                     i++;
-                    if (i > anL) {
+                    if (i > anH) {
                         bufferedReader.close();
                         return null;
                     }
@@ -113,7 +113,7 @@ public final class b extends a {
                         str5 = split[2];
                     }
                 }
-                if (readLine.contains(J)) {
+                if (readLine.contains(ti)) {
                     hashMap.put("apiType", "ANR");
                     hashMap.put("errorType", "ANR");
                     hashMap.put("pid", str4);
@@ -236,7 +236,7 @@ public final class b extends a {
                     hashMap.put("pid", "N/A");
                     hashMap.put("time", Long.valueOf(System.currentTimeMillis()));
                     hashMap.put("anrMsg", "N/A");
-                    hashMap.put("threadList", com.baidu.crabsdk.b.s.tj());
+                    hashMap.put("threadList", com.baidu.crabsdk.b.s.Q());
                     hashMap.put("traceList", "读取trace文件失败：\n" + e.getMessage());
                     hashMap.put("mainThread", sb7.toString());
                     hashMap.put("errorLine", stackTrace[0].toString());
@@ -263,7 +263,7 @@ public final class b extends a {
 
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0080, code lost:
         com.baidu.crabsdk.c.a.v("===line.contains(tracesWroteLog)===");
-        r0 = dK(r14);
+        r0 = dJ(r14);
      */
     /* JADX WARN: Code restructure failed: missing block: B:21:0x008c, code lost:
         if (com.baidu.crabsdk.a.P == null) goto L26;
@@ -272,7 +272,7 @@ public final class b extends a {
         com.baidu.crabsdk.a.P.onAnrStarted(r0);
      */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0093, code lost:
-        r1 = com.baidu.crabsdk.sender.g.a(r13.anJ, (java.lang.Throwable) null, false);
+        r1 = com.baidu.crabsdk.sender.g.a(r13.anF, (java.lang.Throwable) null, false);
      */
     /* JADX WARN: Code restructure failed: missing block: B:24:0x009b, code lost:
         if (r0 == null) goto L37;
@@ -283,7 +283,7 @@ public final class b extends a {
     /* JADX WARN: Code restructure failed: missing block: B:27:0x00a3, code lost:
         r1.putAll(r0);
         com.baidu.crabsdk.sender.g.b(r1);
-        com.baidu.crabsdk.sender.i.a(r13.anJ, com.baidu.crabsdk.sender.i.e(r1));
+        com.baidu.crabsdk.sender.i.a(r13.anF, com.baidu.crabsdk.sender.i.e(r1));
         com.baidu.crabsdk.sender.h.ag();
      */
     /* JADX WARN: Code restructure failed: missing block: B:28:0x00b9, code lost:
@@ -291,7 +291,7 @@ public final class b extends a {
      */
     /* JADX WARN: Code restructure failed: missing block: B:29:0x00bb, code lost:
         com.baidu.crabsdk.c.a.v("===uploadAnr===");
-        com.baidu.crabsdk.sender.k.a(false, r13.anJ);
+        com.baidu.crabsdk.sender.k.a(false, r13.anF);
      */
     /* JADX WARN: Code restructure failed: missing block: B:45:?, code lost:
         return;
@@ -306,10 +306,10 @@ public final class b extends a {
     public final void e(String str) {
         String readLine;
         com.baidu.crabsdk.c.a.v("===readLog()===");
-        if (this.anK) {
+        if (this.anG) {
             return;
         }
-        this.anK = true;
+        this.anG = true;
         try {
             com.baidu.crabsdk.c.a.v("===readingTrace===");
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm:ss.SSS");
@@ -329,6 +329,6 @@ public final class b extends a {
         } catch (OutOfMemoryError e2) {
             com.baidu.crabsdk.c.a.a("内存溢出了！", e2);
         }
-        this.anK = false;
+        this.anG = false;
     }
 }

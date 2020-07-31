@@ -6,12 +6,12 @@ import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.extraparams.ResultCallback;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e extends com.baidu.live.view.web.a {
-    private SchemeCallback bpg;
+    private SchemeCallback bpB;
 
     public e(SchemeCallback schemeCallback) {
-        this.bpg = schemeCallback;
+        this.bpB = schemeCallback;
     }
 
     @Override // com.baidu.live.view.web.a
@@ -20,12 +20,12 @@ public class e extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void fX(final String str) {
-        if (this.bpg != null) {
+    public void fW(final String str) {
+        if (this.bpB != null) {
             ExtraParamsManager.addLoginCallback(new ResultCallback() { // from class: com.baidu.live.view.web.a.e.1
                 @Override // com.baidu.live.tbadk.extraparams.ResultCallback
                 public void onCallback(JSONObject jSONObject) {
-                    e.this.bpg.doJsCallback(jSONObject.optBoolean("status") ? 1 : 0, "", null, str);
+                    e.this.bpB.doJsCallback(jSONObject.optBoolean("status") ? 1 : 0, "", null, str);
                 }
             });
         }

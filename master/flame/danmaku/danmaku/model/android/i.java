@@ -7,15 +7,15 @@ import android.text.Spanned;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import java.lang.ref.SoftReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class i extends h {
     @Override // master.flame.danmaku.danmaku.model.android.h, master.flame.danmaku.danmaku.model.android.b
     public void b(master.flame.danmaku.danmaku.model.d dVar, TextPaint textPaint, boolean z) {
         CharSequence charSequence;
         if ((dVar.text instanceof Spanned) && (charSequence = dVar.text) != null) {
             StaticLayout staticLayout = new StaticLayout(charSequence, textPaint, (int) Math.ceil(StaticLayout.getDesiredWidth(dVar.text, textPaint)), Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, true);
-            dVar.nTf = staticLayout.getWidth();
-            dVar.nTg = staticLayout.getHeight();
+            dVar.obO = staticLayout.getWidth();
+            dVar.obP = staticLayout.getHeight();
             dVar.obj = new SoftReference(staticLayout);
             return;
         }
@@ -38,21 +38,21 @@ public class i extends h {
             return;
         }
         StaticLayout staticLayout3 = (StaticLayout) ((SoftReference) dVar.obj).get();
-        boolean z2 = (dVar.nTt & 1) != 0;
-        boolean z3 = (dVar.nTt & 2) != 0;
+        boolean z2 = (dVar.occ & 1) != 0;
+        boolean z3 = (dVar.occ & 2) != 0;
         if (z3 || staticLayout3 == null) {
             if (z3) {
-                dVar.nTt &= -3;
+                dVar.occ &= -3;
             }
             CharSequence charSequence = dVar.text;
             if (charSequence != null) {
                 if (z2) {
                     staticLayout = new StaticLayout(charSequence, textPaint, (int) Math.ceil(StaticLayout.getDesiredWidth(dVar.text, textPaint)), Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, true);
-                    dVar.nTf = staticLayout.getWidth();
-                    dVar.nTg = staticLayout.getHeight();
-                    dVar.nTt &= -2;
+                    dVar.obO = staticLayout.getWidth();
+                    dVar.obP = staticLayout.getHeight();
+                    dVar.occ &= -2;
                 } else {
-                    staticLayout = new StaticLayout(charSequence, textPaint, (int) dVar.nTf, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, true);
+                    staticLayout = new StaticLayout(charSequence, textPaint, (int) dVar.obO, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, true);
                 }
                 dVar.obj = new SoftReference(staticLayout);
                 staticLayout2 = staticLayout;

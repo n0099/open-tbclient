@@ -2,7 +2,7 @@ package android.support.v7.util;
 
 import android.util.SparseArray;
 import java.lang.reflect.Array;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 class TileList<T> {
     Tile<T> mLastAccessedTile;
     final int mTileSize;
@@ -59,7 +59,7 @@ class TileList<T> {
         return tile;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Tile<T> {
         public int mItemCount;
         public final T[] mItems;

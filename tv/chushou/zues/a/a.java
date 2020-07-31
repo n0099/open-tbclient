@@ -1,7 +1,7 @@
 package tv.chushou.zues.a;
 
 import tv.chushou.basis.rxjava.RxBus;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static void post(Object obj) {
         RxBus.get().post(obj);

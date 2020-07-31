@@ -29,9 +29,9 @@ import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.core.d.b;
-import com.baidu.swan.apps.core.d.e;
-import com.baidu.swan.apps.w.f;
+import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.core.d.c;
+import com.baidu.swan.apps.core.d.f;
 import com.baidu.swan.impl.map.f.c;
 import com.baidu.swan.impl.map.view.OpenLocationBottomMenu;
 import com.baidu.swan.menu.PopupWindow;
@@ -41,34 +41,34 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes12.dex */
-public class a extends b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMarkerClickListener {
-    protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cey = "";
-    private TextureMapView dkK;
-    private BaiduMap dkL;
-    private Marker dkM;
-    private ImageView dkN;
-    private TextView dkO;
-    private TextView dkP;
-    private GeoCoder dkQ;
-    private PopupWindow dkR;
-    private OpenLocationBottomMenu dkS;
-    private View dkT;
-    private ImageView dkU;
-    private c dkV;
-    private BDLocation dkW;
-    private boolean dkX;
-    private ArrayList<String> dkY;
+/* loaded from: classes19.dex */
+public class a extends c implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMarkerClickListener {
+    protected static final boolean DEBUG = b.DEBUG;
+    private String cgh = "";
+    private TextureMapView dqE;
+    private BaiduMap dqF;
+    private Marker dqG;
+    private ImageView dqH;
+    private TextView dqI;
+    private TextView dqJ;
+    private GeoCoder dqK;
+    private PopupWindow dqL;
+    private OpenLocationBottomMenu dqM;
+    private View dqN;
+    private ImageView dqO;
+    private com.baidu.swan.impl.map.f.c dqP;
+    private BDLocation dqQ;
+    private boolean dqR;
+    private ArrayList<String> dqS;
     private String mAddress;
     private String mName;
 
-    public static a Z(Bundle bundle) {
+    public static a aa(Bundle bundle) {
         a aVar = new a();
         if (bundle != null) {
             aVar.setArguments(bundle);
         }
-        com.baidu.swan.impl.map.a.aEG();
+        com.baidu.swan.impl.map.a.aIx();
         return aVar;
     }
 
@@ -76,38 +76,38 @@ public class a extends b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMar
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         com.baidu.swan.apps.console.c.i("map", "start MapLocationFragment");
         View inflate = layoutInflater.inflate(R.layout.ai_apps_map_show_location_fragment, viewGroup, false);
-        ae(inflate);
-        dH(Zm());
+        ah(inflate);
+        dL(aaq());
         setRightZoneVisibility(false);
-        aF(inflate);
-        aG(inflate);
-        aFi();
-        aH(inflate);
-        jq(AppRuntime.getAppContext().getResources().getString(R.string.aiapps_map_open_location_title));
+        aK(inflate);
+        aL(inflate);
+        aIZ();
+        aM(inflate);
+        jH(AppRuntime.getAppContext().getResources().getString(R.string.aiapps_map_open_location_title));
         if (immersionEnabled()) {
             inflate = initImmersion(inflate);
         }
         return enableSliding(inflate, this);
     }
 
-    @Override // com.baidu.swan.apps.core.d.b, com.baidu.searchbox.widget.SlideInterceptor
+    @Override // com.baidu.swan.apps.core.d.c, com.baidu.searchbox.widget.SlideInterceptor
     public boolean isSlidable(MotionEvent motionEvent) {
         return false;
     }
 
-    private void aF(View view) {
-        this.dkK = (TextureMapView) view.findViewById(R.id.bdMapView);
-        this.dkL = this.dkK.getMap();
-        this.dkL.getUiSettings().setRotateGesturesEnabled(false);
-        this.dkK.showZoomControls(false);
-        this.dkL.getUiSettings().setOverlookingGesturesEnabled(false);
-        this.dkL.setOnMapLoadedCallback(this);
+    private void aK(View view) {
+        this.dqE = (TextureMapView) view.findViewById(R.id.bdMapView);
+        this.dqF = this.dqE.getMap();
+        this.dqF.getUiSettings().setRotateGesturesEnabled(false);
+        this.dqE.showZoomControls(false);
+        this.dqF.getUiSettings().setOverlookingGesturesEnabled(false);
+        this.dqF.setOnMapLoadedCallback(this);
     }
 
-    private void aFd() {
+    private void aIU() {
         Bundle arguments = getArguments();
         if (arguments != null && arguments.size() > 0) {
-            this.cey = arguments.getString("slaveId");
+            this.cgh = arguments.getString("slaveId");
             double d = arguments.getDouble("latitude");
             double d2 = arguments.getDouble("longitude");
             double d3 = arguments.getDouble("scale");
@@ -115,73 +115,73 @@ public class a extends b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMar
             this.mAddress = arguments.getString("address");
             LatLng latLng = new LatLng(d, d2);
             e(latLng);
-            this.dkL.setMapStatus(MapStatusUpdateFactory.newLatLng(latLng));
-            this.dkL.setMapStatus(MapStatusUpdateFactory.zoomTo((float) d3));
-            this.dkM = (Marker) this.dkL.addOverlay(new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromResource(R.drawable.aiapps_location_ding)).title(TextUtils.isEmpty(this.mName) ? "" : this.mName).anchor(0.5f, 0.5f));
+            this.dqF.setMapStatus(MapStatusUpdateFactory.newLatLng(latLng));
+            this.dqF.setMapStatus(MapStatusUpdateFactory.zoomTo((float) d3));
+            this.dqG = (Marker) this.dqF.addOverlay(new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromResource(R.drawable.aiapps_location_ding)).title(TextUtils.isEmpty(this.mName) ? "" : this.mName).anchor(0.5f, 0.5f));
             com.baidu.swan.apps.console.c.i("map", "show marker");
-            if (!TextUtils.isEmpty(this.mName) && this.dkO != null) {
-                this.dkO.setText(this.mName);
+            if (!TextUtils.isEmpty(this.mName) && this.dqI != null) {
+                this.dqI.setText(this.mName);
             }
-            if (!TextUtils.isEmpty(this.mAddress) && this.dkP != null) {
-                this.dkP.setText(this.mAddress);
+            if (!TextUtils.isEmpty(this.mAddress) && this.dqJ != null) {
+                this.dqJ.setText(this.mAddress);
             }
-            this.dkY = arguments.getStringArrayList("ignoredApps");
+            this.dqS = arguments.getStringArrayList("ignoredApps");
         }
     }
 
-    public void aFe() {
-        e RN = f.ajb().RN();
-        if (RN != null) {
-            RN.jx("navigateTo").ag(e.caB, e.caD).f(this).aah();
+    public void aIV() {
+        f Sc = com.baidu.swan.apps.v.f.akr().Sc();
+        if (Sc != null) {
+            Sc.jO("navigateTo").ag(f.cci, f.cck).f(this).abl();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.apps.core.d.b
-    public boolean YW() {
+    @Override // com.baidu.swan.apps.core.d.c
+    public boolean ZR() {
         return false;
     }
 
-    @Override // com.baidu.swan.apps.core.d.b
-    public boolean Ui() {
+    @Override // com.baidu.swan.apps.core.d.c
+    public boolean UJ() {
         return false;
     }
 
-    @Override // com.baidu.swan.apps.core.d.b
-    protected void UI() {
-        if (this.bZP == null) {
-            this.bZP = new h(getContext(), this.bZO, 12, com.baidu.swan.apps.u.a.agb(), new com.baidu.swan.apps.view.c.b());
-            new com.baidu.swan.apps.y.a(this.bZP, this).akM();
+    @Override // com.baidu.swan.apps.core.d.c
+    protected void Vn() {
+        if (this.cbu == null) {
+            this.cbu = new h(getContext(), this.cbt, 12, com.baidu.swan.apps.t.a.ahn(), new com.baidu.swan.apps.view.c.b());
+            new com.baidu.swan.apps.x.a(this.cbu, this).amc();
         }
     }
 
-    @Override // com.baidu.swan.apps.core.d.b
-    public void Zy() {
+    @Override // com.baidu.swan.apps.core.d.c
+    public void ZU() {
         HashMap hashMap = new HashMap();
-        hashMap.put("wvID", this.cey);
-        f.ajb().a(new com.baidu.swan.apps.event.a.b("sharebtn", hashMap));
+        hashMap.put("wvID", this.cgh);
+        com.baidu.swan.apps.v.f.akr().a(new com.baidu.swan.apps.event.a.b("sharebtn", hashMap));
     }
 
-    @Override // com.baidu.swan.apps.core.d.b
-    protected void YV() {
-        UI();
-        this.bZP.n(com.baidu.swan.apps.u.a.ags().getNightModeSwitcherState(), Zv());
+    @Override // com.baidu.swan.apps.core.d.c
+    protected void ZQ() {
+        Vn();
+        this.cbu.n(com.baidu.swan.apps.t.a.ahF().getNightModeSwitcherState(), aaz());
     }
 
-    @Override // com.baidu.swan.apps.core.d.b
-    protected boolean UE() {
+    @Override // com.baidu.swan.apps.core.d.c
+    protected boolean Vi() {
         return true;
     }
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMapLoadedCallback
     public void onMapLoaded() {
         com.baidu.swan.apps.console.c.i("map", "onMapLoaded");
-        aFd();
+        aIU();
     }
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener
     public boolean onMarkerClick(Marker marker) {
-        if (marker == this.dkM && !TextUtils.isEmpty(this.mName)) {
+        if (marker == this.dqG && !TextUtils.isEmpty(this.mName)) {
             LinearLayout linearLayout = new LinearLayout(AppRuntime.getAppContext());
             linearLayout.setOrientation(1);
             TextView textView = new TextView(AppRuntime.getAppContext());
@@ -192,42 +192,42 @@ public class a extends b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMar
             textView2.setTextSize(15.0f);
             linearLayout.addView(textView);
             linearLayout.addView(textView2);
-            this.dkL.showInfoWindow(new InfoWindow(BitmapDescriptorFactory.fromView(linearLayout), marker.getPosition(), -60, null));
+            this.dqF.showInfoWindow(new InfoWindow(BitmapDescriptorFactory.fromView(linearLayout), marker.getPosition(), -60, null));
         }
         return true;
     }
 
-    private void aG(View view) {
-        this.dkT = view;
-        this.dkN = (ImageView) view.findViewById(R.id.location_icon_path);
-        this.dkN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.impl.map.c.a.1
+    private void aL(View view) {
+        this.dqN = view;
+        this.dqH = (ImageView) view.findViewById(R.id.location_icon_path);
+        this.dqH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.impl.map.c.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                a.this.aFf();
+                a.this.aIW();
             }
         });
-        this.dkO = (TextView) view.findViewById(R.id.location_text_position);
-        this.dkP = (TextView) view.findViewById(R.id.location_text_address);
+        this.dqI = (TextView) view.findViewById(R.id.location_text_position);
+        this.dqJ = (TextView) view.findViewById(R.id.location_text_address);
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.dkQ != null) {
-            this.dkQ.destroy();
+        if (this.dqK != null) {
+            this.dqK.destroy();
         }
-        OpenLocationBottomMenu.aFT();
-        if (this.dkV != null) {
-            this.dkV.fY(false);
+        OpenLocationBottomMenu.aJK();
+        if (this.dqP != null) {
+            this.dqP.gu(false);
         }
         if (Build.VERSION.SDK_INT > 19) {
-            this.dkK.onDestroy();
+            this.dqE.onDestroy();
         }
     }
 
     private void e(LatLng latLng) {
-        this.dkQ = GeoCoder.newInstance();
-        this.dkQ.setOnGetGeoCodeResultListener(new OnGetGeoCoderResultListener() { // from class: com.baidu.swan.impl.map.c.a.2
+        this.dqK = GeoCoder.newInstance();
+        this.dqK.setOnGetGeoCodeResultListener(new OnGetGeoCoderResultListener() { // from class: com.baidu.swan.impl.map.c.a.2
             @Override // com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener
             public void onGetGeoCodeResult(GeoCodeResult geoCodeResult) {
             }
@@ -235,57 +235,57 @@ public class a extends b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMar
             @Override // com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener
             public void onGetReverseGeoCodeResult(ReverseGeoCodeResult reverseGeoCodeResult) {
                 if (reverseGeoCodeResult == null || reverseGeoCodeResult.error != SearchResult.ERRORNO.NO_ERROR) {
-                    a.this.dkO.setText(R.string.unknown_location_info);
+                    a.this.dqI.setText(R.string.unknown_location_info);
                     return;
                 }
-                if (a.this.dkP != null && TextUtils.isEmpty(a.this.mAddress)) {
+                if (a.this.dqJ != null && TextUtils.isEmpty(a.this.mAddress)) {
                     String address = reverseGeoCodeResult.getAddress();
                     a aVar = a.this;
                     if (address == null) {
                         address = a.this.getResources().getString(R.string.unknown_location_info);
                     }
                     aVar.mAddress = address;
-                    a.this.dkP.setText(a.this.mAddress);
+                    a.this.dqJ.setText(a.this.mAddress);
                 }
-                if (a.this.dkO != null && TextUtils.isEmpty(a.this.mName)) {
+                if (a.this.dqI != null && TextUtils.isEmpty(a.this.mName)) {
                     String sematicDescription = reverseGeoCodeResult.getSematicDescription();
                     a aVar2 = a.this;
                     if (sematicDescription == null) {
                         sematicDescription = a.this.getResources().getString(R.string.unknown_location_info);
                     }
                     aVar2.mName = sematicDescription;
-                    a.this.dkO.setText(a.this.mName);
+                    a.this.dqI.setText(a.this.mName);
                 }
                 com.baidu.swan.apps.console.c.i("map", "mAddress +" + a.this.mAddress + " mName" + a.this.mName);
             }
         });
-        this.dkQ.reverseGeoCode(new ReverseGeoCodeOption().location(latLng));
+        this.dqK.reverseGeoCode(new ReverseGeoCodeOption().location(latLng));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aFf() {
-        FragmentActivity aIB = aIB();
-        if (aIB != null) {
-            if (this.dkR == null || !this.dkR.isShowing()) {
-                View inflate = View.inflate(aIB, R.layout.aiapps_openlocation_pop_menu, null);
+    public void aIW() {
+        FragmentActivity aMt = aMt();
+        if (aMt != null) {
+            if (this.dqL == null || !this.dqL.isShowing()) {
+                View inflate = View.inflate(aMt, R.layout.aiapps_openlocation_pop_menu, null);
                 inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.impl.map.c.a.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.aFg();
+                        a.this.aIX();
                     }
                 });
-                this.dkS = (OpenLocationBottomMenu) inflate.findViewById(R.id.openlocation_popmenu);
-                this.dkS.setFragment(this);
-                this.dkR = new PopupWindow(aIB);
-                this.dkR.setContentView(inflate);
-                this.dkR.setWidth(-1);
-                this.dkR.setHeight(-2);
-                this.dkR.setBackgroundDrawable(new BitmapDrawable());
-                this.dkR.setFocusable(true);
-                this.dkR.setOutsideTouchable(true);
-                this.dkR.setAnimationStyle(R.style.OpenLocationBottomMenuPopupStyle);
-                this.dkR.showAtLocation(this.dkT, 80, 0, 0);
-                this.dkR.a(new PopupWindow.a() { // from class: com.baidu.swan.impl.map.c.a.4
+                this.dqM = (OpenLocationBottomMenu) inflate.findViewById(R.id.openlocation_popmenu);
+                this.dqM.setFragment(this);
+                this.dqL = new PopupWindow(aMt);
+                this.dqL.setContentView(inflate);
+                this.dqL.setWidth(-1);
+                this.dqL.setHeight(-2);
+                this.dqL.setBackgroundDrawable(new BitmapDrawable());
+                this.dqL.setFocusable(true);
+                this.dqL.setOutsideTouchable(true);
+                this.dqL.setAnimationStyle(R.style.OpenLocationBottomMenuPopupStyle);
+                this.dqL.showAtLocation(this.dqN, 80, 0, 0);
+                this.dqL.a(new PopupWindow.a() { // from class: com.baidu.swan.impl.map.c.a.4
                     @Override // com.baidu.swan.menu.PopupWindow.a
                     public void onDismiss() {
                         a.this.N(1.0f);
@@ -296,63 +296,63 @@ public class a extends b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMar
         }
     }
 
-    public void aFg() {
-        if (this.dkR != null && this.dkR.isShowing()) {
-            this.dkR.dismiss();
+    public void aIX() {
+        if (this.dqL != null && this.dqL.isShowing()) {
+            this.dqL.dismiss();
         }
     }
 
-    public BaiduMap aFh() {
-        return this.dkL;
+    public BaiduMap aIY() {
+        return this.dqF;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void N(float f) {
-        if (aIB() != null) {
-            Window window = aIB().getWindow();
+        if (aMt() != null) {
+            Window window = aMt().getWindow();
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.alpha = f;
             window.setAttributes(attributes);
         }
     }
 
-    private void aH(View view) {
-        this.dkU = (ImageView) view.findViewById(R.id.goMyPoint);
-        this.dkU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.impl.map.c.a.5
+    private void aM(View view) {
+        this.dqO = (ImageView) view.findViewById(R.id.goMyPoint);
+        this.dqO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.impl.map.c.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (a.this.dkV != null && a.this.dkV.aEM() != null) {
-                    BDLocation aEM = a.this.dkV.aEM();
-                    a.this.dkL.animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(aEM.getLatitude(), aEM.getLongitude())));
+                if (a.this.dqP != null && a.this.dqP.aID() != null) {
+                    BDLocation aID = a.this.dqP.aID();
+                    a.this.dqF.animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(aID.getLatitude(), aID.getLongitude())));
                 }
             }
         });
     }
 
-    private void aFi() {
-        this.dkV = new c(f.ajb().aiL(), this.dkL);
-        this.dkV.fY(true);
-        this.dkV.a(new c.b() { // from class: com.baidu.swan.impl.map.c.a.6
+    private void aIZ() {
+        this.dqP = new com.baidu.swan.impl.map.f.c(com.baidu.swan.apps.v.f.akr().akb(), this.dqF);
+        this.dqP.gu(true);
+        this.dqP.a(new c.b() { // from class: com.baidu.swan.impl.map.c.a.6
             @Override // com.baidu.swan.impl.map.f.c.b
             public void d(BDLocation bDLocation) {
-                a.this.dkW = bDLocation;
+                a.this.dqQ = bDLocation;
             }
         });
     }
 
-    public BDLocation aFj() {
-        return this.dkW;
+    public BDLocation aJa() {
+        return this.dqQ;
     }
 
-    public void fZ(boolean z) {
-        this.dkX = z;
+    public void gv(boolean z) {
+        this.dqR = z;
     }
 
-    public boolean aFk() {
-        return this.dkX;
+    public boolean aJb() {
+        return this.dqR;
     }
 
-    public List<String> aFl() {
-        return this.dkY;
+    public List<String> aJc() {
+        return this.dqS;
     }
 }

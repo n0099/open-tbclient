@@ -18,7 +18,7 @@ import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 class e extends com.baidu.ar.d.a<String, String> {
     private IHttpRequest bX;
     private WeakReference<Context> uW;

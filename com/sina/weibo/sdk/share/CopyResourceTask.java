@@ -14,7 +14,7 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class CopyResourceTask extends AsyncTask<WeiboMultiMessage, Object, TransResourceResult> {
     private TransResourceCallback mCallback;
     private WeakReference<Context> mReference;

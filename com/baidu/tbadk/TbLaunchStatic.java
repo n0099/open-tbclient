@@ -27,7 +27,7 @@ import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
 import com.baidu.tieba.wxapi.WXEntryActivity;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class TbLaunchStatic {
     public static String Tag = "tag";
 
@@ -62,11 +62,11 @@ public class TbLaunchStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    long j = b.aVP().getLong(SharedPrefConfig.CLEAR_REDUNDANCE_FILES_TIME, 0L);
+                    long j = b.aZP().getLong(SharedPrefConfig.CLEAR_REDUNDANCE_FILES_TIME, 0L);
                     long currentTimeMillis = System.currentTimeMillis();
                     if (currentTimeMillis - j > 86400000) {
-                        PluginPackageManager.oo().oE();
-                        b.aVP().putLong(SharedPrefConfig.CLEAR_REDUNDANCE_FILES_TIME, currentTimeMillis);
+                        PluginPackageManager.op().oF();
+                        b.aZP().putLong(SharedPrefConfig.CLEAR_REDUNDANCE_FILES_TIME, currentTimeMillis);
                     }
                 }
             }

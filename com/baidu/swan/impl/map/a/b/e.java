@@ -8,14 +8,14 @@ import com.baidu.mapapi.map.UiSettings;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.impl.map.a.b.d;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class e {
-    public static void a(Context context, com.baidu.swan.impl.map.item.c cVar, com.baidu.swan.apps.x.a.c cVar2, com.baidu.swan.impl.map.b bVar, boolean z) {
+    public static void a(Context context, com.baidu.swan.impl.map.item.c cVar, com.baidu.swan.apps.w.a.c cVar2, com.baidu.swan.impl.map.b bVar, boolean z) {
         if (cVar == null || cVar2 == null || !cVar2.isValid()) {
             com.baidu.swan.apps.console.c.e("map", "initMapView model is invalid");
             return;
         }
-        BaiduMap map = cVar.dls.getMap();
+        BaiduMap map = cVar.drm.getMap();
         com.baidu.swan.impl.map.b.b bVar2 = new com.baidu.swan.impl.map.b.b(cVar);
         map.setOnMapClickListener(bVar2);
         map.setOnMarkerClickListener(bVar2);
@@ -24,35 +24,35 @@ public class e {
         map.setOnMapStatusChangeListener(bVar2);
         map.setOnMyLocationClickListener(bVar2);
         UiSettings uiSettings = map.getUiSettings();
-        uiSettings.setScrollGesturesEnabled(cVar2.cnJ);
-        uiSettings.setRotateGesturesEnabled(cVar2.cnK);
-        uiSettings.setZoomGesturesEnabled(cVar2.cnI);
-        cVar.dls.showZoomControls(cVar2.cnI);
-        map.setBuildingsEnabled(cVar2.cnN);
-        uiSettings.setOverlookingGesturesEnabled(cVar2.cnM);
-        if (cVar2.cnA != null && cVar2.cnA.isValid()) {
-            com.baidu.swan.apps.console.c.i("map", "initMapView coordinate is " + cVar2.cnA);
-            map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(cVar2.cnA.latitude, cVar2.cnA.longitude)));
+        uiSettings.setScrollGesturesEnabled(cVar2.cpP);
+        uiSettings.setRotateGesturesEnabled(cVar2.cpQ);
+        uiSettings.setZoomGesturesEnabled(cVar2.cpO);
+        cVar.drm.showZoomControls(cVar2.cpO);
+        map.setBuildingsEnabled(cVar2.cpT);
+        uiSettings.setOverlookingGesturesEnabled(cVar2.cpS);
+        if (cVar2.cpG != null && cVar2.cpG.isValid()) {
+            com.baidu.swan.apps.console.c.i("map", "initMapView coordinate is " + cVar2.cpG);
+            map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(cVar2.cpG.latitude, cVar2.cpG.longitude)));
         }
         MapStatus mapStatus = map.getMapStatus();
-        float f = mapStatus != null ? mapStatus.zoom : (float) cVar2.cnB;
+        float f = mapStatus != null ? mapStatus.zoom : (float) cVar2.cpH;
         if (!z) {
-            f = (float) cVar2.cnB;
+            f = (float) cVar2.cpH;
         }
         map.setMapStatus(MapStatusUpdateFactory.zoomTo(f));
-        com.baidu.swan.apps.console.c.i("map", "initMapView scale is " + cVar2.cnB);
+        com.baidu.swan.apps.console.c.i("map", "initMapView scale is " + cVar2.cpH);
         cVar.isShowLocation = cVar2.isShowLocation;
         if (cVar2.isShowLocation) {
             a(context, bVar);
         } else {
-            bVar.fY(false);
+            bVar.gu(false);
         }
-        uiSettings.setCompassEnabled(cVar2.cnL);
+        uiSettings.setCompassEnabled(cVar2.cpR);
         f.a(AppRuntime.getAppContext(), cVar2, cVar);
         f.a(cVar2, cVar, bVar2);
     }
 
-    public static void a(Context context, com.baidu.swan.impl.map.item.c cVar, com.baidu.swan.apps.x.a.c cVar2, com.baidu.swan.impl.map.b bVar) {
+    public static void a(Context context, com.baidu.swan.impl.map.item.c cVar, com.baidu.swan.apps.w.a.c cVar2, com.baidu.swan.impl.map.b bVar) {
         a(context, cVar, cVar2, bVar, false);
     }
 
@@ -60,7 +60,7 @@ public class e {
         d.a(context, new d.a() { // from class: com.baidu.swan.impl.map.a.b.e.1
             @Override // com.baidu.swan.impl.map.a.b.d.a
             public void onSuccess() {
-                com.baidu.swan.impl.map.b.this.fY(true);
+                com.baidu.swan.impl.map.b.this.gu(true);
                 com.baidu.swan.apps.console.c.i("map", "location permission success");
             }
 

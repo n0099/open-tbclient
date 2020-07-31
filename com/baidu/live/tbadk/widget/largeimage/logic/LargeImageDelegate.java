@@ -27,7 +27,7 @@ import com.baidu.live.tbadk.widget.largeimage.tools.BitmapDecoderCreator;
 import com.baidu.live.tbadk.widget.largeimage.tools.LoadBlockBitmapTaskManager;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LargeImageDelegate implements ILoadBlockBitmapCallback {
     private static final int ANDROID_MAX_PIC_SIZE = 4096;
     public static final int DEFAULT_ANIMATION_TIME = 400;
@@ -413,7 +413,7 @@ public class LargeImageDelegate implements ILoadBlockBitmapCallback {
         this.mImageView.postInvalidate();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private class MoveGestureListener extends GestureDetector.SimpleOnGestureListener {
         private MoveGestureListener() {
         }
@@ -489,7 +489,7 @@ public class LargeImageDelegate implements ILoadBlockBitmapCallback {
         this.scaleAnimator.start();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private class ScaleGestureListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
         private ScaleGestureListener() {
         }
@@ -599,7 +599,7 @@ public class LargeImageDelegate implements ILoadBlockBitmapCallback {
         viewpoint.setScaleLevel(1.0f / this.mCurrentScaled);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private class FlingScroller extends Scroller {
         int mOldValueX;
         int mOldValueY;

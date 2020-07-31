@@ -11,30 +11,30 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import com.baidu.swan.game.ad.c;
 import java.lang.ref.WeakReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class CircleTextProgressbar extends AppCompatTextView {
-    private RectF abh;
+    private RectF abb;
     final Rect bounds;
-    private int cVq;
-    private int cVr;
-    private int cVs;
-    private int cVt;
-    private int cVu;
-    private int cVv;
-    private ProgressType cVw;
-    private long cVx;
-    private a cVy;
-    private b cVz;
+    private int cZW;
+    private int cZX;
+    private int cZY;
+    private int cZZ;
+    private int daa;
+    private int dab;
+    private ProgressType dac;
+    private long dad;
+    private a dae;
+    private b daf;
     private Paint mPaint;
     private float progress;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public enum ProgressType {
         COUNT,
         COUNT_BACK
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void onEnd();
 
@@ -51,41 +51,41 @@ public class CircleTextProgressbar extends AppCompatTextView {
 
     public CircleTextProgressbar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cVq = ViewCompat.MEASURED_STATE_MASK;
-        this.cVr = 2;
-        this.cVt = -16776961;
-        this.cVu = 8;
+        this.cZW = ViewCompat.MEASURED_STATE_MASK;
+        this.cZX = 2;
+        this.cZZ = -16776961;
+        this.daa = 8;
         this.mPaint = new Paint();
-        this.abh = new RectF();
-        this.cVv = 100;
-        this.cVw = ProgressType.COUNT;
-        this.cVx = 3000L;
+        this.abb = new RectF();
+        this.dab = 100;
+        this.dac = ProgressType.COUNT;
+        this.dad = 3000L;
         this.bounds = new Rect();
         g(context, attributeSet);
     }
 
     public void setOutLineColor(int i) {
-        this.cVq = i;
+        this.cZW = i;
         invalidate();
     }
 
     public void setOutLineWidth(int i) {
-        this.cVr = i;
+        this.cZX = i;
         invalidate();
     }
 
     public void setInCircleColor(int i) {
-        this.cVs = i;
+        this.cZY = i;
         invalidate();
     }
 
     public void setProgressColor(int i) {
-        this.cVt = i;
+        this.cZZ = i;
         invalidate();
     }
 
     public void setProgressLineWidth(int i) {
-        this.cVu = i;
+        this.daa = i;
         invalidate();
     }
 
@@ -99,26 +99,26 @@ public class CircleTextProgressbar extends AppCompatTextView {
     }
 
     public void setTimeMillis(long j) {
-        this.cVx = j;
+        this.dad = j;
         invalidate();
     }
 
     public long getTimeMillis() {
-        return this.cVx;
+        return this.dad;
     }
 
     public void setProgressType(ProgressType progressType) {
-        this.cVw = progressType;
-        axj();
+        this.dac = progressType;
+        azZ();
         invalidate();
     }
 
     public ProgressType getProgressType() {
-        return this.cVw;
+        return this.dac;
     }
 
     public void setCountdownProgressListener(a aVar) {
-        this.cVy = aVar;
+        this.dae = aVar;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -126,27 +126,27 @@ public class CircleTextProgressbar extends AppCompatTextView {
         getDrawingRect(this.bounds);
         float width = (this.bounds.height() > this.bounds.width() ? this.bounds.width() : this.bounds.height()) / 2;
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(this.cVs);
+        this.mPaint.setColor(this.cZY);
         this.mPaint.setAlpha(127);
-        canvas.drawCircle(this.bounds.centerX(), this.bounds.centerY(), width - this.cVr, this.mPaint);
+        canvas.drawCircle(this.bounds.centerX(), this.bounds.centerY(), width - this.cZX, this.mPaint);
         this.mPaint.setStyle(Paint.Style.STROKE);
-        this.mPaint.setColor(this.cVq);
-        this.mPaint.setStrokeWidth(this.cVu);
+        this.mPaint.setColor(this.cZW);
+        this.mPaint.setStrokeWidth(this.daa);
         this.mPaint.setStrokeCap(Paint.Cap.ROUND);
         this.mPaint.setAlpha(204);
-        canvas.drawCircle(this.bounds.centerX(), this.bounds.centerY(), width - (this.cVu / 2), this.mPaint);
+        canvas.drawCircle(this.bounds.centerX(), this.bounds.centerY(), width - (this.daa / 2), this.mPaint);
         TextPaint paint = getPaint();
         paint.setColor(getCurrentTextColor());
         paint.setAntiAlias(true);
         paint.setTextAlign(Paint.Align.CENTER);
         canvas.drawText(getText().toString(), this.bounds.centerX(), this.bounds.centerY() - ((paint.descent() + paint.ascent()) / 2.0f), paint);
-        this.mPaint.setColor(this.cVt);
+        this.mPaint.setColor(this.cZZ);
         this.mPaint.setStyle(Paint.Style.STROKE);
-        this.mPaint.setStrokeWidth(this.cVu);
+        this.mPaint.setStrokeWidth(this.daa);
         this.mPaint.setStrokeCap(Paint.Cap.ROUND);
         this.mPaint.setAlpha(204);
-        this.abh.set(this.bounds.left + (this.cVu / 2), this.bounds.top + (this.cVu / 2), this.bounds.right - (this.cVu / 2), this.bounds.bottom - (this.cVu / 2));
-        canvas.drawArc(this.abh, 270.0f, (360.0f * this.progress) / this.cVv, false, this.mPaint);
+        this.abb.set(this.bounds.left + (this.daa / 2), this.bounds.top + (this.daa / 2), this.bounds.right - (this.daa / 2), this.bounds.bottom - (this.daa / 2));
+        canvas.drawArc(this.abb, 270.0f, (360.0f * this.progress) / this.dab, false, this.mPaint);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -156,18 +156,18 @@ public class CircleTextProgressbar extends AppCompatTextView {
     }
 
     public void setProgressTotalPart(int i) {
-        this.cVv = i;
-        axj();
+        this.dab = i;
+        azZ();
     }
 
     public int getProgressTotalPart() {
-        return this.cVv;
+        return this.dab;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void axi() {
-        removeCallbacks(this.cVz);
-        switch (this.cVw) {
+    public void azY() {
+        removeCallbacks(this.daf);
+        switch (this.dac) {
             case COUNT:
                 this.progress += 1.0f;
                 break;
@@ -175,33 +175,33 @@ public class CircleTextProgressbar extends AppCompatTextView {
                 this.progress -= 1.0f;
                 break;
         }
-        if (this.progress >= 0.0f && this.progress <= this.cVv) {
-            if (this.cVy != null) {
-                this.cVy.onProgress(this.progress);
+        if (this.progress >= 0.0f && this.progress <= this.dab) {
+            if (this.dae != null) {
+                this.dae.onProgress(this.progress);
             }
             invalidate();
-            postDelayed(this.cVz, this.cVx / this.cVv);
+            postDelayed(this.daf, this.dad / this.dab);
             return;
         }
         this.progress = J(this.progress);
-        if (this.cVy != null) {
-            this.cVy.onEnd();
+        if (this.dae != null) {
+            this.dae.onEnd();
         }
     }
 
     private void g(Context context, AttributeSet attributeSet) {
         this.mPaint.setAntiAlias(true);
-        this.cVs = context.getResources().getColor(c.b.progress_circle_color);
-        this.cVz = new b(this);
+        this.cZY = context.getResources().getColor(c.b.progress_circle_color);
+        this.daf = new b(this);
     }
 
-    private void axj() {
-        switch (this.cVw) {
+    private void azZ() {
+        switch (this.dac) {
             case COUNT:
                 this.progress = 0.0f;
                 return;
             case COUNT_BACK:
-                this.progress = this.cVv;
+                this.progress = this.dab;
                 return;
             default:
                 this.progress = 0.0f;
@@ -210,8 +210,8 @@ public class CircleTextProgressbar extends AppCompatTextView {
     }
 
     private float J(float f) {
-        if (f > this.cVv) {
-            return this.cVv;
+        if (f > this.dab) {
+            return this.dab;
         }
         if (f < 0.0f) {
             return 0.0f;
@@ -220,19 +220,19 @@ public class CircleTextProgressbar extends AppCompatTextView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public static class b implements Runnable {
-        private WeakReference<CircleTextProgressbar> cVB;
+        private WeakReference<CircleTextProgressbar> dah;
 
         b(CircleTextProgressbar circleTextProgressbar) {
-            this.cVB = new WeakReference<>(circleTextProgressbar);
+            this.dah = new WeakReference<>(circleTextProgressbar);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CircleTextProgressbar circleTextProgressbar = this.cVB.get();
+            CircleTextProgressbar circleTextProgressbar = this.dah.get();
             if (circleTextProgressbar != null) {
-                circleTextProgressbar.axi();
+                circleTextProgressbar.azY();
             }
         }
     }

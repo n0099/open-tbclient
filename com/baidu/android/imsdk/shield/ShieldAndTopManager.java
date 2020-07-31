@@ -108,6 +108,7 @@ public class ShieldAndTopManager {
             arrayList2.add(5);
             arrayList2.add(17);
             arrayList2.add(19);
+            arrayList2.add(29);
             arrayList2.add(26);
             arrayList.addAll(PaInfoDBManager.getInstance(this.mContext).getShieldUsers(arrayList2));
         } else {
@@ -302,18 +303,18 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void setSubscription(long j, List<Long> list, int i, String str, ISetSubscriptionListener iSetSubscriptionListener) {
-        if (list != null && list.size() > 0) {
-            IMSetSubscriptionRequest iMSetSubscriptionRequest = new IMSetSubscriptionRequest(this.mContext, i, j, list, str, iSetSubscriptionListener != null ? ListenerManager.getInstance().addListener(iSetSubscriptionListener) : "");
+    public void setSubscription(long j, List<Long> list, List<String> list2, int i, String str, ISetSubscriptionListener iSetSubscriptionListener) {
+        if ((list != null && list.size() > 0) || (list2 != null && list2.size() > 0)) {
+            IMSetSubscriptionRequest iMSetSubscriptionRequest = new IMSetSubscriptionRequest(this.mContext, i, j, list, list2, str, iSetSubscriptionListener != null ? ListenerManager.getInstance().addListener(iSetSubscriptionListener) : "");
             HttpHelper.executor(this.mContext, iMSetSubscriptionRequest, iMSetSubscriptionRequest);
             return;
         }
         iSetSubscriptionListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR);
     }
 
-    public void getSubscription(long j, List<Long> list, String str, IGetSubscriptionListener iGetSubscriptionListener) {
-        if (list != null && list.size() > 0) {
-            IMGetSubscriptionRequest iMGetSubscriptionRequest = new IMGetSubscriptionRequest(this.mContext, j, list, str, iGetSubscriptionListener != null ? ListenerManager.getInstance().addListener(iGetSubscriptionListener) : "");
+    public void getSubscription(long j, List<Long> list, List<String> list2, String str, IGetSubscriptionListener iGetSubscriptionListener) {
+        if ((list != null && list.size() > 0) || (list2 != null && list2.size() > 0)) {
+            IMGetSubscriptionRequest iMGetSubscriptionRequest = new IMGetSubscriptionRequest(this.mContext, j, list, list2, str, iGetSubscriptionListener != null ? ListenerManager.getInstance().addListener(iGetSubscriptionListener) : "");
             HttpHelper.executor(this.mContext, iMGetSubscriptionRequest, iMGetSubscriptionRequest);
             return;
         }
@@ -323,18 +324,18 @@ public class ShieldAndTopManager {
         iGetSubscriptionListener.onResult(getSubscriptionResult);
     }
 
-    public void getServiceNotifyMenuStatus(long j, List<Long> list, String str, int i, IGetServiceNotifyMenuListener iGetServiceNotifyMenuListener) {
+    public void getServiceNotifyMenuStatus(long j, List<Long> list, List<String> list2, String str, int i, IGetServiceNotifyMenuListener iGetServiceNotifyMenuListener) {
         IMServiceNotifyMenuMergeListener iMServiceNotifyMenuMergeListener = new IMServiceNotifyMenuMergeListener(i, iGetServiceNotifyMenuListener);
         switch (i) {
             case 0:
                 getOneShieldAndTopRequest(j, iMServiceNotifyMenuMergeListener);
                 return;
             case 1:
-                getSubscription(j, list, str, iMServiceNotifyMenuMergeListener);
+                getSubscription(j, list, list2, str, iMServiceNotifyMenuMergeListener);
                 return;
             default:
                 getOneShieldAndTopRequest(j, iMServiceNotifyMenuMergeListener);
-                getSubscription(j, list, str, iMServiceNotifyMenuMergeListener);
+                getSubscription(j, list, list2, str, iMServiceNotifyMenuMergeListener);
                 return;
         }
     }

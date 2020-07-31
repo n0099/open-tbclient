@@ -9,7 +9,7 @@ import com.squareup.wire2.d;
 import com.squareup.wire2.internal.a;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public final class Transform extends Message<Transform, Builder> {
     public static final ProtoAdapter<Transform> ADAPTER = new ProtoAdapter_Transform();
     public static final Float DEFAULT_A = Float.valueOf(0.0f);
@@ -19,17 +19,17 @@ public final class Transform extends Message<Transform, Builder> {
     public static final Float DEFAULT_TX = Float.valueOf(0.0f);
     public static final Float DEFAULT_TY = Float.valueOf(0.0f);
     private static final long serialVersionUID = 0;
-    @WireField(dNn = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(dQJ = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float a;
-    @WireField(dNn = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
+    @WireField(dQJ = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
     public final Float b;
-    @WireField(dNn = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
+    @WireField(dQJ = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
     public final Float c;
-    @WireField(dNn = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
+    @WireField(dQJ = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
     public final Float d;
-    @WireField(dNn = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 5)
+    @WireField(dQJ = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 5)
     public final Float tx;
-    @WireField(dNn = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 6)
+    @WireField(dQJ = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 6)
     public final Float ty;
 
     public Transform(Float f, Float f2, Float f3, Float f4, Float f5, Float f6) {
@@ -107,7 +107,7 @@ public final class Transform extends Message<Transform, Builder> {
         return sb.replace(0, 2, "Transform{").append('}').toString();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.a<Transform, Builder> {
         public Float a;
         public Float b;
@@ -154,7 +154,7 @@ public final class Transform extends Message<Transform, Builder> {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     private static final class ProtoAdapter_Transform extends ProtoAdapter<Transform> {
         ProtoAdapter_Transform() {
             super(FieldEncoding.LENGTH_DELIMITED, Transform.class);
@@ -195,11 +195,11 @@ public final class Transform extends Message<Transform, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public Transform decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long dNf = cVar.dNf();
+            long dQB = cVar.dQB();
             while (true) {
-                int dNg = cVar.dNg();
-                if (dNg != -1) {
-                    switch (dNg) {
+                int dQC = cVar.dQC();
+                if (dQC != -1) {
+                    switch (dQC) {
                         case 1:
                             builder.a(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -219,12 +219,12 @@ public final class Transform extends Message<Transform, Builder> {
                             builder.ty(ProtoAdapter.FLOAT.decode(cVar));
                             break;
                         default:
-                            FieldEncoding dNh = cVar.dNh();
-                            builder.addUnknownField(dNg, dNh, dNh.rawProtoAdapter().decode(cVar));
+                            FieldEncoding dQD = cVar.dQD();
+                            builder.addUnknownField(dQC, dQD, dQD.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.gh(dNf);
+                    cVar.gu(dQB);
                     return builder.build();
                 }
             }

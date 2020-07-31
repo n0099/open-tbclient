@@ -1,7 +1,7 @@
 package com.baidu.mapapi.synchronization.histroytrace;
 
 import com.baidu.mapapi.map.BaiduMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class HistoryTraceManager {
     private com.baidu.mapsdkplatform.comapi.synchronization.b.b a = new com.baidu.mapsdkplatform.comapi.synchronization.b.b();
 

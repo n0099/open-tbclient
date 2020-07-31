@@ -7,37 +7,37 @@ import android.widget.Button;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class h implements o {
-    private CreateGroupStepActivity iNW;
-    private TbImageView iOi;
-    private Button iOj;
+    private CreateGroupStepActivity iUZ;
+    private TbImageView iVl;
+    private Button iVm;
     private int mIndex;
     private View mView;
 
     public h(CreateGroupStepActivity createGroupStepActivity, int i, int i2) {
-        this.iNW = createGroupStepActivity;
+        this.iUZ = createGroupStepActivity;
         this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(R.layout.create_group_normal_tips, (ViewGroup) null);
-        this.iOj = (Button) this.mView.findViewById(R.id.create_group_tips_btn);
-        this.iOi = (TbImageView) this.mView.findViewById(R.id.create_group_tips_image);
+        this.iVm = (Button) this.mView.findViewById(R.id.create_group_tips_btn);
+        this.iVl = (TbImageView) this.mView.findViewById(R.id.create_group_tips_image);
         this.mIndex = i;
-        this.iOj.setText(String.format(createGroupStepActivity.getPageContext().getString(R.string.group_create_can_create_num), Integer.valueOf(i2)));
-        c.b(this.iNW.getPageContext().getPageActivity(), c.iOb, TbadkApplication.getInst().getSkinType() == 1);
-        c.b(this.iNW.getPageContext().getPageActivity(), c.iOe, TbadkApplication.getInst().getSkinType() == 1);
-        c.b(this.iNW.getPageContext().getPageActivity(), c.iOc, TbadkApplication.getInst().getSkinType() == 1);
+        this.iVm.setText(String.format(createGroupStepActivity.getPageContext().getString(R.string.group_create_can_create_num), Integer.valueOf(i2)));
+        c.b(this.iUZ.getPageContext().getPageActivity(), c.iVe, TbadkApplication.getInst().getSkinType() == 1);
+        c.b(this.iUZ.getPageContext().getPageActivity(), c.iVh, TbadkApplication.getInst().getSkinType() == 1);
+        c.b(this.iUZ.getPageContext().getPageActivity(), c.iVf, TbadkApplication.getInst().getSkinType() == 1);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void coh() {
-        this.iOi.setBackgroundDrawable(null);
+    public void crM() {
+        this.iVl.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void coi() {
+    public void crN() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
-        this.iNW.getLayoutMode().setNightMode(z);
-        this.iNW.getLayoutMode().onModeChanged(this.mView);
-        this.iOi.startLoad(c.a(this.iNW.getPageContext().getPageActivity(), c.iOf, z), 29, false);
+        this.iUZ.getLayoutMode().setNightMode(z);
+        this.iUZ.getLayoutMode().onModeChanged(this.mView);
+        this.iVl.startLoad(c.a(this.iUZ.getPageContext().getPageActivity(), c.iVi, z), 29, false);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
@@ -46,22 +46,22 @@ public class h implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int cob() {
+    public int crG() {
         return this.mIndex;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return this.iNW.getPageContext().getString(R.string.group_create_tips_normal);
+        return this.iUZ.getPageContext().getString(R.string.group_create_tips_normal);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String cok() {
+    public String crP() {
         return "";
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean col() {
+    public boolean crQ() {
         return false;
     }
 
@@ -71,11 +71,11 @@ public class h implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean com() {
+    public boolean crR() {
         return false;
     }
 
-    public Button cor() {
-        return this.iOj;
+    public Button crW() {
+        return this.iVm;
     }
 }

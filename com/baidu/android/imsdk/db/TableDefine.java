@@ -20,7 +20,7 @@ public class TableDefine {
     public static final String DB_TABLE_STAT_LOG = "stat_log";
     public static final String DB_TABLE_USERINFO = "userinfo";
     public static final String DB_TABLE_ZHIDAINFO = "zhida_info";
-    public static final int DB_VERSION = 45;
+    public static final int DB_VERSION = 46;
     public static final String SQL_COPY_TABLE_USERINFO = "INSERT INTO userinfo (uid, buid, username, sex, phone, user_detail, tiny_url, head_url, account_type, ip_exsit, ip, ip_isp, ip_country, ip_province, ip_city, ip_county, disturb, blacklist) SELECT uid, buid, username, sex, phone, user_detail, tiny_url, head_url, account_type, ip_exsit, ip, ip_isp, ip_country, ip_province, ip_city, ip_county, disturb, blacklist FROM userinfo_temp";
     public static final String SQL_CREATE_DUPLICATE_MESSAGE = "CREATE TABLE duplicate_message (_id INTEGER PRIMARY KEY AUTOINCREMENT , msgid LONG, category LONG, contacter LONG, msg_key TEXT, from_user LONG, input_time LONG, type LONG);";
     public static final String SQL_CREATE_MESSAGE_INDEX = "CREATE INDEX msg_index ON message (expires_time, category, contacter, is_read);";
@@ -33,7 +33,7 @@ public class TableDefine {
     public static final String SQL_CREATE_TABLE_FRIEND_REALTION = "CREATE TABLE friendrelation (_id LONG PRIMARY KEY, friend_group_id LONG, uid LONG, friend_status INTEGER, friend_status_reverse INTEGER );";
     public static final String SQL_CREATE_TABLE_GROUPINFO = "CREATE TABLE groupinfo (group_id LONG PRIMARY KEY, group_name TEXT, description TEXT, group_type INTEGER);";
     public static final String SQL_CREATE_TABLE_GROUP_MEMBER = "CREATE TABLE groupmember (_id LONG PRIMARY KEY, group_id LONG, uid LONG, name TEXT, role INTEGER );";
-    public static final String SQL_CREATE_TABLE_MESSAGE = "CREATE TABLE message (_id INTEGER PRIMARY KEY AUTOINCREMENT , msgid LONG, from_user LONG, category INTEGER, contacter LONG, type INTEGER, content TEXT, time LONG, is_read INTEGER, link TEXT, status INTEGER, cmd INTEGER, local_url TEXT, iszhida INTEGER,isclicked INTEGER,paid LONG,sendid TEXT, buid TEXT, device_flag INTEGER,msg_key TEXT, service_type TEXT, tips_code INTEGER, tips TEXT, expires_time  LONG DEFAULT 0);";
+    public static final String SQL_CREATE_TABLE_MESSAGE = "CREATE TABLE message (_id INTEGER PRIMARY KEY AUTOINCREMENT , msgid LONG, from_user LONG, category INTEGER, contacter LONG, type INTEGER, content TEXT, time LONG, is_read INTEGER, link TEXT, status INTEGER, cmd INTEGER, local_url TEXT, iszhida INTEGER,isclicked INTEGER,paid LONG,sendid TEXT, buid TEXT, device_flag INTEGER,msg_key TEXT, service_type TEXT, tips_code INTEGER, tips TEXT, template_type INTEGER DEFAULT 0, expires_time  LONG DEFAULT 0);";
     public static final String SQL_CREATE_TABLE_PA_CMD_QUEUE = "CREATE TABLE paCmdQueue(_id LONG PRIMARY KEY, uuid TEXT, methodId INTEGER, send_status INTEGER, extra String,priority INTEGER,msg_body TEXT ,type INTEGER);";
     public static final String SQL_CREATE_TABLE_PA_SUBSCRIBE = "CREATE TABLE paSubscribe(_id LONG PRIMARY KEY, paid LONG, nickname TEXT, avatar TEXT, description TEXT, url TEXT,acceptpush INTEGER, timestamp LONG, tpl LONG, detail TEXT, disturb INTEGER, pasubtype INTEGER, classtype INTEGER DEFAULT 0, classshow INTEGER DEFAULT 0, status INTEGER DEFAULT 0, classtitle TEXT, marktop INTEGER DEFAULT 0, marktoptime LONG, classavatar TEXT, replies TEXT, refreshtime LONG, subset_type INTEGER DEFAULT 0, pa_ext TEXT, v_portrait TEXT, vip_id TEXT, identity TEXT, has_identity INTEGER, shield INTEGER, shield_time LONG, subscribe INTEGER, third_ext TEXT);";
     public static final String SQL_CREATE_TABLE_USERINFO = "CREATE TABLE userinfo (_id INTEGER PRIMARY KEY AUTOINCREMENT , uid LONG, buid LONG, username TEXT, sex INTEGER, phone INTEGER, user_detail TEXT, tiny_url TEXT, head_url TEXT, account_type INTEGER, ip_exsit INTEGER, ip TEXT, ip_isp TEXT, ip_country TEXT, ip_province TEXT, ip_city TEXT, ip_county TEXT, disturb INTEGER, blacklist INTEGER, v_portrait INTEGER, identity TEXT, last_update_time LONG, shield INTEGER, shield_time LONG, marktop INTEGER, marktop_time LONG, subscribe_status INTEGER, has_special_identity INTEGER, vip_id TEXT, special_identity TEXT, user_ext TEXT, phone_relation INTEGER);";
@@ -84,6 +84,7 @@ public class TableDefine {
     public static final class MessageColumns implements BaseColumns {
         public static final String COLUME_EXPIRES_TIME = "expires_time";
         public static final String COLUME_SERVICE_TYPE = "service_type";
+        public static final String COLUME_TEMPLATE = "template_type";
         public static final String COLUME_TIPS = "tips";
         public static final String COLUME_TIPS_CODE = "tips_code";
         public static final String COLUMN_CATEGORY = "category";

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.hybrid;
 /* loaded from: classes.dex */
 interface i {
-    void aVx();
+    void aZx();
 
-    void wj(String str);
+    void xq(String str);
 }

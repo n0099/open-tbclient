@@ -8,6 +8,7 @@ public interface ResponseCode {
     public static final int CRM_NOT_SET_ZHIDA = 1017;
     public static final int DB_OPETAION_ERROR = 1009;
     public static final int DEL_MSG_FAIL = 1006;
+    public static final int ERROR_BDUSS_EXPIRE = 8;
     public static final int ERROR_LOGIN_STATE = 4001;
     public static final int FILE_NOT_FOUND = 1007;
     public static final int FRIEND_GROUP_UPDATED = 610;

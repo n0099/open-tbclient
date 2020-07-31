@@ -9,7 +9,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.searchbox.ui.util.PorterDuffModeHelper;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class BdBaseLottieView extends LottieAnimationView {
     private int mColorFilter;
     private boolean mFlagShouldDecorate;

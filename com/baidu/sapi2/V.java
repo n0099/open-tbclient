@@ -29,7 +29,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public final class V {
     private static final Map<String, SoftReference<String>> a = new ConcurrentHashMap();
     private final List<String> b = new ArrayList();
@@ -37,11 +37,11 @@ public final class V {
     private Context d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public interface a {
-        void a(X.a.C0266a c0266a);
+        void a(X.a.C0269a c0269a);
 
-        void a(X.a.C0266a c0266a, String str);
+        void a(X.a.C0269a c0269a, String str);
     }
 
     String c(String str) {
@@ -82,7 +82,7 @@ public final class V {
         if (SapiContext.getInstance().getSapiOptions().e().c()) {
             String c = c(str);
             if (TextUtils.isEmpty(c)) {
-                X.a.C0266a c2 = c(context, str);
+                X.a.C0269a c2 = c(context, str);
                 if (c2 != null) {
                     a(c2, new O(this, context));
                 }
@@ -106,10 +106,10 @@ public final class V {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public X.a.C0266a c(Context context, String str) {
-        for (X.a.C0266a c0266a : SapiContext.getInstance().getSapiOptions().e().a()) {
-            if (c0266a.a.equals(str)) {
-                return c0266a;
+    public X.a.C0269a c(Context context, String str) {
+        for (X.a.C0269a c0269a : SapiContext.getInstance().getSapiOptions().e().a()) {
+            if (c0269a.a.equals(str)) {
+                return c0269a;
             }
         }
         return null;
@@ -150,33 +150,33 @@ public final class V {
     void a(X x) {
         X.a e = x.e();
         if (e.c()) {
-            for (X.a.C0266a c0266a : e.a()) {
-                this.b.add(c0266a.a);
+            for (X.a.C0269a c0269a : e.a()) {
+                this.b.add(c0269a.a);
             }
             this.c.addAll(this.b);
-            for (X.a.C0266a c0266a2 : e.a()) {
-                a(c0266a2, new P(this));
+            for (X.a.C0269a c0269a2 : e.a()) {
+                a(c0269a2, new P(this));
             }
         }
     }
 
-    void a(X.a.C0266a c0266a, a aVar) {
+    void a(X.a.C0269a c0269a, a aVar) {
         if (aVar != null) {
-            String b = X.a.C0266a.b(c0266a.a);
+            String b = X.a.C0269a.b(c0269a.a);
             try {
                 if ("mounted".equals(Environment.getExternalStorageState()) && new File(Environment.getExternalStorageDirectory(), b).exists()) {
                     String b2 = b(b);
-                    if (SecurityUtil.md5(b2.getBytes(), false).equals(c0266a.c)) {
-                        aVar.a(c0266a, b2);
+                    if (SecurityUtil.md5(b2.getBytes(), false).equals(c0269a.c)) {
+                        aVar.a(c0269a, b2);
                     } else {
-                        aVar.a(c0266a);
+                        aVar.a(c0269a);
                     }
                 } else {
-                    aVar.a(c0266a);
+                    aVar.a(c0269a);
                 }
                 return;
             } catch (Throwable th) {
-                aVar.a(c0266a);
+                aVar.a(c0269a);
                 return;
             }
         }
@@ -184,11 +184,11 @@ public final class V {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(Context context, X.a.C0266a c0266a) {
-        String c = X.a.C0266a.c(c0266a.a);
+    public void a(Context context, X.a.C0269a c0269a) {
+        String c = X.a.C0269a.c(c0269a.a);
         if (new File(context.getFilesDir(), c).exists()) {
             try {
-                a(c0266a.a, d(context, c));
+                a(c0269a.a, d(context, c));
             } catch (Throwable th) {
                 Log.e(th);
             }
@@ -204,7 +204,7 @@ public final class V {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, X x) {
-        X.a.C0266a c0266a;
+        X.a.C0269a c0269a;
         try {
             JSONObject jSONObject = new JSONObject(str);
             X a2 = X.a(jSONObject);
@@ -215,27 +215,27 @@ public final class V {
             c(a2);
             this.c.clear();
             if (e.c()) {
-                for (X.a.C0266a c0266a2 : e.a()) {
-                    this.c.add(c0266a2.a);
+                for (X.a.C0269a c0269a2 : e.a()) {
+                    this.c.add(c0269a2.a);
                 }
-                for (X.a.C0266a c0266a3 : e.a()) {
-                    X.a.C0266a c0266a4 = null;
-                    Iterator<X.a.C0266a> it = e2.a().iterator();
+                for (X.a.C0269a c0269a3 : e.a()) {
+                    X.a.C0269a c0269a4 = null;
+                    Iterator<X.a.C0269a> it = e2.a().iterator();
                     while (true) {
-                        c0266a = c0266a4;
+                        c0269a = c0269a4;
                         if (!it.hasNext()) {
                             break;
                         }
-                        c0266a4 = it.next();
-                        if (!c0266a4.a.equals(c0266a3.a)) {
-                            c0266a4 = c0266a;
+                        c0269a4 = it.next();
+                        if (!c0269a4.a.equals(c0269a3.a)) {
+                            c0269a4 = c0269a;
                         }
                     }
-                    if (a(c0266a3, c0266a)) {
-                        a(c0266a3, new T(this, c0266a3, a2, e2));
+                    if (a(c0269a3, c0269a)) {
+                        a(c0269a3, new T(this, c0269a3, a2, e2));
                     } else {
                         SapiContext.getInstance().put(SapiContext.KEY_LOGIN_PAGE_IS_CACHED, true);
-                        a(c0266a3, new U(this));
+                        a(c0269a3, new U(this));
                     }
                 }
             }
@@ -244,14 +244,14 @@ public final class V {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(String str, X.a.C0266a c0266a) {
-        if (TextUtils.isEmpty(c0266a.a) || TextUtils.isEmpty(str) || !c0266a.c.equals(SecurityUtil.md5(str.getBytes(), false))) {
+    public void a(String str, X.a.C0269a c0269a) {
+        if (TextUtils.isEmpty(c0269a.a) || TextUtils.isEmpty(str) || !c0269a.c.equals(SecurityUtil.md5(str.getBytes(), false))) {
             return;
         }
-        a(c0266a.a, str);
-        a(this.d, X.a.C0266a.c(c0266a.a), str.getBytes());
+        a(c0269a.a, str);
+        a(this.d, X.a.C0269a.c(c0269a.a), str.getBytes());
         if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.d)) {
-            a(X.a.C0266a.b(c0266a.a), str.getBytes());
+            a(X.a.C0269a.b(c0269a.a), str.getBytes());
         }
     }
 
@@ -312,8 +312,8 @@ public final class V {
         }
     }
 
-    boolean a(X.a.C0266a c0266a, X.a.C0266a c0266a2) {
-        return !TextUtils.isEmpty(c0266a.c) && (c0266a2 == null || !c0266a.c.equals(c0266a2.c));
+    boolean a(X.a.C0269a c0269a, X.a.C0269a c0269a2) {
+        return !TextUtils.isEmpty(c0269a.c) && (c0269a2 == null || !c0269a.c.equals(c0269a2.c));
     }
 
     void a() {

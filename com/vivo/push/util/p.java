@@ -2,7 +2,7 @@ package com.vivo.push.util;
 
 import android.content.Context;
 import com.baidu.android.util.devices.NetWorkUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class p {
     public static final o a = new n();
     private static boolean b = z.b("persist.sys.log.ctrl", NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).equals("yes");

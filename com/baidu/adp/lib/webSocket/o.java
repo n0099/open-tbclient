@@ -12,22 +12,22 @@ import java.util.Random;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class o extends Handler {
-    private static long Qj = 0;
+    private static long Qi = 0;
     private final e.a OX;
     private final Handler PI;
     private final l Pf;
-    private final Random Qh;
-    private final a Qi;
+    private final Random Qg;
+    private final a Qh;
     private final Looper mLooper;
 
     public o(Looper looper, Handler handler, e.a aVar, l lVar) {
         super(looper);
-        this.Qh = new Random();
+        this.Qg = new Random();
         this.mLooper = looper;
         this.PI = handler;
         this.OX = aVar;
         this.Pf = lVar;
-        this.Qi = new a(lVar.nl() + 14, 262144);
+        this.Qh = new a(lVar.nm() + 14, 262144);
     }
 
     public boolean y(Object obj) {
@@ -42,9 +42,9 @@ public class o extends Handler {
         this.PI.sendMessage(obtainMessage);
     }
 
-    private String nw() {
+    private String nx() {
         byte[] bArr = new byte[16];
-        this.Qh.nextBytes(bArr);
+        this.Qg.nextBytes(bArr);
         return com.baidu.adp.lib.util.c.encodeBytes(bArr);
     }
 
@@ -55,41 +55,41 @@ public class o extends Handler {
         } else {
             str = bVar.mPath;
         }
-        this.Qi.write("GET " + str + " HTTP/1.1");
-        this.Qi.mS();
-        this.Qi.write("Host: " + bVar.mHost);
-        this.Qi.mS();
-        this.Qi.write("Upgrade: WebSocket");
-        this.Qi.mS();
-        this.Qi.write("Connection: Upgrade");
-        this.Qi.mS();
-        this.Qi.write("Sec-WebSocket-Key: " + nw());
-        this.Qi.mS();
-        if (this.Pf != null && this.Pf.nr() != null && this.Pf.nr().length() > 0) {
-            this.Qi.write("Sec-WebSocket-Extensions: " + this.Pf.nr());
-            this.Qi.mS();
+        this.Qh.write("GET " + str + " HTTP/1.1");
+        this.Qh.mT();
+        this.Qh.write("Host: " + bVar.mHost);
+        this.Qh.mT();
+        this.Qh.write("Upgrade: WebSocket");
+        this.Qh.mT();
+        this.Qh.write("Connection: Upgrade");
+        this.Qh.mT();
+        this.Qh.write("Sec-WebSocket-Key: " + nx());
+        this.Qh.mT();
+        if (this.Pf != null && this.Pf.ns() != null && this.Pf.ns().length() > 0) {
+            this.Qh.write("Sec-WebSocket-Extensions: " + this.Pf.ns());
+            this.Qh.mT();
         }
         if (bVar.mOrigin != null && !bVar.mOrigin.equals("")) {
-            this.Qi.write("Origin: " + bVar.mOrigin);
-            this.Qi.mS();
+            this.Qh.write("Origin: " + bVar.mOrigin);
+            this.Qh.mT();
         }
         if (bVar.Pn != null && bVar.Pn.length > 0) {
-            this.Qi.write("Sec-WebSocket-Protocol: ");
+            this.Qh.write("Sec-WebSocket-Protocol: ");
             for (int i = 0; i < bVar.Pn.length; i++) {
-                this.Qi.write(bVar.Pn[i]);
-                this.Qi.write(", ");
+                this.Qh.write(bVar.Pn[i]);
+                this.Qh.write(", ");
             }
-            this.Qi.mS();
+            this.Qh.mT();
         }
-        this.Qi.write("Sec-WebSocket-Version: 13");
-        this.Qi.mS();
+        this.Qh.write("Sec-WebSocket-Version: 13");
+        this.Qh.mT();
         if (bVar.Po != null) {
             for (BasicNameValuePair basicNameValuePair : bVar.Po) {
-                this.Qi.write(basicNameValuePair.getName() + ":" + basicNameValuePair.getValue());
-                this.Qi.mS();
+                this.Qh.write(basicNameValuePair.getName() + ":" + basicNameValuePair.getValue());
+                this.Qh.mT();
             }
         }
-        this.Qi.mS();
+        this.Qh.mT();
     }
 
     private void a(k.c cVar) throws IOException, WebSocketException {
@@ -135,7 +135,7 @@ public class o extends Handler {
         if (binaryData == null) {
             return false;
         }
-        if (binaryData.length > this.Pf.nm()) {
+        if (binaryData.length > this.Pf.nn()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
         a(2, true, binaryData);
@@ -143,7 +143,7 @@ public class o extends Handler {
     }
 
     private void c(k.a aVar) throws IOException, WebSocketException {
-        if (aVar.Pm.length > this.Pf.nm()) {
+        if (aVar.Pm.length > this.Pf.nn()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
         a(2, true, aVar.Pm);
@@ -151,14 +151,14 @@ public class o extends Handler {
 
     private void a(k.s sVar) throws IOException, WebSocketException {
         byte[] bytes = sVar.Pw.getBytes("UTF-8");
-        if (bytes.length > this.Pf.nm()) {
+        if (bytes.length > this.Pf.nn()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
         a(1, true, bytes);
     }
 
     private void a(k.m mVar) throws IOException, WebSocketException {
-        if (mVar.Pm.length > this.Pf.nm()) {
+        if (mVar.Pm.length > this.Pf.nn()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
         a(1, true, mVar.Pm);
@@ -177,31 +177,31 @@ public class o extends Handler {
         if (z) {
             b = (byte) (-128);
         }
-        this.Qi.write((byte) (b | ((byte) i)));
+        this.Qh.write((byte) (b | ((byte) i)));
         byte b2 = 0;
-        if (this.Pf.nq()) {
+        if (this.Pf.nr()) {
             b2 = Byte.MIN_VALUE;
         }
         long j = i3;
         if (j <= 125) {
-            this.Qi.write((byte) (b2 | ((byte) j)));
+            this.Qh.write((byte) (b2 | ((byte) j)));
         } else if (j <= 65535) {
-            this.Qi.write((byte) (b2 | 126));
-            this.Qi.write(new byte[]{(byte) ((j >> 8) & 255), (byte) (255 & j)});
+            this.Qh.write((byte) (b2 | 126));
+            this.Qh.write(new byte[]{(byte) ((j >> 8) & 255), (byte) (255 & j)});
         } else {
-            this.Qi.write((byte) (b2 | Byte.MAX_VALUE));
-            this.Qi.write(new byte[]{(byte) ((j >> 56) & 255), (byte) ((j >> 48) & 255), (byte) ((j >> 40) & 255), (byte) ((j >> 32) & 255), (byte) ((j >> 24) & 255), (byte) ((j >> 16) & 255), (byte) ((j >> 8) & 255), (byte) (255 & j)});
+            this.Qh.write((byte) (b2 | Byte.MAX_VALUE));
+            this.Qh.write(new byte[]{(byte) ((j >> 56) & 255), (byte) ((j >> 48) & 255), (byte) ((j >> 40) & 255), (byte) ((j >> 32) & 255), (byte) ((j >> 24) & 255), (byte) ((j >> 16) & 255), (byte) ((j >> 8) & 255), (byte) (255 & j)});
         }
-        if (this.Pf.nq()) {
-            this.Qi.write(0);
-            this.Qi.write(0);
-            this.Qi.write(0);
-            this.Qi.write(0);
+        if (this.Pf.nr()) {
+            this.Qh.write(0);
+            this.Qh.write(0);
+            this.Qh.write(0);
+            this.Qh.write(0);
         }
         if (j > 0) {
-            if (this.Pf.nq()) {
+            if (this.Pf.nr()) {
             }
-            this.Qi.write(bArr, i2, i3);
+            this.Qh.write(bArr, i2, i3);
         }
     }
 
@@ -213,24 +213,24 @@ public class o extends Handler {
                 if (message.obj instanceof k.i) {
                     cVar = ((k.i) message.obj).Ps;
                 }
-                this.Qi.mQ();
+                this.Qh.mR();
                 if (!z(message.obj)) {
                     x(new k.n(cVar));
                     return;
                 }
-                this.Qi.mP();
+                this.Qh.mQ();
                 if (cVar != null) {
                     x(new k.r(cVar));
                 }
-                while (this.Qi.mR() > 0) {
+                while (this.Qh.mS() > 0) {
                     if (this.OX == null) {
                         x(new k.d(new SocketException("write socket = null")));
                         return;
                     }
-                    int write = this.OX.write(this.Qi.mO());
+                    int write = this.OX.write(this.Qh.mP());
                     if (write > 0) {
                         synchronized (o.class) {
-                            Qj += write;
+                            Qi += write;
                         }
                     }
                 }
@@ -292,16 +292,16 @@ public class o extends Handler {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void na() {
+    public void nb() {
         synchronized (o.class) {
-            Qj = 0L;
+            Qi = 0L;
         }
     }
 
     public long getUpFlowSize() {
         long j;
         synchronized (o.class) {
-            j = Qj;
+            j = Qi;
         }
         return j;
     }

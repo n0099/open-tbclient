@@ -4,21 +4,21 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.support.annotation.ColorRes;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b extends a {
     public b() {
-        this.ego = R.color.cp_cont_a;
-        this.egq = R.color.cp_link_tip_a;
+        this.emy = R.color.cp_cont_a;
+        this.emA = R.color.cp_link_tip_a;
     }
 
-    public void mC(@ColorRes int i) {
-        this.egq = i;
-        this.ego = R.color.cp_cont_a;
-        this.egA = true;
-        if (this.egC != null) {
-            this.egC.aYR();
+    public void mV(@ColorRes int i) {
+        this.emA = i;
+        this.emy = R.color.cp_cont_a;
+        this.emJ = true;
+        if (this.emL != null) {
+            this.emL.bcO();
         }
     }
 
@@ -30,17 +30,17 @@ public class b extends a {
 
     private Drawable W(float f) {
         GradientDrawable gradientDrawable;
-        if (!this.egA) {
-            this.ego = an.getColor(R.color.cp_cont_a);
+        if (!this.emJ) {
+            this.emy = ao.getColor(R.color.cp_cont_a);
         }
-        int color = this.egA ? an.getColor(this.egq) : this.egq;
-        int[] iArr = {com.baidu.tieba.tbadkCore.c.EM(color), color};
+        int color = this.emJ ? ao.getColor(this.emA) : this.emA;
+        int[] iArr = {com.baidu.tieba.tbadkCore.c.Fi(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();
-            gradientDrawable.setOrientation(this.egB);
+            gradientDrawable.setOrientation(this.emK);
             gradientDrawable.setColors(iArr);
         } else {
-            gradientDrawable = new GradientDrawable(this.egB, iArr);
+            gradientDrawable = new GradientDrawable(this.emK, iArr);
         }
         gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);

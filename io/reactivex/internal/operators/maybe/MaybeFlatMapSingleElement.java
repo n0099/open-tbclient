@@ -51,7 +51,7 @@ public final class MaybeFlatMapSingleElement<T, R> extends k<R> {
             try {
                 ((aa) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null SingleSource")).a(new a(this, this.actual));
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.L(th);
+                io.reactivex.exceptions.a.K(th);
                 onError(th);
             }
         }
@@ -70,16 +70,16 @@ public final class MaybeFlatMapSingleElement<T, R> extends k<R> {
     /* loaded from: classes7.dex */
     static final class a<R> implements y<R> {
         final m<? super R> actual;
-        final AtomicReference<io.reactivex.disposables.b> nJO;
+        final AtomicReference<io.reactivex.disposables.b> nSw;
 
         a(AtomicReference<io.reactivex.disposables.b> atomicReference, m<? super R> mVar) {
-            this.nJO = atomicReference;
+            this.nSw = atomicReference;
             this.actual = mVar;
         }
 
         @Override // io.reactivex.y
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.replace(this.nJO, bVar);
+            DisposableHelper.replace(this.nSw, bVar);
         }
 
         @Override // io.reactivex.y

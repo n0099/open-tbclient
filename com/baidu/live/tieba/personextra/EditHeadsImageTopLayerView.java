@@ -7,72 +7,72 @@ import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import com.alibaba.fastjson.asm.Opcodes;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EditHeadsImageTopLayerView extends View {
-    private Paint bhA;
-    private Paint bhB;
-    private int bhC;
-    private int bhD;
-    private float bhE;
-    private float bhF;
-    private int bhG;
+    private Paint bhT;
+    private Paint bhU;
+    private int bhV;
+    private int bhW;
+    private float bhX;
+    private float bhY;
+    private int bhZ;
 
     public EditHeadsImageTopLayerView(Context context) {
         super(context);
-        this.bhA = null;
-        this.bhB = null;
-        this.bhC = 0;
-        this.bhD = 0;
-        this.bhE = 0.42857143f;
-        this.bhF = 1.0f;
-        this.bhG = 1;
+        this.bhT = null;
+        this.bhU = null;
+        this.bhV = 0;
+        this.bhW = 0;
+        this.bhX = 0.42857143f;
+        this.bhY = 1.0f;
+        this.bhZ = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bhA = null;
-        this.bhB = null;
-        this.bhC = 0;
-        this.bhD = 0;
-        this.bhE = 0.42857143f;
-        this.bhF = 1.0f;
-        this.bhG = 1;
+        this.bhT = null;
+        this.bhU = null;
+        this.bhV = 0;
+        this.bhW = 0;
+        this.bhX = 0.42857143f;
+        this.bhY = 1.0f;
+        this.bhZ = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bhA = null;
-        this.bhB = null;
-        this.bhC = 0;
-        this.bhD = 0;
-        this.bhE = 0.42857143f;
-        this.bhF = 1.0f;
-        this.bhG = 1;
+        this.bhT = null;
+        this.bhU = null;
+        this.bhV = 0;
+        this.bhW = 0;
+        this.bhX = 0.42857143f;
+        this.bhY = 1.0f;
+        this.bhZ = 1;
         init();
     }
 
     private void init() {
-        this.bhA = new Paint();
-        this.bhA.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.bhA.setAlpha(Opcodes.IFEQ);
-        this.bhB = new Paint();
-        this.bhB.setStyle(Paint.Style.STROKE);
-        this.bhB.setColor(-1);
+        this.bhT = new Paint();
+        this.bhT.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.bhT.setAlpha(Opcodes.IFEQ);
+        this.bhU = new Paint();
+        this.bhU.setStyle(Paint.Style.STROKE);
+        this.bhU.setColor(-1);
     }
 
     public void setLinePaintColor(int i) {
-        if (this.bhB != null) {
-            this.bhB.setColor(i);
+        if (this.bhU != null) {
+            this.bhU.setColor(i);
         }
         invalidate();
     }
 
     public void setLineWidth(int i) {
-        this.bhG = i;
-        if (this.bhB != null) {
-            this.bhB.setStrokeWidth(i);
+        this.bhZ = i;
+        if (this.bhU != null) {
+            this.bhU.setStrokeWidth(i);
         }
         invalidate();
     }
@@ -82,24 +82,24 @@ public class EditHeadsImageTopLayerView extends View {
         canvas.save();
         super.onDraw(canvas);
         canvas.restore();
-        canvas.drawRect(0.0f, 0.0f, getWidth(), this.bhC, this.bhA);
-        canvas.drawRect(0.0f, getHeight() - this.bhD, getWidth(), getHeight(), this.bhA);
-        canvas.drawRect(1.0f, this.bhC, getWidth() - 1, getHeight() - this.bhD, this.bhB);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), this.bhV, this.bhT);
+        canvas.drawRect(0.0f, getHeight() - this.bhW, getWidth(), getHeight(), this.bhT);
+        canvas.drawRect(1.0f, this.bhV, getWidth() - 1, getHeight() - this.bhW, this.bhU);
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.bhF * getWidth();
+        float width = this.bhY * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.bhC = (int) (((i4 - i2) - width) * this.bhE);
-        this.bhD = (int) (((i4 - i2) - width) * (1.0f - this.bhE));
+        this.bhV = (int) (((i4 - i2) - width) * this.bhX);
+        this.bhW = (int) (((i4 - i2) - width) * (1.0f - this.bhX));
     }
 
     public void setCutImageHeightScale(float f) {
-        this.bhF = f;
+        this.bhY = f;
         invalidate();
     }
 }

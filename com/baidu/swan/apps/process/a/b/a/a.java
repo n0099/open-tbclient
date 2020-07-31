@@ -1,17 +1,17 @@
 package com.baidu.swan.apps.process.a.b.a;
 
 import android.support.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a<T> {
     @Nullable
-    private T crp;
+    private T cAy;
 
     @Nullable
     public T getResult() {
-        return this.crp;
+        return this.cAy;
     }
 
     public void m(T t) {
-        this.crp = t;
+        this.cAy = t;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.mapsdkplatform.comapi.synchronization.render;
 import android.content.Context;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.Marker;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e {
     private static final String a = e.class.getSimpleName();
     private f b = f.a();

@@ -9,7 +9,7 @@ import android.graphics.Typeface;
 import android.support.v4.internal.view.SupportMenu;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 public class RoundProgressBar extends View {
     public static final int FILL = 1;
     private static final int MAX = 100;

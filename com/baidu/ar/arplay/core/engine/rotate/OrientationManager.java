@@ -4,14 +4,14 @@ import android.content.Context;
 import android.view.OrientationEventListener;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class OrientationManager extends OrientationEventListener {
     private Orientation mCurrentOrientation;
     private List<OrientationListener> mListeners;
     private static Orientation sGlobalOrientation = Orientation.UNKNOWN;
     private static boolean isScreenOrientationLandscape = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public interface OrientationListener {
         void onRotateOrientation(Orientation orientation);
     }

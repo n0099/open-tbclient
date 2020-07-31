@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b extends g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -18,20 +18,20 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.media.b.a.g
     public boolean a(com.baidu.swan.apps.media.b.a aVar, com.baidu.swan.apps.media.b.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        com.baidu.swan.apps.console.c.i("video", "fullscreen, video id:" + cVar.cop + " slave id: " + cVar.bUu);
-        a(aVar, cVar.bFh, unitedSchemeEntity, callbackHandler);
+        com.baidu.swan.apps.console.c.i("video", "fullscreen, video id:" + cVar.cqu + " slave id: " + cVar.bVm);
+        a(aVar, cVar.bFE, unitedSchemeEntity, callbackHandler);
         return true;
     }
 
     private void a(com.baidu.swan.apps.media.b.a aVar, boolean z, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         HashMap<String, String> params = unitedSchemeEntity.getParams();
         if (params != null && !params.isEmpty()) {
-            aVar.i(z, A(params));
+            aVar.i(z, z(params));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 
-    private int A(HashMap<String, String> hashMap) {
+    private int z(HashMap<String, String> hashMap) {
         String str = hashMap.get("params");
         if (!TextUtils.isEmpty(str)) {
             try {

@@ -14,7 +14,7 @@ import java.util.Map;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public final class Request {
     @Nullable
     final RequestBody body;
@@ -85,7 +85,7 @@ public final class Request {
         return "Request{method=" + this.method + ", url=" + this.url + ", tags=" + this.tags + '}';
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public static class Builder {
         @Nullable
         RequestBody body;

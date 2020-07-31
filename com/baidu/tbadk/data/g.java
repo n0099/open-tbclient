@@ -3,7 +3,7 @@ package com.baidu.tbadk.data;
 public class g {
     private int activityId;
     private String activityNum;
-    private int esH;
+    private int ezb;
 
     public int getActivityId() {
         return this.activityId;
@@ -13,19 +13,19 @@ public class g {
         this.activityId = i;
     }
 
-    public int beA() {
-        return this.esH;
+    public int bij() {
+        return this.ezb;
     }
 
-    public void nt(int i) {
-        this.esH = i;
+    public void nL(int i) {
+        this.ezb = i;
     }
 
-    public String beB() {
+    public String bik() {
         return this.activityNum;
     }
 
-    public void yi(String str) {
+    public void zo(String str) {
         this.activityNum = str;
     }
 }

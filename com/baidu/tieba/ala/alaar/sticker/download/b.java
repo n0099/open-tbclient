@@ -11,24 +11,24 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements f.a {
-    private static volatile b fhm;
-    private a fhn;
-    private com.baidu.tieba.ala.alaar.sticker.download.a.d fho;
+    private static volatile b fmv;
+    private a fmw;
+    private com.baidu.tieba.ala.alaar.sticker.download.a.d fmx;
     private ExecutorService mExecutorService;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private Map<String, f> mDownloaderMap = new LinkedHashMap();
 
-    public static b bso() {
-        if (fhm == null) {
+    public static b bvx() {
+        if (fmv == null) {
             synchronized (b.class) {
-                if (fhm == null) {
-                    fhm = new b();
+                if (fmv == null) {
+                    fmv = new b();
                 }
             }
         }
-        return fhm;
+        return fmv;
     }
 
     private b() {
@@ -39,9 +39,9 @@ public class b implements f.a {
         if (aVar.getThreadNum() > aVar.getMaxThreadNum()) {
             throw new IllegalArgumentException("thread num must < max thread num");
         }
-        this.fhn = aVar;
-        this.mExecutorService = Executors.newFixedThreadPool(this.fhn.getMaxThreadNum());
-        this.fho = new com.baidu.tieba.ala.alaar.sticker.download.b.c(this.mHandler);
+        this.fmw = aVar;
+        this.mExecutorService = Executors.newFixedThreadPool(this.fmw.getMaxThreadNum());
+        this.fmx = new com.baidu.tieba.ala.alaar.sticker.download.b.c(this.mHandler);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.f.a
@@ -59,18 +59,18 @@ public class b implements f.a {
     public void a(c cVar, String str, com.baidu.tieba.ala.alaar.sticker.download.a.a aVar) {
         String createKey = createKey(str);
         if (!isDownloadRequestRunning(createKey)) {
-            e eVar = new e(cVar, new com.baidu.tieba.ala.alaar.sticker.download.b.b(this.fho, aVar), this.mExecutorService, createKey, this.fhn, this);
+            e eVar = new e(cVar, new com.baidu.tieba.ala.alaar.sticker.download.b.b(this.fmx, aVar), this.mExecutorService, createKey, this.fmw, this);
             this.mDownloaderMap.put(createKey, eVar);
             eVar.start();
         }
     }
 
     public void a(String str, String str2, String str3, com.baidu.tieba.ala.alaar.sticker.download.a.a aVar) {
-        a(new c.a().AX(str).Q(new File(str2)).p(str3).bsp(), str, aVar);
+        a(new c.a().BI(str).T(new File(str2)).p(str3).bvy(), str, aVar);
     }
 
     public void a(String str, File file, String str2, com.baidu.tieba.ala.alaar.sticker.download.a.a aVar) {
-        a(new c.a().AX(str).Q(file).p(str2).bsp(), str, aVar);
+        a(new c.a().BI(str).T(file).p(str2).bvy(), str, aVar);
     }
 
     public void pause(String str) {

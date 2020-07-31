@@ -17,36 +17,39 @@ public class r extends com.baidu.swan.apps.setting.oauth.a.e {
 
     public r(Activity activity, b.a aVar, Bundle bundle) {
         super(activity, aVar, bundle);
-        arU();
-        arT();
+        atQ();
+        atP();
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.e
     @NonNull
-    protected com.baidu.swan.apps.setting.oauth.d arP() {
+    protected com.baidu.swan.apps.setting.oauth.d atK() {
         return new a();
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.e, com.baidu.swan.apps.setting.oauth.b
-    protected boolean arw() {
+    protected boolean ato() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", aqk().id);
+            boolean isEmpty = TextUtils.isEmpty(this.cMU);
+            jSONObject.put("ma_id", isEmpty ? atN().id : this.cMU);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", aqk().getAppKey());
+            jSONObject2.put("app_key", isEmpty ? atN().getAppKey() : this.cMU);
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
             jSONObject2.put("stoken", this.mStoken);
-            String TM = com.baidu.swan.apps.u.a.agj().TM();
-            if (!TextUtils.isEmpty(TM)) {
-                jSONObject2.put("host_api_key", TM);
+            String Uj = com.baidu.swan.apps.t.a.ahv().Uj();
+            if (!TextUtils.isEmpty(Uj)) {
+                jSONObject2.put("host_api_key", Uj);
             }
             jSONObject.put("open", jSONObject2);
         } catch (JSONException e) {
-            e.printStackTrace();
+            if (DEBUG) {
+                e.printStackTrace();
+            }
         }
-        this.cJS = jSONObject;
-        bR("data", jSONObject.toString());
+        this.cNj = jSONObject;
+        bS("data", jSONObject.toString());
         return true;
     }
 
@@ -56,13 +59,13 @@ public class r extends com.baidu.swan.apps.setting.oauth.a.e {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean arB() throws Exception {
-            boolean bb = com.baidu.swan.apps.u.a.agc().bb(r.this.mActivity);
+        protected boolean att() throws Exception {
+            boolean bd = com.baidu.swan.apps.t.a.aho().bd(r.this.mActivity);
             if (r.DEBUG) {
-                Log.d("LoginRequest", "LoginPreparation isLogin : " + bb + " call stack:" + Log.getStackTraceString(new Exception()));
+                Log.d("LoginRequest", "LoginPreparation isLogin : " + bd + " call stack:" + Log.getStackTraceString(new Exception()));
             }
-            if (!bb) {
-                r.this.aqk().apZ().a(r.this.mActivity, r.this.cJR, this);
+            if (!bd) {
+                r.this.atN().arI().a(r.this.mActivity, r.this.cNi, this);
                 return false;
             }
             r.this.a(new b());
@@ -75,17 +78,17 @@ public class r extends com.baidu.swan.apps.setting.oauth.a.e {
             switch (i) {
                 case -2:
                     com.baidu.swan.apps.setting.oauth.c.c("login error ERR_BY_UESR_REFUSE", true);
-                    t(new OAuthException("login cancel by user", 10004));
+                    t(new OAuthException(10004));
                     return;
                 case -1:
                 default:
                     com.baidu.swan.apps.setting.oauth.c.c("login error ERR_BY_LOGIN", true);
-                    t(new OAuthException("system login error :" + i, 10004));
+                    t(new OAuthException(10004));
                     return;
                 case 0:
                     com.baidu.swan.apps.setting.oauth.c.c("Login Preparation ok, is already login", false);
                     r.this.a(new b());
-                    arD();
+                    atv();
                     return;
             }
         }
@@ -95,33 +98,35 @@ public class r extends com.baidu.swan.apps.setting.oauth.a.e {
     /* loaded from: classes11.dex */
     public class b extends com.baidu.swan.apps.setting.oauth.d {
         private b() {
-            if (r.this.cJQ != null && r.this.cJP != null && r.this.cJP.bOJ) {
-                long j = r.this.cJP.bOK;
+            if (r.this.cNh != null && r.this.cNg != null && r.this.cNg.bPB) {
+                long j = r.this.cNg.bPC;
                 if (r.DEBUG) {
                     Log.d("LoginRequest", "send timeout " + j + "ms msg");
                 }
-                r.this.cJQ.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
+                r.this.cNh.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
             }
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean arB() throws Exception {
+        protected boolean att() throws Exception {
             com.baidu.swan.bdprivate.a.a.a(r.this.mActivity, new com.baidu.swan.apps.aq.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.a.r.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.aq.e.b
-                /* renamed from: C */
+                /* renamed from: D */
                 public void H(Bundle bundle) {
                     if (bundle == null) {
-                        b.this.t(new OAuthException("null bundle stoken", 10001));
+                        com.baidu.swan.apps.setting.oauth.c.c("null stoken", true);
+                        b.this.t(new OAuthException(10001));
                         return;
                     }
                     String string = bundle.getString("dev", "");
                     if (!TextUtils.isEmpty(string)) {
                         r.this.mStoken = string;
-                        b.this.arD();
+                        b.this.atv();
                         return;
                     }
-                    b.this.t(new OAuthException("dev is empty", 10001));
+                    com.baidu.swan.apps.setting.oauth.c.c("empty stoken", true);
+                    b.this.t(new OAuthException(10001));
                 }
             }, "dev");
             return false;

@@ -2,7 +2,7 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class VehicleInfo implements Parcelable {
     public static final Parcelable.Creator<VehicleInfo> CREATOR = new q();
     private String a;

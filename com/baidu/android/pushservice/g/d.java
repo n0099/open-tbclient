@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.g;
 
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d {
     private static a a;
     private static d b;

@@ -8,11 +8,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.widget.ImageView;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public class ImageViewCompat {
     static final ImageViewCompatImpl IMPL;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     interface ImageViewCompatImpl {
         ColorStateList getImageTintList(ImageView imageView);
 
@@ -23,7 +23,7 @@ public class ImageViewCompat {
         void setImageTintMode(ImageView imageView, PorterDuff.Mode mode);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     static class BaseViewCompatImpl implements ImageViewCompatImpl {
         BaseViewCompatImpl() {
         }
@@ -60,7 +60,7 @@ public class ImageViewCompat {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     static class LollipopViewCompatImpl extends BaseViewCompatImpl {
         LollipopViewCompatImpl() {
         }

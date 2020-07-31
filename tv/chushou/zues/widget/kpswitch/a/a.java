@@ -2,29 +2,29 @@ package tv.chushou.zues.widget.kpswitch.a;
 
 import android.view.View;
 import tv.chushou.zues.widget.kpswitch.b.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private final View omZ;
-    private boolean ona;
-    private View onb;
+    private final View ovF;
+    private boolean ovG;
+    private View ovH;
 
     public a(View view) {
-        this.omZ = view;
+        this.ovF = view;
     }
 
-    public void wY(boolean z) {
-        this.ona = z;
-        if (!z && this.omZ.getVisibility() == 4) {
-            this.omZ.setVisibility(8);
+    public void xD(boolean z) {
+        this.ovG = z;
+        if (!z && this.ovF.getVisibility() == 4) {
+            this.ovF.setVisibility(8);
         }
-        if (!z && this.onb != null) {
-            dXh();
-            this.onb = null;
+        if (!z && this.ovH != null) {
+            eaD();
+            this.ovH = null;
         }
     }
 
-    private void dXh() {
-        this.omZ.setVisibility(4);
-        d.dE(this.onb);
+    private void eaD() {
+        this.ovF.setVisibility(4);
+        d.dK(this.ovH);
     }
 }

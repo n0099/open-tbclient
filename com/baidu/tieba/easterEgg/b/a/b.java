@@ -1,7 +1,7 @@
 package com.baidu.tieba.easterEgg.b.a;
 
 import android.webkit.JsPromptResult;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class b implements com.baidu.tieba.easterEgg.c {
     @Override // com.baidu.tieba.easterEgg.c
     public String getMethodName() {
@@ -12,9 +12,9 @@ public class b implements com.baidu.tieba.easterEgg.c {
     public void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult) {
         if (getMethodName().equals(str)) {
             try {
-                com.baidu.tieba.easterEgg.b.bQv().Ec(str2);
+                com.baidu.tieba.easterEgg.b.bTG().EN(str2);
             } catch (Throwable th) {
-                com.baidu.tieba.easterEgg.b.bQv().bQw();
+                com.baidu.tieba.easterEgg.b.bTG().bTH();
             }
         }
     }

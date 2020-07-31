@@ -9,7 +9,7 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.fsg.face.base.d.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UploadCircleView extends View {
     private Paint a;
     private Paint b;

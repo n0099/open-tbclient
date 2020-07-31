@@ -21,6 +21,7 @@ import org.json.JSONObject;
 public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     private static final String TAG = "IMSubscriptionBaseRequest";
     protected String mKey;
+    protected List<String> mMiNiAppTopicList;
     protected long mPaid;
     protected String mSource;
     protected List<Long> mTopicList;
@@ -28,8 +29,13 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     public abstract String getHostUrlParam();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public IMSubscriptionBaseRequest(Context context, long j, List<Long> list, String str, String str2) {
-        this.mTopicList = new ArrayList(list);
+    public IMSubscriptionBaseRequest(Context context, long j, List<Long> list, List<String> list2, String str, String str2) {
+        if (list != null && list.size() > 0) {
+            this.mTopicList = new ArrayList(list);
+        }
+        if (list2 != null && list2.size() > 0) {
+            this.mMiNiAppTopicList = new ArrayList(list2);
+        }
         this.mContext = context;
         this.mPaid = j;
         this.mKey = str;
@@ -86,6 +92,13 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
                     jSONArray.put(l.longValue());
                 }
                 jSONObject.put("topic_id", jSONArray);
+            }
+            if (this.mMiNiAppTopicList != null && this.mMiNiAppTopicList.size() > 0) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (String str : this.mMiNiAppTopicList) {
+                    jSONArray2.put(str);
+                }
+                jSONObject.put("fminapp_topic", jSONArray2);
             }
             jSONObject.put("pa_uid", this.mPaid);
             jSONObject.put("source", this.mSource);

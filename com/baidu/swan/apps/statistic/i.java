@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.baidu.swan.apps.adaptation.a.u;
-import com.baidu.swan.apps.aq.n;
+import com.baidu.swan.apps.aq.p;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.swan.apps.v.b.b;
+import com.baidu.swan.apps.u.c.b;
 import java.io.File;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -28,7 +28,7 @@ public class i {
     }
 
     private static void b(V8ExceptionInfo v8ExceptionInfo) {
-        if (!com.baidu.swan.apps.u.a.aga().SA()) {
+        if (!com.baidu.swan.apps.t.a.ahm().SQ()) {
             if (DEBUG) {
                 Log.d("V8StabilityHelper", "upload js switch off");
             }
@@ -41,9 +41,9 @@ public class i {
                 }
                 return;
             }
-            SwanCoreVersion ho = com.baidu.swan.apps.swancore.b.ho(com.baidu.swan.apps.runtime.d.apI().RF());
-            if (ho != null && !TextUtils.isEmpty(ho.swanCorePath)) {
-                if (!str.startsWith(ho.swanCorePath)) {
+            SwanCoreVersion hx = com.baidu.swan.apps.swancore.b.hx(com.baidu.swan.apps.runtime.d.arr().RU());
+            if (hx != null && !TextUtils.isEmpty(hx.swanCorePath)) {
+                if (!str.startsWith(hx.swanCorePath)) {
                     if (DEBUG) {
                         Log.d("V8StabilityHelper", "file path is not swan core path");
                         return;
@@ -53,12 +53,12 @@ public class i {
                 final File file = new File(str);
                 if (file.exists()) {
                     final HashMap hashMap = new HashMap();
-                    com.baidu.swan.apps.runtime.e apM = com.baidu.swan.apps.runtime.e.apM();
-                    if (!TextUtils.isEmpty(com.baidu.swan.apps.runtime.e.apO())) {
-                        hashMap.put("appId", com.baidu.swan.apps.runtime.e.apO());
+                    com.baidu.swan.apps.runtime.e arv = com.baidu.swan.apps.runtime.e.arv();
+                    if (!TextUtils.isEmpty(com.baidu.swan.apps.runtime.e.arx())) {
+                        hashMap.put("appId", com.baidu.swan.apps.runtime.e.arx());
                     }
-                    if (apM != null && !TextUtils.isEmpty(apM.getVersion())) {
-                        hashMap.put("appVersion", apM.getVersion());
+                    if (arv != null && !TextUtils.isEmpty(arv.getVersion())) {
+                        hashMap.put("appVersion", arv.getVersion());
                     }
                     if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
                         hashMap.put("exceptionMsg", v8ExceptionInfo.exceptionMsg);
@@ -69,12 +69,12 @@ public class i {
                     if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionType)) {
                         hashMap.put("exceptionType", v8ExceptionInfo.exceptionType);
                     }
-                    n.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.statistic.i.1
+                    p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.statistic.i.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            u agg = com.baidu.swan.apps.u.a.agg();
-                            if (agg != null) {
-                                agg.a(hashMap, file, (u.a) null, "error_js");
+                            u ahs = com.baidu.swan.apps.t.a.ahs();
+                            if (ahs != null) {
+                                ahs.a(hashMap, file, (u.a) null, "error_js");
                                 if (i.DEBUG) {
                                     Log.d("V8StabilityHelper", "extraData :" + hashMap.toString());
                                     Log.d("V8StabilityHelper", "filePath :" + str);
@@ -88,7 +88,7 @@ public class i {
     }
 
     private static void c(V8ExceptionInfo v8ExceptionInfo) {
-        if (!com.baidu.swan.apps.u.a.aga().SB()) {
+        if (!com.baidu.swan.apps.t.a.ahm().SR()) {
             if (DEBUG) {
                 Log.d("V8StabilityHelper", "stability switch off");
                 return;
@@ -96,11 +96,11 @@ public class i {
             return;
         }
         b.a aVar = null;
-        com.baidu.swan.apps.runtime.e apM = com.baidu.swan.apps.runtime.e.apM();
-        if (apM != null) {
-            aVar = apM.RP();
+        com.baidu.swan.apps.runtime.e arv = com.baidu.swan.apps.runtime.e.arv();
+        if (arv != null) {
+            aVar = arv.Se();
         }
-        com.baidu.swan.apps.statistic.a.d oL = new com.baidu.swan.apps.statistic.a.d().f(new com.baidu.swan.apps.an.a().bw(5L).bx(37L)).a(aVar).oK(h.hf(com.baidu.swan.apps.runtime.d.apI().RF())).oL(com.baidu.swan.apps.runtime.e.apO());
+        com.baidu.swan.apps.statistic.a.d pv = new com.baidu.swan.apps.statistic.a.d().f(new com.baidu.swan.apps.an.a().bJ(5L).bK(37L)).a(aVar).pu(h.ho(com.baidu.swan.apps.runtime.d.arr().RU())).pv(com.baidu.swan.apps.runtime.e.arx());
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
@@ -112,12 +112,12 @@ public class i {
             if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionType)) {
                 jSONObject.put("exceptionType", v8ExceptionInfo.exceptionType);
             }
-            oL.bA(jSONObject);
+            pv.bF(jSONObject);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        h.b(oL);
+        h.b(pv);
     }
 }

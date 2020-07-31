@@ -1,7 +1,7 @@
 package com.baidu.tieba.aiapps.apps.f.a;
 
 import android.os.Bundle;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public interface a {
-    void ah(Bundle bundle);
+    void ai(Bundle bundle);
 }

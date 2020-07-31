@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.runtime.e;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.HashMap;
@@ -15,24 +14,28 @@ import okhttp3.Request;
 import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.media.b.a bMP;
-    private JSONObject bMQ;
+    private com.baidu.swan.apps.media.b.a bNE;
+    private JSONObject bNF;
     private Context mContext;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(Context context, JSONObject jSONObject) {
+        this.mContext = context;
+        this.bNF = jSONObject;
+    }
+
     public b(Context context, JSONObject jSONObject, com.baidu.swan.apps.media.b.a aVar) {
         this.mContext = context;
-        this.bMQ = jSONObject;
-        this.bMP = aVar;
+        this.bNF = jSONObject;
+        this.bNE = aVar;
     }
 
     private String c(String str, HashMap<String, String> hashMap) {
         HashMap hashMap2 = new HashMap();
-        if (this.bMP != null) {
-            hashMap2.put("cur_time", String.valueOf(this.bMP.getDuration() / 1000));
+        if (this.bNE != null) {
+            hashMap2.put("cur_time", String.valueOf(this.bNE.getDuration() / 1000));
         }
         hashMap2.put("origin_time", String.valueOf(System.currentTimeMillis()));
         hashMap.putAll(hashMap2);
@@ -53,7 +56,7 @@ public class b {
         return str;
     }
 
-    public void hi(String str) {
+    public void hp(String str) {
         d(str, new HashMap<>());
     }
 
@@ -66,7 +69,7 @@ public class b {
             hashMap.put("da_page", "VIDEOADDETAI");
         }
         hashMap.put("play_mode", String.valueOf((SwanAppNetworkUtils.isWifiNetworkConnected(this.mContext) && TextUtils.equals(str, "vstart")) ? 0 : 1));
-        JSONArray optJSONArray = this.bMQ != null ? this.bMQ.optJSONArray(str) : null;
+        JSONArray optJSONArray = this.bNF != null ? this.bNF.optJSONArray(str) : null;
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 String optString = optJSONArray.optString(i);
@@ -83,8 +86,8 @@ public class b {
     }
 
     private void a(@NonNull final Request request) {
-        if (e.apN() != null) {
-            com.baidu.swan.c.b.a aVar = new com.baidu.swan.c.b.a(request.url().toString(), new ResponseCallback() { // from class: com.baidu.swan.apps.adlanding.b.1
+        if (com.baidu.swan.apps.runtime.e.arw() != null) {
+            com.baidu.swan.b.b.a aVar = new com.baidu.swan.b.b.a(request.url().toString(), new ResponseCallback() { // from class: com.baidu.swan.apps.adlanding.b.1
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public Object parseResponse(Response response, int i) throws Exception {
                     if (b.DEBUG) {
@@ -104,10 +107,10 @@ public class b {
                     }
                 }
             });
-            aVar.dpO = true;
-            aVar.dpP = false;
-            aVar.dpQ = false;
-            com.baidu.swan.c.c.a.aGD().a(aVar);
+            aVar.dvF = true;
+            aVar.dvG = false;
+            aVar.dvH = false;
+            com.baidu.swan.b.c.a.aKu().a(aVar);
         }
     }
 }

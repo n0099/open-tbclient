@@ -8,7 +8,7 @@ import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes9.dex */
 public class DuFaceItem extends FaceItem {
     private static final boolean ADJUST_ZIP = false;
     public int arType = 10;
@@ -30,7 +30,7 @@ public class DuFaceItem extends FaceItem {
         Exception e;
         try {
             FileUtils.unzipFile(new File(str), getFilePath());
-            z = a.gt(getFilePath());
+            z = a.gr(getFilePath());
             if (!z) {
             }
             if (!z) {

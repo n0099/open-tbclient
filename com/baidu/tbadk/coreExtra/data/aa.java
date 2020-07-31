@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,45 +10,45 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aa {
-    private static final Map<ShareDialogConfig.From, Integer> ekj = new HashMap();
-    private List<Integer> bKT;
-    private int ekk;
-    private int ekl;
-    private int ekm;
+    private static final Map<ShareDialogConfig.From, Integer> eqx = new HashMap();
+    private List<Integer> bLp;
+    private int eqA;
+    private int eqy;
+    private int eqz;
     private String mText;
 
     static {
-        ekj.put(ShareDialogConfig.From.Recommend, 1);
-        ekj.put(ShareDialogConfig.From.Concern, 2);
-        ekj.put(ShareDialogConfig.From.PB, 3);
-        ekj.put(ShareDialogConfig.From.FRS, 4);
-        ekj.put(ShareDialogConfig.From.PersonPolymeric, 5);
-        ekj.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
-        ekj.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
-        ekj.put(ShareDialogConfig.From.HomeVideoTab, 8);
-        ekj.put(ShareDialogConfig.From.HomeGameTab, 9);
+        eqx.put(ShareDialogConfig.From.Recommend, 1);
+        eqx.put(ShareDialogConfig.From.Concern, 2);
+        eqx.put(ShareDialogConfig.From.PB, 3);
+        eqx.put(ShareDialogConfig.From.FRS, 4);
+        eqx.put(ShareDialogConfig.From.PersonPolymeric, 5);
+        eqx.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
+        eqx.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
+        eqx.put(ShareDialogConfig.From.HomeVideoTab, 8);
+        eqx.put(ShareDialogConfig.From.HomeGameTab, 9);
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.ekk = jSONObject.optInt("begin_time");
-            this.ekl = jSONObject.optInt("end_time");
+            this.eqy = jSONObject.optInt("begin_time");
+            this.eqz = jSONObject.optInt("end_time");
             this.mText = jSONObject.optString("text");
-            this.ekm = jSONObject.optInt("icon_exp");
-            xD(jSONObject.optString("page_list"));
+            this.eqA = jSONObject.optInt("icon_exp");
+            yI(jSONObject.optString("page_list"));
         }
     }
 
-    private void xD(String str) {
+    private void yI(String str) {
         String[] split;
-        if (!ar.isEmpty(str) && (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null) {
+        if (!as.isEmpty(str) && (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null) {
             for (String str2 : split) {
                 int i = com.baidu.adp.lib.f.b.toInt(str2, -1);
                 if (i != -1) {
-                    if (this.bKT == null) {
-                        this.bKT = new ArrayList();
+                    if (this.bLp == null) {
+                        this.bLp = new ArrayList();
                     }
-                    this.bKT.add(Integer.valueOf(i));
+                    this.bLp.add(Integer.valueOf(i));
                 }
             }
         }
@@ -56,18 +56,18 @@ public class aa {
 
     public boolean a(ShareDialogConfig.From from) {
         Integer num;
-        return (this.bKT == null || (num = ekj.get(from)) == null || !this.bKT.contains(num)) ? false : true;
+        return (this.bLp == null || (num = eqx.get(from)) == null || !this.bLp.contains(num)) ? false : true;
     }
 
-    public boolean bam() {
-        return System.currentTimeMillis() / 1000 >= ((long) this.ekk) && System.currentTimeMillis() / 1000 <= ((long) this.ekl);
+    public boolean bej() {
+        return System.currentTimeMillis() / 1000 >= ((long) this.eqy) && System.currentTimeMillis() / 1000 <= ((long) this.eqz);
     }
 
     public String getText() {
         return this.mText;
     }
 
-    public int ban() {
-        return this.ekm;
+    public int bek() {
+        return this.eqA;
     }
 }

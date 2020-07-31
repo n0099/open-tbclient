@@ -5,11 +5,11 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.z;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean wO(int i) {
+    public static boolean xg(int i) {
         switch (i) {
             case CmdConfigSocket.CMD_GROUP_CHAT_MSG /* 202001 */:
             case CmdConfigSocket.CMD_COMMIT_PERSONAL_MSG /* 205001 */:
@@ -21,32 +21,32 @@ public class a {
         }
     }
 
-    public static boolean b(y yVar) {
-        if (yVar == null) {
+    public static boolean b(z zVar) {
+        if (zVar == null) {
             return false;
         }
-        if ((yVar.isNetSuccess() ? yVar.getServerErrorCode() : yVar.getNetErrorCode()) == 1990055) {
-            chx();
+        if ((zVar.isNetSuccess() ? zVar.getServerErrorCode() : zVar.getNetErrorCode()) == 1990055) {
+            ckW();
             return true;
         }
         return false;
     }
 
-    public static void chx() {
+    public static void ckW() {
         if (!l.isMainThread()) {
             TbadkCoreApplication.getInst().handler.post(new Runnable() { // from class: com.baidu.tieba.j.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.chy();
+                    a.ckX();
                 }
             });
         } else {
-            chy();
+            ckX();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void chy() {
+    public static final void ckX() {
         Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
         StringBuilder sb = new StringBuilder(UrlSchemaHelper.REAL_NAME_AUTH_URL);
         sb.append("&u=").append(URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW));

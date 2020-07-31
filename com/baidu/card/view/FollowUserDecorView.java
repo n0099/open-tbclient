@@ -7,12 +7,15 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.userLike.c;
+import com.baidu.tieba.R;
 import com.baidu.tieba.view.FollowUserButton;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class FollowUserDecorView extends FollowUserButton {
-    private c ahX;
+    private c ahO;
+    private boolean ahP;
     private BdUniqueId mBdUniqueId;
 
     public FollowUserDecorView(Context context) {
@@ -27,23 +30,23 @@ public class FollowUserDecorView extends FollowUserButton {
         super(context, attributeSet, i);
     }
 
-    public void setData(bu buVar) {
-        if (buVar == null || buVar.aSp() == null) {
+    public void setData(bv bvVar) {
+        if (bvVar == null || bvVar.aWl() == null) {
             setVisibility(8);
             return;
         }
-        if (this.ahX == null) {
-            this.ahX = new c(T(getContext()), this);
-            this.ahX.l(this.mBdUniqueId);
+        if (this.ahO == null) {
+            this.ahO = new c(T(getContext()), this);
+            this.ahO.m(this.mBdUniqueId);
         }
         setVisibility(0);
-        this.ahX.a(buVar.aSp());
+        this.ahO.a(bvVar.aWl());
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        if (this.ahX != null) {
-            this.ahX.l(this.mBdUniqueId);
+        if (this.ahO != null) {
+            this.ahO.m(this.mBdUniqueId);
         }
     }
 
@@ -55,5 +58,21 @@ public class FollowUserDecorView extends FollowUserButton {
             return ((BaseFragmentActivity) context).getPageContext();
         }
         return null;
+    }
+
+    @Override // com.baidu.tieba.view.FollowUserButton
+    public void aM(boolean z) {
+        super.aM(z);
+        if (this.ahP && !z) {
+            com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
+            cVar.mV(R.color.cp_link_tip_a);
+            cVar.mR(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
+            cVar.k(R.drawable.icon_pure_add12_svg, 0, true);
+            setConfig(cVar);
+        }
+    }
+
+    public void setUseNewStyle(boolean z) {
+        this.ahP = z;
     }
 }

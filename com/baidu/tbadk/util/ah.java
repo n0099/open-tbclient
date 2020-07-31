@@ -14,7 +14,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.webkit.internal.ETAG;
 import java.net.MalformedURLException;
@@ -24,7 +24,7 @@ import java.net.URLDecoder;
 public class ah {
     private static BaseWebView mBaseWebView;
 
-    public static void bjj() {
+    public static void bnc() {
         try {
             if (mBaseWebView == null) {
                 mBaseWebView = new BaseWebView(TbadkCoreApplication.getInst());
@@ -36,14 +36,14 @@ public class ah {
 
     @Deprecated
     public static String getUserAgent() {
-        bjj();
+        bnc();
         if (mBaseWebView == null || mBaseWebView.getSettings() == null) {
             return null;
         }
         return mBaseWebView.getSettings().getUserAgentString();
     }
 
-    public static String bjk() {
+    public static String bnd() {
         if (Build.VERSION.SDK_INT >= 17) {
             return WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()) + " tieba/" + TbConfig.getVersion();
         }
@@ -182,7 +182,7 @@ public class ah {
     }
 
     public static String addParamsForPageTranslucent(String str) {
-        if (!ar.isEmpty(str) && !str.contains("page_type")) {
+        if (!as.isEmpty(str) && !str.contains("page_type")) {
             StringBuilder sb = new StringBuilder(str);
             if (str.contains("?")) {
                 sb.append(ETAG.ITEM_SEPARATOR);
@@ -197,7 +197,7 @@ public class ah {
         return str;
     }
 
-    public static boolean zo(String str) {
+    public static boolean Aw(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

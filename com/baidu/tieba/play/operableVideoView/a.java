@@ -2,26 +2,25 @@ package com.baidu.tieba.play.operableVideoView;
 
 import android.view.View;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bu;
-import com.baidu.tieba.play.QuickVideoView;
-import com.baidu.tieba.play.g;
-import com.baidu.tieba.play.u;
-import com.baidu.tieba.play.y;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tbadk.core.data.bv;
+import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
+import com.baidu.tieba.play.o;
 /* loaded from: classes.dex */
-public interface a extends View.OnClickListener, QuickVideoView.b, g.a, g.b, g.e, g.f {
-    void aa(View.OnClickListener onClickListener);
+public interface a extends View.OnClickListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnPreparedListener, TbCyberVideoView.a {
+    void Dp(int i);
 
-    void bxS();
+    void ab(View.OnClickListener onClickListener);
 
-    void c(y yVar);
+    void b(o oVar);
 
-    boolean cQA();
+    void bBh();
 
-    View cUV();
+    boolean cUq();
 
-    u cVD();
+    View cYJ();
 
-    boolean cWh();
+    boolean cZt();
 
     int getCurrentPosition();
 
@@ -29,11 +28,11 @@ public interface a extends View.OnClickListener, QuickVideoView.b, g.a, g.b, g.e
 
     boolean isPlaying();
 
-    boolean oC(boolean z);
+    boolean ph(boolean z);
 
     void setAfterClickListener(View.OnClickListener onClickListener);
 
-    void setData(bu buVar);
+    void setData(bv bvVar);
 
     void setFrom(String str);
 

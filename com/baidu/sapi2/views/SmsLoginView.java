@@ -23,7 +23,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.f.a.a;
+import com.baidu.g.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
@@ -31,7 +31,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.t;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class SmsLoginView extends FrameLayout implements com.baidu.sapi2.c {
     private static final String a = "extrajson";
     private static final String b = "sdk_situation";
@@ -53,7 +53,7 @@ public class SmsLoginView extends FrameLayout implements com.baidu.sapi2.c {
     private BroadcastReceiver r;
     private e s;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     private class a implements TextWatcher {
         private a() {
         }
@@ -89,7 +89,7 @@ public class SmsLoginView extends FrameLayout implements com.baidu.sapi2.c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public class b extends Dialog {
         public b(Context context) {
             super(context, a.h.sapi_sdk_empty_dialog);
@@ -101,7 +101,7 @@ public class SmsLoginView extends FrameLayout implements com.baidu.sapi2.c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public class c implements View.OnClickListener {
         private c() {
         }
@@ -141,7 +141,7 @@ public class SmsLoginView extends FrameLayout implements com.baidu.sapi2.c {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     private class d implements TextWatcher {
         private d() {
         }
@@ -205,7 +205,7 @@ public class SmsLoginView extends FrameLayout implements com.baidu.sapi2.c {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     private class e extends Handler {
         private e() {
         }
@@ -224,7 +224,7 @@ public class SmsLoginView extends FrameLayout implements com.baidu.sapi2.c {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     private interface f {
         public static final String a = "pop_login";
         public static final String b = "show";

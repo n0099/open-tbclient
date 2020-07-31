@@ -1,32 +1,37 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.statics.AlaStaticKeys;
-import org.json.JSONObject;
-import tbclient.FrsPage.MemberShowIcon;
+import java.util.ArrayList;
+import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes.dex */
 public class y {
-    private String mIcon;
-    private String mName;
-    private String mUrl;
+    private u dOM;
+    private long threadId;
+    private long dOH = 0;
+    private String dOI = "";
+    private long dOJ = 0;
+    private String dOK = "";
+    private String imgUrl = "";
+    private String dOL = "";
 
-    public void a(MemberShowIcon memberShowIcon) {
-        if (memberShowIcon != null) {
-            this.mIcon = memberShowIcon.icon;
-            this.mName = memberShowIcon.name;
-            this.mUrl = memberShowIcon.url;
+    public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+        if (forumHeadlineImgInfo != null) {
+            this.threadId = forumHeadlineImgInfo.thread_id.longValue();
+            this.dOH = forumHeadlineImgInfo.thread_user_id.longValue();
+            this.dOI = forumHeadlineImgInfo.thread_user_name;
+            this.dOJ = forumHeadlineImgInfo.img_user_id.longValue();
+            this.dOK = forumHeadlineImgInfo.img_user_name;
+            this.imgUrl = forumHeadlineImgInfo.img_url;
+            this.dOL = forumHeadlineImgInfo.headline_url;
+            this.dOM = new u();
+            ArrayList<x> arrayList = new ArrayList<>();
+            x xVar = new x(this.imgUrl == null ? "" : this.imgUrl, this.dOL == null ? "" : this.dOL, null);
+            xVar.hy(true);
+            arrayList.add(xVar);
+            this.dOM.w(arrayList);
         }
     }
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.mIcon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-                this.mName = jSONObject.optString("name");
-                this.mUrl = jSONObject.optString("url");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+    public String aUh() {
+        return this.imgUrl;
     }
 }

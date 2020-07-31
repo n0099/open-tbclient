@@ -34,7 +34,7 @@ import com.baidu.platform.comapi.wnplatform.h.e;
 import com.baidu.platform.comapi.wnplatform.o.f;
 import com.baidu.tieba.R;
 import java.math.BigDecimal;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     private LinearLayout A;
     private TextView B;
@@ -96,7 +96,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     final Runnable h = new l(this);
     private com.baidu.platform.comapi.wnplatform.walkmap.c ag = new n(this);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void a(int i);
     }
@@ -457,7 +457,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
         H();
         com.baidu.platform.comapi.walknavi.b.a().G().a().getMap().addOverlay(new MarkerOptions().position(C()).icon(this.L).zIndex(9).draggable(false));
         com.baidu.platform.comapi.walknavi.b.a().G().a().getMap().addOverlay(new MarkerOptions().position(B()).icon(this.N).zIndex(9).draggable(false));
-        this.F = this.j.findViewById(R.raw.pb_lottie_disagree);
+        this.F = this.j.findViewById(R.raw.pb_lottie_agree_1);
         this.k = new com.baidu.platform.comapi.walknavi.g.b.c(this.i, this, this.j);
         this.k.h().setOnClickListener(new u(this));
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -469,14 +469,14 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
             this.k.a(cVar);
         }
         this.G = new com.baidu.platform.comapi.walknavi.widget.d(this.i, this, this.j);
-        this.r = (FrameLayout) this.j.findViewById(R.raw.lottie_video_guide);
-        this.x = (TestLinearLayout) this.j.findViewById(R.raw.lottie_watch);
-        this.y = (TestLinearLayout) this.j.findViewById(R.raw.lottie_watch_1);
-        this.A = (LinearLayout) this.j.findViewById(R.raw.lottie_use_refresh_home_n);
-        this.B = (TextView) this.j.findViewById(R.raw.lottie_use_refresh_home_n_1);
-        this.C = (TextView) this.j.findViewById(R.raw.lottie_use_refresh_home_n_2);
-        this.D = (TextView) this.j.findViewById(R.raw.lottie_use_refresh_n);
-        this.E = (TestScaleView) this.j.findViewById(R.raw.lottie_use_refresh_n_1);
+        this.r = (FrameLayout) this.j.findViewById(R.raw.lottie_use_refresh_n_1);
+        this.x = (TestLinearLayout) this.j.findViewById(R.raw.lottie_use_refresh_n_2);
+        this.y = (TestLinearLayout) this.j.findViewById(R.raw.lottie_video_guide);
+        this.A = (LinearLayout) this.j.findViewById(R.raw.lottie_use_publish_n_1);
+        this.B = (TextView) this.j.findViewById(R.raw.lottie_use_publish_n_2);
+        this.C = (TextView) this.j.findViewById(R.raw.lottie_use_refresh_home_n);
+        this.D = (TextView) this.j.findViewById(R.raw.lottie_use_refresh_home_n_1);
+        this.E = (TestScaleView) this.j.findViewById(R.raw.lottie_use_refresh_home_n_2);
         Bundle U = com.baidu.platform.comapi.walknavi.b.a().U();
         if (U != null) {
             this.C.setText(U.getString("distance"));
@@ -950,7 +950,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     }
 
     /* renamed from: com.baidu.platform.comapi.walknavi.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class CountDownTimerC0230a extends CountDownTimer {
         Activity a;
         com.baidu.platform.comapi.walknavi.widget.a b;

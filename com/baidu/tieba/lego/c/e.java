@@ -5,23 +5,23 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static final HashMap<String, e> juI = new HashMap<>();
+    private static final HashMap<String, e> jDm = new HashMap<>();
     public String itemId = "";
-    public long juG;
-    public int juH;
+    public long jDk;
+    public int jDl;
     public String params;
     public int rn;
     public String tag_name;
 
     public void refresh() {
-        juI.put(this.juG + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + (TextUtils.isEmpty(this.itemId) ? "" : this.itemId), this);
+        jDm.put(this.jDk + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + (TextUtils.isEmpty(this.itemId) ? "" : this.itemId), this);
     }
 
-    public static e q(long j, String str) {
+    public static e s(long j, String str) {
         StringBuilder append = new StringBuilder().append(j).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        return juI.get(append.append(str).toString());
+        return jDm.get(append.append(str).toString());
     }
 }

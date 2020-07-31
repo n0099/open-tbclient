@@ -7,11 +7,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 class r {
     private static final String a = "logsender";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     interface a {
         void a();
 

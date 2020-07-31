@@ -7,11 +7,11 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.model.inner.MapBound;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RGStateOverview extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
-        b.a().Q().c(R.drawable.aiapps_checkbox_checked_disable);
+        b.a().Q().c(R.drawable.aiapps_clickable_toast_view_bg);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
@@ -32,7 +32,7 @@ public class RGStateOverview extends RGState {
         if (i != null) {
             MapStatus.Builder builder = new MapStatus.Builder(i);
             builder.overlook(0.0f);
-            builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.bottom + i.winRound.f995top) / 2) - ((int) 0)));
+            builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.bottom + i.winRound.top) / 2) - ((int) 0)));
             if (T != null) {
                 float a = b.a().G().a(T, com.baidu.platform.comapi.wnplatform.o.b.b.a().b(), com.baidu.platform.comapi.wnplatform.o.b.b.a().c() - b.a().Q().n());
                 builder.target(CoordUtil.mc2ll(new GeoPoint((T.getPtRT().getmPty() + T.getPtLB().getmPty()) / 2, (T.getPtLB().getmPtx() + T.getPtRT().getmPtx()) / 2)));

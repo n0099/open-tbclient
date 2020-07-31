@@ -1,7 +1,7 @@
 package com.baidu.live.data;
 
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class u {
     public TbPageContext pageContext;
     public String userId;

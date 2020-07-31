@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class t {
     public static com.tb.airbnb.lottie.d g(JsonReader jsonReader) throws IOException {
         float jA = com.tb.airbnb.lottie.d.f.jA();
@@ -157,7 +157,7 @@ public class t {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
             Layer q = s.q(jsonReader, dVar);
-            if (q.dOr() == Layer.LayerType.Image) {
+            if (q.dRN() == Layer.LayerType.Image) {
                 i++;
             }
             list.add(q);

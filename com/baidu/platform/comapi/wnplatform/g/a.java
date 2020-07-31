@@ -15,7 +15,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mobstat.Config;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends ItemizedOverlay {
     private View b;
     private ImageView c;
@@ -24,7 +24,7 @@ public class a extends ItemizedOverlay {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class C0235a {
         static final a a = new a();
     }

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Rect;
 import android.view.View;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class g {
     private static float a = 0.0f;
     private static int b = 0;

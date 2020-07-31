@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.data.as;
+import com.baidu.live.data.at;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.timer.LiveTimerManager;
@@ -16,20 +16,20 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements com.baidu.live.guardclub.i {
-    private static volatile b fIk = null;
+    private static volatile b fNF = null;
     private long currLiveId;
 
-    public static b bxm() {
-        if (fIk == null) {
+    public static b bAC() {
+        if (fNF == null) {
             synchronized (b.class) {
-                if (fIk == null) {
-                    fIk = new b();
+                if (fNF == null) {
+                    fNF = new b();
                 }
             }
         }
-        return fIk;
+        return fNF;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x0058  */
@@ -42,14 +42,14 @@ public class b implements com.baidu.live.guardclub.i {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void b(Context context, final long j, long j2, String str, String str2) {
-        as Cj;
+        at CL;
         JSONArray jSONArray;
         int i;
         Map<String, Object> process;
-        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardFansUnabled()) && (Cj = com.baidu.live.guardclub.g.Ch().Cj()) != null) {
+        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardFansUnabled()) && (CL = com.baidu.live.guardclub.g.CJ().CL()) != null) {
             this.currLiveId = j;
-            int i2 = Cj.aCn;
-            int i3 = Cj.aCo;
+            int i2 = CL.aDI;
+            int i3 = CL.aDJ;
             String b = com.baidu.live.utils.j.b(new Date());
             String string = com.baidu.live.c.vf().getString("guardclub_im_entry_show_trace", "");
             if (!TextUtils.isEmpty(string)) {
@@ -86,7 +86,7 @@ public class b implements com.baidu.live.guardclub.i {
                         }
                     }
                     this.currLiveId = j;
-                    int i5 = Cj.aCp;
+                    int i5 = CL.aDK;
                     boolean z = false;
                     HashMap hashMap = new HashMap();
                     hashMap.put("test_guardClub_im_entry", false);
@@ -121,7 +121,7 @@ public class b implements com.baidu.live.guardclub.i {
             if (i3 >= 0) {
             }
             this.currLiveId = j;
-            int i52 = Cj.aCp;
+            int i52 = CL.aDK;
             boolean z2 = false;
             HashMap hashMap2 = new HashMap();
             hashMap2.put("test_guardClub_im_entry", false);
@@ -144,15 +144,15 @@ public class b implements com.baidu.live.guardclub.i {
     }
 
     @Override // com.baidu.live.guardclub.i
-    public void Cm() {
+    public void CO() {
         int i;
         JSONArray jSONArray;
         int i2 = 0;
         try {
-            as Cj = com.baidu.live.guardclub.g.Ch().Cj();
-            if (Cj != null) {
-                i = Cj.aCn;
-                i2 = Cj.aCo;
+            at CL = com.baidu.live.guardclub.g.CJ().CL();
+            if (CL != null) {
+                i = CL.aDI;
+                i2 = CL.aDJ;
             } else {
                 i = 0;
             }

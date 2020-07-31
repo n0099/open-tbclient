@@ -8,12 +8,12 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.swan.apps.w.f;
+import com.baidu.swan.apps.v.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c extends aa {
-    private a bWW;
+    private a bXO;
 
     public c(j jVar) {
         super(jVar, "/swanAPI/perfCat");
@@ -61,24 +61,24 @@ public class c extends aa {
         }
         switch (c) {
             case 0:
-                if (this.bWW == null) {
-                    this.bWW = new a();
+                if (this.bXO == null) {
+                    this.bXO = new a();
                 }
-                this.bWW.startMonitor();
+                this.bXO.startMonitor();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 com.baidu.swan.apps.console.c.i("SwanAppPropertyLogAction", " Start property log：");
                 return true;
             case 1:
                 JSONObject jSONObject = new JSONObject();
-                if (this.bWW == null) {
+                if (this.bXO == null) {
                     com.baidu.swan.apps.console.c.e("SwanAppPropertyLogAction", "Property log never start");
                 } else {
-                    String XD = this.bWW.XD();
-                    this.bWW = null;
-                    f.ajb().ZH();
+                    String Yj = this.bXO.Yj();
+                    this.bXO = null;
+                    f.akr().aaL();
                     try {
-                        jSONObject.put("wvID", f.ajb().ZH());
-                        jSONObject.put("path", XD);
+                        jSONObject.put("wvID", f.akr().aaL());
+                        jSONObject.put("path", Yj);
                     } catch (JSONException e) {
                         if (DEBUG) {
                             e.printStackTrace();
@@ -95,8 +95,8 @@ public class c extends aa {
                 if (optParamsAsJo == null) {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(202));
                 } else {
-                    if (this.bWW != null) {
-                        this.bWW.eO(optParamsAsJo.optInt("duration"));
+                    if (this.bXO != null) {
+                        this.bXO.eQ(optParamsAsJo.optInt("duration"));
                     }
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 }

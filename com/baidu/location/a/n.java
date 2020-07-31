@@ -8,7 +8,7 @@ import android.hardware.SensorManager;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class n implements SensorEventListener {
     private static Object a = new Object();
     private static n b = null;

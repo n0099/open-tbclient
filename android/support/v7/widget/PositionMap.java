@@ -1,7 +1,7 @@
 package android.support.v7.widget;
 
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 class PositionMap<E> implements Cloneable {
     private static final Object DELETED = new Object();
     private boolean mGarbage;
@@ -280,7 +280,7 @@ class PositionMap<E> implements Cloneable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ContainerHelpers {
         static final boolean[] EMPTY_BOOLEANS = new boolean[0];
         static final int[] EMPTY_INTS = new int[0];

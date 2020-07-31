@@ -11,13 +11,13 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BackBar extends FrameLayout {
-    private a bng;
-    private View bnh;
-    private ImageView bni;
+    private a bnB;
+    private View bnC;
+    private ImageView bnD;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void onBack();
     }
@@ -36,19 +36,19 @@ public class BackBar extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.bng = aVar;
+        this.bnB = aVar;
     }
 
     public void setTheme(int i) {
         switch (i) {
             case 0:
-                this.bnh.setBackgroundColor(1717986918);
-                this.bni.setColorFilter(-1, PorterDuff.Mode.SRC_ATOP);
+                this.bnC.setBackgroundColor(1717986918);
+                this.bnD.setColorFilter(-1, PorterDuff.Mode.SRC_ATOP);
                 return;
             case 1:
                 setBackgroundColor(-1);
-                this.bnh.setBackgroundColor(-1644826);
-                this.bni.setColorFilter(ViewCompat.MEASURED_STATE_MASK, PorterDuff.Mode.SRC_ATOP);
+                this.bnC.setBackgroundColor(-1644826);
+                this.bnD.setColorFilter(ViewCompat.MEASURED_STATE_MASK, PorterDuff.Mode.SRC_ATOP);
                 return;
             default:
                 return;
@@ -56,25 +56,25 @@ public class BackBar extends FrameLayout {
     }
 
     private void a(AttributeSet attributeSet, int i) {
-        this.bnh = new View(getContext());
-        addView(this.bnh, new FrameLayout.LayoutParams(-1, 1));
+        this.bnC = new View(getContext());
+        addView(this.bnC, new FrameLayout.LayoutParams(-1, 1));
         FrameLayout frameLayout = new FrameLayout(getContext());
         frameLayout.setBackgroundColor(0);
         frameLayout.setPadding(getResources().getDimensionPixelOffset(a.e.sdk_ds40), 0, 0, 0);
         frameLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.view.BackBar.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (BackBar.this.bng != null) {
-                    BackBar.this.bng.onBack();
+                if (BackBar.this.bnB != null) {
+                    BackBar.this.bnB.onBack();
                 }
             }
         });
         addView(frameLayout, new FrameLayout.LayoutParams(-2, -1));
-        this.bni = new ImageView(getContext());
-        this.bni.setImageResource(a.f.sdk_icon_live_back);
+        this.bnD = new ImageView(getContext());
+        this.bnD.setImageResource(a.f.sdk_icon_live_back);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 16;
-        frameLayout.addView(this.bni, layoutParams);
+        frameLayout.addView(this.bnD, layoutParams);
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.k.BackBar, i, a.j.BackBarLight);
         setTheme(obtainStyledAttributes.getInt(a.k.BackBar_backbar_theme, 1));
         obtainStyledAttributes.recycle();

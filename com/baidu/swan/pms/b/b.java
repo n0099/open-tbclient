@@ -1,7 +1,7 @@
 package com.baidu.swan.pms.b;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public interface b {
     void a(@NonNull com.baidu.swan.pms.b.b.b bVar);
 

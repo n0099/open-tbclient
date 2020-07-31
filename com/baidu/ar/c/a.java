@@ -4,7 +4,7 @@ import com.baidu.ar.databasic.AlgoHandleAdapter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public abstract class a implements k {
     private l lA;
     private List<e> lx = Collections.synchronizedList(new ArrayList());

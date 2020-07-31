@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Userlike.DataRes;
 import tbclient.Userlike.UserlikeResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class ConcernPageHttpResMessage extends HttpResponsedMessage {
     private DataRes resultData;
 

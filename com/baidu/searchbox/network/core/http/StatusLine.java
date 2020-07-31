@@ -4,7 +4,7 @@ import com.baidu.searchbox.network.core.Protocol;
 import com.baidu.searchbox.network.core.Response;
 import java.io.IOException;
 import java.net.ProtocolException;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public final class StatusLine {
     public static final int HTTP_CONTINUE = 100;
     public static final int HTTP_PERM_REDIRECT = 308;

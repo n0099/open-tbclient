@@ -5,21 +5,21 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a implements com.baidu.swan.apps.aq.e.b<HybridUbcFlow> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.aq.e.b
-    /* renamed from: a */
+    /* renamed from: b */
     public void H(HybridUbcFlow hybridUbcFlow) {
         if (DEBUG) {
             Log.i("FlowJarToH5Reporter", "report: flow=" + hybridUbcFlow);
         }
-        if (com.baidu.swan.apps.w.f.ajb().ajd()) {
-            if (DEBUG || com.baidu.swan.apps.w.f.ajb().aiF()) {
+        if (com.baidu.swan.apps.v.f.akr().akt()) {
+            if (DEBUG || com.baidu.swan.apps.v.f.akr().ajV()) {
                 try {
-                    i.amG().aT(b(hybridUbcFlow));
+                    k.aoa().aV(c(hybridUbcFlow));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -29,17 +29,17 @@ public class a implements com.baidu.swan.apps.aq.e.b<HybridUbcFlow> {
         }
     }
 
-    private JSONObject b(HybridUbcFlow hybridUbcFlow) throws JSONException {
+    private JSONObject c(HybridUbcFlow hybridUbcFlow) throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        if (hybridUbcFlow != null && !hybridUbcFlow.cwc.isEmpty()) {
-            jSONObject.put("flowId", hybridUbcFlow.amg());
+        if (hybridUbcFlow != null && !hybridUbcFlow.cyq.isEmpty()) {
+            jSONObject.put("flowId", hybridUbcFlow.anA());
             JSONArray jSONArray = new JSONArray();
-            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.cwc) {
-                if (!ubcFlowEvent.amJ() && !TextUtils.isEmpty(ubcFlowEvent.id)) {
+            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.cyq) {
+                if (!ubcFlowEvent.aod() && !TextUtils.isEmpty(ubcFlowEvent.id)) {
                     if (DEBUG) {
                         Log.i("FlowJarToH5Reporter", "buildJoMsg: event=" + ubcFlowEvent);
                     }
-                    jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.id).put("timestamp", ubcFlowEvent.amH()));
+                    jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.id).put("timestamp", ubcFlowEvent.aob()));
                 }
             }
             jSONObject.put("data", jSONArray);

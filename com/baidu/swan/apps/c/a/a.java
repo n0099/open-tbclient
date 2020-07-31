@@ -5,10 +5,10 @@ import android.os.Bundle;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.aq.ah;
+import com.baidu.swan.apps.aq.aj;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.CookieSyncManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static void M(Context context, String str) {
         if (ProcessUtils.isMainProcess()) {
@@ -20,7 +20,7 @@ public class a {
 
     public static void N(Context context, String str) {
         if (context != null) {
-            CookieManager.getInstance().setCookie(".baidu.com", ah.getCookieStr(".baidu.com", "BDUSS", str, 31449600L));
+            CookieManager.getInstance().setCookie(".baidu.com", aj.getCookieStr(".baidu.com", "BDUSS", str, 31449600L));
             CookieSyncManager.createInstance(AppRuntime.getAppContext());
             CookieSyncManager.getInstance().sync();
         }

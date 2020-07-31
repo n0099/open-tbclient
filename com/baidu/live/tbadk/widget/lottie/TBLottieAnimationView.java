@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.widget.lottie;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import com.baidu.h.a.a;
+import com.baidu.i.a.a;
 import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.baidu.live.adp.lib.util.BdStringHelper;
 import com.baidu.live.tbadk.TbConfig;
@@ -16,7 +16,7 @@ import com.tb.airbnb.lottie.e;
 import com.tb.airbnb.lottie.h;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TBLottieAnimationView extends LottieAnimationView {
     private static final String DIR_ANIMATION = "animation";
     public static final String JSON_FILE = "data.json";

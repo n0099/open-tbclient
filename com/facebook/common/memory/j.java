@@ -3,10 +3,10 @@ package com.facebook.common.memory;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes13.dex */
+/* loaded from: classes12.dex */
 public class j {
-    private final int mIY;
-    private final a mIZ;
+    private final int mRa;
+    private final a mRb;
 
     public j(a aVar) {
         this(aVar, 16384);
@@ -14,23 +14,23 @@ public class j {
 
     public j(a aVar, int i) {
         com.facebook.common.internal.g.checkArgument(i > 0);
-        this.mIY = i;
-        this.mIZ = aVar;
+        this.mRa = i;
+        this.mRb = aVar;
     }
 
     public long e(InputStream inputStream, OutputStream outputStream) throws IOException {
         long j = 0;
-        byte[] bArr = this.mIZ.get(this.mIY);
+        byte[] bArr = this.mRb.get(this.mRa);
         while (true) {
             try {
-                int read = inputStream.read(bArr, 0, this.mIY);
+                int read = inputStream.read(bArr, 0, this.mRa);
                 if (read == -1) {
                     return j;
                 }
                 outputStream.write(bArr, 0, read);
                 j += read;
             } finally {
-                this.mIZ.release(bArr);
+                this.mRb.release(bArr);
             }
         }
     }

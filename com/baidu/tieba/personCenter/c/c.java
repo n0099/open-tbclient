@@ -1,5 +1,5 @@
 package com.baidu.tieba.personCenter.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public interface c {
     int getType();
 }

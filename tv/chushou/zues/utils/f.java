@@ -7,19 +7,19 @@ import java.io.FileInputStream;
 import java.lang.ref.SoftReference;
 import java.lang.reflect.Method;
 import java.util.Properties;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f {
-    private static SoftReference<Properties> okz;
+    private static SoftReference<Properties> ote;
 
     public static String get(@NonNull String str) {
-        Object obj = dWK().get(str);
+        Object obj = eag().get(str);
         if (obj == null) {
-            obj = Ti(str);
+            obj = TT(str);
         }
         return obj == null ? "" : String.valueOf(obj);
     }
 
-    private static String Ti(String str) {
+    private static String TT(String str) {
         try {
             Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
             declaredMethod.setAccessible(true);
@@ -30,12 +30,12 @@ public class f {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [56=4] */
-    private static synchronized Properties dWK() {
+    private static synchronized Properties eag() {
         Properties properties;
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2 = null;
         synchronized (f.class) {
-            properties = okz != null ? okz.get() : null;
+            properties = ote != null ? ote.get() : null;
             if (properties == null) {
                 properties = new Properties();
                 try {
@@ -50,7 +50,7 @@ public class f {
                     tv.chushou.a.a.d.a.b(fileInputStream);
                 } catch (Exception e2) {
                     tv.chushou.a.a.d.a.b(fileInputStream);
-                    okz = new SoftReference<>(properties);
+                    ote = new SoftReference<>(properties);
                     return properties;
                 } catch (Throwable th2) {
                     th = th2;
@@ -58,7 +58,7 @@ public class f {
                     tv.chushou.a.a.d.a.b(fileInputStream2);
                     throw th;
                 }
-                okz = new SoftReference<>(properties);
+                ote = new SoftReference<>(properties);
             }
         }
         return properties;

@@ -6,39 +6,39 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.data.PbLinkData;
 import com.baidu.tbadk.core.view.SingleLinkCardView;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class ae extends h {
-    private SingleLinkCardView afo;
+    private SingleLinkCardView aff;
 
     public ae(Context context) {
         super(context);
-        this.afo = new SingleLinkCardView(context);
+        this.aff = new SingleLinkCardView(context);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.afo;
+        return this.aff;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.n
     /* renamed from: b */
     public void D(AbsThreadDataSupport absThreadDataSupport) {
-        if (c(absThreadDataSupport) || absThreadDataSupport == null || absThreadDataSupport.aPS() == null || com.baidu.tbadk.core.util.w.isEmpty(absThreadDataSupport.aPS().aUx()) || com.baidu.tbadk.core.util.w.getCount(absThreadDataSupport.aPS().aUx()) != 1) {
-            this.afo.setVisibility(8);
+        if (c(absThreadDataSupport) || absThreadDataSupport == null || absThreadDataSupport.aTN() == null || com.baidu.tbadk.core.util.x.isEmpty(absThreadDataSupport.aTN().aYr()) || com.baidu.tbadk.core.util.x.getCount(absThreadDataSupport.aTN().aYr()) != 1) {
+            this.aff.setVisibility(8);
             return;
         }
-        this.afo.a((PbLinkData) com.baidu.tbadk.core.util.w.getItem(absThreadDataSupport.aPS().aUx(), 0));
-        this.afo.setVisibility(0);
+        this.aff.a((PbLinkData) com.baidu.tbadk.core.util.x.getItem(absThreadDataSupport.aTN().aYr(), 0));
+        this.aff.setVisibility(0);
     }
 
     @Override // com.baidu.card.o
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.afo.onChangeSkinType();
+        this.aff.onChangeSkinType();
     }
 
     private boolean c(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport == null || absThreadDataSupport.aPS() == null || absThreadDataSupport.aPS().aUw() == null || absThreadDataSupport.aPS().aUw().getOptions() == null || absThreadDataSupport.aPS().aUw().getOptions().size() <= 0) ? false : true;
+        return (absThreadDataSupport == null || absThreadDataSupport.aTN() == null || absThreadDataSupport.aTN().aYq() == null || absThreadDataSupport.aTN().aYq().getOptions() == null || absThreadDataSupport.aTN().aYq().getOptions().size() <= 0) ? false : true;
     }
 }

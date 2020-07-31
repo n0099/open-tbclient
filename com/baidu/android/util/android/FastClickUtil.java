@@ -1,5 +1,5 @@
 package com.baidu.android.util.android;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class FastClickUtil {
     private static final int SHOW_DIOLOG_GAP_TIME = 1300;
     public static long sLastShowDiologTime = 0;

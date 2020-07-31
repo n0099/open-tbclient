@@ -5,17 +5,18 @@ import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.engine.pixel.PixelType;
 import com.baidu.ar.c.j;
 import com.baidu.ar.c.l;
-/* loaded from: classes3.dex */
+import io.flutter.plugin.platform.PlatformPlugin;
+/* loaded from: classes11.dex */
 public class a extends j {
     private static final String TAG = a.class.getSimpleName();
     private int co = 720;
-    private int cp = 1280;
+    private int cp = PlatformPlugin.DEFAULT_SYSTEM_UI;
     private boolean cq = true;
-    private InterfaceC0072a cr = null;
+    private InterfaceC0073a cr = null;
 
     /* renamed from: com.baidu.ar.anime.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0072a {
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0073a {
         void b(FramePixels framePixels);
     }
 
@@ -25,8 +26,8 @@ public class a extends j {
         this.mm.setOutputHeight(this.cp);
     }
 
-    public void a(InterfaceC0072a interfaceC0072a) {
-        this.cr = interfaceC0072a;
+    public void a(InterfaceC0073a interfaceC0073a) {
+        this.cr = interfaceC0073a;
     }
 
     @Override // com.baidu.ar.c.j

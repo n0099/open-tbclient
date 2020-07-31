@@ -8,55 +8,55 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
 public final class a {
-    static final v nOB = io.reactivex.e.a.i(new h());
-    static final v nOC = io.reactivex.e.a.f(new b());
-    static final v nOD = io.reactivex.e.a.g(new c());
-    static final v nOE = k.dPS();
-    static final v nOF = io.reactivex.e.a.h(new f());
+    static final v nXk = io.reactivex.e.a.i(new h());
+    static final v nXl = io.reactivex.e.a.f(new b());
+    static final v nXm = io.reactivex.e.a.g(new c());
+    static final v nXn = k.dTo();
+    static final v nXo = io.reactivex.e.a.h(new f());
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: io.reactivex.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C0888a {
-        static final v nJu = new io.reactivex.internal.schedulers.a();
+    public static final class C0903a {
+        static final v nSc = new io.reactivex.internal.schedulers.a();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static final class d {
-        static final v nJu = new io.reactivex.internal.schedulers.d();
+        static final v nSc = new io.reactivex.internal.schedulers.d();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static final class e {
-        static final v nJu = new io.reactivex.internal.schedulers.e();
+        static final v nSc = new io.reactivex.internal.schedulers.e();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static final class g {
-        static final v nJu = new j();
+        static final v nSc = new j();
     }
 
-    public static v dQa() {
-        return io.reactivex.e.a.f(nOC);
+    public static v dTw() {
+        return io.reactivex.e.a.f(nXl);
     }
 
-    public static v dQb() {
-        return io.reactivex.e.a.g(nOD);
+    public static v dTx() {
+        return io.reactivex.e.a.g(nXm);
     }
 
-    public static v dQc() {
-        return nOE;
+    public static v dTy() {
+        return nXn;
     }
 
-    public static v dQd() {
-        return io.reactivex.e.a.h(nOF);
+    public static v dTz() {
+        return io.reactivex.e.a.h(nXo);
     }
 
-    public static v dQe() {
-        return io.reactivex.e.a.i(nOB);
+    public static v dTA() {
+        return io.reactivex.e.a.i(nXk);
     }
 
     public static v a(Executor executor) {
@@ -70,9 +70,9 @@ public final class a {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: dPx */
+        /* renamed from: dST */
         public v call() throws Exception {
-            return d.nJu;
+            return d.nSc;
         }
     }
 
@@ -83,9 +83,9 @@ public final class a {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: dPx */
+        /* renamed from: dST */
         public v call() throws Exception {
-            return e.nJu;
+            return e.nSc;
         }
     }
 
@@ -96,9 +96,9 @@ public final class a {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: dPx */
+        /* renamed from: dST */
         public v call() throws Exception {
-            return g.nJu;
+            return g.nSc;
         }
     }
 
@@ -109,9 +109,9 @@ public final class a {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: dPx */
+        /* renamed from: dST */
         public v call() throws Exception {
-            return C0888a.nJu;
+            return C0903a.nSc;
         }
     }
 }

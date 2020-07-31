@@ -1,90 +1,45 @@
 package com.baidu.swan.apps.aq;
 
+import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.util.io.DocumentOpenUtil;
-/* loaded from: classes11.dex */
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.xiaomi.mipush.sdk.Constants;
+/* loaded from: classes7.dex */
 public class l {
-    public static boolean getSupportMimeType(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
+    private static String alh;
+
+    public static String awA() {
+        if (TextUtils.isEmpty(alh)) {
+            synchronized (l.class) {
+                alh = awB();
+            }
         }
-        return TextUtils.equals(DocumentOpenUtil.PDF_TYPE, str) || TextUtils.equals(DocumentOpenUtil.DOCUMENT_TYPE, str) || TextUtils.equals(DocumentOpenUtil.SHEET_TYPE, str) || TextUtils.equals(DocumentOpenUtil.PRESENT_TYPE, str) || TextUtils.equals(DocumentOpenUtil.WORD_TYPE, str) || TextUtils.equals(DocumentOpenUtil.EXCEL_TYPE, str) || TextUtils.equals(DocumentOpenUtil.PPT_TYPE, str);
+        return alh;
     }
 
-    public static String guessSupportMimeTypeFromExt(String str) {
+    private static String awB() {
+        String replace;
+        String replace2;
+        String replace3;
+        String str = Build.MODEL;
         if (TextUtils.isEmpty(str)) {
-            return "";
+            replace = "NUL";
+        } else {
+            replace = str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
         }
-        String str2 = "";
-        String lowerCase = str.toLowerCase();
-        char c = 65535;
-        switch (lowerCase.hashCode()) {
-            case 99640:
-                if (lowerCase.equals(DocumentOpenUtil.DOC)) {
-                    c = 1;
-                    break;
-                }
-                break;
-            case 110834:
-                if (lowerCase.equals(DocumentOpenUtil.PDF)) {
-                    c = 0;
-                    break;
-                }
-                break;
-            case 111220:
-                if (lowerCase.equals(DocumentOpenUtil.PPT)) {
-                    c = 5;
-                    break;
-                }
-                break;
-            case 118783:
-                if (lowerCase.equals(DocumentOpenUtil.XLS)) {
-                    c = 3;
-                    break;
-                }
-                break;
-            case 3088960:
-                if (lowerCase.equals(DocumentOpenUtil.DOCX)) {
-                    c = 2;
-                    break;
-                }
-                break;
-            case 3447940:
-                if (lowerCase.equals(DocumentOpenUtil.PPTX)) {
-                    c = 6;
-                    break;
-                }
-                break;
-            case 3682393:
-                if (lowerCase.equals(DocumentOpenUtil.XLSX)) {
-                    c = 4;
-                    break;
-                }
-                break;
+        String str2 = Build.VERSION.RELEASE;
+        if (TextUtils.isEmpty(str2)) {
+            replace2 = "0.0";
+        } else {
+            replace2 = str2.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
         }
-        switch (c) {
-            case 0:
-                str2 = DocumentOpenUtil.PDF_TYPE;
-                break;
-            case 1:
-                str2 = DocumentOpenUtil.WORD_TYPE;
-                break;
-            case 2:
-                str2 = DocumentOpenUtil.DOCUMENT_TYPE;
-                break;
-            case 3:
-                str2 = DocumentOpenUtil.EXCEL_TYPE;
-                break;
-            case 4:
-                str2 = DocumentOpenUtil.SHEET_TYPE;
-                break;
-            case 5:
-                str2 = DocumentOpenUtil.PPT_TYPE;
-                break;
-            case 6:
-                str2 = DocumentOpenUtil.PRESENT_TYPE;
-                break;
+        int i = Build.VERSION.SDK_INT;
+        String str3 = Build.MANUFACTURER;
+        if (TextUtils.isEmpty(str3)) {
+            replace3 = "NUL";
+        } else {
+            replace3 = str3.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
         }
-        return !getSupportMimeType(str2) ? "" : str2;
+        return replace + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + replace2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + replace3;
     }
 }

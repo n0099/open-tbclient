@@ -2,7 +2,7 @@ package com.baidu.tieba.easterEgg;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class RnSyncResponseMessage extends JsonHttpResponsedMessage {
     private com.baidu.tieba.easterEgg.a.a mData;
 
@@ -14,7 +14,7 @@ public class RnSyncResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null && isSuccess()) {
             this.mData = new com.baidu.tieba.easterEgg.a.a();
-            this.mData.dh(jSONObject);
+            this.mData.m34do(jSONObject);
         }
     }
 

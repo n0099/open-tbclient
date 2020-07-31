@@ -2,25 +2,25 @@ package com.baidu.tieba.signall;
 
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.af;
+import com.baidu.tbadk.core.util.ag;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
-public class d implements af {
+/* loaded from: classes18.dex */
+public class d implements ag {
     private String avatar;
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int ftU;
+    private int fzb;
     private boolean isSigned;
-    private int lwH;
-    private int lwI;
-    private int lwJ;
-    private int lwK;
-    private boolean lwL;
-    private boolean lwM;
-    private boolean lwN;
-    private int lwO;
+    private int lDY;
+    private int lDZ;
+    private int lEa;
+    private int lEb;
+    private boolean lEc;
+    private boolean lEd;
+    private boolean lEe;
+    private int lEf;
 
     public int getForumId() {
         return this.forumId;
@@ -34,82 +34,82 @@ public class d implements af {
         return this.avatar;
     }
 
-    public int dfp() {
-        return this.lwH;
+    public int diy() {
+        return this.lDY;
     }
 
-    public int dfq() {
-        return this.ftU;
+    public int diz() {
+        return this.fzb;
     }
 
-    public int dfr() {
-        return this.lwI;
+    public int diA() {
+        return this.lDZ;
     }
 
-    public int dfs() {
-        return this.lwJ;
+    public int diB() {
+        return this.lEa;
     }
 
-    public int dft() {
-        return this.lwK;
+    public int diC() {
+        return this.lEb;
     }
 
-    public void EA(int i) {
-        this.lwH = i;
+    public void EW(int i) {
+        this.lDY = i;
     }
 
-    public void EB(int i) {
-        this.ftU = i;
+    public void EX(int i) {
+        this.fzb = i;
     }
 
-    public void EC(int i) {
-        this.lwI = i;
+    public void EY(int i) {
+        this.lDZ = i;
     }
 
-    public boolean buy() {
+    public boolean bxH() {
         return this.isSigned;
     }
 
-    public void ut(boolean z) {
+    public void uX(boolean z) {
         this.isSigned = z;
-        this.lwH = 1;
+        this.lDY = 1;
     }
 
-    public boolean dfu() {
-        return this.lwM;
+    public boolean diD() {
+        return this.lEd;
     }
 
-    public void uu(boolean z) {
-        this.lwM = z;
-        this.lwH = 0;
+    public void uY(boolean z) {
+        this.lEd = z;
+        this.lDY = 0;
     }
 
-    public boolean dfv() {
-        return this.lwN;
+    public boolean diE() {
+        return this.lEe;
     }
 
-    public void uv(boolean z) {
-        this.lwN = z;
+    public void uZ(boolean z) {
+        this.lEe = z;
     }
 
-    public int dfw() {
-        return this.lwO;
+    public int diF() {
+        return this.lEf;
     }
 
-    public void ED(int i) {
-        this.lwO = i;
+    public void EZ(int i) {
+        this.lEf = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean dfx() {
-        return this.lwL;
+    public boolean diG() {
+        return this.lEc;
     }
 
-    public void uw(boolean z) {
-        this.lwL = z;
+    public void va(boolean z) {
+        this.lEc = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -117,19 +117,19 @@ public class d implements af {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.lwH = jSONObject.optInt("is_sign_in");
-            this.ftU = jSONObject.optInt("cont_sign_num");
-            this.lwI = jSONObject.optInt("user_level");
-            this.lwJ = jSONObject.optInt("user_exp");
-            this.lwK = jSONObject.optInt("need_exp");
-            if (this.lwH != 0) {
+            this.lDY = jSONObject.optInt("is_sign_in");
+            this.fzb = jSONObject.optInt("cont_sign_num");
+            this.lDZ = jSONObject.optInt("user_level");
+            this.lEa = jSONObject.optInt("user_exp");
+            this.lEb = jSONObject.optInt("need_exp");
+            if (this.lDY != 0) {
                 this.isSigned = true;
-                this.lwM = false;
+                this.lEd = false;
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.af
+    @Override // com.baidu.tbadk.core.util.ag
     public ArrayList<PreLoadImageInfo> getImages() {
         ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
         PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();

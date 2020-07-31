@@ -8,13 +8,13 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> nQD;
-    private final kotlin.jvm.a.b<T, T> nQE;
+    private final kotlin.jvm.a.a<T> nZm;
+    private final kotlin.jvm.a.b<T, T> nZn;
 
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class a implements Iterator<T> {
-        private int nQB = -2;
+        private int nZk = -2;
         private T nextItem;
 
         @Override // java.util.Iterator
@@ -26,44 +26,44 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void dRd() {
+        private final void dUz() {
             T t;
-            if (this.nQB == -2) {
-                t = (T) b.this.nQD.invoke();
+            if (this.nZk == -2) {
+                t = (T) b.this.nZm.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.nQE;
+                kotlin.jvm.a.b bVar = b.this.nZn;
                 T t2 = this.nextItem;
                 if (t2 == null) {
-                    q.dQK();
+                    q.dUg();
                 }
                 t = (T) bVar.invoke(t2);
             }
             this.nextItem = t;
-            this.nQB = this.nextItem == null ? 0 : 1;
+            this.nZk = this.nextItem == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.nQB < 0) {
-                dRd();
+            if (this.nZk < 0) {
+                dUz();
             }
-            if (this.nQB == 0) {
+            if (this.nZk == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.nextItem;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.nQB = -1;
+            this.nZk = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.nQB < 0) {
-                dRd();
+            if (this.nZk < 0) {
+                dUz();
             }
-            return this.nQB == 1;
+            return this.nZk == 1;
         }
     }
 
@@ -73,8 +73,8 @@ public final class b<T> implements c<T> {
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
         q.m(aVar, "getInitialValue");
         q.m(bVar, "getNextValue");
-        this.nQD = aVar;
-        this.nQE = bVar;
+        this.nZm = aVar;
+        this.nZn = bVar;
     }
 
     @Override // kotlin.sequences.c

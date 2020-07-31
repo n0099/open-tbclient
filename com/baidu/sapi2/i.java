@@ -6,7 +6,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.ETAG;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class i extends WebAuthListener {
     final /* synthetic */ List a;
     final /* synthetic */ String b;

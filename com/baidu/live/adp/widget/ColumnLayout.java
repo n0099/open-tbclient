@@ -11,7 +11,7 @@ import com.baidu.live.adp.R;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ColumnLayout extends ViewGroup {
     private static final int COLUMN_NUMBER = 3;
     private static final boolean DEBUG = false;
@@ -376,7 +376,7 @@ public class ColumnLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends FrameLayout.LayoutParams {
         public static final int DEFAULT_COLUMN = 1;
         public static final int DEFAULT_GRAVITY = 51;

@@ -436,7 +436,7 @@ public class d {
         throw new SocketException();
     }
 
-    public static String bJ(String str) {
+    public static String bH(String str) {
         if (k.isEmpty(str)) {
             return "";
         }

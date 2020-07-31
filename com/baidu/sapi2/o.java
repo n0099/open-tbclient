@@ -5,7 +5,7 @@ import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.sapi2.callback.ExtendSysWebViewMethodCallback;
 import com.baidu.sapi2.result.ExtendSysWebViewMethodResult;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class o extends PassFaceRecogCallback {
     final /* synthetic */ ExtendSysWebViewMethodResult a;
     final /* synthetic */ ExtendSysWebViewMethodCallback b;

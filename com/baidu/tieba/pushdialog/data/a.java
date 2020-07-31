@@ -3,38 +3,38 @@ package com.baidu.tieba.pushdialog.data;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
 import tbclient.GetLockWindowMsg.DataRes;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class a {
     private String dialogTitle;
-    private String lbc;
-    private b lbd;
-    private MetaData lbe;
+    private String lir;
+    private b lis;
+    private MetaData lit;
 
-    public String cXP() {
+    public String daW() {
         return this.dialogTitle;
     }
 
-    public String cXQ() {
-        return this.lbc;
+    public String daX() {
+        return this.lir;
     }
 
-    public b cXR() {
-        return this.lbd;
+    public b daY() {
+        return this.lis;
     }
 
-    public MetaData cXS() {
-        return this.lbe;
+    public MetaData daZ() {
+        return this.lit;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             this.dialogTitle = dataRes.publish_user;
-            this.lbc = dataRes.publish_pic;
-            this.lbe = new MetaData();
-            this.lbe.parserProtobuf(dataRes.author);
-            this.lbe.setPendantData(null);
-            this.lbd = new b();
-            this.lbd.a(TbadkCoreApplication.getInst(), dataRes.thread_info);
+            this.lir = dataRes.publish_pic;
+            this.lit = new MetaData();
+            this.lit.parserProtobuf(dataRes.author);
+            this.lit.setPendantData(null);
+            this.lis = new b();
+            this.lis.a(TbadkCoreApplication.getInst(), dataRes.thread_info);
         }
     }
 }

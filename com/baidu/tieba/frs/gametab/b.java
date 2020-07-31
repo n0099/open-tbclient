@@ -12,27 +12,32 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.f.a;
 /* loaded from: classes.dex */
 public class b {
-    private boolean eEA = false;
-    private a.InterfaceC0614a gZb = new a.InterfaceC0614a() { // from class: com.baidu.tieba.frs.gametab.b.1
-        @Override // com.baidu.tieba.f.a.InterfaceC0614a
+    private com.baidu.tieba.f.b hKk;
+    private boolean hXE;
+    private Context mContext;
+    private BdUniqueId mPageId;
+    private VelocityTracker mVelocityTracker;
+    private boolean eKW = false;
+    private a.InterfaceC0623a heG = new a.InterfaceC0623a() { // from class: com.baidu.tieba.frs.gametab.b.1
+        @Override // com.baidu.tieba.f.a.InterfaceC0623a
         public void D(int i, int i2) {
             if (af(i2)) {
-                b.this.nq(true);
+                b.this.nV(true);
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0614a
+        @Override // com.baidu.tieba.f.a.InterfaceC0623a
         public void E(int i, int i2) {
             if (af(i2)) {
-                b.this.nq(false);
+                b.this.nV(false);
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0614a
-        public void bO(int i, int i2) {
+        @Override // com.baidu.tieba.f.a.InterfaceC0623a
+        public void bR(int i, int i2) {
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0614a
+        @Override // com.baidu.tieba.f.a.InterfaceC0623a
         public void F(int i, int i2) {
         }
 
@@ -40,19 +45,14 @@ public class b {
             return Math.abs(f) >= 10.0f;
         }
     };
-    private com.baidu.tieba.f.b hEm;
-    private boolean hRF;
-    private Context mContext;
-    private BdUniqueId mPageId;
-    private VelocityTracker mVelocityTracker;
 
     public b(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.hRF = z;
-        if (this.hRF) {
-            this.hEm = new com.baidu.tieba.f.b(context);
-            this.hEm.a(this.gZb);
+        this.hXE = z;
+        if (this.hXE) {
+            this.hKk = new com.baidu.tieba.f.b(context);
+            this.hKk.a(this.heG);
         }
     }
 
@@ -69,15 +69,15 @@ public class b {
             case 2:
                 this.mVelocityTracker.computeCurrentVelocity(1000);
                 if (Math.abs(this.mVelocityTracker.getXVelocity()) > Math.abs(this.mVelocityTracker.getYVelocity())) {
-                    this.hRF = false;
+                    this.hXE = false;
                     break;
                 } else {
-                    this.hRF = true;
+                    this.hXE = true;
                     break;
                 }
         }
-        if (this.hRF && this.hEm != null) {
-            this.hEm.onTouchEvent(motionEvent);
+        if (this.hXE && this.hKk != null) {
+            this.hKk.onTouchEvent(motionEvent);
         }
     }
 
@@ -90,14 +90,14 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nq(boolean z) {
-        this.eEA = z;
-        if (this.hRF) {
-            D(!this.eEA, true);
+    public void nV(boolean z) {
+        this.eKW = z;
+        if (this.hXE) {
+            E(!this.eKW, true);
         }
     }
 
-    private void D(boolean z, boolean z2) {
+    private void E(boolean z, boolean z2) {
         if (z) {
             CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_GAME_FRS_SHOW_TAB);
             customMessage.setTag(this.mPageId);

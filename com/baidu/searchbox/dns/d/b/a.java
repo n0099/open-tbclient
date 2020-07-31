@@ -1,7 +1,7 @@
 package com.baidu.searchbox.dns.d.b;
 
 import android.os.Process;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public abstract class a implements Runnable {
     protected final String mName = "searchbox task: " + n();
     protected final b Y = d.N();

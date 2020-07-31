@@ -17,13 +17,13 @@ import tv.chushou.widget.ninepatch.BitmapType;
 import tv.chushou.zues.toolkit.a.a.a;
 import tv.chushou.zues.utils.e;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static final tv.chushou.zues.toolkit.b.a nuf = tv.chushou.zues.toolkit.b.a.okv;
-    private static a nui;
+    private static final tv.chushou.zues.toolkit.b.a nCP = tv.chushou.zues.toolkit.b.a.ota;
+    private static a nCS;
     private final Object d = new Object();
     private Map<View, String> e = Collections.synchronizedMap(new WeakHashMap());
-    private final tv.chushou.zues.toolkit.a.b.a<Drawable> nug = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: com.kascend.chushou.toolkit.b.a.1
+    private final tv.chushou.zues.toolkit.a.b.a<Drawable> nCQ = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: com.kascend.chushou.toolkit.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // tv.chushou.zues.toolkit.a.b.b
         /* renamed from: a */
@@ -31,26 +31,26 @@ public class a {
             return 1;
         }
     });
-    private tv.chushou.zues.toolkit.a.a.a nuh;
+    private tv.chushou.zues.toolkit.a.a.a nCR;
 
-    public static a dKS() {
-        if (nui == null) {
+    public static a dOn() {
+        if (nCS == null) {
             synchronized (a.class) {
-                if (nui == null) {
-                    nui = new a();
+                if (nCS == null) {
+                    nCS = new a();
                 }
             }
         }
-        return nui;
+        return nCS;
     }
 
     public static void b() {
     }
 
     private a() {
-        this.nuh = null;
+        this.nCR = null;
         try {
-            this.nuh = tv.chushou.zues.toolkit.a.a.a.b(com.kascend.chushou.d.c.neT.e(), 1, 1, 10485760L);
+            this.nCR = tv.chushou.zues.toolkit.a.a.a.b(com.kascend.chushou.d.c.nnC.e(), 1, 1, 10485760L);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -64,8 +64,8 @@ public class a {
             }
             this.e.put(view, str);
             Drawable drawable = null;
-            if (this.nug != null) {
-                drawable = this.nug.get(str);
+            if (this.nCQ != null) {
+                drawable = this.nCQ.get(str);
             }
             if (drawable != null) {
                 view.setBackgroundDrawable(drawable.getConstantState().newDrawable());
@@ -77,7 +77,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c {
         String a;
         View b;
@@ -95,47 +95,47 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
-        c nun;
+        c nCW;
 
         b(c cVar) {
-            this.nun = cVar;
+            this.nCW = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Drawable Rq;
-            if (!a.this.a(this.nun) && !h.isEmpty(this.nun.a) && (Rq = a.this.Rq(this.nun.a)) != null) {
-                a.this.nug.put(this.nun.a, Rq);
-                if (!a.this.a(this.nun)) {
-                    ((Activity) this.nun.b.getContext()).runOnUiThread(new RunnableC0835a(Rq, this.nun));
+            Drawable Sb;
+            if (!a.this.a(this.nCW) && !h.isEmpty(this.nCW.a) && (Sb = a.this.Sb(this.nCW.a)) != null) {
+                a.this.nCQ.put(this.nCW.a, Sb);
+                if (!a.this.a(this.nCW)) {
+                    ((Activity) this.nCW.b.getContext()).runOnUiThread(new RunnableC0844a(Sb, this.nCW));
                 }
             }
         }
     }
 
     /* renamed from: com.kascend.chushou.toolkit.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    class RunnableC0835a implements Runnable {
+    /* loaded from: classes6.dex */
+    class RunnableC0844a implements Runnable {
         Drawable a;
-        c nuk;
+        c nCU;
 
-        RunnableC0835a(Drawable drawable, c cVar) {
+        RunnableC0844a(Drawable drawable, c cVar) {
             this.a = drawable;
-            this.nuk = cVar;
+            this.nCU = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!a.this.a(this.nuk)) {
-                this.nuk.b.setBackgroundDrawable(this.a);
+            if (!a.this.a(this.nCU)) {
+                this.nCU.b.setBackgroundDrawable(this.a);
             }
         }
     }
 
     private void b(String str, View view) {
-        tv.chushou.a.a.b.a.dWt().O(new b(new c(str, view)));
+        tv.chushou.a.a.b.a.dZP().N(new b(new c(str, view)));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [195=5, 197=4, 198=4, 199=4] */
@@ -143,16 +143,16 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private Drawable Rp(String str) {
+    private Drawable Sa(String str) {
         InputStream inputStream;
         Throwable th;
         InputStream inputStream2 = null;
-        if (this.nuh == null) {
+        if (this.nCR == null) {
             return null;
         }
         try {
-            a.c Tc = this.nuh.Tc(str);
-            if (Tc == null) {
+            a.c TN = this.nCR.TN(str);
+            if (TN == null) {
                 if (0 != 0) {
                     try {
                         inputStream2.close();
@@ -164,7 +164,7 @@ public class a {
                 }
                 return null;
             }
-            inputStream = Tc.LF(0);
+            inputStream = TN.LZ(0);
             try {
                 try {
                     BitmapFactory.Options options = new BitmapFactory.Options();
@@ -223,34 +223,34 @@ public class a {
     /* JADX WARN: Type inference failed for: r1v10 */
     /* JADX WARN: Type inference failed for: r1v4 */
     /* JADX WARN: Type inference failed for: r1v7 */
-    public Drawable Rq(String str) {
-        Drawable Rp;
-        a.C0937a Td;
+    public Drawable Sb(String str) {
+        Drawable Sa;
+        a.C0952a TO;
         Drawable drawable = null;
-        if (this.nuh != null) {
-            ?? r1 = nuf;
-            String Te = r1.Te(str);
+        if (this.nCR != null) {
+            ?? r1 = nCP;
+            String TP = r1.TP(str);
             try {
                 try {
                     synchronized (this.d) {
                         try {
-                            Rp = Rp(Te);
+                            Sa = Sa(TP);
                         } catch (Throwable th) {
                             r1 = 0;
                             th = th;
                         }
                         try {
-                            if (Rp == null && (Td = this.nuh.Td(Te)) != null) {
-                                OutputStream LC = Td.LC(0);
-                                Http http = (Http) tv.chushou.basis.d.b.dWk().S(Http.class);
+                            if (Sa == null && (TO = this.nCR.TO(TP)) != null) {
+                                OutputStream LW = TO.LW(0);
+                                Http http = (Http) tv.chushou.basis.d.b.dZG().S(Http.class);
                                 if (http == null) {
-                                    Td.abort();
-                                    drawable = Rp;
-                                } else if (http.downloadSync(str, LC)) {
-                                    Td.commit();
-                                    drawable = Rp(Te);
+                                    TO.abort();
+                                    drawable = Sa;
+                                } else if (http.downloadSync(str, LW)) {
+                                    TO.commit();
+                                    drawable = Sa(TP);
                                 } else {
-                                    Td.abort();
+                                    TO.abort();
                                 }
                             }
                         } catch (Throwable th2) {
@@ -265,7 +265,7 @@ public class a {
                                 return drawable;
                             }
                         }
-                        drawable = Rp;
+                        drawable = Sa;
                     }
                 } catch (Throwable th3) {
                     th = th3;

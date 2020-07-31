@@ -1,12 +1,12 @@
 package com.baidu.tieba.square.data;
 
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Page;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class c {
     public String className;
     private List<RecommendForumInfo> forumList;
@@ -14,8 +14,8 @@ public class c {
     private List<q> dataList = new ArrayList();
     public boolean hasMore = true;
     public int pn = 0;
-    public int lyZ = 0;
-    public int dZy = 0;
+    public int lGp = 0;
+    public int scrollOffset = 0;
 
     public List<q> getDataList() {
         return this.dataList;
@@ -25,7 +25,7 @@ public class c {
         this.className = dVar.className;
         this.page = dVar.page;
         this.forumList = dVar.forumList;
-        if (!w.isEmpty(this.forumList)) {
+        if (!x.isEmpty(this.forumList)) {
             for (RecommendForumInfo recommendForumInfo : this.forumList) {
                 b bVar = new b();
                 bVar.c(recommendForumInfo);

@@ -4,7 +4,7 @@ import com.baidu.ar.npc.ArBridge;
 import java.util.Iterator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class s implements Runnable {
     final /* synthetic */ ArBridge.d a;
     final /* synthetic */ ArBridge b;

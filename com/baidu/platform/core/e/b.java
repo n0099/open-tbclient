@@ -4,7 +4,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapapi.search.share.LocationShareURLOption;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.platform.base.e {
     public b(LocationShareURLOption locationShareURLOption) {
         a(locationShareURLOption);

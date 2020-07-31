@@ -8,7 +8,7 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import com.baidu.cyberplayer.sdk.i;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class h extends TextureView implements i {
     private a a;
     private SurfaceTexture b;
@@ -17,7 +17,7 @@ public class h extends TextureView implements i {
     private f e;
     private boolean f;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     private class a implements TextureView.SurfaceTextureListener {
         public a() {
         }
@@ -72,7 +72,10 @@ public class h extends TextureView implements i {
     }
 
     private void a(int i) {
-        int d = (this.e.d() + 180) % 360;
+        int d = this.e.d();
+        if (d > 0) {
+            d = 360 - d;
+        }
         CyberLog.i("CyberTextureView", "updateRotation rotate:" + i + " drawFrameRotation:" + d);
         setRotation(d);
         requestLayout();
@@ -115,6 +118,7 @@ public class h extends TextureView implements i {
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void c() {
+        setRotation(0.0f);
         this.e.a();
     }
 

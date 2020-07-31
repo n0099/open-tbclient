@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.data;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.ThreadPublish.ThreadPublishResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class ThreadPublishSocketResMessage extends TbSocketReponsedMessage {
     public ThreadPublishSocketResMessage() {
         super(309644);

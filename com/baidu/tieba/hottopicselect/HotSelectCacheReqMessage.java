@@ -2,7 +2,7 @@ package com.baidu.tieba.hottopicselect;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class HotSelectCacheReqMessage extends CustomMessage<Object> {
     public HotSelectCacheReqMessage(int i) {
         super(i);

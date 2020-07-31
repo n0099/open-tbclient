@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryUserInfos.DataReq;
 import protobuf.QueryUserInfos.QueryUserInfosReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class RequestQueryUserInfoMessage extends TbSocketMessage {
     DataReq.Builder dataBuilder;
 

@@ -3,12 +3,12 @@ package com.baidu.tieba.frs.c;
 import android.view.View;
 import com.baidu.adp.widget.ListView.ad;
 import com.baidu.tieba.lego.card.view.e;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class b extends ad.a {
-    e<?> hTt;
+    e<?> hZs;
 
     public b(e<?> eVar) {
         super((View) eVar);
-        this.hTt = eVar;
+        this.hZs = eVar;
     }
 }

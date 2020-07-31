@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.statistic;
 
 import android.util.Log;
-import com.baidu.swan.apps.aq.n;
-/* loaded from: classes11.dex */
+import com.baidu.swan.apps.aq.p;
+/* loaded from: classes7.dex */
 public final class d {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -21,8 +21,8 @@ public final class d {
         eVar.mSource = fVar.mSource;
         eVar.mType = fVar.mType;
         eVar.mValue = fVar.mValue;
-        eVar.bA(fVar.asy());
-        n.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.statistic.d.1
+        eVar.bF(fVar.auz());
+        p.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.statistic.d.1
             @Override // java.lang.Runnable
             public void run() {
                 b.onEvent("934", com.baidu.swan.apps.statistic.a.e.this.toJSONObject());

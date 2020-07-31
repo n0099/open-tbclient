@@ -10,7 +10,7 @@ import javax.annotation.Nullable;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 import okhttp3.internal.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public final class Handshake {
     private final CipherSuite cipherSuite;
     private final List<Certificate> localCertificates;

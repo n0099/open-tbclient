@@ -7,8 +7,8 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.swan.apps.aq.x;
-/* loaded from: classes11.dex */
+import com.baidu.swan.apps.aq.y;
+/* loaded from: classes7.dex */
 public class BdBaseImageView extends ImageView {
     private int mColorFilter;
     private boolean mFlagShouldDecorate;
@@ -40,8 +40,8 @@ public class BdBaseImageView extends ImageView {
     @Override // android.view.View
     public void draw(Canvas canvas) {
         if (shouldDecorate()) {
-            x.decorateSrcATopMode(getContext(), getDrawable());
-            this.mColorFilter = x.getUiCoverLayerColor(getContext());
+            y.decorateSrcATopMode(getContext(), getDrawable());
+            this.mColorFilter = y.getUiCoverLayerColor(getContext());
             this.mFlagShouldDecorate = false;
         }
         super.draw(canvas);
@@ -50,17 +50,17 @@ public class BdBaseImageView extends ImageView {
     @Override // android.widget.ImageView
     public void setImageAlpha(int i) {
         if (hasDecorateColorFilter()) {
-            x.decorateSrcATopMode(getContext(), getDrawable(), i);
+            y.decorateSrcATopMode(getContext(), getDrawable(), i);
         } else {
             super.setImageAlpha(i);
         }
     }
 
     private boolean shouldDecorate() {
-        return this.mFlagShouldDecorate || this.mColorFilter != x.getUiCoverLayerColor(getContext());
+        return this.mFlagShouldDecorate || this.mColorFilter != y.getUiCoverLayerColor(getContext());
     }
 
     private boolean hasDecorateColorFilter() {
-        return Color.alpha(x.getUiCoverLayerColor(getContext())) != 0;
+        return Color.alpha(y.getUiCoverLayerColor(getContext())) != 0;
     }
 }

@@ -17,7 +17,7 @@ public class b extends j {
             return null;
         }
         if (socketResponsedMessage.getError() == 2260104) {
-            n.biM();
+            n.bmF();
             return socketResponsedMessage;
         }
         return socketResponsedMessage;

@@ -1,24 +1,24 @@
 package com.google.gson.internal;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class d {
-    private static final int nar = dHE();
+    private static final int njb = dKZ();
 
-    private static int dHE() {
-        return QZ(System.getProperty("java.version"));
+    private static int dKZ() {
+        return RL(System.getProperty("java.version"));
     }
 
-    static int QZ(String str) {
-        int Ra = Ra(str);
-        if (Ra == -1) {
-            Ra = Rb(str);
+    static int RL(String str) {
+        int RM = RM(str);
+        if (RM == -1) {
+            RM = RN(str);
         }
-        if (Ra == -1) {
+        if (RM == -1) {
             return 6;
         }
-        return Ra;
+        return RM;
     }
 
-    private static int Ra(String str) {
+    private static int RM(String str) {
         try {
             String[] split = str.split("[._]");
             int parseInt = Integer.parseInt(split[0]);
@@ -31,7 +31,7 @@ public final class d {
         }
     }
 
-    private static int Rb(String str) {
+    private static int RN(String str) {
         try {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < str.length(); i++) {
@@ -47,11 +47,11 @@ public final class d {
         }
     }
 
-    public static int dHF() {
-        return nar;
+    public static int dLa() {
+        return njb;
     }
 
-    public static boolean dHG() {
-        return nar >= 9;
+    public static boolean dLb() {
+        return njb >= 9;
     }
 }

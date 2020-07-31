@@ -3,6 +3,7 @@ package com.baidu.network_service_plugin;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.network_service_plugin.FlutterNetModelAuto;
 import com.baidu.tbadk.TbConfig;
@@ -12,12 +13,14 @@ import com.baidu.tbadk.core.message.ResponseGetLivableForumList;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.baidu.tbadk.mvc.b.h;
+import com.baidu.tbadk.newFriends.RequestDeleteFriendMessage;
+import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
 import com.baidu.tieba.im.message.RequestGetLivableForumList;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c {
     private static HashMap<String, Integer> platformImageNameMap = new HashMap<>();
 
@@ -35,7 +38,7 @@ public class c {
         platformImageNameMap.put(TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS, 1002002);
     }
 
-    public static int gy(String str) {
+    public static int gx(String str) {
         if (platformImageNameMap.containsKey(str)) {
             return platformImageNameMap.get(str).intValue();
         }
@@ -60,6 +63,10 @@ public class c {
             requestGetLivableForumList.setPageSize(Integer.valueOf((String) hashMap.get("page_size")).intValue());
             requestGetLivableForumList.setUserId(Long.valueOf((String) hashMap.get("uid")).longValue());
             return requestGetLivableForumList;
+        } else if (i == 304102) {
+            RequestDeleteFriendMessage requestDeleteFriendMessage = new RequestDeleteFriendMessage();
+            requestDeleteFriendMessage.setFriendId(Long.valueOf((String) hashMap.get("uid")).longValue());
+            return requestDeleteFriendMessage;
         } else {
             return null;
         }
@@ -83,52 +90,93 @@ public class c {
             FlutterNetModelAuto flutterNetModelAuto2 = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
             flutterNetModelAuto2.a(e(i, hashMap));
             flutterNetModelAuto2.setNeedCompress(false);
-            flutterNetModelAuto2.cV(true);
+            flutterNetModelAuto2.cX(true);
             flutterNetModelAuto2.dQ(i);
             flutterNetModelAuto2.p(RequestGetLivableForumList.class);
             flutterNetModelAuto2.setResponseDataClass(ResponseGetLivableForumList.class);
             return flutterNetModelAuto2;
+        } else if (i == 304102) {
+            FlutterNetModelAuto flutterNetModelAuto3 = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
+            flutterNetModelAuto3.a(e(i, hashMap));
+            flutterNetModelAuto3.setNeedCompress(false);
+            flutterNetModelAuto3.cX(true);
+            flutterNetModelAuto3.dQ(i);
+            flutterNetModelAuto3.p(RequestDeleteFriendMessage.class);
+            flutterNetModelAuto3.setResponseDataClass(ResponseDeleteFriendMessage.class);
+            return flutterNetModelAuto3;
         } else {
             return null;
         }
     }
 
     public static Object d(SocketResponsedMessage socketResponsedMessage) {
+        String str;
         int cmd = socketResponsedMessage.getCmd();
         if (cmd == 104102) {
-            return ((socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && ((ResponseUpdateMaskInfoMessage) socketResponsedMessage).getError() == 0) ? "success" : null;
-        } else if (cmd == 107129 && (socketResponsedMessage instanceof ResponseGetLivableForumList)) {
-            ResponseGetLivableForumList responseGetLivableForumList = (ResponseGetLivableForumList) socketResponsedMessage;
-            if (responseGetLivableForumList.getError() == 0) {
+            if (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) {
+                ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage;
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("has_more", responseGetLivableForumList.hasMore() ? 1 : 0);
                     JSONObject jSONObject2 = new JSONObject();
-                    JSONArray jSONArray = new JSONArray();
-                    ArrayList<ForumData> data = responseGetLivableForumList.getData();
-                    for (int i = 0; i < data.size(); i++) {
-                        ForumData forumData = data.get(i);
-                        JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put("id", forumData.getId());
-                        jSONObject3.put("name", forumData.getName());
-                        jSONObject3.put("favo_type", forumData.getFavo_type());
-                        jSONObject3.put("level_id", forumData.getUser_level());
-                        jSONObject3.put("level_name", forumData.getLevelName());
-                        jSONObject3.put("cur_score", forumData.getCurScore());
-                        jSONObject3.put("levelup_score", forumData.getLevelupScore());
-                        jSONObject3.put(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, forumData.getImage_url());
-                        jSONObject3.put("slogan", forumData.getSlogan());
-                        jSONArray.put(jSONObject3);
-                    }
-                    jSONObject2.put("non-gconforum", jSONArray);
-                    jSONObject.put("forum_list", jSONObject2);
-                    return jSONObject.toString();
+                    jSONObject2.put(BaseJsonData.TAG_ERRNO, responseUpdateMaskInfoMessage.getError());
+                    jSONObject2.put(BaseJsonData.TAG_ERRMSG, responseUpdateMaskInfoMessage.getErrorString());
+                    jSONObject2.put("errorInfo", jSONObject2);
+                    str = jSONObject.toString();
                 } catch (Exception e) {
                     BdLog.e(e);
-                    return null;
                 }
+                return str;
+            }
+            str = null;
+            return str;
+        } else if (cmd == 107129) {
+            if (socketResponsedMessage instanceof ResponseGetLivableForumList) {
+                ResponseGetLivableForumList responseGetLivableForumList = (ResponseGetLivableForumList) socketResponsedMessage;
+                if (responseGetLivableForumList.getError() == 0) {
+                    try {
+                        JSONObject jSONObject3 = new JSONObject();
+                        jSONObject3.put("has_more", responseGetLivableForumList.hasMore() ? 1 : 0);
+                        JSONObject jSONObject4 = new JSONObject();
+                        JSONArray jSONArray = new JSONArray();
+                        ArrayList<ForumData> data = responseGetLivableForumList.getData();
+                        for (int i = 0; i < data.size(); i++) {
+                            ForumData forumData = data.get(i);
+                            JSONObject jSONObject5 = new JSONObject();
+                            jSONObject5.put("id", forumData.getId());
+                            jSONObject5.put("name", forumData.getName());
+                            jSONObject5.put("favo_type", forumData.getFavo_type());
+                            jSONObject5.put("level_id", forumData.getUser_level());
+                            jSONObject5.put("level_name", forumData.getLevelName());
+                            jSONObject5.put("cur_score", forumData.getCurScore());
+                            jSONObject5.put("levelup_score", forumData.getLevelupScore());
+                            jSONObject5.put(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, forumData.getImage_url());
+                            jSONObject5.put("slogan", forumData.getSlogan());
+                            jSONArray.put(jSONObject5);
+                        }
+                        jSONObject4.put("non-gconforum", jSONArray);
+                        jSONObject3.put("forum_list", jSONObject4);
+                        return jSONObject3.toString();
+                    } catch (Exception e2) {
+                        BdLog.e(e2);
+                        return null;
+                    }
+                }
+                return null;
             }
             return null;
+        } else if (cmd == 304102 && (socketResponsedMessage instanceof ResponseDeleteFriendMessage)) {
+            ResponseDeleteFriendMessage responseDeleteFriendMessage = (ResponseDeleteFriendMessage) socketResponsedMessage;
+            try {
+                JSONObject jSONObject6 = new JSONObject();
+                JSONObject jSONObject7 = new JSONObject();
+                jSONObject7.put(BaseJsonData.TAG_ERRNO, responseDeleteFriendMessage.getError());
+                jSONObject7.put(BaseJsonData.TAG_ERRMSG, responseDeleteFriendMessage.getErrorString());
+                jSONObject7.put("errorInfo", jSONObject7);
+                return jSONObject6.toString();
+            } catch (Exception e3) {
+                BdLog.e(e3);
+                return null;
+            }
         } else {
             return null;
         }

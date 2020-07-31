@@ -1,5 +1,5 @@
 package com.baidu.ar.recorder.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public interface c {
     void M(boolean z);
 

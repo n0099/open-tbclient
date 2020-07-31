@@ -1,6 +1,6 @@
 package com.baidu.swan.facade.requred.openstat.imupload.log.model;
 
 import com.google.protobuf.MessageLiteOrBuilder;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface b extends MessageLiteOrBuilder {
 }

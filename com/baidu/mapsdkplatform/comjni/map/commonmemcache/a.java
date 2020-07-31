@@ -1,5 +1,5 @@
 package com.baidu.mapsdkplatform.comjni.map.commonmemcache;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     private long a = 0;
     private JNICommonMemCache b;

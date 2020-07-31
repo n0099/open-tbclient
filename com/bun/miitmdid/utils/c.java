@@ -4,7 +4,7 @@ import android.content.Context;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class c {
     public static String a(Context context, String str) {
         try {

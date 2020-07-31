@@ -11,12 +11,12 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivityConfig;
 import tbclient.BawuRoleInfoPub;
 import tbclient.MemberGroupInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class l extends com.baidu.tieba.frs.j<m, n> {
     private View.OnClickListener mClickListener;
 
@@ -32,8 +32,8 @@ public class l extends com.baidu.tieba.frs.j<m, n> {
                 } else if (view.getId() == R.id.title_text_view) {
                     Object tag = view.getTag();
                     m mVar = ((tag instanceof Integer) && (l.this.getItem(((Integer) tag).intValue()) instanceof m)) ? (m) l.this.getItem(((Integer) tag).intValue()) : null;
-                    if (mVar != null && mVar.bWy() != null) {
-                        String[] split = !StringUtils.isNull(mVar.bWy().member_group_type) ? mVar.bWy().member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
+                    if (mVar != null && mVar.bZR() != null) {
+                        String[] split = !StringUtils.isNull(mVar.bZR().member_group_type) ? mVar.bZR().member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
                         if (split == null || split.length != 2) {
                             str = "";
                         } else {
@@ -51,7 +51,7 @@ public class l extends com.baidu.tieba.frs.j<m, n> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bc */
+    /* renamed from: bd */
     public n b(ViewGroup viewGroup) {
         return new n(LayoutInflater.from(this.mContext).inflate(R.layout.forum_member_team_user_view, (ViewGroup) null), this.mClickListener);
     }
@@ -61,18 +61,18 @@ public class l extends com.baidu.tieba.frs.j<m, n> {
     @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
         super.a(i, view, viewGroup, (ViewGroup) mVar, (m) nVar);
-        if (mVar != null && mVar.bWy() != null) {
-            MemberGroupInfo bWy = mVar.bWy();
-            if (bWy.member_group_list != null && bWy.member_group_list.size() > 0 && !StringUtils.isNull(bWy.member_group_type)) {
+        if (mVar != null && mVar.bZR() != null) {
+            MemberGroupInfo bZR = mVar.bZR();
+            if (bZR.member_group_list != null && bZR.member_group_list.size() > 0 && !StringUtils.isNull(bZR.member_group_type)) {
                 nVar.mTitleView.setTag(Integer.valueOf(i));
                 String str = "";
-                String[] split = !StringUtils.isNull(bWy.member_group_type) ? bWy.member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
+                String[] split = !StringUtils.isNull(bZR.member_group_type) ? bZR.member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
                 if (split != null && split.length == 2) {
                     str = split[1];
                 }
-                nVar.mTitleView.setText(str + "(" + bWy.member_group_num + ")");
+                nVar.mTitleView.setText(str + "(" + bZR.member_group_num + ")");
                 int i2 = 0;
-                for (BawuRoleInfoPub bawuRoleInfoPub : bWy.member_group_list) {
+                for (BawuRoleInfoPub bawuRoleInfoPub : bZR.member_group_list) {
                     if (i2 > 3) {
                         break;
                     } else if (bawuRoleInfoPub != null) {
@@ -80,14 +80,14 @@ public class l extends com.baidu.tieba.frs.j<m, n> {
                         i2++;
                     }
                 }
-                nVar.mN(this.mSkinType == 1);
-                an.setBackgroundColor(nVar.hwz, R.color.cp_bg_line_d);
-                an.setViewTextColor(nVar.mTitleView, R.color.cp_cont_b, 1);
-                an.setViewTextColor(nVar.hwv, R.color.cp_cont_f, 1);
-                an.setViewTextColor(nVar.hww, R.color.cp_cont_f, 1);
-                an.setViewTextColor(nVar.hwx, R.color.cp_cont_f, 1);
-                an.setViewTextColor(nVar.hwy, R.color.cp_cont_f, 1);
-                nVar.mTitleView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, an.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                nVar.ns(this.mSkinType == 1);
+                ao.setBackgroundColor(nVar.hCl, R.color.cp_bg_line_d);
+                ao.setViewTextColor(nVar.mTitleView, R.color.cp_cont_b, 1);
+                ao.setViewTextColor(nVar.hCh, R.color.cp_cont_f, 1);
+                ao.setViewTextColor(nVar.hCi, R.color.cp_cont_f, 1);
+                ao.setViewTextColor(nVar.hCj, R.color.cp_cont_f, 1);
+                ao.setViewTextColor(nVar.hCk, R.color.cp_cont_f, 1);
+                nVar.mTitleView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
             }
         }
         return view;

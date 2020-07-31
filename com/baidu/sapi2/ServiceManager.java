@@ -1,7 +1,7 @@
 package com.baidu.sapi2;
 
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class ServiceManager implements c {
     private static ServiceManager a;
     private ISAccountManager b;

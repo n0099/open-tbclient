@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 /* synthetic */ class dg {
     static final /* synthetic */ int[] a = new int[hm.values().length];
 

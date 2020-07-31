@@ -1,7 +1,7 @@
 package com.baidu.searchbox.suspensionwindow.util;
 
 import android.util.Log;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class LogUtil {
     public static final boolean DEBUG = false;
     private static final String TAG = "suspension-window";

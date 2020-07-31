@@ -12,7 +12,7 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class AlphaVideoRenderer implements SurfaceTexture.OnFrameAvailableListener, GLTextureView.Renderer {
     private static final String TAG = "AlphaVideoRenderer";
     private int aPositionHandle;
@@ -34,7 +34,7 @@ public class AlphaVideoRenderer implements SurfaceTexture.OnFrameAvailableListen
     private volatile boolean mUpdateSurface = false;
     private FloatBuffer mTriangleVertices = ByteBuffer.allocateDirect(AlphaVideoCoords.VERTICES.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnSurfacePrepareListener {
         void onSurfacePrepared(Surface surface);
     }

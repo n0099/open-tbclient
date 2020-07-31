@@ -1,5 +1,5 @@
 package com.baidu.ueg.encrypt.entity;
-/* loaded from: classes8.dex */
+/* loaded from: classes20.dex */
 public enum EncryptAlgorithm {
     RSA
 }

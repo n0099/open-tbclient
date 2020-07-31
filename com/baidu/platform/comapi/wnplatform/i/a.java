@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.wnplatform.i;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface a {
     void a();
 

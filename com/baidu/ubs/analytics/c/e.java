@@ -1,18 +1,18 @@
 package com.baidu.ubs.analytics.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class e {
-    private static final e mEW = new e();
-    private l mEX = new l();
+    private static final e mNa = new e();
+    private l mNb = new l();
 
-    public static e dxq() {
-        return mEW;
+    public static e dAC() {
+        return mNa;
     }
 
-    public final void Qb(String str) {
-        this.mEX.Qb(str);
+    public final void QM(String str) {
+        this.mNb.QM(str);
     }
 
-    public final void Qc(String str) {
-        this.mEX.Qc(str);
+    public final void QN(String str) {
+        this.mNb.QN(str);
     }
 }

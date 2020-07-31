@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.GetUserBfbInfo.GetUserBfbInfoResIdl;
 import tbclient.UserBfbInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class BfbInfoSocketResponseMessage extends SocketResponsedMessage {
     private UserBfbInfo bfbInfo;
 

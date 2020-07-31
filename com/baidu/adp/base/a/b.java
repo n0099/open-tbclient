@@ -19,14 +19,14 @@ import java.sql.SQLException;
 public class b {
     private a GO;
     private SQLiteDatabase database = null;
-    private a.InterfaceC0017a GN = null;
+    private a.InterfaceC0018a GN = null;
 
     public b(a aVar) {
         this.GO = aVar;
     }
 
-    public void a(a.InterfaceC0017a interfaceC0017a) {
-        this.GN = interfaceC0017a;
+    public void a(a.InterfaceC0018a interfaceC0018a) {
+        this.GN = interfaceC0018a;
     }
 
     public SQLiteDatabase getOpenedDatabase() {

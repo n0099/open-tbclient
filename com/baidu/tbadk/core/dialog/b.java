@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -21,7 +21,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static final HashMap<Integer, Integer[]> sBtnStyleMap = new HashMap<>(2);
-    private a dPp;
+    private InterfaceC0492b dVH;
     private final Activity mActivity;
     private final ViewGroup mContentView;
     private com.baidu.adp.base.e<?> mContext;
@@ -40,13 +40,22 @@ public class b {
     private int mItemView = R.layout.dialog_bdlist_item;
 
     /* loaded from: classes.dex */
-    public interface a {
+    public static final class a {
+        public static final int BOTTOM_TO_TOP = R.style.dialog_ani_b2t;
+        public static final int TOP_TO_BOTTOM = R.style.dialog_ani_t2b;
+        public static final int LEFT_TO_RIGHT = R.style.dialog_ani_l2r;
+        public static final int RIGHT_TO_LEFT = R.style.dialog_ani_r2l;
+    }
+
+    /* renamed from: com.baidu.tbadk.core.dialog.b$b  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public interface InterfaceC0492b {
         void a(b bVar, int i, View view);
     }
 
     static {
-        sBtnStyleMap.put(0, new Integer[]{Integer.valueOf((int) R.drawable.dialg_alert_btn_bg), Integer.valueOf((int) R.drawable.dialog_bdalert_button_textcolor_pressed)});
-        sBtnStyleMap.put(1, new Integer[]{Integer.valueOf((int) R.drawable.btn_blue_square), Integer.valueOf((int) R.color.cp_bg_line_d)});
+        sBtnStyleMap.put(0, new Integer[]{Integer.valueOf(R.drawable.dialg_alert_btn_bg), Integer.valueOf(R.drawable.dialog_bdalert_button_textcolor_pressed)});
+        sBtnStyleMap.put(1, new Integer[]{Integer.valueOf(R.drawable.btn_blue_square), Integer.valueOf(R.color.cp_bg_line_d)});
     }
 
     public b(Activity activity) {
@@ -57,38 +66,38 @@ public class b {
         this.mLineView = this.mRootView.findViewById(R.id.line_bg);
     }
 
-    public b wf(String str) {
+    public b xm(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public b kX(int i) {
-        return wf(this.mActivity.getResources().getString(i));
+    public b lr(int i) {
+        return xm(this.mActivity.getResources().getString(i));
     }
 
-    public b a(CharSequence[] charSequenceArr, a aVar) {
+    public b a(CharSequence[] charSequenceArr, InterfaceC0492b interfaceC0492b) {
         if (charSequenceArr != null && charSequenceArr.length > 0) {
-            return a(Arrays.asList(charSequenceArr), aVar);
+            return a(Arrays.asList(charSequenceArr), interfaceC0492b);
         }
         return this;
     }
 
-    public b a(List<CharSequence> list, a aVar) {
+    public b a(List<CharSequence> list, InterfaceC0492b interfaceC0492b) {
         if (list != null && list.size() > 0) {
             this.mItems = list;
-            if (aVar != null) {
-                this.dPp = aVar;
+            if (interfaceC0492b != null) {
+                this.dVH = interfaceC0492b;
             }
         }
         return this;
     }
 
-    public b kY(int i) {
+    public b ls(int i) {
         this.mAnimationStyleId = i;
         return this;
     }
 
-    public b kZ(int i) {
+    public b lt(int i) {
         this.mDialogGravity = i;
         return this;
     }
@@ -116,7 +125,7 @@ public class b {
         return this;
     }
 
-    public b aUO() {
+    public b aYN() {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
@@ -128,7 +137,7 @@ public class b {
             if (com.baidu.adp.lib.f.g.showDialog(this.mDialog, this.mActivity)) {
                 Window window = this.mDialog.getWindow();
                 if (this.mAnimationStyleId == -1) {
-                    this.mAnimationStyleId = R.style.dialog_ani_b2t;
+                    this.mAnimationStyleId = a.BOTTOM_TO_TOP;
                 }
                 if (this.mDialogGravity == -1) {
                     this.mDialogGravity = 17;
@@ -180,20 +189,20 @@ public class b {
         textView.setText(charSequence);
         if (i == this.mItems.size() - 1) {
             findViewById.setVisibility(8);
-            an.setBackgroundResource(inflate, R.drawable.dialog_single_button_bg_selector);
+            ao.setBackgroundResource(inflate, R.drawable.dialog_single_button_bg_selector);
         } else if (this.mItems.size() == 1) {
             findViewById.setVisibility(8);
-            an.setBackgroundResource(inflate, R.drawable.dialog_single_button_only_one_bg_selector);
+            ao.setBackgroundResource(inflate, R.drawable.dialog_single_button_only_one_bg_selector);
         } else if (i == 0 && StringUtils.isNull(this.mTitle)) {
-            an.setBackgroundResource(inflate, R.drawable.dialog_single_button_first_bg_selector);
+            ao.setBackgroundResource(inflate, R.drawable.dialog_single_button_first_bg_selector);
         } else {
-            an.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
+            ao.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
         }
-        if (this.dPp != null) {
+        if (this.dVH != null) {
             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.dPp.a(b.this, i, textView);
+                    b.this.dVH.a(b.this, i, textView);
                 }
             });
         }

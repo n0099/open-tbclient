@@ -3,7 +3,7 @@ package com.baidu.ala.recorder.video;
 import com.baidu.ala.recorder.video.DynamicBitRateConfig;
 import com.baidu.tbadk.TbConfig;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AlaLiveVideoConfig {
     public static final int HW_ENCODER = 1;
     private static final int PREVIEW_HEIGHT = 1280;
@@ -25,7 +25,7 @@ public class AlaLiveVideoConfig {
 
     public AlaLiveVideoConfig(AlaLiveVideoConfig alaLiveVideoConfig) {
         this.mPreviewWidth = PREVIEW_WIDTH;
-        this.mPreviewHeight = PREVIEW_HEIGHT;
+        this.mPreviewHeight = 1280;
         this.mOutputWidth = 540;
         this.mOutputHeight = TbConfig.HEAD_IMG_SIZE;
         this.mVideoGOP = 2;
@@ -59,7 +59,7 @@ public class AlaLiveVideoConfig {
 
     public AlaLiveVideoConfig(List<DynamicBitRateConfig.DynamicBitRateItem> list, List<DynamicBitRateConfig.DynamicBitRateItem> list2, double d, double d2, int i, boolean z, boolean z2, int i2, int i3) {
         this.mPreviewWidth = PREVIEW_WIDTH;
-        this.mPreviewHeight = PREVIEW_HEIGHT;
+        this.mPreviewHeight = 1280;
         this.mOutputWidth = 540;
         this.mOutputHeight = TbConfig.HEAD_IMG_SIZE;
         this.mVideoGOP = 2;
@@ -89,7 +89,7 @@ public class AlaLiveVideoConfig {
 
     private AlaLiveVideoConfig() {
         this.mPreviewWidth = PREVIEW_WIDTH;
-        this.mPreviewHeight = PREVIEW_HEIGHT;
+        this.mPreviewHeight = 1280;
         this.mOutputWidth = 540;
         this.mOutputHeight = TbConfig.HEAD_IMG_SIZE;
         this.mVideoGOP = 2;

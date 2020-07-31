@@ -19,18 +19,18 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.common.d;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class VideoContainerManager extends a<VideoHolderWrapper, c> {
-    private SwanAppComponentContainerView bUJ;
-    private VideoHolderWrapper dxa;
+    private SwanAppComponentContainerView bVB;
+    private VideoHolderWrapper dCS;
     private Context mContext;
 
     public VideoContainerManager(@NonNull Context context, @NonNull c cVar) {
         super(context, cVar);
         this.mContext = context;
-        this.bUJ = new SwanAppComponentContainerView(this.mContext);
-        this.bUJ.setBackgroundColor(Color.parseColor("#666666"));
-        eF(1);
+        this.bVB = new SwanAppComponentContainerView(this.mContext);
+        this.bVB.setBackgroundColor(Color.parseColor("#666666"));
+        eH(1);
     }
 
     public void e(c cVar) {
@@ -43,67 +43,67 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    /* renamed from: dB */
-    public VideoHolderWrapper aZ(@NonNull Context context) {
-        return aKN();
+    /* renamed from: dF */
+    public VideoHolderWrapper ba(@NonNull Context context) {
+        return aOB();
     }
 
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    protected SwanAppComponentContainerView bv(@NonNull Context context) {
-        return this.bUJ;
+    protected SwanAppComponentContainerView by(@NonNull Context context) {
+        return this.bVB;
     }
 
     private void f(c cVar) {
         if (cVar != null) {
-            if (!(Wr() != null)) {
-                if (aKN().getParent() instanceof ViewGroup) {
-                    ((ViewGroup) aKN().getParent()).removeView(aKN());
+            if (!(WY() != null)) {
+                if (aOB().getParent() instanceof ViewGroup) {
+                    ((ViewGroup) aOB().getParent()).removeView(aOB());
                 }
-                aKQ().setDescendantFocusability(393216);
-                com.baidu.swan.apps.console.c.d("video", "Add CoverContainerWrapper " + Wm().isSuccess() + " position " + cVar.bUx);
+                aOE().setDescendantFocusability(393216);
+                com.baidu.swan.apps.console.c.d("video", "Add CoverContainerWrapper " + WT().isSuccess() + " position " + cVar.bVp);
                 return;
             }
-            c Wp = Wp();
-            if (!TextUtils.equals(cVar.bUt, Wp.bUt) || !TextUtils.equals(cVar.bUu, Wp.bUu) || !TextUtils.equals(cVar.bUv, Wp.bUv)) {
-                com.baidu.swan.apps.component.e.a.aU("video", "updateCoverContainerPosition with different id");
+            c WW = WW();
+            if (!TextUtils.equals(cVar.bVl, WW.bVl) || !TextUtils.equals(cVar.bVm, WW.bVm) || !TextUtils.equals(cVar.bVn, WW.bVn)) {
+                com.baidu.swan.apps.component.e.a.aV("video", "updateCoverContainerPosition with different id");
             }
-            com.baidu.swan.apps.console.c.d("video", "Update CoverContainerWrapper " + a((VideoContainerManager) cVar).isSuccess() + " position " + cVar.bUx);
+            com.baidu.swan.apps.console.c.d("video", "Update CoverContainerWrapper " + a((VideoContainerManager) cVar).isSuccess() + " position " + cVar.bVp);
         }
     }
 
-    private VideoHolderWrapper aKN() {
-        if (this.dxa == null) {
-            this.dxa = new VideoHolderWrapper(this.mContext);
+    private VideoHolderWrapper aOB() {
+        if (this.dCS == null) {
+            this.dCS = new VideoHolderWrapper(this.mContext);
         }
-        return this.dxa;
+        return this.dCS;
     }
 
     public FrameLayout getVideoHolder() {
-        return aKN().getVideoHolder();
+        return aOB().getVideoHolder();
     }
 
     public void e(View.OnClickListener onClickListener) {
-        View playerIcon = aKN().getPlayerIcon();
+        View playerIcon = aOB().getPlayerIcon();
         playerIcon.setOnClickListener(onClickListener);
         g(playerIcon, 0);
     }
 
-    public void aKO() {
-        g(aKN().getPlayerIcon(), 8);
+    public void aOC() {
+        g(aOB().getPlayerIcon(), 8);
     }
 
-    public void cV(String str, String str2) {
-        aKN().setPoster(str, str2);
-        g(aKN().getVideoPoster(), 0);
+    public void cY(String str, String str2) {
+        aOB().setPoster(str, str2);
+        g(aOB().getVideoPoster(), 0);
     }
 
-    public void aKP() {
-        g(aKN().getVideoPoster(), 8);
+    public void aOD() {
+        g(aOB().getVideoPoster(), 8);
     }
 
-    public SwanAppComponentContainerView aKQ() {
-        return this.bUJ;
+    public SwanAppComponentContainerView aOE() {
+        return this.bVB;
     }
 
     private void g(View view, int i) {
@@ -113,49 +113,49 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes3.dex */
     public class VideoHolderWrapper extends FrameLayout {
-        private FrameLayout dxb;
-        private ImageView dxc;
-        private SimpleDraweeView dxd;
+        private FrameLayout dCT;
+        private ImageView dCU;
+        private SimpleDraweeView dCV;
 
         public VideoHolderWrapper(@NonNull Context context) {
             super(context);
-            aKR();
-            aKS();
-            aKT();
+            aOF();
+            aOG();
+            aOH();
         }
 
-        private void aKR() {
-            this.dxb = new FrameLayout(getContext());
-            addView(this.dxb, new FrameLayout.LayoutParams(-1, -1));
+        private void aOF() {
+            this.dCT = new FrameLayout(getContext());
+            addView(this.dCT, new FrameLayout.LayoutParams(-1, -1));
         }
 
-        private void aKS() {
-            this.dxd = new SimpleDraweeView(getContext());
+        private void aOG() {
+            this.dCV = new SimpleDraweeView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.dxd.getHierarchy().b(p.b.mNp);
-            addView(this.dxd, layoutParams);
+            this.dCV.getHierarchy().b(p.b.mVy);
+            addView(this.dCV, layoutParams);
         }
 
-        private void aKT() {
-            this.dxc = new ImageView(VideoContainerManager.this.mContext);
-            this.dxc.setImageResource(c.a.btn_play);
+        private void aOH() {
+            this.dCU = new ImageView(VideoContainerManager.this.mContext);
+            this.dCU.setImageResource(c.a.btn_play);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            addView(this.dxc, layoutParams);
+            addView(this.dCU, layoutParams);
         }
 
         public FrameLayout getVideoHolder() {
-            return this.dxb;
+            return this.dCT;
         }
 
         public View getPlayerIcon() {
-            return this.dxc;
+            return this.dCU;
         }
 
         public SimpleDraweeView getVideoPoster() {
-            return this.dxd;
+            return this.dCV;
         }
 
         public void setPoster(String str) {
@@ -167,7 +167,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "cover";
                 }
-                p.b bVar = p.b.mNp;
+                p.b bVar = p.b.mVy;
                 char c = 65535;
                 switch (str2.hashCode()) {
                     case 3143043:
@@ -191,17 +191,17 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 }
                 switch (c) {
                     case 0:
-                        p.b bVar2 = p.b.mNo;
+                        p.b bVar2 = p.b.mVx;
                         break;
                     case 1:
-                        p.b bVar3 = p.b.mNp;
+                        p.b bVar3 = p.b.mVy;
                         break;
                     case 2:
-                        p.b bVar4 = p.b.mNj;
+                        p.b bVar4 = p.b.mVs;
                         break;
                 }
-                this.dxd.getHierarchy().b(p.b.mNp);
-                a(str, this.dxd);
+                this.dCV.getHierarchy().b(p.b.mVy);
+                a(str, this.dCV);
             }
         }
 
@@ -211,13 +211,13 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 simpleDraweeView.setController(null);
                 return;
             }
-            ImageRequestBuilder ac = ImageRequestBuilder.ac(uri);
+            ImageRequestBuilder ab = ImageRequestBuilder.ab(uri);
             int measuredWidth = simpleDraweeView.getMeasuredWidth() / 2;
             int measuredHeight = simpleDraweeView.getMeasuredHeight() / 2;
             if (measuredWidth > 0 && measuredHeight > 0) {
-                ac.c(new d(measuredWidth, measuredHeight));
+                ab.c(new d(measuredWidth, measuredHeight));
             }
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dAa().c(simpleDraweeView.getController()).bc(ac.dHf()).dAR());
+            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dDm().c(simpleDraweeView.getController()).bc(ab.dKr()).dEd());
         }
 
         public Uri getUri(String str) {

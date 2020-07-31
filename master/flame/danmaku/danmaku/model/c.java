@@ -1,6 +1,6 @@
 package master.flame.danmaku.danmaku.model;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static int MAX = 255;
-    public static int nSX = 0;
+    public static int obH = 0;
 }

@@ -18,7 +18,7 @@ import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 @TargetApi(16)
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AlaCameraManager implements ICameraStatusHandler {
     private static final int CAMERA_FLUSHLIGHT_OFF = 2;
     private static final int CAMERA_FLUSHLIGHT_ON = 1;

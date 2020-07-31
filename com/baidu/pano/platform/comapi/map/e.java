@@ -13,7 +13,7 @@ import com.baidu.pano.platform.comjni.JNIEngine;
 import com.baidu.pano.platform.comjni.JNITool;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e {
     private float c;
     private float i;

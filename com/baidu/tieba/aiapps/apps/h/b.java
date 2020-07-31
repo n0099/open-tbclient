@@ -15,7 +15,7 @@ import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.t;
+import com.baidu.swan.apps.aq.v;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
@@ -28,9 +28,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class b extends aa {
-    public static String fdr = "com.baidu.tieba://";
+    public static String fhY = "com.baidu.tieba://";
     private String mCallback;
 
     public b(j jVar) {
@@ -48,7 +48,7 @@ public class b extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
             return false;
         }
-        JSONObject parseString = t.parseString(param);
+        JSONObject parseString = v.parseString(param);
         this.mCallback = parseString.optString("cb");
         if (TextUtils.isEmpty(this.mCallback)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -67,7 +67,7 @@ public class b extends aa {
             }
         }
         final String jSONObject = optJSONObject.toString();
-        eVar.apY().b((Activity) context, "mapp_i_baiduapp_page_trans", new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.tieba.aiapps.apps.h.b.1
+        eVar.arH().b((Activity) context, "mapp_i_baiduapp_page_trans", new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.tieba.aiapps.apps.h.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.aq.e.b
             /* renamed from: a */
@@ -104,14 +104,14 @@ public class b extends aa {
                     try {
                         String optString = new JSONObject(str5).optString("url");
                         if (!StringUtils.isNull(optString)) {
-                            AU(optString);
+                            BF(optString);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
             } else {
-                str6 = f(str, str2, str3, str4, str5);
+                str6 = g(str, str2, str3, str4, str5);
                 z = ay(context, str6);
             }
             if (DEBUG) {
@@ -121,17 +121,17 @@ public class b extends aa {
         return z;
     }
 
-    private void AU(String str) {
-        com.baidu.swan.apps.process.messaging.client.a apD;
-        com.baidu.swan.apps.runtime.e apM = com.baidu.swan.apps.runtime.e.apM();
-        if (apM != null && (apD = apM.apD()) != null) {
+    private void BF(String str) {
+        com.baidu.swan.apps.process.messaging.client.a arm;
+        com.baidu.swan.apps.runtime.e arv = com.baidu.swan.apps.runtime.e.arv();
+        if (arv != null && (arm = arv.arm()) != null) {
             Bundle bundle = new Bundle();
             bundle.putString("key_param_url", str);
-            apD.b(bundle, a.class);
+            arm.b(bundle, a.class);
         }
     }
 
-    private static String f(String str, String str2, String str3, String str4, String str5) {
+    private static String g(String str, String str2, String str3, String str4, String str5) {
         JSONObject jSONObject;
         if (TextUtils.isEmpty(str5)) {
             return null;
@@ -153,7 +153,7 @@ public class b extends aa {
             if (TextUtils.isEmpty(str2)) {
                 str2 = str6 + str4;
             }
-            String str7 = fdr;
+            String str7 = fhY;
             if (TextUtils.isEmpty(str2)) {
                 if (!TextUtils.isEmpty(str)) {
                     str7 = str7 + str;
@@ -184,9 +184,9 @@ public class b extends aa {
         if (!TextUtils.isEmpty(str) && str.contains("tbwebview")) {
             Uri parse = Uri.parse(str);
             if (f.p(parse)) {
-                f.aMH().d(parse, new f.a() { // from class: com.baidu.tieba.aiapps.apps.h.b.2
+                f.aQv().d(parse, new f.a() { // from class: com.baidu.tieba.aiapps.apps.h.b.2
                     @Override // com.baidu.tbadk.BdToken.f.a
-                    public void C(HashMap<String, Object> hashMap) {
+                    public void B(HashMap<String, Object> hashMap) {
                         if (hashMap != null && (hashMap.get(f.PARAM_URL) instanceof String)) {
                             TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, null, (String) hashMap.get(f.PARAM_URL), true);
                             tbWebViewActivityConfig.setIsFromSchema(true);

@@ -21,7 +21,7 @@ public final class CancellableDisposable extends AtomicReference<io.reactivex.c.
             try {
                 andSet.cancel();
             } catch (Exception e) {
-                io.reactivex.exceptions.a.L(e);
+                io.reactivex.exceptions.a.K(e);
                 io.reactivex.e.a.onError(e);
             }
         }

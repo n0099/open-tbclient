@@ -4,7 +4,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.interestlabel.b.b;
 import com.squareup.wire.Wire;
 import tbclient.GetTagList.GetTagListResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class ResponseHttpGetLabelMessage extends TbHttpResponsedMessage {
     public ResponseHttpGetLabelMessage() {
         super(1003333);

@@ -1,5 +1,5 @@
 package com.baidu.tieba.post;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public interface c {
-    void cWF();
+    void cZM();
 }

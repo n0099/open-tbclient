@@ -1,24 +1,24 @@
 package com.baidu.swan.games.m;
 
-import com.baidu.swan.apps.adaptation.a.aq;
-import com.baidu.swan.apps.adaptation.implementation.w;
+import com.baidu.swan.apps.adaptation.a.as;
+import com.baidu.swan.apps.adaptation.implementation.x;
 import com.baidu.swan.games.m.b.b;
 import com.baidu.swan.games.m.b.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public class a {
-    public static c aBU() {
+    public static c aFB() {
         return new com.baidu.swan.games.m.a.c();
     }
 
-    public static b aBV() {
+    public static b aFC() {
         return new com.baidu.swan.games.m.a.b();
     }
 
-    public static com.baidu.swan.games.m.b.a aBW() {
+    public static com.baidu.swan.games.m.b.a aFD() {
         return new com.baidu.swan.games.m.a.a();
     }
 
-    public static aq aBX() {
-        return new w();
+    public static as aFE() {
+        return new x();
     }
 }

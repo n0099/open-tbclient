@@ -5,7 +5,7 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonSerializer;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class d implements TypeAdapterFactory {
     private final com.google.gson.internal.b constructorConstructor;
 
@@ -15,7 +15,7 @@ public final class d implements TypeAdapterFactory {
 
     @Override // com.google.gson.TypeAdapterFactory
     public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-        com.google.gson.a.b bVar = (com.google.gson.a.b) aVar.dIl().getAnnotation(com.google.gson.a.b.class);
+        com.google.gson.a.b bVar = (com.google.gson.a.b) aVar.dLG().getAnnotation(com.google.gson.a.b.class);
         if (bVar == null) {
             return null;
         }
@@ -35,7 +35,7 @@ public final class d implements TypeAdapterFactory {
         } else {
             throw new IllegalArgumentException("Invalid attempt to bind an instance of " + construct.getClass().getName() + " as a @JsonAdapter for " + aVar.toString() + ". @JsonAdapter value must be a TypeAdapter, TypeAdapterFactory, JsonSerializer or JsonDeserializer.");
         }
-        if (lVar != null && bVar2.dHx()) {
+        if (lVar != null && bVar2.dKS()) {
             return lVar.nullSafe();
         }
         return lVar;

@@ -6,7 +6,7 @@ import com.baidu.tieba.im.d;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.e;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class b extends com.baidu.adp.framework.b.a {
     public b() {
         super(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST);
@@ -14,7 +14,7 @@ public class b extends com.baidu.adp.framework.b.a {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b.g
-    /* renamed from: j */
+    /* renamed from: k */
     public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
         List<ImMessageCenterPojo> data;
         ImMessageCenterPojo imMessageCenterPojo = null;
@@ -36,11 +36,11 @@ public class b extends com.baidu.adp.framework.b.a {
                 }
                 if (imMessageCenterPojo2 != null) {
                     data.remove(imMessageCenterPojo2);
-                    data.add(d.d(imMessageCenterPojo2));
+                    data.add(d.b(imMessageCenterPojo2));
                 }
                 if (imMessageCenterPojo != null) {
                     data.remove(imMessageCenterPojo);
-                    data.add(e.e(imMessageCenterPojo));
+                    data.add(e.c(imMessageCenterPojo));
                 }
             }
         }

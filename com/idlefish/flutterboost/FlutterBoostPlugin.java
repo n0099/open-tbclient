@@ -1,56 +1,39 @@
 package com.idlefish.flutterboost;
 
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.idlefish.flutterboost.FlutterViewContainerManager;
 import com.idlefish.flutterboost.interfaces.IContainerRecord;
 import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
+import io.flutter.embedding.engine.plugins.FlutterPlugin;
+import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
-import io.flutter.plugin.common.PluginRegistry;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
-public class FlutterBoostPlugin {
+/* loaded from: classes18.dex */
+public class FlutterBoostPlugin implements FlutterPlugin {
     private static final Set<ActionAfterRegistered> sActions = new HashSet();
     private static FlutterBoostPlugin sInstance;
+    private final Map<String, Set<EventListener>> mEventListeners;
+    private final Set<MethodChannel.MethodCallHandler> mMethodCallHandlers;
     private final MethodChannel mMethodChannel;
-    private final Set<MethodChannel.MethodCallHandler> mMethodCallHandlers = new HashSet();
-    private final Map<String, Set<EventListener>> mEventListeners = new HashMap();
-    private final EventListener splashEventListener = new EventListener() { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.2
-        @Override // com.idlefish.flutterboost.FlutterBoostPlugin.EventListener
-        public void onEvent(String str, Map map) {
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -253456115:
-                    if (str.equals("dataInitFinish")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    FlutterBoost.instance().isReady = true;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921459));
-                    return;
-                default:
-                    return;
-            }
-        }
-    };
+    private final EventListener splashEventListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public interface ActionAfterRegistered {
         void onChannelRegistered(FlutterBoostPlugin flutterBoostPlugin);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public interface EventListener {
         void onEvent(String str, Map map);
     }
@@ -59,17 +42,93 @@ public class FlutterBoostPlugin {
         return sInstance;
     }
 
-    public static void registerWith(PluginRegistry.Registrar registrar) {
-        sInstance = new FlutterBoostPlugin(registrar);
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
+    public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
+        sInstance = new FlutterBoostPlugin(flutterPluginBinding.getBinaryMessenger());
         for (ActionAfterRegistered actionAfterRegistered : sActions) {
             actionAfterRegistered.onChannelRegistered(sInstance);
         }
         sActions.clear();
     }
 
-    private FlutterBoostPlugin(PluginRegistry.Registrar registrar) {
-        this.mMethodChannel = new MethodChannel(registrar.messenger(), "flutter_boost");
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
+    public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
+    }
+
+    public FlutterBoostPlugin() {
+        this.mMethodCallHandlers = new HashSet();
+        this.mEventListeners = new HashMap();
+        this.splashEventListener = new EventListener() { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.2
+            @Override // com.idlefish.flutterboost.FlutterBoostPlugin.EventListener
+            public void onEvent(String str, Map map) {
+                char c = 65535;
+                switch (str.hashCode()) {
+                    case -263576197:
+                        if (str.equals("pageLifeCycle")) {
+                            c = 1;
+                            break;
+                        }
+                        break;
+                    case -253456115:
+                        if (str.equals("dataInitFinish")) {
+                            c = 0;
+                            break;
+                        }
+                        break;
+                }
+                switch (c) {
+                    case 0:
+                        FlutterBoost.instance().isReady = true;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921459));
+                        return;
+                    case 1:
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921478, map));
+                        return;
+                    default:
+                        return;
+                }
+            }
+        };
+        this.mMethodChannel = null;
+    }
+
+    private FlutterBoostPlugin(BinaryMessenger binaryMessenger) {
+        this.mMethodCallHandlers = new HashSet();
+        this.mEventListeners = new HashMap();
+        this.splashEventListener = new EventListener() { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.2
+            @Override // com.idlefish.flutterboost.FlutterBoostPlugin.EventListener
+            public void onEvent(String str, Map map) {
+                char c = 65535;
+                switch (str.hashCode()) {
+                    case -263576197:
+                        if (str.equals("pageLifeCycle")) {
+                            c = 1;
+                            break;
+                        }
+                        break;
+                    case -253456115:
+                        if (str.equals("dataInitFinish")) {
+                            c = 0;
+                            break;
+                        }
+                        break;
+                }
+                switch (c) {
+                    case 0:
+                        FlutterBoost.instance().isReady = true;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921459));
+                        return;
+                    case 1:
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921478, map));
+                        return;
+                    default:
+                        return;
+                }
+            }
+        };
+        this.mMethodChannel = new MethodChannel(binaryMessenger, "flutter_boost");
         this.mMethodChannel.setMethodCallHandler(new MethodChannel.MethodCallHandler() { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.1
+            @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
             public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
                 Object[] array;
                 if (!methodCall.method.equals("__event__")) {
@@ -98,18 +157,22 @@ public class FlutterBoostPlugin {
             }
         });
         addEventListener("dataInitFinish", this.splashEventListener);
+        addEventListener("pageLifeCycle", this.splashEventListener);
         addMethodCallHandler(new BoostMethodHandler());
     }
 
     public void invokeMethodUnsafe(final String str, Serializable serializable) {
         invokeMethod(str, serializable, new MethodChannel.Result() { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.3
+            @Override // io.flutter.plugin.common.MethodChannel.Result
             public void success(@Nullable Object obj) {
             }
 
+            @Override // io.flutter.plugin.common.MethodChannel.Result
             public void error(String str2, @Nullable String str3, @Nullable Object obj) {
                 Debuger.log("invoke method " + str + " error:" + str2 + " | " + str3);
             }
 
+            @Override // io.flutter.plugin.common.MethodChannel.Result
             public void notImplemented() {
                 Debuger.log("invoke method " + str + " notImplemented");
             }
@@ -118,13 +181,16 @@ public class FlutterBoostPlugin {
 
     public void invokeMethod(final String str, Serializable serializable) {
         invokeMethod(str, serializable, new MethodChannel.Result() { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.4
+            @Override // io.flutter.plugin.common.MethodChannel.Result
             public void success(@Nullable Object obj) {
             }
 
+            @Override // io.flutter.plugin.common.MethodChannel.Result
             public void error(String str2, @Nullable String str3, @Nullable Object obj) {
                 Debuger.exception("invoke method " + str + " error:" + str2 + " | " + str3);
             }
 
+            @Override // io.flutter.plugin.common.MethodChannel.Result
             public void notImplemented() {
                 Debuger.exception("invoke method " + str + " notImplemented");
             }
@@ -162,11 +228,12 @@ public class FlutterBoostPlugin {
         this.mMethodChannel.invokeMethod("__event__", hashMap);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     class BoostMethodHandler implements MethodChannel.MethodCallHandler {
         BoostMethodHandler() {
         }
 
+        @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
         public void onMethodCall(MethodCall methodCall, final MethodChannel.Result result) {
             FlutterViewContainerManager flutterViewContainerManager = (FlutterViewContainerManager) FlutterBoost.instance().containerManager();
             String str = methodCall.method;
@@ -230,22 +297,23 @@ public class FlutterBoostPlugin {
                         FlutterBoost.instance().setFlutterPostFrameCallTime(new Date().getTime());
                         return;
                     } catch (Throwable th) {
-                        result.error("no flutter page found!", th.getMessage(), th);
+                        result.error("no flutter page found!", th.getMessage(), Log.getStackTraceString(th));
                         return;
                     }
                 case 1:
                     try {
-                        flutterViewContainerManager.openContainer((String) methodCall.argument("url"), (Map) methodCall.argument("urlParams"), (Map) methodCall.argument("exts"), new FlutterViewContainerManager.OnResult() { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.BoostMethodHandler.1
+                        final String str2 = (String) methodCall.argument("url");
+                        flutterViewContainerManager.openContainer(str2, (Map) methodCall.argument("urlParams"), (Map) methodCall.argument("exts"), new FlutterViewContainerManager.OnResult() { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.BoostMethodHandler.1
                             @Override // com.idlefish.flutterboost.FlutterViewContainerManager.OnResult
                             public void onResult(Map<String, Object> map) {
                                 if (result != null) {
-                                    result.success(map);
+                                    result.success(BoostMethodHandler.this.parseNativeResult(str2, map));
                                 }
                             }
                         });
                         return;
                     } catch (Throwable th2) {
-                        result.error("open page error", th2.getMessage(), th2);
+                        result.error("open page error", th2.getMessage(), Log.getStackTraceString(th2));
                         return;
                     }
                 case 2:
@@ -254,7 +322,7 @@ public class FlutterBoostPlugin {
                         result.success(true);
                         return;
                     } catch (Throwable th3) {
-                        result.error("close page error", th3.getMessage(), th3);
+                        result.error("close page error", th3.getMessage(), Log.getStackTraceString(th3));
                         return;
                     }
                 case 3:
@@ -263,28 +331,44 @@ public class FlutterBoostPlugin {
                         result.success(true);
                         return;
                     } catch (Throwable th4) {
-                        result.error("onShownContainerChanged", th4.getMessage(), th4);
+                        result.error("onShownContainerChanged", th4.getMessage(), Log.getStackTraceString(th4));
                         return;
                     }
                 case 4:
-                    String str2 = (String) methodCall.argument("uniqueId");
+                    String str3 = (String) methodCall.argument("uniqueId");
                     return;
                 case 5:
-                    String str3 = (String) methodCall.argument("uniqueId");
-                    String str4 = (String) methodCall.argument("flutterUniqueId");
+                    String str4 = (String) methodCall.argument("uniqueId");
+                    String str5 = (String) methodCall.argument("flutterUniqueId");
                     return;
                 case 6:
-                    boolean booleanValue = ((Boolean) methodCall.arguments).booleanValue();
-                    IFlutterViewContainer container = flutterViewContainerManager.getLastGenerateRecord().getContainer();
-                    if (container != null) {
-                        container.setSwipeBackEnable(!booleanValue);
+                    try {
+                        boolean booleanValue = ((Boolean) methodCall.arguments).booleanValue();
+                        IFlutterViewContainer container = flutterViewContainerManager.getLastGenerateRecord().getContainer();
+                        if (container != null) {
+                            container.setSwipeBackEnable(!booleanValue);
+                            return;
+                        }
+                        return;
+                    } catch (Exception e) {
+                        e.printStackTrace();
                         return;
                     }
-                    return;
                 default:
                     result.notImplemented();
                     return;
             }
+        }
+
+        public Map<String, Object> parseNativeResult(String str, Map<String, Object> map) {
+            HashMap hashMap = new HashMap();
+            if (str.contains("kNativePageKeyEditProfile")) {
+                if (map.containsKey("data") && (map.get("data") instanceof PersonChangeData)) {
+                    hashMap.put("intro", ((PersonChangeData) map.get("data")).getIntro());
+                }
+                return hashMap;
+            }
+            return map;
         }
     }
 }

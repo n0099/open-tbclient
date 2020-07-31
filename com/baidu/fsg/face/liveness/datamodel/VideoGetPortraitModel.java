@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class VideoGetPortraitModel implements IBeanResponse, Serializable {
     public String cutTimePoints;
     public String display_name;

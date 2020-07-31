@@ -2,7 +2,7 @@ package com.baidu.live.ar;
 
 import com.baidu.live.ar.AlaFilterAndBeautyData;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface j {
     void a(float f, AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey);
 

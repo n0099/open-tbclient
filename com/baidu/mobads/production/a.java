@@ -3,7 +3,7 @@ package com.baidu.mobads.production;
 import android.content.Context;
 import dalvik.system.DexClassLoader;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a {
     private static DexClassLoader a = null;
 

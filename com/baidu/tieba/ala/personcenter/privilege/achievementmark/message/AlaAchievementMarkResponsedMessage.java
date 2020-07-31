@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage {
     private List<c> list;
     private AlaUserInfoData user_info;

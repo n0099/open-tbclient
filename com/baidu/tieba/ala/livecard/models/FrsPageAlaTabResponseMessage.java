@@ -3,13 +3,13 @@ package com.baidu.tieba.ala.livecard.models;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.frs.bb;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public int alaLiveCount;
     public int errCode;
@@ -44,10 +44,10 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 this.mThreadList = new ArrayList<>();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                    bu buVar = new bu();
-                    buVar.vQ("frs_live_play");
-                    buVar.parserJson(jSONObject2);
-                    this.mThreadList.add(buVar);
+                    bv bvVar = new bv();
+                    bvVar.wX("frs_live_play");
+                    bvVar.parserJson(jSONObject2);
+                    this.mThreadList.add(bvVar);
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("alt_list");
@@ -55,10 +55,10 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 this.mAltList = new ArrayList<>();
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     JSONObject jSONObject3 = optJSONArray2.getJSONObject(i3);
-                    bu buVar2 = new bu();
-                    buVar2.vQ("frs_live_play");
-                    buVar2.parserJson(jSONObject3);
-                    this.mAltList.add(buVar2);
+                    bv bvVar2 = new bv();
+                    bvVar2.wX("frs_live_play");
+                    bvVar2.parserJson(jSONObject3);
+                    this.mAltList.add(bvVar2);
                 }
             }
         }

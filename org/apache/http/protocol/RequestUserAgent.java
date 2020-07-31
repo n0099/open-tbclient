@@ -5,7 +5,7 @@ import org.apache.http.HttpException;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpRequestInterceptor;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public class RequestUserAgent implements HttpRequestInterceptor {
     public RequestUserAgent() {
         throw new RuntimeException("Stub!");

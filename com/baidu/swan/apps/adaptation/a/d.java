@@ -1,69 +1,75 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public interface d {
-    boolean SA();
-
-    boolean SB();
-
-    long SC();
-
-    boolean SD();
+    String SD();
 
     boolean SE();
 
-    long SF();
+    int SF();
 
-    boolean SG();
+    int SG();
 
-    boolean SH();
+    int SH();
 
-    int SI();
+    boolean SI();
 
     boolean SJ();
 
     boolean SK();
 
-    long SL();
+    boolean SL();
 
     boolean SM();
 
-    boolean SN();
+    String SN();
 
     boolean SO();
 
     boolean SP();
 
-    String Sm();
+    boolean SQ();
 
-    boolean Sn();
+    boolean SR();
 
-    int So();
+    long SS();
 
-    int Sp();
+    boolean ST();
 
-    boolean Sq();
+    boolean SU();
 
-    boolean Sr();
+    long SV();
 
-    boolean Ss();
+    boolean SW();
 
-    boolean St();
+    boolean SX();
 
-    boolean Su();
+    int SY();
 
-    String Sv();
+    boolean SZ();
 
-    boolean Sw();
+    boolean Ta();
 
-    boolean Sx();
+    long Tb();
 
-    boolean Sy();
+    boolean Tc();
 
-    String Sz();
+    boolean Td();
 
-    boolean er(int i);
+    boolean Te();
+
+    boolean Tf();
+
+    int Tg();
+
+    int Th();
+
+    double Ti();
+
+    boolean Tj();
+
+    boolean et(int i);
 
     JSONObject getRawSwitch();
 

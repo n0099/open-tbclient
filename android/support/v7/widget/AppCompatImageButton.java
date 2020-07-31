@@ -14,7 +14,7 @@ import android.support.v4.widget.TintableImageSourceView;
 import android.support.v7.appcompat.R;
 import android.util.AttributeSet;
 import android.widget.ImageButton;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AppCompatImageButton extends ImageButton implements TintableBackgroundView, TintableImageSourceView {
     private final AppCompatBackgroundHelper mBackgroundTintHelper;
     private final AppCompatImageHelper mImageHelper;

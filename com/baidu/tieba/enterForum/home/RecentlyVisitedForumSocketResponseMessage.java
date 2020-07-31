@@ -7,7 +7,7 @@ import com.squareup.wire.Wire;
 import java.util.LinkedList;
 import tbclient.GetHistoryForum.GetHistoryForumResIdl;
 import tbclient.HistoryForumInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class RecentlyVisitedForumSocketResponseMessage extends SocketResponsedMessage {
     private LinkedList<VisitedForumData> mForumData;
 

@@ -4,33 +4,33 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private static final b mSe = dCU().dDc();
-    public final int mSf;
-    public final boolean mSg;
-    public final boolean mSh;
-    public final boolean mSi;
-    public final boolean mSj;
-    public final Bitmap.Config mSk;
+    private static final b nal = dGg().dGo();
+    public final int nam;
+    public final boolean nan;
+    public final boolean nao;
+    public final boolean nap;
+    public final boolean naq;
+    public final Bitmap.Config nar;
     @Nullable
-    public final com.facebook.imagepipeline.decoder.b mSl;
+    public final com.facebook.imagepipeline.decoder.b nas;
 
     public b(c cVar) {
-        this.mSf = cVar.dCV();
-        this.mSg = cVar.dCW();
-        this.mSh = cVar.dCX();
-        this.mSi = cVar.dCY();
-        this.mSj = cVar.dDa();
-        this.mSk = cVar.dDb();
-        this.mSl = cVar.dCZ();
+        this.nam = cVar.dGh();
+        this.nan = cVar.dGi();
+        this.nao = cVar.dGj();
+        this.nap = cVar.dGk();
+        this.naq = cVar.dGm();
+        this.nar = cVar.dGn();
+        this.nas = cVar.dGl();
     }
 
-    public static b dCT() {
-        return mSe;
+    public static b dGf() {
+        return nal;
     }
 
-    public static c dCU() {
+    public static c dGg() {
         return new c();
     }
 
@@ -42,14 +42,14 @@ public class b {
             return false;
         }
         b bVar = (b) obj;
-        return this.mSg == bVar.mSg && this.mSh == bVar.mSh && this.mSi == bVar.mSi && this.mSj == bVar.mSj && this.mSk == bVar.mSk && this.mSl == bVar.mSl;
+        return this.nan == bVar.nan && this.nao == bVar.nao && this.nap == bVar.nap && this.naq == bVar.naq && this.nar == bVar.nar && this.nas == bVar.nas;
     }
 
     public int hashCode() {
-        return (((((((this.mSi ? 1 : 0) + (((this.mSh ? 1 : 0) + (((this.mSg ? 1 : 0) + (this.mSf * 31)) * 31)) * 31)) * 31) + (this.mSj ? 1 : 0)) * 31) + this.mSk.ordinal()) * 31) + (this.mSl != null ? this.mSl.hashCode() : 0);
+        return (((((((this.nap ? 1 : 0) + (((this.nao ? 1 : 0) + (((this.nan ? 1 : 0) + (this.nam * 31)) * 31)) * 31)) * 31) + (this.naq ? 1 : 0)) * 31) + this.nar.ordinal()) * 31) + (this.nas != null ? this.nas.hashCode() : 0);
     }
 
     public String toString() {
-        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.mSf), Boolean.valueOf(this.mSg), Boolean.valueOf(this.mSh), Boolean.valueOf(this.mSi), Boolean.valueOf(this.mSj), this.mSk.name(), this.mSl);
+        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.nam), Boolean.valueOf(this.nan), Boolean.valueOf(this.nao), Boolean.valueOf(this.nap), Boolean.valueOf(this.naq), this.nar.name(), this.nas);
     }
 }

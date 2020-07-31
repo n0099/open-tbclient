@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.RectF;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class am extends a {
     private Path mPath;
 
@@ -12,10 +12,10 @@ public class am extends a {
     public void parseJson(JSONArray jSONArray) {
         try {
             if (jSONArray.length() == 4) {
-                int D = com.baidu.swan.apps.aq.ag.D((float) jSONArray.optDouble(0));
-                int D2 = com.baidu.swan.apps.aq.ag.D((float) jSONArray.optDouble(1));
-                int D3 = com.baidu.swan.apps.aq.ag.D((float) jSONArray.optDouble(2));
-                int D4 = com.baidu.swan.apps.aq.ag.D((float) jSONArray.optDouble(3));
+                int D = com.baidu.swan.apps.aq.ai.D((float) jSONArray.optDouble(0));
+                int D2 = com.baidu.swan.apps.aq.ai.D((float) jSONArray.optDouble(1));
+                int D3 = com.baidu.swan.apps.aq.ai.D((float) jSONArray.optDouble(2));
+                int D4 = com.baidu.swan.apps.aq.ai.D((float) jSONArray.optDouble(3));
                 this.mPath = new Path();
                 this.mPath.addRect(new RectF(D, D2, D + D3, D2 + D4), Path.Direction.CW);
             }

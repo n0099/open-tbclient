@@ -15,7 +15,7 @@ public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nJW.a((j) new BackpressureBufferSubscriber(cVar, this.bufferSize, this.unbounded, this.delayError, this.onOverflow));
+        this.nSE.a((j) new BackpressureBufferSubscriber(cVar, this.bufferSize, this.unbounded, this.delayError, this.onOverflow));
     }
 
     /* loaded from: classes7.dex */
@@ -62,7 +62,7 @@ public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
                 try {
                     this.onOverflow.run();
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.L(th);
+                    io.reactivex.exceptions.a.K(th);
                     missingBackpressureException.initCause(th);
                 }
                 onError(missingBackpressureException);

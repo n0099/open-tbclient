@@ -14,7 +14,7 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.e;
 import com.baidu.mobads.utils.m;
 import com.baidu.mobads.vo.XAdInstanceInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a extends b {
     public String f;
     private String g;

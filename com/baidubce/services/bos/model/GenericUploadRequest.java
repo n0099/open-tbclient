@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
 
 import com.baidubce.util.CheckUtils;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public abstract class GenericUploadRequest extends GenericObjectRequest {
     private String uploadId;
 

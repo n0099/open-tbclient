@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LocalConfigOptions {
     public static final int DEFAULT_ILLUM_GRAY = -1;
     public static final int DEFAULT_ZIP_GRAY_THRESHOLD = 100;

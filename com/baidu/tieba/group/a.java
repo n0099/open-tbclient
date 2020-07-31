@@ -2,20 +2,20 @@ package com.baidu.tieba.group;
 
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbadkSettings;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class a {
-    private static a ikH;
-    private boolean ikG = false;
+    private static a iqK;
+    private boolean iqJ = false;
 
-    public static a chE() {
-        if (ikH == null) {
+    public static a cld() {
+        if (iqK == null) {
             synchronized (a.class) {
-                if (ikH == null) {
-                    ikH = new a();
+                if (iqK == null) {
+                    iqK = new a();
                 }
             }
         }
-        return ikH;
+        return iqK;
     }
 
     private a() {
@@ -23,15 +23,15 @@ public class a {
     }
 
     private void initConfig() {
-        this.ikG = TbadkSettings.getInst().loadBoolean(SharedPrefConfig.HAS_SHOWED_DEL_GA_TIP, false);
+        this.iqJ = TbadkSettings.getInst().loadBoolean(SharedPrefConfig.HAS_SHOWED_DEL_GA_TIP, false);
     }
 
-    public boolean chF() {
-        return this.ikG;
+    public boolean cle() {
+        return this.iqJ;
     }
 
-    public void on(boolean z) {
-        this.ikG = z;
+    public void oS(boolean z) {
+        this.iqJ = z;
         TbadkSettings.getInst().saveBoolean(SharedPrefConfig.HAS_SHOWED_DEL_GA_TIP, z);
     }
 }

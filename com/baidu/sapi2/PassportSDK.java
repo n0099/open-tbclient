@@ -72,7 +72,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public final class PassportSDK {
     private static PassportSDK a;
     private static LoginStatusChangeCallback b;

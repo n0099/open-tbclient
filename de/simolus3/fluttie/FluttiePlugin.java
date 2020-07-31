@@ -65,6 +65,7 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
         return this.renderingThreads;
     }
 
+    @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
     public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
         String str = methodCall.method;
         char c = 65535;
@@ -129,7 +130,7 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
                 int intValue = ((Integer) methodCall.argument("composition")).intValue();
                 e eVar = this.loadedCompositions.get(intValue);
                 if (eVar == null) {
-                    result.error("invalid", "There is no prepared animation for that request id: " + intValue, (Object) null);
+                    result.error("invalid", "There is no prepared animation for that request id: " + intValue, null);
                     return;
                 }
                 int intValue2 = ((Integer) methodCall.argument("repeat_count")).intValue();
@@ -152,26 +153,26 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
                 return;
             case 3:
                 getManagedAnimation(methodCall).startAnimation();
-                result.success((Object) null);
+                result.success(null);
                 return;
             case 4:
                 getManagedAnimation(methodCall).resumeAnimation();
-                result.success((Object) null);
+                result.success(null);
                 return;
             case 5:
                 getManagedAnimation(methodCall).pauseAnimation();
-                result.success((Object) null);
+                result.success(null);
                 return;
             case 6:
                 getManagedAnimation(methodCall).stopAnimation(((Boolean) methodCall.argument("reset_start")).booleanValue());
-                result.success((Object) null);
+                result.success(null);
                 return;
             case 7:
                 FluttieAnimation managedAnimation = getManagedAnimation(methodCall);
                 managedAnimation.stopAndRelease();
                 this.managedAnimations.remove(managedAnimation.getId());
                 this.renderingThreads.getQueue().removeAnimation(managedAnimation);
-                result.success((Object) null);
+                result.success(null);
                 return;
             default:
                 result.notImplemented();
@@ -186,7 +187,7 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
             public void onResult(@Nullable e eVar) {
                 try {
                     if (eVar == null) {
-                        result.error("Could not load composition", "CompositionLoadError", (Object) null);
+                        result.error("Could not load composition", "CompositionLoadError", null);
                         return;
                     }
                     if (!eVar.gR().isEmpty()) {
@@ -202,7 +203,7 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
                         BdLog.e(e);
                     }
                 } catch (Throwable th) {
-                    result.error(th.getMessage(), "CompositionLoadError", (Object) null);
+                    result.error(th.getMessage(), "CompositionLoadError", null);
                 }
             }
         };
@@ -253,7 +254,7 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
                     return;
                 }
             default:
-                result.error("Unknown source type: " + str, "UnknownSourceType", (Object) null);
+                result.error("Unknown source type: " + str, "UnknownSourceType", null);
                 return;
         }
     }

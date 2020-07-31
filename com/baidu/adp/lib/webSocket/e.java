@@ -22,11 +22,11 @@ public class e {
 
         boolean isConnected();
 
-        String mT();
+        String mU();
 
-        long mU();
+        long mV();
 
-        int mV();
+        int mW();
 
         int read(ByteBuffer byteBuffer) throws Exception;
 
@@ -71,8 +71,8 @@ public class e {
                 this.OE = inetSocketAddress.getAddress().getHostAddress();
                 this.OD = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.mSocket.connect(inetSocketAddress, lVar.no());
-            this.mSocket.setSoTimeout(lVar.nn());
+            this.mSocket.connect(inetSocketAddress, lVar.np());
+            this.mSocket.setSoTimeout(lVar.no());
             this.mSocket.setTcpNoDelay(lVar.getTcpNoDelay());
             this.mInputStream = this.mSocket.getInputStream();
             this.mOutputStream = this.mSocket.getOutputStream();
@@ -132,12 +132,12 @@ public class e {
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String mT() {
+        public String mU() {
             return this.OE;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public long mU() {
+        public long mV() {
             return this.OD;
         }
 
@@ -152,7 +152,7 @@ public class e {
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public int mV() {
+        public int mW() {
             return 0;
         }
     }
@@ -178,8 +178,8 @@ public class e {
                 this.OE = inetSocketAddress.getAddress().getHostAddress();
                 this.OD = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.OC.socket().connect(inetSocketAddress, lVar.no());
-            this.OC.socket().setSoTimeout(lVar.nn());
+            this.OC.socket().connect(inetSocketAddress, lVar.np());
+            this.OC.socket().setSoTimeout(lVar.no());
             this.OC.socket().setTcpNoDelay(lVar.getTcpNoDelay());
             this.OF = com.baidu.adp.lib.util.l.getLocalDns();
             this.OG = com.baidu.adp.lib.util.l.getLocalDnsBak();
@@ -211,12 +211,12 @@ public class e {
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String mT() {
+        public String mU() {
             return this.OE;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public long mU() {
+        public long mV() {
             return this.OD;
         }
 
@@ -231,7 +231,7 @@ public class e {
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public int mV() {
+        public int mW() {
             return 0;
         }
     }

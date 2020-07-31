@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @RequiresApi(18)
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 class ViewGroupUtilsApi18 extends ViewGroupUtilsApi14 {
     private static final String TAG = "ViewUtilsApi18";
     private static Method sSuppressLayoutMethod;

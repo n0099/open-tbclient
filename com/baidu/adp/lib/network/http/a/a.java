@@ -62,10 +62,6 @@ public class a {
         return this.Lh;
     }
 
-    public String getHost() {
-        return this.mHost;
-    }
-
     public boolean F(long j) {
         return j - this.mStartTime > this.Li * 1000;
     }

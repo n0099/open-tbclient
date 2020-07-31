@@ -12,7 +12,7 @@ import android.view.WindowManager;
 import com.baidu.tbadk.widget.TbImageView;
 import java.lang.reflect.Method;
 import org.apache.http.HttpHost;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaUtilHelper {
     private static boolean hasNavBar(Context context) {
         Resources resources = context.getResources();

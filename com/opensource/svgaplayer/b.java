@@ -7,27 +7,27 @@ import android.widget.ImageView;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public final class b extends Drawable {
-    private boolean nAr;
-    private int nAs;
-    private final com.opensource.svgaplayer.a.b nAt;
-    private final f nAu;
-    private final c nAv;
+    private boolean nIZ;
+    private int nJa;
+    private final com.opensource.svgaplayer.a.b nJb;
+    private final f nJc;
+    private final c nJd;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         q.m(fVar, "videoItem");
         q.m(cVar, "dynamicItem");
-        this.nAu = fVar;
-        this.nAv = cVar;
-        this.nAr = true;
+        this.nJc = fVar;
+        this.nJd = cVar;
+        this.nIZ = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.nAt = new com.opensource.svgaplayer.a.b(this.nAu, this.nAv);
+        this.nJb = new com.opensource.svgaplayer.a.b(this.nJc, this.nJd);
     }
 
-    public final f dLx() {
-        return this.nAu;
+    public final f dOS() {
+        return this.nJc;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -36,20 +36,20 @@ public final class b extends Drawable {
         q.m(fVar, "videoItem");
     }
 
-    public final void xf(boolean z) {
-        if (this.nAr != z) {
-            this.nAr = z;
+    public final void xK(boolean z) {
+        if (this.nIZ != z) {
+            this.nIZ = z;
             invalidateSelf();
         }
     }
 
-    public final int dLw() {
-        return this.nAs;
+    public final int dOR() {
+        return this.nJa;
     }
 
-    public final void KB(int i) {
-        if (this.nAs != i) {
-            this.nAs = i;
+    public final void KV(int i) {
+        if (this.nJa != i) {
+            this.nJa = i;
             invalidateSelf();
         }
     }
@@ -61,8 +61,8 @@ public final class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.nAr && canvas != null) {
-            this.nAt.a(canvas, this.nAs, this.scaleType);
+        if (!this.nIZ && canvas != null) {
+            this.nJb.a(canvas, this.nJa, this.scaleType);
         }
     }
 

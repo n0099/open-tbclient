@@ -7,7 +7,7 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class g extends com.baidu.platform.comapi.walknavi.g.b.b {
     private Activity a;
     private com.baidu.platform.comapi.bikenavi.c.b b;
@@ -22,9 +22,9 @@ public class g extends com.baidu.platform.comapi.walknavi.g.b.b {
     }
 
     private void a(View view) {
-        this.c = (ImageView) view.findViewById(R.raw.lottie_full_screen_refresh_1);
-        this.d = (TextView) view.findViewById(R.raw.lottie_full_screen_refresh_2);
-        this.e = view.findViewById(R.raw.lottie_full_screen_refresh);
+        this.c = (ImageView) view.findViewById(R.raw.lottie_disagree_imageviewer);
+        this.d = (TextView) view.findViewById(R.raw.lottie_full_screen_refresh);
+        this.e = view.findViewById(R.raw.lottie_disagree_2);
         this.e.setVisibility(8);
     }
 

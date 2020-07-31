@@ -8,18 +8,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.ad;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.c, a> {
     public h(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.c.inp);
+        super(context, com.baidu.tieba.homepage.concern.b.c.its);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: by */
+    /* renamed from: bz */
     public a b(ViewGroup viewGroup) {
         return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.concern_emotion_tip_layout, viewGroup, false));
     }
@@ -31,38 +31,38 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         if (cVar.tipString != null) {
             aVar.tipText.setText(cVar.tipString);
         }
-        switch (cVar.inq) {
+        switch (cVar.itt) {
             case 2:
-                aVar.ck(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
+                aVar.cn(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
                 break;
             case 3:
-                aVar.ck(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_06);
+                aVar.cn(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_06);
                 break;
         }
         return aVar.getView();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class a extends ad.a {
-        private int ahx;
-        public ViewGroup imK;
-        public ImageView imL;
+        private int aho;
+        public ViewGroup isM;
+        public ImageView isN;
         public TextView tipText;
 
         public a(View view) {
             super(view);
-            this.ahx = 3;
-            this.imK = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
-            this.imL = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
+            this.aho = 3;
+            this.isM = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
+            this.isN = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
             this.tipText = (TextView) view.findViewById(R.id.tv_concern_emotion_tip);
         }
 
-        protected void ck(int i, int i2) {
-            if (this.ahx != i) {
-                an.setViewTextColor(this.tipText, (int) R.color.cp_cont_j);
+        protected void cn(int i, int i2) {
+            if (this.aho != i) {
+                ao.setViewTextColor(this.tipText, R.color.cp_cont_j);
             }
-            an.setImageResource(this.imL, i2);
-            this.ahx = i;
+            ao.setImageResource(this.isN, i2);
+            this.aho = i;
         }
     }
 }

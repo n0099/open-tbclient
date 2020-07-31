@@ -10,7 +10,7 @@ import android.support.annotation.Keep;
 import android.util.Log;
 import com.samsung.android.deviceidservice.a;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class SumsungCore {
     private com.bun.miitmdid.supplier.c.a mCallerCallBack;
     private ServiceConnection mConnection;
@@ -31,7 +31,7 @@ public class SumsungCore {
         this.mConnection = new ServiceConnection() { // from class: com.bun.miitmdid.supplier.sumsung.SumsungCore.1
             @Override // android.content.ServiceConnection
             public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                SumsungCore.this.mDeviceidInterface = a.AbstractBinderC0862a.a(iBinder);
+                SumsungCore.this.mDeviceidInterface = a.AbstractBinderC0871a.a(iBinder);
                 if (SumsungCore.this.mCallerCallBack != null) {
                     SumsungCore.this.mCallerCallBack.a(true);
                 }

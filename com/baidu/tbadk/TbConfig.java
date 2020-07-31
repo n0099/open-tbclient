@@ -480,6 +480,8 @@ public class TbConfig {
     public static final String URL_ENTER_FORUM_AD = "c/f/forum/getAdInfo";
     public static final String URL_ENTER_RECOMMEND_FORUM = "c/f/recommend/recommforum";
     public static final String URL_FEED_BACK = "https://ufosdk.baidu.com/?m=Client&a=postViewTieba&appid=222251";
+    public static final String URL_FORUM_BROADCAST_HISTORY = "c/f/forum/getForumBroadcastList";
+    public static final String URL_FORUM_BROADCAST_RESIDUE = "c/f/forum/getForumMangerRights";
     public static final String URL_FORUM_MANAGER_APPLY = "https://tieba.baidu.com/mo/q/managerapply/newapplyelection?nomenu=1&fid=";
     public static final String URL_FORUM_SQUARE = "c/f/forum/getForumSquare";
     public static final String URL_FRS_BUSINESS_PROMOT_CLICK = "c/e/businessPromot/counter";
@@ -489,6 +491,7 @@ public class TbConfig {
     public static final String URL_GAME_VIDEO = "c/f/excellent/recomVertical";
     public static final String URL_GETPAYINFO = "c/e/mema/getpayinfo";
     public static final String URL_GET_CONSENTLIST = "c/u/feed/getConsentList";
+    public static final String URL_GET_FORUM_MANAGER_RIGHTS = "c/f/forum/getForumMangerRights";
     public static final String URL_GET_GRAFFITI_LIST = "c/f/pb/graffiti";
     public static final String URL_GET_HOME_PAGE_DATA = "c/f/index/homePage";
     public static final String URL_GET_HOT_RANKLIST_DATA = "c/f/recommend/topicList";
@@ -527,6 +530,7 @@ public class TbConfig {
     public static final String URL_REMOVE_FANS = "c/c/user/removeFans";
     public static final String URL_SEARCH_MAJOR = "c/f/forum/searchMajor";
     public static final String URL_SET_PRIVACY = "c/c/thread/setPrivacy";
+    public static final String URL_SHARE_COMMAND_GENERATE = "mo/q/schemeToken";
     public static final String URL_SHARE_REPORT = "c/c/thread/share";
     public static final String URL_SHARE_SUCCESS_TO_REPLY_SERVER = "/c/c/video/share";
     public static final String URL_SMART_APP_BROWSE_HISTORY = "c/c/smartapp/view";
@@ -627,14 +631,14 @@ public class TbConfig {
     public static final int VALUE_COMMON_FONT_LINE_SPACE_BIG = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds9);
     public static final int VALUE_COMMON_FONT_LINE_SPACE_MID = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7);
     public static final int VALUE_COMMON_FONT_LINE_SPACE_SMALL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
-    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds50);
-    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44);
-    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds40);
+    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44);
+    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds39);
+    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds39);
     public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds34);
     public static final int VALUE_SUBPB_FONT_LINE_SPACE_XLAGRE = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds9);
-    public static final int VALUE_SUBPB_FONT_LINE_SPACE_BIG = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7);
-    public static final int VALUE_SUBPB_FONT_LINE_SPACE_MID = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
-    public static final int VALUE_SUBPB_FONT_LINE_SPACE_SMALL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds3);
+    public static final int VALUE_SUBPB_FONT_LINE_SPACE_BIG = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+    public static final int VALUE_SUBPB_FONT_LINE_SPACE_MID = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+    public static final int VALUE_SUBPB_FONT_LINE_SPACE_SMALL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1);
     private static int MAX_PHOTO_MEMORY_CACHE = 60;
     private static int MAX_PHOTO_MEMORY_CACHE_REMOTE_PROCESS = 10;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
@@ -777,7 +781,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.bgz().setPhotoMaxNum(i);
+            c.bkk().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

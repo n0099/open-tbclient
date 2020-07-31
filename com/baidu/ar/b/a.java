@@ -10,7 +10,7 @@ import com.baidu.ar.b.b.e;
 import com.baidu.ar.f.b;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
     private static a cI;

@@ -6,6 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.adp.widget.ListView.z;
+import com.baidu.card.Align;
 import com.baidu.card.a.a;
 import com.baidu.card.ai;
 import com.baidu.card.ak;
@@ -16,22 +17,22 @@ import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.data.k;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class e extends com.baidu.adp.widget.ListView.a<k, ak<k>> {
-    private aa<k> adX;
-    private v ajy;
-    private NEGFeedBackView.a eTW;
-    private BdUniqueId eyE;
+    private aa<k> adN;
+    private v ajt;
+    private BdUniqueId eEU;
+    private NEGFeedBackView.a far;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.adX = new aa<k>() { // from class: com.baidu.tieba.homepage.video.a.e.1
+        this.adN = new aa<k>() { // from class: com.baidu.tieba.homepage.video.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, k kVar) {
-                if (view != null && kVar != null && kVar.aPS() != null) {
+                if (view != null && kVar != null && kVar.aTN() != null) {
                     int id = view.getId();
                     if (id == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
                         com.baidu.tieba.homepage.video.c.a.p(kVar);
@@ -43,30 +44,30 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ak<k>> {
     }
 
     public void a(v vVar) {
-        this.ajy = vVar;
+        this.ajt = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aQ */
+    /* renamed from: aR */
     public ak<k> b(ViewGroup viewGroup) {
         ai.a aVar = new ai.a(this.mPageContext.getPageActivity(), false);
         al alVar = new al(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.c cVar = new com.baidu.tbadk.core.data.c();
-        cVar.dHq = 21;
-        cVar.dHr = 2;
-        cVar.dHw = 18;
+        cVar.dNB = 21;
+        cVar.dNC = 2;
+        cVar.dNH = 18;
         alVar.setAgreeStatisticData(cVar);
         alVar.setFrom(16);
         alVar.setShareReportFrom(10);
         alVar.setFromForPb(19);
-        alVar.bd(32);
+        alVar.bf(32);
         aVar.b(alVar);
-        ai a = aVar.a(true, viewGroup, this.ajy);
+        ai a = aVar.a(true, viewGroup, this.ajt);
         a.setSourceForPb(19);
         ak<k> akVar = new ak<>(a);
-        akVar.setPageId(this.eyE);
+        akVar.setPageId(this.eEU);
         a(new z() { // from class: com.baidu.tieba.homepage.video.a.e.2
             @Override // com.baidu.adp.widget.ListView.z
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -74,11 +75,11 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ak<k>> {
                     ak akVar2 = (ak) view.getTag();
                     k kVar = (k) qVar;
                     kVar.objType = 1;
-                    if (e.this.adX != null) {
-                        e.this.adX.a(akVar2.getView(), kVar);
+                    if (e.this.adN != null) {
+                        e.this.adN.a(akVar2.getView(), kVar);
                     }
                     com.baidu.tieba.homepage.video.c.a.a(kVar, view.getContext(), 19, false, com.baidu.card.f.a((v) viewGroup2, view, i));
-                    akVar2.se().b(new a.C0098a(1));
+                    akVar2.sg().b(new a.C0096a(1));
                 }
             }
         });
@@ -89,23 +90,24 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ak<k>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, k kVar, ak<k> akVar) {
-        if (kVar == null || akVar == null || akVar.getView() == null || kVar.dLi == null) {
+        if (kVar == null || akVar == null || akVar.getView() == null || kVar.dLK == null) {
             return null;
         }
-        kVar.sR(kVar.position + 1);
-        akVar.se().setPosition(i);
-        akVar.aI(false).a(this.eTW);
+        kVar.tj(kVar.position + 1);
+        akVar.sg().setPosition(i);
+        akVar.aK(false).a(this.far);
+        akVar.a(false, Align.ALIGN_RIGHT_BOTTOM, this.far);
         akVar.b((ak<k>) kVar);
-        akVar.se().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        akVar.se().a(this.adX);
+        akVar.sg().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        akVar.sg().a(this.adN);
         return akVar.getView();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.eyE = bdUniqueId;
+        this.eEU = bdUniqueId;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.eTW = aVar;
+        this.far = aVar;
     }
 }

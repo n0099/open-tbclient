@@ -44,13 +44,23 @@ public class LogUtils {
         }
     }
 
+    public static void w(String str, String str2) {
+        if (Constants.isDebugMode() && mLoglevel >= LOG_LEVEL_I) {
+            if (mIsWriteToFile) {
+                LogFile.getInstance(sContext).writeByte((currentTime() + str + " : " + str2 + "\n").getBytes());
+                return;
+            }
+            Log.w(TAG, str + " : " + str2);
+        }
+    }
+
     public static void e(String str, String str2) {
         if (Constants.isDebugMode() && mLoglevel >= LOG_LEVEL_E) {
             if (mIsWriteToFile) {
                 LogFile.getInstance(sContext).writeByte((currentTime() + str + " : " + str2 + "\n").getBytes());
                 return;
             }
-            Log.i(TAG, str + " : " + str2);
+            Log.e(TAG, str + " : " + str2);
         }
     }
 

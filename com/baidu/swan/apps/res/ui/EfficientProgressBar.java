@@ -12,45 +12,45 @@ import android.view.animation.AnimationSet;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.Transformation;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class EfficientProgressBar extends View {
-    private int cAe;
-    private int cAf;
-    private int cAg;
-    private long cAh;
-    private Transformation cAi;
-    private AnimationSet cAj;
-    private float cAk;
+    private int cCR;
+    private int cCS;
+    private int cCT;
+    private long cCU;
+    private Transformation cCV;
+    private AnimationSet cCW;
+    private float cCX;
     private Interpolator mInterpolator;
     private Drawable mThumb;
 
     public EfficientProgressBar(Context context) {
         super(context);
-        this.cAg = gt(66);
-        this.cAh = -1L;
-        this.cAi = new Transformation();
+        this.cCT = gC(66);
+        this.cCU = -1L;
+        this.cCV = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
-        this.cAk = -1.0f;
+        this.cCX = -1.0f;
         init();
     }
 
     public EfficientProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cAg = gt(66);
-        this.cAh = -1L;
-        this.cAi = new Transformation();
+        this.cCT = gC(66);
+        this.cCU = -1L;
+        this.cCV = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
-        this.cAk = -1.0f;
+        this.cCX = -1.0f;
         init();
     }
 
     public EfficientProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cAg = gt(66);
-        this.cAh = -1L;
-        this.cAi = new Transformation();
+        this.cCT = gC(66);
+        this.cCU = -1L;
+        this.cCV = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
-        this.cAk = -1.0f;
+        this.cCX = -1.0f;
         init();
     }
 
@@ -62,39 +62,39 @@ public class EfficientProgressBar extends View {
     }
 
     public void setProgress(int i, boolean z) {
-        if (i != 100 || gu(this.cAe) != 100) {
-            this.cAe = gt(i);
+        if (i != 100 || gD(this.cCR) != 100) {
+            this.cCR = gC(i);
             if (i == 100) {
-                if (this.cAj == null) {
-                    eO(z);
+                if (this.cCW == null) {
+                    eX(z);
                 }
-            } else if (this.cAh == -1) {
+            } else if (this.cCU == -1) {
                 start();
             }
         }
     }
 
     public void reset() {
-        this.cAf = 0;
-        this.cAe = 0;
-        this.cAh = -1L;
-        this.cAj = null;
-        x(0, false);
+        this.cCS = 0;
+        this.cCR = 0;
+        this.cCU = -1L;
+        this.cCW = null;
+        w(0, false);
         setVisibility(4);
     }
 
     @TargetApi(11)
-    private void aoK() {
+    private void aqu() {
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         float f = -1.0f;
         if (width > 0) {
-            f = ((10000 - this.cAf) / 10000.0f) * width;
+            f = ((10000 - this.cCS) / 10000.0f) * width;
         }
         if (f > 0.0f) {
             if (Build.VERSION.SDK_INT >= 11) {
                 setTranslationX(-f);
             }
-            this.cAk = f;
+            this.cCX = f;
         }
     }
 
@@ -113,26 +113,26 @@ public class EfficientProgressBar extends View {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         if (this.mThumb != null) {
-            if (this.cAj != null) {
-                if (this.cAj.getTransformation(getDrawingTime(), this.cAi)) {
-                    x((int) (this.cAi.getAlpha() * 10000.0f), false);
+            if (this.cCW != null) {
+                if (this.cCW.getTransformation(getDrawingTime(), this.cCV)) {
+                    w((int) (this.cCV.getAlpha() * 10000.0f), false);
                 } else {
-                    this.cAj = null;
+                    this.cCW = null;
                     reset();
                 }
-            } else if (this.cAh != -1 && this.cAf < this.cAg) {
+            } else if (this.cCU != -1 && this.cCS < this.cCT) {
                 long currentTimeMillis = System.currentTimeMillis();
-                int bm = bm(currentTimeMillis - this.cAh);
-                this.cAf += bm;
-                if (bm != 0) {
-                    this.cAh = currentTimeMillis;
-                    x(this.cAf, true);
+                int bx = bx(currentTimeMillis - this.cCU);
+                this.cCS += bx;
+                if (bx != 0) {
+                    this.cCU = currentTimeMillis;
+                    w(this.cCS, true);
                 }
             }
             int i = -1;
             if (getPaddingLeft() > 0) {
                 i = canvas.save();
-                canvas.clipRect(this.cAk + getPaddingLeft(), 0.0f, getWidth(), getHeight());
+                canvas.clipRect(this.cCX + getPaddingLeft(), 0.0f, getWidth(), getHeight());
             }
             this.mThumb.draw(canvas);
             if (i >= 0) {
@@ -141,12 +141,12 @@ public class EfficientProgressBar extends View {
         }
     }
 
-    private void x(int i, boolean z) {
+    private void w(int i, boolean z) {
         if (i > 10000) {
             i = 10000;
         }
-        this.cAf = i;
-        aoK();
+        this.cCS = i;
+        aqu();
         if (z) {
             postInvalidateDelayed(50L);
         } else {
@@ -155,24 +155,24 @@ public class EfficientProgressBar extends View {
     }
 
     private void start() {
-        this.cAf = 0;
-        this.cAe = 0;
-        this.cAj = null;
-        this.cAh = System.currentTimeMillis();
-        x(this.cAf, false);
+        this.cCS = 0;
+        this.cCR = 0;
+        this.cCW = null;
+        this.cCU = System.currentTimeMillis();
+        w(this.cCS, false);
         setVisibility(0);
     }
 
-    private void eO(boolean z) {
+    private void eX(boolean z) {
         if (getVisibility() == 0) {
             if (z) {
-                this.cAj = new AnimationSet(false);
-                AlphaAnimation alphaAnimation = new AlphaAnimation(this.cAf / 10000.0f, 1.0f);
+                this.cCW = new AnimationSet(false);
+                AlphaAnimation alphaAnimation = new AlphaAnimation(this.cCS / 10000.0f, 1.0f);
                 alphaAnimation.setDuration(200L);
                 alphaAnimation.setInterpolator(this.mInterpolator);
-                this.cAj.addAnimation(alphaAnimation);
-                this.cAi.clear();
-                this.cAj.start();
+                this.cCW.addAnimation(alphaAnimation);
+                this.cCV.clear();
+                this.cCW.start();
                 invalidate();
                 return;
             }
@@ -180,15 +180,15 @@ public class EfficientProgressBar extends View {
         }
     }
 
-    private int bm(long j) {
-        return (int) ((gt(66) / 1500.0f) * ((float) j));
+    private int bx(long j) {
+        return (int) ((gC(66) / 1500.0f) * ((float) j));
     }
 
-    private int gt(int i) {
+    private int gC(int i) {
         return i * 100;
     }
 
-    private int gu(int i) {
+    private int gD(int i) {
         return i / 100;
     }
 }

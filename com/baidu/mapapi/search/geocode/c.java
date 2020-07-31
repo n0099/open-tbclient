@@ -3,7 +3,7 @@ package com.baidu.mapapi.search.geocode;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 final class c implements Parcelable.Creator<ReverseGeoCodeResult.AddressComponent> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator

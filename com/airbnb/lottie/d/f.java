@@ -8,10 +8,10 @@ import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.a.r;
 import java.io.Closeable;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public final class f {
-    private static final PathMeasure CY = new PathMeasure();
-    private static final Path Da = new Path();
+    private static final PathMeasure Da = new PathMeasure();
+    private static final Path Dc = new Path();
     private static final Path Gm = new Path();
     private static final float[] points = new float[4];
     private static final float Gn = (float) Math.sqrt(2.0d);
@@ -56,8 +56,8 @@ public final class f {
 
     public static void a(Path path, float f, float f2, float f3) {
         com.airbnb.lottie.d.beginSection("applyTrimPathIfNeeded");
-        CY.setPath(path, false);
-        float length = CY.getLength();
+        Da.setPath(path, false);
+        float length = Da.getLength();
         if (f == 1.0f && f2 == 0.0f) {
             com.airbnb.lottie.d.aW("applyTrimPathIfNeeded");
         } else if (length < 1.0f || Math.abs((f2 - f) - 1.0f) < 0.01d) {
@@ -88,18 +88,18 @@ public final class f {
             if (f7 >= f8) {
                 f7 -= length;
             }
-            Da.reset();
-            CY.getSegment(f7, f8, Da, true);
+            Dc.reset();
+            Da.getSegment(f7, f8, Dc, true);
             if (f8 > length) {
                 Gm.reset();
-                CY.getSegment(0.0f, f8 % length, Gm, true);
-                Da.addPath(Gm);
+                Da.getSegment(0.0f, f8 % length, Gm, true);
+                Dc.addPath(Gm);
             } else if (f7 < 0.0f) {
                 Gm.reset();
-                CY.getSegment(f7 + length, length, Gm, true);
-                Da.addPath(Gm);
+                Da.getSegment(f7 + length, length, Gm, true);
+                Dc.addPath(Gm);
             }
-            path.set(Da);
+            path.set(Dc);
             com.airbnb.lottie.d.aW("applyTrimPathIfNeeded");
         }
     }

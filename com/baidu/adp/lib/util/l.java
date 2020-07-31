@@ -47,6 +47,8 @@ public class l {
     public interface a {
         View getToastContentView();
 
+        void mJ();
+
         void setToastString(String str);
     }
 
@@ -101,6 +103,9 @@ public class l {
                 if (mToast != null) {
                     mToast.cancel();
                 }
+                if (Ob != null) {
+                    Ob.mJ();
+                }
                 if (Ob == null || Ob.getToastContentView() == null) {
                     if (i == 3500) {
                         mToast = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 1);
@@ -123,11 +128,15 @@ public class l {
                 }
                 mToast.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
             } else {
+                if (Ob != null) {
+                    Ob.mJ();
+                }
                 if (!str.equals(Oc)) {
                     if (Ob == null || Ob.getToastContentView() == null) {
                         mToast.setText(str);
                     } else {
                         Ob.setToastString(str);
+                        mToast.setView(Ob.getToastContentView());
                     }
                 }
                 int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);

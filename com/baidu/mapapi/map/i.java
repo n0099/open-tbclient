@@ -1,6 +1,6 @@
 package com.baidu.mapapi.map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class i implements Runnable {
     final /* synthetic */ int a;
     final /* synthetic */ int b;

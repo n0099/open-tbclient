@@ -1,7 +1,7 @@
 package com.kascend.chushou.constants;
 
 import android.util.SparseArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ParserRet {
     public String mBreakpoint;
     public Object mData;

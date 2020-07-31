@@ -24,7 +24,7 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class SoLoader {
     private static final String TAG = "SoLoader";
     private StringBuilder sb = new StringBuilder();
@@ -35,21 +35,21 @@ public final class SoLoader {
     private SoLoader() {
     }
 
-    public static boolean loadV8EngineSo(Context context) {
-        String aDC = e.aDC();
-        if (sLoadedLibraries.contains(aDC)) {
-            return true;
+    public static f loadV8EngineSo(Context context) {
+        String aHq = e.aHq();
+        if (sLoadedLibraries.contains(aHq)) {
+            return f.aHs();
         }
-        boolean a = e.a(context, new SoLoader());
-        if (a) {
-            sLoadedLibraries.add(aDC);
+        f a = e.a(context, new SoLoader());
+        if (a.isSuccess()) {
+            sLoadedLibraries.add(aHq);
             return a;
         }
         return a;
     }
 
     public static String getV8SoDependentFilePath() {
-        if (!sLoadedLibraries.contains(e.aDC())) {
+        if (!sLoadedLibraries.contains(e.aHq())) {
             return null;
         }
         String v8SoDependentFilePath = e.getV8SoDependentFilePath();
@@ -71,11 +71,11 @@ public final class SoLoader {
     public static void load(Context context, String str, boolean z, boolean z2) {
         boolean load;
         if (!sLoadedLibraries.contains(str)) {
-            a aDt = a.aDt();
+            a aHh = a.aHh();
             if (!z) {
-                load = new SoLoader().loadInternalFromLocal(context, str, aDt, z2);
+                load = new SoLoader().loadInternalFromLocal(context, str, aHh, z2);
             } else {
-                load = load(context, str, aDt, z2);
+                load = load(context, str, aHh, z2);
             }
             if (load) {
                 sLoadedLibraries.add(str);
@@ -85,7 +85,7 @@ public final class SoLoader {
 
     private static boolean load(Context context, String str, b bVar, boolean z) {
         if (bVar == null) {
-            bVar = a.aDt();
+            bVar = a.aHh();
         }
         SoLoader soLoader = new SoLoader();
         if (soSources.size() == 0) {
@@ -130,14 +130,14 @@ public final class SoLoader {
                 File file = new File(getNativeLibraryDir(context), fullName);
                 if (file.exists()) {
                     if (file.length() == getSoSize(apkZipFile, str2) && load(bVar, fullName, file.getAbsolutePath(), "SO_NATIVE_LIB_LOAD")) {
-                        com.baidu.swan.e.d.closeSafely(apkZipFile);
+                        com.baidu.swan.d.d.closeSafely(apkZipFile);
                         z2 = true;
                     }
                 }
                 File file2 = new File(getReleaseSoFilePath(context), fullName);
                 if (file2.exists()) {
                     if (file2.length() == getSoSize(apkZipFile, str2) && load(bVar, fullName, file2.getAbsolutePath(), "SO_RELEASE_LIB_LOAD")) {
-                        com.baidu.swan.e.d.closeSafely(apkZipFile);
+                        com.baidu.swan.d.d.closeSafely(apkZipFile);
                         z2 = true;
                     }
                 }
@@ -146,10 +146,10 @@ public final class SoLoader {
                     while (true) {
                         if (i >= SoUtils.uris.length) {
                             SoUtils.sendLog(this.sb.toString());
-                            com.baidu.swan.e.d.closeSafely(apkZipFile);
+                            com.baidu.swan.d.d.closeSafely(apkZipFile);
                             break;
                         } else if (executeRelease(apkZipFile, fullName, SoUtils.uris[i], new File(getReleaseSoFilePath(context), str)) && load(bVar, fullName, file2.getAbsolutePath(), "SO_RELEASE_EXECUTE_LOAD")) {
-                            com.baidu.swan.e.d.closeSafely(apkZipFile);
+                            com.baidu.swan.d.d.closeSafely(apkZipFile);
                             z2 = true;
                             break;
                         } else {
@@ -160,7 +160,7 @@ public final class SoLoader {
                     SoUtils.sendLog(this.sb.toString());
                 }
             } finally {
-                com.baidu.swan.e.d.closeSafely(apkZipFile);
+                com.baidu.swan.d.d.closeSafely(apkZipFile);
             }
         }
         return z2;
@@ -263,7 +263,7 @@ public final class SoLoader {
                         releaseFileFromApk = true;
                         if (fileLock != null) {
                         }
-                        com.baidu.swan.e.d.closeSafely(fileChannel);
+                        com.baidu.swan.d.d.closeSafely(fileChannel);
                         return releaseFileFromApk;
                     }
                 }
@@ -280,7 +280,7 @@ public final class SoLoader {
                                         e6.printStackTrace();
                                     }
                                 }
-                                com.baidu.swan.e.d.closeSafely(fileChannel);
+                                com.baidu.swan.d.d.closeSafely(fileChannel);
                                 return releaseFileFromApk;
                             }
                         } catch (Exception e7) {
@@ -294,7 +294,7 @@ public final class SoLoader {
                                     e8.printStackTrace();
                                 }
                             }
-                            com.baidu.swan.e.d.closeSafely(fileChannel);
+                            com.baidu.swan.d.d.closeSafely(fileChannel);
                             return true;
                         }
                     } catch (Throwable th2) {
@@ -306,14 +306,14 @@ public final class SoLoader {
                                 e9.printStackTrace();
                             }
                         }
-                        com.baidu.swan.e.d.closeSafely(fileChannel);
+                        com.baidu.swan.d.d.closeSafely(fileChannel);
                         throw th;
                     }
                 }
                 releaseFileFromApk = true;
                 if (fileLock != null) {
                 }
-                com.baidu.swan.e.d.closeSafely(fileChannel);
+                com.baidu.swan.d.d.closeSafely(fileChannel);
                 return releaseFileFromApk;
             } catch (Exception e10) {
                 fileLock = null;
@@ -322,14 +322,14 @@ public final class SoLoader {
                 e.printStackTrace();
                 if (fileLock != null) {
                 }
-                com.baidu.swan.e.d.closeSafely(fileChannel);
+                com.baidu.swan.d.d.closeSafely(fileChannel);
                 return true;
             } catch (Throwable th3) {
                 fileLock = null;
                 th = th3;
                 if (fileLock != null) {
                 }
-                com.baidu.swan.e.d.closeSafely(fileChannel);
+                com.baidu.swan.d.d.closeSafely(fileChannel);
                 throw th;
             }
         } catch (Exception e11) {
@@ -393,8 +393,8 @@ public final class SoLoader {
             try {
                 if (SoUtils.copyStream(inputStream, fileOutputStream, 256) > 0) {
                     boolean renameTo = file2.renameTo(file);
-                    com.baidu.swan.e.d.closeSafely(inputStream);
-                    com.baidu.swan.e.d.closeSafely(fileOutputStream);
+                    com.baidu.swan.d.d.closeSafely(inputStream);
+                    com.baidu.swan.d.d.closeSafely(fileOutputStream);
                     return renameTo;
                 }
                 inputStream2 = inputStream;
@@ -405,21 +405,21 @@ public final class SoLoader {
                 if (DEBUG) {
                     Log.e(TAG, "SoLoader releaseFileFromApk exception.", e);
                 }
-                com.baidu.swan.e.d.closeSafely(inputStream);
-                com.baidu.swan.e.d.closeSafely(inputStream2);
+                com.baidu.swan.d.d.closeSafely(inputStream);
+                com.baidu.swan.d.d.closeSafely(inputStream2);
                 return false;
             } catch (Throwable th3) {
                 inputStream2 = fileOutputStream;
                 th = th3;
-                com.baidu.swan.e.d.closeSafely(inputStream);
-                com.baidu.swan.e.d.closeSafely(inputStream2);
+                com.baidu.swan.d.d.closeSafely(inputStream);
+                com.baidu.swan.d.d.closeSafely(inputStream2);
                 throw th;
             }
         } else {
             closeable = null;
         }
-        com.baidu.swan.e.d.closeSafely(inputStream2);
-        com.baidu.swan.e.d.closeSafely(closeable);
+        com.baidu.swan.d.d.closeSafely(inputStream2);
+        com.baidu.swan.d.d.closeSafely(closeable);
         return false;
     }
 

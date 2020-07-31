@@ -19,7 +19,7 @@ import com.baidu.android.common.ui.R;
 import com.baidu.android.ext.widget.menu.BdMenu;
 import com.baidu.android.ext.widget.menu.BdMenuItem;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class BdContextMenuView extends FrameLayout implements BdMenu.OnMenuSetChangedListener {
     private static final boolean DEBUG = false;
     private static final String TAG = "BdContextMenuView";
@@ -93,12 +93,12 @@ public class BdContextMenuView extends FrameLayout implements BdMenu.OnMenuSetCh
         this.mLayoutInCenter = z;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes3.dex */
     private class ListViewAdapter extends BaseAdapter {
         private Context mContext;
         private List<BdMenuItem> mDataList;
 
-        /* loaded from: classes13.dex */
+        /* loaded from: classes3.dex */
         public class ViewHolder {
             public ImageView mListIcon;
             public TextView mListName;

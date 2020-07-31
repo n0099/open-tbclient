@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.aggregation;
 
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public interface d {
-    void aeh();
+    void afy();
 
-    void e(List<g> list, boolean z, boolean z2);
+    void d(List<g> list, boolean z, boolean z2);
 
     void hideLoadingView();
 

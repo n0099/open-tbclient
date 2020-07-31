@@ -13,7 +13,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class a {
     private AsyncHttpClient b = new AsyncHttpClient();
     private Handler c = new Handler(Looper.getMainLooper());

@@ -7,7 +7,6 @@ import android.support.annotation.Keep;
 import android.text.TextUtils;
 import com.a.a.a.a.a.a.a;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.webkit.internal.ABTestConstants;
 import com.baidu.webkit.internal.CpuInfo;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.GlobalConstants;
@@ -19,7 +18,6 @@ import com.baidu.webkit.internal.daemon.HttpDnsCache;
 import com.baidu.webkit.internal.daemon.JsUploadTask;
 import com.baidu.webkit.internal.daemon.Statistics;
 import com.baidu.webkit.internal.daemon.ZeusThreadPoolUtil;
-import com.baidu.webkit.internal.daemon.a;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.baidu.webkit.internal.resource.ResourceSchedulerEngine;
 import com.baidu.webkit.internal.utils.b;
@@ -37,10 +35,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class WebKitFactory {
     private static final String ARCH_ARM = "armv";
     private static final int ARCH_ARM_INT = 7;
@@ -85,9 +80,10 @@ public final class WebKitFactory {
     private static volatile boolean sUserPrivacyConfirm = true;
     public static int mInitWebkitType = 0;
     private static boolean sZeusSupported = true;
+    private static boolean sEnableIntegratedCrashpad = true;
     private static SwitchState sEnableMultipleProcess = SwitchState.Invalid;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     private static class DelayedInitTask extends Thread {
         private boolean mResult;
 
@@ -163,6 +159,7 @@ public final class WebKitFactory {
                     WebSettingsGlobalBlink.setCuid(WebKitFactory.getCUIDString());
                     WebSettingsGlobalBlink.setSendEngineUsageInfoEnabled(true);
                     ZeusWebViewPreloadClass.getInstance().preloadZeusWebViewClasses(WebViewFactory.getProvider().getClass().getClassLoader());
+                    WebViewFactory.getProvider().preInitWebView();
                 } else {
                     ZeusWebViewPreloadClass.getInstance().destroy();
                 }
@@ -199,7 +196,7 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public interface IForceInitZeusListener {
         @Keep
         void onForceInitZeusFinish(boolean z);
@@ -208,14 +205,14 @@ public final class WebKitFactory {
         void onForceInitZeusStart();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public enum SwitchState {
         Invalid,
         On,
         Off
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public interface WebkitInstallListener {
         public static final int RET_CANCELED = 3;
         public static final int RET_FAILED_ALREADY_RUNNING = 8;
@@ -296,6 +293,10 @@ public final class WebKitFactory {
         }
     }
 
+    public static boolean forceNoZeus() {
+        return WebViewFactory.forceNoZeus();
+    }
+
     public static String getAppIdString() {
         return sAppId;
     }
@@ -353,6 +354,10 @@ public final class WebKitFactory {
 
     public static int getHashSign() {
         return sHashSign;
+    }
+
+    public static boolean getIntegratedCrashpad() {
+        return sEnableIntegratedCrashpad;
     }
 
     public static String getKernelSessionId() {
@@ -506,7 +511,6 @@ public final class WebKitFactory {
                 sStatisticsSessionId = String.valueOf(System.currentTimeMillis());
                 mJavaScriptInterface = new JsUploadTask();
                 ZwDebug.init(WebViewFactory.getContext());
-                updateSiteInfo(context);
             }
         }
         return true;
@@ -685,6 +689,10 @@ public final class WebKitFactory {
 
     public static void setEmulator(String str) {
         sEmulator = str;
+    }
+
+    public static void setEnableIntegratedCrashpad(boolean z) {
+        sEnableIntegratedCrashpad = z;
     }
 
     public static void setEnableMultiprocess(boolean z) {
@@ -887,30 +895,6 @@ public final class WebKitFactory {
     public static void setZeusVerJs(String str) {
         if (mJavaScriptInterface != null) {
             JsUploadTask.setZeusVer(str);
-        }
-    }
-
-    private static void updateSiteInfo(Context context) {
-        if (WebViewFactory.isSwanProcess()) {
-            Log.d(TAG, "FSO updateSiteInfo isSwanProcess, return");
-            return;
-        }
-        IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
-        if ("true".equals(abTestInterface != null ? abTestInterface.getSwitch(ABTestConstants.CLOUD_ELEMENT_FS_OPT_KEY, "false") : "false")) {
-            try {
-                Log.d("SdkDaemon", "start");
-                try {
-                    if (com.baidu.webkit.internal.daemon.a.a == null) {
-                        com.baidu.webkit.internal.daemon.a.a = new ThreadPoolExecutor(2, 30, 50L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a.ThreadFactoryC0789a((byte) 0), new ThreadPoolExecutor.DiscardOldestPolicy());
-                    }
-                } catch (Exception e) {
-                    com.a.a.a.a.a.a.a.a(e);
-                }
-                Log.d(TAG, "FSO WebKitFactory updateSiteInfo begin");
-                com.baidu.webkit.internal.daemon.b.a(context);
-            } catch (Throwable th) {
-                Log.e(TAG, "update rule file:", th);
-            }
         }
     }
 }

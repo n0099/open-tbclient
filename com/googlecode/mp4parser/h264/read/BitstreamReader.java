@@ -3,7 +3,7 @@ package com.googlecode.mp4parser.h264.read;
 import com.googlecode.mp4parser.h264.CharCache;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class BitstreamReader {
     protected static int bitsRead;
     private int curByte;

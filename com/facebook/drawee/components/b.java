@@ -1,33 +1,33 @@
 package com.facebook.drawee.components;
-/* loaded from: classes13.dex */
+/* loaded from: classes9.dex */
 public class b {
-    private boolean mLi;
-    private int mLj;
-    private int mLk;
+    private boolean mTq;
+    private int mTr;
+    private int mTs;
 
     public b() {
         init();
     }
 
     public void init() {
-        this.mLi = false;
-        this.mLj = 4;
+        this.mTq = false;
+        this.mTr = 4;
         reset();
     }
 
     public void reset() {
-        this.mLk = 0;
+        this.mTs = 0;
     }
 
-    public void wv(boolean z) {
-        this.mLi = z;
+    public void xa(boolean z) {
+        this.mTq = z;
     }
 
-    public boolean dAx() {
-        return this.mLi && this.mLk < this.mLj;
+    public boolean dDJ() {
+        return this.mTq && this.mTs < this.mTr;
     }
 
-    public void dAy() {
-        this.mLk++;
+    public void dDK() {
+        this.mTs++;
     }
 }

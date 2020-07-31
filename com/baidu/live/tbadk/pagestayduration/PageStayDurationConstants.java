@@ -1,6 +1,6 @@
 package com.baidu.live.tbadk.pagestayduration;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PageStayDurationConstants {
     public static final int DEFAULT_MAX_COST = 3;
     public static final String IS_VERTICAL = "is_vertical";
@@ -8,7 +8,7 @@ public class PageStayDurationConstants {
     public static final String ROUTE_URL_KEY = "userconvert";
     public static final String URL_KEY = "stime";
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PageName {
         public static final String BACKGROUND_ALL = "b008";
         public static final String BACKGROUND_DETAIL = "b009";
@@ -61,7 +61,7 @@ public class PageStayDurationConstants {
         public static final String WEBVIEW = "a012";
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class RouteStatKey {
         public static final String CURRENT_PAGE = "obj_locate";
         public static final String FROM_SOURCE_TRACE = "obj_source";
@@ -69,7 +69,7 @@ public class PageStayDurationConstants {
         public static final String OBJ_ID = "obj_id";
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class StatKey {
         public static final String CURRENT_PAGE = "obj_type";
         public static final String DURATION_TIME = "obj_duration";

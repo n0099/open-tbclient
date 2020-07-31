@@ -6,7 +6,7 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CoordUtil {
     public static LatLng Coordinate_encryptEx(float f, float f2, String str) {
         return com.baidu.mapsdkplatform.comapi.util.b.a(f, f2, str);

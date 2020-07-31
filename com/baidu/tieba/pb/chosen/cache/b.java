@@ -5,14 +5,14 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.squareup.wire.Wire;
 import tbclient.ExcPbPage.ExcPbPageResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class b implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         a aVar;
         ExcPbPageResIdl excPbPageResIdl;
         if (customMessage != null && customMessage.getCmd() == 2001314) {
-            byte[] bArr = com.baidu.tbadk.core.c.a.aUM().wb("tb.pb_normal").get("chosen_pb_page_cache");
+            byte[] bArr = com.baidu.tbadk.core.c.a.aYG().xi("tb.pb_normal").get("chosen_pb_page_cache");
             if (bArr != null) {
                 try {
                     excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);

@@ -14,7 +14,7 @@ import okio.ByteString;
 import okio.Source;
 import okio.Timeout;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public final class Http2Reader implements Closeable {
     static final Logger logger = Logger.getLogger(Http2.class.getName());
     private final boolean client;
@@ -23,7 +23,7 @@ public final class Http2Reader implements Closeable {
     private final BufferedSource source;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes14.dex */
     public interface Handler {
         void ackSettings();
 
@@ -291,7 +291,7 @@ public final class Http2Reader implements Closeable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes14.dex */
     public static final class ContinuationSource implements Source {
         byte flags;
         int left;

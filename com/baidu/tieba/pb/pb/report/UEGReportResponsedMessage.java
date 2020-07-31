@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class UEGReportResponsedMessage extends TbHttpResponsedMessage {
     private String url;
 

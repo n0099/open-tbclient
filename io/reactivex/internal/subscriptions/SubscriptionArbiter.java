@@ -52,9 +52,9 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
             if (get() == 0 && compareAndSet(0, 1)) {
                 long j2 = this.requested;
                 if (j2 != Long.MAX_VALUE) {
-                    long N = b.N(j2, j);
-                    this.requested = N;
-                    if (N == Long.MAX_VALUE) {
+                    long P = b.P(j2, j);
+                    this.requested = P;
+                    if (P == Long.MAX_VALUE) {
                         this.unbounded = true;
                     }
                 }
@@ -114,7 +114,7 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
     final void drainLoop() {
         d dVar;
         long j;
-        long N;
+        long P;
         long j2 = 0;
         d dVar2 = null;
         int i = 1;
@@ -136,22 +136,22 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
                 if (dVar != null) {
                     dVar.cancel();
                     dVar = dVar2;
-                    N = j2;
+                    P = j2;
                 }
                 dVar = dVar2;
-                N = j2;
+                P = j2;
             } else {
                 long j5 = this.requested;
                 if (j5 != Long.MAX_VALUE) {
-                    long N2 = b.N(j5, andSet);
-                    if (N2 != Long.MAX_VALUE) {
-                        j = N2 - andSet2;
+                    long P2 = b.P(j5, andSet);
+                    if (P2 != Long.MAX_VALUE) {
+                        j = P2 - andSet2;
                         if (j < 0) {
                             SubscriptionHelper.reportMoreProduced(j);
                             j = 0;
                         }
                     } else {
-                        j = N2;
+                        j = P2;
                     }
                     this.requested = j;
                 } else {
@@ -163,29 +163,29 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
                     }
                     this.actual = dVar;
                     if (j != 0) {
-                        N = b.N(j2, j);
+                        P = b.P(j2, j);
                     }
                     dVar = dVar2;
-                    N = j2;
+                    P = j2;
                 } else {
                     if (dVar3 != null && andSet != 0) {
-                        N = b.N(j2, andSet);
+                        P = b.P(j2, andSet);
                         dVar = dVar3;
                     }
                     dVar = dVar2;
-                    N = j2;
+                    P = j2;
                 }
             }
             int addAndGet = addAndGet(-i);
             if (addAndGet == 0) {
                 break;
             }
-            j2 = N;
+            j2 = P;
             i = addAndGet;
             dVar2 = dVar;
         }
-        if (N != 0) {
-            dVar.request(N);
+        if (P != 0) {
+            dVar.request(P);
         }
     }
 

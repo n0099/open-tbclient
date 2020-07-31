@@ -1,5 +1,5 @@
 package com.baidubce;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class BceErrorResponse {
     private String code;
     private String message;

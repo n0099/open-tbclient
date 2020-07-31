@@ -3,7 +3,7 @@ package com.baidu.searchbox.http.request;
 import com.baidu.searchbox.http.AbstractHttpManager;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class GetRequest extends HttpRequest<GetRequestBuilder> {
     public GetRequest(GetRequestBuilder getRequestBuilder) {
         super(getRequestBuilder);
@@ -44,7 +44,7 @@ public class GetRequest extends HttpRequest<GetRequestBuilder> {
         return 0L;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public static class GetRequestBuilder extends HttpRequestBuilder<GetRequestBuilder> {
         public GetRequestBuilder(AbstractHttpManager abstractHttpManager) {
             super(abstractHttpManager);

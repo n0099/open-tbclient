@@ -8,7 +8,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.Scroller;
-import com.baidu.down.utils.Constants;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
@@ -50,7 +49,7 @@ public class TbViewPager extends ViewPager {
     }
 
     public void setViewPagerScroll() {
-        setViewPagerScroll(Constants.HTTP_DNS_INAVAILABLE_TIME);
+        setViewPagerScroll(600);
     }
 
     public int getScrollingDuration() {
@@ -60,14 +59,14 @@ public class TbViewPager extends ViewPager {
     public TbViewPager(Context context) {
         super(context);
         this.mIsDisallowIntercept = false;
-        this.mDuration = Constants.HTTP_DNS_INAVAILABLE_TIME;
+        this.mDuration = 600;
         init();
     }
 
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mIsDisallowIntercept = false;
-        this.mDuration = Constants.HTTP_DNS_INAVAILABLE_TIME;
+        this.mDuration = 600;
         init();
     }
 

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.http.callback;
 
 import okhttp3.Response;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public abstract class DefaultResponseCallback extends ResponseCallback<Response> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.callback.ResponseCallback

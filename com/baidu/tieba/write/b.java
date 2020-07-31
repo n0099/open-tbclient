@@ -3,7 +3,7 @@ package com.baidu.tieba.write;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.c.c;
 import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.tieba.write.transmit.model.a;
@@ -11,40 +11,40 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsTabInfo;
 import tbclient.SimpleForum;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements com.baidu.tieba.c.c {
-    private c.a hdx;
+    private c.a hjh;
     private int mPrivateThread;
-    private com.baidu.tieba.write.transmit.model.a mlu;
-    private List<SimpleForum> mlv;
-    private boolean mlw;
-    private ArrayList<TransmitForumData> ffB = new ArrayList<>();
-    private a.InterfaceC0772a mlx = new a.InterfaceC0772a() { // from class: com.baidu.tieba.write.b.1
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0772a
+    private com.baidu.tieba.write.transmit.model.a mtv;
+    private List<SimpleForum> mtw;
+    private boolean mtx;
+    private ArrayList<TransmitForumData> fkE = new ArrayList<>();
+    private a.InterfaceC0782a mty = new a.InterfaceC0782a() { // from class: com.baidu.tieba.write.b.1
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0782a
         public void onError() {
-            b.this.dqL();
+            b.this.dtX();
         }
 
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0772a
-        public void h(List<SimpleForum> list, int i) {
-            b.this.mlv = list;
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0782a
+        public void t(List<SimpleForum> list, int i) {
+            b.this.mtw = list;
             b.this.mPrivateThread = i;
-            b.this.bPI();
+            b.this.bST();
         }
     };
 
     public b() {
         BdUniqueId gen = BdUniqueId.gen();
-        this.mlu = new com.baidu.tieba.write.transmit.model.a(gen);
-        this.mlu.a(this.mlx);
-        this.mlu.setRequestId(gen);
+        this.mtv = new com.baidu.tieba.write.transmit.model.a(gen);
+        this.mtv.a(this.mty);
+        this.mtv.setRequestId(gen);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPI() {
-        this.ffB.clear();
-        if (w.getCount(this.mlv) > 0) {
-            for (SimpleForum simpleForum : this.mlv) {
+    public void bST() {
+        this.fkE.clear();
+        if (x.getCount(this.mtw) > 0) {
+            for (SimpleForum simpleForum : this.mtw) {
                 if (simpleForum != null && simpleForum.id != null && simpleForum.id.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
                     TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
                     transmitForumData.tabItemDatas = new ArrayList<>();
@@ -53,37 +53,37 @@ public class b implements com.baidu.tieba.c.c {
                             transmitForumData.tabItemDatas.add(new FrsTabItemData(frsTabInfo));
                         }
                     }
-                    this.ffB.add(transmitForumData);
+                    this.fkE.add(transmitForumData);
                 }
             }
         }
-        if (this.hdx != null) {
-            this.hdx.a(this.ffB, true, 2, this.mPrivateThread);
+        if (this.hjh != null) {
+            this.hjh.a(this.fkE, true, 2, this.mPrivateThread);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dqL() {
-        if (!this.mlw) {
-            if (this.hdx != null) {
-                this.hdx.a(null, false, 2, 0);
+    public void dtX() {
+        if (!this.mtx) {
+            if (this.hjh != null) {
+                this.hjh.a(null, false, 2, 0);
             }
-            this.mlw = true;
+            this.mtx = true;
         }
     }
 
     @Override // com.baidu.tieba.c.c
-    public void bPB() {
-        if (this.hdx != null && this.mlu != null) {
-            this.mlw = false;
-            this.mlu.setThreadTitle(null);
-            this.mlu.setThreadContent(null);
-            this.mlu.loadData();
+    public void bSM() {
+        if (this.hjh != null && this.mtv != null) {
+            this.mtx = false;
+            this.mtv.setThreadTitle(null);
+            this.mtv.setThreadContent(null);
+            this.mtv.loadData();
         }
     }
 
     @Override // com.baidu.tieba.c.c
     public void a(c.a aVar) {
-        this.hdx = aVar;
+        this.hjh = aVar;
     }
 }

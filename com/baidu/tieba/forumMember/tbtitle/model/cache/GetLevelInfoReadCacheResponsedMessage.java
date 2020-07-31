@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.squareup.wire.Wire;
 import tbclient.GetLevelInfo.DataRes;
 import tbclient.GetLevelInfo.GetLevelInfoResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class GetLevelInfoReadCacheResponsedMessage extends CustomResponsedMessage<Object> {
     private DataRes mResult;
 

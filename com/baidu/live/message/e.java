@@ -1,21 +1,21 @@
 package com.baidu.live.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e extends HttpMessage {
-    private String aMw;
-    private String aZl;
-    private String aZm;
+    private String aNR;
+    private String aZj;
+    private String aZk;
 
     public e(String str, String str2, String str3) {
         super(1021120);
-        this.aMw = str;
-        this.aZl = str2;
-        this.aZm = str3;
-        addParam("scene_from", this.aMw);
+        this.aNR = str;
+        this.aZj = str2;
+        this.aZk = str3;
+        addParam("scene_from", this.aNR);
     }
 
-    public String AV() {
-        return this.aZm;
+    public String Bx() {
+        return this.aZk;
     }
 }

@@ -3,29 +3,29 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class AtMeCacheModel extends CacheModel<c, AtMessageActivity> {
     public AtMeCacheModel(TbPageContext<AtMessageActivity> tbPageContext) {
         super(tbPageContext);
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<c> bhi() {
+    public Class<c> bkT() {
         return c.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int bhj() {
+    public int bkU() {
         return CmdConfigCustom.CMD_MENTION_ATME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int bhk() {
+    public int bkV() {
         return CmdConfigCustom.CMD_MENTION_ATME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String bgR() {
+    public String bkC() {
         return "tb_user_atme";
     }
 }

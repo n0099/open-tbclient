@@ -1,5 +1,5 @@
 package com.baidu.ar.record;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class EncoderParams {
     private static final int AAC_SAMPLES_PER_FRAME = 1024;
     private static final int AUDIO_BIT_RATE = 128000;
@@ -21,7 +21,7 @@ public class EncoderParams {
     private long mOutputTotalMs = 0;
     private boolean mVideoIncluded = true;
     private int mVideoWidth = VIDEO_WIDTH;
-    private int mVideoHeight = VIDEO_HEIGHT;
+    private int mVideoHeight = 1280;
     private String mVideoCodec = "video/avc";
     private int mVideoBitrate = VIDEO_BIT_RATE;
     private int mVideoFrameRate = 30;

@@ -17,7 +17,7 @@ public class d {
         void onShown();
     }
 
-    public d af(int i) {
+    public d ah(int i) {
         if (this.mBuilt) {
             throw new BuildException("Already created. rebuild a new one.");
         }
@@ -39,7 +39,7 @@ public class d {
         return this;
     }
 
-    public d ag(int i) {
+    public d ai(int i) {
         if (this.mBuilt) {
             throw new BuildException("Already created. rebuild a new one.");
         }

@@ -3,78 +3,78 @@ package org.java_websocket.framing;
 import java.nio.ByteBuffer;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class f implements Framedata {
-    private Framedata.Opcode oag;
-    private ByteBuffer oah = org.java_websocket.e.b.dTZ();
-    private boolean oaf = true;
-    private boolean oai = false;
-    private boolean oaj = false;
-    private boolean oak = false;
-    private boolean oal = false;
+    private Framedata.Opcode oiQ;
+    private ByteBuffer oiR = org.java_websocket.e.b.dXv();
+    private boolean oiP = true;
+    private boolean oiS = false;
+    private boolean oiT = false;
+    private boolean oiU = false;
+    private boolean oiV = false;
 
-    public abstract void dTO() throws InvalidDataException;
+    public abstract void dXk() throws InvalidDataException;
 
     public f(Framedata.Opcode opcode) {
-        this.oag = opcode;
+        this.oiQ = opcode;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dTR() {
-        return this.oaj;
+    public boolean dXn() {
+        return this.oiT;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dTS() {
-        return this.oak;
+    public boolean dXo() {
+        return this.oiU;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dTT() {
-        return this.oal;
+    public boolean dXp() {
+        return this.oiV;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean XQ() {
-        return this.oaf;
+    public boolean Yw() {
+        return this.oiP;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode dTU() {
-        return this.oag;
+    public Framedata.Opcode dXq() {
+        return this.oiQ;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer dTQ() {
-        return this.oah;
+    public ByteBuffer dXm() {
+        return this.oiR;
     }
 
     public String toString() {
-        return "Framedata{ optcode:" + dTU() + ", fin:" + XQ() + ", rsv1:" + dTR() + ", rsv2:" + dTS() + ", rsv3:" + dTT() + ", payloadlength:[pos:" + this.oah.position() + ", len:" + this.oah.remaining() + "], payload:" + (this.oah.remaining() > 1000 ? "(too big to display)" : new String(this.oah.array())) + '}';
+        return "Framedata{ optcode:" + dXq() + ", fin:" + Yw() + ", rsv1:" + dXn() + ", rsv2:" + dXo() + ", rsv3:" + dXp() + ", payloadlength:[pos:" + this.oiR.position() + ", len:" + this.oiR.remaining() + "], payload:" + (this.oiR.remaining() > 1000 ? "(too big to display)" : new String(this.oiR.array())) + '}';
     }
 
-    public void z(ByteBuffer byteBuffer) {
-        this.oah = byteBuffer;
+    public void A(ByteBuffer byteBuffer) {
+        this.oiR = byteBuffer;
     }
 
-    public void dy(boolean z) {
-        this.oaf = z;
+    public void dB(boolean z) {
+        this.oiP = z;
     }
 
-    public void xC(boolean z) {
-        this.oaj = z;
+    public void yh(boolean z) {
+        this.oiT = z;
     }
 
-    public void xD(boolean z) {
-        this.oak = z;
+    public void yi(boolean z) {
+        this.oiU = z;
     }
 
-    public void xE(boolean z) {
-        this.oal = z;
+    public void yj(boolean z) {
+        this.oiV = z;
     }
 
-    public void xF(boolean z) {
-        this.oai = z;
+    public void yk(boolean z) {
+        this.oiS = z;
     }
 
     public static f b(Framedata.Opcode opcode) {
@@ -108,10 +108,10 @@ public abstract class f implements Framedata {
             return false;
         }
         f fVar = (f) obj;
-        if (this.oaf == fVar.oaf && this.oai == fVar.oai && this.oaj == fVar.oaj && this.oak == fVar.oak && this.oal == fVar.oal && this.oag == fVar.oag) {
-            if (this.oah != null) {
-                z = this.oah.equals(fVar.oah);
-            } else if (fVar.oah != null) {
+        if (this.oiP == fVar.oiP && this.oiS == fVar.oiS && this.oiT == fVar.oiT && this.oiU == fVar.oiU && this.oiV == fVar.oiV && this.oiQ == fVar.oiQ) {
+            if (this.oiR != null) {
+                z = this.oiR.equals(fVar.oiR);
+            } else if (fVar.oiR != null) {
                 z = false;
             }
             return z;
@@ -120,6 +120,6 @@ public abstract class f implements Framedata {
     }
 
     public int hashCode() {
-        return (((this.oak ? 1 : 0) + (((this.oaj ? 1 : 0) + (((this.oai ? 1 : 0) + (((this.oah != null ? this.oah.hashCode() : 0) + ((((this.oaf ? 1 : 0) * 31) + this.oag.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.oal ? 1 : 0);
+        return (((this.oiU ? 1 : 0) + (((this.oiT ? 1 : 0) + (((this.oiS ? 1 : 0) + (((this.oiR != null ? this.oiR.hashCode() : 0) + ((((this.oiP ? 1 : 0) * 31) + this.oiQ.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.oiV ? 1 : 0);
     }
 }

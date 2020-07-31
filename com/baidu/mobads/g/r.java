@@ -3,7 +3,7 @@ package com.baidu.mobads.g;
 import android.text.TextUtils;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class r implements Runnable {
     final /* synthetic */ q a;
 

@@ -3,16 +3,16 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.text.TextUtils;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class au implements ar {
     private static volatile au a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ar f120a;
+    private ar f116a;
 
     private au(Context context) {
-        this.f120a = at.a(context);
-        com.xiaomi.channel.commonutils.logger.b.m48a("create id manager is: " + this.f120a);
+        this.f116a = at.a(context);
+        com.xiaomi.channel.commonutils.logger.b.m49a("create id manager is: " + this.f116a);
     }
 
     public static au a(Context context) {
@@ -32,7 +32,7 @@ public class au implements ar {
 
     @Override // com.xiaomi.push.ar
     public String a() {
-        return a(this.f120a.a());
+        return a(this.f116a.a());
     }
 
     public void a(Map<String, String> map) {
@@ -43,9 +43,9 @@ public class au implements ar {
         if (!TextUtils.isEmpty(a2)) {
             map.put("udid", a2);
         }
-        String mo129b = mo129b();
-        if (!TextUtils.isEmpty(mo129b)) {
-            map.put("oaid", mo129b);
+        String mo130b = mo130b();
+        if (!TextUtils.isEmpty(mo130b)) {
+            map.put("oaid", mo130b);
         }
         String c = c();
         if (!TextUtils.isEmpty(c)) {
@@ -60,22 +60,22 @@ public class au implements ar {
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return this.f120a.m131a();
+        return this.f116a.m132a();
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo129b() {
-        return a(this.f120a.mo129b());
+    public String mo130b() {
+        return a(this.f116a.mo130b());
     }
 
     @Override // com.xiaomi.push.ar
     public String c() {
-        return a(this.f120a.c());
+        return a(this.f116a.c());
     }
 
     @Override // com.xiaomi.push.ar
     public String d() {
-        return a(this.f120a.d());
+        return a(this.f116a.d());
     }
 }

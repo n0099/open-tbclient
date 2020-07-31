@@ -5,7 +5,7 @@ import android.os.HandlerThread;
 import java.lang.reflect.Constructor;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public final class StatisticApi {
     private static g vD;
     private static f vE;

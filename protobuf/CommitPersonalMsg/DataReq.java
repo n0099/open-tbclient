@@ -2,7 +2,7 @@ package protobuf.CommitPersonalMsg;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_CONTENT = "";
     public static final String DEFAULT_ST_TYPE = "";
@@ -85,7 +85,7 @@ public final class DataReq extends Message {
         this.st_type = builder.st_type;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public String content;
         public Integer duration;

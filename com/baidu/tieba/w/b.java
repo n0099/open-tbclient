@@ -3,7 +3,7 @@ package com.baidu.tieba.w;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.network.http.e;
 import com.baidu.adp.lib.util.s;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.n;
 import java.io.File;
 /* loaded from: classes.dex */
@@ -11,7 +11,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public static final String FILE_SEP = File.separator;
     private String mPath;
     private String mUrl;
-    private a mgV;
+    private a mok;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -21,14 +21,14 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.mgV = aVar;
+        this.mok = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String doInBackground(Void... voidArr) {
-        if (ar.isEmpty(this.mPath) || ar.isEmpty(this.mUrl)) {
+        if (as.isEmpty(this.mPath) || as.isEmpty(this.mUrl)) {
             return "";
         }
         new File(this.mPath).mkdirs();
@@ -40,7 +40,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
         e eVar = new e();
         eVar.kT().setUrl(this.mUrl);
         if (new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true)) {
-            return dqn();
+            return dtw();
         }
         return "";
     }
@@ -49,31 +49,31 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.mgV != null) {
-            if (!ar.isEmpty(str)) {
-                this.mgV.c(true, str, this.mUrl);
+        if (this.mok != null) {
+            if (!as.isEmpty(str)) {
+                this.mok.c(true, str, this.mUrl);
             } else {
-                this.mgV.c(false, null, null);
+                this.mok.c(false, null, null);
             }
         }
     }
 
-    private String dqn() {
+    private String dtw() {
         File file = new File(this.mPath + FILE_SEP + "videosplash.temp");
         File file2 = new File(this.mPath + FILE_SEP + (s.toMd5(this.mUrl) + ".mp4"));
         if (file2.exists()) {
             file2.delete();
         }
         if (file.renameTo(file2)) {
-            Y(file2);
+            ab(file2);
             return file2.getAbsolutePath();
         }
         return "";
     }
 
-    private void Y(File file) {
+    private void ab(File file) {
         File[] listFiles;
-        if (!ar.isEmpty(this.mPath)) {
+        if (!as.isEmpty(this.mPath)) {
             File file2 = new File(this.mPath);
             if (file2.exists() && (listFiles = file2.listFiles()) != null) {
                 for (File file3 : listFiles) {

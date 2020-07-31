@@ -5,45 +5,45 @@ import android.util.Log;
 import com.baidu.mobstat.Config;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.statistic.h;
-import com.baidu.swan.apps.w.f;
+import com.baidu.swan.apps.v.f;
 import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public abstract class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static d bWh;
-    static com.baidu.swan.apps.statistic.a bWi;
-    private static Timer bWj;
-    private static boolean bWk;
+    private static d bWY;
+    static com.baidu.swan.apps.statistic.a bWZ;
+    private static Timer bXa;
+    private static boolean bXb;
 
-    public abstract void iY(String str);
+    public abstract void ji(String str);
 
     private d() {
     }
 
-    public static d Xl() {
-        if (bWh == null) {
+    public static d XR() {
+        if (bWY == null) {
             synchronized (f.class) {
-                if (bWh == null) {
-                    if (com.baidu.pyramid.runtime.multiprocess.a.PY()) {
-                        bWh = new a();
+                if (bWY == null) {
+                    if (com.baidu.pyramid.runtime.multiprocess.a.Qn()) {
+                        bWY = new a();
                     } else {
-                        bWh = new b();
+                        bWY = new b();
                     }
                 }
             }
         }
-        return bWh;
+        return bWY;
     }
 
-    public void Xm() {
-        bWk = true;
+    public void XS() {
+        bXb = true;
     }
 
-    String Xn() {
+    String XT() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
@@ -55,34 +55,34 @@ public abstract class d {
         return jSONObject.toString();
     }
 
-    void dx(boolean z) {
-        if (bWi == null) {
-            bWi = h.oE("1153");
+    void dA(boolean z) {
+        if (bWZ == null) {
+            bWZ = h.pn("1153");
             if (!z) {
-                com.baidu.swan.apps.statistic.b.a(bWi, "downloadstart", Xn());
-                com.baidu.swan.apps.statistic.b.a(bWi, "downloadsuccess", Xn());
+                com.baidu.swan.apps.statistic.b.a(bWZ, "downloadstart", XT());
+                com.baidu.swan.apps.statistic.b.a(bWZ, "downloadsuccess", XT());
             }
-            bWj = new Timer();
-            bWj.schedule(new TimerTask() { // from class: com.baidu.swan.apps.console.debugger.a.d.1
+            bXa = new Timer();
+            bXa.schedule(new TimerTask() { // from class: com.baidu.swan.apps.console.debugger.a.d.1
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     if (d.DEBUG) {
                         Log.d("RemoteDebugStatistic", "timer: send remote debug ubc flow");
                     }
-                    d.this.Xo();
+                    d.this.XU();
                     d.this.release();
                 }
             }, 40000L);
         }
     }
 
-    protected void Xo() {
-        if (bWi != null) {
+    protected void XU() {
+        if (bWZ != null) {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             try {
-                com.baidu.swan.apps.runtime.e apN = com.baidu.swan.apps.runtime.e.apN();
-                jSONObject2.putOpt("appid", apN == null ? "" : apN.getAppKey());
+                com.baidu.swan.apps.runtime.e arw = com.baidu.swan.apps.runtime.e.arw();
+                jSONObject2.putOpt("appid", arw == null ? "" : arw.getAppKey());
                 jSONObject2.putOpt("from", "remote-debug");
                 jSONObject.putOpt("from", "swan");
                 jSONObject.putOpt("ext", jSONObject2);
@@ -91,42 +91,42 @@ public abstract class d {
                     Log.d("RemoteDebugStatistic", "page ready statistic value is invalid ");
                 }
             }
-            com.baidu.swan.apps.statistic.b.a(bWi, jSONObject.toString());
-            com.baidu.swan.apps.statistic.b.c(bWi);
+            com.baidu.swan.apps.statistic.b.a(bWZ, jSONObject.toString());
+            com.baidu.swan.apps.statistic.b.c(bWZ);
         }
     }
 
     void release() {
-        if (bWj != null) {
-            bWj.cancel();
-            bWj = null;
+        if (bXa != null) {
+            bXa.cancel();
+            bXa = null;
         }
-        bWh = null;
-        bWi = null;
+        bWY = null;
+        bWZ = null;
     }
 
-    public static void x(JSONArray jSONArray) {
+    public static void y(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
             String str = "";
             JSONObject optJSONObject = jSONArray.optJSONObject(0);
             if (optJSONObject != null) {
                 str = optJSONObject.optString("actionId");
             }
-            if (!TextUtils.isEmpty(str) && bWh != null) {
-                bWh.iY(str);
+            if (!TextUtils.isEmpty(str) && bWY != null) {
+                bWY.ji(str);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static class a extends d {
         private a() {
             super();
         }
 
         @Override // com.baidu.swan.apps.console.debugger.a.d
-        public void iY(String str) {
+        public void ji(String str) {
             if (!TextUtils.isEmpty(str)) {
                 if (d.DEBUG) {
                     Log.d("RemoteDebugStatistic", "remote-debug statistic event name is : " + str);
@@ -154,22 +154,22 @@ public abstract class d {
                 }
                 switch (c) {
                     case 0:
-                        dx(true);
-                        com.baidu.swan.apps.statistic.b.a(bWi, str, Xn());
+                        dA(true);
+                        com.baidu.swan.apps.statistic.b.a(bWZ, str, XT());
                         return;
                     case 1:
-                        if (bWi != null) {
-                            com.baidu.swan.apps.statistic.b.b(bWi);
+                        if (bWZ != null) {
+                            com.baidu.swan.apps.statistic.b.b(bWZ);
                         }
                         release();
                         return;
                     case 2:
-                        Xo();
+                        XU();
                         release();
                         return;
                     default:
-                        if (bWi != null) {
-                            com.baidu.swan.apps.statistic.b.a(bWi, str, Xn());
+                        if (bWZ != null) {
+                            com.baidu.swan.apps.statistic.b.a(bWZ, str, XT());
                             return;
                         }
                         return;
@@ -179,17 +179,17 @@ public abstract class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static class b extends d {
         private b() {
             super();
         }
 
         @Override // com.baidu.swan.apps.console.debugger.a.d
-        public void iY(String str) {
-            SwanAppActivity apG;
+        public void ji(String str) {
+            SwanAppActivity arp;
             boolean z = true;
-            if (!TextUtils.isEmpty(str) && !e.Xt()) {
+            if (!TextUtils.isEmpty(str) && !e.XZ()) {
                 if (d.DEBUG) {
                     Log.d("RemoteDebugStatistic", "remote-debug statistic event name is : " + str);
                 }
@@ -210,33 +210,33 @@ public abstract class d {
                 }
                 switch (c) {
                     case 0:
-                        if (com.baidu.swan.apps.runtime.e.apN() != null && (apG = com.baidu.swan.apps.runtime.e.apN().apG()) != null && !apG.isFinishing()) {
+                        if (com.baidu.swan.apps.runtime.e.arw() != null && (arp = com.baidu.swan.apps.runtime.e.arw().arp()) != null && !arp.isFinishing()) {
                             z = false;
                         }
-                        dx(z);
+                        dA(z);
                         if (!z) {
-                            if (d.bWk) {
-                                com.baidu.swan.apps.statistic.b.a(bWi, str + "-preload", Xn());
-                                boolean unused = d.bWk = false;
+                            if (d.bXb) {
+                                com.baidu.swan.apps.statistic.b.a(bWZ, str + "-preload", XT());
+                                boolean unused = d.bXb = false;
                                 return;
                             }
-                            com.baidu.swan.apps.statistic.b.a(bWi, str, Xn());
+                            com.baidu.swan.apps.statistic.b.a(bWZ, str, XT());
                             return;
                         }
-                        com.baidu.swan.apps.statistic.b.a(bWi, str + "-destroy", Xn());
-                        boolean unused2 = d.bWk = false;
+                        com.baidu.swan.apps.statistic.b.a(bWZ, str + "-destroy", XT());
+                        boolean unused2 = d.bXb = false;
                         return;
                     case 1:
-                        if (bWi != null) {
-                            com.baidu.swan.apps.statistic.b.a(bWi, str, Xn());
-                            Xo();
+                        if (bWZ != null) {
+                            com.baidu.swan.apps.statistic.b.a(bWZ, str, XT());
+                            XU();
                             release();
                             return;
                         }
                         return;
                     default:
-                        if (bWi != null) {
-                            com.baidu.swan.apps.statistic.b.a(bWi, str, Xn());
+                        if (bWZ != null) {
+                            com.baidu.swan.apps.statistic.b.a(bWZ, str, XT());
                             return;
                         }
                         return;
@@ -246,37 +246,37 @@ public abstract class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(com.baidu.swan.apps.v.b.c cVar) {
-        cVar.ahW().putString("aiapp_extra_need_download", "1");
-        cVar.ahW().putString("aiapp_extra_preset_pkg", "0");
-        cVar.ahW().putString("aiapp_extra_pkg_downloading", "0");
-        cVar.ahW().putLong("launch_flag_for_statistic", System.currentTimeMillis());
+    public static void a(com.baidu.swan.apps.u.c.c cVar) {
+        cVar.ajm().putString("aiapp_extra_need_download", "1");
+        cVar.ajm().putString("aiapp_extra_preset_pkg", "0");
+        cVar.ajm().putString("aiapp_extra_pkg_downloading", "0");
+        cVar.ajm().putLong("launch_flag_for_statistic", System.currentTimeMillis());
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-        fVar.mFrom = h.hf(cVar.getAppFrameType());
+        fVar.mFrom = h.ho(cVar.getAppFrameType());
         fVar.b(cVar);
         fVar.mType = Config.LAUNCH;
-        fVar.cLj = "1";
-        fVar.cLl = "0";
-        fVar.cLk = "0";
+        fVar.cOE = "1";
+        fVar.cOG = "0";
+        fVar.cOF = "0";
         fVar.mSource = "remote-debug";
-        JSONObject oF = h.oF(cVar.ahS());
-        fVar.oO(cVar.ahW().getString("ubc"));
-        fVar.bB(oF);
+        JSONObject pp = h.pp(cVar.aji());
+        fVar.py(cVar.ajm().getString("ubc"));
+        fVar.bG(pp);
         h.onEvent(fVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void b(com.baidu.swan.apps.v.b.c cVar) {
+    public static void b(com.baidu.swan.apps.u.c.c cVar) {
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.b(cVar);
-        fVar.mFrom = h.hf(cVar.getAppFrameType());
+        fVar.mFrom = h.ho(cVar.getAppFrameType());
         fVar.mType = Config.LAUNCH;
         fVar.mSource = "remote-debug";
         fVar.mValue = "downloadsuccess";
         h.onEvent(fVar);
     }
 
-    public static void Xp() {
+    public static void XV() {
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.mFrom = "swan";
         fVar.mType = Config.LAUNCH;
@@ -285,7 +285,7 @@ public abstract class d {
         h.onEvent(fVar);
     }
 
-    public static void Xq() {
+    public static void XW() {
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.mFrom = "swan";
         fVar.mType = Config.LAUNCH;
@@ -295,7 +295,7 @@ public abstract class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void Xr() {
+    public static void XX() {
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.mFrom = "swan";
         fVar.mType = Config.LAUNCH;

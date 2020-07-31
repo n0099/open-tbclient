@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.aq.d;
+import com.baidu.swan.apps.aq.e;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.apps.res.widget.dialog.g;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a implements g.c {
-    private FrameLayout cKn = null;
+    private FrameLayout cNE = null;
 
     @Override // com.baidu.swan.apps.res.widget.dialog.g.c
     public void a(g gVar, g.b bVar) {
@@ -21,10 +21,10 @@ public class a implements g.c {
             a(gVar);
             ViewGroup viewGroup = (ViewGroup) gVar.findViewById(16908290);
             if (viewGroup != null) {
-                if (com.baidu.swan.apps.u.a.ags().getNightModeSwitcherState()) {
+                if (com.baidu.swan.apps.t.a.ahF().getNightModeSwitcherState()) {
                     d(viewGroup, bVar.mDialogLayout);
                 } else {
-                    y(viewGroup);
+                    z(viewGroup);
                 }
             }
         }
@@ -36,7 +36,7 @@ public class a implements g.c {
             context = ((ContextWrapper) gVar.getContext()).getBaseContext();
         }
         if (context instanceof Activity) {
-            d.b((Activity) context, gVar);
+            e.b((Activity) context, gVar);
         }
     }
 
@@ -45,23 +45,23 @@ public class a implements g.c {
             view.post(new Runnable() { // from class: com.baidu.swan.apps.view.c.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.cKn == null) {
-                        a.this.cKn = new FrameLayout(viewGroup.getContext());
-                        a.this.cKn.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
+                    if (a.this.cNE == null) {
+                        a.this.cNE = new FrameLayout(viewGroup.getContext());
+                        a.this.cNE.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
                     }
-                    viewGroup.removeView(a.this.cKn);
+                    viewGroup.removeView(a.this.cNE);
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
                     layoutParams.gravity = 17;
-                    viewGroup.addView(a.this.cKn, layoutParams);
+                    viewGroup.addView(a.this.cNE, layoutParams);
                 }
             });
         }
     }
 
-    private void y(ViewGroup viewGroup) {
-        if (viewGroup != null && this.cKn != null) {
-            viewGroup.removeView(this.cKn);
-            this.cKn = null;
+    private void z(ViewGroup viewGroup) {
+        if (viewGroup != null && this.cNE != null) {
+            viewGroup.removeView(this.cNE);
+            this.cNE = null;
         }
     }
 }

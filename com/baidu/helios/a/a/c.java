@@ -3,52 +3,52 @@ package com.baidu.helios.a.a;
 import android.os.Bundle;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 class c<T> implements com.baidu.helios.c<T> {
     private volatile boolean a = false;
-    private final CountDownLatch arw = new CountDownLatch(1);
-    private b<T> arx = null;
-    private a ary = null;
+    private final CountDownLatch ars = new CountDownLatch(1);
+    private b<T> art = null;
+    private a aru = null;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        public Throwable arA;
-        public Bundle arB;
-        public boolean arz;
+        public boolean arv;
+        public Throwable arw;
+        public Bundle arx;
         public int errorCode;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class b<T> {
-        public Bundle arB;
+        public Bundle arx;
         public T result;
     }
 
     @Override // com.baidu.helios.c
     public void a(int i, Throwable th, Bundle bundle) {
-        this.ary = new a();
-        this.ary.errorCode = i;
-        this.ary.arA = th;
-        this.ary.arB = bundle;
+        this.aru = new a();
+        this.aru.errorCode = i;
+        this.aru.arw = th;
+        this.aru.arx = bundle;
         this.a = false;
-        this.arw.countDown();
+        this.ars.countDown();
     }
 
     @Override // com.baidu.helios.c
     public void a(T t, Bundle bundle) {
-        this.arx = new b<>();
-        this.arx.result = t;
-        this.arx.arB = bundle;
+        this.art = new b<>();
+        this.art.result = t;
+        this.art.arx = bundle;
         this.a = true;
-        this.arw.countDown();
+        this.ars.countDown();
     }
 
     public boolean a(int i) {
         try {
-            this.arw.await(i, TimeUnit.MILLISECONDS);
-            if (this.ary == null) {
-                this.ary = new a();
-                this.ary.arz = true;
+            this.ars.await(i, TimeUnit.MILLISECONDS);
+            if (this.aru == null) {
+                this.aru = new a();
+                this.aru.arv = true;
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -57,10 +57,10 @@ class c<T> implements com.baidu.helios.c<T> {
     }
 
     public b<T> uA() {
-        return this.arx;
+        return this.art;
     }
 
     public a uB() {
-        return this.ary;
+        return this.aru;
     }
 }

@@ -1,21 +1,21 @@
 package com.baidu.swan.apps.model;
 
 import android.text.TextUtils;
-import com.baidu.swan.apps.aq.ah;
+import com.baidu.swan.apps.aq.aj;
 import com.baidu.swan.apps.scheme.actions.k.j;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class b {
-    public String ctH;
+    public String cvJ;
     public String mBaseUrl;
     public String mPage;
     public String mParams;
 
-    public static b bz(String str, String str2) {
+    public static b bB(String str, String str2) {
         b bVar = new b();
-        bVar.mPage = ah.delAllParamsFromUrl(str);
-        bVar.mParams = ah.getParams(str);
+        bVar.mPage = aj.delAllParamsFromUrl(str);
+        bVar.mParams = aj.getParams(str);
         bVar.mBaseUrl = str2;
-        bVar.ctH = j.oq(bVar.mPage);
+        bVar.cvJ = j.oZ(bVar.mPage);
         return bVar;
     }
 
@@ -29,6 +29,16 @@ public final class b {
         return bVar.mPage + "?" + bVar.mParams;
     }
 
+    public static String e(b bVar) {
+        if (bVar == null || TextUtils.isEmpty(bVar.cvJ)) {
+            return null;
+        }
+        if (TextUtils.isEmpty(bVar.mParams)) {
+            return bVar.cvJ;
+        }
+        return bVar.cvJ + "?" + bVar.mParams;
+    }
+
     public String getPage() {
         return this.mPage;
     }
@@ -37,11 +47,15 @@ public final class b {
         return this.mParams;
     }
 
-    public String akX() {
-        return this.ctH;
+    public String amo() {
+        return this.cvJ;
+    }
+
+    public void setParams(String str) {
+        this.mParams = str;
     }
 
     public String toString() {
-        return "SwanAppPageParam{mPage='" + this.mPage + "', mParams='" + this.mParams + "', mBaseUrl='" + this.mBaseUrl + "', mRoutePage='" + this.ctH + "'}";
+        return "SwanAppPageParam{mPage='" + this.mPage + "', mParams='" + this.mParams + "', mBaseUrl='" + this.mBaseUrl + "', mRoutePage='" + this.cvJ + "'}";
     }
 }

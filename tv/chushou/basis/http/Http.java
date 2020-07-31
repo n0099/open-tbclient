@@ -11,11 +11,11 @@ import tv.chushou.basis.http.listener.DownloadListener;
 import tv.chushou.basis.http.model.MultiPartArg;
 import tv.chushou.basis.http.model.RequestTag;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface Http extends a {
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Resp {
         public String baseUrl;
         public int code = -1;

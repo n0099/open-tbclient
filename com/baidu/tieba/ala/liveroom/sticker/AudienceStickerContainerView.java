@@ -11,7 +11,7 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.data.AlaLiveStickerInfo;
 import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AudienceStickerContainerView extends RelativeLayout {
     public AudienceStickerContainerView(Context context) {
         super(context);

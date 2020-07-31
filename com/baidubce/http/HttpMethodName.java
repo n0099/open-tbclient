@@ -1,5 +1,5 @@
 package com.baidubce.http;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public enum HttpMethodName {
     GET,
     POST,

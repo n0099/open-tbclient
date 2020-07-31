@@ -13,42 +13,42 @@ import com.baidu.prologue.b;
 import com.baidu.prologue.b.a;
 import com.baidu.prologue.business.a.a;
 import java.io.File;
-/* loaded from: classes6.dex */
-public class d extends b<com.baidu.prologue.business.b.c> implements a.InterfaceC0256a {
-    private static final boolean DEBUG = com.baidu.prologue.a.b.a.bEl.get().OJ();
-    private View bFG;
-    private FrameLayout bFI;
-    private ImageView bFJ;
-    private File bFK;
-    private String bFL;
-    private String bFM;
-    private boolean bFN;
-    private boolean bFO;
-    private Bitmap bFP;
-    private com.baidu.prologue.business.a.a bFQ;
-    protected boolean bFR;
-    protected boolean bFS;
-    private a.InterfaceC0254a bFT;
-    private String bFb;
-    private com.baidu.prologue.b.b bFg;
+/* loaded from: classes8.dex */
+public class d extends b<com.baidu.prologue.business.b.c> implements a.InterfaceC0259a {
+    private static final boolean DEBUG = com.baidu.prologue.a.b.a.bEI.get().OY();
+    private com.baidu.prologue.b.b bFD;
+    private String bFy;
+    private View bGe;
+    private FrameLayout bGg;
+    private ImageView bGh;
+    private File bGi;
+    private String bGj;
+    private String bGk;
+    private boolean bGl;
+    private boolean bGm;
+    private Bitmap bGn;
+    private com.baidu.prologue.business.a.a bGo;
+    protected boolean bGp;
+    protected boolean bGq;
+    private a.InterfaceC0257a bGr;
     private View mMaskView;
     private int mVideoHeight;
     private int mVideoWidth;
 
     public d(@NonNull Context context) {
         super(context);
-        this.bFG = null;
-        this.bFN = true;
-        this.bFO = true;
+        this.bGe = null;
+        this.bGl = true;
+        this.bGm = true;
         this.mVideoHeight = 0;
         this.mVideoWidth = 0;
-        this.bFP = null;
-        this.bFR = true;
-        this.bFS = false;
-        this.bFg = new com.baidu.prologue.b.b() { // from class: com.baidu.prologue.business.c.d.1
+        this.bGn = null;
+        this.bGp = true;
+        this.bGq = false;
+        this.bFD = new com.baidu.prologue.b.b() { // from class: com.baidu.prologue.business.c.d.1
             @Override // com.baidu.prologue.b.b
             public void onPrepared() {
-                d.this.bFQ.play();
+                d.this.bGo.play();
             }
 
             @Override // com.baidu.prologue.b.b
@@ -69,8 +69,8 @@ public class d extends b<com.baidu.prologue.business.b.c> implements a.Interface
 
             @Override // com.baidu.prologue.b.b
             public boolean onError(int i, int i2) {
-                d.this.PA().Pw();
-                d.this.PD();
+                d.this.PP().PL();
+                d.this.PS();
                 return false;
             }
 
@@ -80,7 +80,7 @@ public class d extends b<com.baidu.prologue.business.b.c> implements a.Interface
                     d.this.mUiHandler.postDelayed(new Runnable() { // from class: com.baidu.prologue.business.c.d.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            d.this.db(false);
+                            d.this.dd(false);
                         }
                     }, 50L);
                     return false;
@@ -88,46 +88,46 @@ public class d extends b<com.baidu.prologue.business.b.c> implements a.Interface
                 return false;
             }
         };
-        this.bFT = new a.InterfaceC0254a() { // from class: com.baidu.prologue.business.c.d.2
-            @Override // com.baidu.prologue.b.a.InterfaceC0254a
+        this.bGr = new a.InterfaceC0257a() { // from class: com.baidu.prologue.business.c.d.2
+            @Override // com.baidu.prologue.b.a.InterfaceC0257a
             public void ee(int i) {
-                d.this.PA().Pw();
+                d.this.PP().PL();
             }
         };
     }
 
     public d q(@NonNull File file) {
-        this.bFK = file;
+        this.bGi = file;
         return this;
     }
 
-    public d gQ(String str) {
-        this.bFM = str;
+    public d gO(String str) {
+        this.bGk = str;
         return this;
     }
 
-    public d gR(String str) {
-        this.bFL = str;
+    public d gP(String str) {
+        this.bGj = str;
         return this;
     }
 
-    public d gS(@NonNull String str) {
-        this.bFb = str;
+    public d gQ(@NonNull String str) {
+        this.bFy = str;
         return this;
     }
 
-    public d cZ(boolean z) {
-        this.bFN = z;
+    public d db(boolean z) {
+        this.bGl = z;
         return this;
     }
 
     public d b(@NonNull com.baidu.prologue.business.a.a aVar) {
-        this.bFQ = aVar;
+        this.bGo = aVar;
         return this;
     }
 
-    public d da(boolean z) {
-        this.bFO = z;
+    public d dc(boolean z) {
+        this.bGm = z;
         return this;
     }
 
@@ -137,25 +137,25 @@ public class d extends b<com.baidu.prologue.business.b.c> implements a.Interface
     }
 
     @Override // com.baidu.prologue.business.c.a
-    public void Px() {
-        this.bFI = (FrameLayout) this.mRootView.findViewById(b.C0255b.video_splash_view_content);
-        this.bFG = this.mRootView.findViewById(b.C0255b.video_splash_clickable);
-        this.mMaskView = this.mRootView.findViewById(b.C0255b.video_mask_view);
-        this.bFJ = (ImageView) this.mRootView.findViewById(b.C0255b.video_splash_view_bs);
-        if (this.bFO) {
-            PG();
+    public void PM() {
+        this.bGg = (FrameLayout) this.mRootView.findViewById(b.C0258b.video_splash_view_content);
+        this.bGe = this.mRootView.findViewById(b.C0258b.video_splash_clickable);
+        this.mMaskView = this.mRootView.findViewById(b.C0258b.video_mask_view);
+        this.bGh = (ImageView) this.mRootView.findViewById(b.C0258b.video_splash_view_bs);
+        if (this.bGm) {
+            PV();
         }
-        PH();
-        if (this.bFN) {
-            PI();
+        PW();
+        if (this.bGl) {
+            PX();
         }
     }
 
-    private void PG() {
+    private void PV() {
         Bitmap bitmap;
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
-            mediaMetadataRetriever.setDataSource(this.bFK.getAbsolutePath());
+            mediaMetadataRetriever.setDataSource(this.bGi.getAbsolutePath());
             this.mVideoHeight = Integer.parseInt(mediaMetadataRetriever.extractMetadata(19));
             this.mVideoWidth = Integer.parseInt(mediaMetadataRetriever.extractMetadata(18));
             bitmap = mediaMetadataRetriever.getFrameAtTime(0L);
@@ -164,63 +164,63 @@ public class d extends b<com.baidu.prologue.business.b.c> implements a.Interface
             bitmap = null;
         }
         if (bitmap != null) {
-            this.bFJ.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.bFJ.setImageBitmap(bitmap);
-            db(true);
+            this.bGh.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.bGh.setImageBitmap(bitmap);
+            dd(true);
         }
     }
 
-    private void PH() {
-        View rO = this.bFQ.rO();
-        if (rO != null && rO.getParent() != this.bFI) {
-            if (rO.getParent() != null) {
-                ((ViewGroup) rO.getParent()).removeView(rO);
+    private void PW() {
+        View rQ = this.bGo.rQ();
+        if (rQ != null && rQ.getParent() != this.bGg) {
+            if (rQ.getParent() != null) {
+                ((ViewGroup) rQ.getParent()).removeView(rQ);
             }
-            int width = this.bFI.getWidth();
+            int width = this.bGg.getWidth();
             if (width <= 0) {
                 width = -1;
             }
-            int height = this.bFI.getHeight();
+            int height = this.bGg.getHeight();
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(new ViewGroup.LayoutParams(width, height > 0 ? height : -1));
             layoutParams.gravity = 17;
-            this.bFI.addView(rO, 1, layoutParams);
+            this.bGg.addView(rQ, 1, layoutParams);
         }
     }
 
-    private void PI() {
-        if (this.bFQ != null) {
-            this.bFS = false;
-            this.bFQ.a(this.bFK, this.bFL, this.bFg, this.bFb, this, this.bFT, this.bFh);
-            this.bFQ.prepare();
+    private void PX() {
+        if (this.bGo != null) {
+            this.bGq = false;
+            this.bGo.a(this.bGi, this.bGj, this.bFD, this.bFy, this, this.bGr, this.bFE);
+            this.bGo.prepare();
         }
     }
 
     @Override // com.baidu.prologue.business.c.b
-    public void PC() {
-        super.PC();
-        this.bFS = true;
-        if (this.bFQ != null && this.bFQ.Ps()) {
-            this.bFQ.pause();
-            this.bFQ.release();
+    public void PR() {
+        super.PR();
+        this.bGq = true;
+        if (this.bGo != null && this.bGo.PH()) {
+            this.bGo.pause();
+            this.bGo.release();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void db(boolean z) {
+    public void dd(boolean z) {
         if (z) {
-            this.bFJ.setVisibility(0);
+            this.bGh.setVisibility(0);
         } else {
-            this.bFJ.setVisibility(8);
+            this.bGh.setVisibility(8);
         }
     }
 
     @Override // com.baidu.prologue.business.c.a
-    public View Pt() {
-        return this.bFQ != null ? this.bFQ.Pt() : this.bFG;
+    public View PI() {
+        return this.bGo != null ? this.bGo.PI() : this.bGe;
     }
 
-    @Override // com.baidu.prologue.business.a.a.InterfaceC0256a
-    public void gK(String str) {
-        this.bFb = str;
+    @Override // com.baidu.prologue.business.a.a.InterfaceC0259a
+    public void gI(String str) {
+        this.bFy = str;
     }
 }

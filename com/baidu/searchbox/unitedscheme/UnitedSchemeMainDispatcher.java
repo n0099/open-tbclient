@@ -20,7 +20,7 @@ import rx.d;
 import rx.e;
 import rx.functions.f;
 import rx.j;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
     public static final String CONTENT_KEY_EXT = "ext";
     public static final String CONTENT_KEY_FROM = "from";
@@ -363,15 +363,33 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
     }
 
     private void doUBCForOutsideAndInside(UnitedSchemeEntity unitedSchemeEntity, int i) {
-        if (unitedSchemeEntity != null && unitedSchemeEntity.getUri() != null && !TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
+        if (unitedSchemeEntity != null && unitedSchemeEntity.getUri() != null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(SuspensionBallEntity.KEY_SCHEME, unitedSchemeEntity.getUri().toString());
-                jSONObject.put("errorcode", i);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(SuspensionBallEntity.KEY_SCHEME, unitedSchemeEntity.getUri().toString());
+                jSONObject.put("ext", jSONObject2);
+                jSONObject.put("value", String.valueOf(i));
+                if (TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
+                    jSONObject.put("from", UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE);
+                } else {
+                    jSONObject.put("from", UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE);
+                }
+                jSONObject.put("type", SuspensionBallEntity.KEY_SCHEME);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            SchemeRuntime.getSchemeIoc().doStatistic(UBC_OUTER_INVOKE_TO_TAYGET_ID, jSONObject.toString());
+            SchemeRuntime.getSchemeIoc().doStatistic(UBC_INSIDE_INVOKE_TO_TAYGET_ID, jSONObject.toString());
+            if (!TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
+                JSONObject jSONObject3 = new JSONObject();
+                try {
+                    jSONObject3.put(SuspensionBallEntity.KEY_SCHEME, unitedSchemeEntity.getUri().toString());
+                    jSONObject3.put("errorcode", i);
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+                SchemeRuntime.getSchemeIoc().doStatistic(UBC_OUTER_INVOKE_TO_TAYGET_ID, jSONObject3.toString());
+            }
         }
     }
 }

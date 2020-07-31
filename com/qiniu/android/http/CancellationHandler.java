@@ -1,10 +1,10 @@
 package com.qiniu.android.http;
 
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface CancellationHandler {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class CancellationException extends IOException {
     }
 

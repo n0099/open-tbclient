@@ -2,7 +2,7 @@ package com.vivo.push.b;
 
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiContext;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c extends com.vivo.push.y {
     private String a;
     private String b;

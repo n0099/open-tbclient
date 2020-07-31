@@ -10,7 +10,7 @@ import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.GroupPermission;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidResIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Object> {
     private int commonGroupNum;
     private List<GroupInfoData> commonGroups;

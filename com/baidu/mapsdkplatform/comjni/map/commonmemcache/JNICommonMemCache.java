@@ -1,5 +1,5 @@
 package com.baidu.mapsdkplatform.comjni.map.commonmemcache;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class JNICommonMemCache {
     public native long Create();
 

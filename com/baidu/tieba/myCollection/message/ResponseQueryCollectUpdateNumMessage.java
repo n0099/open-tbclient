@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.QueryCollectUpdateNum.QueryCollectUpdateNumResIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class ResponseQueryCollectUpdateNumMessage extends SocketResponsedMessage {
     private int mCollectUpdateNum;
 

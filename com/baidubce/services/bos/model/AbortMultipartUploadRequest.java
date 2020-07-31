@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
 
 import com.baidubce.auth.BceCredentials;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class AbortMultipartUploadRequest extends GenericUploadRequest {
     public AbortMultipartUploadRequest(String str, String str2, String str3) {
         super(str, str2, str3);

@@ -5,7 +5,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.mapapi.model.inner.GeoPoint;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class GroundOverlay extends Overlay {
     private static final String j = GroundOverlay.class.getSimpleName();
     int a;

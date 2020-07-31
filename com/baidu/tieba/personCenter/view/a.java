@@ -1,7 +1,6 @@
 package com.baidu.tieba.personCenter.view;
 
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
@@ -15,27 +14,26 @@ import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.d> {
-    private TextView aeD;
-    private View dPI;
-    private TextView iRc;
-    private TextView igz;
-    private TextView kGR;
-    private TextView kGS;
-    private TextView kGT;
-    private TextView kGU;
-    private TextView kGV;
-    private ImageView kGW;
-    private LinearLayout kGX;
-    private LinearLayout kGY;
-    private LinearLayout kGZ;
-    private LinearLayout kHa;
-    private int kHb;
+    private TextView aet;
+    private View dWa;
+    private TextView iZm;
+    private TextView imD;
+    private TextView kPS;
+    private TextView kPT;
+    private TextView kPU;
+    private TextView kPV;
+    private TextView kPW;
+    private LinearLayout kPX;
+    private LinearLayout kPY;
+    private LinearLayout kPZ;
+    private LinearLayout kQa;
+    private int kQb;
     private LinearLayout mContainer;
     private int mSkinType;
     private View mTopLine;
@@ -44,44 +42,42 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.d> 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.kHb = 0;
+        this.kQb = 0;
         View view = getView();
         this.mContainer = (LinearLayout) view.findViewById(R.id.layout_container);
         this.mTopLine = view.findViewById(R.id.top_divider_line);
-        this.dPI = view.findViewById(R.id.bottom_divider_line);
-        this.igz = (TextView) view.findViewById(R.id.fans_num);
-        this.kGR = (TextView) view.findViewById(R.id.fans_title);
-        this.kGS = (TextView) view.findViewById(R.id.concer_num);
-        this.kGT = (TextView) view.findViewById(R.id.concer_title);
-        this.kGU = (TextView) view.findViewById(R.id.attention_bar_num);
-        this.kGV = (TextView) view.findViewById(R.id.attention_bar_title);
-        this.iRc = (TextView) view.findViewById(R.id.thread_num);
-        this.aeD = (TextView) view.findViewById(R.id.thread_title);
-        this.kGX = (LinearLayout) view.findViewById(R.id.fans_action);
-        this.kGY = (LinearLayout) view.findViewById(R.id.concer_action);
-        this.kGZ = (LinearLayout) view.findViewById(R.id.attention_action);
-        this.kHa = (LinearLayout) view.findViewById(R.id.thread_action);
-        this.kGW = (ImageView) view.findViewById(R.id.person_center_fans_red_tip);
+        this.dWa = view.findViewById(R.id.bottom_divider_line);
+        this.imD = (TextView) view.findViewById(R.id.fans_num);
+        this.kPS = (TextView) view.findViewById(R.id.fans_title);
+        this.kPT = (TextView) view.findViewById(R.id.concer_num);
+        this.kPU = (TextView) view.findViewById(R.id.concer_title);
+        this.kPV = (TextView) view.findViewById(R.id.attention_bar_num);
+        this.kPW = (TextView) view.findViewById(R.id.attention_bar_title);
+        this.iZm = (TextView) view.findViewById(R.id.thread_num);
+        this.aet = (TextView) view.findViewById(R.id.thread_title);
+        this.kPX = (LinearLayout) view.findViewById(R.id.fans_action);
+        this.kPY = (LinearLayout) view.findViewById(R.id.concer_action);
+        this.kPZ = (LinearLayout) view.findViewById(R.id.attention_action);
+        this.kQa = (LinearLayout) view.findViewById(R.id.thread_action);
         this.mTopLine.setVisibility(8);
-        this.dPI.setVisibility(8);
+        this.dWa.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            an.setViewTextColor(this.igz, (int) R.color.cp_cont_b);
-            an.setViewTextColor(this.kGR, (int) R.color.cp_cont_d);
-            an.setViewTextColor(this.kGS, (int) R.color.cp_cont_b);
-            an.setViewTextColor(this.kGT, (int) R.color.cp_cont_d);
-            an.setViewTextColor(this.kGU, (int) R.color.cp_cont_b);
-            an.setViewTextColor(this.kGV, (int) R.color.cp_cont_d);
-            an.setViewTextColor(this.iRc, (int) R.color.cp_cont_b);
-            an.setViewTextColor(this.aeD, (int) R.color.cp_cont_d);
-            an.setImageResource(this.kGW, R.drawable.person_center_red_tip_shape);
-            an.setBackgroundColor(this.mTopLine, R.color.cp_bg_line_c);
-            an.setBackgroundColor(this.dPI, R.color.cp_bg_line_c);
+            ao.setViewTextColor(this.imD, R.color.cp_cont_b);
+            ao.setViewTextColor(this.kPS, R.color.cp_cont_d);
+            ao.setViewTextColor(this.kPT, R.color.cp_cont_b);
+            ao.setViewTextColor(this.kPU, R.color.cp_cont_d);
+            ao.setViewTextColor(this.kPV, R.color.cp_cont_b);
+            ao.setViewTextColor(this.kPW, R.color.cp_cont_d);
+            ao.setViewTextColor(this.iZm, R.color.cp_cont_b);
+            ao.setViewTextColor(this.aet, R.color.cp_cont_d);
+            ao.setBackgroundColor(this.mTopLine, R.color.cp_bg_line_c);
+            ao.setBackgroundColor(this.dWa, R.color.cp_bg_line_c);
             int dimens = l.getDimens(getContext(), R.dimen.tbds16);
-            com.baidu.tbadk.core.util.e.a.aXp().lP(1).lQ(4096).lW(R.color.cp_bg_line_e).lR(0).a(R.color.cp_shadow_a, 0.2f, 0, l.getDimens(getContext(), R.dimen.tbds5), dimens).aR(getView());
+            com.baidu.tbadk.core.util.e.a.bbq().mj(1).mk(4096).mq(R.color.cp_bg_line_e).ml(0).a(R.color.cp_shadow_a, 0.2f, 0, l.getDimens(getContext(), R.dimen.tbds5), dimens).aX(getView());
             this.mSkinType = i;
         }
     }
@@ -95,20 +91,15 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.d> 
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.personCenter.c.d dVar) {
         this.mUserData = dVar.userData;
-        this.kHb = dVar.kFT;
-        this.igz.setText(ar.numFormatOverWanNa(dVar.kFS));
-        this.kGS.setText(Integer.toString(dVar.kFT));
-        this.kGU.setText(Integer.toString(dVar.kFU));
-        this.iRc.setText(ar.longNumFormatOver9999wan(dVar.threadNum));
-        if (dVar.kFV) {
-            this.kGW.setVisibility(0);
-        } else {
-            this.kGW.setVisibility(8);
-        }
-        this.kGX.setOnClickListener(this);
-        this.kGY.setOnClickListener(this);
-        this.kGZ.setOnClickListener(this);
-        this.kHa.setOnClickListener(this);
+        this.kQb = dVar.kOU;
+        this.imD.setText(as.numFormatOverWanNa(dVar.kOT));
+        this.kPT.setText(Integer.toString(dVar.kOU));
+        this.kPV.setText(Integer.toString(dVar.kOV));
+        this.iZm.setText(as.longNumFormatOver9999wan(dVar.threadNum));
+        this.kPX.setOnClickListener(this);
+        this.kPY.setOnClickListener(this);
+        this.kPZ.setOnClickListener(this);
+        this.kQa.setOnClickListener(this);
         onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -117,21 +108,20 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.d> 
         if (view != null) {
             if (view.getId() == R.id.fans_action) {
                 if (this.mUserData != null) {
-                    this.kGW.setVisibility(8);
-                    com.baidu.tieba.p.a.dar().g(2, false, true);
-                    TiebaStatic.log(new ao("c12523").ag("obj_locate", 6));
+                    com.baidu.tieba.p.a.ddy().g(2, false, true);
+                    TiebaStatic.log(new ap("c12523").ah("obj_locate", 6));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mTbPageContext.getPageActivity(), false, this.mUserData.getUserId(), this.mUserData.getSex()).updateBjhUser(this.mUserData.isBaijiahaoUser())));
                 }
             } else if (view.getId() == R.id.concer_action) {
                 if (this.mUserData != null) {
-                    TiebaStatic.log(new ao("c12523").ag("obj_locate", 5));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mTbPageContext.getPageActivity(), true, this.mUserData.getUserId(), this.mUserData.getSex()).updateBjhUser(this.mUserData.isBaijiahaoUser()).updateFollowNum(this.kHb, this.mUserData.getPortrait())));
+                    TiebaStatic.log(new ap("c12523").ah("obj_locate", 5));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mTbPageContext.getPageActivity(), true, this.mUserData.getUserId(), this.mUserData.getSex()).updateBjhUser(this.mUserData.isBaijiahaoUser()).updateFollowNum(this.kQb, this.mUserData.getPortrait())));
                 }
             } else if (view.getId() == R.id.attention_action) {
-                TiebaStatic.log(new ao("c12523").ag("obj_locate", 7));
+                TiebaStatic.log(new ap("c12523").ah("obj_locate", 7));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonBarActivityConfig(this.mTbPageContext.getPageActivity(), this.mUserData.getLike_bars(), this.mUserData.getUserId(), this.mUserData.getSex())));
             } else if (view.getId() == R.id.thread_action) {
-                TiebaStatic.log(new ao("c12523").ag("obj_locate", 8));
+                TiebaStatic.log(new ap("c12523").ah("obj_locate", 8));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPostActivityConfig(this.mTbPageContext.getPageActivity(), this.mUserData.getUserId(), this.mUserData.getSex(), this.mUserData.getPortrait())));
             }
         }

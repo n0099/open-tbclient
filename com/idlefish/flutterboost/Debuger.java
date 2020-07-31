@@ -1,16 +1,19 @@
 package com.idlefish.flutterboost;
 
-import com.baidu.adp.lib.util.BdLog;
-/* loaded from: classes6.dex */
+import com.idlefish.flutterboost.log.AndroidLog;
+import com.idlefish.flutterboost.log.ILog;
+/* loaded from: classes18.dex */
 public class Debuger {
     private static final Debuger DEBUG = new Debuger();
+    private static boolean sSafeMode = false;
+    private static ILog sLog = new AndroidLog();
 
     private Debuger() {
     }
 
     private void print(String str) {
         if (isDebug()) {
-            BdLog.e(str);
+            sLog.e("FlutterBoost#", str);
         }
     }
 
@@ -19,10 +22,17 @@ public class Debuger {
     }
 
     public static void exception(String str) {
-        if (isDebug()) {
+        if (canThrowError()) {
             throw new RuntimeException(str);
         }
-        BdLog.e(new RuntimeException(str));
+        sLog.e("FlutterBoost#", "exception", new RuntimeException(str));
+    }
+
+    public static void exception(Throwable th) {
+        if (canThrowError()) {
+            throw new RuntimeException(th);
+        }
+        sLog.e("FlutterBoost#", "exception", th);
     }
 
     public static boolean isDebug() {
@@ -31,5 +41,9 @@ public class Debuger {
         } catch (Throwable th) {
             return false;
         }
+    }
+
+    private static boolean canThrowError() {
+        return isDebug() && !sSafeMode;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.wnplatform.c;
 import android.location.GpsStatus;
 import android.os.SystemClock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e implements GpsStatus.Listener {
     final /* synthetic */ d a;
 

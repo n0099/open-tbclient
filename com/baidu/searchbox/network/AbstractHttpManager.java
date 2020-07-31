@@ -31,7 +31,7 @@ import java.net.ProxySelector;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public abstract class AbstractHttpManager {
     private static final String TAG = "HttpManager";
     private static String sClientIP;

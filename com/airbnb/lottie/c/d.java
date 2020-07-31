@@ -4,7 +4,7 @@ import android.support.annotation.Nullable;
 import android.util.JsonReader;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class d {
     public static com.airbnb.lottie.model.a.b f(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
         return a(jsonReader, eVar, true);

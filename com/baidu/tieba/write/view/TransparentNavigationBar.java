@@ -3,10 +3,10 @@ package com.baidu.tieba.write.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.adp.base.e;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TransparentNavigationBar extends NavigationBar {
     public TransparentNavigationBar(Context context) {
         super(context);
@@ -22,7 +22,7 @@ public class TransparentNavigationBar extends NavigationBar {
 
     @Override // com.baidu.tbadk.core.view.NavigationBar
     public void onChangeSkinType(e<?> eVar, int i) {
-        an.setBackgroundColor(this, R.color.common_color_10094);
+        ao.setBackgroundColor(this, R.color.common_color_10094);
         initPadding();
     }
 }

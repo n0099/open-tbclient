@@ -1,7 +1,7 @@
 package com.baidu.tbadk.widget.timepicker.a.a;
 
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class a<T> implements com.baidu.tbadk.widget.timepicker.wheel.a.a {
     private List<T> items;
 

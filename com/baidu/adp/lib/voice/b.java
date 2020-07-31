@@ -31,9 +31,9 @@ public class b implements Runnable {
                     }
                 } catch (NullPointerException e) {
                 }
-                int mL = b.this.mL() + 0;
-                if (mL != b.this.mElapsedTime) {
-                    b.this.mElapsedTime = mL;
+                int mM = b.this.mM() + 0;
+                if (mM != b.this.mElapsedTime) {
+                    b.this.mElapsedTime = mM;
                     Message obtainMessage = b.this.mHandler.obtainMessage(6);
                     obtainMessage.arg1 = b.this.mElapsedTime;
                     b.this.mHandler.sendMessage(obtainMessage);
@@ -49,7 +49,7 @@ public class b implements Runnable {
         }
     };
 
-    public int mL() {
+    public int mM() {
         if (this.mAudioTrack == null) {
             return 0;
         }
@@ -84,7 +84,7 @@ public class b implements Runnable {
         }
     }
 
-    public void as(int i) {
+    public void au(int i) {
         this.Os = i;
     }
 
@@ -250,7 +250,7 @@ public class b implements Runnable {
         }
     }
 
-    public void cd(String str) {
+    public void cb(String str) {
         this.Om = str;
     }
 

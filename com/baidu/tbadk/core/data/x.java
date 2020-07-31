@@ -1,37 +1,111 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import tbclient.FrsPage.ForumHeadlineImgInfo;
+import com.baidu.adp.lib.util.BdLog;
+import com.xiaomi.mipush.sdk.Constants;
+import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
-public class x {
-    private u dIB;
-    private long threadId;
-    private long dIw = 0;
-    private String dIx = "";
-    private long dIy = 0;
-    private String dIz = "";
-    private String imgUrl = "";
-    private String dIA = "";
+public class x implements com.baidu.tbadk.core.flow.a.a {
+    private String bGf;
+    private String dOE;
+    private String dOF;
+    private boolean dOG;
+    private String mSubTitle;
+    private String mTitle;
+    private String tagNameUrl;
+    private float tagRatio;
 
-    public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
-        if (forumHeadlineImgInfo != null) {
-            this.threadId = forumHeadlineImgInfo.thread_id.longValue();
-            this.dIw = forumHeadlineImgInfo.thread_user_id.longValue();
-            this.dIx = forumHeadlineImgInfo.thread_user_name;
-            this.dIy = forumHeadlineImgInfo.img_user_id.longValue();
-            this.dIz = forumHeadlineImgInfo.img_user_name;
-            this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.dIA = forumHeadlineImgInfo.headline_url;
-            this.dIB = new u();
-            ArrayList<w> arrayList = new ArrayList<>();
-            w wVar = new w(this.imgUrl == null ? "" : this.imgUrl, this.dIA == null ? "" : this.dIA, null);
-            wVar.gU(true);
-            arrayList.add(wVar);
-            this.dIB.v(arrayList);
+    public x(String str, String str2, String str3) {
+        this.bGf = str;
+        this.dOE = str2;
+        this.mTitle = str3;
+    }
+
+    public x() {
+    }
+
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String getPicUrl() {
+        return this.bGf;
+    }
+
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String aUj() {
+        return this.dOE;
+    }
+
+    public String getImageUrl() {
+        return this.bGf;
+    }
+
+    public void setImageUrl(String str) {
+        this.bGf = str;
+    }
+
+    public String getLinkUrl() {
+        return this.dOE;
+    }
+
+    public void setLinkUrl(String str) {
+        this.dOE = str;
+    }
+
+    public String aUt() {
+        return this.tagNameUrl;
+    }
+
+    public float aUu() {
+        return this.tagRatio;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: aUv */
+    public x clone() {
+        x xVar = new x();
+        xVar.bGf = this.bGf;
+        xVar.dOE = this.dOE;
+        xVar.mTitle = this.mTitle;
+        xVar.mSubTitle = this.mSubTitle;
+        xVar.dOF = this.dOF;
+        xVar.tagNameUrl = this.tagNameUrl;
+        xVar.tagRatio = this.tagRatio;
+        return xVar;
+    }
+
+    public void b(HeadImgs headImgs) {
+        if (headImgs != null) {
+            this.bGf = headImgs.img_url;
+            this.dOE = headImgs.pc_url;
+            this.tagNameUrl = headImgs.tag_name_url;
+            String str = headImgs.tag_name_wh;
+            if (str != null) {
+                try {
+                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    int i = com.baidu.adp.lib.f.b.toInt(split[0], 1);
+                    int i2 = com.baidu.adp.lib.f.b.toInt(split[1], 1);
+                    if (i2 != 0) {
+                        this.tagRatio = i / i2;
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+            if (headImgs.title != null) {
+                this.mTitle = headImgs.title.trim();
+            }
+            if (headImgs.subtitle != null) {
+                this.mSubTitle = headImgs.subtitle.trim();
+            }
+            if (headImgs.btn_text != null) {
+                this.dOF = headImgs.btn_text.trim();
+            }
         }
     }
 
-    public String aQl() {
-        return this.imgUrl;
+    public boolean aUw() {
+        return this.dOG;
+    }
+
+    public void hy(boolean z) {
+        this.dOG = z;
     }
 }

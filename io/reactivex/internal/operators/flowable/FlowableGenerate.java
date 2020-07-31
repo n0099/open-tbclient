@@ -8,14 +8,14 @@ import java.util.concurrent.atomic.AtomicLong;
 public final class FlowableGenerate<T, S> extends io.reactivex.g<T> {
     final io.reactivex.c.g<? super S> disposeState;
     final io.reactivex.c.c<S, io.reactivex.f<T>, S> generator;
-    final Callable<S> nKu;
+    final Callable<S> nTc;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         try {
-            cVar.onSubscribe(new GeneratorSubscription(cVar, this.generator, this.disposeState, this.nKu.call()));
+            cVar.onSubscribe(new GeneratorSubscription(cVar, this.generator, this.disposeState, this.nTc.call()));
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.L(th);
+            io.reactivex.exceptions.a.K(th);
             EmptySubscription.error(th, cVar);
         }
     }
@@ -62,7 +62,7 @@ public final class FlowableGenerate<T, S> extends io.reactivex.g<T> {
                             }
                             j2++;
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.L(th);
+                            io.reactivex.exceptions.a.K(th);
                             this.cancelled = true;
                             this.state = null;
                             onError(th);
@@ -90,7 +90,7 @@ public final class FlowableGenerate<T, S> extends io.reactivex.g<T> {
             try {
                 this.disposeState.accept(s);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.L(th);
+                io.reactivex.exceptions.a.K(th);
                 io.reactivex.e.a.onError(th);
             }
         }

@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class RequestGetGroupActivityLocalMessage extends CustomMessage<Integer> {
     private int activityId;
     private int from;

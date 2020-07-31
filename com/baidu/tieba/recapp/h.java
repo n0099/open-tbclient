@@ -5,11 +5,9 @@ import android.view.View;
 public interface h {
     void autoPlay(int i);
 
+    boolean canPlay();
+
     long getCurrentPosition();
-
-    int getHeight();
-
-    void getLocationInWindow(int[] iArr);
 
     int getPlayStatus();
 

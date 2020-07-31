@@ -16,14 +16,14 @@ import java.util.List;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class TrustSubjectManager {
-    a.C0143a aqD;
-    private a atg;
-    private TrustSubject ath;
+    a.C0141a aqz;
+    private a atc;
+    private TrustSubject atd;
     private Context d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class IntegrationException extends RuntimeException {
         public IntegrationException(String str) {
             super(str);
@@ -38,29 +38,29 @@ public class TrustSubjectManager {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public Context applicationContext;
-        public com.baidu.helios.common.c.a aqW;
+        public com.baidu.helios.common.c.a aqS;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class b {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class c {
-        public int ati = 0;
+        public int ate = 0;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class d {
-        public List<TrustSubject> atj;
-        public TrustSubject atk;
+        public List<TrustSubject> atf;
+        public TrustSubject atg;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class e {
         private List<String> a;
 
@@ -70,9 +70,9 @@ public class TrustSubjectManager {
 
         public static e e(TrustSubject trustSubject) {
             try {
-                String ef = trustSubject.ef("config-pkgs");
-                if (!TextUtils.isEmpty(ef)) {
-                    JSONArray jSONArray = new JSONObject(ef).getJSONArray("value");
+                String ee = trustSubject.ee("config-pkgs");
+                if (!TextUtils.isEmpty(ee)) {
+                    JSONArray jSONArray = new JSONObject(ee).getJSONArray("value");
                     int length = jSONArray.length();
                     ArrayList arrayList = new ArrayList(length);
                     for (int i = 0; i < length; i++) {
@@ -92,7 +92,7 @@ public class TrustSubjectManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class f {
         private Set<String> a;
 
@@ -102,9 +102,9 @@ public class TrustSubjectManager {
 
         public static f f(TrustSubject trustSubject) {
             try {
-                String ef = trustSubject.ef("config-revoke-sigs");
-                if (!TextUtils.isEmpty(ef)) {
-                    JSONArray jSONArray = new JSONObject(ef).getJSONArray("revoke-sigs");
+                String ee = trustSubject.ee("config-revoke-sigs");
+                if (!TextUtils.isEmpty(ee)) {
+                    JSONArray jSONArray = new JSONObject(ee).getJSONArray("revoke-sigs");
                     int length = jSONArray.length();
                     HashSet hashSet = new HashSet(length);
                     for (int i = 0; i < length; i++) {
@@ -146,7 +146,7 @@ public class TrustSubjectManager {
         for (TrustSubject trustSubject : list) {
             hashMap.put(trustSubject.packageName, trustSubject);
         }
-        File uM = this.aqD.uM();
+        File uM = this.aqz.uM();
         if (uM == null || (listFiles = uM.listFiles(new TrustSubject.b())) == null) {
             return;
         }
@@ -191,10 +191,10 @@ public class TrustSubjectManager {
         ArrayList arrayList2 = new ArrayList();
         if (queryBroadcastReceivers != null) {
             for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
-                if (resolveInfo.activityInfo.packageName.equals(this.ath.packageName)) {
-                    trustSubject2 = this.ath;
+                if (resolveInfo.activityInfo.packageName.equals(this.atd.packageName)) {
+                    trustSubject2 = this.atd;
                 } else {
-                    TrustSubject trustSubject3 = new TrustSubject(resolveInfo.activityInfo.packageName, this.d, this.aqD);
+                    TrustSubject trustSubject3 = new TrustSubject(resolveInfo.activityInfo.packageName, this.d, this.aqz);
                     trustSubject3.l();
                     trustSubject2 = trustSubject3;
                 }
@@ -227,7 +227,7 @@ public class TrustSubjectManager {
             }
         }
         TrustSubject trustSubject4 = null;
-        Collections.sort(arrayList, TrustSubject.alb);
+        Collections.sort(arrayList, TrustSubject.akW);
         Iterator it = arrayList.iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -273,17 +273,17 @@ public class TrustSubjectManager {
             a(arrayList3, trustSubject);
         }
         Collections.sort(arrayList3, TrustSubject.a);
-        dVar.atj = arrayList3;
+        dVar.atf = arrayList3;
         if (trustSubject != null) {
             trustSubject.d();
-            dVar.atk = trustSubject;
+            dVar.atg = trustSubject;
         }
         return dVar;
     }
 
     private void b() {
         boolean z = true;
-        TrustSubject trustSubject = new TrustSubject(this.d.getPackageName(), this.d, this.aqD);
+        TrustSubject trustSubject = new TrustSubject(this.d.getPackageName(), this.d, this.aqz);
         trustSubject.l();
         boolean k = trustSubject.k();
         if (k ? trustSubject.uT().a(3L) == 0 : true) {
@@ -307,13 +307,13 @@ public class TrustSubjectManager {
         }
         trustSubject.i();
         trustSubject.m();
-        this.ath = trustSubject;
+        this.atd = trustSubject;
     }
 
     private d c(com.baidu.helios.common.a.b.a aVar) {
         TrustSubject trustSubject;
         d dVar = new d();
-        TrustSubject trustSubject2 = this.ath;
+        TrustSubject trustSubject2 = this.atd;
         if (trustSubject2.uX()) {
             HashMap hashMap = new HashMap();
             hashMap.put(trustSubject2.packageName, trustSubject2);
@@ -337,7 +337,7 @@ public class TrustSubjectManager {
                 ArrayList arrayList2 = new ArrayList();
                 for (String str : a2) {
                     if (!hashMap.containsKey(str)) {
-                        TrustSubject trustSubject5 = trustSubject2.packageName.equals(str) ? trustSubject2 : new TrustSubject(str, this.d, this.aqD);
+                        TrustSubject trustSubject5 = trustSubject2.packageName.equals(str) ? trustSubject2 : new TrustSubject(str, this.d, this.aqz);
                         hashMap.put(str, trustSubject5);
                         if (trustSubject5.uU()) {
                             trustSubject5.l();
@@ -370,7 +370,7 @@ public class TrustSubjectManager {
                         }
                     }
                 }
-                Collections.sort(arrayList2, TrustSubject.alb);
+                Collections.sort(arrayList2, TrustSubject.akW);
                 Iterator it = arrayList2.iterator();
                 while (true) {
                     if (!it.hasNext()) {
@@ -417,10 +417,10 @@ public class TrustSubjectManager {
                 a(arrayList3, trustSubject4);
             }
             Collections.sort(arrayList3, TrustSubject.a);
-            dVar.atj = arrayList3;
+            dVar.atf = arrayList3;
             if (trustSubject4 != null) {
                 trustSubject4.d();
-                dVar.atk = trustSubject4;
+                dVar.atg = trustSubject4;
             }
             return dVar;
         }
@@ -433,21 +433,21 @@ public class TrustSubjectManager {
 
     public d a(c cVar) {
         com.baidu.helios.common.a.b.a va = va();
-        if (cVar.ati == 1) {
+        if (cVar.ate == 1) {
             return b(va);
         }
-        if (cVar.ati == 2) {
+        if (cVar.ate == 2) {
             return c(va);
         }
         d b2 = b(va);
-        return (b2.atj == null || b2.atj.size() == 0) ? c(va) : b2;
+        return (b2.atf == null || b2.atf.size() == 0) ? c(va) : b2;
     }
 
     public void a(a aVar) {
-        this.atg = aVar;
+        this.atc = aVar;
         this.d = aVar.applicationContext;
-        this.aqD = aVar.aqW.uK().ed("tz");
-        this.aqD.uL();
+        this.aqz = aVar.aqS.uK().ec("tz");
+        this.aqz.uL();
     }
 
     public void a(b bVar) {

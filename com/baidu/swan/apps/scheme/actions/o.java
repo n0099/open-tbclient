@@ -1,22 +1,21 @@
 package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.ai;
-import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.aq.al;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class o extends aa {
     public o(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/openApp");
@@ -39,7 +38,7 @@ public class o extends aa {
         }
         final String optString2 = b.optString("open", "");
         c(eVar, optString2);
-        eVar.apY().d("scope_open_app", new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
+        eVar.arH().d("scope_open_app", new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.aq.e.b
             /* renamed from: c */
@@ -53,7 +52,7 @@ public class o extends aa {
                 } else if (o.this.a(eVar2, optString2)) {
                     o.this.a(context, b, callbackHandler, optString);
                 } else {
-                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1003, "打开APP失败，用户未达到最低使用要求").toString());
+                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1003, "打开APP失败，打开App条件未满足").toString());
                 }
             }
         });
@@ -63,7 +62,7 @@ public class o extends aa {
 
     private void c(@NonNull com.baidu.swan.apps.runtime.e eVar, @NonNull String str) {
         com.baidu.swan.apps.statistic.a.e eVar2 = new com.baidu.swan.apps.statistic.a.e();
-        eVar2.mSource = eVar.RP().ahQ();
+        eVar2.mSource = eVar.Se().ajg();
         eVar2.v("appkey", eVar.getAppId());
         eVar2.v(Config.ROM, "Android");
         try {
@@ -76,42 +75,46 @@ public class o extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(com.baidu.swan.apps.setting.oauth.e eVar, String str) {
+        boolean z = true;
         if (eVar == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        if (com.baidu.swan.apps.runtime.e.apM() == null && com.baidu.swan.apps.runtime.e.apM().RP() == null) {
-            return false;
+        String ajg = com.baidu.swan.apps.runtime.d.arr().arn().arz().ajg();
+        if (TextUtils.isEmpty(ajg)) {
+            ajg = "NA";
         }
-        String ahQ = com.baidu.swan.apps.runtime.e.apM().RP().ahQ();
-        if (TextUtils.isEmpty(ahQ)) {
-            ahQ = "NA";
-        }
-        JSONObject jSONObject = eVar.cJi;
+        JSONObject jSONObject = eVar.cMs;
         if (jSONObject == null || jSONObject.keys() == null) {
             return false;
         }
+        if (DEBUG) {
+            Log.i("OpenAppAction", "source: " + ajg + " openUrl:" + str + " 配置数据:" + jSONObject);
+        }
         JSONArray optJSONArray = jSONObject.optJSONArray(FaceBaseDTO.KEY_BUSINESS_SCENE);
-        int length = optJSONArray == null ? 0 : optJSONArray.length();
-        for (int i = 0; i < length; i++) {
-            if (ahQ.equals(optJSONArray.optString(i))) {
-                return true;
-            }
-        }
         JSONArray optJSONArray2 = jSONObject.optJSONArray("package_name");
-        int length2 = optJSONArray2 == null ? 0 : optJSONArray2.length();
-        for (int i2 = 0; i2 < length2; i2++) {
-            if (str.startsWith(optJSONArray2.optString(i2))) {
+        int length = optJSONArray == null ? 0 : optJSONArray.length();
+        if (length > 0) {
+            boolean z2 = false;
+            for (int i = 0; i < length; i++) {
+                if (ajg.equals(optJSONArray.optString(i))) {
+                    z2 = true;
+                }
+            }
+            return (z2 && b(str, optJSONArray2)) ? false : false;
+        }
+        return b(str, optJSONArray2);
+    }
+
+    private boolean b(String str, JSONArray jSONArray) {
+        int length = jSONArray == null ? 0 : jSONArray.length();
+        if (length <= 0 || TextUtils.isEmpty(str)) {
+            return false;
+        }
+        String decode = Uri.decode(str);
+        for (int i = 0; i < length; i++) {
+            if (decode.startsWith(Uri.decode(jSONArray.optString(i)))) {
                 return true;
             }
-        }
-        JSONObject optJSONObject = jSONObject.optJSONObject(UbcStatConstant.ContentType.UBC_TYPE_STRATEGY);
-        if (optJSONObject != null) {
-            int optInt = optJSONObject.optInt("launch_count", -1);
-            int optInt2 = optJSONObject.optInt("daily_duration", -1);
-            if (optInt >= 0 || optInt2 >= 0) {
-                return ai.auO() >= optInt || ai.auP() >= ((long) (optInt2 * 60000));
-            }
-            return false;
         }
         return false;
     }
@@ -119,7 +122,7 @@ public class o extends aa {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, JSONObject jSONObject, CallbackHandler callbackHandler, String str) {
         String optString = jSONObject.optString("open");
-        boolean a = !TextUtils.isEmpty(optString) ? aj.a(context, optString, callbackHandler, str) : false;
+        boolean a = !TextUtils.isEmpty(optString) ? al.a(context, optString, callbackHandler, str) : false;
         boolean optBoolean = jSONObject.optBoolean("isNeedDownload", true);
         if (DEBUG) {
             Log.i("OpenAppAction", "open app result=" + a + "\nisNeedDownload=" + optBoolean);
@@ -131,7 +134,7 @@ public class o extends aa {
             }
             return;
         }
-        boolean Z = !a ? aj.Z(context, jSONObject.optString("download")) : true;
-        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(Z ? 0 : 1001, Z ? "下载APP成功" : "下载APP失败").toString());
+        boolean aa = !a ? al.aa(context, jSONObject.optString("download")) : true;
+        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(aa ? 0 : 1001, aa ? "下载APP成功" : "下载APP失败").toString());
     }
 }

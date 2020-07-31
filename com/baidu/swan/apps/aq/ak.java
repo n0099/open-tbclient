@@ -1,78 +1,113 @@
 package com.baidu.swan.apps.aq;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.content.ClipData;
-import android.content.Context;
-import android.text.ClipboardManager;
-/* loaded from: classes11.dex */
-public abstract class ak {
-    protected static Context sTheApp;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class ak {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public abstract CharSequence getText();
-
-    public abstract void setText(CharSequence charSequence);
-
-    public static ak cE(Context context) {
-        sTheApp = context.getApplicationContext();
-        return com.baidu.swan.apps.aq.b.hasHoneycomb() ? new a() : new b();
+    public static int awU() {
+        JSONObject qI = qI(getAppId());
+        if (qI != null) {
+            return qI.optInt("launch_count", 0);
+        }
+        return 0;
     }
 
-    /* loaded from: classes11.dex */
-    private static class b extends ak {
-        private static ClipboardManager sInstance = null;
-
-        public b() {
-            sInstance = (ClipboardManager) sTheApp.getSystemService("clipboard");
+    public static long awV() {
+        long currentTimeMillis = System.currentTimeMillis();
+        JSONObject qI = qI(getAppId());
+        long optLong = qI != null ? qI.optLong("foreground_aiapp_last_time_local", 0L) : 0L;
+        if (qI != null) {
+            return qI.optLong("visit_duration", 0L) + (currentTimeMillis - optLong);
         }
+        return 0L;
+    }
 
-        @Override // com.baidu.swan.apps.aq.ak
-        public void setText(CharSequence charSequence) {
-            sInstance.setText(charSequence);
+    public static void awW() {
+        e(getAppId(), "visit_duration", Long.valueOf(awV()));
+    }
+
+    public static void awX() {
+        e(getAppId(), "launch_count", Integer.valueOf(awU() + 1));
+    }
+
+    public static void awY() {
+        e(getAppId(), "foreground_aiapp_last_time_local", Long.valueOf(System.currentTimeMillis()));
+    }
+
+    public static String getCurrentDate() {
+        return j.a(j.awy(), ControlShowManager.DAY_TIME_FORMAT);
+    }
+
+    public static boolean bH(JSONObject jSONObject) {
+        String currentDate = getCurrentDate();
+        String optString = jSONObject.optString("date", "");
+        return TextUtils.isEmpty(optString) || !optString.equals(currentDate);
+    }
+
+    public static JSONObject qI(String str) {
+        JSONObject jSONObject;
+        JSONException e;
+        String string = com.baidu.swan.apps.storage.c.h.auW().getString("dailyInfo", "");
+        if (DEBUG) {
+            Log.i("SwanAppUserVisitInfoUtils", "dailyInfo:" + string);
         }
+        try {
+            JSONObject jSONObject2 = TextUtils.isEmpty(string) ? new JSONObject() : new JSONObject(string);
+            if (bH(jSONObject2)) {
+                jSONObject2.put("date", getCurrentDate());
+            }
+            jSONObject = jSONObject2.optJSONObject(str);
+            if (jSONObject == null) {
+                try {
+                    jSONObject2.put(str, new JSONObject());
+                    com.baidu.swan.apps.storage.c.h.auW().putString("dailyInfo", jSONObject2.toString());
+                } catch (JSONException e2) {
+                    e = e2;
+                    if (DEBUG) {
+                        Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
+                    }
+                    return jSONObject;
+                }
+            }
+        } catch (JSONException e3) {
+            jSONObject = null;
+            e = e3;
+        }
+        return jSONObject;
+    }
 
-        @Override // com.baidu.swan.apps.aq.ak
-        public CharSequence getText() {
-            return sInstance.getText();
+    public static void e(String str, String str2, Object obj) {
+        JSONObject jSONObject;
+        String string = com.baidu.swan.apps.storage.c.h.auW().getString("dailyInfo", "");
+        if (DEBUG) {
+            Log.i("SwanAppUserVisitInfoUtils", TextUtils.isEmpty(string) ? "dailyinfo is null" : string);
+        }
+        try {
+            if (TextUtils.isEmpty(string)) {
+                jSONObject = new JSONObject();
+            } else {
+                jSONObject = new JSONObject(string);
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject(str);
+            if (optJSONObject != null) {
+                optJSONObject.put(str2, obj);
+            } else {
+                jSONObject.put(str, new JSONObject());
+            }
+            com.baidu.swan.apps.storage.c.h.auW().putString("dailyInfo", jSONObject.toString());
+        } catch (JSONException e) {
+            if (DEBUG) {
+                Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
+            }
         }
     }
 
-    @TargetApi(11)
-    /* loaded from: classes11.dex */
-    private static class a extends ak {
-        private static android.content.ClipboardManager sInstance = null;
-        private static ClipData sClipData = null;
-
-        @SuppressLint({"ServiceCast"})
-        public a() {
-            sInstance = (android.content.ClipboardManager) sTheApp.getSystemService("clipboard");
-        }
-
-        @Override // com.baidu.swan.apps.aq.ak
-        public void setText(CharSequence charSequence) {
-            sClipData = ClipData.newPlainText("text/plain", charSequence);
-            try {
-                sInstance.setPrimaryClip(sClipData);
-            } catch (RuntimeException e) {
-                if (com.baidu.swan.apps.b.DEBUG) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        @Override // com.baidu.swan.apps.aq.ak
-        public CharSequence getText() {
-            try {
-                sClipData = sInstance.getPrimaryClip();
-            } catch (Exception e) {
-                if (com.baidu.swan.apps.b.DEBUG) {
-                    throw e;
-                }
-            }
-            if (sClipData != null && sClipData.getItemCount() > 0) {
-                return sClipData.getItemAt(0).getText();
-            }
-            return "";
-        }
+    private static String getAppId() {
+        return com.baidu.swan.apps.runtime.e.arv() != null ? com.baidu.swan.apps.runtime.e.arv().id : "";
     }
 }

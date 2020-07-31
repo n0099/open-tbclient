@@ -10,7 +10,7 @@ import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptio
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes7.dex */
 public class EruptionAnimatedGroup extends BaseAnimatedElement {
     private static final boolean DEBUG = false;
     private static final float ERUPTION_RANDOM_DURATION_FACTOR = 0.6f;

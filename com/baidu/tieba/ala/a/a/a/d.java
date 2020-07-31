@@ -1,10 +1,10 @@
 package com.baidu.tieba.ala.a.a.a;
 
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d extends c {
     @Override // com.baidu.tieba.ala.a.a.a.c
-    protected Class bvy() {
+    protected Class byH() {
         try {
             return Class.forName("dalvik.system.DexPathList$NativeLibraryElement");
         } catch (Exception e) {

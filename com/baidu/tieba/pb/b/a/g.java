@@ -4,29 +4,29 @@ import android.content.Context;
 import android.text.SpannableStringBuilder;
 import com.baidu.adp.lib.util.StringUtils;
 import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class g implements c {
     private String color;
-    private SpannableStringBuilder kvq;
-    private int kvr;
+    private SpannableStringBuilder kEj;
+    private int kEk;
     private int textSize;
 
     public g() {
-        this.kvr = 0;
+        this.kEk = 0;
         this.textSize = -1;
-        this.kvq = new SpannableStringBuilder();
+        this.kEj = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
-        this.kvr = 0;
+        this.kEk = 0;
         this.textSize = -1;
         if (excContent != null) {
-            this.kvq = new SpannableStringBuilder();
+            this.kEj = new SpannableStringBuilder();
             if (excContent != null) {
-                this.kvq.append((CharSequence) excContent.text);
+                this.kEj.append((CharSequence) excContent.text);
             }
             if (excContent.align != null) {
-                this.kvr = excContent.align.intValue();
+                this.kEk = excContent.align.intValue();
             }
             if (!StringUtils.isNull(excContent.color)) {
                 this.color = excContent.color;
@@ -42,7 +42,7 @@ public class g implements c {
 
     public void r(CharSequence charSequence) {
         if (charSequence != null) {
-            this.kvq.append(charSequence);
+            this.kEj.append(charSequence);
         }
     }
 
@@ -52,21 +52,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence cOM() {
-        return this.kvq;
+    public CharSequence cSz() {
+        return this.kEj;
     }
 
-    public int cOO() {
-        return this.kvr;
+    public int cSB() {
+        return this.kEk;
     }
 
-    public String cOP() {
+    public String cSC() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean cON() {
-        return (this.kvr > 0 && this.kvr < 3) || !StringUtils.isNull(this.color);
+    public boolean cSA() {
+        return (this.kEk > 0 && this.kEk < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

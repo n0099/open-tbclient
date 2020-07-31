@@ -1,7 +1,7 @@
 package com.baidu.searchbox.afx.recode;
 
 import com.baidu.mobstat.Config;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class Mp4Info {
     private final int mBitrate;
     private final long mDurationUs;

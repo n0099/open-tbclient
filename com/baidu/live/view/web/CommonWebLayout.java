@@ -32,26 +32,26 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CommonWebLayout extends FrameLayout {
-    private b boW;
-    private CommonWebView boX;
-    private List<String> boY;
-    protected ValueCallback<Uri[]> boZ;
-    private SchemeCallback bpa;
+    private b bpr;
+    private CommonWebView bps;
+    private List<String> bpt;
+    protected ValueCallback<Uri[]> bpu;
+    private SchemeCallback bpv;
     protected ValueCallback<Uri> mUploadMessage;
 
     public CommonWebLayout(@NonNull Context context) {
         super(context);
-        this.bpa = new SchemeCallback() { // from class: com.baidu.live.view.web.CommonWebLayout.4
+        this.bpv = new SchemeCallback() { // from class: com.baidu.live.view.web.CommonWebLayout.4
             @Override // com.baidu.live.tbadk.scheme.SchemeCallback
             public void doJsCallback(int i, String str, JSONObject jSONObject, String str2) {
                 try {
                     String assembJavaScript = SchemeUtils.assembJavaScript(i, str, jSONObject, str2);
                     if (Build.VERSION.SDK_INT >= 19) {
-                        CommonWebLayout.this.boX.evaluateJavascript(assembJavaScript, null);
+                        CommonWebLayout.this.bps.evaluateJavascript(assembJavaScript, null);
                     } else {
-                        CommonWebLayout.this.boX.loadUrl(assembJavaScript);
+                        CommonWebLayout.this.bps.loadUrl(assembJavaScript);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -62,68 +62,68 @@ public class CommonWebLayout extends FrameLayout {
     }
 
     public void setCallback(b bVar) {
-        this.boW = bVar;
+        this.bpr = bVar;
     }
 
     public void addJavascriptInterface(Object obj, String str) {
-        if (this.boX != null) {
-            if (this.boY == null) {
-                this.boY = new ArrayList();
+        if (this.bps != null) {
+            if (this.bpt == null) {
+                this.bpt = new ArrayList();
             }
-            this.boY.add(str);
-            this.boX.addJavascriptInterface(obj, str);
+            this.bpt.add(str);
+            this.bps.addJavascriptInterface(obj, str);
         }
     }
 
     public void loadUrl(String str) {
-        if (this.boX != null) {
-            this.boX.loadUrl(str);
+        if (this.bps != null) {
+            this.bps.loadUrl(str);
         }
     }
 
     public void reload() {
-        if (this.boX != null) {
-            this.boX.reload();
+        if (this.bps != null) {
+            this.bps.reload();
         }
     }
 
     public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
-        if (Build.VERSION.SDK_INT >= 19 && this.boX != null) {
-            this.boX.evaluateJavascript(str, valueCallback);
+        if (Build.VERSION.SDK_INT >= 19 && this.bps != null) {
+            this.bps.evaluateJavascript(str, valueCallback);
         }
     }
 
     public void onResume() {
-        if (this.boX != null) {
-            this.boX.onResume();
+        if (this.bps != null) {
+            this.bps.onResume();
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                this.boX.resumeTimers();
+                this.bps.resumeTimers();
             }
         }
     }
 
     public void onPause() {
-        if (this.boX != null) {
-            this.boX.onPause();
+        if (this.bps != null) {
+            this.bps.onPause();
         }
     }
 
     public void release() {
-        this.boW = null;
+        this.bpr = null;
         removeAllViews();
-        if (this.boX != null) {
-            if (this.boY != null) {
-                for (String str : this.boY) {
-                    this.boX.removeJavascriptInterface(str);
+        if (this.bps != null) {
+            if (this.bpt != null) {
+                for (String str : this.bpt) {
+                    this.bps.removeJavascriptInterface(str);
                 }
-                this.boY.clear();
+                this.bpt.clear();
             }
             try {
-                this.boX.stopLoading();
-                this.boX.removeAllViews();
-                this.boX.loadUrl("about:blank");
-                this.boX.freeMemory();
-                this.boX.destroy();
+                this.bps.stopLoading();
+                this.bps.removeAllViews();
+                this.bps.loadUrl("about:blank");
+                this.bps.freeMemory();
+                this.bps.destroy();
             } catch (Exception e) {
             }
             this.mUploadMessage = null;
@@ -132,16 +132,16 @@ public class CommonWebLayout extends FrameLayout {
 
     private void init() {
         setBackgroundColor(0);
-        this.boX = new CommonWebView(getContext());
-        this.boX.setWebViewClient(new WebViewClient() { // from class: com.baidu.live.view.web.CommonWebLayout.1
+        this.bps = new CommonWebView(getContext());
+        this.bps.setWebViewClient(new WebViewClient() { // from class: com.baidu.live.view.web.CommonWebLayout.1
             @Override // android.webkit.WebViewClient
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                 String trim = str.toLowerCase().trim();
-                if (CommonWebLayout.this.boW != null && CommonWebLayout.this.boW.ga(trim)) {
+                if (CommonWebLayout.this.bpr != null && CommonWebLayout.this.bpr.fZ(trim)) {
                     return true;
                 }
                 if (SchemeUtils.checkScheme(trim)) {
-                    return SchemeUtils.openScheme(trim, CommonWebLayout.this.bpa);
+                    return SchemeUtils.openScheme(trim, CommonWebLayout.this.bpv);
                 }
                 return super.shouldOverrideUrlLoading(webView, str);
             }
@@ -149,17 +149,17 @@ public class CommonWebLayout extends FrameLayout {
             @Override // android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
-                CommonWebLayout.this.KN();
-                if (CommonWebLayout.this.boW != null) {
-                    CommonWebLayout.this.boW.fY(str);
+                CommonWebLayout.this.KU();
+                if (CommonWebLayout.this.bpr != null) {
+                    CommonWebLayout.this.bpr.fX(str);
                 }
             }
 
             @Override // android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
-                if (CommonWebLayout.this.boW != null) {
-                    CommonWebLayout.this.boW.fJ(str);
+                if (CommonWebLayout.this.bpr != null) {
+                    CommonWebLayout.this.bpr.fH(str);
                 }
             }
 
@@ -182,25 +182,25 @@ public class CommonWebLayout extends FrameLayout {
 
             @Override // android.webkit.WebViewClient
             public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
-                if (CommonWebLayout.this.boW == null || !CommonWebLayout.this.boW.v(str, z)) {
+                if (CommonWebLayout.this.bpr == null || !CommonWebLayout.this.bpr.v(str, z)) {
                     super.doUpdateVisitedHistory(webView, str, z);
                 }
             }
         });
-        this.boX.setWebChromeClient(new a(this, (Activity) getContext()) { // from class: com.baidu.live.view.web.CommonWebLayout.2
+        this.bps.setWebChromeClient(new a(this, (Activity) getContext()) { // from class: com.baidu.live.view.web.CommonWebLayout.2
             @Override // android.webkit.WebChromeClient
             public void onProgressChanged(WebView webView, int i) {
                 super.onProgressChanged(webView, i);
-                if (CommonWebLayout.this.boW != null) {
-                    CommonWebLayout.this.boW.dE(i);
+                if (CommonWebLayout.this.bpr != null) {
+                    CommonWebLayout.this.bpr.dE(i);
                 }
             }
 
             @Override // android.webkit.WebChromeClient
             public void onReceivedTitle(WebView webView, String str) {
                 super.onReceivedTitle(webView, str);
-                if (CommonWebLayout.this.boW != null) {
-                    CommonWebLayout.this.boW.fZ(str);
+                if (CommonWebLayout.this.bpr != null) {
+                    CommonWebLayout.this.bpr.fY(str);
                 }
             }
 
@@ -215,8 +215,8 @@ public class CommonWebLayout extends FrameLayout {
 
             @Override // android.webkit.WebChromeClient
             public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-                if (CommonWebLayout.this.boW != null) {
-                    CommonWebLayout.this.boW.a(str2, jsResult);
+                if (CommonWebLayout.this.bpr != null) {
+                    CommonWebLayout.this.bpr.a(str2, jsResult);
                     return true;
                 } else if (jsResult != null) {
                     jsResult.cancel();
@@ -235,18 +235,18 @@ public class CommonWebLayout extends FrameLayout {
                 return true;
             }
         });
-        addView(this.boX, new FrameLayout.LayoutParams(-1, -1));
+        addView(this.bps, new FrameLayout.LayoutParams(-1, -1));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(String str, int i, String str2) {
-        KM();
-        if (this.boW != null) {
-            this.boW.c(str, i, str2);
+        KT();
+        if (this.bpr != null) {
+            this.bpr.c(str, i, str2);
         }
     }
 
-    private void KM() {
+    private void KT() {
         boolean z = false;
         int i = 0;
         while (true) {
@@ -268,14 +268,14 @@ public class CommonWebLayout extends FrameLayout {
             commonEmptyView.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.live.view.web.CommonWebLayout.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (CommonWebLayout.this.boX != null) {
-                        if (!TextUtils.isEmpty(CommonWebLayout.this.boX.getUrl())) {
-                            CommonWebLayout.this.boX.loadUrl(CommonWebLayout.this.boX.getUrl());
-                        } else if (!TextUtils.isEmpty(CommonWebLayout.this.boX.getOriginalUrl())) {
-                            CommonWebLayout.this.boX.loadUrl(CommonWebLayout.this.boX.getOriginalUrl());
+                    if (CommonWebLayout.this.bps != null) {
+                        if (!TextUtils.isEmpty(CommonWebLayout.this.bps.getUrl())) {
+                            CommonWebLayout.this.bps.loadUrl(CommonWebLayout.this.bps.getUrl());
+                        } else if (!TextUtils.isEmpty(CommonWebLayout.this.bps.getOriginalUrl())) {
+                            CommonWebLayout.this.bps.loadUrl(CommonWebLayout.this.bps.getOriginalUrl());
                         }
-                        if (CommonWebLayout.this.boW != null) {
-                            CommonWebLayout.this.boW.Hh();
+                        if (CommonWebLayout.this.bpr != null) {
+                            CommonWebLayout.this.bpr.Hn();
                         }
                     }
                 }
@@ -286,7 +286,7 @@ public class CommonWebLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void KN() {
+    public void KU() {
         for (int i = 0; i < getChildCount(); i++) {
             if (getChildAt(i) instanceof CommonEmptyView) {
                 getChildAt(i).setVisibility(8);
@@ -296,29 +296,29 @@ public class CommonWebLayout extends FrameLayout {
     }
 
     public boolean canGoBack() {
-        if (this.boX == null) {
+        if (this.bps == null) {
             return false;
         }
-        return this.boX.canGoBack();
+        return this.bps.canGoBack();
     }
 
     public void goBack() {
-        if (this.boX != null) {
-            this.boX.goBack();
+        if (this.bps != null) {
+            this.bps.goBack();
         }
     }
 
     public CommonWebView getWebView() {
-        return this.boX;
+        return this.bps;
     }
 
     public SchemeCallback getSchemeCallback() {
-        return this.bpa;
+        return this.bpv;
     }
 
     public void b(int i, int i2, Intent intent) {
         if (i == 25049) {
-            if (this.mUploadMessage != null || this.boZ != null) {
+            if (this.mUploadMessage != null || this.bpu != null) {
                 if (this.mUploadMessage != null) {
                     if (i2 == 0) {
                         this.mUploadMessage.onReceiveValue(null);
@@ -327,31 +327,31 @@ public class CommonWebLayout extends FrameLayout {
                     }
                     this.mUploadMessage.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
                     this.mUploadMessage = null;
-                } else if (this.boZ != null) {
+                } else if (this.bpu != null) {
                     if (i2 == 0) {
-                        this.boZ.onReceiveValue(null);
-                        this.boZ = null;
+                        this.bpu.onReceiveValue(null);
+                        this.bpu = null;
                         return;
                     }
                     Uri data = (intent == null || i2 != -1) ? null : intent.getData();
                     if (data != null) {
-                        this.boZ.onReceiveValue(new Uri[]{data});
-                        this.boZ = null;
+                        this.bpu.onReceiveValue(new Uri[]{data});
+                        this.bpu = null;
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends WebChromeClient {
-        WeakReference<CommonWebLayout> bpc;
-        WeakReference<Activity> bpd;
+        WeakReference<CommonWebLayout> bpx;
+        WeakReference<Activity> bpy;
 
         public a(CommonWebLayout commonWebLayout, Context context) {
-            this.bpc = new WeakReference<>(commonWebLayout);
+            this.bpx = new WeakReference<>(commonWebLayout);
             if (context != null && (context instanceof Activity)) {
-                this.bpd = new WeakReference<>((Activity) context);
+                this.bpy = new WeakReference<>((Activity) context);
             }
         }
 
@@ -361,13 +361,13 @@ public class CommonWebLayout extends FrameLayout {
         }
 
         public void openFileChooser(ValueCallback<Uri> valueCallback, String str) {
-            CommonWebLayout commonWebLayout = this.bpc.get();
+            CommonWebLayout commonWebLayout = this.bpx.get();
             if (commonWebLayout != null) {
                 commonWebLayout.mUploadMessage = valueCallback;
             }
             Intent intent = new Intent("android.intent.action.PICK", MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             intent.setType("image/*");
-            Activity activity = this.bpd.get();
+            Activity activity = this.bpy.get();
             if (activity != null) {
                 try {
                     activity.startActivityForResult(intent, RequestResponseCode.REQUESTCODE_FILECHOOSER);
@@ -387,13 +387,13 @@ public class CommonWebLayout extends FrameLayout {
 
         @Override // android.webkit.WebChromeClient
         public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
-            CommonWebLayout commonWebLayout = this.bpc.get();
+            CommonWebLayout commonWebLayout = this.bpx.get();
             if (commonWebLayout != null) {
-                commonWebLayout.boZ = valueCallback;
+                commonWebLayout.bpu = valueCallback;
             }
             Intent intent = new Intent("android.intent.action.PICK", MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             intent.setType("image/*");
-            Activity activity = this.bpd.get();
+            Activity activity = this.bpy.get();
             if (activity != null) {
                 try {
                     activity.startActivityForResult(intent, RequestResponseCode.REQUESTCODE_FILECHOOSER);

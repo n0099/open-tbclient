@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.plugins;
 import android.content.Context;
 import android.graphics.Bitmap;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface MotuPlugin {
     Bitmap createOneKeyFilterAndApply(Context context, String str, Bitmap bitmap);
 

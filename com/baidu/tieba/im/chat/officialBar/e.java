@@ -1,78 +1,147 @@
 package com.baidu.tieba.im.chat.officialBar;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.atomData.OfficialHistoryImageActivityConfig;
+import com.baidu.tieba.im.chat.j;
 import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
-/* loaded from: classes13.dex */
-public class e extends com.baidu.adp.base.c<OfficialBarHistoryActivity> {
-    private BaseActivity eXy;
-    private BdListView hXJ;
-    private NavigationBar iMJ;
-    private d iMK;
-    private View iML;
-    private NoDataView mNoDataView;
-    private View mRoot;
+/* loaded from: classes20.dex */
+public class e extends BaseAdapter {
+    private View.OnClickListener iTt = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.e.1
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            int intValue = ((Integer) view.getTag()).intValue();
+            if (intValue >= 0 && intValue < e.this.mList.size()) {
+                ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) e.this.mList.get(intValue);
+                String aH = com.baidu.tieba.im.util.e.aH("[" + aVar.content + "]", true);
+                if (aH != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new OfficialHistoryImageActivityConfig(e.this.mContext, aH, String.valueOf(aVar.id))));
+                }
+            }
+        }
+    };
+    BaseActivity mActivity;
+    Context mContext;
+    private List<ResponseHistoryMessage.a> mList;
 
-    public e(BaseActivity baseActivity) {
-        super(baseActivity.getPageContext());
-        this.eXy = baseActivity;
-        initView();
+    public e(BaseActivity baseActivity, Context context) {
+        this.mContext = context;
+        this.mActivity = baseActivity;
     }
 
-    private void initView() {
-        this.mRoot = View.inflate(this.eXy.getPageContext().getContext(), R.layout.official_bar_history_activity, null);
-        this.eXy.getPageContext().getPageActivity().setContentView(this.mRoot);
-        this.iMJ = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
-        this.iMJ.setTitleText(R.string.officical_bar_info_history);
-        this.iMJ.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.hXJ = (BdListView) this.mRoot.findViewById(R.id.bar_history_list);
-        this.iMK = new d(this.eXy, this.eXy.getPageContext().getContext());
-        this.hXJ.setAdapter((ListAdapter) this.iMK);
-        this.iML = View.inflate(this.eXy.getPageContext().getContext(), R.layout.official_bar_history_item_occupy, null);
-        this.hXJ.addHeaderView(this.iML);
-        this.hXJ.addFooterView(this.iML);
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.mList == null) {
+            return 0;
+        }
+        return this.mList.size();
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        if (this.mList == null || i >= getCount()) {
+            return null;
+        }
+        return this.mList.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        if (this.mList == null || i >= this.mList.size()) {
+            return 0L;
+        }
+        return i;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        if (this.mList == null || i >= this.mList.size()) {
+            return 0;
+        }
+        switch (this.mList.get(i).type) {
+            case 1:
+                return 0;
+            case 2:
+                return 1;
+            case 7:
+                return 2;
+            default:
+                return 0;
+        }
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        return 3;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        return d(i, view, viewGroup);
+    }
+
+    private View d(int i, View view, ViewGroup viewGroup) {
+        ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) getItem(i);
+        if (aVar != null && aVar.content != null) {
+            switch (getItemViewType(i)) {
+                case 0:
+                    View historyItemView = view == null ? new HistoryItemView(this.mContext) : view;
+                    HistoryItemView historyItemView2 = (HistoryItemView) historyItemView;
+                    historyItemView2.setClickable(false);
+                    historyItemView2.setTime(aVar.time);
+                    ChatMessage chatMessage = new ChatMessage(CmdConfigSocket.CMD_CHAT_FAKE_SYSTEM_MESSAGE) { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryAdapter$2
+                        @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
+                        protected Object encode() {
+                            return null;
+                        }
+                    };
+                    chatMessage.setContent(aVar.content);
+                    chatMessage.setMsgType(aVar.type);
+                    j.a(this.mContext, historyItemView2.getRichTextView(), chatMessage, "official_history_adapter", 0);
+                    return historyItemView;
+                case 1:
+                    View historyItemView3 = view == null ? new HistoryItemView(this.mContext) : view;
+                    HistoryItemView historyItemView4 = (HistoryItemView) historyItemView3;
+                    historyItemView4.setClickable(false);
+                    historyItemView4.setTime(aVar.time);
+                    ChatMessage chatMessage2 = new ChatMessage(CmdConfigSocket.CMD_CHAT_FAKE_SYSTEM_MESSAGE) { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryAdapter$3
+                        @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
+                        protected Object encode() {
+                            return null;
+                        }
+                    };
+                    chatMessage2.setContent("[" + aVar.content + "]");
+                    chatMessage2.setMsgType(aVar.type);
+                    j.a(this.mContext, historyItemView3, historyItemView4.getImageView(), chatMessage2, 0L, "official_history_adapter");
+                    historyItemView4.getImageView().setTag(Integer.valueOf(i));
+                    historyItemView4.getImageView().setOnClickListener(this.iTt);
+                    return historyItemView3;
+                case 2:
+                    View historyItemView5 = view == null ? new HistoryItemView(this.mContext) : view;
+                    MultiContentView multiContentView = new MultiContentView(this.mContext);
+                    multiContentView.setNeedNightMode(true);
+                    multiContentView.setTime(aVar.time);
+                    multiContentView.setData(this.mActivity.getPageContext(), com.baidu.tieba.im.message.chat.a.i(aVar.content, "", 0L), viewGroup);
+                    ((HistoryItemView) historyItemView5).cs(multiContentView);
+                    return historyItemView5;
+                default:
+                    return view;
+            }
+        }
+        return view;
     }
 
     public void setData(List<ResponseHistoryMessage.a> list) {
-        this.iMK.setData(list);
-        dj(list);
-    }
-
-    public void onChangeSkinType(int i) {
-        this.eXy.getLayoutMode().setNightMode(i == 1);
-        this.eXy.getLayoutMode().onModeChanged(this.mRoot);
-        this.iMJ.onChangeSkinType(this.eXy.getPageContext(), i);
-    }
-
-    public void c(BdListView.e eVar) {
-        this.hXJ.setOnSrollToBottomListener(eVar);
-    }
-
-    public boolean cnM() {
-        return this.iMK.getCount() != 0 && this.hXJ.getLastVisiblePosition() - this.hXJ.getHeaderViewsCount() < this.iMK.getCount() + (-1);
-    }
-
-    public void dj(List<ResponseHistoryMessage.a> list) {
-        if (list != null && list.size() > 0 && this.mNoDataView != null) {
-            this.mNoDataView.setVisibility(8);
-        }
-    }
-
-    public void dk(List<ResponseHistoryMessage.a> list) {
-        if (list == null || list.size() == 0) {
-            if (this.mNoDataView == null) {
-                this.mNoDataView = NoDataViewFactory.a(this.eXy.getPageContext().getPageActivity(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 400), NoDataViewFactory.d.mm(R.string.no_data_text), null);
-            }
-            this.mNoDataView.onChangeSkinType(this.eXy.getPageContext(), TbadkApplication.getInst().getSkinType());
-            this.mNoDataView.setVisibility(0);
-        }
+        this.mList = list;
+        notifyDataSetChanged();
     }
 }

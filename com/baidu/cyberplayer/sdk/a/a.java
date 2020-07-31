@@ -3,22 +3,22 @@ package com.baidu.cyberplayer.sdk.a;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.a.b;
-import com.baidu.cyberplayer.sdk.m;
+import com.baidu.cyberplayer.sdk.n;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class a implements b.a {
     private static final String a = Boolean.toString(true);
-    private InterfaceC0108a b;
+    private InterfaceC0105a b;
     private String c;
     private String d;
     private ArrayList<String> e = null;
 
     /* renamed from: com.baidu.cyberplayer.sdk.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0108a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0105a {
         void a(String str, long j);
 
         void a(String str, long j, int i, String str2);
@@ -35,7 +35,7 @@ public class a implements b.a {
             file = new File(this.d, this.c);
             try {
                 try {
-                    this.e = m.a(file, this.d);
+                    this.e = n.a(file, this.d);
                     CyberLog.d("CyberFileDownloader", "mUnzipFilesList:" + this.e);
                     if (file != null && file.exists()) {
                         file.delete();
@@ -79,15 +79,15 @@ public class a implements b.a {
                 if (replace.contains("cyber-media-dex")) {
                     str3 = replace.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)[2];
                 }
-                if (m.m()) {
+                if (n.m()) {
                     try {
                         if (replace.startsWith("model_")) {
-                            m.b(str2);
-                            a(str2, m.a(file.getAbsoluteFile(), str2));
+                            n.b(str2);
+                            a(str2, n.a(file.getAbsoluteFile(), str2));
                         } else {
                             String str4 = str2 + File.separator + "libs";
-                            m.b(str4);
-                            a(str4, m.a(file.getAbsoluteFile(), str4));
+                            n.b(str4);
+                            a(str4, n.a(file.getAbsoluteFile(), str4));
                         }
                     } catch (Exception e) {
                     }
@@ -143,7 +143,7 @@ public class a implements b.a {
                         break;
                     }
                     String str2 = this.e.get(i2);
-                    if (!TextUtils.isEmpty(str2) && str2.startsWith("md5_") && !m.a(str2.substring("md5_".length(), "md5_".length() + 32), this.d + File.separator + str2)) {
+                    if (!TextUtils.isEmpty(str2) && str2.startsWith("md5_") && !n.a(str2.substring("md5_".length(), "md5_".length() + 32), this.d + File.separator + str2)) {
                         CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----fail");
                         return "md5 check fail.";
                     }
@@ -169,17 +169,17 @@ public class a implements b.a {
 
     @Override // com.baidu.cyberplayer.sdk.a.b.a
     public void a(String str, long j, String str2) {
-        this.b.a(str, j, -1, str2 + ",networkstatus:" + m.i() + ",url:" + str);
+        this.b.a(str, j, -1, str2 + ",networkstatus:" + n.i() + ",url:" + str);
     }
 
-    public void a(String str, String str2, String str3, InterfaceC0108a interfaceC0108a) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0108a == null) {
+    public void a(String str, String str2, String str3, InterfaceC0105a interfaceC0105a) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0105a == null) {
             return;
         }
         this.c = str2;
-        this.b = interfaceC0108a;
+        this.b = interfaceC0105a;
         this.d = str3;
-        m.b(this.d);
+        n.b(this.d);
         CyberLog.d("CyberFileDownloader", " unzipFolder:" + this.d);
         HashMap hashMap = new HashMap();
         hashMap.put("url", str + File.separator + this.c);
@@ -193,13 +193,13 @@ public class a implements b.a {
     public void b(String str, long j) {
         String a2 = a();
         if (!a.equals(a2)) {
-            m.a(this.d, this.e);
+            n.a(this.d, this.e);
             this.b.a(str, j, -2, a2);
             return;
         }
         String b = b();
         if (!a.equals(b)) {
-            m.a(this.d, this.e);
+            n.a(this.d, this.e);
             this.b.a(str, j, -3, b);
             return;
         }
@@ -208,7 +208,7 @@ public class a implements b.a {
             this.b.a(str, j, this.e);
             return;
         }
-        m.a(this.d, this.e);
+        n.a(this.d, this.e);
         this.b.a(str, j, -6, a3);
     }
 }

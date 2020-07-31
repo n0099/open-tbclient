@@ -10,14 +10,14 @@ import com.google.gson.stream.MalformedJsonException;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class i {
     public static JsonElement parse(com.google.gson.stream.a aVar) throws JsonParseException {
         boolean z = true;
         try {
-            aVar.dHS();
+            aVar.dLn();
             z = false;
-            return n.ncH.read(aVar);
+            return n.nlr.read(aVar);
         } catch (MalformedJsonException e) {
             throw new JsonSyntaxException(e);
         } catch (EOFException e2) {
@@ -33,31 +33,31 @@ public final class i {
     }
 
     public static void a(JsonElement jsonElement, com.google.gson.stream.b bVar) throws IOException {
-        n.ncH.write(bVar, jsonElement);
+        n.nlr.write(bVar, jsonElement);
     }
 
     public static Writer a(Appendable appendable) {
         return appendable instanceof Writer ? (Writer) appendable : new a(appendable);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     private static final class a extends Writer {
-        private final Appendable naR;
-        private final C0811a naS = new C0811a();
+        private final Appendable njB;
+        private final C0820a njC = new C0820a();
 
         a(Appendable appendable) {
-            this.naR = appendable;
+            this.njB = appendable;
         }
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.naS.chars = cArr;
-            this.naR.append(this.naS, i, i + i2);
+            this.njC.chars = cArr;
+            this.njB.append(this.njC, i, i + i2);
         }
 
         @Override // java.io.Writer
         public void write(int i) throws IOException {
-            this.naR.append((char) i);
+            this.njB.append((char) i);
         }
 
         @Override // java.io.Writer, java.io.Flushable
@@ -69,11 +69,11 @@ public final class i {
         }
 
         /* renamed from: com.google.gson.internal.i$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        static class C0811a implements CharSequence {
+        /* loaded from: classes10.dex */
+        static class C0820a implements CharSequence {
             char[] chars;
 
-            C0811a() {
+            C0820a() {
             }
 
             @Override // java.lang.CharSequence

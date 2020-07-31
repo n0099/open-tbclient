@@ -5,7 +5,7 @@ import com.tencent.connect.auth.AuthAgent;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.e;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class JniInterface {
     public static boolean isJniOk = false;
 

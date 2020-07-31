@@ -12,23 +12,23 @@ public class v implements com.baidu.swan.apps.adaptation.a.e {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e
-    public boolean bb(Context context) {
-        return a.cH(context);
+    public boolean bd(Context context) {
+        return a.cM(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e
-    public String bc(Context context) {
-        return a.cJ(context);
+    public String be(Context context) {
+        return a.cO(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e
-    public String bd(@NonNull Context context) {
-        return a.cK(context);
+    public String bf(@NonNull Context context) {
+        return a.cP(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e
-    public String be(@NonNull Context context) {
-        return a.cI(context);
+    public String bg(@NonNull Context context) {
+        return a.cN(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e
@@ -38,5 +38,6 @@ public class v implements com.baidu.swan.apps.adaptation.a.e {
 
     @Override // com.baidu.swan.apps.adaptation.a.e
     public void b(com.baidu.swan.apps.a.a aVar) {
+        new com.baidu.swan.bdprivate.extensions.loginauthmobile.a().c(aVar);
     }
 }

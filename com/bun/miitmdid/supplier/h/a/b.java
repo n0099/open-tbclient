@@ -7,15 +7,15 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.os.SystemClock;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class b {
     private static Context a;
     private static boolean b = false;
-    private static b mGQ = null;
-    private static a mGR = null;
-    private static c mGS = null;
-    private static c mGT = null;
-    private static c mGU = null;
+    private static b mOU = null;
+    private static a mOV = null;
+    private static c mOW = null;
+    private static c mOX = null;
+    private static c mOY = null;
     private static Object h = new Object();
     private static HandlerThread i = null;
     private static Handler j = null;
@@ -43,16 +43,16 @@ public class b {
     private static void a(Context context, int i2, String str) {
         switch (i2) {
             case 0:
-                mGS = new c(mGQ, 0, null);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, mGS);
+                mOW = new c(mOU, 0, null);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, mOW);
                 return;
             case 1:
-                mGT = new c(mGQ, 1, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str), false, mGT);
+                mOX = new c(mOU, 1, str);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str), false, mOX);
                 return;
             case 2:
-                mGU = new c(mGQ, 2, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str), false, mGU);
+                mOY = new c(mOU, 2, str);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str), false, mOY);
                 return;
             default:
                 return;
@@ -86,7 +86,7 @@ public class b {
                     return;
                 }
                 try {
-                    String unused = b.k = b.mGR.a(message.getData().getInt("type"), message.getData().getString("appid"));
+                    String unused = b.k = b.mOV.a(message.getData().getInt("type"), message.getData().getString("appid"));
                 } catch (Exception e) {
                     String unused2 = b.k = "";
                     com.bun.miitmdid.utils.a.a("VMS_IDLG_SDK_Client", "exception", e);
@@ -98,15 +98,15 @@ public class b {
         };
     }
 
-    public static b fS(Context context) {
-        if (mGQ == null) {
-            mGQ = new b();
+    public static b fV(Context context) {
+        if (mOU == null) {
+            mOU = new b();
             a = context;
             f();
-            mGR = new a(a);
+            mOV = new a(a);
             c();
         }
-        return mGQ;
+        return mOU;
     }
 
     public String a(String str) {
@@ -115,7 +115,7 @@ public class b {
                 return m;
             }
             a(1, str);
-            if (mGT == null && m != null) {
+            if (mOX == null && m != null) {
                 a(a, 1, str);
             }
             return m;
@@ -173,7 +173,7 @@ public class b {
                 return l;
             }
             a(0, (String) null);
-            if (mGS == null) {
+            if (mOW == null) {
                 a(a, 0, null);
             }
             return l;
@@ -187,7 +187,7 @@ public class b {
                 return n;
             }
             a(2, str);
-            if (mGU == null && n != null) {
+            if (mOY == null && n != null) {
                 a(a, 2, str);
             }
             return n;

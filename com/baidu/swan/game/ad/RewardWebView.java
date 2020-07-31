@@ -10,7 +10,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.baidu.live.tbadk.img.ImageUploadStrategy;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class RewardWebView extends WebView {
     private Handler mHandler;
     private boolean mIsDestroy;
@@ -19,7 +19,7 @@ public class RewardWebView extends WebView {
         super(context);
         this.mIsDestroy = false;
         this.mHandler = new Handler(Looper.getMainLooper());
-        axh();
+        azX();
         setClickable(true);
         setBackgroundColor(0);
         setFocusable(true);
@@ -110,7 +110,7 @@ public class RewardWebView extends WebView {
         }
     }
 
-    private void axh() {
+    private void azX() {
         try {
             if (Build.VERSION.SDK_INT >= 11 && Build.VERSION.SDK_INT <= 17) {
                 Method declaredMethod = Class.forName("android.webkit.WebView").getDeclaredMethod("removeJavascriptInterface", String.class);

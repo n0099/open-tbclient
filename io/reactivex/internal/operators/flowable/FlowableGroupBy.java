@@ -20,7 +20,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super io.reactivex.b.b<K, V>> cVar) {
-        this.nJW.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
+        this.nSE.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
     }
 
     /* loaded from: classes7.dex */
@@ -88,12 +88,12 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
                             drain();
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.L(th);
+                        io.reactivex.exceptions.a.K(th);
                         this.s.cancel();
                         onError(th);
                     }
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.L(th2);
+                    io.reactivex.exceptions.a.K(th2);
                     this.s.cancel();
                     onError(th2);
                 }
@@ -293,7 +293,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static final class a<K, T> extends io.reactivex.b.b<K, T> {
-        final State<T, K> nKv;
+        final State<T, K> nTd;
 
         public static <T, K> a<K, T> a(K k, int i, GroupBySubscriber<?, K, T> groupBySubscriber, boolean z) {
             return new a<>(k, new State(i, groupBySubscriber, k, z));
@@ -301,24 +301,24 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
 
         protected a(K k, State<T, K> state) {
             super(k);
-            this.nKv = state;
+            this.nTd = state;
         }
 
         @Override // io.reactivex.g
         protected void a(org.a.c<? super T> cVar) {
-            this.nKv.subscribe(cVar);
+            this.nTd.subscribe(cVar);
         }
 
         public void onNext(T t) {
-            this.nKv.onNext(t);
+            this.nTd.onNext(t);
         }
 
         public void onError(Throwable th) {
-            this.nKv.onError(th);
+            this.nTd.onError(th);
         }
 
         public void onComplete() {
-            this.nKv.onComplete();
+            this.nTd.onComplete();
         }
     }
 

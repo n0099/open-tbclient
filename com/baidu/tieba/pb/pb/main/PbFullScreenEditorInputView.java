@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.b;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class PbFullScreenEditorInputView extends SpanGroupEditText {
     public PbFullScreenEditorInputView(Context context) {
         super(context);
@@ -34,20 +34,20 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
     }
 
     public void b(com.baidu.tbadk.coreExtra.data.q qVar) {
-        if (com.baidu.tieba.face.a.Er(getText().toString()) >= 10) {
-            com.baidu.tbadk.core.util.e.aVX().showToast(R.string.too_many_face);
+        if (com.baidu.tieba.face.a.Fc(getText().toString()) >= 10) {
+            com.baidu.tbadk.core.util.e.aZX().showToast(R.string.too_many_face);
         } else {
             com.baidu.tieba.face.b.b(getContext(), qVar, this);
         }
     }
 
-    public void yx(String str) {
+    public void zD(String str) {
         if (!StringUtils.isNull(str)) {
             getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }
     }
 
-    public void aO(ArrayList<String> arrayList) {
+    public void aP(ArrayList<String> arrayList) {
         if (arrayList != null && arrayList.size() != 0) {
             StringBuilder sb = new StringBuilder();
             int i = 0;
@@ -67,7 +67,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         }
     }
 
-    public void FR(String str) {
+    public void GD(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.tieba.face.b.a(getContext(), str, new b.a() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorInputView.1
                 @Override // com.baidu.tieba.face.b.a
@@ -79,7 +79,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         }
     }
 
-    public void eZ(String str, String str2) {
+    public void fb(String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.tieba.face.b.a(getContext(), str, new b.a() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorInputView.2
                 @Override // com.baidu.tieba.face.b.a

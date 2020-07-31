@@ -8,35 +8,35 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class c {
-    private static List<WeakReference<ScheduledFuture<?>>> mFC = new ArrayList();
-    private static int mFE = 30;
-    private static ExecutorService mFD = Executors.newFixedThreadPool(2);
-    private static ScheduledExecutorService mFF = Executors.newScheduledThreadPool(2);
+    private static List<WeakReference<ScheduledFuture<?>>> mNG = new ArrayList();
+    private static int mNI = 30;
+    private static ExecutorService mNH = Executors.newFixedThreadPool(2);
+    private static ScheduledExecutorService mNJ = Executors.newScheduledThreadPool(2);
 
     public static void execute(Runnable runnable) {
-        if (mFD == null || mFD.isShutdown()) {
-            mFD = Executors.newFixedThreadPool(2);
+        if (mNH == null || mNH.isShutdown()) {
+            mNH = Executors.newFixedThreadPool(2);
         }
-        mFD.execute(runnable);
+        mNH.execute(runnable);
     }
 
     public static synchronized void a(Runnable runnable, long j, long j2) {
         synchronized (c.class) {
-            if (mFF == null || mFF.isShutdown()) {
-                mFF = Executors.newScheduledThreadPool(2);
+            if (mNJ == null || mNJ.isShutdown()) {
+                mNJ = Executors.newScheduledThreadPool(2);
             }
-            mFC.add(new WeakReference<>(mFF.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
+            mNG.add(new WeakReference<>(mNJ.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
         }
     }
 
     public static synchronized void a(Runnable runnable) {
         synchronized (c.class) {
-            if (mFF == null || mFF.isShutdown()) {
-                mFF = Executors.newScheduledThreadPool(2);
+            if (mNJ == null || mNJ.isShutdown()) {
+                mNJ = Executors.newScheduledThreadPool(2);
             }
-            mFF.execute(runnable);
+            mNJ.execute(runnable);
         }
     }
 }

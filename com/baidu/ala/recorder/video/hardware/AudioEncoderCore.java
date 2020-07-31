@@ -6,9 +6,7 @@ import android.media.MediaFormat;
 import android.view.Surface;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import tv.danmaku.ijk.media.player.IMediaFormat;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AudioEncoderCore {
     private static final int AUDIO_FORMAT = 2;
     private static final String MIME_TYPE = "audio/mp4a-latm";
@@ -20,7 +18,7 @@ public class AudioEncoderCore {
     private EncodeConfig mEncodeConfig = new EncodeConfig();
     private MediaCodec mEncoder = null;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class EncodeConfig {
         public static final int BIT_RATE = 64000;
         public static final int CHANEL_COUNT = 1;
@@ -30,7 +28,7 @@ public class AudioEncoderCore {
         public int bitRate = BIT_RATE;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface OutputCallback {
         public static final int KEY_FRAME = 2;
         public static final int MC_ENCODER_CONFIGURE_ERR = 1;
@@ -63,11 +61,11 @@ public class AudioEncoderCore {
 
     private int prepareEncoder() {
         MediaFormat mediaFormat = new MediaFormat();
-        mediaFormat.setString(IMediaFormat.KEY_MIME, MIME_TYPE);
+        mediaFormat.setString("mime", MIME_TYPE);
         mediaFormat.setInteger("aac-profile", 2);
         mediaFormat.setInteger("sample-rate", this.mEncodeConfig.sampleRate);
         mediaFormat.setInteger("channel-count", this.mEncodeConfig.chanels);
-        mediaFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, this.mEncodeConfig.bitRate);
+        mediaFormat.setInteger("bitrate", this.mEncodeConfig.bitRate);
         mediaFormat.setInteger("max-input-size", mMaxInputSize);
         try {
             this.mEncoder = MediaCodec.createEncoderByType(MIME_TYPE);

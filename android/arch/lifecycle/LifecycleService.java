@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LifecycleService extends Service implements j {
     private final u mDispatcher = new u(this);
 

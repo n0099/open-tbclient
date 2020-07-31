@@ -1,27 +1,27 @@
 package com.baidu.tieba.ala.personcenter.privilege.achievementmark.a;
 
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private String gDg;
-    private ArrayList<b> gDh = new ArrayList<>();
+    private String gID;
+    private ArrayList<b> gIE = new ArrayList<>();
     private int type;
 
     public void b(b bVar) {
-        this.gDh.add(bVar);
+        this.gIE.add(bVar);
     }
 
-    public b sl(int i) {
-        return (b) w.getItem(this.gDh, i);
+    public b sD(int i) {
+        return (b) x.getItem(this.gIE, i);
     }
 
-    public String bLC() {
-        return this.gDg;
+    public String bOK() {
+        return this.gID;
     }
 
-    public void Dz(String str) {
-        this.gDg = str;
+    public void Ek(String str) {
+        this.gID = str;
     }
 
     public int getType() {

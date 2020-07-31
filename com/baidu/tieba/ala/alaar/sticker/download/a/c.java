@@ -1,13 +1,13 @@
 package com.baidu.tieba.ala.alaar.sticker.download.a;
 
 import com.baidu.tieba.ala.alaar.sticker.download.exception.DownloadException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     private boolean acceptRanges;
     private boolean calledCompleted;
-    private DownloadException fhq;
-    private a fhr;
     private long finished;
+    private a fmA;
+    private DownloadException fmz;
     private long length;
     private int percent;
     private String savedPath;
@@ -59,19 +59,19 @@ public class c {
     }
 
     public Exception getException() {
-        return this.fhq;
+        return this.fmz;
     }
 
     public void d(DownloadException downloadException) {
-        this.fhq = downloadException;
+        this.fmz = downloadException;
     }
 
-    public a bsq() {
-        return this.fhr;
+    public a bvz() {
+        return this.fmA;
     }
 
     public void a(a aVar) {
-        this.fhr = aVar;
+        this.fmA = aVar;
     }
 
     public String getSavedPath() {

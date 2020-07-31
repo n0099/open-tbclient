@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class StringUtils {
     private static final String PASSWORD_PREFIX = "((?=.*\\d)(?=.*[a-zA-Z]).{6,20})";
     private static final String TIMEFORMAT = "yyyy-MM-dd HH:mm";

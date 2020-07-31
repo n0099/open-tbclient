@@ -6,69 +6,69 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.AdInfo;
 import tbclient.Media;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId hFc = BdUniqueId.gen();
-    private String dGM;
-    private String dGN;
-    private String hFd;
-    private String hFe;
-    private List<MediaData> hFf;
-    private int hFg;
+    public static final BdUniqueId hLa = BdUniqueId.gen();
+    private String dMX;
+    private String dMY;
+    private String hLb;
+    private String hLc;
+    private List<MediaData> hLd;
+    private int hLe;
     public boolean isLast = false;
 
     public void a(AdInfo adInfo) {
         if (adInfo != null) {
-            this.hFd = adInfo.portrait;
-            this.dGM = adInfo.ad_name;
-            this.hFe = adInfo.ad_desc;
-            this.dGN = adInfo.ad_url;
-            this.hFg = adInfo.show_rule.intValue();
+            this.hLb = adInfo.portrait;
+            this.dMX = adInfo.ad_name;
+            this.hLc = adInfo.ad_desc;
+            this.dMY = adInfo.ad_url;
+            this.hLe = adInfo.show_rule.intValue();
             if (adInfo.media != null) {
-                this.hFf = new ArrayList();
+                this.hLd = new ArrayList();
                 for (Media media : adInfo.media) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(media);
-                    this.hFf.add(mediaData);
+                    this.hLd.add(mediaData);
                 }
             }
         }
     }
 
-    public int cat() {
-        return this.hFg;
+    public int cdR() {
+        return this.hLe;
     }
 
-    public String cau() {
-        return this.hFd;
+    public String cdS() {
+        return this.hLb;
     }
 
-    public String cav() {
-        return this.dGM;
+    public String cdT() {
+        return this.dMX;
     }
 
-    public String caw() {
-        return this.hFe;
+    public String cdU() {
+        return this.hLc;
     }
 
-    public String biA() {
-        return this.dGN;
+    public String bmn() {
+        return this.dMY;
     }
 
-    public List<MediaData> cax() {
-        return this.hFf;
+    public List<MediaData> cdV() {
+        return this.hLd;
     }
 
-    public void ns(boolean z) {
+    public void nX(boolean z) {
         this.isLast = z;
     }
 
-    public boolean cay() {
+    public boolean cdW() {
         return this.isLast;
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return hFc;
+        return hLa;
     }
 }

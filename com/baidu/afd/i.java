@@ -5,39 +5,39 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* loaded from: classes.dex */
 public interface i {
-    void pO();
+    void pP();
 
     /* loaded from: classes.dex */
     public static class a implements i {
-        private d XK;
-        private boolean XL;
-        private final HttpMessageListener XM = new HttpMessageListener(1003397) { // from class: com.baidu.afd.i.a.1
+        private d XC;
+        private boolean XD;
+        private final HttpMessageListener XE = new HttpMessageListener(1003397) { // from class: com.baidu.afd.i.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003397 && (httpResponsedMessage instanceof AfdSyncResponseMessage)) {
                     e eVar = ((AfdSyncResponseMessage) httpResponsedMessage).adModel;
-                    a.this.XK.a(eVar);
-                    if (eVar.XH && eVar.XJ != null) {
-                        com.baidu.tieba.recapp.report.d.cZR().a(com.baidu.tieba.recapp.report.g.a(a.this.XK, eVar.XJ));
+                    a.this.XC.a(eVar);
+                    if (eVar.Xz && eVar.XB != null) {
+                        com.baidu.tieba.recapp.report.d.dcY().a(com.baidu.tieba.recapp.report.g.a(a.this.XC, eVar.XB));
                     }
                 }
             }
         };
 
         public a(d dVar) {
-            this.XK = dVar;
-            this.XM.setSelfListener(true);
-            this.XM.setTag(dVar.getTag());
-            MessageManager.getInstance().registerListener(this.XM);
+            this.XC = dVar;
+            this.XE.setSelfListener(true);
+            this.XE.setTag(dVar.getTag());
+            MessageManager.getInstance().registerListener(this.XE);
         }
 
         @Override // com.baidu.afd.i
-        public void pO() {
-            if (!this.XL) {
-                this.XL = true;
-                AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.XK.XD);
-                afdSyncRequestMessage.setTag(this.XK.getTag());
+        public void pP() {
+            if (!this.XD) {
+                this.XD = true;
+                AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.XC.Xv);
+                afdSyncRequestMessage.setTag(this.XC.getTag());
                 MessageManager.getInstance().sendMessage(afdSyncRequestMessage);
             }
         }

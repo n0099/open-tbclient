@@ -4,7 +4,7 @@ import com.baidu.ar.ARType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class b {
     public static final HashMap<String, String> bD = new HashMap() { // from class: com.baidu.ar.ability.b.1
         {

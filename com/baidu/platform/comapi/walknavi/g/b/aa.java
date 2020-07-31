@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.Toast;
 import com.baidu.mapapi.walknavi.adapter.IWMoreNPCModelOnClickListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class aa implements View.OnClickListener {
     final /* synthetic */ c a;
 

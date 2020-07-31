@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.apk;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ApkData {
     public static final long APK_OVERTIME_IVERVAL = 604800000;
     public String apkClipBoardScheme;

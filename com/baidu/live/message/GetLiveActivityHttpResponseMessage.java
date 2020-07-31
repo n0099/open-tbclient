@@ -1,14 +1,14 @@
 package com.baidu.live.message;
 
-import com.baidu.live.data.aw;
+import com.baidu.live.data.ax;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetLiveActivityHttpResponseMessage extends JsonHttpResponsedMessage {
-    private aw aZy;
+    private ax aZw;
 
-    public aw Gb() {
-        return this.aZy;
+    public ax FV() {
+        return this.aZw;
     }
 
     public GetLiveActivityHttpResponseMessage() {
@@ -19,8 +19,8 @@ public class GetLiveActivityHttpResponseMessage extends JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.aZy = new aw();
-            this.aZy.parserJson(jSONObject);
+            this.aZw = new ax();
+            this.aZw.parserJson(jSONObject);
         }
     }
 }

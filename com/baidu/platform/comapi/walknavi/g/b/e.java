@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.walknavi.g.b;
 
 import com.baidu.platform.comapi.walknavi.widget.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class e implements a.InterfaceC0233a {
     final /* synthetic */ c a;
 

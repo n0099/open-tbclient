@@ -9,62 +9,62 @@ import com.baidu.swan.menu.g;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b {
-    private j dnW;
-    private List<i> dnX;
-    private f doa;
-    private com.baidu.swan.menu.viewpager.b dob;
-    private View.OnKeyListener dod;
-    private a doe;
-    private b dof;
+    private j dtS;
+    private List<i> dtT;
+    private f dtW;
+    private com.baidu.swan.menu.viewpager.b dtX;
+    private View.OnKeyListener dtY;
+    private a dtZ;
+    private b dua;
     private Context mContext;
     private int mStyle;
-    private boolean dnU = false;
-    private int dnV = 0;
-    private List<i> dnY = new ArrayList();
-    private List<List<i>> dnZ = new ArrayList();
-    private int dog = -1;
+    private boolean dtQ = false;
+    private int dtR = 0;
+    private List<i> dtU = new ArrayList();
+    private List<List<i>> dtV = new ArrayList();
+    private int dub = -1;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(h hVar, boolean z);
     }
 
     public h(Context context, View view, int i, b bVar, @Nullable com.baidu.swan.menu.a aVar) {
-        this.dnX = new ArrayList();
+        this.dtT = new ArrayList();
         if (i >= 0) {
             this.mContext = context;
             this.mStyle = i;
-            this.dof = bVar;
-            this.dnX = k.jh(this.mStyle);
-            this.dof.g(this.mStyle, this.dnX);
-            this.dof.h(this.mStyle, this.dnX);
-            this.dnW = new j(this.mContext, view, aVar);
-            this.dnW.a(new PopupWindow.a() { // from class: com.baidu.swan.menu.h.1
+            this.dua = bVar;
+            this.dtT = k.jy(this.mStyle);
+            this.dua.g(this.mStyle, this.dtT);
+            this.dua.h(this.mStyle, this.dtT);
+            this.dtS = new j(this.mContext, view, aVar);
+            this.dtS.a(new PopupWindow.a() { // from class: com.baidu.swan.menu.h.1
                 @Override // com.baidu.swan.menu.PopupWindow.a
                 public void onDismiss() {
-                    if (h.this.doe != null) {
-                        h.this.doe.a(h.this, false);
+                    if (h.this.dtZ != null) {
+                        h.this.dtZ.a(h.this, false);
                     }
                 }
             });
         }
     }
 
-    private void aFZ() {
-        this.dnZ.clear();
-        int size = this.dnY.size();
+    private void aJQ() {
+        this.dtV.clear();
+        int size = this.dtU.size();
         if (size > 0 && size <= 5) {
-            this.dnZ.add(this.dnY);
+            this.dtV.add(this.dtU);
         } else if (size > 5 && size <= 10) {
-            int i = this.dnU ? 5 : this.dog;
-            this.dnZ.add(this.dnY.subList(0, i));
-            this.dnZ.add(this.dnY.subList(i, size));
+            int i = this.dtQ ? 5 : this.dub;
+            this.dtV.add(this.dtU.subList(0, i));
+            this.dtV.add(this.dtU.subList(i, size));
         } else if (size > 10) {
-            int ceil = this.dnU ? (int) Math.ceil(size / 2.0f) : this.dog;
-            this.dnZ.add(this.dnY.subList(0, ceil));
-            this.dnZ.add(this.dnY.subList(ceil, size));
+            int ceil = this.dtQ ? (int) Math.ceil(size / 2.0f) : this.dub;
+            this.dtV.add(this.dtU.subList(0, ceil));
+            this.dtV.add(this.dtU.subList(ceil, size));
         }
     }
 
@@ -78,171 +78,163 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
 
     public void a(boolean z, int i, View view, boolean z2) {
         if (isShowing()) {
-            gi(true);
+            gE(true);
             return;
         }
-        if (this.dof != null) {
-            this.dof.f(this.mStyle, this.dnX);
+        if (this.dua != null) {
+            this.dua.f(this.mStyle, this.dtT);
         }
         o(z, i);
-        aFZ();
-        this.dnW.b(this.dnZ, view, z2, this.dnV);
-        if (this.doe != null) {
-            this.doe.a(this, true);
+        aJQ();
+        this.dtS.b(this.dtV, view, z2, this.dtR);
+        if (this.dtZ != null) {
+            this.dtZ.a(this, true);
         }
     }
 
     public void a(f fVar) {
-        this.doa = fVar;
-    }
-
-    public void a(com.baidu.swan.menu.viewpager.b bVar) {
-        this.dob = bVar;
+        this.dtW = fVar;
     }
 
     @Override // com.baidu.swan.menu.f
     public boolean a(View view, i iVar) {
         if (iVar.isEnable()) {
-            if (e(iVar)) {
-                gi(true);
+            if (d(iVar)) {
+                gE(true);
             }
-            if (this.doa == null) {
+            if (this.dtW == null) {
                 return false;
             }
-            return this.doa.a(view, iVar);
+            return this.dtW.a(view, iVar);
         }
         return true;
     }
 
     @Override // com.baidu.swan.menu.viewpager.b
-    public boolean d(i iVar) {
-        if (e(iVar) && !this.dnU) {
-            gi(true);
+    public boolean c(i iVar) {
+        if (d(iVar) && !this.dtQ) {
+            gE(true);
         }
-        if (this.dob == null) {
+        if (this.dtX == null) {
             return false;
         }
-        return this.dob.d(iVar);
+        return this.dtX.c(iVar);
     }
 
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
-        if (this.dod != null) {
-            return this.dod.onKey(view, i, keyEvent);
+        if (this.dtY != null) {
+            return this.dtY.onKey(view, i, keyEvent);
         }
         return false;
     }
 
-    public void gh(boolean z) {
-        a(jd(5), z);
-        aFZ();
-        this.dnW.aGf();
-        aFY();
+    public void gD(boolean z) {
+        a(ju(5), z);
+        aJQ();
+        this.dtS.aJW();
+        aJP();
     }
 
-    public void gi(boolean z) {
-        this.dnW.gk(z);
-        if (this.doe != null) {
-            this.doe.a(this, false);
+    public void dismiss() {
+        gE(true);
+    }
+
+    public void gE(boolean z) {
+        this.dtS.gF(z);
+        if (this.dtZ != null) {
+            this.dtZ.a(this, false);
         }
     }
 
     public boolean isShowing() {
-        return this.dnW != null && this.dnW.isShowing();
+        return this.dtS != null && this.dtS.isShowing();
     }
 
-    public void aFY() {
-        if (this.dnW != null) {
-            this.dnW.aFY();
+    public void aJP() {
+        if (this.dtS != null) {
+            this.dtS.aJP();
         }
     }
 
     public void au(int i, int i2) {
-        i ji;
+        i jz;
         int i3 = 0;
         boolean z = false;
-        for (i iVar : this.dnX) {
+        for (i iVar : this.dtT) {
             z = iVar.getItemId() == i ? true : z;
         }
-        if (!z && (ji = k.ji(i)) != null) {
-            int size = this.dnX.size();
+        if (!z && (jz = k.jz(i)) != null) {
+            int size = this.dtT.size();
             if (i2 > 0) {
                 i3 = i2 >= size ? size : i2;
             }
-            this.dnX.add(i3, ji);
+            this.dtT.add(i3, jz);
         }
     }
 
-    public void ja(int i) {
-        if (this.dnX != null) {
+    public void jr(int i) {
+        if (this.dtT != null) {
             int i2 = -1;
-            for (int i3 = 0; i3 < this.dnX.size(); i3++) {
-                if (this.dnX.get(i3).getItemId() == i) {
+            for (int i3 = 0; i3 < this.dtT.size(); i3++) {
+                if (this.dtT.get(i3).getItemId() == i) {
                     i2 = i3;
                 }
             }
             if (i2 > -1) {
-                this.dnX.remove(i2);
+                this.dtT.remove(i2);
             }
         }
     }
 
-    public void jb(int i) {
-        this.dnW.jb(i);
+    public void js(int i) {
+        this.dtS.js(i);
     }
 
-    private boolean e(i iVar) {
+    private boolean d(i iVar) {
         return true;
     }
 
-    public void gj(boolean z) {
-        this.dnU = z;
-    }
-
-    public void jc(int i) {
-        this.dnV = i;
+    public void jt(int i) {
+        this.dtR = i;
     }
 
     private void o(boolean z, int i) {
-        if (this.dnX != null) {
-            this.dnY.clear();
-            je(41);
-            i a2 = a(jd(38), i);
+        if (this.dtT != null) {
+            this.dtU.clear();
+            jv(41);
+            i a2 = a(ju(38), i);
             if (a2 != null && a2.isVisible()) {
-                this.dnY.add(a2);
+                this.dtU.add(a2);
             }
-            je(48);
-            je(45);
-            je(4);
-            je(101);
-            je(9);
-            je(39);
-            je(42);
-            i jd = jd(35);
-            if (jd != null && jd.isVisible()) {
-                this.dnY.add(jd);
-                if (!this.dnU) {
-                    this.dog = this.dnY.size() - 1;
-                }
+            jv(48);
+            jv(45);
+            jv(4);
+            jv(101);
+            i ju = ju(35);
+            if (ju != null && ju.isVisible()) {
+                this.dtU.add(ju);
             }
-            je(37);
-            je(100);
-            i a3 = a(jd(5), z);
+            jv(39);
+            jv(42);
+            jv(9);
+            if (!this.dtQ) {
+                this.dub = this.dtU.size() - 1;
+            }
+            jv(37);
+            jv(100);
+            jv(43);
+            i a3 = a(ju(5), z);
             if (a3 != null && a3.isVisible()) {
-                this.dnY.add(a3);
+                this.dtU.add(a3);
             }
-            je(40);
-            je(46);
-            je(47);
-            i jd2 = jd(36);
-            if (jd2 != null && jd2.isVisible()) {
-                jd2.b(this);
-                this.dnY.add(jd2);
-            }
+            jv(46);
+            jv(47);
+            jv(49);
         }
     }
 
-    public void cd(JSONObject jSONObject) {
+    public void cj(JSONObject jSONObject) {
         int i;
         int optInt = jSONObject.optInt("pa_type");
         Long valueOf = Long.valueOf(jSONObject.optLong("pa_unread_sums"));
@@ -265,11 +257,11 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
         }
         if (i >= 0) {
             Long l = valueOf;
-            for (i iVar : this.dnY) {
+            for (i iVar : this.dtU) {
                 if (iVar.getItemId() == i) {
-                    l = Long.valueOf(l.longValue() + iVar.aGb());
-                    iVar.jf(l.longValue() > 0 ? 1 : 0);
-                    iVar.bI(l.longValue());
+                    l = Long.valueOf(l.longValue() + iVar.aJS());
+                    iVar.jw(l.longValue() > 0 ? 1 : 0);
+                    iVar.bW(l.longValue());
                 }
             }
         }
@@ -280,10 +272,10 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
             return null;
         }
         if (i == 2) {
-            iVar.jg(g.f.aiapp_menu_text_cancel_favorite);
+            iVar.jx(g.f.aiapp_menu_text_cancel_favorite);
             iVar.setIconResId(g.c.aiapp_menu_item_cancel_fav_selector);
         } else if (i == 1) {
-            iVar.jg(g.f.aiapp_menu_text_favorite);
+            iVar.jx(g.f.aiapp_menu_text_favorite);
             iVar.setIconResId(g.c.aiapp_menu_item_add_fav_selector);
         } else if (i == 0) {
             iVar = null;
@@ -295,33 +287,33 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
         if (iVar == null) {
             return null;
         }
-        iVar.jg(z ? g.f.aiapp_menu_text_day_mode : g.f.aiapp_menu_text_night_mode);
+        iVar.jx(z ? g.f.aiapp_menu_text_day_mode : g.f.aiapp_menu_text_night_mode);
         iVar.setIconResId(z ? g.c.aiapp_menu_item_daymode : g.c.aiapp_menu_item_nightmode);
         return iVar;
     }
 
-    public i jd(int i) {
+    public i ju(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 >= this.dnX.size()) {
+            if (i3 >= this.dtT.size()) {
                 return null;
             }
-            i iVar = this.dnX.get(i3);
+            i iVar = this.dtT.get(i3);
             if (iVar.getItemId() != i) {
                 i2 = i3 + 1;
             } else {
-                iVar.bI(0L);
+                iVar.bW(0L);
                 iVar.a(this);
                 return iVar;
             }
         }
     }
 
-    private void je(int i) {
-        i jd = jd(i);
-        if (jd != null && jd.isVisible()) {
-            this.dnY.add(jd);
+    private void jv(int i) {
+        i ju = ju(i);
+        if (ju != null && ju.isVisible()) {
+            this.dtU.add(ju);
         }
     }
 }

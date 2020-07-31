@@ -6,9 +6,9 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class d extends com.baidu.tieba.b.a<f, com.baidu.tieba.person.b.d> {
-    private View.OnClickListener kEy;
+    private View.OnClickListener kNA;
     private TbPageContext mPageContext;
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -19,10 +19,10 @@ public class d extends com.baidu.tieba.b.a<f, com.baidu.tieba.person.b.d> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cz */
+    /* renamed from: cC */
     public com.baidu.tieba.person.b.d b(ViewGroup viewGroup) {
         com.baidu.tieba.person.b.d dVar = new com.baidu.tieba.person.b.d(LayoutInflater.from(this.mContext).inflate(R.layout.person_info_user_pics_layout, viewGroup, false), this.mPageContext);
-        dVar.kFa.setItemOnclickListener(this.kEy);
+        dVar.kOc.setItemOnclickListener(this.kNA);
         return dVar;
     }
 
@@ -31,7 +31,7 @@ public class d extends com.baidu.tieba.b.a<f, com.baidu.tieba.person.b.d> {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, f fVar, com.baidu.tieba.person.b.d dVar) {
         if (fVar != null && dVar != null) {
-            dVar.cRG();
+            dVar.cVw();
             dVar.a(fVar);
         }
         return view;

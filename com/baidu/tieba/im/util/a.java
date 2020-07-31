@@ -2,7 +2,7 @@ package com.baidu.tieba.im.util;
 
 import android.text.InputFilter;
 import android.text.Spanned;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class a implements InputFilter {
     private int mMax;
 

@@ -2,40 +2,40 @@ package com.facebook.imagepipeline.d;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class a implements e {
-    private final Executor mSA;
-    private final Executor mSB;
-    private final Executor mSz = Executors.newFixedThreadPool(2, new k(10, "FrescoIoBoundExecutor", true));
-    private final Executor mSD = Executors.newFixedThreadPool(1, new k(10, "FrescoLightWeightBackgroundExecutor", true));
+    private final Executor naG;
+    private final Executor naH;
+    private final Executor naF = Executors.newFixedThreadPool(2, new k(10, "FrescoIoBoundExecutor", true));
+    private final Executor naI = Executors.newFixedThreadPool(1, new k(10, "FrescoLightWeightBackgroundExecutor", true));
 
     public a(int i) {
-        this.mSA = Executors.newFixedThreadPool(i, new k(10, "FrescoDecodeExecutor", true));
-        this.mSB = Executors.newFixedThreadPool(i, new k(10, "FrescoBackgroundExecutor", true));
+        this.naG = Executors.newFixedThreadPool(i, new k(10, "FrescoDecodeExecutor", true));
+        this.naH = Executors.newFixedThreadPool(i, new k(10, "FrescoBackgroundExecutor", true));
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor dDk() {
-        return this.mSz;
+    public Executor dGw() {
+        return this.naF;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor dDl() {
-        return this.mSz;
+    public Executor dGx() {
+        return this.naF;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor dDm() {
-        return this.mSA;
+    public Executor dGy() {
+        return this.naG;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor dDn() {
-        return this.mSB;
+    public Executor dGz() {
+        return this.naH;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor dDo() {
-        return this.mSD;
+    public Executor dGA() {
+        return this.naI;
     }
 }

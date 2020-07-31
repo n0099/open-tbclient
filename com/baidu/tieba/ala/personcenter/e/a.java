@@ -4,32 +4,32 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c.b> {
-    private View gFc;
-    private TextView gFd;
-    private HeadImageView gFe;
-    private HeadImageView gFf;
-    private HeadImageView gFg;
-    private ImageView gFh;
+    private TextView gKA;
+    private HeadImageView gKB;
+    private HeadImageView gKC;
+    private HeadImageView gKD;
+    private ImageView gKE;
+    private View gKz;
     private TextView mTitle;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        ag(getView());
+        aj(getView());
     }
 
-    private void ag(View view) {
-        this.gFc = view.findViewById(R.id.ala_person_center_list_item_sep);
+    private void aj(View view) {
+        this.gKz = view.findViewById(R.id.ala_person_center_list_item_sep);
         this.mTitle = (TextView) view.findViewById(R.id.ala_person_center_list_item_title_txt);
-        this.gFd = (TextView) view.findViewById(R.id.ala_person_center_list_item_desc_txt);
-        this.gFh = (ImageView) view.findViewById(R.id.ala_person_center_list_item_arrow_img);
-        this.gFe = (HeadImageView) view.findViewById(R.id.ala_person_center_list_item_contribution_img1);
-        this.gFf = (HeadImageView) view.findViewById(R.id.ala_person_center_list_item_contribution_img2);
-        this.gFg = (HeadImageView) view.findViewById(R.id.ala_person_center_list_item_contribution_img3);
+        this.gKA = (TextView) view.findViewById(R.id.ala_person_center_list_item_desc_txt);
+        this.gKE = (ImageView) view.findViewById(R.id.ala_person_center_list_item_arrow_img);
+        this.gKB = (HeadImageView) view.findViewById(R.id.ala_person_center_list_item_contribution_img1);
+        this.gKC = (HeadImageView) view.findViewById(R.id.ala_person_center_list_item_contribution_img2);
+        this.gKD = (HeadImageView) view.findViewById(R.id.ala_person_center_list_item_contribution_img3);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -48,27 +48,27 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c
         }
     }
 
-    public void so(int i) {
-        if (this.gFc != null) {
-            this.gFc.setVisibility(i);
+    public void sG(int i) {
+        if (this.gKz != null) {
+            this.gKz.setVisibility(i);
         }
     }
 
-    public void sp(int i) {
-        if (this.gFh != null) {
-            this.gFh.setVisibility(i);
+    public void sH(int i) {
+        if (this.gKE != null) {
+            this.gKE.setVisibility(i);
         }
     }
 
-    public void DD(String str) {
-        if (this.gFd != null) {
-            this.gFd.setText(str);
+    public void Eo(String str) {
+        if (this.gKA != null) {
+            this.gKA.setText(str);
         }
     }
 
-    public TextView bLU() {
-        if (this.gFd != null) {
-            return this.gFd;
+    public TextView bPc() {
+        if (this.gKA != null) {
+            return this.gKA;
         }
         return null;
     }
@@ -76,13 +76,13 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (i == 1) {
-            this.gFh.setAlpha(0.7f);
+            this.gKE.setAlpha(0.7f);
         } else {
-            this.gFh.setAlpha(1);
+            this.gKE.setAlpha(1);
         }
-        this.gFc.setBackgroundColor(an.getColor(i, R.color.cp_bg_line_c));
-        an.setViewTextColor(this.mTitle, (int) R.color.cp_cont_f);
-        an.setViewTextColor(this.gFd, (int) R.color.cp_cont_d);
+        this.gKz.setBackgroundColor(ao.getColor(i, R.color.cp_bg_line_c));
+        ao.setViewTextColor(this.mTitle, R.color.cp_cont_f);
+        ao.setViewTextColor(this.gKA, R.color.cp_cont_d);
     }
 
     @Override // android.view.View.OnClickListener

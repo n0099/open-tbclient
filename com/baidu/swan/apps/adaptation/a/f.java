@@ -12,7 +12,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public interface f {
     boolean a(@NonNull Context context, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull JSONObject jSONObject, @NonNull CallbackHandler callbackHandler);
 
@@ -20,7 +20,7 @@ public interface f {
 
     boolean h(Context context, JSONObject jSONObject);
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static class a implements f {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
         private static final String TAG = a.class.getSimpleName();
@@ -42,23 +42,36 @@ public interface f {
 
         private boolean i(final Context context, JSONObject jSONObject) {
             final String optString = jSONObject.optString("url");
+            final String optString2 = jSONObject.optString("title");
+            final String optString3 = jSONObject.optString("description");
+            final boolean optBoolean = jSONObject.optBoolean("autoinstall");
             if (TextUtils.isEmpty(optString)) {
                 com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "download url is empty");
                 return false;
             }
-            com.baidu.swan.apps.ad.a.a("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new com.baidu.swan.apps.ad.b() { // from class: com.baidu.swan.apps.adaptation.a.f.a.1
-                @Override // com.baidu.swan.apps.ad.b
-                public void hg(String str) {
+            com.baidu.swan.apps.ac.a.a("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new com.baidu.swan.apps.ac.b() { // from class: com.baidu.swan.apps.adaptation.a.f.a.1
+                @Override // com.baidu.swan.apps.ac.b
+                public void hm(String str) {
                     DownloadManager.Request request = new DownloadManager.Request(Uri.parse(optString));
                     request.setDestinationInExternalPublicDir("", optString.substring(optString.lastIndexOf("/") + 1));
+                    if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
+                        request.setNotificationVisibility(1);
+                        request.setTitle(optString2);
+                        request.setDescription(optString3);
+                        request.setVisibleInDownloadsUi(true);
+                        request.allowScanningByMediaScanner();
+                        request.setMimeType("application/vnd.android.package-archive");
+                    }
                     DownloadManager downloadManager = (DownloadManager) AppRuntime.getAppContext().getSystemService("download");
                     if (downloadManager != null) {
                         downloadManager.enqueue(request);
-                        com.baidu.swan.apps.aq.d.startActivitySafely(context, new Intent("android.intent.action.VIEW_DOWNLOADS"));
+                        if (!optBoolean) {
+                            com.baidu.swan.apps.aq.e.startActivitySafely(context, new Intent("android.intent.action.VIEW_DOWNLOADS"));
+                        }
                     }
                 }
 
-                @Override // com.baidu.swan.apps.ad.b
+                @Override // com.baidu.swan.apps.ac.b
                 public void O(int i, String str) {
                     if (a.DEBUG) {
                         Log.d(a.TAG, "onAuthorizedFailed,  errorCode: " + i + " errorMsg: " + str);

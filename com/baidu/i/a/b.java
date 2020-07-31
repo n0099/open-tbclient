@@ -1,39 +1,32 @@
 package com.baidu.i.a;
 
-import android.text.TextUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class b extends com.baidu.swan.apps.component.a.d.b {
-    public String action;
-    public boolean autoPlay;
-    public boolean loop;
-    public String path;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.Activity;
+/* JADX WARN: Classes with same name are omitted:
+  classes11.dex
+ */
+@SuppressLint({"NewApi"})
+@TargetApi(23)
+/* loaded from: classes3.dex */
+public class b {
 
-    public b() {
-        super("svgaAnimView", "sanId");
-        this.loop = false;
-        this.autoPlay = true;
-        this.action = null;
+    /* JADX WARN: Classes with same name are omitted:
+      classes11.dex
+     */
+    /* loaded from: classes3.dex */
+    public interface a {
+        void validateRequestPermissionsRequestCode(int i);
     }
 
-    @Override // com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
-    public void parseFromJson(JSONObject jSONObject) throws JSONException {
-        if (jSONObject != null) {
-            super.parseFromJson(jSONObject);
-            this.path = jSONObject.optString("path");
-            this.loop = jSONObject.optBoolean("loop");
-            this.autoPlay = jSONObject.optBoolean("autoPlay");
-            this.action = jSONObject.optString("action");
+    public static void requestPermissions(Activity activity, String[] strArr, int i) {
+        if (activity instanceof a) {
+            ((a) activity).validateRequestPermissionsRequestCode(i);
         }
+        activity.requestPermissions(strArr, i);
     }
 
-    @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
-    public boolean isValid() {
-        return (TextUtils.isEmpty(this.bUu) || TextUtils.isEmpty(this.bUt)) ? false : true;
-    }
-
-    public boolean RD() {
-        return isValid() && !TextUtils.isEmpty(this.path);
+    public static boolean shouldShowRequestPermissionRationale(Activity activity, String str) {
+        return activity.shouldShowRequestPermissionRationale(str);
     }
 }

@@ -12,8 +12,8 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operators.flowable.a<T, T> {
     final h<? super T, ? extends org.a.b<V>> itemTimeoutIndicator;
-    final org.a.b<U> nKR;
-    final org.a.b<? extends T> nKw;
+    final org.a.b<? extends T> nTe;
+    final org.a.b<U> nTz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
@@ -23,17 +23,17 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        if (this.nKw == null) {
+        if (this.nTe == null) {
             TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(cVar, this.itemTimeoutIndicator);
             cVar.onSubscribe(timeoutSubscriber);
-            timeoutSubscriber.startFirstTimeout(this.nKR);
-            this.nJW.a((j) timeoutSubscriber);
+            timeoutSubscriber.startFirstTimeout(this.nTz);
+            this.nSE.a((j) timeoutSubscriber);
             return;
         }
-        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.itemTimeoutIndicator, this.nKw);
+        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.itemTimeoutIndicator, this.nTe);
         cVar.onSubscribe(timeoutFallbackSubscriber);
-        timeoutFallbackSubscriber.startFirstTimeout(this.nKR);
-        this.nJW.a((j) timeoutFallbackSubscriber);
+        timeoutFallbackSubscriber.startFirstTimeout(this.nTz);
+        this.nSE.a((j) timeoutFallbackSubscriber);
     }
 
     /* loaded from: classes7.dex */
@@ -71,7 +71,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
                         bVar2.subscribe(timeoutConsumer);
                     }
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.L(th);
+                    io.reactivex.exceptions.a.K(th);
                     this.upstream.get().cancel();
                     getAndSet(Long.MAX_VALUE);
                     this.actual.onError(th);
@@ -177,7 +177,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
                         bVar2.subscribe(timeoutConsumer);
                     }
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.L(th);
+                    io.reactivex.exceptions.a.K(th);
                     this.upstream.get().cancel();
                     this.index.getAndSet(Long.MAX_VALUE);
                     this.actual.onError(th);

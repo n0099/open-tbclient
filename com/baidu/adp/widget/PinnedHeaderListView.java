@@ -14,7 +14,7 @@ import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
 public class PinnedHeaderListView extends BdListView implements AbsListView.OnScrollListener {
-    private a Wm;
+    private a Wf;
     private int mCurrentPinnedPosition;
     private AbsListView.OnScrollListener mInnerOnScrollListener;
     private boolean mIsPulling;
@@ -78,16 +78,16 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
             throw new RuntimeException("Adapter must extended from PinnedHeaderListAdapter");
         }
         super.setAdapter(listAdapter);
-        this.Wm = (a) listAdapter;
-        this.mPinnedHeaderItemType = this.Wm.getPinnedHeaderViewType();
-        this.mPinnedHeaderView = this.Wm.getPinnedHeaderView();
+        this.Wf = (a) listAdapter;
+        this.mPinnedHeaderItemType = this.Wf.getPinnedHeaderViewType();
+        this.mPinnedHeaderView = this.Wf.getPinnedHeaderView();
         if (this.mPinnedHeaderView != null) {
             if (this.mPinnedHeaderView.getLayoutParams() == null) {
                 this.mPinnedHeaderView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }
             setFadingEdgeLength(0);
         }
-        this.Wm.registerDataSetObserver(this.mObserver);
+        this.Wf.registerDataSetObserver(this.mObserver);
     }
 
     private void measurePinnedHeader(int i, int i2) {
@@ -142,13 +142,15 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
             int save = canvas.save();
             canvas.translate(0.0f, -this.mPinnedHeaderOffsetY);
             drawChild(canvas, this.mPinnedHeaderView, drawingTime);
-            canvas.restoreToCount(save);
+            if (save >= 1 && save <= canvas.getSaveCount()) {
+                canvas.restoreToCount(save);
+            }
         }
     }
 
     private void computeHeaderView() {
         if (this.mPinnedHeaderView != null) {
-            a aVar = this.Wm;
+            a aVar = this.Wf;
             int firstVisiblePosition = getFirstVisiblePosition();
             if (firstVisiblePosition > 0) {
                 firstVisiblePosition--;
@@ -200,7 +202,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
     }
 
     private int getPreviousHeaderPosition(int i) {
-        a aVar = this.Wm;
+        a aVar = this.Wf;
         for (int i2 = i - 1; i2 >= 0; i2--) {
             if (aVar.getItemViewType(i2) == this.mPinnedHeaderItemType) {
                 return i2;

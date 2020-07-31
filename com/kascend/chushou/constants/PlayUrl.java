@@ -3,7 +3,7 @@ package com.kascend.chushou.constants;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PlayUrl implements Parcelable {
     public static final Parcelable.Creator<PlayUrl> CREATOR = new Parcelable.Creator<PlayUrl>() { // from class: com.kascend.chushou.constants.PlayUrl.1
         /* JADX DEBUG: Method merged with bridge method */

@@ -3,12 +3,18 @@ package com.baidu.swan.apps.scheme.actions.m;
 import android.text.TextUtils;
 import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class d extends com.baidu.swan.apps.component.b.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public String alk;
+    public List<String> cLd;
     public String mSrc;
+    public String mType;
 
     public d() {
         super("webView", "viewId");
@@ -19,6 +25,16 @@ public final class d extends com.baidu.swan.apps.component.b.b {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
             this.mSrc = jSONObject.optString(UserAccountActionItem.KEY_SRC);
+            this.alk = jSONObject.optString("userAgent");
+            this.mType = jSONObject.optString("type");
+            JSONArray optJSONArray = jSONObject.optJSONArray("targetUrls");
+            if (optJSONArray != null && optJSONArray.length() != 0) {
+                this.cLd = new ArrayList();
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    this.cLd.add(optJSONArray.optString(i));
+                }
+            }
         }
     }
 
@@ -40,6 +56,6 @@ public final class d extends com.baidu.swan.apps.component.b.b {
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.bUu);
+        return !TextUtils.isEmpty(this.bVm);
     }
 }

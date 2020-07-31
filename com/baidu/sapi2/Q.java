@@ -4,7 +4,7 @@ import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidubce.http.Headers;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class Q extends HttpHandlerWrap {
     final /* synthetic */ X a;
     final /* synthetic */ V b;

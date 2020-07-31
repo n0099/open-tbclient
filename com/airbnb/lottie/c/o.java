@@ -2,7 +2,7 @@ package com.airbnb.lottie.c;
 
 import android.util.JsonReader;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class o implements aj<Integer> {
     public static final o FW = new o();
 

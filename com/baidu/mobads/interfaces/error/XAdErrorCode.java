@@ -1,5 +1,5 @@
 package com.baidu.mobads.interfaces.error;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public enum XAdErrorCode {
     INTERFACE_USE_PROBLEM(1010001, "接口使用问题"),
     WEBVIEW_LOAD_ERROR(1010002, "web载入异常"),

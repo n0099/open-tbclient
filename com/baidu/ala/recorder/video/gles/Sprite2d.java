@@ -2,7 +2,7 @@ package com.baidu.ala.recorder.video.gles;
 
 import android.opengl.Matrix;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class Sprite2d {
     private static final String TAG = "Grafika";
     private float mAngle;

@@ -1,5 +1,5 @@
 package com.baidu.platform.domain;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a implements c {
     @Override // com.baidu.platform.domain.c
     public String a() {

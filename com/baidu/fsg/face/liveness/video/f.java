@@ -10,9 +10,8 @@ import android.view.Surface;
 import com.baidu.fsg.base.utils.LogUtil;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
 @TargetApi(16)
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class f {
     protected static final boolean a = true;
     public static final String b = "video/avc";
@@ -47,7 +46,7 @@ public class f {
     public void a() {
         this.k = new byte[((this.d * this.e) * 3) / 2];
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat(b, this.d, this.e);
-        createVideoFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, this.n);
+        createVideoFormat.setInteger("bitrate", this.n);
         createVideoFormat.setInteger("frame-rate", this.l);
         createVideoFormat.setInteger("color-format", 21);
         createVideoFormat.setInteger("i-frame-interval", this.o);

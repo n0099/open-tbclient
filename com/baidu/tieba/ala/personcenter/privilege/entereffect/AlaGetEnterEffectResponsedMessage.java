@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage {
     private List<q> mEffectList;
     private int mEnterEffectCount;

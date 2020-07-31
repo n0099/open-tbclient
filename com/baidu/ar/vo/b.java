@@ -10,7 +10,7 @@ import com.baidu.ar.vo.c.e;
 import com.baidu.ar.vo.c.f;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class b {
     private d xi;
     private c xj;

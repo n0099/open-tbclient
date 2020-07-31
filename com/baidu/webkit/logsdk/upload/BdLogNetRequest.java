@@ -1,6 +1,5 @@
 package com.baidu.webkit.logsdk.upload;
 
-import com.baidu.webkit.internal.e;
 import com.baidu.webkit.logsdk.d;
 import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.net.BdNetTask;
@@ -10,7 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class BdLogNetRequest implements INetListener {
     private static final int TIMEOUT = 30000;
     d mCallback;
@@ -48,7 +47,7 @@ public class BdLogNetRequest implements INetListener {
                 hashMap.put("Kernel-Status", "0");
             }
             bdNetTask.setHeaders(hashMap);
-            bdNetTask.setContent(e.b(e.c(bytes)));
+            bdNetTask.setContent(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(bytes)));
             bdNet.start(bdNetTask, false);
         } catch (Exception e) {
             com.a.a.a.a.a.a.a.a(e);

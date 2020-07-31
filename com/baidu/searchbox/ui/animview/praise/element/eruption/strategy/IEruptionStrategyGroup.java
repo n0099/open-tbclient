@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ui.animview.praise.element.eruption.strategy;
-/* loaded from: classes13.dex */
+/* loaded from: classes7.dex */
 public interface IEruptionStrategyGroup extends IEruptionStrategy {
     public static final String STRATEGY_LEFT_H = "Left_H";
     public static final String STRATEGY_LEFT_M = "Left_M";

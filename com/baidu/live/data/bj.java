@@ -1,6 +1,8 @@
 package com.baidu.live.data;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bj {
-    public String aDI;
-    public String aDJ;
+    public int aEY;
+    public int aEZ;
+    public int aFa;
+    public int aFb;
 }

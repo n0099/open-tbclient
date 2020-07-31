@@ -3,7 +3,7 @@ package protobuf.UpgradeMemberGroup;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.Error;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class UpgradeMemberGroupResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
@@ -17,7 +17,7 @@ public final class UpgradeMemberGroupResIdl extends Message {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public static final class Builder extends Message.Builder<UpgradeMemberGroupResIdl> {
         public Error error;
 

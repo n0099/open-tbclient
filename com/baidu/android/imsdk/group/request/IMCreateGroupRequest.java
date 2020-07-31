@@ -31,7 +31,6 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
     private long mAppid;
     private String mKey;
     private String mName;
-    private int mType;
 
     /* loaded from: classes3.dex */
     class Mytask extends TaskManager.Task {

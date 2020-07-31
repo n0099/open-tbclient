@@ -7,11 +7,11 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class o extends UnitedSchemeBaseDispatcher {
     private static final String TAG = o.class.getSimpleName();
     private static final boolean DEBUG = AppConfig.isDebug();
-    public static HashMap<String, CallbackHandler> mpj = new HashMap<>();
+    public static HashMap<String, CallbackHandler> mxi = new HashMap<>();
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
     public String getDispatcherName() {

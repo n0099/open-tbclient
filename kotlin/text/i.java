@@ -2,7 +2,7 @@ package kotlin.text;
 @kotlin.h
 /* loaded from: classes7.dex */
 public interface i {
-    kotlin.b.h dRf();
+    kotlin.b.h dUB();
 
-    i dRg();
+    i dUC();
 }

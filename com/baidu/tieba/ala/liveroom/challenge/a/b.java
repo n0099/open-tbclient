@@ -3,15 +3,15 @@ package com.baidu.tieba.ala.liveroom.challenge.a;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public String bgurl;
-    public int fZh;
-    public int fZi;
-    public int fZj;
-    public int fZk;
-    public String fZl;
     public String file;
+    public int gep;
+    public int geq;
+    public int ger;
+    public int ges;
+    public String get;
     public String id;
     public String name;
     public String sk;
@@ -26,11 +26,11 @@ public class b {
             this.bgurl = jSONObject.optString("bgurl");
             this.subType = jSONObject.optInt(FuFaceItem.JK_SUB_TYPE);
             this.tip = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_TIP);
-            this.fZh = jSONObject.optInt(FuFaceItem.JK_ABILITY);
-            this.fZi = jSONObject.optInt("control_mode");
-            this.fZj = jSONObject.optInt(FuFaceItem.JK_MIN_SDK_VERSION);
-            this.fZk = jSONObject.optInt(FuFaceItem.JK_MAX_SDK_VERSION);
-            this.fZl = jSONObject.optString("file_md5");
+            this.gep = jSONObject.optInt(FuFaceItem.JK_ABILITY);
+            this.geq = jSONObject.optInt("control_mode");
+            this.ger = jSONObject.optInt(FuFaceItem.JK_MIN_SDK_VERSION);
+            this.ges = jSONObject.optInt(FuFaceItem.JK_MAX_SDK_VERSION);
+            this.get = jSONObject.optString("file_md5");
             this.sk = jSONObject.optString("sk");
         }
     }

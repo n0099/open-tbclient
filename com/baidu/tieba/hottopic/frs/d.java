@@ -9,8 +9,8 @@ import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
@@ -18,69 +18,69 @@ import com.baidu.tieba.frs.r;
 import com.baidu.tieba.frs.u;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class d {
-    private BdTypeRecyclerView Wa;
-    private PbListView fnt;
-    private final a iFd;
-    private final b iFe;
+    private BdTypeRecyclerView VT;
+    private PbListView fsC;
+    private final a iLh;
+    private final b iLi;
     private final TbPageContext mPageContext;
     private View mRootView;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public interface a {
     }
 
     public d(a aVar, View view, TbPageContext tbPageContext) {
         this.mRootView = view;
         this.mPageContext = tbPageContext;
-        this.iFd = aVar;
-        this.Wa = (BdTypeRecyclerView) view.findViewById(R.id.frs_hottopic_lv_thread);
-        this.Wa.setLayoutManager(new LinearLayoutManager(this.Wa.getContext()));
-        this.Wa.setFadingEdgeLength(0);
-        this.Wa.setOverScrollMode(2);
-        this.fnt = new PbListView(tbPageContext.getPageActivity());
-        this.fnt.createView();
-        this.fnt.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-        this.fnt.setHeight(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds182));
-        this.fnt.setLineGone();
-        this.fnt.setTextSize(R.dimen.tbfontsize33);
-        this.fnt.setNoMoreTextColorId(R.color.cp_cont_e);
-        this.Wa.setNextPage(this.fnt);
-        this.fnt.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.fnt.endLoadData();
-        this.fnt.setText(tbPageContext.getResources().getString(R.string.list_no_more));
+        this.iLh = aVar;
+        this.VT = (BdTypeRecyclerView) view.findViewById(R.id.frs_hottopic_lv_thread);
+        this.VT.setLayoutManager(new LinearLayoutManager(this.VT.getContext()));
+        this.VT.setFadingEdgeLength(0);
+        this.VT.setOverScrollMode(2);
+        this.fsC = new PbListView(tbPageContext.getPageActivity());
+        this.fsC.createView();
+        this.fsC.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.fsC.setHeight(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds182));
+        this.fsC.setLineGone();
+        this.fsC.setTextSize(R.dimen.tbfontsize33);
+        this.fsC.setNoMoreTextColorId(R.color.cp_cont_e);
+        this.VT.setNextPage(this.fsC);
+        this.fsC.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.fsC.endLoadData();
+        this.fsC.setText(tbPageContext.getResources().getString(R.string.list_no_more));
         onChangeSkinType();
-        this.iFe = new b(tbPageContext, this.Wa);
+        this.iLi = new b(tbPageContext, this.VT);
     }
 
     public void b(TbPageTag tbPageTag) {
-        this.iFe.b(tbPageTag);
+        this.iLi.b(tbPageTag);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (this.fnt != null) {
-            this.fnt.setTextColor(an.getColor(R.color.cp_cont_j));
-            this.fnt.changeSkin(skinType);
+        if (this.fsC != null) {
+            this.fsC.setTextColor(ao.getColor(R.color.cp_cont_j));
+            this.fsC.changeSkin(skinType);
         }
-        if (this.Wa != null && this.Wa.getAdapter() != null) {
-            this.Wa.getAdapter().notifyDataSetChanged();
+        if (this.VT != null && this.VT.getAdapter() != null) {
+            this.VT.getAdapter().notifyDataSetChanged();
         }
     }
 
-    public void nu(boolean z) {
+    public void nZ(boolean z) {
         if (z) {
-            this.Wa.setVisibility(0);
+            this.VT.setVisibility(0);
         } else {
-            this.Wa.setVisibility(8);
+            this.VT.setVisibility(8);
         }
     }
 
     public void setRefreshing(boolean z) {
         u uVar = new u();
         uVar.tabId = 401;
-        uVar.eSL = z;
+        uVar.eZg = z;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
     }
 
@@ -89,22 +89,22 @@ public class d {
     }
 
     public void setData(List<q> list) {
-        if (!w.isEmpty(list)) {
-            this.Wa.setData(list);
+        if (!x.isEmpty(list)) {
+            this.VT.setData(list);
         }
     }
 
     public void showNoDataView() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new r());
-        this.Wa.setData(arrayList);
+        this.VT.setData(arrayList);
     }
 
-    public void bXH() {
-        this.Wa.scrollToPosition(0);
+    public void cbd() {
+        this.VT.scrollToPosition(0);
     }
 
     public boolean hasData() {
-        return (this.Wa == null || w.isEmpty(this.Wa.getData())) ? false : true;
+        return (this.VT == null || x.isEmpty(this.VT.getData())) ? false : true;
     }
 }

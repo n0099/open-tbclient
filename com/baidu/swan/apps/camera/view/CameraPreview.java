@@ -12,53 +12,53 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.baidu.mobstat.Config;
-import com.baidu.swan.apps.aq.n;
+import com.baidu.swan.apps.aq.p;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.camera.d.a;
-import com.baidu.swan.e.d;
+import com.baidu.swan.d.d;
 import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
     private static final boolean DEBUG = b.DEBUG;
-    public static Camera bSl;
-    private MediaRecorder bSk;
-    private String bSm;
-    private String bSn;
-    private a bSo;
-    private SurfaceHolder bpp;
+    private static Camera bTd;
+    private MediaRecorder bTc;
+    private String bTe;
+    private String bTf;
+    private a bTg;
+    private SurfaceHolder bpK;
     public Context mContext;
     private String mVideoPath;
 
     public CameraPreview(Context context) {
         super(context);
-        this.bSm = Quality.NORMAL.getQualityName();
+        this.bTe = Quality.NORMAL.getQualityName();
         this.mVideoPath = "";
-        this.bSn = "";
+        this.bTf = "";
     }
 
     public CameraPreview(Context context, a aVar) {
         super(context);
-        this.bSm = Quality.NORMAL.getQualityName();
+        this.bTe = Quality.NORMAL.getQualityName();
         this.mVideoPath = "";
-        this.bSn = "";
+        this.bTf = "";
         this.mContext = context;
-        this.bSo = aVar;
-        this.bpp = getHolder();
-        this.bpp.addCallback(this);
+        this.bTg = aVar;
+        this.bpK = getHolder();
+        this.bpK.addCallback(this);
     }
 
     public Camera getCameraInstance() {
         try {
             releaseCamera();
-            bSl = Camera.open(getFrontOrBackCameraId());
-            if (this.bSo != null) {
-                Camera.Parameters parameters = bSl.getParameters();
-                a(bSl, parameters, this.bSo.VR());
-                int width = this.bSo.getWidth();
-                int height = this.bSo.getHeight();
+            bTd = Camera.open(getFrontOrBackCameraId());
+            if (this.bTg != null) {
+                Camera.Parameters parameters = bTd.getParameters();
+                a(bTd, parameters, this.bTg.Wy());
+                int width = this.bTg.getWidth();
+                int height = this.bTg.getHeight();
                 Camera.Size c = c(parameters.getSupportedPreviewSizes(), width, height);
                 if (c != null) {
                     parameters.setPreviewSize(c.width, c.height);
@@ -70,7 +70,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                 if (getFrontOrBackCameraId() == 1) {
                     parameters.set("video-flip", "flip-h");
                 }
-                bSl.setParameters(parameters);
+                bTd.setParameters(parameters);
             }
         } catch (Exception e) {
             if (DEBUG) {
@@ -78,7 +78,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                 e.printStackTrace();
             }
         }
-        return bSl;
+        return bTd;
     }
 
     @Override // android.view.SurfaceHolder.Callback
@@ -88,9 +88,9 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         }
         getCameraInstance();
         try {
-            if (bSl != null) {
-                bSl.setPreviewDisplay(surfaceHolder);
-                bSl.startPreview();
+            if (bTd != null) {
+                bTd.setPreviewDisplay(surfaceHolder);
+                bTd.startPreview();
                 setCameraDisplayOrientation();
             }
         } catch (IOException | RuntimeException e) {
@@ -113,14 +113,14 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         if (DEBUG) {
             Log.d("SwanAppCameraManager", "camera surfaceChanged");
         }
-        b(this.bSo);
+        b(this.bTg);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getPointerCount() == 1) {
             try {
-                com.baidu.swan.apps.camera.c.a.a(motionEvent, bSl, getWidth(), getHeight());
+                com.baidu.swan.apps.camera.c.a.a(motionEvent, bTd, getWidth(), getHeight());
             } catch (Exception e) {
                 if (DEBUG) {
                     Log.d("SwanAppCameraManager", Log.getStackTraceString(e));
@@ -131,35 +131,35 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     }
 
     public void onRelease() {
-        VU();
-        VV();
-        if (this.bpp != null) {
-            this.bpp.removeCallback(this);
+        WB();
+        WC();
+        if (this.bpK != null) {
+            this.bpK.removeCallback(this);
         }
         releaseCamera();
     }
 
     public void a(final String str, final com.baidu.swan.apps.camera.b.a aVar) {
-        bSl.takePicture(null, null, new Camera.PictureCallback() { // from class: com.baidu.swan.apps.camera.view.CameraPreview.1
+        bTd.takePicture(null, null, new Camera.PictureCallback() { // from class: com.baidu.swan.apps.camera.view.CameraPreview.1
             @Override // android.hardware.Camera.PictureCallback
             public void onPictureTaken(final byte[] bArr, Camera camera) {
                 try {
                     camera.startPreview();
                     CameraPreview.this.setCameraDisplayOrientation();
                 } catch (RuntimeException e) {
-                    if (CameraPreview.this.bSo != null) {
-                        com.baidu.swan.apps.camera.a.VN().i(CameraPreview.this.bSo.bUu, CameraPreview.this.bSo.bSi, false);
+                    if (CameraPreview.this.bTg != null) {
+                        com.baidu.swan.apps.camera.a.Wu().i(CameraPreview.this.bTg.bVm, CameraPreview.this.bTg.bTa, false);
                     }
                     CameraPreview.this.onRelease();
                     if (CameraPreview.DEBUG) {
                         e.printStackTrace();
                     }
                 }
-                n.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.camera.view.CameraPreview.1.1
+                p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.camera.view.CameraPreview.1.1
                     @Override // java.lang.Runnable
                     public void run() {
                         int i;
-                        int quality = Quality.getQuality(CameraPreview.this.bSm);
+                        int quality = Quality.getQuality(CameraPreview.this.bTe);
                         boolean z = CameraPreview.this.getResources().getConfiguration().orientation == 1;
                         boolean z2 = CameraPreview.this.getFrontOrBackCameraId() == 0;
                         if (z) {
@@ -167,7 +167,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                         } else {
                             i = 0;
                         }
-                        boolean a = com.baidu.swan.apps.camera.a.VN().a(bArr, str, quality, i, z2 ? false : true);
+                        boolean a = com.baidu.swan.apps.camera.a.Wu().a(bArr, str, quality, i, z2 ? false : true);
                         if (aVar != null) {
                             if (a) {
                                 aVar.onSuccess(str);
@@ -181,43 +181,43 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         });
     }
 
-    public boolean iH(String str) {
+    public boolean iR(String str) {
         setSaveMediaPath(str);
-        if (VT()) {
-            this.bSk.start();
+        if (WA()) {
+            this.bTc.start();
             return true;
         }
-        VV();
+        WC();
         return false;
     }
 
-    public boolean VS() {
-        VU();
-        if (bSl != null) {
-            bSl.lock();
+    public boolean Wz() {
+        WB();
+        if (bTd != null) {
+            bTd.lock();
         }
         ThumbnailUtils.createVideoThumbnail(getThumbPath(), 1);
         return true;
     }
 
-    private boolean VT() {
-        VU();
-        this.bSk = new MediaRecorder();
-        bSl = getCameraInstance();
+    private boolean WA() {
+        WB();
+        this.bTc = new MediaRecorder();
+        bTd = getCameraInstance();
         setCameraDisplayOrientation();
         if (getResources().getConfiguration().orientation == 1) {
-            this.bSk.setOrientationHint(90);
+            this.bTc.setOrientationHint(90);
         }
-        bSl.unlock();
-        this.bSk.setCamera(bSl);
-        this.bSk.setAudioSource(1);
-        this.bSk.setVideoSource(1);
-        this.bSk.setProfile(getCamcorderProfile());
-        this.bSk.setOutputFile(getVideoPath());
-        this.bSk.setVideoEncodingBitRate(8388608);
-        this.bSk.setPreviewDisplay(this.bpp.getSurface());
+        bTd.unlock();
+        this.bTc.setCamera(bTd);
+        this.bTc.setAudioSource(1);
+        this.bTc.setVideoSource(1);
+        this.bTc.setProfile(getCamcorderProfile());
+        this.bTc.setOutputFile(getVideoPath());
+        this.bTc.setVideoEncodingBitRate(8388608);
+        this.bTc.setPreviewDisplay(this.bpK.getSurface());
         try {
-            this.bSk.prepare();
+            this.bTc.prepare();
             return true;
         } catch (IOException e) {
             if (DEBUG) {
@@ -234,18 +234,18 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         }
     }
 
-    private void VU() {
-        if (this.bSk != null) {
+    private void WB() {
+        if (this.bTc != null) {
             try {
-                this.bSk.stop();
+                this.bTc.stop();
             } catch (Exception e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             } finally {
-                this.bSk.reset();
-                this.bSk.release();
-                this.bSk = null;
+                this.bTc.reset();
+                this.bTc.release();
+                this.bTc = null;
             }
         }
     }
@@ -332,14 +332,14 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
     public void b(a aVar) {
         try {
-            this.bSo = aVar;
+            this.bTg = aVar;
             releaseCamera();
             getCameraInstance();
-            if (bSl != null) {
-                bSl.setPreviewDisplay(this.bpp);
-                bSl.startPreview();
+            if (bTd != null) {
+                bTd.setPreviewDisplay(this.bpK);
+                bTd.startPreview();
                 setCameraDisplayOrientation();
-                bSl.autoFocus(new Camera.AutoFocusCallback() { // from class: com.baidu.swan.apps.camera.view.CameraPreview.2
+                bTd.autoFocus(new Camera.AutoFocusCallback() { // from class: com.baidu.swan.apps.camera.view.CameraPreview.2
                     @Override // android.hardware.Camera.AutoFocusCallback
                     public void onAutoFocus(boolean z, Camera camera) {
                         if (CameraPreview.DEBUG) {
@@ -349,7 +349,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                 });
             }
         } catch (IOException | RuntimeException e) {
-            com.baidu.swan.apps.camera.a.VN().i(aVar.bUu, aVar.bSi, false);
+            com.baidu.swan.apps.camera.a.Wu().i(aVar.bVm, aVar.bTa, false);
             if (DEBUG) {
                 e.printStackTrace();
             }
@@ -357,27 +357,27 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     }
 
     public void setQuality(String str) {
-        this.bSm = str;
+        this.bTe = str;
     }
 
-    public String iI(String str) {
+    public String iS(String str) {
         return str + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg";
     }
 
     private void setSaveMediaPath(String str) {
         this.mVideoPath = str + File.separator + "VID_" + Calendar.getInstance().getTimeInMillis() + ".mp4";
-        this.bSn = str + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg";
+        this.bTf = str + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg";
         d.createNewFileSafely(new File(this.mVideoPath));
     }
 
-    public void VV() {
+    public void WC() {
         this.mVideoPath = "";
-        this.bSn = "";
+        this.bTf = "";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getFrontOrBackCameraId() {
-        return (this.bSo == null || !this.bSo.isFrontCamera()) ? 0 : 1;
+        return (this.bTg == null || !this.bTg.isFrontCamera()) ? 0 : 1;
     }
 
     public String getVideoPath() {
@@ -385,15 +385,15 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     }
 
     public String getThumbPath() {
-        return this.bSn;
+        return this.bTf;
     }
 
     public String getSlaveId() {
-        return this.bSo == null ? "" : this.bSo.bUu;
+        return this.bTg == null ? "" : this.bTg.bVm;
     }
 
     public void setCameraDisplayOrientation() {
-        bSl.setDisplayOrientation(getDegree());
+        bTd.setDisplayOrientation(getDegree());
     }
 
     private int getDegree() {
@@ -430,16 +430,16 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         return 0;
     }
 
-    private void releaseCamera() {
-        if (bSl != null) {
-            bSl.setPreviewCallback(null);
-            bSl.stopPreview();
-            bSl.release();
-            bSl = null;
+    public static void releaseCamera() {
+        if (bTd != null) {
+            bTd.setPreviewCallback(null);
+            bTd.stopPreview();
+            bTd.release();
+            bTd = null;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public enum Quality {
         HIGH("high", 100),
         NORMAL("normal", 70),

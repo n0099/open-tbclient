@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.aa;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class h extends aa {
     public h(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/file/removeSavedFile");
@@ -16,7 +16,7 @@ public class h extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (context == null || callbackHandler == null || eVar == null || eVar.apX() == null) {
+        if (context == null || callbackHandler == null || eVar == null || eVar.arG() == null) {
             com.baidu.swan.apps.console.c.e("removeSavedFile", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -27,28 +27,28 @@ public class h extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        String bV = com.baidu.swan.apps.storage.b.bV(optParamsAsJo.optString("filePath"), com.baidu.swan.apps.runtime.e.apO());
+        String bW = com.baidu.swan.apps.storage.b.bW(optParamsAsJo.optString("filePath"), com.baidu.swan.apps.runtime.e.arx());
         if (DEBUG) {
             Log.d("SaveFileAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
-            Log.d("SaveFileAction", "——> handle: filePath " + bV);
+            Log.d("SaveFileAction", "——> handle: filePath " + bW);
         }
         if (DEBUG) {
-            Log.d("RemoveSavedFileAction", "——> handle: filePath " + bV);
+            Log.d("RemoveSavedFileAction", "——> handle: filePath " + bW);
         }
-        if (TextUtils.isEmpty(bV)) {
+        if (TextUtils.isEmpty(bW)) {
             com.baidu.swan.apps.console.c.e("removeSavedFile", "file path is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        int pa = eVar.apX().pa(bV);
+        int pL = eVar.arG().pL(bW);
         if (DEBUG) {
-            Log.d("RemoveSavedFileAction", "——> handle: statusCode " + pa);
+            Log.d("RemoveSavedFileAction", "——> handle: statusCode " + pL);
         }
-        if (pa > 2000) {
-            com.baidu.swan.apps.console.c.e("removeSavedFile", "file path status code : " + pa);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(pa, com.baidu.swan.apps.scheme.f.getErrMessage(pa)));
+        if (pL > 2000) {
+            com.baidu.swan.apps.console.c.e("removeSavedFile", "file path status code : " + pL);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(pL, com.baidu.swan.apps.scheme.f.getErrMessage(pL)));
             return false;
-        } else if (com.baidu.swan.e.d.deleteFile(bV)) {
+        } else if (com.baidu.swan.d.d.deleteFile(bW)) {
             com.baidu.swan.apps.console.c.i("removeSavedFile", "file delete success");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             if (DEBUG) {

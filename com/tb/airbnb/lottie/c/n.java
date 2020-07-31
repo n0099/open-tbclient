@@ -7,7 +7,7 @@ import com.tb.airbnb.lottie.model.content.ShapeStroke;
 import java.io.IOException;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class n {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.tb.airbnb.lottie.model.content.e p(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {

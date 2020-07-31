@@ -1,4 +1,4 @@
 package com.baidu.live.gift.biggift;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface c {
 }

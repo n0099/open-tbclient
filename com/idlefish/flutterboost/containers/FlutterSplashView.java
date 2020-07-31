@@ -12,7 +12,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.idlefish.flutterboost.Debuger;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.XFlutterView;
@@ -21,7 +21,7 @@ import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.android.SplashScreen;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public class FlutterSplashView extends FrameLayout {
     private static String TAG = "FlutterSplashView";
     @NonNull
@@ -39,6 +39,8 @@ public class FlutterSplashView extends FrameLayout {
     private final Runnable onTransitionComplete;
     @Nullable
     private String previousCompletedSplashIsolate;
+    @NonNull
+    private final FlutterUiDisplayListener removeSplashListener;
     @Nullable
     private SplashScreen splashScreen;
     @Nullable
@@ -60,20 +62,24 @@ public class FlutterSplashView extends FrameLayout {
         super(context, attributeSet, i);
         this.handler = new Handler();
         this.flutterEngineAttachmentListener = new FlutterView.FlutterEngineAttachmentListener() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.1
+            @Override // io.flutter.embedding.android.FlutterView.FlutterEngineAttachmentListener
             public void onFlutterEngineAttachedToFlutterView(@NonNull FlutterEngine flutterEngine) {
                 FlutterSplashView.this.flutterView.removeFlutterEngineAttachmentListener(this);
             }
 
+            @Override // io.flutter.embedding.android.FlutterView.FlutterEngineAttachmentListener
             public void onFlutterEngineDetachedFromFlutterView() {
             }
         };
         this.onFirstFrameRenderedListener = new FlutterUiDisplayListener() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.2
+            @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
             public void onFlutterUiDisplayed() {
                 if (FlutterSplashView.this.splashScreen != null) {
                     FlutterSplashView.this.transitionToFlutter();
                 }
             }
 
+            @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
             public void onFlutterUiNoLongerDisplayed() {
             }
         };
@@ -89,7 +95,7 @@ public class FlutterSplashView extends FrameLayout {
             public void run() {
                 if (!FlutterBoost.instance().isReady) {
                     FlutterBoost.instance().isReady = true;
-                    TiebaStatic.log(new ao("flutter_loading_timeout"));
+                    TiebaStatic.log(new ap("flutter_loading_timeout"));
                     FlutterSplashView.this.transitionToFlutter();
                 }
             }
@@ -103,6 +109,18 @@ public class FlutterSplashView extends FrameLayout {
                     FlutterSplashView.this.handler.removeCallbacks(FlutterSplashView.this.loadingShowTimeOut);
                     FlutterSplashView.this.transitionToFlutter();
                 }
+            }
+        };
+        this.removeSplashListener = new FlutterUiDisplayListener() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.6
+            @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
+            public void onFlutterUiDisplayed() {
+                if (FlutterSplashView.this.splashScreen != null) {
+                    FlutterSplashView.this.handler.postDelayed(FlutterSplashView.this.onTransitionComplete, 100L);
+                }
+            }
+
+            @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
+            public void onFlutterUiNoLongerDisplayed() {
             }
         };
         setSaveEnabled(true);
@@ -135,6 +153,16 @@ public class FlutterSplashView extends FrameLayout {
         }
     }
 
+    public void showSplash(SplashScreen splashScreen) {
+        if (splashScreen != null && !isAttachedToFlutterEngine()) {
+            if (this.splashScreenView.isAttachedToWindow()) {
+                removeView(this.splashScreenView);
+            }
+            this.splashScreenView = splashScreen.createSplashView(getContext(), this.splashScreenState);
+            addView(this.splashScreenView);
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void transitionToFlutter() {
         if (this.flutterView.getAttachedFlutterEngine() != null) {
@@ -154,6 +182,9 @@ public class FlutterSplashView extends FrameLayout {
     public void onAttach() {
         Debuger.log("BoostFlutterView onAttach");
         this.flutterView.attachToFlutterEngine(this.mFlutterEngine);
+        if (this.splashScreenView.isAttachedToWindow()) {
+            this.flutterView.addOnFirstFrameRenderedListener(this.removeSplashListener);
+        }
     }
 
     public void onDetach() {

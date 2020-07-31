@@ -3,7 +3,7 @@ package com.baidu.mobads.utils;
 import android.annotation.TargetApi;
 import android.content.SharedPreferences;
 import android.os.Build;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 class q implements Runnable {
     final /* synthetic */ SharedPreferences a;
     final /* synthetic */ String b;

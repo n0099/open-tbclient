@@ -1,13 +1,13 @@
 package com.baidu.live.gift;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class s {
-    public String aGN;
-    public int aIb;
+    public String aIi;
+    public int aJy;
     public String itemId;
 
     public s(String str, String str2, int i) {
         this.itemId = str;
-        this.aGN = str2;
-        this.aIb = i;
+        this.aIi = str2;
+        this.aJy = i;
     }
 }

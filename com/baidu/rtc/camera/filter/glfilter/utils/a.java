@@ -6,7 +6,7 @@ import android.util.Log;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static final float[] IDENTITY_MATRIX = new float[16];
 
@@ -124,7 +124,7 @@ public class a {
         return i2;
     }
 
-    public static int QV() {
+    public static int Rk() {
         return ei(36197);
     }
 }

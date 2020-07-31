@@ -9,15 +9,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
     final io.reactivex.c.d<? super T, ? super T> comparer;
-    final org.a.b<? extends T> nKP;
-    final org.a.b<? extends T> nKQ;
+    final org.a.b<? extends T> nTx;
+    final org.a.b<? extends T> nTy;
     final int prefetch;
 
     @Override // io.reactivex.w
     public void b(y<? super Boolean> yVar) {
         EqualCoordinator equalCoordinator = new EqualCoordinator(yVar, this.prefetch, this.comparer);
         yVar.onSubscribe(equalCoordinator);
-        equalCoordinator.subscribe(this.nKP, this.nKQ);
+        equalCoordinator.subscribe(this.nTx, this.nTy);
     }
 
     /* loaded from: classes7.dex */
@@ -88,7 +88,7 @@ public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
                                 t = gVar.poll();
                                 this.v1 = t;
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.L(th);
+                                io.reactivex.exceptions.a.K(th);
                                 cancelAndClear();
                                 this.error.addThrowable(th);
                                 this.actual.onError(this.error.terminate());
@@ -104,7 +104,7 @@ public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
                                 t3 = gVar2.poll();
                                 this.v2 = t3;
                             } catch (Throwable th2) {
-                                io.reactivex.exceptions.a.L(th2);
+                                io.reactivex.exceptions.a.K(th2);
                                 cancelAndClear();
                                 this.error.addThrowable(th2);
                                 this.actual.onError(this.error.terminate());
@@ -132,7 +132,7 @@ public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
                                 this.first.request();
                                 this.second.request();
                             } catch (Throwable th3) {
-                                io.reactivex.exceptions.a.L(th3);
+                                io.reactivex.exceptions.a.K(th3);
                                 cancelAndClear();
                                 this.error.addThrowable(th3);
                                 this.actual.onError(this.error.terminate());

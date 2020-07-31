@@ -34,7 +34,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public final class SapiAccountManager implements ISAccountManager {
     public static final String SESSION_BDUSS = "bduss";
     public static final String SESSION_DISPLAYNAME = "displayname";
@@ -54,25 +54,25 @@ public final class SapiAccountManager implements ISAccountManager {
     private static final List<String> k = new ArrayList();
     private char l = 0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public interface CheckUrlIsAvailableListener {
         void handleWebPageUrl(String str);
 
         boolean onCheckUrlIsAvailable(String str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static abstract class GlobalAuthorizationListener {
         public void onLogoutSuccess(SapiAccount sapiAccount) {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public interface ReceiveShareListener {
         void onReceiveShare();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public interface SilentShareListener {
         void onSilentShare();
     }

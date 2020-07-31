@@ -9,94 +9,94 @@ import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.card.data.l;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a {
-    private BdTypeRecyclerView Wa;
-    private LinkedList<com.baidu.adp.widget.ListView.a> ipv = new LinkedList<>();
-    private f ipw;
-    private c ipx;
-    private d ipy;
-    private e ipz;
+    private BdTypeRecyclerView VT;
+    private f ivA;
+    private c ivB;
+    private d ivC;
+    private e ivD;
+    private LinkedList<com.baidu.adp.widget.ListView.a> ivz = new LinkedList<>();
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
-        this.Wa = bdTypeRecyclerView;
-        Dz();
+        this.VT = bdTypeRecyclerView;
+        DS();
     }
 
-    private void Dz() {
-        this.ipw = new f(this.mPageContext, k.gUF);
-        this.ipx = new c(this.mPageContext, l.dLH);
-        this.ipy = new d(this.mPageContext, k.gUN);
-        this.ipz = new e(this.mPageContext, k.gUL);
-        this.ipw.a(this.Wa);
-        this.ipx.a(this.Wa);
-        this.ipy.a(this.Wa);
-        this.ipz.a(this.Wa);
-        this.ipv.add(this.ipw);
-        this.ipv.add(this.ipx);
-        this.ipv.add(this.ipy);
-        this.ipv.add(this.ipz);
-        this.Wa.addAdapters(this.ipv);
+    private void DS() {
+        this.ivA = new f(this.mPageContext, k.haj);
+        this.ivB = new c(this.mPageContext, l.dRS);
+        this.ivC = new d(this.mPageContext, k.har);
+        this.ivD = new e(this.mPageContext, k.hap);
+        this.ivA.a(this.VT);
+        this.ivB.a(this.VT);
+        this.ivC.a(this.VT);
+        this.ivD.a(this.VT);
+        this.ivz.add(this.ivA);
+        this.ivz.add(this.ivB);
+        this.ivz.add(this.ivC);
+        this.ivz.add(this.ivD);
+        this.VT.addAdapters(this.ivz);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Wa != null) {
-            this.Wa.getListAdapter().notifyDataSetChanged();
+        if (this.VT != null) {
+            this.VT.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.ipw != null) {
-            this.ipw.setPageUniqueId(bdUniqueId);
+        if (this.ivA != null) {
+            this.ivA.setPageUniqueId(bdUniqueId);
         }
-        if (this.ipx != null) {
-            this.ipx.setPageUniqueId(bdUniqueId);
+        if (this.ivB != null) {
+            this.ivB.setPageUniqueId(bdUniqueId);
         }
-        if (this.ipy != null) {
-            this.ipy.setPageUniqueId(bdUniqueId);
+        if (this.ivC != null) {
+            this.ivC.setPageUniqueId(bdUniqueId);
         }
-        if (this.ipz != null) {
-            this.ipz.setPageUniqueId(bdUniqueId);
+        if (this.ivD != null) {
+            this.ivD.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void setData(List<q> list) {
-        this.Wa.setData(list);
+        this.VT.setData(list);
     }
 
     public List<q> getDataList() {
-        if (this.Wa != null) {
-            return this.Wa.getData();
+        if (this.VT != null) {
+            return this.VT.getData();
         }
         return null;
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.ipz != null) {
-            this.ipz.setEventCallback(aVar);
+        if (this.ivD != null) {
+            this.ivD.setEventCallback(aVar);
         }
     }
 
-    public void xe(int i) {
-        if (this.ipw != null) {
-            this.ipw.xe(i);
+    public void xw(int i) {
+        if (this.ivA != null) {
+            this.ivA.xw(i);
         }
-        if (this.ipx != null) {
-            this.ipx.xe(i);
+        if (this.ivB != null) {
+            this.ivB.xw(i);
         }
-        if (this.ipy != null) {
-            this.ipy.xe(i);
+        if (this.ivC != null) {
+            this.ivC.xw(i);
         }
-        if (this.ipz != null) {
-            this.ipz.xe(i);
+        if (this.ivD != null) {
+            this.ivD.xw(i);
         }
     }
 
     public void onPause() {
-        if (this.ipx != null) {
-            this.ipx.onPause();
+        if (this.ivB != null) {
+            this.ivB.onPause();
         }
     }
 

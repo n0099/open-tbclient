@@ -2,25 +2,25 @@ package com.tb.airbnb.lottie.a.b;
 
 import android.graphics.PointF;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class m extends a<PointF, PointF> {
-    private final PointF CV;
-    private final a<Float, Float> nGf;
-    private final a<Float, Float> nGg;
+    private final PointF CX;
+    private final a<Float, Float> nON;
+    private final a<Float, Float> nOO;
 
     public m(a<Float, Float> aVar, a<Float, Float> aVar2) {
         super(Collections.emptyList());
-        this.CV = new PointF();
-        this.nGf = aVar;
-        this.nGg = aVar2;
+        this.CX = new PointF();
+        this.nON = aVar;
+        this.nOO = aVar2;
         setProgress(getProgress());
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a
     public void setProgress(float f) {
-        this.nGf.setProgress(f);
-        this.nGg.setProgress(f);
-        this.CV.set(this.nGf.getValue().floatValue(), this.nGg.getValue().floatValue());
+        this.nON.setProgress(f);
+        this.nOO.setProgress(f);
+        this.CX.set(this.nON.getValue().floatValue(), this.nOO.getValue().floatValue());
         int i = 0;
         while (true) {
             int i2 = i;
@@ -45,6 +45,6 @@ public class m extends a<PointF, PointF> {
     @Override // com.tb.airbnb.lottie.a.b.a
     /* renamed from: e */
     public PointF a(com.tb.airbnb.lottie.e.a<PointF> aVar, float f) {
-        return this.CV;
+        return this.CX;
     }
 }

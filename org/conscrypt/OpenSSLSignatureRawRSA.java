@@ -9,7 +9,7 @@ import java.security.SignatureSpi;
 import java.security.interfaces.RSAPrivateCrtKey;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class OpenSSLSignatureRawRSA extends SignatureSpi {
     private byte[] inputBuffer;
     private boolean inputIsTooLong;

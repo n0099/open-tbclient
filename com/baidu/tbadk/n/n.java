@@ -3,204 +3,204 @@ package com.baidu.tbadk.n;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class n extends l {
-    private static n eCd = null;
-    private boolean eBB = false;
-    private boolean eBC = false;
-    private boolean eBD = false;
-    private boolean eBE = false;
-    private long eBF = -1;
-    private long eBG = -1;
-    private long eBH = -1;
-    private long eBI = -1;
-    private long eBJ = -1;
-    private long eBK = -1;
-    private long eBL = -1;
-    private long eBM = -1;
-    private long eBN = -1;
-    private long eBO = -1;
-    private long eBP = -1;
-    private long eBQ = -1;
-    private long eBR = -1;
-    private long eBS = -1;
-    private long eBT = -1;
-    private long eBU = -1;
-    private long eBV = -1;
-    private long eBW = -1;
-    private long eBX = -1;
-    private long eBY = -1;
-    private long eBZ = -1;
-    private long eCa = -1;
-    private long eCb = -1;
-    private long eCc = -1;
+    private static n eIs = null;
+    private boolean eHQ = false;
+    private boolean eHR = false;
+    private boolean eHS = false;
+    private boolean eHT = false;
+    private long eHU = -1;
+    private long eHV = -1;
+    private long eHW = -1;
+    private long eHX = -1;
+    private long eHY = -1;
+    private long eHZ = -1;
+    private long eIa = -1;
+    private long eIb = -1;
+    private long eIc = -1;
+    private long eId = -1;
+    private long eIe = -1;
+    private long eIf = -1;
+    private long eIg = -1;
+    private long eIh = -1;
+    private long eIi = -1;
+    private long eIj = -1;
+    private long eIk = -1;
+    private long eIl = -1;
+    private long eIm = -1;
+    private long eIn = -1;
+    private long eIo = -1;
+    private long eIp = -1;
+    private long eIq = -1;
+    private long eIr = -1;
 
-    public boolean bhS() {
-        return this.eBC;
+    public boolean blD() {
+        return this.eHR;
     }
 
-    public void iz(boolean z) {
-        this.eBB = z;
-    }
-
-    public void cw(long j) {
-        this.eBF = j;
-    }
-
-    public long bhT() {
-        return this.eBF;
-    }
-
-    public void iA(boolean z) {
-        this.eBE = z;
-    }
-
-    public void cx(long j) {
-        this.eBG = j;
-    }
-
-    public void cy(long j) {
-        this.eBH = j;
-    }
-
-    public void cz(long j) {
-        this.eBI = j;
-    }
-
-    public void cA(long j) {
-        this.eBM = j;
-    }
-
-    public void cB(long j) {
-        this.eBL = j;
-    }
-
-    public void cC(long j) {
-        this.eBJ = j;
-    }
-
-    public void cD(long j) {
-        this.eBK = j;
-    }
-
-    public void cE(long j) {
-        this.eCa = j;
-    }
-
-    public void cF(long j) {
-        this.eBV = j;
-    }
-
-    public void cG(long j) {
-        this.eBW = j;
-    }
-
-    public void cH(long j) {
-        this.eBX = j;
-    }
-
-    public void cI(long j) {
-        this.eBY = j;
-    }
-
-    public void cJ(long j) {
-        this.eCb = j;
-    }
-
-    public void cK(long j) {
-        this.eCc = j;
-        this.eBC = true;
-    }
-
-    public void cL(long j) {
-        this.eBN = j;
-    }
-
-    public void cM(long j) {
-        this.eBO = j;
-    }
-
-    public void cN(long j) {
-        this.eBQ = j;
-    }
-
-    public void cO(long j) {
-        this.eBP = j;
-    }
-
-    public void cP(long j) {
-        this.eBR = j;
+    public void je(boolean z) {
+        this.eHQ = z;
     }
 
     public void cQ(long j) {
-        this.eBS = j;
+        this.eHU = j;
+    }
+
+    public long blE() {
+        return this.eHU;
+    }
+
+    public void jf(boolean z) {
+        this.eHT = z;
     }
 
     public void cR(long j) {
-        this.eBT = j;
+        this.eHV = j;
     }
 
     public void cS(long j) {
-        this.eBU = j;
+        this.eHW = j;
     }
 
-    public static n bhU() {
-        if (eCd == null) {
+    public void cT(long j) {
+        this.eHX = j;
+    }
+
+    public void cU(long j) {
+        this.eIb = j;
+    }
+
+    public void cV(long j) {
+        this.eIa = j;
+    }
+
+    public void cW(long j) {
+        this.eHY = j;
+    }
+
+    public void cX(long j) {
+        this.eHZ = j;
+    }
+
+    public void cY(long j) {
+        this.eIp = j;
+    }
+
+    public void cZ(long j) {
+        this.eIk = j;
+    }
+
+    public void da(long j) {
+        this.eIl = j;
+    }
+
+    public void db(long j) {
+        this.eIm = j;
+    }
+
+    public void dc(long j) {
+        this.eIn = j;
+    }
+
+    public void dd(long j) {
+        this.eIq = j;
+    }
+
+    public void de(long j) {
+        this.eIr = j;
+        this.eHR = true;
+    }
+
+    public void df(long j) {
+        this.eIc = j;
+    }
+
+    public void dg(long j) {
+        this.eId = j;
+    }
+
+    public void dh(long j) {
+        this.eIf = j;
+    }
+
+    public void di(long j) {
+        this.eIe = j;
+    }
+
+    public void dj(long j) {
+        this.eIg = j;
+    }
+
+    public void dk(long j) {
+        this.eIh = j;
+    }
+
+    public void dl(long j) {
+        this.eIi = j;
+    }
+
+    public void dm(long j) {
+        this.eIj = j;
+    }
+
+    public static n blF() {
+        if (eIs == null) {
             synchronized (n.class) {
-                if (eCd == null) {
-                    eCd = new n();
+                if (eIs == null) {
+                    eIs = new n();
                 }
             }
         }
-        return eCd;
+        return eIs;
     }
 
-    public void bhV() {
-        if (this.eCc - this.eBF > 0 && !this.eBD && this.eBZ > 0 && m.bhP().bhQ()) {
-            this.eBD = true;
-            long j = this.eBG - this.eBF;
+    public void blG() {
+        if (this.eIr - this.eHU > 0 && !this.eHS && this.eIo > 0 && m.blA().blB()) {
+            this.eHS = true;
+            long j = this.eHV - this.eHU;
             long j2 = -1;
-            if (this.eBX > 0) {
-                j2 = this.eBY - this.eBX;
+            if (this.eIm > 0) {
+                j2 = this.eIn - this.eIm;
             }
-            long j3 = this.eCc - this.eCb;
+            long j3 = this.eIr - this.eIq;
             com.baidu.adp.lib.stats.a lo = lo();
             lo.append("procname", "main");
             lo.append("appc", String.valueOf(j));
-            lo.append("loadclass", String.valueOf(this.eBH));
-            lo.append("sapiinit", String.valueOf(this.eBI));
-            lo.append("acctinit", String.valueOf(this.eBJ));
-            lo.append("iminit", String.valueOf(this.eBK));
-            lo.append("plugininit", String.valueOf(this.eBL));
-            lo.append("patchloaded", String.valueOf(this.eBM));
-            lo.append("naslibinit", String.valueOf(this.eBN));
-            lo.append("websocketinit", String.valueOf(this.eBO));
-            lo.append("settinginit", String.valueOf(this.eBP));
-            lo.append("toastinit", String.valueOf(this.eBQ));
-            lo.append("tiebastaticinit", String.valueOf(this.eBR));
-            lo.append("locationinit", String.valueOf(this.eBS));
-            lo.append("cdninit", String.valueOf(this.eBT));
-            lo.append("messagesetinit", String.valueOf(this.eBU));
-            lo.append("logores", String.valueOf(this.eCa));
-            lo.append("opttest", String.valueOf(com.baidu.tbadk.core.frameworkData.d.dQV ? 1 : 0));
-            if (this.eBV > 0 && this.eBX > 0 && j2 > 0) {
-                lo.append("adc", String.valueOf(this.eBV + this.eBW));
+            lo.append("loadclass", String.valueOf(this.eHW));
+            lo.append("sapiinit", String.valueOf(this.eHX));
+            lo.append("acctinit", String.valueOf(this.eHY));
+            lo.append("iminit", String.valueOf(this.eHZ));
+            lo.append("plugininit", String.valueOf(this.eIa));
+            lo.append("patchloaded", String.valueOf(this.eIb));
+            lo.append("naslibinit", String.valueOf(this.eIc));
+            lo.append("websocketinit", String.valueOf(this.eId));
+            lo.append("settinginit", String.valueOf(this.eIe));
+            lo.append("toastinit", String.valueOf(this.eIf));
+            lo.append("tiebastaticinit", String.valueOf(this.eIg));
+            lo.append("locationinit", String.valueOf(this.eIh));
+            lo.append("cdninit", String.valueOf(this.eIi));
+            lo.append("messagesetinit", String.valueOf(this.eIj));
+            lo.append("logores", String.valueOf(this.eIp));
+            lo.append("opttest", String.valueOf(com.baidu.tbadk.core.frameworkData.d.dXn ? 1 : 0));
+            if (this.eIk > 0 && this.eIm > 0 && j2 > 0) {
+                lo.append("adc", String.valueOf(this.eIk + this.eIl));
                 lo.append("adshow", String.valueOf(j2));
-                lo.append("adrequest", String.valueOf(this.eBW));
+                lo.append("adrequest", String.valueOf(this.eIl));
                 lo.append("hasad", "1");
             } else {
                 lo.append("hasad", "0");
             }
             lo.append("tabc", String.valueOf(j3));
-            lo.append("costt", String.valueOf(j2 + j + this.eBV + this.eBW + j3 + this.eBZ));
-            lo.append("newinst", this.eBB ? "1" : "0");
-            lo.append("pluginloadsync", Boolean.valueOf(this.eBE));
-            lo.append("hptotal", String.valueOf(this.eBZ));
+            lo.append("costt", String.valueOf(j2 + j + this.eIk + this.eIl + j3 + this.eIo));
+            lo.append("newinst", this.eHQ ? "1" : "0");
+            lo.append("pluginloadsync", Boolean.valueOf(this.eHT));
+            lo.append("hptotal", String.valueOf(this.eIo));
             BdStatisticsManager.getInstance().performance("startt", lo);
-            aOB();
+            aSw();
         }
     }
 
-    public void cT(long j) {
-        if (m.bhP().bhQ() && j > 0) {
+    public void dn(long j) {
+        if (m.blA().blB() && j > 0) {
             com.baidu.adp.lib.stats.a lo = lo();
             lo.append("procname", "remote");
             lo.append("costt", String.valueOf(j));
@@ -208,38 +208,39 @@ public class n extends l {
         }
     }
 
-    private void aOB() {
-        this.eBB = false;
-        this.eBC = false;
-        this.eBF = -1L;
-        this.eBG = -1L;
-        this.eBH = -1L;
-        this.eBI = -1L;
-        this.eBJ = -1L;
-        this.eBK = -1L;
-        this.eBL = -1L;
-        this.eBM = -1L;
-        this.eCa = -1L;
-        this.eBX = -1L;
-        this.eBY = -1L;
-        this.eBV = -1L;
-        this.eCb = -1L;
-        this.eCc = -1L;
-        this.eBN = -1L;
-        this.eBO = -1L;
-        this.eBP = -1L;
-        this.eBQ = -1L;
-        this.eBR = -1L;
-        this.eBS = -1L;
-        this.eBT = -1L;
-        this.eBU = -1L;
-        this.eBW = -1L;
-        this.eBZ = -1L;
+    private void aSw() {
+        this.eHQ = false;
+        this.eHR = false;
+        this.eHU = -1L;
+        this.eHV = -1L;
+        this.eHW = -1L;
+        this.eHX = -1L;
+        this.eHY = -1L;
+        this.eHZ = -1L;
+        this.eIa = -1L;
+        this.eIb = -1L;
+        this.eIp = -1L;
+        this.eIm = -1L;
+        this.eIn = -1L;
+        this.eIk = -1L;
+        this.eIq = -1L;
+        this.eIr = -1L;
+        this.eIc = -1L;
+        this.eId = -1L;
+        this.eIe = -1L;
+        this.eIf = -1L;
+        this.eIg = -1L;
+        this.eIh = -1L;
+        this.eIi = -1L;
+        this.eIj = -1L;
+        this.eIl = -1L;
+        this.eIo = -1L;
     }
 
-    public void cU(long j) {
-        if (this.eBZ <= 0) {
-            this.eBZ = j;
+    /* renamed from: do  reason: not valid java name */
+    public void m33do(long j) {
+        if (this.eIo <= 0) {
+            this.eIo = j;
         }
     }
 }

@@ -6,7 +6,7 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.Window;
 import android.view.WindowManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PassBioDisplayUtil {
     public static void enableNavigationBarTint(Activity activity, int i) {
         if (Build.VERSION.SDK_INT >= 19) {

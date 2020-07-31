@@ -2,19 +2,19 @@ package com.baidu.tieba.ala.person.view;
 
 import android.view.View;
 import com.baidu.tieba.ala.person.adapter.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class c {
-    protected int fAN;
-    protected a.InterfaceC0589a gxB;
-    protected a.c gxC;
-    protected a.b gxD;
+    protected int fFX;
+    protected a.InterfaceC0598a gDc;
+    protected a.c gDd;
+    protected a.b gDe;
     protected View mRootView;
 
     protected abstract void D(Object obj);
 
     public c(View view, int i) {
         this.mRootView = view;
-        this.fAN = i;
+        this.fFX = i;
     }
 
     public void b(Object obj, int i) {
@@ -27,15 +27,15 @@ public abstract class c {
     public void onChangeSkinType(int i) {
     }
 
-    public void a(a.InterfaceC0589a interfaceC0589a) {
-        this.gxB = interfaceC0589a;
+    public void a(a.InterfaceC0598a interfaceC0598a) {
+        this.gDc = interfaceC0598a;
     }
 
     public void a(a.c cVar) {
-        this.gxC = cVar;
+        this.gDd = cVar;
     }
 
     public void a(a.b bVar) {
-        this.gxD = bVar;
+        this.gDe = bVar;
     }
 }

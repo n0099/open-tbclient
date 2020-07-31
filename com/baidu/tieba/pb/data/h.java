@@ -1,32 +1,41 @@
 package com.baidu.tieba.pb.data;
 
-import android.support.v7.widget.ActivityChooserView;
-import tbclient.PbPage.ForumHeadlineImgInfo;
-/* loaded from: classes9.dex */
-public class h {
-    private long dIy = 0;
-    private String dIz = "";
-    private String imgUrl = "";
-    private int jZJ = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    private String jZK = "";
-    private String aBR = "";
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.br;
+/* loaded from: classes16.dex */
+public class h implements com.baidu.adp.widget.ListView.q {
+    public static BdUniqueId TYPE = BdUniqueId.gen();
+    public String fid;
+    public String forumName;
+    public String kij;
+    public boolean kik = false;
+    public int memberNum;
+    public int postNum;
+    public String tid;
 
-    public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
-        if (forumHeadlineImgInfo != null) {
-            this.dIy = forumHeadlineImgInfo.img_user_id.longValue();
-            this.dIz = forumHeadlineImgInfo.img_user_name;
-            this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.jZJ = forumHeadlineImgInfo.rank_num.intValue();
-            this.jZK = forumHeadlineImgInfo.rank_up_info;
-            this.aBR = forumHeadlineImgInfo.rank_url;
+    public h(ForumData forumData) {
+        if (forumData != null) {
+            this.forumName = forumData.getName();
+            this.kij = forumData.getImage_url();
+            this.postNum = forumData.getPost_num();
+            this.memberNum = forumData.getMember_num();
+            this.fid = forumData.getId();
         }
     }
 
-    public String cHv() {
-        return this.aBR;
+    public h(br brVar) {
+        if (brVar != null) {
+            this.forumName = brVar.forumName;
+            this.kij = brVar.avatar;
+            this.postNum = brVar.postNum;
+            this.memberNum = brVar.memberNum;
+            this.fid = brVar.forumId;
+        }
     }
 
-    public String aQl() {
-        return this.imgUrl;
+    @Override // com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return TYPE;
     }
 }

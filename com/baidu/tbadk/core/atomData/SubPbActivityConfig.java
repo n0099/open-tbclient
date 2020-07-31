@@ -24,6 +24,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public static final String KEY_IS_FROM_DYNAMIC = "key_is_from_dynamic";
     public static final String KEY_IS_FROM_SCHEMA = "is_from_schema";
     public static final String KEY_IS_JUMP_FROM_PB = "is_jump_from_pb";
+    public static final String KEY_IS_OPEN_EDITOR = "key_is_open_editor";
     public static final String KEY_IS_SHOW_GO_TO_SUBJECT = "is_show_go_to_subject";
     public static final String KEY_ORI_UGC_NID = "key_ori_ugc_nid";
     public static final String KEY_ORI_UGC_TID = "key_ori_ugc_tid";
@@ -176,6 +177,13 @@ public class SubPbActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         if (intent != null) {
             intent.putExtra(KEY_IS_FROM_SCHEMA, z);
+        }
+    }
+
+    public void setIsOpenEditor(boolean z) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_IS_OPEN_EDITOR, z);
         }
     }
 }

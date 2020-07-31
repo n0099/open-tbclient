@@ -1,26 +1,13 @@
 package com.baidu.media.duplayer.a;
 
-import android.os.HandlerThread;
-/* loaded from: classes.dex */
-public class a extends HandlerThread {
-    private long a;
-    private volatile int b;
-
-    public a(String str) {
-        super(str);
-        this.b = 0;
-        this.a = -1L;
-    }
-
-    public long a() {
-        return this.a;
-    }
-
-    public void a(int i) {
-        this.b = i;
-    }
-
-    public void a(long j) {
-        this.a = j;
+import java.lang.reflect.Method;
+/* loaded from: classes10.dex */
+public class a {
+    public static Method a(Class cls, String str, Class... clsArr) {
+        Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
+        boolean isAccessible = declaredMethod.isAccessible();
+        declaredMethod.setAccessible(true);
+        declaredMethod.setAccessible(isAccessible);
+        return declaredMethod;
     }
 }

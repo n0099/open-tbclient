@@ -9,13 +9,13 @@ import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class NoPressedRelativeLayout extends RelativeLayout {
-    private View ebJ;
-    private View ebK;
-    float ebL;
-    private Rect ebM;
-    private boolean ebN;
-    private a ebO;
-    private boolean ebP;
+    private View ehV;
+    private View ehW;
+    float ehX;
+    private Rect ehY;
+    private boolean ehZ;
+    private a eia;
+    private boolean eib;
     float startY;
     int touchSlop;
 
@@ -25,16 +25,16 @@ public class NoPressedRelativeLayout extends RelativeLayout {
     }
 
     public void setDispathEventAction(a aVar) {
-        this.ebO = aVar;
+        this.eia = aVar;
     }
 
     public NoPressedRelativeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.startY = 0.0f;
         this.touchSlop = 0;
-        this.ebL = 0.0f;
-        this.ebN = false;
-        this.ebP = false;
+        this.ehX = 0.0f;
+        this.ehZ = false;
+        this.eib = false;
         this.touchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
@@ -45,35 +45,35 @@ public class NoPressedRelativeLayout extends RelativeLayout {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.ebO != null) {
-            this.ebO.p(motionEvent);
+        if (this.eia != null) {
+            this.eia.p(motionEvent);
         }
-        if (this.ebJ != null) {
+        if (this.ehV != null) {
             switch (motionEvent.getAction()) {
                 case 0:
                     this.startY = motionEvent.getRawY();
-                    this.ebL = 0.0f;
+                    this.ehX = 0.0f;
                     if (getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
-                        this.ebN = true;
+                        this.ehZ = true;
                         setBottomViewClickEventEnabled(false);
                     } else {
-                        this.ebN = false;
+                        this.ehZ = false;
                         setBottomViewClickEventEnabled(true);
                     }
                     return super.dispatchTouchEvent(motionEvent);
                 case 1:
                 case 3:
-                    if (this.ebN && Math.abs(this.startY - motionEvent.getRawY()) < this.touchSlop && this.ebL < this.touchSlop && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
+                    if (this.ehZ && Math.abs(this.startY - motionEvent.getRawY()) < this.touchSlop && this.ehX < this.touchSlop && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
                         setBottomViewClickEventEnabled(false);
-                        if (this.ebJ.isClickable()) {
-                            this.ebJ.performClick();
+                        if (this.ehV.isClickable()) {
+                            this.ehV.performClick();
                         }
                         return true;
                     }
                     break;
                 case 2:
-                    this.ebL = this.ebL > Math.abs(this.startY - motionEvent.getRawY()) ? this.ebL : Math.abs(this.startY - motionEvent.getRawY());
-                    if (this.ebN && this.ebL < this.touchSlop) {
+                    this.ehX = this.ehX > Math.abs(this.startY - motionEvent.getRawY()) ? this.ehX : Math.abs(this.startY - motionEvent.getRawY());
+                    if (this.ehZ && this.ehX < this.touchSlop) {
                         setBottomViewClickEventEnabled(false);
                     } else {
                         setBottomViewClickEventEnabled(true);
@@ -86,50 +86,50 @@ public class NoPressedRelativeLayout extends RelativeLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.ebP) {
+        if (this.eib) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setNeedInterceptTouchEvent(boolean z) {
-        this.ebP = z;
+        this.eib = z;
     }
 
     public void setTopOrderView(View view) {
-        this.ebJ = view;
+        this.ehV = view;
     }
 
-    private boolean aXY() {
-        if (this.ebJ == null) {
+    private boolean bbY() {
+        if (this.ehV == null) {
             return false;
         }
-        if (this.ebM == null) {
+        if (this.ehY == null) {
             return true;
         }
-        return this.ebM.width() <= 0 || this.ebM.height() <= 0;
+        return this.ehY.width() <= 0 || this.ehY.height() <= 0;
     }
 
     private Rect getTopViewRect() {
-        if (aXY()) {
+        if (bbY()) {
             int[] iArr = {0, 0};
-            if (this.ebJ != null) {
-                this.ebJ.getLocationOnScreen(iArr);
-                this.ebM = new Rect(iArr[0], iArr[1], iArr[0] + this.ebJ.getWidth(), iArr[1] + this.ebJ.getHeight());
+            if (this.ehV != null) {
+                this.ehV.getLocationOnScreen(iArr);
+                this.ehY = new Rect(iArr[0], iArr[1], iArr[0] + this.ehV.getWidth(), iArr[1] + this.ehV.getHeight());
             }
         }
-        return this.ebM;
+        return this.ehY;
     }
 
     private void setBottomViewClickEventEnabled(boolean z) {
-        if (this.ebK != null) {
-            this.ebK.setEnabled(z);
-            this.ebK.setClickable(z);
-            this.ebK.setLongClickable(z);
+        if (this.ehW != null) {
+            this.ehW.setEnabled(z);
+            this.ehW.setClickable(z);
+            this.ehW.setLongClickable(z);
         }
     }
 
     public void setBottomOrderView(View view) {
-        this.ebK = view;
+        this.ehW = view;
     }
 }

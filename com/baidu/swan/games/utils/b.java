@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import com.baidu.searchbox.v8engine.JSExceptionType;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static void a(com.baidu.swan.games.binding.model.c cVar, boolean z, Object obj) {
         com.baidu.swan.games.binding.model.a f = com.baidu.swan.games.binding.model.a.f(cVar);
@@ -16,18 +16,18 @@ public class b {
     }
 
     public static void a(com.baidu.swan.games.f.b bVar, JSTypeMismatchException jSTypeMismatchException) {
-        bVar.throwJSException(JSExceptionType.TypeError, String.format("The \"%s\" argument must be %s. Received type %s", jSTypeMismatchException.name, iI(jSTypeMismatchException.requiredType), iI(jSTypeMismatchException.actualType)));
+        bVar.throwJSException(JSExceptionType.TypeError, String.format("The \"%s\" argument must be %s. Received type %s", jSTypeMismatchException.name, iZ(jSTypeMismatchException.requiredType), iZ(jSTypeMismatchException.actualType)));
     }
 
     public static String a(@NonNull String str, @NonNull JSTypeMismatchException jSTypeMismatchException) {
-        return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, iI(jSTypeMismatchException.requiredType), iI(jSTypeMismatchException.actualType));
+        return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, iZ(jSTypeMismatchException.requiredType), iZ(jSTypeMismatchException.actualType));
     }
 
-    public static String cC(@NonNull String str, @NonNull String str2) {
+    public static String cF(@NonNull String str, @NonNull String str2) {
         return String.format("%s: %s", str, str2);
     }
 
-    private static String iI(int i) {
+    private static String iZ(int i) {
         switch (i) {
             case 1:
                 return "boolean";

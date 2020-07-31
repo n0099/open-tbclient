@@ -18,7 +18,7 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.newwidget.imageview.IRefresh;
 import com.baidu.live.adp.widget.listview.IPreLoadListView;
 import com.baidu.megapp.ma.MAFragmentActivity;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, BdPageContextSupport<T>, IScrollable {
     private static final int PRELOAD_DELAY = 100;
     private BdUniqueId mId = null;

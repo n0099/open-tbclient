@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.ubc;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IUbcManager {
     Object flowBegin(String str, JSONObject jSONObject);
 

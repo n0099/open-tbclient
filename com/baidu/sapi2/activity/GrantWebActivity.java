@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.f.a.a;
 import com.baidu.fsg.base.statistics.h;
+import com.baidu.g.a.a;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
@@ -24,7 +24,7 @@ import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.t;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class GrantWebActivity extends BaseActivity {
     private static final String r = "GrantWebActivity";
     private static final String s = "openapp";

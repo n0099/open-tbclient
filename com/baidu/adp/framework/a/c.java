@@ -19,7 +19,7 @@ public class c {
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final int HZ = CPU_COUNT + 1;
 
-    public static ThreadPoolExecutor W(int i) {
+    public static ThreadPoolExecutor Y(int i) {
         if (i == 0) {
             return null;
         }

@@ -1,5 +1,5 @@
 package com.baidu.rtc.camera.filter.glfilter.utils;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public enum Rotation {
     NORMAL,
     ROTATION_90,

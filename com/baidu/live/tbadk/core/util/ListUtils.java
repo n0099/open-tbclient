@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.util;
 
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ListUtils {
     public static <T> void clear(List<T> list) {
         if (list != null) {

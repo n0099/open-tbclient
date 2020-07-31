@@ -10,16 +10,16 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
-    private final g.a fhC;
+    private final g.a fmL;
     private volatile long mStartTime;
     private volatile int mStatus;
     private final String mUri;
 
     public f(String str, g.a aVar) {
         this.mUri = str;
-        this.fhC = aVar;
+        this.fmL = aVar;
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.g
@@ -46,7 +46,7 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
     public void run() {
         Process.setThreadPriority(10);
         this.mStatus = 102;
-        this.fhC.onConnecting();
+        this.fmL.onConnecting();
         try {
             executeConnection();
         } catch (DownloadException e) {
@@ -126,7 +126,7 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
         }
         checkCanceledOrPaused();
         this.mStatus = 103;
-        this.fhC.onConnected(System.currentTimeMillis() - this.mStartTime, contentLength, z);
+        this.fmL.onConnected(System.currentTimeMillis() - this.mStartTime, contentLength, z);
     }
 
     private void checkCanceledOrPaused() throws DownloadException {
@@ -140,19 +140,19 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
 
     private void e(DownloadException downloadException) {
         if (downloadException.getErrorCode() == 108) {
-            synchronized (this.fhC) {
+            synchronized (this.fmL) {
                 this.mStatus = 108;
-                this.fhC.b(downloadException);
+                this.fmL.b(downloadException);
             }
         } else if (downloadException.getErrorCode() == 106) {
-            synchronized (this.fhC) {
+            synchronized (this.fmL) {
                 this.mStatus = 106;
-                this.fhC.onConnectPaused();
+                this.fmL.onConnectPaused();
             }
         } else if (downloadException.getErrorCode() == 107) {
-            synchronized (this.fhC) {
+            synchronized (this.fmL) {
                 this.mStatus = 107;
-                this.fhC.onConnectCanceled();
+                this.fmL.onConnectCanceled();
             }
         } else {
             throw new IllegalArgumentException("Unknown state");

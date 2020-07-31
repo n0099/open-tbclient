@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.c;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class HotUserRankLikeButton extends DynamicUserLikeButton {
     public HotUserRankLikeButton(Context context) {
         super(context);
@@ -27,7 +27,7 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
     public void r(boolean z, int i) {
         if (z) {
             c cVar = new c();
-            cVar.mE(R.color.cp_cont_d);
+            cVar.mX(R.color.cp_cont_d);
             setConfig(cVar);
             setClickable(true);
             if (i == 1) {
@@ -37,7 +37,7 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
             }
         } else {
             c cVar2 = new c();
-            cVar2.mC(R.color.cp_link_tip_a);
+            cVar2.mV(R.color.cp_link_tip_a);
             setConfig(cVar2);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.attention));

@@ -10,7 +10,7 @@ import com.baidu.tieba.pbextra.a.a;
 import com.baidu.tieba.pbextra.emotion.EmotionEditActivity;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.tbadkCore.data.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class PbExtraStatic {
     public static String Tag = "tag";
 
@@ -21,10 +21,10 @@ public class PbExtraStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof d)) {
-                    ((d) customResponsedMessage.getData()).dhE().add(new a(null, PostData.lFN));
+                    ((d) customResponsedMessage.getData()).dkM().add(new a(null, PostData.lNc));
                 }
             }
         });
-        PostData.lFS = true;
+        PostData.lNh = true;
     }
 }

@@ -6,16 +6,16 @@ import android.util.Log;
 import com.baidu.swan.apps.p.d;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class c<W extends d> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final HashMap<String, a<W>> ckc = new HashMap<>();
+    private final HashMap<String, a<W>> cmg = new HashMap<>();
 
     public void a(a<W> aVar) {
         if (DEBUG) {
-            Log.v("CommandDispatcher", aVar.afq() + " command added to supported command list");
+            Log.v("CommandDispatcher", aVar.agB() + " command added to supported command list");
         }
-        this.ckc.put(aVar.afq(), aVar);
+        this.cmg.put(aVar.agB(), aVar);
     }
 
     public void b(@Nullable ZeusPlugin.Command command, @Nullable W w) {
@@ -28,7 +28,7 @@ public final class c<W extends d> {
                 Log.e("CommandDispatcher", "inlineWidget is null, haven't dispatched");
             }
         } else {
-            a<W> aVar = this.ckc.get(command.what);
+            a<W> aVar = this.cmg.get(command.what);
             if (aVar == null) {
                 if (DEBUG) {
                     Log.e("CommandDispatcher", command.what + " command is not supported, haven't dispatched");
@@ -52,7 +52,7 @@ public final class c<W extends d> {
             }
             return;
         }
-        a<W> aVar = this.ckc.get(command.what);
+        a<W> aVar = this.cmg.get(command.what);
         if (aVar == null) {
             if (DEBUG) {
                 Log.e("CommandDispatcher", command.what + " command is not supported, haven't mocked");

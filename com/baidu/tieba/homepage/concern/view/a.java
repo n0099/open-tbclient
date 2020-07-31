@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a extends com.baidu.card.b<AbsThreadDataSupport> {
     private NoDataView mNoDataView;
     private TbPageContext<?> mPageContext;
@@ -18,7 +18,7 @@ public class a extends com.baidu.card.b<AbsThreadDataSupport> {
         super(tbPageContext.getPageActivity());
         this.mPageContext = tbPageContext;
         Activity pageActivity = tbPageContext.getPageActivity();
-        this.mNoDataView = NoDataViewFactory.a(pageActivity, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL), NoDataViewFactory.d.dm(null, pageActivity.getResources().getString(R.string.concern_no_data_title)), null);
+        this.mNoDataView = NoDataViewFactory.a(pageActivity, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL), NoDataViewFactory.d.m31do(null, pageActivity.getResources().getString(R.string.concern_no_data_title)), null);
         this.mNoDataView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.bringToFront();

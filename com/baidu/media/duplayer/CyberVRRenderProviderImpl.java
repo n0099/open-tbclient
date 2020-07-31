@@ -12,20 +12,20 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
     public static final String TAG = "BDVRRenderDelegate";
     private Method b;
-    private Method buA;
-    private Method buB;
-    private final a bus;
-    private Method but;
-    private Method buu;
-    private Method buv;
-    private Method buw;
-    private Method bux;
-    private Method buy;
-    private Method buz;
+    private final a buH;
+    private Method buI;
+    private Method buJ;
+    private Method buK;
+    private Method buL;
+    private Method buM;
+    private Method buN;
+    private Method buO;
+    private Method buP;
+    private Method buQ;
     private final Object c;
     private Method d;
     private Method e;
@@ -36,31 +36,31 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
     private Method q;
     private final Object t;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public class a implements InvocationHandler {
-        private CyberVRRenderProvider.IOnSurfaceReadyCallback buC;
-        private CyberVRRenderProvider.INotSupportCallback buD;
+        private CyberVRRenderProvider.IOnSurfaceReadyCallback buR;
+        private CyberVRRenderProvider.INotSupportCallback buS;
 
         public a() {
         }
 
         void a(CyberVRRenderProvider.INotSupportCallback iNotSupportCallback) {
-            this.buD = iNotSupportCallback;
+            this.buS = iNotSupportCallback;
         }
 
         void a(CyberVRRenderProvider.IOnSurfaceReadyCallback iOnSurfaceReadyCallback) {
-            this.buC = iOnSurfaceReadyCallback;
+            this.buR = iOnSurfaceReadyCallback;
         }
 
         @Override // java.lang.reflect.InvocationHandler
         public Object invoke(Object obj, Method method, Object[] objArr) {
-            if (method.getName().startsWith("onS") && this.buC != null) {
-                this.buC.onSurfaceReady((Surface) objArr[0]);
+            if (method.getName().startsWith("onS") && this.buR != null) {
+                this.buR.onSurfaceReady((Surface) objArr[0]);
                 return null;
-            } else if (!method.getName().startsWith("onN") || this.buD == null) {
+            } else if (!method.getName().startsWith("onN") || this.buS == null) {
                 return null;
             } else {
-                this.buD.onNotSupport(((Integer) objArr[0]).intValue());
+                this.buS.onNotSupport(((Integer) objArr[0]).intValue());
                 return null;
             }
         }
@@ -71,25 +71,25 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         Class<?> cls = Class.forName("com.baidu.vr.BDVRRender");
         Class<?> cls2 = Class.forName("com.baidu.vr.BDVRRender$IOnSurfaceReadyCallback");
         Class<?> cls3 = Class.forName("com.baidu.vr.BDVRRender$INotSupportCallback");
-        this.d = com.baidu.media.duplayer.a.c.a(cls, com.baidu.sapi2.outsdk.c.l, SurfaceView.class);
-        this.e = com.baidu.media.duplayer.a.c.a(cls, com.baidu.sapi2.outsdk.c.l, TextureView.class);
-        this.f = com.baidu.media.duplayer.a.c.a(cls, "onTextureResize", Float.TYPE, Float.TYPE);
-        this.g = com.baidu.media.duplayer.a.c.a(cls, "switchInteractiveMode", Integer.TYPE);
-        this.but = com.baidu.media.duplayer.a.c.a(cls, "switchDisplayMode", Integer.TYPE);
-        this.i = com.baidu.media.duplayer.a.c.a(cls, "switchProjectionMode", Integer.TYPE);
-        this.buu = com.baidu.media.duplayer.a.c.a(cls, MissionEvent.MESSAGE_RESUME, new Class[0]);
-        this.b = com.baidu.media.duplayer.a.c.a(cls, MissionEvent.MESSAGE_PAUSE, new Class[0]);
-        this.buv = com.baidu.media.duplayer.a.c.a(cls, MissionEvent.MESSAGE_DESTROY, new Class[0]);
-        this.l = com.baidu.media.duplayer.a.c.a(cls, "onOrientationChanged", new Class[0]);
-        this.buw = com.baidu.media.duplayer.a.c.a(cls, "displayMode", Integer.TYPE);
-        this.bux = com.baidu.media.duplayer.a.c.a(cls, "interactiveMode", Integer.TYPE);
-        this.buy = com.baidu.media.duplayer.a.c.a(cls, "projectionMode", Integer.TYPE);
-        this.buz = com.baidu.media.duplayer.a.c.a(cls, "pinchEnabled", Boolean.TYPE);
-        this.q = com.baidu.media.duplayer.a.c.a(cls, "asVideo", cls2);
-        this.buA = com.baidu.media.duplayer.a.c.a(cls, "ifNotSupport", cls3);
-        this.buB = com.baidu.media.duplayer.a.c.a(cls, "setFov", Float.TYPE, Float.TYPE, Float.TYPE);
-        this.bus = new a();
-        this.t = Proxy.newProxyInstance(getClass().getClassLoader(), new Class[]{cls2, cls3}, this.bus);
+        this.d = com.baidu.media.duplayer.a.a.a(cls, com.baidu.sapi2.outsdk.c.l, SurfaceView.class);
+        this.e = com.baidu.media.duplayer.a.a.a(cls, com.baidu.sapi2.outsdk.c.l, TextureView.class);
+        this.f = com.baidu.media.duplayer.a.a.a(cls, "onTextureResize", Float.TYPE, Float.TYPE);
+        this.g = com.baidu.media.duplayer.a.a.a(cls, "switchInteractiveMode", Integer.TYPE);
+        this.buI = com.baidu.media.duplayer.a.a.a(cls, "switchDisplayMode", Integer.TYPE);
+        this.i = com.baidu.media.duplayer.a.a.a(cls, "switchProjectionMode", Integer.TYPE);
+        this.buJ = com.baidu.media.duplayer.a.a.a(cls, MissionEvent.MESSAGE_RESUME, new Class[0]);
+        this.b = com.baidu.media.duplayer.a.a.a(cls, MissionEvent.MESSAGE_PAUSE, new Class[0]);
+        this.buK = com.baidu.media.duplayer.a.a.a(cls, MissionEvent.MESSAGE_DESTROY, new Class[0]);
+        this.l = com.baidu.media.duplayer.a.a.a(cls, "onOrientationChanged", new Class[0]);
+        this.buL = com.baidu.media.duplayer.a.a.a(cls, "displayMode", Integer.TYPE);
+        this.buM = com.baidu.media.duplayer.a.a.a(cls, "interactiveMode", Integer.TYPE);
+        this.buN = com.baidu.media.duplayer.a.a.a(cls, "projectionMode", Integer.TYPE);
+        this.buO = com.baidu.media.duplayer.a.a.a(cls, "pinchEnabled", Boolean.TYPE);
+        this.q = com.baidu.media.duplayer.a.a.a(cls, "asVideo", cls2);
+        this.buP = com.baidu.media.duplayer.a.a.a(cls, "ifNotSupport", cls3);
+        this.buQ = com.baidu.media.duplayer.a.a.a(cls, "setFov", Float.TYPE, Float.TYPE, Float.TYPE);
+        this.buH = new a();
+        this.t = Proxy.newProxyInstance(getClass().getClassLoader(), new Class[]{cls2, cls3}, this.buH);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -98,7 +98,7 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         if (this.c == null || this.q == null) {
             CyberLog.e(TAG, "can not call asVideo method. mBdVRRender = " + this.c + ", mAsVideoMethod = " + this.q);
         } else {
-            this.bus.a(iOnSurfaceReadyCallback);
+            this.buH.a(iOnSurfaceReadyCallback);
             try {
                 this.q.invoke(this.c, this.t);
             } catch (IllegalAccessException e) {
@@ -113,11 +113,11 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.cyberplayer.sdk.CyberVRRenderProvider
     public CyberVRRenderProviderImpl displayMode(int i) {
-        if (this.c == null || this.buw == null) {
-            CyberLog.e(TAG, "can not call displayMode method. mBdVRRender = " + this.c + ", mDisplayModeMethod = " + this.buw);
+        if (this.c == null || this.buL == null) {
+            CyberLog.e(TAG, "can not call displayMode method. mBdVRRender = " + this.c + ", mDisplayModeMethod = " + this.buL);
         } else {
             try {
-                this.buw.invoke(this.c, Integer.valueOf(i));
+                this.buL.invoke(this.c, Integer.valueOf(i));
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (InvocationTargetException e2) {
@@ -130,12 +130,12 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.cyberplayer.sdk.CyberVRRenderProvider
     public CyberVRRenderProviderImpl ifNotSupport(CyberVRRenderProvider.INotSupportCallback iNotSupportCallback) {
-        if (this.c == null || this.buA == null) {
-            CyberLog.e(TAG, "can not call ifNotSupport method. mBdVRRender = " + this.c + ", mIfNotSupportMethod = " + this.buA);
+        if (this.c == null || this.buP == null) {
+            CyberLog.e(TAG, "can not call ifNotSupport method. mBdVRRender = " + this.c + ", mIfNotSupportMethod = " + this.buP);
         } else {
-            this.bus.a(iNotSupportCallback);
+            this.buH.a(iNotSupportCallback);
             try {
-                this.buA.invoke(this.c, this.t);
+                this.buP.invoke(this.c, this.t);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (InvocationTargetException e2) {
@@ -178,11 +178,11 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.cyberplayer.sdk.CyberVRRenderProvider
     public CyberVRRenderProviderImpl interactiveMode(int i) {
-        if (this.c == null || this.bux == null) {
-            CyberLog.e(TAG, "can not call interactiveMode method. mBdVRRender = " + this.c + ", mInteractiveModeMethod = " + this.bux);
+        if (this.c == null || this.buM == null) {
+            CyberLog.e(TAG, "can not call interactiveMode method. mBdVRRender = " + this.c + ", mInteractiveModeMethod = " + this.buM);
         } else {
             try {
-                this.bux.invoke(this.c, Integer.valueOf(i));
+                this.buM.invoke(this.c, Integer.valueOf(i));
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (InvocationTargetException e2) {
@@ -194,12 +194,12 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberVRRenderProvider
     public void onDestroy() {
-        if (this.c == null || this.buv == null) {
-            CyberLog.e(TAG, "can not call onDestroy method. mBdVRRender = " + this.c + ", mOnDestroyMethod = " + this.buv);
+        if (this.c == null || this.buK == null) {
+            CyberLog.e(TAG, "can not call onDestroy method. mBdVRRender = " + this.c + ", mOnDestroyMethod = " + this.buK);
             return;
         }
         try {
-            this.buv.invoke(this.c, new Object[0]);
+            this.buK.invoke(this.c, new Object[0]);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e2) {
@@ -239,12 +239,12 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberVRRenderProvider
     public void onResume() {
-        if (this.c == null || this.buu == null) {
-            CyberLog.e(TAG, "can not call onResume method. mBdVRRender = " + this.c + ", mOnResume = " + this.buu);
+        if (this.c == null || this.buJ == null) {
+            CyberLog.e(TAG, "can not call onResume method. mBdVRRender = " + this.c + ", mOnResume = " + this.buJ);
             return;
         }
         try {
-            this.buu.invoke(this.c, new Object[0]);
+            this.buJ.invoke(this.c, new Object[0]);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e2) {
@@ -270,11 +270,11 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.cyberplayer.sdk.CyberVRRenderProvider
     public CyberVRRenderProviderImpl pinchEnabled(boolean z) {
-        if (this.c == null || this.buz == null) {
-            CyberLog.e(TAG, "can not call pinchEnabled method. mBdVRRender = " + this.c + ", mPinchEnabledMethod = " + this.buz);
+        if (this.c == null || this.buO == null) {
+            CyberLog.e(TAG, "can not call pinchEnabled method. mBdVRRender = " + this.c + ", mPinchEnabledMethod = " + this.buO);
         } else {
             try {
-                this.buz.invoke(this.c, Boolean.valueOf(z));
+                this.buO.invoke(this.c, Boolean.valueOf(z));
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (InvocationTargetException e2) {
@@ -287,11 +287,11 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.cyberplayer.sdk.CyberVRRenderProvider
     public CyberVRRenderProviderImpl projectionMode(int i) {
-        if (this.c == null || this.buy == null) {
-            CyberLog.e(TAG, "can not call projectionMode method. mBdVRRender = " + this.c + ", mProjectionModeMethod = " + this.buy);
+        if (this.c == null || this.buN == null) {
+            CyberLog.e(TAG, "can not call projectionMode method. mBdVRRender = " + this.c + ", mProjectionModeMethod = " + this.buN);
         } else {
             try {
-                this.buy.invoke(this.c, Integer.valueOf(i));
+                this.buN.invoke(this.c, Integer.valueOf(i));
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (InvocationTargetException e2) {
@@ -304,11 +304,11 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.cyberplayer.sdk.CyberVRRenderProvider
     public CyberVRRenderProviderImpl setFov(float f, float f2, float f3) {
-        if (this.c == null || this.buB == null) {
-            CyberLog.e(TAG, "can not call setFov method. mBdVRRender = " + this.c + ", mSetFovMethod = " + this.buB);
+        if (this.c == null || this.buQ == null) {
+            CyberLog.e(TAG, "can not call setFov method. mBdVRRender = " + this.c + ", mSetFovMethod = " + this.buQ);
         } else {
             try {
-                this.buB.invoke(this.c, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3));
+                this.buQ.invoke(this.c, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3));
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (InvocationTargetException e2) {
@@ -320,12 +320,12 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberVRRenderProvider
     public void switchDisplayMode(int i) {
-        if (this.c == null || this.but == null) {
-            CyberLog.e(TAG, "can not call switchDisplayMode method. mBdVRRender = " + this.c + ", mSwitchDisplayModeMethod = " + this.but);
+        if (this.c == null || this.buI == null) {
+            CyberLog.e(TAG, "can not call switchDisplayMode method. mBdVRRender = " + this.c + ", mSwitchDisplayModeMethod = " + this.buI);
             return;
         }
         try {
-            this.but.invoke(this.c, Integer.valueOf(i));
+            this.buI.invoke(this.c, Integer.valueOf(i));
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e2) {

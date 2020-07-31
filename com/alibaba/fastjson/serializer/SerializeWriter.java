@@ -9,7 +9,7 @@ import java.io.Writer;
 import java.math.BigDecimal;
 import java.nio.charset.Charset;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public final class SerializeWriter extends Writer {
     private static final ThreadLocal<char[]> bufLocal = new ThreadLocal<>();
     private static final ThreadLocal<byte[]> bytesBufLocal = new ThreadLocal<>();

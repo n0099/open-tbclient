@@ -2,7 +2,7 @@ package org.apache.commons.codec;
 
 import java.util.Comparator;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public class StringEncoderComparator implements Comparator {
     public StringEncoderComparator() {
         throw new RuntimeException("Stub!");

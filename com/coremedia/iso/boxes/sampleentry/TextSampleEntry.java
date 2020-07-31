@@ -1,6 +1,7 @@
 package com.coremedia.iso.boxes.sampleentry;
 
 import android.support.v4.media.session.PlaybackStateCompat;
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -9,7 +10,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class TextSampleEntry extends AbstractSampleEntry {
     public static final String TYPE1 = "tx3g";
     public static final String TYPE_ENCRYPTED = "enct";
@@ -195,34 +196,32 @@ public class TextSampleEntry extends AbstractSampleEntry {
         this.backgroundColorRgba = iArr;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes20.dex */
     public static class BoxRecord {
         int bottom;
         int left;
         int right;
-
-        /* renamed from: top  reason: collision with root package name */
-        int f1041top;
+        int top;
 
         public BoxRecord() {
         }
 
         public BoxRecord(int i, int i2, int i3, int i4) {
-            this.f1041top = i;
+            this.top = i;
             this.left = i2;
             this.bottom = i3;
             this.right = i4;
         }
 
         public void parse(ByteBuffer byteBuffer) {
-            this.f1041top = IsoTypeReader.readUInt16(byteBuffer);
+            this.top = IsoTypeReader.readUInt16(byteBuffer);
             this.left = IsoTypeReader.readUInt16(byteBuffer);
             this.bottom = IsoTypeReader.readUInt16(byteBuffer);
             this.right = IsoTypeReader.readUInt16(byteBuffer);
         }
 
         public void getContent(ByteBuffer byteBuffer) {
-            IsoTypeWriter.writeUInt16(byteBuffer, this.f1041top);
+            IsoTypeWriter.writeUInt16(byteBuffer, this.top);
             IsoTypeWriter.writeUInt16(byteBuffer, this.left);
             IsoTypeWriter.writeUInt16(byteBuffer, this.bottom);
             IsoTypeWriter.writeUInt16(byteBuffer, this.right);
@@ -240,15 +239,15 @@ public class TextSampleEntry extends AbstractSampleEntry {
                 return false;
             }
             BoxRecord boxRecord = (BoxRecord) obj;
-            return this.bottom == boxRecord.bottom && this.left == boxRecord.left && this.right == boxRecord.right && this.f1041top == boxRecord.f1041top;
+            return this.bottom == boxRecord.bottom && this.left == boxRecord.left && this.right == boxRecord.right && this.top == boxRecord.top;
         }
 
         public int hashCode() {
-            return (((((this.f1041top * 31) + this.left) * 31) + this.bottom) * 31) + this.right;
+            return (((((this.top * 31) + this.left) * 31) + this.bottom) * 31) + this.right;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes20.dex */
     public static class StyleRecord {
         int endChar;
         int faceStyleFlags;
@@ -319,6 +318,6 @@ public class TextSampleEntry extends AbstractSampleEntry {
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
         long containerSize = getContainerSize();
-        return ((this.largeBox || containerSize + 38 >= 4294967296L) ? 16 : 8) + containerSize + 38;
+        return ((this.largeBox || containerSize + 38 >= AccountConstants.TYPE_MODIFY_EXT_FIELDS) ? 16 : 8) + containerSize + 38;
     }
 }

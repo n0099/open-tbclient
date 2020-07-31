@@ -1,13 +1,13 @@
 package tv.chushou.zues.widget.fresco.a;
 
 import com.facebook.cache.common.g;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends com.facebook.imagepipeline.j.a {
-    private static final a omc = new a();
-    private static final com.facebook.cache.common.b omd = new g("BlurPostprocessor");
+    private static final a ouI = new a();
+    private static final com.facebook.cache.common.b ouJ = new g("BlurPostprocessor");
 
-    public static a dXa() {
-        return omc;
+    public static a eaw() {
+        return ouI;
     }
 
     private a() {
@@ -15,7 +15,7 @@ public class a extends com.facebook.imagepipeline.j.a {
     }
 
     @Override // com.facebook.imagepipeline.j.a, com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
-    public com.facebook.cache.common.b dGb() {
-        return omd;
+    public com.facebook.cache.common.b dJn() {
+        return ouJ;
     }
 }

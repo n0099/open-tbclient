@@ -1,4 +1,4 @@
 package com.baidu.megapp.ma;
-/* loaded from: classes.dex */
+/* loaded from: classes9.dex */
 public class MADialogActivity extends MAActivity {
 }

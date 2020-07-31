@@ -4,13 +4,12 @@ import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.ResponseCode;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.down.manage.DownloadConstants;
-import com.baidu.down.utils.Constants;
 import com.baidu.mapapi.UIMsg;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 final class EANManufacturerOrgSupport {
     private final List<int[]> ranges = new ArrayList();
     private final List<String> countryIdentifiers = new ArrayList();
@@ -81,7 +80,7 @@ final class EANManufacturerOrgSupport {
             add(new int[]{590}, "PL");
             add(new int[]{594}, "RO");
             add(new int[]{599}, "HU");
-            add(new int[]{Constants.HTTP_DNS_INAVAILABLE_TIME, 601}, "ZA");
+            add(new int[]{600, 601}, "ZA");
             add(new int[]{ResponseCode.TFE_IMMGR_KVACCESS_NOT_EXIST}, "GH");
             add(new int[]{608}, "BH");
             add(new int[]{609}, "MU");

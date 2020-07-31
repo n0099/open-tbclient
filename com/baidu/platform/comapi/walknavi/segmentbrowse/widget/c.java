@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.walknavi.segmentbrowse.widget;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
     public int[] a;
     public int[] b;

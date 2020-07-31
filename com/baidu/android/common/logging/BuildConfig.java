@@ -1,5 +1,5 @@
 package com.baidu.android.common.logging;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.android.common.logging";
     public static final String BUILD_TYPE = "release";

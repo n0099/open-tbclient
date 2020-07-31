@@ -11,10 +11,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.f.a.a;
+import com.baidu.g.a.a;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class m {
     public static void a(Context context, SapiWebView sapiWebView, boolean z) {
         b(context, sapiWebView);

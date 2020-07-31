@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.game.strategy.view;
 
 import android.view.View;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public interface f {
-    void ca(View view);
+    boolean cfJ();
 
-    boolean ccl();
+    void cg(View view);
 
     int getArrowIndex();
 

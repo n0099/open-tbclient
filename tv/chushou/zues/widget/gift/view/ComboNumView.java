@@ -10,13 +10,13 @@ import android.widget.LinearLayout;
 import com.baidu.mobstat.Config;
 import tv.chushou.zues.b;
 import tv.chushou.zues.toolkit.a.b.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ComboNumView extends LinearLayout {
-    private static int omq = 0;
-    private static c<Drawable> omr;
+    private static int ouW = 0;
+    private static c<Drawable> ouX;
     protected Context mContext;
     private int mType;
-    private ImageView omp;
+    private ImageView ouV;
 
     public ComboNumView(Context context) {
         this(context, null);
@@ -28,29 +28,29 @@ public class ComboNumView extends LinearLayout {
     }
 
     private void init(Context context) {
-        omq++;
+        ouW++;
         this.mContext = context;
         setOrientation(0);
-        this.omp = new ImageView(this.mContext);
-        this.omp.setBackgroundResource(b.d.zues_icon_x_n);
-        this.omp.setTag(Config.EVENT_HEAT_X);
-        addView(this.omp);
+        this.ouV = new ImageView(this.mContext);
+        this.ouV.setBackgroundResource(b.d.zues_icon_x_n);
+        this.ouV.setTag(Config.EVENT_HEAT_X);
+        addView(this.ouV);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        omq--;
-        if (omq <= 0) {
-            omq = 0;
+        ouW--;
+        if (ouW <= 0) {
+            ouW = 0;
             release();
         }
         super.onDetachedFromWindow();
     }
 
     public void release() {
-        if (omr != null) {
-            omr.clear();
-            omr = null;
+        if (ouX != null) {
+            ouX.clear();
+            ouX = null;
         }
     }
 
@@ -86,20 +86,20 @@ public class ComboNumView extends LinearLayout {
         }
     }
 
-    private String To(String str) {
+    private String TZ(String str) {
         return "game_" + str;
     }
 
     private Drawable getDrawable(String str) {
         Drawable drawable;
-        if (omr == null) {
-            omr = new c<>(20);
+        if (ouX == null) {
+            ouX = new c<>(20);
         }
-        Drawable drawable2 = omr.get(To(str));
+        Drawable drawable2 = ouX.get(TZ(str));
         if (drawable2 == null) {
             int identifier = this.mContext.getResources().getIdentifier("zues_icon_" + str, "drawable", this.mContext.getPackageName());
             if (identifier > 0 && (drawable = ContextCompat.getDrawable(this.mContext, identifier)) != null) {
-                omr.put(To(str), drawable);
+                ouX.put(TZ(str), drawable);
                 return drawable;
             }
             return null;
@@ -108,7 +108,7 @@ public class ComboNumView extends LinearLayout {
     }
 
     public void setType(int i) {
-        this.omp.setBackgroundResource(b.d.zues_icon_x_n);
+        this.ouV.setBackgroundResource(b.d.zues_icon_x_n);
         this.mType = i;
     }
 }

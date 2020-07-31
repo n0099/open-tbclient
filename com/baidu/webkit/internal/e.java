@@ -1,99 +1,152 @@
 package com.baidu.webkit.internal;
 
-import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.text.TextUtils;
+import android.webkit.JavascriptInterface;
 import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.WebKitFactory;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.zip.GZIPOutputStream;
-/* loaded from: classes11.dex */
+import com.baidu.webkit.sdk.WebView;
+import com.baidu.webkit.sdk.WebViewFactory;
+import com.baidu.webkit.sdk.WebViewFactoryProvider;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.HashSet;
+import org.json.JSONException;
+/* loaded from: classes8.dex */
 public final class e {
-    private byte[] a;
-    private int b;
-    private int c;
-    private byte[] d;
+    protected static final String a = "BdboxApp:".toLowerCase();
+    public HashMap<String, Object> b;
+    public WebView d;
+    public String e;
+    public boolean g;
+    private String i;
+    @SuppressLint({"SdCardPath"})
+    private String h = "/data/data/";
+    public boolean c = true;
+    public boolean f = true;
+    private boolean j = true;
 
-    /* loaded from: classes11.dex */
-    static class a extends GZIPOutputStream {
-        public a(OutputStream outputStream) throws IOException {
-            super(outputStream);
-        }
-
-        public final void a() {
-            this.def.setLevel(9);
+    public e(WebView webView) {
+        this.d = webView;
+        try {
+            this.h += webView.getContext().getPackageName();
+        } catch (Exception e) {
+            com.a.a.a.a.a.a.a.a(e);
         }
     }
 
-    public e(String str) {
-        this.d = str.getBytes();
+    @SuppressLint({"NewApi"})
+    private static void a(StringBuilder sb, Object obj, String str) throws JSONException {
+        if (obj == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        Class<?> cls = obj.getClass();
+        sb.append("if(typeof(window." + str + ")=='undefined'){");
+        sb.append("window.").append(str).append("={");
+        Method[] methods = cls.getMethods();
+        HashSet hashSet = new HashSet();
+        for (Method method : methods) {
+            if (((JavascriptInterface) method.getAnnotation(JavascriptInterface.class)) != null) {
+                String name = method.getName();
+                if (!hashSet.contains(name)) {
+                    hashSet.add(name);
+                    sb.append(name).append(":function(){");
+                    if (method.getReturnType() != Void.TYPE) {
+                        sb.append("return ");
+                    }
+                    sb.append("prompt('").append(a).append("'+");
+                    sb.append("JSON.stringify({");
+                    sb.append("obj:'").append(str).append("',");
+                    sb.append("func:'").append(name).append("',");
+                    sb.append("args:Array.prototype.slice.call(arguments)");
+                    sb.append("})");
+                    sb.append(");");
+                    sb.append("},");
+                }
+            }
+        }
+        int length = sb.length() - 1;
+        if (sb.charAt(length) == ',') {
+            sb.deleteCharAt(length);
+        }
+        sb.append("};");
+        sb.append("}");
     }
 
-    public static byte[] b(byte[] bArr) {
-        if (WebKitFactory.getCurEngine() != 1) {
-            return bArr;
-        }
-        byte[] bArr2 = new byte[bArr.length];
-        Log.w("RC4", "kernelEncrypt " + bArr.length);
-        WebSettingsGlobalBlink.kernelEncrypt(bArr, bArr.length, bArr2);
-        return bArr2;
+    private static boolean e() {
+        return Build.VERSION.SDK_INT >= 17;
     }
 
-    public static byte[] c(byte[] bArr) throws IOException {
-        if (bArr == null || bArr.length == 0) {
-            return null;
+    public final void a(String str) {
+        if (!this.j || str == null || str.startsWith("javascript")) {
+            return;
         }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        a aVar = new a(byteArrayOutputStream);
-        aVar.a();
-        aVar.write(bArr);
-        aVar.close();
-        Log.w("rc4", "kernelGzipCompress " + byteArrayOutputStream.toByteArray().length);
-        return byteArrayOutputStream.toByteArray();
+        this.i = str;
+        if (this.d == null || this.d.getSettings() == null) {
+            return;
+        }
+        if (!this.i.startsWith("file://")) {
+            this.d.getSettings().setJavaScriptEnabled(true);
+            return;
+        }
+        boolean z = false;
+        try {
+            z = WebViewFactory.hasProvider() ? ((Boolean) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_JS_ENABLE_ON_FILE_SCHEMA)).booleanValue() : false;
+        } catch (UnsatisfiedLinkError e) {
+            com.a.a.a.a.a.a.a.a(e);
+        } catch (Throwable th) {
+            Log.e("WebViewSecureProcessor", "getStaticWebSeting error:" + th);
+        }
+        this.d.getSettings().setJavaScriptEnabled(z);
     }
 
-    public final void a() {
-        byte[] bArr = this.d;
-        this.b = 0;
-        this.c = 0;
-        if (this.a == null) {
-            this.a = new byte[256];
+    public final boolean a() {
+        if (this.c) {
+            if (!e()) {
+                return true;
+            }
         }
-        for (int i = 0; i < 256; i++) {
-            this.a[i] = (byte) i;
-        }
-        int i2 = 0;
-        int i3 = 0;
-        for (int i4 = 0; i4 < 256; i4++) {
-            i2 = (i2 + (bArr[i3] & 255) + this.a[i4]) & 255;
-            byte b = this.a[i4];
-            this.a[i4] = this.a[i2];
-            this.a[i2] = b;
-            i3 = (i3 + 1) % bArr.length;
+        return false;
+    }
+
+    public final void b() {
+        if (!this.f || !a()) {
+            if (this.g) {
+                this.d.execJavaScript("var event = document.createEvent('Events');event.initEvent('runtimeready', false, false);document.dispatchEvent(event);");
+            }
+        } else if (this.e != null) {
+            this.d.execJavaScript(this.e);
+        } else {
+            StringBuilder sb = new StringBuilder();
+            sb.append("(function JsAddJavascriptInterface_(){");
+            for (String str : c().keySet()) {
+                try {
+                    a(sb, c().get(str), str);
+                } catch (JSONException e) {
+                }
+            }
+            if (this.g) {
+                sb.append("var event = document.createEvent('Events');event.initEvent('runtimeready', false, false);document.dispatchEvent(event);");
+            }
+            sb.append("}");
+            sb.append(")()");
+            this.e = sb.toString();
+            this.d.execJavaScript(this.e);
         }
     }
 
-    public final void a(byte[] bArr, int i, byte[] bArr2) {
-        if (i + 0 > bArr.length) {
-            throw new RuntimeException("input buffer too short");
+    public final HashMap<String, Object> c() {
+        if (this.b == null) {
+            this.b = new HashMap<>();
         }
-        if (i + 0 > bArr2.length) {
-            throw new RuntimeException("output buffer too short");
-        }
-        for (int i2 = 0; i2 < i; i2++) {
-            this.b = (this.b + 1) & 255;
-            this.c = (this.a[this.b] + this.c) & 255;
-            byte b = this.a[this.b];
-            this.a[this.b] = this.a[this.c];
-            this.a[this.c] = b;
-            bArr2[i2 + 0] = (byte) (bArr[i2 + 0] ^ this.a[(this.a[this.b] + this.a[this.c]) & 255]);
-        }
+        return this.b;
     }
 
-    public final byte[] a(byte[] bArr) {
-        a();
-        byte[] bArr2 = new byte[bArr.length];
-        a(bArr, bArr.length, bArr2);
-        return bArr2;
+    public final boolean d() {
+        if (e()) {
+            return false;
+        }
+        this.d.removeJavascriptInterface("searchBoxJavaBridge_");
+        return true;
     }
 }

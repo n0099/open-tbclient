@@ -16,6 +16,7 @@ public class EditHeadActivityConfig extends IntentConfig {
     public static final String EDITTYPE = "edit_type";
     public static final String FROMCODE = "request";
     public static final String FROM_ALA_LIVE_COVER_CUT = "fom_ala_live_cover";
+    public static final String FROM_FLUTTER_IMAGEPICKER = "from_flutter_imagepicker";
     public static final String FROM_MISSON_SET_COVER = "from_misson_set_cover";
     public static final String FROM_PHOTO_LIVE = "from_photo_live";
     public static final String FROM_WHERE = "from_where";

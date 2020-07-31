@@ -129,7 +129,7 @@ public final class ObservableSequenceEqualSingle<T> extends w<Boolean> {
                                 this.v1 = null;
                                 this.v2 = null;
                             } catch (Throwable th3) {
-                                io.reactivex.exceptions.a.L(th3);
+                                io.reactivex.exceptions.a.K(th3);
                                 cancel(aVar2, aVar4);
                                 this.actual.onError(th3);
                                 return;
@@ -155,37 +155,37 @@ public final class ObservableSequenceEqualSingle<T> extends w<Boolean> {
         volatile boolean done;
         Throwable error;
         final int index;
-        final EqualCoordinator<T> nLM;
+        final EqualCoordinator<T> nUu;
         final io.reactivex.internal.queue.a<T> queue;
 
         a(EqualCoordinator<T> equalCoordinator, int i, int i2) {
-            this.nLM = equalCoordinator;
+            this.nUu = equalCoordinator;
             this.index = i;
             this.queue = new io.reactivex.internal.queue.a<>(i2);
         }
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            this.nLM.setDisposable(bVar, this.index);
+            this.nUu.setDisposable(bVar, this.index);
         }
 
         @Override // io.reactivex.u
         public void onNext(T t) {
             this.queue.offer(t);
-            this.nLM.drain();
+            this.nUu.drain();
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             this.error = th;
             this.done = true;
-            this.nLM.drain();
+            this.nUu.drain();
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             this.done = true;
-            this.nLM.drain();
+            this.nUu.drain();
         }
     }
 }

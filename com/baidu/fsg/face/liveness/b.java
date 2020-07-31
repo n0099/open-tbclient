@@ -6,7 +6,7 @@ import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import com.baidu.idl.facesdk.FaceTracker;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b {
     public long a;
     public int b;

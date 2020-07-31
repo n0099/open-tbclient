@@ -4,7 +4,7 @@ import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.l;
 import com.baidu.mapapi.search.share.RouteShareURLOption;
 import com.baidu.platform.core.e.h;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ShareUrlSearch extends l {
     private boolean b = false;
     com.baidu.platform.core.e.a a = new h();

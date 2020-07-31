@@ -1,18 +1,18 @@
 package com.baidu.live.challenge;
 
-import com.baidu.live.data.am;
-import com.baidu.live.data.aq;
-/* loaded from: classes3.dex */
+import com.baidu.live.data.an;
+import com.baidu.live.data.ar;
+/* loaded from: classes4.dex */
 public interface g {
-    void a(am amVar, aq aqVar, aq aqVar2);
+    void a(an anVar, ar arVar, ar arVar2);
 
-    void aU(boolean z);
+    void aX(boolean z);
 
-    void aV(boolean z);
+    void aY(boolean z);
 
-    void vL();
+    void wh();
 
-    void vM();
+    void wi();
 
-    void vN();
+    void wj();
 }

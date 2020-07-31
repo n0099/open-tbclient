@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.adaptation.a;
+/* loaded from: classes7.dex */
+public interface ai {
+    String getHostName();
 
-import com.baidu.searchbox.widget.SlideInterceptor;
-/* loaded from: classes11.dex */
-public interface ai extends SlideInterceptor {
-    double Ua();
+    String sW();
 }

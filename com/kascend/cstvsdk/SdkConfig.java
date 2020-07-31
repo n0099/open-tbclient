@@ -10,7 +10,7 @@ import kotlin.jvm.internal.q;
 import okhttp3.OkHttpClient;
 @Keep
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class SdkConfig {
     private Application application;
     private boolean debug;

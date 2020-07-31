@@ -5,24 +5,24 @@ import com.baidu.ubs.analytics.c.g;
 import com.baidu.ubs.analytics.c.j;
 import com.baidu.ubs.analytics.d;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static boolean mEx = false;
+    private static boolean mMB = false;
 
-    public static void Qb(String str) {
-        if (mEx) {
-            e.dxq().Qb(str);
+    public static void QM(String str) {
+        if (mMB) {
+            e.dAC().QM(str);
         }
     }
 
-    public static void Qc(String str) {
-        if (mEx) {
-            e.dxq().Qc(str);
+    public static void QN(String str) {
+        if (mMB) {
+            e.dAC().QN(str);
         }
     }
 
     public static void a(String str, String str2, String str3, Map<String, String> map) {
-        if (mEx && str != null) {
+        if (mMB && str != null) {
             j.b(str, str2, str3, map);
         }
     }
@@ -33,11 +33,11 @@ public class a {
         }
     }
 
-    public static SampleResult Qd(String str) {
-        return mEx ? d.a.mEF.Qe(str) : SampleResult.OTHERE;
+    public static SampleResult QO(String str) {
+        return mMB ? d.a.mMJ.QP(str) : SampleResult.OTHERE;
     }
 
-    public static void wl(boolean z) {
-        mEx = z;
+    public static void wQ(boolean z) {
+        mMB = z;
     }
 }

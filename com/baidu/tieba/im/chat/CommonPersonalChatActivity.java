@@ -17,30 +17,30 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    protected abstract boolean at(Bundle bundle);
+    protected abstract boolean au(Bundle bundle);
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
     protected abstract void initView();
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void cmS() {
-        super.cmS();
+    public void cqs() {
+        super.cqs();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void W(Intent intent) {
+    public void X(Intent intent) {
         UserData userData = (UserData) intent.getSerializableExtra("user");
         b(userData);
-        ((CommonPersonalMsglistModel) this.iLw).setUser(userData);
+        ((CommonPersonalMsglistModel) this.iRB).setUser(userData);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void av(Bundle bundle) {
+    public void aw(Bundle bundle) {
         if (bundle != null && bundle.getString("user") != null) {
             UserData userData = (UserData) OrmObject.objectWithJsonStr(bundle.getString("user"), UserData.class);
             b(userData);
-            ((CommonPersonalMsglistModel) this.iLw).setUser(userData);
+            ((CommonPersonalMsglistModel) this.iRB).setUser(userData);
         }
     }
 
@@ -48,31 +48,31 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putSerializable("user", OrmObject.jsonStrWithObject(((CommonPersonalMsglistModel) this.iLw).getUser()));
+        bundle.putSerializable("user", OrmObject.jsonStrWithObject(((CommonPersonalMsglistModel) this.iRB).getUser()));
     }
 
     protected void b(UserData userData) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean cmU() {
+    public boolean cqu() {
         UserData user;
-        return (!(this.iLw instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.iLw).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
+        return (!(this.iRB instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.iRB).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void au(Bundle bundle) throws Exception {
-        this.iLw.setIsAcceptNotify(bundle.getBoolean("is_accept_notify", true));
-        av(bundle);
+    public void av(Bundle bundle) throws Exception {
+        this.iRB.setIsAcceptNotify(bundle.getBoolean("is_accept_notify", true));
+        aw(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cmT() {
+    public void cqt() {
         Intent intent = getIntent();
         boolean booleanExtra = intent.getBooleanExtra("is_accept_notify", true);
-        if (this.iLw != null) {
-            this.iLw.setIsAcceptNotify(booleanExtra);
-            W(intent);
+        if (this.iRB != null) {
+            this.iRB.setIsAcceptNotify(booleanExtra);
+            X(intent);
         }
     }
 
@@ -83,7 +83,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         super.onItemViewClick(view, i, i2, j);
         switch (i) {
             case 7:
-                if (cnE() && this.iLw != null && (msg = this.iLw.getMsg(i2)) != null && com.baidu.tieba.im.util.e.p(msg) && (content = msg.getContent()) != null) {
+                if (cre() && this.iRB != null && (msg = this.iRB.getMsg(i2)) != null && com.baidu.tieba.im.util.e.p(msg) && (content = msg.getContent()) != null) {
                     JSONObject jSONObject = null;
                     try {
                         JSONArray jSONArray = new JSONArray(content);

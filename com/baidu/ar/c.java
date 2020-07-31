@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public abstract class c {
     private com.baidu.ar.filter.a A;
     private a B;
@@ -46,7 +46,7 @@ public abstract class c {
     protected boolean mIsFrontCamera = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         boolean a(String str, com.baidu.ar.c.e eVar);
 

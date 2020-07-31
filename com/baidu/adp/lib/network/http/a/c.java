@@ -2,32 +2,32 @@ package com.baidu.adp.lib.network.http.a;
 /* loaded from: classes.dex */
 public class c {
     private int KM;
-    private String Lp;
-    private String Ls;
-    private int Lt;
-    private long Lu;
+    private String Lo;
+    private String Lr;
+    private int Ls;
+    private long Lt;
     private String exception;
+    private boolean Lp = false;
     private boolean Lq = false;
-    private boolean Lr = false;
     private int Kz = 0;
 
     public void al(boolean z) {
-        this.Lq = z;
+        this.Lp = z;
     }
 
     public boolean le() {
-        return this.Lr;
+        return this.Lq;
     }
 
     public void am(boolean z) {
-        this.Lr = z;
+        this.Lq = z;
     }
 
     public void setException(String str) {
         this.exception = str;
     }
 
-    public void ak(int i) {
+    public void am(int i) {
         this.Kz = i;
     }
 
@@ -35,35 +35,35 @@ public class c {
         this.exception = "";
     }
 
-    public void bH(String str) {
-        this.Ls = str;
+    public void bF(String str) {
+        this.Lr = str;
     }
 
     public String lg() {
-        return this.Ls;
+        return this.Lr;
     }
 
-    public void al(int i) {
-        this.Lt = i;
+    public void an(int i) {
+        this.Ls = i;
     }
 
     public void G(long j) {
-        this.Lu = j;
+        this.Lt = j;
     }
 
     public String toString() {
-        return "isFromNet_" + this.Lq + "-statType_" + this.Lt + "-dnsErr_" + this.exception + "-hasRetry_" + this.Kz + "-cost_" + this.Lu + "-ipIndex_" + this.KM + "-ipResult_" + this.Lp;
+        return "isFromNet_" + this.Lp + "-statType_" + this.Ls + "-dnsErr_" + this.exception + "-hasRetry_" + this.Kz + "-cost_" + this.Lt + "-ipIndex_" + this.KM + "-ipResult_" + this.Lo;
     }
 
     public String lh() {
-        return this.Lp;
+        return this.Lo;
     }
 
-    public void bI(String str) {
-        this.Lp = str;
+    public void bG(String str) {
+        this.Lo = str;
     }
 
-    public void ah(int i) {
+    public void aj(int i) {
         this.KM = i;
     }
 }

@@ -6,14 +6,14 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.t;
+import com.baidu.swan.apps.aq.v;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b extends aa {
     private String mCallback;
 
@@ -27,20 +27,20 @@ public class b extends aa {
             c.i("scanCode", "swanApp is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
-        } else if (eVar.Va()) {
+        } else if (eVar.VF()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
             return false;
         } else {
-            this.mCallback = t.parseString(unitedSchemeEntity.getParam("params")).optString("cb");
+            this.mCallback = v.parseString(unitedSchemeEntity.getParam("params")).optString("cb");
             if (TextUtils.isEmpty(this.mCallback)) {
                 c.i("scanCode", "cb is empty");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.swan.apps.u.a.agf().a(eVar.apG(), new a() { // from class: com.baidu.swan.apps.f.b.1
+            com.baidu.swan.apps.t.a.ahr().a(eVar.arp(), new a() { // from class: com.baidu.swan.apps.f.b.1
                 @Override // com.baidu.swan.apps.f.a
                 public void onSuccess(String str, String str2, String str3) {
                     try {

@@ -32,11 +32,11 @@ import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends SSLSocketFactory {
         private HostnameVerifier a = HttpsURLConnection.getDefaultHostnameVerifier();
         private HttpsURLConnection b;

@@ -11,27 +11,27 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class FlowableUsing<T, D> extends io.reactivex.g<T> {
     final io.reactivex.c.g<? super D> disposer;
     final boolean eager;
-    final Callable<? extends D> nJU;
-    final h<? super D, ? extends org.a.b<? extends T>> nKW;
+    final Callable<? extends D> nSC;
+    final h<? super D, ? extends org.a.b<? extends T>> nTE;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         try {
-            D call = this.nJU.call();
+            D call = this.nSC.call();
             try {
-                ((org.a.b) io.reactivex.internal.functions.a.k(this.nKW.apply(call), "The sourceSupplier returned a null Publisher")).subscribe(new UsingSubscriber(cVar, call, this.disposer, this.eager));
+                ((org.a.b) io.reactivex.internal.functions.a.k(this.nTE.apply(call), "The sourceSupplier returned a null Publisher")).subscribe(new UsingSubscriber(cVar, call, this.disposer, this.eager));
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.L(th);
+                io.reactivex.exceptions.a.K(th);
                 try {
                     this.disposer.accept(call);
                     EmptySubscription.error(th, cVar);
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.L(th2);
+                    io.reactivex.exceptions.a.K(th2);
                     EmptySubscription.error(new CompositeException(th, th2), cVar);
                 }
             }
         } catch (Throwable th3) {
-            io.reactivex.exceptions.a.L(th3);
+            io.reactivex.exceptions.a.K(th3);
             EmptySubscription.error(th3, cVar);
         }
     }
@@ -75,7 +75,7 @@ public final class FlowableUsing<T, D> extends io.reactivex.g<T> {
                         this.disposer.accept((D) this.resource);
                     } catch (Throwable th3) {
                         th2 = th3;
-                        io.reactivex.exceptions.a.L(th2);
+                        io.reactivex.exceptions.a.K(th2);
                     }
                 }
                 this.s.cancel();
@@ -100,7 +100,7 @@ public final class FlowableUsing<T, D> extends io.reactivex.g<T> {
                     try {
                         this.disposer.accept((D) this.resource);
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.L(th);
+                        io.reactivex.exceptions.a.K(th);
                         this.actual.onError(th);
                         return;
                     }
@@ -131,7 +131,7 @@ public final class FlowableUsing<T, D> extends io.reactivex.g<T> {
                 try {
                     this.disposer.accept((D) this.resource);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.L(th);
+                    io.reactivex.exceptions.a.K(th);
                     io.reactivex.e.a.onError(th);
                 }
             }

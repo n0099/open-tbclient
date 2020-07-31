@@ -3,7 +3,7 @@ package com.kascend.chushou.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class UserBean implements Parcelable {
     public static final Parcelable.Creator<UserBean> CREATOR = new Parcelable.Creator<UserBean>() { // from class: com.kascend.chushou.bean.UserBean.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,7 +36,7 @@ public class UserBean implements Parcelable {
     public UserBean() {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class MetaBean implements Parcelable {
         public static final Parcelable.Creator<MetaBean> CREATOR = new Parcelable.Creator<MetaBean>() { // from class: com.kascend.chushou.bean.UserBean.MetaBean.1
             /* JADX DEBUG: Method merged with bridge method */

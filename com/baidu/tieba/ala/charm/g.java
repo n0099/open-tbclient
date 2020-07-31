@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.charm;
 import android.content.Context;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g {
-    public static String qx(int i) {
+    public static String qM(int i) {
         if (i == 2) {
             return SdkStaticKeys.CHARM_TYPE_WEEK;
         }
@@ -18,7 +18,7 @@ public class g {
         return SdkStaticKeys.CHARM_TYPE_DAY;
     }
 
-    public static String w(Context context, int i) {
+    public static String x(Context context, int i) {
         if (context == null) {
             return "";
         }

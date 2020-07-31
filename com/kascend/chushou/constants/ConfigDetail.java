@@ -2,7 +2,7 @@ package com.kascend.chushou.constants;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ConfigDetail {
     public H5Positon mLandscape;
     public H5Positon mPortrait;

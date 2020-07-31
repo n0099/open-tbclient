@@ -1,11 +1,11 @@
 package com.facebook.imagepipeline.common;
 
 import com.facebook.common.internal.g;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class d {
     public final int height;
-    public final float mSt;
-    public final float mSu;
+    public final float naA;
+    public final float naz;
     public final int width;
 
     public d(int i, int i2) {
@@ -21,8 +21,8 @@ public class d {
         g.checkArgument(i2 > 0);
         this.width = i;
         this.height = i2;
-        this.mSt = f;
-        this.mSu = f2;
+        this.naz = f;
+        this.naA = f2;
     }
 
     public int hashCode() {

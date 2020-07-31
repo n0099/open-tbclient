@@ -6,13 +6,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class AiAppGuideActivity extends BaseActivity {
-    private ImageView eVv;
-    private GifView eoA;
+    private GifView euP;
+    private ImageView fbc;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -28,15 +28,15 @@ public class AiAppGuideActivity extends BaseActivity {
         setSwipeBackEnabled(false);
         setActivityBgTransparent();
         setContentView(R.layout.activity_aiapp_guide);
-        this.eoA = (GifView) findViewById(R.id.view_gif);
-        this.eoA.setGifRaw(R.raw.aiapp_guide);
-        this.eVv = (ImageView) findViewById(R.id.img_close);
-        this.eVv.setOnClickListener(this.mOnClickListener);
+        this.euP = (GifView) findViewById(R.id.view_gif);
+        this.euP.setGifRaw(R.raw.aiapp_guide);
+        this.fbc = (ImageView) findViewById(R.id.img_close);
+        this.fbc.setOnClickListener(this.mOnClickListener);
         int equipmentWidth = l.getEquipmentWidth(getActivity()) - (l.getDimens(getActivity(), R.dimen.tbds44) * 2);
-        ViewGroup.LayoutParams layoutParams = this.eoA.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.euP.getLayoutParams();
         layoutParams.width = equipmentWidth;
         layoutParams.height = (int) (((equipmentWidth * 828) * 1.0f) / 760.0f);
-        this.eoA.setLayoutParams(layoutParams);
+        this.euP.setLayoutParams(layoutParams);
     }
 
     @Override // android.app.Activity
@@ -48,6 +48,6 @@ public class AiAppGuideActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        an.setImageResource(this.eVv, R.drawable.icon_use_close_n);
+        ao.setImageResource(this.fbc, R.drawable.icon_use_close_n);
     }
 }

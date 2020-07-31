@@ -13,9 +13,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class c extends b {
-    private static Method mVP;
+    private static Method ndQ;
 
     @Override // com.facebook.imagepipeline.i.b, com.facebook.imagepipeline.i.e
     public /* bridge */ /* synthetic */ com.facebook.common.references.a a(com.facebook.imagepipeline.g.e eVar, Bitmap.Config config, @Nullable Rect rect) {
@@ -28,8 +28,8 @@ public class c extends b {
     }
 
     @Override // com.facebook.imagepipeline.i.b
-    public /* bridge */ /* synthetic */ com.facebook.common.references.a ae(Bitmap bitmap) {
-        return super.ae(bitmap);
+    public /* bridge */ /* synthetic */ com.facebook.common.references.a ah(Bitmap bitmap) {
+        return super.ah(bitmap);
     }
 
     @Override // com.facebook.imagepipeline.i.b
@@ -39,7 +39,7 @@ public class c extends b {
 
     @Override // com.facebook.imagepipeline.i.b
     protected Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options) {
-        return a(aVar, i, b(aVar, i) ? null : mVN, options);
+        return a(aVar, i, b(aVar, i) ? null : ndO, options);
     }
 
     private static MemoryFile a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, @Nullable byte[] bArr) throws IOException {
@@ -66,8 +66,8 @@ public class c extends b {
                         memoryFile.writeBytes(bArr, 0, i, bArr.length);
                     }
                     com.facebook.common.references.a.c(aVar);
-                    com.facebook.common.internal.b.p(hVar2);
-                    com.facebook.common.internal.b.p(aVar3);
+                    com.facebook.common.internal.b.o(hVar2);
+                    com.facebook.common.internal.b.o(aVar3);
                     com.facebook.common.internal.b.close(outputStream, true);
                     return memoryFile;
                 } catch (Throwable th2) {
@@ -75,8 +75,8 @@ public class c extends b {
                     aVar2 = aVar3;
                     hVar = hVar2;
                     com.facebook.common.references.a.c(aVar);
-                    com.facebook.common.internal.b.p(hVar);
-                    com.facebook.common.internal.b.p(aVar2);
+                    com.facebook.common.internal.b.o(hVar);
+                    com.facebook.common.internal.b.o(aVar2);
                     com.facebook.common.internal.b.close(outputStream, true);
                     throw th;
                 }
@@ -92,22 +92,22 @@ public class c extends b {
         }
     }
 
-    private synchronized Method dGa() {
-        if (mVP == null) {
+    private synchronized Method dJm() {
+        if (ndQ == null) {
             try {
-                mVP = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
+                ndQ = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
             } catch (Exception e) {
-                throw l.y(e);
+                throw l.x(e);
             }
         }
-        return mVP;
+        return ndQ;
     }
 
     private FileDescriptor a(MemoryFile memoryFile) {
         try {
-            return (FileDescriptor) dGa().invoke(memoryFile, new Object[0]);
+            return (FileDescriptor) dJm().invoke(memoryFile, new Object[0]);
         } catch (Exception e) {
-            throw l.y(e);
+            throw l.x(e);
         }
     }
 
@@ -116,9 +116,9 @@ public class c extends b {
         try {
             try {
                 memoryFile = a(aVar, i, bArr);
-                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.mJB.a(a(memoryFile), null, options), "BitmapFactory returned null");
+                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.mRE.a(a(memoryFile), null, options), "BitmapFactory returned null");
             } catch (IOException e) {
-                throw l.y(e);
+                throw l.x(e);
             }
         } finally {
             if (memoryFile != null) {

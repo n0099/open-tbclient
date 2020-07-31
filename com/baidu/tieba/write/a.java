@@ -12,148 +12,148 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.tbadk.widget.layout.GridLayout;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected TbPageContext dPv;
-    protected g mkv;
-    public View.OnClickListener mkw = new View.OnClickListener() { // from class: com.baidu.tieba.write.a.1
+    protected TbPageContext dVN;
+    protected g msw;
+    public View.OnClickListener msx = new View.OnClickListener() { // from class: com.baidu.tieba.write.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.mkv != null) {
-                if (a.this.mkv.getBgColor() != 0) {
-                    UtilHelper.setNavigationBarBackground(a.this.dPv.getPageActivity(), a.this.mkv.getBgColor());
+            if (a.this.msw != null) {
+                if (a.this.msw.getBgColor() != 0) {
+                    UtilHelper.setNavigationBarBackground(a.this.dVN.getPageActivity(), a.this.msw.getBgColor());
                 }
-                a.this.mkv.vH(true);
+                a.this.msw.wl(true);
             }
         }
     };
-    protected View mRootView = cbm();
+    protected View mRootView = ceK();
 
-    public abstract View cbm();
+    public abstract View ceK();
 
     public a(TbPageContext tbPageContext, g gVar) {
-        this.dPv = tbPageContext;
-        this.mkv = gVar;
+        this.dVN = tbPageContext;
+        this.msw = gVar;
     }
 
     public void onChangeSkinType(int i) {
     }
 
-    public void dqK() {
+    public void dtW() {
     }
 
     /* loaded from: classes.dex */
     public static class c extends a {
-        TextView efC;
-        public View mkQ;
-        public TBLottieAnimationView mkR;
-        public View mkZ;
-        public LinearLayout mla;
-        public ImageView mlb;
-        public TextView mlc;
-        public LinearLayout mld;
-        public ImageView mle;
-        public TextView mlf;
-        public LinearLayout mlg;
-        public ImageView mlh;
-        public TextView mli;
-        public LinearLayout mlj;
-        public ImageView mlk;
-        public TextView mll;
-        public LinearLayout mlm;
-        ImageView mln;
-        public LinearLayout mlo;
-        ImageView mlp;
-        TextView mlq;
-        public OvalActionButton mlr;
-        public GridLayout mls;
+        TextView elM;
+        public View msR;
+        public TBLottieAnimationView msS;
+        public View mta;
+        public LinearLayout mtb;
+        public ImageView mtc;
+        public TextView mtd;
+        public LinearLayout mte;
+        public ImageView mtf;
+        public TextView mtg;
+        public LinearLayout mth;
+        public ImageView mti;
+        public TextView mtj;
+        public LinearLayout mtk;
+        public ImageView mtl;
+        public TextView mtm;
+        public LinearLayout mtn;
+        ImageView mto;
+        public LinearLayout mtp;
+        ImageView mtq;
+        TextView mtr;
+        public OvalActionButton mts;
+        public GridLayout mtt;
 
         public c(TbPageContext tbPageContext, g gVar) {
             super(tbPageContext, gVar);
             if (tbPageContext != null) {
-                this.mld = (LinearLayout) this.mRootView.findViewById(R.id.home_write_article);
-                this.mle = (ImageView) this.mRootView.findViewById(R.id.home_write_article_icon);
-                this.mlf = (TextView) this.mRootView.findViewById(R.id.home_write_article_title);
-                this.mla = (LinearLayout) this.mRootView.findViewById(R.id.home_write_photo);
-                this.mlb = (ImageView) this.mRootView.findViewById(R.id.home_write_photo_icon);
-                this.mlc = (TextView) this.mRootView.findViewById(R.id.home_write_photo_title);
-                this.mlg = (LinearLayout) this.mRootView.findViewById(R.id.home_write_album);
-                this.mlh = (ImageView) this.mRootView.findViewById(R.id.home_write_album_icon);
-                this.mli = (TextView) this.mRootView.findViewById(R.id.home_write_album_title);
-                this.mlj = (LinearLayout) this.mRootView.findViewById(R.id.home_write_live);
-                this.mlk = (ImageView) this.mRootView.findViewById(R.id.home_write_live_icon);
-                this.mll = (TextView) this.mRootView.findViewById(R.id.home_write_live_title);
-                this.mlm = (LinearLayout) this.mRootView.findViewById(R.id.home_write_vote);
-                this.mln = (ImageView) this.mRootView.findViewById(R.id.home_write_vote_icon);
-                this.efC = (TextView) this.mRootView.findViewById(R.id.home_write_vote_title);
-                this.mlo = (LinearLayout) this.mRootView.findViewById(R.id.home_write_score);
-                this.mlp = (ImageView) this.mRootView.findViewById(R.id.home_write_score_icon);
-                this.mlq = (TextView) this.mRootView.findViewById(R.id.home_write_score_title);
-                this.mlr = (OvalActionButton) this.mRootView.findViewById(R.id.write_close_view);
-                if (this.mkv != null && "frs".equals(this.mkv.getFrom())) {
-                    this.mlr.setIsCircle(true);
-                    this.mlr.setHasShadow(false);
+                this.mte = (LinearLayout) this.mRootView.findViewById(R.id.home_write_article);
+                this.mtf = (ImageView) this.mRootView.findViewById(R.id.home_write_article_icon);
+                this.mtg = (TextView) this.mRootView.findViewById(R.id.home_write_article_title);
+                this.mtb = (LinearLayout) this.mRootView.findViewById(R.id.home_write_photo);
+                this.mtc = (ImageView) this.mRootView.findViewById(R.id.home_write_photo_icon);
+                this.mtd = (TextView) this.mRootView.findViewById(R.id.home_write_photo_title);
+                this.mth = (LinearLayout) this.mRootView.findViewById(R.id.home_write_album);
+                this.mti = (ImageView) this.mRootView.findViewById(R.id.home_write_album_icon);
+                this.mtj = (TextView) this.mRootView.findViewById(R.id.home_write_album_title);
+                this.mtk = (LinearLayout) this.mRootView.findViewById(R.id.home_write_live);
+                this.mtl = (ImageView) this.mRootView.findViewById(R.id.home_write_live_icon);
+                this.mtm = (TextView) this.mRootView.findViewById(R.id.home_write_live_title);
+                this.mtn = (LinearLayout) this.mRootView.findViewById(R.id.home_write_vote);
+                this.mto = (ImageView) this.mRootView.findViewById(R.id.home_write_vote_icon);
+                this.elM = (TextView) this.mRootView.findViewById(R.id.home_write_vote_title);
+                this.mtp = (LinearLayout) this.mRootView.findViewById(R.id.home_write_score);
+                this.mtq = (ImageView) this.mRootView.findViewById(R.id.home_write_score_icon);
+                this.mtr = (TextView) this.mRootView.findViewById(R.id.home_write_score_title);
+                this.mts = (OvalActionButton) this.mRootView.findViewById(R.id.write_close_view);
+                if (this.msw != null && "frs".equals(this.msw.getFrom())) {
+                    this.mts.setIsCircle(true);
+                    this.mts.setHasShadow(false);
                 }
-                this.mkZ = this.mRootView.findViewById(R.id.view_background_white);
-                this.mkQ = this.mRootView.findViewById(R.id.view_background_translate);
-                this.mls = (GridLayout) this.mRootView.findViewById(R.id.type_container);
-                this.mls.setMeasureAllChild(true);
-                this.mls.setVerNum(2);
-                this.mkR = (TBLottieAnimationView) this.mRootView.findViewById(R.id.bottom_bar_background);
-                this.mkR.setSpeed(1.2f);
-                dqK();
-                this.mkQ.setOnClickListener(this.mkw);
-                this.mkQ.setClickable(true);
-                this.mle.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.1
+                this.mta = this.mRootView.findViewById(R.id.view_background_white);
+                this.msR = this.mRootView.findViewById(R.id.view_background_translate);
+                this.mtt = (GridLayout) this.mRootView.findViewById(R.id.type_container);
+                this.mtt.setMeasureAllChild(true);
+                this.mtt.setVerNum(2);
+                this.msS = (TBLottieAnimationView) this.mRootView.findViewById(R.id.bottom_bar_background);
+                this.msS.setSpeed(1.2f);
+                dtW();
+                this.msR.setOnClickListener(this.msx);
+                this.msR.setClickable(true);
+                this.mtf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.mkv != null) {
-                            c.this.mkv.OR(c.this.mkv.cfe());
+                        if (c.this.msw != null) {
+                            c.this.msw.PC(c.this.msw.ciD());
                         }
                     }
                 });
-                this.mlb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.2
+                this.mtc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.mkv != null) {
-                            c.this.mkv.dra();
+                        if (c.this.msw != null) {
+                            c.this.msw.dum();
                         }
                     }
                 });
-                this.mlh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.3
+                this.mti.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.mkv != null) {
-                            c.this.mkv.dqZ();
+                        if (c.this.msw != null) {
+                            c.this.msw.dul();
                         }
                     }
                 });
-                this.mlk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.4
+                this.mtl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.mkv != null) {
-                            c.this.mkv.dqY();
+                        if (c.this.msw != null) {
+                            c.this.msw.duk();
                         }
                     }
                 });
-                this.mlm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.5
+                this.mtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.5
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.mkv != null) {
-                            c.this.mkv.OQ(c.this.mkv.cfe());
+                        if (c.this.msw != null) {
+                            c.this.msw.PB(c.this.msw.ciD());
                         }
                     }
                 });
-                this.mlo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.6
+                this.mtp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.6
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.mkv != null) {
-                            c.this.mkv.dqX();
+                        if (c.this.msw != null) {
+                            c.this.msw.duj();
                         }
                     }
                 });
@@ -161,59 +161,59 @@ public abstract class a {
         }
 
         @Override // com.baidu.tieba.write.a
-        public View cbm() {
-            return LayoutInflater.from(this.dPv.getPageActivity()).inflate(R.layout.bottom_write_thread, (ViewGroup) null);
+        public View ceK() {
+            return LayoutInflater.from(this.dVN.getPageActivity()).inflate(R.layout.bottom_write_thread, (ViewGroup) null);
         }
 
-        public void vD(boolean z) {
-            this.mlo.setVisibility(z ? 0 : 8);
+        public void wh(boolean z) {
+            this.mtp.setVisibility(z ? 0 : 8);
         }
 
         @Override // com.baidu.tieba.write.a
         public void onChangeSkinType(int i) {
-            this.mlr.onChangeSkinType(i);
-            an.a(this.mkR, (int) R.raw.bottom_bar_bg);
-            an.setBackgroundResource(this.mkZ, R.drawable.write_tab_background);
-            this.mlb.setImageDrawable(SvgManager.aWQ().i(R.drawable.ic_icon_post_photograph60_svg, 1, true));
-            this.mle.setImageDrawable(SvgManager.aWQ().i(R.drawable.ic_icon_post_text60_svg, 1, true));
-            this.mlh.setImageDrawable(SvgManager.aWQ().i(R.drawable.ic_icon_post_image60_svg, 1, true));
-            this.mlk.setImageDrawable(SvgManager.aWQ().i(R.drawable.ic_icon_post_live60_svg, 1, true));
-            this.mln.setImageDrawable(SvgManager.aWQ().i(R.drawable.ic_icon_post_vote60_svg, 1, true));
-            this.mlp.setImageDrawable(SvgManager.aWQ().i(R.drawable.ic_icon_post_evaluation60_svg, 1, true));
-            an.setViewTextColor(this.mlc, (int) R.color.cp_cont_b);
-            an.setViewTextColor(this.mlf, (int) R.color.cp_cont_b);
-            an.setViewTextColor(this.mli, (int) R.color.cp_cont_b);
-            an.setViewTextColor(this.mll, (int) R.color.cp_cont_b);
-            an.setViewTextColor(this.efC, (int) R.color.cp_cont_b);
-            an.setViewTextColor(this.mlq, (int) R.color.cp_cont_b);
+            this.mts.onChangeSkinType(i);
+            ao.a(this.msS, R.raw.bottom_bar_bg);
+            ao.setBackgroundResource(this.mta, R.drawable.write_tab_background);
+            this.mtc.setImageDrawable(SvgManager.baR().i(R.drawable.ic_icon_post_photograph60_svg, 1, true));
+            this.mtf.setImageDrawable(SvgManager.baR().i(R.drawable.ic_icon_post_text60_svg, 1, true));
+            this.mti.setImageDrawable(SvgManager.baR().i(R.drawable.ic_icon_post_image60_svg, 1, true));
+            this.mtl.setImageDrawable(SvgManager.baR().i(R.drawable.ic_icon_post_live60_svg, 1, true));
+            this.mto.setImageDrawable(SvgManager.baR().i(R.drawable.ic_icon_post_vote60_svg, 1, true));
+            this.mtq.setImageDrawable(SvgManager.baR().i(R.drawable.ic_icon_post_evaluation60_svg, 1, true));
+            ao.setViewTextColor(this.mtd, R.color.cp_cont_b);
+            ao.setViewTextColor(this.mtg, R.color.cp_cont_b);
+            ao.setViewTextColor(this.mtj, R.color.cp_cont_b);
+            ao.setViewTextColor(this.mtm, R.color.cp_cont_b);
+            ao.setViewTextColor(this.elM, R.color.cp_cont_b);
+            ao.setViewTextColor(this.mtr, R.color.cp_cont_b);
         }
 
         @Override // com.baidu.tieba.write.a
-        public void dqK() {
-            int equipmentWidth = l.getEquipmentWidth(this.dPv.getPageActivity());
+        public void dtW() {
+            int equipmentWidth = l.getEquipmentWidth(this.dVN.getPageActivity());
             int i = (int) (0.14537036f * equipmentWidth);
-            b(this.mle, i);
-            b(this.mlb, i);
-            b(this.mlh, i);
-            b(this.mlk, i);
-            b(this.mln, i);
-            b(this.mlp, i);
+            b(this.mtf, i);
+            b(this.mtc, i);
+            b(this.mti, i);
+            b(this.mtl, i);
+            b(this.mto, i);
+            b(this.mtq, i);
             float dimens = (equipmentWidth * 1.0f) / l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1080);
-            ViewGroup.LayoutParams layoutParams = this.mls.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.mtt.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {
                 ((RelativeLayout.LayoutParams) layoutParams).bottomMargin = (int) (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds455) * dimens);
-                this.mls.setLayoutParams(layoutParams);
+                this.mtt.setLayoutParams(layoutParams);
             }
-            ViewGroup.LayoutParams layoutParams2 = this.mkZ.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams2 = this.mta.getLayoutParams();
             if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
                 int dimens2 = (int) (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1144) * dimens);
                 ((RelativeLayout.LayoutParams) layoutParams2).height = dimens2 <= 0 ? 1144 : dimens2;
-                this.mkZ.setLayoutParams(layoutParams2);
+                this.mta.setLayoutParams(layoutParams2);
             }
-            ViewGroup.LayoutParams layoutParams3 = this.mkR.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams3 = this.msS.getLayoutParams();
             if (layoutParams3 instanceof RelativeLayout.LayoutParams) {
                 ((RelativeLayout.LayoutParams) layoutParams3).height = (int) ((dimens * l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds800)) - ((l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds135) * dimens) - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()));
-                this.mkR.setLayoutParams(layoutParams3);
+                this.msS.setLayoutParams(layoutParams3);
             }
         }
 
@@ -229,96 +229,96 @@ public abstract class a {
 
     /* loaded from: classes.dex */
     public static class b extends a {
-        public View dDx;
-        public View djB;
-        public View mkQ;
-        public TBLottieAnimationView mkR;
-        public RelativeLayout mkS;
-        public View mkT;
-        public View mkU;
-        public View mkV;
-        public View mkW;
-        public View mkX;
+        public View dJu;
+        public View dpw;
+        public View msR;
+        public TBLottieAnimationView msS;
+        public RelativeLayout msT;
+        public View msU;
+        public View msV;
+        public View msW;
+        public View msX;
+        public View msY;
 
         public b(TbPageContext tbPageContext, g gVar) {
             super(tbPageContext, gVar);
-            this.mkQ = this.mRootView.findViewById(R.id.transparent_back_view);
-            this.djB = this.mRootView.findViewById(R.id.view_background);
-            this.mkR = (TBLottieAnimationView) this.mRootView.findViewById(R.id.bottom_bar_background);
-            this.mkS = (RelativeLayout) this.mRootView.findViewById(R.id.type_container);
-            this.dDx = this.mRootView.findViewById(R.id.closeView);
-            this.mkT = this.mRootView.findViewById(R.id.publish_text_view);
-            this.mkU = this.mRootView.findViewById(R.id.publish_image_view);
-            this.mkV = this.mRootView.findViewById(R.id.publish_video_view);
-            this.mkW = this.mRootView.findViewById(R.id.publish_ala_view);
-            this.mkX = this.mRootView.findViewById(R.id.publish_ala_view_tip);
-            this.djB.setOnClickListener(this.mkw);
-            this.mkS.setOnClickListener(this.mkw);
-            this.dDx.setOnClickListener(this.mkw);
-            this.mkT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.1
+            this.msR = this.mRootView.findViewById(R.id.transparent_back_view);
+            this.dpw = this.mRootView.findViewById(R.id.view_background);
+            this.msS = (TBLottieAnimationView) this.mRootView.findViewById(R.id.bottom_bar_background);
+            this.msT = (RelativeLayout) this.mRootView.findViewById(R.id.type_container);
+            this.dJu = this.mRootView.findViewById(R.id.closeView);
+            this.msU = this.mRootView.findViewById(R.id.publish_text_view);
+            this.msV = this.mRootView.findViewById(R.id.publish_image_view);
+            this.msW = this.mRootView.findViewById(R.id.publish_video_view);
+            this.msX = this.mRootView.findViewById(R.id.publish_ala_view);
+            this.msY = this.mRootView.findViewById(R.id.publish_ala_view_tip);
+            this.dpw.setOnClickListener(this.msx);
+            this.msT.setOnClickListener(this.msx);
+            this.dJu.setOnClickListener(this.msx);
+            this.msU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.mkv != null) {
-                        b.this.mkv.OR(b.this.mkv.cfe());
+                    if (b.this.msw != null) {
+                        b.this.msw.PC(b.this.msw.ciD());
                     }
                 }
             });
-            this.mkU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.2
+            this.msV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.mkv != null) {
-                        b.this.mkv.dqZ();
+                    if (b.this.msw != null) {
+                        b.this.msw.dul();
                     }
                 }
             });
-            this.mkV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.3
+            this.msW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.mkv != null) {
-                        b.this.mkv.dra();
+                    if (b.this.msw != null) {
+                        b.this.msw.dum();
                     }
                 }
             });
-            this.mkW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.4
+            this.msX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.mkv != null) {
-                        b.this.mkv.dqY();
+                    if (b.this.msw != null) {
+                        b.this.msw.duk();
                     }
                 }
             });
-            vB(false);
-            this.mkR.setSpeed(1.4f);
+            wf(false);
+            this.msS.setSpeed(1.4f);
         }
 
         @Override // com.baidu.tieba.write.a
-        public View cbm() {
-            return LayoutInflater.from(this.dPv.getPageActivity()).inflate(R.layout.home_page_bottom_write_thread, (ViewGroup) null);
+        public View ceK() {
+            return LayoutInflater.from(this.dVN.getPageActivity()).inflate(R.layout.home_page_bottom_write_thread, (ViewGroup) null);
         }
 
         @Override // com.baidu.tieba.write.a
         public void onChangeSkinType(int i) {
-            an.a(this.mkR, (int) R.raw.lottie_use_publish_n);
-            an.setBackgroundResource(this.djB, R.color.cp_mask_d);
-            an.setBackgroundResource(this.mkX, R.drawable.home_publish_ala_red_tip);
+            ao.a(this.msS, R.raw.lottie_use_publish_n);
+            ao.setBackgroundResource(this.dpw, R.color.cp_mask_d);
+            ao.setBackgroundResource(this.msY, R.drawable.home_publish_ala_red_tip);
         }
 
-        public void vB(boolean z) {
-            this.djB.setClickable(z);
-            this.mkS.setClickable(z);
-            this.dDx.setClickable(z);
-            this.mkT.setClickable(z);
-            this.mkU.setClickable(z);
-            this.mkV.setClickable(z);
-            this.mkW.setClickable(z);
+        public void wf(boolean z) {
+            this.dpw.setClickable(z);
+            this.msT.setClickable(z);
+            this.dJu.setClickable(z);
+            this.msU.setClickable(z);
+            this.msV.setClickable(z);
+            this.msW.setClickable(z);
+            this.msX.setClickable(z);
         }
 
-        public void vC(boolean z) {
-            if (this.mkX != null) {
+        public void wg(boolean z) {
+            if (this.msY != null) {
                 if (z) {
-                    this.mkX.setVisibility(0);
+                    this.msY.setVisibility(0);
                 } else {
-                    this.mkX.setVisibility(8);
+                    this.msY.setVisibility(8);
                 }
             }
         }
@@ -326,111 +326,111 @@ public abstract class a {
 
     /* renamed from: com.baidu.tieba.write.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0763a extends a {
-        public View djB;
-        private LinearLayout mkA;
-        private LinearLayout mkB;
-        private LinearLayout mkC;
-        private ImageView mkD;
-        private ImageView mkE;
-        private ImageView mkF;
-        private ImageView mkG;
-        private TextView mkH;
-        private TextView mkI;
-        private TextView mkJ;
-        private TextView mkK;
-        private View mkL;
-        private View mkM;
-        private View mkN;
-        private int mkO;
-        private LinearLayout mky;
-        private LinearLayout mkz;
+    public static class C0773a extends a {
+        public View dpw;
+        private LinearLayout msA;
+        private LinearLayout msB;
+        private LinearLayout msC;
+        private LinearLayout msD;
+        private ImageView msE;
+        private ImageView msF;
+        private ImageView msG;
+        private ImageView msH;
+        private TextView msI;
+        private TextView msJ;
+        private TextView msK;
+        private TextView msL;
+        private View msM;
+        private View msN;
+        private View msO;
+        private int msP;
+        private LinearLayout msz;
 
-        public C0763a(TbPageContext tbPageContext, g gVar) {
+        public C0773a(TbPageContext tbPageContext, g gVar) {
             super(tbPageContext, gVar);
-            this.djB = this.mRootView.findViewById(R.id.view_background);
-            this.mky = (LinearLayout) this.mRootView.findViewById(R.id.type_container);
-            this.mkz = (LinearLayout) this.mRootView.findViewById(R.id.thread_text);
-            this.mkD = (ImageView) this.mRootView.findViewById(R.id.thread_text_iv);
-            this.mkH = (TextView) this.mRootView.findViewById(R.id.thread_text_tv);
-            this.mkA = (LinearLayout) this.mRootView.findViewById(R.id.thread_pic);
-            this.mkE = (ImageView) this.mRootView.findViewById(R.id.thread_pic_iv);
-            this.mkI = (TextView) this.mRootView.findViewById(R.id.thread_pic_tv);
-            this.mkB = (LinearLayout) this.mRootView.findViewById(R.id.thread_video);
-            this.mkF = (ImageView) this.mRootView.findViewById(R.id.thread_video_iv);
-            this.mkJ = (TextView) this.mRootView.findViewById(R.id.thread_video_tv);
-            this.mkC = (LinearLayout) this.mRootView.findViewById(R.id.thread_ala);
-            this.mkG = (ImageView) this.mRootView.findViewById(R.id.thread_ala_iv);
-            this.mkK = (TextView) this.mRootView.findViewById(R.id.thread_ala_tv);
-            this.mkL = this.mRootView.findViewById(R.id.line_1);
-            this.mkM = this.mRootView.findViewById(R.id.line_2);
-            this.mkN = this.mRootView.findViewById(R.id.line_3);
-            this.mkH.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_article_title));
-            this.mkI.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_article_pic));
-            this.mkJ.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_photo_title));
-            this.mkK.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_live));
-            this.djB.setOnClickListener(this.mkw);
-            this.mkz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.1
+            this.dpw = this.mRootView.findViewById(R.id.view_background);
+            this.msz = (LinearLayout) this.mRootView.findViewById(R.id.type_container);
+            this.msA = (LinearLayout) this.mRootView.findViewById(R.id.thread_text);
+            this.msE = (ImageView) this.mRootView.findViewById(R.id.thread_text_iv);
+            this.msI = (TextView) this.mRootView.findViewById(R.id.thread_text_tv);
+            this.msB = (LinearLayout) this.mRootView.findViewById(R.id.thread_pic);
+            this.msF = (ImageView) this.mRootView.findViewById(R.id.thread_pic_iv);
+            this.msJ = (TextView) this.mRootView.findViewById(R.id.thread_pic_tv);
+            this.msC = (LinearLayout) this.mRootView.findViewById(R.id.thread_video);
+            this.msG = (ImageView) this.mRootView.findViewById(R.id.thread_video_iv);
+            this.msK = (TextView) this.mRootView.findViewById(R.id.thread_video_tv);
+            this.msD = (LinearLayout) this.mRootView.findViewById(R.id.thread_ala);
+            this.msH = (ImageView) this.mRootView.findViewById(R.id.thread_ala_iv);
+            this.msL = (TextView) this.mRootView.findViewById(R.id.thread_ala_tv);
+            this.msM = this.mRootView.findViewById(R.id.line_1);
+            this.msN = this.mRootView.findViewById(R.id.line_2);
+            this.msO = this.mRootView.findViewById(R.id.line_3);
+            this.msI.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_article_title));
+            this.msJ.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_article_pic));
+            this.msK.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_photo_title));
+            this.msL.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_live));
+            this.dpw.setOnClickListener(this.msx);
+            this.msA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0763a.this.mkv != null) {
-                        C0763a.this.mkv.OR(C0763a.this.mkv.cfe());
+                    if (C0773a.this.msw != null) {
+                        C0773a.this.msw.PC(C0773a.this.msw.ciD());
                     }
                 }
             });
-            this.mkA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.2
+            this.msB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0763a.this.mkv != null) {
-                        C0763a.this.mkv.dqZ();
+                    if (C0773a.this.msw != null) {
+                        C0773a.this.msw.dul();
                     }
                 }
             });
-            this.mkB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.3
+            this.msC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0763a.this.mkv != null) {
-                        C0763a.this.mkv.dra();
+                    if (C0773a.this.msw != null) {
+                        C0773a.this.msw.dum();
                     }
                 }
             });
-            this.mkC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.4
+            this.msD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0763a.this.mkv != null) {
-                        C0763a.this.mkv.dqY();
+                    if (C0773a.this.msw != null) {
+                        C0773a.this.msw.duk();
                     }
                 }
             });
-            this.mkO = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21);
+            this.msP = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
 
         @Override // com.baidu.tieba.write.a
-        public View cbm() {
-            return LayoutInflater.from(this.dPv.getPageActivity()).inflate(R.layout.home_page_test_write_thread_view, (ViewGroup) null);
+        public View ceK() {
+            return LayoutInflater.from(this.dVN.getPageActivity()).inflate(R.layout.home_page_test_write_thread_view, (ViewGroup) null);
         }
 
         @Override // com.baidu.tieba.write.a
         public void onChangeSkinType(int i) {
             super.onChangeSkinType(i);
-            an.setBackgroundColor(this.djB, R.color.cp_mask_b_alpha16);
-            com.baidu.tbadk.core.util.e.a.aXq().lG(0).lN(1).Q(this.mkO).lH(R.color.cp_bg_line_i).aR(this.mky);
-            SvgManager.aWQ().a(this.mkD, R.drawable.ic_icon_mask_send_word16, SvgManager.SvgResourceStateType.NORMAL);
-            SvgManager.aWQ().a(this.mkE, R.drawable.ic_icon_mask_send_pic16, SvgManager.SvgResourceStateType.NORMAL);
-            SvgManager.aWQ().a(this.mkF, R.drawable.ic_icon_mask_send_video16, SvgManager.SvgResourceStateType.NORMAL);
-            SvgManager.aWQ().a(this.mkG, R.drawable.ic_icon_mask_send_live16, SvgManager.SvgResourceStateType.NORMAL);
-            an.setViewTextColor(this.mkH, (int) R.color.cp_cont_b);
-            an.setViewTextColor(this.mkI, (int) R.color.cp_cont_b);
-            an.setViewTextColor(this.mkJ, (int) R.color.cp_cont_b);
-            an.setViewTextColor(this.mkK, (int) R.color.cp_cont_b);
-            com.baidu.tbadk.core.util.e.a.aXq().lG(0).lN(1).lJ(R.color.cp_bg_line_c).lH(R.color.cp_bg_line_i).S(this.mkO).R(this.mkO).aR(this.mkz);
-            com.baidu.tbadk.core.util.e.a.aXq().lG(0).lN(1).lJ(R.color.cp_bg_line_c).lH(R.color.cp_bg_line_i).aR(this.mkA);
-            com.baidu.tbadk.core.util.e.a.aXq().lG(0).lN(1).lJ(R.color.cp_bg_line_c).lH(R.color.cp_bg_line_i).aR(this.mkB);
-            com.baidu.tbadk.core.util.e.a.aXq().lG(0).lN(1).lJ(R.color.cp_bg_line_c).lH(R.color.cp_bg_line_i).U(this.mkO).T(this.mkO).aR(this.mkC);
-            an.setBackgroundColor(this.mkL, R.color.cp_bg_line_b);
-            an.setBackgroundColor(this.mkM, R.color.cp_bg_line_b);
-            an.setBackgroundColor(this.mkN, R.color.cp_bg_line_b);
+            ao.setBackgroundColor(this.dpw, R.color.cp_mask_b_alpha16);
+            com.baidu.tbadk.core.util.e.a.bbr().ma(0).mh(1).Q(this.msP).mb(R.color.cp_bg_line_i).aX(this.msz);
+            SvgManager.baR().a(this.msE, R.drawable.ic_icon_mask_send_word16, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.baR().a(this.msF, R.drawable.ic_icon_mask_send_pic16, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.baR().a(this.msG, R.drawable.ic_icon_mask_send_video16, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.baR().a(this.msH, R.drawable.ic_icon_mask_send_live16, SvgManager.SvgResourceStateType.NORMAL);
+            ao.setViewTextColor(this.msI, R.color.cp_cont_b);
+            ao.setViewTextColor(this.msJ, R.color.cp_cont_b);
+            ao.setViewTextColor(this.msK, R.color.cp_cont_b);
+            ao.setViewTextColor(this.msL, R.color.cp_cont_b);
+            com.baidu.tbadk.core.util.e.a.bbr().ma(0).mh(1).md(R.color.cp_bg_line_c).mb(R.color.cp_bg_line_i).S(this.msP).R(this.msP).aX(this.msA);
+            com.baidu.tbadk.core.util.e.a.bbr().ma(0).mh(1).md(R.color.cp_bg_line_c).mb(R.color.cp_bg_line_i).aX(this.msB);
+            com.baidu.tbadk.core.util.e.a.bbr().ma(0).mh(1).md(R.color.cp_bg_line_c).mb(R.color.cp_bg_line_i).aX(this.msC);
+            com.baidu.tbadk.core.util.e.a.bbr().ma(0).mh(1).md(R.color.cp_bg_line_c).mb(R.color.cp_bg_line_i).U(this.msP).T(this.msP).aX(this.msD);
+            ao.setBackgroundColor(this.msM, R.color.cp_bg_line_b);
+            ao.setBackgroundColor(this.msN, R.color.cp_bg_line_b);
+            ao.setBackgroundColor(this.msO, R.color.cp_bg_line_b);
         }
     }
 }

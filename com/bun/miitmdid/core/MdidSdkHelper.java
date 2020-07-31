@@ -8,7 +8,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class MdidSdkHelper {
     public static String TAG = MdidSdkHelper.class.getSimpleName();
     @Keep
@@ -16,7 +16,7 @@ public class MdidSdkHelper {
     @Keep
     private String sdk_date = "2019120111";
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static class a implements IdSupplier {
         @Override // com.bun.miitmdid.supplier.IdSupplier
         public String getAAID() {

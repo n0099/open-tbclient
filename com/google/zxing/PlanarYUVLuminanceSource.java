@@ -1,15 +1,13 @@
 package com.google.zxing;
 
 import android.support.v4.view.ViewCompat;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class PlanarYUVLuminanceSource extends LuminanceSource {
     private static final int THUMBNAIL_SCALE_FACTOR = 2;
     private final int dataHeight;
     private final int dataWidth;
     private final int left;
-
-    /* renamed from: top  reason: collision with root package name */
-    private final int f1042top;
+    private final int top;
     private final byte[] yuvData;
 
     public PlanarYUVLuminanceSource(byte[] bArr, int i, int i2, int i3, int i4, int i5, int i6, boolean z) {
@@ -21,7 +19,7 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
         this.dataWidth = i;
         this.dataHeight = i2;
         this.left = i3;
-        this.f1042top = i4;
+        this.top = i4;
         if (z) {
             reverseHorizontal(i5, i6);
         }
@@ -36,7 +34,7 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
         if (bArr == null || bArr.length < width) {
             bArr = new byte[width];
         }
-        System.arraycopy(this.yuvData, ((this.f1042top + i) * this.dataWidth) + this.left, bArr, 0, width);
+        System.arraycopy(this.yuvData, ((this.top + i) * this.dataWidth) + this.left, bArr, 0, width);
         return bArr;
     }
 
@@ -49,7 +47,7 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
         }
         int i = width * height;
         byte[] bArr = new byte[i];
-        int i2 = (this.f1042top * this.dataWidth) + this.left;
+        int i2 = (this.top * this.dataWidth) + this.left;
         if (width == this.dataWidth) {
             System.arraycopy(this.yuvData, i2, bArr, 0, i);
             return bArr;
@@ -68,7 +66,7 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
 
     @Override // com.google.zxing.LuminanceSource
     public LuminanceSource crop(int i, int i2, int i3, int i4) {
-        return new PlanarYUVLuminanceSource(this.yuvData, this.dataWidth, this.dataHeight, this.left + i, this.f1042top + i2, i3, i4, false);
+        return new PlanarYUVLuminanceSource(this.yuvData, this.dataWidth, this.dataHeight, this.left + i, this.top + i2, i3, i4, false);
     }
 
     public int[] renderThumbnail() {
@@ -76,7 +74,7 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
         int height = getHeight() / 2;
         int[] iArr = new int[width * height];
         byte[] bArr = this.yuvData;
-        int i = (this.f1042top * this.dataWidth) + this.left;
+        int i = (this.top * this.dataWidth) + this.left;
         for (int i2 = 0; i2 < height; i2++) {
             int i3 = i2 * width;
             for (int i4 = 0; i4 < width; i4++) {
@@ -97,7 +95,7 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
 
     private void reverseHorizontal(int i, int i2) {
         byte[] bArr = this.yuvData;
-        int i3 = this.left + (this.f1042top * this.dataWidth);
+        int i3 = this.left + (this.top * this.dataWidth);
         for (int i4 = 0; i4 < i2; i4++) {
             int i5 = i3 + (i / 2);
             int i6 = (i3 + i) - 1;

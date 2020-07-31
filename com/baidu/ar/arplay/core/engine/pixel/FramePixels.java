@@ -3,7 +3,7 @@ package com.baidu.ar.arplay.core.engine.pixel;
 import com.baidu.ar.arplay.core.engine.rotate.Orientation;
 import com.baidu.ar.arplay.core.filter.ARPFilter;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class FramePixels {
     private int mHeight;
     private Orientation mOrientation;

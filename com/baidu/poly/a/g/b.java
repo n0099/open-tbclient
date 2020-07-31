@@ -1,55 +1,42 @@
 package com.baidu.poly.a.g;
 
 import android.text.TextUtils;
-import com.baidu.mobstat.Config;
-import com.baidu.poly.util.f;
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes11.dex */
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+/* loaded from: classes9.dex */
 public class b {
-    private String action;
-    private JSONObject bzS;
-    private String content;
-    private long ed = System.currentTimeMillis();
-    private String bzR = f.getNetworkType();
-
-    public b(String str) {
-        this.action = str;
+    private static String a(byte[] bArr) {
+        StringBuilder sb = new StringBuilder();
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
+            if (hexString.length() == 1) {
+                sb.append('0');
+            }
+            sb.append(hexString);
+        }
+        return sb.toString();
     }
 
-    public JSONObject Og() {
-        if (TextUtils.isEmpty(this.action)) {
-            com.baidu.poly.util.d.l("statistics action can not null");
-            return null;
-        }
-        JSONObject jSONObject = new JSONObject();
+    public static String g(String str) {
         try {
-            jSONObject.put(Config.APP_VERSION_CODE, this.action);
-            jSONObject.put("t", this.ed);
-            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.bzR);
-            if (this.bzS != null) {
-                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.bzS);
-            } else if (!TextUtils.isEmpty(this.content)) {
-                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.content);
-            }
-            return jSONObject;
-        } catch (JSONException e) {
-            if (com.baidu.poly.util.d.bAO) {
-                e.printStackTrace();
-                return jSONObject;
-            }
-            return jSONObject;
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(str.getBytes());
+            return a(messageDigest.digest());
+        } catch (NoSuchAlgorithmException e) {
+            return String.valueOf(str.hashCode());
         }
     }
 
-    public b ab(JSONObject jSONObject) {
-        this.bzS = jSONObject;
-        return this;
-    }
-
-    public b gF(String str) {
-        this.content = str;
-        return this;
+    public static String h(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return "";
+        }
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(str.getBytes());
+            return a(messageDigest.digest());
+        } catch (NoSuchAlgorithmException e) {
+            return "";
+        }
     }
 }

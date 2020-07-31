@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import com.kascend.chushou.a;
 import tv.chushou.zues.utils.g;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class b extends Fragment {
     protected Context mContext;
     protected final String TAG = getClass().getSimpleName();
@@ -75,15 +75,15 @@ public abstract class b extends Fragment {
 
     public void showApiError(boolean z, int i, String str) {
         if (z) {
-            if (!tv.chushou.zues.utils.a.dWH()) {
+            if (!tv.chushou.zues.utils.a.ead()) {
                 showStatus(3);
                 return;
             } else {
-                showStatus(e.Kv(i));
+                showStatus(e.KP(i));
                 return;
             }
         }
-        if (!tv.chushou.zues.utils.a.dWH()) {
+        if (!tv.chushou.zues.utils.a.ead()) {
             str = this.mContext.getString(a.i.s_no_available_network);
         } else if (h.isEmpty(str)) {
             str = this.mContext.getString(a.i.str_errpr_pop);

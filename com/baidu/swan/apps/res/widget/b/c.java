@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c {
     private static String sMiOsName = null;
     private static String sMiuiVersion = null;
@@ -133,16 +133,16 @@ public class c {
             try {
                 try {
                     String readLine = bufferedReader.readLine();
-                    com.baidu.swan.e.d.closeSafely(bufferedReader);
+                    com.baidu.swan.d.d.closeSafely(bufferedReader);
                     return readLine == null ? "" : readLine;
                 } catch (IOException e) {
-                    com.baidu.swan.e.d.closeSafely(bufferedReader);
-                    com.baidu.swan.e.d.closeSafely(bufferedReader);
+                    com.baidu.swan.d.d.closeSafely(bufferedReader);
+                    com.baidu.swan.d.d.closeSafely(bufferedReader);
                     return "";
                 }
             } catch (Throwable th2) {
                 th = th2;
-                com.baidu.swan.e.d.closeSafely(bufferedReader);
+                com.baidu.swan.d.d.closeSafely(bufferedReader);
                 throw th;
             }
         } catch (IOException e2) {
@@ -150,7 +150,7 @@ public class c {
         } catch (Throwable th3) {
             bufferedReader = null;
             th = th3;
-            com.baidu.swan.e.d.closeSafely(bufferedReader);
+            com.baidu.swan.d.d.closeSafely(bufferedReader);
             throw th;
         }
     }

@@ -1,5 +1,5 @@
 package tv.chushou.basis.rxjava;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "tv.chushou.basis.rxjava";
     public static final String BUILD_TYPE = "release";

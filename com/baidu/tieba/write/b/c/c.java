@@ -12,7 +12,7 @@ import com.baidu.tieba.write.upload.VideoUploadData;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class c {
     private static JSONObject b(BaseUploadData baseUploadData) {
         JSONObject jSONObject = new JSONObject();

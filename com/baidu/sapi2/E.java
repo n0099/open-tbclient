@@ -4,7 +4,7 @@ import android.os.Looper;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.shell.callback.SapiCallBack;
 import com.baidu.sapi2.utils.SapiDataEncryptor;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 class E extends HttpHandlerWrap {
     final /* synthetic */ SapiCallBack a;
     final /* synthetic */ boolean b;

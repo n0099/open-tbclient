@@ -6,7 +6,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.TextView;
 import com.baidu.android.common.ui.R;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class BdLoadingDialog extends Dialog {
     private Context mContext;
     private String mMessage;

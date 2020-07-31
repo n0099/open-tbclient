@@ -1,9 +1,9 @@
 package com.baidu.swan.bdprivate.a;
 
-import android.app.Activity;
+import android.content.Context;
 /* loaded from: classes11.dex */
 public class q extends com.baidu.swan.apps.setting.oauth.a.d {
-    public q(Activity activity) {
-        super(activity);
+    public q(Context context) {
+        super(context);
     }
 }

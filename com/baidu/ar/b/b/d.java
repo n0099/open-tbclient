@@ -1,7 +1,7 @@
 package com.baidu.ar.b.b;
 
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public abstract class d implements Runnable {
     int cX;
     protected WeakReference<com.baidu.ar.b.a.a> cY;

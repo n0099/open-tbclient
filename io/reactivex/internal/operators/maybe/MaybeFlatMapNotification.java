@@ -58,7 +58,7 @@ public final class MaybeFlatMapNotification<T, R> extends a<T, R> {
             try {
                 ((o) io.reactivex.internal.functions.a.k(this.onSuccessMapper.apply(t), "The onSuccessMapper returned a null MaybeSource")).a(new a());
             } catch (Exception e) {
-                io.reactivex.exceptions.a.L(e);
+                io.reactivex.exceptions.a.K(e);
                 this.actual.onError(e);
             }
         }
@@ -68,7 +68,7 @@ public final class MaybeFlatMapNotification<T, R> extends a<T, R> {
             try {
                 ((o) io.reactivex.internal.functions.a.k(this.onErrorMapper.apply(th), "The onErrorMapper returned a null MaybeSource")).a(new a());
             } catch (Exception e) {
-                io.reactivex.exceptions.a.L(e);
+                io.reactivex.exceptions.a.K(e);
                 this.actual.onError(new CompositeException(th, e));
             }
         }
@@ -78,7 +78,7 @@ public final class MaybeFlatMapNotification<T, R> extends a<T, R> {
             try {
                 ((o) io.reactivex.internal.functions.a.k(this.onCompleteSupplier.call(), "The onCompleteSupplier returned a null MaybeSource")).a(new a());
             } catch (Exception e) {
-                io.reactivex.exceptions.a.L(e);
+                io.reactivex.exceptions.a.K(e);
                 this.actual.onError(e);
             }
         }

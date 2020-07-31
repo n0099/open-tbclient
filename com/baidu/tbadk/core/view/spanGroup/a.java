@@ -6,8 +6,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.view.spanGroup.a;
 /* loaded from: classes.dex */
 public abstract class a<T extends a> {
-    private static int ehi = 1;
-    private Editable ehj;
+    private static int ens = 1;
+    private Editable ent;
     private int mEnd;
     private int mFontSize;
     private final int mId;
@@ -19,13 +19,13 @@ public abstract class a<T extends a> {
     public abstract void b(Editable editable);
 
     public a() {
-        int i = ehi;
-        ehi = i + 1;
+        int i = ens;
+        ens = i + 1;
         this.mId = i;
     }
 
     public void a(Editable editable, int i, int i2, int i3) {
-        this.ehj = editable;
+        this.ent = editable;
         this.mStart = i;
         this.mEnd = i2;
         this.mFontSize = i3;
@@ -39,12 +39,12 @@ public abstract class a<T extends a> {
         this.mIsValid = z;
     }
 
-    public Editable aYX() {
-        return this.ehj;
+    public Editable bcU() {
+        return this.ent;
     }
 
     public void c(Editable editable) {
-        this.ehj = editable;
+        this.ent = editable;
     }
 
     public int getStart() {
@@ -59,7 +59,7 @@ public abstract class a<T extends a> {
         return this.mEnd;
     }
 
-    public void mI(int i) {
+    public void na(int i) {
         this.mEnd = i;
     }
 
@@ -70,7 +70,7 @@ public abstract class a<T extends a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(T t) {
         this.mIsValid = t.isValid();
-        this.ehj = t.aYX();
+        this.ent = t.bcU();
         this.mStart = t.getStart();
         this.mEnd = t.getEnd();
         this.mFontSize = t.getFontSize();
@@ -78,16 +78,16 @@ public abstract class a<T extends a> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(Object obj, int i, int i2, int i3) {
-        if (this.ehj != null) {
-            this.ehj.setSpan(obj, i, i2, i3);
+        if (this.ent != null) {
+            this.ent.setSpan(obj, i, i2, i3);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void m(@NonNull CharSequence charSequence) {
-        if (this.ehj != null && charSequence != null) {
+        if (this.ent != null && charSequence != null) {
             try {
-                this.ehj.replace(this.mStart, this.mEnd, charSequence);
+                this.ent.replace(this.mStart, this.mEnd, charSequence);
             } catch (Exception e) {
                 BdLog.e(e);
             }

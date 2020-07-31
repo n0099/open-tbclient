@@ -1,11 +1,11 @@
 package tv.chushou.zues.toolkit.d;
 
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b {
     public static void setAlpha(View view, float f) {
         if (tv.chushou.zues.toolkit.d.a.NEEDS_PROXY) {
-            tv.chushou.zues.toolkit.d.a.dw(view).setAlpha(f);
+            tv.chushou.zues.toolkit.d.a.dC(view).setAlpha(f);
         } else {
             a.setAlpha(view, f);
         }
@@ -13,7 +13,7 @@ public final class b {
 
     public static void setScaleX(View view, float f) {
         if (tv.chushou.zues.toolkit.d.a.NEEDS_PROXY) {
-            tv.chushou.zues.toolkit.d.a.dw(view).setScaleX(f);
+            tv.chushou.zues.toolkit.d.a.dC(view).setScaleX(f);
         } else {
             a.setScaleX(view, f);
         }
@@ -21,7 +21,7 @@ public final class b {
 
     public static void setScaleY(View view, float f) {
         if (tv.chushou.zues.toolkit.d.a.NEEDS_PROXY) {
-            tv.chushou.zues.toolkit.d.a.dw(view).setScaleY(f);
+            tv.chushou.zues.toolkit.d.a.dC(view).setScaleY(f);
         } else {
             a.setScaleY(view, f);
         }
@@ -29,7 +29,7 @@ public final class b {
 
     public static void setTranslationX(View view, float f) {
         if (tv.chushou.zues.toolkit.d.a.NEEDS_PROXY) {
-            tv.chushou.zues.toolkit.d.a.dw(view).setTranslationX(f);
+            tv.chushou.zues.toolkit.d.a.dC(view).setTranslationX(f);
         } else {
             a.setTranslationX(view, f);
         }
@@ -37,7 +37,7 @@ public final class b {
 
     public static void setTranslationY(View view, float f) {
         if (tv.chushou.zues.toolkit.d.a.NEEDS_PROXY) {
-            tv.chushou.zues.toolkit.d.a.dw(view).setTranslationY(f);
+            tv.chushou.zues.toolkit.d.a.dC(view).setTranslationY(f);
         } else {
             a.setTranslationY(view, f);
         }
@@ -45,7 +45,7 @@ public final class b {
 
     public static void setX(View view, float f) {
         if (tv.chushou.zues.toolkit.d.a.NEEDS_PROXY) {
-            tv.chushou.zues.toolkit.d.a.dw(view).setX(f);
+            tv.chushou.zues.toolkit.d.a.dC(view).setX(f);
         } else {
             a.setX(view, f);
         }
@@ -53,13 +53,13 @@ public final class b {
 
     public static void setY(View view, float f) {
         if (tv.chushou.zues.toolkit.d.a.NEEDS_PROXY) {
-            tv.chushou.zues.toolkit.d.a.dw(view).setY(f);
+            tv.chushou.zues.toolkit.d.a.dC(view).setY(f);
         } else {
             a.setY(view, f);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static final class a {
         static void setAlpha(View view, float f) {
             view.setAlpha(f);

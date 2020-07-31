@@ -2,48 +2,48 @@ package com.facebook.imagepipeline.common;
 
 import android.graphics.Bitmap;
 import javax.annotation.Nullable;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class c {
-    private boolean mSn;
-    private boolean mSo;
-    private boolean mSq;
-    private boolean mSr;
+    private boolean nau;
+    private boolean nav;
+    private boolean naw;
+    private boolean nax;
     @Nullable
-    private com.facebook.imagepipeline.decoder.b mSs;
-    private int mSm = 100;
+    private com.facebook.imagepipeline.decoder.b nay;
+    private int nat = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public int dCV() {
-        return this.mSm;
+    public int dGh() {
+        return this.nat;
     }
 
-    public boolean dCW() {
-        return this.mSn;
+    public boolean dGi() {
+        return this.nau;
     }
 
-    public boolean dCX() {
-        return this.mSo;
+    public boolean dGj() {
+        return this.nav;
     }
 
-    public boolean dCY() {
-        return this.mSq;
+    public boolean dGk() {
+        return this.naw;
     }
 
-    public c wE(boolean z) {
-        this.mSr = z;
+    public c xj(boolean z) {
+        this.nax = z;
         return this;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b dCZ() {
-        return this.mSs;
+    public com.facebook.imagepipeline.decoder.b dGl() {
+        return this.nay;
     }
 
-    public boolean dDa() {
-        return this.mSr;
+    public boolean dGm() {
+        return this.nax;
     }
 
-    public Bitmap.Config dDb() {
+    public Bitmap.Config dGn() {
         return this.mBitmapConfig;
     }
 
@@ -52,7 +52,7 @@ public class c {
         return this;
     }
 
-    public b dDc() {
+    public b dGo() {
         return new b(this);
     }
 }

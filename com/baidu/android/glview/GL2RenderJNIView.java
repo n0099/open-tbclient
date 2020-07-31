@@ -12,7 +12,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class GL2RenderJNIView extends GLSurfaceView {
     private static final boolean DEBUG = false;
     public static final int DISPLAY_AR_16_9 = 1;
@@ -33,7 +33,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
     private boolean mloaded;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     public static class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
         private static int EGL_OPENGL_ES2_BIT = 4;
         private static int[] s_configAttribs2 = {12324, 4, 12323, 4, 12322, 4, 12352, EGL_OPENGL_ES2_BIT, 12344};
@@ -115,7 +115,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     public static class ContextFactory implements GLSurfaceView.EGLContextFactory {
         private static int EGL_CONTEXT_CLIENT_VERSION = 12440;
 
@@ -138,7 +138,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     public class Renderer implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer {
         public boolean mAllocSurfaceTex;
         protected GL2RenderJNIView m_SurfaceView;

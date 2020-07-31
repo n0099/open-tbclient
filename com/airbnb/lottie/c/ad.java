@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class ad implements aj<com.airbnb.lottie.model.content.h> {
     public static final ad Gc = new ad();
 

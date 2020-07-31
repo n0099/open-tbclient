@@ -5,15 +5,13 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import java.io.File;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import rx.d;
-import rx.j;
-import rx.schedulers.Schedulers;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -29,43 +27,22 @@ public class c {
         } else {
             final String I = I(str, "aiapps_folder/cloud_config", "web_domains.json");
             if (z) {
-                d.a((d.a) new d.a<String>() { // from class: com.baidu.swan.apps.ah.a.c.2
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // rx.functions.b
-                    public void call(j<? super String> jVar) {
+                ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.ah.a.c.1
+                    @Override // java.lang.Runnable
+                    public void run() {
                         if (c.DEBUG) {
                             Log.d("WebSafeWhiteListMgr", "read webdomains from file async");
                         }
-                        c.a(aVar, c.og(I));
+                        c.a(aVar, c.oN(I));
                     }
-                }).d(Schedulers.io()).b(new j<String>() { // from class: com.baidu.swan.apps.ah.a.c.1
-                    @Override // rx.e
-                    public void onCompleted() {
-                        if (c.DEBUG) {
-                            Log.d("WebSafeWhiteListMgr", "read webdomains from file async: onCompleted");
-                        }
-                    }
-
-                    @Override // rx.e
-                    public void onError(Throwable th) {
-                        if (c.DEBUG) {
-                            throw new RuntimeException(th);
-                        }
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // rx.e
-                    /* renamed from: oh */
-                    public void onNext(String str2) {
-                    }
-                });
+                }, "load-WebDomains", 2);
             } else {
-                a(aVar, og(I));
+                a(aVar, oN(I));
             }
         }
     }
 
-    public static boolean oe(String str) {
+    public static boolean oM(String str) {
         return new File(I(str, "aiapps_folder/cloud_config", "web_domains.json")).exists();
     }
 
@@ -81,38 +58,17 @@ public class c {
         } else {
             final String I = I(str, "aiapps_folder/cloud_config", "server_domains.json");
             if (z) {
-                d.a((d.a) new d.a<String>() { // from class: com.baidu.swan.apps.ah.a.c.4
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // rx.functions.b
-                    public void call(j<? super String> jVar) {
+                ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.ah.a.c.2
+                    @Override // java.lang.Runnable
+                    public void run() {
                         if (c.DEBUG) {
                             Log.d("WebSafeWhiteListMgr", "read serverDomains from file async");
                         }
-                        c.a(aVar, c.og(I), str2);
+                        c.a(aVar, c.oN(I), str2);
                     }
-                }).d(Schedulers.io()).b(new j<String>() { // from class: com.baidu.swan.apps.ah.a.c.3
-                    @Override // rx.e
-                    public void onCompleted() {
-                        if (c.DEBUG) {
-                            Log.d("WebSafeWhiteListMgr", "read serverDomains from file async: onCompleted");
-                        }
-                    }
-
-                    @Override // rx.e
-                    public void onError(Throwable th) {
-                        if (c.DEBUG) {
-                            throw new RuntimeException(th);
-                        }
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // rx.e
-                    /* renamed from: oh */
-                    public void onNext(String str3) {
-                    }
-                });
+                }, "load-ServerDomains", 2);
             } else {
-                a(aVar, og(I), str2);
+                a(aVar, oN(I), str2);
             }
         }
     }
@@ -126,47 +82,26 @@ public class c {
         }
         final String I = I("", "aiapps_folder/cloud_config", "global_web_actions.json");
         if (z) {
-            d.a((d.a) new d.a<String>() { // from class: com.baidu.swan.apps.ah.a.c.6
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // rx.functions.b
-                public void call(j<? super String> jVar) {
+            ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.ah.a.c.3
+                @Override // java.lang.Runnable
+                public void run() {
                     if (c.DEBUG) {
                         Log.d("WebSafeWhiteListMgr", "read web actions from file async");
                     }
-                    c.a(aVar, c.og(I));
+                    c.a(aVar, c.oN(I));
                 }
-            }).d(Schedulers.io()).b(new j<String>() { // from class: com.baidu.swan.apps.ah.a.c.5
-                @Override // rx.e
-                public void onCompleted() {
-                    if (c.DEBUG) {
-                        Log.d("WebSafeWhiteListMgr", "read web actions from file async: onCompleted");
-                    }
-                }
-
-                @Override // rx.e
-                public void onError(Throwable th) {
-                    if (c.DEBUG) {
-                        throw new RuntimeException(th);
-                    }
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // rx.e
-                /* renamed from: oh */
-                public void onNext(String str) {
-                }
-            });
+            }, "load-WebActions", 2);
         } else {
-            a(aVar, og(I));
+            a(aVar, oN(I));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String og(String str) {
+    public static String oN(String str) {
         if (DEBUG) {
             Log.d("WebSafeWhiteListMgr", "the request webSafeData file path:" + str);
         }
-        return com.baidu.swan.apps.t.a.kN(str);
+        return com.baidu.swan.apps.s.a.lk(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -198,7 +133,7 @@ public class c {
             return;
         }
         try {
-            aVar.u(new JSONObject(str), str2);
+            aVar.v(new JSONObject(str), str2);
             if (DEBUG) {
                 Log.e("WebSafeWhiteListMgr", "read WebSafeData by loading file:token=" + aVar.token + ", data=" + aVar.data);
             }
@@ -226,7 +161,7 @@ public class c {
                     jSONObject.put("token", str2);
                 }
                 jSONObject.put("data", jSONArray);
-                z = com.baidu.swan.apps.t.a.l(I, jSONObject.toString(), false);
+                z = com.baidu.swan.apps.s.a.l(I, jSONObject.toString(), false);
                 if (DEBUG) {
                     Log.d("WebSafeWhiteListMgr", "save WebDomains done: appId= " + str + ", token=" + str2 + ", data=" + jSONArray);
                 }
@@ -253,7 +188,7 @@ public class c {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("data", jSONObject);
-                z = com.baidu.swan.apps.t.a.l(I, jSONObject2.toString(), false);
+                z = com.baidu.swan.apps.s.a.l(I, jSONObject2.toString(), false);
                 if (DEBUG) {
                     Log.d("WebSafeWhiteListMgr", "save Server Domains done: data = " + jSONObject);
                 }
@@ -283,7 +218,7 @@ public class c {
                     jSONObject.put("token", str);
                 }
                 jSONObject.put("data", jSONArray);
-                z = com.baidu.swan.apps.t.a.l(I, jSONObject.toString(), false);
+                z = com.baidu.swan.apps.s.a.l(I, jSONObject.toString(), false);
                 if (DEBUG) {
                     Log.d("WebSafeWhiteListMgr", "save WebActions done: token=" + str + ", data=" + jSONArray);
                 }
@@ -319,7 +254,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public ArrayList<String> data = new ArrayList<>();
         public String token;
@@ -343,7 +278,7 @@ public class c {
             }
         }
 
-        public void u(JSONObject jSONObject, String str) {
+        public void v(JSONObject jSONObject, String str) {
             JSONArray optJSONArray;
             if (jSONObject != null && (optJSONArray = jSONObject.optJSONObject("data").optJSONArray(str)) != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();

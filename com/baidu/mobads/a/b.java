@@ -1,5 +1,5 @@
 package com.baidu.mobads.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class b {
     public static final Boolean a = false;
     public static final Boolean b = false;

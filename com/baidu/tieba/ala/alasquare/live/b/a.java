@@ -4,23 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.LiveSquare.HotLiveWithCategory;
 import tbclient.ThreadInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public String bitmap_wh_ratio;
     public String entry_name;
-    public int fmp;
-    public int fmq;
-    public List<String> fmr;
+    public int frA;
+    public List<String> frB;
+    public int frz;
     public String label_name;
     public List<ThreadInfo> live;
 
     public a(HotLiveWithCategory hotLiveWithCategory) {
-        this.fmp = hotLiveWithCategory.tab_id.intValue();
+        this.frz = hotLiveWithCategory.tab_id.intValue();
         this.entry_name = hotLiveWithCategory.entry_name;
         this.label_name = hotLiveWithCategory.label_name;
         this.bitmap_wh_ratio = hotLiveWithCategory.bitmap_wh_ratio;
         this.live = new ArrayList(hotLiveWithCategory.live);
-        this.fmq = hotLiveWithCategory.live_tab_type.intValue();
-        this.fmr = hotLiveWithCategory.sub_type_list;
+        this.frA = hotLiveWithCategory.live_tab_type.intValue();
+        this.frB = hotLiveWithCategory.sub_type_list;
     }
 }

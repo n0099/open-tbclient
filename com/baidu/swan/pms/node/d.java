@@ -2,9 +2,9 @@ package com.baidu.swan.pms.node;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public interface d {
-    JSONArray aId();
+    JSONArray aLV();
 
-    JSONObject aIe();
+    JSONObject aLW();
 }

@@ -1,5 +1,5 @@
 package com.baidu.live.liveroom.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface c {
-    b Fv();
+    b Fp();
 }

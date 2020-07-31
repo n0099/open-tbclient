@@ -10,16 +10,16 @@ import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    private static p dAL;
-    private b dAK;
+    private static p dGH;
+    private b dGG;
     private CustomMessageListener mLikeForumListener = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_LIKE_FORUM) { // from class: com.baidu.tbadk.BdToken.p.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (p.this.dAK != null && customResponsedMessage != null) {
+            if (p.this.dGG != null && customResponsedMessage != null) {
                 Object data = customResponsedMessage.getData();
                 if ((data instanceof com.baidu.tieba.tbadkCore.writeModel.a) && ((com.baidu.tieba.tbadkCore.writeModel.a) data).isSuccess) {
-                    p.this.aMT();
+                    p.this.aQH();
                 }
             }
         }
@@ -33,15 +33,15 @@ public class p {
         }
     };
 
-    public static p aMS() {
-        if (dAL == null) {
+    public static p aQG() {
+        if (dGH == null) {
             synchronized (p.class) {
-                if (dAL == null) {
-                    dAL = new p();
+                if (dGH == null) {
+                    dGH = new p();
                 }
             }
         }
-        return dAL;
+        return dGH;
     }
 
     public void i(BdUniqueId bdUniqueId) {
@@ -52,20 +52,20 @@ public class p {
     }
 
     public void q(b bVar) {
-        this.dAK = bVar;
+        this.dGG = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aMT() {
-        if (this.dAK != null && this.dAK.getActivityId() != 0 && this.dAK.aLY() != 0 && this.dAK.getTaskType() == 9) {
+    public void aQH() {
+        if (this.dGG != null && this.dGG.getActivityId() != 0 && this.dGG.aPM() != 0 && this.dGG.getTaskType() == 9) {
             try {
-                String valueOf = String.valueOf(this.dAK.getActivityId());
-                String valueOf2 = String.valueOf(this.dAK.aLY());
+                String valueOf = String.valueOf(this.dGG.getActivityId());
+                String valueOf2 = String.valueOf(this.dGG.aPM());
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(valueOf, valueOf2);
                 CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
                 completeTaskReqMsg.completeId = jSONObject.toString();
-                JSONObject a = com.baidu.tbadk.BdToken.completeTask.c.a(null, this.dAK.getActivityId(), this.dAK.aLY(), this.dAK.getToken());
+                JSONObject a = com.baidu.tbadk.BdToken.completeTask.c.a(null, this.dGG.getActivityId(), this.dGG.aPM(), this.dGG.getToken());
                 if (a != null) {
                     completeTaskReqMsg.setToken(a.toString());
                 }

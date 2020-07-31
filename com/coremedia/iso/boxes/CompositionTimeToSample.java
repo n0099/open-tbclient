@@ -12,12 +12,12 @@ import java.util.Iterator;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class CompositionTimeToSample extends AbstractFullBox {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE = "ctts";
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
     List<Entry> entries;
 
     private static /* synthetic */ void ajc$preClinit() {
@@ -71,7 +71,7 @@ public class CompositionTimeToSample extends AbstractFullBox {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes20.dex */
     public static class Entry {
         int count;
         int offset;

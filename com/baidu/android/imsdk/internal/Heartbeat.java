@@ -23,17 +23,7 @@ public class Heartbeat {
         ALARM_TIMEOUT = 60000;
         this.mHandler = handler;
         this.mContext = context;
-        switch (IMConfigInternal.getInstance().getIMConfig(context).getHeartBeatType()) {
-            case 0:
-                this.mOperator = new NormalHeartbeat();
-                return;
-            case 1:
-                this.mOperator = new BoxHeartbeat();
-                return;
-            default:
-                this.mOperator = new NormalHeartbeat();
-                return;
-        }
+        this.mOperator = new BoxHeartbeat();
     }
 
     public static Heartbeat getInstance(Context context, Handler handler) {

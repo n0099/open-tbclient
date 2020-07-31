@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.adaptation.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public interface j {
-    i Uu();
+    i UW();
 
-    h Uv();
+    h UX();
 }

@@ -3,7 +3,7 @@ package com.baidubce.services.bos.model;
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.services.bos.callback.BosProgressCallback;
 import com.baidubce.util.CheckUtils;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class GetObjectRequest extends GenericObjectRequest {
     private BosProgressCallback progressCallback;
     private long[] range;

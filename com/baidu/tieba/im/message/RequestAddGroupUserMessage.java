@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.AddGroupUsers.AddGroupUsersReqIdl;
 import protobuf.AddGroupUsers.DataReq;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class RequestAddGroupUserMessage extends TbSocketMessage {
     private int decision;
     private long groupId;

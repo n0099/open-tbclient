@@ -4,9 +4,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class PersonGaussianBlurView extends PersonExpandImageView {
-    a kRd;
+    a kZZ;
 
     public PersonGaussianBlurView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -14,18 +14,18 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
 
     public void setSrc(Bitmap bitmap) {
         if (bitmap != null && !bitmap.isRecycled()) {
-            if (this.kRd != null) {
-                this.kRd.cancel();
+            if (this.kZZ != null) {
+                this.kZZ.cancel();
             }
-            this.kRd = new a();
-            this.kRd.execute(bitmap);
+            this.kZZ = new a();
+            this.kZZ.execute(bitmap);
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes18.dex */
     class a extends BdAsyncTask<Bitmap, String, Bitmap> {
-        private final float kRe = 0.5f;
-        private final int kRf = 15;
+        private final float laa = 0.5f;
+        private final int lab = 15;
 
         a() {
         }
@@ -41,7 +41,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
                         return null;
                     }
                     Bitmap bitmap = bitmapArr[0];
-                    if (G(bitmap)) {
+                    if (J(bitmap)) {
                         if (bitmap.getWidth() >= 600 || bitmap.getHeight() >= 600) {
                             int round = Math.round(bitmap.getWidth() * 0.5f);
                             int round2 = Math.round(bitmap.getHeight() * 0.5f);
@@ -49,7 +49,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
                                 return null;
                             }
                             bitmap = Bitmap.createScaledBitmap(bitmap, round, round2, false);
-                            if (!G(bitmap)) {
+                            if (!J(bitmap)) {
                                 return null;
                             }
                         }
@@ -69,12 +69,12 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            if (G(bitmap)) {
+            if (J(bitmap)) {
                 PersonGaussianBlurView.this.setImageBitmap(bitmap);
             }
         }
 
-        private boolean G(Bitmap bitmap) {
+        private boolean J(Bitmap bitmap) {
             return (bitmap == null || bitmap.isRecycled() || bitmap.getWidth() == 0 || bitmap.getHeight() == 0) ? false : true;
         }
     }

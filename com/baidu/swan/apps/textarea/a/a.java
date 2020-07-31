@@ -9,7 +9,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/closeTextarea");
@@ -22,7 +22,7 @@ public class a extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        com.baidu.swan.apps.console.c.d("CloseTextAreaAction", "closeTextAreaAction paramsJson: " + optParamsAsJo);
+        com.baidu.swan.apps.console.c.i("CloseTextAreaAction", "closeTextAreaAction paramsJson: " + optParamsAsJo);
         com.baidu.swan.apps.component.components.textarea.b bVar = new com.baidu.swan.apps.component.components.textarea.b();
         try {
             bVar.parseFromJson(optParamsAsJo);
@@ -32,14 +32,14 @@ public class a extends aa {
         }
         com.baidu.swan.apps.component.components.textarea.a aVar = (com.baidu.swan.apps.component.components.textarea.a) com.baidu.swan.apps.component.container.a.d(bVar);
         if (aVar == null) {
-            String str = "can't find textarea component:#" + bVar.bUt;
+            String str = "can't find textarea component:#" + bVar.bVl;
             com.baidu.swan.apps.console.c.e("CloseTextAreaAction", str);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
             return false;
         }
-        com.baidu.swan.apps.component.b.c Wo = aVar.Wo();
-        if (!Wo.isSuccess()) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Wo.msg);
+        com.baidu.swan.apps.component.b.c WV = aVar.WV();
+        if (!WV.isSuccess()) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, WV.msg);
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

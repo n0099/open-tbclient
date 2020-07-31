@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class b {
     private com.baidu.ar.filter.a A;
     private c.a B;
@@ -55,7 +55,7 @@ public class b {
     private boolean w = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -66,8 +66,8 @@ public class b {
             try {
                 switch (message.what) {
                     case 1001:
-                        C0079b c0079b = (C0079b) message.obj;
-                        b.this.a(c0079b.mClassName, c0079b.F, c0079b.G, c0079b.H, c0079b.I, c0079b.J);
+                        C0080b c0080b = (C0080b) message.obj;
+                        b.this.a(c0080b.mClassName, c0080b.F, c0080b.G, c0080b.H, c0080b.I, c0080b.J);
                         break;
                     case 1002:
                         c cVar = (c) message.obj;
@@ -83,8 +83,8 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.ar.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0079b {
+    /* loaded from: classes11.dex */
+    public class C0080b {
         List<String> F;
         boolean G;
         HashMap<String, Object> H;
@@ -92,7 +92,7 @@ public class b {
         com.baidu.ar.c.e J;
         String mClassName;
 
-        C0079b(String str, String str2, boolean z, HashMap<String, Object> hashMap) {
+        C0080b(String str, String str2, boolean z, HashMap<String, Object> hashMap) {
             this.mClassName = str;
             this.F = new ArrayList();
             this.F.add(str2);
@@ -100,14 +100,14 @@ public class b {
             this.H = hashMap;
         }
 
-        C0079b(String str, HashMap<String, Object> hashMap, String str2, com.baidu.ar.c.e eVar) {
+        C0080b(String str, HashMap<String, Object> hashMap, String str2, com.baidu.ar.c.e eVar) {
             this.mClassName = str;
             this.I = str2;
             this.H = hashMap;
             this.J = eVar;
         }
 
-        C0079b(String str, List<String> list, boolean z, HashMap<String, Object> hashMap) {
+        C0080b(String str, List<String> list, boolean z, HashMap<String, Object> hashMap) {
             this.mClassName = str;
             this.F = list;
             this.G = z;
@@ -116,7 +116,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public class c {
         String I;
         com.baidu.ar.c.e J;
@@ -263,8 +263,8 @@ public class b {
     }
 
     private void a(final List<String> list) {
-        com.baidu.ar.libloader.b.a(ARType.FACE, null, null, new a.InterfaceC0085a() { // from class: com.baidu.ar.b.1
-            @Override // com.baidu.ar.libloader.a.InterfaceC0085a
+        com.baidu.ar.libloader.b.a(ARType.FACE, null, null, new a.InterfaceC0086a() { // from class: com.baidu.ar.b.1
+            @Override // com.baidu.ar.libloader.a.InterfaceC0086a
             public void a(ARType aRType, String str, String str2) {
                 b.this.u.addAll(b.this.t);
                 String str3 = (String) b.this.j.get("ability_face_filter");
@@ -272,7 +272,7 @@ public class b {
                     return;
                 }
                 if (b.this.l.get(str3) == null) {
-                    b.this.c.sendMessage(b.this.c.obtainMessage(1001, new C0079b(str3, (List<String>) list, true, (HashMap<String, Object>) null)));
+                    b.this.c.sendMessage(b.this.c.obtainMessage(1001, new C0080b(str3, (List<String>) list, true, (HashMap<String, Object>) null)));
                     return;
                 }
                 ((com.baidu.ar.c) b.this.l.get(str3)).o();
@@ -481,7 +481,7 @@ public class b {
                 if (b.this.k != null && b.this.k.containsKey(str)) {
                     String str2 = (String) b.this.k.get(str);
                     if (!TextUtils.isEmpty(str2) && b.this.c != null) {
-                        b.this.c.sendMessage(b.this.c.obtainMessage(1001, new C0079b(str2, hashMap, str, eVar)));
+                        b.this.c.sendMessage(b.this.c.obtainMessage(1001, new C0080b(str2, hashMap, str, eVar)));
                         return true;
                     }
                 }
@@ -534,7 +534,7 @@ public class b {
             return;
         }
         this.u.add(str);
-        this.c.sendMessage(this.c.obtainMessage(1001, new C0079b(str2, str, false, (HashMap<String, Object>) null)));
+        this.c.sendMessage(this.c.obtainMessage(1001, new C0080b(str2, str, false, (HashMap<String, Object>) null)));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -800,7 +800,7 @@ public class b {
             }
             f(str);
             if (this.c != null) {
-                this.c.sendMessage(this.c.obtainMessage(1001, new C0079b(str2, str, false, hashMap)));
+                this.c.sendMessage(this.c.obtainMessage(1001, new C0080b(str2, str, false, hashMap)));
                 return true;
             }
             return false;

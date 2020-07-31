@@ -7,7 +7,7 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.TPRunnable;
 import com.baidu.sapi2.utils.ThreadPoolService;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class m {
     public static final String a = "extra_trace_id";
     public static final String b = "extra_session_id";
@@ -21,7 +21,7 @@ public class m {
     public static final String j = "choice_share_v2";
     public static b k;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static abstract class a {
         public void onFailed(int i, String str) {
         }
@@ -29,7 +29,7 @@ public class m {
         public abstract void onSuccess();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static class b {
         public static final String a = "index";
         public static final String b = "account_tpl";

@@ -5,12 +5,12 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes19.dex */
 final class b {
-    private static final b zo = new b();
-    private final ExecutorService zp;
-    private final ScheduledExecutorService zq;
-    private final Executor zr;
+    private static final b zq = new b();
+    private final ExecutorService zr;
+    private final ScheduledExecutorService zs;
+    private final Executor zt;
 
     private static boolean gA() {
         String property = System.getProperty("java.runtime.name");
@@ -21,48 +21,48 @@ final class b {
     }
 
     private b() {
-        this.zp = !gA() ? Executors.newCachedThreadPool() : bolts.a.gy();
-        this.zq = Executors.newSingleThreadScheduledExecutor();
-        this.zr = new a();
+        this.zr = !gA() ? Executors.newCachedThreadPool() : bolts.a.gy();
+        this.zs = Executors.newSingleThreadScheduledExecutor();
+        this.zt = new a();
     }
 
     public static ExecutorService gB() {
-        return zo.zp;
+        return zq.zr;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Executor gC() {
-        return zo.zr;
+        return zq.zt;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes19.dex */
     private static class a implements Executor {
-        private ThreadLocal<Integer> zs;
+        private ThreadLocal<Integer> zu;
 
         private a() {
-            this.zs = new ThreadLocal<>();
+            this.zu = new ThreadLocal<>();
         }
 
         private int gD() {
-            Integer num = this.zs.get();
+            Integer num = this.zu.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() + 1;
-            this.zs.set(Integer.valueOf(intValue));
+            this.zu.set(Integer.valueOf(intValue));
             return intValue;
         }
 
         private int gE() {
-            Integer num = this.zs.get();
+            Integer num = this.zu.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() - 1;
             if (intValue == 0) {
-                this.zs.remove();
+                this.zu.remove();
             } else {
-                this.zs.set(Integer.valueOf(intValue));
+                this.zu.set(Integer.valueOf(intValue));
             }
             return intValue;
         }

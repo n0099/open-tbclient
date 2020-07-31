@@ -1,7 +1,7 @@
 package com.baidu.ar.bean;
 
 import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public enum FunctionType {
     NONE("none"),
     VIDEO("video"),

@@ -7,14 +7,16 @@ import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.ForumCreateInfo;
+import tbclient.ForumPopupInfo;
 import tbclient.ForumRecommend.ForumRecommendResIdl;
 import tbclient.ForumRecommend.LikeForum;
 import tbclient.FrsTabInfo;
 import tbclient.PrivatePopInfo;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
     private ForumCreateInfo forum_create_info;
+    private ForumPopupInfo forum_popup_info;
     private HotSearchInfoData hotSearchInfo;
     private List<LikeForum> like_forum;
     private PrivatePopInfo private_pop_info;
@@ -73,6 +75,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
                 this.forum_create_info = forumRecommendResIdl.data.forum_create_info;
                 this.private_pop_info = forumRecommendResIdl.data.private_forum_popinfo;
                 this.tabFeedList = forumRecommendResIdl.data.nav_tab_info;
+                this.forum_popup_info = forumRecommendResIdl.data.forum_popup_info;
             }
         }
     }
@@ -81,7 +84,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (bArr != null && bArr.length > 0 && getError() == 0) {
-            com.baidu.tbadk.core.c.a.aUM().dc("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).asyncSetForever(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
+            com.baidu.tbadk.core.c.a.aYG().df("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).asyncSetForever(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
         }
     }
 
@@ -103,5 +106,9 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
 
     public List<FrsTabInfo> getTabFeedList() {
         return this.tabFeedList;
+    }
+
+    public ForumPopupInfo getForumPopUpInfo() {
+        return this.forum_popup_info;
     }
 }

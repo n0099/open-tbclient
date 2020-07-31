@@ -22,11 +22,11 @@ public final class FlowableObserveOn<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
-        v.c dPv = this.scheduler.dPv();
+        v.c dSR = this.scheduler.dSR();
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.nJW.a((j) new ObserveOnConditionalSubscriber((io.reactivex.internal.a.a) cVar, dPv, this.delayError, this.prefetch));
+            this.nSE.a((j) new ObserveOnConditionalSubscriber((io.reactivex.internal.a.a) cVar, dSR, this.delayError, this.prefetch));
         } else {
-            this.nJW.a((j) new ObserveOnSubscriber(cVar, dPv, this.delayError, this.prefetch));
+            this.nSE.a((j) new ObserveOnSubscriber(cVar, dSR, this.delayError, this.prefetch));
         }
     }
 
@@ -117,7 +117,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
 
         final void trySchedule() {
             if (getAndIncrement() == 0) {
-                this.worker.K(this);
+                this.worker.J(this);
             }
         }
 
@@ -246,7 +246,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                             return;
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.L(th);
+                        io.reactivex.exceptions.a.K(th);
                         this.s.cancel();
                         cVar.onError(th);
                         this.worker.dispose();
@@ -308,7 +308,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                             return;
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.L(th);
+                        io.reactivex.exceptions.a.K(th);
                         this.s.cancel();
                         gVar.clear();
                         cVar.onError(th);
@@ -433,7 +433,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                             return;
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.L(th);
+                        io.reactivex.exceptions.a.K(th);
                         this.s.cancel();
                         aVar.onError(th);
                         this.worker.dispose();
@@ -492,7 +492,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                             return;
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.L(th);
+                        io.reactivex.exceptions.a.K(th);
                         this.s.cancel();
                         gVar.clear();
                         aVar.onError(th);

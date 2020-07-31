@@ -34,8 +34,7 @@ import java.util.regex.Pattern;
 import org.apache.commons.codec.digest4util.MD5Utils;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tv.danmaku.ijk.media.player.IMediaFormat;
-/* loaded from: classes13.dex */
+/* loaded from: classes14.dex */
 public class UploadVideoTask extends UploadFileTask {
     private static final String AUDIO_MIME = "audio/mp4a-latm";
     private static final String CONTENT_TYPE = "video/mp4";
@@ -216,7 +215,7 @@ public class UploadVideoTask extends UploadFileTask {
                 boolean z3 = false;
                 for (i = 0; i < trackCount; i++) {
                     try {
-                        String string = mediaExtractor.getTrackFormat(i).getString(IMediaFormat.KEY_MIME);
+                        String string = mediaExtractor.getTrackFormat(i).getString("mime");
                         if (!TextUtils.isEmpty(string)) {
                             if (string.equals("video/avc")) {
                                 z3 = true;

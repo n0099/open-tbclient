@@ -2,108 +2,114 @@ package com.baidu.tieba.play.cyberPlayer;
 
 import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.k.k;
-import com.baidu.tieba.play.l;
-import com.baidu.tieba.play.n;
-import com.baidu.tieba.play.y;
+import com.baidu.tieba.play.h;
+import com.baidu.tieba.play.o;
 /* loaded from: classes.dex */
 public class b {
-    private bu dLi;
-    private y kUg;
-    private boolean kUp;
-    private long kUv;
-    private long hGx = 0;
+    private bv dLK;
+    private long lcW;
+    private o lcX;
+    private boolean lcZ;
+    private long lcV = 0;
     private long mStartTime = 0;
-    private String kUh = "1";
-    private k kVC = new k();
+    private String lcY = "1";
+    private k lda = new k();
 
-    public void cWa() {
-        this.kVC.cCN();
+    public void cZe() {
+        this.lda.cGB();
     }
 
-    public void fo(long j) {
-        this.kUv = j;
-        this.kVC.cCO();
+    public void fB(long j) {
+        this.lcW = j;
+        this.lda.cGC();
     }
 
     public void onStart() {
         if (this.mStartTime != 0) {
-            this.hGx = (System.currentTimeMillis() - this.mStartTime) + this.hGx;
+            this.lcV = (System.currentTimeMillis() - this.mStartTime) + this.lcV;
         }
         this.mStartTime = System.currentTimeMillis();
-        this.kUp = true;
-        this.kVC.cCP();
+        this.lcZ = true;
+        this.lda.cGD();
     }
 
-    public void a(TbCyberVideoView tbCyberVideoView) {
-        this.kVC.a(tbCyberVideoView);
+    public void b(TbCyberVideoView tbCyberVideoView) {
+        this.lda.a(tbCyberVideoView);
     }
 
     public void onPause() {
         if (this.mStartTime > 0) {
-            this.hGx = (System.currentTimeMillis() - this.mStartTime) + this.hGx;
+            this.lcV = (System.currentTimeMillis() - this.mStartTime) + this.lcV;
             this.mStartTime = 0L;
         }
-        this.kUp = false;
+        this.lcZ = false;
     }
 
     public void onStop() {
         if (this.mStartTime > 0) {
-            this.hGx = (System.currentTimeMillis() - this.mStartTime) + this.hGx;
+            this.lcV = (System.currentTimeMillis() - this.mStartTime) + this.lcV;
             this.mStartTime = 0L;
         }
-        cVB();
-        this.hGx = 0L;
+        cZf();
+        this.lcV = 0L;
         this.mStartTime = 0L;
-        this.kUp = false;
-        this.kVC.cCM();
+        this.lcZ = false;
+        this.lda.cGA();
     }
 
     public void onComplete() {
         if (this.mStartTime > 0) {
-            this.hGx = (System.currentTimeMillis() - this.mStartTime) + this.hGx;
+            this.lcV = (System.currentTimeMillis() - this.mStartTime) + this.lcV;
             this.mStartTime = 0L;
         }
     }
 
-    public void h(n nVar) {
-        this.dLi = nVar.cVD().aPS();
-        this.kUg = nVar.cVG();
+    public void setVideoStatsData(o oVar) {
+        this.lcX = oVar;
     }
 
-    private void cVB() {
-        if (this.hGx >= 0 && this.hGx < 86400000) {
-            if (this.hGx > 0) {
-                ao aoVar = new ao(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
-                aoVar.s("obj_duration", this.hGx);
-                aoVar.dk("obj_type", this.kUh);
-                aoVar.s("playduration", this.kUv);
-                aoVar.ag("player_type", 1);
-                if (!ar.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
-                    aoVar.dk("task_id", TbadkCoreApplication.getInst().getTaskId());
+    public void setThreadData(bv bvVar) {
+        this.dLK = bvVar;
+    }
+
+    public void setPlayMode(String str) {
+        this.lcY = str;
+    }
+
+    private void cZf() {
+        if (this.lcV >= 0 && this.lcV < 86400000) {
+            if (this.lcV > 0) {
+                ap apVar = new ap(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
+                apVar.t("obj_duration", this.lcV);
+                apVar.dn("obj_type", this.lcY);
+                apVar.t("playduration", this.lcW);
+                apVar.ah("player_type", 1);
+                if (!as.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+                    apVar.dn("task_id", TbadkCoreApplication.getInst().getTaskId());
                 }
-                if (this.kUg != null) {
-                    this.kUg.f(aoVar);
+                if (this.lcX != null) {
+                    this.lcX.f(apVar);
                 }
-                if (!aoVar.wG("obj_param5") && this.dLi != null) {
-                    if (this.dLi.getBaijiahaoData() != null) {
-                        if (this.dLi.getBaijiahaoData().oriUgcType == 2) {
-                            aoVar.ag("obj_param5", 3);
-                        } else if (this.dLi.getBaijiahaoData().oriUgcType == 4) {
-                            aoVar.ag("obj_param5", 2);
+                if (!apVar.xO("obj_param5") && this.dLK != null) {
+                    if (this.dLK.getBaijiahaoData() != null) {
+                        if (this.dLK.getBaijiahaoData().oriUgcType == 2) {
+                            apVar.ah("obj_param5", 3);
+                        } else if (this.dLK.getBaijiahaoData().oriUgcType == 4) {
+                            apVar.ah("obj_param5", 2);
                         }
                     } else {
-                        aoVar.ag("obj_param5", 1);
+                        apVar.ah("obj_param5", 1);
                     }
                 }
-                TiebaStatic.log(aoVar);
-                l.a(this.hGx, this.kUh, this.kUg, "", this.kUv);
-            } else if (this.kUp) {
-                l.a(this.hGx, this.kUh, this.kUg, "", this.kUv);
+                TiebaStatic.log(apVar);
+                h.a(this.lcV, this.lcY, this.lcX, "", this.lcW);
+            } else if (this.lcZ) {
+                h.a(this.lcV, this.lcY, this.lcX, "", this.lcW);
             }
         }
     }

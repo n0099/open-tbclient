@@ -289,7 +289,7 @@ public class WriteData extends OrmObject implements Serializable {
         try {
             jSONObject.put("mType", this.mType);
             jSONObject.put("mTitle", this.mTitle);
-            jSONObject.put("mContent", this.mSpanGroupManager == null ? this.mContent : this.mSpanGroupManager.aZa());
+            jSONObject.put("mContent", this.mSpanGroupManager == null ? this.mContent : this.mSpanGroupManager.bcX());
             jSONObject.put("mReplyUid", this.mReplyUid);
             jSONObject.put("mThreadId", this.mThreadId);
             jSONObject.put("mIsInterviewLive", this.mIsInterviewLivew);

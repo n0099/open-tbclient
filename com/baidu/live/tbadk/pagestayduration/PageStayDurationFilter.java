@@ -4,12 +4,12 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class PageStayDurationFilter {
     private static final int FIX_MAX_COST = 5;
     private boolean isSwitchOpen = SharedPrefHelper.getInstance().getBoolean(SharedPrefConfig.PAGE_STAY_DURATION_SWITCH, false);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface IDirtyData {
         boolean isDirtyData();
     }

@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.wnplatform.h;
 
 import android.os.Bundle;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface a {
     void a(Bundle bundle);
 

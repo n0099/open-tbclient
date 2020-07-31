@@ -7,25 +7,25 @@ import com.baidu.tbadk.core.util.e.a.b;
 import com.baidu.tbadk.core.util.e.a.c;
 /* loaded from: classes.dex */
 public class a {
-    public static com.baidu.tbadk.core.util.e.b.a aXp() {
-        return com.baidu.tbadk.core.util.e.b.a.aXD();
+    public static com.baidu.tbadk.core.util.e.b.a bbq() {
+        return com.baidu.tbadk.core.util.e.b.a.bbE();
     }
 
-    public static c aXq() {
-        return c.aXu();
+    public static c bbr() {
+        return c.bbv();
     }
 
-    public static void f(View view, int i, int i2) {
+    public static void h(View view, int i, int i2) {
         if (view != null) {
-            c.aXu().lN(1).lH(i).lJ(i2).aR(view);
+            c.bbv().mh(1).mb(i).md(i2).aX(view);
         }
     }
 
-    public static b aH(@ColorRes int i, @ColorRes int i2) {
-        return b.aXr().lD(1).lC(i2).lB(i);
+    public static b aI(@ColorRes int i, @ColorRes int i2) {
+        return b.bbs().lX(1).lW(i2).lV(i);
     }
 
     public static c c(Drawable drawable, Drawable drawable2) {
-        return c.aXu().lN(1).f(drawable).g(drawable2);
+        return c.bbv().mh(1).f(drawable).g(drawable2);
     }
 }

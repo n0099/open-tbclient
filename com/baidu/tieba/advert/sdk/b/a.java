@@ -10,11 +10,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class a extends BdAsyncTask<Void, Void, Boolean> {
     private final String TAG = a.class.getSimpleName();
     private AdInfo adInfo;
-    public static final String fbV = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
+    public static final String fgx = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
     public static final String FILE_SEP = File.separator;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,13 +23,13 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
     public Boolean doInBackground(Void... voidArr) {
         FileNotFoundException e;
         boolean z;
-        String str = fbV + FILE_SEP + "advideo.temp";
+        String str = fgx + FILE_SEP + "advideo.temp";
         File file = new File(str);
         if (file.exists()) {
             file.delete();
         }
         try {
-            new File(fbV).mkdirs();
+            new File(fgx).mkdirs();
             if (!file.createNewFile()) {
                 a(false, null);
                 return false;
@@ -71,7 +71,7 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
 
     private void a(boolean z, File file) {
         if (z && file != null) {
-            File file2 = new File(fbV + FILE_SEP + (s.toMd5(this.adInfo.adVideoUrl) + ".mp4"));
+            File file2 = new File(fgx + FILE_SEP + (s.toMd5(this.adInfo.adVideoUrl) + ".mp4"));
             if (file2.exists()) {
                 file2.delete();
             }

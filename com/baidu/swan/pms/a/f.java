@@ -1,7 +1,7 @@
 package com.baidu.swan.pms.a;
 
 import com.baidu.swan.pms.model.PMSAppInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public interface f {
-    void c(PMSAppInfo pMSAppInfo);
+    void e(PMSAppInfo pMSAppInfo);
 }

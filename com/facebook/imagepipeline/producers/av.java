@@ -1,16 +1,16 @@
 package com.facebook.imagepipeline.producers;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class av implements aj<com.facebook.imagepipeline.g.e> {
-    private final aw<com.facebook.imagepipeline.g.e>[] mXQ;
+    private final aw<com.facebook.imagepipeline.g.e>[] nfR;
 
     public av(aw<com.facebook.imagepipeline.g.e>... awVarArr) {
-        this.mXQ = (aw[]) com.facebook.common.internal.g.checkNotNull(awVarArr);
-        com.facebook.common.internal.g.ds(0, this.mXQ.length);
+        this.nfR = (aw[]) com.facebook.common.internal.g.checkNotNull(awVarArr);
+        com.facebook.common.internal.g.du(0, this.nfR.length);
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        if (akVar.dGc().dGW() == null) {
+        if (akVar.dJo().dKi() == null) {
             kVar.h(null, 1);
         } else if (!a(0, kVar, akVar)) {
             kVar.h(null, 1);
@@ -18,17 +18,17 @@ public class av implements aj<com.facebook.imagepipeline.g.e> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public class a extends n<com.facebook.imagepipeline.g.e, com.facebook.imagepipeline.g.e> {
-        private final com.facebook.imagepipeline.common.d mRl;
-        private final ak mWf;
-        private final int mXR;
+        private final com.facebook.imagepipeline.common.d mZs;
+        private final ak neg;
+        private final int nfS;
 
         public a(k<com.facebook.imagepipeline.g.e> kVar, ak akVar, int i) {
             super(kVar);
-            this.mWf = akVar;
-            this.mXR = i;
-            this.mRl = this.mWf.dGc().dGW();
+            this.neg = akVar;
+            this.nfS = i;
+            this.mZs = this.neg.dJo().dKi();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,37 +36,37 @@ public class av implements aj<com.facebook.imagepipeline.g.e> {
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
         public void g(com.facebook.imagepipeline.g.e eVar, int i) {
-            if (eVar != null && (Jn(i) || ax.a(eVar, this.mRl))) {
-                dGo().h(eVar, i);
-            } else if (Jm(i)) {
+            if (eVar != null && (JI(i) || ax.a(eVar, this.mZs))) {
+                dJA().h(eVar, i);
+            } else if (JH(i)) {
                 com.facebook.imagepipeline.g.e.e(eVar);
-                if (!av.this.a(this.mXR + 1, dGo(), this.mWf)) {
-                    dGo().h(null, 1);
+                if (!av.this.a(this.nfS + 1, dJA(), this.neg)) {
+                    dJA().h(null, 1);
                 }
             }
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
-        protected void F(Throwable th) {
-            if (!av.this.a(this.mXR + 1, dGo(), this.mWf)) {
-                dGo().G(th);
+        protected void E(Throwable th) {
+            if (!av.this.a(this.nfS + 1, dJA(), this.neg)) {
+                dJA().F(th);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(int i, k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        int a2 = a(i, akVar.dGc().dGW());
+        int a2 = a(i, akVar.dJo().dKi());
         if (a2 == -1) {
             return false;
         }
-        this.mXQ[a2].c(new a(kVar, akVar, a2), akVar);
+        this.nfR[a2].c(new a(kVar, akVar, a2), akVar);
         return true;
     }
 
     private int a(int i, com.facebook.imagepipeline.common.d dVar) {
-        while (i < this.mXQ.length) {
-            if (!this.mXQ[i].a(dVar)) {
+        while (i < this.nfR.length) {
+            if (!this.nfR[i].a(dVar)) {
                 i++;
             } else {
                 return i;

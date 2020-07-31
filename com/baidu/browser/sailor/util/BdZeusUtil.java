@@ -18,7 +18,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Stack;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class BdZeusUtil implements INoProGuard {
     private static final String ARCH_ARM = "armv";
     private static final int ARCH_ARM_INT = 7;
@@ -117,6 +117,14 @@ public final class BdZeusUtil implements INoProGuard {
             return false;
         }
         return deleteFile(new File(str));
+    }
+
+    public static synchronized boolean forceNoZeus() {
+        boolean forceNoZeus;
+        synchronized (BdZeusUtil.class) {
+            forceNoZeus = WebKitFactory.forceNoZeus();
+        }
+        return forceNoZeus;
     }
 
     public static String formatdetailTime(long j) {

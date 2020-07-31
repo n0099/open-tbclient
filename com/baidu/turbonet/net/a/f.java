@@ -4,20 +4,20 @@ import com.baidu.turbonet.net.UploadDataProvider;
 import java.io.IOException;
 import java.io.OutputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public abstract class f extends OutputStream {
     private boolean mClosed;
-    private IOException mDn;
-    private boolean mDo;
+    private IOException mLt;
+    private boolean mLu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void dwq() throws IOException;
+    public abstract void dzD() throws IOException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void dwr() throws IOException;
+    public abstract void dzE() throws IOException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract UploadDataProvider dws();
+    public abstract UploadDataProvider dzF();
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
@@ -26,14 +26,14 @@ public abstract class f extends OutputStream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(IOException iOException) {
-        this.mDn = iOException;
-        this.mDo = true;
+        this.mLt = iOException;
+        this.mLu = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void checkNotClosed() throws IOException {
-        if (this.mDo) {
-            dwG();
+        if (this.mLu) {
+            dzT();
             throw new IOException("Writing after request completed.");
         } else if (this.mClosed) {
             throw new IOException("Stream has been closed.");
@@ -41,9 +41,9 @@ public abstract class f extends OutputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dwG() throws IOException {
-        if (this.mDn != null) {
-            throw this.mDn;
+    public void dzT() throws IOException {
+        if (this.mLt != null) {
+            throw this.mLt;
         }
     }
 }

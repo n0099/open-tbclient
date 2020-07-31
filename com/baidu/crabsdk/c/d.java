@@ -8,13 +8,13 @@ import java.util.Random;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public final class d {
-    private static byte[] R(String str, String str2) {
+    private static byte[] Q(String str, String str2) {
         try {
             String substring = str2.substring(0, 16);
             String substring2 = str2.substring(str2.length() - 16, str2.length());
-            Key dm = dm(substring);
+            Key dl = dl(substring);
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             int blockSize = cipher.getBlockSize();
             byte[] bytes = str.getBytes();
@@ -24,7 +24,7 @@ public final class d {
             }
             byte[] bArr = new byte[length];
             System.arraycopy(bytes, 0, bArr, 0, bytes.length);
-            cipher.init(1, dm, new IvParameterSpec(substring2.getBytes()));
+            cipher.init(1, dl, new IvParameterSpec(substring2.getBytes()));
             return cipher.doFinal(bArr);
         } catch (Exception e) {
             e.printStackTrace();
@@ -32,8 +32,8 @@ public final class d {
         }
     }
 
-    public static String S(String str, String str2) {
-        return Base64.encodeToString(R(str, str2), 0);
+    public static String R(String str, String str2) {
+        return Base64.encodeToString(Q(str, str2), 0);
     }
 
     private static String a(String str, boolean z) {
@@ -49,7 +49,7 @@ public final class d {
         try {
             String substring = str.substring(0, 16);
             String substring2 = str.substring(str.length() - 16, str.length());
-            Key dm = dm(substring);
+            Key dl = dl(substring);
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             int blockSize = cipher.getBlockSize();
             int length = bArr.length;
@@ -58,7 +58,7 @@ public final class d {
             }
             byte[] bArr2 = new byte[length];
             System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
-            cipher.init(1, dm, new IvParameterSpec(substring2.getBytes()));
+            cipher.init(1, dl, new IvParameterSpec(substring2.getBytes()));
             return cipher.doFinal(bArr2);
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,7 +70,7 @@ public final class d {
         return h.a(str + str2);
     }
 
-    private static Key dm(String str) {
+    private static Key dl(String str) {
         try {
             return new SecretKeySpec(str.getBytes(), com.baidu.sapi2.utils.h.q);
         } catch (Exception e) {
@@ -79,9 +79,9 @@ public final class d {
         }
     }
 
-    public static String dn(String str) {
+    public static String dm(String str) {
         try {
-            Key dm = dm(tp());
+            Key dl = dl(tp());
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             int blockSize = cipher.getBlockSize();
             byte[] bytes = str.getBytes();
@@ -91,7 +91,7 @@ public final class d {
             }
             byte[] bArr = new byte[length];
             System.arraycopy(bytes, 0, bArr, 0, bytes.length);
-            cipher.init(1, dm, new IvParameterSpec(tq().getBytes()));
+            cipher.init(1, dl, new IvParameterSpec(tq().getBytes()));
             return new String(Base64.encodeToString(cipher.doFinal(bArr), 0));
         } catch (Exception e) {
             e.printStackTrace();
@@ -99,12 +99,11 @@ public final class d {
         }
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public static String m19do(String str) {
+    public static String dn(String str) {
         try {
-            Key dm = dm(tp());
+            Key dl = dl(tp());
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-            cipher.init(2, dm, new IvParameterSpec(tq().getBytes()));
+            cipher.init(2, dl, new IvParameterSpec(tq().getBytes()));
             return new String(cipher.doFinal(Base64.decode(str, 0))).trim();
         } catch (Exception e) {
             return null;

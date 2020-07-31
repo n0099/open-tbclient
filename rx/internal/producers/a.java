@@ -3,16 +3,16 @@ package rx.internal.producers;
 import rx.f;
 /* loaded from: classes6.dex */
 public final class a implements f {
-    static final f oeR = new f() { // from class: rx.internal.producers.a.1
+    static final f onA = new f() { // from class: rx.internal.producers.a.1
         @Override // rx.f
         public void request(long j) {
         }
     };
     boolean emitting;
-    f oeN;
-    long oeO;
-    long oeP;
-    f oeQ;
+    f onw;
+    long onx;
+    long ony;
+    f onz;
     long requested;
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -24,7 +24,7 @@ public final class a implements f {
         if (j != 0) {
             synchronized (this) {
                 if (this.emitting) {
-                    this.oeO += j;
+                    this.onx += j;
                 } else {
                     this.emitting = true;
                     try {
@@ -33,7 +33,7 @@ public final class a implements f {
                             j2 = Long.MAX_VALUE;
                         }
                         this.requested = j2;
-                        f fVar = this.oeN;
+                        f fVar = this.onw;
                         if (fVar != null) {
                             fVar.request(j);
                         }
@@ -56,7 +56,7 @@ public final class a implements f {
         }
         synchronized (this) {
             if (this.emitting) {
-                this.oeP += j;
+                this.ony += j;
                 return;
             }
             this.emitting = true;
@@ -84,14 +84,14 @@ public final class a implements f {
         synchronized (this) {
             if (this.emitting) {
                 if (fVar == null) {
-                    fVar = oeR;
+                    fVar = onA;
                 }
-                this.oeQ = fVar;
+                this.onz = fVar;
                 return;
             }
             this.emitting = true;
             try {
-                this.oeN = fVar;
+                this.onw = fVar;
                 if (fVar != null) {
                     fVar.request(this.requested);
                 }
@@ -108,16 +108,16 @@ public final class a implements f {
     public void emitLoop() {
         while (true) {
             synchronized (this) {
-                long j = this.oeO;
-                long j2 = this.oeP;
-                f fVar = this.oeQ;
+                long j = this.onx;
+                long j2 = this.ony;
+                f fVar = this.onz;
                 if (j == 0 && j2 == 0 && fVar == null) {
                     this.emitting = false;
                     return;
                 }
-                this.oeO = 0L;
-                this.oeP = 0L;
-                this.oeQ = null;
+                this.onx = 0L;
+                this.ony = 0L;
+                this.onz = null;
                 long j3 = this.requested;
                 if (j3 != Long.MAX_VALUE) {
                     long j4 = j3 + j;
@@ -133,14 +133,14 @@ public final class a implements f {
                     }
                 }
                 if (fVar != null) {
-                    if (fVar == oeR) {
-                        this.oeN = null;
+                    if (fVar == onA) {
+                        this.onw = null;
                     } else {
-                        this.oeN = fVar;
+                        this.onw = fVar;
                         fVar.request(j3);
                     }
                 } else {
-                    f fVar2 = this.oeN;
+                    f fVar2 = this.onw;
                     if (fVar2 != null && j != 0) {
                         fVar2.request(j);
                     }

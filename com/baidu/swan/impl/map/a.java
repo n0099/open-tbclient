@@ -3,7 +3,7 @@ package com.baidu.swan.impl.map;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class a {
     static {
         SDKInitializer.initialize(AppRuntime.getAppContext());
@@ -11,6 +11,6 @@ public class a {
         SDKInitializer.setHttpsEnable(true);
     }
 
-    public static void aEG() {
+    public static void aIx() {
     }
 }

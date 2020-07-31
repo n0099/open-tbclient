@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.realAuthen.RealAuthen;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.wallet.ICertification;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements RealAuthen {
     @Override // com.baidu.live.tbadk.realAuthen.RealAuthen
     public void doAuthen(Map<String, Object> map, final AuthenCallback authenCallback) {

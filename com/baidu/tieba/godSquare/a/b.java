@@ -6,32 +6,32 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.ad;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.data.h;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class b extends com.baidu.adp.widget.ListView.a<h, a> {
-    private aa fRr;
-    private com.baidu.tieba.godSquare.b.a ikg;
+    private aa fWK;
+    private com.baidu.tieba.godSquare.b.a iqj;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), h.gUj);
-        this.fRr = new aa() { // from class: com.baidu.tieba.godSquare.a.b.1
+        super(tbPageContext.getPageActivity(), h.gZN);
+        this.fWK = new aa() { // from class: com.baidu.tieba.godSquare.a.b.1
             @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.card.data.b bVar) {
-                if (view != null && b.this.ikg != null && (bVar instanceof h)) {
+                if (view != null && b.this.iqj != null && (bVar instanceof h)) {
                     h hVar = (h) bVar;
-                    if (hVar.dMu != null && !StringUtils.isNull(hVar.dMu.getUserId())) {
-                        if (view.getId() != b.this.ikg.ikr.getId()) {
-                            if (view.getId() == b.this.ikg.getView().getId() || view.getId() == b.this.ikg.igx.getId()) {
-                                TiebaStatic.log(new ao("c10951").dk("obj_id", hVar.dMu.getUserId()));
+                    if (hVar.dSF != null && !StringUtils.isNull(hVar.dSF.getUserId())) {
+                        if (view.getId() != b.this.iqj.iqu.getId()) {
+                            if (view.getId() == b.this.iqj.getView().getId() || view.getId() == b.this.iqj.imB.getId()) {
+                                TiebaStatic.log(new ap("c10951").dn("obj_id", hVar.dSF.getUserId()));
                                 return;
                             }
                             return;
                         }
-                        TiebaStatic.log(new ao("c10803").ag("obj_locate", 4).dk("obj_id", hVar.dMu.getUserId()));
+                        TiebaStatic.log(new ap("c10803").ah("obj_locate", 4).dn("obj_id", hVar.dSF.getUserId()));
                     }
                 }
             }
@@ -42,32 +42,32 @@ public class b extends com.baidu.adp.widget.ListView.a<h, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bw */
+    /* renamed from: bx */
     public a b(ViewGroup viewGroup) {
-        this.ikg = new com.baidu.tieba.godSquare.b.a(this.mPageContext);
-        this.ikg.l(this.mPageContext.getUniqueId());
-        this.ikg.c(this.fRr);
-        return new a(this.ikg);
+        this.iqj = new com.baidu.tieba.godSquare.b.a(this.mPageContext);
+        this.iqj.m(this.mPageContext.getUniqueId());
+        this.iqj.c(this.fWK);
+        return new a(this.iqj);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, h hVar, a aVar) {
-        if (aVar == null || aVar.iki == null) {
+        if (aVar == null || aVar.iql == null) {
             return null;
         }
-        aVar.iki.a(hVar);
+        aVar.iql.a(hVar);
         return aVar.getView();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes18.dex */
     public class a extends ad.a {
-        public com.baidu.tieba.godSquare.b.a iki;
+        public com.baidu.tieba.godSquare.b.a iql;
 
         public a(com.baidu.tieba.godSquare.b.a aVar) {
             super(aVar.getView());
-            this.iki = aVar;
+            this.iql = aVar;
         }
     }
 }

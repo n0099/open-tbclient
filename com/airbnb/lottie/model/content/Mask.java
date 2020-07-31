@@ -1,11 +1,11 @@
 package com.airbnb.lottie.model.content;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class Mask {
     private final com.airbnb.lottie.model.a.d Eb;
     private final MaskMode Eu;
     private final com.airbnb.lottie.model.a.h Ev;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes20.dex */
     public enum MaskMode {
         MaskModeAdd,
         MaskModeSubtract,

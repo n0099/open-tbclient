@@ -2,7 +2,7 @@ package com.baidu.webkit.net;
 
 import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.sdk.Log;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class f {
     private static final String b = f.class.getSimpleName();
     BdNetTask a;

@@ -8,7 +8,7 @@ import android.view.WindowManager;
 import com.baidu.searchbox.appframework.BaseActivity;
 import com.baidu.searchbox.publisher.base.R;
 import com.baidu.searchbox.ugc.utils.SystemBarTintManager;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class PreviewBaseActivity extends BaseActivity {
     protected SystemBarTintManager tintManager;
 

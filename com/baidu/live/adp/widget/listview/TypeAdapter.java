@@ -10,7 +10,7 @@ import com.baidu.live.adp.BdUniqueId;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TypeAdapter extends BaseAdapter implements ITypeListAdapter<IAdapterData> {
     private static final int INVAILD_ITEM_VIEW_TYPE = -1;
     public static final int INVAILD_POSITION = -1;
@@ -226,7 +226,7 @@ public class TypeAdapter extends BaseAdapter implements ITypeListAdapter<IAdapte
         return -1;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ViewHolder {
         private View view;
 

@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class as {
     private static final as e = new as();
     private boolean a = false;

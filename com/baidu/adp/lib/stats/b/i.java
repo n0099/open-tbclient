@@ -35,7 +35,7 @@ public class i {
                     if (!it.hasNext()) {
                         break;
                     }
-                    i2 = (int) (it.next().mFileSize + i);
+                    i2 = (int) (it.next().Ni + i);
                 }
                 int i3 = i - BdStatsConstant.MAX_STATISTICS_SIZE;
                 ArrayList arrayList = new ArrayList();
@@ -49,7 +49,7 @@ public class i {
                         }
                         com.baidu.adp.lib.stats.base.d next = it2.next();
                         arrayList.add(next.mFileName);
-                        i3 = (int) (i4 - next.mFileSize);
+                        i3 = (int) (i4 - next.Ni);
                         if (i3 <= 0) {
                             break;
                         }

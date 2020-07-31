@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.GetUserBfbInfo.DataReq;
 import tbclient.GetUserBfbInfo.GetUserBfbInfoReqIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class BfbInfoRequestMessage extends NetMessage {
     public BfbInfoRequestMessage() {
         super(1003100, CmdConfigSocket.CMD_GET_BFB_INFO);

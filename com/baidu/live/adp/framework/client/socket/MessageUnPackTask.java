@@ -14,7 +14,7 @@ import com.baidu.live.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class MessageUnPackTask extends BdAsyncTask<String, SocketResponsedMessage, SocketResponsedMessage> {
     private static final String MODULE_NAME = "unpacker";
     private static final BdUniqueId sTags = BdUniqueId.gen();
@@ -25,7 +25,7 @@ class MessageUnPackTask extends BdAsyncTask<String, SocketResponsedMessage, Sock
     private SocketMessageTask mTask;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface ISingleRunnableCallback {
         void onReturnDataInUI(UnpackData unpackData);
     }
@@ -296,7 +296,7 @@ class MessageUnPackTask extends BdAsyncTask<String, SocketResponsedMessage, Sock
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class UnpackData {
         SocketResponsedMessage mMessages;
         SenderData mSenderData;

@@ -1,7 +1,7 @@
 package com.baidu.ar.child;
 
 import com.baidu.ar.child.a.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class b {
     private com.baidu.ar.child.a.a kW;
     private e kX;

@@ -1,7 +1,7 @@
 package com.baidu.live.message;
 
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaExceptionHttpResMessage extends HttpResponsedMessage {
     public AlaExceptionHttpResMessage() {
         super(1021049);

@@ -5,7 +5,7 @@ import android.content.res.Resources;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.io.IOException;
 import java.util.concurrent.Executor;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class ab extends z {
     private final Resources mResources;
 
@@ -62,11 +62,11 @@ public class ab extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String dGm() {
+    protected String dJy() {
         return "LocalResourceFetchProducer";
     }
 
     private static int j(ImageRequest imageRequest) {
-        return Integer.parseInt(imageRequest.dGU().getPath().substring(1));
+        return Integer.parseInt(imageRequest.dKg().getPath().substring(1));
     }
 }

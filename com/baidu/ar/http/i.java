@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.nio.charset.Charset;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 class i implements IHttpResponse {
     private Charset pN;
     private HttpURLConnection pQ;

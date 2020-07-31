@@ -15,12 +15,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private String f;
     private boolean j;
-    private com.kascend.chushou.view.a.a<ListItem> ngy;
-    private com.kascend.chushou.view.a.a<PannelItem> nuL;
+    private com.kascend.chushou.view.a.a<PannelItem> nDu;
+    private com.kascend.chushou.view.a.a<ListItem> npk;
     private final List<Object> c = new ArrayList();
     private boolean g = true;
     private boolean h = false;
@@ -40,8 +40,8 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public b(String str, com.kascend.chushou.view.a.a<PannelItem> aVar, com.kascend.chushou.view.a.a<ListItem> aVar2, boolean z) {
         this.j = false;
         this.f = str;
-        this.nuL = new com.kascend.chushou.view.a.b(aVar);
-        this.ngy = new com.kascend.chushou.view.a.b(aVar2);
+        this.nDu = new com.kascend.chushou.view.a.b(aVar);
+        this.npk = new com.kascend.chushou.view.a.b(aVar2);
         this.j = z;
     }
 
@@ -118,7 +118,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case 6:
                 return new e(from.inflate(a.h.item_listitem_sliding_small_poster, viewGroup, false), this.f, "10");
             case 22:
-                return new a(from.inflate(a.h.item_listitem_double_room_home, viewGroup, false), this.ngy, this.j ? false : true, this.f);
+                return new a(from.inflate(a.h.item_listitem_double_room_home, viewGroup, false), this.npk, this.j ? false : true, this.f);
             case 34:
                 return new e(from.inflate(a.h.item_listitem_sliding_small_poster, viewGroup, false), this.f, "32");
             default:
@@ -149,7 +149,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         return;
                     case 6:
                     case 34:
-                        ((e) viewHolder).a(pannelItem, Kr(i));
+                        ((e) viewHolder).a(pannelItem, KL(i));
                         return;
                     default:
                         return;
@@ -186,7 +186,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         return -1;
     }
 
-    private int[] Kr(int i) {
+    private int[] KL(int i) {
         int i2;
         if (i - 1 >= 0) {
             i2 = 0;

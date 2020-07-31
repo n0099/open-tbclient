@@ -3,7 +3,7 @@ package com.alibaba.fastjson.asm;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class ClassReader {
     public final byte[] b;
     public final int header;

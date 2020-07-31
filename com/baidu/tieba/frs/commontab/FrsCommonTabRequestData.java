@@ -8,7 +8,7 @@ import com.baidu.tbadk.util.t;
 import java.util.HashMap;
 import tbclient.GeneralTabList.DataReq;
 import tbclient.GeneralTabList.GeneralTabListReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class FrsCommonTabRequestData extends OrmObject implements h {
     public long fid;
     public int pn;
@@ -22,17 +22,17 @@ public class FrsCommonTabRequestData extends OrmObject implements h {
     public int sortType = 0;
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> bgU() {
+    public HashMap<String, Object> bkF() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> bgV() {
+    public HashMap<String, String> bkG() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.l
-    public Object ir(boolean z) {
+    public Object iW(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.tab_id = Integer.valueOf(this.tabId);
         builder.tab_type = Integer.valueOf(this.tabType);

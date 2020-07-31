@@ -7,11 +7,11 @@ import com.baidu.searchbox.ugc.model.PublishRequestModel;
 import com.baidu.searchbox.upload.provider.UploadProviderManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes14.dex */
 public class PublishRequestManager {
     private static volatile PublishRequestManager sPublishRequestManager;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes14.dex */
     public interface PublishRequestCallback {
         void onFailed(String str);
 

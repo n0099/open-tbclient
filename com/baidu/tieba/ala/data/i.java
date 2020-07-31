@@ -1,22 +1,23 @@
 package com.baidu.tieba.ala.data;
 
-import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i {
-    private long fDQ;
-    private int fDv;
+    public long fJu;
+    public long fJv;
+    public String id;
+    public String portrait;
+    public long startTime;
+    public int status;
+    public String userName;
 
     public void parserJson(JSONObject jSONObject) {
-        this.fDv = jSONObject.optInt("loot_result");
-        this.fDQ = jSONObject.optLong(LogConfig.LOG_AMOUNT);
-    }
-
-    public boolean bwv() {
-        return this.fDv == 1;
-    }
-
-    public long bww() {
-        return this.fDQ;
+        this.id = jSONObject.optString("id");
+        this.fJu = jSONObject.optLong("sys_time");
+        this.startTime = jSONObject.optLong("start_time");
+        this.fJv = jSONObject.optLong("balance");
+        this.status = jSONObject.optInt("status");
+        this.userName = jSONObject.optString("user_name");
+        this.portrait = jSONObject.optString("bd_portrait");
     }
 }

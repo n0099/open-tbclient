@@ -2,7 +2,7 @@ package com.baidu.tieba.write.b.a;
 
 import android.app.Activity;
 import com.baidu.searchbox.suspensionball.ioc.ISuspensionBallDataInit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f implements ISuspensionBallDataInit {
     @Override // com.baidu.searchbox.suspensionball.ioc.ISuspensionBallDataInit
     public boolean enableInitSuspensionData(Activity activity) {

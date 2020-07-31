@@ -1,5 +1,5 @@
 package com.baidu.ar.photo;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public interface IPhoto {
     void takePicture(String str, PhotoCallback photoCallback);
 }

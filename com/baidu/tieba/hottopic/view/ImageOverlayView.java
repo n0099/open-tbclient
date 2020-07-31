@@ -4,20 +4,20 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.hottopic.data.l;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class ImageOverlayView extends ViewGroup {
-    private int hjC;
-    private int hjF;
-    private a iHw;
-    private List<l> iHx;
+    private int hpk;
+    private int hpn;
+    private a iNB;
+    private List<l> iNC;
     private int mImageHeight;
     private int mImageWidth;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public interface a {
     }
 
@@ -35,7 +35,7 @@ public class ImageOverlayView extends ViewGroup {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        setMeasuredDimension(resolveSize(((getPaddingLeft() + getPaddingRight()) + (this.hjC * this.mImageWidth)) - ((this.hjC - 1) * this.hjF), i), resolveSize(getPaddingTop() + getPaddingBottom() + this.mImageHeight, i2));
+        setMeasuredDimension(resolveSize(((getPaddingLeft() + getPaddingRight()) + (this.hpk * this.mImageWidth)) - ((this.hpk - 1) * this.hpn), i), resolveSize(getPaddingTop() + getPaddingBottom() + this.mImageHeight, i2));
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -43,26 +43,26 @@ public class ImageOverlayView extends ViewGroup {
         View childAt;
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        for (int i5 = 0; i5 < this.hjC && i5 < getChildCount() && (childAt = getChildAt(i5)) != null; i5++) {
+        for (int i5 = 0; i5 < this.hpk && i5 < getChildCount() && (childAt = getChildAt(i5)) != null; i5++) {
             childAt.layout(paddingLeft, paddingTop, this.mImageWidth + paddingLeft, this.mImageHeight + paddingTop);
-            paddingLeft += this.mImageWidth - this.hjF;
+            paddingLeft += this.mImageWidth - this.hpn;
         }
     }
 
     public void setImageClickListener(a aVar) {
-        this.iHw = aVar;
+        this.iNB = aVar;
     }
 
     public void setData(List<l> list) {
         HeadImageView headImageView;
-        if (!w.isEmpty(list)) {
-            this.iHx = list;
-            for (int i = 0; i < this.hjC && (headImageView = (HeadImageView) getChildAt(i)) != null; i++) {
+        if (!x.isEmpty(list)) {
+            this.iNC = list;
+            for (int i = 0; i < this.hpk && (headImageView = (HeadImageView) getChildAt(i)) != null; i++) {
                 if (i >= list.size()) {
                     headImageView.setVisibility(8);
                 } else {
                     headImageView.setVisibility(0);
-                    l lVar = (l) w.getItem(list, (list.size() - i) - 1);
+                    l lVar = (l) x.getItem(list, (list.size() - i) - 1);
                     if (lVar != null) {
                         headImageView.setUserId(String.valueOf(lVar.userId));
                         headImageView.a(lVar.portrait, 12, this.mImageWidth, this.mImageHeight, false);

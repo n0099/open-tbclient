@@ -11,11 +11,11 @@ import com.huawei.android.hms.pps.a.a;
 import com.huawei.android.hms.pps.a.b;
 import java.io.IOException;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class AdvertisingIdClient {
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static final class Info {
         private final String advertisingId;
         private final boolean limitAdTrackingEnabled;
@@ -59,8 +59,8 @@ public class AdvertisingIdClient {
                         throw new IllegalStateException();
                     }
                     aVar.a = true;
-                    b.a.C0814a c0814a = new b.a.C0814a(aVar.b.take());
-                    return new Info(c0814a.a(), c0814a.b());
+                    b.a.C0823a c0823a = new b.a.C0823a(aVar.b.take());
+                    return new Info(c0823a.a(), c0823a.b());
                 } catch (RemoteException e) {
                     Log.e(getTag(), "bind hms service RemoteException");
                     throw new IOException("bind hms service RemoteException");

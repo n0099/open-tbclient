@@ -1,5 +1,5 @@
 package com.facebook.b.a;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public interface a {
-    void dzW();
+    void dDi();
 }

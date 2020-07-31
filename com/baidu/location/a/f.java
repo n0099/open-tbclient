@@ -2,7 +2,7 @@ package com.baidu.location.a;
 
 import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class f extends Thread {
     final /* synthetic */ d a;
 

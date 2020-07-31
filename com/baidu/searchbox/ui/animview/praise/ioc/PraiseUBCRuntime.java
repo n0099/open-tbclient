@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ui.animview.praise.ioc;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public final class PraiseUBCRuntime {
     public static IPraiseUBCContext getContext() {
         return new IPraiseUBCContext() { // from class: com.baidu.searchbox.ui.animview.praise.ioc.PraiseUBCRuntime.1

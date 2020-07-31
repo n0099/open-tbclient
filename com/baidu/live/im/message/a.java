@@ -2,9 +2,9 @@ package com.baidu.live.im.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.util.TbEnum;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends HttpMessage {
-    private boolean aWo;
+    private boolean aXi;
     private String appId;
     private com.baidu.live.im.data.b barrageCardInfo;
     private String barrageId;
@@ -20,7 +20,7 @@ public class a extends HttpMessage {
 
     public a(String str, short s, int i, String str2) {
         super(1021013);
-        this.aWo = false;
+        this.aXi = false;
         this.content = str;
         this.msgType = s;
         this.groupId = i;
@@ -35,19 +35,19 @@ public class a extends HttpMessage {
         return this.content;
     }
 
-    public short Eo() {
+    public short Es() {
         return this.msgType;
     }
 
-    public void eI(String str) {
+    public void eH(String str) {
         this.liveId = str;
     }
 
-    public void fy(String str) {
+    public void fx(String str) {
         this.roomId = str;
     }
 
-    public String Ep() {
+    public String Et() {
         return this.otherParams;
     }
 
@@ -55,7 +55,7 @@ public class a extends HttpMessage {
         this.otherParams = str;
     }
 
-    public long Eq() {
+    public long Eu() {
         return this.price;
     }
 
@@ -63,23 +63,23 @@ public class a extends HttpMessage {
         this.price = j;
     }
 
-    public int Eh() {
+    public int El() {
         return this.barrageType;
     }
 
-    public void cB(int i) {
+    public void cG(int i) {
         this.barrageType = i;
     }
 
-    public String Ei() {
+    public String Em() {
         return this.barrageId;
     }
 
-    public void fx(String str) {
+    public void fw(String str) {
         this.barrageId = str;
     }
 
-    public com.baidu.live.im.data.b Ej() {
+    public com.baidu.live.im.data.b En() {
         return this.barrageCardInfo;
     }
 
@@ -87,7 +87,7 @@ public class a extends HttpMessage {
         this.barrageCardInfo = bVar;
     }
 
-    public String[] Ek() {
+    public String[] Eo() {
         return this.imEffect;
     }
 
@@ -95,11 +95,11 @@ public class a extends HttpMessage {
         this.imEffect = strArr;
     }
 
-    public void bJ(boolean z) {
-        this.aWo = z;
+    public void bM(boolean z) {
+        this.aXi = z;
     }
 
-    public boolean Er() {
-        return this.aWo;
+    public boolean Ev() {
+        return this.aXi;
     }
 }

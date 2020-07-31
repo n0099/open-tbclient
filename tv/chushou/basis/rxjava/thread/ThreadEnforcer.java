@@ -2,7 +2,7 @@ package tv.chushou.basis.rxjava.thread;
 
 import android.os.Looper;
 import tv.chushou.basis.rxjava.Bus;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface ThreadEnforcer {
     public static final ThreadEnforcer ANY = new ThreadEnforcer() { // from class: tv.chushou.basis.rxjava.thread.ThreadEnforcer.1
         @Override // tv.chushou.basis.rxjava.thread.ThreadEnforcer

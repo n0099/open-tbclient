@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.sofire.i.u;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class THReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(final Context context, final Intent intent) {

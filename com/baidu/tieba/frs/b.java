@@ -1,103 +1,103 @@
 package com.baidu.tieba.frs;
 
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private AntiData ejE;
+    private AntiData epR;
     private String forumId;
-    private aw hyv;
-    private final ArrayList<bu> hyx;
-    private boolean hyy;
-    private boolean hyz;
+    private aw hEj;
+    private final ArrayList<bv> hEl;
+    private boolean hEm;
+    private boolean hEn;
 
     private b() {
-        this.hyy = false;
-        this.hyx = new ArrayList<>();
+        this.hEm = false;
+        this.hEl = new ArrayList<>();
     }
 
-    public static b bXd() {
-        return a.hyA;
+    public static b caw() {
+        return a.hEo;
     }
 
-    public boolean bWX() {
-        return this.hyy;
+    public boolean caq() {
+        return this.hEm;
     }
 
-    public void M(boolean z, boolean z2) {
-        this.hyy = z;
-        if (this.hyv != null) {
-            this.hyv.d(this.hyy, z2, 1);
+    public void N(boolean z, boolean z2) {
+        this.hEm = z;
+        if (this.hEj != null) {
+            this.hEj.d(this.hEm, z2, 1);
         }
     }
 
-    public boolean al(bu buVar) {
-        if (buVar == null) {
+    public boolean ai(bv bvVar) {
+        if (bvVar == null) {
             return false;
         }
-        if (this.hyx.size() > 29) {
-            if (this.hyv != null) {
-                this.hyv.up(1);
+        if (this.hEl.size() > 29) {
+            if (this.hEj != null) {
+                this.hEj.uH(1);
                 return false;
             }
             return false;
         }
-        this.hyx.add(buVar);
-        if (this.hyv != null) {
-            this.hyv.bT(this.hyx.size(), 1);
+        this.hEl.add(bvVar);
+        if (this.hEj != null) {
+            this.hEj.bX(this.hEl.size(), 1);
         }
         return true;
     }
 
-    public List<bu> bXa() {
-        return this.hyx;
+    public List<bv> cat() {
+        return this.hEl;
     }
 
-    public void am(bu buVar) {
-        this.hyx.remove(buVar);
-        if (this.hyv != null) {
-            this.hyv.bT(this.hyx.size(), 1);
+    public void aj(bv bvVar) {
+        this.hEl.remove(bvVar);
+        if (this.hEj != null) {
+            this.hEj.bX(this.hEl.size(), 1);
         }
     }
 
     public void clearData() {
-        Iterator<bu> it = this.hyx.iterator();
+        Iterator<bv> it = this.hEl.iterator();
         while (it.hasNext()) {
-            bu next = it.next();
+            bv next = it.next();
             if (next != null) {
-                next.ha(false);
+                next.hE(false);
             }
         }
-        this.hyx.clear();
-        if (this.hyv != null) {
-            this.hyv.bT(0, 1);
+        this.hEl.clear();
+        if (this.hEj != null) {
+            this.hEj.bX(0, 1);
         }
     }
 
     public void reset() {
-        M(false, false);
+        N(false, false);
         clearData();
     }
 
     public void a(aw awVar) {
-        this.hyv = awVar;
+        this.hEj = awVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static b hyA = new b();
+        private static b hEo = new b();
     }
 
-    public AntiData bXe() {
-        return this.ejE;
+    public AntiData cax() {
+        return this.epR;
     }
 
     public void b(AntiData antiData) {
-        this.ejE = antiData;
+        this.epR = antiData;
     }
 
     public String getForumId() {
@@ -108,21 +108,21 @@ public class b {
         this.forumId = str;
     }
 
-    public void mR(boolean z) {
-        this.hyz = z;
+    public void nw(boolean z) {
+        this.hEn = z;
     }
 
-    public void cv(List<String> list) {
-        if (!com.baidu.tbadk.core.util.w.isEmpty(list) && !com.baidu.tbadk.core.util.w.isEmpty(this.hyx)) {
-            Iterator<bu> it = this.hyx.iterator();
+    public void cA(List<String> list) {
+        if (!com.baidu.tbadk.core.util.x.isEmpty(list) && !com.baidu.tbadk.core.util.x.isEmpty(this.hEl)) {
+            Iterator<bv> it = this.hEl.iterator();
             while (it.hasNext()) {
-                bu next = it.next();
+                bv next = it.next();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 >= list.size()) {
                         break;
-                    } else if (!com.baidu.tbadk.core.util.ar.equals(list.get(i2), next.getId())) {
+                    } else if (!com.baidu.tbadk.core.util.as.equals(list.get(i2), next.getId())) {
                         i = i2 + 1;
                     } else {
                         it.remove();
@@ -130,13 +130,13 @@ public class b {
                     }
                 }
             }
-            if (this.hyv != null) {
-                this.hyv.bT(this.hyx.size(), 1);
+            if (this.hEj != null) {
+                this.hEj.bX(this.hEl.size(), 1);
             }
         }
     }
 
-    public boolean bXf() {
-        return this.hyz;
+    public boolean cay() {
+        return this.hEn;
     }
 }

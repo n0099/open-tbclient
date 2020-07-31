@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.alaar.sticker.b;
 
 import java.text.DecimalFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     private static final DecimalFormat DF = new DecimalFormat("0.00");
 

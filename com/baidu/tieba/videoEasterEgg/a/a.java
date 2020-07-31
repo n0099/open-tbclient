@@ -2,11 +2,11 @@ package com.baidu.tieba.videoEasterEgg.a;
 
 import android.content.Intent;
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public interface a {
-    void D(BdUniqueId bdUniqueId);
+    void E(BdUniqueId bdUniqueId);
 
-    void I(Intent intent);
+    void J(Intent intent);
 
     String getID();
 

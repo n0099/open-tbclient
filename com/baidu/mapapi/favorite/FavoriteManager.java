@@ -9,7 +9,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class FavoriteManager {
     private static FavoriteManager a;
     private static com.baidu.mapsdkplatform.comapi.favrite.a b;

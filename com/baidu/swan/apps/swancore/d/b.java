@@ -1,50 +1,50 @@
 package com.baidu.swan.apps.swancore.d;
 
 import android.support.annotation.Nullable;
-import com.baidu.swan.apps.v.b.c;
-/* loaded from: classes11.dex */
+import com.baidu.swan.apps.u.c.c;
+/* loaded from: classes7.dex */
 public class b {
-    public boolean cMf;
-    public boolean cMg;
+    public boolean cPA;
+    public boolean cPB;
     @Nullable
-    public c cMh;
-    public String cMi;
+    public c cPC;
+    public String cPD;
 
     private b() {
-        this.cMf = false;
-        this.cMg = false;
-        this.cMh = null;
-        this.cMi = "";
+        this.cPA = false;
+        this.cPB = false;
+        this.cPC = null;
+        this.cPD = "";
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        private boolean cMf = false;
-        private boolean cMg = false;
+        private boolean cPA = false;
+        private boolean cPB = false;
         @Nullable
-        private c cMh = null;
-        private String cMi = "";
+        private c cPC = null;
+        private String cPD = "";
 
-        public static a atk() {
+        public static a avl() {
             return new a();
         }
 
-        public a ft(boolean z) {
-            this.cMf = z;
+        public a fC(boolean z) {
+            this.cPA = z;
             return this;
         }
 
-        public a ps(String str) {
-            this.cMi = str;
+        public a qd(String str) {
+            this.cPD = str;
             return this;
         }
 
-        public b atl() {
+        public b avm() {
             b bVar = new b();
-            bVar.cMf = this.cMf;
-            bVar.cMg = this.cMg;
-            bVar.cMh = this.cMh;
-            bVar.cMi = this.cMi;
+            bVar.cPA = this.cPA;
+            bVar.cPB = this.cPB;
+            bVar.cPC = this.cPC;
+            bVar.cPD = this.cPD;
             return bVar;
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.live.adp.lib.util;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FieldUtil {
     public static final String TYPE_BOOLEAN = "java.lang.Boolean";
     public static final String TYPE_BYTE = "java.lang.Byte";

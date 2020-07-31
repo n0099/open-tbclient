@@ -1,145 +1,90 @@
 package com.baidu.swan.apps.aq;
 
-import android.support.annotation.CheckResult;
-import android.support.annotation.NonNull;
-import android.util.Base64;
-import android.util.Log;
-import com.baidu.android.common.security.RSAUtil;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.security.KeyFactory;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes11.dex */
+import android.text.TextUtils;
+import com.baidu.android.util.io.DocumentOpenUtil;
+/* loaded from: classes7.dex */
 public class m {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-
-    public static String encrypt(String str, byte[] bArr, boolean z) {
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance(str);
-            messageDigest.reset();
-            messageDigest.update(bArr);
-            return toHexString(messageDigest.digest(), "", z);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
+    public static boolean getSupportMimeType(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
         }
+        return TextUtils.equals(DocumentOpenUtil.PDF_TYPE, str) || TextUtils.equals(DocumentOpenUtil.DOCUMENT_TYPE, str) || TextUtils.equals(DocumentOpenUtil.SHEET_TYPE, str) || TextUtils.equals(DocumentOpenUtil.PRESENT_TYPE, str) || TextUtils.equals(DocumentOpenUtil.WORD_TYPE, str) || TextUtils.equals(DocumentOpenUtil.EXCEL_TYPE, str) || TextUtils.equals(DocumentOpenUtil.PPT_TYPE, str);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [104=5] */
-    public static String encrypt(String str, File file, boolean z) {
-        Throwable th;
-        FileInputStream fileInputStream;
-        String str2 = null;
-        try {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance(str);
-                messageDigest.reset();
-                fileInputStream = new FileInputStream(file);
-                try {
-                    byte[] bArr = new byte[8192];
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        messageDigest.update(bArr, 0, read);
-                    }
-                    str2 = toHexString(messageDigest.digest(), "", z);
-                    com.baidu.swan.e.d.closeSafely(fileInputStream);
-                } catch (FileNotFoundException e) {
-                    e = e;
-                    if (DEBUG) {
-                        e.printStackTrace();
-                    }
-                    com.baidu.swan.e.d.closeSafely(fileInputStream);
-                    return str2;
-                } catch (IOException e2) {
-                    e = e2;
-                    if (DEBUG) {
-                        e.printStackTrace();
-                    }
-                    com.baidu.swan.e.d.closeSafely(fileInputStream);
-                    return str2;
-                } catch (NoSuchAlgorithmException e3) {
-                    e = e3;
-                    if (DEBUG) {
-                        e.printStackTrace();
-                    }
-                    com.baidu.swan.e.d.closeSafely(fileInputStream);
-                    return str2;
+    public static String guessSupportMimeTypeFromExt(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return "";
+        }
+        String str2 = "";
+        String lowerCase = str.toLowerCase();
+        char c = 65535;
+        switch (lowerCase.hashCode()) {
+            case 99640:
+                if (lowerCase.equals(DocumentOpenUtil.DOC)) {
+                    c = 1;
+                    break;
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                com.baidu.swan.e.d.closeSafely(null);
-                throw th;
-            }
-        } catch (FileNotFoundException e4) {
-            e = e4;
-            fileInputStream = null;
-        } catch (IOException e5) {
-            e = e5;
-            fileInputStream = null;
-        } catch (NoSuchAlgorithmException e6) {
-            e = e6;
-            fileInputStream = null;
-        } catch (Throwable th3) {
-            th = th3;
-            com.baidu.swan.e.d.closeSafely(null);
-            throw th;
+                break;
+            case 110834:
+                if (lowerCase.equals(DocumentOpenUtil.PDF)) {
+                    c = 0;
+                    break;
+                }
+                break;
+            case 111220:
+                if (lowerCase.equals(DocumentOpenUtil.PPT)) {
+                    c = 5;
+                    break;
+                }
+                break;
+            case 118783:
+                if (lowerCase.equals(DocumentOpenUtil.XLS)) {
+                    c = 3;
+                    break;
+                }
+                break;
+            case 3088960:
+                if (lowerCase.equals(DocumentOpenUtil.DOCX)) {
+                    c = 2;
+                    break;
+                }
+                break;
+            case 3447940:
+                if (lowerCase.equals(DocumentOpenUtil.PPTX)) {
+                    c = 6;
+                    break;
+                }
+                break;
+            case 3682393:
+                if (lowerCase.equals(DocumentOpenUtil.XLSX)) {
+                    c = 4;
+                    break;
+                }
+                break;
         }
-        return str2;
-    }
-
-    private static String toHexString(byte[] bArr, String str, boolean z) {
-        StringBuilder sb = new StringBuilder();
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
-            if (z) {
-                hexString = hexString.toUpperCase();
-            }
-            if (hexString.length() == 1) {
-                sb.append("0");
-            }
-            sb.append(hexString).append(str);
+        switch (c) {
+            case 0:
+                str2 = DocumentOpenUtil.PDF_TYPE;
+                break;
+            case 1:
+                str2 = DocumentOpenUtil.WORD_TYPE;
+                break;
+            case 2:
+                str2 = DocumentOpenUtil.DOCUMENT_TYPE;
+                break;
+            case 3:
+                str2 = DocumentOpenUtil.EXCEL_TYPE;
+                break;
+            case 4:
+                str2 = DocumentOpenUtil.SHEET_TYPE;
+                break;
+            case 5:
+                str2 = DocumentOpenUtil.PPT_TYPE;
+                break;
+            case 6:
+                str2 = DocumentOpenUtil.PRESENT_TYPE;
+                break;
         }
-        return sb.toString();
-    }
-
-    @CheckResult
-    @NonNull
-    public static String M(@NonNull String str, @NonNull String str2, @NonNull String str3) {
-        try {
-            PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
-            Cipher cipher = Cipher.getInstance(str3);
-            cipher.init(1, generatePublic);
-            return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
-        } catch (Exception e) {
-            if (DEBUG) {
-                Log.e("SwanAppEncryptUtils", "rsaEncrypt", e);
-            }
-            return "";
-        }
-    }
-
-    @CheckResult
-    @NonNull
-    public static String s(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
-        try {
-            Cipher cipher = Cipher.getInstance(str3);
-            cipher.init(1, new SecretKeySpec(str.getBytes("utf-8"), com.baidu.sapi2.utils.h.q), new IvParameterSpec(str4.getBytes("utf-8")));
-            return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
-        } catch (Exception e) {
-            if (DEBUG) {
-                Log.e("SwanAppEncryptUtils", "aesEncrypt", e);
-            }
-            return "";
-        }
+        return !getSupportMimeType(str2) ? "" : str2;
     }
 }

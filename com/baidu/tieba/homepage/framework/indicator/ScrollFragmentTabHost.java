@@ -32,9 +32,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.plugin.PluginErrorTipView;
@@ -51,46 +51,46 @@ import com.baidu.tieba.homepage.personalize.view.HomeTabBarView;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class ScrollFragmentTabHost extends RelativeLayout {
-    private View.OnClickListener aXG;
-    private CustomViewPager dSy;
-    private FrameLayout dkf;
-    private View eVD;
-    private NoNetworkView fns;
-    private View fpG;
-    private AlphaAnimation fpJ;
-    private AlphaAnimation fpK;
-    private PluginErrorTipView hcq;
-    private HomeTabBarView ioS;
-    private TBSpecificationBtn ioT;
-    private boolean ioU;
-    private NewScrollFragmentAdapter ioV;
-    private b ioW;
-    private e ioX;
-    private List<a> ioY;
-    CustomMessageListener ioZ;
-    CustomMessageListener ipa;
-    CustomMessageTask ipb;
-    CustomMessageTask ipc;
-    private StickyAppBarLayout ipd;
-    private NestedScrollHeader ipe;
-    private e ipf;
-    private com.baidu.tieba.homepage.framework.indicator.b ipg;
-    private com.baidu.tieba.homepage.framework.e iph;
-    private d ipi;
+    private View.OnClickListener awi;
+    private CustomViewPager dYQ;
+    private FrameLayout dpZ;
+    private View fbk;
+    private NoNetworkView fsB;
+    private View fuQ;
+    private AlphaAnimation fuT;
+    private AlphaAnimation fuU;
+    private PluginErrorTipView hhZ;
     private boolean isPrimary;
+    private HomeTabBarView iuW;
+    private TBSpecificationBtn iuX;
+    private boolean iuY;
+    private NewScrollFragmentAdapter iuZ;
+    private b iva;
+    private e ivb;
+    private List<a> ivc;
+    CustomMessageListener ivd;
+    CustomMessageListener ive;
+    CustomMessageTask ivf;
+    CustomMessageTask ivg;
+    private StickyAppBarLayout ivh;
+    private NestedScrollHeader ivi;
+    private e ivj;
+    private com.baidu.tieba.homepage.framework.indicator.b ivk;
+    private com.baidu.tieba.homepage.framework.e ivl;
+    private d ivm;
     private Context mContext;
     private TbPageContext mPageContext;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public interface b {
-        void xd(int i);
+        void xv(int i);
     }
 
     public ScrollFragmentTabHost(Context context) {
         super(context);
-        this.ioZ = new CustomMessageListener(2921400) { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.1
+        this.ivd = new CustomMessageListener(2921400) { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -99,29 +99,29 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                     z = ((Boolean) customResponsedMessage.getData()).booleanValue();
                 }
                 if (z) {
-                    ScrollFragmentTabHost.this.bud();
+                    ScrollFragmentTabHost.this.bxm();
                 } else {
-                    ScrollFragmentTabHost.this.bue();
+                    ScrollFragmentTabHost.this.bxn();
                 }
             }
         };
-        this.ipa = new CustomMessageListener(2921415) { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.6
+        this.ive = new CustomMessageListener(2921415) { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && ScrollFragmentTabHost.this.ipf != null) {
-                    ScrollFragmentTabHost.this.ipf.HH();
-                    ScrollFragmentTabHost.this.ipf = null;
+                if (customResponsedMessage != null && ScrollFragmentTabHost.this.ivj != null) {
+                    ScrollFragmentTabHost.this.ivj.HN();
+                    ScrollFragmentTabHost.this.ivj = null;
                 }
             }
         };
-        this.ipb = new CustomMessageTask(2921409, new CustomMessageTask.CustomRunnable<n.a>() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.7
+        this.ivf = new CustomMessageTask(2921409, new CustomMessageTask.CustomRunnable<n.a>() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.7
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<n.a> customMessage) {
-                if (ScrollFragmentTabHost.this.mPageContext == null || ScrollFragmentTabHost.this.mPageContext.getPageActivity().isFinishing() || ScrollFragmentTabHost.this.ipd == null || ScrollFragmentTabHost.this.ipe == null) {
+                if (ScrollFragmentTabHost.this.mPageContext == null || ScrollFragmentTabHost.this.mPageContext.getPageActivity().isFinishing() || ScrollFragmentTabHost.this.ivh == null || ScrollFragmentTabHost.this.ivi == null) {
                     return null;
                 }
-                ImageView taskView = (TbSingleton.getInstance().getHomePageStyleAbTest() & 1) != 0 ? ScrollFragmentTabHost.this.ioS.getTaskView() : ScrollFragmentTabHost.this.ipe.getTaskView();
+                ImageView taskView = (TbSingleton.getInstance().getHomePageStyleAbTest() & 1) != 0 ? ScrollFragmentTabHost.this.iuW.getTaskView() : ScrollFragmentTabHost.this.ivi.getTaskView();
                 if ((taskView == null || taskView.getVisibility() == 0) && customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof n.a)) {
                     n.a data = customMessage.getData();
                     int i = 5000;
@@ -133,34 +133,34 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                         str = ScrollFragmentTabHost.this.mPageContext.getString(R.string.task_float_tip_toast);
                     }
                     String fixedText = UtilHelper.getFixedText(str, 20);
-                    if (ScrollFragmentTabHost.this.ipf != null) {
-                        ScrollFragmentTabHost.this.ipf.HH();
+                    if (ScrollFragmentTabHost.this.ivj != null) {
+                        ScrollFragmentTabHost.this.ivj.HN();
                     }
-                    ScrollFragmentTabHost.this.ipf = new e(ScrollFragmentTabHost.this.mPageContext, taskView);
-                    ScrollFragmentTabHost.this.ipf.cR(48);
-                    ScrollFragmentTabHost.this.ipf.setUseDirectOffset(true);
-                    ScrollFragmentTabHost.this.ipf.sV(4);
-                    ScrollFragmentTabHost.this.ipf.cT(i);
-                    ScrollFragmentTabHost.this.ipf.mk(true);
-                    ScrollFragmentTabHost.this.ipf.sZ(0);
-                    ScrollFragmentTabHost.this.ipf.DY(fixedText);
+                    ScrollFragmentTabHost.this.ivj = new e(ScrollFragmentTabHost.this.mPageContext, taskView);
+                    ScrollFragmentTabHost.this.ivj.cR(48);
+                    ScrollFragmentTabHost.this.ivj.setUseDirectOffset(true);
+                    ScrollFragmentTabHost.this.ivj.tn(4);
+                    ScrollFragmentTabHost.this.ivj.cT(i);
+                    ScrollFragmentTabHost.this.ivj.mP(true);
+                    ScrollFragmentTabHost.this.ivj.tr(0);
+                    ScrollFragmentTabHost.this.ivj.EJ(fixedText);
                     return new CustomResponsedMessage<>(2921409, true);
                 }
                 return null;
             }
         });
-        this.ipc = new CustomMessageTask(2921405, new CustomMessageTask.CustomRunnable<Boolean>() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.8
+        this.ivg = new CustomMessageTask(2921405, new CustomMessageTask.CustomRunnable<Boolean>() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.8
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
                 boolean z;
-                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Boolean) || ScrollFragmentTabHost.this.ipd == null) {
+                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Boolean) || ScrollFragmentTabHost.this.ivh == null) {
                     return null;
                 }
-                ScrollFragmentTabHost.this.bue();
+                ScrollFragmentTabHost.this.bxn();
                 if (customMessage.getData().booleanValue()) {
-                    z = ScrollFragmentTabHost.this.ipd.ciG();
-                } else if (!com.baidu.tbadk.a.d.aNV() && ScrollFragmentTabHost.this.ipd.isSticky() && ScrollFragmentTabHost.this.isPrimary) {
-                    ScrollFragmentTabHost.this.ipd.ciG();
+                    z = ScrollFragmentTabHost.this.ivh.cmh();
+                } else if (!com.baidu.tbadk.a.d.aRN() && ScrollFragmentTabHost.this.ivh.isSticky() && ScrollFragmentTabHost.this.isPrimary) {
+                    ScrollFragmentTabHost.this.ivh.cmh();
                     z = true;
                 } else {
                     z = false;
@@ -169,7 +169,7 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                 return new CustomResponsedMessage<>(2921405, Boolean.valueOf(z));
             }
         });
-        this.aXG = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.9
+        this.awi = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.9
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 WriteActivityConfig writeActivityConfig = new WriteActivityConfig(ScrollFragmentTabHost.this.mPageContext.getPageActivity(), 9, "27307585", "贴吧众测", null, null, 0, null, RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, null, 0);
@@ -180,26 +180,26 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
             }
         };
-        this.ipg = new com.baidu.tieba.homepage.framework.indicator.b();
-        this.iph = new com.baidu.tieba.homepage.framework.e() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.4
+        this.ivk = new com.baidu.tieba.homepage.framework.indicator.b();
+        this.ivl = new com.baidu.tieba.homepage.framework.e() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.4
             @Override // com.baidu.tieba.homepage.framework.e
-            public void wU(int i) {
-                ScrollFragmentTabHost.this.setCurrentTab(ScrollFragmentTabHost.this.ioV.wW(i), false);
-                ScrollFragmentTabHost.this.ioV.wY(i);
+            public void xm(int i) {
+                ScrollFragmentTabHost.this.setCurrentTab(ScrollFragmentTabHost.this.iuZ.xo(i), false);
+                ScrollFragmentTabHost.this.iuZ.xq(i);
             }
         };
-        this.ipi = new d() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.5
+        this.ivm = new d() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.5
             @Override // com.baidu.tieba.homepage.framework.d
-            public void wT(int i) {
-                ScrollFragmentTabHost.this.ipg.a(i, ScrollFragmentTabHost.this.iph);
+            public void xl(int i) {
+                ScrollFragmentTabHost.this.ivk.a(i, ScrollFragmentTabHost.this.ivl);
             }
         };
-        init(context);
+        init();
     }
 
     public ScrollFragmentTabHost(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ioZ = new CustomMessageListener(2921400) { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.1
+        this.ivd = new CustomMessageListener(2921400) { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -208,29 +208,29 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                     z = ((Boolean) customResponsedMessage.getData()).booleanValue();
                 }
                 if (z) {
-                    ScrollFragmentTabHost.this.bud();
+                    ScrollFragmentTabHost.this.bxm();
                 } else {
-                    ScrollFragmentTabHost.this.bue();
+                    ScrollFragmentTabHost.this.bxn();
                 }
             }
         };
-        this.ipa = new CustomMessageListener(2921415) { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.6
+        this.ive = new CustomMessageListener(2921415) { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && ScrollFragmentTabHost.this.ipf != null) {
-                    ScrollFragmentTabHost.this.ipf.HH();
-                    ScrollFragmentTabHost.this.ipf = null;
+                if (customResponsedMessage != null && ScrollFragmentTabHost.this.ivj != null) {
+                    ScrollFragmentTabHost.this.ivj.HN();
+                    ScrollFragmentTabHost.this.ivj = null;
                 }
             }
         };
-        this.ipb = new CustomMessageTask(2921409, new CustomMessageTask.CustomRunnable<n.a>() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.7
+        this.ivf = new CustomMessageTask(2921409, new CustomMessageTask.CustomRunnable<n.a>() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.7
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<n.a> customMessage) {
-                if (ScrollFragmentTabHost.this.mPageContext == null || ScrollFragmentTabHost.this.mPageContext.getPageActivity().isFinishing() || ScrollFragmentTabHost.this.ipd == null || ScrollFragmentTabHost.this.ipe == null) {
+                if (ScrollFragmentTabHost.this.mPageContext == null || ScrollFragmentTabHost.this.mPageContext.getPageActivity().isFinishing() || ScrollFragmentTabHost.this.ivh == null || ScrollFragmentTabHost.this.ivi == null) {
                     return null;
                 }
-                ImageView taskView = (TbSingleton.getInstance().getHomePageStyleAbTest() & 1) != 0 ? ScrollFragmentTabHost.this.ioS.getTaskView() : ScrollFragmentTabHost.this.ipe.getTaskView();
+                ImageView taskView = (TbSingleton.getInstance().getHomePageStyleAbTest() & 1) != 0 ? ScrollFragmentTabHost.this.iuW.getTaskView() : ScrollFragmentTabHost.this.ivi.getTaskView();
                 if ((taskView == null || taskView.getVisibility() == 0) && customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof n.a)) {
                     n.a data = customMessage.getData();
                     int i = 5000;
@@ -242,34 +242,34 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                         str = ScrollFragmentTabHost.this.mPageContext.getString(R.string.task_float_tip_toast);
                     }
                     String fixedText = UtilHelper.getFixedText(str, 20);
-                    if (ScrollFragmentTabHost.this.ipf != null) {
-                        ScrollFragmentTabHost.this.ipf.HH();
+                    if (ScrollFragmentTabHost.this.ivj != null) {
+                        ScrollFragmentTabHost.this.ivj.HN();
                     }
-                    ScrollFragmentTabHost.this.ipf = new e(ScrollFragmentTabHost.this.mPageContext, taskView);
-                    ScrollFragmentTabHost.this.ipf.cR(48);
-                    ScrollFragmentTabHost.this.ipf.setUseDirectOffset(true);
-                    ScrollFragmentTabHost.this.ipf.sV(4);
-                    ScrollFragmentTabHost.this.ipf.cT(i);
-                    ScrollFragmentTabHost.this.ipf.mk(true);
-                    ScrollFragmentTabHost.this.ipf.sZ(0);
-                    ScrollFragmentTabHost.this.ipf.DY(fixedText);
+                    ScrollFragmentTabHost.this.ivj = new e(ScrollFragmentTabHost.this.mPageContext, taskView);
+                    ScrollFragmentTabHost.this.ivj.cR(48);
+                    ScrollFragmentTabHost.this.ivj.setUseDirectOffset(true);
+                    ScrollFragmentTabHost.this.ivj.tn(4);
+                    ScrollFragmentTabHost.this.ivj.cT(i);
+                    ScrollFragmentTabHost.this.ivj.mP(true);
+                    ScrollFragmentTabHost.this.ivj.tr(0);
+                    ScrollFragmentTabHost.this.ivj.EJ(fixedText);
                     return new CustomResponsedMessage<>(2921409, true);
                 }
                 return null;
             }
         });
-        this.ipc = new CustomMessageTask(2921405, new CustomMessageTask.CustomRunnable<Boolean>() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.8
+        this.ivg = new CustomMessageTask(2921405, new CustomMessageTask.CustomRunnable<Boolean>() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.8
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
                 boolean z;
-                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Boolean) || ScrollFragmentTabHost.this.ipd == null) {
+                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Boolean) || ScrollFragmentTabHost.this.ivh == null) {
                     return null;
                 }
-                ScrollFragmentTabHost.this.bue();
+                ScrollFragmentTabHost.this.bxn();
                 if (customMessage.getData().booleanValue()) {
-                    z = ScrollFragmentTabHost.this.ipd.ciG();
-                } else if (!com.baidu.tbadk.a.d.aNV() && ScrollFragmentTabHost.this.ipd.isSticky() && ScrollFragmentTabHost.this.isPrimary) {
-                    ScrollFragmentTabHost.this.ipd.ciG();
+                    z = ScrollFragmentTabHost.this.ivh.cmh();
+                } else if (!com.baidu.tbadk.a.d.aRN() && ScrollFragmentTabHost.this.ivh.isSticky() && ScrollFragmentTabHost.this.isPrimary) {
+                    ScrollFragmentTabHost.this.ivh.cmh();
                     z = true;
                 } else {
                     z = false;
@@ -278,7 +278,7 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                 return new CustomResponsedMessage<>(2921405, Boolean.valueOf(z));
             }
         });
-        this.aXG = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.9
+        this.awi = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.9
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 WriteActivityConfig writeActivityConfig = new WriteActivityConfig(ScrollFragmentTabHost.this.mPageContext.getPageActivity(), 9, "27307585", "贴吧众测", null, null, 0, null, RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, null, 0);
@@ -289,173 +289,197 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
             }
         };
-        this.ipg = new com.baidu.tieba.homepage.framework.indicator.b();
-        this.iph = new com.baidu.tieba.homepage.framework.e() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.4
+        this.ivk = new com.baidu.tieba.homepage.framework.indicator.b();
+        this.ivl = new com.baidu.tieba.homepage.framework.e() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.4
             @Override // com.baidu.tieba.homepage.framework.e
-            public void wU(int i) {
-                ScrollFragmentTabHost.this.setCurrentTab(ScrollFragmentTabHost.this.ioV.wW(i), false);
-                ScrollFragmentTabHost.this.ioV.wY(i);
+            public void xm(int i) {
+                ScrollFragmentTabHost.this.setCurrentTab(ScrollFragmentTabHost.this.iuZ.xo(i), false);
+                ScrollFragmentTabHost.this.iuZ.xq(i);
             }
         };
-        this.ipi = new d() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.5
+        this.ivm = new d() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.5
             @Override // com.baidu.tieba.homepage.framework.d
-            public void wT(int i) {
-                ScrollFragmentTabHost.this.ipg.a(i, ScrollFragmentTabHost.this.iph);
+            public void xl(int i) {
+                ScrollFragmentTabHost.this.ivk.a(i, ScrollFragmentTabHost.this.ivl);
             }
         };
-        init(context);
+        init();
     }
 
-    private void init(Context context) {
-        this.mContext = context;
-        LayoutInflater.from(context).inflate(R.layout.scroll_fragment_tabhost, (ViewGroup) this, true);
-        this.ipd = (StickyAppBarLayout) findViewById(R.id.app_bar_layout);
-        this.ipe = (NestedScrollHeader) findViewById(R.id.home_nested_header);
-        this.ioS = (HomeTabBarView) findViewById(R.id.home_tab_bar_view);
-        this.hcq = (PluginErrorTipView) findViewById(R.id.view_plugin_error_tip);
-        this.fns = (NoNetworkView) findViewById(R.id.view_no_network);
-        this.dkf = (FrameLayout) findViewById(R.id.home_pager_container);
-        this.dSy = (CustomViewPager) findViewById(R.id.tab_widget_view_pager);
-        this.eVD = findViewById(R.id.divider_line);
-        this.fpG = findViewById(R.id.divider_shadow);
-        this.ioT = (TBSpecificationBtn) findViewById(R.id.homepage_test_post_btn);
-        this.ioT.setVisibility(8);
+    private void init() {
+        this.mContext = getContext();
+        LayoutInflater.from(getContext()).inflate(R.layout.scroll_fragment_tabhost, (ViewGroup) this, true);
+        this.ivh = (StickyAppBarLayout) findViewById(R.id.app_bar_layout);
+        this.ivi = (NestedScrollHeader) findViewById(R.id.home_nested_header);
+        this.iuW = (HomeTabBarView) findViewById(R.id.home_tab_bar_view);
+        this.hhZ = (PluginErrorTipView) findViewById(R.id.view_plugin_error_tip);
+        this.fsB = (NoNetworkView) findViewById(R.id.view_no_network);
+        this.dpZ = (FrameLayout) findViewById(R.id.home_pager_container);
+        this.dYQ = (CustomViewPager) findViewById(R.id.tab_widget_view_pager);
+        this.fbk = findViewById(R.id.divider_line);
+        this.fuQ = findViewById(R.id.divider_shadow);
+        this.iuX = (TBSpecificationBtn) findViewById(R.id.homepage_test_post_btn);
+        this.iuX.setVisibility(8);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.ipd.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
+            this.ivh.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
         }
-        ((CoordinatorLayout.LayoutParams) this.dkf.getLayoutParams()).topMargin = 0;
-        this.ioS.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.10
+        ((CoordinatorLayout.LayoutParams) this.dpZ.getLayoutParams()).topMargin = 0;
+        this.iuW.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.10
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
-                ScrollFragmentTabHost.this.ioV.onPageScrolled(i, f, i2);
+                ScrollFragmentTabHost.this.iuZ.onPageScrolled(i, f, i2);
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                if (ScrollFragmentTabHost.this.ioW != null) {
-                    ScrollFragmentTabHost.this.ioW.xd(i);
+                if (ScrollFragmentTabHost.this.iva != null) {
+                    ScrollFragmentTabHost.this.iva.xv(i);
                 }
-                com.baidu.tbadk.core.bigday.b.aPI().gQ(ScrollFragmentTabHost.this.ioV.wV(i) == 1);
+                com.baidu.tbadk.core.bigday.b.aTD().hu(ScrollFragmentTabHost.this.iuZ.xn(i) == 1);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921348, true));
                 int homeBarShowType = TbadkCoreApplication.getInst().getHomeBarShowType();
                 if (i == 0 || i == 1 || (i == 2 && homeBarShowType == 1)) {
-                    if (ScrollFragmentTabHost.this.xc(i) != 1) {
+                    if (ScrollFragmentTabHost.this.xu(i) != 1) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921382, 4));
                     } else {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921382, 6));
                     }
                 }
-                if (ScrollFragmentTabHost.this.ioY != null && ScrollFragmentTabHost.this.ioV != null) {
-                    int wV = ScrollFragmentTabHost.this.ioV.wV(ScrollFragmentTabHost.this.dSy.getCurrentItem());
-                    if (wV == 5) {
+                if (ScrollFragmentTabHost.this.ivc != null && ScrollFragmentTabHost.this.iuZ != null) {
+                    int xn = ScrollFragmentTabHost.this.iuZ.xn(ScrollFragmentTabHost.this.dYQ.getCurrentItem());
+                    if (xn == 5) {
                         ScrollFragmentTabHost.this.setScrollShadow(true);
-                        for (a aVar : ScrollFragmentTabHost.this.ioY) {
-                            aVar.ciE();
+                        for (a aVar : ScrollFragmentTabHost.this.ivc) {
+                            aVar.cmf();
                         }
-                    } else if (wV == 1) {
+                    } else if (xn == 1) {
                         ScrollFragmentTabHost.this.setScrollShadow(true);
-                        for (a aVar2 : ScrollFragmentTabHost.this.ioY) {
-                            aVar2.ciD();
+                        for (a aVar2 : ScrollFragmentTabHost.this.ivc) {
+                            aVar2.cme();
                         }
-                    } else if (wV == 0) {
+                    } else if (xn == 0) {
                         ScrollFragmentTabHost.this.setScrollShadow(true);
-                        for (a aVar3 : ScrollFragmentTabHost.this.ioY) {
-                            aVar3.chZ();
+                        for (a aVar3 : ScrollFragmentTabHost.this.ivc) {
+                            aVar3.cly();
                         }
-                    } else if (wV == 6) {
+                    } else if (xn == 6) {
                         ScrollFragmentTabHost.this.setScrollShadow(true);
-                    } else if (wV == 7) {
+                    } else if (xn == 7) {
                         ScrollFragmentTabHost.this.setScrollShadow(true);
-                    } else if (wV == 8) {
+                    } else if (xn == 8) {
                         ScrollFragmentTabHost.this.setScrollShadow(true);
                     } else {
-                        ScrollFragmentTabHost.this.bue();
+                        ScrollFragmentTabHost.this.bxn();
                         ScrollFragmentTabHost.this.setScrollShadow(false);
                     }
                 }
-                TbadkCoreApplication.getInst().setHomeBarShowType(ScrollFragmentTabHost.this.xc(i));
+                TbadkCoreApplication.getInst().setHomeBarShowType(ScrollFragmentTabHost.this.xu(i));
+                if (ScrollFragmentTabHost.this.xu(i) == 5) {
+                    if (TbadkCoreApplication.isLogin()) {
+                        if (com.baidu.tbadk.getUserInfo.b.bkd() != null && com.baidu.tbadk.getUserInfo.b.bkd().bkf() != null && !StringUtils.isNull(com.baidu.tbadk.getUserInfo.b.bkd().bkf().getUserId())) {
+                            com.baidu.tbadk.core.sharedPref.b.aZP().putLong(com.baidu.tbadk.getUserInfo.b.bkd().bkf().getUserId(), System.currentTimeMillis());
+                        }
+                    } else {
+                        com.baidu.tbadk.core.sharedPref.b.aZP().putLong("unlogin_hot_top_timestamp", System.currentTimeMillis());
+                    }
+                    if (ScrollFragmentTabHost.this.iuW.clU()) {
+                        ScrollFragmentTabHost.this.iuW.setShowHotTopicRedTip(false);
+                    }
+                }
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
                 if (i == 0 && ScrollFragmentTabHost.this.getCurrentTabType() == 0) {
-                    boolean ciu = ScrollFragmentTabHost.this.ciu();
-                    TiebaStatic.log(new ao("c12350").ag("obj_type", ciu ? 1 : 0));
-                    if (ciu && ScrollFragmentTabHost.this.ioV != null) {
+                    boolean clT = ScrollFragmentTabHost.this.clT();
+                    TiebaStatic.log(new ap("c12350").ah("obj_type", clT ? 1 : 0));
+                    if (clT && ScrollFragmentTabHost.this.iuZ != null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RECOMMEND_FRS_TIP_SHOW, 0));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CONCERN_RED_TIP_SHOW));
-                        ScrollFragmentTabHost.this.ioV.cis();
+                        ScrollFragmentTabHost.this.iuZ.clR();
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_JUMP_TO_CONCERN_TAB));
                 }
             }
         });
-        this.ioS.setOnTabItemClickListener(new PagerSlidingTabStrip.a() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.11
+        this.iuW.setOnTabItemClickListener(new PagerSlidingTabStrip.a() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.11
             @Override // com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip.a
-            public void k(View view, int i) {
+            public void l(View view, int i) {
                 int homeBarShowType = TbadkCoreApplication.getInst().getHomeBarShowType();
-                if ((i == 0 || i == 1 || (i == 2 && homeBarShowType == 1)) && ScrollFragmentTabHost.this.dSy.getCurrentItem() != i) {
-                    if (ScrollFragmentTabHost.this.xc(i) != 1) {
+                if ((i == 0 || i == 1 || (i == 2 && homeBarShowType == 1)) && ScrollFragmentTabHost.this.dYQ.getCurrentItem() != i) {
+                    if (ScrollFragmentTabHost.this.xu(i) != 1) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921382, 4));
                     } else {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921382, 6));
                     }
                 }
-                if (ScrollFragmentTabHost.this.xc(i) == 7) {
-                    TiebaStatic.log(new ao("c13483").dk("obj_type", "1"));
-                } else if (ScrollFragmentTabHost.this.xc(i) == 8) {
-                    TiebaStatic.log(new ao("c13580"));
+                if (ScrollFragmentTabHost.this.xu(i) == 7) {
+                    TiebaStatic.log(new ap("c13483").dn("obj_type", "1"));
+                } else if (ScrollFragmentTabHost.this.xu(i) == 8) {
+                    TiebaStatic.log(new ap("c13580"));
                 }
-                TbadkCoreApplication.getInst().setHomeBarShowType(ScrollFragmentTabHost.this.xc(i));
+                TbadkCoreApplication.getInst().setHomeBarShowType(ScrollFragmentTabHost.this.xu(i));
+                if (ScrollFragmentTabHost.this.xu(i) == 5) {
+                    if (TbadkCoreApplication.isLogin()) {
+                        if (com.baidu.tbadk.getUserInfo.b.bkd() != null && com.baidu.tbadk.getUserInfo.b.bkd().bkf() != null && !StringUtils.isNull(com.baidu.tbadk.getUserInfo.b.bkd().bkf().getUserId())) {
+                            com.baidu.tbadk.core.sharedPref.b.aZP().putLong(com.baidu.tbadk.getUserInfo.b.bkd().bkf().getUserId(), System.currentTimeMillis());
+                        }
+                    } else {
+                        com.baidu.tbadk.core.sharedPref.b.aZP().putLong("unlogin_hot_top_timestamp", System.currentTimeMillis());
+                    }
+                    if (ScrollFragmentTabHost.this.iuW.clU()) {
+                        ScrollFragmentTabHost.this.iuW.setShowHotTopicRedTip(false);
+                    }
+                }
             }
         });
-        this.ipd.setOnHeaderStickyListener(new StickyAppBarLayout.a() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.12
+        this.ivh.setOnHeaderStickyListener(new StickyAppBarLayout.a() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.12
             @Override // com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayout.a
-            public void ot(boolean z) {
-                if (z && ScrollFragmentTabHost.this.ipf != null) {
-                    ScrollFragmentTabHost.this.ipf.HH();
+            public void oY(boolean z) {
+                if (z && ScrollFragmentTabHost.this.ivj != null) {
+                    ScrollFragmentTabHost.this.ivj.HN();
                 }
             }
         });
-        this.ipe.setEntranceJumpListener(new NestedScrollHeader.a() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.13
+        this.ivi.setEntranceJumpListener(new NestedScrollHeader.a() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.13
             @Override // com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader.a
-            public void Ga(String str) {
-                if (ScrollFragmentTabHost.this.ipf != null) {
-                    ScrollFragmentTabHost.this.ipf.HH();
-                    ScrollFragmentTabHost.this.ipf = null;
+            public void GM(String str) {
+                if (ScrollFragmentTabHost.this.ivj != null) {
+                    ScrollFragmentTabHost.this.ivj.HN();
+                    ScrollFragmentTabHost.this.ivj = null;
                 }
                 if (ScrollFragmentTabHost.this.mPageContext != null) {
-                    bc.aWU().b(ScrollFragmentTabHost.this.mPageContext, new String[]{str});
+                    bd.baV().b(ScrollFragmentTabHost.this.mPageContext, new String[]{str});
                 }
             }
         });
         if ((TbSingleton.getInstance().getHomePageStyleAbTest() & 1) != 0) {
-            this.ipe.setVisibility(8);
-            this.ioS.setMissionEntranceVisibility(true);
-            this.ioS.setEntranceJumpListener(new NestedScrollHeader.a() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.2
+            this.ivi.setVisibility(8);
+            this.iuW.setMissionEntranceVisibility(true);
+            this.iuW.setEntranceJumpListener(new NestedScrollHeader.a() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.2
                 @Override // com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader.a
-                public void Ga(String str) {
-                    if (ScrollFragmentTabHost.this.ipf != null) {
-                        ScrollFragmentTabHost.this.ipf.HH();
-                        ScrollFragmentTabHost.this.ipf = null;
+                public void GM(String str) {
+                    if (ScrollFragmentTabHost.this.ivj != null) {
+                        ScrollFragmentTabHost.this.ivj.HN();
+                        ScrollFragmentTabHost.this.ivj = null;
                     }
                     if (ScrollFragmentTabHost.this.mPageContext != null) {
-                        bc.aWU().b(ScrollFragmentTabHost.this.mPageContext, new String[]{str});
+                        bd.baV().b(ScrollFragmentTabHost.this.mPageContext, new String[]{str});
                     }
                 }
             });
             return;
         }
-        this.ipe.setVisibility(0);
-        this.ioS.setMissionEntranceVisibility(false);
+        this.ivi.setVisibility(0);
+        this.iuW.setMissionEntranceVisibility(false);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         if ((TbSingleton.getInstance().getHomePageStyleAbTest() & 1) == 0) {
-            this.ipc.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(this.ipc);
+            this.ivg.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(this.ivg);
         }
     }
 
@@ -469,103 +493,116 @@ public class ScrollFragmentTabHost extends RelativeLayout {
 
     public void a(TbPageContext tbPageContext, NoNetworkView.a aVar) {
         this.mPageContext = tbPageContext;
-        this.fns.a(aVar);
-        MessageManager.getInstance().registerListener(this.ioZ);
-        MessageManager.getInstance().registerListener(this.ipa);
-        this.ipb.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(this.ipb);
+        this.fsB.a(aVar);
+        MessageManager.getInstance().registerListener(this.ivd);
+        MessageManager.getInstance().registerListener(this.ive);
+        this.ivf.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(this.ivf);
     }
 
     public void notifyDataSetChanged() {
-        if (this.ioV != null && !HomePageStatic.ilv) {
-            this.dSy.setAdapter(this.ioV);
-            this.ioS.notifyDataSetChanged();
-            this.ipg.a(this.iph);
+        if (this.iuZ != null && !HomePageStatic.iry) {
+            this.dYQ.setAdapter(this.iuZ);
+            this.iuW.notifyDataSetChanged();
+            this.ivk.a(this.ivl);
         }
     }
 
     public void c(DataRes dataRes, boolean z, boolean z2) {
-        if (this.ioV != null) {
-            this.ioV.c(dataRes, z, z2);
+        if (this.iuZ != null) {
+            this.iuZ.c(dataRes, z, z2);
         }
     }
 
     public void d(tbclient.Userlike.DataRes dataRes, boolean z) {
-        if (this.ioV != null) {
-            this.ioV.d(dataRes, z);
+        if (this.iuZ != null) {
+            this.iuZ.d(dataRes, z);
         }
     }
 
-    public void cir() {
-        if (this.ioV != null) {
-            this.ioV.cir();
+    public void clQ() {
+        if (this.iuZ != null) {
+            this.iuZ.clQ();
         }
     }
 
     public void x(String str, int i, int i2) {
-        if (this.dSy != null) {
-            this.ioV.x(str, i, i2);
+        if (this.dYQ != null) {
+            this.iuZ.x(str, i, i2);
         }
     }
 
     public void a(FragmentManager fragmentManager, com.baidu.tieba.homepage.framework.b bVar, ConcernPageView.a aVar) {
-        this.ioV = new NewScrollFragmentAdapter(this.mContext, fragmentManager, bVar, aVar);
-        this.ioV.setScrollFragmentTabHost(this);
-        this.dSy.setOffscreenPageLimit(2);
-        this.dSy.setAdapter(this.ioV);
-        int cip = this.ioV.cip();
-        NewScrollFragmentAdapter newScrollFragmentAdapter = this.ioV;
-        if (HomePageStatic.ilv) {
-            cip = 0;
+        this.iuZ = new NewScrollFragmentAdapter(this.mContext, fragmentManager, bVar, aVar);
+        this.iuZ.setScrollFragmentTabHost(this);
+        this.dYQ.setOffscreenPageLimit(2);
+        this.dYQ.setAdapter(this.iuZ);
+        int clO = this.iuZ.clO();
+        NewScrollFragmentAdapter newScrollFragmentAdapter = this.iuZ;
+        if (HomePageStatic.iry) {
+            clO = 0;
         }
-        this.dSy.setCurrentItem(newScrollFragmentAdapter.wW(cip));
-        this.ioS.setViewPager(this.dSy);
-        this.ioS.setConcernTabIndex(this.ioV.wW(0));
+        this.dYQ.setCurrentItem(newScrollFragmentAdapter.xo(clO));
+        this.iuW.setViewPager(this.dYQ);
+        this.iuW.setConcernTabIndex(this.iuZ.xo(0));
+        this.iuW.setHotTopicTabIndex(this.iuZ.xo(5));
+        this.iuW.setShowHotTopicRedTip(clY());
     }
 
-    public boolean ciy() {
-        return this.ioV != null && this.ioV.getCount() > 0;
+    private boolean clY() {
+        if (TbadkCoreApplication.isLogin()) {
+            if (com.baidu.tbadk.getUserInfo.b.bkd() != null && com.baidu.tbadk.getUserInfo.b.bkd().bkf() != null && !StringUtils.isNull(com.baidu.tbadk.getUserInfo.b.bkd().bkf().getUserId()) && System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.aZP().getLong(com.baidu.tbadk.getUserInfo.b.bkd().bkf().getUserId(), 0L) > 86400000) {
+                return true;
+            }
+        } else if (System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.aZP().getLong("unlogin_hot_top_timestamp", 0L) > 86400000) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean clZ() {
+        return this.iuZ != null && this.iuZ.getCount() > 0;
     }
 
     public void setCurrentTab(int i, boolean z) {
-        if (i >= 0 && i < this.ioV.getCount()) {
-            this.ioS.setTabItemClicked(z);
-            this.ioV.wZ(i);
-            this.dSy.setCurrentItem(i);
+        if (i >= 0 && i < this.iuZ.getCount()) {
+            this.iuW.setTabItemClicked(z);
+            this.iuZ.xr(i);
+            this.dYQ.setCurrentItem(i);
         }
     }
 
     public void setFakeClickCurrentTab(int i) {
-        setCurrentTab(this.ioV.wW(i), true);
+        setCurrentTab(this.iuZ.xo(i), true);
     }
 
     public void setCurrentTab(int i) {
-        setCurrentTab(this.ioV.wW(i), false);
+        setCurrentTab(this.iuZ.xo(i), false);
     }
 
     public void setCurrentTab(String str) {
-        setCurrentTab(this.ioV.Gb(str), false);
+        setCurrentTab(this.iuZ.GN(str), false);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.ioS.setPageUniqueId(bdUniqueId);
-        this.ioZ.setTag(bdUniqueId);
-        this.ipa.setTag(bdUniqueId);
+        this.iuW.setPageUniqueId(bdUniqueId);
+        this.ivd.setTag(bdUniqueId);
+        this.ive.setTag(bdUniqueId);
     }
 
     public FrameLayout getFrameLayout() {
-        return this.dkf;
+        return this.dpZ;
     }
 
     public int getCurrentTabType() {
-        return this.ioV.wV(this.dSy.getCurrentItem());
+        return this.iuZ.xn(this.dYQ.getCurrentItem());
     }
 
     public int getVideoRecommendIndex() {
-        if (this.dSy.getAdapter() != null) {
-            int count = this.dSy.getAdapter().getCount();
+        if (this.dYQ.getAdapter() != null) {
+            int count = this.dYQ.getAdapter().getCount();
             for (int i = 0; i < count; i++) {
-                if (this.ioV.wV(i) == 8) {
+                if (this.iuZ.xn(i) == 8) {
                     return i;
                 }
             }
@@ -573,68 +610,68 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         return -1;
     }
 
-    public int xc(int i) {
-        return this.ioV.wV(i);
+    public int xu(int i) {
+        return this.iuZ.xn(i);
     }
 
     public void onChangeSkinType(int i) {
-        an.setBackgroundColor(this.ipd, R.color.cp_bg_line_h);
-        this.ipe.onChangeSkinType();
-        this.ioS.onChangeSkinType();
-        if (this.mPageContext != null && this.fns != null) {
-            this.fns.onChangeSkinType(this.mPageContext, i);
+        ao.setBackgroundColor(this.ivh, R.color.cp_bg_line_h);
+        this.ivi.onChangeSkinType();
+        this.iuW.onChangeSkinType();
+        if (this.mPageContext != null && this.fsB != null) {
+            this.fsB.onChangeSkinType(this.mPageContext, i);
         }
-        if (this.ioV != null) {
-            this.ioV.onChangeSkin(i);
+        if (this.iuZ != null) {
+            this.iuZ.onChangeSkin(i);
         }
-        if (this.mPageContext != null && this.hcq != null) {
-            this.hcq.onChangeSkinType(this.mPageContext, i);
+        if (this.mPageContext != null && this.hhZ != null) {
+            this.hhZ.onChangeSkinType(this.mPageContext, i);
         }
-        an.setBackgroundColor(this.eVD, R.color.cp_bg_line_c);
-        an.setBackgroundResource(this.fpG, R.drawable.personalize_tab_shadow);
+        ao.setBackgroundColor(this.fbk, R.color.cp_bg_line_c);
+        ao.setBackgroundResource(this.fuQ, R.drawable.personalize_tab_shadow);
     }
 
-    private boolean buc() {
-        return this.fpG.getVisibility() == 0;
+    private boolean bxl() {
+        return this.fuQ.getVisibility() == 0;
     }
 
     public void setScrollShadow(boolean z) {
-        this.ioU = z;
+        this.iuY = z;
         if (z) {
-            if (this.eVD != null) {
-                this.eVD.setVisibility(8);
+            if (this.fbk != null) {
+                this.fbk.setVisibility(8);
             }
-        } else if (this.eVD != null) {
-            this.eVD.setVisibility(0);
+        } else if (this.fbk != null) {
+            this.fbk.setVisibility(0);
         }
     }
 
-    public void bud() {
-        if (this.ioU && !buc()) {
-            this.fpG.setVisibility(0);
-            if (this.fpJ == null) {
-                this.fpJ = new AlphaAnimation(0.0f, 1.0f);
-                this.fpJ.setFillAfter(true);
-                this.fpJ.setDuration(300L);
+    public void bxm() {
+        if (this.iuY && !bxl()) {
+            this.fuQ.setVisibility(0);
+            if (this.fuT == null) {
+                this.fuT = new AlphaAnimation(0.0f, 1.0f);
+                this.fuT.setFillAfter(true);
+                this.fuT.setDuration(300L);
             }
-            this.fpG.startAnimation(this.fpJ);
+            this.fuQ.startAnimation(this.fuT);
         }
     }
 
-    public void bue() {
-        if (this.ioU && buc()) {
-            if (this.fpK == null) {
-                this.fpK = new AlphaAnimation(1.0f, 0.0f);
-                this.fpK.setFillAfter(true);
-                this.fpK.setDuration(300L);
-                this.fpK.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.3
+    public void bxn() {
+        if (this.iuY && bxl()) {
+            if (this.fuU == null) {
+                this.fuU = new AlphaAnimation(1.0f, 0.0f);
+                this.fuU.setFillAfter(true);
+                this.fuU.setDuration(300L);
+                this.fuU.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.3
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        ScrollFragmentTabHost.this.fpG.setVisibility(8);
+                        ScrollFragmentTabHost.this.fuQ.setVisibility(8);
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
@@ -642,139 +679,139 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                     }
                 });
             }
-            this.fpG.startAnimation(this.fpK);
+            this.fuQ.startAnimation(this.fuU);
         }
     }
 
-    public void cit() {
-        if (this.ioV != null) {
-            this.ioV.cit();
+    public void clS() {
+        if (this.iuZ != null) {
+            this.iuZ.clS();
         }
     }
 
-    public void buI() {
-        this.ioV.buI();
+    public void bxR() {
+        this.iuZ.bxR();
     }
 
     public String getCurrentPageKey() {
-        if (this.ioV != null) {
-            return this.ioV.getCurrentPageKey();
+        if (this.iuZ != null) {
+            return this.iuZ.getCurrentPageKey();
         }
         return null;
     }
 
     public int getCurrentIndex() {
-        if (this.dSy != null) {
-            return this.dSy.getCurrentItem();
+        if (this.dYQ != null) {
+            return this.dYQ.getCurrentItem();
         }
         return -1;
     }
 
     public void setPrimary(boolean z) {
         this.isPrimary = z;
-        if (this.ioV != null) {
-            this.ioV.setPrimary(z);
+        if (this.iuZ != null) {
+            this.iuZ.setPrimary(z);
         }
-        if (this.fns != null && z) {
-            this.fns.setVisibility(j.isNetworkAvailableForImmediately() ? 8 : 0);
+        if (this.fsB != null && z) {
+            this.fsB.setVisibility(j.isNetworkAvailableForImmediately() ? 8 : 0);
         }
     }
 
-    public void ciz() {
-        this.ioV.a(this.ipi);
+    public void cma() {
+        this.iuZ.a(this.ivm);
     }
 
-    public void ni(boolean z) {
+    public void nN(boolean z) {
     }
 
-    public void ciA() {
-        if (this.ipd != null && !this.ipd.isSticky() && this.ioS != null && this.ioS.getTaskView() != null && this.ioS.getTaskView().getVisibility() != 0) {
-            this.ioS.ciI();
+    public void cmb() {
+        if (this.ivh != null && !this.ivh.isSticky() && this.iuW != null && this.iuW.getTaskView() != null && this.iuW.getTaskView().getVisibility() != 0) {
+            this.iuW.cmj();
         }
     }
 
     public void setOnTabSelectedListener(b bVar) {
-        this.ioW = bVar;
+        this.iva = bVar;
     }
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(2921409);
-        if (this.ipf != null) {
-            this.ipf.HH();
-            this.ipf = null;
+        if (this.ivj != null) {
+            this.ivj.HN();
+            this.ivj = null;
         }
-        ciC();
+        cmd();
     }
 
     public void setShowConcernRedTip(boolean z) {
-        if (this.ioS != null && this.ioV.ciq()) {
-            this.ioS.setShowConcernRedTip(z);
+        if (this.iuW != null && this.iuZ.clP()) {
+            this.iuW.setShowConcernRedTip(z);
         }
     }
 
-    public boolean ciu() {
-        if (this.ioS == null || !this.ioV.ciq()) {
+    public boolean clT() {
+        if (this.iuW == null || !this.iuZ.clP()) {
             return false;
         }
-        return this.ioS.ciu();
+        return this.iuW.clT();
     }
 
     public void setVideoThreadId(String str) {
-        if (this.ioV != null) {
-            this.ioV.setVideoThreadId(str);
+        if (this.iuZ != null) {
+            this.iuZ.setVideoThreadId(str);
         }
     }
 
-    public void ciB() {
-        if (com.baidu.tbadk.core.sharedPref.b.aVP().getInt("key_concern_tab_tips_switch", 0) != 0) {
-            int wW = this.ioV != null ? this.ioV.wW(0) : 0;
-            if (this.ioX == null) {
-                this.ioX = new e(this.mPageContext, this.ioS.xa(wW));
-                this.ioX.cS(R.drawable.bg_tip_blue_up);
-                this.ioX.cR(32);
-                this.ioX.mk(true);
-                this.ioX.setUseDirectOffset(true);
-                this.ioX.setYOffset(l.getDimens(this.mContext, R.dimen.ds16));
-                this.ioX.cT(4000);
+    public void cmc() {
+        if (com.baidu.tbadk.core.sharedPref.b.aZP().getInt("key_concern_tab_tips_switch", 0) != 0) {
+            int xo = this.iuZ != null ? this.iuZ.xo(0) : 0;
+            if (this.ivb == null) {
+                this.ivb = new e(this.mPageContext, this.iuW.xs(xo));
+                this.ivb.cS(R.drawable.bg_tip_blue_up);
+                this.ivb.cR(32);
+                this.ivb.mP(true);
+                this.ivb.setUseDirectOffset(true);
+                this.ivb.setYOffset(l.getDimens(this.mContext, R.dimen.ds16));
+                this.ivb.cT(4000);
             }
-            this.ioX.z(this.mContext.getString(R.string.concern_tab_thread_tips), "key_concern_tab_tips", true);
+            this.ivb.z(this.mContext.getString(R.string.concern_tab_thread_tips), "key_concern_tab_tips", true);
         }
     }
 
-    public void ciC() {
-        if (this.ioX != null) {
-            this.ioX.HH();
+    public void cmd() {
+        if (this.ivb != null) {
+            this.ivb.HN();
         }
     }
 
     public void onResume() {
-        if (this.ioS != null) {
-            this.ioS.onResume();
+        if (this.iuW != null) {
+            this.iuW.onResume();
         }
     }
 
     public void a(a aVar) {
-        if (this.ioY == null) {
-            this.ioY = new ArrayList();
+        if (this.ivc == null) {
+            this.ivc = new ArrayList();
         }
-        this.ioY.add(aVar);
+        this.ivc.add(aVar);
     }
 
     public void b(a aVar) {
-        if (this.ioY != null && this.ioY.size() > 0) {
-            this.ioY.remove(aVar);
+        if (this.ivc != null && this.ivc.size() > 0) {
+            this.ivc.remove(aVar);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static abstract class a {
-        public void ciD() {
+        public void cme() {
         }
 
-        public void ciE() {
+        public void cmf() {
         }
 
-        public void chZ() {
+        public void cly() {
         }
     }
 }

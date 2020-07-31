@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import java.lang.ref.WeakReference;
 import java.net.URL;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class g {
     private static g a = null;
     private volatile WeakReference<SharedPreferences> b = null;

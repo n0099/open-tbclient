@@ -1,7 +1,7 @@
 package com.baidu.tieba.callfans;
 
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class CallFansResMsg extends TbHttpResponsedMessage {
     public CallFansResMsg(int i) {
         super(i);

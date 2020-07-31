@@ -1,5 +1,5 @@
 package com.baidu.pass.biometrics.base.debug;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Log {
     private static final String TAG = "SAPI_BIOMETRIC";
     private static boolean enabled = false;

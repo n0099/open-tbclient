@@ -6,12 +6,12 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import com.baidu.swan.apps.aq.ag;
+import com.baidu.swan.apps.aq.ai;
 import com.baidu.tieba.R;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class ClearableEditText extends AppCompatEditText {
-    private static final int dmC = ag.D(10.0f);
-    private Drawable dmB;
+    private static final int dsy = ai.D(10.0f);
+    private Drawable dsx;
 
     public ClearableEditText(Context context) {
         super(context);
@@ -29,7 +29,7 @@ public class ClearableEditText extends AppCompatEditText {
     }
 
     private void init() {
-        this.dmB = getResources().getDrawable(R.drawable.aiapps_location_search_del);
+        this.dsx = getResources().getDrawable(R.drawable.aiapps_location_search_del);
     }
 
     @Override // android.widget.TextView
@@ -49,7 +49,7 @@ public class ClearableEditText extends AppCompatEditText {
         switch (motionEvent.getAction()) {
             case 1:
                 Drawable drawable = getCompoundDrawables()[2];
-                if (drawable != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + dmC && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - dmC) {
+                if (drawable != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + dsy && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - dsy) {
                     setText("");
                     break;
                 }
@@ -59,6 +59,6 @@ public class ClearableEditText extends AppCompatEditText {
     }
 
     private void setClearIconVisible(boolean z) {
-        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.dmB : null, getCompoundDrawables()[3]);
+        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.dsx : null, getCompoundDrawables()[3]);
     }
 }

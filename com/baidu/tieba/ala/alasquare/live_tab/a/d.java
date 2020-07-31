@@ -6,41 +6,41 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.alasquare.live_tab.view.h;
 import com.baidu.tieba.ala.alasquare.live_tab.view.i;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.b.e, i> {
-    private boolean fnN;
-    private h fnQ;
+    private boolean fsW;
+    private h fsZ;
     private TbPageContext mPageContext;
 
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.fnV);
-        this.fnN = false;
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.fte);
+        this.fsW = false;
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: H */
+    /* renamed from: I */
     public i b(ViewGroup viewGroup) {
-        this.fnQ = new h(this.mPageContext, viewGroup);
-        this.fnQ.jy(this.fnN);
-        return new i(this.fnQ);
+        this.fsZ = new h(this.mPageContext, viewGroup);
+        this.fsZ.kc(this.fsW);
+        return new i(this.fsZ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.b.e eVar, i iVar) {
-        if (iVar == null || iVar.fnQ == null) {
+        if (iVar == null || iVar.fsZ == null) {
             return null;
         }
-        iVar.fnQ.a(eVar);
-        iVar.fnQ.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        iVar.fsZ.a(eVar);
+        iVar.fsZ.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return iVar.getView();
     }
 
-    public void jy(boolean z) {
-        this.fnN = z;
+    public void kc(boolean z) {
+        this.fsW = z;
     }
 }

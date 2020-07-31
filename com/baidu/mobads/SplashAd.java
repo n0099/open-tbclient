@@ -8,13 +8,13 @@ import android.widget.RelativeLayout;
 import com.baidu.mobads.component.XAdView;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class SplashAd {
     private static boolean d;
     private com.baidu.mobads.production.g.a a;
     private int b;
-    private SplashAdListener bxt;
-    private IOAdEventListener bxu;
+    private SplashAdListener bxI;
+    private IOAdEventListener bxJ;
     private volatile String c;
     public static String RSPLASH_PATTERN = "pattern";
     public static String RSPLASH_BTN_POS = "btn_pos";
@@ -26,8 +26,8 @@ public class SplashAd {
     public SplashAd(Context context, ViewGroup viewGroup, SplashAdListener splashAdListener, String str, boolean z) {
         this.b = 4;
         this.c = com.baidu.sapi2.outsdk.c.l;
-        this.bxt = new q(this);
-        this.bxu = new r(this);
+        this.bxI = new q(this);
+        this.bxJ = new r(this);
         try {
             com.baidu.mobads.a.a.l = System.currentTimeMillis();
             com.baidu.mobads.a.a.m = 0L;
@@ -40,10 +40,10 @@ public class SplashAd {
                 a(viewGroup, context);
             }
             if (splashAdListener != null) {
-                this.bxt = splashAdListener;
+                this.bxI = splashAdListener;
             }
             if (TextUtils.isEmpty(str)) {
-                this.bxt.onAdFailed("请您输入正确的广告位ID");
+                this.bxI.onAdFailed("请您输入正确的广告位ID");
                 return;
             }
             XAdView xAdView = new XAdView(context);

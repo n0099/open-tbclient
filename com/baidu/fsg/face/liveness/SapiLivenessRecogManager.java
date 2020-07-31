@@ -16,7 +16,7 @@ import com.baidu.fsg.face.liveness.callback.LivenessRecogCallback;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
 import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     public static final long MAX_CALL_INTERNAL_TIME = 300;
     public static final String TAG = "SapiLivenessRecog";

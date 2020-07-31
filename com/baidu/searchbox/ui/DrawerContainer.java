@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
 import android.widget.Scroller;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class DrawerContainer extends FrameLayout implements NestedScrollingChild, NestedScrollingParent {
     public static final int DRAW_BACK_DURATION = 800;
     public static final int DRAW_BACK_MIN_DURATION = 500;
@@ -41,7 +41,7 @@ public class DrawerContainer extends FrameLayout implements NestedScrollingChild
     private int mTouchState;
     private float mTouchY;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes3.dex */
     public interface DrawerListener {
         void onDrawed(int i);
 
@@ -50,7 +50,7 @@ public class DrawerContainer extends FrameLayout implements NestedScrollingChild
         void onSpringBack(int i, int i2);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes3.dex */
     public interface HeaderStartSpringBackListener {
         void startSpringBack(int i);
     }

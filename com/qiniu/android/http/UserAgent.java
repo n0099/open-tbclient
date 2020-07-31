@@ -7,57 +7,57 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.nio.charset.Charset;
 import java.util.Locale;
 import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class UserAgent {
-    private static UserAgent nDu = new UserAgent();
-    public final String id = dMO();
-    public final String ua = RG(this.id);
+    private static UserAgent nMc = new UserAgent();
+    public final String id = dQk();
+    public final String ua = Sr(this.id);
 
     private UserAgent() {
     }
 
-    public static UserAgent dMN() {
-        return nDu;
+    public static UserAgent dQj() {
+        return nMc;
     }
 
-    private static String dMO() {
+    private static String dQk() {
         return System.currentTimeMillis() + "" + new Random().nextInt(999);
     }
 
-    static String RG(String str) {
-        return String.format("QiniuAndroid/%s (%s; %s; %s", "7.3.13", OB(), dMP(), str);
+    static String Sr(String str) {
+        return String.format("QiniuAndroid/%s (%s; %s; %s", "7.3.13", OQ(), dQl(), str);
     }
 
-    private static String OB() {
+    private static String OQ() {
         try {
             String str = Build.VERSION.RELEASE;
             if (str == null) {
                 return Constants.ACCEPT_TIME_SEPARATOR_SERVER;
             }
-            return StringUtils.RM(str.trim());
+            return StringUtils.Sx(str.trim());
         } catch (Throwable th) {
             return Constants.ACCEPT_TIME_SEPARATOR_SERVER;
         }
     }
 
-    private static String dMP() {
+    private static String dQl() {
         try {
             String trim = Build.MODEL.trim();
-            String fY = fY(Build.MANUFACTURER.trim(), trim);
-            if (TextUtils.isEmpty(fY)) {
-                fY = fY(Build.BRAND.trim(), trim);
+            String ga = ga(Build.MANUFACTURER.trim(), trim);
+            if (TextUtils.isEmpty(ga)) {
+                ga = ga(Build.BRAND.trim(), trim);
             }
             StringBuilder sb = new StringBuilder();
-            if (fY == null) {
-                fY = Constants.ACCEPT_TIME_SEPARATOR_SERVER;
+            if (ga == null) {
+                ga = Constants.ACCEPT_TIME_SEPARATOR_SERVER;
             }
-            return StringUtils.RM(sb.append(fY).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(trim).toString());
+            return StringUtils.Sx(sb.append(ga).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(trim).toString());
         } catch (Throwable th) {
             return Constants.ACCEPT_TIME_SEPARATOR_SERVER;
         }
     }
 
-    private static String fY(String str, String str2) {
+    private static String ga(String str, String str2) {
         String lowerCase = str.toLowerCase(Locale.getDefault());
         if (lowerCase.startsWith("unknown") || lowerCase.startsWith("alps") || lowerCase.startsWith("android") || lowerCase.startsWith("sprd") || lowerCase.startsWith("spreadtrum") || lowerCase.startsWith("rockchip") || lowerCase.startsWith("wondermedia") || lowerCase.startsWith("mtk") || lowerCase.startsWith("mt65") || lowerCase.startsWith("nvidia") || lowerCase.startsWith("brcm") || lowerCase.startsWith("marvell") || str2.toLowerCase(Locale.getDefault()).contains(lowerCase)) {
             return null;
@@ -65,7 +65,7 @@ public final class UserAgent {
         return str;
     }
 
-    public String RH(String str) {
+    public String Ss(String str) {
         String trim = ("" + str).trim();
         return new String((this.ua + "; " + trim.substring(0, Math.min(16, trim.length())) + ")").getBytes(Charset.forName("ISO-8859-1")));
     }

@@ -16,18 +16,18 @@ import android.support.annotation.Nullable;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class v implements SensorEventListener {
-    private SensorManager bhI;
-    private Sensor cMl;
+    private SensorManager bic;
+    private Sensor cPG;
     private Context context;
-    private final double dBm = 9.8d;
-    private final int dBn = 400;
-    private final int dBo = 255;
-    private final int dBp = 1;
-    private final int dBq = 2000;
-    private a dBr;
-    private int dBs;
-    private int dBt;
-    private long dBu;
+    private final double dHi = 9.8d;
+    private final int dHj = 400;
+    private final int dHk = 255;
+    private final int dHl = 1;
+    private final int dHm = 2000;
+    private a dHn;
+    private int dHo;
+    private int dHp;
+    private long dHq;
     private boolean isOpen;
     private MediaPlayer mMediaPlayer;
     private SoundPool mSoundPool;
@@ -35,35 +35,35 @@ public class v implements SensorEventListener {
 
     /* loaded from: classes.dex */
     public interface a {
-        void aNv();
+        void aRj();
     }
 
     public v(@NonNull Context context, @Nullable a aVar) {
         if (context != null) {
             this.context = context;
-            this.dBr = aVar;
-            this.bhI = (SensorManager) context.getSystemService("sensor");
-            if (this.bhI != null) {
-                this.cMl = this.bhI.getDefaultSensor(1);
+            this.dHn = aVar;
+            this.bic = (SensorManager) context.getSystemService("sensor");
+            if (this.bic != null) {
+                this.cPG = this.bic.getDefaultSensor(1);
             }
             this.mVibrator = (Vibrator) context.getSystemService("vibrator");
             this.mSoundPool = new SoundPool(1, 3, 0);
             if (this.mSoundPool != null) {
-                this.dBs = this.mSoundPool.load(context, R.raw.shake_tone, 1);
+                this.dHo = this.mSoundPool.load(context, R.raw.shake_tone, 1);
             }
         }
     }
 
     public void open() {
-        if (this.cMl != null) {
-            this.bhI.registerListener(this, this.cMl, 2);
+        if (this.cPG != null) {
+            this.bic.registerListener(this, this.cPG, 2);
             this.isOpen = true;
         }
     }
 
     public void close() {
-        if (this.bhI != null) {
-            this.bhI.unregisterListener(this);
+        if (this.bic != null) {
+            this.bic.unregisterListener(this);
             this.isOpen = false;
         }
     }
@@ -74,8 +74,8 @@ public class v implements SensorEventListener {
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
-        if (sensorEvent.sensor.getType() == 1 && y(sensorEvent.values) && this.dBr != null) {
-            this.dBr.aNv();
+        if (sensorEvent.sensor.getType() == 1 && y(sensorEvent.values) && this.dHn != null) {
+            this.dHn.aRj();
         }
     }
 
@@ -89,25 +89,25 @@ public class v implements SensorEventListener {
         float abs3 = Math.abs(fArr[2]);
         double sqrt = Math.sqrt(Math.pow(abs2 / 9.8d, 2.0d) + Math.pow(abs / 9.8d, 2.0d) + Math.pow(abs3 / 9.8d, 2.0d));
         if (Build.VERSION.SDK_INT <= 23) {
-            if (sqrt >= 2.5d && aNt()) {
+            if (sqrt >= 2.5d && aRh()) {
                 return true;
             }
-        } else if (sqrt >= 4.2d && aNt()) {
+        } else if (sqrt >= 4.2d && aRh()) {
             return true;
         }
         return false;
     }
 
-    private boolean aNt() {
+    private boolean aRh() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.dBu > 2000) {
-            this.dBu = currentTimeMillis;
+        if (currentTimeMillis - this.dHq > 2000) {
+            this.dHq = currentTimeMillis;
             return true;
         }
         return false;
     }
 
-    public boolean aNu() {
+    public boolean aRi() {
         int i;
         if (this.context == null) {
             return false;
@@ -129,7 +129,7 @@ public class v implements SensorEventListener {
         return true;
     }
 
-    public void uG(String str) {
+    public void vJ(String str) {
         if (this.mMediaPlayer == null) {
             this.mMediaPlayer = new MediaPlayer();
         }
@@ -149,13 +149,13 @@ public class v implements SensorEventListener {
         }
     }
 
-    public void gI(boolean z) {
-        if (z || this.dBt == 0) {
+    public void hd(boolean z) {
+        if (z || this.dHp == 0) {
             if (this.mSoundPool != null) {
-                this.mSoundPool.play(this.dBs, 1.0f, 1.0f, 0, 0, 1.0f);
+                this.mSoundPool.play(this.dHo, 1.0f, 1.0f, 0, 0, 1.0f);
             }
         } else if (this.mSoundPool != null) {
-            this.mSoundPool.play(this.dBt, 1.0f, 1.0f, 0, 0, 1.0f);
+            this.mSoundPool.play(this.dHp, 1.0f, 1.0f, 0, 0, 1.0f);
         }
     }
 }

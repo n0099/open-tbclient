@@ -12,17 +12,17 @@ import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.RawLayout;
 import com.baidu.tbadk.editortools.m;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class PbLocationInfoContainer extends LinearLayout implements View.OnClickListener, m {
-    private boolean hHH;
-    private TBSpecificationBtn jxc;
-    private EditorTools jxd;
-    private int jxe;
+    private boolean hNG;
+    private TBSpecificationBtn jFG;
+    private EditorTools jFH;
+    private int jFI;
 
     public PbLocationInfoContainer(Context context) {
         super(context);
-        this.jxe = 0;
-        this.hHH = true;
+        this.jFI = 0;
+        this.hNG = true;
         initView();
     }
 
@@ -34,25 +34,25 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
         layoutParams.setMargins(0, l.getDimens(getContext(), R.dimen.ds30), 0, l.getDimens(getContext(), R.dimen.ds12));
         setLayoutParams(layoutParams);
         c cVar = new c();
-        cVar.mE(R.color.cp_cont_b);
+        cVar.mX(R.color.cp_cont_b);
         cVar.k(R.drawable.ic_icon_pure_post_location16_svg, 0, true);
-        cVar.mz(R.color.cp_cont_e);
-        cVar.aR(l.getDimens(getContext(), R.dimen.tbds22), l.getDimens(getContext(), R.dimen.tbds28));
-        this.jxc = new TBSpecificationBtn(getContext());
-        this.jxc.setConfig(cVar);
-        this.jxc.setTextSize(R.dimen.tbds32);
-        this.jxc.setOnClickListener(this);
-        this.jxc.setText(getContext().getString(R.string.location_where_are_you));
-        addView(this.jxc, new LinearLayout.LayoutParams(-2, l.getDimens(getContext(), R.dimen.tbds63)));
+        cVar.mS(R.color.cp_cont_e);
+        cVar.aS(l.getDimens(getContext(), R.dimen.tbds22), l.getDimens(getContext(), R.dimen.tbds28));
+        this.jFG = new TBSpecificationBtn(getContext());
+        this.jFG.setConfig(cVar);
+        this.jFG.setTextSize(R.dimen.tbds32);
+        this.jFG.setOnClickListener(this);
+        this.jFG.setText(getContext().getString(R.string.location_where_are_you));
+        addView(this.jFG, new LinearLayout.LayoutParams(-2, l.getDimens(getContext(), R.dimen.tbds63)));
     }
 
-    public void aYj() {
-        this.jxc.aYj();
+    public void bci() {
+        this.jFG.bci();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.jxc) {
+        if (view == this.jFG) {
             b(new com.baidu.tbadk.editortools.a(18, -1, null));
         }
     }
@@ -67,11 +67,11 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
                 }
                 com.baidu.tbadk.editortools.d.a aVar2 = (com.baidu.tbadk.editortools.d.a) aVar.data;
                 if (aVar2.state == 1) {
-                    this.jxc.setText(getContext().getString(R.string.location_loading));
+                    this.jFG.setText(getContext().getString(R.string.location_loading));
                 } else if (!TextUtils.isEmpty(aVar2.addr)) {
-                    this.jxc.setText(aVar2.addr);
+                    this.jFG.setText(aVar2.addr);
                 } else {
-                    this.jxc.setText(getContext().getString(R.string.location_where_are_you));
+                    this.jFG.setText(getContext().getString(R.string.location_where_are_you));
                 }
             } else if (aVar.code == 20) {
                 hide();
@@ -81,24 +81,24 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
 
     @Override // com.baidu.tbadk.editortools.m
     public void setEditorTools(EditorTools editorTools) {
-        this.jxd = editorTools;
+        this.jFH = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.m
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.jxd != null) {
-            this.jxd.b(aVar);
+        if (this.jFH != null) {
+            this.jFH.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.m
     public void setToolId(int i) {
-        this.jxe = i;
+        this.jFI = i;
     }
 
     @Override // com.baidu.tbadk.editortools.m
     public int getToolId() {
-        return this.jxe;
+        return this.jFI;
     }
 
     @Override // com.baidu.tbadk.editortools.m
@@ -107,19 +107,19 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
 
     @Override // com.baidu.tbadk.editortools.m
     public void display() {
-        if (this.hHH) {
-            this.hHH = false;
+        if (this.hNG) {
+            this.hNG = false;
             b(new com.baidu.tbadk.editortools.a(18, -1, Config.TRACE_VISIT_FIRST));
         }
     }
 
     @Override // com.baidu.tbadk.editortools.m
     public void hide() {
-        this.jxc.setText(getContext().getString(R.string.location_where_are_you));
+        this.jFG.setText(getContext().getString(R.string.location_where_are_you));
     }
 
     @Override // com.baidu.tbadk.editortools.m
     public void onChangeSkinType(int i) {
-        aYj();
+        bci();
     }
 }

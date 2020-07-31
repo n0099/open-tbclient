@@ -2,7 +2,7 @@ package com.baidu.ar.face.a;
 
 import com.baidu.ar.face.algo.FaceAlgoData;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class b {
     private long ld;
     private FaceAlgoData nX;

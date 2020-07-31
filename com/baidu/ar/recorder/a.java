@@ -1,5 +1,5 @@
 package com.baidu.ar.recorder;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 class a {
     private long th;
     private int tg = 100;

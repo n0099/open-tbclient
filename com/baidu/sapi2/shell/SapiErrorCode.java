@@ -1,7 +1,7 @@
 package com.baidu.sapi2.shell;
 
 import com.baidu.sapi2.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public interface SapiErrorCode extends c {
     public static final int CANNOT_LOGIN = 16;
     public static final int ERROR_UNKNOWN = -100;

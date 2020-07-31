@@ -23,7 +23,7 @@ public class Configuration implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ae */
+        /* renamed from: ag */
         public Configuration[] newArray(int i) {
             return new Configuration[i];
         }

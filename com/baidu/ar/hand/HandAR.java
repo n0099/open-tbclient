@@ -7,7 +7,7 @@ import com.baidu.ar.c.e;
 import com.baidu.ar.c.l;
 import com.baidu.ar.databasic.AlgoHandleController;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class HandAR extends c {
     private static final String TAG = HandAR.class.getSimpleName();
     private AlgoHandleController ch = null;

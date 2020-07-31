@@ -5,84 +5,84 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tieba.pb.data.e;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tieba.pb.data.f;
 import com.baidu.tieba.s.c;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a {
-    public static void a(BdUniqueId bdUniqueId, e eVar, PostData postData, int i, int i2) {
+    public static void a(BdUniqueId bdUniqueId, f fVar, PostData postData, int i, int i2) {
         String str = null;
         if (postData != null) {
             str = postData.getId();
         }
-        a(bdUniqueId, eVar, postData, str, str, i, i2);
+        a(bdUniqueId, fVar, postData, str, str, i, i2);
     }
 
-    public static void a(BdUniqueId bdUniqueId, e eVar, PostData postData, String str, String str2, int i, int i2) {
-        if (bdUniqueId != null && eVar != null) {
-            ao aoVar = new ao("common_exp");
-            a(aoVar, eVar, postData, i, i2, false, str);
-            c.dgY().a(bdUniqueId, str2, aoVar);
+    public static void a(BdUniqueId bdUniqueId, f fVar, PostData postData, String str, String str2, int i, int i2) {
+        if (bdUniqueId != null && fVar != null) {
+            ap apVar = new ap("common_exp");
+            a(apVar, fVar, postData, i, i2, false, str);
+            c.dkh().a(bdUniqueId, str2, apVar);
         }
     }
 
-    public static void a(e eVar, PostData postData, int i, int i2) {
+    public static void a(f fVar, PostData postData, int i, int i2) {
         String str = null;
         if (postData != null) {
             str = postData.getId();
         }
-        a(eVar, postData, str, i, i2);
+        a(fVar, postData, str, i, i2);
     }
 
-    public static void a(e eVar, PostData postData, String str, int i, int i2) {
-        if (eVar != null) {
-            ao aoVar = new ao("common_click");
-            a(aoVar, eVar, postData, i, i2, false, str);
-            TiebaStatic.log(aoVar);
+    public static void a(f fVar, PostData postData, String str, int i, int i2) {
+        if (fVar != null) {
+            ap apVar = new ap("common_click");
+            a(apVar, fVar, postData, i, i2, false, str);
+            TiebaStatic.log(apVar);
         }
     }
 
-    public static void a(e eVar, PostData postData, int i, int i2, int i3) {
-        if (eVar != null) {
-            ao aoVar = new ao("common_click");
+    public static void a(f fVar, PostData postData, int i, int i2, int i3) {
+        if (fVar != null) {
+            ap apVar = new ap("common_click");
             String str = null;
             if (postData != null) {
                 str = postData.getId();
             }
-            a(aoVar, eVar, postData, i, i2, false, str);
-            aoVar.ag("obj_locate", i3);
-            TiebaStatic.log(aoVar);
+            a(apVar, fVar, postData, i, i2, false, str);
+            apVar.ah("obj_locate", i3);
+            TiebaStatic.log(apVar);
         }
     }
 
-    public static ao b(e eVar, PostData postData, int i, int i2, int i3) {
-        if (eVar == null) {
+    public static ap b(f fVar, PostData postData, int i, int i2, int i3) {
+        if (fVar == null) {
             return null;
         }
-        ao aoVar = new ao("common_click");
-        a(aoVar, eVar, postData, i, i2, false, postData != null ? postData.getId() : null);
-        aoVar.ag("obj_locate", i3);
-        return aoVar;
+        ap apVar = new ap("common_click");
+        a(apVar, fVar, postData, i, i2, false, postData != null ? postData.getId() : null);
+        apVar.ah("obj_locate", i3);
+        return apVar;
     }
 
-    private static ao a(ao aoVar, e eVar, PostData postData, int i, int i2, boolean z, String str) {
-        aoVar.dk("page_type", PageStayDurationConstants.PageName.PB).ag("obj_floor", i).ag("obj_isad", z ? 1 : 0).dk("fid", eVar.getForumId() + "").dk("tid", eVar.getThreadId() + "").dk("obj_id", str + "").ag("post_type", i2);
+    private static ap a(ap apVar, f fVar, PostData postData, int i, int i2, boolean z, String str) {
+        apVar.dn("page_type", PageStayDurationConstants.PageName.PB).ah("obj_floor", i).ah("obj_isad", z ? 1 : 0).dn("fid", fVar.getForumId() + "").dn("tid", fVar.getThreadId() + "").dn("obj_id", str + "").ah("post_type", i2);
         if (postData != null) {
-            aoVar.dk("pid", postData.getId() + "");
+            apVar.dn("pid", postData.getId() + "");
         }
-        if (eVar.cGO() != null) {
-            aoVar.ag("thread_type", eVar.cGO().threadType);
-            BaijiahaoData baijiahaoData = eVar.cGO().getBaijiahaoData();
+        if (fVar.cKx() != null) {
+            apVar.ah("thread_type", fVar.cKx().threadType);
+            BaijiahaoData baijiahaoData = fVar.cKx().getBaijiahaoData();
             if (baijiahaoData != null) {
-                aoVar.dk("ugc_nid", baijiahaoData.oriUgcNid);
-                aoVar.dk("ugc_vid", baijiahaoData.oriUgcVid);
-                aoVar.ag("ori_ugc_type", baijiahaoData.oriUgcType);
+                apVar.dn("ugc_nid", baijiahaoData.oriUgcNid);
+                apVar.dn("ugc_vid", baijiahaoData.oriUgcVid);
+                apVar.ah("ori_ugc_type", baijiahaoData.oriUgcType);
             }
         }
         if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            aoVar.dk("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().ejy);
+            apVar.dn("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().epK);
         }
-        return aoVar;
+        return apVar;
     }
 }

@@ -13,17 +13,17 @@ import java.util.List;
 public final class a {
     private static a GD;
     private static ArrayList<SoftReference<Activity>> sActivityStack;
-    private InterfaceC0016a GF;
+    private InterfaceC0017a GF;
     private int mActivityStackMaxSize = 0;
 
     /* renamed from: com.baidu.adp.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0016a {
+    public interface InterfaceC0017a {
         void onActivityClosed();
     }
 
-    public void a(InterfaceC0016a interfaceC0016a) {
-        this.GF = interfaceC0016a;
+    public void a(InterfaceC0017a interfaceC0017a) {
+        this.GF = interfaceC0017a;
     }
 
     private a() {
@@ -50,6 +50,15 @@ public final class a {
         }
     }
 
+    public Activity popActivity() {
+        SoftReference<Activity> remove;
+        int size = sActivityStack.size();
+        if (size != 0 && (remove = sActivityStack.remove(size - 1)) != null) {
+            return remove.get();
+        }
+        return null;
+    }
+
     public Activity popActivity(int i) {
         int size = sActivityStack.size();
         if (size == 0) {
@@ -63,6 +72,45 @@ public final class a {
             return null;
         }
         return remove.get();
+    }
+
+    public Activity U(int i) {
+        int size = sActivityStack.size();
+        if (size == 0) {
+            return null;
+        }
+        if (i < 0 || i >= size) {
+            return null;
+        }
+        SoftReference<Activity> softReference = sActivityStack.get(i);
+        if (softReference == null) {
+            return null;
+        }
+        return softReference.get();
+    }
+
+    public int m(Activity activity) {
+        int size = sActivityStack.size();
+        if (size > 0 && activity != null) {
+            for (int i = size - 1; i >= 0; i--) {
+                SoftReference<Activity> softReference = sActivityStack.get(i);
+                if (softReference == null) {
+                    sActivityStack.remove(i);
+                } else if (activity.equals(softReference.get())) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
+    public void V(int i) {
+        for (int i2 = 0; i2 < i; i2++) {
+            Activity popActivity = popActivity();
+            if (popActivity != null) {
+                popActivity.finish();
+            }
+        }
     }
 
     public void popActivity(Activity activity) {

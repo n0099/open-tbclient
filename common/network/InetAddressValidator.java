@@ -3,7 +3,7 @@ package common.network;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class InetAddressValidator implements Serializable {
     private static final int BASE_16 = 16;
     private static final int IPV4_MAX_OCTET_VALUE = 255;

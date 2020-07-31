@@ -3,7 +3,7 @@ package com.baidu.searchbox.ui.wheelview3d.timer;
 import android.os.Handler;
 import android.os.Message;
 import com.baidu.searchbox.ui.wheelview3d.WheelView3d;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public final class MessageHandler extends Handler {
     public static final int WHAT_INVALIDATE_LOOP_VIEW = 1000;
     public static final int WHAT_ITEM_SELECTED = 3000;

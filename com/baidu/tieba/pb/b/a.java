@@ -8,7 +8,7 @@ import com.baidu.tieba.pb.b.a.g;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class a {
     private ArrayList<d> list = new ArrayList<>();
 
@@ -25,7 +25,7 @@ public class a {
                     if (a(excContent)) {
                         c a = f.a(tbPageContext, excContent);
                         if (a != null) {
-                            if (a.cON()) {
+                            if (a.cSA()) {
                                 if (gVar2 != null) {
                                     this.list.add(gVar2);
                                 }
@@ -33,7 +33,7 @@ public class a {
                                 gVar = null;
                             } else {
                                 gVar = gVar2 == null ? new g() : gVar2;
-                                gVar.r(a.cOM());
+                                gVar.r(a.cSz());
                             }
                         }
                     } else {

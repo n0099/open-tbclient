@@ -50,11 +50,11 @@ public class c {
         while (i5 < i) {
             d dVar = new d();
             this.Hs.kU().mNetErrorCode = -1;
-            this.Ky.ah(i5);
+            this.Ky.aj(i5);
             try {
                 dVar.retry = i5 + 1;
                 this.Kz = i5;
-                aj(i5);
+                al(i5);
                 z3 = this.Ky.a(str, hVar, timeOutAuto, timeOutAuto2, z, dVar, z2);
                 if (!z3) {
                     try {
@@ -163,9 +163,9 @@ public class c {
                             dVar.exception = "errorCode:" + String.valueOf(this.Hs.kU().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
                             this.Hs.kU().mNetErrorCode = -20;
                         } else {
-                            String bJ = com.baidu.adp.lib.network.http.a.d.bJ(this.Hs.kT().getUrl());
-                            if (!k.isEmpty(bJ)) {
-                                this.Hs.kT().setUrl(bJ);
+                            String bH = com.baidu.adp.lib.network.http.a.d.bH(this.Hs.kT().getUrl());
+                            if (!k.isEmpty(bH)) {
+                                this.Hs.kT().setUrl(bH);
                             }
                             BdStatisticsManager.getInstance().eventStat(null, "c13429", "", 1, "obj_type", "1");
                         }
@@ -319,9 +319,9 @@ public class c {
                                 this.Kz = i4;
                                 dVar.retry = i4 + 1;
                                 dVar.KP = 1;
-                                aj(i4);
+                                al(i4);
                                 this.Ky = new b(this.Hs);
-                                this.Ky.ah(i4);
+                                this.Ky.aj(i4);
                                 this.Ky.ah(Ks);
                                 this.Ky.a(i2, i3, dVar);
                             } catch (IllegalStateException e) {
@@ -401,7 +401,7 @@ public class c {
                     return;
                 }
                 dVar.exception = String.valueOf(this.Hs.kU().responseCode) + "|retryCount:" + i4;
-                boolean ai = ai(this.Hs.kU().responseCode);
+                boolean ak = ak(this.Hs.kU().responseCode);
                 if (this.Km <= 0 && this.Ky != null) {
                     this.Km = this.Ky.kK();
                 }
@@ -412,7 +412,7 @@ public class c {
                 if (kH6 != null) {
                     kH6.a(this.Hs);
                 }
-                z = ai;
+                z = ak;
             } catch (Throwable th) {
                 if (this.Km <= 0 && this.Ky != null) {
                     this.Km = this.Ky.kK();
@@ -451,12 +451,12 @@ public class c {
             d dVar = new d();
             dVar.retry = i4 + 1;
             this.Kz = i4;
-            aj(i4);
+            al(i4);
             try {
                 try {
                     try {
                         this.Ky = new b(this.Hs);
-                        this.Ky.ah(i4);
+                        this.Ky.aj(i4);
                         this.Ky.ah(Ks);
                         this.Ky.b(i2, i3, dVar);
                     } catch (UnsupportedOperationException e) {
@@ -521,7 +521,7 @@ public class c {
                     return;
                 }
                 dVar.exception = String.valueOf(this.Hs.kU().responseCode) + "|retryCount:" + i4;
-                z = ai(this.Hs.kU().responseCode);
+                z = ak(this.Hs.kU().responseCode);
                 this.Hs.a(dVar);
                 if (this.Km <= 0 && this.Ky != null) {
                     this.Km = this.Ky.kK();
@@ -549,7 +549,7 @@ public class c {
         }
     }
 
-    private boolean ai(int i) {
+    private boolean ak(int i) {
         if (i == 202 || i == 201 || i == 205 || i == 304 || i == 305 || i == 408) {
             return true;
         }
@@ -583,12 +583,12 @@ public class c {
             d dVar = new d();
             this.Kz = i4;
             dVar.retry = i4 + 1;
-            aj(i4);
+            al(i4);
             try {
                 try {
                     try {
                         this.Ky = new b(this.Hs);
-                        this.Ky.ah(i4);
+                        this.Ky.aj(i4);
                         this.Ky.ah(Ks);
                         this.Ky.ai(this.KA);
                         this.Ky.c(i2, i3, dVar);
@@ -672,7 +672,7 @@ public class c {
                     return;
                 }
                 dVar.exception = String.valueOf(this.Hs.kU().responseCode) + "|retryCount:" + i4;
-                z = ai(this.Hs.kU().responseCode);
+                z = ak(this.Hs.kU().responseCode);
                 this.Hs.a(dVar);
                 if (this.Km <= 0 && this.Ky != null) {
                     this.Km = this.Ky.kK();
@@ -766,7 +766,7 @@ public class c {
         return this.Kz;
     }
 
-    private void aj(int i) {
+    private void al(int i) {
         try {
             if (this.Hs != null && i > 0) {
                 this.Hs.kT().s("Retry-Count", String.valueOf(i));

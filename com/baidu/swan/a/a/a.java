@@ -1,8 +1,8 @@
 package com.baidu.swan.a.a;
 
-import com.baidu.swan.pms.c.d.f;
-/* loaded from: classes11.dex */
-public class a extends f {
+import com.baidu.swan.pms.c.d.g;
+/* loaded from: classes3.dex */
+public class a extends g {
     private int mVersionCode;
     private String mVersionName;
 

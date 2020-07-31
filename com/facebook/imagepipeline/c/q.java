@@ -1,17 +1,17 @@
 package com.facebook.imagepipeline.c;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class q {
-    public final int mRX;
-    public final int mRY;
-    public final int mRZ;
-    public final int mSa;
-    public final int mSb;
+    public final int nae;
+    public final int naf;
+    public final int nag;
+    public final int nah;
+    public final int nai;
 
     public q(int i, int i2, int i3, int i4, int i5) {
-        this.mRX = i;
-        this.mRY = i2;
-        this.mRZ = i3;
-        this.mSa = i4;
-        this.mSb = i5;
+        this.nae = i;
+        this.naf = i2;
+        this.nag = i3;
+        this.nah = i4;
+        this.nai = i5;
     }
 }

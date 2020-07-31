@@ -2,7 +2,7 @@ package com.baidu.swan.apps.c.a;
 
 import android.os.Bundle;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c extends ProviderDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
     public Bundle execCall(Bundle bundle) {
@@ -12,9 +12,9 @@ public class c extends ProviderDelegation {
         } else {
             z = bundle.getBoolean("status");
         }
-        com.baidu.swan.apps.a.c UM = f.bNE.UM();
-        if (UM != null) {
-            UM.dg(z);
+        com.baidu.swan.apps.a.c Vr = f.bOu.Vr();
+        if (Vr != null) {
+            Vr.dj(z);
             return null;
         }
         return null;

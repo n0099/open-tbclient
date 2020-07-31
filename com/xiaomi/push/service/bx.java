@@ -4,15 +4,15 @@ import android.content.Context;
 import com.xiaomi.push.ft;
 import com.xiaomi.push.service.XMPushService;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class bx extends XMPushService.i {
     final /* synthetic */ XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f906a;
+    final /* synthetic */ String f902a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ byte[] f907a;
+    final /* synthetic */ byte[] f903a;
     final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,8 +21,8 @@ public class bx extends XMPushService.i {
         super(i);
         this.a = xMPushService;
         this.b = i2;
-        this.f907a = bArr;
-        this.f906a = str;
+        this.f903a = bArr;
+        this.f902a = str;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -33,11 +33,11 @@ public class bx extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         ft ftVar;
-        l.m572a((Context) this.a);
-        ap.a().m542a("5");
+        l.m573a((Context) this.a);
+        ap.a().m543a("5");
         com.xiaomi.push.ab.a(this.b);
-        ftVar = this.a.f808a;
+        ftVar = this.a.f804a;
         ftVar.c(ft.a());
-        this.a.a(this.f907a, this.f906a);
+        this.a.a(this.f903a, this.f902a);
     }
 }

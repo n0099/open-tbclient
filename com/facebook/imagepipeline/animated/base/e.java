@@ -2,58 +2,58 @@ package com.facebook.imagepipeline.animated.base;
 
 import android.graphics.Bitmap;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes12.dex */
 public class e {
-    private final b mQr;
-    private int mQs;
-    private com.facebook.common.references.a<Bitmap> mQt;
-    private List<com.facebook.common.references.a<Bitmap>> mQu;
+    private int mYA;
+    private com.facebook.common.references.a<Bitmap> mYB;
+    private List<com.facebook.common.references.a<Bitmap>> mYC;
+    private final b mYz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.mQr = bVar;
+        this.mYz = bVar;
     }
 
-    public b dCm() {
-        return this.mQr;
+    public b dFy() {
+        return this.mYz;
     }
 
-    public com.facebook.common.references.a<Bitmap> dCn() {
-        return com.facebook.common.references.a.b(this.mQt);
+    public com.facebook.common.references.a<Bitmap> dFz() {
+        return com.facebook.common.references.a.b(this.mYB);
     }
 
     public e j(com.facebook.common.references.a<Bitmap> aVar) {
-        this.mQt = com.facebook.common.references.a.b(aVar);
+        this.mYB = com.facebook.common.references.a.b(aVar);
         return this;
     }
 
-    public int dCo() {
-        return this.mQs;
+    public int dFA() {
+        return this.mYA;
     }
 
-    public e IC(int i) {
-        this.mQs = i;
+    public e IX(int i) {
+        this.mYA = i;
         return this;
     }
 
-    public List<com.facebook.common.references.a<Bitmap>> dCp() {
-        return com.facebook.common.references.a.k(this.mQu);
+    public List<com.facebook.common.references.a<Bitmap>> dFB() {
+        return com.facebook.common.references.a.k(this.mYC);
     }
 
-    public e fq(List<com.facebook.common.references.a<Bitmap>> list) {
-        this.mQu = com.facebook.common.references.a.k(list);
+    public e fz(List<com.facebook.common.references.a<Bitmap>> list) {
+        this.mYC = com.facebook.common.references.a.k(list);
         return this;
     }
 
     /* JADX WARN: Type inference failed for: r2v0, types: [java.util.List<com.facebook.common.references.a<android.graphics.Bitmap>>, com.facebook.common.references.a<android.graphics.Bitmap>] */
-    public d dCq() {
+    public d dFC() {
         try {
             return new d(this);
         } finally {
-            com.facebook.common.references.a.c(this.mQt);
-            this.mQt = null;
-            com.facebook.common.references.a.b(this.mQu);
-            this.mQu = null;
+            com.facebook.common.references.a.c(this.mYB);
+            this.mYB = null;
+            com.facebook.common.references.a.b(this.mYC);
+            this.mYC = null;
         }
     }
 }

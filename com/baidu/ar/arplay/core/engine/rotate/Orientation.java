@@ -1,5 +1,5 @@
 package com.baidu.ar.arplay.core.engine.rotate;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public enum Orientation {
     UNKNOWN(-1),
     PORTRAIT(0),

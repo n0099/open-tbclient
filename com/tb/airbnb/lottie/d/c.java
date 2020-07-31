@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.view.Choreographer;
 import com.baidu.mapapi.map.WeightedLatLng;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends a implements Choreographer.FrameCallback {
     @Nullable
     private com.tb.airbnb.lottie.d composition;

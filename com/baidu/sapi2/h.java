@@ -5,7 +5,7 @@ import com.baidu.sapi2.result.QrLoginResult;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class h extends QrLoginCallback {
     final /* synthetic */ QrLoginCallback a;
     final /* synthetic */ List b;

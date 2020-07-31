@@ -10,7 +10,7 @@ import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class Placeholder extends View {
     private View mContent;
     private int mContentId;

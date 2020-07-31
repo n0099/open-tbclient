@@ -1,30 +1,30 @@
 package com.baidu.swan.apps.swancore.c;
 
 import android.util.Log;
-import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.aq.al;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static volatile b cMa;
-    private ArrayList<com.baidu.swan.apps.aq.e.b<Exception>> cMb = new ArrayList<>();
-    private ArrayList<com.baidu.swan.apps.aq.e.b<Exception>> cMc = new ArrayList<>();
+    public static volatile b cPv;
+    private ArrayList<com.baidu.swan.apps.aq.e.b<Exception>> cPw = new ArrayList<>();
+    private ArrayList<com.baidu.swan.apps.aq.e.b<Exception>> cPx = new ArrayList<>();
 
-    public static b ati() {
-        if (cMa == null) {
+    public static b avj() {
+        if (cPv == null) {
             synchronized (b.class) {
-                if (cMa == null) {
-                    cMa = new b();
+                if (cPv == null) {
+                    cPv = new b();
                 }
             }
         }
-        return cMa;
+        return cPv;
     }
 
-    public void hC(int i) {
+    public void hL(int i) {
         synchronized (b.class) {
-            f(i, a.hw(i));
+            f(i, a.hF(i));
         }
     }
 
@@ -34,7 +34,7 @@ public final class b {
             Log.d("PresetSwanCoreUpdater", "updateSwanCoreAsync start.");
         }
         synchronized (b.class) {
-            if (!a.hs(i)) {
+            if (!a.hB(i)) {
                 if (DEBUG) {
                     Log.d("PresetSwanCoreUpdater", "updateSwanCoreAsync isNeedUpdateStatus = false.");
                 }
@@ -42,9 +42,9 @@ public final class b {
                 return;
             }
             if (i == 1) {
-                arrayList = this.cMc;
+                arrayList = this.cPx;
             } else {
-                arrayList = this.cMb;
+                arrayList = this.cPw;
             }
             if (arrayList.isEmpty()) {
                 new Thread(new Runnable() { // from class: com.baidu.swan.apps.swancore.c.b.1
@@ -53,7 +53,7 @@ public final class b {
                         if (b.DEBUG) {
                             Log.d("PresetSwanCoreUpdater", "onPresetUpdate start.");
                         }
-                        b.this.f(i, a.hw(i));
+                        b.this.f(i, a.hF(i));
                         if (b.DEBUG) {
                             Log.d("PresetSwanCoreUpdater", "onPresetUpdate end.");
                         }
@@ -71,24 +71,24 @@ public final class b {
     public void f(int i, Exception exc) {
         synchronized (b.class) {
             if (i == 0) {
-                Iterator<com.baidu.swan.apps.aq.e.b<Exception>> it = this.cMb.iterator();
+                Iterator<com.baidu.swan.apps.aq.e.b<Exception>> it = this.cPw.iterator();
                 while (it.hasNext()) {
                     a(it.next(), exc);
                 }
-                this.cMb.clear();
+                this.cPw.clear();
             } else if (i == 1) {
-                Iterator<com.baidu.swan.apps.aq.e.b<Exception>> it2 = this.cMc.iterator();
+                Iterator<com.baidu.swan.apps.aq.e.b<Exception>> it2 = this.cPx.iterator();
                 while (it2.hasNext()) {
                     a(it2.next(), exc);
                 }
-                this.cMc.clear();
+                this.cPx.clear();
             }
         }
     }
 
     private void a(final com.baidu.swan.apps.aq.e.b<Exception> bVar, final Exception exc) {
         if (bVar != null) {
-            aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.swancore.c.b.2
+            al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.swancore.c.b.2
                 @Override // java.lang.Runnable
                 public void run() {
                     bVar.H(exc);

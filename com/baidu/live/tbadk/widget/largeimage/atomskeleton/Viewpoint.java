@@ -7,7 +7,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Viewpoint {
     private static final String TAG = Viewpoint.class.getSimpleName();
     private final int mBlockSize;

@@ -1,15 +1,15 @@
 package com.google.protobuf;
 
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class Internal {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes5.dex */
     public interface EnumLite {
         int getNumber();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes5.dex */
     public interface EnumLiteMap<T extends EnumLite> {
         T findValueByNumber(int i);
     }

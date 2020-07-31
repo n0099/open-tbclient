@@ -5,14 +5,14 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.adp.lib.util.s;
 import com.baidu.tbadk.core.hybrid.r;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.n;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.z;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
-    private y byb;
-    private a eLM;
+    private z byq;
+    private a eSh;
     private String mPath;
     private String mUrl;
 
@@ -37,14 +37,14 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.eLM = aVar;
+        this.eSh = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String doInBackground(Void... voidArr) {
-        if (ar.isEmpty(this.mPath) || ar.isEmpty(this.mUrl) || !checkInternalTempDir(this.mPath)) {
+        if (as.isEmpty(this.mPath) || as.isEmpty(this.mUrl) || !checkInternalTempDir(this.mPath)) {
             return null;
         }
         String md5 = s.toMd5(this.mUrl);
@@ -52,10 +52,10 @@ public class b extends BdAsyncTask<Void, Void, String> {
         if (isExists(str)) {
             return md5;
         }
-        this.byb = new y();
-        this.byb.setUrl(this.mUrl);
+        this.byq = new z();
+        this.byq.setUrl(this.mUrl);
         String str2 = this.mPath + md5 + ".zip";
-        if (this.byb.downloadFile(str2, null, 0, 3, 0, true) && unZip(str2, str)) {
+        if (this.byq.downloadFile(str2, null, 0, 3, 0, true) && unZip(str2, str)) {
             clearTemp(str2);
             return md5;
         }
@@ -67,29 +67,29 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.eLM != null) {
-            if (!ar.isEmpty(str)) {
-                this.eLM.onLoaded(true, str);
+        if (this.eSh != null) {
+            if (!as.isEmpty(str)) {
+                this.eSh.onLoaded(true, str);
             } else {
-                this.eLM.onLoaded(false, null);
+                this.eSh.onLoaded(false, null);
             }
         }
     }
 
     private boolean unZip(String str, String str2) {
-        if (ar.isEmpty(str) || ar.isEmpty(str2)) {
+        if (as.isEmpty(str) || as.isEmpty(str2)) {
             return false;
         }
         return r.unZipFiles(str, str2);
     }
 
     private void clearTemp(String str) {
-        if (!ar.isEmpty(str)) {
+        if (!as.isEmpty(str)) {
             n.deleteFileOrDir(new File(str));
         }
     }
 
     private boolean isExists(String str) {
-        return !ar.isEmpty(str) && new File(str).exists();
+        return !as.isEmpty(str) && new File(str).exists();
     }
 }

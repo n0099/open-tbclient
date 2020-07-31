@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.statics.SdkStaticKeys;
 import com.baidu.live.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaChallengeRewardData implements IBaseDialogData {
     public static final int CHALLENGE_FAIL = 0;
     public static final int CHALLENGE_SUCCESS = 2;

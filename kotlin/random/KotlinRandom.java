@@ -19,7 +19,7 @@ final class KotlinRandom extends Random {
 
     @Override // java.util.Random
     protected int next(int i) {
-        return this.impl.La(i);
+        return this.impl.Lu(i);
     }
 
     @Override // java.util.Random

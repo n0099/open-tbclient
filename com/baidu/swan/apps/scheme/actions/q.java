@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class q extends aa {
     public q(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/openStatisticEvent");
@@ -34,7 +34,7 @@ public class q extends aa {
             }
         }
         com.baidu.swan.apps.console.c.i("OpenStatisticEvent", "OpenStat : " + optParamsAsJo);
-        com.baidu.swan.apps.aq.n.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.q.1
+        com.baidu.swan.apps.aq.p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.q.1
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.swan.apps.statistic.b.onEvent(optString, optParamsAsJo);

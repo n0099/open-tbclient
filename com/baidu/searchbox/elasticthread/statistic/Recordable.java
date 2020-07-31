@@ -1,8 +1,8 @@
 package com.baidu.searchbox.elasticthread.statistic;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public interface Recordable {
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public enum RecordStatus {
         UNINITIATED,
         RECORDING,

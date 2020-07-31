@@ -13,7 +13,7 @@ public abstract class k<T> implements o<T> {
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.L(th);
+            io.reactivex.exceptions.a.K(th);
             NullPointerException nullPointerException = new NullPointerException("subscribeActual failed");
             nullPointerException.initCause(th);
             throw nullPointerException;

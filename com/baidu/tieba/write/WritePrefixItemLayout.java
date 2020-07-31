@@ -9,15 +9,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class WritePrefixItemLayout extends LinearLayout {
-    private TextView fli;
+    private TextView fqq;
     private Context mContext;
-    private TextView mmn;
-    private ImageView mmo;
-    private View mmp;
+    private TextView mun;
+    private ImageView muo;
+    private View mup;
 
     public WritePrefixItemLayout(Context context) {
         this(context, null);
@@ -33,40 +33,40 @@ public class WritePrefixItemLayout extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(R.layout.prefix_item, this);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
-        this.fli = (TextView) findViewById(R.id.prefix_text);
-        this.mmn = (TextView) findViewById(R.id.prefix_no_tip);
-        this.mmo = (ImageView) findViewById(R.id.prefix_checked);
-        this.mmp = findViewById(R.id.prefix_item_divider);
-        this.fli.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        an.setViewTextColor(this.mmn, (int) R.color.cp_cont_d);
-        this.mmo.setBackgroundDrawable(an.getDrawable(R.drawable.icon_set_list_ok_s));
-        an.setBackgroundColor(this.mmp, R.color.cp_bg_line_c);
-        an.setBackgroundResource(this, R.drawable.addresslist_item_bg);
+        this.fqq = (TextView) findViewById(R.id.prefix_text);
+        this.mun = (TextView) findViewById(R.id.prefix_no_tip);
+        this.muo = (ImageView) findViewById(R.id.prefix_checked);
+        this.mup = findViewById(R.id.prefix_item_divider);
+        this.fqq.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+        ao.setViewTextColor(this.mun, R.color.cp_cont_d);
+        this.muo.setBackgroundDrawable(ao.getDrawable(R.drawable.icon_set_list_ok_s));
+        ao.setBackgroundColor(this.mup, R.color.cp_bg_line_c);
+        ao.setBackgroundResource(this, R.drawable.addresslist_item_bg);
     }
 
     public void setPrefixText(String str) {
-        this.fli.setText(str);
+        this.fqq.setText(str);
     }
 
     public void setPrefixTextColor(int i) {
-        this.fli.setTextColor(i);
+        this.fqq.setTextColor(i);
     }
 
-    public void vI(boolean z) {
-        this.mmn.setVisibility(z ? 0 : 8);
+    public void wm(boolean z) {
+        this.mun.setVisibility(z ? 0 : 8);
     }
 
-    public void vJ(boolean z) {
+    public void wn(boolean z) {
         if (z) {
-            this.mmo.setVisibility(0);
+            this.muo.setVisibility(0);
         } else {
-            this.mmo.setVisibility(8);
+            this.muo.setVisibility(8);
         }
     }
 
     public void setDividerStyle(boolean z) {
         if (!z) {
-            ((LinearLayout.LayoutParams) this.mmp.getLayoutParams()).setMargins(l.getDimens(this.mContext, R.dimen.ds30), 0, l.getDimens(this.mContext, R.dimen.ds30), 0);
+            ((LinearLayout.LayoutParams) this.mup.getLayoutParams()).setMargins(l.getDimens(this.mContext, R.dimen.ds30), 0, l.getDimens(this.mContext, R.dimen.ds30), 0);
         }
     }
 }

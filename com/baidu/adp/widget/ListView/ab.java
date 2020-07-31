@@ -17,7 +17,7 @@ public class ab extends RecyclerView.Adapter<ad.a> implements u<q> {
     private SparseArray<Integer> mViewTypes = new SparseArray<>();
     private List<q> mLists = new ArrayList();
     private RecyclerView mRecyclerView = null;
-    private int Wl = -1;
+    private int We = -1;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -28,7 +28,7 @@ public class ab extends RecyclerView.Adapter<ad.a> implements u<q> {
         if (this.mRecyclerView == null) {
             this.mRecyclerView = (RecyclerView) viewGroup;
         }
-        q item = getItem(this.Wl);
+        q item = getItem(this.We);
         if (this.mDelegateAdapters == null || (aVar = this.mDelegateAdapters.get(i)) == null) {
             return null;
         }
@@ -66,7 +66,7 @@ public class ab extends RecyclerView.Adapter<ad.a> implements u<q> {
         q item;
         BdUniqueId type;
         Integer num;
-        this.Wl = i;
+        this.We = i;
         if (this.mDelegateAdapters == null || this.mDelegateAdapters.size() == 0 || (item = getItem(i)) == null || (type = item.getType()) == null || (num = this.mViewTypes.get(type.getId())) == null) {
             return -1;
         }
@@ -166,8 +166,8 @@ public class ab extends RecyclerView.Adapter<ad.a> implements u<q> {
             } else {
                 aVar = this.mDelegateAdapters.valueAt(itemViewType);
             }
-            if (aVar != null && aVar.pi() != null) {
-                aVar.pi().a(view, item, aVar.getType(), viewGroup, i, j);
+            if (aVar != null && aVar.pj() != null) {
+                aVar.pj().a(view, item, aVar.getType(), viewGroup, i, j);
             }
         }
     }
@@ -184,10 +184,10 @@ public class ab extends RecyclerView.Adapter<ad.a> implements u<q> {
         } else {
             aVar = this.mDelegateAdapters.valueAt(itemViewType);
         }
-        if (aVar == null || aVar.pj() == null) {
+        if (aVar == null || aVar.pk() == null) {
             return false;
         }
-        return aVar.pj().b(view, item, aVar.getType(), viewGroup, i, j);
+        return aVar.pk().b(view, item, aVar.getType(), viewGroup, i, j);
     }
 
     @Override // com.baidu.adp.widget.ListView.u

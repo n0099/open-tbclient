@@ -15,11 +15,11 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.reactivex.disposables.b {
-    static final Callable nKL = new a();
+    static final Callable nTt = new a();
     final AtomicReference<ReplaySubscriber<T>> current;
-    final io.reactivex.g<T> nJW;
-    final Callable<? extends b<T>> nKK;
-    final org.a.b<T> nKy;
+    final io.reactivex.g<T> nSE;
+    final org.a.b<T> nTg;
+    final Callable<? extends b<T>> nTs;
 
     /* loaded from: classes7.dex */
     interface b<T> {
@@ -34,7 +34,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nKy.subscribe(cVar);
+        this.nTg.subscribe(cVar);
     }
 
     @Override // io.reactivex.disposables.b
@@ -57,27 +57,27 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                 break;
             }
             try {
-                ReplaySubscriber<T> replaySubscriber2 = new ReplaySubscriber<>(this.nKK.call());
+                ReplaySubscriber<T> replaySubscriber2 = new ReplaySubscriber<>(this.nTs.call());
                 if (this.current.compareAndSet(replaySubscriber, replaySubscriber2)) {
                     replaySubscriber = replaySubscriber2;
                     break;
                 }
             } finally {
-                io.reactivex.exceptions.a.L(th);
-                RuntimeException N = ExceptionHelper.N(th);
+                io.reactivex.exceptions.a.K(th);
+                RuntimeException M = ExceptionHelper.M(th);
             }
         }
         boolean z = !replaySubscriber.shouldConnect.get() && replaySubscriber.shouldConnect.compareAndSet(false, true);
         try {
             gVar.accept(replaySubscriber);
             if (z) {
-                this.nJW.a((j) replaySubscriber);
+                this.nSE.a((j) replaySubscriber);
             }
         } catch (Throwable th) {
             if (z) {
                 replaySubscriber.shouldConnect.compareAndSet(true, false);
             }
-            throw ExceptionHelper.N(th);
+            throw ExceptionHelper.M(th);
         }
     }
 
@@ -286,7 +286,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                     } else {
                         return;
                     }
-                } while (!compareAndSet(j2, io.reactivex.internal.util.b.N(j2, j)));
+                } while (!compareAndSet(j2, io.reactivex.internal.util.b.P(j2, j)));
                 io.reactivex.internal.util.b.a(this.totalRequested, j);
                 this.parent.manageRequests();
                 this.parent.buffer.replay(this);
@@ -375,7 +375,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                                 return;
                             }
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.L(th);
+                            io.reactivex.exceptions.a.K(th);
                             innerSubscription.dispose();
                             if (!NotificationLite.isError(obj) && !NotificationLite.isComplete(obj)) {
                                 cVar.onError(th);
@@ -557,7 +557,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                                 return;
                             }
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.L(th);
+                            io.reactivex.exceptions.a.K(th);
                             innerSubscription.index = null;
                             innerSubscription.dispose();
                             if (!NotificationLite.isError(leaveTransform) && !NotificationLite.isComplete(leaveTransform)) {
@@ -654,7 +654,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.BoundedReplayBuffer
         Object leaveTransform(Object obj) {
-            return ((io.reactivex.f.b) obj).dQf();
+            return ((io.reactivex.f.b) obj).dTB();
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.BoundedReplayBuffer
@@ -670,7 +670,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                     this.size--;
                     node2 = node3;
                     node3 = node3.get();
-                } else if (((io.reactivex.f.b) node3.value).amH() > a) {
+                } else if (((io.reactivex.f.b) node3.value).aob() > a) {
                     break;
                 } else {
                     i++;
@@ -699,7 +699,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
             Node node = (Node) get();
             Node node2 = node;
             int i = 0;
-            for (Node node3 = node.get(); node3 != null && this.size > 1 && ((io.reactivex.f.b) node3.value).amH() <= a; node3 = node3.get()) {
+            for (Node node3 = node.get(); node3 != null && this.size > 1 && ((io.reactivex.f.b) node3.value).aob() <= a; node3 = node3.get()) {
                 i++;
                 this.size--;
                 node2 = node3;
@@ -713,7 +713,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
             Node node2 = node;
             for (Node node3 = node.get(); node3 != null; node3 = node3.get()) {
                 io.reactivex.f.b bVar = (io.reactivex.f.b) node3.value;
-                if (NotificationLite.isComplete(bVar.dQf()) || NotificationLite.isError(bVar.dQf()) || bVar.amH() > a) {
+                if (NotificationLite.isComplete(bVar.dTB()) || NotificationLite.isError(bVar.dTB()) || bVar.aob() > a) {
                     break;
                 }
                 node2 = node3;

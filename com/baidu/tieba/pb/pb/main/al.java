@@ -1,53 +1,53 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.pb.main.ak;
-/* loaded from: classes9.dex */
-public class al extends m<ai, ak> {
-    private com.baidu.tieba.pb.data.e kck;
-    private ak.a kkP;
+import com.baidu.tieba.view.NavigationBarCoverTip;
+/* loaded from: classes16.dex */
+public class al {
+    private NavigationBarCoverTip ihB;
+    private int ihC;
+    private com.baidu.adp.base.e mContext;
+    private TextView mTipView;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public al(PbFragment pbFragment, BdUniqueId bdUniqueId) {
-        super(pbFragment, bdUniqueId);
-        this.kkP = new ak.a() { // from class: com.baidu.tieba.pb.pb.main.al.1
-            @Override // com.baidu.tieba.pb.pb.main.ak.a
-            public void b(ai aiVar) {
-                if (aiVar != null) {
-                    com.baidu.tieba.pb.c.a.a(al.this.kck, aiVar, aiVar.locate, 5);
-                }
+    public al(com.baidu.adp.base.e eVar, NavigationBarCoverTip navigationBarCoverTip) {
+        this.mContext = eVar;
+        this.ihB = navigationBarCoverTip;
+        init();
+    }
+
+    private void init() {
+        this.mTipView = new TextView(this.mContext.getPageActivity());
+        this.mTipView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        this.mTipView.setMinHeight(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112));
+        this.mTipView.setPadding(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds34), 0, this.mContext.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
+        this.mTipView.setGravity(19);
+        this.mTipView.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(R.dimen.tbfontsize42));
+        this.mTipView.setLineSpacing(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
+    }
+
+    public void KM(String str) {
+        if (this.ihB != null) {
+            if (com.baidu.tbadk.core.util.as.isEmpty(str) || this.ihC > 0) {
+                onDestory();
+                this.ihB.setVisibility(8);
+                return;
             }
-        };
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cj */
-    public ak b(ViewGroup viewGroup) {
-        return new ak(this.kbv.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_page_news, viewGroup, false), this.kkP);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.m, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, ai aiVar, ak akVar) {
-        super.a(i, view, viewGroup, (ViewGroup) aiVar, (ai) akVar);
-        if (aiVar != null) {
-            aiVar.locate = i + 1;
-            com.baidu.tieba.pb.c.a.a(this.kbv.getUniqueId(), this.kck, aiVar, aiVar.locate, 5);
-            akVar.a(aiVar);
-            akVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            this.ihB.setVisibility(0);
+            this.ihC++;
+            this.mTipView.setText(str);
+            com.baidu.tbadk.core.util.ao.setViewTextColor(this.mTipView, R.color.cp_cont_a);
+            this.ihB.removeAllViews();
+            this.ihB.addView(this.mTipView);
+            this.ihB.i(this.mContext.getPageActivity(), 5000);
         }
-        return view;
     }
 
-    public void setData(com.baidu.tieba.pb.data.e eVar) {
-        this.kck = eVar;
+    public void onDestory() {
+        if (this.ihB != null) {
+            this.ihB.onDestroy();
+        }
     }
 }

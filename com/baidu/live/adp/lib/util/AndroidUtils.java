@@ -3,7 +3,7 @@ package com.baidu.live.adp.lib.util;
 import android.content.Context;
 import android.text.ClipboardManager;
 import com.baidu.live.adp.base.BdBaseApplication;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AndroidUtils {
     public static int getStatusBarHeight(Context context) {
         int identifier;

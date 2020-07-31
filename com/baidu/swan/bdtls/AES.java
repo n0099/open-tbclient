@@ -1,7 +1,7 @@
 package com.baidu.swan.bdtls;
 
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class AES {
     private static native byte[] decrypt(byte[] bArr, byte[] bArr2);
 

@@ -8,11 +8,11 @@ import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
+import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
 import com.baidu.android.imsdk.group.GroupMessageManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.MessageParser;
-import com.baidu.android.imsdk.mcast.McastManagerImpl;
 import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
 import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.task.TaskManager;
@@ -189,7 +189,7 @@ public class IMFetchMsgByIdMsg extends Message {
                             Iterator<ChatMsg> it = parserMessage.iterator();
                             while (it.hasNext()) {
                                 ChatMsg next = it.next();
-                                if (McastManagerImpl.getInstance(this.mContext).isReliable(((TextMsg) next).getCastId()).booleanValue()) {
+                                if (ConversationStudioManImpl.getInstance(this.mContext).isReliable(((TextMsg) next).getCastId())) {
                                     arrayList2.add((TextMsg) next);
                                     arrayList3.add(Long.valueOf(next.getMsgId()));
                                 }
@@ -197,7 +197,7 @@ public class IMFetchMsgByIdMsg extends Message {
                             LogUtils.d(IMFetchMsgByIdMsg.TAG, " fetch reliableMsgs cast message , size " + arrayList2.size() + ", ids :" + arrayList3.toString());
                             if (arrayList2.size() > 0) {
                                 parserMessage = ChatMessageDBManager.getInstance(this.mContext).addCastReliableMsgs(arrayList2);
-                                McastManagerImpl.getInstance(this.mContext).deliverCastReliableMsg(((TextMsg) parserMessage.get(0)).getCastId(), parserMessage);
+                                ConversationStudioManImpl.getInstance(this.mContext).deliverCastReliableMsg(((TextMsg) parserMessage.get(0)).getCastId(), parserMessage);
                             }
                         } else {
                             parserMessage = ChatMessageDBManager.getInstance(this.mContext).addMsgs(this.mContext, parserMessage, true, IMFetchMsgByIdMsg.this.mTriggerReason);

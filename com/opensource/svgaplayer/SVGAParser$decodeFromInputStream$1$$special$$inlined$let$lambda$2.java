@@ -5,24 +5,24 @@ import kotlin.h;
 import kotlin.jvm.internal.Lambda;
 import kotlin.l;
 @h
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 final class SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$2 extends Lambda implements kotlin.jvm.a.a<l> {
     final /* synthetic */ f $videoItem;
-    final /* synthetic */ d.RunnableC0860d this$0;
+    final /* synthetic */ d.RunnableC0869d this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$2(f fVar, d.RunnableC0860d runnableC0860d) {
+    public SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$2(f fVar, d.RunnableC0869d runnableC0869d) {
         super(0);
         this.$videoItem = fVar;
-        this.this$0 = runnableC0860d;
+        this.this$0 = runnableC0869d;
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.a.a
     public /* bridge */ /* synthetic */ l invoke() {
         invoke2();
-        return l.nPe;
+        return l.nXN;
     }
 
     @Override // kotlin.jvm.a.a

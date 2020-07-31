@@ -2,12 +2,12 @@ package com.baidu.tieba.pb.video;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class b implements q {
-    public static final BdUniqueId kvs = BdUniqueId.gen();
+    public static final BdUniqueId kEl = BdUniqueId.gen();
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return kvs;
+        return kEl;
     }
 }

@@ -2,11 +2,11 @@ package com.idlefish.flutterboost.interfaces;
 
 import android.content.Intent;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public interface IOperateSyncer {
     void onActivityResult(int i, int i2, Intent intent);
 
-    void onAppear(boolean z);
+    void onAppear();
 
     void onBackPressed();
 
@@ -16,7 +16,7 @@ public interface IOperateSyncer {
 
     void onDestroy();
 
-    void onDisappear(boolean z);
+    void onDisappear();
 
     void onLowMemory();
 

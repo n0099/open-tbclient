@@ -1,7 +1,7 @@
 package com.google.zxing;
 
 import com.baidu.mobstat.Config;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class Dimension {
     private final int height;
     private final int width;

@@ -4,29 +4,29 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class hv implements ix<hv, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public int f477a;
+    public int f473a;
 
     /* renamed from: a  reason: collision with other field name */
-    public hs f478a;
+    public hs f474a;
 
     /* renamed from: a  reason: collision with other field name */
-    private BitSet f479a = new BitSet(1);
+    private BitSet f475a = new BitSet(1);
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hx> f480a;
+    public List<hx> f476a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jn f476a = new jn("NormalConfig");
+    private static final jn f472a = new jn("NormalConfig");
     private static final jf a = new jf("", (byte) 8, 1);
     private static final jf b = new jf("", (byte) 15, 2);
     private static final jf c = new jf("", (byte) 8, 3);
 
     public int a() {
-        return this.f477a;
+        return this.f473a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,15 +37,15 @@ public class hv implements ix<hv, Object>, Serializable, Cloneable {
         int a3;
         int a4;
         if (getClass().equals(hvVar.getClass())) {
-            int compareTo = Boolean.valueOf(m354a()).compareTo(Boolean.valueOf(hvVar.m354a()));
+            int compareTo = Boolean.valueOf(m355a()).compareTo(Boolean.valueOf(hvVar.m355a()));
             if (compareTo == 0) {
-                if (!m354a() || (a4 = iy.a(this.f477a, hvVar.f477a)) == 0) {
+                if (!m355a() || (a4 = iy.a(this.f473a, hvVar.f473a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hvVar.b()));
                     if (compareTo2 == 0) {
-                        if (!b() || (a3 = iy.a(this.f480a, hvVar.f480a)) == 0) {
+                        if (!b() || (a3 = iy.a(this.f476a, hvVar.f476a)) == 0) {
                             int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(hvVar.c()));
                             if (compareTo3 == 0) {
-                                if (!c() || (a2 = iy.a(this.f478a, hvVar.f478a)) == 0) {
+                                if (!c() || (a2 = iy.a(this.f474a, hvVar.f474a)) == 0) {
                                     return 0;
                                 }
                                 return a2;
@@ -64,65 +64,65 @@ public class hv implements ix<hv, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public hs m352a() {
-        return this.f478a;
+    public hs m353a() {
+        return this.f474a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m353a() {
-        if (this.f480a == null) {
+    public void m354a() {
+        if (this.f476a == null) {
             throw new jj("Required field 'configItems' was not present! Struct: " + toString());
         }
     }
 
     @Override // com.xiaomi.push.ix
     public void a(ji jiVar) {
-        jiVar.m483a();
+        jiVar.m484a();
         while (true) {
-            jf m479a = jiVar.m479a();
-            if (m479a.a == 0) {
+            jf m480a = jiVar.m480a();
+            if (m480a.a == 0) {
                 jiVar.f();
-                if (!m354a()) {
+                if (!m355a()) {
                     throw new jj("Required field 'version' was not found in serialized data! Struct: " + toString());
                 }
-                m353a();
+                m354a();
                 return;
             }
-            switch (m479a.f784a) {
+            switch (m480a.f780a) {
                 case 1:
-                    if (m479a.a == 8) {
-                        this.f477a = jiVar.m477a();
+                    if (m480a.a == 8) {
+                        this.f473a = jiVar.m478a();
                         a(true);
                         break;
                     } else {
-                        jl.a(jiVar, m479a.a);
+                        jl.a(jiVar, m480a.a);
                         break;
                     }
                 case 2:
-                    if (m479a.a == 15) {
-                        jg m480a = jiVar.m480a();
-                        this.f480a = new ArrayList(m480a.f785a);
-                        for (int i = 0; i < m480a.f785a; i++) {
+                    if (m480a.a == 15) {
+                        jg m481a = jiVar.m481a();
+                        this.f476a = new ArrayList(m481a.f781a);
+                        for (int i = 0; i < m481a.f781a; i++) {
                             hx hxVar = new hx();
                             hxVar.a(jiVar);
-                            this.f480a.add(hxVar);
+                            this.f476a.add(hxVar);
                         }
                         jiVar.i();
                         break;
                     } else {
-                        jl.a(jiVar, m479a.a);
+                        jl.a(jiVar, m480a.a);
                         break;
                     }
                 case 3:
-                    if (m479a.a == 8) {
-                        this.f478a = hs.a(jiVar.m477a());
+                    if (m480a.a == 8) {
+                        this.f474a = hs.a(jiVar.m478a());
                         break;
                     } else {
-                        jl.a(jiVar, m479a.a);
+                        jl.a(jiVar, m480a.a);
                         break;
                     }
                 default:
-                    jl.a(jiVar, m479a.a);
+                    jl.a(jiVar, m480a.a);
                     break;
             }
             jiVar.g();
@@ -130,65 +130,65 @@ public class hv implements ix<hv, Object>, Serializable, Cloneable {
     }
 
     public void a(boolean z) {
-        this.f479a.set(0, z);
+        this.f475a.set(0, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m354a() {
-        return this.f479a.get(0);
+    public boolean m355a() {
+        return this.f475a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m355a(hv hvVar) {
-        if (hvVar != null && this.f477a == hvVar.f477a) {
+    public boolean m356a(hv hvVar) {
+        if (hvVar != null && this.f473a == hvVar.f473a) {
             boolean b2 = b();
             boolean b3 = hvVar.b();
-            if ((b2 || b3) && !(b2 && b3 && this.f480a.equals(hvVar.f480a))) {
+            if ((b2 || b3) && !(b2 && b3 && this.f476a.equals(hvVar.f476a))) {
                 return false;
             }
             boolean c2 = c();
             boolean c3 = hvVar.c();
-            return !(c2 || c3) || (c2 && c3 && this.f478a.equals(hvVar.f478a));
+            return !(c2 || c3) || (c2 && c3 && this.f474a.equals(hvVar.f474a));
         }
         return false;
     }
 
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
-        m353a();
-        jiVar.a(f476a);
+        m354a();
+        jiVar.a(f472a);
         jiVar.a(a);
-        jiVar.a(this.f477a);
+        jiVar.a(this.f473a);
         jiVar.b();
-        if (this.f480a != null) {
+        if (this.f476a != null) {
             jiVar.a(b);
-            jiVar.a(new jg((byte) 12, this.f480a.size()));
-            for (hx hxVar : this.f480a) {
+            jiVar.a(new jg((byte) 12, this.f476a.size()));
+            for (hx hxVar : this.f476a) {
                 hxVar.b(jiVar);
             }
             jiVar.e();
             jiVar.b();
         }
-        if (this.f478a != null && c()) {
+        if (this.f474a != null && c()) {
             jiVar.a(c);
-            jiVar.a(this.f478a.a());
+            jiVar.a(this.f474a.a());
             jiVar.b();
         }
         jiVar.c();
-        jiVar.m487a();
+        jiVar.m488a();
     }
 
     public boolean b() {
-        return this.f480a != null;
+        return this.f476a != null;
     }
 
     public boolean c() {
-        return this.f478a != null;
+        return this.f474a != null;
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hv)) {
-            return m355a((hv) obj);
+            return m356a((hv) obj);
         }
         return false;
     }
@@ -200,21 +200,21 @@ public class hv implements ix<hv, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("NormalConfig(");
         sb.append("version:");
-        sb.append(this.f477a);
+        sb.append(this.f473a);
         sb.append(", ");
         sb.append("configItems:");
-        if (this.f480a == null) {
+        if (this.f476a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f480a);
+            sb.append(this.f476a);
         }
         if (c()) {
             sb.append(", ");
             sb.append("type:");
-            if (this.f478a == null) {
+            if (this.f474a == null) {
                 sb.append("null");
             } else {
-                sb.append(this.f478a);
+                sb.append(this.f474a);
             }
         }
         sb.append(")");

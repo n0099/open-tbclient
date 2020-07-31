@@ -34,61 +34,61 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class aq {
     private static aq a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f56a;
+    private Context f52a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Handler f58a;
+    private Handler f54a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Messenger f59a;
+    private Messenger f55a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f63a;
+    private boolean f59a;
     private static boolean b = false;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final ArrayList<a> f55a = new ArrayList<>();
+    private static final ArrayList<a> f51a = new ArrayList<>();
 
     /* renamed from: a  reason: collision with other field name */
-    private List<Message> f62a = new ArrayList();
+    private List<Message> f58a = new ArrayList();
     private boolean c = false;
 
     /* renamed from: a  reason: collision with other field name */
-    private Intent f57a = null;
+    private Intent f53a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private Integer f60a = null;
+    private Integer f56a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f61a = null;
+    private String f57a = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a<T extends ix<T, ?>> {
         hm a;
 
         /* renamed from: a  reason: collision with other field name */
-        T f64a;
+        T f60a;
 
         /* renamed from: a  reason: collision with other field name */
-        boolean f65a;
+        boolean f61a;
 
         a() {
         }
     }
 
     private aq(Context context) {
-        this.f63a = false;
-        this.f58a = null;
-        this.f56a = context.getApplicationContext();
-        this.f63a = m76c();
-        b = m77d();
-        this.f58a = new ar(this, Looper.getMainLooper());
+        this.f59a = false;
+        this.f54a = null;
+        this.f52a = context.getApplicationContext();
+        this.f59a = m77c();
+        b = m78d();
+        this.f54a = new ar(this, Looper.getMainLooper());
         Intent b2 = b();
         if (b2 != null) {
             b(b2);
@@ -96,12 +96,12 @@ public class aq {
     }
 
     private synchronized int a() {
-        return this.f56a.getSharedPreferences("mipush_extra", 0).getInt(Constants.EXTRA_KEY_BOOT_SERVICE_MODE, -1);
+        return this.f52a.getSharedPreferences("mipush_extra", 0).getInt(Constants.EXTRA_KEY_BOOT_SERVICE_MODE, -1);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private Intent m71a() {
-        return (!m81a() || "com.xiaomi.xmsf".equals(this.f56a.getPackageName())) ? e() : d();
+    private Intent m72a() {
+        return (!m82a() || "com.xiaomi.xmsf".equals(this.f52a.getPackageName())) ? e() : d();
     }
 
     private Message a(Intent intent) {
@@ -123,23 +123,23 @@ public class aq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private String m74a() {
-        return this.f56a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4).versionCode >= 106 ? "com.xiaomi.push.service.XMPushService" : "com.xiaomi.xmsf.push.service.XMPushService";
+    private String m75a() {
+        return this.f52a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4).versionCode >= 106 ? "com.xiaomi.push.service.XMPushService" : "com.xiaomi.xmsf.push.service.XMPushService";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, av avVar, boolean z, HashMap<String, String> hashMap) {
         il ilVar;
-        if (b.m88a(this.f56a).m95b() && az.b(this.f56a)) {
+        if (b.m89a(this.f52a).m96b() && az.b(this.f52a)) {
             il ilVar2 = new il();
             ilVar2.a(true);
-            Intent m71a = m71a();
+            Intent m72a = m72a();
             if (TextUtils.isEmpty(str)) {
                 str = com.xiaomi.push.service.an.a();
                 ilVar2.a(str);
                 il ilVar3 = z ? new il(str, true) : null;
                 synchronized (ag.class) {
-                    ag.a(this.f56a).m67a(str);
+                    ag.a(this.f52a).m68a(str);
                 }
                 ilVar = ilVar3;
             } else {
@@ -148,48 +148,48 @@ public class aq {
             }
             switch (au.a[avVar.ordinal()]) {
                 case 1:
-                    ilVar2.c(hw.DisablePushMessage.f482a);
-                    ilVar.c(hw.DisablePushMessage.f482a);
+                    ilVar2.c(hw.DisablePushMessage.f478a);
+                    ilVar.c(hw.DisablePushMessage.f478a);
                     if (hashMap != null) {
                         ilVar2.a(hashMap);
                         ilVar.a(hashMap);
                     }
-                    m71a.setAction("com.xiaomi.mipush.DISABLE_PUSH_MESSAGE");
+                    m72a.setAction("com.xiaomi.mipush.DISABLE_PUSH_MESSAGE");
                     break;
                 case 2:
-                    ilVar2.c(hw.EnablePushMessage.f482a);
-                    ilVar.c(hw.EnablePushMessage.f482a);
+                    ilVar2.c(hw.EnablePushMessage.f478a);
+                    ilVar.c(hw.EnablePushMessage.f478a);
                     if (hashMap != null) {
                         ilVar2.a(hashMap);
                         ilVar.a(hashMap);
                     }
-                    m71a.setAction("com.xiaomi.mipush.ENABLE_PUSH_MESSAGE");
+                    m72a.setAction("com.xiaomi.mipush.ENABLE_PUSH_MESSAGE");
                     break;
                 case 3:
                 case 4:
                 case 5:
                 case 6:
-                    ilVar2.c(hw.ThirdPartyRegUpdate.f482a);
+                    ilVar2.c(hw.ThirdPartyRegUpdate.f478a);
                     if (hashMap != null) {
                         ilVar2.a(hashMap);
                         break;
                     }
                     break;
             }
-            ilVar2.b(b.m88a(this.f56a).m89a());
-            ilVar2.d(this.f56a.getPackageName());
+            ilVar2.b(b.m89a(this.f52a).m90a());
+            ilVar2.d(this.f52a.getPackageName());
             a((aq) ilVar2, hm.Notification, false, (hz) null);
             if (z) {
-                ilVar.b(b.m88a(this.f56a).m89a());
-                ilVar.d(this.f56a.getPackageName());
-                byte[] a2 = iw.a(aj.a(this.f56a, ilVar, hm.Notification, false, this.f56a.getPackageName(), b.m88a(this.f56a).m89a()));
+                ilVar.b(b.m89a(this.f52a).m90a());
+                ilVar.d(this.f52a.getPackageName());
+                byte[] a2 = iw.a(aj.a(this.f52a, ilVar, hm.Notification, false, this.f52a.getPackageName(), b.m89a(this.f52a).m90a()));
                 if (a2 != null) {
-                    df.a(this.f56a.getPackageName(), this.f56a, ilVar, hm.Notification, a2.length);
-                    m71a.putExtra("mipush_payload", a2);
-                    m71a.putExtra("com.xiaomi.mipush.MESSAGE_CACHE", true);
-                    m71a.putExtra("mipush_app_id", b.m88a(this.f56a).m89a());
-                    m71a.putExtra("mipush_app_token", b.m88a(this.f56a).b());
-                    c(m71a);
+                    df.a(this.f52a.getPackageName(), this.f52a, ilVar, hm.Notification, a2.length);
+                    m72a.putExtra("mipush_payload", a2);
+                    m72a.putExtra("com.xiaomi.mipush.MESSAGE_CACHE", true);
+                    m72a.putExtra("mipush_app_id", b.m89a(this.f52a).m90a());
+                    m72a.putExtra("mipush_app_token", b.m89a(this.f52a).b());
+                    c(m72a);
                 }
             }
             Message obtain = Message.obtain();
@@ -197,12 +197,12 @@ public class aq {
             int ordinal = avVar.ordinal();
             obtain.obj = str;
             obtain.arg1 = ordinal;
-            this.f58a.sendMessageDelayed(obtain, 5000L);
+            this.f54a.sendMessageDelayed(obtain, 5000L);
         }
     }
 
     private Intent b() {
-        if ("com.xiaomi.xmsf".equals(this.f56a.getPackageName())) {
+        if ("com.xiaomi.xmsf".equals(this.f52a.getPackageName())) {
             com.xiaomi.channel.commonutils.logger.b.c("pushChannel xmsf create own channel");
             return e();
         }
@@ -211,8 +211,8 @@ public class aq {
 
     private void b(Intent intent) {
         try {
-            if (com.xiaomi.push.l.m494a() || Build.VERSION.SDK_INT < 26) {
-                this.f56a.startService(intent);
+            if (com.xiaomi.push.l.m495a() || Build.VERSION.SDK_INT < 26) {
+                this.f52a.startService(intent);
             } else {
                 d(intent);
             }
@@ -222,7 +222,7 @@ public class aq {
     }
 
     private Intent c() {
-        if (m81a()) {
+        if (m82a()) {
             com.xiaomi.channel.commonutils.logger.b.c("pushChannel app start miui china channel");
             return d();
         }
@@ -231,16 +231,16 @@ public class aq {
     }
 
     private synchronized void c(int i) {
-        this.f56a.getSharedPreferences("mipush_extra", 0).edit().putInt(Constants.EXTRA_KEY_BOOT_SERVICE_MODE, i).commit();
+        this.f52a.getSharedPreferences("mipush_extra", 0).edit().putInt(Constants.EXTRA_KEY_BOOT_SERVICE_MODE, i).commit();
     }
 
     private void c(Intent intent) {
-        int a2 = com.xiaomi.push.service.ak.a(this.f56a).a(hr.ServiceBootMode.a(), hn.START.a());
+        int a2 = com.xiaomi.push.service.ak.a(this.f52a).a(hr.ServiceBootMode.a(), hn.START.a());
         int a3 = a();
         boolean z = a2 == hn.BIND.a() && b;
         int a4 = z ? hn.BIND.a() : hn.START.a();
         if (a4 != a3) {
-            m82a(a4);
+            m83a(a4);
         }
         if (z) {
             d(intent);
@@ -250,9 +250,9 @@ public class aq {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    private boolean m76c() {
+    private boolean m77c() {
         try {
-            PackageInfo packageInfo = this.f56a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
+            PackageInfo packageInfo = this.f52a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
             if (packageInfo == null) {
                 return false;
             }
@@ -264,9 +264,9 @@ public class aq {
 
     private Intent d() {
         Intent intent = new Intent();
-        String packageName = this.f56a.getPackageName();
+        String packageName = this.f52a.getPackageName();
         intent.setPackage("com.xiaomi.xmsf");
-        intent.setClassName("com.xiaomi.xmsf", m74a());
+        intent.setClassName("com.xiaomi.xmsf", m75a());
         intent.putExtra("mipush_app_package", packageName);
         f();
         return intent;
@@ -275,33 +275,33 @@ public class aq {
     private synchronized void d(Intent intent) {
         if (this.c) {
             Message a2 = a(intent);
-            if (this.f62a.size() >= 50) {
-                this.f62a.remove(0);
+            if (this.f58a.size() >= 50) {
+                this.f58a.remove(0);
             }
-            this.f62a.add(a2);
-        } else if (this.f59a == null) {
-            Context context = this.f56a;
+            this.f58a.add(a2);
+        } else if (this.f55a == null) {
+            Context context = this.f52a;
             at atVar = new at(this);
-            Context context2 = this.f56a;
+            Context context2 = this.f52a;
             context.bindService(intent, atVar, 1);
             this.c = true;
-            this.f62a.clear();
-            this.f62a.add(a(intent));
+            this.f58a.clear();
+            this.f58a.add(a(intent));
         } else {
             try {
-                this.f59a.send(a(intent));
+                this.f55a.send(a(intent));
             } catch (RemoteException e) {
-                this.f59a = null;
+                this.f55a = null;
                 this.c = false;
             }
         }
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    private boolean m77d() {
-        if (m81a()) {
+    private boolean m78d() {
+        if (m82a()) {
             try {
-                return this.f56a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4).versionCode >= 108;
+                return this.f52a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4).versionCode >= 108;
             } catch (Exception e) {
                 return true;
             }
@@ -311,23 +311,23 @@ public class aq {
 
     private Intent e() {
         Intent intent = new Intent();
-        String packageName = this.f56a.getPackageName();
+        String packageName = this.f52a.getPackageName();
         g();
-        intent.setComponent(new ComponentName(this.f56a, "com.xiaomi.push.service.XMPushService"));
+        intent.setComponent(new ComponentName(this.f52a, "com.xiaomi.push.service.XMPushService"));
         intent.putExtra("mipush_app_package", packageName);
         return intent;
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    private boolean m78e() {
-        String packageName = this.f56a.getPackageName();
-        return packageName.contains("miui") || packageName.contains(RomUtils.MANUFACTURER_XIAOMI) || (this.f56a.getApplicationInfo().flags & 1) != 0;
+    private boolean m79e() {
+        String packageName = this.f52a.getPackageName();
+        return packageName.contains("miui") || packageName.contains(RomUtils.MANUFACTURER_XIAOMI) || (this.f52a.getApplicationInfo().flags & 1) != 0;
     }
 
     private void f() {
         try {
-            PackageManager packageManager = this.f56a.getPackageManager();
-            ComponentName componentName = new ComponentName(this.f56a, "com.xiaomi.push.service.XMPushService");
+            PackageManager packageManager = this.f52a.getPackageManager();
+            ComponentName componentName = new ComponentName(this.f52a, "com.xiaomi.push.service.XMPushService");
             if (packageManager.getComponentEnabledSetting(componentName) == 2) {
                 return;
             }
@@ -338,8 +338,8 @@ public class aq {
 
     private void g() {
         try {
-            PackageManager packageManager = this.f56a.getPackageManager();
-            ComponentName componentName = new ComponentName(this.f56a, "com.xiaomi.push.service.XMPushService");
+            PackageManager packageManager = this.f52a.getPackageManager();
+            ComponentName componentName = new ComponentName(this.f52a, "com.xiaomi.push.service.XMPushService");
             if (packageManager.getComponentEnabledSetting(componentName) == 1) {
                 return;
             }
@@ -349,80 +349,80 @@ public class aq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m79a() {
-        b(m71a());
+    public void m80a() {
+        b(m72a());
     }
 
     public void a(int i) {
-        Intent m71a = m71a();
-        m71a.setAction("com.xiaomi.mipush.CLEAR_NOTIFICATION");
-        m71a.putExtra(com.xiaomi.push.service.at.z, this.f56a.getPackageName());
-        m71a.putExtra(com.xiaomi.push.service.at.A, i);
-        c(m71a);
+        Intent m72a = m72a();
+        m72a.setAction("com.xiaomi.mipush.CLEAR_NOTIFICATION");
+        m72a.putExtra(com.xiaomi.push.service.at.z, this.f52a.getPackageName());
+        m72a.putExtra(com.xiaomi.push.service.at.A, i);
+        c(m72a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i, String str) {
-        Intent m71a = m71a();
-        m71a.setAction("com.xiaomi.mipush.thirdparty");
-        m71a.putExtra("com.xiaomi.mipush.thirdparty_LEVEL", i);
-        m71a.putExtra("com.xiaomi.mipush.thirdparty_DESC", str);
-        b(m71a);
+        Intent m72a = m72a();
+        m72a.setAction("com.xiaomi.mipush.thirdparty");
+        m72a.putExtra("com.xiaomi.mipush.thirdparty_LEVEL", i);
+        m72a.putExtra("com.xiaomi.mipush.thirdparty_DESC", str);
+        b(m72a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: a  reason: collision with other method in class */
-    public void m80a(Intent intent) {
-        intent.fillIn(m71a(), 24);
+    public void m81a(Intent intent) {
+        intent.fillIn(m72a(), 24);
         c(intent);
     }
 
     public final void a(hq hqVar) {
-        Intent m71a = m71a();
+        Intent m72a = m72a();
         byte[] a2 = iw.a(hqVar);
         if (a2 == null) {
-            com.xiaomi.channel.commonutils.logger.b.m48a("send TinyData failed, because tinyDataBytes is null.");
+            com.xiaomi.channel.commonutils.logger.b.m49a("send TinyData failed, because tinyDataBytes is null.");
             return;
         }
-        m71a.setAction("com.xiaomi.mipush.SEND_TINYDATA");
-        m71a.putExtra("mipush_payload", a2);
-        b(m71a);
+        m72a.setAction("com.xiaomi.mipush.SEND_TINYDATA");
+        m72a.putExtra("mipush_payload", a2);
+        b(m72a);
     }
 
     public final void a(im imVar, boolean z) {
-        fb.a(this.f56a.getApplicationContext()).a(this.f56a.getPackageName(), "E100003", imVar.a(), ARPMessageType.MSG_TYPE_MODEL_LOAD_PROGRESS, null);
-        this.f57a = null;
-        b.m88a(this.f56a).f70a = imVar.a();
-        Intent m71a = m71a();
-        byte[] a2 = iw.a(aj.a(this.f56a, imVar, hm.Registration));
+        fb.a(this.f52a.getApplicationContext()).a(this.f52a.getPackageName(), "E100003", imVar.a(), ARPMessageType.MSG_TYPE_MODEL_LOAD_PROGRESS, null);
+        this.f53a = null;
+        b.m89a(this.f52a).f66a = imVar.a();
+        Intent m72a = m72a();
+        byte[] a2 = iw.a(aj.a(this.f52a, imVar, hm.Registration));
         if (a2 == null) {
-            com.xiaomi.channel.commonutils.logger.b.m48a("register fail, because msgBytes is null.");
+            com.xiaomi.channel.commonutils.logger.b.m49a("register fail, because msgBytes is null.");
             return;
         }
-        m71a.setAction("com.xiaomi.mipush.REGISTER_APP");
-        m71a.putExtra("mipush_app_id", b.m88a(this.f56a).m89a());
-        m71a.putExtra("mipush_payload", a2);
-        m71a.putExtra("mipush_session", this.f61a);
-        m71a.putExtra("mipush_env_chanage", z);
-        m71a.putExtra("mipush_env_type", b.m88a(this.f56a).a());
-        if (az.b(this.f56a) && m84b()) {
-            c(m71a);
+        m72a.setAction("com.xiaomi.mipush.REGISTER_APP");
+        m72a.putExtra("mipush_app_id", b.m89a(this.f52a).m90a());
+        m72a.putExtra("mipush_payload", a2);
+        m72a.putExtra("mipush_session", this.f57a);
+        m72a.putExtra("mipush_env_chanage", z);
+        m72a.putExtra("mipush_env_type", b.m89a(this.f52a).a());
+        if (az.b(this.f52a) && m85b()) {
+            c(m72a);
         } else {
-            this.f57a = m71a;
+            this.f53a = m72a;
         }
     }
 
     public final void a(is isVar) {
-        byte[] a2 = iw.a(aj.a(this.f56a, isVar, hm.UnRegistration));
+        byte[] a2 = iw.a(aj.a(this.f52a, isVar, hm.UnRegistration));
         if (a2 == null) {
-            com.xiaomi.channel.commonutils.logger.b.m48a("unregister fail, because msgBytes is null.");
+            com.xiaomi.channel.commonutils.logger.b.m49a("unregister fail, because msgBytes is null.");
             return;
         }
-        Intent m71a = m71a();
-        m71a.setAction("com.xiaomi.mipush.UNREGISTER_APP");
-        m71a.putExtra("mipush_app_id", b.m88a(this.f56a).m89a());
-        m71a.putExtra("mipush_payload", a2);
-        c(m71a);
+        Intent m72a = m72a();
+        m72a.setAction("com.xiaomi.mipush.UNREGISTER_APP");
+        m72a.putExtra("mipush_app_id", b.m89a(this.f52a).m90a());
+        m72a.putExtra("mipush_payload", a2);
+        c(m72a);
     }
 
     public final <T extends ix<T, ?>> void a(T t, hm hmVar, hz hzVar) {
@@ -431,13 +431,13 @@ public class aq {
 
     public <T extends ix<T, ?>> void a(T t, hm hmVar, boolean z) {
         a aVar = new a();
-        aVar.f64a = t;
+        aVar.f60a = t;
         aVar.a = hmVar;
-        aVar.f65a = z;
-        synchronized (f55a) {
-            f55a.add(aVar);
-            if (f55a.size() > 10) {
-                f55a.remove(0);
+        aVar.f61a = z;
+        synchronized (f51a) {
+            f51a.add(aVar);
+            if (f51a.size() > 10) {
+                f51a.remove(0);
             }
         }
     }
@@ -451,48 +451,48 @@ public class aq {
     }
 
     public final <T extends ix<T, ?>> void a(T t, hm hmVar, boolean z, boolean z2, hz hzVar, boolean z3) {
-        a(t, hmVar, z, z2, hzVar, z3, this.f56a.getPackageName(), b.m88a(this.f56a).m89a());
+        a(t, hmVar, z, z2, hzVar, z3, this.f52a.getPackageName(), b.m89a(this.f52a).m90a());
     }
 
     public final <T extends ix<T, ?>> void a(T t, hm hmVar, boolean z, boolean z2, hz hzVar, boolean z3, String str, String str2) {
-        if (!b.m88a(this.f56a).m97c()) {
+        if (!b.m89a(this.f52a).m98c()) {
             if (z2) {
                 a((aq) t, hmVar, z);
                 return;
             } else {
-                com.xiaomi.channel.commonutils.logger.b.m48a("drop the message before initialization.");
+                com.xiaomi.channel.commonutils.logger.b.m49a("drop the message before initialization.");
                 return;
             }
         }
-        ii a2 = aj.a(this.f56a, t, hmVar, z, str, str2);
+        ii a2 = aj.a(this.f52a, t, hmVar, z, str, str2);
         if (hzVar != null) {
             a2.a(hzVar);
         }
         byte[] a3 = iw.a(a2);
         if (a3 == null) {
-            com.xiaomi.channel.commonutils.logger.b.m48a("send message fail, because msgBytes is null.");
+            com.xiaomi.channel.commonutils.logger.b.m49a("send message fail, because msgBytes is null.");
             return;
         }
-        df.a(this.f56a.getPackageName(), this.f56a, t, hmVar, a3.length);
-        Intent m71a = m71a();
-        m71a.setAction("com.xiaomi.mipush.SEND_MESSAGE");
-        m71a.putExtra("mipush_payload", a3);
-        m71a.putExtra("com.xiaomi.mipush.MESSAGE_CACHE", z3);
-        c(m71a);
+        df.a(this.f52a.getPackageName(), this.f52a, t, hmVar, a3.length);
+        Intent m72a = m72a();
+        m72a.setAction("com.xiaomi.mipush.SEND_MESSAGE");
+        m72a.putExtra("mipush_payload", a3);
+        m72a.putExtra("com.xiaomi.mipush.MESSAGE_CACHE", z3);
+        c(m72a);
     }
 
     public final void a(String str, av avVar, d dVar) {
-        ag.a(this.f56a).a(avVar, "syncing");
-        a(str, avVar, false, h.a(this.f56a, dVar));
+        ag.a(this.f52a).a(avVar, "syncing");
+        a(str, avVar, false, h.a(this.f52a, dVar));
     }
 
     public void a(String str, String str2) {
-        Intent m71a = m71a();
-        m71a.setAction("com.xiaomi.mipush.CLEAR_NOTIFICATION");
-        m71a.putExtra(com.xiaomi.push.service.at.z, this.f56a.getPackageName());
-        m71a.putExtra(com.xiaomi.push.service.at.E, str);
-        m71a.putExtra(com.xiaomi.push.service.at.F, str2);
-        c(m71a);
+        Intent m72a = m72a();
+        m72a.setAction("com.xiaomi.mipush.CLEAR_NOTIFICATION");
+        m72a.putExtra(com.xiaomi.push.service.at.z, this.f52a.getPackageName());
+        m72a.putExtra(com.xiaomi.push.service.at.E, str);
+        m72a.putExtra(com.xiaomi.push.service.at.F, str2);
+        c(m72a);
     }
 
     public final void a(boolean z) {
@@ -501,94 +501,94 @@ public class aq {
 
     public final void a(boolean z, String str) {
         if (z) {
-            ag.a(this.f56a).a(av.DISABLE_PUSH, "syncing");
-            ag.a(this.f56a).a(av.ENABLE_PUSH, "");
+            ag.a(this.f52a).a(av.DISABLE_PUSH, "syncing");
+            ag.a(this.f52a).a(av.ENABLE_PUSH, "");
             a(str, av.DISABLE_PUSH, true, (HashMap<String, String>) null);
             return;
         }
-        ag.a(this.f56a).a(av.ENABLE_PUSH, "syncing");
-        ag.a(this.f56a).a(av.DISABLE_PUSH, "");
+        ag.a(this.f52a).a(av.ENABLE_PUSH, "syncing");
+        ag.a(this.f52a).a(av.DISABLE_PUSH, "");
         a(str, av.ENABLE_PUSH, true, (HashMap<String, String>) null);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m81a() {
-        return this.f63a && 1 == b.m88a(this.f56a).a();
+    public boolean m82a() {
+        return this.f59a && 1 == b.m89a(this.f52a).a();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m82a(int i) {
-        if (b.m88a(this.f56a).m95b()) {
+    public boolean m83a(int i) {
+        if (b.m89a(this.f52a).m96b()) {
             c(i);
             il ilVar = new il();
             ilVar.a(com.xiaomi.push.service.an.a());
-            ilVar.b(b.m88a(this.f56a).m89a());
-            ilVar.d(this.f56a.getPackageName());
-            ilVar.c(hw.ClientABTest.f482a);
-            ilVar.f623a = new HashMap();
-            ilVar.f623a.put("boot_mode", i + "");
-            a(this.f56a).a((aq) ilVar, hm.Notification, false, (hz) null);
+            ilVar.b(b.m89a(this.f52a).m90a());
+            ilVar.d(this.f52a.getPackageName());
+            ilVar.c(hw.ClientABTest.f478a);
+            ilVar.f619a = new HashMap();
+            ilVar.f619a.put("boot_mode", i + "");
+            a(this.f52a).a((aq) ilVar, hm.Notification, false, (hz) null);
             return true;
         }
         return false;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public final void m83b() {
-        Intent m71a = m71a();
-        m71a.setAction("com.xiaomi.mipush.DISABLE_PUSH");
-        c(m71a);
+    public final void m84b() {
+        Intent m72a = m72a();
+        m72a.setAction("com.xiaomi.mipush.DISABLE_PUSH");
+        c(m72a);
     }
 
     public void b(int i) {
-        Intent m71a = m71a();
-        m71a.setAction("com.xiaomi.mipush.SET_NOTIFICATION_TYPE");
-        m71a.putExtra(com.xiaomi.push.service.at.z, this.f56a.getPackageName());
-        m71a.putExtra(com.xiaomi.push.service.at.B, i);
-        m71a.putExtra(com.xiaomi.push.service.at.D, be.b(this.f56a.getPackageName() + i));
-        c(m71a);
+        Intent m72a = m72a();
+        m72a.setAction("com.xiaomi.mipush.SET_NOTIFICATION_TYPE");
+        m72a.putExtra(com.xiaomi.push.service.at.z, this.f52a.getPackageName());
+        m72a.putExtra(com.xiaomi.push.service.at.B, i);
+        m72a.putExtra(com.xiaomi.push.service.at.D, be.b(this.f52a.getPackageName() + i));
+        c(m72a);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m84b() {
-        if (m81a() && m78e()) {
-            if (this.f60a == null) {
-                this.f60a = Integer.valueOf(com.xiaomi.push.service.aw.a(this.f56a).a());
-                if (this.f60a.intValue() == 0) {
-                    this.f56a.getContentResolver().registerContentObserver(com.xiaomi.push.service.aw.a(this.f56a).m546a(), false, new as(this, new Handler(Looper.getMainLooper())));
+    public boolean m85b() {
+        if (m82a() && m79e()) {
+            if (this.f56a == null) {
+                this.f56a = Integer.valueOf(com.xiaomi.push.service.aw.a(this.f52a).a());
+                if (this.f56a.intValue() == 0) {
+                    this.f52a.getContentResolver().registerContentObserver(com.xiaomi.push.service.aw.a(this.f52a).m547a(), false, new as(this, new Handler(Looper.getMainLooper())));
                 }
             }
-            return this.f60a.intValue() != 0;
+            return this.f56a.intValue() != 0;
         }
         return true;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m85c() {
-        if (this.f57a != null) {
-            c(this.f57a);
-            this.f57a = null;
+    public void m86c() {
+        if (this.f53a != null) {
+            c(this.f53a);
+            this.f53a = null;
         }
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public void m86d() {
-        synchronized (f55a) {
-            Iterator<a> it = f55a.iterator();
+    public void m87d() {
+        synchronized (f51a) {
+            Iterator<a> it = f51a.iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                a(next.f64a, next.a, next.f65a, false, null, true);
+                a(next.f60a, next.a, next.f61a, false, null, true);
             }
-            f55a.clear();
+            f51a.clear();
         }
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    public void m87e() {
-        Intent m71a = m71a();
-        m71a.setAction("com.xiaomi.mipush.SET_NOTIFICATION_TYPE");
-        m71a.putExtra(com.xiaomi.push.service.at.z, this.f56a.getPackageName());
-        m71a.putExtra(com.xiaomi.push.service.at.D, be.b(this.f56a.getPackageName()));
-        c(m71a);
+    public void m88e() {
+        Intent m72a = m72a();
+        m72a.setAction("com.xiaomi.mipush.SET_NOTIFICATION_TYPE");
+        m72a.putExtra(com.xiaomi.push.service.at.z, this.f52a.getPackageName());
+        m72a.putExtra(com.xiaomi.push.service.at.D, be.b(this.f52a.getPackageName()));
+        c(m72a);
     }
 }

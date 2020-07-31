@@ -2,24 +2,24 @@ package com.baidu.prologue.business.data;
 
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.prologue.a.c.j;
+import com.baidu.prologue.a.c.k;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SplashStyleRecorder {
-    public static void ae(JSONObject jSONObject) {
+    public static void af(JSONObject jSONObject) {
         if (jSONObject != null) {
-            String string = j.getString("splash_style", "");
+            String string = k.getString("splash_style", "");
             String jSONObject2 = jSONObject.toString();
             if (!TextUtils.equals(string, jSONObject2)) {
-                j.setString("splash_style", jSONObject2);
+                k.setString("splash_style", jSONObject2);
             }
         }
     }
 
     public static JSONObject a(SplashElements splashElements, boolean z) {
-        String string = j.getString("splash_style", "");
+        String string = k.getString("splash_style", "");
         JSONObject jSONObject = null;
         if (TextUtils.isEmpty(string)) {
             return null;
@@ -80,14 +80,14 @@ public class SplashStyleRecorder {
         }
     }
 
-    public static int af(JSONObject jSONObject) {
+    public static int ag(JSONObject jSONObject) {
         if (jSONObject == null) {
             return 0;
         }
         return jSONObject.optInt("l_gravity");
     }
 
-    public static int[] ag(JSONObject jSONObject) {
+    public static int[] ah(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("margin");
             if (!TextUtils.isEmpty(optString)) {
@@ -108,7 +108,7 @@ public class SplashStyleRecorder {
         return null;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public enum SplashElements {
         LOGO("logo"),
         SKIP(FreeSpaceBox.TYPE),

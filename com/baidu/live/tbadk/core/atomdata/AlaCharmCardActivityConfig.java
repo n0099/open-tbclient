@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaCharmCardActivityConfig extends IntentConfig {
     public static final String CHARM_VALUE = "charm_value";
     public static final String FLOWER_VALUE = "flower_value";
@@ -15,6 +15,7 @@ public class AlaCharmCardActivityConfig extends IntentConfig {
     public static final String LOGINUSER_PORTRAIT = "login_user_portrait";
     public static final String LOGIN_USER_ID = "login_user_id";
     public static final String LOGIN_USER_NAME = "login_user_name";
+    public static final String NEED_SHOW_GIFT_PANEL = "need_show_gift_panel";
     public static final String ONLINE_COUNT = "online_count";
     public static final String USER_ID = "user_id";
     public static final String USER_NAME = "user_name";

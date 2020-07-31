@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public abstract class b extends aa {
     public abstract boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar);
 
@@ -31,19 +31,19 @@ public abstract class b extends aa {
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar) {
         boolean e;
-        String oi = oi("insert");
-        String oi2 = oi(IMTrack.DbBuilder.ACTION_UPDATE);
-        String oi3 = oi("remove");
-        if (TextUtils.equals(oi, str)) {
+        String oO = oO("insert");
+        String oO2 = oO(IMTrack.DbBuilder.ACTION_UPDATE);
+        String oO3 = oO("remove");
+        if (TextUtils.equals(oO, str)) {
             e = a(context, unitedSchemeEntity, callbackHandler, str, eVar);
-        } else if (TextUtils.equals(oi2, str)) {
+        } else if (TextUtils.equals(oO2, str)) {
             e = b(context, unitedSchemeEntity, callbackHandler, str, eVar);
-        } else if (TextUtils.equals(oi3, str)) {
+        } else if (TextUtils.equals(oO3, str)) {
             e = c(context, unitedSchemeEntity, callbackHandler, str, eVar);
         } else {
             e = e(context, unitedSchemeEntity, callbackHandler, str, eVar);
         }
-        com.baidu.swan.apps.console.c.i("AbsSwanAppWidget", "subAction = " + str + " ; handle result = " + e);
+        com.baidu.swan.apps.console.c.d("AbsSwanAppWidget", "subAction = " + str + " ; handle result = " + e);
         return e;
     }
 
@@ -71,7 +71,7 @@ public abstract class b extends aa {
         return jSONObject;
     }
 
-    private String oi(String str) {
+    private String oO(String str) {
         return getModuleName() + "/" + str;
     }
 

@@ -13,7 +13,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class a extends com.baidu.android.pushservice.g.c {
     protected Context a;
     protected i b;
@@ -70,7 +70,7 @@ public abstract class a extends com.baidu.android.pushservice.g.c {
                         new b.c(this.a).a(Log.getStackTraceString(e)).a();
                         if (z) {
                             com.baidu.android.pushservice.i.m.a("tryConnect failed setResult UnKnown " + e.getMessage(), this.a);
-                            a(20001);
+                            a(com.baidu.sapi2.share.m.g);
                         } else {
                             a(10003);
                         }

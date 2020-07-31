@@ -23,11 +23,11 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class a implements w {
     private static BroadcastReceiver broadcastReceiver = null;
-    c fde;
-    CustomMessageListener fdf = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1
+    c fhL;
+    CustomMessageListener fhM = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Removed duplicated region for block: B:10:0x0015  */
         /* JADX WARN: Removed duplicated region for block: B:28:0x0081  */
@@ -46,7 +46,7 @@ public class a implements w {
                         WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
                         writeImagesInfo.parseJson(stringExtra);
                         writeImagesInfo.updateQuality();
-                        if (a.this.fde != null) {
+                        if (a.this.fhL != null) {
                             ArrayList arrayList = new ArrayList();
                             LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
                             if (chosedFiles != null && chosedFiles.size() > 0) {
@@ -55,19 +55,19 @@ public class a implements w {
                                         arrayList.add(imageFileInfo.getFilePath());
                                     }
                                 }
-                                a.this.fde.ai(arrayList);
+                                a.this.fhL.ai(arrayList);
                             } else {
-                                a.this.fde.lK("cancel");
+                                a.this.fhL.ml("cancel");
                             }
                         }
-                    } else if (a.this.fde != null) {
-                        a.this.fde.lK(BdStatsConstant.StatsType.ERROR);
+                    } else if (a.this.fhL != null) {
+                        a.this.fhL.ml(BdStatsConstant.StatsType.ERROR);
                     }
                     e.lt().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.fde = null;
-                            MessageManager.getInstance().unRegisterListener(a.this.fdf);
+                            a.this.fhL = null;
+                            MessageManager.getInstance().unRegisterListener(a.this.fhM);
                         }
                     });
                 }
@@ -78,8 +78,8 @@ public class a implements w {
             e.lt().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.fde = null;
-                    MessageManager.getInstance().unRegisterListener(a.this.fdf);
+                    a.this.fhL = null;
+                    MessageManager.getInstance().unRegisterListener(a.this.fhM);
                 }
             });
         }
@@ -138,9 +138,9 @@ public class a implements w {
                     arrayList.add(optString2);
                 }
             }
-            ImageViewerConfig createConfig = new ImageViewerConfig(context).createConfig(arrayList, i, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, null, true, false, false);
-            createConfig.setIsFromAiApp(true);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
+            ImageViewerConfig.a aVar = new ImageViewerConfig.a();
+            aVar.s(arrayList).kG(i).hl(true).hm(true).hn(true).wH(arrayList.size() > 0 ? arrayList.get(0) : "").ho(false).hp(false).ht(true);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.dI(context)));
         }
     }
 }

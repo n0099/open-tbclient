@@ -8,10 +8,10 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CommonWebView extends WebView {
-    private boolean bpe;
-    private boolean bpf;
+    private boolean bpA;
+    private boolean bpz;
 
     public CommonWebView(Context context) {
         super(context);
@@ -19,11 +19,11 @@ public class CommonWebView extends WebView {
     }
 
     public void setVerticalScrollEnabled(boolean z) {
-        this.bpe = z;
+        this.bpz = z;
     }
 
     public void setHorizontalScrollEnabled(boolean z) {
-        this.bpf = z;
+        this.bpA = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -35,11 +35,11 @@ public class CommonWebView extends WebView {
     @Override // android.webkit.WebView, android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (!this.bpe && !this.bpf) {
+        if (!this.bpz && !this.bpA) {
             scrollTo(0, 0);
-        } else if (!this.bpe) {
+        } else if (!this.bpz) {
             scrollTo(i, 0);
-        } else if (!this.bpf) {
+        } else if (!this.bpA) {
             scrollTo(0, i2);
         }
     }
@@ -52,8 +52,8 @@ public class CommonWebView extends WebView {
     }
 
     private void init() {
-        this.bpe = true;
-        this.bpf = true;
+        this.bpz = true;
+        this.bpA = true;
         setBackgroundColor(0);
         setHorizontalScrollBarEnabled(false);
         setVerticalScrollBarEnabled(false);

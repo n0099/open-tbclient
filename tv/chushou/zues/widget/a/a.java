@@ -3,18 +3,18 @@ package tv.chushou.zues.widget.a;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends ClickableSpan {
-    private tv.chushou.zues.a oop;
+    private tv.chushou.zues.a owO;
 
     public a(tv.chushou.zues.a aVar) {
-        this.oop = aVar;
+        this.owO = aVar;
     }
 
     @Override // android.text.style.ClickableSpan
     public void onClick(View view) {
-        if (this.oop != null) {
-            this.oop.onClick(view);
+        if (this.owO != null) {
+            this.owO.onClick(view);
         }
     }
 

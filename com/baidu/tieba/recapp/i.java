@@ -1,11 +1,9 @@
 package com.baidu.tieba.recapp;
 /* loaded from: classes.dex */
 public interface i {
-    int aS(String str, boolean z);
+    void onDestroy();
 
-    int aT(String str, boolean z);
+    void onPause();
 
-    void cYF();
-
-    void f(String str, int i, boolean z);
+    void onResume();
 }

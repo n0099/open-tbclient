@@ -1,13 +1,25 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public interface an {
-    void a(@NonNull String str, Set<String> set, boolean z);
+    void Ua();
 
-    @NonNull
-    com.baidu.swan.e.b e(@NonNull Context context, @Nullable String str, boolean z);
+    an Ub();
+
+    void Uc();
+
+    void a(com.baidu.swan.apps.media.c.c cVar, Context context);
+
+    void a(com.baidu.swan.apps.media.c.c cVar, boolean z);
+
+    boolean isPlaying();
+
+    boolean onBackPressed();
+
+    void pause();
+
+    void resume();
+
+    void stop();
 }

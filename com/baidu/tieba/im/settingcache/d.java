@@ -11,26 +11,26 @@ import com.baidu.tbadk.util.ad;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class d extends a {
-    private static d jbG = new d();
+    private static d jka = new d();
 
     private d() {
     }
 
-    public static d ctq() {
-        return jbG;
+    public static d cxs() {
+        return jka;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: eC */
-    public OfficialSettingItemData ez(String str, String str2) {
+    /* renamed from: eE */
+    public OfficialSettingItemData eB(String str, String str2) {
         OfficialSettingItemData officialSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = str + UgcConstant.AT_RULE_TAG + str2;
-        synchronized (this.jbz) {
-            ChatSetting chatSetting = this.jbz.get(str3);
+        synchronized (this.jjT) {
+            ChatSetting chatSetting = this.jjT.get(str3);
             officialSettingItemData = (chatSetting == null || !(chatSetting instanceof OfficialSettingItemData)) ? null : (OfficialSettingItemData) chatSetting;
         }
         if (officialSettingItemData == null) {
@@ -43,22 +43,22 @@ public class d extends a {
         return officialSettingItemData;
     }
 
-    public void cpz() {
+    public void cte() {
         super.y(OfficialSettingItemData.class);
     }
 
     public void a(String str, String str2, UserData userData) {
-        OfficialSettingItemData ez;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (ez = ez(str, str2)) != null) {
-            ez.setToPortrait(userData.getPortrait());
-            ez.setToName(userData.getUserName());
-            a(ez);
+        OfficialSettingItemData eB;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (eB = eB(str, str2)) != null) {
+            eB.setToPortrait(userData.getPortrait());
+            eB.setToName(userData.getUserName());
+            a(eB);
         }
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> ctn() {
-        return com.baidu.tbadk.core.c.a.aUM().wc("tb.im_official_chat_setting");
+    protected l<String> cxp() {
+        return com.baidu.tbadk.core.c.a.aYG().xj("tb.im_official_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -73,13 +73,13 @@ public class d extends a {
                 }
                 return;
             }
-            l<String> ctn = ctn();
+            l<String> cxp = cxp();
             String str = myUid + UgcConstant.AT_RULE_TAG + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
-            synchronized (this.jbz) {
-                this.jbz.put(str, officialSettingItemData);
+            synchronized (this.jjT) {
+                this.jjT.put(str, officialSettingItemData);
             }
-            ctn.setForever(str, jsonStrWithObject);
+            cxp.setForever(str, jsonStrWithObject);
         }
     }
 
@@ -96,15 +96,15 @@ public class d extends a {
                 return;
             }
             final String str = myUid + UgcConstant.AT_RULE_TAG + toUid;
-            synchronized (this.jbz) {
-                this.jbz.put(str, officialSettingItemData);
+            synchronized (this.jjT) {
+                this.jjT.put(str, officialSettingItemData);
             }
             ad.b(new ac<Void>() { // from class: com.baidu.tieba.im.settingcache.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ac
-                /* renamed from: bpC */
+                /* renamed from: bsE */
                 public Void doInBackground() {
-                    d.this.ctn().setForever(str, OrmObject.jsonStrWithObject(officialSettingItemData));
+                    d.this.cxp().setForever(str, OrmObject.jsonStrWithObject(officialSettingItemData));
                     return null;
                 }
             }, lVar);

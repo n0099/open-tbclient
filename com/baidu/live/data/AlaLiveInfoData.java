@@ -20,7 +20,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveInfoData implements Serializable {
     public static boolean DEBUG = false;
     public static final int LIVE_SCREEN_DIRECTION_LANDSCAPE = 2;

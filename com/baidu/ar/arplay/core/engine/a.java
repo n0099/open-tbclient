@@ -13,7 +13,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class a {
     private static final double[] ff = {1.5707963267948966d, 3.141592653589793d};
     private c fc;
@@ -50,7 +50,7 @@ public class a {
     private boolean isScreenOrientationLandscape = false;
     private int fr = 0;
     private int fs = 0;
-    private C0076a ft = null;
+    private C0077a ft = null;
     private Map<Integer, Vector<Float>> fu = new HashMap();
     private boolean fv = false;
     ARPMessage.MessageHandler fw = new ARPMessage.MessageHandler() { // from class: com.baidu.ar.arplay.core.engine.a.1
@@ -126,18 +126,18 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.arplay.core.engine.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0076a {
+    /* loaded from: classes11.dex */
+    public static class C0077a {
         public int fz;
         public long time;
         public float x;
         public float y;
 
-        private C0076a() {
+        private C0077a() {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public enum b {
         EGESTURE_CLICK,
         EGESTURE_DOUBLE_CLICK,
@@ -152,7 +152,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public static class c extends Handler {
         WeakReference<a> fL;
 
@@ -180,9 +180,9 @@ public class a {
                     if (aVar == null || message.obj == null) {
                         return;
                     }
-                    C0076a c0076a = (C0076a) message.obj;
+                    C0077a c0077a = (C0077a) message.obj;
                     if (!aVar.fi) {
-                        this.fL.get().a(b.EGESTURE_CLICK.ordinal(), c0076a.time, c0076a.fz, c0076a.x, c0076a.y, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+                        this.fL.get().a(b.EGESTURE_CLICK.ordinal(), c0077a.time, c0077a.fz, c0077a.x, c0077a.y, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                     }
                     this.fL.get().a(b.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                     return;
@@ -192,7 +192,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public enum d {
         ESWIPE_RIGHT,
         ESWIPE_LEFT,
@@ -200,7 +200,7 @@ public class a {
         ESWIPE_DOWN
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public enum e {
         EStatSingleFingerCandidate,
         EStatTwoFingersCandidate,
@@ -216,7 +216,7 @@ public class a {
         EStatUnknown
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public enum f {
         ETOUCH_BEGIN,
         ETOUCH_MOVE,
@@ -605,13 +605,13 @@ public class a {
                             } else {
                                 Message obtain = Message.obtain();
                                 obtain.what = 2;
-                                C0076a c0076a = new C0076a();
-                                c0076a.fz = motionEvent.getPointerId(0);
-                                c0076a.x = motionEvent.getX();
-                                c0076a.y = motionEvent.getY();
-                                c0076a.time = motionEvent.getDownTime();
-                                obtain.obj = c0076a;
-                                this.ft = c0076a;
+                                C0077a c0077a = new C0077a();
+                                c0077a.fz = motionEvent.getPointerId(0);
+                                c0077a.x = motionEvent.getX();
+                                c0077a.y = motionEvent.getY();
+                                c0077a.time = motionEvent.getDownTime();
+                                obtain.obj = c0077a;
+                                this.ft = c0077a;
                                 this.fc.sendMessageDelayed(obtain, 400L);
                             }
                         }

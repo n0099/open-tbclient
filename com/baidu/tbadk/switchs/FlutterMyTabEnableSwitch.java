@@ -24,7 +24,7 @@ public class FlutterMyTabEnableSwitch extends a {
 
     @Override // com.baidu.adp.lib.featureSwitch.a
     protected int getDefaultType() {
-        return 0;
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.featureSwitch.a

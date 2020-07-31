@@ -1,7 +1,7 @@
 package com.baidu.ar.http;
 
 import com.baidu.ar.ihttp.IHttpRequest;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class HttpRequestFactory implements com.baidu.ar.ihttp.b {
     private volatile e qf;
 

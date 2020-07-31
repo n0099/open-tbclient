@@ -5,12 +5,12 @@ import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class k extends com.baidu.live.view.web.a {
-    private SchemeCallback bpg;
+    private SchemeCallback bpB;
 
     public k(SchemeCallback schemeCallback) {
-        this.bpg = schemeCallback;
+        this.bpB = schemeCallback;
     }
 
     @Override // com.baidu.live.view.web.a
@@ -19,13 +19,13 @@ public class k extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void fX(String str) {
+    public void fW(String str) {
         JSONObject jSONObject;
         JSONException e;
-        if (this.bpg != null) {
+        if (this.bpB != null) {
             String baiduzid = ExtraParamsManager.getBaiduzid();
             if (TextUtils.isEmpty(baiduzid)) {
-                this.bpg.doJsCallback(0, "", null, str);
+                this.bpB.doJsCallback(0, "", null, str);
                 return;
             }
             if (TextUtils.isEmpty(baiduzid)) {
@@ -42,10 +42,10 @@ public class k extends com.baidu.live.view.web.a {
                 } catch (JSONException e3) {
                     e = e3;
                     e.printStackTrace();
-                    this.bpg.doJsCallback(1, "", jSONObject, str);
+                    this.bpB.doJsCallback(1, "", jSONObject, str);
                 }
             }
-            this.bpg.doJsCallback(1, "", jSONObject, str);
+            this.bpB.doJsCallback(1, "", jSONObject, str);
         }
     }
 }

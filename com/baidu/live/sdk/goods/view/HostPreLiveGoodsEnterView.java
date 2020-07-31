@@ -14,12 +14,12 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HostPreLiveGoodsEnterView extends FrameLayout implements a {
-    private View bdQ;
-    private ImageView bdR;
-    private TextView bdS;
-    private TextView bdT;
+    private View bej;
+    private ImageView bek;
+    private TextView bel;
+    private TextView bem;
     private View mTargetView;
     private View rootView;
 
@@ -40,16 +40,16 @@ public class HostPreLiveGoodsEnterView extends FrameLayout implements a {
 
     private void init(Context context) {
         this.rootView = View.inflate(context, a.h.ala_master_pre_live_goods_enter_view, this);
-        this.bdQ = this.rootView.findViewById(a.g.goods_layout);
-        this.bdR = (ImageView) this.rootView.findViewById(a.g.goods_imageView);
-        this.bdS = (TextView) this.rootView.findViewById(a.g.goods_textView);
-        this.bdT = (TextView) this.rootView.findViewById(a.g.goods_num_textView);
+        this.bej = this.rootView.findViewById(a.g.goods_layout);
+        this.bek = (ImageView) this.rootView.findViewById(a.g.goods_imageView);
+        this.bel = (TextView) this.rootView.findViewById(a.g.goods_textView);
+        this.bem = (TextView) this.rootView.findViewById(a.g.goods_num_textView);
     }
 
     public void setOutClickListener(View.OnClickListener onClickListener) {
-        this.bdR.setOnClickListener(onClickListener);
-        this.bdS.setOnClickListener(onClickListener);
-        this.bdT.setOnClickListener(onClickListener);
+        this.bek.setOnClickListener(onClickListener);
+        this.bel.setOnClickListener(onClickListener);
+        this.bem.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.live.core.a.a
@@ -67,36 +67,36 @@ public class HostPreLiveGoodsEnterView extends FrameLayout implements a {
     }
 
     public View getGoodsLayout() {
-        return this.bdQ;
+        return this.bej;
     }
 
     public ImageView getGoodsImageView() {
-        return this.bdR;
+        return this.bek;
     }
 
     public TextView getGoodsTextView() {
-        return this.bdS;
+        return this.bel;
     }
 
     public TextView getGoodsNumTextView() {
-        return this.bdT;
+        return this.bem;
     }
 
-    public void Hk() {
-        this.bdQ.setVisibility(0);
+    public void Hq() {
+        this.bej.setVisibility(0);
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Page.LIVE_ACTION, "shopcart_show"));
     }
 
-    public void cN(int i) {
+    public void cO(int i) {
         if (i > 0) {
-            this.bdT.setText(i + "");
-            this.bdT.setVisibility(0);
+            this.bem.setText(i + "");
+            this.bem.setVisibility(0);
             return;
         }
-        this.bdT.setVisibility(8);
+        this.bem.setVisibility(8);
     }
 
-    public void Hl() {
-        this.bdQ.setVisibility(8);
+    public void Hr() {
+        this.bej.setVisibility(8);
     }
 }

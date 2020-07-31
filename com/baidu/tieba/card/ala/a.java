@@ -2,127 +2,118 @@ package com.baidu.tieba.card.ala;
 
 import android.view.View;
 import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.bu;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.R;
+import com.baidu.tieba.play.e;
 import com.baidu.tieba.play.f;
-import com.baidu.tieba.play.j;
-import com.baidu.tieba.play.n;
-/* loaded from: classes8.dex */
-public class a implements f {
-    private bu aiq;
-    private AlaVideoContainer fRK;
-    private j fni;
-    private n fnj;
-    private boolean gQS = false;
-    private j.a gRe = new j.a() { // from class: com.baidu.tieba.card.ala.a.1
-        @Override // com.baidu.tieba.play.j.a
-        public void qx() {
-            a.this.bOj();
+/* loaded from: classes15.dex */
+public class a implements e {
+    private bv aii;
+    private AlaVideoContainer fXd;
+    private f fss;
+    private AlaInfoData gZB;
+    private String gZC;
+    private String mForumName;
+    private boolean gWx = false;
+    private f.a gWJ = new f.a() { // from class: com.baidu.tieba.card.ala.a.1
+        @Override // com.baidu.tieba.play.f.a
+        public void qy() {
+            a.this.bRt();
         }
     };
-    private AlaInfoData gTX;
-    private String gTY;
-    private String mForumName;
 
     public a(AlaVideoContainer alaVideoContainer) {
-        this.fRK = alaVideoContainer;
-        if (this.fRK != null) {
-            this.fni = new j();
-            this.fni.setPlayer(this.fRK.getVideoView());
-            this.fni.a(this.gRe);
-            if (this.fRK.getVideoView() != null) {
-                this.fnj = new n(this.fRK.getVideoView().getContext());
-                this.fRK.getVideoView().setBusiness(this.fnj);
-            }
+        this.fXd = alaVideoContainer;
+        if (this.fXd != null) {
+            this.fss = new f();
+            this.fss.setPlayer(this.fXd.getVideoView());
+            this.fss.a(this.gWJ);
         }
     }
 
-    public void a(bu buVar, String str, String str2, boolean z) {
-        this.gTY = str2;
+    public void a(bv bvVar, String str, String str2, boolean z) {
+        this.gZC = str2;
         this.mForumName = str;
-        if (buVar != null) {
-            this.aiq = buVar;
-            if (this.fRK != null && this.aiq.aSJ() != null) {
-                this.gTX = this.aiq.aSJ();
-                this.fRK.setVideoThumbnail(this.gTX.cover);
-                if (this.fnj != null && this.fnj.cVD() != null) {
-                    this.fnj.cVD().c(this.gTX);
-                }
+        if (bvVar != null) {
+            this.aii = bvVar;
+            if (this.fXd != null && this.aii.aWF() != null) {
+                this.gZB = this.aii.aWF();
+                this.fXd.setVideoThumbnail(this.gZB.cover);
                 if (z) {
-                    this.fRK.setTitle(this.aiq.getTitle());
+                    this.fXd.setTitle(this.aii.getTitle());
                 } else {
-                    this.fRK.setTitle("");
+                    this.fXd.setTitle("");
                 }
-                this.fRK.setPlayCount(String.format(this.fRK.getVideoView().getContext().getResources().getString(R.string.ala_audience_count_prefix), ar.numFormatOverWan(this.aiq.aSJ().audience_count)));
+                this.fXd.setPlayCount(String.format(this.fXd.getVideoView().getContext().getResources().getString(R.string.ala_audience_count_prefix), as.numFormatOverWan(this.aii.aWF().audience_count)));
             }
         }
     }
 
-    @Override // com.baidu.tieba.play.f
+    @Override // com.baidu.tieba.play.e
     public boolean isPlayStarted() {
-        return this.gQS;
+        return this.gWx;
     }
 
-    @Override // com.baidu.tieba.play.f
+    @Override // com.baidu.tieba.play.e
     public boolean isPlaying() {
         return false;
     }
 
-    @Override // com.baidu.tieba.play.f
+    @Override // com.baidu.tieba.play.e
     public boolean isFullScreen() {
         return false;
     }
 
-    @Override // com.baidu.tieba.play.f
+    @Override // com.baidu.tieba.play.e
     public void startPlay() {
     }
 
-    @Override // com.baidu.tieba.play.f
+    @Override // com.baidu.tieba.play.e
     public void stopPlay() {
-        if (this.fRK != null && this.fRK.getVideoView() != null) {
-            this.fRK.getVideoView().stopPlayback();
-            this.fRK.btE();
-            if (this.fni != null) {
-                this.fni.stop();
+        if (this.fXd != null && this.fXd.getVideoView() != null) {
+            this.fXd.getVideoView().stopPlayback();
+            this.fXd.bwN();
+            if (this.fss != null) {
+                this.fss.stop();
             }
         }
-        this.gQS = false;
+        this.gWx = false;
     }
 
-    @Override // com.baidu.tieba.play.f
+    @Override // com.baidu.tieba.play.e
     public View getVideoContainer() {
-        if (this.fRK != null) {
-            return this.fRK.getView();
+        if (this.fXd != null) {
+            return this.fXd.getView();
         }
         return null;
     }
 
-    @Override // com.baidu.tieba.play.f
+    @Override // com.baidu.tieba.play.e
     public String getPlayUrl() {
-        if (this.aiq == null || this.aiq.aSH() == null) {
+        if (this.aii == null || this.aii.aWD() == null) {
             return null;
         }
-        return this.aiq.aSH().video_url;
+        return this.aii.aWD().video_url;
     }
 
-    @Override // com.baidu.tieba.play.f
+    @Override // com.baidu.tieba.play.e
     public int getCurrentPosition() {
-        if (this.fRK == null || this.fRK.getVideoView() == null) {
+        if (this.fXd == null || this.fXd.getVideoView() == null) {
             return 0;
         }
-        return this.fRK.getVideoView().getCurrentPosition();
+        return this.fXd.getVideoView().getCurrentPositionSync();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bOj() {
-        if (this.aiq == null || this.aiq.aSH() == null) {
+    public void bRt() {
+        if (this.aii == null || this.aii.aWD() == null) {
         }
     }
 
     public void startPlayAnimation() {
-        if (this.fRK != null) {
-            this.fRK.startPlayAnimation();
+        if (this.fXd != null) {
+            this.fXd.startPlayAnimation();
         }
     }
 }

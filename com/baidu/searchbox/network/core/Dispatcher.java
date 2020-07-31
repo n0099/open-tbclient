@@ -14,7 +14,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public final class Dispatcher {
     @Nullable
     private ExecutorService executorService;

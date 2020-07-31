@@ -1,13 +1,13 @@
 package com.baidu.tieba.ala.alasquare.live_tab.b;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fof = BdUniqueId.gen();
-    public h fog;
+    public static final BdUniqueId fto = BdUniqueId.gen();
+    public h ftq;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return fof;
+        return fto;
     }
 }

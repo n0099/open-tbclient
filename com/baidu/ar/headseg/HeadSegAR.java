@@ -9,7 +9,7 @@ import com.baidu.ar.databasic.AlgoHandleAdapter;
 import com.baidu.ar.databasic.AlgoHandleController;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class HeadSegAR extends c {
     private static final String TAG = HeadSegAR.class.getSimpleName();
     private a pC;

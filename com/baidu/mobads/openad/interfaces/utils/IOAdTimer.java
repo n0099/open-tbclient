@@ -1,8 +1,8 @@
 package com.baidu.mobads.openad.interfaces.utils;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public interface IOAdTimer {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public interface EventHandler {
         void onTimer(int i);
 

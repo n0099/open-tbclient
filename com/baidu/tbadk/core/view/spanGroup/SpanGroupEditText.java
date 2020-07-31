@@ -13,7 +13,7 @@ import com.baidu.adp.base.h;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class SpanGroupEditText extends AppCompatEditText {
-    private View.OnKeyListener ehn;
+    private View.OnKeyListener eny;
     private SpanGroupManager mSpanGroupManager;
 
     public SpanGroupEditText(Context context) {
@@ -32,7 +32,7 @@ public class SpanGroupEditText extends AppCompatEditText {
     @Override // android.widget.EditText, android.widget.TextView
     public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
         if (this.mSpanGroupManager != null) {
-            this.mSpanGroupManager.aZb();
+            this.mSpanGroupManager.bcY();
         }
         super.setText(charSequence, bufferType);
     }
@@ -42,8 +42,8 @@ public class SpanGroupEditText extends AppCompatEditText {
         return new a(super.onCreateInputConnection(editorInfo), true);
     }
 
-    public boolean aYY() {
-        return this.mSpanGroupManager.aYY();
+    public boolean bcV() {
+        return this.mSpanGroupManager.bcV();
     }
 
     public void setTransLink(boolean z) {
@@ -55,7 +55,7 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public void setSoftKeyListener(View.OnKeyListener onKeyListener) {
-        this.ehn = onKeyListener;
+        this.eny = onKeyListener;
     }
 
     /* loaded from: classes.dex */
@@ -66,7 +66,7 @@ public class SpanGroupEditText extends AppCompatEditText {
 
         @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
         public boolean sendKeyEvent(KeyEvent keyEvent) {
-            if (SpanGroupEditText.this.ehn == null || !SpanGroupEditText.this.ehn.onKey(SpanGroupEditText.this, keyEvent.getKeyCode(), keyEvent)) {
+            if (SpanGroupEditText.this.eny == null || !SpanGroupEditText.this.eny.onKey(SpanGroupEditText.this, keyEvent.getKeyCode(), keyEvent)) {
                 return super.sendKeyEvent(keyEvent);
             }
             return true;

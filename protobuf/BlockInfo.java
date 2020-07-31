@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public final class BlockInfo extends Message {
     public static final String DEFAULT_BLOCKCANCEL = "";
     public static final String DEFAULT_BLOCKCONFIRM = "";
@@ -58,7 +58,7 @@ public final class BlockInfo extends Message {
         this.blockCancel = builder.blockCancel;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static final class Builder extends Message.Builder<BlockInfo> {
         public String blockCancel;
         public String blockConfirm;

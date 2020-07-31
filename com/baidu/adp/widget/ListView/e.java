@@ -10,7 +10,7 @@ import com.baidu.adp.widget.ListView.ad;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e {
-    public a Ux = null;
+    public a Ur = null;
     public ArrayList<c> mFooterViewInfos;
     public ArrayList<c> mHeaderViewInfos;
 
@@ -27,7 +27,41 @@ public class e {
     }
 
     public void a(a aVar) {
-        this.Ux = aVar;
+        this.Ur = aVar;
+    }
+
+    public int z(View view) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.mHeaderViewInfos.size()) {
+                c cVar = this.mHeaderViewInfos.get(i2);
+                if (cVar == null || cVar.Ut == null || cVar.Ut.itemView != view) {
+                    i = i2 + 1;
+                } else {
+                    return i2;
+                }
+            } else {
+                return -1;
+            }
+        }
+    }
+
+    public int A(View view) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.mFooterViewInfos.size()) {
+                c cVar = this.mFooterViewInfos.get(i2);
+                if (cVar == null || cVar.Ut == null || cVar.Ut.itemView != view) {
+                    i = i2 + 1;
+                } else {
+                    return i2;
+                }
+            } else {
+                return -1;
+            }
+        }
     }
 
     public int getHeadersCount() {
@@ -41,7 +75,7 @@ public class e {
     public void addHeaderView(View view, Object obj, boolean z, int i) {
         if (view != null) {
             c cVar = new c();
-            cVar.Uz = new ad.a(view);
+            cVar.Ut = new ad.a(view);
             cVar.data = obj;
             cVar.isSelectable = z;
             cVar.type = BdUniqueId.gen().getId();
@@ -58,7 +92,7 @@ public class e {
     public void addFooterView(View view, Object obj, boolean z, int i) {
         if (view != null) {
             c cVar = new c();
-            cVar.Uz = new ad.a(view);
+            cVar.Ut = new ad.a(view);
             cVar.data = obj;
             cVar.isSelectable = z;
             cVar.type = BdUniqueId.gen().getId();
@@ -78,7 +112,7 @@ public class e {
         }
         for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
             c cVar = this.mHeaderViewInfos.get(i);
-            if (cVar != null && cVar.Uz != null && cVar.Uz.itemView == view) {
+            if (cVar != null && cVar.Ut != null && cVar.Ut.itemView == view) {
                 this.mHeaderViewInfos.remove(i);
                 return true;
             }
@@ -92,7 +126,7 @@ public class e {
         }
         for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
             c cVar = this.mFooterViewInfos.get(i);
-            if (cVar != null && cVar.Uz != null && cVar.Uz.itemView == view) {
+            if (cVar != null && cVar.Ut != null && cVar.Ut.itemView == view) {
                 this.mFooterViewInfos.remove(i);
                 return true;
             }
@@ -100,7 +134,7 @@ public class e {
         return false;
     }
 
-    public ad.a aE(int i) {
+    public ad.a aG(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -108,7 +142,7 @@ public class e {
                 if (this.mHeaderViewInfos.get(i3) == null || i != this.mHeaderViewInfos.get(i3).type) {
                     i2 = i3 + 1;
                 } else {
-                    return this.mHeaderViewInfos.get(i3).Uz;
+                    return this.mHeaderViewInfos.get(i3).Ut;
                 }
             } else {
                 return null;
@@ -116,7 +150,7 @@ public class e {
         }
     }
 
-    public ad.a aF(int i) {
+    public ad.a aH(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -124,7 +158,7 @@ public class e {
                 if (this.mFooterViewInfos.get(i3) == null || i != this.mFooterViewInfos.get(i3).type) {
                     i2 = i3 + 1;
                 } else {
-                    return this.mFooterViewInfos.get(i3).Uz;
+                    return this.mFooterViewInfos.get(i3).Ut;
                 }
             } else {
                 return null;
@@ -150,7 +184,7 @@ public class e {
 
     /* loaded from: classes.dex */
     public class c {
-        public ad.a Uz;
+        public ad.a Ut;
         public Object data;
         public long id;
         public boolean isSelectable;

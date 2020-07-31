@@ -9,22 +9,22 @@ import tbclient.FrsPageUserExtend;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class x implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId hDv = BdUniqueId.gen();
-    private List<MetaData> hDs;
-    private int hDr = 0;
-    private String hDt = "本吧都在关注";
-    private boolean hDu = false;
+    public static final BdUniqueId hJt = BdUniqueId.gen();
+    private List<MetaData> hJq;
+    private int hJp = 0;
+    private String hJr = "本吧都在关注";
+    private boolean hJs = false;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return hDv;
+        return hJt;
     }
 
     public void a(FrsPageUserExtend frsPageUserExtend) {
-        if (frsPageUserExtend != null && !com.baidu.tbadk.core.util.w.isEmpty(frsPageUserExtend.data)) {
+        if (frsPageUserExtend != null && !com.baidu.tbadk.core.util.x.isEmpty(frsPageUserExtend.data)) {
             List<User> list = frsPageUserExtend.data;
-            this.hDr = frsPageUserExtend.user_extend_storey.intValue();
-            this.hDs = new ArrayList(list.size());
+            this.hJp = frsPageUserExtend.user_extend_storey.intValue();
+            this.hJq = new ArrayList(list.size());
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -33,11 +33,11 @@ public class x implements com.baidu.adp.widget.ListView.q {
                     if (user != null && user.id.longValue() != 0) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(list.get(i2));
-                        this.hDs.add(metaData);
+                        this.hJq.add(metaData);
                     }
                     i = i2 + 1;
                 } else {
-                    this.hDt = frsPageUserExtend.tips;
+                    this.hJr = frsPageUserExtend.tips;
                     return;
                 }
             }
@@ -45,30 +45,30 @@ public class x implements com.baidu.adp.widget.ListView.q {
     }
 
     public void a(FeatureCardGod featureCardGod) {
-        if (featureCardGod != null && !com.baidu.tbadk.core.util.w.isEmpty(featureCardGod.sub_nodes)) {
-            this.hDr = featureCardGod.floor.intValue();
-            this.hDs = featureCardGod.sub_nodes;
-            this.hDt = featureCardGod.title;
+        if (featureCardGod != null && !com.baidu.tbadk.core.util.x.isEmpty(featureCardGod.sub_nodes)) {
+            this.hJp = featureCardGod.floor.intValue();
+            this.hJq = featureCardGod.sub_nodes;
+            this.hJr = featureCardGod.title;
         }
     }
 
-    public int aTD() {
-        return this.hDr;
+    public int aXz() {
+        return this.hJp;
     }
 
     public List<MetaData> getUserInfo() {
-        return this.hDs;
+        return this.hJq;
     }
 
-    public String bZO() {
-        return this.hDt;
+    public String cdl() {
+        return this.hJr;
     }
 
-    public boolean bZP() {
-        return this.hDu;
+    public boolean cdm() {
+        return this.hJs;
     }
 
-    public void nk(boolean z) {
-        this.hDu = z;
+    public void nP(boolean z) {
+        this.hJs = z;
     }
 }

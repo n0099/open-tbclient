@@ -16,7 +16,7 @@ import com.kascend.chushou.view.homepage.HomePageRecommendFragment;
 import com.kascend.cstvsdk.CSTVSdk;
 import com.kascend.cstvsdk.receiver.CSTVWifiReceiver;
 import tv.chushou.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CSTVSdkMainActivityNew extends BaseActivity {
     private Button enterLiveBtn;
     private EditText liveTypeEdit;
@@ -45,7 +45,7 @@ public class CSTVSdkMainActivityNew extends BaseActivity {
             getWindow().addFlags(256);
             getWindow().addFlags(Integer.MIN_VALUE);
             getWindow().clearFlags(67108864);
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, a.C0928a.transparent));
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, a.C0943a.transparent));
             getWindow().setAttributes(attributes);
             getWindow().getDecorView().setSystemUiVisibility(8448);
             findViewById.setFitsSystemWindows(false);

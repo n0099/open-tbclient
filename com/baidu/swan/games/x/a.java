@@ -3,25 +3,25 @@ package com.baidu.swan.games.x;
 import com.baidu.swan.apps.statistic.a.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a extends e {
-    public int dhh;
-    public int dho;
-    public int dhp;
-    public long dhq;
+    public int dmQ;
+    public int dmX;
+    public int dmY;
+    public long dmZ;
     public String errMsg;
 
     @Override // com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.cLe == null) {
-            this.cLe = new JSONObject();
+        if (this.cOz == null) {
+            this.cOz = new JSONObject();
         }
         try {
-            this.cLe.put("stage", this.dhh);
-            this.cLe.put("errMsg", this.errMsg);
-            this.cLe.put("netStatus", this.dho);
-            this.cLe.put("touch", this.dhp);
-            this.cLe.put("stuck_interval", this.dhq);
+            this.cOz.put("stage", this.dmQ);
+            this.cOz.put("errMsg", this.errMsg);
+            this.cOz.put("netStatus", this.dmX);
+            this.cOz.put("touch", this.dmY);
+            this.cOz.put("stuck_interval", this.dmZ);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

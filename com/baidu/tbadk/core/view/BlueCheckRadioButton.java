@@ -9,12 +9,12 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BlueCheckRadioButton extends RelativeLayout {
-    private TextView dZa;
-    private RadioButton dZb;
+    private TextView efn;
+    private RadioButton efo;
     private Context mContext;
 
     public BlueCheckRadioButton(Context context) {
@@ -31,51 +31,51 @@ public class BlueCheckRadioButton extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(this.mContext).inflate(R.layout.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
-        this.dZa = (TextView) findViewById(R.id.custom_check_radio_button_tv);
-        this.dZb = (RadioButton) findViewById(R.id.custom_check_radio_button_rb);
-        aXN();
+        this.efn = (TextView) findViewById(R.id.custom_check_radio_button_tv);
+        this.efo = (RadioButton) findViewById(R.id.custom_check_radio_button_rb);
+        bbN();
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.BlueCheckRadioButton.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (BlueCheckRadioButton.this.dZb != null) {
-                    BlueCheckRadioButton.this.dZb.setButtonDrawable(R.drawable.chx_tips_list_ok_selector);
-                    BlueCheckRadioButton.this.dZb.toggle();
+                if (BlueCheckRadioButton.this.efo != null) {
+                    BlueCheckRadioButton.this.efo.setButtonDrawable(R.drawable.chx_tips_list_ok_selector);
+                    BlueCheckRadioButton.this.efo.toggle();
                 }
             }
         });
     }
 
-    public void aXN() {
-        if (this.dZa != null) {
-            an.setViewTextColor(this.dZa, "cp_link_tip_a");
+    public void bbN() {
+        if (this.efn != null) {
+            ao.setViewTextColor(this.efn, "cp_link_tip_a");
         }
     }
 
     public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        if (this.dZb != null) {
-            this.dZb.setOnCheckedChangeListener(onCheckedChangeListener);
+        if (this.efo != null) {
+            this.efo.setOnCheckedChangeListener(onCheckedChangeListener);
         }
     }
 
     public void setText(String str) {
-        if (this.dZa != null) {
-            this.dZa.setText(str);
+        if (this.efn != null) {
+            this.efn.setText(str);
         }
     }
 
     @Override // android.view.View
     public void setTag(Object obj) {
-        if (this.dZb != null) {
-            this.dZb.setTag(obj);
+        if (this.efo != null) {
+            this.efo.setTag(obj);
         }
     }
 
     @Override // android.view.View
     public Object getTag() {
-        return this.dZb.getTag();
+        return this.efo.getTag();
     }
 
     public void setChecked(boolean z) {
-        this.dZb.setChecked(z);
+        this.efo.setChecked(z);
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class DisplayOptions {
     private static final String a = DisplayOptions.class.getSimpleName();
     private View A;

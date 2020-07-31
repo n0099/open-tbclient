@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class PersonImageActivityConfig extends IntentConfig {
     public PersonImageActivityConfig(Context context, String str) {
         super(context);

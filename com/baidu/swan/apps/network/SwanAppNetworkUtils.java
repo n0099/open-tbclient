@@ -3,6 +3,7 @@ package com.baidu.swan.apps.network;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.util.devices.NetWorkUtils;
@@ -10,13 +11,13 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.aq.al;
 import java.util.Iterator;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class SwanAppNetworkUtils {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -143,7 +144,7 @@ public class SwanAppNetworkUtils {
         return "unknown";
     }
 
-    public static NetType alG() {
+    public static NetType amW() {
         String networkClass = getNetworkClass();
         char c = 65535;
         switch (networkClass.hashCode()) {
@@ -200,13 +201,14 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public enum NetType {
         NONE(NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED),
         WIFI("wifi"),
         _2G("2g"),
         _3G("3g"),
         _4G("4g"),
+        _5G("5g"),
         UNKOWN("unknow");
         
         public final String type;
@@ -216,12 +218,12 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    public static String alH() {
-        String pX = aj.pX(com.baidu.swan.apps.core.turbo.d.acr().acP());
-        if (TextUtils.isEmpty(pX)) {
+    public static String amX() {
+        String qJ = al.qJ(com.baidu.swan.apps.core.turbo.d.adw().adT());
+        if (TextUtils.isEmpty(qJ)) {
             return "";
         }
-        return pX;
+        return qJ;
     }
 
     public static <T> void a(String str, String str2, ResponseCallback<T> responseCallback) {
@@ -229,7 +231,23 @@ public class SwanAppNetworkUtils {
             Log.d("postJsonRequest", "url:" + str + "\nbody:" + str2);
         }
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.swan.c.c.a.aGD().postStringRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.agu().TS()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
+            com.baidu.swan.b.c.a.aKu().postStringRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.ahH().Us()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
         }
+    }
+
+    public static void h(final Runnable runnable) {
+        com.baidu.swan.apps.process.messaging.client.a.apG().b(null, com.baidu.swan.games.network.d.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.apps.network.SwanAppNetworkUtils.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.swan.apps.process.a.b.c.a
+            public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
+                int i = -1;
+                if (bVar.getResult() != null) {
+                    i = bVar.getResult().getInt("net_quality");
+                }
+                if (i == 2) {
+                    runnable.run();
+                }
+            }
+        });
     }
 }

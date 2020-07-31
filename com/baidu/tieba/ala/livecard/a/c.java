@@ -1,12 +1,12 @@
 package com.baidu.tieba.ala.livecard.a;
 
 import com.baidu.adp.widget.ListView.ad;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends ad.a {
-    public com.baidu.tieba.ala.livecard.b.d fRF;
+    public com.baidu.tieba.ala.livecard.b.d fWY;
 
     public c(com.baidu.tieba.ala.livecard.b.d dVar) {
         super(dVar.getView());
-        this.fRF = dVar;
+        this.fWY = dVar;
     }
 }

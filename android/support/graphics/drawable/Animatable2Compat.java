@@ -5,7 +5,7 @@ import android.graphics.drawable.Animatable2;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-/* loaded from: classes6.dex */
+/* loaded from: classes12.dex */
 public interface Animatable2Compat extends Animatable {
     void clearAnimationCallbacks();
 
@@ -13,7 +13,7 @@ public interface Animatable2Compat extends Animatable {
 
     boolean unregisterAnimationCallback(@NonNull AnimationCallback animationCallback);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes12.dex */
     public static abstract class AnimationCallback {
         Animatable2.AnimationCallback mPlatformCallback;
 

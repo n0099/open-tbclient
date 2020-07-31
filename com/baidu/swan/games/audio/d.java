@@ -1,19 +1,19 @@
 package com.baidu.swan.games.audio;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class d {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String cov;
-    public String cop = "";
-    public String bNv = "";
+    public String cqA;
+    public String cqu = "";
+    public String bOl = "";
     public String mUrl = "";
-    public float cYz = 0.0f;
-    public boolean coy = false;
+    public float dej = 0.0f;
+    public boolean cqD = false;
     public boolean mLoop = false;
-    public boolean coz = true;
+    public boolean cqE = true;
     public int mPos = 0;
     public float mVolume = 1.0f;
 
     public String toString() {
-        return "url : " + this.mUrl + "; AutoPlay : " + this.coy + "; Volume :" + this.mVolume + "; Loop : " + this.mLoop + "; startTime : " + this.cYz + "; ObeyMute : " + this.coz + "; pos : " + this.mPos;
+        return "url : " + this.mUrl + "; AutoPlay : " + this.cqD + "; Volume :" + this.mVolume + "; Loop : " + this.mLoop + "; startTime : " + this.dej + "; ObeyMute : " + this.cqE + "; pos : " + this.mPos;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.ar.constants.HttpConstants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     private String a;
     private String b;
@@ -19,7 +19,7 @@ public class c {
     private a h;
     private int i = 0;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a {
         public int a;
         public int b;

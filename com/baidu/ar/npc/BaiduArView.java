@@ -22,7 +22,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BaiduArView extends GLSurfaceView {
     private boolean A;
     private boolean B;
@@ -61,19 +61,19 @@ public class BaiduArView extends GLSurfaceView {
     private static final double[] w = {1.5707963267948966d, 3.141592653589793d};
     private static int G = 0;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(Bitmap bitmap);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void a(int i);
 
         void a(EGLContext eGLContext, int i, int i2);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public enum i {
         EStatSingleFingerCandidate,
         EStatTwoFingersCandidate,
@@ -87,7 +87,7 @@ public class BaiduArView extends GLSurfaceView {
         EStatUnknown
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public enum j {
         EClick,
         ELongPress,
@@ -309,7 +309,7 @@ public class BaiduArView extends GLSurfaceView {
         return Math.sqrt(((f4 - f2) * (f4 - f2)) + ((f5 - f3) * (f5 - f3)));
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     private static class h {
         float a;
         float b;
@@ -363,8 +363,8 @@ public class BaiduArView extends GLSurfaceView {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean onTouchEvent = super.onTouchEvent(motionEvent);
         if (this.E) {
-            switch (this.f) {
-                case EStatSingleFingerCandidate:
+            switch (ae.a[this.f.ordinal()]) {
+                case 1:
                     if (motionEvent.getActionMasked() == 0) {
                         Log.d(b, "touchinv Action Down when EStatSingleFingerCandidate");
                         this.h = motionEvent.getPointerId(motionEvent.getActionIndex());
@@ -444,7 +444,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case EStatTwoFingersCandidate:
+                case 2:
                     if (5 == motionEvent.getActionMasked()) {
                         this.f = i.EStatUnknown;
                         break;
@@ -484,7 +484,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case EStatScroll:
+                case 3:
                     if (5 == motionEvent.getActionMasked()) {
                         this.f = i.EStatUnknown;
                         break;
@@ -511,7 +511,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case EStatTwoFingersScroll:
+                case 4:
                     if (5 == motionEvent.getActionMasked()) {
                         this.f = i.EStatUnknown;
                         break;
@@ -540,7 +540,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case EStatPinchAndUnpinch:
+                case 5:
                     if (5 == motionEvent.getActionMasked()) {
                         this.f = i.EStatUnknown;
                         break;
@@ -575,7 +575,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case EStatLongPresss:
+                case 6:
                     if (2 == motionEvent.getActionMasked()) {
                         if (getDistance(this.i, this.j, motionEvent.getX(), motionEvent.getY()) > 80.0d) {
                             this.f = i.EScrollAfterLongPress;
@@ -595,7 +595,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case EScrollAfterLongPress:
+                case 7:
                     if (2 == motionEvent.getActionMasked()) {
                         if (!this.x && !this.B) {
                             ArBridge.getInstance().a(j.EScrollAfterLongPress.ordinal(), this.h, motionEvent.getX(), motionEvent.getY(), getFirstVelX(motionEvent), getFirstVelY(motionEvent), -1, -1.0f, -1.0f, -1.0f, -1.0f, motionEvent.getEventTime());
@@ -612,9 +612,9 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case EStatPinch:
-                case EStatUnPinch:
-                case EStatUnknown:
+                case 8:
+                case 9:
+                case 10:
                     if (1 == motionEvent.getActionMasked()) {
                         clearStatus();
                         break;
@@ -627,7 +627,7 @@ public class BaiduArView extends GLSurfaceView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class e implements GLSurfaceView.EGLContextFactory {
         private static int a = 12440;
 
@@ -672,7 +672,7 @@ public class BaiduArView extends GLSurfaceView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class d implements GLSurfaceView.EGLConfigChooser {
         private static int g = 4;
         private static int[] h = {12324, 4, 12323, 4, 12322, 4, 12352, g, 12338, 1, 12337, 4, 12344};
@@ -781,7 +781,7 @@ public class BaiduArView extends GLSurfaceView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class g implements GLSurfaceView.Renderer {
         private int b;
         private int c;
@@ -891,7 +891,7 @@ public class BaiduArView extends GLSurfaceView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class f extends Handler {
         WeakReference<BaiduArView> a;
 
@@ -931,7 +931,7 @@ public class BaiduArView extends GLSurfaceView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class c {
         public int a;
         public float b;

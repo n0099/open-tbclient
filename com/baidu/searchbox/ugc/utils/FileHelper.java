@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-/* loaded from: classes13.dex */
+/* loaded from: classes19.dex */
 public class FileHelper {
     public static boolean exists(Uri uri) {
         Context appContext;

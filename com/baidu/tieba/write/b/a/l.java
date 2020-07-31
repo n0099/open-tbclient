@@ -8,11 +8,11 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.searchbox.ugc.bridge.IUgcHostInterface;
 import com.baidu.searchbox.ugc.model.MusicData;
 import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l implements IUgcHostInterface<CookieManager> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.ugc.bridge.IUgcHostInterface
-    /* renamed from: at */
+    /* renamed from: au */
     public CookieManager newCookieManagerInstance(boolean z, boolean z2) {
         return new c(z, z2);
     }

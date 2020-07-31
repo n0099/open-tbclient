@@ -9,7 +9,7 @@ import android.support.annotation.RequiresApi;
 import android.util.Log;
 import java.util.ArrayList;
 @RequiresApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 class TreeDocumentFile extends DocumentFile {
     private Context mContext;
     private Uri mUri;

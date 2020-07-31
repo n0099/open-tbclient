@@ -1,9 +1,9 @@
 package com.baidu.live.guardclub;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface i {
-    void Cm();
+    void CO();
 
     String ag(long j);
 

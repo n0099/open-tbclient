@@ -8,7 +8,7 @@ import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
 @RequiresApi(14)
-/* loaded from: classes6.dex */
+/* loaded from: classes12.dex */
 abstract class BaseFragmentActivityApi14 extends SupportActivity {
     boolean mStartedIntentSenderFromFragment;
 

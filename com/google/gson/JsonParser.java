@@ -7,7 +7,7 @@ import com.google.gson.stream.a;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class JsonParser {
     public JsonElement parse(String str) throws JsonSyntaxException {
         return parse(new StringReader(str));
@@ -17,7 +17,7 @@ public final class JsonParser {
         try {
             a aVar = new a(reader);
             JsonElement parse = parse(aVar);
-            if (!parse.isJsonNull() && aVar.dHS() != JsonToken.END_DOCUMENT) {
+            if (!parse.isJsonNull() && aVar.dLn() != JsonToken.END_DOCUMENT) {
                 throw new JsonSyntaxException("Did not consume the entire document.");
             }
             return parse;
@@ -31,8 +31,8 @@ public final class JsonParser {
     }
 
     public JsonElement parse(a aVar) throws JsonIOException, JsonSyntaxException {
-        boolean dIm = aVar.dIm();
-        aVar.wS(true);
+        boolean dLH = aVar.dLH();
+        aVar.xx(true);
         try {
             try {
                 return i.parse(aVar);
@@ -42,7 +42,7 @@ public final class JsonParser {
                 throw new JsonParseException("Failed parsing JSON source: " + aVar + " to Json", e2);
             }
         } finally {
-            aVar.wS(dIm);
+            aVar.xx(dLH);
         }
     }
 }

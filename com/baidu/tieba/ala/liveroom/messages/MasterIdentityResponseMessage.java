@@ -2,18 +2,18 @@ package com.baidu.tieba.ala.liveroom.messages;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
-    private int gnh;
-    private String gni;
-    private int gnj;
-    private int gnk;
-    private String gnl;
+    private int gsh;
+    private String gsi;
+    private int gsj;
+    private int gsk;
+    private String gsl;
 
     public MasterIdentityResponseMessage() {
         super(1021131);
-        this.gnj = 0;
-        this.gnk = 0;
+        this.gsj = 0;
+        this.gsk = 0;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -21,24 +21,24 @@ public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (getError() == 0) {
-                this.gnh = jSONObject.optInt("anchor_identity");
-                this.gni = jSONObject.optString("anchor_proportion");
-                this.gnj = jSONObject.optInt("anchor_identity_status");
-                this.gnk = jSONObject.optInt("anchor_proportion_status");
-                this.gnl = jSONObject.optString("anchor_text");
+                this.gsh = jSONObject.optInt("anchor_identity");
+                this.gsi = jSONObject.optString("anchor_proportion");
+                this.gsj = jSONObject.optInt("anchor_identity_status");
+                this.gsk = jSONObject.optInt("anchor_proportion_status");
+                this.gsl = jSONObject.optString("anchor_text");
             }
         }
     }
 
-    public int bHU() {
-        return this.gnj;
+    public int bLa() {
+        return this.gsj;
     }
 
-    public int bHV() {
-        return this.gnk;
+    public int bLb() {
+        return this.gsk;
     }
 
-    public String bHW() {
-        return this.gnl;
+    public String bLc() {
+        return this.gsl;
     }
 }

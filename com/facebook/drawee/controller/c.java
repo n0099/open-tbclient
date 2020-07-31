@@ -2,11 +2,11 @@ package com.facebook.drawee.controller;
 
 import android.graphics.drawable.Animatable;
 import javax.annotation.Nullable;
-/* loaded from: classes13.dex */
+/* loaded from: classes9.dex */
 public interface c<INFO> {
     void a(String str, @Nullable INFO info, @Nullable Animatable animatable);
 
-    void fb(String str);
+    void fa(String str);
 
     void g(String str, Object obj);
 

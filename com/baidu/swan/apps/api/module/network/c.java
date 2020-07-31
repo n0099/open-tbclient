@@ -3,7 +3,7 @@ package com.baidu.swan.apps.api.module.network;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.swan.apps.aq.z;
+import com.baidu.swan.apps.aq.aa;
 import com.baidu.swan.apps.runtime.d;
 import com.facebook.common.internal.i;
 import com.xiaomi.mipush.sdk.Constants;
@@ -13,23 +13,23 @@ import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected static final Set<String> bQF = i.O("localhost", "127.0.0.1");
+    protected static final Set<String> bRw = i.O("localhost", "127.0.0.1");
 
-    public static String hT(String str) {
+    public static String id(String str) {
         return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
     }
 
-    public static HttpUrl hU(String str) {
+    public static HttpUrl ie(String str) {
         HttpUrl parse = HttpUrl.parse(str);
-        if (d.apI().apG() == null) {
+        if (d.arr().arp() == null) {
             if (a(parse)) {
                 return parse;
             }
             return null;
-        } else if (com.baidu.swan.apps.af.a.a.anq() || a(parse)) {
+        } else if (com.baidu.swan.apps.ae.a.a.aoZ() || a(parse)) {
             return parse;
         } else {
             return null;
@@ -37,12 +37,12 @@ public class c {
     }
 
     public static boolean a(@Nullable HttpUrl httpUrl) {
-        boolean aqR = com.baidu.swan.apps.ah.a.b.aqR();
-        if (!com.baidu.swan.apps.u.a.aga().St()) {
-            aqR = false;
+        boolean asA = com.baidu.swan.apps.ah.a.b.asA();
+        if (!com.baidu.swan.apps.t.a.ahm().SL()) {
+            asA = false;
         }
         if (httpUrl != null) {
-            return (!aqR || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !bQF.contains(httpUrl.host().toLowerCase());
+            return (!asA || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !bRw.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }
@@ -70,7 +70,8 @@ public class c {
         return jSONObject;
     }
 
-    public static JSONObject hV(String str) {
+    /* renamed from: if  reason: not valid java name */
+    public static JSONObject m26if(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(str)) {
@@ -84,7 +85,7 @@ public class c {
         return jSONObject;
     }
 
-    public static String Vp() {
-        return z.auK() == 2 ? z.pR("https://smartapps.cn/%s/%s/page-frame.html") : z.pR("https://smartapp.baidu.com/%s/%s/page-frame.html");
+    public static String VV() {
+        return aa.awM() == 2 ? aa.qC("https://smartapps.cn/%s/%s/page-frame.html") : aa.qC("https://smartapp.baidu.com/%s/%s/page-frame.html");
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.searchbox.afx.gl.GLTextureView;
 import com.baidu.searchbox.afx.proxy.IPlayer;
 import com.baidu.searchbox.afx.proxy.VideoPlayerProxy;
 import java.io.File;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class AlphaVideo extends GLTextureView {
     private static final int GL_CONTEXT_VERSION = 2;
     private AlphaVideoRenderer mAlphaVideoRenderer;

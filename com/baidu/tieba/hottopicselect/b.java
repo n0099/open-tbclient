@@ -7,14 +7,14 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class b extends BaseAdapter {
-    private String hxA;
+    private String hDo;
     private LayoutInflater mInflater;
     private final List<d> mList = new ArrayList();
 
@@ -22,8 +22,8 @@ public class b extends BaseAdapter {
         this.mInflater = LayoutInflater.from(tbPageContext.getPageActivity());
     }
 
-    public void j(String str, List<d> list) {
-        this.hxA = str;
+    public void k(String str, List<d> list) {
+        this.hDo = str;
         this.mList.clear();
         if (list != null) {
             this.mList.addAll(list);
@@ -47,7 +47,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: xU */
+    /* renamed from: ym */
     public d getItem(int i) {
         return this.mList.get(i);
     }
@@ -65,41 +65,41 @@ public class b extends BaseAdapter {
             if (view == null || !(view.getTag() instanceof a)) {
                 view = this.mInflater.inflate(R.layout.hot_suggest_item, (ViewGroup) null);
                 a aVar2 = new a();
-                aVar2.djl = (TextView) view.findViewById(R.id.name);
-                aVar2.iIH = view.findViewById(R.id.divider_line_top);
-                aVar2.iII = view.findViewById(R.id.divider_line_bottom);
+                aVar2.dpg = (TextView) view.findViewById(R.id.name);
+                aVar2.iOM = view.findViewById(R.id.divider_line_top);
+                aVar2.iON = view.findViewById(R.id.divider_line_bottom);
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.iIH.setVisibility(i == 0 ? 0 : 8);
-            aVar.djl.setText(ar.highLightText(com.baidu.tbadk.plugins.b.zc(ar.cutStringWithEllipsisNew(item.getTopicName(), 18)), this.hxA, R.color.cp_link_tip_a));
+            aVar.iOM.setVisibility(i == 0 ? 0 : 8);
+            aVar.dpg.setText(as.highLightText(com.baidu.tbadk.plugins.b.Aj(as.cutStringWithEllipsisNew(item.getTopicName(), 18)), this.hDo, R.color.cp_link_tip_a));
             a(aVar, view, TbadkCoreApplication.getInst().getSkinType());
         }
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public class a {
-        int ahx;
-        TextView djl;
-        View iIH;
-        View iII;
+        int aho;
+        TextView dpg;
+        View iOM;
+        View iON;
 
         private a() {
-            this.ahx = 3;
+            this.aho = 3;
         }
     }
 
     private void a(a aVar, View view, int i) {
-        if (aVar != null && aVar.ahx != i) {
-            an.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-            an.setBackgroundColor(aVar.iII, R.color.cp_bg_line_c);
-            an.setBackgroundColor(aVar.iIH, R.color.cp_bg_line_c);
-            an.setViewTextColor(aVar.djl, R.color.cp_cont_b, 1);
-            aVar.ahx = i;
+        if (aVar != null && aVar.aho != i) {
+            ao.setBackgroundResource(view, R.drawable.addresslist_item_bg);
+            ao.setBackgroundColor(aVar.iON, R.color.cp_bg_line_c);
+            ao.setBackgroundColor(aVar.iOM, R.color.cp_bg_line_c);
+            ao.setViewTextColor(aVar.dpg, R.color.cp_cont_b, 1);
+            aVar.aho = i;
         }
     }
 }

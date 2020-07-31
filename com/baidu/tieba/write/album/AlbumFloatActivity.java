@@ -8,29 +8,29 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlbumFloatActivity extends SuspendedActivity {
-    e mmJ;
+    e muJ;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     protected com.baidu.tbadk.suspended.a a(LinearLayout linearLayout, NavigationBar navigationBar) {
-        if (this.mmJ == null) {
-            this.mmJ = new e(this, null, linearLayout.getId(), R.id.root_stub);
-            this.mmJ.a(navigationBar);
+        if (this.muJ == null) {
+            this.muJ = new e(this, null, linearLayout.getId(), R.id.root_stub);
+            this.muJ.a(navigationBar);
         }
-        return this.mmJ;
+        return this.muJ;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected void bis() {
+    protected void bmd() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (this.mmJ != null) {
-            this.mmJ.onStart();
+        if (this.muJ != null) {
+            this.muJ.onStart();
         }
     }
 
@@ -38,8 +38,8 @@ public class AlbumFloatActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.mmJ != null) {
-            this.mmJ.onResume();
+        if (this.muJ != null) {
+            this.muJ.onResume();
         }
     }
 
@@ -47,16 +47,16 @@ public class AlbumFloatActivity extends SuspendedActivity {
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.mmJ != null) {
-            this.mmJ.onStop();
+        if (this.muJ != null) {
+            this.muJ.onStop();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        if (this.mmJ != null) {
-            this.mmJ.onPause();
+        if (this.muJ != null) {
+            this.muJ.onPause();
         }
         super.onPause();
     }
@@ -65,8 +65,8 @@ public class AlbumFloatActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.mmJ != null) {
-            this.mmJ.onDestroy();
+        if (this.muJ != null) {
+            this.muJ.onDestroy();
         }
     }
 
@@ -75,21 +75,21 @@ public class AlbumFloatActivity extends SuspendedActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
-            this.mmJ.m(intent);
+            this.muJ.m(intent);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.mmJ != null) {
-            this.mmJ.onClick(view);
+        if (this.muJ != null) {
+            this.muJ.onClick(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            this.mmJ.onBackClick();
+            this.muJ.onBackClick();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -98,8 +98,8 @@ public class AlbumFloatActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
-        if (this.mmJ != null) {
-            this.mmJ.onRequestPermissionsResult(i, strArr, iArr);
+        if (this.muJ != null) {
+            this.muJ.onRequestPermissionsResult(i, strArr, iArr);
         }
     }
 }

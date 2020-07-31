@@ -11,16 +11,16 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.editortools.emotiontool.b;
 import com.baidu.tieba.R;
 import java.util.List;
 import tbclient.PbContent;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class ItemInfoView extends LinearLayout {
-    private TextView iRl;
+    private TextView iZv;
 
     public ItemInfoView(Context context) {
         super(context);
@@ -36,19 +36,19 @@ public class ItemInfoView extends LinearLayout {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.forum_detail_info, (ViewGroup) this, true);
         setVisibility(8);
-        this.iRl = (TextView) findViewById(R.id.info_brief_content);
+        this.iZv = (TextView) findViewById(R.id.info_brief_content);
     }
 
     public void setData(RecommendForumInfo recommendForumInfo) {
-        if ((recommendForumInfo != null && recommendForumInfo.content != null && recommendForumInfo.content.size() > 0) || (recommendForumInfo != null && !ar.isEmpty(recommendForumInfo.slogan))) {
-            this.iRl.setText(g(recommendForumInfo.content, recommendForumInfo.slogan));
+        if ((recommendForumInfo != null && recommendForumInfo.content != null && recommendForumInfo.content.size() > 0) || (recommendForumInfo != null && !as.isEmpty(recommendForumInfo.slogan))) {
+            this.iZv.setText(h(recommendForumInfo.content, recommendForumInfo.slogan));
         } else {
-            this.iRl.setText(getResources().getString(R.string.forum_detail_info_no_brief));
+            this.iZv.setText(getResources().getString(R.string.forum_detail_info_no_brief));
         }
         setVisibility(0);
     }
 
-    private SpannableStringBuilder g(List<PbContent> list, String str) {
+    private SpannableStringBuilder h(List<PbContent> list, String str) {
         b bVar = new b();
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str + "\n");
         int size = list.size();
@@ -56,7 +56,7 @@ public class ItemInfoView extends LinearLayout {
             PbContent pbContent = list.get(i);
             if (pbContent != null) {
                 if (pbContent.type.intValue() == 2) {
-                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(bVar.yr(pbContent.text));
+                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(bVar.zx(pbContent.text));
                     if (cashBitmap != null) {
                         BitmapDrawable bitmapDrawable = new BitmapDrawable(cashBitmap);
                         bitmapDrawable.setBounds(0, 0, cashBitmap.getWidth(), cashBitmap.getHeight());
@@ -73,7 +73,7 @@ public class ItemInfoView extends LinearLayout {
     }
 
     public void a(ForumDetailActivity forumDetailActivity, int i) {
-        an.setViewTextColor(this.iRl, R.color.common_color_10177, 1);
+        ao.setViewTextColor(this.iZv, R.color.common_color_10177, 1);
         forumDetailActivity.getLayoutMode().setNightMode(i == 1);
         forumDetailActivity.getLayoutMode().onModeChanged(this);
     }

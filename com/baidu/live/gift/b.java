@@ -3,12 +3,12 @@ package com.baidu.live.gift;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public String giftId = "";
     public String giftName = "";
-    public e aGe = null;
-    public d aGf = null;
+    public e aHz = null;
+    public d aHA = null;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -16,22 +16,22 @@ public class b {
             this.giftName = jSONObject.optString("gift_name");
             JSONObject optJSONObject = jSONObject.optJSONObject("config_info");
             if (optJSONObject != null) {
-                this.aGf = new d();
-                this.aGf.parseJson(optJSONObject);
+                this.aHA = new d();
+                this.aHA.parseJson(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("gift_zip");
             if (optJSONObject2 != null) {
-                this.aGe = new e();
-                this.aGe.parseJson(optJSONObject2);
+                this.aHz = new e();
+                this.aHz.parseJson(optJSONObject2);
             }
         }
     }
 
-    public boolean xs() {
-        return (this.aGe == null || TextUtils.isEmpty(this.aGe.videoUrl) || TextUtils.isEmpty(this.aGe.videoMd5)) ? false : true;
+    public boolean xU() {
+        return (this.aHz == null || TextUtils.isEmpty(this.aHz.videoUrl) || TextUtils.isEmpty(this.aHz.videoMd5)) ? false : true;
     }
 
-    public boolean xt() {
-        return (this.aGe == null || TextUtils.isEmpty(this.aGe.zipDownloadUrl) || TextUtils.isEmpty(this.aGe.zipMD5)) ? false : true;
+    public boolean xV() {
+        return (this.aHz == null || TextUtils.isEmpty(this.aHz.zipDownloadUrl) || TextUtils.isEmpty(this.aHz.zipMD5)) ? false : true;
     }
 }

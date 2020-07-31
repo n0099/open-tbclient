@@ -1,27 +1,27 @@
 package com.baidu.swan.apps.ap;
 
-import com.baidu.swan.apps.aq.h;
+import com.baidu.swan.apps.aq.i;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.games.i.k;
 import com.baidu.swan.games.utils.so.e;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static int cOf = 0;
+    private static int cRB = 0;
 
     public static void an(int i, int i2) {
-        com.baidu.swan.apps.extcore.cores.a.adO().ah(i, i2);
-        h.auv();
+        com.baidu.swan.apps.extcore.cores.a.afe().ah(i, i2);
+        i.awx();
         if (i == 0) {
-            cOf = 2;
+            cRB = 2;
         } else if (i2 > i) {
-            cOf = 1;
-            k.aBe();
-            e.aDB();
+            cRB = 1;
+            k.aEJ();
+            e.a.aHp();
         }
     }
 
-    public static int aub() {
-        return cOf;
+    public static int awc() {
+        return cRB;
     }
 }

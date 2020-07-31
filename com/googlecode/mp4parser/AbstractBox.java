@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser;
 
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.Hex;
 import com.coremedia.iso.IsoFile;
@@ -13,7 +14,7 @@ import com.googlecode.mp4parser.util.Path;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public abstract class AbstractBox implements Box {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static Logger LOG;
@@ -215,11 +216,11 @@ public abstract class AbstractBox implements Box {
             i = 24;
         }
         if (!this.isRead) {
-            return this.memMapSize + ((long) i) < 4294967296L;
+            return this.memMapSize + ((long) i) < AccountConstants.TYPE_MODIFY_EXT_FIELDS;
         } else if (this.isParsed) {
-            return (getContentSize() + ((long) (this.deadBytes != null ? this.deadBytes.limit() : 0))) + ((long) i) < 4294967296L;
+            return (getContentSize() + ((long) (this.deadBytes != null ? this.deadBytes.limit() : 0))) + ((long) i) < AccountConstants.TYPE_MODIFY_EXT_FIELDS;
         } else {
-            return ((long) (i + this.content.limit())) < 4294967296L;
+            return ((long) (i + this.content.limit())) < AccountConstants.TYPE_MODIFY_EXT_FIELDS;
         }
     }
 

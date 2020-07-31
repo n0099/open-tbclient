@@ -2,13 +2,13 @@ package com.tb.airbnb.lottie.a.b;
 
 import android.graphics.PointF;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class j extends f<PointF> {
-    private final PointF CV;
+    private final PointF CX;
 
     public j(List<com.tb.airbnb.lottie.e.a<PointF>> list) {
         super(list);
-        this.CV = new PointF();
+        this.CX = new PointF();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,9 +21,9 @@ public class j extends f<PointF> {
         }
         PointF pointF2 = aVar.Gp;
         PointF pointF3 = aVar.Gq;
-        if (this.nGa == null || (pointF = (PointF) this.nGa.b(aVar.Ao, aVar.Gs.floatValue(), pointF2, pointF3, f, hG(), getProgress())) == null) {
-            this.CV.set(pointF2.x + ((pointF3.x - pointF2.x) * f), pointF2.y + ((pointF3.y - pointF2.y) * f));
-            return this.CV;
+        if (this.nOI == null || (pointF = (PointF) this.nOI.b(aVar.Aq, aVar.Gs.floatValue(), pointF2, pointF3, f, hG(), getProgress())) == null) {
+            this.CX.set(pointF2.x + ((pointF3.x - pointF2.x) * f), pointF2.y + ((pointF3.y - pointF2.y) * f));
+            return this.CX;
         }
         return pointF;
     }

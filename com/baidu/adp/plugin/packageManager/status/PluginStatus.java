@@ -12,9 +12,9 @@ public class PluginStatus extends OrmObject {
     public static final int STATUS_INSTALL_UNKNOWN = 1;
     public static final int STATUS_LOAD_UNKNOWN = 100;
     public static final int STATUS_SUCCESS = 0;
-    PluginPackageManager.PluginStatus Ts;
-    String Tt;
-    boolean Tu;
+    PluginPackageManager.PluginStatus Tn;
+    String To;
+    boolean Tp;
     int errorCode;
     String errorMsg;
     String pkgName;
@@ -36,7 +36,7 @@ public class PluginStatus extends OrmObject {
         return this.errorMsg;
     }
 
-    public String oV() {
-        return this.Tt;
+    public String oW() {
+        return this.To;
     }
 }

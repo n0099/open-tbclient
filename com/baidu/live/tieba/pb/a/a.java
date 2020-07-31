@@ -4,15 +4,15 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private InterfaceC0187a bhg;
-    private View bhh;
+    private View bhA;
+    private InterfaceC0189a bhz;
     private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* renamed from: com.baidu.live.tieba.pb.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0187a {
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0189a {
         boolean onDoubleTap(View view, MotionEvent motionEvent);
 
         boolean onDoubleTapEvent(View view, MotionEvent motionEvent);
@@ -20,13 +20,13 @@ public class a implements GestureDetector.OnDoubleTapListener, GestureDetector.O
         boolean onSingleTapConfirmed(View view, MotionEvent motionEvent);
     }
 
-    public a(InterfaceC0187a interfaceC0187a) {
-        this.bhg = interfaceC0187a;
+    public a(InterfaceC0189a interfaceC0189a) {
+        this.bhz = interfaceC0189a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.bhh = view;
+        this.bhA = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -63,29 +63,29 @@ public class a implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.bhg != null) {
-            return this.bhg.onDoubleTap(this.bhh, motionEvent);
+        if (this.bhz != null) {
+            return this.bhz.onDoubleTap(this.bhA, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.bhg != null) {
-            return this.bhg.onDoubleTapEvent(this.bhh, motionEvent);
+        if (this.bhz != null) {
+            return this.bhz.onDoubleTapEvent(this.bhA, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.bhg != null) {
-            return this.bhg.onSingleTapConfirmed(this.bhh, motionEvent);
+        if (this.bhz != null) {
+            return this.bhz.onSingleTapConfirmed(this.bhA, motionEvent);
         }
         return false;
     }
 
-    public void T(View view) {
-        this.bhh = view;
+    public void W(View view) {
+        this.bhA = view;
     }
 }

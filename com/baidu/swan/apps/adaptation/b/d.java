@@ -2,7 +2,7 @@ package com.baidu.swan.apps.adaptation.b;
 
 import android.view.View;
 import android.widget.AbsoluteLayout;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public interface d extends com.baidu.swan.apps.core.container.a {
     boolean canGoBack();
 
@@ -21,6 +21,8 @@ public interface d extends com.baidu.swan.apps.core.container.a {
     int getWebViewScrollY();
 
     void goBack();
+
+    void setDefaultViewSize(int i, int i2, String str);
 
     void webViewScrollTo(int i, int i2);
 }

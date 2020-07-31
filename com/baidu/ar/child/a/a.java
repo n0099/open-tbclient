@@ -1,5 +1,5 @@
 package com.baidu.ar.child.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class a extends com.baidu.ar.c.b {
     private boolean lc;
     private byte[] lf;

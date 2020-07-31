@@ -3,63 +3,63 @@ package com.tb.airbnb.lottie.model.a;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.o;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final e nGA;
-    private final m<PointF, PointF> nGB;
-    private final g nGC;
-    private final b nGD;
-    private final d nGE;
+    private final e nPi;
+    private final m<PointF, PointF> nPj;
+    private final g nPk;
+    private final b nPl;
+    private final d nPm;
     @Nullable
-    private final b nGF;
+    private final b nPn;
     @Nullable
-    private final b nGG;
+    private final b nPo;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.nGA = eVar;
-        this.nGB = mVar;
-        this.nGC = gVar;
-        this.nGD = bVar;
-        this.nGE = dVar;
-        this.nGF = bVar2;
-        this.nGG = bVar3;
+        this.nPi = eVar;
+        this.nPj = mVar;
+        this.nPk = gVar;
+        this.nPl = bVar;
+        this.nPm = dVar;
+        this.nPn = bVar2;
+        this.nPo = bVar3;
     }
 
-    public e dNI() {
-        return this.nGA;
+    public e dRe() {
+        return this.nPi;
     }
 
-    public m<PointF, PointF> dNJ() {
-        return this.nGB;
+    public m<PointF, PointF> dRf() {
+        return this.nPj;
     }
 
-    public g dNK() {
-        return this.nGC;
+    public g dRg() {
+        return this.nPk;
     }
 
-    public b dNL() {
-        return this.nGD;
+    public b dRh() {
+        return this.nPl;
     }
 
-    public d dNM() {
-        return this.nGE;
-    }
-
-    @Nullable
-    public b dNN() {
-        return this.nGF;
+    public d dRi() {
+        return this.nPm;
     }
 
     @Nullable
-    public b dNO() {
-        return this.nGG;
+    public b dRj() {
+        return this.nPn;
     }
 
-    public o dNP() {
+    @Nullable
+    public b dRk() {
+        return this.nPo;
+    }
+
+    public o dRl() {
         return new o(this);
     }
 

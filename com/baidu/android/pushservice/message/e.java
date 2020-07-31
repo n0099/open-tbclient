@@ -1,5 +1,5 @@
 package com.baidu.android.pushservice.message;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e {
     protected short a;
     protected byte[] b;

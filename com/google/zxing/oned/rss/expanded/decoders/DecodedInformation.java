@@ -1,5 +1,5 @@
 package com.google.zxing.oned.rss.expanded.decoders;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 final class DecodedInformation extends DecodedObject {
     private final String newString;
     private final boolean remaining;

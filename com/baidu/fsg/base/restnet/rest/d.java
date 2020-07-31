@@ -1,7 +1,7 @@
 package com.baidu.fsg.base.restnet.rest;
 
 import com.baidu.fsg.base.restnet.http.HttpDefines;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface d {
     void a(int i);
 

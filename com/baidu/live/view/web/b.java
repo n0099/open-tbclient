@@ -1,9 +1,9 @@
 package com.baidu.live.view.web;
 
 import android.webkit.JsResult;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface b {
-    void Hh();
+    void Hn();
 
     boolean a(String str, JsResult jsResult);
 
@@ -11,13 +11,13 @@ public interface b {
 
     void dE(int i);
 
-    void fJ(String str);
+    void fH(String str);
+
+    void fX(String str);
 
     void fY(String str);
 
-    void fZ(String str);
-
-    boolean ga(String str);
+    boolean fZ(String str);
 
     boolean v(String str, boolean z);
 }

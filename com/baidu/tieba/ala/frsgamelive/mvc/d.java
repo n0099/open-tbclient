@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.frsgamelive.mvc;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface d {
-    void qH(int i);
+    void qX(int i);
 }

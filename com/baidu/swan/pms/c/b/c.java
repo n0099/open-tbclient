@@ -1,20 +1,20 @@
 package com.baidu.swan.pms.c.b;
 
 import com.baidu.swan.pms.a.g;
-import com.baidu.swan.pms.c.d.f;
+import com.baidu.swan.pms.f.f;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
-    public c(g gVar, f fVar) {
-        super(gVar, fVar);
+    public c(g gVar, com.baidu.swan.pms.c.d.g gVar2) {
+        super(gVar, gVar2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
-    /* renamed from: cj */
-    public com.baidu.swan.pms.c.c.c bG(JSONObject jSONObject) {
-        return com.baidu.swan.pms.f.d.cv(jSONObject);
+    /* renamed from: cp */
+    public com.baidu.swan.pms.c.c.c bL(JSONObject jSONObject) {
+        return com.baidu.swan.pms.f.e.cB(jSONObject);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,15 +22,15 @@ public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a X(com.baidu.swan.pms.c.c.c cVar) {
-        this.dqy.aaV();
-        com.baidu.swan.pms.f.e eVar = new com.baidu.swan.pms.f.e();
-        a(cVar.drl, eVar);
-        if (eVar.aIt() == 0) {
-            this.dqy.aaR();
+        this.dwq.abX();
+        f fVar = new f();
+        a(cVar.dxd, fVar);
+        if (fVar.aMl() == 0) {
+            this.dwq.Zs();
             return null;
         }
-        this.dqy.a(eVar);
-        com.baidu.swan.pms.c.a.a.a(cVar, this.dqy);
+        this.dwq.a(fVar);
+        com.baidu.swan.pms.c.a.a.a(cVar, this.dwq);
         return null;
     }
 
@@ -42,11 +42,11 @@ public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
         if (cVar == null) {
             return false;
         }
-        return cVar.drl == null || cVar.drl.abL();
+        return cVar.dxd == null || cVar.dxd.acP();
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String awk() {
+    protected String ayY() {
         return "getplugin";
     }
 }

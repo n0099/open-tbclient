@@ -16,7 +16,7 @@ public class a<T> {
     /* JADX WARN: Type inference failed for: r1v3, types: [com.baidu.tbadk.data.ShareFromFrsMsgData, T] */
     /* JADX WARN: Type inference failed for: r1v4, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T] */
     /* JADX WARN: Type inference failed for: r2v10, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    public int eE(String str, String str2) {
+    public int eG(String str, String str2) {
         int i = -1;
         if (str != null) {
             try {
@@ -79,7 +79,7 @@ public class a<T> {
         return this.subType;
     }
 
-    public T ctJ() {
+    public T cxL() {
         return this.payload;
     }
 }

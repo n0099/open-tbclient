@@ -4,7 +4,7 @@ import android.graphics.PointF;
 import android.support.annotation.FloatRange;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class h {
     private final List<com.airbnb.lottie.model.a> EH = new ArrayList();
     private PointF EI;

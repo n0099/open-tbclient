@@ -1,7 +1,5 @@
 package com.baidu.swan.apps.adaptation.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public interface ah {
-    String getHostName();
-
-    String sU();
+    void TS();
 }

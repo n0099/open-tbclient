@@ -2,19 +2,19 @@ package com.baidu.crabsdk.sender;
 
 import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public final class p implements Runnable {
-    final /* synthetic */ Context aoc;
+    final /* synthetic */ Context anY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(Context context) {
-        this.aoc = context;
+        this.anY = context;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            k.n(this.aoc);
+            k.n(this.anY);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -2,7 +2,7 @@ package com.baidu.ar.arplay.core.engine.pixel;
 
 import android.graphics.Rect;
 import com.baidu.ar.arplay.core.filter.ARPFilter;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class PixelReadParams {
     private static final int DEFAULT_CACHE_SIZE = 3;
     public static final String DEFAULT_FILTER_ID = "camera";
@@ -19,7 +19,7 @@ public class PixelReadParams {
     private boolean mIsPortrait = false;
     private String mPreFilterID = "";
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public enum ScaleType {
         FIT_XY,
         FIT_CENTER,

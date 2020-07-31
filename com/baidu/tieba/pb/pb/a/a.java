@@ -2,20 +2,20 @@ package com.baidu.tieba.pb.pb.a;
 
 import android.view.View;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.pb.data.e;
-/* loaded from: classes9.dex */
+import com.baidu.tieba.pb.data.f;
+/* loaded from: classes16.dex */
 public interface a {
     void R(View.OnClickListener onClickListener);
 
-    void fr(String str);
+    void fq(String str);
 
-    void rr(boolean z);
+    void rW(boolean z);
 
-    void rs(boolean z);
+    void rX(boolean z);
 
-    void rt(boolean z);
+    void rY(boolean z);
 
-    void setData(e eVar);
+    void setData(f fVar);
 
     void setFromCDN(boolean z);
 

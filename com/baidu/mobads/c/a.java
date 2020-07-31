@@ -25,7 +25,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a {
     protected final IXAdLogger a = XAdSDKFoundationFacade.getInstance().getAdLogger();
     private Context e;

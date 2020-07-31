@@ -4,34 +4,34 @@ import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class f {
     final int capacityHint;
-    Object[] nNG;
-    Object[] nNH;
-    int nNI;
+    Object[] nWp;
+    Object[] nWq;
+    int nWr;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.nNG = new Object[this.capacityHint + 1];
-            this.nNH = this.nNG;
-            this.nNG[0] = obj;
-            this.nNI = 1;
+            this.nWp = new Object[this.capacityHint + 1];
+            this.nWq = this.nWp;
+            this.nWp[0] = obj;
+            this.nWr = 1;
             this.size = 1;
-        } else if (this.nNI == this.capacityHint) {
+        } else if (this.nWr == this.capacityHint) {
             Object[] objArr = new Object[this.capacityHint + 1];
             objArr[0] = obj;
-            this.nNH[this.capacityHint] = objArr;
-            this.nNH = objArr;
-            this.nNI = 1;
+            this.nWq[this.capacityHint] = objArr;
+            this.nWq = objArr;
+            this.nWr = 1;
             this.size++;
         } else {
-            this.nNH[this.nNI] = obj;
-            this.nNI++;
+            this.nWq[this.nWr] = obj;
+            this.nWr++;
             this.size++;
         }
     }
 
-    public Object[] dPU() {
-        return this.nNG;
+    public Object[] dTq() {
+        return this.nWp;
     }
 
     public int size() {
@@ -43,14 +43,14 @@ public class f {
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] dPU = dPU();
+        Object[] dTq = dTq();
         int i4 = 0;
         while (i3 < i2) {
-            arrayList.add(dPU[i4]);
+            arrayList.add(dTq[i4]);
             i3++;
             i4++;
             if (i4 == i) {
-                dPU = (Object[]) dPU[i];
+                dTq = (Object[]) dTq[i];
                 i4 = 0;
             }
         }

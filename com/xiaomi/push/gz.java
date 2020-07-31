@@ -4,91 +4,91 @@ import com.xiaomi.push.hc;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.ap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class gz implements ap.b.a {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private fs f423a;
+    private fs f419a;
 
     /* renamed from: a  reason: collision with other field name */
-    private XMPushService f424a;
+    private XMPushService f420a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ap.b f425a;
+    private ap.b f421a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f427a = false;
+    private boolean f423a = false;
 
     /* renamed from: a  reason: collision with other field name */
-    private ap.c f426a = ap.c.binding;
+    private ap.c f422a = ap.c.binding;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gz(XMPushService xMPushService, ap.b bVar) {
-        this.f424a = xMPushService;
-        this.f425a = bVar;
+        this.f420a = xMPushService;
+        this.f421a = bVar;
     }
 
     private void b() {
-        this.f425a.b(this);
+        this.f421a.b(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         b();
-        if (this.f427a && this.a != 11) {
-            fi m330a = he.m328a().m330a();
-            switch (hb.a[this.f426a.ordinal()]) {
+        if (this.f423a && this.a != 11) {
+            fi m331a = he.m329a().m331a();
+            switch (hb.a[this.f422a.ordinal()]) {
                 case 1:
                     if (this.a != 17) {
                         if (this.a != 21) {
                             try {
                                 hc.a c = hc.c(he.a().a());
-                                m330a.f330a = c.a.a();
-                                m330a.c(c.f428a);
+                                m331a.f326a = c.a.a();
+                                m331a.c(c.f424a);
                                 break;
                             } catch (NullPointerException e) {
-                                m330a = null;
+                                m331a = null;
                                 break;
                             }
                         } else {
-                            m330a.f330a = fh.BIND_TIMEOUT.a();
+                            m331a.f326a = fh.BIND_TIMEOUT.a();
                             break;
                         }
                     } else {
-                        m330a.f330a = fh.BIND_TCP_READ_TIMEOUT.a();
+                        m331a.f326a = fh.BIND_TCP_READ_TIMEOUT.a();
                         break;
                     }
                 case 3:
-                    m330a.f330a = fh.BIND_SUCCESS.a();
+                    m331a.f326a = fh.BIND_SUCCESS.a();
                     break;
             }
-            if (m330a != null) {
-                m330a.b(this.f423a.m288a());
-                m330a.d(this.f425a.f868b);
-                m330a.f333b = 1;
+            if (m331a != null) {
+                m331a.b(this.f419a.m289a());
+                m331a.d(this.f421a.f864b);
+                m331a.f329b = 1;
                 try {
-                    m330a.a((byte) Integer.parseInt(this.f425a.g));
+                    m331a.a((byte) Integer.parseInt(this.f421a.g));
                 } catch (NumberFormatException e2) {
                 }
-                he.m328a().a(m330a);
+                he.m329a().a(m331a);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.f425a.a(this);
-        this.f423a = this.f424a.m513a();
+        this.f421a.a(this);
+        this.f419a = this.f420a.m514a();
     }
 
     @Override // com.xiaomi.push.service.ap.b.a
     public void a(ap.c cVar, ap.c cVar2, int i) {
-        if (!this.f427a && cVar == ap.c.binding) {
-            this.f426a = cVar2;
+        if (!this.f423a && cVar == ap.c.binding) {
+            this.f422a = cVar2;
             this.a = i;
-            this.f427a = true;
+            this.f423a = true;
         }
-        this.f424a.a(new ha(this, 4));
+        this.f420a.a(new ha(this, 4));
     }
 }

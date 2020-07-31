@@ -5,64 +5,64 @@ import tbclient.FrsPage.Size;
 import tbclient.FrsPage.StarInfo;
 /* loaded from: classes.dex */
 public class n {
-    private int lEk = 0;
-    private int esx = 0;
-    private String lEl = null;
-    private String lEm = null;
-    private int lEn = 0;
-    private int lEo = 0;
-    private int lEp = 0;
-    private int lEq = 0;
-    private int lEr = 0;
-    private int lEs = 0;
-    private long lEt = 0;
-    private long lEu = 0;
-    private boolean lEv = false;
-    private long lEw = 0;
-    private String lEx = null;
-    private String lEy = null;
+    private int lLz = 0;
+    private int eyR = 0;
+    private String lLA = null;
+    private String lLB = null;
+    private int lLC = 0;
+    private int lLD = 0;
+    private int lLE = 0;
+    private int lLF = 0;
+    private int lLG = 0;
+    private int lLH = 0;
+    private long lLI = 0;
+    private long lLJ = 0;
+    private boolean lLK = false;
+    private long lLL = 0;
+    private String lLM = null;
+    private String lLN = null;
 
-    public int dhm() {
-        return this.lEk;
+    public int dku() {
+        return this.lLz;
     }
 
-    public String dhn() {
-        return this.lEy;
+    public String dkv() {
+        return this.lLN;
     }
 
     public void a(StarInfo starInfo) {
         if (starInfo != null) {
-            this.lEk = starInfo.has_frs_star.intValue();
-            if (this.lEk == 1) {
-                this.lEl = starInfo.f1105top;
-                this.lEm = starInfo.head;
+            this.lLz = starInfo.has_frs_star.intValue();
+            if (this.lLz == 1) {
+                this.lLA = starInfo.top;
+                this.lLB = starInfo.head;
                 Fans fans = starInfo.fans;
                 if (fans != null) {
-                    this.lEn = fans.is_get.intValue();
-                    this.lEo = fans.num.intValue();
-                    this.esx = fans.open.intValue();
-                    this.lEt = fans.left_time.intValue();
+                    this.lLC = fans.is_get.intValue();
+                    this.lLD = fans.num.intValue();
+                    this.eyR = fans.open.intValue();
+                    this.lLI = fans.left_time.intValue();
                 }
-                this.lEu = this.lEt;
+                this.lLJ = this.lLI;
                 Size size = starInfo.top_size;
                 if (size != null) {
-                    this.lEp = size.width.intValue();
-                    this.lEq = size.height.intValue();
+                    this.lLE = size.width.intValue();
+                    this.lLF = size.height.intValue();
                 }
                 Size size2 = starInfo.head_size;
                 if (size2 != null) {
-                    this.lEr = size2.width.intValue();
-                    this.lEs = size2.height.intValue();
+                    this.lLG = size2.width.intValue();
+                    this.lLH = size2.height.intValue();
                 }
             }
-            this.lEv = starInfo.trade != null;
-            if (this.lEv) {
+            this.lLK = starInfo.trade != null;
+            if (this.lLK) {
                 if (starInfo.trade.time != null) {
-                    this.lEw = starInfo.trade.time.intValue();
+                    this.lLL = starInfo.trade.time.intValue();
                 }
-                this.lEx = starInfo.trade.url;
+                this.lLM = starInfo.trade.url;
             }
-            this.lEy = starInfo.star_forum_headimg;
+            this.lLN = starInfo.star_forum_headimg;
         }
     }
 }

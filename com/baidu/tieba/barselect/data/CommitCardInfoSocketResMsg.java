@@ -3,7 +3,7 @@ package com.baidu.tieba.barselect.data;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.CommitCardInfo.CommitCardInfoResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class CommitCardInfoSocketResMsg extends TbSocketReponsedMessage {
     public CommitCardInfoSocketResMsg() {
         super(309643);

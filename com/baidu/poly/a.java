@@ -5,81 +5,88 @@ import android.os.Bundle;
 import com.baidu.poly.util.d;
 import com.baidu.poly.util.g;
 import com.baidu.poly.widget.PolyActivity;
-/* loaded from: classes11.dex */
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
 public class a {
-    private com.baidu.poly.c.a.c byH;
-    private long byI;
+    private long byT;
 
     /* renamed from: com.baidu.poly.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public static class C0238a {
-        private com.baidu.poly.c.a.c byH;
         private Context context;
-        private int byJ = 1;
+        private int byU = 1;
         private boolean debug = false;
 
-        public a NS() {
+        public a NY() {
             return new a(this);
         }
 
-        public C0238a a(com.baidu.poly.c.a.c cVar) {
-            this.byH = cVar;
-            return this;
-        }
-
-        public C0238a aG(Context context) {
+        public C0238a aH(Context context) {
             this.context = context;
             return this;
         }
 
-        public C0238a cW(boolean z) {
+        public C0238a cY(boolean z) {
             this.debug = z;
             return this;
         }
 
         public C0238a dR(int i) {
-            this.byJ = i;
+            this.byU = i;
             return this;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public static abstract class b {
         public abstract void onResult(int i, String str);
     }
 
-    public void a(Context context, Bundle bundle, b bVar) {
+    public void a(int i, JSONObject jSONObject, com.baidu.poly.b.a aVar) {
+        if (i == 1) {
+            com.baidu.poly.a.b.a.b(jSONObject, aVar);
+        } else if (i == 2) {
+            com.baidu.poly.a.c.a.b(aVar);
+        } else if (aVar != null) {
+            aVar.onResult(1, "unknown command");
+        }
+    }
+
+    public void a(Context context, Bundle bundle, com.baidu.poly.d.a.c cVar, b bVar) {
         if (context == null) {
             throw new IllegalArgumentException("context can not be null");
         }
-        if (bundle != null) {
+        if (bundle == null) {
+            throw new IllegalArgumentException("arguments can not be null");
+        }
+        if (cVar != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.byI < 1000) {
+            if (currentTimeMillis - this.byT < 1000) {
                 d.info("cashier pay time interval less than 1s");
                 return;
             }
-            this.byI = currentTimeMillis;
+            this.byT = currentTimeMillis;
             d.info("cashier pay");
-            com.baidu.poly.a.g.a.a(Long.valueOf(currentTimeMillis));
-            PolyActivity.a(context, this.byH, bVar, bundle);
+            com.baidu.poly.a.h.a.a(Long.valueOf(currentTimeMillis));
+            com.baidu.poly.a.h.d.a(new com.baidu.poly.a.h.b("0"));
+            PolyActivity.a(context, cVar, bVar, bundle);
             return;
         }
-        throw new IllegalArgumentException("arguments can not be null");
+        throw new IllegalArgumentException("channelPay can not be null");
     }
 
     private a(C0238a c0238a) {
-        this.byI = 0L;
-        if (c0238a != null && c0238a.byH != null) {
+        this.byT = 0L;
+        if (c0238a != null) {
             if (c0238a.context != null) {
-                this.byH = c0238a.byH;
-                com.baidu.poly.a.b.a.dS(c0238a.byJ);
-                com.baidu.poly.a.c.b.a(com.baidu.poly.a.c.a.aH(c0238a.context.getApplicationContext()));
+                com.baidu.poly.a.b.a.b(c0238a.byU);
+                com.baidu.poly.a.d.b.a(com.baidu.poly.a.d.a.aI(c0238a.context.getApplicationContext()));
                 g.b(c0238a.context.getApplicationContext());
-                d.bAO = c0238a.debug;
+                d.bBe = c0238a.debug;
                 return;
             }
             throw new IllegalArgumentException("context can not be null");
         }
-        throw new IllegalArgumentException("channelPay can not be null");
+        throw new IllegalArgumentException("builder can not be null");
     }
 }

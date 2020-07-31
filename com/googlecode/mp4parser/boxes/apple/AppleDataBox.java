@@ -18,14 +18,14 @@ import java.util.HashMap;
 import java.util.Locale;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public abstract class AppleDataBox extends AbstractBox {
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_5 = null;
     private static HashMap<String, String> language;
     int dataCountry;
     int dataLanguage;
@@ -82,7 +82,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataCountry(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Lj(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.LD(i)));
         this.dataCountry = i;
     }
 
@@ -92,7 +92,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataLanguage(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Lj(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.LD(i)));
         this.dataLanguage = i;
     }
 
@@ -163,7 +163,7 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "Korean");
         language.put(SoUtils.SO_EVENT_ID_DEFAULT, "Lithuanian");
         language.put(SoUtils.SO_EVENT_ID_NEW_SO, "Polish");
-        language.put("26", "Hungarian");
+        language.put(SoUtils.SO_EVENT_ID_V8_SO, "Hungarian");
         language.put("27", "Estonian");
         language.put(Constants.VIA_ACT_TYPE_TWENTY_EIGHT, "Lettish");
         language.put("29", "Sami");

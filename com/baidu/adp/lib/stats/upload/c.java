@@ -23,7 +23,7 @@ public class c {
             long j = 0;
             while (i < size) {
                 com.baidu.adp.lib.stats.base.d dVar = e.get(i);
-                j += dVar.mFileSize;
+                j += dVar.Ni;
                 arrayList2.add(dVar);
                 if (j >= 20480) {
                     bdUploadingLogInfo.add(arrayList2);

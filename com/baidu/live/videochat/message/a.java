@@ -1,16 +1,16 @@
 package com.baidu.live.videochat.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends HttpMessage {
     private String action;
     private int type;
 
-    public boolean Kb() {
+    public boolean Ki() {
         return this.type == 2;
     }
 
-    public boolean Kc() {
+    public boolean Kj() {
         return "ban".equals(this.action);
     }
 }

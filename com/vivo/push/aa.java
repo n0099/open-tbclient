@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public abstract class aa {
     protected Context a;
     protected Handler b;
@@ -33,7 +33,7 @@ public abstract class aa {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     class a extends Handler {
         public a(Looper looper) {
             super(looper);

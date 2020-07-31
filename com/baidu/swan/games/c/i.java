@@ -4,45 +4,45 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = i.class.getSimpleName();
-    private static volatile boolean bVP = false;
-    private static volatile boolean dba = false;
-    private static volatile List<com.baidu.swan.apps.event.a.b> dbb = new ArrayList();
+    private static volatile boolean bWG = false;
+    private static volatile boolean dgJ = false;
+    private static volatile List<com.baidu.swan.apps.event.a.b> dgK = new ArrayList();
 
     private i() {
     }
 
-    public static void dw(boolean z) {
-        bVP = z;
-        com.baidu.swan.apps.console.c.dw(z);
+    public static void dz(boolean z) {
+        bWG = z;
+        com.baidu.swan.apps.console.c.dz(z);
     }
 
-    public static void aAx() {
+    public static void aEc() {
         synchronized (i.class) {
-            dbb = new ArrayList();
+            dgK = new ArrayList();
         }
-        dba = false;
+        dgJ = false;
     }
 
-    public static void aAy() {
-        if (bVP && !dba) {
+    public static void aEd() {
+        if (bWG && !dgJ) {
             synchronized (i.class) {
-                if (dbb != null) {
-                    for (int i = 0; i < dbb.size(); i++) {
-                        com.baidu.swan.apps.w.f.ajb().a("console", dbb.get(i));
+                if (dgK != null) {
+                    for (int i = 0; i < dgK.size(); i++) {
+                        com.baidu.swan.apps.v.f.akr().a("console", dgK.get(i));
                     }
-                    dbb.clear();
-                    dbb = null;
+                    dgK.clear();
+                    dgK = null;
                 }
             }
-            dba = true;
+            dgJ = true;
         }
     }
 
-    private static String iA(int i) {
+    private static String iR(int i) {
         switch (i) {
             case 1:
                 return TbConfig.TMP_LOG_DIR_NAME;
@@ -60,31 +60,31 @@ public class i {
         }
     }
 
-    public static void ae(int i, String str) {
-        ck(iA(i), str);
+    public static void af(int i, String str) {
+        cn(iR(i), str);
     }
 
-    public static void ck(String str, String str2) {
-        if (bVP) {
-            a(c.ci(str, str2));
+    public static void cn(String str, String str2) {
+        if (bWG) {
+            a(c.cl(str, str2));
         }
     }
 
-    public static void cl(String str, String str2) {
-        if (bVP) {
-            a(c.cj(str, str2));
+    public static void co(String str, String str2) {
+        if (bWG) {
+            a(c.cm(str, str2));
         }
     }
 
     private static void a(com.baidu.swan.apps.event.a.b bVar) {
-        if (!dba) {
+        if (!dgJ) {
             synchronized (i.class) {
-                if (dbb != null) {
-                    dbb.add(bVar);
+                if (dgK != null) {
+                    dgK.add(bVar);
                     return;
                 }
             }
         }
-        com.baidu.swan.apps.w.f.ajb().a("console", bVar);
+        com.baidu.swan.apps.v.f.akr().a("console", bVar);
     }
 }

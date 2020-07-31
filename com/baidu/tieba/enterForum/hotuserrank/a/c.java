@@ -4,57 +4,57 @@ import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.HttpHost;
 import tbclient.GetInfluenceRank.DataRes;
 import tbclient.User;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class c {
-    public String fNm;
-    public long hfa;
-    public a hfi;
-    public b hfk;
-    public String hfl;
-    public List<b> hfj = new ArrayList();
+    public String fSF;
+    public long hkK;
+    public a hkS;
+    public b hkU;
+    public String hkV;
+    public List<b> hkT = new ArrayList();
     public boolean hasMore = true;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.hfi = new a();
-            if (!w.isEmpty(dataRes.user_rank) && dataRes.user_rank.get(0) != null) {
-                this.hfi.heY = b(dataRes.user_rank.get(0));
+            this.hkS = new a();
+            if (!x.isEmpty(dataRes.user_rank) && dataRes.user_rank.get(0) != null) {
+                this.hkS.hkI = b(dataRes.user_rank.get(0));
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(dataRes.user_rank.get(0));
-                this.hfi.heZ = metaData;
+                this.hkS.hkJ = metaData;
                 String avatarH = metaData.getAvatarH();
                 if (TextUtils.isEmpty(avatarH)) {
                     avatarH = metaData.getAvater();
                 }
                 if (avatarH != null && avatarH.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                    this.hfi.hfb = avatarH;
+                    this.hkS.hkL = avatarH;
                 } else {
-                    this.hfi.hfb = "http://tb.himg.baidu.com/sys/portraith/item/" + avatarH;
+                    this.hkS.hkL = "http://tb.himg.baidu.com/sys/portraith/item/" + avatarH;
                 }
             }
-            this.hfi.hfa = dataRes.timestamp == null ? 0L : dataRes.timestamp.longValue();
-            this.hfi.hfc = dataRes.field_info;
-            if (!w.isEmpty(dataRes.user_rank)) {
+            this.hkS.hkK = dataRes.timestamp == null ? 0L : dataRes.timestamp.longValue();
+            this.hkS.hkM = dataRes.field_info;
+            if (!x.isEmpty(dataRes.user_rank)) {
                 for (User user : dataRes.user_rank) {
                     if (user != null) {
-                        this.hfj.add(a(user));
+                        this.hkT.add(a(user));
                     }
                 }
             }
-            this.hfk = a(dataRes.current_user);
+            this.hkU = a(dataRes.current_user);
             if (dataRes.rank_description != null) {
-                this.fNm = dataRes.rank_description.top_link;
-                this.hfl = dataRes.rank_description.bottom_link;
+                this.fSF = dataRes.rank_description.top_link;
+                this.hkV = dataRes.rank_description.bottom_link;
             }
-            this.hfa = dataRes.timestamp != null ? dataRes.timestamp.longValue() : 0L;
+            this.hkK = dataRes.timestamp != null ? dataRes.timestamp.longValue() : 0L;
             this.hasMore = dataRes.has_more == null ? false : dataRes.has_more.booleanValue();
         }
     }
@@ -68,18 +68,18 @@ public class c {
         bVar.rankNum = user.level_influence;
         bVar.userName = b(user);
         if (user.baijiahao_info != null) {
-            bVar.hfe = user.baijiahao_info.auth_desc;
+            bVar.hkO = user.baijiahao_info.auth_desc;
             Integer num = user.baijiahao_info.auth_id;
-            bVar.hfh = (num == null || num.intValue() == 0) ? false : true;
+            bVar.hkR = (num == null || num.intValue() == 0) ? false : true;
         }
-        if (!bVar.hfh && user.new_god_data != null && user.new_god_data.status.intValue() == 3) {
-            bVar.hfe = user.new_god_data.field_name + TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_god);
-            bVar.heU = true;
+        if (!bVar.hkR && user.new_god_data != null && user.new_god_data.status.intValue() == 3) {
+            bVar.hkO = user.new_god_data.field_name + TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_god);
+            bVar.hkE = true;
         }
         if (user.influence == null) {
-            bVar.hff = "";
+            bVar.hkP = "";
         } else {
-            bVar.hff = String.format(TbadkCoreApplication.getInst().getString(R.string.influence), ar.numFormatOverWanNa(user.influence.intValue()));
+            bVar.hkP = String.format(TbadkCoreApplication.getInst().getString(R.string.influence), as.numFormatOverWanNa(user.influence.intValue()));
         }
         MetaData metaData = new MetaData();
         metaData.parserProtobuf(user);
@@ -87,11 +87,11 @@ public class c {
             z = false;
         }
         metaData.setIsLike(z);
-        bVar.hfg = metaData;
+        bVar.hkQ = metaData;
         if (metaData.getAvater() != null && metaData.getAvater().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-            bVar.hfd = metaData.getAvater();
+            bVar.hkN = metaData.getAvater();
         } else {
-            bVar.hfd = TbConfig.getPhotoSmallAddress() + metaData.getAvater();
+            bVar.hkN = TbConfig.getPhotoSmallAddress() + metaData.getAvater();
         }
         return bVar;
     }

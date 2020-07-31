@@ -3,7 +3,7 @@ package com.baidu.ar.ability;
 import com.baidu.ar.auth.FeatureCodes;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class a {
     private static volatile Map<String, Integer> bB = X();
     private static volatile Map<String, Integer> bC = Y();

@@ -10,13 +10,13 @@ import com.baidu.mobads.vo.a.a;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class d extends a {
     private String o;
     private HashMap<String, String> p;
 
     public d(String str, IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo, HashMap<String, String> hashMap) {
-        super(new a.C0216a(iXAdInstanceInfo, iXAdProdInfo));
+        super(new a.C0217a(iXAdInstanceInfo, iXAdProdInfo));
         this.o = "";
         this.p = null;
         this.o = str;

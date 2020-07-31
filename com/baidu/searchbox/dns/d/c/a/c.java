@@ -1,5 +1,5 @@
 package com.baidu.searchbox.dns.d.c.a;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class c extends Exception {
     protected int am;
     protected int an;

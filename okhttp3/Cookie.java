@@ -16,7 +16,7 @@ import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.http.cookie.ClientCookie;
 import org.apache.http.cookie.SM;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public final class Cookie {
     private final String domain;
     private final long expiresAt;
@@ -354,7 +354,7 @@ public final class Cookie {
         return Collections.emptyList();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes14.dex */
     public static final class Builder {
         String domain;
         boolean hostOnly;

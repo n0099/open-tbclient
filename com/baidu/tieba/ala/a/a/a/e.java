@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.a.a.a;
 import android.content.Context;
 import dalvik.system.PathClassLoader;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e implements a {
     @Override // com.baidu.tieba.ala.a.a.a.a
     public void i(Context context, File file) {

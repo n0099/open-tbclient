@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.h.f;
 import com.baidu.tieba.newdetail.view.HotTopicDetailSpecialItem;
-/* loaded from: classes8.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail.a.b, C0689a> {
-    private f<com.baidu.tieba.newdetail.a.b> iqN;
+/* loaded from: classes15.dex */
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail.a.b, C0701a> {
+    private f<com.baidu.tieba.newdetail.a.b> iwR;
 
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.jOe);
-        this.iqN = new f<com.baidu.tieba.newdetail.a.b>() { // from class: com.baidu.tieba.newdetail.adapter.a.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.jWC);
+        this.iwR = new f<com.baidu.tieba.newdetail.a.b>() { // from class: com.baidu.tieba.newdetail.adapter.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, com.baidu.tieba.newdetail.a.b bVar, int i, long j) {
@@ -32,49 +32,49 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bZ */
-    public C0689a b(ViewGroup viewGroup) {
-        C0689a c0689a = new C0689a(new HotTopicDetailSpecialItem(viewGroup.getContext()));
-        c0689a.setOnItemCoverListener(this.iqN);
-        c0689a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return c0689a;
+    /* renamed from: ca */
+    public C0701a b(ViewGroup viewGroup) {
+        C0701a c0701a = new C0701a(new HotTopicDetailSpecialItem(viewGroup.getContext()));
+        c0701a.setOnItemCoverListener(this.iwR);
+        c0701a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        return c0701a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.newdetail.a.b bVar, C0689a c0689a) {
-        if (bVar == null || c0689a == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.newdetail.a.b bVar, C0701a c0701a) {
+        if (bVar == null || c0701a == null) {
             return null;
         }
-        c0689a.a(bVar);
-        c0689a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return c0689a.getView();
+        c0701a.a(bVar);
+        c0701a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        return c0701a.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.newdetail.adapter.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0689a extends ad.a {
-        private HotTopicDetailSpecialItem jNG;
+    /* loaded from: classes15.dex */
+    public static class C0701a extends ad.a {
+        private HotTopicDetailSpecialItem jWe;
 
-        C0689a(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
+        C0701a(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
             super(hotTopicDetailSpecialItem);
-            this.jNG = hotTopicDetailSpecialItem;
+            this.jWe = hotTopicDetailSpecialItem;
         }
 
         void a(com.baidu.tieba.newdetail.a.b bVar) {
             if (bVar != null) {
-                this.jNG.a(bVar);
+                this.jWe.a(bVar);
             }
         }
 
         public void setOnItemCoverListener(f<com.baidu.tieba.newdetail.a.b> fVar) {
-            this.jNG.setOnItemCoverListener(fVar);
+            this.jWe.setOnItemCoverListener(fVar);
         }
 
         void onChangeSkinType(int i) {
-            this.jNG.onChangeSkinType(i);
+            this.jWe.onChangeSkinType(i);
         }
     }
 }

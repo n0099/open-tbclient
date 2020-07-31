@@ -1,5 +1,5 @@
 package com.baidu.searchbox.suspensionball.impl;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public class SuspensionBallInfoImpl_Factory {
     private static volatile SuspensionBallInfoImpl instance;
 

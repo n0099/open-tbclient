@@ -1,9 +1,9 @@
 package com.baidu.tbadk.album;
 
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public interface c {
-    void aB(List<a> list);
+    void aI(List<a> list);
 
     void onPreLoad();
 }

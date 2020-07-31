@@ -8,30 +8,30 @@ import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bu;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 import com.baidu.tbadk.core.view.ThreadUserInfoLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ala.AlaVideoContainer;
 import com.baidu.tieba.card.m;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d implements View.OnClickListener {
-    private bu aeK;
-    private final View.OnClickListener ahM = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.a.d.1
+    private bv aeA;
+    private final View.OnClickListener ahD = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.a.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.this.fRL != null) {
-                d.this.fRL.d(view, d.this.aeK);
+            if (d.this.fXe != null) {
+                d.this.fXe.d(view, d.this.aeA);
             }
         }
     };
-    public RelativeLayout fRG;
-    public ThreadUserInfoLayout fRH;
-    public ThreadCommentAndPraiseInfoLayout fRI;
-    public View fRJ;
-    public AlaVideoContainer fRK;
-    private com.baidu.tieba.ala.livecard.vc.c fRL;
+    public RelativeLayout fWZ;
+    public ThreadUserInfoLayout fXa;
+    public ThreadCommentAndPraiseInfoLayout fXb;
+    public View fXc;
+    public AlaVideoContainer fXd;
+    private com.baidu.tieba.ala.livecard.vc.c fXe;
     public View mDivider;
     private String mForumName;
     public TextView mTextTitle;
@@ -39,18 +39,18 @@ public class d implements View.OnClickListener {
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.rootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.frs_ala_stage_live_item, (ViewGroup) null);
-        this.fRG = (RelativeLayout) this.rootView.findViewById(R.id.layout_root);
-        this.fRH = (ThreadUserInfoLayout) this.rootView.findViewById(R.id.card_frs_ala_video_user_info_layout);
-        this.fRH.setFrom(3);
+        this.fWZ = (RelativeLayout) this.rootView.findViewById(R.id.layout_root);
+        this.fXa = (ThreadUserInfoLayout) this.rootView.findViewById(R.id.card_frs_ala_video_user_info_layout);
+        this.fXa.setFrom(3);
         this.mTextTitle = (TextView) this.rootView.findViewById(R.id.text_title);
-        this.fRK = (AlaVideoContainer) this.rootView.findViewById(R.id.ala_video_container);
-        this.fRJ = this.rootView.findViewById(R.id.divider_below_reply_number_layout);
-        this.fRI = (ThreadCommentAndPraiseInfoLayout) this.rootView.findViewById(R.id.text_bottom);
+        this.fXd = (AlaVideoContainer) this.rootView.findViewById(R.id.ala_video_container);
+        this.fXc = this.rootView.findViewById(R.id.divider_below_reply_number_layout);
+        this.fXb = (ThreadCommentAndPraiseInfoLayout) this.rootView.findViewById(R.id.text_bottom);
         this.mDivider = this.rootView.findViewById(R.id.divider_line);
-        this.fRG.setOnClickListener(this);
-        this.fRI.setOnClickListener(this);
-        this.fRI.getCommentContainer().setOnClickListener(this);
-        this.fRK.setOnVideoClickListener(this);
+        this.fWZ.setOnClickListener(this);
+        this.fXb.setOnClickListener(this);
+        this.fXb.getCommentContainer().setOnClickListener(this);
+        this.fXd.setOnVideoClickListener(this);
     }
 
     public View getRootView() {
@@ -58,78 +58,78 @@ public class d implements View.OnClickListener {
     }
 
     public void refreshView() {
-        if (this.aeK != null && this.aeK.aSp() != null) {
-            k(this.aeK, this.mForumName);
+        if (this.aeA != null && this.aeA.aWl() != null) {
+            k(this.aeA, this.mForumName);
         }
     }
 
-    public void k(bu buVar, String str) {
-        if (buVar != null && buVar.aSp() != null) {
-            this.aeK = buVar;
+    public void k(bv bvVar, String str) {
+        if (bvVar != null && bvVar.aWl() != null) {
+            this.aeA = bvVar;
             this.mForumName = str;
-            this.fRG.setVisibility(0);
-            this.fRH.setData(buVar);
-            if (this.fRH.getHeaderImg() != null) {
-                this.fRH.getHeaderImg().setData(buVar);
+            this.fWZ.setVisibility(0);
+            this.fXa.setData(bvVar);
+            if (this.fXa.getHeaderImg() != null) {
+                this.fXa.getHeaderImg().setData(bvVar);
             }
-            this.fRH.setUserAfterClickListener(this.ahM);
-            buVar.v(false, true);
-            this.mTextTitle.setText(buVar.aSZ());
-            this.fRK.getController().a(buVar, str, "", false);
-            this.fRK.getController().startPlayAnimation();
-            this.fRI.setReplyTimeVisible(false);
-            this.fRI.setNeedAddReplyIcon(true);
-            this.fRI.setIsBarViewVisible(false);
-            this.fRI.setCommentNumEnable(false);
-            this.fRI.setOnClickListener(this);
-            this.fRI.setLiveShareEnable(false);
-            this.fRI.setShareVisible(true);
-            this.fRI.setShowPraiseNum(true);
-            this.fRI.setNeedAddPraiseIcon(true);
-            this.fRI.setFrom(2);
-            if (this.fRI.setData(buVar)) {
-                this.fRJ.setVisibility(8);
+            this.fXa.setUserAfterClickListener(this.ahD);
+            bvVar.w(false, true);
+            this.mTextTitle.setText(bvVar.aWV());
+            this.fXd.getController().a(bvVar, str, "", false);
+            this.fXd.getController().startPlayAnimation();
+            this.fXb.setReplyTimeVisible(false);
+            this.fXb.setNeedAddReplyIcon(true);
+            this.fXb.setIsBarViewVisible(false);
+            this.fXb.setCommentNumEnable(false);
+            this.fXb.setOnClickListener(this);
+            this.fXb.setLiveShareEnable(false);
+            this.fXb.setShareVisible(true);
+            this.fXb.setShowPraiseNum(true);
+            this.fXb.setNeedAddPraiseIcon(true);
+            this.fXb.setFrom(2);
+            if (this.fXb.setData(bvVar)) {
+                this.fXc.setVisibility(8);
             } else {
-                this.fRJ.setVisibility(0);
+                this.fXc.setVisibility(0);
             }
-            W(buVar);
+            T(bvVar);
         }
     }
 
-    public void o(BdUniqueId bdUniqueId) {
-        if (bdUniqueId != null && this.fRI != null && this.fRH != null) {
-            this.fRH.setPageUniqueId(bdUniqueId);
+    public void p(BdUniqueId bdUniqueId) {
+        if (bdUniqueId != null && this.fXb != null && this.fXa != null) {
+            this.fXa.setPageUniqueId(bdUniqueId);
         }
     }
 
-    private void W(bu buVar) {
-        this.fRI.onChangeSkinType();
-        this.fRH.onChangeSkinType();
-        this.fRK.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.fRG.setBackgroundDrawable(an.ls(R.color.cp_bg_line_e));
-        an.setBackgroundColor(this.mDivider, R.color.cp_bg_line_c);
-        if (buVar != null && m.DP(buVar.getId())) {
-            an.setViewTextColor(this.mTextTitle, (int) R.color.cp_cont_d);
+    private void T(bv bvVar) {
+        this.fXb.onChangeSkinType();
+        this.fXa.onChangeSkinType();
+        this.fXd.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.fWZ.setBackgroundDrawable(ao.lM(R.color.cp_bg_line_e));
+        ao.setBackgroundColor(this.mDivider, R.color.cp_bg_line_c);
+        if (bvVar != null && m.EA(bvVar.getId())) {
+            ao.setViewTextColor(this.mTextTitle, R.color.cp_cont_d);
         } else {
-            an.setViewTextColor(this.mTextTitle, (int) R.color.cp_cont_b);
+            ao.setViewTextColor(this.mTextTitle, R.color.cp_cont_b);
         }
     }
 
     public void a(com.baidu.tieba.ala.livecard.vc.c cVar) {
-        this.fRL = cVar;
+        this.fXe = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fRG || view == this.fRI.getCommentContainer()) {
-            if (this.aeK != null) {
-                m.DO(this.aeK.getId());
+        if (view == this.fWZ || view == this.fXb.getCommentContainer()) {
+            if (this.aeA != null) {
+                m.Ez(this.aeA.getId());
             }
-            if (this.fRL != null) {
-                this.fRL.c(view, this.aeK);
+            if (this.fXe != null) {
+                this.fXe.c(view, this.aeA);
             }
-        } else if (view.getId() == R.id.video_container && this.fRL != null) {
-            this.fRL.c(view, this.aeK);
+        } else if (view.getId() == R.id.video_container && this.fXe != null) {
+            this.fXe.c(view, this.aeA);
         }
     }
 }

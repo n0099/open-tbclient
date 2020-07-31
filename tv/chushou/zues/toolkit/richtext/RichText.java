@@ -1,7 +1,7 @@
 package tv.chushou.zues.toolkit.richtext;
 
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RichText implements Serializable, Cloneable {
     public static final int FONTSTYLE_BOLD = 1;
     public static final int FONTSTYLE_ITALIC = 2;

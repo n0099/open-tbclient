@@ -10,8 +10,7 @@ import com.baidu.cyberplayer.sdk.CyberLog;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
-import tv.danmaku.ijk.media.player.IMediaFormat;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class b extends ExtractorProvider {
     private MediaExtractor a = new MediaExtractor();
 
@@ -23,7 +22,7 @@ public class b extends ExtractorProvider {
             while (true) {
                 if (i >= trackCount) {
                     break;
-                } else if (this.a.getTrackFormat(i).getString(IMediaFormat.KEY_MIME).startsWith(str)) {
+                } else if (this.a.getTrackFormat(i).getString("mime").startsWith(str)) {
                     num = Integer.valueOf(i);
                     break;
                 } else {

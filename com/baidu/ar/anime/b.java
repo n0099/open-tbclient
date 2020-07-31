@@ -21,9 +21,9 @@ import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private InterfaceC0074b cu;
+    private InterfaceC0075b cu;
     private HandlerThread cv;
     private a cw;
     private FramePixels cs = null;
@@ -32,7 +32,7 @@ public class b {
     private AlgoHandleController ch = null;
     private ArrayList<String> cy = new ArrayList<>();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     private static final class a extends Handler {
         private boolean cF;
 
@@ -65,14 +65,14 @@ public class b {
     }
 
     /* renamed from: com.baidu.ar.anime.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0074b {
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0075b {
         void a(int i, String str, long j);
     }
 
-    public b(InterfaceC0074b interfaceC0074b) {
+    public b(InterfaceC0075b interfaceC0075b) {
         this.cu = null;
-        this.cu = interfaceC0074b;
+        this.cu = interfaceC0075b;
         if (this.cv == null) {
             this.cv = new HandlerThread("AnimeHandlerThread");
             this.cv.start();

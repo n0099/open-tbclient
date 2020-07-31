@@ -71,6 +71,9 @@ public class CmdConfigHttp {
     public static final int CMD_ENTERTAINMENT = 1003079;
     public static final int CMD_ENTER_FORUM_AD_REQUEST = 1003444;
     public static final int CMD_FINISH_MEMBER_TASK = 1003188;
+    public static final int CMD_FORUM_BROADCAST_MAJOR_HISTORY = 1003471;
+    public static final int CMD_FORUM_BROADCAST_MAJOR_RESIDUE = 1003472;
+    public static final int CMD_FORUM_BROADCAST_MAJOR_RESIDUE_NUMBER = 1003474;
     public static final int CMD_FORUM_MULTI_CONCERN = 1003337;
     public static final int CMD_FORUM_SQUARE = 1003454;
     public static final int CMD_FRIEND_AND_STRANGER_MSG_SWITCH = 1003318;
@@ -103,6 +106,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_FACE_MAKE_HOT_WORDS = 1003352;
     public static final int CMD_GET_FINE_PB = 1003006;
     public static final int CMD_GET_FORUM_EMOTION_PACKAGE = 1003389;
+    public static final int CMD_GET_FORUM_MANAGER_RIGHTS = 1003470;
     public static final int CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH = 1003319;
     public static final int CMD_GET_FRIEND_LIST = 1003004;
     public static final int CMD_GET_GAME_RECOMMEND_TAB_INFO = 1003401;
@@ -214,6 +218,7 @@ public class CmdConfigHttp {
     public static final int CMD_SET_PERSONAL_CARD = 1003095;
     public static final int CMD_SET_PRIVILEGE = 1003152;
     public static final int CMD_SET_USER_PICS = 1003064;
+    public static final int CMD_SHARE_COMMAND_GENERATE = 1003473;
     public static final int CMD_SHARE_FACE_GROUP = 1003340;
     public static final int CMD_SHARE_REPORT = 1003363;
     public static final int CMD_SHARE_SUCCESS_REPLY_SERVER = 1003383;

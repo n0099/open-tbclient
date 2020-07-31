@@ -17,10 +17,10 @@ public class i extends h {
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class a extends d<Byte> implements RandomAccess {
-        final /* synthetic */ byte[] nPn;
+        final /* synthetic */ byte[] nXW;
 
         a(byte[] bArr) {
-            this.nPn = bArr;
+            this.nXW = bArr;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -49,31 +49,31 @@ public class i extends h {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.nPn.length;
+            return this.nXW.length;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
         public boolean isEmpty() {
-            return this.nPn.length == 0;
+            return this.nXW.length == 0;
         }
 
         public boolean e(byte b) {
-            return f.a(this.nPn, b);
+            return f.a(this.nXW, b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.collections.d, java.util.List
-        /* renamed from: KX */
+        /* renamed from: Lr */
         public Byte get(int i) {
-            return Byte.valueOf(this.nPn[i]);
+            return Byte.valueOf(this.nXW[i]);
         }
 
         public int f(byte b) {
-            return f.b(this.nPn, b);
+            return f.b(this.nXW, b);
         }
 
         public int g(byte b) {
-            return f.c(this.nPn, b);
+            return f.c(this.nXW, b);
         }
     }
 
@@ -82,9 +82,9 @@ public class i extends h {
         return new a(bArr);
     }
 
-    public static final byte[] o(byte[] bArr, int i, int i2) {
+    public static final byte[] p(byte[] bArr, int i, int i2) {
         kotlin.jvm.internal.q.m(bArr, "receiver$0");
-        f.dP(i2, bArr.length);
+        f.dR(i2, bArr.length);
         byte[] copyOfRange = Arrays.copyOfRange(bArr, i, i2);
         kotlin.jvm.internal.q.l((Object) copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return copyOfRange;

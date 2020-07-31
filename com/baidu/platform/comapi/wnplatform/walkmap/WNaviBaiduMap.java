@@ -9,7 +9,7 @@ import com.baidu.mapapi.map.Overlay;
 import com.baidu.mapsdkplatform.comjni.map.basemap.JNIBaseMap;
 import com.baidu.webkit.internal.ABTestConstants;
 import com.baidu.webkit.net.BdNetTask;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class WNaviBaiduMap {
     private static long b;
     private static WNaviBaiduMap c;

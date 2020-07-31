@@ -2,11 +2,11 @@ package com.baidu.tieba.tblauncherInterestGuide;
 
 import android.view.View;
 import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public interface a {
-    void Fq(int i);
+    void FM(int i);
 
-    void Fr(int i);
+    void FN(int i);
 
     void a(InterestFrsData.Tag tag);
 

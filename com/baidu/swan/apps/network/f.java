@@ -2,12 +2,12 @@ package com.baidu.swan.apps.network;
 
 import com.baidu.android.imsdk.utils.HttpHelper;
 import okhttp3.MediaType;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public interface f {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        public static final MediaType cuG = MediaType.parse(HttpHelper.CONTENT_JSON);
-        public static final MediaType cuH = MediaType.parse("application/x-www-form-urlencoded");
+        public static final MediaType cwH = MediaType.parse(HttpHelper.CONTENT_JSON);
+        public static final MediaType cwI = MediaType.parse("application/x-www-form-urlencoded");
     }
 }

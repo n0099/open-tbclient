@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.StringWriter;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class i {
     public static String a(InputStream inputStream) {
         return a(inputStream, (String) null);

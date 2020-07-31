@@ -8,7 +8,7 @@ import com.baidu.live.adp.framework.listener.MessageListener;
 import com.baidu.live.adp.framework.listener.NetMessageListener;
 import com.baidu.live.adp.framework.message.Message;
 import com.baidu.live.adp.framework.message.NetMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface BdPageContext<T> {
     Context getContext();
 

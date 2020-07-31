@@ -10,20 +10,20 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ZoneInfo {
-    private static int nCO = com.baidu.down.utils.Constants.HTTP_DNS_INAVAILABLE_TIME;
-    public final List<String> nCP;
-    public final Map<String, Long> nCQ;
-    private final int nCR;
+    private static int nLw = 600;
+    public final List<String> nLx;
+    public final Map<String, Long> nLy;
+    private final int nLz;
 
     public ZoneInfo(int i, List<String> list, Map<String, Long> map) {
-        this.nCR = i;
-        this.nCP = list;
-        this.nCQ = map;
+        this.nLz = i;
+        this.nLx = list;
+        this.nLy = map;
     }
 
-    public static ZoneInfo eo(JSONObject jSONObject) throws JSONException {
+    public static ZoneInfo ev(JSONObject jSONObject) throws JSONException {
         int i = jSONObject.getInt("ttl");
         ArrayList arrayList = new ArrayList();
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
@@ -51,15 +51,15 @@ public class ZoneInfo {
         return new ZoneInfo(i, arrayList, concurrentHashMap);
     }
 
-    public void RC(String str) {
-        this.nCQ.put(str, Long.valueOf((System.currentTimeMillis() / 1000) + nCO));
+    public void Sn(String str) {
+        this.nLy.put(str, Long.valueOf((System.currentTimeMillis() / 1000) + nLw));
     }
 
     public String toString() {
         HashMap hashMap = new HashMap();
-        hashMap.put("ttl", Integer.valueOf(this.nCR));
-        hashMap.put("upDomainList", this.nCP);
-        hashMap.put("upDomainMap", this.nCQ);
+        hashMap.put("ttl", Integer.valueOf(this.nLz));
+        hashMap.put("upDomainList", this.nLx);
+        hashMap.put("upDomainMap", this.nLy);
         return new JSONObject(hashMap).toString();
     }
 }

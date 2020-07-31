@@ -8,20 +8,20 @@ import com.facebook.imagepipeline.producers.k;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public abstract class a<T> extends AbstractDataSource<T> {
-    private final com.facebook.imagepipeline.h.c mSH;
-    private final ap mUo;
+    private final com.facebook.imagepipeline.h.c naM;
+    private final ap ncp;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(aj<T> ajVar, ap apVar, com.facebook.imagepipeline.h.c cVar) {
-        this.mUo = apVar;
-        this.mSH = cVar;
-        this.mSH.a(apVar.dGc(), this.mUo.dAH(), this.mUo.getId(), this.mUo.dGf());
-        ajVar.c(dEM(), apVar);
+        this.ncp = apVar;
+        this.naM = cVar;
+        this.naM.a(apVar.dJo(), this.ncp.dDT(), this.ncp.getId(), this.ncp.dJr());
+        ajVar.c(dHY(), apVar);
     }
 
-    private k<T> dEM() {
+    private k<T> dHY() {
         return new com.facebook.imagepipeline.producers.b<T>() { // from class: com.facebook.imagepipeline.e.a.1
             @Override // com.facebook.imagepipeline.producers.b
             protected void g(@Nullable T t, int i) {
@@ -29,50 +29,50 @@ public abstract class a<T> extends AbstractDataSource<T> {
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void F(Throwable th) {
-                a.this.F(th);
+            protected void E(Throwable th) {
+                a.this.E(th);
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void dEN() {
-                a.this.dEN();
+            protected void dHZ() {
+                a.this.dHZ();
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void aN(float f) {
-                a.this.aE(f);
+            protected void aM(float f) {
+                a.this.aD(f);
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void g(@Nullable T t, int i) {
-        boolean Jm = com.facebook.imagepipeline.producers.b.Jm(i);
-        if (super.b(t, Jm) && Jm) {
-            this.mSH.a(this.mUo.dGc(), this.mUo.getId(), this.mUo.dGf());
+        boolean JH = com.facebook.imagepipeline.producers.b.JH(i);
+        if (super.b(t, JH) && JH) {
+            this.naM.a(this.ncp.dJo(), this.ncp.getId(), this.ncp.dJr());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void F(Throwable th) {
-        if (super.z(th)) {
-            this.mSH.a(this.mUo.dGc(), this.mUo.getId(), th, this.mUo.dGf());
+    public void E(Throwable th) {
+        if (super.y(th)) {
+            this.naM.a(this.ncp.dJo(), this.ncp.getId(), th, this.ncp.dJr());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void dEN() {
+    public synchronized void dHZ() {
         g.checkState(isClosed());
     }
 
     @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-    public boolean aam() {
-        if (!super.aam()) {
+    public boolean abo() {
+        if (!super.abo()) {
             return false;
         }
         if (!super.isFinished()) {
-            this.mSH.QL(this.mUo.getId());
-            this.mUo.cancel();
+            this.naM.Rw(this.ncp.getId());
+            this.ncp.cancel();
         }
         return true;
     }

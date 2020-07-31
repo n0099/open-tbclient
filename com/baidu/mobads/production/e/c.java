@@ -4,7 +4,7 @@ import android.graphics.Color;
 import android.view.View;
 import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class c implements Runnable {
     final /* synthetic */ b a;
 

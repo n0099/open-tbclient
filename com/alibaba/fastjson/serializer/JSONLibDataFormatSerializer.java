@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Date;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class JSONLibDataFormatSerializer implements ObjectSerializer {
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
     public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {

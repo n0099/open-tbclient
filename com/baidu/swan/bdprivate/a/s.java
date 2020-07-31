@@ -13,31 +13,31 @@ public class s extends com.baidu.swan.apps.setting.oauth.a.f {
     private boolean mIsLogin;
     private String mStoken;
 
-    public s(Activity activity, String str, boolean z, boolean z2) {
-        super(activity, str, null, z);
+    public s(Activity activity, String str, String str2, boolean z, boolean z2) {
+        super(activity, str, str2, z);
         this.mIsLogin = z2;
-        arT();
+        atP();
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean arv() {
+    protected boolean atn() {
         a(new a());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.f
-    public JSONObject arQ() {
-        JSONObject arQ = super.arQ();
+    public JSONObject atL() {
+        JSONObject atL = super.atL();
         if (!TextUtils.isEmpty(this.mStoken)) {
             try {
-                arQ.put("stoken", this.mStoken);
+                atL.put("stoken", this.mStoken);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
         }
-        return arQ;
+        return atL;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -47,7 +47,7 @@ public class s extends com.baidu.swan.apps.setting.oauth.a.f {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean arB() throws Exception {
+        protected boolean att() throws Exception {
             if (!s.this.mIsLogin) {
                 s.this.mStoken = null;
                 if (s.DEBUG) {
@@ -59,7 +59,7 @@ public class s extends com.baidu.swan.apps.setting.oauth.a.f {
             com.baidu.swan.bdprivate.a.a.a(s.this.mActivity, new com.baidu.swan.apps.aq.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.a.s.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.aq.e.b
-                /* renamed from: C */
+                /* renamed from: D */
                 public void H(Bundle bundle) {
                     if (bundle == null) {
                         a.this.t(new OAuthException("null stoken", 10001));
@@ -68,7 +68,7 @@ public class s extends com.baidu.swan.apps.setting.oauth.a.f {
                     String string = bundle.getString("dev", "");
                     if (!TextUtils.isEmpty(string)) {
                         s.this.mStoken = string;
-                        a.this.arD();
+                        a.this.atv();
                         return;
                     }
                     a.this.t(new OAuthException("empty stoken", 10001));

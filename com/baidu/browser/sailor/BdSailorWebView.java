@@ -34,7 +34,6 @@ import com.baidu.browser.sailor.lightapp.BdLightappActionClient;
 import com.baidu.browser.sailor.lightapp.BdLightappKernelClient;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.crashpad.ZwCrashpad;
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
@@ -58,7 +57,6 @@ import com.baidu.webkit.sdk.WebBackForwardList;
 import com.baidu.webkit.sdk.WebBackForwardListClient;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebHistoryItem;
-import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebResourceError;
 import com.baidu.webkit.sdk.WebResourceRequest;
 import com.baidu.webkit.sdk.WebResourceResponse;
@@ -71,7 +69,7 @@ import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class BdSailorWebView extends FrameLayout implements INoProGuard {
     private static final String JAVASCTIPT_URL = "javascript:";
     private static final String SHOW_IMAGE_PREFIX = "imagedisplay:";
@@ -117,7 +115,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     private static boolean sInitFirstWebView = true;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public class BdSailorWebViewExt implements ISailorWebViewExt {
         private ISailorWebSettingsExt mSettingsExt;
         private BdSailorWebChromeClientExt mWebChromeClientExt;
@@ -126,7 +124,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         private BdSailorWebViewExt() {
         }
 
-        /* synthetic */ BdSailorWebViewExt(BdSailorWebView bdSailorWebView, com.baidu.browser.sailor.b bVar) {
+        /* synthetic */ BdSailorWebViewExt(BdSailorWebView bdSailorWebView, com.baidu.browser.sailor.a aVar) {
             this();
         }
 
@@ -162,9 +160,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void ensureRemoveSearchBoxImplExt() {
-            com.baidu.webkit.internal.f secureProcessor = BdSailorWebView.this.mCurrentWebView.getSecureProcessor();
+            com.baidu.webkit.internal.e secureProcessor = BdSailorWebView.this.mCurrentWebView.getSecureProcessor();
             if (secureProcessor.d()) {
-                new Thread(new com.baidu.webkit.internal.g(secureProcessor), "T7@removeSearchBoxImpl").start();
+                new Thread(new com.baidu.webkit.internal.f(secureProcessor), "T7@removeSearchBoxImpl").start();
             }
         }
 
@@ -537,7 +535,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public void setFixWebViewSecurityHolesExt(boolean z) {
-            com.baidu.webkit.internal.f secureProcessor = BdSailorWebView.this.mCurrentWebView.getSecureProcessor();
+            com.baidu.webkit.internal.e secureProcessor = BdSailorWebView.this.mCurrentWebView.getSecureProcessor();
             if (z != secureProcessor.c) {
                 if (z) {
                     throw new RuntimeException("can not reverse!!");
@@ -681,12 +679,12 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public class a extends WebBackForwardListClient {
-        private WebView ade;
+        private WebView acY;
 
         protected a(WebView webView) {
-            this.ade = webView;
+            this.acY = webView;
         }
 
         @Override // com.baidu.webkit.sdk.WebBackForwardListClient
@@ -703,7 +701,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public class b implements WebView.PictureListener {
         private b() {
         }
@@ -721,12 +719,12 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public class c implements DownloadListener {
-        private WebView ade;
+        private WebView acY;
 
         public c(WebView webView) {
-            this.ade = webView;
+            this.acY = webView;
         }
 
         @Override // android.webkit.DownloadListener
@@ -739,7 +737,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public class d extends WebChromeClient {
         private String[] b = {"mail.163.com", "mail.126.com", "mail.yeah.net", "shouji.163.com"};
 
@@ -1162,7 +1160,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public class e extends WebViewClient {
         private String[] b;
 
@@ -1199,9 +1197,6 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void doUpdateVisitedHistory(WebView webView, String str, boolean z, boolean z2, boolean z3, boolean z4) {
-            if (WebKitFactory.getCurEngine() != 1 && str != null) {
-                ZwCrashpad.RecordUrl(str);
-            }
             long currentTimeMillis = System.currentTimeMillis();
             super.doUpdateVisitedHistory(webView, str, z, z2, z3, z4);
             if (BdSailorWebView.this.mWebViewClient != null) {
@@ -1822,7 +1817,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public static class f extends FrameLayout {
         public f(Context context) {
             super(context);
@@ -1836,7 +1831,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public class g extends WebViewDelegate {
         public g(WebView webView) {
             super(webView);
@@ -2462,7 +2457,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             return;
         }
         try {
-            getCurrentWebView().getHandler().post(new com.baidu.browser.sailor.b(this));
+            getCurrentWebView().getHandler().post(new com.baidu.browser.sailor.a(this));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -2558,9 +2553,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         this.mLockEmbeddedTitlebar = z;
     }
 
-    public void notifyPageActive(String str, WebView webView) {
-        Log.i("huqin-multiwebview", "BdSailorWebView notifyPageActive, webView = " + webView + ", url = " + str);
-        SessionMonitorEngine.getInstance().notifyPageActive(str, webView);
+    public void notifyPageActive(String str, WebView webView, boolean z) {
+        Log.i("huqin-multiwebview", "BdSailorWebView notifyPageActive, webView = " + webView + ", url = " + str + ", isOpen = " + z);
+        SessionMonitorEngine.getInstance().notifyPageActive(str, webView, z);
     }
 
     public void notifyPageLeave(String str, WebView webView) {

@@ -1,6 +1,6 @@
 package com.baidu.swan.apps;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b {
-    public static final boolean DEBUG = com.baidu.swan.apps.u.a.agj().isDebug();
-    public static final boolean bLV = com.baidu.swan.apps.u.a.agj().TO();
+    public static final boolean DEBUG = com.baidu.swan.apps.t.a.ahv().isDebug();
+    public static final boolean bMu = com.baidu.swan.apps.t.a.ahv().Ul();
 }

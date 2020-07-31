@@ -1,15 +1,8 @@
 package com.baidu.tieba.video;
-/* loaded from: classes.dex */
-public interface e {
-    void FR(int i);
 
-    void dmj();
-
-    void onConvertAborted();
-
-    void onConvertFailed();
-
-    void onConvertProgress(int i);
-
-    void onConvertSuccess();
+import android.os.Environment;
+/* loaded from: classes17.dex */
+public class e {
+    public static final String mbR = Environment.getExternalStorageDirectory().toString();
+    public static final String mbS = c.mbN;
 }

@@ -25,7 +25,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes.dex */
 final class b {
-    private static Method jKp;
+    private static Method jSN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<File> a(Context context, ApplicationInfo applicationInfo, File file, boolean z) throws IOException {
@@ -39,7 +39,7 @@ final class b {
             } catch (IOException e) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
                 if (context instanceof c.a) {
-                    ((c.a) context).getSplash().cCX();
+                    ((c.a) context).getSplash().cGF();
                 }
                 performExtractions = performExtractions(file2, file);
                 a(context, getTimeStamp(file2), zipCrc, performExtractions.size() + 1);
@@ -47,7 +47,7 @@ final class b {
         } else {
             Log.i("MultiDex", "Detected that extraction must be performed.");
             if (context instanceof c.a) {
-                ((c.a) context).getSplash().cCX();
+                ((c.a) context).getSplash().cGF();
             }
             performExtractions = performExtractions(file2, file);
             a(context, getTimeStamp(file2), zipCrc, performExtractions.size() + 1);
@@ -67,7 +67,7 @@ final class b {
                 throw new IOException("Missing extracted secondary dex file '" + file3.getPath() + "'");
             }
             arrayList.add(file3);
-            if (!U(file3)) {
+            if (!X(file3)) {
                 Log.i("MultiDex", "Invalid zip file: " + file3);
                 throw new IOException("Invalid ZIP file.");
             }
@@ -113,17 +113,17 @@ final class b {
                 while (i2 < 3 && !z) {
                     int i3 = i2 + 1;
                     extract(zipFile, entry, file3, str);
-                    boolean U = U(file3);
-                    Log.i("MultiDex", "Extraction " + (U ? "success" : "failed") + " - length " + file3.getAbsolutePath() + ": " + file3.length());
-                    if (!U) {
+                    boolean X = X(file3);
+                    Log.i("MultiDex", "Extraction " + (X ? "success" : "failed") + " - length " + file3.getAbsolutePath() + ": " + file3.length());
+                    if (!X) {
                         file3.delete();
                         if (file3.exists()) {
                             Log.w("MultiDex", "Failed to delete corrupted secondary dex '" + file3.getPath() + "'");
-                            z = U;
+                            z = X;
                             i2 = i3;
                         }
                     }
-                    z = U;
+                    z = X;
                     i2 = i3;
                 }
                 if (!z) {
@@ -217,7 +217,7 @@ final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean U(File file) {
+    public static boolean X(File file) {
         try {
             try {
                 new ZipFile(file).close();
@@ -242,9 +242,9 @@ final class b {
     }
 
     private static void apply(SharedPreferences.Editor editor) {
-        if (jKp != null) {
+        if (jSN != null) {
             try {
-                jKp.invoke(editor, new Object[0]);
+                jSN.invoke(editor, new Object[0]);
                 return;
             } catch (IllegalAccessException e) {
             } catch (InvocationTargetException e2) {
@@ -255,9 +255,9 @@ final class b {
 
     static {
         try {
-            jKp = SharedPreferences.Editor.class.getMethod(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY, new Class[0]);
+            jSN = SharedPreferences.Editor.class.getMethod(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY, new Class[0]);
         } catch (NoSuchMethodException e) {
-            jKp = null;
+            jSN = null;
         }
     }
 }

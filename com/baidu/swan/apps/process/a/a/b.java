@@ -7,13 +7,13 @@ import android.util.Log;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void a(int i, String str, String str2, @Nullable Bundle bundle) {
-        a na = na(str);
-        if (na == null) {
+        a nH = nH(str);
+        if (nH == null) {
             if (DEBUG) {
                 throw new RuntimeException("Messenger创建代理类失败");
             }
@@ -26,14 +26,14 @@ public class b {
         if (bundle == null) {
             bundle = new Bundle();
         }
-        na.cxV = bundle;
-        na.cxW = i;
-        na.cxX = str2;
-        na.A(bundle);
+        nH.cAu = bundle;
+        nH.cAv = i;
+        nH.cAw = str2;
+        nH.A(bundle);
     }
 
     public static void a(int i, String str, @Nullable Bundle bundle) {
-        if (!com.baidu.swan.apps.process.a.b.d.a.nb(str)) {
+        if (!com.baidu.swan.apps.process.a.b.d.a.nI(str)) {
             if (DEBUG) {
                 Log.d("MDelegate-Delegation", "send result to client: " + i + " observer: " + str);
             }
@@ -43,7 +43,7 @@ public class b {
                 bundle2.putBundle("key_result_data", bundle);
             }
             if (i == -1000) {
-                com.baidu.swan.apps.process.messaging.a.a.O(bundle2);
+                com.baidu.swan.apps.process.messaging.a.a.P(bundle2);
             } else {
                 com.baidu.swan.apps.process.messaging.a.a.c(i, bundle2);
             }
@@ -56,7 +56,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static a na(@Nullable String str) {
+    private static a nH(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.e("MDelegate-Delegation", "create delegation with null delegate name");

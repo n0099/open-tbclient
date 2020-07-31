@@ -8,18 +8,18 @@ import java.util.Date;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class n {
     private static int startEveryLive = 0;
     private static int everyDayUser = 0;
     private static int everyDayDevice = 0;
     private static int deviceNotClick = 0;
-    private static boolean bkw = false;
-    private static HashMap<Long, Integer> bkx = new HashMap<>();
+    private static boolean bkQ = false;
+    private static HashMap<Long, Integer> bkR = new HashMap<>();
 
     private static void init() {
-        if (com.baidu.live.v.a.Hm().aZp.aAM != null) {
-            AlaFeedDiversionData alaFeedDiversionData = com.baidu.live.v.a.Hm().aZp.aAM;
+        if (com.baidu.live.v.a.Hs().aZn.aBZ != null) {
+            AlaFeedDiversionData alaFeedDiversionData = com.baidu.live.v.a.Hs().aZn.aBZ;
             if (alaFeedDiversionData.frequencyData != null) {
                 AlaFrequencyData alaFrequencyData = alaFeedDiversionData.frequencyData;
                 startEveryLive = alaFrequencyData.startEveryLive;
@@ -37,17 +37,17 @@ public class n {
         if (startEveryLive <= 0) {
             return false;
         }
-        if (bkx.containsKey(Long.valueOf(j)) && bkx.get(Long.valueOf(j)).intValue() >= startEveryLive) {
+        if (bkR.containsKey(Long.valueOf(j)) && bkR.get(Long.valueOf(j)).intValue() >= startEveryLive) {
             return false;
         }
         return true;
     }
 
-    private static boolean Jn() {
+    private static boolean Ju() {
         if (everyDayUser <= 0 || everyDayDevice <= 0) {
             init();
         }
-        JSONObject optJSONObject = Jp().optJSONObject(j.b(new Date()));
+        JSONObject optJSONObject = Jw().optJSONObject(j.b(new Date()));
         if (optJSONObject == null) {
             optJSONObject = new JSONObject();
         }
@@ -55,7 +55,7 @@ public class n {
         return ((currentAccountId > 0L ? 1 : (currentAccountId == 0L ? 0 : -1)) > 0 ? optJSONObject.optInt(new StringBuilder().append("uid_").append(currentAccountId).toString()) : 0) < everyDayUser && optJSONObject.optInt("dev") < everyDayDevice;
     }
 
-    private static boolean Jo() {
+    private static boolean Jv() {
         if (deviceNotClick <= 0) {
             init();
         }
@@ -64,13 +64,13 @@ public class n {
 
     public static void aw(long j) {
         Integer num = 0;
-        if (bkx.containsKey(Long.valueOf(j))) {
-            num = bkx.get(Long.valueOf(j));
+        if (bkR.containsKey(Long.valueOf(j))) {
+            num = bkR.get(Long.valueOf(j));
         }
-        bkx.put(Long.valueOf(j), Integer.valueOf(num.intValue() + 1));
-        JSONObject Jp = Jp();
+        bkR.put(Long.valueOf(j), Integer.valueOf(num.intValue() + 1));
+        JSONObject Jw = Jw();
         String b = j.b(new Date());
-        JSONObject optJSONObject = Jp.optJSONObject(b);
+        JSONObject optJSONObject = Jw.optJSONObject(b);
         if (optJSONObject == null) {
             optJSONObject = new JSONObject();
         }
@@ -102,7 +102,7 @@ public class n {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static JSONObject Jp() {
+    private static JSONObject Jw() {
         JSONObject jSONObject;
         String string = com.baidu.live.c.vf().getString("feed_diversion_show_frequency", "");
         if (!TextUtils.isEmpty(string)) {
@@ -121,15 +121,15 @@ public class n {
         }
     }
 
-    public static void cu(boolean z) {
+    public static void cw(boolean z) {
         com.baidu.live.c.vf().putInt("feed_diversion_noclick_frequency", z ? 0 : com.baidu.live.c.vf().getInt("feed_diversion_noclick_frequency", 0) + 1);
     }
 
     public static boolean ax(long j) {
         boolean av;
-        if (!bkw && (av = av(j))) {
-            bkw = (Jn() && Jo()) ? false : true;
-            return av & (bkw ? false : true);
+        if (!bkQ && (av = av(j))) {
+            bkQ = (Ju() && Jv()) ? false : true;
+            return av & (bkQ ? false : true);
         }
         return false;
     }

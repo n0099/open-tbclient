@@ -14,42 +14,42 @@ import com.facebook.imagepipeline.common.d;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c extends RecyclerView.Adapter<a> {
-    private MediaModel cqO;
-    private int cqP;
-    private ArrayList<MediaModel> cqf;
+    private MediaModel csS;
+    private int csT;
+    private ArrayList<MediaModel> csj;
 
     public c(Context context) {
-        this.cqP = context.getResources().getDimensionPixelSize(a.d.swanapp_preview_thumbnail);
+        this.csT = context.getResources().getDimensionPixelSize(a.d.swanapp_preview_thumbnail);
     }
 
-    public ArrayList<MediaModel> aka() {
-        return this.cqf;
+    public ArrayList<MediaModel> alq() {
+        return this.csj;
     }
 
     public void n(ArrayList<MediaModel> arrayList) {
-        this.cqf = arrayList;
+        this.csj = arrayList;
         if (arrayList != null && arrayList.size() == 1) {
-            this.cqO = arrayList.get(0);
+            this.csS = arrayList.get(0);
         }
         notifyDataSetChanged();
     }
 
     public int b(MediaModel mediaModel) {
         int i = 0;
-        if (this.cqf != null) {
-            MediaModel mediaModel2 = this.cqO;
-            this.cqO = mediaModel;
-            int size = this.cqf.size();
+        if (this.csj != null) {
+            MediaModel mediaModel2 = this.csS;
+            this.csS = mediaModel;
+            int size = this.csj.size();
             i = -1;
             int i2 = 0;
             for (int i3 = 0; i3 < size; i3++) {
-                if (mediaModel2 != null && mediaModel2.equals(this.cqf.get(i3))) {
+                if (mediaModel2 != null && mediaModel2.equals(this.csj.get(i3))) {
                     notifyItemChanged(i3);
                     i2++;
                 }
-                if (mediaModel != null && mediaModel.equals(this.cqf.get(i3))) {
+                if (mediaModel != null && mediaModel.equals(this.csj.get(i3))) {
                     notifyItemChanged(i3);
                     i2++;
                     i = i3;
@@ -62,11 +62,11 @@ public class c extends RecyclerView.Adapter<a> {
         return i;
     }
 
-    public MediaModel fZ(int i) {
-        if (this.cqf == null || i < 0 || i >= this.cqf.size()) {
+    public MediaModel gj(int i) {
+        if (this.csj == null || i < 0 || i >= this.csj.size()) {
             return null;
         }
-        return this.cqf.get(i);
+        return this.csj.get(i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -80,38 +80,38 @@ public class c extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        if (this.cqf != null) {
-            MediaModel mediaModel = this.cqf.get(i);
-            aVar.cqQ.setImageURI(Uri.fromFile(new File(mediaModel.getPath())));
-            aVar.cqR.setVisibility(mediaModel instanceof VideoModel ? 0 : 8);
-            aVar.cqS.setVisibility(mediaModel.equals(this.cqO) ? 0 : 8);
-            ImageRequestBuilder ac = ImageRequestBuilder.ac(Uri.fromFile(new File(mediaModel.getPath())));
-            ac.c(new d(this.cqP, this.cqP));
-            ac.wM(true);
-            aVar.cqQ.setController(com.facebook.drawee.a.a.c.dAa().c(aVar.cqQ.getController()).wy(false).bc(ac.dHf()).dAR());
+        if (this.csj != null) {
+            MediaModel mediaModel = this.csj.get(i);
+            aVar.csU.setImageURI(Uri.fromFile(new File(mediaModel.getPath())));
+            aVar.csV.setVisibility(mediaModel instanceof VideoModel ? 0 : 8);
+            aVar.csW.setVisibility(mediaModel.equals(this.csS) ? 0 : 8);
+            ImageRequestBuilder ab = ImageRequestBuilder.ab(Uri.fromFile(new File(mediaModel.getPath())));
+            ab.c(new d(this.csT, this.csT));
+            ab.xr(true);
+            aVar.csU.setController(com.facebook.drawee.a.a.c.dDm().c(aVar.csU.getController()).xd(false).bc(ab.dKr()).dEd());
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.cqf == null) {
+        if (this.csj == null) {
             return 0;
         }
-        return this.cqf.size();
+        return this.csj.size();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public class a extends RecyclerView.ViewHolder {
-        private SimpleDraweeView cqQ;
-        private View cqR;
-        private View cqS;
+        private SimpleDraweeView csU;
+        private View csV;
+        private View csW;
 
         a(View view) {
             super(view);
-            this.cqQ = (SimpleDraweeView) view.findViewById(a.f.drag_photo_view);
-            this.cqR = view.findViewById(a.f.album_thumbnail_video);
-            this.cqS = view.findViewById(a.f.album_thumbnail_selected);
+            this.csU = (SimpleDraweeView) view.findViewById(a.f.drag_photo_view);
+            this.csV = view.findViewById(a.f.album_thumbnail_video);
+            this.csW = view.findViewById(a.f.album_thumbnail_selected);
         }
     }
 }

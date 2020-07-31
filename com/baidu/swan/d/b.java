@@ -1,22 +1,30 @@
 package com.baidu.swan.d;
 
-import com.baidu.swan.e.j;
-/* loaded from: classes11.dex */
-public final class b extends j {
-    private static volatile b dvB;
+import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
+import java.io.File;
+import java.util.Map;
+import java.util.Set;
+/* loaded from: classes8.dex */
+public interface b extends SharedPreferences, SharedPreferences.Editor {
+    Set<String> auU();
 
-    public b() {
-        super("aiapp_open_stat");
-    }
+    boolean auV();
 
-    public static b aKf() {
-        if (dvB == null) {
-            synchronized (b.class) {
-                if (dvB == null) {
-                    dvB = new b();
-                }
-            }
-        }
-        return dvB;
-    }
+    @Override // android.content.SharedPreferences
+    @Deprecated
+    Map<String, ?> getAll();
+
+    long getContentSize();
+
+    @NonNull
+    File getFile();
+
+    @Override // android.content.SharedPreferences
+    @Deprecated
+    void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
+
+    @Override // android.content.SharedPreferences
+    @Deprecated
+    void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
 }

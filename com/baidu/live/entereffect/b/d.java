@@ -4,61 +4,61 @@ import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
-    private List<com.baidu.live.im.data.a> aFS;
-    private com.baidu.live.im.data.a aFT;
+    private List<com.baidu.live.im.data.a> aHn;
+    private com.baidu.live.im.data.a aHo;
 
-    public static d xi() {
-        return a.aFU;
+    public static d xL() {
+        return a.aHp;
     }
 
-    public void c(com.baidu.live.im.data.a aVar) {
-        if (this.aFS == null) {
-            this.aFS = new ArrayList();
+    public void j(com.baidu.live.im.data.a aVar) {
+        if (this.aHn == null) {
+            this.aHn = new ArrayList();
         }
-        if (d(aVar) || this.aFS.size() < com.baidu.live.v.a.Hm().aZp.aAF) {
-            this.aFS.add(aVar);
+        if (k(aVar) || this.aHn.size() < com.baidu.live.v.a.Hs().aZn.aBS) {
+            this.aHn.add(aVar);
         }
     }
 
-    private boolean d(com.baidu.live.im.data.a aVar) {
+    private boolean k(com.baidu.live.im.data.a aVar) {
         return aVar != null && aVar.getUserId() == JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
     }
 
     public boolean hasMsg() {
-        return (this.aFS == null || this.aFS.isEmpty()) ? false : true;
+        return (this.aHn == null || this.aHn.isEmpty()) ? false : true;
     }
 
-    public boolean xj() {
-        return this.aFT != null;
+    public boolean xM() {
+        return this.aHo != null;
     }
 
-    public com.baidu.live.im.data.a xk() {
+    public com.baidu.live.im.data.a xN() {
         if (hasMsg()) {
-            this.aFT = this.aFS.remove(0);
+            this.aHo = this.aHn.remove(0);
         } else {
-            this.aFT = null;
+            this.aHo = null;
         }
-        return this.aFT;
+        return this.aHo;
     }
 
-    public com.baidu.live.im.data.a xl() {
-        return this.aFT;
+    public com.baidu.live.im.data.a xO() {
+        return this.aHo;
     }
 
     public void release() {
-        this.aFT = null;
-        if (this.aFS != null) {
-            this.aFS.clear();
+        this.aHo = null;
+        if (this.aHn != null) {
+            this.aHn.clear();
         }
     }
 
     private d() {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static class a {
-        private static final d aFU = new d();
+        private static final d aHp = new d();
     }
 }

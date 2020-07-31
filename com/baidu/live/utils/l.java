@@ -8,7 +8,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.v4.view.ViewCompat;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class l {
     public static Bitmap b(Bitmap bitmap, int i, int i2) {
         try {

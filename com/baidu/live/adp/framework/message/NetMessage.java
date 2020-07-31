@@ -1,7 +1,7 @@
 package com.baidu.live.adp.framework.message;
 
 import com.baidu.live.adp.BdUniqueId;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class NetMessage {
     private static final String HTTP_DATA_KEY = "data";
     private static final String HTTP_HEADER_KEY = "x_bd_data_type";
@@ -17,14 +17,14 @@ public abstract class NetMessage {
     private int socketErrNo = 0;
     private long socketCostTime = 0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum NetType {
         SOCKET,
         HTTP,
         AUTO
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface SwitchToHttpStrategy {
         boolean checkToSwitchHttp(SocketResponsedMessage socketResponsedMessage);
     }

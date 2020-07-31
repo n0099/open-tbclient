@@ -9,8 +9,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.live.adp.widget.listview.BdIListPage;
 import com.baidu.live.sdk.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LoadMoreFooter extends BdIListPage {
+    private int footerHeight;
     private boolean isLoading;
     private int mBackgroundColor = Color.parseColor("#FF222222");
     private Context mContext;
@@ -26,6 +27,9 @@ public class LoadMoreFooter extends BdIListPage {
     @Override // com.baidu.live.adp.widget.listview.BdIListPage
     public View createView() {
         View inflate = LayoutInflater.from(this.mContext).inflate(a.h.sdk_simple_load_more_footer, (ViewGroup) null);
+        if (this.footerHeight > 0) {
+            inflate.setLayoutParams(new ViewGroup.LayoutParams(-1, this.footerHeight));
+        }
         this.tvContent = (TextView) inflate.findViewById(a.g.simple_load_more_text);
         this.progressBar = (ProgressBar) inflate.findViewById(a.g.simple_load_progress);
         inflate.setBackgroundColor(this.mBackgroundColor);
@@ -35,6 +39,10 @@ public class LoadMoreFooter extends BdIListPage {
 
     @Override // com.baidu.live.adp.widget.listview.BdIListPage
     public void onClick() {
+    }
+
+    public void setFooterHeight(int i) {
+        this.footerHeight = i;
     }
 
     public void setBackgroundColor(int i) {

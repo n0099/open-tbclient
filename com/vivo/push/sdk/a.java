@@ -14,7 +14,7 @@ import com.vivo.push.util.s;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class a extends aa {
     private static a c;
     private static final List<Integer> f = Arrays.asList(3);

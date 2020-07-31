@@ -6,10 +6,10 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import tv.chushou.zues.widget.kpswitch.a;
 import tv.chushou.zues.widget.kpswitch.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class KPSwitchPanelLinearLayout extends LinearLayout implements a, b {
-    private tv.chushou.zues.widget.kpswitch.a.b onE;
-    private boolean onF;
+    private tv.chushou.zues.widget.kpswitch.a.b owj;
+    private boolean owk;
 
     public KPSwitchPanelLinearLayout(Context context) {
         super(context);
@@ -28,18 +28,18 @@ public class KPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     }
 
     private void init(AttributeSet attributeSet) {
-        this.onE = new tv.chushou.zues.widget.kpswitch.a.b(this, attributeSet);
+        this.owj = new tv.chushou.zues.widget.kpswitch.a.b(this, attributeSet);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
-    public void LS(int i) {
-        this.onE.LT(i);
+    public void Mm(int i) {
+        this.owj.Mn(i);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
-    public void wY(boolean z) {
-        this.onE.xO(z);
-        if (this.onF) {
+    public void xD(boolean z) {
+        this.owj.yt(z);
+        if (this.owk) {
             if (z) {
                 super.setVisibility(4);
             } else if (super.getVisibility() != 0) {
@@ -51,7 +51,7 @@ public class KPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     }
 
     public void setUseStatusBar(boolean z) {
-        this.onF = z;
+        this.owk = z;
     }
 
     public void setDirectVisibility(int i) {
@@ -59,52 +59,52 @@ public class KPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dXf() {
-        return this.onE.dXf();
+    public boolean eaB() {
+        return this.owj.eaB();
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (!this.onE.eo(i)) {
+        if (!this.owj.ep(i)) {
             super.setVisibility(i);
         }
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        int[] Z = this.onE.Z(i, i2);
+        int[] Z = this.owj.Z(i, i2);
         super.onMeasure(Z[0], Z[1]);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
     public boolean isVisible() {
-        return this.onE.isVisible();
+        return this.owj.isVisible();
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public void Rr() {
+    public void RG() {
         super.setVisibility(0);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public void Rs() {
-        this.onE.Rs();
+    public void RH() {
+        this.owj.RH();
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
-        this.onE.setIgnoreRecommendHeight(z);
+        this.owj.setIgnoreRecommendHeight(z);
     }
 
     public void setMinHeight(int i) {
-        this.onE.setMinHeight(i);
+        this.owj.setMinHeight(i);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dXg() {
-        return this.onE.dXg();
+    public boolean eaC() {
+        return this.owj.eaC();
     }
 
     public void setPanelEnabled(boolean z) {
-        this.onE.setPanelEnabled(z);
+        this.owj.setPanelEnabled(z);
     }
 }

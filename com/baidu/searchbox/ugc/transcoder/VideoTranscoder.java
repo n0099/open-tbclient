@@ -21,10 +21,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicReference;
-import tv.danmaku.ijk.media.player.IMediaFormat;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
 @TargetApi(18)
-/* loaded from: classes13.dex */
+/* loaded from: classes14.dex */
 public class VideoTranscoder {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final int MAX_WIDTH = 640;
@@ -49,7 +47,7 @@ public class VideoTranscoder {
     private int mWidth;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes14.dex */
     public interface StateCallback {
         void onError();
 
@@ -101,7 +99,7 @@ public class VideoTranscoder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes14.dex */
     public class ChangerWrapper implements Runnable {
         private static final int TRY_MAX = 2;
         private VideoTranscoder mChanger;
@@ -300,7 +298,7 @@ public class VideoTranscoder {
             return;
         }
         MediaFormat trackFormat = mediaExtractor2.getTrackFormat(getAndSelectAudioTrackIndex(mediaExtractor2));
-        String string = trackFormat.getString(IMediaFormat.KEY_MIME);
+        String string = trackFormat.getString("mime");
         if (DEBUG) {
             Log.e(TAG, "原始声音编码器 audioMime=" + string);
         }
@@ -315,7 +313,7 @@ public class VideoTranscoder {
                         integer = 2;
                     }
                     trackFormat.setInteger("channel-count", integer);
-                    trackFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, 44100 * integer * 16);
+                    trackFormat.setInteger("bitrate", 44100 * integer * 16);
                     mediaFormat = trackFormat;
                     break;
                 }
@@ -324,7 +322,7 @@ public class VideoTranscoder {
                 mediaCodecInfo = selectCodec(OUTPUT_AUDIO_MIME_TYPE);
                 if (mediaCodecInfo != null) {
                     mediaFormat = MediaFormat.createAudioFormat(OUTPUT_AUDIO_MIME_TYPE, 44100, 2);
-                    mediaFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, OUTPUT_AUDIO_BIT_RATE);
+                    mediaFormat.setInteger("bitrate", OUTPUT_AUDIO_BIT_RATE);
                     mediaFormat.setInteger("aac-profile", 2);
                     break;
                 }
@@ -564,7 +562,7 @@ public class VideoTranscoder {
         }
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", this.mWidth, this.mHeight);
         createVideoFormat.setInteger("color-format", OUTPUT_VIDEO_COLOR_FORMAT);
-        createVideoFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, OUTPUT_VIDEO_BIT_RATE);
+        createVideoFormat.setInteger("bitrate", OUTPUT_VIDEO_BIT_RATE);
         createVideoFormat.setInteger("frame-rate", 25);
         createVideoFormat.setInteger("i-frame-interval", 10);
         if (DEBUG) {
@@ -1355,7 +1353,7 @@ public class VideoTranscoder {
     }
 
     private static String getMimeTypeFor(MediaFormat mediaFormat) {
-        return mediaFormat.getString(IMediaFormat.KEY_MIME);
+        return mediaFormat.getString("mime");
     }
 
     private static MediaCodecInfo selectCodec(String str) {

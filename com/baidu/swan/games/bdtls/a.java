@@ -1,19 +1,19 @@
 package com.baidu.swan.games.bdtls;
 
 import android.text.TextUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public boolean ayQ() {
-        boolean z = com.baidu.swan.apps.u.a.aga().getSwitch("game_bdtls_switcher", false);
+    public boolean aCv() {
+        boolean z = com.baidu.swan.apps.t.a.ahm().getSwitch("game_bdtls_switcher", false);
         if (DEBUG) {
-            com.baidu.swan.apps.console.c.v("BDTLS", "isBdtlsSwitch=" + z);
+            com.baidu.swan.apps.console.c.i("BDTLS", "isBdtlsSwitch=" + z);
         }
         return z;
     }
 
-    public boolean ro(String str) {
+    public boolean sm(String str) {
         return !TextUtils.isEmpty(str) && (str.contains("ma/game/od/get_user_cloud_storage") || str.contains("ma/game/od/set_user_cloud_storage"));
     }
 }

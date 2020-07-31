@@ -1,5 +1,6 @@
 package org.conscrypt;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import com.baidu.live.tbadk.img.ImageUploadStrategy;
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -23,7 +24,7 @@ import javax.security.auth.x500.X500Principal;
 import org.conscrypt.NativeCrypto;
 import org.conscrypt.SSLParametersImpl;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class NativeSsl {
     private final SSLParametersImpl.AliasChooser aliasChooser;
     private final NativeCrypto.SSLHandshakeCallbacks handshakeCallbacks;
@@ -290,9 +291,9 @@ public final class NativeSsl {
         }
         enablePSKKeyManagerIfRequested();
         if (this.parameters.useSessionTickets) {
-            NativeCrypto.SSL_clear_options(this.ssl, this, 16384L);
+            NativeCrypto.SSL_clear_options(this.ssl, this, PlaybackStateCompat.ACTION_PREPARE);
         } else {
-            NativeCrypto.SSL_set_options(this.ssl, this, NativeCrypto.SSL_get_options(this.ssl, this) | 16384);
+            NativeCrypto.SSL_set_options(this.ssl, this, NativeCrypto.SSL_get_options(this.ssl, this) | PlaybackStateCompat.ACTION_PREPARE);
         }
         if (this.parameters.getUseSni() && AddressUtils.isValidSniHostname(str)) {
             NativeCrypto.SSL_set_tlsext_host_name(this.ssl, this, str);
@@ -522,7 +523,7 @@ public final class NativeSsl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     final class BioWrapper {
         private volatile long bio;
 

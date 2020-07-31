@@ -3,7 +3,7 @@ package com.baidu.tbadk.t;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class a {
-    public static String zp(String str) {
+    public static String Ax(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -15,7 +15,7 @@ public class a {
         return str.substring(indexOf + 1, indexOf2);
     }
 
-    public static boolean zq(String str) {
+    public static boolean Ay(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }

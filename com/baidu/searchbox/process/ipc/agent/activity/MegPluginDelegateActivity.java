@@ -1,4 +1,4 @@
 package com.baidu.searchbox.process.ipc.agent.activity;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class MegPluginDelegateActivity extends PluginDelegateActivity {
 }

@@ -1,25 +1,25 @@
 package com.baidu.swan.games.h.a;
 
-import com.baidu.swan.e.d;
+import com.baidu.swan.d.d;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b {
-    public static File adQ() {
-        return com.baidu.swan.games.l.a.se("aigames_debug_extension_core");
+    public static File afh() {
+        return com.baidu.swan.games.l.a.td("aigames_debug_extension_core");
     }
 
-    public static void adR() {
-        File adQ = adQ();
-        if (adQ.exists()) {
-            d.deleteFile(adQ);
+    public static void afi() {
+        File afh = afh();
+        if (afh.exists()) {
+            d.deleteFile(afh);
         }
     }
 
-    public static File adS() {
-        File adQ = adQ();
-        if (!adQ.exists()) {
-            adQ.mkdirs();
+    public static File afj() {
+        File afh = afh();
+        if (!afh.exists()) {
+            afh.mkdirs();
         }
-        return new File(adQ, "debugExtensionCore.zip");
+        return new File(afh, "debugExtensionCore.zip");
     }
 }

@@ -1,110 +1,110 @@
 package com.baidu.tieba.ala.livecard.vc;
 
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private int ehZ;
-    private List<bu> eif;
-    private List<bu> eig;
-    private boolean eih;
-    private boolean eii;
-    private int eij = 2;
-    private int eik = 1;
+    private int eol;
+    private List<bv> eor;
+    private List<bv> eos;
+    private boolean eot;
+    private boolean eou;
+    private int eov = 2;
+    private int eow = 1;
 
-    public b(List<bu> list, boolean z, int i) {
-        this.ehZ = 2;
-        this.eii = z;
-        this.ehZ = i;
-        bN(list);
+    public b(List<bv> list, boolean z, int i) {
+        this.eol = 2;
+        this.eou = z;
+        this.eol = i;
+        bR(list);
     }
 
-    public void bN(List<bu> list) {
+    public void bR(List<bv> list) {
         if (list != null) {
-            this.eif = list;
-            if (list != null && list.size() >= this.eij && list.size() <= this.ehZ) {
-                this.eih = true;
-            } else if (list.size() > this.ehZ && this.eii) {
-                this.eih = true;
+            this.eor = list;
+            if (list != null && list.size() >= this.eov && list.size() <= this.eol) {
+                this.eot = true;
+            } else if (list.size() > this.eol && this.eou) {
+                this.eot = true;
             } else {
-                this.eih = false;
+                this.eot = false;
             }
-            this.eig = aZo();
+            this.eos = bdl();
         }
     }
 
-    private List<bu> aZo() {
+    private List<bv> bdl() {
         ArrayList arrayList = new ArrayList();
-        if (this.eif != null) {
-            if (this.eih) {
-                if (this.eif.size() > this.ehZ && this.eif.size() >= this.eik) {
-                    arrayList.addAll(this.eif.subList(0, this.ehZ));
-                    arrayList.addAll(0, this.eif.subList(this.ehZ - this.eik, this.ehZ));
-                    arrayList.addAll(this.eif.subList(0, this.eik));
+        if (this.eor != null) {
+            if (this.eot) {
+                if (this.eor.size() > this.eol && this.eor.size() >= this.eow) {
+                    arrayList.addAll(this.eor.subList(0, this.eol));
+                    arrayList.addAll(0, this.eor.subList(this.eol - this.eow, this.eol));
+                    arrayList.addAll(this.eor.subList(0, this.eow));
                 } else {
-                    arrayList.addAll(this.eif);
-                    arrayList.addAll(0, this.eif.subList(this.eif.size() - this.eik, this.eif.size()));
-                    arrayList.addAll(this.eif.subList(0, this.eik));
+                    arrayList.addAll(this.eor);
+                    arrayList.addAll(0, this.eor.subList(this.eor.size() - this.eow, this.eor.size()));
+                    arrayList.addAll(this.eor.subList(0, this.eow));
                 }
-            } else if (this.eif != null && this.eif.size() > 0 && this.eif.size() >= this.eik) {
-                arrayList.addAll(this.eif.subList(0, this.eik));
+            } else if (this.eor != null && this.eor.size() > 0 && this.eor.size() >= this.eow) {
+                arrayList.addAll(this.eor.subList(0, this.eow));
             }
         }
         return arrayList;
     }
 
-    public int mO(int i) {
-        if (this.eih) {
-            int size = this.eig.size();
+    public int ng(int i) {
+        if (this.eot) {
+            int size = this.eos.size();
             if (i == 0) {
-                return (size - 1) - this.eik;
+                return (size - 1) - this.eow;
             }
-            if (i == size - this.eik) {
-                return this.eik;
+            if (i == size - this.eow) {
+                return this.eow;
             }
             return i;
         }
         return i;
     }
 
-    public int mP(int i) {
-        if (this.eih) {
-            return i - this.eik;
+    public int nh(int i) {
+        if (this.eot) {
+            return i - this.eow;
         }
         return i;
     }
 
-    public int aZp() {
-        if (this.eif == null) {
+    public int bdm() {
+        if (this.eor == null) {
             return 0;
         }
-        return this.eif.size();
+        return this.eor.size();
     }
 
-    public int aZq() {
-        if (this.eih) {
-            return this.eik;
+    public int bdn() {
+        if (this.eot) {
+            return this.eow;
         }
         return 0;
     }
 
-    public void mQ(int i) {
-        this.ehZ = i;
-        bN(this.eif);
+    public void ni(int i) {
+        this.eol = i;
+        bR(this.eor);
     }
 
-    public void mR(int i) {
-        this.eij = i;
-        bN(this.eif);
+    public void nj(int i) {
+        this.eov = i;
+        bR(this.eor);
     }
 
-    public List<bu> aZr() {
-        return this.eig;
+    public List<bv> bdo() {
+        return this.eos;
     }
 
-    public void mS(int i) {
-        this.eik = i;
-        bN(this.eif);
+    public void nk(int i) {
+        this.eow = i;
+        bR(this.eor);
     }
 }

@@ -3,14 +3,14 @@ package com.baidu.helios.a.a;
 import android.content.Context;
 import com.baidu.mobstat.Config;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 class f implements b {
     private JSONObject g;
     private Context h;
     private int c = 1;
-    private h arC = new e();
-    private j arD = new n();
-    private g arE = new d();
+    private h ary = new e();
+    private j arz = new n();
+    private g arA = new d();
 
     public f(Context context) {
         if (this.g == null) {
@@ -26,62 +26,62 @@ class f implements b {
             e.printStackTrace();
         }
         try {
-            jSONObject.put("aid", this.arC.a(this.h));
+            jSONObject.put("aid", this.ary.a(this.h));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
         try {
-            jSONObject.put("uid", this.arE.a(this.h));
+            jSONObject.put("uid", this.arA.a(this.h));
         } catch (Exception e3) {
             e3.printStackTrace();
         }
         try {
-            jSONObject.put("adrid", this.arD.c(this.h));
+            jSONObject.put("adrid", this.arz.c(this.h));
         } catch (Exception e4) {
             e4.printStackTrace();
         }
         try {
-            jSONObject.put("network", this.arD.d(this.h));
+            jSONObject.put("network", this.arz.d(this.h));
         } catch (Exception e5) {
             e5.printStackTrace();
         }
         try {
-            jSONObject.put(Config.INPUT_DEF_PKG, this.arD.b(this.h));
+            jSONObject.put(Config.INPUT_DEF_PKG, this.arz.b(this.h));
         } catch (Exception e6) {
             e6.printStackTrace();
         }
         try {
-            jSONObject.put("ctime", this.arD.b());
+            jSONObject.put("ctime", this.arz.b());
         } catch (Exception e7) {
             e7.printStackTrace();
         }
         try {
-            jSONObject.put(com.baidu.fsg.base.statistics.j.c, this.arD.a(this.h));
+            jSONObject.put(com.baidu.fsg.base.statistics.j.c, this.arz.a(this.h));
         } catch (Exception e8) {
             e8.printStackTrace();
         }
         try {
-            jSONObject.put("ut", this.arD.a());
+            jSONObject.put("ut", this.arz.a());
         } catch (Exception e9) {
             e9.printStackTrace();
         }
         try {
-            jSONObject.put("iid", this.arC.e(this.h));
+            jSONObject.put("iid", this.ary.e(this.h));
         } catch (Exception e10) {
             e10.printStackTrace();
         }
         try {
-            jSONObject.put("sids", this.arC.aj(this.h));
+            jSONObject.put("sids", this.ary.aj(this.h));
         } catch (Exception e11) {
             e11.printStackTrace();
         }
         try {
-            jSONObject.put("oid", this.arC.c(this.h));
+            jSONObject.put("oid", this.ary.c(this.h));
         } catch (Exception e12) {
             e12.printStackTrace();
         }
         try {
-            jSONObject.put("gaid", this.arC.d(this.h));
+            jSONObject.put("gaid", this.ary.d(this.h));
         } catch (Exception e13) {
             e13.printStackTrace();
         }

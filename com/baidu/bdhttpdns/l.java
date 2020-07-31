@@ -1,7 +1,7 @@
 package com.baidu.bdhttpdns;
 
 import android.util.Log;
-/* loaded from: classes.dex */
+/* loaded from: classes9.dex */
 final class l {
     private static boolean a = false;
 

@@ -3,7 +3,7 @@ package protobuf.CommitGroupMsg;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.Error;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public final class CommitGroupMsgResIdl extends Message {
     @ProtoField(tag = 2)
     public final DataRes data;
@@ -21,7 +21,7 @@ public final class CommitGroupMsgResIdl extends Message {
         this.data = builder.data;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static final class Builder extends Message.Builder<CommitGroupMsgResIdl> {
         public DataRes data;
         public Error error;

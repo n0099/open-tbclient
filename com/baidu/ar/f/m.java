@@ -12,7 +12,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Arrays;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class m {
     private static String wS = null;
 

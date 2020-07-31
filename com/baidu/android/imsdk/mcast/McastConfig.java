@@ -6,5 +6,4 @@ public class McastConfig {
     public static final int CAST_HEART_BEAT = 30000;
     public static final int HEART_BEAT_TIME = 3000;
     public static final int RANDOM_SCOPE_MS = 3000;
-    public static boolean mLiveShowing = false;
 }

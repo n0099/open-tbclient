@@ -1,60 +1,79 @@
 package com.baidu.tieba.pb.data;
 
-import android.graphics.Bitmap;
-/* loaded from: classes.dex */
+import java.util.List;
+import tbclient.ManagerElection;
+/* loaded from: classes16.dex */
 public class k {
-    private String content;
-    private String duringTime;
-    private Bitmap jZU;
-    private Bitmap jZV;
-    private String jZW;
-    private boolean jZX;
+    private boolean gQx;
+    private int kio;
+    private int kip;
+    private List<String> kiq;
+    private List<String> kir;
+    private List<String> kis;
+    private String kit;
+    private boolean kiu;
+    private int kiv;
+    private int status;
 
-    public Bitmap cHC() {
-        return this.jZU;
+    public static k b(ManagerElection managerElection) {
+        if (managerElection == null) {
+            return null;
+        }
+        k kVar = new k();
+        kVar.kip = managerElection.begin_vote_time.intValue();
+        kVar.gQx = managerElection.can_vote.intValue() == 1;
+        kVar.kio = managerElection.vote_num.intValue();
+        kVar.kiu = managerElection.is_show_distribute.intValue() == 1;
+        kVar.kiv = managerElection.remainder_time.intValue();
+        kVar.status = managerElection.status.intValue();
+        kVar.kit = managerElection.tail_text;
+        kVar.kiq = managerElection.vote_condition_pic;
+        kVar.kir = managerElection.vote_condition_title;
+        kVar.kis = managerElection.vote_condition;
+        return kVar;
     }
 
-    public void B(Bitmap bitmap) {
-        this.jZU = bitmap;
+    public int getStatus() {
+        return this.status;
     }
 
-    public Bitmap cHD() {
-        return this.jZV;
+    public boolean cLg() {
+        return this.kiu;
     }
 
-    public void C(Bitmap bitmap) {
-        this.jZV = bitmap;
+    public int cLh() {
+        return this.kiv;
     }
 
-    public String getContent() {
-        return this.content;
+    public int cLi() {
+        return this.kio;
     }
 
-    public void setContent(String str) {
-        this.content = str;
+    public List<String> cLj() {
+        return this.kir;
     }
 
-    public String cHE() {
-        return this.duringTime;
+    public List<String> cLk() {
+        return this.kis;
     }
 
-    public void JH(String str) {
-        this.duringTime = str;
+    public String cLl() {
+        return this.kit;
     }
 
-    public String getThreadImgUrl() {
-        return this.jZW;
+    public boolean bQE() {
+        return this.gQx;
     }
 
-    public void JI(String str) {
-        this.jZW = str;
+    public void mw(boolean z) {
+        this.gQx = z;
     }
 
-    public boolean cHF() {
-        return this.jZX;
+    public void setStatus(int i) {
+        this.status = i;
     }
 
-    public void rp(boolean z) {
-        this.jZX = z;
+    public void Bx(int i) {
+        this.kio = i;
     }
 }

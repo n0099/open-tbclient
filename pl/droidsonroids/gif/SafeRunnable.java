@@ -2,7 +2,7 @@ package pl.droidsonroids.gif;
 
 import java.lang.Thread;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public abstract class SafeRunnable implements Runnable {
     final GifDrawable mGifDrawable;
 

@@ -7,7 +7,7 @@ public class y {
     private String link_url;
     private long start_time;
 
-    public String bak() {
+    public String beh() {
         return this.link_url;
     }
 

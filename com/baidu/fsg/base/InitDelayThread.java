@@ -9,12 +9,12 @@ import com.baidu.fsg.base.restnet.fp.GetFPResponse;
 import com.baidu.fsg.base.utils.JsonUtils;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class InitDelayThread extends Thread {
     InitDelayCallback mCallback;
     WeakReference<Context> mContext;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface InitDelayCallback extends NoProguard {
         void callBack();
     }
@@ -34,9 +34,9 @@ public class InitDelayThread extends Thread {
             if (!TextUtils.isEmpty(rimAllConfig)) {
                 try {
                     GetFPResponse.RimConfig rimConfig = (GetFPResponse.RimConfig) JsonUtils.fromJson(rimAllConfig, GetFPResponse.RimConfig.class);
-                    if (rimConfig != null && rimConfig.f989common != null) {
+                    if (rimConfig != null && rimConfig.f964common != null) {
                         try {
-                            j = Long.parseLong(rimConfig.f989common.init_delay);
+                            j = Long.parseLong(rimConfig.f964common.init_delay);
                         } catch (NumberFormatException e) {
                             e.printStackTrace();
                         }

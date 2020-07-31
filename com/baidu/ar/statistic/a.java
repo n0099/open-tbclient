@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 final class a implements Cloneable {
     private static a uT;
     private static final Object uS = new Object();

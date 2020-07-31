@@ -6,11 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.f.a.a;
-/* loaded from: classes6.dex */
+import com.baidu.g.a.a;
+/* loaded from: classes19.dex */
 public class LoadingDialog extends Dialog implements com.baidu.sapi2.c {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static class Builder implements com.baidu.sapi2.c {
         private Context a;
         private String b;

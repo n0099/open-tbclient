@@ -12,7 +12,7 @@ import com.baidu.location.a.i;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class l extends i {
     public i.b e;
     private double y;
@@ -51,7 +51,7 @@ public class l extends i {
     private long M = 0;
     private boolean N = true;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     private class a implements Runnable {
         final /* synthetic */ l a;
 
@@ -66,7 +66,7 @@ public class l extends i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b implements Runnable {
         private b() {
         }

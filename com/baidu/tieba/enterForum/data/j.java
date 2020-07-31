@@ -1,34 +1,61 @@
 package com.baidu.tieba.enterForum.data;
 
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.x;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import tbclient.FrsTabInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class j {
-    private int hbS;
-    private String tabCode;
-    private String tabName;
+    private ArrayList<i> hhz;
 
-    public j(FrsTabInfo frsTabInfo) {
-        if (frsTabInfo != null) {
-            this.tabCode = frsTabInfo.tab_code;
-            this.tabName = frsTabInfo.tab_name;
-            this.hbS = frsTabInfo.tab_version.intValue();
+    public void cg(List<FrsTabInfo> list) {
+        if (this.hhz == null) {
+            this.hhz = new ArrayList<>();
+        }
+        this.hhz.clear();
+        if (list != null) {
+            for (FrsTabInfo frsTabInfo : list) {
+                if (frsTabInfo != null && !StringUtils.isNull(frsTabInfo.tab_code) && !StringUtils.isNull(frsTabInfo.tab_name)) {
+                    this.hhz.add(new i(frsTabInfo));
+                }
+            }
         }
     }
 
-    public int bRx() {
-        return this.hbS;
+    public ArrayList<i> bUL() {
+        return this.hhz;
     }
 
-    public String bRy() {
-        return this.tabCode;
+    public boolean b(i iVar) {
+        if (iVar == null) {
+            return false;
+        }
+        if (x.isEmpty(this.hhz)) {
+            return true;
+        }
+        Iterator<i> it = this.hhz.iterator();
+        while (it.hasNext()) {
+            i next = it.next();
+            if (iVar.a(next)) {
+                return iVar.bUJ() > next.bUJ();
+            }
+        }
+        return true;
     }
 
-    public String getTabName() {
-        return this.tabName;
-    }
-
-    public boolean a(j jVar) {
-        return jVar != null && ar.equals(this.tabCode, jVar.tabCode) && ar.equals(this.tabName, jVar.tabName);
+    public boolean b(j jVar) {
+        if (jVar == null || jVar.hhz == null || this.hhz.size() != jVar.hhz.size()) {
+            return false;
+        }
+        for (int i = 0; i < this.hhz.size(); i++) {
+            i iVar = this.hhz.get(i);
+            i iVar2 = this.hhz.get(i);
+            if (iVar == null || iVar2 == null || !iVar.a(iVar2)) {
+                return false;
+            }
+        }
+        return true;
     }
 }

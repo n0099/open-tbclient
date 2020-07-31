@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import com.baidu.browser.core.util.BdLog;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static final String TAG = b.class.getSimpleName();
 
@@ -14,10 +14,10 @@ public class b {
             return false;
         }
         try {
-            return com.baidu.h.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            return com.baidu.i.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
         } catch (Throwable th) {
             BdLog.e(TAG, th);
-            return !com.baidu.h.a.NR();
+            return !com.baidu.i.a.NX();
         }
     }
 
@@ -26,10 +26,10 @@ public class b {
             return false;
         }
         try {
-            boolean checkPermissionGranted = com.baidu.h.a.a.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+            boolean checkPermissionGranted = com.baidu.i.a.a.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
             if (Build.VERSION.SDK_INT >= 16) {
                 if (!checkPermissionGranted) {
-                    if (!com.baidu.h.a.a.checkPermissionGranted(context, "android.permission.READ_EXTERNAL_STORAGE")) {
+                    if (!com.baidu.i.a.a.checkPermissionGranted(context, "android.permission.READ_EXTERNAL_STORAGE")) {
                         return false;
                     }
                 }
@@ -38,7 +38,7 @@ public class b {
             return checkPermissionGranted;
         } catch (Throwable th) {
             BdLog.e(TAG, th);
-            return !com.baidu.h.a.NR();
+            return !com.baidu.i.a.NX();
         }
     }
 

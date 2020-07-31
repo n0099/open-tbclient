@@ -3,19 +3,19 @@ package com.baidu.swan.pms.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class PMSAppInfo implements Parcelable {
     public static final Parcelable.Creator<PMSAppInfo> CREATOR = new Parcelable.Creator<PMSAppInfo>() { // from class: com.baidu.swan.pms.model.PMSAppInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: B */
+        /* renamed from: D */
         public PMSAppInfo createFromParcel(Parcel parcel) {
             return new PMSAppInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: jo */
+        /* renamed from: jH */
         public PMSAppInfo[] newArray(int i) {
             return new PMSAppInfo[i];
         }
@@ -40,6 +40,9 @@ public class PMSAppInfo implements Parcelable {
     public int globalNotice;
     public int globalPrivate;
     public String iconUrl;
+    private int installSrc;
+    private long lastLaunchTime;
+    private int launchCount;
     public long maxAge;
     public int orientation;
     public String paNumber;
@@ -62,11 +65,17 @@ public class PMSAppInfo implements Parcelable {
     public PMSAppInfo() {
         this.orientation = -1;
         this.maxAge = DEFAULT_SWAN_APP_PKG_MAX_AGE;
+        this.lastLaunchTime = 0L;
+        this.launchCount = 0;
+        this.installSrc = 0;
     }
 
     private PMSAppInfo(Parcel parcel) {
         this.orientation = -1;
         this.maxAge = DEFAULT_SWAN_APP_PKG_MAX_AGE;
+        this.lastLaunchTime = 0L;
+        this.launchCount = 0;
+        this.installSrc = 0;
         this.appId = parcel.readString();
         this.appKey = parcel.readString();
         this.appSign = parcel.readLong();
@@ -100,6 +109,9 @@ public class PMSAppInfo implements Parcelable {
         this.paNumber = parcel.readString();
         this.pluginInfo = parcel.readString();
         this.brandsInfo = parcel.readString();
+        this.lastLaunchTime = parcel.readLong();
+        this.launchCount = parcel.readInt();
+        this.installSrc = parcel.readInt();
     }
 
     @Override // android.os.Parcelable
@@ -142,6 +154,43 @@ public class PMSAppInfo implements Parcelable {
         parcel.writeString(this.paNumber);
         parcel.writeString(this.pluginInfo);
         parcel.writeString(this.brandsInfo);
+        parcel.writeLong(this.lastLaunchTime);
+        parcel.writeInt(this.launchCount);
+        parcel.writeInt(this.installSrc);
+    }
+
+    public void bZ(long j) {
+        if (0 >= j) {
+            j = System.currentTimeMillis();
+        }
+        ca(j);
+        this.launchCount++;
+    }
+
+    public void ca(long j) {
+        this.lastLaunchTime = Math.max(j, this.lastLaunchTime);
+    }
+
+    public void jF(int i) {
+        this.launchCount = Math.max(i, this.launchCount);
+    }
+
+    public long getLastLaunchTime() {
+        return this.lastLaunchTime;
+    }
+
+    public int awU() {
+        return this.launchCount;
+    }
+
+    public void jG(int i) {
+        if (this.installSrc == 0 && i > 0) {
+            this.installSrc = i;
+        }
+    }
+
+    public int aco() {
+        return this.installSrc;
     }
 
     public void setOrientation(int i) {
@@ -154,57 +203,60 @@ public class PMSAppInfo implements Parcelable {
         return this.orientation;
     }
 
-    public boolean aHn() {
+    public boolean aLe() {
         return this.pendingErrCode != 0;
     }
 
-    public boolean aHo() {
+    public boolean aLf() {
         return (System.currentTimeMillis() - this.createTime) / 1000 > this.maxAge;
     }
 
     public void h(f fVar) {
         if (fVar != null) {
-            this.appId = fVar.dqi;
+            this.appId = fVar.dvZ;
             this.versionCode = fVar.versionCode;
             this.versionName = fVar.versionName;
-            this.type = fVar.dqs;
+            this.type = fVar.dwk;
             this.pkgSize = fVar.size;
         }
     }
 
-    public void l(g gVar) {
+    public void m(g gVar) {
         if (gVar != null) {
             this.appId = gVar.appId;
             this.versionCode = gVar.versionCode;
             this.versionName = gVar.versionName;
-            this.type = gVar.dqs;
+            this.type = gVar.dwk;
             this.pkgSize = gVar.size;
         }
     }
 
-    public void q(PMSAppInfo pMSAppInfo) {
+    public void u(PMSAppInfo pMSAppInfo) {
         if (pMSAppInfo != null && TextUtils.equals(this.appId, pMSAppInfo.appId)) {
             this.versionCode = pMSAppInfo.versionCode;
             this.versionName = pMSAppInfo.versionName;
             this.type = pMSAppInfo.type;
             this.pkgSize = pMSAppInfo.pkgSize;
             this.createTime = pMSAppInfo.createTime;
+            ca(this.lastLaunchTime);
+            jF(this.launchCount);
             setOrientation(pMSAppInfo.getOrientation());
+            jG(pMSAppInfo.aco());
         }
     }
 
-    public void aHp() {
+    public void aLg() {
         if (this.maxAge <= 0) {
             this.maxAge = DEFAULT_SWAN_APP_PKG_MAX_AGE;
         }
         this.createTime = System.currentTimeMillis();
     }
 
-    public boolean abL() {
+    public boolean acP() {
         return !TextUtils.isEmpty(this.appKey) && this.appSign > 0;
     }
 
     public String toString() {
-        return "{appId=" + this.appId + ", appKey=" + this.appKey + ", appSign=" + this.appSign + ", versionCode=" + this.versionCode + ", versionName=" + this.versionName + ", description=" + this.description + ", appStatus=" + this.appStatus + ", statusDetail=" + this.statusDetail + ", statusDesc=" + this.statusDesc + ", resumeDate=" + this.resumeDate + ", iconUrl=" + this.iconUrl + ", appName=" + this.appName + ", serviceCategory=" + this.serviceCategory + ", subjectInfo=" + this.subjectInfo + ", type=" + this.type + ", pkgSize=" + this.pkgSize + ", pendingErrCode=" + this.pendingErrCode + ", appCategory=" + this.appCategory + ", orientation=" + this.orientation + ", maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", webViewDomains=" + this.webViewDomains + ", webAction=" + this.webAction + ", domains=" + this.domains + ", bearInfo=" + this.bearInfo + ", serverExt=" + this.serverExt + ", payProtected=" + this.payProtected + ", customerService=" + this.customerService + ", globalNotice=" + this.globalNotice + ", globalPrivate=" + this.globalPrivate + ", paNumber=" + this.paNumber + ", pluginInfo=" + this.pluginInfo + ", brandsInfo=" + this.brandsInfo + "}";
+        return "{appId=" + this.appId + ", appKey=" + this.appKey + ", appSign=" + this.appSign + ", versionCode=" + this.versionCode + ", versionName=" + this.versionName + ", description=" + this.description + ", appStatus=" + this.appStatus + ", statusDetail=" + this.statusDetail + ", statusDesc=" + this.statusDesc + ", resumeDate=" + this.resumeDate + ", iconUrl=" + this.iconUrl + ", appName=" + this.appName + ", serviceCategory=" + this.serviceCategory + ", subjectInfo=" + this.subjectInfo + ", type=" + this.type + ", pkgSize=" + this.pkgSize + ", pendingErrCode=" + this.pendingErrCode + ", appCategory=" + this.appCategory + ", orientation=" + this.orientation + ", maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", webViewDomains=" + this.webViewDomains + ", webAction=" + this.webAction + ", domains=" + this.domains + ", bearInfo=" + this.bearInfo + ", serverExt=" + this.serverExt + ", payProtected=" + this.payProtected + ", customerService=" + this.customerService + ", globalNotice=" + this.globalNotice + ", globalPrivate=" + this.globalPrivate + ", paNumber=" + this.paNumber + ", pluginInfo=" + this.pluginInfo + ", brandsInfo=" + this.brandsInfo + ", lastLaunchTime=" + this.lastLaunchTime + ", launchCount=" + this.launchCount + ", installSrc=" + this.installSrc + "}";
     }
 }

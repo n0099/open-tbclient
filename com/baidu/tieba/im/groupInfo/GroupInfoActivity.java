@@ -15,7 +15,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.h.a.a;
+import com.baidu.i.a.a;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
@@ -42,10 +42,10 @@ import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tbadk.core.dialog.b;
 import com.baidu.tbadk.core.dialog.i;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ac;
 import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
@@ -76,23 +76,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
-public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implements View.OnClickListener, View.OnLongClickListener, a.InterfaceC0127a, c, d {
-    private UpdateGroupModel iJR;
-    private com.baidu.tieba.im.groupInfo.a iVu;
-    private GroupInfoModel iVv;
-    private a iVw;
+/* loaded from: classes17.dex */
+public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implements View.OnClickListener, View.OnLongClickListener, a.InterfaceC0153a, c, d {
+    private UpdateGroupModel iPW;
+    private com.baidu.tieba.im.groupInfo.a jdE;
+    private GroupInfoModel jdF;
+    private a jdG;
     private PermissionJudgePolicy mPermissionJudgement;
     private int type = 0;
     private final WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
-    private long iVx = -1;
-    private long iVy = -1;
-    private final b.a iVz = new b.a() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivity.1
-        @Override // com.baidu.tbadk.core.dialog.b.a
+    private long jdH = -1;
+    private long jdI = -1;
+    private final b.InterfaceC0492b jdJ = new b.InterfaceC0492b() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivity.1
+        @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0492b
         public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
             bVar.dismiss();
             if (i == 0) {
-                GroupInfoActivity.this.bYE();
+                GroupInfoActivity.this.ccb();
             } else if (i == 1) {
                 AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(GroupInfoActivity.this.getPageContext().getPageActivity(), GroupInfoActivity.this.writeImagesInfo.toJsonString());
                 albumActivityConfig.setRequestCode(RequestResponseCode.REQUEST_ALBUM_IMAGE);
@@ -100,7 +100,7 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
             }
         }
     };
-    private final b iVA = new b() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivity.2
+    private final b jdK = new b() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivity.2
         @Override // com.baidu.tieba.im.groupInfo.b
         public void a(i iVar, int i, Object obj, int i2) {
             if (iVar != null && iVar.isShowing()) {
@@ -126,28 +126,28 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage == null) {
-                GroupInfoActivity.this.iVu.crG();
+                GroupInfoActivity.this.jdE.cvE();
                 GroupInfoActivity.this.showToast(R.string.neterror);
             } else if (customResponsedMessage.getCmd() == 2001102) {
                 if (!(customResponsedMessage instanceof ResponseGroupInfoLocalMessage)) {
-                    GroupInfoActivity.this.iVv.sendMessage(GroupInfoActivity.this.iVv.getGroupId(), GroupInfoActivity.this.iVv.getFrom());
+                    GroupInfoActivity.this.jdF.sendMessage(GroupInfoActivity.this.jdF.getGroupId(), GroupInfoActivity.this.jdF.getFrom());
                     return;
                 }
                 ResponseGroupInfoLocalMessage responseGroupInfoLocalMessage = (ResponseGroupInfoLocalMessage) customResponsedMessage;
-                if (responseGroupInfoLocalMessage.getOrginalMessage() == null || ((RequestGroupInfoLocalMessage) responseGroupInfoLocalMessage.getOrginalMessage()).getGroupId() == GroupInfoActivity.this.iVv.getGroupId()) {
+                if (responseGroupInfoLocalMessage.getOrginalMessage() == null || ((RequestGroupInfoLocalMessage) responseGroupInfoLocalMessage.getOrginalMessage()).getGroupId() == GroupInfoActivity.this.jdF.getGroupId()) {
                     if (responseGroupInfoLocalMessage.getError() != 0) {
-                        GroupInfoActivity.this.iVv.sendMessage(GroupInfoActivity.this.iVv.getGroupId(), GroupInfoActivity.this.iVv.getFrom());
+                        GroupInfoActivity.this.jdF.sendMessage(GroupInfoActivity.this.jdF.getGroupId(), GroupInfoActivity.this.jdF.getFrom());
                         return;
                     }
-                    GroupInfoActivity.this.Kz();
-                    GroupInfoActivity.this.iVv.setData(responseGroupInfoLocalMessage.getData());
-                    GroupInfoActivity.this.iVu.setData(responseGroupInfoLocalMessage.getData());
-                    GroupInfoActivity.this.crr();
+                    GroupInfoActivity.this.KG();
+                    GroupInfoActivity.this.jdF.setData(responseGroupInfoLocalMessage.getData());
+                    GroupInfoActivity.this.jdE.setData(responseGroupInfoLocalMessage.getData());
+                    GroupInfoActivity.this.cvp();
                 }
             }
         }
     };
-    private final CustomMessageListener iSR = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivity.4
+    private final CustomMessageListener jbb = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -178,7 +178,7 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
         initListener();
         a(bundle, (Intent) null);
         initUI();
-        crr();
+        cvp();
         startLoading();
     }
 
@@ -186,50 +186,50 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         a((Bundle) null, intent);
-        this.iVy = this.iVv.getGroupId();
+        this.jdI = this.jdF.getGroupId();
         startLoading();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crr() {
-        if (this.iVv != null) {
-            long groupId = this.iVv.getGroupId();
-            this.iVy = groupId;
-            this.iVx = groupId;
+    public void cvp() {
+        if (this.jdF != null) {
+            long groupId = this.jdF.getGroupId();
+            this.jdI = groupId;
+            this.jdH = groupId;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crs() {
-        if (this.iVx != this.iVy) {
+    public void cvq() {
+        if (this.jdH != this.jdI) {
             initUI();
-            crr();
+            cvp();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     private void initListener() {
-        this.iVw = new a();
-        registerListener(CmdConfigSocket.CMD_REQUEST_GROUP_INFO_BY_ID, this.iVw);
+        this.jdG = new a();
+        registerListener(CmdConfigSocket.CMD_REQUEST_GROUP_INFO_BY_ID, this.jdG);
         registerListener(CmdConfigCustom.CMD_REQUEST_GROUP_INFO_BY_ID_LOCAL, this.mCustomListener);
-        registerListener(CmdConfigSocket.CMD_UPDATE_GROUP, this.iVw);
-        registerListener(CmdConfigSocket.CMD_REMOVE_MEMBERS, this.iVw);
-        registerListener(CmdConfigSocket.CMD_JOIN_GROUP, this.iVw);
-        registerListener(CmdConfigSocket.CMD_CREATE_GROUP_ACTIVITY, this.iVw);
-        registerListener(CmdConfigSocket.CMD_DEL_GROUP_ACTIVITY, this.iVw);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.iSR);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.iSR);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NAME_CHANGE, this.iSR);
-        registerListener(CmdConfigSocket.CMD_DISSMISS_GROUP, this.iVw);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP, this.iSR);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_ACTIVITYS_CHANGE, this.iSR);
-        registerListener(CmdConfigSocket.CMD_UPGRADE_MEMBER_GROUP, this.iVw);
+        registerListener(CmdConfigSocket.CMD_UPDATE_GROUP, this.jdG);
+        registerListener(CmdConfigSocket.CMD_REMOVE_MEMBERS, this.jdG);
+        registerListener(CmdConfigSocket.CMD_JOIN_GROUP, this.jdG);
+        registerListener(CmdConfigSocket.CMD_CREATE_GROUP_ACTIVITY, this.jdG);
+        registerListener(CmdConfigSocket.CMD_DEL_GROUP_ACTIVITY, this.jdG);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.jbb);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.jbb);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NAME_CHANGE, this.jbb);
+        registerListener(CmdConfigSocket.CMD_DISSMISS_GROUP, this.jdG);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP, this.jbb);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_ACTIVITYS_CHANGE, this.jbb);
+        registerListener(CmdConfigSocket.CMD_UPGRADE_MEMBER_GROUP, this.jdG);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.iVv.saveInstance(bundle);
+        this.jdF.saveInstance(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -242,16 +242,16 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.iVv.cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.iSR);
-        if (this.iVu != null) {
-            this.iVu.onDestory();
+        this.jdF.cancelMessage();
+        MessageManager.getInstance().unRegisterListener(this.jbb);
+        if (this.jdE != null) {
+            this.jdE.onDestory();
         }
     }
 
     private void initUI() {
-        this.iVu = new com.baidu.tieba.im.groupInfo.a(this);
-        this.iVu.a(this.iVA);
+        this.jdE = new com.baidu.tieba.im.groupInfo.a(this);
+        this.jdE.a(this.jdK);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -262,29 +262,29 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startLoading() {
-        this.iVu.crH();
-        this.iVv.sendLocalMessage(this.iVv.getGroupId(), this.iVv.getFrom());
-        this.iVv.sendMessage(this.iVv.getGroupId(), this.iVv.getFrom());
+        this.jdE.cvF();
+        this.jdF.sendLocalMessage(this.jdF.getGroupId(), this.jdF.getFrom());
+        this.jdF.sendMessage(this.jdF.getGroupId(), this.jdF.getFrom());
     }
 
     public void a(Bundle bundle, Intent intent) {
-        this.iVv = new GroupInfoModel(this);
-        this.iVv.setUniqueId(getUniqueId());
+        this.jdF = new GroupInfoModel(this);
+        this.jdF.setUniqueId(getUniqueId());
         if (bundle == null) {
-            GroupInfoModel groupInfoModel = this.iVv;
+            GroupInfoModel groupInfoModel = this.jdF;
             if (intent == null) {
                 intent = getIntent();
             }
             groupInfoModel.initWithIntent(intent);
         } else {
-            this.iVv.initWithBundle(bundle);
+            this.jdF.initWithBundle(bundle);
         }
-        this.iJR = new UpdateGroupModel(getPageContext());
-        this.iJR.setUniqueId(getUniqueId());
+        this.iPW = new UpdateGroupModel(getPageContext());
+        this.iPW.setUniqueId(getUniqueId());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Kz() {
+    public void KG() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -297,72 +297,72 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.iVu != null) {
-            this.iVu.changeSkinType(i);
+        if (this.jdE != null) {
+            this.jdE.changeSkinType(i);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.iVu.crI()) {
-            if (this.iVv.getData() != null && this.iVv.getData().css()) {
+        if (view == this.jdE.cvG()) {
+            if (this.jdF.getData() != null && this.jdF.getData().cwq()) {
                 TiebaStatic.log("edit_place_at_groupinfo");
-                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupAddressLocateActivityConfig(getPageContext().getPageActivity(), RequestResponseCode.REQUEST_ADDRESS_VIEW, this.iVv.getData().getGroup().getPosition(), this.iVv.getData().getGroup().getBusiness(), (this.iVv.getData().getGroup().getFlag() & 1) == 1)));
+                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupAddressLocateActivityConfig(getPageContext().getPageActivity(), RequestResponseCode.REQUEST_ADDRESS_VIEW, this.jdF.getData().getGroup().getPosition(), this.jdF.getData().getGroup().getBusiness(), (this.jdF.getData().getGroup().getFlag() & 1) == 1)));
             }
-        } else if (view == this.iVu.cqo()) {
+        } else if (view == this.jdE.cum()) {
             closeActivity();
-        } else if (view != this.iVu.crv()) {
-            if (view == this.iVu.crD()) {
-                if (this.iVv.getData() != null && this.iVv.getData().getGroup() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), String.valueOf(this.iVv.getData().getGroup().getAuthorId()), this.iVv.getData().getGroup().getAuthorName())));
+        } else if (view != this.jdE.cvt()) {
+            if (view == this.jdE.cvB()) {
+                if (this.jdF.getData() != null && this.jdF.getData().getGroup() != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), String.valueOf(this.jdF.getData().getGroup().getAuthorId()), this.jdF.getData().getGroup().getAuthorName())));
                 }
-            } else if (view == this.iVu.crE()) {
-                if (this.iVv != null && this.iVv.getData() != null) {
-                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupLevelActivityConfig(getPageContext().getPageActivity(), this.iVv.getGroupId(), this.iVv.getData().isMemGroup())));
+            } else if (view == this.jdE.cvC()) {
+                if (this.jdF != null && this.jdF.getData() != null) {
+                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupLevelActivityConfig(getPageContext().getPageActivity(), this.jdF.getGroupId(), this.jdF.getData().isMemGroup())));
                 }
-            } else if (view == this.iVu.crC()) {
+            } else if (view == this.jdE.cvA()) {
                 if (TextUtils.isEmpty(TbadkApplication.getCurrentAccount())) {
                     TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getPageContext().getPageActivity(), true, 3)));
-                } else if (this.iVv.getData() != null) {
-                    if (this.iVv.getData().csr()) {
-                        if (this.iVv.getData().getGroup() != null) {
-                            TiebaStatic.log(new ao("c10334").dk("obj_type", String.valueOf(this.iVv.getData().getGroup().getGroupId())));
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(getPageContext().getPageActivity(), this.iVv.getGroupId(), this.iVv.getData().getGroup().getName(), this.iVv.getData().getGroup().getAuthorId(), "group_info")));
+                } else if (this.jdF.getData() != null) {
+                    if (this.jdF.getData().cwp()) {
+                        if (this.jdF.getData().getGroup() != null) {
+                            TiebaStatic.log(new ap("c10334").dn("obj_type", String.valueOf(this.jdF.getData().getGroup().getGroupId())));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(getPageContext().getPageActivity(), this.jdF.getGroupId(), this.jdF.getData().getGroup().getName(), this.jdF.getData().getGroup().getAuthorId(), "group_info")));
                         }
-                    } else if (this.iVv.hasRecentJoin()) {
+                    } else if (this.jdF.hasRecentJoin()) {
                         showToast(R.string.has_recent_join);
-                    } else if (this.iVv.getData() != null) {
-                        if (this.iVv.getData().csq() <= 0) {
+                    } else if (this.jdF.getData() != null) {
+                        if (this.jdF.getData().cwo() <= 0) {
                             showToast(R.string.add_group_max);
-                        } else if (ApplyJoinGroupActivityConfig.JOINTYPE_DEFAULT == this.iVv.getJoinType()) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_APPLE_JOIN_GROUP_ACTIVITY_START, new ApplyJoinGroupActivityConfig(getPageContext().getPageActivity(), "" + this.iVv.getGroupId(), this.iVv.getData().csp(), this.iVv.getData().csq())));
-                        } else if (ApplyJoinGroupActivityConfig.JOINTYPE_INVITE == this.iVv.getJoinType()) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_APPLE_JOIN_GROUP_ACTIVITY_START, new ApplyJoinGroupActivityConfig(getPageContext().getPageActivity(), "" + this.iVv.getGroupId(), this.iVv.getData().csp(), this.iVv.getData().csq(), this.iVv.getInviteUserId(), this.iVv.getDefaultUserMsg())));
+                        } else if (ApplyJoinGroupActivityConfig.JOINTYPE_DEFAULT == this.jdF.getJoinType()) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_APPLE_JOIN_GROUP_ACTIVITY_START, new ApplyJoinGroupActivityConfig(getPageContext().getPageActivity(), "" + this.jdF.getGroupId(), this.jdF.getData().cwn(), this.jdF.getData().cwo())));
+                        } else if (ApplyJoinGroupActivityConfig.JOINTYPE_INVITE == this.jdF.getJoinType()) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_APPLE_JOIN_GROUP_ACTIVITY_START, new ApplyJoinGroupActivityConfig(getPageContext().getPageActivity(), "" + this.jdF.getGroupId(), this.jdF.getData().cwn(), this.jdF.getData().cwo(), this.jdF.getInviteUserId(), this.jdF.getDefaultUserMsg())));
                         }
                     }
                 }
-            } else if (view == this.iVu.crB()) {
-                if (this.iVv.getData() != null && this.iVv.getData().getGroup() != null) {
-                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupSettingActivityConfig(getPageContext().getPageActivity(), 4, this.iVv.getData().getGroup().getName(), "" + this.iVv.getGroupId(), this.iVv.getData().css(), this.iVv.getData().getGroup().getFlag())));
+            } else if (view == this.jdE.cvz()) {
+                if (this.jdF.getData() != null && this.jdF.getData().getGroup() != null) {
+                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupSettingActivityConfig(getPageContext().getPageActivity(), 4, this.jdF.getData().getGroup().getName(), "" + this.jdF.getGroupId(), this.jdF.getData().cwq(), this.jdF.getData().getGroup().getFlag())));
                 }
-            } else if (view == this.iVu.crz()) {
-                if (this.iVv.getData() != null && this.iVv.getData().getGroup() != null) {
-                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateGroupActivityConfig(getPageContext().getPageActivity(), 1, this.iVv.getGroupId(), 1, this.iVv.getData().getGroup().getName())));
+            } else if (view == this.jdE.cvx()) {
+                if (this.jdF.getData() != null && this.jdF.getData().getGroup() != null) {
+                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateGroupActivityConfig(getPageContext().getPageActivity(), 1, this.jdF.getGroupId(), 1, this.jdF.getData().getGroup().getName())));
                 }
-            } else if (view == this.iVu.cry()) {
-                if (this.iVv.getData() != null && this.iVv.getData().css() && this.iVv.getData().getGroup() != null) {
-                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateGroupActivityConfig(getPageContext().getPageActivity(), 2, this.iVv.getGroupId(), 2, this.iVv.getData().getGroup().getIntro())));
+            } else if (view == this.jdE.cvw()) {
+                if (this.jdF.getData() != null && this.jdF.getData().cwq() && this.jdF.getData().getGroup() != null) {
+                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateGroupActivityConfig(getPageContext().getPageActivity(), 2, this.jdF.getGroupId(), 2, this.jdF.getData().getGroup().getIntro())));
                 }
-            } else if (view == this.iVu.crF() || view == this.iVu.crw()) {
-                MembersActivity.d(getPageContext().getPageActivity(), this.iVv.getGroupId());
-            } else if (view == this.iVu.crx()) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new InviteFriendListActivityConfig(getPageContext().getPageActivity(), 0L, this.iVv.getGroupId())));
-            } else if (view == this.iVu.crA() && this.iVv.getData() != null && this.iVv.getData().csr()) {
-                GroupActivityData csm = this.iVv.getData().csm();
-                if (csm != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupActivityActivityConfig(getPageContext().getPageActivity(), csm.getActivityId(), this.iVv.getGroupId(), 0)));
+            } else if (view == this.jdE.cvD() || view == this.jdE.cvu()) {
+                MembersActivity.d(getPageContext().getPageActivity(), this.jdF.getGroupId());
+            } else if (view == this.jdE.cvv()) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new InviteFriendListActivityConfig(getPageContext().getPageActivity(), 0L, this.jdF.getGroupId())));
+            } else if (view == this.jdE.cvy() && this.jdF.getData() != null && this.jdF.getData().cwp()) {
+                GroupActivityData cwk = this.jdF.getData().cwk();
+                if (cwk != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupActivityActivityConfig(getPageContext().getPageActivity(), cwk.getActivityId(), this.jdF.getGroupId(), 0)));
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateGroupActivityActivityConfig(getPageContext().getPageActivity(), this.iVv.getGroupId())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateGroupActivityActivityConfig(getPageContext().getPageActivity(), this.jdF.getGroupId())));
                 }
             }
         }
@@ -377,22 +377,22 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
 
     @Override // com.baidu.tieba.im.groupInfo.d
     public void c(View view, Object obj, int i) {
-        this.iVu.d(obj, i);
+        this.jdE.d(obj, i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        if (view == this.iVu.cru()) {
-            if (this.iVv.getData() == null || this.iVv.getData().getGroup() == null) {
+        if (view == this.jdE.cvs()) {
+            if (this.jdF.getData() == null || this.jdF.getData().getGroup() == null) {
                 return false;
             }
-            this.iVu.Hj(String.valueOf(this.iVv.getData().getGroup().getGroupId()));
+            this.jdE.HY(String.valueOf(this.jdF.getData().getGroup().getGroupId()));
             return false;
-        } else if (view != this.iVu.cry() || this.iVv.getData().css()) {
+        } else if (view != this.jdE.cvw() || this.jdF.getData().cwq()) {
             return false;
         } else {
-            if (this.iVv.getData() != null && this.iVv.getData().getGroup() != null) {
-                this.iVu.Hi(String.valueOf(this.iVv.getData().getGroup().getIntro()));
+            if (this.jdF.getData() != null && this.jdF.getData().getGroup() != null) {
+                this.jdE.HX(String.valueOf(this.jdF.getData().getGroup().getIntro()));
             }
             return true;
         }
@@ -414,18 +414,18 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
             }
         } else if (i == 1) {
-            ArrayList<String> bigUrlList = this.iVv.getBigUrlList();
-            HashMap<String, ImageUrlData> assistUrls = this.iVv.getAssistUrls();
+            ArrayList<String> bigUrlList = this.jdF.getBigUrlList();
+            HashMap<String, ImageUrlData> assistUrls = this.jdF.getAssistUrls();
             if (obj != null && (obj instanceof PhotoUrlData) && bigUrlList != null) {
-                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupImageActivityConfig(getPageContext().getPageActivity(), ((PhotoUrlData) obj).getBigurl(), bigUrlList, this.iVv.getGroupId(), assistUrls)));
+                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupImageActivityConfig(getPageContext().getPageActivity(), ((PhotoUrlData) obj).getBigurl(), bigUrlList, this.jdF.getGroupId(), assistUrls)));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bYE() {
-        if (!ac.requestWriteExternalStorgeAndCameraPermission(getPageContext().getPageActivity(), 1)) {
-            am.g(getPageContext());
+    public void ccb() {
+        if (!ad.requestWriteExternalStorgeAndCameraPermission(getPageContext().getPageActivity(), 1)) {
+            an.g(getPageContext());
         }
     }
 
@@ -439,11 +439,11 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                 case 1:
                     if (intent != null) {
                         String stringExtra = intent.getStringExtra(UpdateGroupActivityConfig.GROUP_TEXT);
-                        if (this.iVu != null) {
-                            this.iVu.setGroupName(stringExtra);
+                        if (this.jdE != null) {
+                            this.jdE.setGroupName(stringExtra);
                         }
-                        if (this.iVv != null && this.iVv.getData() != null && this.iVv.getData().getGroup() != null) {
-                            this.iVv.getData().getGroup().setName(stringExtra);
+                        if (this.jdF != null && this.jdF.getData() != null && this.jdF.getData().getGroup() != null) {
+                            this.jdF.getData().getGroup().setName(stringExtra);
                             return;
                         }
                         return;
@@ -452,11 +452,11 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                 case 2:
                     if (intent != null) {
                         String stringExtra2 = intent.getStringExtra(UpdateGroupActivityConfig.GROUP_TEXT);
-                        if (this.iVu != null) {
-                            this.iVu.Hg(stringExtra2);
+                        if (this.jdE != null) {
+                            this.jdE.HV(stringExtra2);
                         }
-                        if (this.iVv != null && this.iVv.getData() != null && this.iVv.getData().getGroup() != null) {
-                            this.iVv.getData().getGroup().setIntro(stringExtra2);
+                        if (this.jdF != null && this.jdF.getData() != null && this.jdF.getData().getGroup() != null) {
+                            this.jdF.getData().getGroup().setIntro(stringExtra2);
                             return;
                         }
                         return;
@@ -468,8 +468,8 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                 case 4:
                     if (intent != null) {
                         int intExtra = intent.getIntExtra(GroupSettingActivityConfig.INTENT_DATA_GROUP_FLAG, 0);
-                        if (this.iVv != null && this.iVv.getData() != null && this.iVv.getData().getGroup() != null) {
-                            this.iVv.getData().getGroup().setFlag(intExtra);
+                        if (this.jdF != null && this.jdF.getData() != null && this.jdF.getData().getGroup() != null) {
+                            this.jdF.getData().getGroup().setFlag(intExtra);
                             return;
                         }
                         return;
@@ -478,7 +478,7 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                 case RequestResponseCode.REQUEST_ALBUM_IMAGE /* 12002 */:
                     if (intent != null) {
                         intent.getBooleanExtra("camera_result", false);
-                        Y(intent);
+                        Z(intent);
                         break;
                     } else {
                         return;
@@ -494,15 +494,15 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
             }
             PhotoUrlData photoUrlData = (PhotoUrlData) intent.getSerializableExtra(EditHeadActivityConfig.PIC_INFO);
             if (photoUrlData != null) {
-                ad.aWA().c(photoUrlData.getSmallurl(), n.getFileDireciory(TbConfig.GROUP_HEAD_FILE), true, false, true);
+                ae.baB().c(photoUrlData.getSmallurl(), n.getFileDireciory(TbConfig.GROUP_HEAD_FILE), true, false, true);
             }
             b(photoUrlData);
         } else if (i2 == 0 && i == 12010) {
-            bYE();
+            ccb();
         }
     }
 
-    private void Y(Intent intent) {
+    private void Z(Intent intent) {
         String stringExtra;
         if (intent != null && (stringExtra = intent.getStringExtra("album_result")) != null) {
             this.writeImagesInfo.parseJson(stringExtra);
@@ -518,60 +518,60 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
     public void a(PhotoUrlData photoUrlData) {
         this.type = 2;
         if (photoUrlData != null) {
-            He(this.iVv.generateDeleAlbum(photoUrlData));
+            HT(this.jdF.generateDeleAlbum(photoUrlData));
         }
     }
 
     private void b(PhotoUrlData photoUrlData) {
         this.type = 1;
         if (photoUrlData != null) {
-            String generateAddAlbum = this.iVv.generateAddAlbum(photoUrlData);
+            String generateAddAlbum = this.jdF.generateAddAlbum(photoUrlData);
             if (!TextUtils.isEmpty(generateAddAlbum)) {
-                He(generateAddAlbum);
+                HT(generateAddAlbum);
             }
         }
     }
 
     private void k(int i, String str, String str2) {
         this.type = 4;
-        if (this.iJR != null) {
-            this.iJR.setGroupId(this.iVv.getGroupId());
-            this.iJR.setFlag(i);
-            this.iJR.setPosition(str);
-            this.iJR.setBusiness(str2);
-            this.iJR.sendMessage(5);
-            this.iVu.crH();
+        if (this.iPW != null) {
+            this.iPW.setGroupId(this.jdF.getGroupId());
+            this.iPW.setFlag(i);
+            this.iPW.setPosition(str);
+            this.iPW.setBusiness(str2);
+            this.iPW.sendMessage(5);
+            this.jdE.cvF();
         }
     }
 
-    private void He(String str) {
-        if (this.iJR != null) {
-            this.iJR.setGroupId(this.iVv.getGroupId());
-            this.iJR.setAlbum(str);
-            this.iJR.sendMessage(3);
-            this.iVu.crH();
+    private void HT(String str) {
+        if (this.iPW != null) {
+            this.iPW.setGroupId(this.jdF.getGroupId());
+            this.iPW.setAlbum(str);
+            this.iPW.sendMessage(3);
+            this.jdE.cvF();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aD(Object obj) {
-        GroupCardModel.crh();
+        GroupCardModel.cvf();
         this.type = 3;
         if (obj != null && (obj instanceof PhotoUrlData)) {
             PhotoUrlData photoUrlData = (PhotoUrlData) obj;
-            this.iVv.setChangePhotoUrlData(photoUrlData);
+            this.jdF.setChangePhotoUrlData(photoUrlData);
             String picId = photoUrlData.getPicId();
-            if (this.iJR != null) {
-                this.iJR.setGroupId(this.iVv.getGroupId());
-                this.iJR.setPortrait(picId);
-                this.iJR.sendMessage(4);
-                this.iVu.crH();
+            if (this.iPW != null) {
+                this.iPW.setGroupId(this.jdF.getGroupId());
+                this.iPW.setPortrait(picId);
+                this.iPW.sendMessage(4);
+                this.jdE.cvF();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes17.dex */
     public class a extends com.baidu.adp.framework.listener.c {
         public a() {
             super(0);
@@ -584,52 +584,52 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
             String[] split;
             Message<?> orginalMessage2;
             if (socketResponsedMessage == null) {
-                GroupInfoActivity.this.iVu.crG();
+                GroupInfoActivity.this.jdE.cvE();
                 GroupInfoActivity.this.showToast(R.string.neterror);
             } else if (socketResponsedMessage.getCmd() == 103004) {
-                GroupInfoActivity.this.iVu.crG();
+                GroupInfoActivity.this.jdE.cvE();
                 final ResponseGroupInfoMessage responseGroupInfoMessage = (ResponseGroupInfoMessage) socketResponsedMessage;
-                if (GroupInfoActivity.this.iVv.getSendMsg() == responseGroupInfoMessage.getOrginalMessage()) {
+                if (GroupInfoActivity.this.jdF.getSendMsg() == responseGroupInfoMessage.getOrginalMessage()) {
                     if (responseGroupInfoMessage.getError() == 2230101) {
                         GroupInfoActivity.this.showToast(StringUtils.isNull(responseGroupInfoMessage.getErrorString()) ? GroupInfoActivity.this.getResources().getString(R.string.neterror) : responseGroupInfoMessage.getErrorString(), false);
                         GroupInfoActivity.this.finish();
                     } else if (responseGroupInfoMessage.getData() != null && responseGroupInfoMessage.getError() == 0) {
-                        GroupInfoActivity.this.crr();
-                        GroupInfoActivity.this.Kz();
-                        GroupInfoActivity.this.iVv.setData(responseGroupInfoMessage.getData());
-                        if (responseGroupInfoMessage == null || responseGroupInfoMessage.getData().csr()) {
-                            GroupInfoActivity.this.iVu.a(responseGroupInfoMessage.getData(), false);
+                        GroupInfoActivity.this.cvp();
+                        GroupInfoActivity.this.KG();
+                        GroupInfoActivity.this.jdF.setData(responseGroupInfoMessage.getData());
+                        if (responseGroupInfoMessage == null || responseGroupInfoMessage.getData().cwp()) {
+                            GroupInfoActivity.this.jdE.a(responseGroupInfoMessage.getData(), false);
                             return;
                         }
-                        GroupInfoActivity.this.iVu.crH();
-                        com.baidu.tieba.im.settingcache.b.cto().a(TbadkApplication.getCurrentAccount(), String.valueOf(GroupInfoActivity.this.iVv.getGroupId()), 60000L, new l<Boolean>() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivity.a.1
+                        GroupInfoActivity.this.jdE.cvF();
+                        com.baidu.tieba.im.settingcache.b.cxq().a(TbadkApplication.getCurrentAccount(), String.valueOf(GroupInfoActivity.this.jdF.getGroupId()), 60000L, new l<Boolean>() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivity.a.1
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // com.baidu.tbadk.util.l
                             public void onReturnDataInUI(Boolean bool) {
                                 if (bool == null) {
                                     bool = false;
                                 }
-                                GroupInfoActivity.this.iVu.crG();
-                                GroupInfoActivity.this.iVu.a(responseGroupInfoMessage.getData(), bool.booleanValue());
-                                GroupInfoActivity.this.iVv.setHasRecentJoin(bool.booleanValue() ? false : true);
+                                GroupInfoActivity.this.jdE.cvE();
+                                GroupInfoActivity.this.jdE.a(responseGroupInfoMessage.getData(), bool.booleanValue());
+                                GroupInfoActivity.this.jdF.setHasRecentJoin(bool.booleanValue() ? false : true);
                             }
                         });
                     } else {
                         GroupInfoActivity.this.showToast(R.string.neterror);
-                        GroupInfoActivity.this.crs();
+                        GroupInfoActivity.this.cvq();
                     }
                 }
             } else if (socketResponsedMessage.getCmd() == 103110) {
                 if (socketResponsedMessage instanceof ResponseJoinGroupMessage) {
                     ResponseJoinGroupMessage responseJoinGroupMessage = (ResponseJoinGroupMessage) socketResponsedMessage;
-                    if (responseJoinGroupMessage.getError() == 0 && (orginalMessage2 = responseJoinGroupMessage.getOrginalMessage()) != null && (orginalMessage2 instanceof RequestJoinGroupMessage) && ((RequestJoinGroupMessage) orginalMessage2).getGroupId() == GroupInfoActivity.this.iVv.getGroupId()) {
-                        GroupInfoActivity.this.iVu.crL();
-                        GroupInfoActivity.this.iVv.setHasRecentJoin(true);
-                        GroupInfoActivity.this.crt();
+                    if (responseJoinGroupMessage.getError() == 0 && (orginalMessage2 = responseJoinGroupMessage.getOrginalMessage()) != null && (orginalMessage2 instanceof RequestJoinGroupMessage) && ((RequestJoinGroupMessage) orginalMessage2).getGroupId() == GroupInfoActivity.this.jdF.getGroupId()) {
+                        GroupInfoActivity.this.jdE.cvJ();
+                        GroupInfoActivity.this.jdF.setHasRecentJoin(true);
+                        GroupInfoActivity.this.cvr();
                     }
                 }
             } else if (socketResponsedMessage.getCmd() == 103102) {
-                GroupInfoActivity.this.iVu.crG();
+                GroupInfoActivity.this.jdE.cvE();
                 if (socketResponsedMessage.getError() != 0) {
                     GroupInfoActivity.this.showToast(R.string.neterror);
                     return;
@@ -642,34 +642,34 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                     switch (GroupInfoActivity.this.type) {
                         case 1:
                             if (type == 3) {
-                                GroupInfoActivity.this.iVv.addPhotoData();
-                                GroupInfoActivity.this.iVu.a(GroupInfoActivity.this.iVv.getData());
+                                GroupInfoActivity.this.jdF.addPhotoData();
+                                GroupInfoActivity.this.jdE.a(GroupInfoActivity.this.jdF.getData());
                                 return;
                             }
                             return;
                         case 2:
                             if (type == 3) {
-                                GroupInfoActivity.this.iVv.delePhotoData();
-                                GroupInfoActivity.this.iVu.a(GroupInfoActivity.this.iVv.getData());
+                                GroupInfoActivity.this.jdF.delePhotoData();
+                                GroupInfoActivity.this.jdE.a(GroupInfoActivity.this.jdF.getData());
                                 return;
                             }
                             return;
                         case 3:
                             if (type == 4) {
-                                GroupInfoActivity.this.iVv.updataPortraitData();
-                                GroupInfoActivity.this.iVu.a(GroupInfoActivity.this.iVv.getData());
+                                GroupInfoActivity.this.jdF.updataPortraitData();
+                                GroupInfoActivity.this.jdE.a(GroupInfoActivity.this.jdF.getData());
                                 return;
                             }
                             return;
                         case 4:
-                            GroupInfoActivity.this.iVv.getData().getGroup().setFlag(GroupInfoActivity.this.iJR.getFlag());
-                            GroupInfoActivity.this.iVv.getData().getGroup().setPosition(GroupInfoActivity.this.iJR.getPosition());
-                            GroupInfoActivity.this.iVv.getData().getGroup().setBusiness(GroupInfoActivity.this.iJR.getBusiness());
-                            if ((GroupInfoActivity.this.iVv.getData().getGroup().getFlag() & 1) == 1) {
-                                GroupInfoActivity.this.iVu.pw(GroupInfoActivity.this.iVv.getData().css());
+                            GroupInfoActivity.this.jdF.getData().getGroup().setFlag(GroupInfoActivity.this.iPW.getFlag());
+                            GroupInfoActivity.this.jdF.getData().getGroup().setPosition(GroupInfoActivity.this.iPW.getPosition());
+                            GroupInfoActivity.this.jdF.getData().getGroup().setBusiness(GroupInfoActivity.this.iPW.getBusiness());
+                            if ((GroupInfoActivity.this.jdF.getData().getGroup().getFlag() & 1) == 1) {
+                                GroupInfoActivity.this.jdE.qd(GroupInfoActivity.this.jdF.getData().cwq());
                             } else {
-                                String position = GroupInfoActivity.this.iVv.getData().getGroup().getPosition();
-                                String business = GroupInfoActivity.this.iVv.getData().getGroup().getBusiness();
+                                String position = GroupInfoActivity.this.jdF.getData().getGroup().getPosition();
+                                String business = GroupInfoActivity.this.jdF.getData().getGroup().getBusiness();
                                 StringBuffer stringBuffer = new StringBuffer();
                                 if (position != null) {
                                     stringBuffer.append(position);
@@ -677,7 +677,7 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                                 if (business != null) {
                                     stringBuffer.append(business);
                                 }
-                                GroupInfoActivity.this.iVu.q(GroupInfoActivity.this.iVv.getData().css(), stringBuffer.toString());
+                                GroupInfoActivity.this.jdE.q(GroupInfoActivity.this.jdF.getData().cwq(), stringBuffer.toString());
                             }
                             GroupInfoActivity.this.showToast(R.string.operation_success);
                             return;
@@ -690,29 +690,29 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                     ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) socketResponsedMessage;
                     if (responseRemoveMembersMessage.getError() == 0 && (orginalMessage = responseRemoveMembersMessage.getOrginalMessage()) != null && (orginalMessage instanceof RequestRemoveMembersMessage)) {
                         RequestRemoveMembersMessage requestRemoveMembersMessage = (RequestRemoveMembersMessage) orginalMessage;
-                        if (requestRemoveMembersMessage.getGroupId() == GroupInfoActivity.this.iVv.getGroupId()) {
+                        if (requestRemoveMembersMessage.getGroupId() == GroupInfoActivity.this.jdF.getGroupId()) {
                             String userIds = requestRemoveMembersMessage.getUserIds();
                             if (!TextUtils.isEmpty(userIds) && (split = userIds.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split.length != 0) {
                                 String id = TbadkApplication.getCurrentAccountObj().getID();
                                 if (!TextUtils.isEmpty(id)) {
                                     for (String str : split) {
                                         if (id.equals(str)) {
-                                            ResponseGroupInfoLocalMessage.a data = GroupInfoActivity.this.iVv.getData();
-                                            data.yH(data.csq() + 1);
-                                            data.pD(false);
-                                            GroupInfoActivity.this.iVv.setHasRecentJoin(false);
-                                            GroupInfoActivity.this.iVu.a(data, true);
-                                            GroupInfoActivity.this.iVu.Hh(str);
-                                            GroupInfoActivity.this.crt();
+                                            ResponseGroupInfoLocalMessage.a data = GroupInfoActivity.this.jdF.getData();
+                                            data.zf(data.cwo() + 1);
+                                            data.qk(false);
+                                            GroupInfoActivity.this.jdF.setHasRecentJoin(false);
+                                            GroupInfoActivity.this.jdE.a(data, true);
+                                            GroupInfoActivity.this.jdE.HW(str);
+                                            GroupInfoActivity.this.cvr();
                                             return;
                                         }
-                                        if (GroupInfoActivity.this.iVv.removeMemberByUid(str)) {
-                                            GroupInfoActivity.this.iVu.Hh(str);
-                                            GroupData group = GroupInfoActivity.this.iVv.getData().getGroup();
+                                        if (GroupInfoActivity.this.jdF.removeMemberByUid(str)) {
+                                            GroupInfoActivity.this.jdE.HW(str);
+                                            GroupData group = GroupInfoActivity.this.jdF.getData().getGroup();
                                             if (group != null && group.getMemberNum() > 1) {
                                                 group.setMemberNum(group.getMemberNum() - 1);
                                             }
-                                            GroupInfoActivity.this.iVu.setData(GroupInfoActivity.this.iVv.getData());
+                                            GroupInfoActivity.this.jdE.setData(GroupInfoActivity.this.jdF.getData());
                                         }
                                     }
                                 }
@@ -723,7 +723,7 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
             } else if (socketResponsedMessage.getCmd() == 103104) {
                 if (socketResponsedMessage instanceof ResponseDismissGroupMessage) {
                     ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) socketResponsedMessage;
-                    if (responseDismissGroupMessage.getError() == 0 && GroupInfoActivity.this.iVv.getGroupId() == responseDismissGroupMessage.getGroupId()) {
+                    if (responseDismissGroupMessage.getError() == 0 && GroupInfoActivity.this.jdF.getGroupId() == responseDismissGroupMessage.getGroupId()) {
                         GroupInfoActivity.this.finish();
                     }
                 }
@@ -745,18 +745,18 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
     }
 
     public void b(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null && this.iVv != null && this.iVv.getData() != null) {
+        if (groupNewsPojo != null && this.jdF != null && this.jdF.getData() != null) {
             try {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 String string = jSONObject.getJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM).getString(TbEnum.SystemMessage.KEY_GROUP_ID);
-                if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT) && string.equals(String.valueOf(this.iVv.getGroupId())) && this.iVv.getData().csr()) {
-                    this.iVv.getData().pD(false);
-                    GroupData group = this.iVv.getData().getGroup();
+                if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT) && string.equals(String.valueOf(this.jdF.getGroupId())) && this.jdF.getData().cwp()) {
+                    this.jdF.getData().qk(false);
+                    GroupData group = this.jdF.getData().getGroup();
                     if (group != null && group.getMemberNum() > 1) {
                         group.setMemberNum(group.getMemberNum() - 1);
                     }
-                    this.iVu.a(this.iVv.getData(), true);
-                    crt();
+                    this.jdE.a(this.jdF.getData(), true);
+                    cvr();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -767,12 +767,12 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
     public void f(GroupNewsPojo groupNewsPojo) {
         try {
             String optString = new JSONObject(groupNewsPojo.getContent()).optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM).optString(TbEnum.SystemMessage.KEY_GROUP_ID);
-            if (!TextUtils.isEmpty(optString) && this.iVv != null && optString.equals(String.valueOf(this.iVv.getGroupId())) && this.iVv.getData() != null) {
-                this.iVv.getData().pD(true);
-                if (this.iVu != null) {
-                    this.iVu.py(true);
-                    this.iVu.crJ();
-                    crt();
+            if (!TextUtils.isEmpty(optString) && this.jdF != null && optString.equals(String.valueOf(this.jdF.getGroupId())) && this.jdF.getData() != null) {
+                this.jdF.getData().qk(true);
+                if (this.jdE != null) {
+                    this.jdE.qf(true);
+                    this.jdE.cvH();
+                    cvr();
                 }
             }
         } catch (JSONException e) {
@@ -782,17 +782,17 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null && this.iVv != null && this.iVv.getData() != null) {
+        if (groupNewsPojo != null && this.jdF != null && this.jdF.getData() != null) {
             try {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 JSONObject jSONObject2 = jSONObject.getJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
                 String string = jSONObject2.getString(TbEnum.SystemMessage.KEY_GROUP_ID);
-                if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_GROUP_NAME_MODIFY) && string.equals(String.valueOf(this.iVv.getGroupId()))) {
+                if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_GROUP_NAME_MODIFY) && string.equals(String.valueOf(this.jdF.getGroupId()))) {
                     String string2 = jSONObject2.getString(TbEnum.SystemMessage.KEY_GROUP_NAME);
                     if (!TextUtils.isEmpty(string2)) {
-                        this.iVu.setGroupName(string2);
-                        if (this.iVv.getData() != null && this.iVv.getData().getGroup() != null) {
-                            this.iVv.getData().getGroup().setName(string2);
+                        this.jdE.setGroupName(string2);
+                        if (this.jdF.getData() != null && this.jdF.getData().getGroup() != null) {
+                            this.jdF.getData().getGroup().setName(string2);
                         }
                     }
                 }
@@ -804,11 +804,11 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null && this.iVv != null) {
+        if (groupNewsPojo != null && this.jdF != null) {
             try {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 String string = jSONObject.getJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM).getString(TbEnum.SystemMessage.KEY_GROUP_ID);
-                if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP) && string.equals(String.valueOf(this.iVv.getGroupId()))) {
+                if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP) && string.equals(String.valueOf(this.jdF.getGroupId()))) {
                     finish();
                 }
             } catch (JSONException e) {
@@ -827,21 +827,21 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crt() {
-        if (this.iVv != null) {
-            this.iVv.clearGroupInfoCache(String.valueOf(this.iVv.getGroupId()));
+    public void cvr() {
+        if (this.jdF != null) {
+            this.jdF.clearGroupInfoCache(String.valueOf(this.jdF.getGroupId()));
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         if (i == 1) {
-            if (ac.checkCamera(getApplicationContext())) {
-                am.g(getPageContext());
+            if (ad.checkCamera(getApplicationContext())) {
+                an.g(getPageContext());
             } else {
                 showToast(R.string.system_permission_prompt_camera);
             }
-            ArrayMap<String, Boolean> transformPermissionResult = ac.transformPermissionResult(strArr, iArr);
+            ArrayMap<String, Boolean> transformPermissionResult = ad.transformPermissionResult(strArr, iArr);
             if (transformPermissionResult.containsKey("android.permission.WRITE_EXTERNAL_STORAGE") && !transformPermissionResult.get("android.permission.WRITE_EXTERNAL_STORAGE").booleanValue()) {
                 showToast(R.string.sdcard_permission_denied_advert_for_camera);
             }

@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.location;
 import com.baidu.live.adp.lib.util.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LocationInfo {
     public String city;
     public String cityCode;

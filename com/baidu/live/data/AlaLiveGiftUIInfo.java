@@ -7,7 +7,7 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveGiftUIInfo extends BaseData implements Serializable {
     private String categoryTextSelectedColor;
     private String horizontalBgUrl;

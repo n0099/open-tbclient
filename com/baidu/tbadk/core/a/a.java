@@ -7,11 +7,11 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public abstract class a {
-    public static a dFD = null;
+    public static a dLA = null;
 
     /* renamed from: com.baidu.tbadk.core.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0478a {
+    public interface InterfaceC0490a {
         void a(AccountData accountData);
 
         void onBeforeLogin(String str);
@@ -26,20 +26,20 @@ public abstract class a {
         public String mUsername = null;
     }
 
-    public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, InterfaceC0478a interfaceC0478a);
+    public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, InterfaceC0490a interfaceC0490a);
 
     public abstract void reLoginByCacheAccount();
 
-    public abstract b vz(String str);
+    public abstract b wB(String str);
 
-    public static a aPB() {
-        return dFD;
+    public static a aTw() {
+        return dLA;
     }
 
     public static void init() {
         CustomResponsedMessage runTask;
-        if (dFD == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_ACCOUT_LOGIN_HELPER, a.class)) != null && runTask.getData() != null) {
-            dFD = (a) runTask.getData();
+        if (dLA == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_ACCOUT_LOGIN_HELPER, a.class)) != null && runTask.getData() != null) {
+            dLA = (a) runTask.getData();
         }
     }
 }

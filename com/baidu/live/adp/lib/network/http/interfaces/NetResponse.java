@@ -2,7 +2,7 @@ package com.baidu.live.adp.lib.network.http.interfaces;
 
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NetResponse {
     public String decodedResponseStr;
     public int downSize;

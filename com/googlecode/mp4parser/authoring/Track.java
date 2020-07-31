@@ -6,7 +6,7 @@ import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public interface Track {
     List<CompositionTimeToSample.Entry> getCompositionTimeEntries();
 

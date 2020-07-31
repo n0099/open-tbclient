@@ -2,12 +2,12 @@ package com.baidu.tieba.tbadvert.a;
 
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class b {
-    public int dMR;
+    public int dTc;
     public long endTime;
     public int id;
-    public String lKg;
+    public String lRu;
     public String linkUrl;
     public long showTime = 3000;
     public int showType;
@@ -21,17 +21,17 @@ public class b {
             this.startTime = jSONObject.optLong("start_time", 0L);
             this.endTime = jSONObject.optLong("end_time", 0L);
             this.showType = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE, 0);
-            this.dMR = jSONObject.optInt("show_status", 0);
-            this.lKg = jSONObject.optString("resource_url");
+            this.dTc = jSONObject.optInt("show_status", 0);
+            this.lRu = jSONObject.optString("resource_url");
             this.linkUrl = jSONObject.optString("link_url");
         }
     }
 
-    public boolean djB() {
+    public boolean dmJ() {
         return this.showType == 1;
     }
 
-    public boolean bqd() {
+    public boolean btf() {
         return this.showType == 3 || this.showType == 4;
     }
 

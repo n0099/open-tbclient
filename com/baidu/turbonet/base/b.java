@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class b<E> implements Iterable<E> {
     static final /* synthetic */ boolean $assertionsDisabled;
     public final List<E> mObservers = new ArrayList();
-    private int myk = 0;
+    private int mGp = 0;
     private int mCount = 0;
-    private boolean myl = false;
+    private boolean mGq = false;
 
     static {
         $assertionsDisabled = !b.class.desiredAssertionStatus();
@@ -36,7 +36,7 @@ public class b<E> implements Iterable<E> {
     }
 
     private void compact() {
-        if (!$assertionsDisabled && this.myk != 0) {
+        if (!$assertionsDisabled && this.mGp != 0) {
             throw new AssertionError();
         }
         for (int size = this.mObservers.size() - 1; size >= 0; size--) {
@@ -47,18 +47,18 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void duO() {
-        this.myk++;
+    public void dyb() {
+        this.mGp++;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void duP() {
-        this.myk--;
-        if (!$assertionsDisabled && this.myk < 0) {
+    public void dyc() {
+        this.mGp--;
+        if (!$assertionsDisabled && this.mGp < 0) {
             throw new AssertionError();
         }
-        if (this.myk <= 0 && this.myl) {
-            this.myl = false;
+        if (this.mGp <= 0 && this.mGq) {
+            this.mGq = false;
             compact();
         }
     }
@@ -69,48 +69,48 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public E He(int i) {
+    public E Hz(int i) {
         return this.mObservers.get(i);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     private class a implements c<E> {
+        private int mGr;
+        private boolean mGs;
         private int mIndex;
-        private int mym;
-        private boolean myn;
 
         private a() {
             this.mIndex = 0;
-            this.myn = false;
-            b.this.duO();
-            this.mym = b.this.capacity();
+            this.mGs = false;
+            b.this.dyb();
+            this.mGr = b.this.capacity();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             int i = this.mIndex;
-            while (i < this.mym && b.this.He(i) == null) {
+            while (i < this.mGr && b.this.Hz(i) == null) {
                 i++;
             }
-            if (i < this.mym) {
+            if (i < this.mGr) {
                 return true;
             }
-            duQ();
+            dyd();
             return false;
         }
 
         @Override // java.util.Iterator
         public E next() {
-            while (this.mIndex < this.mym && b.this.He(this.mIndex) == null) {
+            while (this.mIndex < this.mGr && b.this.Hz(this.mIndex) == null) {
                 this.mIndex++;
             }
-            if (this.mIndex < this.mym) {
+            if (this.mIndex < this.mGr) {
                 b bVar = b.this;
                 int i = this.mIndex;
                 this.mIndex = i + 1;
-                return (E) bVar.He(i);
+                return (E) bVar.Hz(i);
             }
-            duQ();
+            dyd();
             throw new NoSuchElementException();
         }
 
@@ -119,10 +119,10 @@ public class b<E> implements Iterable<E> {
             throw new UnsupportedOperationException();
         }
 
-        private void duQ() {
-            if (!this.myn) {
-                this.myn = true;
-                b.this.duP();
+        private void dyd() {
+            if (!this.mGs) {
+                this.mGs = true;
+                b.this.dyc();
             }
         }
     }

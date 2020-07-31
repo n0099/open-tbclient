@@ -13,49 +13,49 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.category.message.AlaCategoryResponseMessage;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends BdBaseModel {
-    private List<IAdapterData> fyR;
-    private InterfaceC0538a fyX;
-    private HttpMessageListener fyY;
+    private List<IAdapterData> fDY;
+    private InterfaceC0549a fEe;
+    private HttpMessageListener fEf;
 
     /* renamed from: com.baidu.tieba.ala.category.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0538a {
-        void an(int i, String str);
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0549a {
+        void aBj();
 
-        void axT();
+        void ao(int i, String str);
     }
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.fyR = new ArrayList();
-        this.fyY = new HttpMessageListener(1021187, true) { // from class: com.baidu.tieba.ala.category.c.a.1
+        this.fDY = new ArrayList();
+        this.fEf = new HttpMessageListener(1021187, true) { // from class: com.baidu.tieba.ala.category.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaCategoryResponseMessage) {
                     AlaCategoryResponseMessage alaCategoryResponseMessage = (AlaCategoryResponseMessage) httpResponsedMessage;
-                    com.baidu.tieba.ala.category.b.b bvP = alaCategoryResponseMessage.bvP();
-                    if (!alaCategoryResponseMessage.isSuccess() || bvP == null || ListUtils.isEmpty(bvP.bvL())) {
-                        if (a.this.fyX != null) {
-                            a.this.fyX.an(alaCategoryResponseMessage.getError(), alaCategoryResponseMessage.getErrorString());
+                    com.baidu.tieba.ala.category.b.b byY = alaCategoryResponseMessage.byY();
+                    if (!alaCategoryResponseMessage.isSuccess() || byY == null || ListUtils.isEmpty(byY.byU())) {
+                        if (a.this.fEe != null) {
+                            a.this.fEe.ao(alaCategoryResponseMessage.getError(), alaCategoryResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    a.this.fyR = bvP.bvL();
-                    if (a.this.fyX != null) {
-                        a.this.fyX.axT();
+                    a.this.fDY = byY.byU();
+                    if (a.this.fEe != null) {
+                        a.this.fEe.aBj();
                     }
                 }
             }
         };
-        xp();
-        registerListener(this.fyY);
+        registerTask();
+        registerListener(this.fEf);
     }
 
-    private void xp() {
+    private void registerTask() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021187, TbConfig.SERVER_ADDRESS + "/ala/tag/categorylist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -64,7 +64,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bvQ() {
+    public void byZ() {
         loadData();
     }
 
@@ -80,11 +80,11 @@ public class a extends BdBaseModel {
         return true;
     }
 
-    public void a(InterfaceC0538a interfaceC0538a) {
-        this.fyX = interfaceC0538a;
+    public void a(InterfaceC0549a interfaceC0549a) {
+        this.fEe = interfaceC0549a;
     }
 
-    public List<IAdapterData> bvL() {
-        return this.fyR;
+    public List<IAdapterData> byU() {
+        return this.fDY;
     }
 }

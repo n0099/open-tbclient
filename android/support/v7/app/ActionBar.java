@@ -19,7 +19,7 @@ import android.view.ViewGroup;
 import android.widget.SpinnerAdapter;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class ActionBar {
     public static final int DISPLAY_HOME_AS_UP = 4;
     public static final int DISPLAY_SHOW_CUSTOM = 16;
@@ -35,29 +35,29 @@ public abstract class ActionBar {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public @interface DisplayOptions {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public @interface NavigationMode {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface OnMenuVisibilityListener {
         void onMenuVisibilityChanged(boolean z);
     }
 
     @Deprecated
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface OnNavigationListener {
         boolean onNavigationItemSelected(int i, long j);
     }
 
     @Deprecated
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static abstract class Tab {
         public static final int INVALID_POSITION = -1;
 
@@ -97,7 +97,7 @@ public abstract class ActionBar {
     }
 
     @Deprecated
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface TabListener {
         void onTabReselected(Tab tab, FragmentTransaction fragmentTransaction);
 
@@ -345,7 +345,7 @@ public abstract class ActionBar {
     public void onDestroy() {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public int gravity;
 

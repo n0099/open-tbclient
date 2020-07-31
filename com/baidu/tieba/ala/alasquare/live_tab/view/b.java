@@ -9,42 +9,42 @@ import android.widget.TextView;
 import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerRecyclerView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live_tab.b.c> {
-    private View dPI;
-    private AlaBannerRecyclerView fqX;
-    private com.baidu.tieba.ala.alasquare.widget.banner.a fqY;
-    private int fqZ;
-    private int fra;
-    private int[] frb;
-    private boolean frd;
-    private com.baidu.tieba.ala.alasquare.widget.banner.c fre;
+    private View dWa;
+    private AlaBannerRecyclerView fwh;
+    private com.baidu.tieba.ala.alasquare.widget.banner.a fwi;
+    private int fwj;
+    private int fwk;
+    private int[] fwl;
+    private boolean fwm;
+    private com.baidu.tieba.ala.alasquare.widget.banner.c fwn;
     private View mDivider;
     private TextView mTitle;
 
     public b(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.frd = false;
-        this.fre = new com.baidu.tieba.ala.alasquare.widget.banner.c() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.b.1
+        this.fwm = false;
+        this.fwn = new com.baidu.tieba.ala.alasquare.widget.banner.c() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.b.1
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.c
             public com.baidu.tieba.ala.alasquare.widget.banner.b l(ViewGroup viewGroup2, int i) {
                 return new com.baidu.tieba.ala.alasquare.widget.banner.b<SdkLiveInfoData>(LayoutInflater.from(b.this.getContext()).inflate(R.layout.tab_live_official_recom_live_scroll_item_view, viewGroup2, false)) { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.b.1.1
-                    private View frg;
-                    private View frh;
-                    private TabLiveStageLiveView fri;
-                    private int frj;
-                    private int frk;
+                    private View fwp;
+                    private View fwq;
+                    private TabLiveStageLiveView fwr;
+                    private int fws;
+                    private int fwt;
 
                     @Override // com.baidu.tieba.ala.alasquare.widget.banner.b
-                    protected void ag(View view) {
-                        this.fri = (TabLiveStageLiveView) view.findViewById(R.id.stage_live_view);
-                        this.frg = view.findViewById(R.id.recom_live_item_left_space);
-                        this.frh = view.findViewById(R.id.recom_live_item_right_space);
+                    protected void aj(View view) {
+                        this.fwr = (TabLiveStageLiveView) view.findViewById(R.id.stage_live_view);
+                        this.fwp = view.findViewById(R.id.recom_live_item_left_space);
+                        this.fwq = view.findViewById(R.id.recom_live_item_right_space);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -52,102 +52,102 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
                     @Override // com.baidu.tieba.ala.alasquare.widget.banner.b
                     /* renamed from: a */
                     public void h(int i2, SdkLiveInfoData sdkLiveInfoData) {
-                        this.fri.setData(sdkLiveInfoData, 102);
-                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.frg.getLayoutParams();
-                        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.frh.getLayoutParams();
+                        this.fwr.setData(sdkLiveInfoData, 102);
+                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fwp.getLayoutParams();
+                        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.fwq.getLayoutParams();
                         if (i2 == 0) {
-                            if (b.this.frd) {
+                            if (b.this.fwm) {
                                 layoutParams.width = b.this.mTbPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44);
                                 layoutParams2.width = b.this.mTbPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44);
-                                this.frh.setVisibility(0);
+                                this.fwq.setVisibility(0);
                             } else {
                                 layoutParams.width = b.this.mTbPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44);
-                                this.frh.setVisibility(8);
+                                this.fwq.setVisibility(8);
                             }
                         } else {
                             layoutParams.width = b.this.mTbPageContext.getResources().getDimensionPixelSize(R.dimen.tbds12);
-                            if (b.this.fqY.getItemCount() - 1 == i2) {
-                                this.frh.setVisibility(0);
+                            if (b.this.fwi.getItemCount() - 1 == i2) {
+                                this.fwq.setVisibility(0);
                             } else {
-                                this.frh.setVisibility(8);
+                                this.fwq.setVisibility(8);
                             }
                         }
-                        this.frg.setLayoutParams(layoutParams);
-                        this.frh.setLayoutParams(layoutParams2);
-                        bul();
-                        ao aoVar = new ao("c13558");
-                        aoVar.dk("entryname", "推荐");
-                        TiebaStatic.log(aoVar);
+                        this.fwp.setLayoutParams(layoutParams);
+                        this.fwq.setLayoutParams(layoutParams2);
+                        bxu();
+                        ap apVar = new ap("c13558");
+                        apVar.dn("entryname", "推荐");
+                        TiebaStatic.log(apVar);
                     }
 
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.tieba.ala.alasquare.widget.banner.b
                     public void onChangeSkinType(int i2) {
-                        this.fri.onChangeSkinType();
+                        this.fwr.onChangeSkinType();
                     }
 
-                    private void bul() {
-                        this.frj = b.this.getRealWidth();
-                        this.frk = b.this.getRealHeight();
-                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fri.getLayoutParams();
+                    private void bxu() {
+                        this.fws = b.this.getRealWidth();
+                        this.fwt = b.this.getRealHeight();
+                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fwr.getLayoutParams();
                         if (layoutParams == null) {
-                            layoutParams = (LinearLayout.LayoutParams) new ViewGroup.LayoutParams(this.frj, this.frk);
+                            layoutParams = (LinearLayout.LayoutParams) new ViewGroup.LayoutParams(this.fws, this.fwt);
                         } else {
-                            layoutParams.width = this.frj;
-                            layoutParams.height = this.frk;
+                            layoutParams.width = this.fws;
+                            layoutParams.height = this.fwt;
                         }
                         layoutParams.gravity = 1;
-                        this.fri.setLayoutParams(layoutParams);
+                        this.fwr.setLayoutParams(layoutParams);
                     }
                 };
             }
         };
-        this.frd = false;
-        this.fqZ = (int) (com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) * 0.76d);
-        this.fra = (int) ((this.fqZ * 9.0d) / 16.0d);
-        this.frb = com.baidu.tieba.ala.alasquare.live_tab.c.ew(this.mContext);
+        this.fwm = false;
+        this.fwj = (int) (com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) * 0.76d);
+        this.fwk = (int) ((this.fwj * 9.0d) / 16.0d);
+        this.fwl = com.baidu.tieba.ala.alasquare.live_tab.c.eB(this.mContext);
         initView();
     }
 
     private void initView() {
         this.mDivider = getView().findViewById(R.id.recom_live_divider);
         this.mTitle = (TextView) getView().findViewById(R.id.recom_live_title);
-        this.dPI = getView().findViewById(R.id.recom_live_bottom_divider);
-        this.fqX = (AlaBannerRecyclerView) getView().findViewById(R.id.recycle_view);
-        this.fqX.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-        buk();
-        this.fqY = new com.baidu.tieba.ala.alasquare.widget.banner.a(getContext(), this.fre, false);
-        this.fqX.setAdapter(this.fqY);
+        this.dWa = getView().findViewById(R.id.recom_live_bottom_divider);
+        this.fwh = (AlaBannerRecyclerView) getView().findViewById(R.id.recycle_view);
+        this.fwh.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
+        bxt();
+        this.fwi = new com.baidu.tieba.ala.alasquare.widget.banner.a(getContext(), this.fwn, false);
+        this.fwh.setAdapter(this.fwi);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getRealWidth() {
-        return this.frd ? this.frb[0] : this.fqZ;
+        return this.fwm ? this.fwl[0] : this.fwj;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getRealHeight() {
-        return this.frd ? this.frb[1] : this.fra;
+        return this.fwm ? this.fwl[1] : this.fwk;
     }
 
-    private void buk() {
+    private void bxt() {
         int realHeight = getRealHeight();
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fqX.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fwh.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = (LinearLayout.LayoutParams) new ViewGroup.LayoutParams(-1, realHeight);
         } else {
             layoutParams.width = -1;
             layoutParams.height = realHeight;
         }
-        this.fqX.setLayoutParams(layoutParams);
+        this.fwh.setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        an.setBackgroundColor(getView(), R.color.cp_bg_line_d);
-        an.setBackgroundColor(this.mDivider, R.color.cp_bg_line_c);
-        an.setBackgroundColor(this.dPI, R.color.cp_bg_line_c);
-        an.setViewTextColor(this.mTitle, (int) R.color.cp_cont_b);
+        ao.setBackgroundColor(getView(), R.color.cp_bg_line_d);
+        ao.setBackgroundColor(this.mDivider, R.color.cp_bg_line_c);
+        ao.setBackgroundColor(this.dWa, R.color.cp_bg_line_c);
+        ao.setViewTextColor(this.mTitle, R.color.cp_cont_b);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -158,11 +158,11 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.c cVar) {
-        if (cVar != null && cVar.fnU != null) {
-            this.frd = w.getCount(cVar.fnU.fnS) == 1;
-            buk();
-            this.fqY.setData(cVar.fnU.fnS);
-            this.fqY.notifyDataSetChanged();
+        if (cVar != null && cVar.ftd != null) {
+            this.fwm = x.getCount(cVar.ftd.ftb) == 1;
+            bxt();
+            this.fwi.setData(cVar.ftd.ftb);
+            this.fwi.notifyDataSetChanged();
         }
     }
 

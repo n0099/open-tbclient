@@ -101,7 +101,7 @@ public class NSGif implements b {
     }
 
     @Override // com.baidu.adp.gif.b
-    public int Y(int i) {
+    public int aa(int i) {
         int nativeGetFrameDelay = nativeGetFrameDelay(this.Ix, i);
         if (nativeGetFrameDelay <= 0) {
             return 100;
@@ -110,7 +110,7 @@ public class NSGif implements b {
     }
 
     @Override // com.baidu.adp.gif.b
-    public boolean X(int i) {
+    public boolean Z(int i) {
         return nativeDecodeFrame(this.Ix, i);
     }
 

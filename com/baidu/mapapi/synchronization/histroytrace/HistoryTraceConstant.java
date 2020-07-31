@@ -1,5 +1,5 @@
 package com.baidu.mapapi.synchronization.histroytrace;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class HistoryTraceConstant {
     public static final int LBS_HISTORY_TRACE_CODE_BAIDUMAP_NULL = 10007;
     public static final int LBS_HISTORY_TRACE_CODE_CAR_POINT_ICON_NULL = 100023;

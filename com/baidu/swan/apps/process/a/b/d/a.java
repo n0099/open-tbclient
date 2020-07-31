@@ -1,9 +1,12 @@
 package com.baidu.swan.apps.process.a.b.d;
 
 import android.text.TextUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a {
-    public static boolean nb(String str) {
-        return TextUtils.isEmpty(str) || TextUtils.equals(str, "");
+    public static boolean nI(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return true;
+        }
+        return TextUtils.equals(str, "");
     }
 }

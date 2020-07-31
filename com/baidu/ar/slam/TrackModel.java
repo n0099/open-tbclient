@@ -2,7 +2,7 @@ package com.baidu.ar.slam;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class TrackModel implements Parcelable {
     public static final Parcelable.Creator<TrackModel> CREATOR = new Parcelable.Creator() { // from class: com.baidu.ar.slam.TrackModel.1
         /* JADX DEBUG: Method merged with bridge method */

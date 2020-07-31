@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.asm;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class MethodCollector {
     protected boolean debugInfoPresent;
     private final int ignoreCount;

@@ -9,47 +9,47 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.as;
 import java.util.Date;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class t {
-    private long dBh;
-    private CustomMessageListener dBi = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.baidu.tbadk.BdToken.t.1
+    private long dHd;
+    private CustomMessageListener dHe = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.baidu.tbadk.BdToken.t.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                t.this.aNp();
+                t.this.aRd();
             }
         }
     };
-    private u dBg = new u();
+    private u dHc = new u();
 
     public t() {
-        MessageManager.getInstance().registerListener(this.dBi);
-        aNp();
-        this.dBh = com.baidu.tbadk.core.sharedPref.b.aVP().getLong("key_redpacket_pop_last_time", 0L);
+        MessageManager.getInstance().registerListener(this.dHe);
+        aRd();
+        this.dHd = com.baidu.tbadk.core.sharedPref.b.aZP().getLong("key_redpacket_pop_last_time", 0L);
     }
 
     public void check() {
-        if (aNo() && isShowTime()) {
-            aNq();
+        if (aRc() && isShowTime()) {
+            aRe();
         }
     }
 
-    private boolean aNo() {
+    private boolean aRc() {
         Date date = new Date();
-        return date.getTime() >= this.dBg.getStartDate() && date.getTime() <= this.dBg.aNr();
+        return date.getTime() >= this.dHc.getStartDate() && date.getTime() <= this.dHc.aRf();
     }
 
     private boolean isShowTime() {
-        if (com.baidu.tbadk.core.util.w.isEmpty(this.dBg.aNs())) {
+        if (com.baidu.tbadk.core.util.x.isEmpty(this.dHc.aRg())) {
             return false;
         }
         Date date = new Date();
-        Iterator<w> it = this.dBg.aNs().iterator();
+        Iterator<w> it = this.dHc.aRg().iterator();
         while (it.hasNext()) {
             w next = it.next();
             if (date.getTime() >= next.getStartTime() && date.getTime() <= next.getEndTime() && !a(next)) {
@@ -60,20 +60,20 @@ public class t {
     }
 
     private boolean a(w wVar) {
-        return wVar != null && this.dBh >= wVar.getStartTime() && this.dBh <= wVar.getEndTime();
+        return wVar != null && this.dHd >= wVar.getStartTime() && this.dHd <= wVar.getEndTime();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aNp() {
-        this.dBg.parseJson(com.baidu.tbadk.core.sharedPref.b.aVP().getString("key_redpacket_pop", ""));
+    public void aRd() {
+        this.dHc.parseJson(com.baidu.tbadk.core.sharedPref.b.aZP().getString("key_redpacket_pop", ""));
     }
 
-    private void aNq() {
-        if (!ar.isEmpty(this.dBg.getUrl())) {
-            this.dBh = System.currentTimeMillis();
-            com.baidu.tbadk.core.sharedPref.b.aVP().putLong("key_redpacket_pop_last_time", this.dBh);
-            TiebaStatic.log(new ao("c13083"));
-            String str = this.dBg.getUrl() + "?page_type=open_full_screen_opacity_web_page";
+    private void aRe() {
+        if (!as.isEmpty(this.dHc.getUrl())) {
+            this.dHd = System.currentTimeMillis();
+            com.baidu.tbadk.core.sharedPref.b.aZP().putLong("key_redpacket_pop_last_time", this.dHd);
+            TiebaStatic.log(new ap("c13083"));
+            String str = this.dHc.getUrl() + "?page_type=open_full_screen_opacity_web_page";
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(currentActivity, "", str, true)));

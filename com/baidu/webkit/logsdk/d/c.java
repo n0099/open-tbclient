@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.webkit.internal.e;
+import com.baidu.webkit.internal.d;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
@@ -19,7 +19,7 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class c {
     private static String a;
 
@@ -105,7 +105,7 @@ public final class c {
                     }
                     byteArrayOutputStream.write(bArr, 0, read);
                 }
-                String str = new String(Base64.decode(new String(e.b(byteArrayOutputStream.toByteArray())), 0));
+                String str = new String(Base64.decode(new String(d.b(byteArrayOutputStream.toByteArray())), 0));
                 try {
                     byteArrayOutputStream.close();
                 } catch (Exception e3) {
@@ -286,7 +286,7 @@ public final class c {
                     throw th;
                 }
             } while (fileLock == null);
-            dataOutputStream.write(e.b(encode));
+            dataOutputStream.write(d.b(encode));
             dataOutputStream.flush();
             if (fileLock != null) {
                 try {

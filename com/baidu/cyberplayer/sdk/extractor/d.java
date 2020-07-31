@@ -10,7 +10,7 @@ import com.baidu.cyberplayer.sdk.remote.e;
 import com.baidu.cyberplayer.sdk.remote.g;
 import java.io.FileDescriptor;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class d extends ExtractorProvider {
     private com.baidu.cyberplayer.sdk.remote.a a;
 
@@ -19,7 +19,7 @@ public class d extends ExtractorProvider {
     }
 
     public static ExtractorProvider a() {
-        com.baidu.cyberplayer.sdk.remote.a a = a.AbstractBinderC0111a.a(g.a().b());
+        com.baidu.cyberplayer.sdk.remote.a a = a.AbstractBinderC0107a.a(g.a().b());
         if (a != null) {
             return new d(a);
         }

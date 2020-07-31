@@ -2,7 +2,7 @@ package com.baidu.swan.games.network.c;
 
 import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class d {
     @V8JavascriptField
     public String data;

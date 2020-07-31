@@ -1,7 +1,7 @@
 package com.airbnb.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class k extends f<com.airbnb.lottie.e.d> {
     public k(List<com.airbnb.lottie.e.a<com.airbnb.lottie.e.d>> list) {
         super(list);
@@ -17,7 +17,7 @@ public class k extends f<com.airbnb.lottie.e.d> {
         }
         com.airbnb.lottie.e.d dVar2 = aVar.Gp;
         com.airbnb.lottie.e.d dVar3 = aVar.Gq;
-        if (this.CK != null && (dVar = (com.airbnb.lottie.e.d) this.CK.b(aVar.Ao, aVar.Gs.floatValue(), dVar2, dVar3, f, hG(), getProgress())) != null) {
+        if (this.CN != null && (dVar = (com.airbnb.lottie.e.d) this.CN.b(aVar.Aq, aVar.Gs.floatValue(), dVar2, dVar3, f, hG(), getProgress())) != null) {
             return dVar;
         }
         return new com.airbnb.lottie.e.d(com.airbnb.lottie.d.e.lerp(dVar2.getScaleX(), dVar3.getScaleX(), f), com.airbnb.lottie.d.e.lerp(dVar2.getScaleY(), dVar3.getScaleY(), f));

@@ -2,7 +2,7 @@ package com.vivo.push.b;
 
 import com.baidu.android.imsdk.IMConstants;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class aa extends com.vivo.push.y {
     private HashMap<String, String> a;
     private long b;

@@ -5,8 +5,7 @@ import android.content.pm.PackageManager;
 import java.io.File;
 import java.io.FileInputStream;
 import java.text.DecimalFormat;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class Utils {
     private static final long BYTEBIT = 1024;
     private static final int MESCPREMINUTE = 60;
@@ -20,7 +19,7 @@ public class Utils {
         if (j < 1048576) {
             return decimalFormat.format(j / 1024.0d) + "KB";
         }
-        if (j < IjkMediaMeta.AV_CH_STEREO_RIGHT) {
+        if (j < 1073741824) {
             return decimalFormat.format(j / 1048576.0d) + "M";
         }
         return decimalFormat.format(j / 1.073741824E9d) + "G";

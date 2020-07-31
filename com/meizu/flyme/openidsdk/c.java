@@ -1,5 +1,5 @@
 package com.meizu.flyme.openidsdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class c {
     public String a;
     public int b;

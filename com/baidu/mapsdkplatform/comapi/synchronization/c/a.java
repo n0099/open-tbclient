@@ -3,7 +3,7 @@ package com.baidu.mapsdkplatform.comapi.synchronization.c;
 import android.os.Build;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     private int a = 4000;
     private int b = 4000;
@@ -11,13 +11,13 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static abstract class AbstractRunnableC0204a implements Runnable {
-        private AbstractRunnableC0204a() {
+    /* loaded from: classes10.dex */
+    public static abstract class AbstractRunnableC0206a implements Runnable {
+        private AbstractRunnableC0206a() {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public /* synthetic */ AbstractRunnableC0204a(b bVar) {
+        public /* synthetic */ AbstractRunnableC0206a(b bVar) {
             this();
         }
 

@@ -3,41 +3,41 @@ package com.facebook.imagepipeline.producers;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.concurrent.Executor;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class at {
     private final Executor mExecutor;
-    private boolean mXI = false;
-    private final Deque<Runnable> mXJ = new ArrayDeque();
+    private boolean nfJ = false;
+    private final Deque<Runnable> nfK = new ArrayDeque();
 
     public at(Executor executor) {
         this.mExecutor = (Executor) com.facebook.common.internal.g.checkNotNull(executor);
     }
 
-    public synchronized void G(Runnable runnable) {
-        if (this.mXI) {
-            this.mXJ.add(runnable);
+    public synchronized void F(Runnable runnable) {
+        if (this.nfJ) {
+            this.nfK.add(runnable);
         } else {
             this.mExecutor.execute(runnable);
         }
     }
 
-    public synchronized void dGQ() {
-        this.mXI = true;
+    public synchronized void dKc() {
+        this.nfJ = true;
     }
 
-    public synchronized void dGR() {
-        this.mXI = false;
-        dGS();
+    public synchronized void dKd() {
+        this.nfJ = false;
+        dKe();
     }
 
-    private void dGS() {
-        while (!this.mXJ.isEmpty()) {
-            this.mExecutor.execute(this.mXJ.pop());
+    private void dKe() {
+        while (!this.nfK.isEmpty()) {
+            this.mExecutor.execute(this.nfK.pop());
         }
-        this.mXJ.clear();
+        this.nfK.clear();
     }
 
-    public synchronized void H(Runnable runnable) {
-        this.mXJ.remove(runnable);
+    public synchronized void G(Runnable runnable) {
+        this.nfK.remove(runnable);
     }
 }

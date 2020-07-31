@@ -1,5 +1,5 @@
 package com.android.internal.http.multipart;
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public abstract class PartBase extends Part {
     public PartBase(String str, String str2, String str3, String str4) {
         throw new RuntimeException("Stub!");

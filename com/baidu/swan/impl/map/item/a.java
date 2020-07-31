@@ -1,8 +1,8 @@
 package com.baidu.swan.impl.map.item;
 
 import android.view.View;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class a {
-    public com.baidu.swan.apps.x.a.a.b dla;
-    public View dlb;
+    public com.baidu.swan.apps.w.a.a.b dqU;
+    public View dqV;
 }

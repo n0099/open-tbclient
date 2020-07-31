@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import com.baidu.live.tbadk.util.PageDialogHelper;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PayWalletActivityOpaqueConfig extends IntentConfig {
     public static final String CLICK_ZONE = "click_zone";
     public static final String IS_LEFT = "is_left";

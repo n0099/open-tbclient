@@ -224,15 +224,15 @@ public class ViewDragHelper {
 
     private boolean forceSettleCapturedViewAt(int i, int i2, int i3, int i4) {
         int left = this.mCapturedView.getLeft();
-        int top2 = this.mCapturedView.getTop();
+        int top = this.mCapturedView.getTop();
         int i5 = i - left;
-        int i6 = i2 - top2;
+        int i6 = i2 - top;
         if (i5 == 0 && i6 == 0) {
             this.mScroller.abortAnimation();
             setDragState(0);
             return false;
         }
-        this.mScroller.startScroll(left, top2, i5, i6, computeSettleDuration(this.mCapturedView, i5, i6, i3, i4));
+        this.mScroller.startScroll(left, top, i5, i6, computeSettleDuration(this.mCapturedView, i5, i6, i3, i4));
         setDragState(2);
         return true;
     }
@@ -302,15 +302,15 @@ public class ViewDragHelper {
             int currX = this.mScroller.getCurrX();
             int currY = this.mScroller.getCurrY();
             int left = currX - this.mCapturedView.getLeft();
-            int top2 = currY - this.mCapturedView.getTop();
+            int top = currY - this.mCapturedView.getTop();
             if (left != 0) {
                 ViewCompat.offsetLeftAndRight(this.mCapturedView, left);
             }
-            if (top2 != 0) {
-                ViewCompat.offsetTopAndBottom(this.mCapturedView, top2);
+            if (top != 0) {
+                ViewCompat.offsetTopAndBottom(this.mCapturedView, top);
             }
-            if (left != 0 || top2 != 0) {
-                this.mCallback.onViewPositionChanged(this.mCapturedView, currX, currY, left, top2);
+            if (left != 0 || top != 0) {
+                this.mCallback.onViewPositionChanged(this.mCapturedView, currX, currY, left, top);
             }
             if (computeScrollOffset && currX == this.mScroller.getFinalX() && currY == this.mScroller.getFinalY()) {
                 this.mScroller.abortAnimation();
@@ -511,8 +511,8 @@ public class ViewDragHelper {
                             if (z) {
                                 int left = findTopChildUnder3.getLeft();
                                 int clampViewPositionHorizontal = this.mCallback.clampViewPositionHorizontal(findTopChildUnder3, ((int) f) + left, (int) f);
-                                int top2 = findTopChildUnder3.getTop();
-                                int clampViewPositionVertical = this.mCallback.clampViewPositionVertical(findTopChildUnder3, ((int) f2) + top2, (int) f2);
+                                int top = findTopChildUnder3.getTop();
+                                int clampViewPositionVertical = this.mCallback.clampViewPositionVertical(findTopChildUnder3, ((int) f2) + top, (int) f2);
                                 int viewHorizontalDragRange = this.mCallback.getViewHorizontalDragRange(findTopChildUnder3);
                                 int viewVerticalDragRange = this.mCallback.getViewVerticalDragRange(findTopChildUnder3);
                                 if (viewHorizontalDragRange != 0) {
@@ -520,7 +520,7 @@ public class ViewDragHelper {
                                     }
                                 }
                                 if (viewVerticalDragRange != 0) {
-                                    if (viewVerticalDragRange > 0 && clampViewPositionVertical == top2) {
+                                    if (viewVerticalDragRange > 0 && clampViewPositionVertical == top) {
                                     }
                                 }
                                 saveLastMotion(motionEvent);
@@ -769,7 +769,7 @@ public class ViewDragHelper {
         int i5;
         int i6;
         int left = this.mCapturedView.getLeft();
-        int top2 = this.mCapturedView.getTop();
+        int top = this.mCapturedView.getTop();
         if (i3 != 0) {
             i5 = this.mCallback.clampViewPositionHorizontal(this.mCapturedView, i, i3);
             ViewCompat.offsetLeftAndRight(this.mCapturedView, i5 - left);
@@ -778,12 +778,12 @@ public class ViewDragHelper {
         }
         if (i4 != 0) {
             i6 = this.mCallback.clampViewPositionVertical(this.mCapturedView, i2, i4);
-            ViewCompat.offsetTopAndBottom(this.mCapturedView, i6 - top2);
+            ViewCompat.offsetTopAndBottom(this.mCapturedView, i6 - top);
         } else {
             i6 = i2;
         }
         if (i3 != 0 || i4 != 0) {
-            this.mCallback.onViewPositionChanged(this.mCapturedView, i5, i6, i5 - left, i6 - top2);
+            this.mCallback.onViewPositionChanged(this.mCapturedView, i5, i6, i5 - left, i6 - top);
         }
     }
 

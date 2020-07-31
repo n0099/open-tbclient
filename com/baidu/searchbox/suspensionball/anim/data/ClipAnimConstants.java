@@ -1,5 +1,5 @@
 package com.baidu.searchbox.suspensionball.anim.data;
-/* loaded from: classes13.dex */
+/* loaded from: classes14.dex */
 public class ClipAnimConstants {
     public static final float ALPHA_OPAQUE = 1.0f;
     public static final float ALPHA_TRANSPARENT = 0.0f;

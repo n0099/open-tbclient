@@ -3,52 +3,52 @@ package com.baidu.tieba.pb.pb.main;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
-public class f extends aw {
-    private TextView kbE;
+/* loaded from: classes16.dex */
+public class f extends ba {
+    private TextView kki;
 
     public f(BaseFragmentActivity baseFragmentActivity, View view) {
         super(baseFragmentActivity, view);
-        this.kbE = null;
+        this.kki = null;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.aw
+    @Override // com.baidu.tieba.pb.pb.main.ba
     protected void a(e eVar) {
-        this.kbE = (TextView) this.mRootView.findViewById(R.id.icon_push);
-        this.kbE.setVisibility(8);
+        this.kki = (TextView) this.mRootView.findViewById(R.id.icon_push);
+        this.kki.setVisibility(8);
     }
 
-    public void rw(boolean z) {
-        if (this.kbE != null) {
+    public void sb(boolean z) {
+        if (this.kki != null) {
             if (z) {
-                this.kbE.setText(R.string.push);
-                com.baidu.tbadk.core.util.an.setViewTextColor(this.kbE, (int) R.drawable.push_text_selector);
-                com.baidu.tbadk.core.util.an.setBackgroundResource(this.kbE, R.drawable.push_bg_selector);
-                this.kbE.setClickable(true);
+                this.kki.setText(R.string.push);
+                com.baidu.tbadk.core.util.ao.setViewTextColor(this.kki, R.drawable.push_text_selector);
+                com.baidu.tbadk.core.util.ao.setBackgroundResource(this.kki, R.drawable.push_bg_selector);
+                this.kki.setClickable(true);
             } else {
-                this.kbE.setText(R.string.already_push);
-                com.baidu.tbadk.core.util.an.setBackgroundResource(this.kbE, R.drawable.label_bg_gray80);
-                com.baidu.tbadk.core.util.an.setViewTextColor(this.kbE, (int) R.color.cp_cont_d);
-                this.kbE.setClickable(false);
+                this.kki.setText(R.string.already_push);
+                com.baidu.tbadk.core.util.ao.setBackgroundResource(this.kki, R.drawable.label_bg_gray80);
+                com.baidu.tbadk.core.util.ao.setViewTextColor(this.kki, R.color.cp_cont_d);
+                this.kki.setClickable(false);
             }
-            this.kbE.setVisibility(0);
+            this.kki.setVisibility(0);
         }
     }
 
-    public void aH(bu buVar) {
-        if (buVar != null && buVar.aSK() != null) {
-            int status = buVar.aSK().getStatus();
+    public void aE(bv bvVar) {
+        if (bvVar != null && bvVar.aWG() != null) {
+            int status = bvVar.aWG().getStatus();
             if (status == 1) {
-                rw(true);
+                sb(true);
             } else if (status == 2) {
-                rw(false);
+                sb(false);
             }
         }
     }
 
-    public TextView cIp() {
-        return this.kbE;
+    public TextView cLZ() {
+        return this.kki;
     }
 }

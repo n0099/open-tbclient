@@ -28,6 +28,7 @@ public class EmptyView extends View {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
         if (this.width == 0) {
             setMeasuredDimension(i & 1073741823, this.height);
         } else if (this.height == 0) {

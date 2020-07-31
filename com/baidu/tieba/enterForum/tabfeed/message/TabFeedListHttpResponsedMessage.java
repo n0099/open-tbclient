@@ -8,7 +8,7 @@ import com.baidu.tieba.enterForum.tabfeed.b.a;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements k {
     public a enterForumTabFeedData;
 
@@ -33,10 +33,10 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
     }
 
     public ArrayList<q> getThreadList() {
-        return this.enterForumTabFeedData.bSW();
+        return this.enterForumTabFeedData.bWn();
     }
 
     public Object getExtra() {
-        return this.enterForumTabFeedData.bSY();
+        return this.enterForumTabFeedData.bWp();
     }
 }

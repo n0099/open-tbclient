@@ -28,10 +28,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.widget.TbImageView;
@@ -45,7 +46,7 @@ import com.baidu.tieba.lego.card.view.BaseLegoCardView;
 import com.baidu.tieba.recapp.download.e;
 import com.baidu.tieba.recapp.download.h;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.recapp.r;
+import com.baidu.tieba.recapp.s;
 import com.baidu.tieba.recapp.view.AdCloseView;
 import com.baidu.tieba.recapp.view.AdThreadCommentAndPraiseInfoLayout;
 import com.baidu.tieba.recapp.view.AdThreadUserInfoLayout;
@@ -58,53 +59,53 @@ import java.net.URLEncoder;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements com.baidu.tieba.lego.card.b.a {
-    private DownloadCacheKey eYA;
-    private com.baidu.tieba.ad.download.a.d eYB;
-    protected View gRI;
-    protected View gRl;
-    private View ieC;
-    protected TextView jjC;
-    protected TextView jjE;
-    private a.C0668a jpL;
-    private final int jrs;
-    protected View lgA;
-    protected String lgB;
-    private AdCard lgC;
-    private AdThreadCommentAndPraiseInfoLayout lgD;
-    protected AdThreadUserInfoLayout lgE;
-    protected View lgF;
-    protected View lgG;
-    protected AdCard.b lgH;
-    private FrameLayout lgI;
-    protected CustomMessageListener lgJ;
-    protected CustomMessageListener lgK;
-    protected CustomMessageListener lgL;
-    protected ViewStub lgc;
-    protected View lgd;
-    protected View lge;
-    protected final int lgf;
-    protected final int lgg;
-    protected final int lgh;
-    protected final int lgi;
-    protected final int lgj;
-    protected final int lgk;
-    protected final int lgl;
-    protected final int lgm;
-    private final int lgn;
-    private final int lgo;
-    private final int lgp;
-    private final int lgq;
-    private int lgr;
-    private int lgs;
-    private int lgt;
-    protected TextView lgu;
-    private AdCloseView lgv;
-    private LinearLayout lgw;
-    protected ApkDownloadView lgx;
-    protected TextView lgy;
-    protected RelativeLayout lgz;
+    private DownloadCacheKey fdc;
+    private com.baidu.tieba.ad.download.a.d fdd;
+    protected View gWQ;
+    protected View gXn;
+    private View ikC;
+    protected TextView jsh;
+    protected TextView jsj;
+    private a.C0679a jyo;
+    private final int jzV;
+    protected final int lnA;
+    protected final int lnB;
+    private final int lnC;
+    private final int lnD;
+    private final int lnE;
+    private final int lnF;
+    private int lnG;
+    private int lnH;
+    private int lnI;
+    protected TextView lnJ;
+    private AdCloseView lnK;
+    private LinearLayout lnL;
+    protected ApkDownloadView lnM;
+    protected TextView lnN;
+    protected RelativeLayout lnO;
+    protected View lnP;
+    protected String lnQ;
+    private AdCard lnR;
+    private AdThreadCommentAndPraiseInfoLayout lnS;
+    protected AdThreadUserInfoLayout lnT;
+    protected View lnU;
+    protected View lnV;
+    protected AdCard.b lnW;
+    private FrameLayout lnX;
+    protected CustomMessageListener lnY;
+    protected CustomMessageListener lnZ;
+    protected ViewStub lnr;
+    protected View lns;
+    protected View lnt;
+    protected final int lnu;
+    protected final int lnv;
+    protected final int lnw;
+    protected final int lnx;
+    protected final int lny;
+    protected final int lnz;
+    protected CustomMessageListener loa;
     protected final int mImageHeight;
     protected final int mImageWidth;
     protected int mMaxWidth;
@@ -113,7 +114,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
 
     protected abstract void a(AdCard adCard);
 
-    protected abstract void cY(View view);
+    protected abstract void de(View view);
 
     protected abstract int getCustomLayout();
 
@@ -121,29 +122,29 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
 
     public AdCardBaseView(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.jrs = l.getEquipmentWidth(getContext());
-        this.eYB = null;
-        this.lgJ = new a(CmdConfigCustom.CMD_APP_DOWNLOAD_MSG, this);
-        this.lgK = new d(CmdConfigCustom.CMD_DELETE_DOWNLOAD_MSG, this);
-        this.lgL = new c(CmdConfigCustom.CMD_USER_INFO_CHANGED, this);
+        this.jzV = l.getEquipmentWidth(getContext());
+        this.fdd = null;
+        this.lnY = new a(CmdConfigCustom.CMD_APP_DOWNLOAD_MSG, this);
+        this.lnZ = new d(CmdConfigCustom.CMD_DELETE_DOWNLOAD_MSG, this);
+        this.loa = new c(CmdConfigCustom.CMD_USER_INFO_CHANGED, this);
         Resources resources = tbPageContext.getResources();
         this.mImageWidth = (int) resources.getDimension(R.dimen.ds640);
         this.mImageHeight = (int) resources.getDimension(R.dimen.ds278);
-        this.lgf = (int) resources.getDimension(R.dimen.tbds92);
-        this.lgg = (int) resources.getDimension(R.dimen.tbds92);
-        this.lgh = (int) resources.getDimension(R.dimen.tbds20);
-        this.lgk = (int) resources.getDimension(R.dimen.tbds90);
-        this.lgl = (int) resources.getDimension(R.dimen.tbds90);
-        this.lgm = (int) resources.getDimension(R.dimen.tbds22);
-        this.lgi = (int) resources.getDimension(R.dimen.tbds44);
-        this.lgj = (int) resources.getDimension(R.dimen.tbds44);
-        this.lgr = (int) resources.getDimension(R.dimen.ds12);
-        this.lgs = (int) resources.getDimension(R.dimen.ds1);
-        this.lgt = (int) resources.getDimension(R.dimen.ds18);
-        this.lgn = (int) resources.getDimension(R.dimen.tbds208);
-        this.lgo = (int) resources.getDimension(R.dimen.tbds33);
-        this.lgp = (int) resources.getDimension(R.dimen.tbds72);
-        this.lgq = (int) resources.getDimension(R.dimen.tbds48);
+        this.lnu = (int) resources.getDimension(R.dimen.tbds92);
+        this.lnv = (int) resources.getDimension(R.dimen.tbds92);
+        this.lnw = (int) resources.getDimension(R.dimen.tbds20);
+        this.lnz = (int) resources.getDimension(R.dimen.tbds90);
+        this.lnA = (int) resources.getDimension(R.dimen.tbds90);
+        this.lnB = (int) resources.getDimension(R.dimen.tbds22);
+        this.lnx = (int) resources.getDimension(R.dimen.tbds44);
+        this.lny = (int) resources.getDimension(R.dimen.tbds44);
+        this.lnG = (int) resources.getDimension(R.dimen.ds12);
+        this.lnH = (int) resources.getDimension(R.dimen.ds1);
+        this.lnI = (int) resources.getDimension(R.dimen.ds18);
+        this.lnC = (int) resources.getDimension(R.dimen.tbds208);
+        this.lnD = (int) resources.getDimension(R.dimen.tbds33);
+        this.lnE = (int) resources.getDimension(R.dimen.tbds72);
+        this.lnF = (int) resources.getDimension(R.dimen.tbds48);
     }
 
     protected void E(boolean z, int i) {
@@ -153,7 +154,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
         if (adCard != null) {
             if (4 == i) {
                 view.setVisibility(8);
-            } else if (adCard.isNoPicAd() && this.lgD.getVisibility() == 0) {
+            } else if (adCard.isNoPicAd() && this.lnS.getVisibility() == 0) {
                 view.setVisibility(8);
             } else {
                 view.setVisibility(8);
@@ -162,51 +163,58 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View cxz() {
-        MessageManager.getInstance().registerListener(this.lgJ);
-        MessageManager.getInstance().registerListener(this.lgK);
-        MessageManager.getInstance().registerListener(this.lgL);
+    protected View cBx() {
+        MessageManager.getInstance().registerListener(this.lnY);
+        MessageManager.getInstance().registerListener(this.lnZ);
+        MessageManager.getInstance().registerListener(this.loa);
         this.mRootView = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null);
-        this.gRI = this.mRootView.findViewById(R.id.bottom_line);
-        this.ieC = this.mRootView.findViewById(R.id.top_line);
-        this.lge = this.mRootView.findViewById(R.id.thread_multi_del_ad_mask_view);
-        this.lge.setClickable(true);
-        this.jjC = (TextView) this.mRootView.findViewById(R.id.ad_title);
-        this.lgu = (TextView) this.mRootView.findViewById(R.id.transform_btn);
-        this.lgx = (ApkDownloadView) this.mRootView.findViewById(R.id.advert_app_download_view);
-        this.lgy = (TextView) this.mRootView.findViewById(R.id.advert_app_name);
-        this.lgz = (RelativeLayout) this.mRootView.findViewById(R.id.bottom_transformation_area);
-        this.lgx.x(this.dPv.getUniqueId());
-        this.lgJ.setTag(this.dPv.getUniqueId());
-        this.lgA = this.mRootView.findViewById(R.id.card_ad_middle_container);
-        this.lgK.setTag(this.dPv.getUniqueId());
-        this.lgL.setTag(this.dPv.getUniqueId());
-        this.lgD = (AdThreadCommentAndPraiseInfoLayout) this.mRootView.findViewById(R.id.card_home_page_normal_thread_info_layout);
-        this.lgD.setStyle(1);
-        this.lgE = (AdThreadUserInfoLayout) this.mRootView.findViewById(R.id.card_ad_user_info_layout);
-        this.lgI = (FrameLayout) this.mRootView.findViewById(R.id.btn_pb_card_bottom_op_more_container);
+        this.gXn = this.mRootView.findViewById(R.id.bottom_line);
+        this.ikC = this.mRootView.findViewById(R.id.top_line);
+        this.lnt = this.mRootView.findViewById(R.id.thread_multi_del_ad_mask_view);
+        this.lnt.setClickable(true);
+        this.jsh = (TextView) this.mRootView.findViewById(R.id.ad_title);
+        com.baidu.tbadk.a.b.a.e(this.jsh, R.dimen.tbds32, R.dimen.tbds20);
+        this.lnJ = (TextView) this.mRootView.findViewById(R.id.transform_btn);
+        this.lnM = (ApkDownloadView) this.mRootView.findViewById(R.id.advert_app_download_view);
+        this.lnN = (TextView) this.mRootView.findViewById(R.id.advert_app_name);
+        this.lnO = (RelativeLayout) this.mRootView.findViewById(R.id.bottom_transformation_area);
+        this.lnM.y(this.dVN.getUniqueId());
+        this.lnY.setTag(this.dVN.getUniqueId());
+        this.lnP = this.mRootView.findViewById(R.id.card_ad_middle_container);
+        this.lnZ.setTag(this.dVN.getUniqueId());
+        this.loa.setTag(this.dVN.getUniqueId());
+        this.lnS = (AdThreadCommentAndPraiseInfoLayout) this.mRootView.findViewById(R.id.card_home_page_normal_thread_info_layout);
+        this.lnS.setStyle(1);
+        this.lnT = (AdThreadUserInfoLayout) this.mRootView.findViewById(R.id.card_ad_user_info_layout);
+        this.lnX = (FrameLayout) this.mRootView.findViewById(R.id.btn_pb_card_bottom_op_more_container);
         if (1 == getBusinessType()) {
-            this.lgE.setShowFlag(1413);
+            this.lnT.setShowFlag(1413);
         }
-        this.lgw = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.ad_post_tag_close, (ViewGroup) null);
-        this.lgv = (AdCloseView) this.lgw.findViewById(R.id.ad_close_view);
-        this.jjE = (TextView) this.lgw.findViewById(R.id.feed_tag);
-        this.jjE.setVisibility(8);
-        this.lgD.addAdMoreView(this.lgw);
-        this.gRl = this.mRootView.findViewById(R.id.divider_line_above_praise);
+        this.lnL = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.ad_post_tag_close, (ViewGroup) null);
+        this.lnK = (AdCloseView) this.lnL.findViewById(R.id.ad_close_view);
+        ViewGroup.LayoutParams layoutParams = this.lnK.lrR.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = this.lnK.lrR.getLayoutParams();
+        int dimens = l.getDimens(getContext(), R.dimen.tbds62);
+        layoutParams2.width = dimens;
+        layoutParams.height = dimens;
+        this.jsj = (TextView) this.lnL.findViewById(R.id.feed_tag);
+        this.jsj.setVisibility(8);
+        this.lnT.addAdTagView(this.lnL);
+        this.gWQ = this.mRootView.findViewById(R.id.divider_line_above_praise);
         if (4 == getBusinessType()) {
-            this.mMaxWidth = (((l.getEquipmentWidth(getContext()) - this.lgi) - this.lgj) - this.lgf) - this.lgh;
-            this.lgD.setVisibility(8);
+            this.mMaxWidth = (((l.getEquipmentWidth(getContext()) - this.lnx) - this.lny) - this.lnu) - this.lnw;
+            this.lnS.setVisibility(8);
         } else {
-            this.mMaxWidth = (l.getEquipmentWidth(getContext()) - this.lgi) - this.lgj;
-            this.lgD.setVisibility(0);
+            this.mMaxWidth = (l.getEquipmentWidth(getContext()) - this.lnx) - this.lny;
+            this.lnS.setVisibility(0);
         }
-        this.lgc = (ViewStub) this.mRootView.findViewById(R.id.ad_custom_view_stub);
-        this.lgc.setLayoutResource(getCustomLayout());
-        this.lgd = this.lgc.inflate();
-        this.lgF = this.mRootView.findViewById(R.id.pb_bottom_view);
-        this.lgG = this.mRootView.findViewById(R.id.frs_bottom_view);
-        cY(this.lgd);
+        this.lnr = (ViewStub) this.mRootView.findViewById(R.id.ad_custom_view_stub);
+        this.lnr.setLayoutResource(getCustomLayout());
+        this.lns = this.lnr.inflate();
+        com.baidu.tbadk.a.b.a.e(this.lns, R.dimen.tbds32, R.dimen.tbds14);
+        this.lnU = this.mRootView.findViewById(R.id.pb_bottom_view);
+        this.lnV = this.mRootView.findViewById(R.id.frs_bottom_view);
+        de(this.lns);
         return this.mRootView;
     }
 
@@ -216,50 +224,50 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     public void d(final AdCard adCard) {
         final String str;
         int i;
-        this.lgC = adCard;
+        this.lnR = adCard;
         final AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
         b bVar = new b(adCard);
         this.mRootView.setOnClickListener(bVar);
-        this.lgE.getHeaderImg().setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.1
+        this.lnT.getHeaderImg().setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
                 com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-                if (adAdSense == null || !adAdSense.aZT() || advertAppInfo == null) {
+                if (adAdSense == null || !adAdSense.bdQ() || advertAppInfo == null) {
                     return false;
                 }
                 com.baidu.adp.lib.util.a.copyToClipboard(advertAppInfo.adCollect());
-                ((Vibrator) AdCardBaseView.this.dPv.getPageActivity().getSystemService("vibrator")).vibrate(TimeUnit.MILLISECONDS.toMillis(300L));
+                ((Vibrator) AdCardBaseView.this.dVN.getPageActivity().getSystemService("vibrator")).vibrate(TimeUnit.MILLISECONDS.toMillis(300L));
                 return true;
             }
         });
         a(adCard, bVar);
-        this.lgu.setOnClickListener(bVar);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.lgA.getLayoutParams();
+        this.lnJ.setOnClickListener(bVar);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.lnP.getLayoutParams();
         if (4 == getBusinessType()) {
             if (adCard.isPBBanner) {
                 layoutParams.leftMargin = 0;
-                this.mMaxWidth = (l.getEquipmentWidth(getContext()) - this.lgi) - this.lgj;
+                this.mMaxWidth = (l.getEquipmentWidth(getContext()) - this.lnx) - this.lny;
             } else {
-                layoutParams.leftMargin = this.lgf + this.lgh;
-                this.mMaxWidth = (((l.getEquipmentWidth(getContext()) - this.lgi) - this.lgj) - this.lgf) - this.lgh;
+                layoutParams.leftMargin = this.lnu + this.lnw;
+                this.mMaxWidth = (((l.getEquipmentWidth(getContext()) - this.lnx) - this.lny) - this.lnu) - this.lnw;
             }
         } else {
             layoutParams.leftMargin = 0;
         }
-        a(this.lgE.getHeaderImg(), adCard.portraitClick, bVar);
+        a(this.lnT.getHeaderImg(), adCard.portraitClick, bVar);
         String str2 = adCard.threadTitle;
         if (!TextUtils.isEmpty(str2)) {
-            String LM = LM(str2);
-            this.jjC.setMaxLines(adCard.titleLines <= 0 ? 4 : adCard.titleLines);
+            String Mu = Mu(str2);
+            this.jsh.setMaxLines(adCard.titleLines <= 0 ? 4 : adCard.titleLines);
             if (4 == getBusinessType()) {
-                this.jjC.setTextSize(0, getContext().getResources().getDimension(R.dimen.tbfontsize42));
+                this.jsh.setTextSize(0, getContext().getResources().getDimension(R.dimen.tbfontsize42));
             } else {
-                this.jjC.setTextSize(0, getContext().getResources().getDimension(R.dimen.tbfontsize44));
+                this.jsh.setTextSize(0, getContext().getResources().getDimension(R.dimen.tbfontsize44));
             }
-            this.jjC.setText(LM);
-            this.jjC.setVisibility(0);
+            this.jsh.setText(Mu);
+            this.jsh.setVisibility(0);
         } else {
-            this.jjC.setVisibility(8);
+            this.jsh.setVisibility(8);
         }
         String str3 = adCard.buttonText;
         AdCard.b bVar2 = adCard.buttonClick;
@@ -268,63 +276,63 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
         } else {
             str = bVar2.scheme;
         }
-        boolean z = (advertAppInfo == null || advertAppInfo.aQk()) && k.isEmpty(str3);
-        a(this.lgz, this.lgu, this.lgx, adCard);
-        int i2 = (this.mMaxWidth - this.lgn) - this.lgq;
+        boolean z = (advertAppInfo == null || advertAppInfo.aUg()) && k.isEmpty(str3);
+        a(this.lnO, this.lnJ, this.lnM, adCard);
+        int i2 = (this.mMaxWidth - this.lnC) - this.lnF;
         if (4 == getBusinessType()) {
-            this.lgy.setTextSize(0, getContext().getResources().getDimension(R.dimen.tbfontsize30));
-            i = i2 - (this.lgo + this.lgp);
+            this.lnN.setTextSize(0, getContext().getResources().getDimension(R.dimen.tbfontsize30));
+            i = i2 - (this.lnD + this.lnE);
         } else {
             i = i2;
         }
         String str4 = null;
-        if (advertAppInfo != null && advertAppInfo.aQj()) {
+        if (advertAppInfo != null && advertAppInfo.aUf()) {
             str4 = adCard.userName.concat("APP");
-        } else if (advertAppInfo != null && advertAppInfo.aQk()) {
+        } else if (advertAppInfo != null && advertAppInfo.aUg()) {
             str4 = TextUtils.isEmpty(adCard.userName) ? "广告" : adCard.userName;
         }
-        this.lgy.setText(com.baidu.b.a.e.a.a(str4, "广告", i, this.lgy.getPaint()));
-        if (advertAppInfo != null && advertAppInfo.aQj()) {
-            this.lgB = advertAppInfo.dGO;
-            this.lgx.setClickable(true);
+        this.lnN.setText(com.baidu.c.a.e.a.a(str4, "广告", i, this.lnN.getPaint()));
+        if (advertAppInfo != null && advertAppInfo.aUf()) {
+            this.lnQ = advertAppInfo.dMZ;
+            this.lnM.setClickable(true);
             DownloadData c2 = c(advertAppInfo, com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, -1));
             a(adCard, c2);
-            a(this.lgu, c2.getStatus(), str3);
-            this.lgx.setData(c2);
-            this.lgx.setVisibility(0);
+            a(this.lnJ, c2.getStatus(), str3);
+            this.lnM.setData(c2);
+            this.lnM.setVisibility(0);
         } else {
             if (!z && !k.isEmpty(str3)) {
                 if (TextUtils.isEmpty(adCard.buttonTextDone) || 1 == adCard.buttonStatus) {
-                    an.setViewTextColor(this.lgu, R.color.cp_link_tip_a, 1);
-                    an.setBackgroundResource(this.lgu, R.drawable.ad_download_progress_button_bg);
-                    this.lgu.setText(str3);
+                    ao.setViewTextColor(this.lnJ, R.color.cp_link_tip_a, 1);
+                    ao.setBackgroundResource(this.lnJ, R.drawable.ad_download_progress_button_bg);
+                    this.lnJ.setText(str3);
                     if (k.isEmpty(str)) {
-                        this.lgu.setClickable(false);
+                        this.lnJ.setClickable(false);
                     } else {
-                        this.lgu.setClickable(true);
-                        this.lgu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.2
+                        this.lnJ.setClickable(true);
+                        this.lnJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.2
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
-                                if (AdCardBaseView.this.jrl != null && adCard.buttonClick != null && !t.MW(adCard.buttonClick.scheme)) {
-                                    AdCardBaseView.this.jrl.a(adCard.buttonClick.aoJ, adCard.buttonClick.aoK, null);
+                                if (AdCardBaseView.this.jzO != null && adCard.buttonClick != null && !t.NE(adCard.buttonClick.scheme)) {
+                                    AdCardBaseView.this.jzO.a(adCard.buttonClick.aoF, adCard.buttonClick.aoG, null);
                                 }
                                 if (!AdCardBaseView.this.b(adCard.buttonClick)) {
                                     if (TextUtils.isEmpty(adCard.popWindowText)) {
-                                        int c3 = r.c(AdCardBaseView.this.dPv, str, (AdCardBaseView.this.lgC == null || AdCardBaseView.this.lgC.getAdvertAppInfo() == null) ? null : AdCardBaseView.this.lgC.getAdvertAppInfo().dGL);
-                                        if ((c3 == 1 || c3 == 2) && AdCardBaseView.this.jrl != null) {
-                                            AdCardBaseView.this.jrl.d(c3, null);
+                                        int c3 = s.c(AdCardBaseView.this.dVN, str, (AdCardBaseView.this.lnR == null || AdCardBaseView.this.lnR.getAdvertAppInfo() == null) ? null : AdCardBaseView.this.lnR.getAdvertAppInfo().dMW);
+                                        if ((c3 == 1 || c3 == 2) && AdCardBaseView.this.jzO != null) {
+                                            AdCardBaseView.this.jzO.d(c3, null);
                                             return;
                                         }
                                         return;
                                     }
-                                    com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(AdCardBaseView.this.dPv.getPageActivity());
-                                    aVar.we(adCard.popWindowText);
+                                    com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(AdCardBaseView.this.dVN.getPageActivity());
+                                    aVar.xl(adCard.popWindowText);
                                     aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.2.1
                                         @Override // com.baidu.tbadk.core.dialog.a.b
                                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                                            int c4 = r.c(AdCardBaseView.this.dPv, str, (AdCardBaseView.this.lgC == null || AdCardBaseView.this.lgC.getAdvertAppInfo() == null) ? null : AdCardBaseView.this.lgC.getAdvertAppInfo().dGL);
-                                            if ((c4 == 1 || c4 == 2) && AdCardBaseView.this.jrl != null) {
-                                                AdCardBaseView.this.jrl.d(c4, null);
+                                            int c4 = s.c(AdCardBaseView.this.dVN, str, (AdCardBaseView.this.lnR == null || AdCardBaseView.this.lnR.getAdvertAppInfo() == null) ? null : AdCardBaseView.this.lnR.getAdvertAppInfo().dMW);
+                                            if ((c4 == 1 || c4 == 2) && AdCardBaseView.this.jzO != null) {
+                                                AdCardBaseView.this.jzO.d(c4, null);
                                             }
                                             aVar2.dismiss();
                                         }
@@ -335,200 +343,203 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
                                             aVar2.dismiss();
                                         }
                                     });
-                                    aVar.b(AdCardBaseView.this.dPv).aUN();
+                                    aVar.b(AdCardBaseView.this.dVN).aYL();
                                 }
                             }
                         });
                     }
                 } else {
-                    this.lgu.setClickable(false);
-                    this.lgu.setText(adCard.buttonTextDone);
-                    an.setBackgroundResource(this.lgu, R.drawable.ad_download_progress_button_bg);
-                    an.setViewTextColor(this.lgu, R.color.cp_btn_a, 1);
+                    this.lnJ.setClickable(false);
+                    this.lnJ.setText(adCard.buttonTextDone);
+                    ao.setBackgroundResource(this.lnJ, R.drawable.ad_download_progress_button_bg);
+                    ao.setViewTextColor(this.lnJ, R.color.cp_btn_a, 1);
                 }
             }
-            this.lgx.setVisibility(8);
+            this.lnM.setVisibility(8);
         }
         a(adCard);
-        E(com.baidu.tbadk.core.k.aPA().isShowImages(), getBusinessType());
+        E(com.baidu.tbadk.core.k.aTv().isShowImages(), getBusinessType());
         if (!TextUtils.isEmpty(adCard.getPreLoadData())) {
-            LN(adCard.getPreLoadData());
+            Mv(adCard.getPreLoadData());
         }
-        if (advertAppInfo != null && advertAppInfo.dGU != null && advertAppInfo.dGU.adCloseInfo != null && advertAppInfo.dGU.adCloseInfo.support_close.intValue() > 0) {
-            this.lgv.setVisibility(0);
-            this.lgv.setPage(getBusinessType());
-            this.lgv.setData(advertAppInfo);
-            l.addToParentArea(this.dPv.getPageActivity(), this.lgw, 40, 40, 40, 120);
-            this.lgw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.3
+        if (advertAppInfo != null && advertAppInfo.dNf != null && advertAppInfo.dNf.adCloseInfo != null && advertAppInfo.dNf.adCloseInfo.support_close.intValue() > 0) {
+            this.lnK.setVisibility(0);
+            this.lnK.lrS = R.drawable.icon_home_delete_n;
+            this.lnK.setPage(getBusinessType());
+            this.lnK.setData(advertAppInfo);
+            l.addToParentArea(this.dVN.getPageActivity(), this.lnL, 40, 40, 40, 120);
+            this.lnL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    AdCardBaseView.this.lgv.performClick();
+                    AdCardBaseView.this.lnK.performClick();
                 }
             });
         } else {
-            this.lgv.setVisibility(8);
-            this.jjE.setOnClickListener(null);
+            this.lnK.setVisibility(8);
+            this.jsj.setOnClickListener(null);
         }
-        this.lgD.setType(TbadkCoreApplication.getInst().getCardShowType());
-        ViewGroup.LayoutParams layoutParams2 = this.gRI.getLayoutParams();
+        this.lnS.setType(TbadkCoreApplication.getInst().getCardShowType());
+        ViewGroup.LayoutParams layoutParams2 = this.gXn.getLayoutParams();
         if (4 == getBusinessType()) {
-            this.lgD.setVisibility(8);
-            this.lgD.setBarNameClickEnabled(false);
-            this.lgD.setShareVisible(false);
-            this.lgD.setShowPraiseNum(false);
-            this.lgD.setCommentNumEnable(false);
-            this.lgD.setReplyTimeVisible(false);
-            layoutParams2.height = this.lgs;
-            this.lgF.setVisibility(0);
-            this.lgG.setVisibility(8);
-            this.gRI.setVisibility(8);
-            cZ(this.lgw);
+            this.lnS.setVisibility(8);
+            this.lnS.setBarNameClickEnabled(false);
+            this.lnS.setShareVisible(false);
+            this.lnS.setShowPraiseNum(false);
+            this.lnS.setCommentNumEnable(false);
+            this.lnS.setReplyTimeVisible(false);
+            layoutParams2.height = this.lnH;
+            this.lnU.setVisibility(0);
+            this.lnV.setVisibility(8);
+            this.gXn.setVisibility(8);
+            df(this.lnL);
         } else {
             b(adCard, bVar);
-            this.gRI.setVisibility(0);
-            ((RelativeLayout.LayoutParams) this.lgx.getLayoutParams()).addRule(11, -1);
-            ((RelativeLayout.LayoutParams) this.lgu.getLayoutParams()).addRule(11, -1);
-            this.lgI.setVisibility(8);
-            this.lgz.requestLayout();
+            this.gXn.setVisibility(0);
+            com.baidu.tbadk.a.b.a.a(this.gXn, (AbsThreadDataSupport) null);
+            ((RelativeLayout.LayoutParams) this.lnM.getLayoutParams()).addRule(11, -1);
+            ((RelativeLayout.LayoutParams) this.lnJ.getLayoutParams()).addRule(11, -1);
+            this.lnX.setVisibility(8);
+            this.lnO.requestLayout();
         }
-        a(adCard, this.gRl, getBusinessType());
+        a(adCard, this.gWQ, getBusinessType());
         AdvertAppInfo advertAppInfo2 = adCard.getAdvertAppInfo();
         if (advertAppInfo2 instanceof AdvertAppInfo) {
-            advertAppInfo2.vP(ar.ck(adCard.time));
+            advertAppInfo2.wW(as.cB(adCard.time));
         }
-        this.lgE.setData(advertAppInfo2);
-        ((TextView) this.lgE.getUserName()).setText(adCard.userName);
-        this.lgE.getUserName().setOnClickListener(bVar);
-        this.lgE.setAfterAdjustChildWidthListener(new AdThreadUserInfoLayout.AfterAdjustChildWidthListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.4
+        this.lnT.setData(advertAppInfo2);
+        ((TextView) this.lnT.getUserName()).setText(adCard.userName);
+        com.baidu.tbadk.a.b.a.a((TextView) this.lnT.getUserName());
+        this.lnT.getUserName().setOnClickListener(bVar);
+        this.lnT.setAfterAdjustChildWidthListener(new AdThreadUserInfoLayout.AfterAdjustChildWidthListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.4
             @Override // com.baidu.tieba.recapp.view.AdThreadUserInfoLayout.AfterAdjustChildWidthListener
             public void afterChildWidth() {
-                ((TextView) AdCardBaseView.this.lgE.getUserName()).setText(adCard.userName);
+                ((TextView) AdCardBaseView.this.lnT.getUserName()).setText(adCard.userName);
             }
         });
         if (4 == getBusinessType() && adCard.isPBBanner) {
-            this.ieC.setVisibility(0);
-            this.ieC.setBackgroundResource(R.color.cp_bg_line_b);
-            this.lgE.setVisibility(8);
+            this.ikC.setVisibility(0);
+            this.ikC.setBackgroundResource(R.color.cp_bg_line_b);
+            this.lnT.setVisibility(8);
         } else {
-            this.ieC.setVisibility(8);
+            this.ikC.setVisibility(8);
         }
-        if ((com.baidu.tieba.frs.b.bXd().bWX() || com.baidu.tieba.frs.a.bWW().bWX()) && isInFrsAllThread()) {
-            this.lge.setVisibility(0);
-            an.setBackgroundColor(this.lge, R.color.cp_bg_line_d);
+        if ((com.baidu.tieba.frs.b.caw().caq() || com.baidu.tieba.frs.a.cap().caq()) && isInFrsAllThread()) {
+            this.lnt.setVisibility(0);
+            ao.setBackgroundColor(this.lnt, R.color.cp_bg_line_d);
         } else {
-            this.lge.setVisibility(8);
+            this.lnt.setVisibility(8);
         }
         a(adCard, advertAppInfo);
         a(adCard, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void cZ(View view) {
+    private void df(View view) {
         if (view != null && view.getVisibility() == 0) {
             if (view.getParent() != null) {
-                ((FrameLayout) view.getParent()).removeView(view);
+                ((ViewGroup) view.getParent()).removeView(view);
             }
-            this.lgI.setVisibility(0);
-            this.lgI.removeAllViews();
-            view.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-            this.lgI.addView(view);
+            this.lnX.setVisibility(0);
+            this.lnX.removeAllViews();
+            view.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            this.lnX.addView(view);
             int dimension = (int) getResources().getDimension(R.dimen.tbds26);
             int dimension2 = (int) getResources().getDimension(R.dimen.tbds33);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.lgx.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.lnM.getLayoutParams();
             layoutParams.setMargins(0, dimension, dimension2, dimension);
             layoutParams.addRule(11, 0);
-            layoutParams.addRule(0, this.lgI.getId());
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.lgu.getLayoutParams();
+            layoutParams.addRule(0, this.lnX.getId());
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.lnJ.getLayoutParams();
             layoutParams2.addRule(11, 0);
             layoutParams2.setMargins(0, dimension, dimension2, dimension);
-            layoutParams2.addRule(0, this.lgI.getId());
-            this.lgz.requestLayout();
+            layoutParams2.addRule(0, this.lnX.getId());
+            this.lnO.requestLayout();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        boZ();
+        bsb();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bpa();
+        bsc();
     }
 
     private void a(AdCard adCard, DownloadData downloadData) {
         if (adCard.directDownload) {
             downloadData.setStatus(ApkDownloadView.getStatus(downloadData));
         } else {
-            downloadData.setStatus(this.lgx.getDownloadStatus());
+            downloadData.setStatus(this.lnM.getDownloadStatus());
         }
     }
 
     private void a(AdCard adCard, b bVar) {
         if (adCard.directDownload) {
-            this.lgx.setOnClickListener(bVar);
+            this.lnM.setOnClickListener(bVar);
         } else {
-            this.lgx.setOnClickInterceptListener(new b.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.5
+            this.lnM.setOnClickInterceptListener(new b.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.5
                 @Override // com.baidu.tieba.ad.download.mvp.b.a
-                public void bu(View view) {
-                    AdCardBaseView.this.cZl();
+                public void bA(View view) {
+                    AdCardBaseView.this.dcs();
                 }
             });
         }
     }
 
     private void a(AdCard adCard, AdvertAppInfo advertAppInfo) {
-        DownloadCacheKey Ar;
-        if (!adCard.directDownload && advertAppInfo != null && advertAppInfo.aQj()) {
+        DownloadCacheKey Bc;
+        if (!adCard.directDownload && advertAppInfo != null && advertAppInfo.aUf()) {
             String scheme = adCard.getScheme();
-            String str = advertAppInfo.dGL;
+            String str = advertAppInfo.dMW;
             if (!TextUtils.isEmpty(str)) {
-                Ar = com.baidu.tieba.ad.download.d.bpg().Aq(str);
+                Bc = com.baidu.tieba.ad.download.d.bsi().Bb(str);
             } else {
-                Ar = com.baidu.tieba.ad.download.d.bpg().Ar(scheme);
+                Bc = com.baidu.tieba.ad.download.d.bsi().Bc(scheme);
             }
-            if (Ar == null) {
-                Ar = DownloadCacheKey.create(str, advertAppInfo.apkUrl, advertAppInfo.dGO);
-                com.baidu.tieba.ad.download.d.bpg().a(Ar, null);
+            if (Bc == null) {
+                Bc = DownloadCacheKey.create(str, advertAppInfo.apkUrl, advertAppInfo.dMZ);
+                com.baidu.tieba.ad.download.d.bsi().a(Bc, null);
             }
-            i(Ar);
+            i(Bc);
         }
     }
 
     public void i(DownloadCacheKey downloadCacheKey) {
         if (downloadCacheKey != null) {
-            this.eYA = downloadCacheKey;
-            bpa();
-            this.eYB = null;
-            AdDownloadData d2 = com.baidu.tieba.ad.download.d.bpg().d(downloadCacheKey);
+            this.fdc = downloadCacheKey;
+            bsc();
+            this.fdd = null;
+            AdDownloadData d2 = com.baidu.tieba.ad.download.d.bsi().d(downloadCacheKey);
             if (d2 != null) {
-                this.lgx.a(d2.getCurrentState());
+                this.lnM.a(d2.getCurrentState());
             } else {
-                this.lgx.a(DownloadStatus.STATUS_NONE);
+                this.lnM.a(DownloadStatus.STATUS_NONE);
             }
             String str = "";
-            if (this.lgC != null && this.lgC.getAdvertAppInfo() != null) {
-                str = this.lgC.getAdvertAppInfo().page;
+            if (this.lnR != null && this.lnR.getAdvertAppInfo() != null) {
+                str = this.lnR.getAdvertAppInfo().page;
             }
-            com.baidu.tieba.ad.browser.newstyle.view.a aVar = new com.baidu.tieba.ad.browser.newstyle.view.a(this.lgx, d2, str);
-            this.eYB = new com.baidu.tieba.ad.download.a.b(aVar);
+            com.baidu.tieba.ad.browser.newstyle.view.a aVar = new com.baidu.tieba.ad.browser.newstyle.view.a(this.lnM, d2, str);
+            this.fdd = new com.baidu.tieba.ad.download.a.b(aVar);
             if (d2.extra().getPercent() > 0) {
                 aVar.b((com.baidu.tieba.ad.browser.newstyle.view.a) d2);
             }
-            boZ();
+            bsb();
         }
     }
 
-    private void boZ() {
-        if (this.eYA != null && this.eYB != null) {
-            com.baidu.tieba.ad.download.d.bpg().a(this.eYA, this.eYB);
+    private void bsb() {
+        if (this.fdc != null && this.fdd != null) {
+            com.baidu.tieba.ad.download.d.bsi().a(this.fdc, this.fdd);
         }
     }
 
-    private void bpa() {
-        if (this.eYA != null && this.eYB != null) {
-            com.baidu.tieba.ad.download.d.bpg().b(this.eYA, this.eYB);
+    private void bsc() {
+        if (this.fdc != null && this.fdd != null) {
+            com.baidu.tieba.ad.download.d.bsi().b(this.fdc, this.fdd);
         }
     }
 
@@ -538,63 +549,65 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
 
     private void b(AdCard adCard, b bVar) {
         if (adCard.agree_num == -999 && adCard.share_num == -999 && adCard.reply_num == -999) {
-            this.lgG.setVisibility(0);
-            this.lgD.setVisibility(8);
+            this.lnV.setVisibility(0);
+            this.lnS.setVisibility(8);
             return;
         }
-        this.lgG.setVisibility(8);
-        this.lgD.setVisibility(0);
-        this.lgD.setBarNameClickEnabled(false);
-        this.lgD.setReplyTimeVisible(false);
-        this.lgD.setData(adCard.getThreadData());
+        this.lnV.setVisibility(8);
+        this.lnS.setVisibility(0);
+        this.lnS.setBarNameClickEnabled(false);
+        this.lnS.setReplyTimeVisible(false);
+        this.lnS.setData(adCard.getThreadData());
         if (adCard.agree_num != -999) {
-            this.lgD.setAgreeClickable(true);
-            this.lgD.setPraiseContainerBgGray(false);
+            this.lnS.setAgreeClickable(true);
+            this.lnS.setPraiseContainerBgGray(false);
         } else {
-            this.lgD.setAgreeClickable(false);
-            this.lgD.setPraiseContainerBgGray(true);
+            this.lnS.setAgreeClickable(false);
+            this.lnS.setPraiseContainerBgGray(true);
         }
         if (adCard.share_num != -999) {
-            this.lgD.setShareClickable(true);
-            this.lgD.setShareContainerBgGray(false);
+            this.lnS.setShareClickable(true);
+            this.lnS.setShareContainerBgGray(false);
         } else {
-            this.lgD.setShareClickable(false);
-            this.lgD.setShareContainerBgGray(true);
+            this.lnS.setShareClickable(false);
+            this.lnS.setShareContainerBgGray(true);
         }
-        if (this.lgD.getCommentContainer() != null) {
-            this.lgD.getCommentContainer().setOnClickListener(bVar);
+        if (this.lnS.getCommentContainer() != null) {
+            this.lnS.getCommentContainer().setOnClickListener(bVar);
         }
-        this.lgD.setNeedAddReplyIcon(true);
-        this.lgD.setCommentNumEnable(false);
-        this.lgD.setCommentClickable(true);
-        this.lgD.setReplayContainerBgGray(true);
-        this.lgD.setOnClickListener(bVar);
-        this.lgD.setShareData(adCard);
-        this.lgD.setDisPraiseViewVisibility(false);
+        this.lnS.setNeedAddReplyIcon(true);
+        this.lnS.setCommentNumEnable(false);
+        this.lnS.setCommentClickable(true);
+        this.lnS.setReplayContainerBgGray(true);
+        this.lnS.setOnClickListener(bVar);
+        this.lnS.setShareData(adCard);
+        this.lnS.setDisPraiseViewVisibility(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void a(AdCard adCard, int i) {
-        an.setBackgroundResource(this.gRI, R.color.cp_bg_line_b);
-        this.lgv.onChangeSkinType();
-        this.lgE.onChangeSkinType(this.dPv, TbadkCoreApplication.getInst().getSkinType());
-        this.lgD.onChangeSkinType();
+        ao.setBackgroundResource(this.gXn, R.color.cp_bg_line_b);
+        com.baidu.tbadk.a.b.a.aU(this.gXn);
+        this.lnK.onChangeSkinType();
+        this.lnT.onChangeSkinType(this.dVN, TbadkCoreApplication.getInst().getSkinType());
+        this.lnS.onChangeSkinType();
         if (getBusinessType() == 1 || getBusinessType() == 2) {
-            an.setBackgroundResource(this.mRootView, R.drawable.addresslist_item_bg);
-            an.setBackgroundColor(this.gRl, R.color.cp_bg_line_e);
+            ao.setBackgroundResource(this.mRootView, R.drawable.addresslist_item_bg);
+            ao.setBackgroundColor(this.gWQ, R.color.cp_bg_line_e);
         } else {
-            an.setBackgroundColor(this.gRl, R.color.transparent);
+            ao.setBackgroundColor(this.gWQ, R.color.transparent);
         }
-        an.setViewTextColor(this.jjC, R.color.cp_cont_b, 1);
-        an.setViewTextColor(this.lgy, (int) R.color.cp_cont_d);
-        an.setViewTextColor(this.jjE, R.color.cp_cont_d, 1);
-        this.lgx.onChangeSkinType(i);
+        com.baidu.tbadk.a.b.a.b((TextView) this.lnT.getUserName());
+        ao.setViewTextColor(this.jsh, R.color.cp_cont_b, 1);
+        ao.setViewTextColor(this.lnN, R.color.cp_cont_d);
+        ao.setViewTextColor(this.jsj, R.color.cp_cont_d, 1);
+        this.lnM.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String LM(String str) {
+    public String Mu(String str) {
         if (!StringUtils.isNull(str)) {
             String replaceAll = str.replaceAll("，", "， ").replaceAll("。", "。 ").replaceAll("？", "？ ").replaceAll("！", "！ ").replaceAll("、", "、 ").replaceAll("‘", "’ ").replaceAll("“", "” ").replaceAll("【", "【 ").replaceAll("】", "】 ").replaceAll("；", "； ").replaceAll("：", "： ").replaceAll("（", "（ ").replaceAll("）", "） ").replaceAll("·", "· ").replaceAll(" ", "  ");
             if (replaceAll.charAt(replaceAll.length() - 1) == ' ') {
@@ -608,24 +621,24 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     protected void a(AdCard.b bVar) {
         int c2;
         if (bVar != null) {
-            if (b(bVar) && !t.MW(bVar.scheme)) {
-                if (this.jrl != null) {
-                    this.jrl.a(bVar.aoJ, bVar.aoK, null);
+            if (b(bVar) && !t.NE(bVar.scheme)) {
+                if (this.jzO != null) {
+                    this.jzO.a(bVar.aoF, bVar.aoG, null);
                 }
-            } else if (this.lgC != null && this.lgC.getAdvertAppInfo() != null) {
-                String LO = LO(bVar.scheme);
-                String str = this.lgC.getAdvertAppInfo().dGL;
-                if (!this.lgC.directDownload && this.lgC.getAdvertAppInfo().aQj()) {
-                    c2 = r.d(this.dPv, LO, str);
+            } else if (this.lnR != null && this.lnR.getAdvertAppInfo() != null) {
+                String Mw = Mw(bVar.scheme);
+                String str = this.lnR.getAdvertAppInfo().dMW;
+                if (!this.lnR.directDownload && this.lnR.getAdvertAppInfo().aUf()) {
+                    c2 = s.d(this.dVN, Mw, str);
                 } else {
-                    c2 = r.c(this.dPv, LO, str);
+                    c2 = s.c(this.dVN, Mw, str);
                 }
                 if (c2 == 1 || c2 == 2) {
-                    if (this.jrl != null) {
-                        this.jrl.d(c2, null);
+                    if (this.jzO != null) {
+                        this.jzO.d(c2, null);
                     }
-                } else if (this.jrl != null) {
-                    this.jrl.a(bVar.aoJ, bVar.aoK, null);
+                } else if (this.jzO != null) {
+                    this.jzO.a(bVar.aoF, bVar.aoG, null);
                 }
             }
         }
@@ -639,7 +652,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
                 tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.6
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (AdCardBaseView.this.lgC.hasAnimation()) {
+                        if (AdCardBaseView.this.lnR.hasAnimation()) {
                             AdCardBaseView.this.k(tbImageView);
                         }
                         AdCardBaseView.this.a(bVar);
@@ -678,12 +691,12 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
         rect.top = iArr[1];
         rect.right = rect.left + tbImageView.getWidth();
         rect.bottom = rect.top + tbImageView.getHeight();
-        this.jpL = new a.C0668a();
-        this.jpL.picUrl = tbImageView.getUrl();
-        this.jpL.rect = rect;
+        this.jyo = new a.C0679a();
+        this.jyo.picUrl = tbImageView.getUrl();
+        this.jyo.rect = rect;
     }
 
-    private void LN(String str) {
+    private void Mv(String str) {
         int i = 0;
         try {
             JSONArray optJSONArray = new JSONObject(str).optJSONArray(SocialConstants.PARAM_IMAGE);
@@ -694,7 +707,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
                 int i2 = i;
                 if (i2 < optJSONArray.length()) {
                     JSONObject jSONObject = optJSONArray.getJSONObject(i2);
-                    com.baidu.adp.lib.e.c.ln().a(jSONObject.optString("pic_url"), 17, null, this.jrs, (int) ((jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT) / jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH)) * this.jrs), this.dPv.getUniqueId(), new Object[0]);
+                    com.baidu.adp.lib.e.c.ln().a(jSONObject.optString("pic_url"), 17, null, this.jzV, (int) ((jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT) / jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH)) * this.jzV), this.dVN.getUniqueId(), new Object[0]);
                     i = i2 + 1;
                 } else {
                     return;
@@ -706,17 +719,17 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
 
     protected void a(AdvertAppInfo advertAppInfo, int i, ApkDownloadView apkDownloadView) {
         if (advertAppInfo != null) {
-            if (advertAppInfo.aQi() != 0) {
-                l.showToast(this.dPv.getPageActivity(), (int) R.string.download_error);
+            if (advertAppInfo.aUe() != 0) {
+                l.showToast(this.dVN.getPageActivity(), R.string.download_error);
                 return;
             }
             if (this.mPermissionJudgePolicy == null) {
                 this.mPermissionJudgePolicy = new PermissionJudgePolicy();
             }
             this.mPermissionJudgePolicy.clearRequestPermissionList();
-            this.mPermissionJudgePolicy.appendRequestPermission(this.dPv.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (!this.mPermissionJudgePolicy.startRequestPermission(this.dPv.getPageActivity()) && this.jrm != null) {
-                this.jrm.b(advertAppInfo, i);
+            this.mPermissionJudgePolicy.appendRequestPermission(this.dVN.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+            if (!this.mPermissionJudgePolicy.startRequestPermission(this.dVN.getPageActivity()) && this.jzP != null) {
+                this.jzP.b(advertAppInfo, i);
                 if (apkDownloadView != null) {
                     apkDownloadView.q(c(advertAppInfo, i));
                 }
@@ -727,19 +740,19 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     public void showDownloadAppDialog(final AdvertAppInfo advertAppInfo, final int i, boolean z, String str) {
         if (advertAppInfo != null) {
             if (!j.isNetworkAvailableForImmediately()) {
-                l.showToast(this.dPv.getPageActivity(), (int) R.string.neterror);
-            } else if (advertAppInfo.aQj()) {
+                l.showToast(this.dVN.getPageActivity(), R.string.neterror);
+            } else if (advertAppInfo.aUf()) {
                 if (TextUtils.isEmpty(str)) {
-                    str = this.dPv.getString(R.string.frs_network_tips);
+                    str = this.dVN.getString(R.string.frs_network_tips);
                 }
-                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.dPv.getPageActivity());
-                aVar.we(str);
+                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.dVN.getPageActivity());
+                aVar.xl(str);
                 aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.8
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        AdCardBaseView.this.a(advertAppInfo, i, AdCardBaseView.this.lgx);
-                        if (AdCardBaseView.this.lgx != null) {
-                            AdCardBaseView.this.lgx.q(AdCardBaseView.this.c(advertAppInfo, i));
+                        AdCardBaseView.this.a(advertAppInfo, i, AdCardBaseView.this.lnM);
+                        if (AdCardBaseView.this.lnM != null) {
+                            AdCardBaseView.this.lnM.q(AdCardBaseView.this.c(advertAppInfo, i));
                         }
                         aVar2.dismiss();
                     }
@@ -750,7 +763,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(this.dPv).aUN();
+                aVar.b(this.dVN).aYL();
             }
         }
     }
@@ -772,41 +785,41 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
                 default:
                     return;
                 case 3:
-                    h.aN(this.dPv.getPageActivity(), advertAppInfo.dGO);
+                    h.aM(this.dVN.getPageActivity(), advertAppInfo.dMZ);
                     return;
                 case 6:
                 case 7:
-                    a(advertAppInfo, i, this.lgx);
+                    a(advertAppInfo, i, this.lnM);
                     apkDownloadView.s(c2);
                     return;
                 case 8:
-                    com.baidu.tieba.ad.download.d.bpg().aw(this.dPv.getPageActivity(), advertAppInfo.dGO);
+                    com.baidu.tieba.ad.download.d.bsi().av(this.dVN.getPageActivity(), advertAppInfo.dMZ);
                     return;
             }
         }
     }
 
-    public a.C0668a getAnimationInfo() {
-        return this.jpL;
+    public a.C0679a getAnimationInfo() {
+        return this.jyo;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes20.dex */
     public class b implements View.OnClickListener {
-        private AdCard lgV;
+        private AdCard lom;
 
         public b(AdCard adCard) {
-            this.lgV = adCard;
+            this.lom = adCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!j.isNetworkAvailableForImmediately()) {
-                AdCardBaseView.this.dPv.showToast(R.string.neterror);
-            } else if (this.lgV != null) {
-                AdvertAppInfo advertAppInfo = this.lgV.getAdvertAppInfo();
-                boolean z = view == AdCardBaseView.this.lgx;
-                if (advertAppInfo != null && advertAppInfo.aQj()) {
+                AdCardBaseView.this.dVN.showToast(R.string.neterror);
+            } else if (this.lom != null && view != null && view.getId() != R.id.thread_info_commont_container) {
+                AdvertAppInfo advertAppInfo = this.lom.getAdvertAppInfo();
+                boolean z = view == AdCardBaseView.this.lnM;
+                if (advertAppInfo != null && advertAppInfo.aUf()) {
                     a(advertAppInfo, z);
                 } else {
                     i(advertAppInfo);
@@ -815,7 +828,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
         }
 
         private void a(AdvertAppInfo advertAppInfo, boolean z) {
-            if (this.lgV.directDownload || z) {
+            if (this.lom.directDownload || z) {
                 b(advertAppInfo, z);
             } else {
                 j(advertAppInfo);
@@ -823,15 +836,15 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
         }
 
         private void i(AdvertAppInfo advertAppInfo) {
-            String scheme = this.lgV.getScheme();
+            String scheme = this.lom.getScheme();
             if (k.isEmpty(scheme) && advertAppInfo != null) {
-                scheme = advertAppInfo.dGN;
+                scheme = advertAppInfo.dMY;
             }
-            if (this.lgV.hasAnimation()) {
+            if (this.lom.hasAnimation()) {
             }
-            int f = r.f(AdCardBaseView.this.dPv, AdCardBaseView.this.LO(scheme));
-            if (AdCardBaseView.this.jrl != null) {
-                AdCardBaseView.this.jrl.d(f, null);
+            int h = s.h(AdCardBaseView.this.dVN, AdCardBaseView.this.Mw(scheme));
+            if (AdCardBaseView.this.jzO != null) {
+                AdCardBaseView.this.jzO.d(h, null);
             }
         }
 
@@ -842,66 +855,66 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
                 AdCardBaseView.this.showDownloadAppDialog(advertAppInfo, i, true, "");
                 return;
             }
-            AdCardBaseView.this.a(advertAppInfo, i, AdCardBaseView.this.lgx, z);
-            AdCardBaseView.this.cZl();
+            AdCardBaseView.this.a(advertAppInfo, i, AdCardBaseView.this.lnM, z);
+            AdCardBaseView.this.dcs();
         }
 
         private void j(AdvertAppInfo advertAppInfo) {
-            String scheme = this.lgV.getScheme();
+            String scheme = this.lom.getScheme();
             if (k.isEmpty(scheme) && advertAppInfo != null) {
-                scheme = advertAppInfo.dGN;
+                scheme = advertAppInfo.dMY;
             }
-            int d = r.d(AdCardBaseView.this.dPv, scheme, advertAppInfo.dGL);
-            if (AdCardBaseView.this.jrl != null) {
-                AdCardBaseView.this.jrl.d(d, null);
+            int d = s.d(AdCardBaseView.this.dVN, scheme, advertAppInfo.dMW);
+            if (AdCardBaseView.this.jzO != null) {
+                AdCardBaseView.this.jzO.d(d, null);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cZl() {
-        if (this.jrl != null) {
-            this.jrl.d(3, null);
+    public void dcs() {
+        if (this.jzO != null) {
+            this.jzO.d(3, null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String LO(String str) {
+    public String Mw(String str) {
         StringBuilder sb = new StringBuilder(str);
-        if (this.jpL != null && this.jpL.isValid()) {
-            String c0668a = this.jpL.toString();
-            if (!TextUtils.isEmpty(c0668a)) {
+        if (this.jyo != null && this.jyo.isValid()) {
+            String c0679a = this.jyo.toString();
+            if (!TextUtils.isEmpty(c0679a)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append(LegoListActivityConfig.ANIMATION_INFO);
                 sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(c0668a));
+                sb.append(URLEncoder.encode(c0679a));
             }
         }
-        if (!TextUtils.isEmpty(this.lgC.getPreLoadData())) {
+        if (!TextUtils.isEmpty(this.lnR.getPreLoadData())) {
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append(LegoListActivityConfig.PRE_LOAD);
             sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(this.lgC.getPreLoadData()));
+            sb.append(URLEncoder.encode(this.lnR.getPreLoadData()));
         }
-        if (!TextUtils.isEmpty(this.lgC.getNextPageData())) {
+        if (!TextUtils.isEmpty(this.lnR.getNextPageData())) {
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append(LegoListActivityConfig.NEXT_PAGE);
             sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(this.lgC.getNextPageData()));
+            sb.append(URLEncoder.encode(this.lnR.getNextPageData()));
         }
-        if (this.lgC.hasAnimation()) {
+        if (this.lnR.hasAnimation()) {
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append(LegoListActivityConfig.HAS_ANIMATION);
             sb.append(ETAG.EQUAL);
             sb.append("1");
         }
-        if (this.lgC.isGoLandingPage()) {
+        if (this.lnR.isGoLandingPage()) {
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append(LegoListActivityConfig.IS_LANDINGPAGE);
             sb.append(ETAG.EQUAL);
             sb.append("1");
         }
-        if (this.lgC.isImmersiveStyle()) {
+        if (this.lnR.isImmersiveStyle()) {
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append(LegoListActivityConfig.IS_IMMERSIVE);
             sb.append(ETAG.EQUAL);
@@ -910,95 +923,95 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
         return sb.toString();
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes20.dex */
     private static class a extends CustomMessageListener {
-        private final WeakReference<AdCardBaseView> lgU;
+        private final WeakReference<AdCardBaseView> lol;
 
         public a(int i, AdCardBaseView adCardBaseView) {
             super(i);
-            this.lgU = new WeakReference<>(adCardBaseView);
+            this.lol = new WeakReference<>(adCardBaseView);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            AdCardBaseView adCardBaseView = this.lgU.get();
+            AdCardBaseView adCardBaseView = this.lol.get();
             if (adCardBaseView != null && customResponsedMessage != null) {
                 DownloadData downloadData = (DownloadData) customResponsedMessage.getData();
-                if (((downloadData != null) & (TextUtils.isEmpty(adCardBaseView.lgB) ? false : true)) && adCardBaseView.lgB.equals(downloadData.getId())) {
+                if (((downloadData != null) & (TextUtils.isEmpty(adCardBaseView.lnQ) ? false : true)) && adCardBaseView.lnQ.equals(downloadData.getId())) {
                     int status = e.getStatus(downloadData);
                     if (status == 7) {
-                        adCardBaseView.lgu.setText(R.string.pause_load);
+                        adCardBaseView.lnJ.setText(R.string.pause_load);
                     } else if (status == 1 || status == 2) {
-                        adCardBaseView.lgu.setText(R.string.pb_download_pause);
+                        adCardBaseView.lnJ.setText(R.string.pb_download_pause);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes20.dex */
     private static class d extends CustomMessageListener {
-        private final WeakReference<AdCardBaseView> lgU;
+        private final WeakReference<AdCardBaseView> lol;
 
         public d(int i, AdCardBaseView adCardBaseView) {
             super(i);
-            this.lgU = new WeakReference<>(adCardBaseView);
+            this.lol = new WeakReference<>(adCardBaseView);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             DownloadData downloadData;
-            AdCardBaseView adCardBaseView = this.lgU.get();
-            if (adCardBaseView != null && customResponsedMessage != null && (downloadData = (DownloadData) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(adCardBaseView.lgB) && adCardBaseView.lgB.equals(downloadData.getId())) {
-                adCardBaseView.lgx.t(downloadData);
+            AdCardBaseView adCardBaseView = this.lol.get();
+            if (adCardBaseView != null && customResponsedMessage != null && (downloadData = (DownloadData) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(adCardBaseView.lnQ) && adCardBaseView.lnQ.equals(downloadData.getId())) {
+                adCardBaseView.lnM.t(downloadData);
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes20.dex */
     private static class c extends CustomMessageListener {
-        private final WeakReference<AdCardBaseView> lgU;
+        private final WeakReference<AdCardBaseView> lol;
 
         public c(int i, AdCardBaseView adCardBaseView) {
             super(i);
-            this.lgU = new WeakReference<>(adCardBaseView);
+            this.lol = new WeakReference<>(adCardBaseView);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            AdCardBaseView adCardBaseView = this.lgU.get();
+            AdCardBaseView adCardBaseView = this.lol.get();
             if (adCardBaseView != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && AdCard.DEAL_URL_AFTER_LOGIN.equals((String) customResponsedMessage.getData())) {
                 String str = null;
-                if (adCardBaseView.lgC != null && adCardBaseView.lgC.getAdvertAppInfo() != null) {
-                    str = adCardBaseView.lgC.getAdvertAppInfo().dGL;
+                if (adCardBaseView.lnR != null && adCardBaseView.lnR.getAdvertAppInfo() != null) {
+                    str = adCardBaseView.lnR.getAdvertAppInfo().dMW;
                 }
-                r.c(adCardBaseView.dPv, adCardBaseView.lgH.scheme, str);
+                s.c(adCardBaseView.dVN, adCardBaseView.lnW.scheme, str);
             }
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lego.card.view.e
-    public void cxF() {
+    public void cBD() {
         if (4 == getBusinessType()) {
-            this.jjC.setTextSize(0, TbConfig.getContentSize());
+            this.jsh.setTextSize(0, TbConfig.getContentSize());
         }
     }
 
     protected boolean b(AdCard.b bVar) {
-        if (bVar == null || bVar.lfM != 1) {
+        if (bVar == null || bVar.lna != 1) {
             return false;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
             return false;
         }
-        this.lgH = bVar;
-        LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) this.dPv.getPageActivity(), true);
+        this.lnW = bVar;
+        LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) this.dVN.getPageActivity(), true);
         loginActivityConfig.getIntent().putExtra(LoginActivityConfig.USER_INFO_CHANGED, AdCard.DEAL_URL_AFTER_LOGIN);
-        TbadkCoreApplication.getInst().login(this.dPv, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, loginActivityConfig));
+        TbadkCoreApplication.getInst().login(this.dVN, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, loginActivityConfig));
         return true;
     }
 
@@ -1008,7 +1021,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
             return;
         }
         view.setVisibility(0);
-        if (adCard.getAdvertAppInfo().aQj()) {
+        if (adCard.getAdvertAppInfo().aUf()) {
             textView.setVisibility(8);
             apkDownloadView.setVisibility(0);
         } else if (k.isEmpty(adCard.buttonText)) {
@@ -1019,11 +1032,11 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     }
 
     DownloadData c(AdvertAppInfo advertAppInfo, int i) {
-        DownloadData downloadData = new DownloadData(advertAppInfo.dGO);
+        DownloadData downloadData = new DownloadData(advertAppInfo.dMZ);
         downloadData.setUrl(advertAppInfo.apkUrl);
-        downloadData.setName(advertAppInfo.dGM);
+        downloadData.setName(advertAppInfo.dMX);
         downloadData.setPosition(i);
-        downloadData.setNotifyId(com.baidu.adp.lib.f.b.toInt(advertAppInfo.dGL, 0));
+        downloadData.setNotifyId(com.baidu.adp.lib.f.b.toInt(advertAppInfo.dMW, 0));
         return downloadData;
     }
 

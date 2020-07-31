@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class EasyAudio implements IEasyAudio, VolumeListener, a {
     private static final String TAG = EasyAudio.class.getSimpleName();
     private static volatile EasyAudio iX;

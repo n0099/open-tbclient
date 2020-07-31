@@ -2,10 +2,10 @@ package com.baidu.swan.a.a;
 
 import android.text.TextUtils;
 import com.baidu.swan.pms.model.e;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class c extends e {
     @Override // com.baidu.swan.pms.model.e
-    public boolean abL() {
-        return (TextUtils.isEmpty(this.dqi) || this.versionCode <= 0 || this.size <= 0 || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.downloadUrl)) ? false : true;
+    public boolean acP() {
+        return (TextUtils.isEmpty(this.dvZ) || this.versionCode <= 0 || this.size <= 0 || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.downloadUrl)) ? false : true;
     }
 }

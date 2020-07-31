@@ -8,7 +8,7 @@ import com.baidu.fsg.base.restnet.beans.business.BaseBean;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.BdWalletUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends BaseBean {
     public static final String a = "/risk/init/v2/config";
     public static final int b = 1;

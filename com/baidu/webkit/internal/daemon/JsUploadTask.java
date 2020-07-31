@@ -3,6 +3,7 @@ package com.baidu.webkit.internal.daemon;
 import android.content.Context;
 import android.os.Build;
 import android.util.Base64;
+import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
@@ -11,7 +12,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class JsUploadTask implements INoProGuard {
     private static final int CONN_TIMEOUT = 5000;
     private static final int READ_TIMEOUT = 10000;
@@ -69,7 +70,7 @@ public class JsUploadTask implements INoProGuard {
     private static JumpType mFirstJumpType = JumpType.DefaultJump;
     private static JumpType mLastJumpType = JumpType.DefaultJump;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public enum JumpType {
         DefaultJump,
         JsJump,
@@ -251,7 +252,7 @@ public class JsUploadTask implements INoProGuard {
                     Log.w(TAG, "[mohao] extension: " + jSONObject2);
                     addRawLogItem(sb2, ETAG.KEY_EXTENSION, jSONObject2);
                 } catch (Exception e) {
-                    com.a.a.a.a.a.a.a.a(e);
+                    a.a(e);
                 }
             }
             sb = sb2.toString();

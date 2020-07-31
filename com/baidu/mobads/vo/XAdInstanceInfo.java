@@ -19,7 +19,7 @@ import java.util.Random;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable {
     public static final Parcelable.Creator<XAdInstanceInfo> CREATOR = new a();
     public static final String TAG = "XAdInstanceInfo";

@@ -1,123 +1,122 @@
 package com.baidu.swan.pms.c.d;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import com.baidu.swan.pms.model.PMSAppInfo;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-/* loaded from: classes11.dex */
-public class b extends f {
-    private List<a> drm;
+import java.util.Set;
+/* loaded from: classes19.dex */
+public class b extends g {
+    private Set<a> dxe;
 
-    public b(List<a> list) {
+    public b(List<? extends a> list, @Nullable com.baidu.swan.pms.f.a aVar) {
         super(-1);
         if (list != null && !list.isEmpty()) {
-            LinkedHashSet linkedHashSet = new LinkedHashSet(list.size());
-            linkedHashSet.addAll(list);
-            if (linkedHashSet.size() != list.size()) {
-                list.clear();
-                list.addAll(linkedHashSet);
-            }
-            Map<String, PMSAppInfo> aHd = com.baidu.swan.pms.database.a.aHb().aHd();
-            Map<String, com.baidu.swan.pms.model.f> aHc = com.baidu.swan.pms.database.a.aHb().aHc();
-            for (a aVar : list) {
-                if (aVar != null && !TextUtils.isEmpty(aVar.getBundleId())) {
-                    a(aHd, aHc, aVar);
+            this.dxe = new LinkedHashSet();
+            Map<String, PMSAppInfo> aKU = com.baidu.swan.pms.database.a.aKS().aKU();
+            Map<String, com.baidu.swan.pms.model.f> aKT = com.baidu.swan.pms.database.a.aKS().aKT();
+            for (a aVar2 : list) {
+                if (aVar2 != null && !TextUtils.isEmpty(aVar2.getBundleId())) {
+                    a(aKU, aKT, aVar2, aVar);
+                    this.dxe.add(aVar2);
                 }
             }
-            this.drm = list;
         }
     }
 
-    public b(Collection<String> collection) {
+    public b(Collection<String> collection, @Nullable com.baidu.swan.pms.f.a aVar) {
         super(-1);
         if (collection != null && !collection.isEmpty()) {
-            LinkedHashSet linkedHashSet = new LinkedHashSet(collection.size());
-            linkedHashSet.addAll(collection);
-            if (linkedHashSet.size() != collection.size()) {
-                collection.clear();
-                collection.addAll(linkedHashSet);
-            }
-            Map<String, PMSAppInfo> aHd = com.baidu.swan.pms.database.a.aHb().aHd();
-            Map<String, com.baidu.swan.pms.model.f> aHc = com.baidu.swan.pms.database.a.aHb().aHc();
-            ArrayList arrayList = new ArrayList();
+            this.dxe = new LinkedHashSet();
+            Map<String, PMSAppInfo> aKU = com.baidu.swan.pms.database.a.aKS().aKU();
+            Map<String, com.baidu.swan.pms.model.f> aKT = com.baidu.swan.pms.database.a.aKS().aKT();
             for (String str : collection) {
                 if (!TextUtils.isEmpty(str)) {
-                    a aVar = new a(str);
-                    a(aHd, aHc, aVar);
-                    arrayList.add(aVar);
+                    a aVar2 = new a(str);
+                    a(aKU, aKT, aVar2, aVar);
+                    this.dxe.add(aVar2);
                 }
             }
-            this.drm = arrayList;
         }
     }
 
-    private void a(Map<String, PMSAppInfo> map, Map<String, com.baidu.swan.pms.model.f> map2, a aVar) {
-        if (map.containsKey(aVar.getBundleId())) {
-            PMSAppInfo pMSAppInfo = map.get(aVar.getBundleId());
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(@NonNull Map<String, PMSAppInfo> map, @NonNull Map<String, com.baidu.swan.pms.model.f> map2, @NonNull a aVar, @Nullable com.baidu.swan.pms.f.a aVar2) {
+        PMSAppInfo pMSAppInfo;
+        if (map.containsKey(aVar.getBundleId()) && (pMSAppInfo = map.get(aVar.getBundleId())) != null) {
             if (aVar.getCategory() != -1) {
                 aVar.setCategory(pMSAppInfo.appCategory);
             }
             if (!map2.containsKey(aVar.getBundleId())) {
-                aVar.js(0);
+                aVar.jL(0);
+            } else if (aVar2 != null && pMSAppInfo.versionCode != 0 && !aVar2.qN(aVar.getBundleId())) {
+                aVar.jL(0);
             } else {
-                aVar.js(pMSAppInfo.versionCode);
+                com.baidu.swan.pms.model.f fVar = map2.get(aVar.getBundleId());
+                if (fVar != null) {
+                    aVar.jL(fVar.versionCode);
+                } else {
+                    aVar.jL(0);
+                }
             }
-            aVar.bN(pMSAppInfo.appSign);
+            aVar.cd(pMSAppInfo.appSign);
         }
     }
 
-    public List<a> aHT() {
-        return this.drm;
+    @Nullable
+    public Set<a> aLK() {
+        return this.dxe;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes19.dex */
     public static class a {
-        private String drn;
-        private int dro;
-        private long drp;
+        private String dxf;
+        private int dxg;
+        private long dxh;
         private int mCategory;
 
         public a(String str) {
             this.mCategory = -1;
-            this.dro = 0;
-            this.drp = 0L;
-            this.drn = str;
+            this.dxg = 0;
+            this.dxh = 0L;
+            this.dxf = str;
         }
 
         public a(String str, int i) {
             this.mCategory = -1;
-            this.dro = 0;
-            this.drp = 0L;
-            this.drn = str;
+            this.dxg = 0;
+            this.dxh = 0L;
+            this.dxf = str;
             this.mCategory = i;
         }
 
         public String getBundleId() {
-            return this.drn;
+            return this.dxf;
         }
 
-        public int aHU() {
-            return this.dro;
+        public int aLL() {
+            return this.dxg;
         }
 
         public int getCategory() {
             return this.mCategory;
         }
 
-        public long aHV() {
-            return this.drp;
+        public long aLM() {
+            return this.dxh;
         }
 
-        void js(int i) {
-            this.dro = i;
+        void jL(int i) {
+            this.dxg = i;
         }
 
-        void bN(long j) {
-            this.drp = j;
+        void cd(long j) {
+            this.dxh = j;
         }
 
         void setCategory(int i) {
@@ -125,7 +124,7 @@ public class b extends f {
         }
 
         public int hashCode() {
-            return Objects.hash(this.drn, Integer.valueOf(this.mCategory));
+            return Objects.hash(this.dxf, Integer.valueOf(this.mCategory));
         }
 
         public boolean equals(Object obj) {
@@ -134,7 +133,7 @@ public class b extends f {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return TextUtils.equals(aVar.getBundleId(), this.drn) && aVar.getCategory() == this.mCategory;
+                return TextUtils.equals(aVar.getBundleId(), this.dxf) && aVar.getCategory() == this.mCategory;
             }
             return false;
         }

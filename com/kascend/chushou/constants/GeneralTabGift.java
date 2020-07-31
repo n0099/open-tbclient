@@ -3,7 +3,7 @@ package com.kascend.chushou.constants;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GeneralTabGift implements Serializable {
     private static final long serialVersionUID = -5435240163993175681L;
     public boolean mFrequentlyUsedTab;

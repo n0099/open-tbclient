@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
 
 import tbclient.ItemInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public interface am {
     void a(ItemInfo itemInfo);
 
-    ItemInfo bXq();
+    ItemInfo caL();
 
-    boolean bXr();
+    boolean caM();
 }

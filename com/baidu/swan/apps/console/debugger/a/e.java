@@ -2,45 +2,45 @@ package com.baidu.swan.apps.console.debugger.a;
 
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String bWm;
-    private static String bWn;
+    private static String bXd;
+    private static String bXe;
 
-    public static boolean Xs() {
-        return !TextUtils.isEmpty(bWm);
+    public static boolean XY() {
+        return !TextUtils.isEmpty(bXd);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean Xt() {
-        return TextUtils.equals(bWn, "update_tag_by_remote_debug");
+    public static boolean XZ() {
+        return TextUtils.equals(bXe, "update_tag_by_remote_debug");
     }
 
-    public static void iZ(String str) {
+    public static void jj(String str) {
         if (DEBUG) {
             Log.d("RemoteDebugger", "Current launch mode is " + str);
         }
-        bWn = str;
-        if (TextUtils.equals(bWn, "update_tag_by_activity_on_new_intent")) {
-            d.Xl().Xm();
+        bXe = str;
+        if (TextUtils.equals(bXe, "update_tag_by_activity_on_new_intent")) {
+            d.XR().XS();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void Xu() {
-        bWn = "update_tag_by_remote_debug";
+    public static void Ya() {
+        bXe = "update_tag_by_remote_debug";
     }
 
-    public static String Xv() {
-        return bWm + "/swan-core/master/master.html";
+    public static String Yb() {
+        return bXd + "/swan-core/master/master.html";
     }
 
-    public static String Xw() {
-        return bWm + "/swan-core/slaves/slaves.html";
+    public static String Yc() {
+        return bXd + "/swan-core/slaves/slaves.html";
     }
 
     public static void setWebUrl(String str) {
-        bWm = str;
+        bXd = str;
     }
 }

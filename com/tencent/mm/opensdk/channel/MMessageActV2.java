@@ -6,14 +6,14 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.channel.a.b;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MMessageActV2 {
     public static final String DEFAULT_ENTRY_CLASS_NAME = ".wxapi.WXEntryActivity";
     public static final String MM_ENTRY_PACKAGE_NAME = "com.tencent.mm";
     public static final String MM_MSG_ENTRY_CLASS_NAME = "com.tencent.mm.plugin.base.stub.WXEntryActivity";
     private static final String TAG = "MicroMsg.SDK.MMessageAct";
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Args {
         public static final int INVALID_FLAGS = -1;
         public Bundle bundle;

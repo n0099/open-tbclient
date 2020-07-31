@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONObject;
 import tv.chushou.zues.utils.h;
 import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AchievementView extends RelativeLayout implements View.OnClickListener {
     private TextView a;
     private LinearLayout b;
@@ -89,16 +89,16 @@ public class AchievementView extends RelativeLayout implements View.OnClickListe
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public View a;
         public TextView c;
         public TextView d;
-        public FrescoThumbnailView nrc;
+        public FrescoThumbnailView nzM;
 
         public a(View view, FrescoThumbnailView frescoThumbnailView, TextView textView, TextView textView2) {
             this.a = view;
-            this.nrc = frescoThumbnailView;
+            this.nzM = frescoThumbnailView;
             this.c = textView;
             this.d = textView2;
         }
@@ -118,7 +118,7 @@ public class AchievementView extends RelativeLayout implements View.OnClickListe
                     e.a(a.this.a.getContext(), listItem, (JSONObject) null);
                 }
             });
-            this.nrc.h(medal.icon, a.e.icon_achievement_default, 0, 0);
+            this.nzM.h(medal.icon, a.e.icon_achievement_default, 0, 0);
             this.c.setText(medal.name);
             this.d.setText(medal.desc);
         }

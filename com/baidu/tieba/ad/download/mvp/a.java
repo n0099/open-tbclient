@@ -7,69 +7,69 @@ import com.baidu.tieba.ad.download.d;
 import com.baidu.tieba.ad.download.mvp.IDownloadModel;
 import com.baidu.tieba.ad.download.mvp.b;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
     private static final String TAG = a.class.getSimpleName();
-    private final VIEW eZb;
-    private MODEL eZc;
+    private final VIEW fdD;
+    private MODEL fdE;
     private final String mPage;
 
     protected abstract void a(MODEL model);
 
     public a(@NonNull VIEW view, @NonNull MODEL model, @NonNull String str) {
-        this.eZb = view;
-        this.eZc = model;
+        this.fdD = view;
+        this.fdE = model;
         this.mPage = str;
-        View actionBar = this.eZb.getActionBar();
+        View actionBar = this.fdD.getActionBar();
         if (actionBar != null) {
             actionBar.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ad.download.mvp.a.1
                 /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tieba.ad.download.mvp.a */
                 /* JADX WARN: Multi-variable type inference failed */
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    a.this.eZb.bu(view2);
-                    a.this.bpj();
-                    a.this.a((a) a.this.eZc);
+                    a.this.fdD.bA(view2);
+                    a.this.bsl();
+                    a.this.a((a) a.this.fdE);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public VIEW bpi() {
-        return this.eZb;
+    public VIEW bsk() {
+        return this.fdD;
     }
 
     @CallSuper
     public void b(@NonNull MODEL model) {
-        this.eZc = model;
-        if (this.eZb != null) {
-            bpk();
-            this.eZb.a(model.getCurrentState(), model.getPercent());
+        this.fdE = model;
+        if (this.fdD != null) {
+            bsm();
+            this.fdD.a(model.getCurrentState(), model.getPercent());
         }
     }
 
     @CallSuper
     public void c(@NonNull DownloadStatus downloadStatus) {
-        if (this.eZc != null) {
-            this.eZb.a(downloadStatus);
+        if (this.fdE != null) {
+            this.fdD.a(downloadStatus);
             if (downloadStatus != DownloadStatus.STATUS_NONE) {
-                bpk();
+                bsm();
             }
         }
     }
 
     @CallSuper
     public void dE(int i) {
-        this.eZb.dE(i);
-        if ((this.eZc != null ? this.eZc.getCurrentState() : null) != DownloadStatus.STATUS_NONE) {
-            bpk();
+        this.fdD.dE(i);
+        if ((this.fdE != null ? this.fdE.getCurrentState() : null) != DownloadStatus.STATUS_NONE) {
+            bsm();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bpj() {
-        MODEL model = this.eZc;
+    public void bsl() {
+        MODEL model = this.fdE;
         if (model != null) {
             DownloadStatus currentState = model.getCurrentState();
             switch (currentState) {
@@ -78,7 +78,7 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
                 case STATUS_PAUSED:
                 case STATUS_SUCCESS:
                 case STATUS_INSTALL_SUCCESS:
-                    d.bpg().a(model.adId(), this.mPage, currentState, model.getPkgName());
+                    d.bsi().a(model.adId(), this.mPage, currentState, model.getPkgName());
                     return;
                 default:
                     return;
@@ -86,9 +86,9 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
         }
     }
 
-    private void bpk() {
-        if (this.eZb.getRealView().getVisibility() != 0) {
-            this.eZb.getRealView().setVisibility(0);
+    private void bsm() {
+        if (this.fdD.getRealView().getVisibility() != 0) {
+            this.fdD.getRealView().setVisibility(0);
         }
     }
 }

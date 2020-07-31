@@ -6,10 +6,10 @@ import android.text.TextUtils;
 import com.baidu.tieba.ala.alaar.sticker.model.DuFileFaceItem;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a<T> {
         void a(T t, int i, int i2, String str);
 

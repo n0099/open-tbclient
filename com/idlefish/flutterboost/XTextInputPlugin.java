@@ -1,7 +1,11 @@
 package com.idlefish.flutterboost;
 
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.text.Editable;
 import android.text.Selection;
 import android.view.View;
@@ -9,10 +13,12 @@ import android.view.inputmethod.BaseInputConnection;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
+import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 import io.flutter.plugin.platform.PlatformViewsController;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public class XTextInputPlugin {
+    private static XTextInputPlugin xTextInputPlugin;
     @Nullable
     private TextInputChannel.Configuration configuration;
     @NonNull
@@ -23,52 +29,71 @@ public class XTextInputPlugin {
     @Nullable
     private Editable mEditable;
     @NonNull
-    private final InputMethodManager mImm;
+    private InputMethodManager mImm;
     private boolean mRestartInputPending;
     @NonNull
     private View mView;
     @NonNull
     private PlatformViewsController platformViewsController;
+    private boolean restartAlwaysRequired;
     @NonNull
-    private final TextInputChannel textInputChannel;
+    private TextInputChannel textInputChannel;
 
-    public XTextInputPlugin(View view, @NonNull TextInputChannel textInputChannel, @NonNull PlatformViewsController platformViewsController) {
-        this.mView = view;
-        this.mImm = (InputMethodManager) view.getContext().getSystemService("input_method");
-        this.textInputChannel = textInputChannel;
+    public static XTextInputPlugin getTextInputPlugin(DartExecutor dartExecutor, @NonNull PlatformViewsController platformViewsController) {
+        if (xTextInputPlugin != null) {
+            return xTextInputPlugin;
+        }
+        xTextInputPlugin = new XTextInputPlugin(dartExecutor, platformViewsController);
+        return xTextInputPlugin;
+    }
+
+    public XTextInputPlugin(@NonNull DartExecutor dartExecutor, @NonNull PlatformViewsController platformViewsController) {
+        this.textInputChannel = new TextInputChannel(dartExecutor);
+        this.textInputChannel.requestExistingInputState();
         this.platformViewsController = platformViewsController;
     }
 
-    public void release() {
-        this.mView = null;
+    public void release(View view) {
+        if (this.mView != null && this.mView.hashCode() == view.hashCode()) {
+            this.mView = null;
+        }
     }
 
-    public void setTextInputMethodHandler() {
+    public void updateView(View view) {
+        this.mView = view;
+        this.mImm = (InputMethodManager) view.getContext().getSystemService("input_method");
         this.textInputChannel.setTextInputMethodHandler(new TextInputChannel.TextInputMethodHandler() { // from class: com.idlefish.flutterboost.XTextInputPlugin.1
+            @Override // io.flutter.embedding.engine.systemchannels.TextInputChannel.TextInputMethodHandler
             public void show() {
                 XTextInputPlugin.this.showTextInput(XTextInputPlugin.this.mView);
             }
 
+            @Override // io.flutter.embedding.engine.systemchannels.TextInputChannel.TextInputMethodHandler
             public void hide() {
                 XTextInputPlugin.this.hideTextInput(XTextInputPlugin.this.mView);
             }
 
+            @Override // io.flutter.embedding.engine.systemchannels.TextInputChannel.TextInputMethodHandler
             public void setClient(int i, TextInputChannel.Configuration configuration) {
                 XTextInputPlugin.this.setTextInputClient(i, configuration);
             }
 
+            @Override // io.flutter.embedding.engine.systemchannels.TextInputChannel.TextInputMethodHandler
             public void setPlatformViewClient(int i) {
                 XTextInputPlugin.this.setPlatformViewTextInputClient(i);
             }
 
+            @Override // io.flutter.embedding.engine.systemchannels.TextInputChannel.TextInputMethodHandler
             public void setEditingState(TextInputChannel.TextEditState textEditState) {
                 XTextInputPlugin.this.setTextInputEditingState(XTextInputPlugin.this.mView, textEditState);
             }
 
+            @Override // io.flutter.embedding.engine.systemchannels.TextInputChannel.TextInputMethodHandler
             public void clearClient() {
                 XTextInputPlugin.this.clearTextInputClient();
             }
         });
+        this.restartAlwaysRequired = isRestartAlwaysRequired();
     }
 
     @NonNull
@@ -80,7 +105,7 @@ public class XTextInputPlugin {
         this.isInputConnectionLocked = false;
     }
 
-    private static int inputTypeFromTextInputType(TextInputChannel.InputType inputType, boolean z, boolean z2, TextInputChannel.TextCapitalization textCapitalization) {
+    private static int inputTypeFromTextInputType(TextInputChannel.InputType inputType, boolean z, boolean z2, boolean z3, TextInputChannel.TextCapitalization textCapitalization) {
         if (inputType.type == TextInputChannel.TextInputType.DATETIME) {
             return 4;
         }
@@ -108,8 +133,13 @@ public class XTextInputPlugin {
             }
             if (z) {
                 i2 = i2 | 524288 | 128;
-            } else if (z2) {
-                i2 |= 32768;
+            } else {
+                if (z2) {
+                    i2 |= 32768;
+                }
+                if (!z3) {
+                    i2 |= 524288;
+                }
             }
             if (textCapitalization == TextInputChannel.TextCapitalization.CHARACTERS) {
                 return i2 | 4096;
@@ -136,7 +166,7 @@ public class XTextInputPlugin {
             this.lastInputConnection = this.platformViewsController.getPlatformViewById(Integer.valueOf(this.inputTarget.id)).onCreateInputConnection(editorInfo);
             return this.lastInputConnection;
         } else {
-            editorInfo.inputType = inputTypeFromTextInputType(this.configuration.inputType, this.configuration.obscureText, this.configuration.autocorrect, this.configuration.textCapitalization);
+            editorInfo.inputType = inputTypeFromTextInputType(this.configuration.inputType, this.configuration.obscureText, this.configuration.autocorrect, this.configuration.enableSuggestions, this.configuration.textCapitalization);
             editorInfo.imeOptions = 33554432;
             if (this.configuration.inputAction == null) {
                 intValue = (131072 & editorInfo.inputType) != 0 ? 1 : 6;
@@ -172,8 +202,8 @@ public class XTextInputPlugin {
         this.mImm.hideSoftInputFromWindow(view.getApplicationWindowToken(), 0);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setTextInputClient(int i, TextInputChannel.Configuration configuration) {
+    @VisibleForTesting
+    void setTextInputClient(int i, TextInputChannel.Configuration configuration) {
         this.inputTarget = new InputTarget(InputTarget.Type.FRAMEWORK_CLIENT, i);
         this.configuration = configuration;
         this.mEditable = Editable.Factory.getInstance().newEditable("");
@@ -199,9 +229,9 @@ public class XTextInputPlugin {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setTextInputEditingState(View view, TextInputChannel.TextEditState textEditState) {
-        if (!this.mRestartInputPending && textEditState.text.equals(this.mEditable.toString())) {
+    @VisibleForTesting
+    void setTextInputEditingState(View view, TextInputChannel.TextEditState textEditState) {
+        if (!this.restartAlwaysRequired && !this.mRestartInputPending && textEditState.text.equals(this.mEditable.toString())) {
             applyStateToSelection(textEditState);
             this.mImm.updateSelection(this.mView, Math.max(Selection.getSelectionStart(this.mEditable), 0), Math.max(Selection.getSelectionEnd(this.mEditable), 0), BaseInputConnection.getComposingSpanStart(this.mEditable), BaseInputConnection.getComposingSpanEnd(this.mEditable));
             return;
@@ -210,6 +240,15 @@ public class XTextInputPlugin {
         applyStateToSelection(textEditState);
         this.mImm.restartInput(view);
         this.mRestartInputPending = false;
+    }
+
+    @SuppressLint({"NewApi"})
+    private boolean isRestartAlwaysRequired() {
+        String string;
+        if (this.mImm.getCurrentInputMethodSubtype() == null || Build.VERSION.SDK_INT < 21 || !Build.MANUFACTURER.equals("samsung") || (string = Settings.Secure.getString(this.mView.getContext().getContentResolver(), "default_input_method")) == null) {
+            return false;
+        }
+        return string.contains("Samsung");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -221,14 +260,14 @@ public class XTextInputPlugin {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public static class InputTarget {
         int id;
         @NonNull
         Type type;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes6.dex */
+        /* loaded from: classes18.dex */
         public enum Type {
             NO_TARGET,
             FRAMEWORK_CLIENT,

@@ -6,14 +6,14 @@ import com.baidu.ar.libloader.a;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class d extends c {
     private String rS;
     private a rU;
     private boolean rV = false;
     private List<String> rT = new ArrayList();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(String str, String str2);
     }
@@ -51,8 +51,8 @@ public class d extends c {
     }
 
     @Override // com.baidu.ar.libloader.c, com.baidu.ar.libloader.a
-    public /* bridge */ /* synthetic */ void a(ARType aRType, String str, String str2, a.InterfaceC0085a interfaceC0085a) {
-        super.a(aRType, str, str2, interfaceC0085a);
+    public /* bridge */ /* synthetic */ void a(ARType aRType, String str, String str2, a.InterfaceC0086a interfaceC0086a) {
+        super.a(aRType, str, str2, interfaceC0086a);
     }
 
     public void a(a aVar) {

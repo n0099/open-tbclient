@@ -2,7 +2,7 @@ package com.baidu.android.pushservice.i;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f {
     private static String a(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();

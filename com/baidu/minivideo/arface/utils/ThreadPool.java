@@ -1,16 +1,16 @@
 package com.baidu.minivideo.arface.utils;
 
 import java.util.concurrent.LinkedBlockingDeque;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ThreadPool {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     private enum QueueProcessingType {
         FIFO,
         LIFO
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     private static class LIFOLinkedBlockingDeque<T> extends LinkedBlockingDeque<T> {
         private static final long serialVersionUID = -4114786347960826192L;
 

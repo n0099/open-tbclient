@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.serializer;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public abstract class AfterFilter implements SerializeFilter {
     private static final ThreadLocal<JSONSerializer> serializerLocal = new ThreadLocal<>();
     private static final ThreadLocal<Character> seperatorLocal = new ThreadLocal<>();

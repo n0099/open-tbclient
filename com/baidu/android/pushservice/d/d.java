@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d extends c {
     protected boolean d;
 

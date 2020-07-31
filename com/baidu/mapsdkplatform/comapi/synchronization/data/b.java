@@ -2,7 +2,7 @@ package com.baidu.mapsdkplatform.comapi.synchronization.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 final class b implements Parcelable.Creator<RouteLineInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator

@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatCheckedTextView;
 import android.util.AttributeSet;
 import com.kascend.chushou.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DrawableResizeTextView extends AppCompatCheckedTextView {
     public DrawableResizeTextView(Context context) {
         this(context, null);

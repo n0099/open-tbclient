@@ -3,48 +3,44 @@ package com.baidu.swan.pms.node.b;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.e.j;
+import com.baidu.swan.d.i;
 import com.baidu.swan.pms.e;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class e {
-    private static e drI;
-    private a drJ = new a();
-    private String drK = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_dialog_msg);
-    private String drL = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_toast_msg);
+    private static e dxz;
+    private a dxA = new a();
+    private String dxB = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_dialog_msg);
+    private String dxC = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_toast_msg);
 
-    public static e aIn() {
-        if (drI == null) {
+    public static e aMf() {
+        if (dxz == null) {
             synchronized (e.class) {
-                if (drI == null) {
-                    drI = new e();
+                if (dxz == null) {
+                    dxz = new e();
                 }
             }
         }
-        return drI;
+        return dxz;
     }
 
     private e() {
     }
 
     public String getVersion() {
-        return this.drJ.getString("tips_config_version", "0");
+        return this.dxA.getString("tips_config_version", "0");
     }
 
-    public String bP(long j) {
-        return this.drJ.getString(String.format("%04d", Long.valueOf(j)), this.drK);
-    }
-
-    public String bQ(long j) {
-        return this.drJ.getString(String.format("%04d", Long.valueOf(j)), this.drL);
+    public String cf(long j) {
+        return this.dxA.getString(String.format("%04d", Long.valueOf(j)), this.dxB);
     }
 
     public void b(HashMap<String, String> hashMap, String str) {
         if (hashMap != null && !hashMap.isEmpty() && !TextUtils.isEmpty(str)) {
-            SharedPreferences.Editor edit = this.drJ.edit();
+            SharedPreferences.Editor edit = this.dxA.edit();
             edit.clear();
             edit.putString("tips_config_version", str);
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {
@@ -54,7 +50,7 @@ public class e {
         }
     }
 
-    public void co(JSONObject jSONObject) {
+    public void cu(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject != null) {
             String optString = jSONObject.optString("version");
@@ -70,8 +66,8 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
-    public static class a extends j {
+    /* loaded from: classes19.dex */
+    public static class a extends i {
         a() {
             super("updatecore_node_tipmsgs");
         }

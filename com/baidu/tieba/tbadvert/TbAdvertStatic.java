@@ -5,7 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class TbAdvertStatic {
     public static String Tag = "tag";
 

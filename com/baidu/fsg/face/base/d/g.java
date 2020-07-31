@@ -5,7 +5,7 @@ import android.os.Environment;
 import com.baidu.fsg.base.ApollonConstants;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class g {
     public static boolean a = ApollonConstants.VIDEO_DEBUG;
     public static final String b = "SapiBioFileUtils";

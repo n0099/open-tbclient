@@ -1,17 +1,17 @@
 package com.baidu.ubc;
-/* loaded from: classes13.dex */
+/* loaded from: classes9.dex */
 class o {
-    private String duO;
+    private String dAD;
     private String mFileName;
     private String mState;
 
     public o(String str, String str2, String str3) {
         this.mFileName = str;
         this.mState = str2;
-        this.duO = str3;
+        this.dAD = str3;
     }
 
-    public String aJE() {
+    public String aNw() {
         return this.mState;
     }
 }

@@ -4,7 +4,7 @@ import android.support.v7.widget.ActivityChooserView;
 import com.baidu.searchbox.ui.animview.base.IResourceProvider;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes13.dex */
+/* loaded from: classes7.dex */
 public class PraiseLevelUtil {
     private static Set<IResourceProvider.PraiseLevelConfig> sLevelConfigSet;
 

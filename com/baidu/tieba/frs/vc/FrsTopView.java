@@ -25,32 +25,31 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tbadk.core.data.r;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.w;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ax;
 import com.baidu.tieba.view.AdapterLinearLayout;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class FrsTopView extends LinearLayout {
-    private ForumData ewc;
-    private z hBp;
-    private com.baidu.tieba.frs.d.b hIE;
-    private ax hIh;
-    private FrsFoldingView ibl;
-    private com.baidu.tieba.frs.ad.g ibm;
-    private boolean ibn;
-    private List<View> ibo;
-    private List<com.baidu.tieba.frs.view.g> ibp;
-    private ArrayList<Boolean> ibq;
+    private ForumData eCv;
+    private z hHk;
+    private com.baidu.tieba.frs.d.b hOE;
+    private ax hOh;
+    private FrsFoldingView ihn;
+    private com.baidu.tieba.frs.ad.f iho;
+    private boolean ihp;
+    private List<View> ihq;
+    private List<com.baidu.tieba.frs.view.g> ihr;
+    private ArrayList<Boolean> ihs;
     private BdUniqueId mBdUniqueId;
     private String mForumId;
     private String mForumName;
@@ -68,71 +67,71 @@ public class FrsTopView extends LinearLayout {
 
     public FrsTopView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ibn = false;
+        this.ihp = false;
         this.mForumName = "";
         this.mForumId = "";
         this.textColor = 0;
         this.url = null;
-        this.ibo = new ArrayList();
-        this.ibp = new ArrayList();
+        this.ihq = new ArrayList();
+        this.ihr = new ArrayList();
         this.topThreadList = new ArrayList();
-        this.hIE = new com.baidu.tieba.frs.d.b();
+        this.hOE = new com.baidu.tieba.frs.d.b();
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.frs_top_view_layout, (ViewGroup) this, true);
-        this.ibl = (FrsFoldingView) findViewById(R.id.frs_folding_layout);
+        this.ihn = (FrsFoldingView) findViewById(R.id.frs_folding_layout);
     }
 
     public void setDatas(List<q> list, com.baidu.tieba.tbadkCore.i iVar) {
         this.topThreadList.clear();
-        this.ibp.clear();
-        this.ibo.clear();
-        if (w.isEmpty(list) && iVar == null) {
+        this.ihr.clear();
+        this.ihq.clear();
+        if (x.isEmpty(list) && iVar == null) {
             setVisibility(8);
             return;
         }
         if (iVar != null) {
             a(iVar);
         }
-        if (!w.isEmpty(list)) {
+        if (!x.isEmpty(list)) {
             if (list.size() > 6) {
                 list = list.subList(0, 6);
             }
             this.topThreadList.addAll(list);
             int i = this.topThreadList.size() <= 2 ? 1 : 2;
             for (int i2 = 0; i2 < i; i2++) {
-                cfX();
-                com.baidu.tieba.frs.view.g gVar = this.ibp.get(i2);
+                cjw();
+                com.baidu.tieba.frs.view.g gVar = this.ihr.get(i2);
                 if (gVar != null) {
-                    if (this.hBp == null) {
-                        this.hBp = new a();
+                    if (this.hHk == null) {
+                        this.hHk = new a();
                     }
-                    gVar.d(this.hBp);
+                    gVar.d(this.hHk);
                     gVar.setData(this.topThreadList.subList(i2 * 2, Math.min((i2 * 4) + 2, this.topThreadList.size())));
                 }
             }
         }
-        if (this.ibq == null && this.ibo != null) {
-            this.ibq = new ArrayList<>(Collections.nCopies(this.ibo.size(), Boolean.FALSE));
+        if (this.ihs == null && this.ihq != null) {
+            this.ihs = new ArrayList<>(Collections.nCopies(this.ihq.size(), Boolean.FALSE));
         }
-        cfY();
+        cjx();
     }
 
     private void a(com.baidu.tieba.tbadkCore.i iVar) {
         int i = 6;
         if (iVar != null) {
-            if (this.ibm == null) {
-                this.ibm = new com.baidu.tieba.frs.ad.g(getContext());
-                addView(this.ibm.getView());
+            if (this.iho == null) {
+                this.iho = new com.baidu.tieba.frs.ad.f(getContext());
+                addView(this.iho.getView());
             }
-            this.ibm.a(this.ewc, iVar);
-            if (!this.ibn) {
-                this.ibn = true;
-                ao aoVar = new ao("common_exp");
-                aoVar.dk("page_type", PageStayDurationConstants.PageName.FRS);
-                aoVar.dk("obj_isad", "1");
+            this.iho.a(this.eCv, iVar);
+            if (!this.ihp) {
+                this.ihp = true;
+                ap apVar = new ap("common_exp");
+                apVar.dn("page_type", PageStayDurationConstants.PageName.FRS);
+                apVar.dn("obj_isad", "1");
                 if (iVar.getType() != 1) {
                     if (iVar.getType() == 2) {
                         i = 7;
@@ -140,123 +139,123 @@ public class FrsTopView extends LinearLayout {
                         i = 8;
                     }
                 }
-                aoVar.ag("obj_floor", 1);
-                aoVar.ag("obj_adlocate", i);
-                aoVar.s("obj_id", iVar.getId());
-                if (this.ewc != null) {
-                    aoVar.dk("fid", this.ewc.getId());
-                    aoVar.dk("first_dir", this.ewc.getFirst_class());
-                    aoVar.dk("second_dir", this.ewc.getSecond_class());
+                apVar.ah("obj_floor", 1);
+                apVar.ah("obj_adlocate", i);
+                apVar.t("obj_id", iVar.getId());
+                if (this.eCv != null) {
+                    apVar.dn("fid", this.eCv.getId());
+                    apVar.dn("first_dir", this.eCv.getFirst_class());
+                    apVar.dn("second_dir", this.eCv.getSecond_class());
                 }
                 if (iVar.getType() == 1) {
-                    aoVar.dk("tid", iVar.getThreadId());
-                    aoVar.ag("thread_type", iVar.getThreadType());
+                    apVar.dn("tid", iVar.getThreadId());
+                    apVar.ah("thread_type", iVar.getThreadType());
                 }
-                TiebaStatic.log(aoVar);
+                TiebaStatic.log(apVar);
             }
         }
     }
 
-    private void cfX() {
+    private void cjw() {
         AdapterLinearLayout adapterLinearLayout = new AdapterLinearLayout(getContext());
         adapterLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         adapterLinearLayout.setOrientation(1);
         com.baidu.tieba.frs.view.g gVar = new com.baidu.tieba.frs.view.g(getContext());
-        gVar.eq(this.mForumId, this.mForumName);
+        gVar.es(this.mForumId, this.mForumName);
         gVar.setBdUniqueId(this.mBdUniqueId);
         if (this.url != null) {
             gVar.setImageUrl(this.url);
         }
         if (this.textColor != 0) {
-            gVar.wB(this.textColor);
+            gVar.wT(this.textColor);
         }
         adapterLinearLayout.setAdapter(gVar);
-        this.ibo.add(adapterLinearLayout);
-        this.ibp.add(gVar);
+        this.ihq.add(adapterLinearLayout);
+        this.ihr.add(gVar);
     }
 
     public void setStatListener(ax axVar) {
-        this.hIh = axVar;
+        this.hOh = axVar;
     }
 
-    private void cfY() {
+    private void cjx() {
         setVisibility(0);
-        if (this.ibl != null) {
-            this.ibl.setViews(this.ibo, this.ibp);
+        if (this.ihn != null) {
+            this.ihn.setViews(this.ihq, this.ihr);
         }
     }
 
     public void onChangeSkinType(int i) {
-        for (com.baidu.tieba.frs.view.g gVar : this.ibp) {
+        for (com.baidu.tieba.frs.view.g gVar : this.ihr) {
             gVar.notifyDataSetChanged();
         }
-        if (this.ibl != null) {
-            this.ibl.onChangeSkinType();
+        if (this.ihn != null) {
+            this.ihn.onChangeSkinType();
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     private final class a implements z {
         private a() {
         }
 
         @Override // com.baidu.adp.widget.ListView.z
         public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            if (bdUniqueId != null && qVar != null && (qVar instanceof bu)) {
-                bu buVar = (bu) qVar;
-                if (buVar.aTp() == null || buVar.aTp().getGroup_id() == 0 || be.checkUpIsLogin(FrsTopView.this.getContext())) {
-                    if (buVar.aTc() != 1 || be.checkUpIsLogin(FrsTopView.this.getContext())) {
-                        if (buVar.aSB() != null) {
-                            if (be.checkUpIsLogin(FrsTopView.this.getContext())) {
-                                String postUrl = buVar.aSB().getPostUrl();
+            if (bdUniqueId != null && qVar != null && (qVar instanceof bv)) {
+                bv bvVar = (bv) qVar;
+                if (bvVar.aXl() == null || bvVar.aXl().getGroup_id() == 0 || bf.checkUpIsLogin(FrsTopView.this.getContext())) {
+                    if (bvVar.aWY() != 1 || bf.checkUpIsLogin(FrsTopView.this.getContext())) {
+                        if (bvVar.aWx() != null) {
+                            if (bf.checkUpIsLogin(FrsTopView.this.getContext())) {
+                                String postUrl = bvVar.aWx().getPostUrl();
                                 if (!StringUtils.isNull(postUrl) && com.baidu.adp.lib.util.l.isNetOk()) {
                                     com.baidu.tbadk.browser.a.startInternalWebActivity(FrsTopView.this.getContext(), postUrl);
                                 }
                             }
-                        } else if (buVar.aTA() != null) {
+                        } else if (bvVar.aXw() != null) {
                             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                                be.skipToLoginActivity(FrsTopView.this.getTbPageContext().getPageActivity());
+                                bf.skipToLoginActivity(FrsTopView.this.getTbPageContext().getPageActivity());
                                 return;
                             }
-                            r aTA = buVar.aTA();
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MangaBrowserActivityConfig(FrsTopView.this.getTbPageContext().getPageActivity(), aTA.getCartoonId(), aTA.getChapterId(), 2)));
+                            r aXw = bvVar.aXw();
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MangaBrowserActivityConfig(FrsTopView.this.getTbPageContext().getPageActivity(), aXw.getCartoonId(), aXw.getChapterId(), 2)));
                         } else {
                             boolean z = false;
-                            final String aSv = buVar.aSv();
-                            if (aSv != null && !aSv.equals("")) {
+                            final String aWr = bvVar.aWr();
+                            if (aWr != null && !aWr.equals("")) {
                                 z = true;
                                 new Thread(new Runnable() { // from class: com.baidu.tieba.frs.vc.FrsTopView.a.1
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        y yVar = new y(aSv);
-                                        yVar.aWu().aWV().mIsNeedAddCommenParam = false;
-                                        yVar.aWu().aWV().mIsUseCurrentBDUSS = false;
-                                        yVar.getNetData();
+                                        com.baidu.tbadk.core.util.z zVar = new com.baidu.tbadk.core.util.z(aWr);
+                                        zVar.bav().baW().mIsNeedAddCommenParam = false;
+                                        zVar.bav().baW().mIsUseCurrentBDUSS = false;
+                                        zVar.getNetData();
                                     }
                                 }).start();
                             }
-                            String tid = buVar.getTid();
+                            String tid = bvVar.getTid();
                             if (tid == null) {
                                 tid = "";
                             }
-                            if (buVar.aSk() == 2 && !tid.startsWith(UrlSchemaHelper.SCHEMA_TYPE_PB)) {
-                                bc.aWU().b(FrsTopView.this.getTbPageContext(), new String[]{tid, "", null});
+                            if (bvVar.aWg() == 2 && !tid.startsWith(UrlSchemaHelper.SCHEMA_TYPE_PB)) {
+                                bd.baV().b(FrsTopView.this.getTbPageContext(), new String[]{tid, "", null});
                                 return;
                             }
                             if (tid.startsWith(UrlSchemaHelper.SCHEMA_TYPE_PB) && !TextUtils.isEmpty(tid) && tid.length() > 3) {
-                                buVar.setId(tid.substring(3));
+                                bvVar.setId(tid.substring(3));
                             }
-                            if (bdUniqueId.getId() == bu.dNk.getId()) {
-                                com.baidu.tieba.frs.f.h.a(buVar.aRV());
-                            } else if (bdUniqueId.getId() == bu.dLL.getId()) {
-                                ao aoVar = new ao(CommonStatisticKey.KEY_FRS_TRANSMIT_THREAD);
-                                aoVar.dk("obj_type", "2");
-                                aoVar.dk("tid", buVar.getTid());
-                                TiebaStatic.log(aoVar);
+                            if (bdUniqueId.getId() == bv.dTv.getId()) {
+                                com.baidu.tieba.frs.f.h.a(bvVar.aVR());
+                            } else if (bdUniqueId.getId() == bv.dRW.getId()) {
+                                ap apVar = new ap(CommonStatisticKey.KEY_FRS_TRANSMIT_THREAD);
+                                apVar.dn("obj_type", "2");
+                                apVar.dn("tid", bvVar.getTid());
+                                TiebaStatic.log(apVar);
                             }
-                            FrsTopView.this.a(FrsTopView.this.getFragmentActivity(), buVar, i, z);
-                            if (FrsTopView.this.hIh != null) {
-                                FrsTopView.this.hIh.ao(buVar);
+                            FrsTopView.this.a(FrsTopView.this.getFragmentActivity(), bvVar, i, z);
+                            if (FrsTopView.this.hOh != null) {
+                                FrsTopView.this.hOh.al(bvVar);
                             }
                         }
                     }
@@ -284,43 +283,43 @@ public class FrsTopView extends LinearLayout {
     public void setForum(String str, String str2, ForumData forumData) {
         this.mForumId = str;
         this.mForumName = str2;
-        this.ewc = forumData;
+        this.eCv = forumData;
     }
 
     public void setFragmentUniqueId(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
     }
 
-    public void a(BaseFragmentActivity baseFragmentActivity, bu buVar, int i, boolean z) {
+    public void a(BaseFragmentActivity baseFragmentActivity, bv bvVar, int i, boolean z) {
         String str;
         String str2;
         PbActivityConfig createFromThreadCfg;
-        if (baseFragmentActivity != null && buVar != null) {
-            String valueOf = String.valueOf(buVar.getFid());
-            if (buVar.dOi == null) {
+        if (baseFragmentActivity != null && bvVar != null) {
+            String valueOf = String.valueOf(bvVar.getFid());
+            if (bvVar.dUt == null) {
                 str = valueOf;
                 str2 = null;
             } else {
-                str = buVar.dOi.id;
+                str = bvVar.dUt.id;
                 str2 = valueOf;
             }
-            if (buVar.aSM() > 0 && com.baidu.tieba.tbadkCore.util.e.djh()) {
-                createFromThreadCfg = new PbActivityConfig(baseFragmentActivity).createHistoryCfg(buVar.getTid(), String.valueOf(buVar.aSM()), false, true, "frs_page");
+            if (bvVar.aWI() > 0 && com.baidu.tieba.tbadkCore.util.e.dmp()) {
+                createFromThreadCfg = new PbActivityConfig(baseFragmentActivity).createHistoryCfg(bvVar.getTid(), String.valueOf(bvVar.aWI()), false, true, "frs_page");
             } else {
-                createFromThreadCfg = new PbActivityConfig(baseFragmentActivity).createFromThreadCfg(buVar, this.mForumName, "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, z);
+                createFromThreadCfg = new PbActivityConfig(baseFragmentActivity).createFromThreadCfg(bvVar, this.mForumName, "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, z);
             }
             if (i == 4) {
                 createFromThreadCfg.setVideo_source(ConstantData.VideoLocationType.FRS_5FLOOR);
             } else {
                 createFromThreadCfg.setVideo_source("frs");
             }
-            createFromThreadCfg.setFromSmartFrs(buVar.aTE());
+            createFromThreadCfg.setFromSmartFrs(bvVar.aXA());
             createFromThreadCfg.setSmartFrsPosition(i);
             createFromThreadCfg.setForumId(str);
             createFromThreadCfg.setFromForumId(str2);
             createFromThreadCfg.setStartFrom(3);
             createFromThreadCfg.setFrom("from_frs");
-            if (buVar.aTw() && createFromThreadCfg.getIntent() != null) {
+            if (bvVar.aXs() && createFromThreadCfg.getIntent() != null) {
                 createFromThreadCfg.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
             }
             baseFragmentActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
@@ -329,17 +328,17 @@ public class FrsTopView extends LinearLayout {
 
     public void setUrlAndColor(String str, int i) {
         this.textColor = i;
-        for (com.baidu.tieba.frs.view.g gVar : this.ibp) {
+        for (com.baidu.tieba.frs.view.g gVar : this.ihr) {
             if (str != null) {
                 gVar.setImageUrl(str);
                 this.url = str;
             }
-            gVar.wB(i);
+            gVar.wT(i);
             gVar.notifyDataSetChanged();
         }
     }
 
     public com.baidu.tieba.frs.d.b getStatisticMetaData() {
-        return this.hIE;
+        return this.hOE;
     }
 }

@@ -11,23 +11,20 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.bigkoo.svprogresshud.SVProgressHUD;
+import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
-import io.flutter.plugin.common.PluginRegistry;
+import kotlin.NotImplementedError;
 import kotlin.h;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes6.dex */
-public final class ProgresshudPlugin implements MethodChannel.MethodCallHandler {
+/* loaded from: classes4.dex */
+public final class ProgresshudPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public static final Companion Companion = new Companion(null);
 
-    public static final void registerWith(PluginRegistry.Registrar registrar) {
-        Companion.registerWith(registrar);
-    }
-
     @h
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Companion {
         private Companion() {
         }
@@ -35,23 +32,32 @@ public final class ProgresshudPlugin implements MethodChannel.MethodCallHandler 
         public /* synthetic */ Companion(o oVar) {
             this();
         }
+    }
 
-        public final void registerWith(PluginRegistry.Registrar registrar) {
-            q.m(registrar, "registrar");
-            new MethodChannel(registrar.messenger(), "progresshud").setMethodCallHandler(new ProgresshudPlugin());
-            ProgresshudPluginKt.setMaskType(SVProgressHUD.SVProgressHUDMaskType.None);
-        }
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
+    public void onAttachedToEngine(FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
+        q.m(flutterPluginBinding, "binding");
+        new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "progresshud").setMethodCallHandler(new ProgresshudPlugin());
+        ProgresshudPluginKt.setMaskType(SVProgressHUD.SVProgressHUDMaskType.None);
+    }
+
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
+    public void onDetachedFromEngine(FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
+        q.m(flutterPluginBinding, "binding");
+        throw new NotImplementedError("An operation is not implemented: not implemented");
     }
 
     private final String getAndroidNameFromIos(String str) {
         return str;
     }
 
+    @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
     public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
         Activity activity;
         Activity activity2;
         Activity activity3;
         Activity activity4;
+        Activity activity5;
         q.m(methodCall, NotificationCompat.CATEGORY_CALL);
         q.m(result, "result");
         activity = ProgresshudPluginKt.mCurrentActivity;
@@ -71,28 +77,37 @@ public final class ProgresshudPlugin implements MethodChannel.MethodCallHandler 
             ProgresshudPluginKt.getDialog().showWithMaskType(ProgresshudPluginKt.getMaskType());
         } else if (q.l((Object) methodCall.method, (Object) "showWithImg")) {
             if (methodCall.hasArgument("image")) {
-                String valueOf = String.valueOf(methodCall.argument("image"));
-                String valueOf2 = String.valueOf(methodCall.argument("text"));
-                String androidNameFromIos = getAndroidNameFromIos(valueOf);
+                String str = ((String) methodCall.argument("image")).toString();
+                String str2 = ((String) methodCall.argument("text")).toString();
+                String androidNameFromIos = getAndroidNameFromIos(str);
                 g jE = g.jE();
                 q.l((Object) jE, "BdResources.getInstance()");
                 Resources resources = jE.getResources();
                 BdBaseApplication inst4 = BdBaseApplication.getInst();
                 q.l((Object) inst4, "BdBaseApplication.getInst()");
                 int identifier = resources.getIdentifier(androidNameFromIos, "drawable", inst4.getPackageName());
-                activity4 = ProgresshudPluginKt.mCurrentActivity;
-                BdToast.a((Context) activity4, (CharSequence) valueOf2, identifier, false).aUS();
+                activity5 = ProgresshudPluginKt.mCurrentActivity;
+                BdToast.a((Context) activity5, (CharSequence) str2, identifier, false).aYR();
             }
         } else if (q.l((Object) methodCall.method, (Object) "showWithStatus")) {
             ProgresshudPluginKt.getDialog().showWithStatus(methodCall.arguments.toString(), ProgresshudPluginKt.getMaskType());
         } else if (q.l((Object) methodCall.method, (Object) "showInfoWithStatus")) {
             ProgresshudPluginKt.getDialog().showInfoWithStatus(methodCall.arguments.toString(), ProgresshudPluginKt.getMaskType());
         } else if (q.l((Object) methodCall.method, (Object) "showErrorWithStatus")) {
+            activity4 = ProgresshudPluginKt.mCurrentActivity;
+            l.showToast(activity4, methodCall.arguments.toString());
+        } else if (q.l((Object) methodCall.method, (Object) "showSuccessWithStatus")) {
             activity3 = ProgresshudPluginKt.mCurrentActivity;
             l.showToast(activity3, methodCall.arguments.toString());
-        } else if (q.l((Object) methodCall.method, (Object) "showSuccessWithStatus")) {
+        } else if (q.l((Object) methodCall.method, (Object) "showAttentionWithStatusForTime")) {
+            String str3 = (String) methodCall.argument("status");
+            Object argument = methodCall.argument("time");
+            if (argument == null) {
+                q.dUg();
+            }
+            double doubleValue = ((Number) argument).doubleValue();
             activity2 = ProgresshudPluginKt.mCurrentActivity;
-            l.showToast(activity2, methodCall.arguments.toString());
+            l.showToast(activity2, str3, ((int) doubleValue) * 1000);
         } else if (q.l((Object) methodCall.method, (Object) "setDefaultMaskTypeNone")) {
             ProgresshudPluginKt.setMaskType(SVProgressHUD.SVProgressHUDMaskType.None);
         } else if (q.l((Object) methodCall.method, (Object) "setDefaultMaskTypeBlack")) {

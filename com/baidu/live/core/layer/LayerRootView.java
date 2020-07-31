@@ -4,9 +4,9 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.widget.FrameLayout;
-/* loaded from: classes3.dex */
-public class LayerRootView extends FrameLayout {
+import android.widget.RelativeLayout;
+/* loaded from: classes4.dex */
+public class LayerRootView extends RelativeLayout {
     public LayerRootView(@NonNull Context context) {
         super(context);
     }

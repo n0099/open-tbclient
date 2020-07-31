@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.TYPE})
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public @interface d {
-    double dHz();
+    double dKU();
 }

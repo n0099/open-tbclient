@@ -1,7 +1,7 @@
 package com.kascend.chushou.b.a.a;
 
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h {
     public final int a;
     private final HashMap<String, Object> b = new HashMap<>();

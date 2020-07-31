@@ -6,23 +6,23 @@ import android.text.TextUtils;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a {
     @NonNull
     public static String b(@NonNull String str, com.baidu.swan.mini.b.a aVar) {
-        String ti = b.ti(aVar.aGx().getAppId());
-        return "window.___NA_SWAN_MINI___.___swan_mini_master_loaded___('" + str + "', '" + ti + "', '" + b.ti(aVar.aGx().getBundleId()) + "');";
+        String ul = b.ul(aVar.aKo().getAppId());
+        return "window.___NA_SWAN_MINI___.___swan_mini_master_loaded___('" + str + "', '" + ul + "', '" + b.ul(aVar.aKo().getBundleId()) + "');";
     }
 
     @NonNull
     public static String u(@NonNull String str, @NonNull String str2, boolean z) {
-        return "var event = new Object(); event.type = 'AppReady';event.isShowing = " + z + ";event.appPackagePath = '" + b.ti(str) + "';event.appConfig = '{}'; event.appCodeInfoStr = '" + b.ti(str2) + "'; _naSwan.dispatchEvent(event);";
+        return "var event = new Object(); event.type = 'AppReady';event.isShowing = " + z + ";event.appPackagePath = '" + b.ul(str) + "';event.appConfig = '{}'; event.appCodeInfoStr = '" + b.ul(str2) + "'; _naSwan.dispatchEvent(event);";
     }
 
     @NonNull
     public static String a(String str, @NonNull String str2, @NonNull com.baidu.swan.mini.b.a aVar) {
-        String ti = b.ti(aVar.aGx().getAppId());
-        return "window.___NA_SWAN_MINI___.___swan_mini_slave_app_loaded___('" + ti + "', '" + b.ti(aVar.aGx().getBundleId()) + "', " + str2 + ", '" + str + "');";
+        String ul = b.ul(aVar.aKo().getAppId());
+        return "window.___NA_SWAN_MINI___.___swan_mini_slave_app_loaded___('" + ul + "', '" + b.ul(aVar.aKo().getBundleId()) + "', " + str2 + ", '" + str + "');";
     }
 
     @NonNull

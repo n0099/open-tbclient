@@ -1,5 +1,5 @@
 package com.baidu.megapp.ma;
-/* loaded from: classes.dex */
+/* loaded from: classes9.dex */
 public class MABottomToolBar {
     private CommonToolBarType mCommonToolBarType = CommonToolBarType.TOOL_BAR_STYLE_NO;
     private CommonMenuType mCommonMenuType = CommonMenuType.MENU_STYLE_NO;
@@ -8,7 +8,7 @@ public class MABottomToolBar {
     private OnCommonToolBarItemClickListener mOnCommonToolBarItemClickListener = null;
 
     @Deprecated
-    /* loaded from: classes.dex */
+    /* loaded from: classes9.dex */
     public enum CommonMenuType {
         MENU_STYLE_NO,
         MENU_STYLE_NS_NA,
@@ -16,7 +16,7 @@ public class MABottomToolBar {
         MENU_STYLE_AD_IMMERSIVE_LANDING_PAGE
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes9.dex */
     public enum CommonToolBarType {
         TOOL_BAR_STYLE_NO,
         TOOL_BAR_STYLE_NS,
@@ -25,12 +25,12 @@ public class MABottomToolBar {
     }
 
     @Deprecated
-    /* loaded from: classes.dex */
+    /* loaded from: classes9.dex */
     public interface OnCommonToolBarClickListener {
         void onBackClick();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes9.dex */
     public interface OnCommonToolBarItemClickListener {
         public static final int TOOL_ITEM_BACK = 1;
         public static final int TOOL_ITEM_SHARE = 2;
@@ -39,7 +39,7 @@ public class MABottomToolBar {
     }
 
     @Deprecated
-    /* loaded from: classes.dex */
+    /* loaded from: classes9.dex */
     public interface OnCommonToolMenuClickListener {
         void onRefreshClick();
 

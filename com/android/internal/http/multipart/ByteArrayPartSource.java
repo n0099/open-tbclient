@@ -1,7 +1,7 @@
 package com.android.internal.http.multipart;
 
 import java.io.InputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public class ByteArrayPartSource implements PartSource {
     public ByteArrayPartSource(String str, byte[] bArr) {
         throw new RuntimeException("Stub!");

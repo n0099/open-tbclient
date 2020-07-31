@@ -4,7 +4,7 @@ import android.os.Looper;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.shell.callback.SapiCallBack;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class J extends HttpHandlerWrap {
     final /* synthetic */ SapiCallBack a;
     final /* synthetic */ L b;

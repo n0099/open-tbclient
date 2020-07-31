@@ -10,8 +10,9 @@ import com.baidu.android.imsdk.account.IKickOutListener;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.sync.SyncAllMessage;
 import com.baidu.android.imsdk.chatmessage.sync.SyncGroupMessageService;
-import com.baidu.android.imsdk.chatuser.ChatUserManager;
-import com.baidu.android.imsdk.chatuser.IGetUkByBuidListener;
+import com.baidu.android.imsdk.chatuser.ChatUser;
+import com.baidu.android.imsdk.chatuser.ChatUserManagerImpl;
+import com.baidu.android.imsdk.chatuser.IGetUserIdentityListener;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.group.GroupInfo;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
@@ -49,7 +50,7 @@ public class ChatMsgManager extends BaseManager {
         }
     }
 
-    public static void forwardMessage(final Context context, final String str, int i, final ChatMsg chatMsg, final ISendMessageListener iSendMessageListener) {
+    public static void forwardMessage(final Context context, String str, int i, final ChatMsg chatMsg, final ISendMessageListener iSendMessageListener) {
         long j;
         long j2;
         if (TextUtils.isEmpty(str) || chatMsg == null) {
@@ -72,21 +73,25 @@ public class ChatMsgManager extends BaseManager {
                 iSendMessageListener.onSendMessageResult(1005, chatMsg);
             }
         } else if (i == 0) {
-            ChatUserManager.getUKbyBuid(context, j, new IGetUkByBuidListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManager.1
-                @Override // com.baidu.android.imsdk.chatuser.IGetUkByBuidListener
-                public void onFetchUk(int i2, long j3, long j4) {
-                    ChatMsg.this.setRowId(-1L);
-                    ChatMsg.this.setCategory(0);
-                    ChatMsg.this.setContacter(j4);
-                    ChatMsg.this.setFromUser(AccountManager.getUK(context));
-                    ChatMsg.this.setStatus(1);
-                    ChatMsg.this.setSenderUid(AccountManager.getUid(context));
-                    ChatMsg.this.setContacterBduid(str);
-                    ChatMsg.this.setIsZhida(false);
-                    ChatMsg.this.setChatType(0);
-                    ChatMsg.this.setMsgTime(System.currentTimeMillis());
-                    ChatMsg.this.parseForwardmessage(0);
-                    ChatMsgManager.sendMessage(context, ChatMsg.this, iSendMessageListener);
+            chatMsg.setRowId(-1L);
+            chatMsg.setCategory(0);
+            chatMsg.setFromUser(AccountManager.getUK(context));
+            chatMsg.setStatus(1);
+            chatMsg.setSenderUid(AccountManager.getUid(context));
+            chatMsg.setContacterBduid(str);
+            chatMsg.setIsZhida(false);
+            chatMsg.setChatType(0);
+            chatMsg.parseForwardmessage(0);
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(Long.valueOf(j));
+            ChatUserManagerImpl.getInstance(context).updateUserIdentity(arrayList, new IGetUserIdentityListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManager.1
+                @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
+                public void onGetUserIdentityResult(int i2, List<ChatUser> list) {
+                    if (i2 == 0 && list != null) {
+                        ChatMsg.this.setContacter(list.get(0).getUk());
+                        ChatMsg.this.setMsgTime(System.currentTimeMillis());
+                        ChatMsgManager.sendMessage(context, ChatMsg.this, iSendMessageListener);
+                    }
                 }
             });
         } else if (i == 1) {
@@ -292,6 +297,13 @@ public class ChatMsgManager extends BaseManager {
             return null;
         }
         return ChatMsgManagerImpl.getInstance(context).getPaMsgByChatType(i, i2);
+    }
+
+    public static List<ChatMsg> getPaMsgByChatType(Context context, List<Integer> list, int i) {
+        if (isNullContext(context)) {
+            return null;
+        }
+        return ChatMsgManagerImpl.getInstance(context).getPaMsgByChatType(list, i);
     }
 
     public static void getPaMsgByChatTypeAndPaidList(Context context, List<Integer> list, List<Long> list2, long j, int i, IFetchNotificationDataListener iFetchNotificationDataListener) {

@@ -1,7 +1,7 @@
 package com.baidu.platform.base;
 
 import com.baidu.mapapi.search.core.SearchResult;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class c implements Runnable {
     final /* synthetic */ d a;
     final /* synthetic */ SearchResult b;

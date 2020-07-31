@@ -12,7 +12,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class KeyboardAdjust {
     private static final int TIME_RESIZE_DEALY_LONG = 200;
     private FrameLayout content;

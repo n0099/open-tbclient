@@ -14,7 +14,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.FacePackageDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.data.ab;
+import com.baidu.tbadk.core.data.ac;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.BannerView;
@@ -24,25 +24,25 @@ import com.baidu.tieba.tbadkCore.d.a;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
-    private static final Pattern lej = Pattern.compile("(/p/){1}(\\d+)");
-    private ab eoN;
-    private BannerView hSS = null;
-    private boolean hSU = false;
-    BannerView.a hSX = new BannerView.a() { // from class: com.baidu.tieba.recapp.b.2
+    private static final Pattern llx = Pattern.compile("(/p/){1}(\\d+)");
+    private ac evc;
+    private BannerView hYR = null;
+    private boolean hYT = false;
+    BannerView.a hYW = new BannerView.a() { // from class: com.baidu.tieba.recapp.b.2
         @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-        public void bdp() {
-            b.this.cdh();
+        public void bgW() {
+            b.this.cgG();
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-        public void bdq() {
-            b.this.cdj();
+        public void bgX() {
+            b.this.cgI();
         }
     };
-    private com.baidu.tieba.InjectPlugin.a.c leh;
-    private a.InterfaceC0509a lei;
+    private com.baidu.tieba.InjectPlugin.a.c llv;
+    private a.InterfaceC0521a llw;
     private String mForumId;
     private String mForumName;
     private TbPageContext mPageContext;
@@ -51,9 +51,9 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
     @Override // com.baidu.tieba.InjectPlugin.a.a
     /* renamed from: b */
     public void init(com.baidu.tieba.InjectPlugin.a.c cVar) {
-        this.leh = cVar;
-        if (this.leh != null && (this.leh.bmA() instanceof TbPageContext)) {
-            this.mPageContext = (TbPageContext) this.leh.bmA();
+        this.llv = cVar;
+        if (this.llv != null && (this.llv.bqu() instanceof TbPageContext)) {
+            this.mPageContext = (TbPageContext) this.llv.bqu();
         }
     }
 
@@ -67,43 +67,43 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
 
     @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a
     public void setData(Object obj) {
-        if (obj instanceof ab) {
-            this.eoN = (ab) obj;
+        if (obj instanceof ac) {
+            this.evc = (ac) obj;
         }
     }
 
     @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a
-    public void a(a.InterfaceC0509a interfaceC0509a) {
-        this.lei = interfaceC0509a;
+    public void a(a.InterfaceC0521a interfaceC0521a) {
+        this.llw = interfaceC0521a;
     }
 
     @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a
-    public void bmv() {
-        if (this.mPageContext != null && this.lei != null) {
-            if (this.eoN == null) {
-                cdj();
-            } else if (!this.eoN.isValid()) {
-                cdj();
+    public void bqp() {
+        if (this.mPageContext != null && this.llw != null) {
+            if (this.evc == null) {
+                cgI();
+            } else if (!this.evc.isValid()) {
+                cgI();
             } else {
-                if (!this.hSU) {
-                    if (this.hSS == null) {
-                        this.hSS = new BannerView(this.mPageContext.getPageActivity());
-                        this.hSS.setVisibility(8);
-                        this.hSS.setBannerViewClickListener(this.hSX);
-                        this.hSS.setBannerViewEvent(new TbImageView.a() { // from class: com.baidu.tieba.recapp.b.1
+                if (!this.hYT) {
+                    if (this.hYR == null) {
+                        this.hYR = new BannerView(this.mPageContext.getPageActivity());
+                        this.hYR.setVisibility(8);
+                        this.hYR.setBannerViewClickListener(this.hYW);
+                        this.hYR.setBannerViewEvent(new TbImageView.a() { // from class: com.baidu.tieba.recapp.b.1
                             @Override // com.baidu.tbadk.widget.TbImageView.a
                             public void onComplete(String str, boolean z) {
                                 if (z) {
-                                    if (b.this.eoN != null && b.this.eoN.dIN) {
-                                        String aQu = b.this.eoN.aQu();
-                                        if (!StringUtils.isNULL(aQu)) {
-                                            b.this.LF(aQu);
+                                    if (b.this.evc != null && b.this.evc.dOY) {
+                                        String aUq = b.this.evc.aUq();
+                                        if (!StringUtils.isNULL(aUq)) {
+                                            b.this.Mn(aUq);
                                         }
-                                        b.this.eoN.dIN = false;
+                                        b.this.evc.dOY = false;
                                     }
-                                    if (b.this.hSS != null && b.this.hSS.bdn() && !b.this.hSU) {
-                                        b.this.hSU = true;
-                                        b.this.lei.a(b.this.leh, b.this.hSS);
+                                    if (b.this.hYR != null && b.this.hYR.bgU() && !b.this.hYT) {
+                                        b.this.hYT = true;
+                                        b.this.llw.a(b.this.llv, b.this.hYR);
                                     }
                                 }
                             }
@@ -112,60 +112,60 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
                             public void onCancel() {
                             }
                         });
-                        if (this.eoN.getValue().startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL)) {
+                        if (this.evc.getValue().startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL)) {
                             TiebaStatic.eventStat(this.mPageContext.getPageActivity(), "game_show", "show", 1, "ref_id", CommonStatisticKey.REF_TYPE_FRS_AD, "ref_type", "603");
                         }
                     } else {
                         return;
                     }
                 } else {
-                    this.lei.a(this.leh, this.hSS);
+                    this.llw.a(this.llv, this.hYR);
                 }
-                this.hSS.setBannerData(this.eoN);
-                this.hSS.reset();
-                if (this.eoN.getType() == 1 && !TextUtils.isEmpty(this.eoN.aQC())) {
-                    this.hSS.setData(this.mPageContext, this.eoN.aQC());
+                this.hYR.setBannerData(this.evc);
+                this.hYR.reset();
+                if (this.evc.getType() == 1 && !TextUtils.isEmpty(this.evc.aUy())) {
+                    this.hYR.setData(this.mPageContext, this.evc.aUy());
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cdj() {
-        if (this.hSS != null && this.lei != null) {
-            this.hSU = false;
-            this.lei.b(this.leh, this.hSS);
-            this.hSS = null;
+    public void cgI() {
+        if (this.hYR != null && this.llw != null) {
+            this.hYT = false;
+            this.llw.b(this.llv, this.hYR);
+            this.hYR = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cdh() {
-        if (this.eoN != null) {
-            String value = this.eoN.getValue();
-            String aQu = this.eoN.aQu();
-            if (this.eoN.aQB() == 1) {
+    public void cgG() {
+        if (this.evc != null) {
+            String value = this.evc.getValue();
+            String aUq = this.evc.aUq();
+            if (this.evc.aUx() == 1) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FacePackageDetailActivityConfig(this.mPageContext.getPageActivity(), value, false, "frs_banner")));
-                fj(aQu, value);
-            } else if (this.eoN.aQB() == 2) {
+                fl(aUq, value);
+            } else if (this.evc.aUx() == 2) {
                 if (value.contains("tieba.baidu.com")) {
-                    Matcher matcher = lej.matcher(value);
+                    Matcher matcher = llx.matcher(value);
                     if (matcher.find()) {
                         try {
                             PbActivityConfig createNormalCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(matcher.group(2), null, "frs_banner");
                             createNormalCfg.setVideo_source("frs");
                             this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
-                            fj(aQu, value);
+                            fl(aUq, value);
                         } catch (Exception e) {
                             BdLog.e(e.toString());
                         }
                     }
                 }
-            } else if (this.eoN.aQB() == 3) {
+            } else if (this.evc.aUx() == 3) {
                 new UtilHelper.a();
                 UtilHelper.a isNativeAddress = UtilHelper.isNativeAddress(value);
-                if (isNativeAddress.dVl != UtilHelper.NativePageType.NONE) {
-                    switch (isNativeAddress.dVl) {
+                if (isNativeAddress.ebG != UtilHelper.NativePageType.NONE) {
+                    switch (isNativeAddress.ebG) {
                         case FRS:
                             this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(isNativeAddress.id, "frs_banner")));
                             break;
@@ -176,52 +176,52 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
                             break;
                     }
                 } else {
-                    q.cYT().cYQ().c(this.mPageContext.getPageActivity(), new String[]{value});
+                    r.dca().dbX().c(this.mPageContext.getPageActivity(), new String[]{value});
                     if (!StringUtils.isNull(value) && value.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL)) {
                         TiebaStatic.eventStat(this.mPageContext.getPageActivity(), "frs_banner", "click", 1, "ref_id", CommonStatisticKey.REF_TYPE_FRS_AD, "ref_type", "603");
                     }
                 }
-                fj(aQu, value);
-            } else if (this.eoN.aQB() == 4) {
+                fl(aUq, value);
+            } else if (this.evc.aUx() == 4) {
                 this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(value, "frs_banner")));
-                fj(aQu, value);
+                fl(aUq, value);
             }
         }
     }
 
-    private void fj(String str, String str2) {
+    private void fl(String str, String str2) {
         if (!StringUtils.isNULL(str)) {
-            a.C0745a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0129", "ad_plat", "CLICK", str, this.mForumId, this.mForumName, null);
-            b.fz(TiebaInitialize.Params.OBJ_URL, str2);
+            a.C0755a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0129", "ad_plat", "CLICK", str, this.mForumId, this.mForumName, null);
+            b.fB(TiebaInitialize.Params.OBJ_URL, str2);
             b.save();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void LF(String str) {
+    public void Mn(String str) {
         if (!StringUtils.isNULL(str)) {
-            a.C0745a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0129", "ad_plat", "VIEW_TRUE", str, this.mForumId, this.mForumName, null);
-            b.fz(TiebaInitialize.Params.OBJ_URL, this.eoN.aQC());
+            a.C0755a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0129", "ad_plat", "VIEW_TRUE", str, this.mForumId, this.mForumName, null);
+            b.fB(TiebaInitialize.Params.OBJ_URL, this.evc.aUy());
             b.save();
         }
     }
 
     @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a
     public View getView() {
-        return this.hSS;
+        return this.hYR;
     }
 
     @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a
     public void setBannerMaskColor(int i) {
-        if (this.hSS != null) {
-            this.hSS.setBannerMaskColor(i);
+        if (this.hYR != null) {
+            this.hYR.setBannerMaskColor(i);
         }
     }
 
     @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a
     public void changeSkinType(int i) {
-        if (this.hSS != null) {
-            this.hSS.bdo();
+        if (this.hYR != null) {
+            this.hYR.bgV();
         }
     }
 }

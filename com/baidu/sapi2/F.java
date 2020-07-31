@@ -2,12 +2,13 @@ package com.baidu.sapi2;
 
 import android.os.Looper;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.sapi2.callback.GetUserInfoCallback;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.result.GetUserInfoResult;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class F extends HttpHandlerWrap {
     final /* synthetic */ GetUserInfoCallback a;
     final /* synthetic */ GetUserInfoResult b;
@@ -65,7 +66,7 @@ public class F extends HttpHandlerWrap {
                 this.b.portraitHttps = String.format("https://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, this.b.portraitSign);
             }
             this.b.username = jSONObject.optString("username");
-            this.b.uid = jSONObject.optString("userid");
+            this.b.uid = jSONObject.optString(DpStatConstants.KEY_USER_ID);
             this.b.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
             this.b.incompleteUser = "1".equals(jSONObject.optString("incomplete_user"));
             this.b.secureMobile = jSONObject.optString("securemobil");

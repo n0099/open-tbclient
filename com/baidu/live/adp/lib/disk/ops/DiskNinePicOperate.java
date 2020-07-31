@@ -9,7 +9,7 @@ import com.baidu.live.adp.lib.safe.BdCloseHelper;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DiskNinePicOperate extends DiskPicOperate {
     private Rect mRect;
 

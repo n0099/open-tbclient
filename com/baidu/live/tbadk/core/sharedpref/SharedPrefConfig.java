@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.sharedpref;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SharedPrefConfig {
     public static final String ACCOUNT_FIRST_LOGIN = "account_first_login_";
     public static final String ACCOUNT_SHARE = "account_share";

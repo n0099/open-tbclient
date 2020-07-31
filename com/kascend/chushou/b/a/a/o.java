@@ -2,7 +2,7 @@ package com.kascend.chushou.b.a.a;
 
 import android.content.Context;
 import com.kascend.chushou.constants.ListItem;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class o {
     public String b;
     public Context c;
@@ -10,5 +10,5 @@ public class o {
     public String e;
     public String f;
     public String g;
-    public ListItem neI;
+    public ListItem nnr;
 }

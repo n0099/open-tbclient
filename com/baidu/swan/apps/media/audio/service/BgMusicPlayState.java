@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.media.audio.service;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public enum BgMusicPlayState {
     PLAY,
     REPLAY,

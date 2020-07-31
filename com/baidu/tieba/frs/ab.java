@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class ab {
-    public boolean ecu = true;
-    public as hDF;
+    public boolean eiE = true;
+    public as hJD;
     public int tabId;
 }

@@ -9,7 +9,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,10 +18,10 @@ import android.view.WindowManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.t.a;
-import com.idlefish.flutterboost.BoostPluginRegistry;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.Utils;
 import com.idlefish.flutterboost.XFlutterView;
+import com.idlefish.flutterboost.XPlatformPlugin;
 import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
 import com.idlefish.flutterboost.interfaces.IOperateSyncer;
 import io.flutter.Log;
@@ -32,14 +31,13 @@ import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.android.SplashScreen;
 import io.flutter.embedding.android.SplashScreenProvider;
 import io.flutter.embedding.engine.FlutterEngine;
-import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
-import io.flutter.plugin.platform.PlatformPlugin;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer {
+    private static int ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE = 0;
     private static final String TAG = "FlutterActivityAndFragmentDelegate";
     @Nullable
     private FlutterEngine flutterEngine;
@@ -52,11 +50,11 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     private boolean isFlutterEngineFromHost;
     protected IOperateSyncer mSyncer;
     @Nullable
-    private PlatformPlugin platformPlugin;
+    private XPlatformPlugin platformPlugin;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public interface Host extends FlutterEngineConfigurator, FlutterEngineProvider, SplashScreenProvider {
+        @Override // io.flutter.embedding.android.FlutterEngineConfigurator
         void configureFlutterEngine(@NonNull FlutterEngine flutterEngine);
 
         @Nullable
@@ -79,7 +77,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         FlutterEngine provideFlutterEngine(@NonNull Context context);
 
         @Nullable
-        PlatformPlugin providePlatformPlugin(@Nullable Activity activity, @NonNull FlutterEngine flutterEngine);
+        XPlatformPlugin providePlatformPlugin(@NonNull FlutterEngine flutterEngine);
 
         @Nullable
         SplashScreen provideSplashScreen();
@@ -87,12 +85,10 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         void setSwipeBackEnable(boolean z);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public FlutterActivityAndFragmentDelegate(@NonNull Host host) {
         this.host = host;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void release() {
         this.host = null;
         this.flutterEngine = null;
@@ -100,28 +96,24 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         this.platformPlugin = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public FlutterEngine getFlutterEngine() {
         return this.flutterEngine;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public XFlutterView getFlutterView() {
         return this.flutterView;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void onAttach(@NonNull Context context) {
         ensureAlive();
         if (FlutterBoost.instance().platform().whenEngineStart() == FlutterBoost.ConfigBuilder.FLUTTER_ACTIVITY_CREATED) {
             FlutterBoost.instance().doInitialFlutter();
-            FlutterBoost.instance().boostPluginRegistry();
         }
         if (this.flutterEngine == null) {
             setupFlutterEngine();
         }
-        this.platformPlugin = this.host.providePlatformPlugin(this.host.getActivity(), this.flutterEngine);
+        this.platformPlugin = this.host.providePlatformPlugin(this.flutterEngine);
         this.host.configureFlutterEngine(this.flutterEngine);
         this.host.getActivity().getWindow().setFormat(-3);
         setDisplayMode();
@@ -168,12 +160,10 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         this.isFlutterEngineFromHost = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
     @SuppressLint({"ResourceType"})
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         Log.v(TAG, "Creating FlutterView.");
-        this.flutterEngine.getActivityControlSurface().attachToActivity(this.host.getActivity(), this.host.getLifecycle());
         this.mSyncer = FlutterBoost.instance().containerManager().generateSyncer(this);
         ensureAlive();
         this.flutterView = new XFlutterView(this.host.getActivity(), FlutterBoost.instance().platform().renderMode(), this.host.getTransparencyMode());
@@ -188,77 +178,69 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         return this.flutterSplashView;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void onStart() {
         Log.v(TAG, "onStart()");
         ensureAlive();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onResume(boolean z) {
+    public void onResume() {
         a.getInstance().setLastFlutterPage(getContainerUrl());
-        this.mSyncer.onAppear(z);
+        this.mSyncer.onAppear();
         Log.v(TAG, "onResume()");
         ensureAlive();
         this.flutterEngine.getLifecycleChannel().appIsResumed();
-        ActivityPluginBinding activityPluginBinding = ((BoostPluginRegistry) FlutterBoost.instance().getPluginRegistry()).getRegistrarAggregate().getActivityPluginBinding();
-        if (activityPluginBinding != null && activityPluginBinding.getActivity() != this.host.getActivity()) {
-            this.flutterEngine.getActivityControlSurface().attachToActivity(this.host.getActivity(), this.host.getLifecycle());
+        if (ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE == 0 || ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE != this.host.getActivity().hashCode()) {
+            this.flutterEngine.getActivityControlSurface().detachFromActivityForConfigChanges();
+            this.flutterEngine.getActivityControlSurface().attachToActivity(this.host.getActivity(), new androidx.lifecycle.a(this.host.getLifecycle()));
+            ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE = this.host.getActivity().hashCode();
+        }
+        if (this.platformPlugin != null) {
+            this.platformPlugin.attachToActivity(this.host.getActivity());
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void onPostResume() {
         Log.v(TAG, "onPostResume()");
         ensureAlive();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onPause(boolean z) {
+    public void onPause() {
         Log.v(TAG, "onPause()");
         ensureAlive();
-        this.mSyncer.onDisappear(z);
+        this.mSyncer.onDisappear();
         this.flutterEngine.getLifecycleChannel().appIsInactive();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void onStop() {
         Log.v(TAG, "onStop()");
         ensureAlive();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void onDestroyView() {
-        ActivityPluginBinding activityPluginBinding;
         Log.v(TAG, "onDestroyView()");
         this.mSyncer.onDestroy();
         ensureAlive();
-        BoostPluginRegistry boostPluginRegistry = (BoostPluginRegistry) FlutterBoost.instance().getPluginRegistry();
-        if (boostPluginRegistry != null && (activityPluginBinding = boostPluginRegistry.getRegistrarAggregate().getActivityPluginBinding()) != null && activityPluginBinding.getActivity() == this.host.getActivity()) {
-            boostPluginRegistry.getRegistrarAggregate().onDetachedFromActivityForConfigChanges();
-            this.flutterEngine.getActivityControlSurface().detachFromActivityForConfigChanges();
-        }
         this.flutterView.release();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void onDetach() {
         Log.v(TAG, "onDetach()");
         ensureAlive();
         if (this.platformPlugin != null) {
-            this.platformPlugin.destroy();
+            this.platformPlugin.detachActivity(getContextActivity());
             this.platformPlugin = null;
+        }
+        if (ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE != 0 || ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE == this.host.getActivity().hashCode()) {
+            this.flutterEngine.getActivityControlSurface().detachFromActivityForConfigChanges();
         }
         Utils.fixInputMethodManagerLeak(this.host.getActivity());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void onBackPressed() {
         this.mSyncer.onBackPressed();
         ensureAlive();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         this.mSyncer.onRequestPermissionsResult(i, strArr, iArr);
         ensureAlive();
@@ -270,7 +252,6 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         Log.w(TAG, "onRequestPermissionResult() invoked before NewFlutterFragment was attached to an Activity.");
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void onNewIntent(@NonNull Intent intent) {
         this.mSyncer.onNewIntent(intent);
         ensureAlive();
@@ -282,7 +263,6 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         Log.w(TAG, "onNewIntent() invoked before NewFlutterFragment was attached to an Activity.");
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void onActivityResult(int i, int i2, Intent intent) {
         this.mSyncer.onActivityResult(i, i2, intent);
         HashMap hashMap = new HashMap();
@@ -312,7 +292,6 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         Log.w(TAG, "onActivityResult() invoked before NewFlutterFragment was attached to an Activity.");
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void onUserLeaveHint() {
         ensureAlive();
         if (this.flutterEngine != null) {
@@ -323,7 +302,6 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         Log.w(TAG, "onUserLeaveHint() invoked before NewFlutterFragment was attached to an Activity.");
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void onTrimMemory(int i) {
         this.mSyncer.onTrimMemory(i);
         ensureAlive();
@@ -338,7 +316,6 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         Log.w(TAG, "onTrimMemory() invoked before NewFlutterFragment was attached to an Activity.");
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void onLowMemory() {
         Log.v(TAG, "Forwarding onLowMemory() to FlutterEngine.");
         this.mSyncer.onLowMemory();
@@ -363,7 +340,6 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IFlutterViewContainer
-    @RequiresApi(api = 5)
     public void finishContainer(Map<String, Object> map) {
         if (map != null) {
             setBoostResult(this.host.getActivity(), new HashMap(map));

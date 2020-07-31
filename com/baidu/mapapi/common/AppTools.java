@@ -1,7 +1,7 @@
 package com.baidu.mapapi.common;
 
 import com.baidu.mapsdkplatform.comjni.tools.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AppTools {
     public static String getBaiduMapToken() {
         return a.a();

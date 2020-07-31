@@ -14,35 +14,35 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class b {
     private static boolean j = false;
     private Context b;
-    private AsyncTask mGB;
+    private AsyncTask mOF;
     private String a = null;
-    private a mGA = null;
+    private a mOE = null;
     private Object d = null;
     private Map<String, String> e = new HashMap();
     private Map<String, String> f = new HashMap();
     private Map<String, String> g = new HashMap();
     private String h = "GET";
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public interface a {
         void a(Exception exc, int i, String str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bun.miitmdid.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0792b {
+    /* loaded from: classes19.dex */
+    public class C0801b {
         private String b;
         private int c;
-        private Exception mGE;
+        private Exception mOI;
 
-        public C0792b(String str, Exception exc, int i) {
+        public C0801b(String str, Exception exc, int i) {
             this.b = str;
-            this.mGE = exc;
+            this.mOI = exc;
             this.c = i;
         }
     }
@@ -89,7 +89,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0792b dxX() {
+    public C0801b dBj() {
         try {
             String b = b();
             if (j) {
@@ -113,7 +113,7 @@ public class b {
                 String readLine = bufferedReader.readLine();
                 if (readLine == null) {
                     bufferedReader.close();
-                    return new C0792b(sb.toString(), null, responseCode);
+                    return new C0801b(sb.toString(), null, responseCode);
                 }
                 sb.append(readLine);
             }
@@ -121,12 +121,12 @@ public class b {
             if (j) {
                 e.printStackTrace();
             }
-            return new C0792b(null, e, -1);
+            return new C0801b(null, e, -1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0792b dxY() {
+    public C0801b dBk() {
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(b()).openConnection();
             a(httpURLConnection);
@@ -173,7 +173,7 @@ public class b {
                     bufferedReader.close();
                     String sb4 = sb3.toString();
                     b("\nPOST RESPONSE : " + sb4);
-                    return new C0792b(sb4, null, responseCode);
+                    return new C0801b(sb4, null, responseCode);
                 }
                 sb3.append(readLine);
             }
@@ -181,22 +181,22 @@ public class b {
             if (j) {
                 e.printStackTrace();
             }
-            return new C0792b(null, e, -1);
+            return new C0801b(null, e, -1);
         }
     }
 
-    public static b fR(@NonNull Context context) {
+    public static b fU(@NonNull Context context) {
         return new b(context);
     }
 
-    public b Qs(@NonNull String str) {
+    public b Rd(@NonNull String str) {
         this.a = str;
         this.h = "POST";
         return this;
     }
 
     public b a(a aVar) {
-        this.mGA = aVar;
+        this.mOE = aVar;
         return this;
     }
 
@@ -206,30 +206,30 @@ public class b {
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [com.bun.miitmdid.b.b$1] */
-    public b dxW() {
-        this.mGB = new AsyncTask<Void, Void, C0792b>() { // from class: com.bun.miitmdid.b.b.1
-            b mGC;
+    public b dBi() {
+        this.mOF = new AsyncTask<Void, Void, C0801b>() { // from class: com.bun.miitmdid.b.b.1
+            b mOG;
 
             {
-                this.mGC = b.this;
+                this.mOG = b.this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             /* renamed from: a */
-            public void onPostExecute(C0792b c0792b) {
-                super.onPostExecute(c0792b);
-                if (b.this.mGA != null) {
-                    if (c0792b == null) {
-                        b.this.mGA.a(new Exception("Unknown Error"), -1, null);
-                    } else if (c0792b.mGE != null) {
-                        b.this.mGA.a(c0792b.mGE, -1, null);
+            public void onPostExecute(C0801b c0801b) {
+                super.onPostExecute(c0801b);
+                if (b.this.mOE != null) {
+                    if (c0801b == null) {
+                        b.this.mOE.a(new Exception("Unknown Error"), -1, null);
+                    } else if (c0801b.mOI != null) {
+                        b.this.mOE.a(c0801b.mOI, -1, null);
                     } else {
                         try {
-                            b.this.mGA.a(null, c0792b.c, c0792b.b);
+                            b.this.mOE.a(null, c0801b.c, c0801b.b);
                         } catch (Exception e) {
-                            b.this.mGA.a(e, -1, null);
+                            b.this.mOE.a(e, -1, null);
                         }
                     }
                 }
@@ -239,14 +239,14 @@ public class b {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             /* renamed from: q */
-            public C0792b doInBackground(Void... voidArr) {
-                return this.mGC.h.equalsIgnoreCase("GET") ? b.this.dxX() : b.this.dxY();
+            public C0801b doInBackground(Void... voidArr) {
+                return this.mOG.h.equalsIgnoreCase("GET") ? b.this.dBj() : b.this.dBk();
             }
         }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         return this;
     }
 
-    public b fQ(@NonNull String str, @NonNull String str2) {
+    public b fS(@NonNull String str, @NonNull String str2) {
         this.g.put(str, str2);
         return this;
     }

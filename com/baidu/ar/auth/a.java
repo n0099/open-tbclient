@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import com.baidu.ar.callback.ICallbackWith;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class a {
     private static com.baidu.ar.f.f<k> iY = new com.baidu.ar.f.f<>("com.baidu.ar.auth.ARAuthFacade");
 

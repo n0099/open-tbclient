@@ -1,5 +1,5 @@
 package com.baidu.live.adp.framework;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class Priority {
     private int mPriority = 0;
 

@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import org.json.JSONException;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c extends a<Object> {
     public static final Charset a = Charset.forName("UTF-8");
 

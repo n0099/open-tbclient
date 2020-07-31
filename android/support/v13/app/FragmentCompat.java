@@ -11,12 +11,12 @@ import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import java.util.Arrays;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class FragmentCompat {
     static final FragmentCompatImpl IMPL;
     private static PermissionCompatDelegate sDelegate;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     interface FragmentCompatImpl {
         void requestPermissions(Fragment fragment, String[] strArr, int i);
 
@@ -26,20 +26,20 @@ public class FragmentCompat {
     }
 
     @Deprecated
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public interface OnRequestPermissionsResultCallback {
         @Deprecated
         void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
     }
 
     @Deprecated
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public interface PermissionCompatDelegate {
         @Deprecated
         boolean requestPermissions(Fragment fragment, String[] strArr, int i);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     static class FragmentCompatBaseImpl implements FragmentCompatImpl {
         FragmentCompatBaseImpl() {
         }
@@ -77,7 +77,7 @@ public class FragmentCompat {
     }
 
     @RequiresApi(15)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     static class FragmentCompatApi15Impl extends FragmentCompatBaseImpl {
         FragmentCompatApi15Impl() {
         }
@@ -89,7 +89,7 @@ public class FragmentCompat {
     }
 
     @RequiresApi(23)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     static class FragmentCompatApi23Impl extends FragmentCompatApi15Impl {
         FragmentCompatApi23Impl() {
         }
@@ -106,7 +106,7 @@ public class FragmentCompat {
     }
 
     @RequiresApi(24)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     static class FragmentCompatApi24Impl extends FragmentCompatApi23Impl {
         FragmentCompatApi24Impl() {
         }

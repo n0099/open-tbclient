@@ -13,9 +13,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
+    private String MJ;
     private String MK;
-    private String MN;
-    private Map<String, String> MO;
+    private Map<String, String> MN;
     private String mAction;
     private c mCommonData;
     private String mErrorCode;
@@ -27,8 +27,8 @@ public class g {
         this.mCommonData = cVar;
     }
 
-    public void bV(String str) {
-        this.MK = str;
+    public void bT(String str) {
+        this.MJ = str;
     }
 
     public void setAction(String str) {
@@ -43,11 +43,11 @@ public class g {
         this.mErrorMessage = str;
     }
 
-    public void x(String str, String str2) {
-        if (this.MO == null) {
-            this.MO = new HashMap();
+    public void u(String str, String str2) {
+        if (this.MN == null) {
+            this.MN = new HashMap();
         }
-        this.MO.put(str, str2);
+        this.MN.put(str, str2);
     }
 
     public JSONObject lJ() {
@@ -58,7 +58,7 @@ public class g {
                 jSONObject2.put("app_version", this.mCommonData.mAppVersion);
                 jSONObject2.put("client_timestamp", Long.toString(System.currentTimeMillis()));
                 jSONObject2.put("cuid", this.mCommonData.mCuid);
-                jSONObject2.put("shoubai_cuid", this.mCommonData.Mo);
+                jSONObject2.put("shoubai_cuid", this.mCommonData.Mn);
                 jSONObject2.put("from", this.mCommonData.mChannel);
                 jSONObject2.put("uid", this.mCommonData.mUid);
             }
@@ -72,8 +72,8 @@ public class g {
             jSONObject2.put("mission_id", f.lI());
             jSONObject.put("base_info", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            if (this.MK != null) {
-                jSONObject3.put(BdStatsConstant.StatsKey.TYPE, this.MK);
+            if (this.MJ != null) {
+                jSONObject3.put(BdStatsConstant.StatsKey.TYPE, this.MJ);
             }
             if (this.mAction != null) {
                 jSONObject3.put("action", this.mAction);
@@ -84,9 +84,9 @@ public class g {
             if (this.mErrorMessage != null) {
                 jSONObject3.put("error_message", this.mErrorMessage);
             }
-            if (this.MO != null) {
+            if (this.MN != null) {
                 StringBuilder sb = new StringBuilder();
-                for (Map.Entry<String, String> entry : this.MO.entrySet()) {
+                for (Map.Entry<String, String> entry : this.MN.entrySet()) {
                     sb.append(entry.getKey());
                     sb.append(":");
                     sb.append(entry.getValue());
@@ -103,8 +103,8 @@ public class g {
             if (this.mTitle != null) {
                 jSONObject3.put("title", this.mTitle);
             }
-            if (this.MN != null) {
-                jSONObject3.put("abstract", this.MN);
+            if (this.MK != null) {
+                jSONObject3.put("abstract", this.MK);
             }
             jSONObject.put("debug_info", jSONObject3);
             jSONObject.put("kpi", new JSONObject());

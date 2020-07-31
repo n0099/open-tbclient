@@ -1,11 +1,11 @@
 package com.baidu.mario.a.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
-    void cE(boolean z);
-
-    void cF(boolean z);
-
     void cG(boolean z);
 
     void cH(boolean z);
+
+    void cI(boolean z);
+
+    void cJ(boolean z);
 }

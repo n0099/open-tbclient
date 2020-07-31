@@ -1,5 +1,6 @@
 package com.baidu.tieba.m;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -48,14 +49,14 @@ final class d {
         long j = aVar.size;
         randomAccessFile.seek(aVar.offset);
         byte[] bArr = new byte[16384];
-        int read = randomAccessFile.read(bArr, 0, (int) Math.min(16384L, j));
+        int read = randomAccessFile.read(bArr, 0, (int) Math.min((long) PlaybackStateCompat.ACTION_PREPARE, j));
         while (read != -1) {
             crc32.update(bArr, 0, read);
             j -= read;
             if (j == 0) {
                 break;
             }
-            read = randomAccessFile.read(bArr, 0, (int) Math.min(16384L, j));
+            read = randomAccessFile.read(bArr, 0, (int) Math.min((long) PlaybackStateCompat.ACTION_PREPARE, j));
         }
         return crc32.getValue();
     }

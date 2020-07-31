@@ -6,37 +6,37 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class a extends BaseAdapter {
-    private boolean hpj = false;
-    private com.baidu.tieba.location.data.a jxo;
-    private SearchLocationActivity jxp;
-    private NoDataView jxq;
+    private boolean huV = false;
+    private com.baidu.tieba.location.data.a jFS;
+    private SearchLocationActivity jFT;
+    private NoDataView jFU;
 
     public a(SearchLocationActivity searchLocationActivity) {
-        this.jxp = searchLocationActivity;
+        this.jFT = searchLocationActivity;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.jxo == null || this.jxo.czn() == null || this.jxo.czn().isEmpty()) {
-            this.hpj = false;
+        if (this.jFS == null || this.jFS.cDk() == null || this.jFS.cDk().isEmpty()) {
+            this.huV = false;
             return 1;
         }
-        this.hpj = true;
-        return this.jxo.czn().size();
+        this.huV = true;
+        return this.jFS.cDk().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.jxo == null || this.jxo.czn() == null || this.jxo.czn().isEmpty()) {
+        if (this.jFS == null || this.jFS.cDk() == null || this.jFS.cDk().isEmpty()) {
             return null;
         }
-        return this.jxo.czn().get(i);
+        return this.jFS.cDk().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -46,57 +46,57 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (!this.hpj) {
-            return bY(viewGroup);
+        if (!this.huV) {
+            return bZ(viewGroup);
         }
-        C0678a c0678a = null;
-        if (view != null && (view.getTag() instanceof C0678a)) {
-            c0678a = (C0678a) view.getTag();
+        C0689a c0689a = null;
+        if (view != null && (view.getTag() instanceof C0689a)) {
+            c0689a = (C0689a) view.getTag();
         }
-        if (c0678a == null) {
-            view = LayoutInflater.from(this.jxp.getPageContext().getPageActivity()).inflate(R.layout.location_search_item_layout, viewGroup, false);
-            c0678a = cv(view);
-            view.setTag(c0678a);
+        if (c0689a == null) {
+            view = LayoutInflater.from(this.jFT.getPageContext().getPageActivity()).inflate(R.layout.location_search_item_layout, viewGroup, false);
+            c0689a = cB(view);
+            view.setTag(c0689a);
         }
-        C0678a c0678a2 = c0678a;
-        c0678a2.jxr.setText(this.jxo.czn().get(i).getName());
-        an.setBackgroundColor(c0678a2.gCZ, R.color.cp_bg_line_c);
-        an.setViewTextColor(c0678a2.jxr, R.color.cp_cont_b, 1);
-        an.setBackgroundResource(view, R.drawable.home_recommend_item_bg);
+        C0689a c0689a2 = c0689a;
+        c0689a2.jFV.setText(this.jFS.cDk().get(i).getName());
+        ao.setBackgroundColor(c0689a2.gIw, R.color.cp_bg_line_c);
+        ao.setViewTextColor(c0689a2.jFV, R.color.cp_cont_b, 1);
+        ao.setBackgroundResource(view, R.drawable.home_recommend_item_bg);
         return view;
     }
 
     public void a(com.baidu.tieba.location.data.a aVar) {
-        this.jxo = aVar;
+        this.jFS = aVar;
     }
 
-    public boolean czr() {
-        return this.hpj;
+    public boolean cDo() {
+        return this.huV;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.location.selectpoi.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class C0678a {
-        View gCZ;
-        TextView jxr;
+    /* loaded from: classes17.dex */
+    public class C0689a {
+        View gIw;
+        TextView jFV;
 
-        private C0678a() {
+        private C0689a() {
         }
     }
 
-    public C0678a cv(View view) {
-        C0678a c0678a = new C0678a();
-        c0678a.jxr = (TextView) view.findViewById(R.id.location_search_address_name);
-        c0678a.gCZ = view.findViewById(R.id.location_search_line);
-        return c0678a;
+    public C0689a cB(View view) {
+        C0689a c0689a = new C0689a();
+        c0689a.jFV = (TextView) view.findViewById(R.id.location_search_address_name);
+        c0689a.gIw = view.findViewById(R.id.location_search_line);
+        return c0689a;
     }
 
-    public View bY(ViewGroup viewGroup) {
+    public View bZ(ViewGroup viewGroup) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.jxq = NoDataViewFactory.a(this.jxp.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.mm(R.string.text_try_to_chage_location), null);
-        this.jxq.onChangeSkinType(this.jxp.getPageContext(), skinType);
-        this.jxq.setVisibility(0);
-        return this.jxq;
+        this.jFU = NoDataViewFactory.a(this.jFT.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.mF(R.string.text_try_to_chage_location), null);
+        this.jFU.onChangeSkinType(this.jFT.getPageContext(), skinType);
+        this.jFU.setVisibility(0);
+        return this.jFU;
     }
 }

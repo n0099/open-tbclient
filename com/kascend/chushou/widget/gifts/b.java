@@ -17,14 +17,14 @@ import com.kascend.chushou.a;
 import java.util.ArrayList;
 import java.util.List;
 import tv.chushou.zues.widget.adapterview.recyclerview.a.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends PopupWindow implements View.OnClickListener {
     private static final int[] b = {6666, ResponseCode.MCASAT_SEND_MSG_COLSE_ROOM, UIMsg.m_AppUI.MSG_PLACEFIELD_RELOAD, Opcodes.NEWARRAY, 66, 10, 1};
     private static final int[] c = {a.i.str_gift_count_6666, a.i.str_gift_count_1314, a.i.str_gift_count_520, a.i.str_gift_count_188, a.i.str_gift_count_66, a.i.str_gift_count_10, a.i.str_gift_count_1};
     private List<Pair<String, String>> a;
-    private a nzw;
+    private a nIf;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(boolean z, int i);
     }
@@ -34,7 +34,7 @@ public class b extends PopupWindow implements View.OnClickListener {
         this.a = new ArrayList();
         View inflate = LayoutInflater.from(context).inflate(a.h.popup_gift_count, (ViewGroup) null, false);
         setContentView(inflate);
-        this.nzw = aVar;
+        this.nIf = aVar;
         inflate.findViewById(a.f.tv_customize).setOnClickListener(this);
         for (int i = 0; i < b.length; i++) {
             this.a.add(new Pair<>(String.valueOf(b[i]), context.getString(c[i])));
@@ -43,19 +43,19 @@ public class b extends PopupWindow implements View.OnClickListener {
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(new tv.chushou.zues.widget.adapterview.recyclerview.a.a<Pair<String, String>>(this.a, a.h.item_gift_count, new tv.chushou.zues.widget.adapterview.d() { // from class: com.kascend.chushou.widget.gifts.b.1
             @Override // tv.chushou.zues.widget.adapterview.d
-            public void B(View view, int i2) {
+            public void C(View view, int i2) {
                 Pair pair = (Pair) b.this.a.get(i2);
-                if (b.this.nzw != null) {
-                    b.this.nzw.a(false, Integer.parseInt((String) pair.first));
+                if (b.this.nIf != null) {
+                    b.this.nIf.a(false, Integer.parseInt((String) pair.first));
                 }
                 b.this.dismiss();
             }
         }) { // from class: com.kascend.chushou.widget.gifts.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // tv.chushou.zues.widget.adapterview.recyclerview.a.a
-            public void a(a.View$OnLongClickListenerC0941a view$OnLongClickListenerC0941a, Pair<String, String> pair) {
-                view$OnLongClickListenerC0941a.a(a.f.tv_count, (CharSequence) pair.first);
-                ((TextView) view$OnLongClickListenerC0941a.or(a.f.tv_desc)).setText((CharSequence) pair.second);
+            public void a(a.View$OnLongClickListenerC0956a view$OnLongClickListenerC0956a, Pair<String, String> pair) {
+                view$OnLongClickListenerC0956a.a(a.f.tv_count, (CharSequence) pair.first);
+                ((TextView) view$OnLongClickListenerC0956a.oK(a.f.tv_desc)).setText((CharSequence) pair.second);
             }
         });
         setWidth(tv.chushou.zues.utils.a.dip2px(context, 160.0f));
@@ -69,8 +69,8 @@ public class b extends PopupWindow implements View.OnClickListener {
     public void onClick(View view) {
         if (view.getId() == a.f.tv_customize) {
             dismiss();
-            if (this.nzw != null) {
-                this.nzw.a(true, -1);
+            if (this.nIf != null) {
+                this.nIf.a(true, -1);
             }
         }
     }

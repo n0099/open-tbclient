@@ -1,11 +1,11 @@
 package com.baidu.tieba.ala.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ala.data.b;
+import com.baidu.tieba.ala.data.c;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaGetRedPacketInfoResponseMessage extends JsonHttpResponsedMessage {
-    private b gwh;
+    private c gBE;
 
     public AlaGetRedPacketInfoResponseMessage() {
         super(1021160);
@@ -16,12 +16,12 @@ public class AlaGetRedPacketInfoResponseMessage extends JsonHttpResponsedMessage
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.gwh = new b();
-            this.gwh.parserJson(optJSONObject);
+            this.gBE = new c();
+            this.gBE.parserJson(optJSONObject);
         }
     }
 
-    public b bKI() {
-        return this.gwh;
+    public c bNO() {
+        return this.gBE;
     }
 }

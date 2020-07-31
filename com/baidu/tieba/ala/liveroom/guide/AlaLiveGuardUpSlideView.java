@@ -10,17 +10,17 @@ import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveGuardUpSlideView extends FrameLayout {
-    private ImageView eXF;
-    private AnimatorSet gio;
-    private ObjectAnimator gip;
-    private ObjectAnimator giq;
-    a gir;
+    private ImageView fcg;
+    private AnimatorSet gnm;
+    private ObjectAnimator gnn;
+    private ObjectAnimator gno;
+    a gnp;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        void la(boolean z);
+        void lD(boolean z);
     }
 
     public AlaLiveGuardUpSlideView(Context context) {
@@ -46,39 +46,39 @@ public class AlaLiveGuardUpSlideView extends FrameLayout {
     private void b(Context context, boolean z, boolean z2) {
         setBackgroundColor(getResources().getColor(a.d.sdk_black_alpha50));
         LayoutInflater.from(context).inflate(a.h.ala_liveroom_guard_upglide_layout, this);
-        this.eXF = (ImageView) findViewById(a.g.ala_liveroom_guard_image_hand);
+        this.fcg = (ImageView) findViewById(a.g.ala_liveroom_guard_image_hand);
     }
 
-    public void bFa() {
+    public void bIi() {
         setVisibility(0);
-        bFb();
+        bIj();
     }
 
-    private void bFb() {
+    private void bIj() {
         try {
-            if (this.gio == null) {
-                this.gio = new AnimatorSet();
-                this.gio.setDuration(2200L);
-                this.gip = ObjectAnimator.ofFloat(this.eXF, "translationY", 0.0f, -126.0f, -200.0f, -200.0f, 0.0f, 0.0f, 65.0f, 110.0f, 110.0f, 0.0f, 0.0f);
-                this.giq = ObjectAnimator.ofFloat(this.eXF, "alpha", 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f);
-                this.gip.setRepeatMode(1);
-                this.gip.setRepeatCount(-1);
-                this.giq.setRepeatMode(1);
-                this.giq.setRepeatCount(-1);
-                this.gio.play(this.gip).with(this.giq);
-                this.gio.setInterpolator(new LinearInterpolator());
-                this.gio.start();
+            if (this.gnm == null) {
+                this.gnm = new AnimatorSet();
+                this.gnm.setDuration(2200L);
+                this.gnn = ObjectAnimator.ofFloat(this.fcg, "translationY", 0.0f, -126.0f, -200.0f, -200.0f, 0.0f, 0.0f, 65.0f, 110.0f, 110.0f, 0.0f, 0.0f);
+                this.gno = ObjectAnimator.ofFloat(this.fcg, "alpha", 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f);
+                this.gnn.setRepeatMode(1);
+                this.gnn.setRepeatCount(-1);
+                this.gno.setRepeatMode(1);
+                this.gno.setRepeatCount(-1);
+                this.gnm.play(this.gnn).with(this.gno);
+                this.gnm.setInterpolator(new LinearInterpolator());
+                this.gnm.start();
             }
         } catch (OutOfMemoryError e) {
             System.gc();
-            if (this.gir != null) {
-                this.gir.la(true);
+            if (this.gnp != null) {
+                this.gnp.lD(true);
             }
         }
     }
 
     public void setOnEndListener(a aVar) {
-        this.gir = aVar;
+        this.gnp = aVar;
     }
 
     @Override // android.view.View
@@ -86,16 +86,16 @@ public class AlaLiveGuardUpSlideView extends FrameLayout {
         if (getVisibility() == 8) {
             return super.onTouchEvent(motionEvent);
         }
-        if (motionEvent.getAction() == 0 && this.gir != null) {
-            this.gir.la(false);
+        if (motionEvent.getAction() == 0 && this.gnp != null) {
+            this.gnp.lD(false);
         }
         return true;
     }
 
     public void onDestroy() {
-        if (this.gio != null) {
-            this.gio.cancel();
-            this.gio = null;
+        if (this.gnm != null) {
+            this.gnm.cancel();
+            this.gnm = null;
         }
     }
 }

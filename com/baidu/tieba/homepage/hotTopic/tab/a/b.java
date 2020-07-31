@@ -8,14 +8,14 @@ import com.baidu.adp.widget.ListView.x;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class b extends com.baidu.adp.widget.ListView.a<x, y> {
     private int mSkinType;
 
     public b(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), x.Wk);
+        super(tbPageContext.getPageActivity(), x.Wc);
         this.mSkinType = 3;
     }
 
@@ -33,8 +33,8 @@ public class b extends com.baidu.adp.widget.ListView.a<x, y> {
     public View a(int i, View view, ViewGroup viewGroup, x xVar, y yVar) {
         yVar.mTextView.setText(xVar.showText);
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
-            an.setImageResource(yVar.mImageView, xVar.resId);
-            an.setViewTextColor(yVar.mTextView, (int) R.color.cp_cont_d);
+            ao.setImageResource(yVar.mImageView, xVar.resId);
+            ao.setViewTextColor(yVar.mTextView, R.color.cp_cont_d);
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
         return view;

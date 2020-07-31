@@ -6,7 +6,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SortedList<T> {
     private static final int CAPACITY_GROWTH = 10;
     private static final int DELETION = 2;
@@ -484,7 +484,7 @@ public class SortedList<T> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Callback<T2> implements ListUpdateCallback, Comparator<T2> {
         public abstract boolean areContentsTheSame(T2 t2, T2 t22);
 
@@ -505,7 +505,7 @@ public class SortedList<T> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class BatchedCallback<T2> extends Callback<T2> {
         private final BatchingListUpdateCallback mBatchingListUpdateCallback;
         final Callback<T2> mWrappedCallback;

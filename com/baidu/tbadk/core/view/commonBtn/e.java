@@ -5,28 +5,28 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class e extends a {
-    private boolean dXu;
+    private boolean edO;
 
     public e() {
-        this.dXu = false;
-        this.egu = true;
-        this.ego = R.color.cp_cont_a;
-        this.egq = R.color.cp_link_tip_a;
-        this.dXu = false;
-        this.egz = this.bVw;
-        this.egy = this.egx;
+        this.edO = false;
+        this.emE = true;
+        this.emy = R.color.cp_cont_a;
+        this.emA = R.color.cp_link_tip_a;
+        this.edO = false;
+        this.minWidth = this.minHeight;
+        this.emI = this.emH;
     }
 
-    public void mG(@ColorRes int i) {
-        this.ego = i;
-        this.egq = R.color.cp_btn_j;
-        this.dXu = false;
-        if (this.egC != null) {
-            this.egC.aYR();
+    public void mZ(@ColorRes int i) {
+        this.emy = i;
+        this.emA = R.color.cp_btn_j;
+        this.edO = false;
+        if (this.emL != null) {
+            this.emL.bcO();
         }
     }
 
@@ -37,8 +37,8 @@ public class e extends a {
     }
 
     public void D(@DrawableRes int i, boolean z) {
-        this.egr[0] = i;
-        this.dPw = z;
+        this.emB[0] = i;
+        this.dVO = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -48,12 +48,12 @@ public class e extends a {
     }
 
     private Drawable Y(float f) {
-        return this.dXu ? W(f) : Z(f);
+        return this.edO ? W(f) : Z(f);
     }
 
     private Drawable Z(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(an.getColor(this.egq));
+        gradientDrawable.setColor(ao.getColor(this.emA));
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);
         return gradientDrawable;
@@ -61,14 +61,14 @@ public class e extends a {
 
     private Drawable W(float f) {
         GradientDrawable gradientDrawable;
-        int color = an.getColor(this.egq);
-        int[] iArr = {com.baidu.tieba.tbadkCore.c.EM(color), color};
+        int color = ao.getColor(this.emA);
+        int[] iArr = {com.baidu.tieba.tbadkCore.c.Fi(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();
-            gradientDrawable.setOrientation(this.egB);
+            gradientDrawable.setOrientation(this.emK);
             gradientDrawable.setColors(iArr);
         } else {
-            gradientDrawable = new GradientDrawable(this.egB, iArr);
+            gradientDrawable = new GradientDrawable(this.emK, iArr);
         }
         gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);

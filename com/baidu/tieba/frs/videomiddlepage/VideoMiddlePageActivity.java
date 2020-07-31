@@ -2,23 +2,25 @@ package com.baidu.tieba.frs.videomiddlepage;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
-    private VideoMiddlePageFragment ick;
+    private VideoMiddlePageFragment iim;
     private String mFrom;
     private String mId;
     private String mNid;
@@ -29,6 +31,11 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         super.onCreate(bundle);
         setContentView(R.layout.activity_video_middle_page_layout);
         init();
+        if (Build.VERSION.SDK_INT >= 28) {
+            if (TbSingleton.getInstance().isCutoutScreen(this) || TbSingleton.getInstance().isNotchScreen(this)) {
+                com.baidu.tieba.v.c.a(1, getWindow().getAttributes(), this);
+            }
+        }
     }
 
     private void init() {
@@ -36,33 +43,33 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         this.mId = intent.getStringExtra("PARAM_FID");
         this.mFrom = intent.getStringExtra("PARAM_FROM");
         this.mNid = intent.getStringExtra("key_nid");
-        IC();
-        cgp();
+        II();
+        cjO();
     }
 
-    private void cgp() {
-        ao aoVar = new ao("c12664");
+    private void cjO() {
+        ap apVar = new ap("c12664");
         if (!StringUtils.isNull(this.mFrom)) {
-            aoVar.dk("obj_source", this.mFrom);
+            apVar.dn("obj_source", this.mFrom);
         }
         if (TextUtils.isEmpty(this.mNid)) {
-            aoVar.dk("obj_type", "1");
+            apVar.dn("obj_type", "1");
         } else {
-            aoVar.dk("obj_type", "2");
-            aoVar.dk("obj_id", this.mNid);
+            apVar.dn("obj_type", "2");
+            apVar.dn("obj_id", this.mNid);
         }
-        TiebaStatic.log(aoVar);
+        TiebaStatic.log(apVar);
     }
 
-    private void IC() {
+    private void II() {
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         if (supportFragmentManager != null && !supportFragmentManager.isDestroyed()) {
             VideoMiddlePageFragment videoMiddlePageFragment = (VideoMiddlePageFragment) supportFragmentManager.findFragmentByTag(VideoMiddlePageFragment.class.getCanonicalName());
             if (videoMiddlePageFragment == null) {
-                videoMiddlePageFragment = VideoMiddlePageFragment.ep(this.mFrom, this.mId);
+                videoMiddlePageFragment = VideoMiddlePageFragment.er(this.mFrom, this.mId);
                 supportFragmentManager.beginTransaction().add(R.id.video_middle_page_container, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
             }
-            this.ick = videoMiddlePageFragment;
+            this.iim = videoMiddlePageFragment;
         }
     }
 
@@ -70,8 +77,8 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (!ar.isEmpty(this.mId)) {
-            com.baidu.tbadk.BdToken.c.aMo().p(com.baidu.tbadk.BdToken.b.dyI, com.baidu.adp.lib.f.b.toLong(this.mId, 0L));
+        if (!as.isEmpty(this.mId)) {
+            com.baidu.tbadk.BdToken.c.aQc().p(com.baidu.tbadk.BdToken.b.dEE, com.baidu.adp.lib.f.b.toLong(this.mId, 0L));
         }
     }
 
@@ -79,7 +86,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.tbadk.BdToken.c.aMo().aMy();
+        com.baidu.tbadk.BdToken.c.aQc().aQm();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -113,10 +120,10 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.ick == null) {
+        if (keyEvent == null || this.iim == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.ick.uR(i)) {
+        if (this.iim.vj(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -143,14 +150,14 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
             }
             pageStayDurationItem.setSorceKeyList(arrayList);
             pageStayDurationItem.isVertical = "0";
-            pageStayDurationItem.eAo = TextUtils.isEmpty(this.mNid) ? "0" : "1";
+            pageStayDurationItem.eGE = TextUtils.isEmpty(this.mNid) ? "0" : "1";
         }
         return pageStayDurationItem;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public long getMissionTid() {
-        if (ar.isEmpty(this.mId)) {
+        if (as.isEmpty(this.mId)) {
             return 0L;
         }
         return com.baidu.adp.lib.f.b.toLong(this.mId, 0L);

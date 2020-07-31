@@ -3,7 +3,7 @@ package com.baidu.ala.recorder.video.gles;
 import android.support.v4.internal.view.SupportMenu;
 import android.support.v4.view.InputDeviceCompat;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class GeneratedTexture {
     private static final int BLACK = 0;
     private static final int BLUE = 16711680;
@@ -24,7 +24,7 @@ public class GeneratedTexture {
     private static final ByteBuffer sCoarseImageData = generateCoarseData();
     private static final ByteBuffer sFineImageData = generateFineData();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum Image {
         COARSE,
         FINE

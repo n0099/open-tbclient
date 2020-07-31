@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.am.f;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private a cMJ;
+    private a cQe;
 
     public void a(a aVar) {
-        this.cMJ = aVar;
+        this.cQe = aVar;
     }
 
-    public void hJ(int i) {
-        if (this.cMJ != null) {
-            this.cMJ.hI(i);
+    public void hS(int i) {
+        if (this.cQe != null) {
+            this.cQe.hR(i);
         }
     }
 }

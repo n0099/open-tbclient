@@ -1,7 +1,7 @@
 package com.kascend.chushou.constants;
 
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Replacement implements Serializable {
     private static final long serialVersionUID = 6375348232523725849L;
     public String mKeyword;

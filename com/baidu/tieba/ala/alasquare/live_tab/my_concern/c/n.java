@@ -7,22 +7,22 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.ad;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class n extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.g> {
-    private a fqF;
+    private a fvP;
 
     public n(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.fqF = new a(this);
+        this.fvP = new a(this);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        an.setBackgroundColor(this.fqF.djj, R.color.cp_bg_line_d);
-        an.setViewTextColor(this.fqF.mTitle, (int) R.color.cp_cont_b);
+        ao.setBackgroundColor(this.fvP.dpe, R.color.cp_bg_line_d);
+        ao.setViewTextColor(this.fvP.mTitle, R.color.cp_cont_b);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -33,8 +33,8 @@ public class n extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.g gVar) {
-        if (gVar != null && !StringUtils.isNull(gVar.ftN) && this.fqF != null) {
-            this.fqF.mTitle.setText(gVar.ftN);
+        if (gVar != null && !StringUtils.isNull(gVar.fyU) && this.fvP != null) {
+            this.fvP.mTitle.setText(gVar.fyU);
         }
     }
 
@@ -42,17 +42,17 @@ public class n extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     public void onClick(View view) {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends ad.a {
-        public View djj;
-        public n fqG;
+        public View dpe;
+        public n fvQ;
         public TextView mTitle;
 
         public a(n nVar) {
             super(nVar.getView());
-            this.fqG = nVar;
-            this.djj = nVar.getView();
-            this.mTitle = (TextView) this.djj.findViewById(R.id.tab_sub_rec_title_tv);
+            this.fvQ = nVar;
+            this.dpe = nVar.getView();
+            this.mTitle = (TextView) this.dpe.findViewById(R.id.tab_sub_rec_title_tv);
         }
     }
 }

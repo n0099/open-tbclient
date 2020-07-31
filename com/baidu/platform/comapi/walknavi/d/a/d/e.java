@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.walknavi.d.a.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class e implements Runnable {
     final /* synthetic */ long a;
     final /* synthetic */ long b;

@@ -21,31 +21,35 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.log.LogManager;
 import com.baidu.live.tieba.horizonallist.widget.AdapterView;
 import com.baidu.live.view.AlphaGradientHListView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
-    private q aLQ;
-    private ViewGroup fIb;
-    private com.baidu.live.liveroom.a.a fXS;
-    private a fXT;
-    public FrameLayout fXU;
-    public FrameLayout fXV;
-    private AlphaGradientHListView fXW;
-    private String fXX;
-    private boolean fXY;
-    private AdapterView.c fXZ = new AdapterView.c() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.c.1
+    private q avf;
+    private ViewGroup fNw;
+    private com.baidu.live.liveroom.a.a gcZ;
+    private a gda;
+    public FrameLayout gdb;
+    public FrameLayout gdc;
+    private AlphaGradientHListView gdd;
+    private String gde;
+    private boolean gdf;
+    private String mGroupId;
+    private String mLiveId;
+    private TbPageContext mTbPageContext;
+    private String otherParams;
+    private AdapterView.c gdg = new AdapterView.c() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.c.1
         @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
         public void a(AdapterView<?> adapterView, View view, int i, long j) {
-            j jVar = (j) c.this.fXT.getItem(i);
+            j jVar = (j) c.this.gda.getItem(i);
             if (jVar != null) {
-                if (c.this.fXS != null) {
-                    c.this.fXS.cG(5);
+                if (c.this.gcZ != null) {
+                    c.this.gcZ.cI(5);
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(c.this.getPageContext().getPageActivity(), String.valueOf(jVar.axp.userId), jVar.axp.userName, jVar.axp.portrait, jVar.axp.sex, jVar.axp.levelId, null, null, 0L, jVar.axp.fansCount, jVar.axp.followCount, jVar.axp.userStatus, c.this.mGroupId, c.this.mLiveId, c.this.fXY, c.this.fXX, jVar.axp.appId, jVar.axp.userName, c.this.otherParams)));
-                LogManager.getCommonLogger().doClickTopRightAuthorLog(c.this.aLQ.mLiveInfo.feed_id, i, c.this.Ep());
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(c.this.getPageContext().getPageActivity(), String.valueOf(jVar.ayC.userId), jVar.ayC.userName, jVar.ayC.portrait, jVar.ayC.sex, jVar.ayC.levelId, null, null, 0L, jVar.ayC.fansCount, jVar.ayC.followCount, jVar.ayC.userStatus, c.this.mGroupId, c.this.mLiveId, c.this.gdf, c.this.gde, jVar.ayC.appId, jVar.ayC.userName, c.this.otherParams)));
+                LogManager.getCommonLogger().doClickTopRightAuthorLog(c.this.avf.mLiveInfo.feed_id, i, c.this.Et());
             }
         }
     };
-    CustomMessageListener fzr = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.audiencelist.c.2
+    CustomMessageListener fEy = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.audiencelist.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -58,16 +62,12 @@ public class c {
             }
         }
     };
-    private String mGroupId;
-    private String mLiveId;
-    private TbPageContext mTbPageContext;
-    private String otherParams;
 
     public c(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar, boolean z) {
         this.mTbPageContext = tbPageContext;
-        this.fXS = aVar;
-        this.fXY = z;
-        MessageManager.getInstance().registerListener(this.fzr);
+        this.gcZ = aVar;
+        this.gdf = z;
+        MessageManager.getInstance().registerListener(this.fEy);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -78,62 +78,62 @@ public class c {
     public void a(String str, String str2, String str3, q qVar) {
         this.mGroupId = str;
         this.mLiveId = str2;
-        this.fXX = str3;
-        this.aLQ = qVar;
+        this.gde = str3;
+        this.avf = qVar;
     }
 
     public void c(ViewGroup viewGroup, int i, int i2) {
         if (viewGroup != null) {
-            if (this.fXU == null) {
-                this.fXU = (FrameLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.h.ala_live_audience_list_layout, (ViewGroup) null);
+            if (this.gdb == null) {
+                this.gdb = (FrameLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.h.ala_live_audience_list_layout, (ViewGroup) null);
             }
-            if (this.fIb != null && this.fIb.indexOfChild(this.fXU) > 0) {
-                this.fIb.removeView(this.fXU);
+            if (this.fNw != null && this.fNw.indexOfChild(this.gdb) > 0) {
+                this.fNw.removeView(this.gdb);
             }
-            this.fIb = viewGroup;
-            this.fXU.setId(a.g.ala_liveroom_audience);
-            this.fXV = (FrameLayout) this.fXU.findViewById(a.g.content_layout);
-            this.fXW = (AlphaGradientHListView) this.fXU.findViewById(a.g.ala_live_guest_listview);
-            this.fXW.setDividerWidth(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.e.sdk_ds0));
-            this.fXT = new a(getPageContext().getPageActivity());
-            this.fXW.setAdapter((ListAdapter) this.fXT);
-            this.fXW.setSelector(getPageContext().getPageActivity().getResources().getDrawable(a.f.sdk_transparent_bg));
-            this.fXW.setOnItemClickListener(this.fXZ);
-            this.fXW.setColor(getPageContext().getResources().getColor(a.d.sdk_white_alpha100), getPageContext().getResources().getColor(a.d.sdk_white_alpha0));
-            this.fXW.setNeedAlphaShade(true);
+            this.fNw = viewGroup;
+            this.gdb.setId(a.g.ala_liveroom_audience);
+            this.gdc = (FrameLayout) this.gdb.findViewById(a.g.content_layout);
+            this.gdd = (AlphaGradientHListView) this.gdb.findViewById(a.g.ala_live_guest_listview);
+            this.gdd.setDividerWidth(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.e.sdk_ds0));
+            this.gda = new a(getPageContext().getPageActivity());
+            this.gdd.setAdapter((ListAdapter) this.gda);
+            this.gdd.setSelector(getPageContext().getPageActivity().getResources().getDrawable(a.f.sdk_transparent_bg));
+            this.gdd.setOnItemClickListener(this.gdg);
+            this.gdd.setColor(getPageContext().getResources().getColor(a.d.sdk_white_alpha100), getPageContext().getResources().getColor(a.d.sdk_white_alpha0));
+            this.gdd.setNeedAlphaShade(true);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.e.sdk_ds82));
             layoutParams.addRule(1, i);
             layoutParams.addRule(8, i);
             layoutParams.addRule(0, i2);
             layoutParams.leftMargin = BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.e.sdk_ds10);
             layoutParams.rightMargin = BdUtilHelper.dip2px(getPageContext().getPageActivity(), -6.0f);
-            this.fIb.addView(this.fXU, layoutParams);
+            this.fNw.addView(this.gdb, layoutParams);
         }
     }
 
-    public void cA(int i) {
+    public void bN(int i) {
     }
 
     public void e(k kVar) {
-        if (this.fXT != null) {
-            this.fXT.d(kVar);
-            this.fXT.notifyDataSetChanged();
+        if (this.gda != null) {
+            this.gda.d(kVar);
+            this.gda.notifyDataSetChanged();
         }
     }
 
     public boolean c(j jVar) {
-        if (this.fXT == null || !this.fXT.b(jVar)) {
+        if (this.gda == null || !this.gda.b(jVar)) {
             return false;
         }
-        this.fXT.notifyDataSetChanged();
+        this.gda.notifyDataSetChanged();
         return true;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fzr);
+        MessageManager.getInstance().unRegisterListener(this.fEy);
     }
 
-    public String Ep() {
+    public String Et() {
         return this.otherParams;
     }
 

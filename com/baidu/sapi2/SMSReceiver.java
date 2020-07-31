@@ -9,7 +9,7 @@ import android.os.Message;
 import android.telephony.SmsMessage;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class SMSReceiver extends BroadcastReceiver {
     private Handler a;
 

@@ -43,7 +43,7 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.od().init();
+        com.baidu.adp.plugin.c.a.oe().init();
     }
 
     public static BdBaseApplication getInst() {

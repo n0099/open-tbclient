@@ -2,7 +2,7 @@ package com.baidu.searchbox.publisher.controller.listener;
 
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes19.dex */
 public class PublishTextImageParams {
     public JSONObject data;
     public JSONObject ext;

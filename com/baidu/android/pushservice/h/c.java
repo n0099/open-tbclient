@@ -1,5 +1,5 @@
 package com.baidu.android.pushservice.h;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface c {
     void a(int i, String str);
 }

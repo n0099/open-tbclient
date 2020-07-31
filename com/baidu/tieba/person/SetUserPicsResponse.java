@@ -2,7 +2,7 @@ package com.baidu.tieba.person;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class SetUserPicsResponse extends JsonHttpResponsedMessage {
     private int errCode;
 

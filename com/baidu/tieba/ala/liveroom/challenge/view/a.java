@@ -9,36 +9,36 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.live.tbadk.core.util.ViewCommonUtil;
 import com.baidu.live.utils.g;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private AnimatorSet gdA;
-    private ValueAnimator gdB;
-    private ValueAnimator gdC;
-    private int gdD;
-    private int gdE;
-    private int gdr;
-    private InterfaceC0569a gdz;
+    private int giA;
+    private InterfaceC0579a giI;
+    private AnimatorSet giJ;
+    private ValueAnimator giK;
+    private ValueAnimator giL;
+    private int giM;
+    private int giN;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.challenge.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0569a {
-        void bDH();
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0579a {
+        void bGS();
 
-        void bDI();
+        void bGT();
 
-        void bDJ();
+        void bGU();
 
-        void bDK();
+        void bGV();
     }
 
     public a(Context context) {
-        this.gdr = 0;
-        this.gdr = g.av(context);
+        this.giA = 0;
+        this.giA = g.av(context);
     }
 
-    public void bD(int i, int i2) {
-        this.gdD = i;
-        this.gdE = i2;
+    public void bG(int i, int i2) {
+        this.giM = i;
+        this.giN = i2;
     }
 
     private ValueAnimator a(AlaChallengeLiveView alaChallengeLiveView, final int i, final int i2, final int i3, final int i4, final int i5, final int i6, final boolean z) {
@@ -139,7 +139,7 @@ public class a {
 
     private ValueAnimator a(AlaChallengeLiveView alaChallengeLiveView, final boolean z) {
         final View leftTimeView = alaChallengeLiveView.getLeftTimeView();
-        int i = this.gdr;
+        int i = this.giA;
         int height = leftTimeView.getHeight();
         final int i2 = z ? i - height : i;
         int i3 = z ? i : i - height;
@@ -215,22 +215,22 @@ public class a {
     public void d(AlaChallengeLiveView alaChallengeLiveView) {
         final View rivalAnimLiveLayout;
         if (alaChallengeLiveView != null && (rivalAnimLiveLayout = alaChallengeLiveView.getRivalAnimLiveLayout()) != null && rivalAnimLiveLayout.getAlpha() != 0.0f) {
-            this.gdC = ValueAnimator.ofFloat(1.0f, 0.0f);
-            this.gdC.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.12
+            this.giL = ValueAnimator.ofFloat(1.0f, 0.0f);
+            this.giL.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.12
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     rivalAnimLiveLayout.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             });
-            this.gdC.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.13
+            this.giL.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.13
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (a.this.gdz != null) {
-                        a.this.gdz.bDK();
+                    if (a.this.giI != null) {
+                        a.this.giI.bGV();
                     }
                 }
 
@@ -242,30 +242,30 @@ public class a {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.gdC.setDuration(300L);
-            this.gdC.start();
+            this.giL.setDuration(300L);
+            this.giL.start();
         }
     }
 
     public void e(AlaChallengeLiveView alaChallengeLiveView) {
         final View anchorAnimLiveLayout;
         if (alaChallengeLiveView != null && (anchorAnimLiveLayout = alaChallengeLiveView.getAnchorAnimLiveLayout()) != null && anchorAnimLiveLayout.getAlpha() != 0.0f) {
-            this.gdB = ValueAnimator.ofFloat(1.0f, 0.0f);
-            this.gdB.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.2
+            this.giK = ValueAnimator.ofFloat(1.0f, 0.0f);
+            this.giK.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.2
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     anchorAnimLiveLayout.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             });
-            this.gdB.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.3
+            this.giK.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.3
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (a.this.gdz != null) {
-                        a.this.gdz.bDJ();
+                    if (a.this.giI != null) {
+                        a.this.giI.bGU();
                     }
                 }
 
@@ -277,20 +277,20 @@ public class a {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.gdB.setDuration(300L);
-            this.gdB.start();
+            this.giK.setDuration(300L);
+            this.giK.start();
         }
     }
 
-    public void zr() {
-        if (this.gdA != null) {
-            this.gdA.cancel();
+    public void zT() {
+        if (this.giJ != null) {
+            this.giJ.cancel();
         }
-        if (this.gdB != null) {
-            this.gdB.cancel();
+        if (this.giK != null) {
+            this.giK.cancel();
         }
-        if (this.gdC != null) {
-            this.gdC.cancel();
+        if (this.giL != null) {
+            this.giL.cancel();
         }
     }
 
@@ -299,7 +299,7 @@ public class a {
         int i = screenFullSize[0];
         int i2 = screenFullSize[1];
         int i3 = screenFullSize[0] / 2;
-        ValueAnimator a = a(alaChallengeLiveView, i, i3, i2, (i3 * 4) / 3, 0, this.gdr, true);
+        ValueAnimator a = a(alaChallengeLiveView, i, i3, i2, (i3 * 4) / 3, 0, this.giA, true);
         int i4 = screenFullSize[0];
         int i5 = screenFullSize[0] / 2;
         int i6 = i4 > i5 ? i4 : i5;
@@ -307,22 +307,22 @@ public class a {
         ValueAnimator c = c(alaChallengeLiveView, true);
         ValueAnimator a3 = a(alaChallengeLiveView, true);
         ValueAnimator b = b(alaChallengeLiveView, true);
-        if (this.gdA != null) {
-            this.gdA.cancel();
+        if (this.giJ != null) {
+            this.giJ.cancel();
         }
-        this.gdA = new AnimatorSet();
-        this.gdA.play(a);
-        this.gdA.play(a2).with(c).after(a);
-        this.gdA.play(a3).with(b).after(a2);
-        this.gdA.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.4
+        this.giJ = new AnimatorSet();
+        this.giJ.play(a);
+        this.giJ.play(a2).with(c).after(a);
+        this.giJ.play(a3).with(b).after(a2);
+        this.giJ.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.4
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (a.this.gdz != null) {
-                    a.this.gdz.bDH();
+                if (a.this.giI != null) {
+                    a.this.giI.bGS();
                 }
             }
 
@@ -334,7 +334,7 @@ public class a {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.gdA.start();
+        this.giJ.start();
     }
 
     public void b(Activity activity, AlaChallengeLiveView alaChallengeLiveView) {
@@ -347,20 +347,20 @@ public class a {
         int i3 = i > i2 ? i : i2;
         ValueAnimator a2 = a(alaChallengeLiveView, i, i2, i3 - ((i + i2) - i3), false);
         int i4 = screenFullSize[0] / 2;
-        ValueAnimator a3 = a(alaChallengeLiveView, i4, screenFullSize[0], (i4 * 4) / 3, screenFullSize[1], this.gdr, 0, false);
-        if (this.gdA != null) {
-            this.gdA.cancel();
+        ValueAnimator a3 = a(alaChallengeLiveView, i4, screenFullSize[0], (i4 * 4) / 3, screenFullSize[1], this.giA, 0, false);
+        if (this.giJ != null) {
+            this.giJ.cancel();
         }
-        this.gdA = new AnimatorSet();
-        this.gdA.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.5
+        this.giJ = new AnimatorSet();
+        this.giJ.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.5
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (a.this.gdz != null) {
-                    a.this.gdz.bDI();
+                if (a.this.giI != null) {
+                    a.this.giI.bGT();
                 }
             }
 
@@ -372,13 +372,13 @@ public class a {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.gdA.play(a).with(b);
-        this.gdA.play(a2).after(a);
-        this.gdA.play(a3).with(c).after(a2);
-        this.gdA.start();
+        this.giJ.play(a).with(b);
+        this.giJ.play(a2).after(a);
+        this.giJ.play(a3).with(c).after(a2);
+        this.giJ.start();
     }
 
-    public void a(InterfaceC0569a interfaceC0569a) {
-        this.gdz = interfaceC0569a;
+    public void a(InterfaceC0579a interfaceC0579a) {
+        this.giI = interfaceC0579a;
     }
 }

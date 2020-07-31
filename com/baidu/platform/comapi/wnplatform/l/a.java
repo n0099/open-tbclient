@@ -11,7 +11,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.platform.comapi.walknavi.a {
     private static String b;
     private File c;
@@ -52,7 +52,7 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.l.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class C0236a extends Thread {
         final /* synthetic */ a a;
         private volatile boolean b;

@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public enum hr {
     UploadSwitch(1),
     UploadFrequency(2),
@@ -119,13 +119,13 @@ public enum hr {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f466a;
+    private final int f462a;
 
     hr(int i) {
-        this.f466a = i;
+        this.f462a = i;
     }
 
     public int a() {
-        return this.f466a;
+        return this.f462a;
     }
 }

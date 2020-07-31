@@ -2,6 +2,7 @@ package com.baidu.webkit.logsdk.b;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.tbadk.core.atomData.EditNickNameActivityConfig;
 import java.util.HashMap;
@@ -9,7 +10,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static String b = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDjTe6LTkPFvWowhciLFGS+nqhc\nhfaYCwBhVIkmZXNNiqdBMcNBUmqaAIKYB8lh1+UFf/KmuO14QbAKqzE/FjHWAV51\n68IJCk+DLxu885hYRiNH+kJDRuzDVMOv4NudroOwY1zB3c8VOjjLuz7xE7rRet7d\nAjH9k8YPZuedladalwIDAQAB";
     public static String c = "1_0";
@@ -52,7 +53,7 @@ public final class b {
     }
 
     public static int b() {
-        return a().getInt("net_level", 3);
+        return a().getInt(DpStatConstants.KEY_NET_LEVEL, 3);
     }
 
     public static long b(String str) {

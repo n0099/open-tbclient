@@ -4,7 +4,7 @@ import java.security.cert.X509Certificate;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 final class c implements HostnameVerifier {
     @Override // javax.net.ssl.HostnameVerifier
     public final boolean verify(String str, SSLSession sSLSession) {

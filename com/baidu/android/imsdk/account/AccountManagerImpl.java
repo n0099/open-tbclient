@@ -16,11 +16,11 @@ import com.baidu.android.imsdk.account.request.IMUserLogoutMsg;
 import com.baidu.android.imsdk.account.request.IMUserQueryPrivacyRequest;
 import com.baidu.android.imsdk.account.request.IMUserSetPrivacyRequest;
 import com.baidu.android.imsdk.conversation.ConversationManagerImpl;
+import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.internal.MessageFactory;
-import com.baidu.android.imsdk.mcast.McastManagerImpl;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
@@ -194,8 +194,8 @@ public class AccountManagerImpl {
         LogUtils.d(TAG, "start login loginState:" + LoginManager.getInstance(mContext).getCurrentState());
         LogUtils.d(TAG, "current version:" + IMConfigInternal.getInstance().getSDKVersionValue(mContext) + " " + IMConfigInternal.getInstance().getSDKVersionValue(mContext));
         Utility.writeLoginFlag(mContext, "5N_1", "login begin");
-        McastManagerImpl.getInstance(mContext);
-        McastManagerImpl.resetHeartBeat(60000);
+        ConversationStudioManImpl.getInstance(mContext);
+        ConversationStudioManImpl.resetHeartBeat(60000);
         if (Utility.isPeakTime()) {
             if (this.mTimer != null) {
                 this.mTimer.cancel();

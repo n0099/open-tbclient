@@ -1,7 +1,7 @@
 package com.example.utility_plugin;
 
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class ResNameTransform {
     private static HashMap<String, String> platformImageNameMap = new HashMap<>();
 

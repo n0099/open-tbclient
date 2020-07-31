@@ -1,7 +1,7 @@
 package com.vivo.push.util;
 
 import java.util.concurrent.ThreadFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 final class f implements ThreadFactory {
     final /* synthetic */ String a;
 

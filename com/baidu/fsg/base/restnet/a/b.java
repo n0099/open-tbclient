@@ -4,7 +4,7 @@ import com.baidu.fsg.base.restnet.rest.e;
 import com.baidu.fsg.base.utils.FileCopyUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends a<byte[]> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */

@@ -1,5 +1,5 @@
 package android.net.http;
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public class HttpAuthHeader {
     public static final int BASIC = 1;
     public static final String BASIC_TOKEN = "Basic";

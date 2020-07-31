@@ -1,7 +1,7 @@
 package com.baidu.cesium;
 
 import android.content.pm.ApplicationInfo;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class b {
     public ApplicationInfo a;
     public int b = 0;

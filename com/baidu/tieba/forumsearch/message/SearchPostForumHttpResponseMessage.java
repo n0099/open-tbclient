@@ -4,7 +4,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.forumsearch.b.c;
 import com.squareup.wire.Wire;
 import tbclient.SearchPostForum.SearchPostForumResIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class SearchPostForumHttpResponseMessage extends TbHttpResponsedMessage {
     private c mSearchData;
 

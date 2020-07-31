@@ -13,16 +13,16 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class m<T> {
-    public static Executor Bw = Executors.newCachedThreadPool();
-    private final FutureTask<l<T>> BA;
+    public static Executor By = Executors.newCachedThreadPool();
+    private final Set<i<T>> BA;
+    private final Set<i<Throwable>> BB;
+    private final FutureTask<l<T>> BC;
     @Nullable
-    private volatile l<T> BB;
+    private volatile l<T> BD;
     @Nullable
-    private Thread Bx;
-    private final Set<i<T>> By;
-    private final Set<i<Throwable>> Bz;
+    private Thread Bz;
     private final Handler handler;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -32,11 +32,11 @@ public class m<T> {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     m(Callable<l<T>> callable, boolean z) {
-        this.By = new LinkedHashSet(1);
-        this.Bz = new LinkedHashSet(1);
+        this.BA = new LinkedHashSet(1);
+        this.BB = new LinkedHashSet(1);
         this.handler = new Handler(Looper.getMainLooper());
-        this.BB = null;
-        this.BA = new FutureTask<>(callable);
+        this.BD = null;
+        this.BC = new FutureTask<>(callable);
         if (z) {
             try {
                 a(callable.call());
@@ -46,45 +46,45 @@ public class m<T> {
                 return;
             }
         }
-        Bw.execute(this.BA);
+        By.execute(this.BC);
         hn();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@Nullable l<T> lVar) {
-        if (this.BB != null) {
+        if (this.BD != null) {
             throw new IllegalStateException("A task may only be set once.");
         }
-        this.BB = lVar;
+        this.BD = lVar;
         hm();
     }
 
     public synchronized m<T> a(i<T> iVar) {
-        if (this.BB != null && this.BB.getValue() != null) {
-            iVar.onResult(this.BB.getValue());
+        if (this.BD != null && this.BD.getValue() != null) {
+            iVar.onResult(this.BD.getValue());
         }
-        this.By.add(iVar);
+        this.BA.add(iVar);
         hn();
         return this;
     }
 
     public synchronized m<T> b(i<T> iVar) {
-        this.By.remove(iVar);
+        this.BA.remove(iVar);
         ho();
         return this;
     }
 
     public synchronized m<T> c(i<Throwable> iVar) {
-        if (this.BB != null && this.BB.hl() != null) {
-            iVar.onResult(this.BB.hl());
+        if (this.BD != null && this.BD.hl() != null) {
+            iVar.onResult(this.BD.hl());
         }
-        this.Bz.add(iVar);
+        this.BB.add(iVar);
         hn();
         return this;
     }
 
     public synchronized m<T> d(i<Throwable> iVar) {
-        this.Bz.remove(iVar);
+        this.BB.remove(iVar);
         ho();
         return this;
     }
@@ -93,8 +93,8 @@ public class m<T> {
         this.handler.post(new Runnable() { // from class: com.airbnb.lottie.m.1
             @Override // java.lang.Runnable
             public void run() {
-                if (m.this.BB != null && !m.this.BA.isCancelled()) {
-                    l lVar = m.this.BB;
+                if (m.this.BD != null && !m.this.BC.isCancelled()) {
+                    l lVar = m.this.BD;
                     if (lVar.getValue() != null) {
                         m.this.n(lVar.getValue());
                     } else {
@@ -107,14 +107,14 @@ public class m<T> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void n(T t) {
-        for (i iVar : new ArrayList(this.By)) {
+        for (i iVar : new ArrayList(this.BA)) {
             iVar.onResult(t);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(Throwable th) {
-        ArrayList<i> arrayList = new ArrayList(this.Bz);
+        ArrayList<i> arrayList = new ArrayList(this.BB);
         if (arrayList.isEmpty()) {
             Log.w("LOTTIE", "Lottie encountered an error but no failure listener was added.", th);
             return;
@@ -125,40 +125,40 @@ public class m<T> {
     }
 
     private synchronized void hn() {
-        if (!hp() && this.BB == null) {
-            this.Bx = new Thread("LottieTaskObserver") { // from class: com.airbnb.lottie.m.2
-                private boolean BD = false;
+        if (!hp() && this.BD == null) {
+            this.Bz = new Thread("LottieTaskObserver") { // from class: com.airbnb.lottie.m.2
+                private boolean BF = false;
 
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
-                    while (!isInterrupted() && !this.BD) {
-                        if (m.this.BA.isDone()) {
+                    while (!isInterrupted() && !this.BF) {
+                        if (m.this.BC.isDone()) {
                             try {
-                                m.this.a((l) m.this.BA.get());
+                                m.this.a((l) m.this.BC.get());
                             } catch (InterruptedException | ExecutionException e) {
                                 m.this.a(new l(e));
                             }
-                            this.BD = true;
+                            this.BF = true;
                             m.this.ho();
                         }
                     }
                 }
             };
-            this.Bx.start();
+            this.Bz.start();
             d.debug("Starting TaskObserver thread");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void ho() {
-        if (hp() && (this.By.isEmpty() || this.BB != null)) {
-            this.Bx.interrupt();
-            this.Bx = null;
+        if (hp() && (this.BA.isEmpty() || this.BD != null)) {
+            this.Bz.interrupt();
+            this.Bz = null;
             d.debug("Stopping TaskObserver thread");
         }
     }
 
     private boolean hp() {
-        return this.Bx != null && this.Bx.isAlive();
+        return this.Bz != null && this.Bz.isAlive();
     }
 }

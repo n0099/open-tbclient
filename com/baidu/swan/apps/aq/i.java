@@ -1,95 +1,264 @@
 package com.baidu.swan.apps.aq;
 
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-/* loaded from: classes11.dex */
-public final class i {
-    private static final Set<Integer> cOy = new HashSet();
-    private static final Set<Integer> cOz = new HashSet();
-    private static final Set<Integer> cOA = new HashSet();
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class i {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static List<String> cRR = new ArrayList();
+    private static List<String> cRS = new ArrayList();
+    private static final Object cRT = new Object();
+    private static int cRU = 0;
 
-    static {
-        cOy.add(2);
-        cOy.add(3);
-        cOy.add(4);
-        cOy.add(5);
-        cOy.add(6);
-        cOz.add(7);
-        cOz.add(1);
-        cOA.addAll(cOy);
-        cOA.addAll(cOz);
-    }
-
-    public static Date auw() {
-        return new Date();
-    }
-
-    public static String a(Date date, String str) {
-        if (date == null) {
-            return "";
+    public static boolean awq() {
+        SwanCoreVersion adQ = com.baidu.swan.apps.core.turbo.d.adw().adQ();
+        if (adQ == null) {
+            if (DEBUG) {
+                Log.d("Api-Base", "isSupportBindApi: false => null cur ver");
+            }
+        } else {
+            r0 = adQ.swanCoreVersion >= 12892110851L;
+            if (DEBUG) {
+                Log.d("Api-Base", "isSupportBindApi: " + r0 + " => cur【" + com.baidu.swan.apps.swancore.b.bE(adQ.swanCoreVersion) + "】support 【" + com.baidu.swan.apps.swancore.b.bE(12892110851L) + "】");
+            }
         }
-        try {
-            return new SimpleDateFormat(str).format(date);
-        } catch (Exception e) {
-            try {
-                return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(date);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return "";
+        return r0;
+    }
+
+    public static boolean awr() {
+        return !ag.qE("3.120.2");
+    }
+
+    public static boolean aws() {
+        return ag.qE("3.170.0");
+    }
+
+    public static String z(int i, boolean z) {
+        List<String> list;
+        String str = z ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
+        if (cRU == 1) {
+            if (DEBUG) {
+                Log.d("SwanAppCompat", "type support default");
+            }
+            return SchemeCollecter.getSchemesDes(str, i);
+        }
+        if (awt()) {
+            synchronized (cRT) {
+                if (z) {
+                    list = cRR;
+                } else {
+                    list = cRS;
+                }
+                if (list != null && list.size() > 0) {
+                    if (DEBUG) {
+                        Log.d("SwanAppCompat", "support ab js native descriptions");
+                    }
+                    cRU = 2;
+                    return list.get(i);
+                }
+            }
+        }
+        if (DEBUG) {
+            Log.d("SwanAppCompat", "use default descriptions");
+        }
+        cRU = 1;
+        return SchemeCollecter.getSchemesDes(str, i);
+    }
+
+    private static boolean awt() {
+        if (cRU != 2) {
+            return com.baidu.swan.apps.t.a.ahm().SX() && !com.baidu.swan.apps.storage.c.h.auW().getBoolean("swan_app_js_native_ab_update_key", false);
+        } else if (DEBUG) {
+            Log.d("SwanAppCompat", "has used ab description");
+            return true;
+        } else {
+            return true;
+        }
+    }
+
+    public static void awu() {
+        if (DEBUG) {
+            Log.d("SwanAppCompat", "start prepare ab description");
+        }
+        fH(true);
+        fH(false);
+        if (DEBUG) {
+            Log.d("SwanAppCompat", "end prepare ab description");
+        }
+    }
+
+    private static void fH(boolean z) {
+        if (DEBUG) {
+            Log.d("SwanAppCompat", "start prepare ab description :" + (z ? V8Engine.TYPE_V8 : "webview"));
+        }
+        String str = com.baidu.swan.apps.r.d.agZ().getPath() + File.separator + "js_native" + File.separator + (z ? "swan_js_native_v8_ab.txt" : "swan_js_native_webview_ab.txt");
+        if (com.baidu.swan.d.d.isExistFile(str)) {
+            if (com.baidu.swan.apps.storage.c.h.auW().getBoolean("swan_app_js_native_ab_update_key", false)) {
+                if (DEBUG) {
+                    Log.d("SwanAppCompat", "need delete file case update");
+                }
+                if (awv()) {
+                    com.baidu.swan.apps.storage.c.h.auW().putBoolean("swan_app_js_native_ab_update_key", false);
+                } else {
+                    return;
+                }
+            } else {
+                if (DEBUG) {
+                    Log.d("SwanAppCompat", "start create cache");
+                }
+                h(com.baidu.swan.d.d.J(new File(str)), z);
+                return;
+            }
+        }
+        k(z, str);
+    }
+
+    private static boolean awv() {
+        String str = com.baidu.swan.apps.r.d.agZ().getPath() + File.separator + "js_native" + File.separator;
+        return com.baidu.swan.d.d.vh(new StringBuilder().append(str).append("swan_js_native_v8_ab.txt").toString()) && com.baidu.swan.d.d.vh(new StringBuilder().append(str).append("swan_js_native_webview_ab.txt").toString());
+    }
+
+    private static void k(boolean z, String str) {
+        String str2 = z ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
+        String str3 = z ? "swan/v8_ab" : "swan/webview_ab";
+        List<JSONObject> qu = qu(str2);
+        List<JSONObject> qu2 = qu(str3);
+        if (qu != null && qu2 != null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < qu2.size(); i++) {
+                try {
+                    JSONArray jSONArray = qu2.get(i).getJSONArray("descriptions");
+                    if (jSONArray != null) {
+                        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                            arrayList.add(jSONArray.getJSONObject(i2));
+                        }
+                    }
+                } catch (JSONException e) {
+                    if (DEBUG) {
+                        e.printStackTrace();
+                        return;
+                    }
+                    return;
+                }
+            }
+            if (arrayList.size() != 0 && g(qu, arrayList)) {
+                File file = new File(str);
+                ArrayList arrayList2 = new ArrayList();
+                for (JSONObject jSONObject : qu) {
+                    if (jSONObject != null) {
+                        arrayList2.add(jSONObject.toString());
+                    }
+                }
+                if (file.exists()) {
+                    com.baidu.swan.d.d.safeDeleteFile(file);
+                }
+                com.baidu.swan.d.d.createNewFileSafely(file);
+                com.baidu.swan.d.d.b(arrayList2, file);
+                h(arrayList2, z);
             }
         }
     }
 
-    public static Date cb(String str, String str2) {
-        if (str == null) {
+    private static void h(List<String> list, boolean z) {
+        if (list != null) {
+            synchronized (cRT) {
+                if (cRU == 0) {
+                    if (z) {
+                        cRR = list;
+                    } else {
+                        cRS = list;
+                    }
+                    if (DEBUG) {
+                        Log.d("SwanAppCompat", "has update descriptions, list :" + list.toString() + " type :" + (z ? V8Engine.TYPE_V8 : "webview"));
+                    }
+                }
+            }
+        }
+    }
+
+    private static boolean g(List<JSONObject> list, List<JSONObject> list2) {
+        boolean z;
+        try {
+            for (JSONObject jSONObject : list2) {
+                String string = jSONObject.getString("name");
+                boolean z2 = false;
+                for (JSONObject jSONObject2 : list) {
+                    JSONArray jSONArray = jSONObject2.getJSONArray("descriptions");
+                    if (jSONArray != null) {
+                        int i = 0;
+                        while (true) {
+                            if (i < jSONArray.length()) {
+                                if (!TextUtils.equals(string, jSONArray.getJSONObject(i).getString("name"))) {
+                                    i++;
+                                } else {
+                                    jSONArray.remove(i);
+                                    jSONArray.put(jSONObject);
+                                    z = true;
+                                    break;
+                                }
+                            } else {
+                                z = z2;
+                                break;
+                            }
+                        }
+                        if (!z) {
+                            z2 = z;
+                        }
+                    }
+                }
+            }
+            return true;
+        } catch (JSONException e) {
+            if (DEBUG) {
+                e.printStackTrace();
+            }
+            return false;
+        }
+    }
+
+    @Nullable
+    private static List<JSONObject> qu(String str) {
+        String schemesDes = SchemeCollecter.getSchemesDes(str, 0);
+        ArrayList arrayList = new ArrayList();
+        try {
+            JSONObject jSONObject = new JSONObject(schemesDes);
+            arrayList.add(jSONObject);
+            int i = jSONObject.getInt("totalSlices");
+            for (int i2 = 1; i2 < i; i2++) {
+                arrayList.add(new JSONObject(SchemeCollecter.getSchemesDes(str, i2)));
+            }
+            return arrayList;
+        } catch (JSONException e) {
+            e.printStackTrace();
             return null;
         }
-        try {
-            return new SimpleDateFormat(str2).parse(str);
-        } catch (Exception e) {
-            try {
-                return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).parse(str);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return null;
-            }
+    }
+
+    public static void aww() {
+        if (DEBUG) {
+            Log.d("SwanAppCompat", "start release descriptions");
+        }
+        synchronized (cRT) {
+            cRU = 0;
+            cRR = new ArrayList();
+            cRS = new ArrayList();
         }
     }
 
-    public static Date e(String str, String[] strArr) {
-        Date date = null;
-        if (!TextUtils.isEmpty(str) && strArr != null) {
-            for (String str2 : strArr) {
-                try {
-                    date = new SimpleDateFormat(str2).parse(str);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (date != null) {
-                    break;
-                }
-            }
+    public static void awx() {
+        if (DEBUG) {
+            Log.d("SwanAppCompat", "on App upgrade");
         }
-        return date;
-    }
-
-    public static String b(Date date, String str) {
-        if (date == null) {
-            return "";
-        }
-        try {
-            return new SimpleDateFormat(str).format(date);
-        } catch (Exception e) {
-            try {
-                return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return "";
-            }
-        }
+        com.baidu.swan.apps.storage.c.h.auW().putBoolean("swan_app_js_native_ab_update_key", true);
     }
 }

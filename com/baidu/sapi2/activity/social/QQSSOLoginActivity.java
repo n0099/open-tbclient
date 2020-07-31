@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-import com.baidu.f.a.a.a.a;
+import com.baidu.g.a.a.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.ThirdPartyService;
@@ -28,14 +28,14 @@ import com.tencent.tauth.UiError;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class QQSSOLoginActivity extends BaseSSOLoginActivity {
     private static final String DEFAULT_QQ_NOT_INSTALL_ERROR = "QQ未安装";
     private static final int SUCCESS_RESULTCODE = -1;
     private static final String TAG = "QQSSOLoginActivity";
     private IUiListener qqLoginListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public interface QrCallback {
         void onFailure();
 

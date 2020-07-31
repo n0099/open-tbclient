@@ -2,7 +2,7 @@ package com.baidu.platform.core.busline;
 
 import com.baidu.mapapi.search.busline.BusLineSearchOption;
 import com.baidu.platform.base.e;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b extends e {
     public b(BusLineSearchOption busLineSearchOption) {
         a(busLineSearchOption);

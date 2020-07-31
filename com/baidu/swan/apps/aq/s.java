@@ -1,127 +1,157 @@
 package com.baidu.swan.apps.aq;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.net.Uri;
 import android.util.Log;
-/* loaded from: classes11.dex */
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.facebook.imagepipeline.request.ImageRequest;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+/* loaded from: classes7.dex */
 public class s {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static int safeGetIntExtra(Intent intent, String str, int i) {
-        try {
-            return intent.getIntExtra(str, i);
-        } catch (Throwable th) {
-            if (DEBUG) {
-                Log.e("IntentUtils", "getIntExtra failed on intent " + intent);
-                return i;
-            }
-            return i;
-        }
+    /* loaded from: classes7.dex */
+    public interface a {
+        void h(String str, Bitmap bitmap);
     }
 
-    public static String safeGetStringExtra(Intent intent, String str) {
-        try {
-            return intent.getStringExtra(str);
-        } catch (Throwable th) {
-            if (DEBUG) {
-                Log.e("IntentUtils", "getStringExtra failed on intent " + intent);
-            }
+    public static boolean i(Uri uri) {
+        return uri != null && com.facebook.drawee.a.a.c.dDo().S(uri);
+    }
+
+    public static Bitmap b(Uri uri, Context context) {
+        if (uri == null || context == null) {
             return null;
         }
-    }
-
-    public static String f(Bundle bundle, String str) {
-        try {
-            return bundle.getString(str);
-        } catch (Throwable th) {
+        if (i(uri)) {
             if (DEBUG) {
-                Log.e("IntentUtils", "getStringExtra failed on bundle " + bundle);
+                Log.i("SwanAppFrescoImageUtils", "start get Bitmap from memory, uri : " + uri.toString());
             }
+            return c(com.facebook.drawee.a.a.c.dDo().d(ImageRequest.Z(uri), context.getApplicationContext()));
+        }
+        if (DEBUG) {
+            Log.i("SwanAppFrescoImageUtils", "start get Bitmap from sdcard, uri : " + uri.toString());
+        }
+        com.facebook.datasource.b<Boolean> T = com.facebook.drawee.a.a.c.dDo().T(uri);
+        if (T == null || !T.dCV() || T.getResult() == null || !T.getResult().booleanValue()) {
             return null;
         }
+        try {
+            return c(com.facebook.drawee.a.a.c.dDo().e(ImageRequest.Z(uri), context));
+        } finally {
+            T.abo();
+        }
     }
 
-    public static String safeGetString(Bundle bundle, String str) {
-        try {
-            return bundle.getString(str);
-        } catch (Throwable th) {
-            if (DEBUG) {
-                Log.e("IntentUtils", "getString failed on bundle " + bundle);
-            }
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [130=4] */
+    private static Bitmap c(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> bVar) {
+        Bitmap dIj;
+        com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar = null;
+        if (bVar == null) {
             return null;
         }
-    }
-
-    public static Bundle safeGetBundleExtra(Intent intent, String str) {
         try {
-            return intent.getBundleExtra(str);
-        } catch (Throwable th) {
-            if (DEBUG) {
-                Log.e("IntentUtils", "getBundleExtra failed on intent " + intent);
-            }
-            return null;
-        }
-    }
-
-    public static Bundle safeGetBundle(Bundle bundle, String str) {
-        try {
-            return bundle.getBundle(str);
-        } catch (Throwable th) {
-            if (DEBUG) {
-                Log.e("IntentUtils", "getBundle failed on bundle " + bundle);
-            }
-            return null;
-        }
-    }
-
-    public static int a(Bundle bundle, String str, int i) {
-        try {
-            return bundle.getInt(str);
-        } catch (Throwable th) {
-            if (DEBUG) {
-                Log.e("IntentUtils", "getInt failed on bundle " + bundle);
-                return i;
-            }
-            return i;
-        }
-    }
-
-    public static boolean c(Bundle bundle, String str, boolean z) {
-        try {
-            return bundle.getBoolean(str);
-        } catch (Throwable th) {
-            if (DEBUG) {
-                Log.e("IntentUtils", "getBoolean failed on bundle " + bundle);
-                return z;
-            }
-            return z;
-        }
-    }
-
-    public static boolean checkActivityRefuseServiceAndFinish(Activity activity) {
-        if (activity == null || !checkIntentRefuseService(activity.getIntent())) {
-            return false;
-        }
-        try {
-            d.N(activity);
-            return true;
-        } catch (Exception e) {
-            return true;
-        }
-    }
-
-    public static boolean checkIntentRefuseService(Intent intent) {
-        if (intent != null) {
-            try {
-                Bundle extras = intent.getExtras();
-                if (extras != null) {
-                    extras.isEmpty();
+            com.facebook.common.references.a<com.facebook.imagepipeline.g.c> result = bVar.getResult();
+            if (result != null) {
+                try {
+                    com.facebook.imagepipeline.g.c cVar = result.get();
+                    if (cVar != null && (cVar instanceof com.facebook.imagepipeline.g.b) && (dIj = ((com.facebook.imagepipeline.g.b) cVar).dIj()) != null && !dIj.isRecycled()) {
+                        try {
+                            Bitmap createBitmap = Bitmap.createBitmap(dIj);
+                            bVar.abo();
+                            com.facebook.common.references.a.c(result);
+                            return createBitmap;
+                        } catch (OutOfMemoryError e) {
+                            System.gc();
+                        }
+                    }
+                } catch (Throwable th) {
+                    aVar = result;
+                    th = th;
+                    bVar.abo();
+                    com.facebook.common.references.a.c(aVar);
+                    throw th;
                 }
-            } catch (Exception e) {
-                return true;
             }
+            bVar.abo();
+            com.facebook.common.references.a.c(result);
+            return null;
+        } catch (Throwable th2) {
+            th = th2;
         }
-        return false;
+    }
+
+    public static Bitmap c(Bitmap bitmap, int i, int i2) {
+        Bitmap bitmap2;
+        if (bitmap == null || i <= 0 || i2 <= 0) {
+            return null;
+        }
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        if (width == 0 || height == 0) {
+            return null;
+        }
+        Matrix matrix = new Matrix();
+        matrix.postScale(i / width, i2 / height);
+        try {
+            bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+        } catch (Exception | OutOfMemoryError e) {
+            bitmap2 = null;
+        }
+        return bitmap2;
+    }
+
+    public static void b(Uri uri, String str) {
+        if (uri != null) {
+            if (DEBUG) {
+                Log.i("SwanAppFrescoImageUtils", "start preFetch into memory, uri : " + uri.toString());
+            }
+            com.facebook.drawee.a.a.c.dDo().f(ImageRequestBuilder.ab(uri).dKr(), str);
+        }
+    }
+
+    public static void a(final String str, final a aVar) {
+        Uri uri = al.getUri(str);
+        if (uri == null) {
+            aVar.h(str, null);
+            return;
+        }
+        com.facebook.drawee.a.a.c.dDo().e(ImageRequestBuilder.ab(uri).dKr(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.aq.s.1
+            @Override // com.facebook.imagepipeline.e.b
+            protected void h(Bitmap bitmap) {
+                Bitmap copy;
+                if (bitmap != null && !bitmap.isRecycled()) {
+                    try {
+                        if (bitmap.getConfig() == null) {
+                            copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+                        } else {
+                            copy = bitmap.copy(bitmap.getConfig(), true);
+                        }
+                        a.this.h(str, copy);
+                        return;
+                    } catch (Exception e) {
+                        if (s.DEBUG) {
+                            Log.e("SwanAppFrescoImageUtils", e.getMessage());
+                        }
+                        a.this.h(str, null);
+                        return;
+                    }
+                }
+                a.this.h(str, null);
+            }
+
+            @Override // com.facebook.datasource.a
+            protected void a(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> bVar) {
+                a.this.h(str, null);
+            }
+
+            @Override // com.facebook.datasource.a, com.facebook.datasource.d
+            public void b(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> bVar) {
+                super.b(bVar);
+                a.this.h(str, null);
+            }
+        }, com.facebook.common.b.i.dCu());
     }
 }

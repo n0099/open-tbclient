@@ -1,5 +1,5 @@
 package com.kascend.chushou.constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SkinConfig {
     public static final String POS_DANMAKU_BG = "2";
     public static final String POS_HOTWORD = "3";
@@ -14,7 +14,7 @@ public class SkinConfig {
     public String position;
     public SkinRes resource = new SkinRes();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class SkinRes {
         public String color;
         public String image;

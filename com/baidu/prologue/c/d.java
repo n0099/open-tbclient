@@ -3,13 +3,13 @@ package com.baidu.prologue.c;
 import android.content.Context;
 import android.net.Uri;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class d {
     static {
-        h PO = h.PO();
+        h Qd = h.Qd();
         i iVar = new i();
-        PO.a("splash_ad", iVar);
-        PO.a(iVar);
+        Qd.a("splash_ad", iVar);
+        Qd.a(iVar);
     }
 
     public static boolean invokeSchemeForInner(Context context, Uri uri) {
@@ -24,10 +24,10 @@ public class d {
         if (context == null) {
             context = c.getAppContext();
         }
-        h PO = h.PO();
+        h Qd = h.Qd();
         g gVar = new g(uri, str);
         gVar.setOnlyVerify(false);
-        return PO.a(context, gVar, aVar);
+        return Qd.a(context, gVar, aVar);
     }
 
     public static boolean invoke(Context context, String str) {

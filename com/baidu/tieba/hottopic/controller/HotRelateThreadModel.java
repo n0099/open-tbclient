@@ -7,37 +7,37 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.at;
+import com.baidu.tbadk.core.data.au;
 import com.baidu.tbadk.core.k;
 import com.baidu.tieba.hottopic.data.e;
 import com.baidu.tieba.hottopic.data.f;
 import com.baidu.tieba.hottopic.message.RequestGetTopicRelateThreadMessage;
 import com.baidu.tieba.hottopic.message.ResponseHttpGetTopicRelateThreadMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketGetTopicRelateThreadMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
-    private com.baidu.adp.framework.listener.a hja;
-    private b iDe;
-    private a iDf;
+    private b iJi;
+    private a iJj;
     private BaseActivity<?> mActivity;
+    private com.baidu.adp.framework.listener.a netMessageListener;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void complete();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public interface b {
         void a(boolean z, com.baidu.tieba.hottopic.data.d dVar, int i);
     }
 
     public HotRelateThreadModel(BaseActivity<?> baseActivity) {
         super(baseActivity.getPageContext());
-        this.hja = new com.baidu.adp.framework.listener.a(1003042, CmdConfigSocket.CMD_TOPIC_RELATE_THREAD) { // from class: com.baidu.tieba.hottopic.controller.HotRelateThreadModel.1
+        this.netMessageListener = new com.baidu.adp.framework.listener.a(1003042, CmdConfigSocket.CMD_TOPIC_RELATE_THREAD) { // from class: com.baidu.tieba.hottopic.controller.HotRelateThreadModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (HotRelateThreadModel.this.iDf != null) {
-                    HotRelateThreadModel.this.iDf.complete();
+                if (HotRelateThreadModel.this.iJj != null) {
+                    HotRelateThreadModel.this.iJj.complete();
                 }
                 if (responsedMessage != null) {
                     if (((responsedMessage instanceof ResponseHttpGetTopicRelateThreadMessage) || (responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage)) && responsedMessage.getOrginalMessage().getTag() == HotRelateThreadModel.this.getUniqueId()) {
@@ -52,39 +52,39 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
                         if (!StringUtils.isNull(responsedMessage.getErrorString())) {
                             HotRelateThreadModel.this.mActivity.showToast(responsedMessage.getErrorString());
                         }
-                        HotRelateThreadModel.this.iDe.a(false, null, i);
+                        HotRelateThreadModel.this.iJi.a(false, null, i);
                     }
                 }
             }
         };
         this.mActivity = baseActivity;
-        registerListener(this.hja);
+        registerListener(this.netMessageListener);
     }
 
     public void a(a aVar) {
-        this.iDf = aVar;
+        this.iJj = aVar;
     }
 
     private void a(e eVar, int i) {
-        f clF = eVar.clF();
-        at pageData = eVar.getPageData();
-        if (clF != null && pageData != null) {
+        f cpf = eVar.cpf();
+        au pageData = eVar.getPageData();
+        if (cpf != null && pageData != null) {
             RequestGetTopicRelateThreadMessage requestGetTopicRelateThreadMessage = new RequestGetTopicRelateThreadMessage();
             double d = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
-            requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(com.baidu.adp.lib.f.b.toLong(clF.dYw, 0L)));
-            requestGetTopicRelateThreadMessage.setTopicName(clF.dKw);
-            if (clF.iEo != null && clF.iEp != null) {
-                requestGetTopicRelateThreadMessage.setPmy_topic_id(clF.iEo);
-                requestGetTopicRelateThreadMessage.setPmy_source(clF.iEp);
+            requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(com.baidu.adp.lib.f.b.toLong(cpf.eeI, 0L)));
+            requestGetTopicRelateThreadMessage.setTopicName(cpf.dQI);
+            if (cpf.iKs != null && cpf.iKt != null) {
+                requestGetTopicRelateThreadMessage.setPmy_topic_id(cpf.iKs);
+                requestGetTopicRelateThreadMessage.setPmy_source(cpf.iKt);
             }
             requestGetTopicRelateThreadMessage.setScrH(Integer.valueOf(equipmentHeight));
             requestGetTopicRelateThreadMessage.setScrW(Integer.valueOf(equipmentWidth));
             requestGetTopicRelateThreadMessage.setScrDip(Double.valueOf(d));
             requestGetTopicRelateThreadMessage.setRn(10);
-            requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(pageData.aRd() + 1));
-            requestGetTopicRelateThreadMessage.setQType(Integer.valueOf(k.aPA().getViewImageQuality()));
+            requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(pageData.aUZ() + 1));
+            requestGetTopicRelateThreadMessage.setQType(Integer.valueOf(k.aTv().getViewImageQuality()));
             requestGetTopicRelateThreadMessage.setSort_type(Integer.valueOf(i));
             if (requestGetTopicRelateThreadMessage.getHttpMessage() != null) {
                 requestGetTopicRelateThreadMessage.getHttpMessage().setExtra(Integer.valueOf(i));
@@ -108,7 +108,7 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
             if ((responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage) && ((ResponseSocketGetTopicRelateThreadMessage) responsedMessage).getHotThreadItemListData() != null) {
                 dVar = ((ResponseSocketGetTopicRelateThreadMessage) responsedMessage).getHotThreadItemListData();
             }
-            this.iDe.a(responsedMessage.hasError() ? false : true, dVar, (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) ? 1 : ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue());
+            this.iJi.a(responsedMessage.hasError() ? false : true, dVar, (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) ? 1 : ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue());
         }
     }
 
@@ -119,7 +119,7 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
     }
 
     public void a(b bVar) {
-        this.iDe = bVar;
+        this.iJi = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

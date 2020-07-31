@@ -1,32 +1,32 @@
 package com.baidu.tbadk.BdToken;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class u {
-    private long dBk;
-    private ArrayList<w> dBl;
+    private long dHg;
+    private ArrayList<w> dHh;
     private long mStartDate;
     private String mUrl;
 
     public void parseJson(String str) {
-        if (!ar.isEmpty(str)) {
+        if (!as.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 this.mStartDate = jSONObject.optLong("start_date", 0L) * 1000;
-                this.dBk = jSONObject.optLong("end_date", 0L) * 1000;
+                this.dHg = jSONObject.optLong("end_date", 0L) * 1000;
                 this.mUrl = jSONObject.optString("ahead_url", "");
-                this.dBl = new ArrayList<>();
+                this.dHh = new ArrayList<>();
                 JSONArray optJSONArray = jSONObject.optJSONArray("time");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONArray optJSONArray2 = optJSONArray.optJSONArray(i);
                         w wVar = new w();
                         wVar.parseJson(optJSONArray2);
-                        this.dBl.add(wVar);
+                        this.dHh.add(wVar);
                     }
                 }
             } catch (Exception e) {
@@ -39,15 +39,15 @@ public class u {
         return this.mStartDate;
     }
 
-    public long aNr() {
-        return this.dBk;
+    public long aRf() {
+        return this.dHg;
     }
 
     public String getUrl() {
         return this.mUrl;
     }
 
-    public ArrayList<w> aNs() {
-        return this.dBl;
+    public ArrayList<w> aRg() {
+        return this.dHh;
     }
 }

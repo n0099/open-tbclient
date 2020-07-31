@@ -10,37 +10,37 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c implements com.baidu.live.liveroom.e.a {
     private static boolean mHasInit = false;
-    private com.baidu.live.liveroom.e.c gpQ;
-    private BVideoView jwv;
+    private com.baidu.live.liveroom.e.c guR;
+    private BVideoView jEZ;
     private Uri mUri;
 
     public c() {
-        czc();
+        cCZ();
     }
 
     @Override // com.baidu.live.liveroom.e.a
     public void d(Context context, Uri uri) {
-        czc();
-        this.jwv = new BVideoView(context);
+        cCZ();
+        this.jEZ = new BVideoView(context);
         HashMap hashMap = new HashMap();
         hashMap.put(CyberPlayerManager.STAGE_INFO_TYPE, SoUtils.SO_EVENT_ID_DEFAULT);
         hashMap.put(CyberPlayerManager.STAGE_INFO_TITLE, "tieba");
-        this.jwv.setExternalInfo(CyberPlayerManager.STR_STAGE_INFO, hashMap);
+        this.jEZ.setExternalInfo(CyberPlayerManager.STR_STAGE_INFO, hashMap);
         this.mUri = uri;
     }
 
     @Override // com.baidu.live.liveroom.e.a
     public void a(com.baidu.live.liveroom.e.c cVar) {
-        this.gpQ = cVar;
-        if (this.jwv != null) {
-            this.jwv.setOnInfoListener(new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.tieba.livesdk.i.c.1
+        this.guR = cVar;
+        if (this.jEZ != null) {
+            this.jEZ.setOnInfoListener(new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.tieba.livesdk.i.c.1
                 @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
                 public boolean onInfo(int i, int i2, Object obj) {
-                    if (c.this.gpQ != null) {
-                        c.this.gpQ.a(c.this, i, i2);
+                    if (c.this.guR != null) {
+                        c.this.guR.a(c.this, i, i2);
                         return false;
                     }
                     return false;
@@ -51,8 +51,8 @@ public class c implements com.baidu.live.liveroom.e.a {
 
     @Override // com.baidu.live.liveroom.e.a
     public void setDecodeMode(int i) {
-        if (this.jwv != null) {
-            this.jwv.setDecodeMode(i);
+        if (this.jEZ != null) {
+            this.jEZ.setDecodeMode(i);
         }
     }
 
@@ -62,62 +62,62 @@ public class c implements com.baidu.live.liveroom.e.a {
 
     @Override // com.baidu.live.liveroom.e.a
     public View getPlayerView() {
-        return this.jwv;
+        return this.jEZ;
     }
 
     @Override // com.baidu.live.liveroom.e.a
-    public void cJ(int i) {
-        if (this.jwv != null) {
-            this.jwv.setVisibility(i);
+    public void cK(int i) {
+        if (this.jEZ != null) {
+            this.jEZ.setVisibility(i);
         }
     }
 
     @Override // com.baidu.live.liveroom.e.a
     public void c(Uri uri) {
         this.mUri = uri;
-        if (this.jwv != null) {
-            this.jwv.setVideoURI(this.mUri);
+        if (this.jEZ != null) {
+            this.jEZ.setVideoURI(this.mUri);
         }
     }
 
     @Override // com.baidu.live.liveroom.e.a
     public void setVideoScalingMode(int i) {
-        if (this.jwv != null) {
-            this.jwv.setVideoScalingMode(i);
+        if (this.jEZ != null) {
+            this.jEZ.setVideoScalingMode(i);
         }
     }
 
     @Override // com.baidu.live.liveroom.e.a
     public void start() {
-        if (this.jwv != null) {
-            this.jwv.start();
+        if (this.jEZ != null) {
+            this.jEZ.start();
         }
     }
 
     @Override // com.baidu.live.liveroom.e.a
     public void stop() {
-        if (this.jwv != null) {
-            this.jwv.stopPlayback();
+        if (this.jEZ != null) {
+            this.jEZ.stopPlayback();
         }
     }
 
     @Override // com.baidu.live.liveroom.e.a
     public void release() {
-        if (this.jwv != null) {
-            this.jwv.stopPlayback();
-            this.jwv.reset();
+        if (this.jEZ != null) {
+            this.jEZ.stopPlayback();
+            this.jEZ.reset();
         }
     }
 
     @Override // com.baidu.live.liveroom.e.a
     public void b(int i, Map<String, String> map) {
-        if (i == 1 && this.jwv != null && map != null) {
+        if (i == 1 && this.jEZ != null && map != null) {
             map.put("type", "20487");
-            this.jwv.setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, map);
+            this.jEZ.setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, map);
         }
     }
 
-    public static synchronized void czc() {
+    public static synchronized void cCZ() {
         synchronized (c.class) {
             if (!mHasInit) {
                 mHasInit = true;

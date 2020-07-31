@@ -19,7 +19,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import java.lang.reflect.Field;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class DropDownListView extends ListView {
     public static final int INVALID_POSITION = -1;
     public static final int NO_POSITION = -1;
@@ -209,7 +209,7 @@ public class DropDownListView extends ListView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class GateKeeperDrawable extends DrawableWrapper {
         private boolean mEnabled;
 
@@ -458,9 +458,9 @@ public class DropDownListView extends ListView {
         }
         this.mMotionPosition = i;
         float left = f - view.getLeft();
-        float top2 = f2 - view.getTop();
+        float top = f2 - view.getTop();
         if (Build.VERSION.SDK_INT >= 21) {
-            view.drawableHotspotChanged(left, top2);
+            view.drawableHotspotChanged(left, top);
         }
         if (!view.isPressed()) {
             view.setPressed(true);
@@ -475,7 +475,7 @@ public class DropDownListView extends ListView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class ResolveHoverRunnable implements Runnable {
         private ResolveHoverRunnable() {
         }

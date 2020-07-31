@@ -1,57 +1,72 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes9.dex */
-public class o {
-    private BaseFragmentActivity hep;
-    private PbModel kbF;
-    private a kdR = null;
-    protected final HttpMessageListener kdS = new HttpMessageListener(1003066) { // from class: com.baidu.tieba.pb.pb.main.o.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
-                if (httpResponsedMessage.getStatusCode() != 200) {
-                    o.this.kdR.n(-1, null, null);
-                    return;
-                }
-                ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
-                String errorMessage = applyCopyThreadResponseMessage.getErrorMessage();
-                int errorCode = applyCopyThreadResponseMessage.getErrorCode();
-                String tid = applyCopyThreadResponseMessage.getTid();
-                if (errorCode == 0) {
-                    errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
-                }
-                o.this.kdR.n(errorCode, errorMessage, tid);
+import android.graphics.drawable.Drawable;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.ad;
+import com.baidu.adp.widget.ListView.ad.a;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.videopb.VideoPbFragment;
+import java.lang.ref.SoftReference;
+/* loaded from: classes16.dex */
+public abstract class o<T, V extends ad.a> extends com.baidu.adp.widget.ListView.a<T, V> {
+    protected PbFragment kjZ;
+    private SparseArray<SoftReference<Drawable>> kjn;
+    private SparseIntArray kjo;
+    protected com.baidu.tieba.pb.videopb.b kmC;
+    protected VideoPbFragment kmD;
+    protected com.baidu.adp.widget.ListView.s kmE;
+    protected boolean mIsFromCDN;
+    protected int mSkinType;
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public o(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
+        super(bVar == null ? null : bVar.cNt(), bdUniqueId);
+        this.mSkinType = 3;
+        this.mIsFromCDN = false;
+        this.kjn = new SparseArray<>();
+        this.kjo = new SparseIntArray();
+        a(bVar);
+    }
+
+    public void a(com.baidu.tieba.pb.videopb.b bVar) {
+        if (bVar != null) {
+            this.kmC = bVar;
+            this.kjZ = bVar.cNr();
+            this.kmD = bVar.cNs();
+            if (this.kjZ != null) {
+                this.mContext = this.kjZ.getActivity();
+            } else if (this.kmD != null) {
+                this.mContext = this.kmD.getActivity();
+            } else {
+                this.mContext = null;
             }
         }
-    };
-
-    /* loaded from: classes9.dex */
-    public interface a {
-        void n(int i, String str, String str2);
     }
 
-    public o(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
-        this.kbF = pbModel;
-        this.hep = baseFragmentActivity;
-        this.hep.registerListener(this.kdS);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
+        this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
+        this.kmE = (com.baidu.adp.widget.ListView.s) viewGroup;
+        return null;
     }
 
-    public void a(a aVar) {
-        this.kdR = aVar;
+    public void setFromCDN(boolean z) {
+        this.mIsFromCDN = z;
     }
 
-    public void Bf(int i) {
-        if (this.kbF != null) {
-            HttpMessage httpMessage = new HttpMessage(1003066);
-            httpMessage.addParam("thread_id", this.kbF.cKa());
-            httpMessage.addParam("status", String.valueOf(i));
-            MessageManager.getInstance().sendMessage(httpMessage);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public int getDimensionPixelSize(int i) {
+        int i2 = this.kjo.get(i, -1);
+        if (i2 == -1) {
+            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
+            this.kjo.put(i, dimensionPixelSize);
+            return dimensionPixelSize;
         }
+        return i2;
     }
 }

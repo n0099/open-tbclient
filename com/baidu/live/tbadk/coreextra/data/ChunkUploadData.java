@@ -1,6 +1,6 @@
 package com.baidu.live.tbadk.coreextra.data;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ChunkUploadData {
     private int mChunkNo;
     private String mMd5;

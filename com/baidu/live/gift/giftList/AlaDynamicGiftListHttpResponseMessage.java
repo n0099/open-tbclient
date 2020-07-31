@@ -8,10 +8,10 @@ import com.baidu.live.utils.k;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private ArrayList<com.baidu.live.gift.b> aNx;
-    private JSONObject aNy;
+    private ArrayList<com.baidu.live.gift.b> aOS;
+    private JSONObject aOT;
 
     public AlaDynamicGiftListHttpResponseMessage(int i) {
         super(i);
@@ -21,22 +21,22 @@ public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMess
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null && i == 1021089) {
             super.decodeLogicInBackGround(i, jSONObject);
-            this.aNy = jSONObject.optJSONObject("data");
-            if (this.aNy != null) {
-                this.aNx = D(this.aNy);
-                if (this.aNx.size() <= 0) {
-                    com.baidu.live.gift.b.a.AF();
+            this.aOT = jSONObject.optJSONObject("data");
+            if (this.aOT != null) {
+                this.aOS = D(this.aOT);
+                if (this.aOS.size() <= 0) {
+                    com.baidu.live.gift.b.a.Bh();
                     com.baidu.live.c.vf().putString("dynamic_cache_data_list", "");
                     return;
                 }
-                fj(com.baidu.live.c.vf().getSharedPreferences().getString("dynamic_cache_data_list", ""));
-                com.baidu.live.c.vf().putString("dynamic_cache_data_list", this.aNy.toString());
-                AC();
+                fi(com.baidu.live.c.vf().getSharedPreferences().getString("dynamic_cache_data_list", ""));
+                com.baidu.live.c.vf().putString("dynamic_cache_data_list", this.aOT.toString());
+                Be();
             }
         }
     }
 
-    private void fj(String str) {
+    private void fi(String str) {
         ArrayList<com.baidu.live.gift.b> arrayList;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -53,19 +53,19 @@ public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMess
                 }
                 for (int i2 = 0; i2 < arrayList2.size(); i2++) {
                     com.baidu.live.gift.b bVar = (com.baidu.live.gift.b) arrayList2.get(i2);
-                    if (bVar != null && bVar.aGe != null && !TextUtils.isEmpty(bVar.aGe.zipName)) {
-                        com.baidu.live.gift.b.a.fn(bVar.aGe.zipName);
+                    if (bVar != null && bVar.aHz != null && !TextUtils.isEmpty(bVar.aHz.zipName)) {
+                        com.baidu.live.gift.b.a.fm(bVar.aHz.zipName);
                     }
                 }
             }
         }
     }
 
-    private void AC() {
-        if (!BdNetTypeUtil.isMobileNet() || !k.Jk()) {
-            for (int i = 0; i < this.aNx.size(); i++) {
-                com.baidu.live.gift.b bVar = this.aNx.get(i);
-                if (bVar.aGe != null && bVar.aGe.xu()) {
+    private void Be() {
+        if (!BdNetTypeUtil.isMobileNet() || !k.Jr()) {
+            for (int i = 0; i < this.aOS.size(); i++) {
+                com.baidu.live.gift.b bVar = this.aOS.get(i);
+                if (bVar.aHz != null && bVar.aHz.xW()) {
                     com.baidu.live.gift.b.a.a(bVar, false);
                 }
             }
@@ -73,15 +73,15 @@ public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMess
     }
 
     private boolean a(com.baidu.live.gift.b bVar) {
-        if (bVar == null || bVar.aGe == null) {
+        if (bVar == null || bVar.aHz == null) {
             return false;
         }
-        if (TextUtils.isEmpty(bVar.aGe.videoMd5) && TextUtils.isEmpty(bVar.aGe.zipMD5)) {
+        if (TextUtils.isEmpty(bVar.aHz.videoMd5) && TextUtils.isEmpty(bVar.aHz.zipMD5)) {
             return false;
         }
-        for (int i = 0; i < this.aNx.size(); i++) {
-            com.baidu.live.gift.b bVar2 = this.aNx.get(i);
-            if ((!TextUtils.isEmpty(bVar2.aGe.videoMd5) && bVar2.aGe.videoMd5.equals(bVar.aGe.videoMd5)) || (!TextUtils.isEmpty(bVar2.aGe.zipMD5) && bVar2.aGe.zipMD5.equals(bVar.aGe.zipMD5))) {
+        for (int i = 0; i < this.aOS.size(); i++) {
+            com.baidu.live.gift.b bVar2 = this.aOS.get(i);
+            if ((!TextUtils.isEmpty(bVar2.aHz.videoMd5) && bVar2.aHz.videoMd5.equals(bVar.aHz.videoMd5)) || (!TextUtils.isEmpty(bVar2.aHz.zipMD5) && bVar2.aHz.zipMD5.equals(bVar.aHz.zipMD5))) {
                 return true;
             }
         }
@@ -104,11 +104,11 @@ public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMess
         return arrayList;
     }
 
-    public ArrayList<com.baidu.live.gift.b> AD() {
-        return this.aNx;
+    public ArrayList<com.baidu.live.gift.b> Bf() {
+        return this.aOS;
     }
 
-    public boolean xn() {
+    public boolean xQ() {
         if (getOrginalMessage() instanceof a) {
             return ((a) getOrginalMessage()).isHost();
         }

@@ -8,65 +8,65 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class q extends BaseData {
-    public AlaLiveUserInfoData axI;
-    public p axJ;
-    public AlaLiveGiftUIInfo axK;
-    public ArrayList<AlaLiveWishListData> axL;
-    public boolean axM;
-    public List<AlaLiveMarkData> axN;
-    public long axO;
-    public String axP;
-    public boolean axQ;
-    public long axR;
-    public ac axS;
-    public boolean axT;
-    public AlaLiveFeedDiversionData axU;
-    public b axV;
-    public AlaLiveUserInfoData axp;
-    public AlaLocationData axq;
-    public AlaRelationData axr;
-    public long axt;
+    public AlaLiveUserInfoData ayC;
+    public AlaLocationData ayD;
+    public AlaRelationData ayE;
+    public long ayG;
+    public AlaLiveUserInfoData ayV;
+    public p ayW;
+    public AlaLiveGiftUIInfo ayX;
+    public ArrayList<AlaLiveWishListData> ayY;
+    public boolean ayZ;
+    public List<AlaLiveMarkData> aza;
+    public long azb;
+    public String azc;
+    public boolean azd;
+    public long aze;
+    public ac azf;
+    public boolean azg;
+    public AlaLiveFeedDiversionData azh;
+    public b azi;
     public boolean isHost;
     public AlaLiveInfoData mLiveInfo;
     public o mLiveSdkInfo;
 
     public q() {
         this.mLiveInfo = new AlaLiveInfoData();
-        this.axp = new AlaLiveUserInfoData();
-        this.axI = new AlaLiveUserInfoData();
-        this.axr = new AlaRelationData();
-        this.axq = new AlaLocationData();
+        this.ayC = new AlaLiveUserInfoData();
+        this.ayV = new AlaLiveUserInfoData();
+        this.ayE = new AlaRelationData();
+        this.ayD = new AlaLocationData();
         this.mLiveSdkInfo = new o();
-        this.axJ = new p();
-        this.axL = new ArrayList<>();
-        this.axM = false;
-        this.axN = new ArrayList();
-        this.axt = 5000L;
-        this.axQ = false;
-        this.axS = new ac();
+        this.ayW = new p();
+        this.ayY = new ArrayList<>();
+        this.ayZ = false;
+        this.aza = new ArrayList();
+        this.ayG = 5000L;
+        this.azd = false;
+        this.azf = new ac();
     }
 
     public q(AlaLiveInfoCoreData alaLiveInfoCoreData) {
         this.mLiveInfo = new AlaLiveInfoData();
-        this.axp = new AlaLiveUserInfoData();
-        this.axI = new AlaLiveUserInfoData();
-        this.axr = new AlaRelationData();
-        this.axq = new AlaLocationData();
+        this.ayC = new AlaLiveUserInfoData();
+        this.ayV = new AlaLiveUserInfoData();
+        this.ayE = new AlaRelationData();
+        this.ayD = new AlaLocationData();
         this.mLiveSdkInfo = new o();
-        this.axJ = new p();
-        this.axL = new ArrayList<>();
-        this.axM = false;
-        this.axN = new ArrayList();
-        this.axt = 5000L;
-        this.axQ = false;
-        this.axS = new ac();
+        this.ayW = new p();
+        this.ayY = new ArrayList<>();
+        this.ayZ = false;
+        this.aza = new ArrayList();
+        this.ayG = 5000L;
+        this.azd = false;
+        this.azf = new ac();
         if (alaLiveInfoCoreData != null) {
             this.mLiveInfo = a(alaLiveInfoCoreData);
             AlaLiveUserInfoData a = a(alaLiveInfoCoreData.userInfo);
             if (a != null) {
-                this.axp = a;
+                this.ayC = a;
             }
         }
     }
@@ -82,46 +82,46 @@ public class q extends BaseData {
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("location_info");
             if (optJSONObject3 != null) {
-                this.axq = new AlaLocationData();
-                this.axq.parserJson(optJSONObject3);
+                this.ayD = new AlaLocationData();
+                this.ayD.parserJson(optJSONObject3);
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("user_info");
             if (optJSONObject4 != null) {
-                this.axp = new AlaLiveUserInfoData();
-                this.axp.parserJson(optJSONObject4);
+                this.ayC = new AlaLiveUserInfoData();
+                this.ayC.parserJson(optJSONObject4);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("login_user_info");
             if (optJSONObject5 != null) {
-                this.axI = new AlaLiveUserInfoData();
-                this.axI.parserJson(optJSONObject5);
+                this.ayV = new AlaLiveUserInfoData();
+                this.ayV.parserJson(optJSONObject5);
             }
             JSONObject optJSONObject6 = jSONObject.optJSONObject("relation_info");
             if (optJSONObject6 != null) {
-                this.axr = new AlaRelationData();
-                this.axr.parserJson(optJSONObject6);
+                this.ayE = new AlaRelationData();
+                this.ayE.parserJson(optJSONObject6);
             }
             JSONObject optJSONObject7 = jSONObject.optJSONObject("task_info");
             if (optJSONObject7 != null) {
-                this.axS = new ac();
-                this.axS.parserJson(optJSONObject7);
+                this.azf = new ac();
+                this.azf.parserJson(optJSONObject7);
             }
             JSONObject optJSONObject8 = jSONObject.optJSONObject("share_live_info");
             if (optJSONObject8 != null) {
-                this.axJ = new p();
-                this.axJ.parseJson(optJSONObject8);
+                this.ayW = new p();
+                this.ayW.parseJson(optJSONObject8);
             }
             if (!TbadkCoreApplication.getInst().isMobileBaidu() && (optJSONObject = jSONObject.optJSONObject("gift_bg_info")) != null) {
-                this.axK = new AlaLiveGiftUIInfo();
-                this.axK.parserJson(optJSONObject);
+                this.ayX = new AlaLiveGiftUIInfo();
+                this.ayX.parserJson(optJSONObject);
             }
-            this.axt = jSONObject.optLong("interval", 5L);
-            if (this.axt < 5) {
-                this.axt = 5000L;
+            this.ayG = jSONObject.optLong("interval", 5L);
+            if (this.ayG < 5) {
+                this.ayG = 5000L;
             } else {
-                this.axt *= 1000;
+                this.ayG *= 1000;
             }
-            this.axO = jSONObject.optInt("zan_status");
-            this.axP = jSONObject.optString("user_watermark");
+            this.azb = jSONObject.optInt("zan_status");
+            this.azc = jSONObject.optString("user_watermark");
             JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info_new");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
@@ -129,13 +129,13 @@ public class q extends BaseData {
                     if (optJSONObject9 != null) {
                         AlaLiveMarkData alaLiveMarkData = new AlaLiveMarkData();
                         alaLiveMarkData.parserJson(optJSONObject9);
-                        this.axN.add(alaLiveMarkData);
+                        this.aza.add(alaLiveMarkData);
                     }
                 }
             }
-            this.axM = jSONObject.optInt("need_renew_mark_info", 0) == 1;
+            this.ayZ = jSONObject.optInt("need_renew_mark_info", 0) == 1;
             if (jSONObject.has("scene_from")) {
-                com.baidu.live.utils.p.fV(jSONObject.optString("scene_from"));
+                com.baidu.live.utils.p.fU(jSONObject.optString("scene_from"));
             }
             JSONObject optJSONObject10 = jSONObject.optJSONObject(CashierData.SDK);
             if (optJSONObject10 != null) {
@@ -147,19 +147,19 @@ public class q extends BaseData {
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                     AlaLiveWishListData alaLiveWishListData = new AlaLiveWishListData();
                     alaLiveWishListData.parserJson(optJSONArray2.optJSONObject(i2));
-                    this.axL.add(alaLiveWishListData);
+                    this.ayY.add(alaLiveWishListData);
                 }
             }
-            this.axT = jSONObject.optInt("switch_guard_seat") == 1;
+            this.azg = jSONObject.optInt("switch_guard_seat") == 1;
             JSONObject optJSONObject11 = jSONObject.optJSONObject("feed_diversion");
             if (optJSONObject11 != null) {
-                this.axU = new AlaLiveFeedDiversionData();
-                this.axU.parserJson(optJSONObject11);
+                this.azh = new AlaLiveFeedDiversionData();
+                this.azh.parserJson(optJSONObject11);
             }
             JSONObject optJSONObject12 = jSONObject.optJSONObject("anchor_info");
             if (optJSONObject12 != null) {
-                this.axV = new b();
-                this.axV.parseJson(optJSONObject12);
+                this.azi = new b();
+                this.azi.parseJson(optJSONObject12);
             }
         }
     }

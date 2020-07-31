@@ -1,22 +1,22 @@
 package com.baidu.swan.pms.node.b;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class a {
-    static final a drF = new a(200, 720, 10, 168);
-    public final int drB;
-    public final int drC;
-    public final int drD;
-    public final int drE;
+    static final a dxw = new a(200, 720, 10, 168);
+    public final int dxs;
+    public final int dxt;
+    public final int dxu;
+    public final int dxv;
 
     public a(int i, int i2, int i3, int i4) {
-        this.drB = i;
-        this.drC = i2;
-        this.drD = i3;
-        this.drE = i4;
+        this.dxs = i;
+        this.dxt = i2;
+        this.dxu = i3;
+        this.dxv = i4;
     }
 
-    public static a cn(JSONObject jSONObject) {
+    public static a ct(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }

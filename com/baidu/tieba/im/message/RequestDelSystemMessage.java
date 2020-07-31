@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.DelGroupMsgs.DataReq;
 import protobuf.DelGroupMsgs.DelGroupMsgsReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class RequestDelSystemMessage extends TbSocketMessage {
     private long groupId;
     private String msgIds;

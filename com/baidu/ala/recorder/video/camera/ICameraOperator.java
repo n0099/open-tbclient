@@ -5,7 +5,7 @@ import android.hardware.Camera;
 import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
 import com.baidu.ala.recorder.video.IVideoRecorder;
 import com.baidu.ala.recorder.video.VideoFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface ICameraOperator {
     int getOutputHeight();
 

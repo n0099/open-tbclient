@@ -16,7 +16,7 @@ import com.baidu.cyberplayer.sdk.SDKVersion;
 import com.baidu.cyberplayer.sdk.a.b;
 import com.baidu.cyberplayer.sdk.c;
 import com.baidu.cyberplayer.sdk.d;
-import com.baidu.cyberplayer.sdk.m;
+import com.baidu.cyberplayer.sdk.n;
 import com.baidu.cyberplayer.sdk.statistics.DpNetworkUtils;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.sdk.VideoCloudSetting;
@@ -29,7 +29,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class CyberCfgManager {
     @Keep
     public static final String KEY_ACCURATE_SEEK_ENABLE = "accurate_seek_enable";
@@ -46,13 +46,21 @@ public class CyberCfgManager {
     @Keep
     public static final String KEY_INT_ENABLE_MONITOR = "enable_monitor";
     @Keep
+    public static final String KEY_INT_ENABLE_MULTI_INSTANCE = "enable_multi_instance";
+    @Keep
     public static final String KEY_INT_ENABLE_PREFETCH = "enable_prefetch";
     @Keep
     public static final String KEY_INT_ENABLE_SR = "enable_sr";
     @Keep
     public static final String KEY_INT_FILE_CACHE_MIN_FREE_SIZE = "file_cache_min_free_size";
     @Keep
+    public static final String KEY_INT_MEDIA_INSTANCE_CAP = "instance_capacity";
+    @Keep
     public static final String KEY_INT_PCDN_FORBIDDEN = "pcdn_forbidden";
+    @Keep
+    public static final String KEY_INT_REMOTE_RESUME_FORBIDDEN = "remote_resume_forbidden";
+    @Keep
+    public static final String KEY_STR_UPDATE_EXT_RTC = "updata_ext_rtc_ver";
     @Keep
     public static final String LAST_CHECK_UNUSED_LIBS_TIME = "last_check_unused_libs_time";
     @Keep
@@ -136,7 +144,6 @@ public class CyberCfgManager {
         r.add("VOG-AL10");
         r.add("VOG-AL00");
         r.add("PAFM00");
-        r.add("MIX 2S");
     }
 
     private CyberCfgManager() {
@@ -218,7 +225,7 @@ public class CyberCfgManager {
     }
 
     private void c() {
-        this.k = m.b() + File.separator + "config";
+        this.k = n.b() + File.separator + "config";
         Map<String, String> a2 = a.a(this.k + File.separator + "cybermedia.pro");
         if (a2 != null) {
             this.d.putAll(a2);
@@ -232,7 +239,7 @@ public class CyberCfgManager {
                 String value = entry.getValue();
                 if (key.startsWith(CyberPlayerManager.INSTALL_OPT_ABTEST_SWITCH_START_CODE)) {
                     CyberLog.d("CyberCfgManager", "ABTest key:" + key + " value:" + value);
-                    Map<String, String> c = m.c(value);
+                    Map<String, String> c = n.c(value);
                     if (c != null) {
                         this.d.putAll(c);
                     }
@@ -246,7 +253,7 @@ public class CyberCfgManager {
         Map<String, String> a2;
         try {
             if (b != null) {
-                this.l = m.a(b);
+                this.l = n.a(b);
             }
             if (TextUtils.isEmpty(this.l) || (a2 = a.a(this.l + File.separator + "cybermedia.pro")) == null) {
                 return;
@@ -272,7 +279,7 @@ public class CyberCfgManager {
     }
 
     private void g() {
-        if (c.a().e() && m.m()) {
+        if (c.a().e() && n.m()) {
             setPrefLong("last_update_cloud_cfg_time", System.currentTimeMillis());
             CyberTaskExcutor.getInstance().execute(new Runnable() { // from class: com.baidu.cyberplayer.sdk.config.CyberCfgManager.1
                 @Override // java.lang.Runnable
@@ -280,7 +287,7 @@ public class CyberCfgManager {
                     try {
                         String d = c.a().d();
                         Properties properties = new Properties();
-                        m.b(CyberCfgManager.this.k);
+                        n.b(CyberCfgManager.this.k);
                         File file = new File(CyberCfgManager.this.k, "cybermedia.pro");
                         if (!file.exists() || !file.isFile()) {
                             file.createNewFile();
@@ -292,10 +299,10 @@ public class CyberCfgManager {
                         HashMap hashMap = new HashMap();
                         hashMap.put("url", d);
                         byte[] a2 = b.a(hashMap);
-                        String a3 = m.a(a2);
-                        String a4 = m.a(a2, new String(Base64.decode("SFIyRVI=".getBytes(), 0)));
+                        String a3 = n.a(a2);
+                        String a4 = n.a(a2, new String(Base64.decode("SFIyRVI=".getBytes(), 0)));
                         if (a4 != null) {
-                            Map<String, String> c = m.c(a4);
+                            Map<String, String> c = n.c(a4);
                             if (c != null) {
                                 FileWriter fileWriter = new FileWriter(file2.getAbsolutePath());
                                 for (Map.Entry<String, String> entry : c.entrySet()) {
@@ -310,7 +317,7 @@ public class CyberCfgManager {
                             }
                             CyberCfgManager.this.setPrefStr("cloud_cfg_data_md5", a3);
                             CyberCfgManager.this.b();
-                            d.f();
+                            d.h();
                             CyberLog.d("CyberCfgManager", "updateCloudCfgProFile success!");
                         }
                     } catch (Exception e) {
@@ -475,22 +482,22 @@ public class CyberCfgManager {
         String packageName = b.getPackageName();
         String str2 = (str + File.separator + "videoconfig") + "?cmd=1&";
         StringBuilder sb = new StringBuilder();
-        m.a(sb, "package_name", packageName);
-        m.a(sb, "sdk_ver", SDKVersion.VERSION);
+        n.a(sb, "package_name", packageName);
+        n.a(sb, "sdk_ver", SDKVersion.VERSION);
         if (!TextUtils.isEmpty(this.f)) {
-            m.a(sb, "appid", this.f);
+            n.a(sb, "appid", this.f);
         }
         try {
             PackageManager packageManager = b.getPackageManager();
             if (packageManager != null) {
-                m.a(sb, ETAG.KEY_APP_VERSION, packageManager.getPackageInfo(packageName, 0).versionName);
+                n.a(sb, ETAG.KEY_APP_VERSION, packageManager.getPackageInfo(packageName, 0).versionName);
             }
         } catch (PackageManager.NameNotFoundException e) {
         }
-        m.a(sb, ETAG.KEY_DEV_VER, Build.VERSION.SDK_INT);
-        m.a(sb, "net_type", DpNetworkUtils.getNetworkStatisticsData(b));
+        n.a(sb, ETAG.KEY_DEV_VER, Build.VERSION.SDK_INT);
+        n.a(sb, "net_type", DpNetworkUtils.getNetworkStatisticsData(b));
         try {
-            m.a(sb, "model", new String(Base64.encode(Build.MODEL.getBytes(), 0)));
+            n.a(sb, "model", new String(Base64.encode(Build.MODEL.getBytes(), 0)));
         } catch (Throwable th) {
             CyberLog.e("CyberCfgManager", "model exception ", th);
         }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"WrongCall"})
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbListTextView extends TextView {
     private boolean checkSelection;
 
@@ -139,7 +139,7 @@ public class TbListTextView extends TextView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class FixingResult {
         public final boolean isFixed;
         public final List<Object> spansWithSpacesAfter;

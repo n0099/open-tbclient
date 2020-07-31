@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes;
 
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -8,7 +9,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class MetaBox extends AbstractContainerBox {
     public static final String TYPE = "meta";
     private int flags;
@@ -65,6 +66,6 @@ public class MetaBox extends AbstractContainerBox {
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
         long containerSize = getContainerSize();
-        return ((this.largeBox || containerSize + 4 >= 4294967296L) ? 16 : 8) + containerSize + 4;
+        return ((this.largeBox || containerSize + 4 >= AccountConstants.TYPE_MODIFY_EXT_FIELDS) ? 16 : 8) + containerSize + 4;
     }
 }

@@ -5,19 +5,19 @@ import android.support.annotation.Nullable;
 import com.baidu.mapapi.map.WeightedLatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public abstract class a<K, A> {
-    private final List<? extends com.airbnb.lottie.e.a<K>> CJ;
+    private final List<? extends com.airbnb.lottie.e.a<K>> CL;
     @Nullable
-    protected com.airbnb.lottie.e.c<A> CK;
+    protected com.airbnb.lottie.e.c<A> CN;
     @Nullable
-    private com.airbnb.lottie.e.a<K> CL;
+    private com.airbnb.lottie.e.a<K> CO;
     final List<InterfaceC0010a> listeners = new ArrayList();
-    private boolean CI = false;
+    private boolean CK = false;
     private float progress = 0.0f;
 
     /* renamed from: com.airbnb.lottie.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes20.dex */
     public interface InterfaceC0010a {
         void hq();
     }
@@ -26,11 +26,11 @@ public abstract class a<K, A> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(List<? extends com.airbnb.lottie.e.a<K>> list) {
-        this.CJ = list;
+        this.CL = list;
     }
 
     public void hE() {
-        this.CI = true;
+        this.CK = true;
     }
 
     public void b(InterfaceC0010a interfaceC0010a) {
@@ -63,25 +63,25 @@ public abstract class a<K, A> {
     }
 
     private com.airbnb.lottie.e.a<K> hF() {
-        if (this.CL != null && this.CL.m(this.progress)) {
-            return this.CL;
+        if (this.CO != null && this.CO.m(this.progress)) {
+            return this.CO;
         }
-        com.airbnb.lottie.e.a<K> aVar = this.CJ.get(this.CJ.size() - 1);
+        com.airbnb.lottie.e.a<K> aVar = this.CL.get(this.CL.size() - 1);
         if (this.progress < aVar.iY()) {
-            for (int size = this.CJ.size() - 1; size >= 0; size--) {
-                aVar = this.CJ.get(size);
+            for (int size = this.CL.size() - 1; size >= 0; size--) {
+                aVar = this.CL.get(size);
                 if (aVar.m(this.progress)) {
                     break;
                 }
             }
         }
-        this.CL = aVar;
+        this.CO = aVar;
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float hG() {
-        if (this.CI) {
+        if (this.CK) {
             return 0.0f;
         }
         com.airbnb.lottie.e.a<K> hF = hF();
@@ -101,18 +101,18 @@ public abstract class a<K, A> {
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     private float hI() {
-        if (this.CJ.isEmpty()) {
+        if (this.CL.isEmpty()) {
             return 0.0f;
         }
-        return this.CJ.get(0).iY();
+        return this.CL.get(0).iY();
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     float hJ() {
-        if (this.CJ.isEmpty()) {
+        if (this.CL.isEmpty()) {
             return 1.0f;
         }
-        return this.CJ.get(this.CJ.size() - 1).hJ();
+        return this.CL.get(this.CL.size() - 1).hJ();
     }
 
     public A getValue() {
@@ -124,10 +124,10 @@ public abstract class a<K, A> {
     }
 
     public void a(@Nullable com.airbnb.lottie.e.c<A> cVar) {
-        if (this.CK != null) {
-            this.CK.b(null);
+        if (this.CN != null) {
+            this.CN.b(null);
         }
-        this.CK = cVar;
+        this.CN = cVar;
         if (cVar != null) {
             cVar.b(this);
         }

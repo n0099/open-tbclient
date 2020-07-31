@@ -1,5 +1,5 @@
 package com.baidu.android.util.media.reflect;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public interface ObjectConstructor<T> {
     T construct();
 }

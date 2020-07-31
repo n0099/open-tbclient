@@ -11,13 +11,13 @@ import android.widget.TextView;
 import com.kascend.chushou.a;
 import java.util.HashMap;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends com.kascend.chushou.view.base.a implements View.OnClickListener {
     private TextView a;
     private TextView d;
     private String e;
 
-    public static b Rr(String str) {
+    public static b Sc(String str) {
         b bVar = new b();
         Bundle bundle = new Bundle();
         bundle.putString("dataInfo", str);
@@ -62,7 +62,7 @@ public class b extends com.kascend.chushou.view.base.a implements View.OnClickLi
             dismissAllowingStateLoss();
             HashMap hashMap = new HashMap();
             if (!h.isEmpty(this.e)) {
-                hashMap.putAll(tv.chushou.zues.utils.d.Th(this.e));
+                hashMap.putAll(tv.chushou.zues.utils.d.TS(this.e));
             }
             hashMap.put("_fromView", "58");
             com.kascend.chushou.d.a.c(this.b, tv.chushou.zues.utils.d.toJson(hashMap));

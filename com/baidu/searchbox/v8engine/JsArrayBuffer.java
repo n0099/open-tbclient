@@ -1,6 +1,6 @@
 package com.baidu.searchbox.v8engine;
 @NotProguard
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class JsArrayBuffer {
     private byte[] mBuffer;
     private int mLength;

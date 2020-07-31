@@ -5,173 +5,176 @@ import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class d {
-    private static volatile d duj;
-    private HashSet<String> duk = new HashSet<>();
-    private HashSet<String> dul = new HashSet<>();
-    private HashSet<String> dum = new HashSet<>();
-    private HashSet<String> dun = new HashSet<>();
-    private HashMap<String, String> duo = new HashMap<>();
-    private HashMap<String, String> dup = new HashMap<>();
-    private HashMap<String, h> duq = new HashMap<>();
-    private HashSet<String> dur = new HashSet<>();
-    private int dus;
-    private int dut;
-    private int duu;
+    private static volatile d dzY;
+    private int dAh;
+    private int dAi;
+    private int dAj;
     private Context mContext;
+    private HashSet<String> dzZ = new HashSet<>();
+    private HashSet<String> dAa = new HashSet<>();
+    private HashSet<String> dAb = new HashSet<>();
+    private HashSet<String> dAc = new HashSet<>();
+    private HashMap<String, String> dAd = new HashMap<>();
+    private HashMap<String, String> dAe = new HashMap<>();
+    private HashMap<String, h> dAf = new HashMap<>();
+    private HashSet<String> dAg = new HashSet<>();
 
     private d() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static d aJj() {
-        if (duj == null) {
+    public static d aNb() {
+        if (dzY == null) {
             synchronized (d.class) {
-                if (duj == null) {
-                    duj = new d();
+                if (dzY == null) {
+                    dzY = new d();
                 }
             }
         }
-        return duj;
+        return dzY;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(c cVar, Context context) {
         this.mContext = context;
-        this.dus = 360000;
-        u aJW = u.aJW();
-        this.dut = aJW.getInt("ubc_data_expire_time", 259200000);
-        this.duu = aJW.getInt("ubc_database_limit", 4000);
-        cVar.aJg().a(this.duk, this.dun, this.dul, this.dum, this.duo, this.dup, this.duq, this.dur);
+        this.dAh = 360000;
+        u aNN = u.aNN();
+        this.dAi = aNN.getInt("ubc_data_expire_time", 259200000);
+        this.dAj = aNN.getInt("ubc_database_limit", 4000);
+        cVar.aMY().a(this.dzZ, this.dAc, this.dAa, this.dAb, this.dAd, this.dAe, this.dAf, this.dAg);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void av(List<g> list) {
+    public void aB(List<g> list) {
         for (g gVar : list) {
-            if ("0".equals(gVar.aJp())) {
-                this.duk.add(gVar.getId());
+            if ("0".equals(gVar.aNh())) {
+                this.dzZ.add(gVar.getId());
             } else {
-                this.duk.remove(gVar.getId());
+                this.dzZ.remove(gVar.getId());
             }
-            if ("1".equals(gVar.aJq())) {
-                this.dul.add(gVar.getId());
+            if ("1".equals(gVar.aNi())) {
+                this.dAa.add(gVar.getId());
             } else {
-                this.dul.remove(gVar.getId());
+                this.dAa.remove(gVar.getId());
             }
-            if ("1".equals(gVar.aJr())) {
-                this.dum.add(gVar.getId());
+            if ("1".equals(gVar.aNj())) {
+                this.dAb.add(gVar.getId());
             } else {
-                this.dum.remove(gVar.getId());
+                this.dAb.remove(gVar.getId());
             }
-            if (gVar.aJs() >= 1 && gVar.aJs() <= 100) {
-                this.duo.put(gVar.getId(), String.valueOf(gVar.aJs()));
+            if (gVar.aNk() >= 1 && gVar.aNk() <= 100) {
+                this.dAd.put(gVar.getId(), String.valueOf(gVar.aNk()));
             } else {
-                this.duo.remove(gVar.getId());
+                this.dAd.remove(gVar.getId());
             }
             if (!TextUtils.isEmpty(gVar.getCategory())) {
-                this.dup.put(gVar.getId(), gVar.getCategory());
+                this.dAe.put(gVar.getId(), gVar.getCategory());
             } else {
-                this.dup.remove(gVar.getId());
+                this.dAe.remove(gVar.getId());
             }
-            if (gVar.aJu() != 0 && gVar.aJt() != 0) {
-                h hVar = new h(gVar.getId(), gVar.aJu(), gVar.aJt());
-                this.duq.put(hVar.getId(), hVar);
+            if (gVar.aNm() != 0 && gVar.aNl() != 0) {
+                h hVar = new h(gVar.getId(), gVar.aNm(), gVar.aNl());
+                this.dAf.put(hVar.getId(), hVar);
             }
-            if (TextUtils.equals(gVar.aJv(), "1")) {
-                this.dur.add(gVar.getId());
+            if (TextUtils.equals(gVar.aNn(), "1")) {
+                this.dAg.add(gVar.getId());
             } else {
-                this.dur.remove(gVar.getId());
+                this.dAg.remove(gVar.getId());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean aa(String str, int i) {
-        if (this.duk.contains(str)) {
+    public boolean ab(String str, int i) {
+        if (this.dzZ.contains(str)) {
             return false;
         }
-        return ((i & 16) == 0 && (i & 32) == 0) || this.dun.contains(str);
+        if ((i & 16) != 0 || (i & 32) != 0) {
+            return this.dAc.contains(str);
+        }
+        return true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean tM(String str) {
-        if (e.aJn().alY()) {
+    public boolean uP(String str) {
+        if (e.aNf().anr()) {
             return true;
         }
-        return this.dul.contains(str);
+        return this.dAa.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean tN(String str) {
-        return this.dum.contains(str);
+    public boolean uQ(String str) {
+        return this.dAb.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String tO(String str) {
-        return this.dup.containsKey(str) ? this.dup.get(str) : "";
+    public String uR(String str) {
+        return this.dAe.containsKey(str) ? this.dAe.get(str) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int aJk() {
-        return this.dus;
+    public int aNc() {
+        return this.dAh;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void jE(int i) {
-        if (i * 60000 >= this.dus) {
-            this.dus = i * 60000;
+    public void jX(int i) {
+        if (i * 60000 >= this.dAh) {
+            this.dAh = i * 60000;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int aJl() {
-        return this.dut;
+    public int aNd() {
+        return this.dAi;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void jF(int i) {
-        if (i >= this.dut) {
-            this.dut = i;
-            u.aJW().putInt("ubc_data_expire_time", i);
+    public void jY(int i) {
+        if (i >= this.dAi) {
+            this.dAi = i;
+            u.aNN().putInt("ubc_data_expire_time", i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int aJm() {
-        return this.duu;
+    public int aNe() {
+        return this.dAj;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void jG(int i) {
-        if (i >= this.duu) {
-            this.duu = i;
-            u.aJW().putInt("ubc_database_limit", i);
+    public void jZ(int i) {
+        if (i >= this.dAj) {
+            this.dAj = i;
+            u.aNN().putInt("ubc_database_limit", i);
         }
     }
 
-    public int tP(String str) {
-        if (e.aJn().alZ() || TextUtils.isEmpty(str) || !this.duo.containsKey(str)) {
+    public int uS(String str) {
+        if (e.aNf().ans() || TextUtils.isEmpty(str) || !this.dAd.containsKey(str)) {
             return 0;
         }
-        return Integer.parseInt(this.duo.get(str));
+        return Integer.parseInt(this.dAd.get(str));
     }
 
-    public boolean tQ(String str) {
-        if (this.duq == null || !this.duq.containsKey(str)) {
+    public boolean uT(String str) {
+        if (this.dAf == null || !this.dAf.containsKey(str)) {
             return false;
         }
-        return this.duq.get(str).aJw();
+        return this.dAf.get(str).aNo();
     }
 
-    public boolean tR(String str) {
-        if (this.duq == null || !this.duq.containsKey(str)) {
+    public boolean uU(String str) {
+        if (this.dAf == null || !this.dAf.containsKey(str)) {
             return false;
         }
-        return this.duq.get(str).aJx();
+        return this.dAf.get(str).aNp();
     }
 
-    public String tS(String str) {
-        return (TextUtils.isEmpty(str) || !this.dur.contains(str)) ? "0" : "1";
+    public String uV(String str) {
+        return (TextUtils.isEmpty(str) || !this.dAg.contains(str)) ? "0" : "1";
     }
 }

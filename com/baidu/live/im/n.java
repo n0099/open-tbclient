@@ -1,95 +1,127 @@
 package com.baidu.live.im;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.account.AccountManager;
-import com.baidu.android.imsdk.account.ILoginListener;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.account.IConnectListener;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.live.tbadk.TbConfig;
+import com.baidu.live.adp.lib.util.BdNetTypeUtil;
+import com.baidu.live.im.l;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-/* loaded from: classes3.dex */
-public class n implements ILoginListener {
-    private static volatile n aUI;
-    private boolean aUG = false;
-    private a aUH;
-    private boolean mIsDestroy;
-    private boolean mIsLogin;
+/* loaded from: classes4.dex */
+public class n implements IConnectListener {
+    public static String aWa = "imlog";
+    private static boolean aWb = false;
+    private a aWd;
+    private String aWe;
+    private boolean aWc = false;
+    private boolean mIsInited = false;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void o(int i, String str);
+    public void init(String str) {
+        this.aWe = str;
+        if (!this.mIsInited) {
+            this.mIsInited = true;
+            l.DL().init(TbadkCoreApplication.getInst());
+            DQ();
+            DP();
+            if (this.aWd == null) {
+                this.aWd = new a();
+            }
+            this.aWd.register();
+            if (!aWb) {
+                aWb = true;
+                TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+                com.baidu.d.b.a.aA(inst).a(new com.baidu.d.b.a.a.b(inst, new com.baidu.d.b.a.b(inst)));
+                f.Dm().ap(inst);
+            }
+        }
     }
 
-    private n() {
+    public void DP() {
+        l.DL().a(new l.a() { // from class: com.baidu.live.im.n.1
+            @Override // com.baidu.live.im.l.a
+            public void p(int i, String str) {
+                LogUtils.d(n.aWa + "LiveIMManager", "LiveIMManager onLoginResult errno = " + i + ", errMsg = " + str + ", isConnected = " + n.this.aWc);
+                if (i == 0 && !n.this.aWc) {
+                    n.this.onResult(0);
+                }
+            }
+        });
     }
 
-    public static n Ds() {
-        if (aUI == null) {
-            synchronized (n.class) {
-                if (aUI == null) {
-                    aUI = new n();
+    private void DQ() {
+        LogUtils.d(aWa + "LiveIMManager", "registerIMConnectListener");
+        this.aWc = false;
+        BIMManager.unregisterConnectListener();
+        BIMManager.registerConnectListener(this);
+    }
+
+    @Override // com.baidu.android.imsdk.account.IConnectListener
+    public void onResult(int i) {
+        LogUtils.d(aWa + "LiveIMManager", "IConnectListener onResult statusCode=" + i);
+        this.aWc = true;
+        if (i == 0) {
+            LogUtils.d(aWa + "LiveIMManager", "IConnectListener net connect");
+        } else if (i == 1) {
+            LogUtils.d(aWa + "LiveIMManager", "IConnectListener net disconnect");
+        }
+    }
+
+    public void destroy(String str) {
+        if (this.aWe == null || this.aWe.equals(str)) {
+            this.mIsInited = false;
+            LogUtils.d(aWa + "LiveIMManager", "destroy");
+            this.aWc = false;
+            if (this.aWd != null) {
+                this.aWd.destroy();
+                this.aWd = null;
+            }
+            BIMManager.unregisterConnectListener();
+            l.DL().destroy();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    private class a extends BroadcastReceiver {
+        private boolean mIsDestroy;
+        private boolean mIsInit;
+
+        private a() {
+        }
+
+        public void register() {
+            init();
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+            TbadkCoreApplication.getInst().registerReceiver(this, intentFilter);
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
+                if (this.mIsInit) {
+                    this.mIsInit = false;
+                } else if (BdNetTypeUtil.isNetWorkAvailable() && !this.mIsDestroy) {
+                    BIMManager.tryConnection(context);
                 }
             }
         }
-        return aUI;
-    }
 
-    public void init(Context context) {
-        int i = 0;
-        this.mIsDestroy = false;
-        BIMManager.setProductLine(context, 3, "4.10.0");
-        String cuid = ExtraParamsManager.getInstance().buildParamsExtra().getCuid();
-        BIMManager.enableDebugMode(true);
-        if (TbConfig.IM_ENV_DEBUG) {
-            BIMManager.init(context, Constants.APPID_TIEBA, 1, cuid);
-            i = 1;
-        } else {
-            BIMManager.init(context, Constants.APPID_TIEBA, 0, cuid);
+        private void init() {
+            this.mIsInit = true;
+            this.mIsDestroy = false;
         }
-        LogUtils.d("imlog", "BIMManager init env:" + i);
-        this.aUG = true;
-    }
 
-    public void a(a aVar) {
-        this.mIsLogin = true;
-        this.aUH = aVar;
-        String fromHost = TbConfig.getFromHost();
-        String currentFromHost = TbConfig.getCurrentFromHost();
-        if (TbadkCoreApplication.isLogin()) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            String currentBduss = TbadkCoreApplication.getCurrentBduss();
-            BIMManager.login(currentAccount, currentBduss, 1, fromHost, currentFromHost, this);
-            LogUtils.d("imlog", "IMSdkManager PassIsLogin loginToIM uid = " + currentAccount + ", bduss = " + currentBduss + ", from = " + fromHost + ", cfrom = " + currentFromHost);
-            return;
+        /* JADX INFO: Access modifiers changed from: private */
+        public void destroy() {
+            this.mIsDestroy = true;
+            try {
+                TbadkCoreApplication.getInst().unregisterReceiver(this);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        String cuid = ExtraParamsManager.getInstance().buildParamsExtra().getCuid();
-        BIMManager.login(null, cuid, 6, fromHost, currentFromHost, this);
-        LogUtils.d("imlog", "IMSdkManager 匿名使用cuid登录 loginToIM , cuid = " + cuid + ", from = " + fromHost + ", cfrom = " + currentFromHost);
-    }
-
-    public void Dt() {
-        AccountManager.disconnect(TbadkCoreApplication.getInst());
-    }
-
-    @Override // com.baidu.android.imsdk.account.ILoginListener
-    public void onLoginResult(int i, String str) {
-        if (this.aUH != null) {
-            this.aUH.o(i, str);
-            this.aUH = null;
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.account.ILoginListener
-    public void onLogoutResult(int i, String str, int i2) {
-        if (!this.mIsDestroy) {
-            a(null);
-        }
-    }
-
-    public void destroy() {
-        this.mIsDestroy = true;
-        Dt();
     }
 }

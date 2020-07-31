@@ -9,6 +9,7 @@ import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
 public class ShareDialogConfig extends IntentConfig {
     public View.OnClickListener copyLinkListener;
@@ -22,6 +23,7 @@ public class ShareDialogConfig extends IntentConfig {
     public boolean isSetCopyLink;
     public boolean isSupportNightMode;
     private boolean mAlaLiveRoomShare;
+    private List<Integer> mCommandChannelArray;
     public ArrayList<TransmitForumData> mForumList;
     private From mFrom;
     public boolean mIsAlaLive;
@@ -203,5 +205,9 @@ public class ShareDialogConfig extends IntentConfig {
 
     public From getFrom() {
         return this.mFrom;
+    }
+
+    public List<Integer> getCommandChannelArray() {
+        return this.mCommandChannelArray;
     }
 }

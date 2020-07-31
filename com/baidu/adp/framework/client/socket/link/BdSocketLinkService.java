@@ -135,7 +135,7 @@ public class BdSocketLinkService extends BdBaseService {
         mHandler.removeMessages(1);
         mHandler.sendEmptyMessageDelayed(1, com.baidu.adp.framework.d.c.kb().kc().getTimeOutAuto());
         try {
-            return h.mX().mY();
+            return h.mY().mZ();
         } catch (Throwable th) {
             connCallback.d(-1001, "open error");
             BdLog.e(th.getMessage());
@@ -144,8 +144,8 @@ public class BdSocketLinkService extends BdBaseService {
     }
 
     public static void init() {
-        h.mX().a(com.baidu.adp.framework.client.socket.h.getUrl(), com.baidu.adp.framework.client.socket.h.getExtensions(), null, com.baidu.adp.framework.client.socket.h.getHeader());
-        h.mX().a(connCallback);
+        h.mY().a(com.baidu.adp.framework.client.socket.h.getUrl(), com.baidu.adp.framework.client.socket.h.getExtensions(), null, com.baidu.adp.framework.client.socket.h.getHeader());
+        h.mY().a(connCallback);
     }
 
     public static void close(String str) {
@@ -157,27 +157,27 @@ public class BdSocketLinkService extends BdBaseService {
             i.debug(MODULE_NAME, 0, 0, "close", i, str);
             i.debugWebSocketInfo();
             mHandler.removeMessages(1);
-            h.mX().close(i, str);
+            h.mY().close(i, str);
         }
     }
 
     public boolean isIdle() {
-        return h.mX().getIsIdle();
+        return h.mY().getIsIdle();
     }
 
     public static boolean sendMessage(com.baidu.adp.lib.webSocket.c cVar) {
-        if (cVar != null && h.mX().mZ() && h.mX().getIsIdle()) {
-            return h.mX().sendMessage(cVar);
+        if (cVar != null && h.mY().na() && h.mY().getIsIdle()) {
+            return h.mY().sendMessage(cVar);
         }
         return false;
     }
 
     public static boolean isClose() {
-        return (h.mX().mZ() || h.mX().isConnecting()) ? false : true;
+        return (h.mY().na() || h.mY().isConnecting()) ? false : true;
     }
 
     public static boolean isOpen() {
-        return h.mX().mZ();
+        return h.mY().na();
     }
 
     public static boolean isAvailable() {
@@ -224,7 +224,7 @@ public class BdSocketLinkService extends BdBaseService {
                 BdLog.w("进行重连" + stringExtra);
                 close(stringExtra);
                 open(stringExtra);
-            } else if (!h.mX().mZ() && !h.mX().isConnecting()) {
+            } else if (!h.mY().na() && !h.mY().isConnecting()) {
                 BdLog.w("进行连接" + stringExtra);
                 close(stringExtra);
                 open(stringExtra);

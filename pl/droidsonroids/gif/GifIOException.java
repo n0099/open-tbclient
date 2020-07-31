@@ -2,7 +2,7 @@ package pl.droidsonroids.gif;
 
 import android.support.annotation.NonNull;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class GifIOException extends IOException {
     private static final long serialVersionUID = 13038402904505L;
     @NonNull

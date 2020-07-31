@@ -7,7 +7,7 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e {
     private static int a;
     private static int b = 0;

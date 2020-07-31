@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.conn.scheme.SchemeRegistry;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public interface ClientConnectionManager {
     void closeExpiredConnections();
 

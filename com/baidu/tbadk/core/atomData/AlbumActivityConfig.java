@@ -17,6 +17,7 @@ public class AlbumActivityConfig extends IntentConfig {
     public static final String FINISH_SELF = "finish_self";
     public static final String FROM_AIAPPS = "aiapps";
     public static final int FROM_DEFAULT = 0;
+    public static final String FROM_FLUTTER = "flutterpicker";
     public static final String FROM_FRS = "frs";
     public static final String FROM_MAIN_TAB = "main_tab";
     public static final String FROM_PB = "pb";

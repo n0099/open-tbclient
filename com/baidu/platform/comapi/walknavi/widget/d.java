@@ -7,7 +7,7 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d extends com.baidu.platform.comapi.walknavi.g.b.b {
     private Activity a;
     private com.baidu.platform.comapi.walknavi.g.a b;
@@ -23,10 +23,10 @@ public class d extends com.baidu.platform.comapi.walknavi.g.b.b {
     }
 
     private void a(View view) {
-        this.f = view.findViewById(R.raw.lottie_use_refresh_n_2);
-        this.c = (ImageView) view.findViewById(R.raw.lottie_full_screen_refresh_1);
-        this.d = (TextView) view.findViewById(R.raw.lottie_full_screen_refresh_2);
-        this.e = view.findViewById(R.raw.lottie_full_screen_refresh);
+        this.f = view.findViewById(R.raw.lottie_use_refresh_n);
+        this.c = (ImageView) view.findViewById(R.raw.lottie_disagree_imageviewer);
+        this.d = (TextView) view.findViewById(R.raw.lottie_full_screen_refresh);
+        this.e = view.findViewById(R.raw.lottie_disagree_2);
         this.e.setVisibility(8);
     }
 
@@ -59,7 +59,7 @@ public class d extends com.baidu.platform.comapi.walknavi.g.b.b {
         } else {
             this.c.setImageResource(i);
         }
-        if (i == R.drawable.action_bar_editor_pressed || i == R.drawable.action_bar_eidtor_background) {
+        if (i == R.drawable.action_bar_black_menu_normal || i == R.drawable.action_bar_black_menu_normal_pressed) {
             this.d.setText("步行导航开始");
         } else {
             this.d.setText(str);

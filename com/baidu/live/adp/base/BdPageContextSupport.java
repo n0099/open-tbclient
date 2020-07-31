@@ -1,5 +1,5 @@
 package com.baidu.live.adp.base;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface BdPageContextSupport<T> {
     BdPageContext<T> getPageContext();
 }

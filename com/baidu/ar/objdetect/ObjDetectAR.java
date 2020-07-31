@@ -10,7 +10,7 @@ import com.baidu.ar.c.l;
 import com.baidu.ar.gesture.GestureAR;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class ObjDetectAR extends c {
     private e ly;
     private a sf;

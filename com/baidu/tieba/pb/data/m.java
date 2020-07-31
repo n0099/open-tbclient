@@ -1,50 +1,60 @@
 package com.baidu.tieba.pb.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.bu;
-/* loaded from: classes9.dex */
-public class m implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId kaf = BdUniqueId.gen();
-    private bu aiq;
-    private AntiData ecd;
-    private boolean kag = false;
-    public boolean kah = false;
+import android.graphics.Bitmap;
+/* loaded from: classes.dex */
+public class m {
+    private String content;
+    private String duringTime;
+    private Bitmap kiA;
+    private Bitmap kiB;
+    private String kiC;
+    private boolean kiD;
 
-    public m(bu buVar, AntiData antiData) {
-        this.aiq = buVar;
-        this.ecd = antiData;
+    public Bitmap cLm() {
+        return this.kiA;
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        return kaf;
+    public void E(Bitmap bitmap) {
+        this.kiA = bitmap;
     }
 
-    public int aTQ() {
-        if (this.aiq != null) {
-            return this.aiq.aTQ();
-        }
-        return 0;
+    public Bitmap cLn() {
+        return this.kiB;
     }
 
-    public boolean cHG() {
-        return this.aiq != null && this.aiq.aTP() == 1;
+    public void F(Bitmap bitmap) {
+        this.kiB = bitmap;
     }
 
-    public AntiData getAnti() {
-        return this.ecd;
+    public String getContent() {
+        return this.content;
     }
 
-    public bu aPS() {
-        return this.aiq;
+    public void setContent(String str) {
+        this.content = str;
     }
 
-    public void rq(boolean z) {
-        this.kag = z;
+    public String cLo() {
+        return this.duringTime;
     }
 
-    public boolean cHH() {
-        return this.kag;
+    public void Kt(String str) {
+        this.duringTime = str;
+    }
+
+    public String getThreadImgUrl() {
+        return this.kiC;
+    }
+
+    public void Ku(String str) {
+        this.kiC = str;
+    }
+
+    public boolean cLp() {
+        return this.kiD;
+    }
+
+    public void rU(boolean z) {
+        this.kiD = z;
     }
 }

@@ -2,7 +2,7 @@ package protobuf.QueryHistoryMsg;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public final class MsgInfo extends Message {
     public static final String DEFAULT_CONTENT = "";
     @ProtoField(tag = 3, type = Message.Datatype.STRING)
@@ -49,7 +49,7 @@ public final class MsgInfo extends Message {
         this.id = builder.id;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes20.dex */
     public static final class Builder extends Message.Builder<MsgInfo> {
         public String content;
         public Integer id;

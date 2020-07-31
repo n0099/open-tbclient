@@ -25,7 +25,7 @@ import okio.BufferedSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public final class DiskLruCache implements Closeable, Flushable {
     static final /* synthetic */ boolean $assertionsDisabled;
     static final long ANY_SEQUENCE_NUMBER = -1;
@@ -585,7 +585,7 @@ public final class DiskLruCache implements Closeable, Flushable {
         };
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes14.dex */
     public final class Snapshot implements Closeable {
         private final String key;
         private final long[] lengths;
@@ -624,7 +624,7 @@ public final class DiskLruCache implements Closeable, Flushable {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes14.dex */
     public final class Editor {
         private boolean done;
         final Entry entry;
@@ -729,7 +729,7 @@ public final class DiskLruCache implements Closeable, Flushable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes14.dex */
     public final class Entry {
         final File[] cleanFiles;
         Editor currentEditor;

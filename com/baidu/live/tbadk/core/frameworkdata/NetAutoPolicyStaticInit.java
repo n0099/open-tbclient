@@ -12,7 +12,7 @@ import com.baidu.live.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.adp.framework.task.SocketMessageTask;
 import com.baidu.live.tbadk.coreextra.websocketbase.LongConnectionAPIManager;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NetAutoPolicyStaticInit {
     public static void init() {
         SocketRule socketRule = new SocketRule(0) { // from class: com.baidu.live.tbadk.core.frameworkdata.NetAutoPolicyStaticInit.1

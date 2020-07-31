@@ -13,14 +13,14 @@ import android.widget.TextView;
 import com.kascend.chushou.a;
 import java.util.ArrayList;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends PopupWindow implements View.OnClickListener {
     private final TextView a;
-    private InterfaceC0849a nzv;
+    private InterfaceC0858a nIe;
 
     /* renamed from: com.kascend.chushou.widget.gifts.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0849a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0858a {
         void a(int i);
 
         void b(int i);
@@ -49,7 +49,7 @@ public class a extends PopupWindow implements View.OnClickListener {
             textView.setOnClickListener(this);
         }
         if (z) {
-            setWidth(tv.chushou.zues.utils.a.gw(context).x);
+            setWidth(tv.chushou.zues.utils.a.gE(context).x);
         } else {
             inflate.findViewById(a.f.space_1).setVisibility(8);
             ((LinearLayout) inflate.findViewById(a.f.ll_keyboard)).setBackgroundColor(Color.parseColor("#4A4A4A"));
@@ -102,8 +102,8 @@ public class a extends PopupWindow implements View.OnClickListener {
         int parseInt = h.parseInt(this.a.getText().toString());
         if (parseInt != 0) {
             dismiss();
-            if (this.nzv != null) {
-                this.nzv.a(parseInt);
+            if (this.nIe != null) {
+                this.nIe.a(parseInt);
             }
         }
     }
@@ -116,8 +116,8 @@ public class a extends PopupWindow implements View.OnClickListener {
         } else if (charSequence.length() < 4) {
             this.a.setText(String.valueOf(charSequence + i));
         }
-        if (this.nzv != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
-            this.nzv.b(parseInt);
+        if (this.nIe != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
+            this.nIe.b(parseInt);
         }
     }
 
@@ -127,12 +127,12 @@ public class a extends PopupWindow implements View.OnClickListener {
         if (charSequence.length() > 0) {
             this.a.setText(charSequence.substring(0, charSequence.length() - 1));
         }
-        if (this.nzv != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
-            this.nzv.b(parseInt);
+        if (this.nIe != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
+            this.nIe.b(parseInt);
         }
     }
 
-    public void a(InterfaceC0849a interfaceC0849a) {
-        this.nzv = interfaceC0849a;
+    public void a(InterfaceC0858a interfaceC0858a) {
+        this.nIe = interfaceC0858a;
     }
 }

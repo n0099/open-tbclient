@@ -1,5 +1,5 @@
 package com.baidubce.util;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class CheckUtils {
     public static <T> void isNotNull(T t, String str) {
         if (t == null) {

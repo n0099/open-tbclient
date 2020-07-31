@@ -5,7 +5,7 @@ import com.bigkoo.svprogresshud.SVProgressHUD;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ProgresshudPluginKt {
     public static SVProgressHUD dialog;
     private static Activity mCurrentActivity;
@@ -14,7 +14,7 @@ public final class ProgresshudPluginKt {
     public static final SVProgressHUD getDialog() {
         SVProgressHUD sVProgressHUD = dialog;
         if (sVProgressHUD == null) {
-            q.St("dialog");
+            q.Te("dialog");
         }
         return sVProgressHUD;
     }
@@ -27,7 +27,7 @@ public final class ProgresshudPluginKt {
     public static final SVProgressHUD.SVProgressHUDMaskType getMaskType() {
         SVProgressHUD.SVProgressHUDMaskType sVProgressHUDMaskType = maskType;
         if (sVProgressHUDMaskType == null) {
-            q.St("maskType");
+            q.Te("maskType");
         }
         return sVProgressHUDMaskType;
     }

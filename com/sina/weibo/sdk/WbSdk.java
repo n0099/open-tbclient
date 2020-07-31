@@ -9,7 +9,7 @@ import com.sina.weibo.sdk.auth.WbAppInfo;
 import com.sina.weibo.sdk.network.intercept.CommonParamInterception;
 import com.sina.weibo.sdk.sso.WeiboSsoManager;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WbSdk {
     private static AuthInfo authInfo;
     private static boolean init = false;

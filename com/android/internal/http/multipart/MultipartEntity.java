@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import org.apache.http.Header;
 import org.apache.http.entity.AbstractHttpEntity;
 import org.apache.http.params.HttpParams;
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public class MultipartEntity extends AbstractHttpEntity {
     public static final String MULTIPART_BOUNDARY = "http.method.multipart.boundary";
     protected Part[] parts = null;

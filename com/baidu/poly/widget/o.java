@@ -3,95 +3,97 @@ package com.baidu.poly.widget;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class o implements Serializable {
-    private String Qd;
-    private String Rd;
-    private String Sd;
-    private int Td;
-    private int Ud;
-    private int Vd;
-    private int Wd;
-    private long Xd;
+    private String Wd;
+    private String Xd;
     private String Yd;
-    private boolean Zd;
+    private int Zd;
     private int _d;
-    private long ae;
-    private String be;
-    private String ce;
+    private int ae;
+    private int be;
+    private long ce;
+
+    /* renamed from: de  reason: collision with root package name */
+    private String f968de;
+    private boolean ee;
+    private int fe;
+    private long ge;
+    private String he;
     private String icon;
+    private String ie;
     private String pay_text;
-    private int sa;
+    private int ua;
 
     public o(JSONObject jSONObject) {
-        this.Qd = jSONObject.optString("display_name");
-        this.Rd = jSONObject.optString("pay_channel");
+        this.Wd = jSONObject.optString("display_name");
+        this.Xd = jSONObject.optString("pay_channel");
         this.pay_text = jSONObject.optString("pay_text");
-        this.Sd = jSONObject.optString("error_text");
-        this.ae = jSONObject.optLong("available_par_money");
+        this.Yd = jSONObject.optString("error_text");
+        this.ge = jSONObject.optLong("available_par_money");
         this.icon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-        this.Td = jSONObject.optInt("is_fold");
-        this.Ud = jSONObject.optInt("is_selected");
-        this.Vd = jSONObject.optInt("is_private");
-        this.Wd = jSONObject.optInt("free_pay");
-        this.sa = jSONObject.optInt(com.baidu.fsg.face.base.b.c.l);
-        this.Yd = jSONObject.optString("display_color");
-        this.Zd = jSONObject.optBoolean("flow");
-        this._d = jSONObject.optInt("parasitifer");
-        this.be = jSONObject.optString("host_marketing_detail");
-        this.Xd = jSONObject.optLong("pre_pay_money");
-        this.ce = jSONObject.optString("loading_icon");
+        this.Zd = jSONObject.optInt("is_fold");
+        this._d = jSONObject.optInt("is_selected");
+        this.ae = jSONObject.optInt("is_private");
+        this.be = jSONObject.optInt("free_pay");
+        this.ua = jSONObject.optInt(com.baidu.fsg.face.base.b.c.l);
+        this.f968de = jSONObject.optString("display_color");
+        this.ee = jSONObject.optBoolean("flow");
+        this.fe = jSONObject.optInt("parasitifer");
+        this.he = jSONObject.optString("host_marketing_detail");
+        this.ce = jSONObject.optLong("pre_pay_money");
+        this.ie = jSONObject.optString("loading_icon");
     }
 
-    public long C() {
-        return this.ae;
+    public long K() {
+        return this.ge;
     }
 
-    public String D() {
-        return this.Yd;
+    public String L() {
+        return this.f968de;
     }
 
-    public int E() {
-        return this.sa;
+    public int M() {
+        return this.ua;
     }
 
-    public String F() {
-        return this.be;
+    public String N() {
+        return this.he;
     }
 
-    public int G() {
-        return this.Ud;
+    public int O() {
+        return this._d;
     }
 
-    public String H() {
-        return this.ce;
+    public String P() {
+        return this.ie;
     }
 
-    public String I() {
-        return this.Rd;
+    public String Q() {
+        return this.Xd;
     }
 
-    public String J() {
+    public String R() {
         return this.pay_text;
     }
 
     public String getDisplayName() {
-        return this.Qd;
+        return this.Wd;
     }
 
     public String getIcon() {
         return this.icon;
     }
 
-    public void h(int i) {
-        this.Ud = i;
+    public void i(int i) {
+        this._d = i;
     }
 
-    public void k(String str) {
-        this.be = str;
+    public void l(String str) {
+        this.he = str;
     }
 
     public String toString() {
-        return "PayChannelEntity{display_name='" + this.Qd + "', pay_channel='" + this.Rd + "', pay_text='" + this.pay_text + "', error_text='" + this.Sd + "', icon='" + this.icon + "', is_fold=" + this.Td + ", is_selected=" + this.Ud + ", is_private=" + this.Vd + ", free_pay=" + this.Wd + ", pre_pay_money=" + this.Xd + ", enable=" + this.sa + ", display_color='" + this.Yd + "', flow=" + this.Zd + ", parasitifer=" + this._d + '}';
+        return "PayChannelEntity{display_name='" + this.Wd + "', pay_channel='" + this.Xd + "', pay_text='" + this.pay_text + "', error_text='" + this.Yd + "', icon='" + this.icon + "', is_fold=" + this.Zd + ", is_selected=" + this._d + ", is_private=" + this.ae + ", free_pay=" + this.be + ", pre_pay_money=" + this.ce + ", enable=" + this.ua + ", display_color='" + this.f968de + "', flow=" + this.ee + ", parasitifer=" + this.fe + '}';
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.android.util.media.annotations.ColumnName;
 import com.baidu.android.util.media.annotations.MediaQueryParam;
 import com.baidu.android.util.media.model.MediaInfo;
 @MediaQueryParam(select = {"mime_type", "=?", " or ", "mime_type", "=?"}, selectArgs = {MimeType.Image.JPEG, MimeType.Image.PNG}, sortBy = "date_added", sortType = MediaQueryParam.SORT_DESC)
-/* loaded from: classes13.dex */
+/* loaded from: classes19.dex */
 public class UgcImageInfo extends MediaInfo implements ILocalMedia {
     @ColumnName("bucket_display_name")
     public String bucketDisplayName;

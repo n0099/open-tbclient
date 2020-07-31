@@ -3,7 +3,7 @@ package com.baidu.fsg.base.router;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class RouterRequest {
     private static final String a = "RouterRequest";
     private String b = "";

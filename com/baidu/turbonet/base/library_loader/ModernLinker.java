@@ -3,18 +3,18 @@ package com.baidu.turbonet.base.library_loader;
 import android.os.Bundle;
 import com.baidu.turbonet.base.library_loader.Linker;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 class ModernLinker extends Linker {
     static final /* synthetic */ boolean $assertionsDisabled;
     private boolean mInitialized = false;
-    private boolean myB = false;
-    private HashMap<String, Linker.LibInfo> myP = null;
-    private Bundle myQ = null;
-    private boolean myA = true;
-    private long myE = -1;
-    private long myF = -1;
-    private boolean myG = false;
-    private HashMap<String, Linker.LibInfo> myH = null;
+    private boolean mGG = false;
+    private HashMap<String, Linker.LibInfo> mGU = null;
+    private Bundle mGV = null;
+    private boolean mGF = true;
+    private long mGJ = -1;
+    private long mGK = -1;
+    private boolean mGL = false;
+    private HashMap<String, Linker.LibInfo> mGM = null;
 
     private static native boolean nativeCreateSharedRelro(String str, long j, String str2, Linker.LibInfo libInfo);
 

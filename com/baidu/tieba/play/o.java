@@ -1,122 +1,122 @@
 package com.baidu.tieba.play;
 
-import android.app.Activity;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
-import android.os.Handler;
-import android.os.Message;
-import android.provider.Settings;
-import com.baidu.tieba.play.p;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.tbadk.core.util.ap;
 /* loaded from: classes.dex */
 public class o {
-    private SensorManager bhI;
-    private Sensor bhK;
-    private p kUA;
-    private k kUz;
-    private Activity mActivity;
-    private boolean bhL = false;
-    private boolean bhM = false;
-    private boolean bhO = false;
-    private boolean bhP = false;
-    private Handler mHandler = new Handler() { // from class: com.baidu.tieba.play.o.1
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            if (message != null && o.this.mActivity != null && o.this.bhP) {
-                switch (message.what) {
-                    case 1:
-                        int requestedOrientation = o.this.mActivity.getRequestedOrientation();
-                        int i = message.arg1;
-                        if (!o.this.bhO) {
-                            if (i > 225 && i < 315) {
-                                if (requestedOrientation == 8) {
-                                    o.this.mActivity.setRequestedOrientation(0);
-                                    return;
-                                }
-                                return;
-                            } else if (i > 45 && i < 135 && requestedOrientation == 0) {
-                                o.this.mActivity.setRequestedOrientation(8);
-                                return;
-                            } else {
-                                return;
-                            }
-                        } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
-                            if (!o.this.bhM) {
-                                if (i > 55 && i < 125) {
-                                    if (requestedOrientation != 8) {
-                                        o.this.mActivity.setRequestedOrientation(8);
-                                    }
-                                } else if (requestedOrientation != 0) {
-                                    o.this.mActivity.setRequestedOrientation(0);
-                                }
-                            }
-                            o.this.bhL = false;
-                            return;
-                        } else if ((i > 325 && i < 360) || (i >= 0 && i < 35)) {
-                            if (!o.this.bhL && requestedOrientation != 1) {
-                                o.this.mActivity.setRequestedOrientation(1);
-                            }
-                            o.this.bhM = false;
-                            return;
-                        } else {
-                            return;
-                        }
-                    default:
-                        return;
-                }
+    public String ajJ;
+    public String dOV;
+    public String eKO;
+    public String lcH;
+    public String lcI;
+    public String lcJ;
+    public int lcK;
+    public String lcL;
+    public String lcM;
+    public String lcN;
+    public String lcO;
+    public String lcP;
+    public String lcQ;
+    public String mExtra;
+    public String mFloor;
+    public String mGroupId;
+    public String mLocate;
+    public String mNid;
+    public String mSource;
+    public String mType;
+    public String mUid;
+    public String mVid;
+
+    public ap f(ap apVar) {
+        if (apVar != null) {
+            if (!StringUtils.isNull(this.mLocate)) {
+                apVar.dn("obj_locate", this.mLocate);
             }
-        }
-    };
-    private p.a kUB = new p.a() { // from class: com.baidu.tieba.play.o.2
-        @Override // com.baidu.tieba.play.p.a
-        public void onChange(boolean z) {
-            o.this.bhO = z;
-        }
-    };
-
-    public void Ii() {
-        if (this.mActivity != null) {
-            if (this.mActivity.getRequestedOrientation() == 1) {
-                this.mActivity.setRequestedOrientation(0);
-                this.bhL = true;
-                return;
+            if (!StringUtils.isNull(this.ajJ)) {
+                apVar.dn("tid", this.ajJ);
             }
-            this.mActivity.setRequestedOrientation(1);
-            this.bhM = true;
-        }
-    }
-
-    public o(Activity activity) {
-        if (activity != null) {
-            this.mActivity = activity;
-            this.bhI = (SensorManager) activity.getSystemService("sensor");
-            this.bhK = this.bhI.getDefaultSensor(1);
-            this.kUz = new k(this.mHandler);
-            if (!this.mActivity.getClass().getName().contains("SwanAppActivity")) {
-                this.mActivity.setRequestedOrientation(1);
+            if (!StringUtils.isNull(this.eKO)) {
+                apVar.dn("fid", this.eKO);
             }
-            this.kUA = new p(this.mActivity, this.mHandler);
-            this.kUA.a(this.kUB);
-            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.kUA);
+            if (!StringUtils.isNull(this.mUid)) {
+                apVar.dn("uid", this.mUid);
+            }
+            if (!StringUtils.isNull(this.mSource)) {
+                apVar.dn("obj_source", this.mSource);
+            } else {
+                apVar.ah("obj_source", 0);
+            }
+            if (!StringUtils.isNull(this.lcH)) {
+                apVar.dn("obj_param1", this.lcH);
+            } else {
+                apVar.ah("obj_param1", 0);
+            }
+            if (!StringUtils.isNull(this.lcI)) {
+                apVar.dn(TiebaInitialize.Params.OBJ_PARAM2, this.lcI);
+            }
+            if (!StringUtils.isNull(this.lcJ)) {
+                apVar.dn(TiebaInitialize.Params.OBJ_PARAM3, this.lcJ);
+            }
+            if (this.lcK > 0) {
+                apVar.ah("obj_param5", this.lcK);
+            }
+            if (!StringUtils.isNull(this.dOV)) {
+                apVar.dn("obj_id", this.dOV);
+            }
+            if (!StringUtils.isNull(this.lcL)) {
+                apVar.dn("ab_tag", this.lcL);
+            } else {
+                apVar.ah("ab_tag", 0);
+            }
+            if (!StringUtils.isNull(this.lcN)) {
+                apVar.dn("topic_type", this.lcN);
+            }
+            if (!StringUtils.isNull(this.mExtra)) {
+                apVar.dn("extra", this.mExtra);
+            } else {
+                apVar.ah("extra", 0);
+            }
+            if (!StringUtils.isNull(this.lcO)) {
+                apVar.dn("is_vertical", this.lcO);
+            }
+            if (!StringUtils.isNull(this.mFloor)) {
+                apVar.dn("obj_floor", this.mFloor);
+            }
+            if (!StringUtils.isNull(this.lcP)) {
+                apVar.dn("resource_id", this.lcP);
+            }
+            if (!StringUtils.isNull(this.mGroupId)) {
+                apVar.dn("group_id", this.mGroupId);
+            }
+            apVar.dn("obj_param4", StringUtils.isNull(this.mNid) ? "" : this.mNid);
+            apVar.dn("obj_param6", StringUtils.isNull(this.mVid) ? "" : this.mVid);
+            apVar.dn("nid", StringUtils.isNull(this.lcQ) ? "" : this.lcQ);
         }
+        return apVar;
     }
 
-    public void start() {
-        if (this.bhI != null) {
-            this.bhI.registerListener(this.kUz, this.bhK, 2);
-        }
-    }
-
-    public void stop() {
-        if (this.bhI != null) {
-            this.bhI.unregisterListener(this.kUz);
-        }
-        this.mHandler.removeCallbacksAndMessages(null);
-        if (this.mActivity != null) {
-            this.mActivity.getContentResolver().unregisterContentObserver(this.kUA);
-        }
-    }
-
-    public void ch(boolean z) {
-        this.bhP = z;
+    public o cZb() {
+        o oVar = new o();
+        oVar.mLocate = this.mLocate;
+        oVar.mType = this.mType;
+        oVar.ajJ = this.ajJ;
+        oVar.eKO = this.eKO;
+        oVar.mUid = this.mUid;
+        oVar.mSource = this.mSource;
+        oVar.lcH = this.lcH;
+        oVar.lcI = this.lcI;
+        oVar.lcJ = this.lcJ;
+        oVar.dOV = this.dOV;
+        oVar.lcL = this.lcL;
+        oVar.lcM = this.lcM;
+        oVar.lcN = this.lcN;
+        oVar.mFloor = this.mFloor;
+        oVar.lcP = this.lcP;
+        oVar.mGroupId = this.mGroupId;
+        oVar.mNid = this.mNid;
+        oVar.mVid = this.mVid;
+        oVar.lcQ = this.lcQ;
+        return oVar;
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.write.transmit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a {
-    boolean drU();
+    boolean dvg();
 
-    void drV();
+    void dvh();
 
-    void drW();
+    void dvi();
 }

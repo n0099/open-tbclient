@@ -4,17 +4,17 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.k;
 import com.xiaomi.push.ba;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class al {
     public static AbstractPushManager a(Context context, d dVar) {
         return b(context, dVar);
     }
 
     private static AbstractPushManager b(Context context, d dVar) {
-        k.a m110a = k.m110a(dVar);
-        if (m110a == null || TextUtils.isEmpty(m110a.a) || TextUtils.isEmpty(m110a.b)) {
+        k.a m111a = k.m111a(dVar);
+        if (m111a == null || TextUtils.isEmpty(m111a.a) || TextUtils.isEmpty(m111a.b)) {
             return null;
         }
-        return (AbstractPushManager) ba.a(m110a.a, m110a.b, context);
+        return (AbstractPushManager) ba.a(m111a.a, m111a.b, context);
     }
 }

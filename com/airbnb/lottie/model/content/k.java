@@ -1,7 +1,7 @@
 package com.airbnb.lottie.model.content;
 
 import com.airbnb.lottie.a.a.p;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class k implements b {
     private final com.airbnb.lottie.model.a.h EK;
     private final int index;

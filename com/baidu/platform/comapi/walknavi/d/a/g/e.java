@@ -7,7 +7,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class e {
     protected static UUID a;
 

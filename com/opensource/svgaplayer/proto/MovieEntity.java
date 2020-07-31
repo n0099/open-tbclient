@@ -12,20 +12,20 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import okio.ByteString;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public final class MovieEntity extends Message<MovieEntity, Builder> {
     public static final ProtoAdapter<MovieEntity> ADAPTER = new ProtoAdapter_MovieEntity();
     public static final String DEFAULT_VERSION = "";
     private static final long serialVersionUID = 0;
-    @WireField(dNn = "com.opensource.svgaplayer.proto.AudioEntity#ADAPTER", dNo = WireField.Label.REPEATED, tag = 5)
+    @WireField(dQJ = "com.opensource.svgaplayer.proto.AudioEntity#ADAPTER", dQK = WireField.Label.REPEATED, tag = 5)
     public final List<AudioEntity> audios;
-    @WireField(dNm = "com.squareup.wire.ProtoAdapter#STRING", dNn = "com.squareup.wire.ProtoAdapter#BYTES", tag = 3)
+    @WireField(dQI = "com.squareup.wire.ProtoAdapter#STRING", dQJ = "com.squareup.wire.ProtoAdapter#BYTES", tag = 3)
     public final Map<String, ByteString> images;
-    @WireField(dNn = "com.opensource.svgaplayer.proto.MovieParams#ADAPTER", tag = 2)
+    @WireField(dQJ = "com.opensource.svgaplayer.proto.MovieParams#ADAPTER", tag = 2)
     public final MovieParams params;
-    @WireField(dNn = "com.opensource.svgaplayer.proto.SpriteEntity#ADAPTER", dNo = WireField.Label.REPEATED, tag = 4)
+    @WireField(dQJ = "com.opensource.svgaplayer.proto.SpriteEntity#ADAPTER", dQK = WireField.Label.REPEATED, tag = 4)
     public final List<SpriteEntity> sprites;
-    @WireField(dNn = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
+    @WireField(dQJ = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String version;
 
     public MovieEntity(String str, MovieParams movieParams, Map<String, ByteString> map, List<SpriteEntity> list, List<AudioEntity> list2) {
@@ -36,7 +36,7 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         super(ADAPTER, byteString);
         this.version = str;
         this.params = movieParams;
-        this.images = a.p(TbConfig.IMAGE_CACHE_DIR_NAME, map);
+        this.images = a.q(TbConfig.IMAGE_CACHE_DIR_NAME, map);
         this.sprites = a.v("sprites", list);
         this.audios = a.v("audios", list2);
     }
@@ -49,7 +49,7 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         Builder builder = new Builder();
         builder.version = this.version;
         builder.params = this.params;
-        builder.images = a.o(TbConfig.IMAGE_CACHE_DIR_NAME, this.images);
+        builder.images = a.p(TbConfig.IMAGE_CACHE_DIR_NAME, this.images);
         builder.sprites = a.u("sprites", this.sprites);
         builder.audios = a.u("audios", this.audios);
         builder.addUnknownFields(unknownFields());
@@ -98,13 +98,13 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         return sb.replace(0, 2, "MovieEntity{").append('}').toString();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.a<MovieEntity, Builder> {
         public MovieParams params;
         public String version;
-        public Map<String, ByteString> images = a.dNr();
-        public List<SpriteEntity> sprites = a.dNq();
-        public List<AudioEntity> audios = a.dNq();
+        public Map<String, ByteString> images = a.dQN();
+        public List<SpriteEntity> sprites = a.dQM();
+        public List<AudioEntity> audios = a.dQM();
 
         public Builder version(String str) {
             this.version = str;
@@ -123,13 +123,13 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         }
 
         public Builder sprites(List<SpriteEntity> list) {
-            a.fz(list);
+            a.fI(list);
             this.sprites = list;
             return this;
         }
 
         public Builder audios(List<AudioEntity> list) {
-            a.fz(list);
+            a.fI(list);
             this.audios = list;
             return this;
         }
@@ -142,7 +142,7 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     private static final class ProtoAdapter_MovieEntity extends ProtoAdapter<MovieEntity> {
         private final ProtoAdapter<Map<String, ByteString>> images;
 
@@ -177,11 +177,11 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public MovieEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long dNf = cVar.dNf();
+            long dQB = cVar.dQB();
             while (true) {
-                int dNg = cVar.dNg();
-                if (dNg != -1) {
-                    switch (dNg) {
+                int dQC = cVar.dQC();
+                if (dQC != -1) {
+                    switch (dQC) {
                         case 1:
                             builder.version(ProtoAdapter.STRING.decode(cVar));
                             break;
@@ -198,12 +198,12 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
                             builder.audios.add(AudioEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding dNh = cVar.dNh();
-                            builder.addUnknownField(dNg, dNh, dNh.rawProtoAdapter().decode(cVar));
+                            FieldEncoding dQD = cVar.dQD();
+                            builder.addUnknownField(dQC, dQD, dQD.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.gh(dNf);
+                    cVar.gu(dQB);
                     return builder.build();
                 }
             }

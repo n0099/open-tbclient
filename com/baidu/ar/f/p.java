@@ -2,7 +2,7 @@ package com.baidu.ar.f;
 
 import android.os.Handler;
 import android.os.Looper;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class p {
     private static Handler wU = new Handler(Looper.getMainLooper());
 

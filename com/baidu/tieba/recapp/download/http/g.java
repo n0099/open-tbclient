@@ -3,19 +3,19 @@ package com.baidu.tieba.recapp.download.http;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class g {
-    protected h lfH = new h();
-    protected i lfI = new i();
+    protected h lmV = new h();
+    protected i lmW = new i();
     private LinkedList<e> KV = new LinkedList<>();
-    private e lfJ = null;
+    private e lmX = null;
 
-    public h cZi() {
-        return this.lfH;
+    public h dcp() {
+        return this.lmV;
     }
 
-    public i cZj() {
-        return this.lfI;
+    public i dcq() {
+        return this.lmW;
     }
 
     public List<e> kV() {
@@ -29,6 +29,6 @@ public class g {
     }
 
     public void b(e eVar) {
-        this.lfJ = eVar;
+        this.lmX = eVar;
     }
 }

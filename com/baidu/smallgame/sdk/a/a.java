@@ -4,27 +4,27 @@ import android.content.SharedPreferences;
 import com.baidu.smallgame.sdk.Log;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static int bKd = 1;
-    private static int bKe = 2;
-    private static int bKf = 3;
-    private Map<String, String> bKg = new HashMap();
-    private Map<String, String> bKh = new HashMap();
-    private SharedPreferences bKi;
+    private Map<String, String> bKC = new HashMap();
+    private Map<String, String> bKD = new HashMap();
+    private SharedPreferences bKE;
+    private static int bKz = 1;
+    private static int bKA = 2;
+    private static int bKB = 3;
 
     public void b(SharedPreferences sharedPreferences) {
-        this.bKi = sharedPreferences;
+        this.bKE = sharedPreferences;
     }
 
     public void setValue(int i, String str, String str2) {
-        if (i == bKd) {
-            this.bKg.put(str, str2);
-        } else if (i == bKe) {
-            this.bKh.put(str, str2);
-        } else if (i == bKf) {
-            if (this.bKi != null) {
-                this.bKi.edit().putString(str, str2).commit();
+        if (i == bKz) {
+            this.bKC.put(str, str2);
+        } else if (i == bKA) {
+            this.bKD.put(str, str2);
+        } else if (i == bKB) {
+            if (this.bKE != null) {
+                this.bKE.edit().putString(str, str2).commit();
             } else {
                 Log.e("TAG", "prefs data store is null");
             }
@@ -33,13 +33,13 @@ public class a {
 
     public String getValue(int i, String str) {
         String str2 = null;
-        if (i == bKd) {
-            str2 = this.bKg.get(str);
-        } else if (i == bKe) {
-            str2 = this.bKh.get(str);
-        } else if (i == bKf) {
-            if (this.bKi != null) {
-                str2 = this.bKi.getString(str, "");
+        if (i == bKz) {
+            str2 = this.bKC.get(str);
+        } else if (i == bKA) {
+            str2 = this.bKD.get(str);
+        } else if (i == bKB) {
+            if (this.bKE != null) {
+                str2 = this.bKE.getString(str, "");
             } else {
                 Log.e("TAG", "prefs data store is null");
             }
@@ -51,6 +51,6 @@ public class a {
     }
 
     public void clearARMemory() {
-        this.bKg.clear();
+        this.bKC.clear();
     }
 }

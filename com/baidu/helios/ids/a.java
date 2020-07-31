@@ -7,28 +7,28 @@ import com.baidu.helios.common.c.a;
 import com.baidu.helios.trusts.zone.TrustSubjectManager;
 import java.io.UnsupportedEncodingException;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public abstract class a {
-    protected a.C0143a ash;
-    protected C0144a asi;
+    protected a.C0141a asd;
+    protected C0142a ase;
     private String b;
 
     /* renamed from: com.baidu.helios.ids.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0144a {
+    /* loaded from: classes18.dex */
+    public static class C0142a {
         public Context applicationContext;
-        public com.baidu.helios.common.c.a aqW;
-        public ExecutorService aqp;
-        public ExecutorService aqq;
-        public TrustSubjectManager.d asl;
+        public com.baidu.helios.common.c.a aqS;
+        public ExecutorService aql;
+        public ExecutorService aqm;
+        public TrustSubjectManager.d ash;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public static class b {
-        public boolean asn = false;
+        public boolean asi = false;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public interface c<T> {
         void a(int i, Exception exc, Bundle bundle);
 
@@ -39,7 +39,7 @@ public abstract class a {
         this.b = str;
     }
 
-    public static String aa(String str, String str2) {
+    public static String Z(String str, String str2) {
         String format = String.format("%s-%s-", str, str2);
         String str3 = null;
         try {
@@ -52,16 +52,16 @@ public abstract class a {
         return format + str3;
     }
 
-    public final void a(C0144a c0144a) {
-        this.asi = c0144a;
-        this.ash = c0144a.aqW.uK().ed("ids");
+    public final void a(C0142a c0142a) {
+        this.ase = c0142a;
+        this.asd = c0142a.aqS.uK().ec("ids");
     }
 
     public abstract void a(b bVar);
 
     public void a(final c<String> cVar) {
         final String uP = uP();
-        this.asi.aqp.submit(new Runnable() { // from class: com.baidu.helios.ids.a.1
+        this.ase.aql.submit(new Runnable() { // from class: com.baidu.helios.ids.a.1
             @Override // java.lang.Runnable
             public void run() {
                 cVar.a(uP, null);

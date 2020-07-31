@@ -1,7 +1,7 @@
 package com.baidu.fsg.base.widget.textfilter;
 
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class IDCardEditTextPasteFilter implements IEditTextPasteFilter {
     private static final String a = IDCardEditTextPasteFilter.class.getSimpleName();
 

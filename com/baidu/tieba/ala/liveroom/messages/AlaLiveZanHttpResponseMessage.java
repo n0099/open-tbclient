@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.liveroom.messages;
 
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveZanHttpResponseMessage extends HttpResponsedMessage {
     public AlaLiveZanHttpResponseMessage() {
         super(1021023);

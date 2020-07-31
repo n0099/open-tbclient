@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AlaLivePKPlayer {
     private static final int JNI_NOTIFY_MESSAGE_NO_VIDEO_FRAME = 2;
     private static final int JNI_NOTIFY_MESSAGE_RENDER_VIDEO_FRAME = 1;
@@ -279,7 +279,7 @@ public class AlaLivePKPlayer {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class AlaLivePKVideoPlayer extends TextureView implements TextureView.SurfaceTextureListener {
         private int mIndex;
         private Surface mSurface;

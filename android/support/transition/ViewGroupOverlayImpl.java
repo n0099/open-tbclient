@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.view.View;
 @RequiresApi(14)
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 interface ViewGroupOverlayImpl extends ViewOverlayImpl {
     void add(@NonNull View view);
 

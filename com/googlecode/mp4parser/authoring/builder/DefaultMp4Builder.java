@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.authoring.builder;
 
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoFile;
 import com.coremedia.iso.IsoTypeWriter;
@@ -48,7 +49,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class DefaultMp4Builder implements Mp4Builder {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static Logger LOG;
@@ -96,11 +97,11 @@ public class DefaultMp4Builder implements Mp4Builder {
         }
         a aVar = new a(this, movie, hashMap, j, null);
         basicContainer.addBox(aVar);
-        long dIB = aVar.dIB();
+        long dLW = aVar.dLW();
         for (StaticChunkOffsetBox staticChunkOffsetBox : this.chunkOffsetBoxes) {
             long[] chunkOffsets = staticChunkOffsetBox.getChunkOffsets();
             for (int i2 = 0; i2 < chunkOffsets.length; i2++) {
-                chunkOffsets[i2] = chunkOffsets[i2] + dIB;
+                chunkOffsets[i2] = chunkOffsets[i2] + dLW;
             }
         }
         return basicContainer;
@@ -335,10 +336,10 @@ public class DefaultMp4Builder implements Mp4Builder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes20.dex */
     public class a implements Box {
-        List<List<Sample>> ndv;
-        long ndw;
+        List<List<Sample>> nmf;
+        long nmg;
         Container parent;
         List<Track> tracks;
 
@@ -362,8 +363,8 @@ public class DefaultMp4Builder implements Mp4Builder {
         }
 
         private a(Movie movie, Map<Track, int[]> map, long j) {
-            this.ndv = new ArrayList();
-            this.ndw = j;
+            this.nmf = new ArrayList();
+            this.nmg = j;
             this.tracks = movie.getTracks();
             int i = 0;
             while (true) {
@@ -375,7 +376,7 @@ public class DefaultMp4Builder implements Mp4Builder {
                         for (int i3 = 0; i3 < i2; i3++) {
                             j2 += iArr[i3];
                         }
-                        this.ndv.add(DefaultMp4Builder.this.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i2])));
+                        this.nmf.add(DefaultMp4Builder.this.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i2])));
                     }
                     i = i2 + 1;
                 } else {
@@ -388,7 +389,7 @@ public class DefaultMp4Builder implements Mp4Builder {
             this(movie, map, j);
         }
 
-        public long dIB() {
+        public long dLW() {
             Box next;
             long j = 16;
             for (Container container = this; container instanceof Box; container = container.getParent()) {
@@ -407,31 +408,31 @@ public class DefaultMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            return 16 + this.ndw;
+            return 16 + this.nmg;
         }
 
-        private boolean ga(long j) {
-            return 8 + j < 4294967296L;
+        private boolean gn(long j) {
+            return 8 + j < AccountConstants.TYPE_MODIFY_EXT_FIELDS;
         }
 
         @Override // com.coremedia.iso.boxes.Box
         public void getBox(WritableByteChannel writableByteChannel) throws IOException {
             ByteBuffer allocate = ByteBuffer.allocate(16);
             long size = getSize();
-            if (ga(size)) {
+            if (gn(size)) {
                 IsoTypeWriter.writeUInt32(allocate, size);
             } else {
                 IsoTypeWriter.writeUInt32(allocate, 1L);
             }
             allocate.put(IsoFile.fourCCtoBytes(MediaDataBox.TYPE));
-            if (ga(size)) {
+            if (gn(size)) {
                 allocate.put(new byte[8]);
             } else {
                 IsoTypeWriter.writeUInt64(allocate, size);
             }
             allocate.rewind();
             writableByteChannel.write(allocate);
-            for (List<Sample> list : this.ndv) {
+            for (List<Sample> list : this.nmf) {
                 for (Sample sample : list) {
                     sample.writeTo(writableByteChannel);
                 }

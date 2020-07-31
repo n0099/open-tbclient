@@ -2,11 +2,11 @@ package com.baidu.tieba.ala.message;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ala.data.j;
+import com.baidu.tieba.ala.data.k;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaUpdateWishListResponseMessage extends JsonHttpResponsedMessage {
-    private j gwm;
+    private k gBJ;
 
     public AlaUpdateWishListResponseMessage(int i) {
         super(i);
@@ -17,14 +17,14 @@ public class AlaUpdateWishListResponseMessage extends JsonHttpResponsedMessage {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
-            this.gwm = new j();
+            this.gBJ = new k();
             if (optJSONObject != null) {
-                this.gwm.parserJson(optJSONObject);
+                this.gBJ.parserJson(optJSONObject);
             }
         }
     }
 
-    public j bKL() {
-        return this.gwm;
+    public k bNR() {
+        return this.gBJ;
     }
 }

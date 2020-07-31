@@ -7,7 +7,7 @@ import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaInfoData implements Serializable {
     public static final int LIVE_STATUS_LIVE_ON = 1;
     public static final int LIVE_STATUS_RECORD = 3;

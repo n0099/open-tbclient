@@ -18,7 +18,7 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class GifAnimationMetaData implements Parcelable, Serializable {
     public static final Parcelable.Creator<GifAnimationMetaData> CREATOR = new Parcelable.Creator<GifAnimationMetaData>() { // from class: pl.droidsonroids.gif.GifAnimationMetaData.1
         /* JADX DEBUG: Method merged with bridge method */

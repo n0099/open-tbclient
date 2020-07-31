@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.net.http.SslCertificate;
 import android.os.Bundle;
 import android.os.Message;
+import android.view.DragEvent;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -29,10 +30,10 @@ import com.baidu.webkit.sdk.performance.PagePerformanceTiming;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 import java.io.BufferedWriter;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public interface WebViewProvider {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public interface ScrollDelegate {
         int computeHorizontalScrollOffset();
 
@@ -47,7 +48,7 @@ public interface WebViewProvider {
         int computeVerticalScrollRange();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public interface ViewDelegate {
         boolean dispatchKeyEvent(KeyEvent keyEvent);
 
@@ -62,6 +63,8 @@ public interface WebViewProvider {
         InputConnection onCreateInputConnection(EditorInfo editorInfo);
 
         void onDetachedFromWindow();
+
+        boolean onDragEvent(DragEvent dragEvent);
 
         void onDraw(Canvas canvas);
 

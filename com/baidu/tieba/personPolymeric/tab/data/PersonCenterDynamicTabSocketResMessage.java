@@ -1,18 +1,18 @@
 package com.baidu.tieba.personPolymeric.tab.data;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.data.bu;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.util.x;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetShoubaiThreadList.GetShoubaiThreadListResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class PersonCenterDynamicTabSocketResMessage extends SocketResponsedMessage {
     public long mCursor;
     public boolean mHasMore;
-    public List<bu> mThreadDataList;
+    public List<bv> mThreadDataList;
 
     public PersonCenterDynamicTabSocketResMessage() {
         super(309647);
@@ -30,12 +30,12 @@ public class PersonCenterDynamicTabSocketResMessage extends SocketResponsedMessa
                 this.mCursor = getShoubaiThreadListResIdl.data.page.cursor.longValue();
                 this.mHasMore = getShoubaiThreadListResIdl.data.page.has_more.intValue() == 1;
             }
-            if (!w.isEmpty(getShoubaiThreadListResIdl.data.thread_list)) {
+            if (!x.isEmpty(getShoubaiThreadListResIdl.data.thread_list)) {
                 for (ThreadInfo threadInfo : getShoubaiThreadListResIdl.data.thread_list) {
                     if (threadInfo != null) {
-                        bu buVar = new bu();
-                        buVar.a(threadInfo);
-                        this.mThreadDataList.add(buVar);
+                        bv bvVar = new bv();
+                        bvVar.a(threadInfo);
+                        this.mThreadDataList.add(bvVar);
                     }
                 }
             }

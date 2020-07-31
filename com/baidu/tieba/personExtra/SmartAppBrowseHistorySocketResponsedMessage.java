@@ -3,7 +3,7 @@ package com.baidu.tieba.personExtra;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.HistorySwan.HistorySwanResIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class SmartAppBrowseHistorySocketResponsedMessage extends SocketResponsedMessage {
     private a mData;
 

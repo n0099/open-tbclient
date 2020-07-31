@@ -1,7 +1,7 @@
 package com.baidu.ar.auth;
 
 import com.baidu.ar.f.p;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class AuthJni {
     public static void setGrantedFeatures(final int[] iArr) {
         p.runOnUiThread(new Runnable() { // from class: com.baidu.ar.auth.AuthJni.1

@@ -3,7 +3,7 @@ package com.baidu.ala.atomdata;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaSDKShareEmptyActivityConfig extends IntentConfig {
     public static final String PACKAGE_NAME_QQ = "com.tencent.mobileqq";
     public static final String PACKAGE_NAME_SINA_WEIBO = "com.sina.weibo";

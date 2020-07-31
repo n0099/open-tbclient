@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ImageToastView {
     private Context mContext;
     private Toast mToast;

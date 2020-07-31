@@ -14,19 +14,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class a implements g {
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a eXZ = new a();
+    private static a fcB = new a();
     private final List<g.a> mListeners = new LinkedList();
     private final ConcurrentHashMap<String, g.b> mHandlers = new ConcurrentHashMap<>();
-    private g.c eYa = null;
+    private g.c fcC = null;
 
     private a() {
     }
 
-    public static a boU() {
-        return eXZ;
+    public static a brW() {
+        return fcB;
     }
 
     public void a(final g.a aVar) {
@@ -50,7 +50,7 @@ public final class a implements g {
     }
 
     public void a(g.c cVar) {
-        this.eYa = cVar;
+        this.fcC = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, g.d dVar, boolean z2) {
@@ -79,7 +79,7 @@ public final class a implements g {
         String str2 = strArr[0];
         g.b bVar = this.mHandlers.get(getSchemaKey(str2));
         if (bVar != null) {
-            bVar.j(context, getInnerParamPair(Ah(str2)));
+            bVar.j(context, getInnerParamPair(AS(str2)));
             return true;
         }
         Iterator<g.a> it = this.mListeners.iterator();
@@ -94,7 +94,7 @@ public final class a implements g {
                 break;
             }
         }
-        if (!z3 && this.eYa != null) {
+        if (!z3 && this.fcC != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -105,7 +105,7 @@ public final class a implements g {
         return z4;
     }
 
-    private String Ah(String str) {
+    private String AS(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -154,12 +154,12 @@ public final class a implements g {
 
     private void a(Context context, String str, String str2, boolean z, g.d dVar, boolean z2) {
         if (pattern.matcher(str2).find()) {
-            this.eYa.b(context, str, str2, z, dVar, z2);
+            this.fcC.b(context, str, str2, z, dVar, z2);
         }
     }
 
     @Override // com.baidu.tieba.recapp.g
-    public boolean Ai(String str) {
+    public boolean AT(String str) {
         return pattern.matcher(str).find();
     }
 }

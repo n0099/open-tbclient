@@ -1,7 +1,7 @@
 package com.baidu.swan.games.m.a;
 
 import com.baidu.swan.games.screenrecord.a.d;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c implements com.baidu.swan.games.m.b.c {
     @Override // com.baidu.swan.games.m.b.c
     public void a(d dVar, com.baidu.swan.games.screenrecord.a.c cVar) {

@@ -1,5 +1,6 @@
 package com.google.zxing.aztec.detector;
 
+import com.baidu.cyberplayer.sdk.rtc.RTCConst;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.aztec.AztecDetectorResult;
@@ -10,9 +11,9 @@ import com.google.zxing.common.detector.WhiteRectangleDetector;
 import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class Detector {
-    private static final int[] EXPECTED_CORNER_BITS = {3808, 476, 2107, 1799};
+    private static final int[] EXPECTED_CORNER_BITS = {3808, 476, RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL7, 1799};
     private boolean compact;
     private final BitMatrix image;
     private int nbCenterLayers;
@@ -318,7 +319,7 @@ public final class Detector {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public static final class Point {
         private final int x;
         private final int y;

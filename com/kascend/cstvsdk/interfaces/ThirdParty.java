@@ -10,7 +10,7 @@ import kotlin.h;
 import tv.chushou.basis.d.a;
 @Keep
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface ThirdParty extends a {
     tv.chushou.common.player.a createPlayer();
 

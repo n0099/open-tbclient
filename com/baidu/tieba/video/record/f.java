@@ -1,7 +1,7 @@
 package com.baidu.tieba.video.record;
 
 import java.security.MessageDigest;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class f {
     public static int sha1_32(byte[] bArr) {
         try {

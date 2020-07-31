@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.cache;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BdCacheNSItem {
     public static final String CACHE_TYPE_BLOB = "blob";
     public static final String CACHE_TYPE_TEXT = "text";

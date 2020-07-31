@@ -8,7 +8,7 @@ import android.os.Bundle;
 import com.baidu.webkit.internal.a.a;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class PermissionActivity extends Activity {
     private static final int REQUEST_CAMERA_RECORD_CODE = 1003;
 
@@ -60,6 +60,10 @@ public class PermissionActivity extends Activity {
     @SuppressLint({"NewApi"})
     protected void onStart() {
         super.onStart();
-        requestPermissions(getIntent().getStringArrayExtra("Resources"), 1003);
+        String[] stringArrayExtra = getIntent().getStringArrayExtra("Resources");
+        if (stringArrayExtra == null || stringArrayExtra.length <= 0) {
+            return;
+        }
+        requestPermissions(stringArrayExtra, 1003);
     }
 }

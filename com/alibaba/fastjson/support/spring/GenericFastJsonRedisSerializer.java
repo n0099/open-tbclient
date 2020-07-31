@@ -7,7 +7,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.util.IOUtils;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.SerializationException;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class GenericFastJsonRedisSerializer implements RedisSerializer<Object> {
     private static final ParserConfig defaultRedisConfig = new ParserConfig();
 

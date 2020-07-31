@@ -4,24 +4,22 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tieba.play.s;
+import com.baidu.tbadk.core.util.as;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class TbVideoViewSet {
-    private static TbVideoViewSet kVW = null;
-    private LRULinkedHashMap<String, com.baidu.tieba.play.a.a> kVV = new LRULinkedHashMap<>();
-    private boolean kVX;
+    private static TbVideoViewSet ldy = null;
+    private LRULinkedHashMap<String, TbCyberVideoView> ldx = new LRULinkedHashMap<>();
+    private boolean ldz;
 
     /* loaded from: classes.dex */
     public interface a {
-        void cWc();
+        void cZo();
 
-        void cWd();
+        void cZp();
     }
 
     private TbVideoViewSet() {
@@ -30,78 +28,75 @@ public class TbVideoViewSet {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    TbVideoViewSet.this.aAW();
+                    TbVideoViewSet.this.aEB();
                 }
             }
         });
     }
 
-    public static TbVideoViewSet cWb() {
-        if (kVW == null) {
+    public static TbVideoViewSet cZn() {
+        if (ldy == null) {
             synchronized (TbVideoViewSet.class) {
-                if (kVW == null) {
-                    kVW = new TbVideoViewSet();
+                if (ldy == null) {
+                    ldy = new TbVideoViewSet();
                 }
             }
         }
-        return kVW;
+        return ldy;
     }
 
-    public com.baidu.tieba.play.a.a Ld(String str) {
-        if (ar.isEmpty(str) || !this.kVV.containsKey(str)) {
+    public TbCyberVideoView LN(String str) {
+        if (as.isEmpty(str) || !this.ldx.containsKey(str)) {
             return null;
         }
-        return this.kVV.get(str);
+        return this.ldx.get(str);
     }
 
-    public void a(com.baidu.tieba.play.a.a aVar, String str) {
+    public void a(TbCyberVideoView tbCyberVideoView, String str) {
         String str2;
-        if (this.kVV.containsKey(str) && aVar != this.kVV.get(str)) {
-            com.baidu.tieba.play.a.a aVar2 = this.kVV.get(str);
-            if (aVar2 != null && aVar2.isPlaying()) {
-                aVar2.stopPlayback();
+        if (this.ldx.containsKey(str) && tbCyberVideoView != this.ldx.get(str)) {
+            TbCyberVideoView tbCyberVideoView2 = this.ldx.get(str);
+            if (tbCyberVideoView2 != null && tbCyberVideoView2.isPlaying()) {
+                tbCyberVideoView2.stopPlayback();
             }
-        } else if (this.kVV.containsValue(aVar)) {
-            Iterator it = this.kVV.entrySet().iterator();
+        } else if (this.ldx.containsValue(tbCyberVideoView)) {
+            Iterator it = this.ldx.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     str2 = null;
                     break;
                 }
                 Map.Entry entry = (Map.Entry) it.next();
-                if (entry.getValue() == aVar) {
+                if (entry.getValue() == tbCyberVideoView) {
                     str2 = (String) entry.getKey();
                     break;
                 }
             }
-            if (!this.kVX && !ar.isEmpty(str2)) {
-                this.kVV.remove(str2);
+            if (!this.ldz && !as.isEmpty(str2)) {
+                this.ldx.remove(str2);
             }
         }
-        this.kVV.put(str, aVar);
+        this.ldx.put(str, tbCyberVideoView);
     }
 
-    public void Le(String str) {
-        com.baidu.tieba.play.a.a aVar;
-        if (!this.kVX && this.kVV.containsKey(str) && (aVar = (com.baidu.tieba.play.a.a) this.kVV.remove(str)) != null) {
-            aVar.stopPlayback();
+    public void LO(String str) {
+        TbCyberVideoView tbCyberVideoView;
+        if (!this.ldz && this.ldx.containsKey(str) && (tbCyberVideoView = (TbCyberVideoView) this.ldx.remove(str)) != null) {
+            tbCyberVideoView.stopPlayback();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aAW() {
-        Iterator it = this.kVV.entrySet().iterator();
+    public void aEB() {
+        Iterator it = this.ldx.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry entry = (Map.Entry) it.next();
             if (entry != null) {
-                if (!ar.isEmpty((String) entry.getKey())) {
-                    s.ar(TbadkCoreApplication.getInst().getContext(), (String) entry.getKey());
-                }
-                com.baidu.tieba.play.a.a aVar = (com.baidu.tieba.play.a.a) entry.getValue();
-                if (aVar != null) {
-                    this.kVX = true;
-                    aVar.stopPlayback();
-                    this.kVX = false;
+                TbCyberVideoView tbCyberVideoView = (TbCyberVideoView) entry.getValue();
+                if (tbCyberVideoView != null) {
+                    this.ldz = true;
+                    tbCyberVideoView.stopPlayback();
+                    this.ldz = false;
                 }
                 it.remove();
             }
@@ -110,7 +105,7 @@ public class TbVideoViewSet {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class LRULinkedHashMap<K extends String, V> extends LinkedHashMap<K, com.baidu.tieba.play.a.a> {
+    public class LRULinkedHashMap<K extends String, V> extends LinkedHashMap<K, TbCyberVideoView> {
         public static final int MAX_PLAYERS = 3;
         private static final long serialVersionUID = 1;
 
@@ -119,14 +114,14 @@ public class TbVideoViewSet {
         }
 
         @Override // java.util.LinkedHashMap
-        public boolean removeEldestEntry(Map.Entry<K, com.baidu.tieba.play.a.a> entry) {
-            com.baidu.tieba.play.a.a value;
+        public boolean removeEldestEntry(Map.Entry<K, TbCyberVideoView> entry) {
+            TbCyberVideoView value;
             boolean z = size() > 3;
             if (z && (value = entry.getValue()) != null) {
-                TbVideoViewSet.this.kVX = true;
-                value.cVv();
+                TbVideoViewSet.this.ldz = true;
+                value.cZk();
                 value.stopPlayback();
-                TbVideoViewSet.this.kVX = false;
+                TbVideoViewSet.this.ldz = false;
             }
             return z;
         }

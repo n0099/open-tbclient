@@ -5,9 +5,9 @@ import android.view.MotionEvent;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes13.dex */
+/* loaded from: classes9.dex */
 public interface a {
-    Animatable dAG();
+    Animatable dDS();
 
     @Nullable
     b getHierarchy();

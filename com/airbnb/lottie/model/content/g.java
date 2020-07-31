@@ -3,7 +3,7 @@ package com.airbnb.lottie.model.content;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.a.o;
 import com.airbnb.lottie.model.a.l;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class g implements b {
     private final com.airbnb.lottie.model.a.b EE;
     private final com.airbnb.lottie.model.a.b EF;

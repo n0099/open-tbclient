@@ -2,7 +2,7 @@ package org.apache.http.auth;
 
 import org.apache.http.ProtocolException;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public class MalformedChallengeException extends ProtocolException {
     public MalformedChallengeException() {
         throw new RuntimeException("Stub!");

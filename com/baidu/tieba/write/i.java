@@ -13,14 +13,14 @@ import java.lang.reflect.Method;
 public class i extends PopupWindow {
     private Context context;
     private int count;
-    private LinearLayout eqD;
+    private LinearLayout ewV;
     private int mCurrentIndex;
     private int maxHeight;
-    private a mmq;
+    private a muq;
 
     /* loaded from: classes.dex */
     public interface a {
-        void Ez(int i);
+        void EV(int i);
     }
 
     public i(Context context) {
@@ -33,10 +33,10 @@ public class i extends PopupWindow {
     private void init(Context context) {
         ScrollView scrollView = new ScrollView(context);
         scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-        this.eqD = new LinearLayout(context);
-        this.eqD.setOrientation(1);
-        this.eqD.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.eqD);
+        this.ewV = new LinearLayout(context);
+        this.ewV.setOrientation(1);
+        this.ewV.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        scrollView.addView(this.ewV);
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         scrollView.setPadding(0, 0, l.dip2px(context, 1.0f), l.dip2px(context, 1.0f));
         scrollView.setFadingEdgeLength(0);
@@ -67,8 +67,8 @@ public class i extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new b(this.count, this.mmq));
-        this.eqD.addView(view);
+        view.setOnClickListener(new b(this.count, this.muq));
+        this.ewV.addView(view);
         this.count++;
     }
 
@@ -78,30 +78,30 @@ public class i extends PopupWindow {
 
     public void setCurrentIndex(int i) {
         if (this.mCurrentIndex != -1) {
-            this.eqD.getChildAt(this.mCurrentIndex).setSelected(false);
+            this.ewV.getChildAt(this.mCurrentIndex).setSelected(false);
         }
         this.mCurrentIndex = i;
-        this.eqD.getChildAt(this.mCurrentIndex).setSelected(true);
+        this.ewV.getChildAt(this.mCurrentIndex).setSelected(true);
     }
 
     public void a(a aVar) {
-        this.mmq = aVar;
+        this.muq = aVar;
     }
 
     /* loaded from: classes.dex */
     public static class b implements View.OnClickListener {
-        private a mmr;
+        private a mur;
         private int position;
 
         public b(int i, a aVar) {
             this.position = i;
-            this.mmr = aVar;
+            this.mur = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.mmr != null) {
-                this.mmr.Ez(this.position);
+            if (this.mur != null) {
+                this.mur.EV(this.position);
             }
         }
     }

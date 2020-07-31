@@ -11,54 +11,54 @@ import com.baidu.tieba.im.model.RequestGroupLocModel;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class b {
-    private RequestGroupLocModel jcb;
-    private a jcc;
+    private RequestGroupLocModel jkw;
+    private a jkx;
     private double longitude = 0.0d;
     private double latitude = 0.0d;
     private BdUniqueId unique_id = null;
-    private final a.InterfaceC0020a locationCallBack = new a.InterfaceC0020a() { // from class: com.baidu.tieba.im.util.b.1
-        @Override // com.baidu.adp.lib.c.a.InterfaceC0020a
+    private final a.InterfaceC0021a locationCallBack = new a.InterfaceC0021a() { // from class: com.baidu.tieba.im.util.b.1
+        @Override // com.baidu.adp.lib.c.a.InterfaceC0021a
         public void onLocationGeted(int i, String str, Address address) {
             switch (i) {
                 case 0:
                     if (address != null) {
                         b.this.latitude = address.getLatitude();
                         b.this.longitude = address.getLongitude();
-                        b.this.jcb.setLat(String.valueOf(address.getLatitude()));
-                        b.this.jcb.setLng(String.valueOf(address.getLongitude()));
-                        b.this.jcb.setGroupId(0L);
-                        b.this.jcb.sendMessage();
+                        b.this.jkw.setLat(String.valueOf(address.getLatitude()));
+                        b.this.jkw.setLng(String.valueOf(address.getLongitude()));
+                        b.this.jkw.setGroupId(0L);
+                        b.this.jkw.sendMessage();
                         return;
                     }
                     return;
                 case 1:
                 case 2:
                 case 3:
-                    b.this.jcc.coB();
+                    b.this.jkx.csg();
                     return;
                 case 4:
                 case 5:
-                    b.this.jcc.coA();
+                    b.this.jkx.csf();
                     return;
                 default:
                     return;
             }
         }
     };
-    private final com.baidu.adp.framework.listener.c jcd = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_QUERY_GROUPLOC) { // from class: com.baidu.tieba.im.util.b.2
+    private final com.baidu.adp.framework.listener.c jky = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_QUERY_GROUPLOC) { // from class: com.baidu.tieba.im.util.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103010) {
-                b.this.jcc.coA();
+                b.this.jkx.csf();
             } else if (!(socketResponsedMessage instanceof ResponseRequestGroupLocMessage)) {
-                b.this.jcc.coA();
+                b.this.jkx.csf();
             } else {
                 ResponseRequestGroupLocMessage responseRequestGroupLocMessage = (ResponseRequestGroupLocMessage) socketResponsedMessage;
                 if (responseRequestGroupLocMessage.getError() != 0) {
-                    b.this.jcc.coA();
+                    b.this.jkx.csf();
                     return;
                 }
                 Iterator<String> iteraotrOfBusinessAreaList = responseRequestGroupLocMessage.getIteraotrOfBusinessAreaList();
@@ -68,35 +68,35 @@ public class b {
                 }
                 String position = responseRequestGroupLocMessage.getPosition();
                 if ((position == null || position.equals("")) && arrayList.size() < 1) {
-                    b.this.jcc.coA();
+                    b.this.jkx.csf();
                 } else {
-                    b.this.jcc.a(position, arrayList, b.this.latitude, b.this.longitude);
+                    b.this.jkx.a(position, arrayList, b.this.latitude, b.this.longitude);
                 }
             }
         }
     };
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes17.dex */
     public interface a {
         void a(String str, List<String> list, double d, double d2);
 
-        void coA();
+        void csf();
 
-        void coB();
+        void csg();
     }
 
     public b(a aVar) {
-        this.jcb = null;
-        this.jcc = null;
-        this.jcb = new RequestGroupLocModel();
-        this.jcc = aVar;
-        this.jcd.setTag(this.unique_id);
-        MessageManager.getInstance().registerListener(this.jcd);
+        this.jkw = null;
+        this.jkx = null;
+        this.jkw = new RequestGroupLocModel();
+        this.jkx = aVar;
+        this.jky.setTag(this.unique_id);
+        MessageManager.getInstance().registerListener(this.jky);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
-        this.jcb.setUniqueId(bdUniqueId);
+        this.jkw.setUniqueId(bdUniqueId);
     }
 
     public void startLoad() {
@@ -104,7 +104,7 @@ public class b {
     }
 
     public void cancelLoad() {
-        this.jcb.cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.jcd);
+        this.jkw.cancelMessage();
+        MessageManager.getInstance().unRegisterListener(this.jky);
     }
 }

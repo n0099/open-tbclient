@@ -7,7 +7,7 @@ import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.sapi2.utils.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class B extends HttpHandlerWrap {
     final /* synthetic */ String a;
     final /* synthetic */ OneKeyLoginCallback b;

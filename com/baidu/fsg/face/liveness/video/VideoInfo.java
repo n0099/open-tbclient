@@ -6,8 +6,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.fsg.base.utils.LogUtil;
-import tv.danmaku.ijk.media.player.IMediaFormat;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class VideoInfo implements Parcelable {
     public static final Parcelable.Creator<VideoInfo> CREATOR = new Parcelable.Creator<VideoInfo>() { // from class: com.baidu.fsg.face.liveness.video.VideoInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -142,7 +141,7 @@ public class VideoInfo implements Parcelable {
     public static int a(MediaExtractor mediaExtractor, boolean z) {
         int trackCount = mediaExtractor.getTrackCount();
         for (int i = 0; i < trackCount; i++) {
-            String string = mediaExtractor.getTrackFormat(i).getString(IMediaFormat.KEY_MIME);
+            String string = mediaExtractor.getTrackFormat(i).getString("mime");
             if (z) {
                 if (string.startsWith("audio/")) {
                     return i;

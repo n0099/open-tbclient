@@ -1,5 +1,5 @@
 package com.baidu.tbadk.album;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public interface e {
     void a(g gVar);
 

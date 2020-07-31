@@ -1,5 +1,5 @@
 package com.baidu.searchbox.skin;
-/* loaded from: classes13.dex */
+/* loaded from: classes19.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.skin";
     public static final String BUILD_TYPE = "release";

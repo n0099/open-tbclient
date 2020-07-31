@@ -3,11 +3,12 @@ package com.baidu.tieba.pb.pb.main;
 import android.content.Context;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.tbadk.util.AdExtParam;
 import com.squareup.wire.Wire;
 import tbclient.PbPage.AdParam;
 import tbclient.PbPage.DataReq;
 import tbclient.PbPage.PbPageReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class PbPageRequestMessage extends NetMessage {
     public static final Wire WIRE = new Wire(new Class[0]);
     private Integer arround;
@@ -37,6 +38,7 @@ public class PbPageRequestMessage extends NetMessage {
     private Integer needRepostRecommendForum;
     private String objParam1;
     public String obj_source;
+    private long officialBarMsgId;
     private long opMessageID;
     private int opStat;
     private String opType;
@@ -293,6 +295,10 @@ public class PbPageRequestMessage extends NetMessage {
         this.from_push = i;
     }
 
+    public void setOfficialBarMsgId(long j) {
+        this.officialBarMsgId = j;
+    }
+
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         try {
@@ -326,6 +332,7 @@ public class PbPageRequestMessage extends NetMessage {
             builder.is_comm_reverse = Integer.valueOf(this.isSubPostDataReverse ? 1 : 0);
             builder.is_jumpfloor = Integer.valueOf(this.isJumpFloor ? 1 : 0);
             builder.jumpfloor_num = Integer.valueOf(this.jumpFloorNum);
+            builder.broadcast_id = Long.valueOf(this.officialBarMsgId);
             if (this.opType != null) {
                 builder.st_from = this.opType;
                 builder.st_link = this.opUrl;
@@ -335,7 +342,7 @@ public class PbPageRequestMessage extends NetMessage {
             builder.obj_param1 = this.objParam1;
             builder.obj_source = this.obj_source;
             builder.from_smart_frs = this.fromSmartFrs;
-            builder.app_pos = com.baidu.tieba.recapp.d.a.cZG().cZJ();
+            builder.app_pos = com.baidu.tieba.recapp.d.a.dcN().dcQ();
             builder.forum_id = this.forumId;
             builder.need_repost_recommend_forum = this.needRepostRecommendForum;
             AdParam.Builder builder2 = new AdParam.Builder();
@@ -348,9 +355,10 @@ public class PbPageRequestMessage extends NetMessage {
             builder.ori_ugc_type = Integer.valueOf(this.oriUgcType);
             builder.ori_ugc_vid = this.oriUgcVid;
             builder.after_ad_thread_count = Integer.valueOf(this.mAfterAdThreadCount);
-            builder.ad_context_list = com.baidu.tieba.recapp.report.b.cZL().cZO();
+            builder.ad_context_list = com.baidu.tieba.recapp.report.b.dcS().dcV();
             builder.up_schema = this.mSchemeUrl;
             builder.from_push = Integer.valueOf(this.from_push);
+            builder.ad_ext_params = AdExtParam.a.bmj().bmk();
             com.baidu.tbadk.util.t.a(builder, true, false, true);
             PbPageReqIdl.Builder builder3 = new PbPageReqIdl.Builder();
             builder3.data = builder.build(false);

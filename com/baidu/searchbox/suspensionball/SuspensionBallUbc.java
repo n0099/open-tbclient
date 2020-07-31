@@ -6,7 +6,7 @@ import com.baidu.ubc.Flow;
 import com.baidu.ubc.aa;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class SuspensionBallUbc {
     private static final String FROM_VALUE = "tool";
     private static final String KEY_EXT = "ext";

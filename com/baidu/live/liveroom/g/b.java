@@ -1,9 +1,9 @@
 package com.baidu.live.liveroom.g;
 
 import android.view.MotionEvent;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface b {
-    boolean FR();
+    boolean FL();
 
     boolean dispatchTouchEvent(MotionEvent motionEvent);
 }

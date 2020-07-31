@@ -6,35 +6,35 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 /* loaded from: classes7.dex */
 public final class d<T> extends io.reactivex.internal.operators.flowable.a<T, T> {
-    private final i nKq;
-    private final io.reactivex.c.a nKr;
+    private final i nSY;
+    private final io.reactivex.c.a nSZ;
     private final io.reactivex.c.g<? super org.a.d> onSubscribe;
 
     public d(io.reactivex.g<T> gVar, io.reactivex.c.g<? super org.a.d> gVar2, i iVar, io.reactivex.c.a aVar) {
         super(gVar);
         this.onSubscribe = gVar2;
-        this.nKq = iVar;
-        this.nKr = aVar;
+        this.nSY = iVar;
+        this.nSZ = aVar;
     }
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nJW.a((j) new a(cVar, this.onSubscribe, this.nKq, this.nKr));
+        this.nSE.a((j) new a(cVar, this.onSubscribe, this.nSY, this.nSZ));
     }
 
     /* loaded from: classes7.dex */
     static final class a<T> implements j<T>, org.a.d {
         final org.a.c<? super T> actual;
-        final i nKq;
-        final io.reactivex.c.a nKr;
+        final i nSY;
+        final io.reactivex.c.a nSZ;
         final io.reactivex.c.g<? super org.a.d> onSubscribe;
         org.a.d s;
 
         a(org.a.c<? super T> cVar, io.reactivex.c.g<? super org.a.d> gVar, i iVar, io.reactivex.c.a aVar) {
             this.actual = cVar;
             this.onSubscribe = gVar;
-            this.nKr = aVar;
-            this.nKq = iVar;
+            this.nSZ = aVar;
+            this.nSY = iVar;
         }
 
         @Override // io.reactivex.j, org.a.c
@@ -46,7 +46,7 @@ public final class d<T> extends io.reactivex.internal.operators.flowable.a<T, T>
                     this.actual.onSubscribe(this);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.L(th);
+                io.reactivex.exceptions.a.K(th);
                 dVar.cancel();
                 this.s = SubscriptionHelper.CANCELLED;
                 EmptySubscription.error(th, this.actual);
@@ -77,9 +77,9 @@ public final class d<T> extends io.reactivex.internal.operators.flowable.a<T, T>
         @Override // org.a.d
         public void request(long j) {
             try {
-                this.nKq.gk(j);
+                this.nSY.gx(j);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.L(th);
+                io.reactivex.exceptions.a.K(th);
                 io.reactivex.e.a.onError(th);
             }
             this.s.request(j);
@@ -88,9 +88,9 @@ public final class d<T> extends io.reactivex.internal.operators.flowable.a<T, T>
         @Override // org.a.d
         public void cancel() {
             try {
-                this.nKr.run();
+                this.nSZ.run();
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.L(th);
+                io.reactivex.exceptions.a.K(th);
                 io.reactivex.e.a.onError(th);
             }
             this.s.cancel();

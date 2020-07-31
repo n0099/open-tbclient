@@ -10,19 +10,19 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tieba.square.square.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class DirMenuModel extends BdBaseModel<ForumListActivity> {
     private boolean isOk;
-    private a lzi;
-    private b lzj;
-    private String lzk;
-    private String lzl;
-    private String lzm;
-    private boolean lzn;
+    private String lGA;
+    private String lGB;
+    private String lGC;
+    private boolean lGD;
+    private a lGy;
+    private b lGz;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes17.dex */
     public interface b {
         void a(boolean z, int i, e eVar, String str, boolean z2);
     }
@@ -30,41 +30,41 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
     public DirMenuModel(TbPageContext<ForumListActivity> tbPageContext, String str, String str2, String str3) {
         super(tbPageContext);
         this.isOk = false;
-        this.lzn = false;
-        this.lzk = str;
-        this.lzl = str2;
-        this.lzm = str3;
+        this.lGD = false;
+        this.lGA = str;
+        this.lGB = str2;
+        this.lGC = str3;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        this.lzi = new a();
-        this.lzi.execute(new Object[0]);
+        this.lGy = new a();
+        this.lGy.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.lzi != null) {
-            this.lzi.cancel();
+        if (this.lGy != null) {
+            this.lGy.cancel();
             return false;
         }
         return false;
     }
 
     public void a(b bVar) {
-        this.lzj = bVar;
+        this.lGz = bVar;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes17.dex */
     private class a extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.square.d> {
-        com.baidu.tieba.square.square.d lzo;
-        private y mNetwork;
+        com.baidu.tieba.square.square.d lGE;
+        private z mNetwork;
 
         private a() {
             this.mNetwork = null;
-            this.lzo = new com.baidu.tieba.square.square.d();
+            this.lGE = new com.baidu.tieba.square.square.d();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,8 +72,8 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onProgressUpdate(Integer... numArr) {
             super.onProgressUpdate((Object[]) numArr);
-            if (this.lzo != null) {
-                DirMenuModel.this.lzj.a(true, this.lzo.getErrorCode(), this.lzo.dgI(), this.lzo.getErrorMsg(), DirMenuModel.this.lzn);
+            if (this.lGE != null) {
+                DirMenuModel.this.lGz.a(true, this.lGE.getErrorCode(), this.lGE.djR(), this.lGE.getErrorMsg(), DirMenuModel.this.lGD);
             }
         }
 
@@ -84,39 +84,39 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         public com.baidu.tieba.square.square.d doInBackground(Object... objArr) {
             String postNetData;
             String str = null;
-            l<String> wc = com.baidu.tbadk.core.c.a.aUM().wc("tb.my_posts");
-            if (wc != null) {
-                str = wc.get(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + DirMenuModel.this.lzk + "_dir");
+            l<String> xj = com.baidu.tbadk.core.c.a.aYG().xj("tb.my_posts");
+            if (xj != null) {
+                str = xj.get(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + DirMenuModel.this.lGA + "_dir");
             }
             if (str != null) {
-                this.lzo.parserJson(str);
-                DirMenuModel.this.lzn = true;
+                this.lGE.parserJson(str);
+                DirMenuModel.this.lGD = true;
                 publishProgress(new Integer[0]);
             }
             try {
-                this.mNetwork = new y(TbConfig.SERVER_ADDRESS + Config.FORUM_SECOND_DIR);
-                this.mNetwork.addPostData("menu_name", DirMenuModel.this.lzk);
-                this.mNetwork.addPostData(ForumListActivityConfig.KEY_MENU_TYPE, DirMenuModel.this.lzl);
-                this.mNetwork.addPostData("menu_id", DirMenuModel.this.lzm);
+                this.mNetwork = new z(TbConfig.SERVER_ADDRESS + Config.FORUM_SECOND_DIR);
+                this.mNetwork.addPostData("menu_name", DirMenuModel.this.lGA);
+                this.mNetwork.addPostData(ForumListActivityConfig.KEY_MENU_TYPE, DirMenuModel.this.lGB);
+                this.mNetwork.addPostData("menu_id", DirMenuModel.this.lGC);
                 postNetData = this.mNetwork.postNetData();
             } catch (Exception e) {
-                this.lzo.setErrorMsg(e.getMessage());
+                this.lGE.setErrorMsg(e.getMessage());
                 BdLog.detailException(e);
             }
             if (postNetData == null) {
-                return this.lzo;
+                return this.lGE;
             }
-            if (this.mNetwork.aWu().aWW().isRequestSuccess()) {
-                this.lzo.parserJson(postNetData);
+            if (this.mNetwork.bav().baX().isRequestSuccess()) {
+                this.lGE.parserJson(postNetData);
                 DirMenuModel.this.isOk = true;
-                if (wc != null) {
-                    wc.set(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + DirMenuModel.this.lzk + "_dir", postNetData, 86400000L);
+                if (xj != null) {
+                    xj.set(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + DirMenuModel.this.lGA + "_dir", postNetData, 86400000L);
                 }
             } else {
-                this.lzo.setErrorMsg(this.mNetwork.getErrorString());
+                this.lGE.setErrorMsg(this.mNetwork.getErrorString());
                 DirMenuModel.this.isOk = false;
             }
-            return this.lzo;
+            return this.lGE;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -125,9 +125,9 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         /* renamed from: a */
         public void onPostExecute(com.baidu.tieba.square.square.d dVar) {
             if (!DirMenuModel.this.isOk) {
-                DirMenuModel.this.lzj.a(false, -1, null, dVar.getErrorMsg(), DirMenuModel.this.lzn);
-            } else if (dVar.dgI() != null) {
-                DirMenuModel.this.lzj.a(true, dVar.getErrorCode(), dVar.dgI(), dVar.getErrorMsg(), DirMenuModel.this.lzn);
+                DirMenuModel.this.lGz.a(false, -1, null, dVar.getErrorMsg(), DirMenuModel.this.lGD);
+            } else if (dVar.djR() != null) {
+                DirMenuModel.this.lGz.a(true, dVar.getErrorCode(), dVar.djR(), dVar.getErrorMsg(), DirMenuModel.this.lGD);
             }
         }
 

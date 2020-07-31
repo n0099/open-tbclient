@@ -4,23 +4,23 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.swan.bdprivate.d.a.f;
-import com.baidu.swan.bdprivate.d.a.h;
+import com.baidu.swan.bdprivate.extensions.a.g;
+import com.baidu.swan.bdprivate.extensions.a.i;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class c implements com.baidu.swan.facade.a.b {
     @Override // com.baidu.swan.facade.a.d
     public void a(j jVar) {
         if (jVar != null) {
             jVar.a(new e(jVar));
             jVar.a(new com.baidu.tieba.aiapps.apps.g.a(jVar));
-            jVar.a(new com.baidu.swan.bdprivate.d.a.c(jVar));
-            jVar.a(new com.baidu.swan.bdprivate.d.a.e(jVar));
-            jVar.a(new f(jVar));
+            jVar.a(new com.baidu.swan.bdprivate.extensions.a.c(jVar));
+            jVar.a(new com.baidu.swan.bdprivate.extensions.a.e(jVar));
+            jVar.a(new g(jVar));
             jVar.a(new com.baidu.swan.apps.scheme.actions.c.a(jVar));
             jVar.a(new com.baidu.swan.apps.scheme.actions.c.b(jVar));
-            jVar.a(new com.baidu.swan.bdprivate.d.c.b(jVar));
-            jVar.a(new h(jVar));
+            jVar.a(new com.baidu.swan.bdprivate.extensions.c.a(jVar));
+            jVar.a(new i(jVar));
             jVar.a(new com.baidu.swan.apps.adlanding.a(jVar));
             jVar.a(new b(jVar));
         }

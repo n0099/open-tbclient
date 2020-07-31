@@ -10,65 +10,65 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.charm.data.ALaCharmData;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private ArrayList<ALaCharmData> dQf = new ArrayList<>();
-    private View.OnClickListener fAK;
-    private View.OnClickListener fAL;
-    private View.OnClickListener fAM;
-    private int fAN;
+    private ArrayList<ALaCharmData> dWx = new ArrayList<>();
+    private View.OnClickListener fFU;
+    private View.OnClickListener fFV;
+    private View.OnClickListener fFW;
+    private int fFX;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public a(TbPageContext tbPageContext, int i) {
-        this.fAN = 1;
+        this.fFX = 1;
         this.mPageContext = tbPageContext;
-        this.fAN = i;
+        this.fFX = i;
     }
 
     public void m(View.OnClickListener onClickListener) {
-        this.fAK = onClickListener;
+        this.fFU = onClickListener;
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.fAM = onClickListener;
+        this.fFW = onClickListener;
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.fAL = onClickListener;
+        this.fFV = onClickListener;
     }
 
     public void setData(ArrayList<ALaCharmData> arrayList) {
         if (arrayList != null) {
-            this.dQf.clear();
-            this.dQf.addAll(arrayList);
+            this.dWx.clear();
+            this.dWx.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
-    public void U(ArrayList<ALaCharmData> arrayList) {
+    public void V(ArrayList<ALaCharmData> arrayList) {
         if (!ListUtils.isEmpty(arrayList)) {
-            this.dQf.addAll(arrayList);
+            this.dWx.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dQf == null) {
+        if (this.dWx == null) {
             return 0;
         }
-        return this.dQf.size();
+        return this.dWx.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: qy */
+    /* renamed from: qN */
     public ALaCharmData getItem(int i) {
-        if (this.dQf == null) {
+        if (this.dWx == null) {
             return null;
         }
-        return this.dQf.get(i);
+        return this.dWx.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -81,17 +81,17 @@ public class a extends BaseAdapter {
         d dVar;
         View inflate;
         if (view == null) {
-            if (this.fAN == 1) {
+            if (this.fFX == 1) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
-            } else if (this.fAN == 2) {
+            } else if (this.fFX == 2) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_game_live_list_layout, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
             }
-            d dVar2 = new d(inflate, this.fAN);
-            dVar2.p(this.fAM);
-            dVar2.m(this.fAK);
-            dVar2.q(this.fAL);
+            d dVar2 = new d(inflate, this.fFX);
+            dVar2.p(this.fFW);
+            dVar2.m(this.fFU);
+            dVar2.q(this.fFV);
             inflate.setTag(dVar2);
             view = inflate;
             dVar = dVar2;
@@ -105,9 +105,9 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public void ar(String str, boolean z) {
-        if (this.dQf != null && str != null) {
-            Iterator<ALaCharmData> it = this.dQf.iterator();
+    public void ap(String str, boolean z) {
+        if (this.dWx != null && str != null) {
+            Iterator<ALaCharmData> it = this.dWx.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

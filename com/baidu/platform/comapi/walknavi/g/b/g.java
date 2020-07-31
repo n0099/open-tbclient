@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.g.b;
 import android.view.animation.Animation;
 import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class g implements Animation.AnimationListener {
     final /* synthetic */ c a;
 

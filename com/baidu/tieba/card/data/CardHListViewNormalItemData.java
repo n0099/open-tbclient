@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import java.io.Serializable;
 import tbclient.GuessLikeThreadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class CardHListViewNormalItemData implements q, Serializable {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     private static final long serialVersionUID = 9123181123453164969L;

@@ -1,10 +1,10 @@
 package com.baidu.live.alphavideo;
 
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface c {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void onEnd();
 
@@ -15,7 +15,7 @@ public interface c {
 
     void a(a aVar);
 
-    void eh(String str);
+    void eg(String str);
 
     long getDuration();
 

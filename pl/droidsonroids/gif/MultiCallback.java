@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class MultiCallback implements Drawable.Callback {
     private final CopyOnWriteArrayList<CallbackWeakReference> mCallbacks;
     private final boolean mUseViewInvalidate;
@@ -116,7 +116,7 @@ public class MultiCallback implements Drawable.Callback {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     static final class CallbackWeakReference extends WeakReference<Drawable.Callback> {
         CallbackWeakReference(Drawable.Callback callback) {
             super(callback);

@@ -2,7 +2,7 @@ package com.kascend.chushou.d;
 
 import com.baidu.android.util.devices.RomUtils;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g {
     public static boolean a() {
         String str = tv.chushou.zues.utils.f.get("ro.product.manufacturer");
@@ -21,8 +21,8 @@ public class g {
             return d();
         }
         if (lowerCase.contains(RomUtils.MANUFACTURER_OPPO)) {
-            if (tv.chushou.basis.d.b.dWi() != null) {
-                return tv.chushou.basis.d.b.dWi().getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
+            if (tv.chushou.basis.d.b.dZE() != null) {
+                return tv.chushou.basis.d.b.dZE().getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
             }
             return false;
         } else if (lowerCase.contains(RomUtils.MANUFACTURER_XIAOMI)) {
@@ -72,7 +72,7 @@ public class g {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [101=4] */
-    public static int[] dIS() {
+    public static int[] dMn() {
         int[] iArr = {0, 0};
         try {
             Class<?> cls = Class.forName("com.huawei.android.util.HwNotchSizeUtil");

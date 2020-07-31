@@ -14,10 +14,11 @@ import com.baidu.ar.face.FaceResultData;
 import com.baidu.ar.face.a.g;
 import com.baidu.ar.face.a.h;
 import com.baidu.ar.lua.LuaMsgListener;
+import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
     private AlgoHandleController ch;
     private LuaMsgListener ci;
@@ -31,7 +32,7 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
     private e kw;
     private a kz;
     private int kn = 720;
-    private int ko = 1280;
+    private int ko = PlatformPlugin.DEFAULT_SYSTEM_UI;
     private volatile boolean kv = false;
     private boolean kx = false;
     private boolean ky = false;

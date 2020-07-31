@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.request;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public interface c extends b {
     void a(d dVar);
 }

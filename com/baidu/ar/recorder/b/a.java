@@ -6,9 +6,7 @@ import android.media.MediaFormat;
 import android.view.Surface;
 import com.baidu.ar.record.EncoderParams;
 import java.nio.ByteBuffer;
-import tv.danmaku.ijk.media.player.IMediaFormat;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class a extends b {
     private static final String TAG = a.class.getSimpleName();
     private long tu = 0;
@@ -28,11 +26,11 @@ public class a extends b {
         if (encoderParams != null && dVar != null) {
             this.tx = dVar;
             MediaFormat mediaFormat = new MediaFormat();
-            mediaFormat.setString(IMediaFormat.KEY_MIME, encoderParams.getAudioCodec());
+            mediaFormat.setString("mime", encoderParams.getAudioCodec());
             mediaFormat.setInteger("aac-profile", 2);
             mediaFormat.setInteger("sample-rate", encoderParams.getAudioSampleRate());
             mediaFormat.setInteger("channel-count", encoderParams.getAudioChannel());
-            mediaFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, encoderParams.getAudioBitrate());
+            mediaFormat.setInteger("bitrate", encoderParams.getAudioBitrate());
             mediaFormat.setInteger("max-input-size", encoderParams.getAudioFrameSize());
             try {
                 this.ty = MediaCodec.createEncoderByType(encoderParams.getAudioCodec());

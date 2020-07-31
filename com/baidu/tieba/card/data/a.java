@@ -1,5 +1,5 @@
 package com.baidu.tieba.card.data;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public abstract class a extends b {
     public String mBottomLink;
     public String mBottomText;

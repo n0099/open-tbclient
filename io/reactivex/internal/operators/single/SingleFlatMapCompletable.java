@@ -53,7 +53,7 @@ public final class SingleFlatMapCompletable<T> extends io.reactivex.a {
                     eVar.a(this);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.L(th);
+                io.reactivex.exceptions.a.K(th);
                 onError(th);
             }
         }

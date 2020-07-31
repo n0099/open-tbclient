@@ -8,15 +8,18 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes12.dex */
 public class CrashReportPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "crash_report_plugin").setMethodCallHandler(new CrashReportPlugin());
+        new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "crash_report_plugin").setMethodCallHandler(new CrashReportPlugin());
     }
 
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
     }
 
+    @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
     public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
         if (methodCall.method.equals("reportCrash")) {
             HashMap hashMap = (HashMap) methodCall.argument("custom");

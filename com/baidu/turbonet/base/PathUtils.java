@@ -9,89 +9,89 @@ import android.os.SystemClock;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public abstract class PathUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final AtomicBoolean myp;
-    private static AsyncTask<Void, Void, String[]> myq;
-    private static Context myr;
+    private static final AtomicBoolean mGu;
+    private static AsyncTask<Void, Void, String[]> mGv;
+    private static Context mGw;
     private static String sDataDirectorySuffix;
 
     static {
         $assertionsDisabled = !PathUtils.class.desiredAssertionStatus();
-        myp = new AtomicBoolean();
+        mGu = new AtomicBoolean();
     }
 
     private PathUtils() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     public static class a {
-        private static final String[] mys = PathUtils.duR();
+        private static final String[] mGx = PathUtils.dye();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String[] duR() {
+    public static String[] dye() {
         try {
-            if (myq.cancel(false)) {
+            if (mGv.cancel(false)) {
                 StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
                 StrictMode.allowThreadDiskWrites();
                 try {
-                    return duS();
+                    return dyf();
                 } finally {
                     StrictMode.setThreadPolicy(allowThreadDiskReads);
                 }
             }
-            return myq.get();
+            return mGv.get();
         } catch (InterruptedException | ExecutionException e) {
             return null;
         }
     }
 
-    private static String[] duS() {
+    private static String[] dyf() {
         String[] strArr = new String[4];
-        strArr[0] = myr.getDir(sDataDirectorySuffix, 0).getPath();
-        strArr[1] = myr.getDir("textures", 0).getPath();
-        strArr[2] = myr.getDatabasePath("foo").getParent();
-        if (myr.getCacheDir() != null) {
-            strArr[3] = myr.getCacheDir().getPath();
+        strArr[0] = mGw.getDir(sDataDirectorySuffix, 0).getPath();
+        strArr[1] = mGw.getDir("textures", 0).getPath();
+        strArr[2] = mGw.getDatabasePath("foo").getParent();
+        if (mGw.getCacheDir() != null) {
+            strArr[3] = mGw.getCacheDir().getPath();
         }
         return strArr;
     }
 
-    private static String Hf(int i) {
-        return a.mys[i];
+    private static String HA(int i) {
+        return a.mGx[i];
     }
 
     @CalledByNative
     public static String getDataDirectory(Context context) {
-        if ($assertionsDisabled || myq != null) {
-            return Hf(0);
+        if ($assertionsDisabled || mGv != null) {
+            return HA(0);
         }
         throw new AssertionError("setDataDirectorySuffix must be called first.");
     }
 
     @CalledByNative
     public static String getDatabaseDirectory(Context context) {
-        if ($assertionsDisabled || myq != null) {
-            return Hf(2);
+        if ($assertionsDisabled || mGv != null) {
+            return HA(2);
         }
         throw new AssertionError("setDataDirectorySuffix must be called first.");
     }
 
     @CalledByNative
     public static String getCacheDirectory(Context context) {
-        if ($assertionsDisabled || myq != null) {
-            return Hf(3);
+        if ($assertionsDisabled || mGv != null) {
+            return HA(3);
         }
         throw new AssertionError("setDataDirectorySuffix must be called first.");
     }
 
     @CalledByNative
     public static String getThumbnailCacheDirectory(Context context) {
-        if ($assertionsDisabled || myq != null) {
-            return Hf(1);
+        if ($assertionsDisabled || mGv != null) {
+            return HA(1);
         }
         throw new AssertionError("setDataDirectorySuffix must be called first.");
     }

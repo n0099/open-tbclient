@@ -11,20 +11,20 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ei extends ai.a {
     private Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f238a;
+    private SharedPreferences f234a;
 
     /* renamed from: a  reason: collision with other field name */
-    private com.xiaomi.push.service.ak f239a;
+    private com.xiaomi.push.service.ak f235a;
 
     public ei(Context context) {
         this.a = context;
-        this.f238a = context.getSharedPreferences("mipush_extra", 0);
-        this.f239a = com.xiaomi.push.service.ak.a(context);
+        this.f234a = context.getSharedPreferences("mipush_extra", 0);
+        this.f235a = com.xiaomi.push.service.ak.a(context);
     }
 
     private List<hu> a(File file) {
@@ -37,8 +37,8 @@ public class ei extends ai.a {
         r1 = null;
         fileInputStream2 = null;
         FileLock fileLock2 = null;
-        dp m226a = dq.a().m226a();
-        String a = m226a == null ? "" : m226a.a();
+        dp m227a = dq.a().m227a();
+        String a = m227a == null ? "" : m227a.a();
         if (TextUtils.isEmpty(a)) {
             return null;
         }
@@ -47,7 +47,7 @@ public class ei extends ai.a {
         synchronized (dv.a) {
             try {
                 File file2 = new File(this.a.getExternalFilesDir(null), "push_cdata.lock");
-                y.m584a(file2);
+                y.m585a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -128,13 +128,13 @@ public class ei extends ai.a {
     }
 
     private void a() {
-        SharedPreferences.Editor edit = this.f238a.edit();
+        SharedPreferences.Editor edit = this.f234a.edit();
         edit.putLong("last_upload_data_timestamp", System.currentTimeMillis() / 1000);
         edit.commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m231a() {
+    private boolean m232a() {
         if (az.d(this.a)) {
             return false;
         }
@@ -145,22 +145,22 @@ public class ei extends ai.a {
     }
 
     private boolean b() {
-        if (this.f239a.a(hr.Upload3GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f238a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f239a.a(hr.Upload3GFrequency.a(), 432000)));
+        if (this.f235a.a(hr.Upload3GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f234a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f235a.a(hr.Upload3GFrequency.a(), 432000)));
         }
         return false;
     }
 
     private boolean c() {
-        if (this.f239a.a(hr.Upload4GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f238a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f239a.a(hr.Upload4GFrequency.a(), 259200)));
+        if (this.f235a.a(hr.Upload4GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f234a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f235a.a(hr.Upload4GFrequency.a(), 259200)));
         }
         return false;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo160a() {
+    public int mo161a() {
         return 1;
     }
 
@@ -171,7 +171,7 @@ public class ei extends ai.a {
             if (file.length() > 1863680) {
                 file.delete();
             }
-        } else if (m231a() || !file.exists()) {
+        } else if (m232a() || !file.exists()) {
         } else {
             List<hu> a = a(file);
             if (!ad.a(a)) {
@@ -183,11 +183,11 @@ public class ei extends ai.a {
                 cif.a(a);
                 byte[] a2 = y.a(iw.a(cif));
                 il ilVar = new il("-1", false);
-                ilVar.c(hw.DataCollection.f482a);
+                ilVar.c(hw.DataCollection.f478a);
                 ilVar.a(a2);
-                dp m226a = dq.a().m226a();
-                if (m226a != null) {
-                    m226a.a(ilVar, hm.Notification, null);
+                dp m227a = dq.a().m227a();
+                if (m227a != null) {
+                    m227a.a(ilVar, hm.Notification, null);
                 }
                 a();
             }

@@ -12,20 +12,19 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public final class j {
     public static JSONObject a(String str, OnUploadFilesCallback onUploadFilesCallback, String str2, String str3, String str4) {
         JSONObject jSONObject;
         try {
-            byte[] dN = com.baidu.crabsdk.sender.i.dN(str);
-            if (dN == null || dN.length == 0) {
+            byte[] dM = com.baidu.crabsdk.sender.i.dM(str);
+            if (dM == null || dM.length == 0) {
                 onUploadFilesCallback.onFailed("Read file error!");
                 jSONObject = null;
             } else {
-                String encodeToString = Base64.encodeToString(dN, 0);
+                String encodeToString = Base64.encodeToString(dM, 0);
                 jSONObject = a(str2, str3, str4);
-                jSONObject.put(IjkMediaMeta.IJKM_KEY_FORMAT, 1);
+                jSONObject.put("format", 1);
                 jSONObject.put(TbConfig.TMP_LOG_DIR_NAME, encodeToString);
                 jSONObject.put("fileName", str.substring(str.lastIndexOf("/") + 1));
             }
@@ -49,18 +48,18 @@ public final class j {
             jSONObject.put("phoneTime", System.currentTimeMillis());
             jSONObject.put("networkInfo", o.H());
             jSONObject.put(BdStatsConstant.StatsKey.UNAME, t.getUserName());
-            jSONObject.put("uid", t.tk());
+            jSONObject.put("uid", t.R());
             jSONObject.put("batVN", "7.5.1");
             jSONObject.put("nativeVN", CrabSDK.NDK_VERSION);
-            jSONObject.put("isRoot", q.ti());
-            jSONObject.put(PushClientConstants.TAG_PKG_NAME, p.J());
-            jSONObject.put("appLabel", p.tg());
+            jSONObject.put("isRoot", q.tk());
+            jSONObject.put(PushClientConstants.TAG_PKG_NAME, p.ti());
+            jSONObject.put("appLabel", p.tj());
             if (TextUtils.isEmpty(com.baidu.crabsdk.a.o)) {
                 jSONObject.put("appVN", p.L());
             } else {
                 jSONObject.put("appVN", com.baidu.crabsdk.a.o);
             }
-            jSONObject.put("appVC", p.th());
+            jSONObject.put("appVC", p.M());
             jSONObject.put("model", Build.MODEL);
             jSONObject.put(Constants.PHONE_BRAND, Build.BRAND);
             jSONObject.put("os", "Android");

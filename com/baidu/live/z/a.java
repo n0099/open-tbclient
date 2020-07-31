@@ -5,7 +5,7 @@ import com.baidu.pyramid.runtime.service.c;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.aa;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements IUbcManager {
     @Override // com.baidu.live.tbadk.ubc.IUbcManager
     public void onEvent(String str, JSONObject jSONObject) {

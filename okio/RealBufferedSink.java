@@ -1,12 +1,13 @@
 package okio;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public final class RealBufferedSink implements BufferedSink {
     public final Buffer buffer = new Buffer();
     boolean closed;
@@ -123,7 +124,7 @@ public final class RealBufferedSink implements BufferedSink {
         }
         long j = 0;
         while (true) {
-            long read = source.read(this.buffer, 8192L);
+            long read = source.read(this.buffer, PlaybackStateCompat.ACTION_PLAY_FROM_URI);
             if (read != -1) {
                 j += read;
                 emitCompleteSegments();

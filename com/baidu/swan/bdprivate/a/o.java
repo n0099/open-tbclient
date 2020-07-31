@@ -14,16 +14,16 @@ import org.json.JSONObject;
 public class o extends com.baidu.swan.apps.setting.oauth.a.b {
     private String mStoken;
 
-    public o(Context context, boolean z, boolean z2, String[] strArr, boolean z3) {
-        super(context, z, z2, strArr, null, z3);
+    public o(Context context, boolean z, boolean z2, String[] strArr, String str, boolean z3) {
+        super(context, z, z2, strArr, str, z3);
         if (z2) {
-            arT();
+            atP();
         }
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.b, com.baidu.swan.apps.setting.oauth.b
-    protected boolean arv() {
-        if (aqk().apZ().isLogin(this.mContext)) {
+    protected boolean atn() {
+        if (atN().arI().isLogin(this.mContext)) {
             a(new c());
             return true;
         }
@@ -32,51 +32,55 @@ public class o extends com.baidu.swan.apps.setting.oauth.a.b {
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.b, com.baidu.swan.apps.setting.oauth.b
-    protected boolean arw() {
+    protected boolean ato() {
         String[] strArr;
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", aqk().id);
+            jSONObject.put("ma_id", atN().id);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", aqk().getAppKey());
+            jSONObject2.put("app_key", atN().getAppKey());
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
             jSONObject2.put("stoken", this.mStoken);
-            String TM = com.baidu.swan.apps.u.a.agj().TM();
-            if (!TextUtils.isEmpty(TM)) {
-                jSONObject2.put("host_api_key", TM);
+            String Uj = com.baidu.swan.apps.t.a.ahv().Uj();
+            if (!TextUtils.isEmpty(Uj)) {
+                jSONObject2.put("host_api_key", Uj);
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            for (String str : this.cJF) {
+            for (String str : this.cMW) {
                 JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("permit", Boolean.toString(this.cJC));
+                jSONObject4.put("permit", Boolean.toString(this.cMT));
                 jSONObject3.put(str, jSONObject4);
             }
             jSONObject.put("accredits", jSONObject3);
+            if (!TextUtils.isEmpty(this.cMU)) {
+                jSONObject.put("provider_appkey", this.cMU);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        bR("data", jSONObject.toString());
+        bS("data", jSONObject.toString());
         return true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.a.b, com.baidu.swan.apps.setting.oauth.b
-    /* renamed from: bu */
-    public b.d bo(JSONObject jSONObject) throws JSONException {
+    /* renamed from: bz */
+    public b.d bt(JSONObject jSONObject) throws JSONException {
         if (this.mContext instanceof Activity) {
             com.baidu.swan.bdprivate.a.a.b((Activity) this.mContext, jSONObject);
+        } else if (DEBUG) {
+            Log.d("SearchBoxAuthorize", Log.getStackTraceString(new Exception("context is not activity.")));
         }
-        return super.bo(jSONObject);
+        return super.bt(jSONObject);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.a.b, com.baidu.swan.apps.setting.oauth.a.g
-    public void arO() {
-        super.arO();
-        com.baidu.swan.apps.network.c.b.a.alT();
+    public void atJ() {
+        super.atJ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -86,31 +90,35 @@ public class o extends com.baidu.swan.apps.setting.oauth.a.b {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean arB() throws Exception {
-            if (o.this.cJF.length <= 1) {
-                com.baidu.swan.apps.network.c.b.a.a(o.this.cJF[0], new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.bdprivate.a.o.a.1
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.swan.apps.aq.e.b
-                    /* renamed from: c */
-                    public void H(com.baidu.swan.apps.setting.oauth.e eVar) {
-                        if (com.baidu.swan.apps.setting.oauth.b.DEBUG) {
-                            Log.i("aiapps-oauth", "ListPreparation result: " + (eVar == null ? "null" : eVar));
+        protected boolean att() throws Exception {
+            if (TextUtils.isEmpty(o.this.cMU)) {
+                if (o.this.cMW.length <= 1) {
+                    com.baidu.swan.apps.network.c.b.a.a(o.this.cMW[0], new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.bdprivate.a.o.a.1
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // com.baidu.swan.apps.aq.e.b
+                        /* renamed from: c */
+                        public void H(com.baidu.swan.apps.setting.oauth.e eVar) {
+                            if (com.baidu.swan.apps.setting.oauth.b.DEBUG) {
+                                Log.i("aiapps-oauth", "ListPreparation result: " + (eVar == null ? "null" : eVar));
+                            }
+                            o.this.cKv = eVar;
+                            if (eVar == null) {
+                                a.this.t(new Exception("no such scope"));
+                                return;
+                            }
+                            if (eVar.aty() && !o.this.cMY) {
+                                o.this.a(new b());
+                            } else {
+                                o.this.a(new b.a());
+                            }
+                            a.this.atv();
                         }
-                        o.this.cHs = eVar;
-                        if (eVar == null) {
-                            a.this.t(new Exception("no such scope"));
-                            return;
-                        }
-                        if (eVar.arG() && !o.this.cJH) {
-                            o.this.a(new b());
-                        } else {
-                            o.this.a(new b.a());
-                        }
-                        a.this.arD();
-                    }
-                });
+                    });
+                } else {
+                    atv();
+                }
             } else {
-                arD();
+                atv();
             }
             return false;
         }
@@ -123,19 +131,25 @@ public class o extends com.baidu.swan.apps.setting.oauth.a.b {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean arB() throws Exception {
-            o.this.cJH = true;
-            if (!o.this.aqk().apZ().isLogin(o.this.mContext)) {
+        protected boolean att() throws Exception {
+            o.this.cMY = true;
+            if (o.this.atN().arI().isLogin(o.this.mContext)) {
+                com.baidu.swan.apps.setting.oauth.c.c("LoginPreparation: isLogin true", false);
+                o.this.a(new c());
+                return true;
+            }
+            com.baidu.swan.apps.runtime.e atN = o.this.atN();
+            if (!atN.VF()) {
                 if (o.this.mContext instanceof Activity) {
-                    o.this.aqk().apZ().a((Activity) o.this.mContext, null, this);
+                    atN.arI().a((Activity) o.this.mContext, null, this);
                     return false;
                 }
                 com.baidu.swan.apps.setting.oauth.c.c("login error context is not activity.", true);
                 t(new OAuthException(10004));
                 return true;
             }
-            com.baidu.swan.apps.setting.oauth.c.c("LoginPreparation: isLogin true", false);
-            o.this.a(new c());
+            com.baidu.swan.apps.setting.oauth.c.c("this operation does not supported when app is invisible.", true);
+            t(new OAuthException(10004));
             return true;
         }
 
@@ -145,17 +159,17 @@ public class o extends com.baidu.swan.apps.setting.oauth.a.b {
             switch (i) {
                 case -2:
                     com.baidu.swan.apps.setting.oauth.c.c("login error ERR_BY_UESR_REFUSE", true);
-                    t(new OAuthException("login cancel by user", 10004));
+                    t(new OAuthException(10004));
                     return;
                 case -1:
                 default:
                     com.baidu.swan.apps.setting.oauth.c.c("login error ERR_BY_LOGIN", true);
-                    t(new OAuthException("system login error", 10004));
+                    t(new OAuthException(10004));
                     return;
                 case 0:
                     com.baidu.swan.apps.setting.oauth.c.c("Login Preparation ok, is already login", false);
                     o.this.a(new c());
-                    arD();
+                    atv();
                     return;
             }
         }
@@ -168,11 +182,11 @@ public class o extends com.baidu.swan.apps.setting.oauth.a.b {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean arB() throws Exception {
+        protected boolean att() throws Exception {
             com.baidu.swan.bdprivate.a.a.a(o.this.mContext, new com.baidu.swan.apps.aq.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.a.o.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.aq.e.b
-                /* renamed from: C */
+                /* renamed from: D */
                 public void H(Bundle bundle) {
                     if (bundle == null) {
                         c.this.t(new OAuthException("null stoken", 10001));
@@ -182,7 +196,7 @@ public class o extends com.baidu.swan.apps.setting.oauth.a.b {
                     if (!TextUtils.isEmpty(string)) {
                         o.this.mStoken = string;
                         o.this.a(new a());
-                        c.this.arD();
+                        c.this.atv();
                         return;
                     }
                     c.this.t(new OAuthException("empty stoken", 10001));

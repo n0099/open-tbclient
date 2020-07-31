@@ -6,7 +6,7 @@ import android.webkit.WebView;
 import com.baidu.mobstat.MtjConfig;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.t.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class a implements c.a {
     @Override // com.baidu.tieba.t.c.a
     public void autoTrace(Context context) {

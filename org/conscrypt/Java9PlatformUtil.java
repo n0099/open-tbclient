@@ -3,7 +3,7 @@ package org.conscrypt;
 import java.lang.reflect.Method;
 import javax.net.ssl.SSLParameters;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class Java9PlatformUtil {
     private static final Method SSL_PARAMETERS_GET_APPLICATION_PROTOCOLS_METHOD;
     private static final Method SSL_PARAMETERS_SET_APPLICATION_PROTOCOLS_METHOD;

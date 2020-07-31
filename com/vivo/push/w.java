@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class w {
     private static final Handler a = new Handler(Looper.getMainLooper());
     private static final HandlerThread b;

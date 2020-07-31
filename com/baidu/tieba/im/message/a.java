@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.d;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.e;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class a extends com.baidu.adp.framework.b.a {
     public a() {
         super(CmdConfigCustom.MEMORY_CHANGED);
@@ -13,7 +13,7 @@ public class a extends com.baidu.adp.framework.b.a {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b.g
-    /* renamed from: j */
+    /* renamed from: k */
     public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
         if (customResponsedMessage == null) {
             return null;
@@ -21,10 +21,10 @@ public class a extends com.baidu.adp.framework.b.a {
         if (customResponsedMessage instanceof MemoryChangedMessage) {
             ImMessageCenterPojo data = ((MemoryChangedMessage) customResponsedMessage).getData();
             if (data != null && data.getCustomGroupType() == -8) {
-                return new MemoryChangedMessage(d.d(data), ((MemoryChangedMessage) customResponsedMessage).isFromServer(), ((MemoryChangedMessage) customResponsedMessage).getType());
+                return new MemoryChangedMessage(d.b(data), ((MemoryChangedMessage) customResponsedMessage).isFromServer(), ((MemoryChangedMessage) customResponsedMessage).getType());
             }
             if (data != null && data.getCustomGroupType() == -7) {
-                return new MemoryChangedMessage(e.e(data), ((MemoryChangedMessage) customResponsedMessage).isFromServer(), ((MemoryChangedMessage) customResponsedMessage).getType());
+                return new MemoryChangedMessage(e.c(data), ((MemoryChangedMessage) customResponsedMessage).isFromServer(), ((MemoryChangedMessage) customResponsedMessage).getType());
             }
             return customResponsedMessage;
         }

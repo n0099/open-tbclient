@@ -5,7 +5,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 class b implements k {
     private Charset pN;
     private StringBuilder pO = new StringBuilder();

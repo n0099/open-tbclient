@@ -1,7 +1,7 @@
 package com.baidu.live.ar;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
-    public int auP;
+    public int auL;
     public String mFile;
     public String mName;
 
@@ -9,7 +9,7 @@ public class c {
         if (fVar != null) {
             this.mName = fVar.getName();
             this.mFile = fVar.vr();
-            this.auP = fVar.vu();
+            this.auL = fVar.vu();
         }
     }
 }

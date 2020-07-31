@@ -14,81 +14,81 @@ import android.widget.FrameLayout;
 import com.baidu.poly.b;
 import com.baidu.poly.util.d;
 import java.lang.ref.WeakReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class c {
-    private static final boolean DEBUG = d.bAO;
-    private static final int[] bDv = {16842922};
-    private boolean bDA;
-    private boolean bDG;
-    private boolean bDJ;
-    private View.OnTouchListener bDK;
-    private int bDL;
-    private int bDM;
-    private int bDN;
-    private int bDO;
-    private int bDP;
-    private int bDQ;
-    private int bDR;
-    private Drawable bDV;
-    private Drawable bDW;
-    private Drawable bDX;
-    private boolean bDY;
-    private WindowManager bDw;
-    private boolean bDx;
-    private View bDy;
-    private View bDz;
-    private b bEa;
-    private WeakReference<View> bEd;
-    private int bEf;
-    private int bEg;
-    private boolean fe;
+    private static final boolean DEBUG = d.bBe;
+    private static final int[] bDO = {16842922};
+    private WindowManager bDP;
+    private boolean bDQ;
+    private boolean bDR;
+    private View bDS;
+    private View bDT;
+    private boolean bDU;
+    private WeakReference<View> bEA;
+    private int bEC;
+    private int bED;
+    private boolean bEb;
+    private boolean bEc;
+    private boolean bEf;
+    private View.OnTouchListener bEg;
+    private int bEh;
+    private int bEi;
+    private int bEj;
+    private int bEk;
+    private int bEl;
+    private int bEm;
+    private int bEn;
+    private int bEo;
+    private Drawable bEs;
+    private Drawable bEt;
+    private Drawable bEu;
+    private boolean bEv;
+    private b bEx;
     private Context mContext;
-    private boolean re;
-    private int xe;
-    private int bDB = 0;
-    private int bDC = 1;
-    private boolean bDD = true;
-    private boolean bDE = false;
-    private boolean bDF = true;
-    private int pe = -1;
-    private boolean bDH = true;
-    private boolean bDI = false;
-    private int[] bDS = new int[2];
-    private int[] bDT = new int[2];
-    private Rect bDU = new Rect();
-    private int bDZ = 1000;
-    private boolean bEb = false;
-    private int bEc = -1;
-    private ViewTreeObserver.OnScrollChangedListener bEe = new a();
+    private int bDV = 0;
+    private int bDW = 1;
+    private boolean bDX = true;
+    private boolean bDY = false;
+    private boolean bDZ = true;
+    private int bEa = -1;
+    private boolean bEd = true;
+    private boolean bEe = false;
+    private int[] bEp = new int[2];
+    private int[] bEq = new int[2];
+    private Rect bEr = new Rect();
+    private int bEw = 1000;
+    private boolean bEy = false;
+    private int bEz = -1;
+    private ViewTreeObserver.OnScrollChangedListener bEB = new a();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     class a implements ViewTreeObserver.OnScrollChangedListener {
         a() {
         }
 
         @Override // android.view.ViewTreeObserver.OnScrollChangedListener
         public void onScrollChanged() {
-            View view = c.this.bEd != null ? (View) c.this.bEd.get() : null;
-            if (view == null || c.this.bDz == null) {
+            View view = c.this.bEA != null ? (View) c.this.bEA.get() : null;
+            if (view == null || c.this.bDT == null) {
                 return;
             }
-            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) c.this.bDz.getLayoutParams();
+            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) c.this.bDT.getLayoutParams();
             c cVar = c.this;
-            cVar.d(cVar.a(view, layoutParams, cVar.bEf, c.this.bEg));
+            cVar.d(cVar.a(view, layoutParams, cVar.bEC, c.this.bED));
             c.this.update(layoutParams.x, layoutParams.y, -1, -1, true);
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void onDismiss();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.poly.widget.c$c  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public class C0252c extends FrameLayout {
-        public C0252c(Context context) {
+    /* loaded from: classes9.dex */
+    public class C0255c extends FrameLayout {
+        public C0255c(Context context) {
             super(context);
         }
 
@@ -118,7 +118,7 @@ public class c {
 
         @Override // android.view.ViewGroup, android.view.View
         public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-            if (c.this.bDK == null || !c.this.bDK.onTouch(this, motionEvent)) {
+            if (c.this.bEg == null || !c.this.bEg.onTouch(this, motionEvent)) {
                 return super.dispatchTouchEvent(motionEvent);
             }
             return true;
@@ -126,9 +126,9 @@ public class c {
 
         @Override // android.view.ViewGroup, android.view.View
         protected int[] onCreateDrawableState(int i) {
-            if (c.this.bDY) {
+            if (c.this.bEv) {
                 int[] onCreateDrawableState = super.onCreateDrawableState(i + 1);
-                View.mergeDrawableStates(onCreateDrawableState, c.bDv);
+                View.mergeDrawableStates(onCreateDrawableState, c.bDO);
                 return onCreateDrawableState;
             }
             return super.onCreateDrawableState(i);
@@ -151,8 +151,8 @@ public class c {
 
         @Override // android.view.View, android.view.accessibility.AccessibilityEventSource
         public void sendAccessibilityEvent(int i) {
-            if (c.this.bDy != null) {
-                c.this.bDy.sendAccessibilityEvent(i);
+            if (c.this.bDS != null) {
+                c.this.bDS.sendAccessibilityEvent(i);
             } else {
                 super.sendAccessibilityEvent(i);
             }
@@ -162,7 +162,7 @@ public class c {
     public c(View view, int i, int i2, boolean z) {
         if (view != null) {
             this.mContext = view.getContext();
-            this.bDw = (WindowManager) this.mContext.getSystemService("window");
+            this.bDP = (WindowManager) this.mContext.getSystemService("window");
         }
         setContentView(view);
         setWidth(i);
@@ -170,31 +170,31 @@ public class c {
         setFocusable(z);
     }
 
-    private int Ou() {
-        int i = this.bEc;
+    private int OJ() {
+        int i = this.bEz;
         if (i == -1) {
-            if (this.bDx) {
-                return this.bDY ? b.h.PopupWindow_DropDownUp : b.h.PopupWindow_DropDownDown;
+            if (this.bDR) {
+                return this.bEv ? b.h.PopupWindow_DropDownUp : b.h.PopupWindow_DropDownDown;
             }
             return 0;
         }
         return i;
     }
 
-    private void Ov() {
-        WeakReference<View> weakReference = this.bEd;
+    private void OK() {
+        WeakReference<View> weakReference = this.bEA;
         View view = weakReference != null ? weakReference.get() : null;
         if (view != null) {
-            view.getViewTreeObserver().removeOnScrollChangedListener(this.bEe);
+            view.getViewTreeObserver().removeOnScrollChangedListener(this.bEB);
         }
-        this.bEd = null;
+        this.bEA = null;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:33:0x004d, code lost:
-        if (r3.bDB == 2) goto L8;
+        if (r3.bDV == 2) goto L8;
      */
     /* JADX WARN: Code restructure failed: missing block: B:8:0x0015, code lost:
-        if (r3.bDB == 1) goto L8;
+        if (r3.bDV == 1) goto L8;
      */
     /* JADX WARN: Code restructure failed: missing block: B:9:0x0017, code lost:
         r0 = r0 | 131072;
@@ -204,60 +204,60 @@ public class c {
     */
     private int eb(int i) {
         int i2 = (-8815129) & i;
-        if (this.bEb) {
+        if (this.bEy) {
             i2 |= 32768;
         }
-        if (!this.bDA) {
+        if (!this.bDU) {
             i2 |= 8;
         }
-        if (!this.bDD) {
+        if (!this.bDX) {
             i2 |= 16;
         }
-        if (this.bDE) {
+        if (this.bDY) {
             i2 |= 262144;
         }
-        if (!this.bDF) {
+        if (!this.bDZ) {
             i2 |= 512;
         }
         if (isSplitTouchEnabled()) {
             i2 |= 8388608;
         }
-        if (this.bDG) {
+        if (this.bEb) {
             i2 |= 256;
         }
-        if (this.bDI) {
+        if (this.bEe) {
             i2 |= 65536;
         }
-        return this.bDJ ? i2 | 32 : i2;
+        return this.bEf ? i2 | 32 : i2;
     }
 
     public void dismiss() {
         b bVar;
-        if (isShowing() && this.bDz != null) {
-            this.fe = false;
-            Ov();
+        if (isShowing() && this.bDT != null) {
+            this.bDQ = false;
+            OK();
             try {
                 try {
-                    this.bDw.removeView(this.bDz);
-                    View view = this.bDz;
-                    View view2 = this.bDy;
+                    this.bDP.removeView(this.bDT);
+                    View view = this.bDT;
+                    View view2 = this.bDS;
                     if (view != view2 && (view instanceof ViewGroup)) {
                         ((ViewGroup) view).removeView(view2);
                     }
-                    this.bDz = null;
-                    bVar = this.bEa;
+                    this.bDT = null;
+                    bVar = this.bEx;
                     if (bVar == null) {
                         return;
                     }
                 } catch (IllegalArgumentException e) {
                     if (!DEBUG) {
-                        View view3 = this.bDz;
-                        View view4 = this.bDy;
+                        View view3 = this.bDT;
+                        View view4 = this.bDS;
                         if (view3 != view4 && (view3 instanceof ViewGroup)) {
                             ((ViewGroup) view3).removeView(view4);
                         }
-                        this.bDz = null;
-                        bVar = this.bEa;
+                        this.bDT = null;
+                        bVar = this.bEx;
                         if (bVar == null) {
                             return;
                         }
@@ -267,13 +267,13 @@ public class c {
                 }
                 bVar.onDismiss();
             } catch (Throwable th) {
-                View view5 = this.bDz;
-                View view6 = this.bDy;
+                View view5 = this.bDT;
+                View view6 = this.bDS;
                 if (view5 != view6 && (view5 instanceof ViewGroup)) {
                     ((ViewGroup) view5).removeView(view6);
                 }
-                this.bDz = null;
-                b bVar2 = this.bEa;
+                this.bDT = null;
+                b bVar2 = this.bEx;
                 if (bVar2 != null) {
                     bVar2.onDismiss();
                 }
@@ -283,51 +283,51 @@ public class c {
     }
 
     public boolean isShowing() {
-        return this.fe;
+        return this.bDQ;
     }
 
     public boolean isSplitTouchEnabled() {
         Context context;
-        return (this.pe >= 0 || (context = this.mContext) == null) ? this.pe == 1 : context.getApplicationInfo().targetSdkVersion >= 11;
+        return (this.bEa >= 0 || (context = this.mContext) == null) ? this.bEa == 1 : context.getApplicationInfo().targetSdkVersion >= 11;
     }
 
     public void setBackgroundDrawable(Drawable drawable) {
-        this.bDV = drawable;
+        this.bEs = drawable;
     }
 
     public void setClippingEnabled(boolean z) {
-        this.bDF = z;
+        this.bDZ = z;
     }
 
     public void setContentView(View view) {
         Context context;
         View view2;
         if (!isShowing()) {
-            this.bDy = view;
-            if (this.mContext == null && (view2 = this.bDy) != null) {
+            this.bDS = view;
+            if (this.mContext == null && (view2 = this.bDS) != null) {
                 this.mContext = view2.getContext();
             }
-            if (this.bDw != null || this.bDy == null || (context = this.mContext) == null) {
+            if (this.bDP != null || this.bDS == null || (context = this.mContext) == null) {
                 return;
             }
-            this.bDw = (WindowManager) context.getSystemService("window");
+            this.bDP = (WindowManager) context.getSystemService("window");
         }
     }
 
     public void setFocusable(boolean z) {
-        this.bDA = z;
+        this.bDU = z;
     }
 
     public void setHeight(int i) {
-        this.bDO = i;
+        this.bEl = i;
     }
 
     public void setOutsideTouchable(boolean z) {
-        this.bDE = z;
+        this.bDY = z;
     }
 
     public void setWidth(int i) {
-        this.xe = i;
+        this.bEi = i;
     }
 
     public void showAtLocation(View view, int i, int i2, int i3) {
@@ -337,30 +337,30 @@ public class c {
     public void update(int i, int i2, int i3, int i4, boolean z) {
         boolean z2 = true;
         if (i3 != -1) {
-            this.bDM = i3;
+            this.bEj = i3;
             setWidth(i3);
         }
         if (i4 != -1) {
-            this.bDP = i4;
+            this.bEm = i4;
             setHeight(i4);
         }
-        if (isShowing() && this.bDy != null) {
-            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.bDz.getLayoutParams();
-            int i5 = this.bDL;
+        if (isShowing() && this.bDS != null) {
+            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.bDT.getLayoutParams();
+            int i5 = this.bEh;
             if (i5 >= 0) {
-                i5 = this.bDM;
+                i5 = this.bEj;
             }
             if (i3 != -1 && layoutParams.width != i5) {
-                this.bDM = i5;
+                this.bEj = i5;
                 layoutParams.width = i5;
                 z = true;
             }
-            int i6 = this.bDN;
+            int i6 = this.bEk;
             if (i6 >= 0) {
-                i6 = this.bDP;
+                i6 = this.bEm;
             }
             if (i4 != -1 && layoutParams.height != i6) {
-                this.bDP = i6;
+                this.bEm = i6;
                 layoutParams.height = i6;
                 z = true;
             }
@@ -372,9 +372,9 @@ public class c {
                 layoutParams.y = i2;
                 z = true;
             }
-            int Ou = Ou();
-            if (Ou != layoutParams.windowAnimations) {
-                layoutParams.windowAnimations = Ou;
+            int OJ = OJ();
+            if (OJ != layoutParams.windowAnimations) {
+                layoutParams.windowAnimations = OJ;
                 z = true;
             }
             int eb = eb(layoutParams.flags);
@@ -384,30 +384,30 @@ public class c {
                 z2 = z;
             }
             if (z2) {
-                this.bDw.updateViewLayout(this.bDz, layoutParams);
+                this.bDP.updateViewLayout(this.bDT, layoutParams);
             }
         }
     }
 
     private void a(WindowManager.LayoutParams layoutParams) {
         int i = -2;
-        View view = this.bDy;
-        if (view != null && this.mContext != null && this.bDw != null) {
-            if (this.bDV != null) {
+        View view = this.bDS;
+        if (view != null && this.mContext != null && this.bDP != null) {
+            if (this.bEs != null) {
                 ViewGroup.LayoutParams layoutParams2 = view.getLayoutParams();
                 if (layoutParams2 == null || layoutParams2.height != -2) {
                     i = -1;
                 }
-                C0252c c0252c = new C0252c(this.mContext);
+                C0255c c0255c = new C0255c(this.mContext);
                 FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, i);
-                c0252c.setBackgroundDrawable(this.bDV);
-                c0252c.addView(this.bDy, layoutParams3);
-                this.bDz = c0252c;
+                c0255c.setBackgroundDrawable(this.bEs);
+                c0255c.addView(this.bDS, layoutParams3);
+                this.bDT = c0255c;
             } else {
-                this.bDz = view;
+                this.bDT = view;
             }
-            this.bDQ = layoutParams.width;
-            this.bDR = layoutParams.height;
+            this.bEn = layoutParams.width;
+            this.bEo = layoutParams.height;
             return;
         }
         throw new IllegalStateException("You must specify a valid content view by calling setContentView() before attempting to show the popup.");
@@ -415,31 +415,31 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(boolean z) {
-        if (z != this.bDY) {
-            this.bDY = z;
-            if (this.bDV != null) {
-                Drawable drawable = this.bDW;
+        if (z != this.bEv) {
+            this.bEv = z;
+            if (this.bEs != null) {
+                Drawable drawable = this.bEt;
                 if (drawable != null) {
-                    if (this.bDY) {
-                        this.bDz.setBackgroundDrawable(drawable);
+                    if (this.bEv) {
+                        this.bDT.setBackgroundDrawable(drawable);
                         return;
                     } else {
-                        this.bDz.setBackgroundDrawable(this.bDX);
+                        this.bDT.setBackgroundDrawable(this.bEu);
                         return;
                     }
                 }
-                this.bDz.refreshDrawableState();
+                this.bDT.refreshDrawableState();
             }
         }
     }
 
     public void a(IBinder iBinder, int i, int i2, int i3) {
-        if (iBinder != null && !isShowing() && this.bDy != null) {
-            Ov();
-            this.fe = true;
-            this.bDx = false;
+        if (iBinder != null && !isShowing() && this.bDS != null) {
+            OK();
+            this.bDQ = true;
+            this.bDR = false;
             WindowManager.LayoutParams c = c(iBinder);
-            c.windowAnimations = Ou();
+            c.windowAnimations = OJ();
             a(c);
             if (i == 0) {
                 i = 51;
@@ -447,14 +447,14 @@ public class c {
             c.gravity = i;
             c.x = i2;
             c.y = i3;
-            int i4 = this.bDN;
+            int i4 = this.bEk;
             if (i4 < 0) {
-                this.bDP = i4;
+                this.bEm = i4;
                 c.height = i4;
             }
-            int i5 = this.bDL;
+            int i5 = this.bEh;
             if (i5 < 0) {
-                this.bDM = i5;
+                this.bEj = i5;
                 c.width = i5;
             }
             b(c);
@@ -466,28 +466,28 @@ public class c {
         if (context != null) {
             layoutParams.packageName = context.getPackageName();
         }
-        this.bDw.addView(this.bDz, layoutParams);
+        this.bDP.addView(this.bDT, layoutParams);
     }
 
     private WindowManager.LayoutParams c(IBinder iBinder) {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.gravity = 51;
-        int i = this.xe;
-        this.bDM = i;
+        int i = this.bEi;
+        this.bEj = i;
         layoutParams.width = i;
-        int i2 = this.bDO;
-        this.bDP = i2;
+        int i2 = this.bEl;
+        this.bEm = i2;
         layoutParams.height = i2;
-        Drawable drawable = this.bDV;
+        Drawable drawable = this.bEs;
         if (drawable != null) {
             layoutParams.format = drawable.getOpacity();
         } else {
             layoutParams.format = -3;
         }
         layoutParams.flags = eb(layoutParams.flags);
-        layoutParams.type = this.bDZ;
+        layoutParams.type = this.bEw;
         layoutParams.token = iBinder;
-        layoutParams.softInputMode = this.bDC;
+        layoutParams.softInputMode = this.bDW;
         layoutParams.setTitle("PopupWindow:" + Integer.toHexString(hashCode()));
         return layoutParams;
     }
@@ -495,35 +495,35 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(View view, WindowManager.LayoutParams layoutParams, int i, int i2) {
         int height = view.getHeight();
-        view.getLocationInWindow(this.bDS);
-        int[] iArr = this.bDS;
+        view.getLocationInWindow(this.bEp);
+        int[] iArr = this.bEp;
         layoutParams.x = iArr[0] + i;
         layoutParams.y = iArr[1] + height + i2;
         layoutParams.gravity = 51;
-        view.getLocationOnScreen(this.bDT);
+        view.getLocationOnScreen(this.bEq);
         Rect rect = new Rect();
         view.getWindowVisibleDisplayFrame(rect);
         View rootView = view.getRootView();
-        if (height + this.bDT[1] + i2 + this.bDR > rect.bottom || (layoutParams.x + this.bDQ) - rootView.getWidth() > 0) {
-            if (this.bDH) {
+        if (height + this.bEq[1] + i2 + this.bEo > rect.bottom || (layoutParams.x + this.bEn) - rootView.getWidth() > 0) {
+            if (this.bEd) {
                 int scrollX = view.getScrollX();
                 int scrollY = view.getScrollY();
-                view.requestRectangleOnScreen(new Rect(scrollX, scrollY, this.bDQ + scrollX + i, this.bDR + scrollY + view.getHeight() + i2), true);
+                view.requestRectangleOnScreen(new Rect(scrollX, scrollY, this.bEn + scrollX + i, this.bEo + scrollY + view.getHeight() + i2), true);
             }
-            view.getLocationInWindow(this.bDS);
-            int[] iArr2 = this.bDS;
+            view.getLocationInWindow(this.bEp);
+            int[] iArr2 = this.bEp;
             layoutParams.x = iArr2[0] + i;
             layoutParams.y = iArr2[1] + view.getHeight() + i2;
-            view.getLocationOnScreen(this.bDT);
-            r0 = ((rect.bottom - this.bDT[1]) - view.getHeight()) - i2 < (this.bDT[1] - i2) - rect.top;
+            view.getLocationOnScreen(this.bEq);
+            r0 = ((rect.bottom - this.bEq[1]) - view.getHeight()) - i2 < (this.bEq[1] - i2) - rect.top;
             if (r0) {
                 layoutParams.gravity = 83;
-                layoutParams.y = (rootView.getHeight() - this.bDS[1]) + i2;
+                layoutParams.y = (rootView.getHeight() - this.bEp[1]) + i2;
             } else {
-                layoutParams.y = this.bDS[1] + view.getHeight() + i2;
+                layoutParams.y = this.bEp[1] + view.getHeight() + i2;
             }
         }
-        if (this.re) {
+        if (this.bEc) {
             int i3 = rect.right - rect.left;
             int i4 = layoutParams.x + layoutParams.width;
             if (i4 > i3) {
@@ -536,7 +536,7 @@ public class c {
                 layoutParams.width = Math.min(layoutParams.width, i3);
             }
             if (r0) {
-                int i7 = (this.bDT[1] + i2) - this.bDR;
+                int i7 = (this.bEq[1] + i2) - this.bEo;
                 if (i7 < 0) {
                     layoutParams.y = i7 + layoutParams.y;
                 }
@@ -549,6 +549,6 @@ public class c {
     }
 
     public void a(b bVar) {
-        this.bEa = bVar;
+        this.bEx = bVar;
     }
 }

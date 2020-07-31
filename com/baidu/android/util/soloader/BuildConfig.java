@@ -1,5 +1,5 @@
 package com.baidu.android.util.soloader;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.android.util.soloader";
     public static final String BUILD_TYPE = "release";

@@ -7,7 +7,7 @@ import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.framework.MessageConfig;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SocketConfig {
     public static final int ERR_UN_ONLINE = 110004;
     public static final int LCS_SWITCH_HTTP_ERR_NO = 110005;

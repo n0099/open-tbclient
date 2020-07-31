@@ -44,7 +44,7 @@ public final class BlockingObservableIterable<T> implements Iterable<T> {
                 if (z) {
                     Throwable th = this.error;
                     if (th != null) {
-                        throw ExceptionHelper.N(th);
+                        throw ExceptionHelper.M(th);
                     }
                     if (isEmpty) {
                         return false;
@@ -52,7 +52,7 @@ public final class BlockingObservableIterable<T> implements Iterable<T> {
                 }
                 if (isEmpty) {
                     try {
-                        c.dPT();
+                        c.dTp();
                         this.lock.lock();
                         while (!this.done && this.queue.isEmpty()) {
                             this.condition.await();
@@ -61,7 +61,7 @@ public final class BlockingObservableIterable<T> implements Iterable<T> {
                     } catch (InterruptedException e) {
                         DisposableHelper.dispose(this);
                         signalConsumer();
-                        throw ExceptionHelper.N(e);
+                        throw ExceptionHelper.M(e);
                     }
                 } else {
                     return true;

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.android.common.ui.R;
 import com.baidu.android.ext.widget.dialog.BoxAlertDialog;
 import com.baidu.searchbox.ui.RoundProgressBar;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class ProgressBarDialog extends BoxAlertDialog {
     private TextView mContentText;
     private View mContentView;
@@ -98,7 +98,7 @@ public class ProgressBarDialog extends BoxAlertDialog {
         return this.mContentView;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes3.dex */
     public static class Builder extends BoxAlertDialog.Builder {
         public Builder(Context context) {
             super(context);

@@ -8,7 +8,7 @@ import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c extends WebViewClient {
     @Override // android.webkit.WebViewClient
     @CallSuper
@@ -63,9 +63,9 @@ public class c extends WebViewClient {
             }
             return true;
         } else {
-            if (!h.isEmpty(com.kascend.chushou.d.h.dIT().f)) {
-                for (int i = 0; i < com.kascend.chushou.d.h.dIT().f.size(); i++) {
-                    if (str.toLowerCase().startsWith(com.kascend.chushou.d.h.dIT().f.get(i).toLowerCase())) {
+            if (!h.isEmpty(com.kascend.chushou.d.h.dMo().f)) {
+                for (int i = 0; i < com.kascend.chushou.d.h.dMo().f.size(); i++) {
+                    if (str.toLowerCase().startsWith(com.kascend.chushou.d.h.dMo().f.get(i).toLowerCase())) {
                         z = true;
                         break;
                     }

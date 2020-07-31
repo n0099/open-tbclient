@@ -12,7 +12,7 @@ import com.xiaomi.push.fb;
 import java.util.HashSet;
 import java.util.Set;
 @TargetApi(14)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
     private Set<String> a = new HashSet();
 
@@ -49,9 +49,9 @@ public class a implements Application.ActivityLifecycleCallbacks {
         }
         this.a.add(stringExtra);
         if (intExtra == 3000) {
-            fb.a(activity.getApplicationContext()).a(activity.getPackageName(), fa.m265a(intExtra), stringExtra, 3008, null);
+            fb.a(activity.getApplicationContext()).a(activity.getPackageName(), fa.m266a(intExtra), stringExtra, 3008, null);
         } else if (intExtra == 1000) {
-            fb.a(activity.getApplicationContext()).a(activity.getPackageName(), fa.m265a(intExtra), stringExtra, 1008, null);
+            fb.a(activity.getApplicationContext()).a(activity.getPackageName(), fa.m266a(intExtra), stringExtra, 1008, null);
         }
     }
 

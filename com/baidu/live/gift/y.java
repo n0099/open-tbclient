@@ -1,11 +1,11 @@
 package com.baidu.live.gift;
 
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface y {
-    void bd(boolean z);
+    void bg(boolean z);
 
-    void be(boolean z);
+    void bh(boolean z);
 
     void onDestroy();
 
@@ -13,5 +13,5 @@ public interface y {
 
     void onResume();
 
-    View yX();
+    View zz();
 }

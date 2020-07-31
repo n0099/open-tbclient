@@ -2,7 +2,7 @@ package com.baidu.tieba.live.tbean.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetBigTbeanWalletH5ResponseMessage extends JsonHttpResponsedMessage {
     public String url;
 

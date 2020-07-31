@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.Marker;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SynchronizationDisplayManager {
     private static final String a = SynchronizationDisplayManager.class.getSimpleName();
     private com.baidu.mapsdkplatform.comapi.synchronization.a.a b;

@@ -3,12 +3,12 @@ package com.baidu.mapapi.synchronization;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SyncCoordinateConverter {
     private LatLng a;
     private CoordType b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public enum CoordType {
         COMMON,
         BD09LL

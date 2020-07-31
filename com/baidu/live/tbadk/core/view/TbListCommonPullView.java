@@ -11,7 +11,7 @@ import com.baidu.live.adp.widget.listview.BdIListPullView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.PullViewHelper;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbListCommonPullView extends BdIListPullView {
     public static final long COMPLETE_ANIM_TIME = 2000;
     private boolean isManualTrigger;
@@ -24,17 +24,17 @@ public class TbListCommonPullView extends BdIListPullView {
     protected LinearLayout mPullRoot;
     protected int mSkinType;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface ListPullRefreshFinishedListener {
         void onListPullRefreshFinished(View view, boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface ListPullRefreshListener {
         void onListPullRefresh(boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface ListPullToRefreshListener {
         void onListPullToRefresh(boolean z);
     }

@@ -123,7 +123,7 @@ public class LoginManager {
         return this.mLoginState;
     }
 
-    public synchronized boolean isIMLogined() {
+    public boolean isIMLogined() {
         return this.mLoginState == LoginState.LOGINED;
     }
 

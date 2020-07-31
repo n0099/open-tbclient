@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.mcast;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.request.Message;
@@ -19,7 +20,6 @@ public class IMSendQuizOptMsg extends Message {
     private long mCastId;
     private Context mContext;
     private int mGroup;
-    private String mListenerKey;
     private int mOpCode;
     private String mOptExt;
     private int mQuizId;
@@ -99,12 +99,12 @@ public class IMSendQuizOptMsg extends Message {
                 LogUtils.e(TAG, "handle sendQuizOptMsg exception :", e);
             }
             LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str2);
-            McastManagerImpl.getInstance(this.mContext).onSendQuizOptsResult(getListenerKey(), i2, str2, j, this.mRoomId);
+            ConversationStudioManImpl.getInstance(this.mContext).onSendQuizOptsResult(getListenerKey(), i2, str2, j, this.mRoomId);
         }
         j = -1;
         str2 = str;
         i2 = i;
         LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str2);
-        McastManagerImpl.getInstance(this.mContext).onSendQuizOptsResult(getListenerKey(), i2, str2, j, this.mRoomId);
+        ConversationStudioManImpl.getInstance(this.mContext).onSendQuizOptsResult(getListenerKey(), i2, str2, j, this.mRoomId);
     }
 }

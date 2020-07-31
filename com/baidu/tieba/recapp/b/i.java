@@ -4,23 +4,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.recapp.m;
 import com.baidu.tieba.tbadkCore.data.AppData;
 import com.baidu.tieba.tbadkCore.data.n;
-/* loaded from: classes13.dex */
-public class i extends com.baidu.adp.widget.ListView.a<n, j> implements com.baidu.tieba.recapp.l {
-    protected BaseFragmentActivity hep;
+/* loaded from: classes20.dex */
+public class i extends com.baidu.adp.widget.ListView.a<n, j> implements m {
+    protected BaseFragmentActivity hjZ;
 
     public i(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.hep = baseFragmentActivity;
+        this.hjZ = baseFragmentActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cF */
+    /* renamed from: cI */
     public j b(ViewGroup viewGroup) {
-        View view = new View(this.hep.getPageContext().getPageActivity());
+        View view = new View(this.hjZ.getPageContext().getPageActivity());
         view.setVisibility(8);
         return new j(view);
     }
@@ -30,10 +31,10 @@ public class i extends com.baidu.adp.widget.ListView.a<n, j> implements com.baid
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, n nVar, j jVar) {
         boolean z = false;
-        AppData dhN = nVar.dhN();
-        if (dhN != null) {
-            com.baidu.tbadk.core.data.b bVar = dhN.advertAppContext;
-            if (dhN.goods != null && dhN.goods.goods_style == -1001) {
+        AppData dkV = nVar.dkV();
+        if (dkV != null) {
+            com.baidu.tbadk.core.data.b bVar = dkV.advertAppContext;
+            if (dkV.goods != null && dkV.goods.goods_style == -1001) {
                 z = true;
             }
             com.baidu.tbadk.core.data.b.b(bVar, nVar.getPosition(), z);
@@ -41,7 +42,7 @@ public class i extends com.baidu.adp.widget.ListView.a<n, j> implements com.baid
         return jVar.getView();
     }
 
-    @Override // com.baidu.tieba.recapp.l
+    @Override // com.baidu.tieba.recapp.m
     public void setIsFromCDN(boolean z) {
     }
 }

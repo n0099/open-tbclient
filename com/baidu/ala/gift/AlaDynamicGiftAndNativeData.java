@@ -1,12 +1,12 @@
 package com.baidu.ala.gift;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaDynamicGiftAndNativeData {
     public AlaDynamicGift mAlaDynamicGift;
     private ArrayList<String> unZipFilesPathList;
@@ -35,7 +35,7 @@ public class AlaDynamicGiftAndNativeData {
 
     public ArrayList<String> getDynamicGiftPicPathList() {
         File[] listFiles;
-        if (!w.isEmpty(this.unZipFilesPathList)) {
+        if (!x.isEmpty(this.unZipFilesPathList)) {
             return this.unZipFilesPathList;
         }
         if (StringUtils.isNull(this.upZipDirPath) || (listFiles = new File(this.upZipDirPath).listFiles()) == null) {

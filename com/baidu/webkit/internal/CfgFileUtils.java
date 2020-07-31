@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class CfgFileUtils implements INoProGuard {
     public static final String KEY_ALT_SERVICE = "alt_service";
     public static final String KEY_BACK_DNS_TIME = "back_dns_time";
@@ -26,6 +26,7 @@ public class CfgFileUtils implements INoProGuard {
     public static final String KEY_FAKE_BAIDU_WHITE_LIST_TIME = "fakeBaiduWhiteListTime";
     public static final String KEY_HTTPDNS_AB_STAT = "httpdns_ab_stat";
     public static final String KEY_HTTP_DNS_CACHE = "httpdnscache_v2";
+    public static final String KEY_HTTP_DNS_IPV6_ENV = "http_dns_ipv6_env";
     public static final String KEY_HTTP_DNS_NATIVE_CACHE = "http_dns_native_cache";
     public static final String KEY_HTTP_DNS_PERSISTENCE_CACHE = "http_dns_persistence_cache";
     public static final String KEY_HTTP_WORMHOLE_IPLIST = "wormholeIpList";

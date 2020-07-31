@@ -6,7 +6,7 @@ import com.baidu.mobads.interfaces.error.XAdErrorCode;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class b implements IXAdErrorCode {
     protected final IXAdLogger a;
 

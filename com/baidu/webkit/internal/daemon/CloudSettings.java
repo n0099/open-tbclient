@@ -9,8 +9,9 @@ import com.baidu.webkit.internal.ConectivityUtils;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-import com.baidu.webkit.internal.e;
+import com.baidu.webkit.internal.d;
 import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
+import com.baidu.webkit.internal.utils.b;
 import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class CloudSettings implements INoProGuard, INetListener {
     private static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
     private static final String CLOUD_SETTING_URL_HTTP = "http://browserkernel.baidu.com/config/t5config?cmd=1&";
@@ -40,7 +41,7 @@ public class CloudSettings implements INoProGuard, INetListener {
     private int mNetres = -1;
     private ByteArrayOutputStream mData = null;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public class a {
         public long a;
         public int b = -1;
@@ -144,7 +145,7 @@ public class CloudSettings implements INoProGuard, INetListener {
     public static void restoreLastSentTimeFromCfg() {
         Log.w(LOG_TAG, "restoreLastSentTimeFromCfg");
         sLastGetTime = null;
-        com.baidu.webkit.internal.utils.b.b();
+        b.b();
         String str = ZeusInitConfigUtils.get("engineCloudSettingsTime", (String) null);
         if (str == null) {
             return;
@@ -153,7 +154,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             byte[] decode = Base64.decode(str.getBytes(), 0);
             if (decode != null) {
                 sLastGetTime = reverseString(new String(decode, "utf-8"));
-                com.baidu.webkit.internal.utils.b.b();
+                b.b();
                 String str2 = ZeusInitConfigUtils.get("engineCloudSettingsData", (String) null);
                 if (str2 == null) {
                     Log.w(LOG_TAG, "restoreLastSentTimeFromCfg null");
@@ -168,7 +169,7 @@ public class CloudSettings implements INoProGuard, INetListener {
 
     public static void restoreSettingsToFrameWork() {
         try {
-            com.baidu.webkit.internal.utils.b.b();
+            b.b();
             String str = ZeusInitConfigUtils.get("engineCloudSettingsData", (String) null);
             if (str == null) {
                 return;
@@ -192,7 +193,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             byte[] encode = Base64.encode(reverseString(refFormatNowDate).getBytes(), 0);
             if (encode != null) {
                 String str = new String(encode, "utf-8");
-                com.baidu.webkit.internal.utils.b.b();
+                b.b();
                 ZeusInitConfigUtils.set("engineCloudSettingsTime", str);
                 ZeusInitConfigUtils.set("engineCloudSettingsData", new String(bArr, "utf-8"));
             }
@@ -315,7 +316,7 @@ public class CloudSettings implements INoProGuard, INetListener {
         Log.w(LOG_TAG, "onNetDownloadComplete " + byteArray.length);
         Log.w(LOG_TAG, "onNetDownloadComplete url " + bdNetTask.getUrl());
         try {
-            bArr = new e(WebSettingsGlobalBlink.getRc4SecrectKey()).a(byteArray);
+            bArr = new d(WebSettingsGlobalBlink.getRc4SecrectKey()).a(byteArray);
             try {
                 WebSettingsGlobalBlink.setCloudSettings(new String(bArr, "utf-8"));
                 VideoCloudSetting.saveVideoSettingToCfg();

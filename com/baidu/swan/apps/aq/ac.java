@@ -1,105 +1,115 @@
 package com.baidu.swan.apps.aq;
 
+import android.content.Context;
+import android.content.res.Resources;
+import android.os.Build;
+import android.provider.Settings;
 import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
-import com.baidu.android.common.security.RSAUtil;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
-import java.security.GeneralSecurityException;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
-/* loaded from: classes11.dex */
+import android.util.DisplayMetrics;
+import android.util.Pair;
+import android.view.Display;
+import android.view.WindowManager;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+/* loaded from: classes7.dex */
 public class ac {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-
-    public static boolean e(File file, String str) {
-        return a(file, str, (com.baidu.swan.apps.aq.a.c) null);
-    }
-
-    public static boolean b(ReadableByteChannel readableByteChannel, String str) throws IOException {
-        return a(readableByteChannel, str, (com.baidu.swan.apps.aq.a.c) null);
-    }
-
-    public static boolean a(File file, String str, com.baidu.swan.apps.aq.a.c cVar) {
-        boolean z = file == null;
-        if (z || !file.exists() || TextUtils.isEmpty(str)) {
-            if (cVar != null) {
-                cVar.cPe = "zipfile: isEmpty=" + z + "; exists=" + (z ? "" : Boolean.valueOf(file.exists()));
-            }
+    public static boolean awO() {
+        Context appContext = AppRuntime.getAppContext();
+        if (cz(appContext)) {
             return false;
         }
-        ReadableByteChannel readableByteChannel = null;
+        return cy(appContext);
+    }
+
+    private static boolean cy(Context context) {
+        boolean z;
+        int i;
+        Resources resources = context.getResources();
+        int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
+        boolean z2 = identifier > 0 ? resources.getBoolean(identifier) : false;
         try {
-            readableByteChannel = Channels.newChannel(new FileInputStream(file));
-            return a(readableByteChannel, str, cVar);
-        } catch (IOException e) {
-            if (DEBUG) {
-                e.printStackTrace();
+            if (Build.VERSION.SDK_INT < 21) {
+                i = Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
+            } else {
+                i = Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
             }
-            return false;
-        } finally {
-            com.baidu.swan.e.d.closeSafely(readableByteChannel);
-        }
-    }
-
-    public static boolean a(ReadableByteChannel readableByteChannel, String str, com.baidu.swan.apps.aq.a.c cVar) throws IOException {
-        boolean z = readableByteChannel == null;
-        if (z || TextUtils.isEmpty(str)) {
-            if (cVar != null) {
-                cVar.cPe = "zipSource isNullIs=" + z;
-                return false;
-            }
-            return false;
-        }
-        String a = com.baidu.swan.e.e.a(readableByteChannel, false);
-        if (cVar != null) {
-            cVar.cPe = a;
-        }
-        try {
-            String str2 = new String(b(Base64.decode(str.getBytes("utf-8"), 8), pS("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
-            if (cVar != null) {
-                cVar.cPf = str2;
-            }
-            return TextUtils.equals(str2, a);
         } catch (Exception e) {
-            if (DEBUG) {
-                Log.i("SwanAppSignChecker", e.toString());
-                e.printStackTrace();
+            z = z2;
+        }
+        if (i != 0) {
+            return false;
+        }
+        Class<?> cls = Class.forName("android.os.SystemProperties");
+        String str = (String) cls.getMethod("get", String.class).invoke(cls, "qemu.hw.mainkeys");
+        if ("1".equals(str)) {
+            z = false;
+        } else {
+            z = "0".equals(str) ? true : z2;
+        }
+        return z;
+    }
+
+    public static int awP() {
+        if (!awO()) {
+            return 0;
+        }
+        return ai.getInternalDimensionSize(AppRuntime.getAppContext().getResources(), ai.isScreenPortrait() ? "navigation_bar_height" : "navigation_bar_height_landscape");
+    }
+
+    public static boolean cz(Context context) {
+        boolean z = true;
+        String str = Build.BRAND;
+        try {
+            if (TextUtils.isEmpty(str)) {
+                if (Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0) == 0) {
+                    z = false;
+                }
+            } else if (str.equalsIgnoreCase("HUAWEI") || str.equalsIgnoreCase("HONOR")) {
+                if (Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0) == 0) {
+                    z = false;
+                }
+            } else if (str.equalsIgnoreCase("XIAOMI")) {
+                if (Settings.Global.getInt(context.getContentResolver(), "force_fsg_nav_bar", 0) == 0) {
+                    z = false;
+                }
+            } else if (str.equalsIgnoreCase(RomUtils.ROM_VIVO)) {
+                if (Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
+                    z = false;
+                }
+            } else if (str.equalsIgnoreCase(RomUtils.ROM_OPPO)) {
+                if (Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
+                    z = false;
+                }
+            } else if (str.equalsIgnoreCase("SAMSUNG")) {
+                if (Settings.Global.getInt(context.getContentResolver(), "navigationbar_hide_bar_enabled", 0) == 0) {
+                    z = false;
+                }
+            } else if (Settings.Global.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
+                z = false;
             }
-            if (cVar != null) {
-                cVar.cPf = e.getLocalizedMessage();
-                return false;
+            return z;
+        } catch (Exception e) {
+            if (com.baidu.swan.apps.b.DEBUG) {
+                e.printStackTrace();
             }
             return false;
         }
     }
 
-    private static byte[] b(byte[] bArr, PublicKey publicKey) throws GeneralSecurityException {
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-        cipher.init(2, publicKey);
-        return cipher.doFinal(bArr);
+    public static Pair<Integer, Integer> awQ() {
+        Context appContext = AppRuntime.getAppContext();
+        WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
+        if (windowManager == null) {
+            return new Pair<>(Integer.valueOf(ai.getDisplayWidth(appContext)), Integer.valueOf(ai.getDisplayHeight(appContext)));
+        }
+        Display defaultDisplay = windowManager.getDefaultDisplay();
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        defaultDisplay.getRealMetrics(displayMetrics);
+        return new Pair<>(Integer.valueOf(displayMetrics.widthPixels), Integer.valueOf(displayMetrics.heightPixels));
     }
 
-    private static PublicKey pS(String str) {
-        try {
-            return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
-        } catch (UnsupportedEncodingException e) {
-            return null;
-        } catch (NullPointerException e2) {
-            return null;
-        } catch (NoSuchAlgorithmException e3) {
-            return null;
-        } catch (InvalidKeySpecException e4) {
-            return null;
-        }
+    public static Pair<Integer, Integer> awR() {
+        Pair<Integer, Integer> awQ = awQ();
+        return new Pair<>(Integer.valueOf(((Integer) awQ.first).intValue()), Integer.valueOf(((Integer) awQ.second).intValue() - awP()));
     }
 }

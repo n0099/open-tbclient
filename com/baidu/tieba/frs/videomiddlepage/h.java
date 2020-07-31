@@ -4,27 +4,27 @@ import com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel;
 import com.baidu.tieba.frs.videomiddlepage.g;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class h implements g.a {
-    private g.b icP;
-    private VideoMiddleModel icQ;
-    private VideoSerializeVideoThreadInfo icR;
-    private VideoMiddleModel.a icS = new VideoMiddleModel.a() { // from class: com.baidu.tieba.frs.videomiddlepage.h.1
+    private g.b iiR;
+    private VideoMiddleModel iiS;
+    private VideoSerializeVideoThreadInfo iiT;
+    private VideoMiddleModel.a iiU = new VideoMiddleModel.a() { // from class: com.baidu.tieba.frs.videomiddlepage.h.1
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.a
-        public void n(List<com.baidu.tieba.card.data.b> list, boolean z) {
-            if (h.this.icP != null) {
-                h.this.icP.hideLoadingView();
+        public void l(List<com.baidu.tieba.card.data.b> list, boolean z) {
+            if (h.this.iiR != null) {
+                h.this.iiR.hideLoadingView();
                 h.this.mHasMore = z;
-                h.this.icP.e(list, z, false);
+                h.this.iiR.d(list, z, false);
             }
         }
 
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.a
-        public void qP(String str) {
-            if (h.this.icP != null) {
-                h.this.icP.hideLoadingView();
-                h.this.icP.showMsg(str);
-                h.this.icP.aeh();
+        public void rL(String str) {
+            if (h.this.iiR != null) {
+                h.this.iiR.hideLoadingView();
+                h.this.iiR.showMsg(str);
+                h.this.iiR.afy();
             }
         }
     };
@@ -36,16 +36,16 @@ public class h implements g.a {
 
     public h(g.b bVar) {
         if (bVar instanceof VideoMiddlePageFragment) {
-            this.icP = bVar;
-            this.icP.a(this);
-            this.icQ = new VideoMiddleModel(((VideoMiddlePageFragment) bVar).getPageContext(), this.icS);
+            this.iiR = bVar;
+            this.iiR.a(this);
+            this.iiS = new VideoMiddleModel(((VideoMiddlePageFragment) bVar).getPageContext(), this.iiU);
         }
     }
 
-    public void cgt() {
-        if (this.icQ != null) {
-            this.icQ.setFrom(this.mFrom);
-            this.icQ.LoadData();
+    public void cjS() {
+        if (this.iiS != null) {
+            this.iiS.setFrom(this.mFrom);
+            this.iiS.LoadData();
         }
     }
 
@@ -53,54 +53,54 @@ public class h implements g.a {
         this.mFrom = str;
     }
 
-    public void btv() {
-        if (this.icQ != null && this.mHasMore) {
-            this.icQ.setFrom(this.mFrom);
-            this.icQ.LoadData();
+    public void bwE() {
+        if (this.iiS != null && this.mHasMore) {
+            this.iiS.setFrom(this.mFrom);
+            this.iiS.LoadData();
         }
     }
 
     public void setId(String str) {
         this.mId = str;
-        if (this.icQ != null) {
-            this.icQ.setId(this.mId);
+        if (this.iiS != null) {
+            this.iiS.setId(this.mId);
         }
     }
 
-    public void Fj(String str) {
+    public void FU(String str) {
         this.st_type = str;
-        if (this.icQ != null) {
-            this.icQ.Fj(str);
+        if (this.iiS != null) {
+            this.iiS.FU(str);
         }
     }
 
     public void setLocation(String str) {
         this.yuelaou_locate = str;
-        if (this.icQ != null) {
-            this.icQ.setLocation(str);
+        if (this.iiS != null) {
+            this.iiS.setLocation(str);
         }
     }
 
     public void a(VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
-        this.icR = videoSerializeVideoThreadInfo;
-        if (this.icQ != null) {
-            this.icQ.a(videoSerializeVideoThreadInfo);
+        this.iiT = videoSerializeVideoThreadInfo;
+        if (this.iiS != null) {
+            this.iiS.a(videoSerializeVideoThreadInfo);
         }
     }
 
-    public VideoSerializeVideoThreadInfo cgu() {
-        return this.icR;
+    public VideoSerializeVideoThreadInfo cjT() {
+        return this.iiT;
     }
 
-    public void caS() {
-        if (this.icQ != null) {
-            this.icQ.cancelLoadData();
+    public void ceq() {
+        if (this.iiS != null) {
+            this.iiS.cancelLoadData();
         }
     }
 
     public int getPageNum() {
-        if (this.icQ != null) {
-            return this.icQ.getPageNum();
+        if (this.iiS != null) {
+            return this.iiS.getPageNum();
         }
         return 0;
     }

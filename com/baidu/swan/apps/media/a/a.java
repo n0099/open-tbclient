@@ -6,25 +6,24 @@ import com.baidu.searchbox.ugc.transcoder.TranscoderPlugin;
 import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String crO;
-    public int crL = 60000;
-    public String crM = TranscoderPlugin.AUDIO_CODEC;
+    public String ctQ;
+    public int ctN = 60000;
+    public String ctO = TranscoderPlugin.AUDIO_CODEC;
     public int channel = 1;
     public int sampleRate = CoolPraiseGuideLottieView.ANIM_DURATION;
     public int bitRate = 16000;
-    public int crN = 1;
+    public int ctP = 1;
 
     public static a a(JSONObject jSONObject, a aVar) {
         if (jSONObject != null && jSONObject.length() > 0) {
             aVar = new a();
-            aVar.crL = jSONObject.optInt("duration", 60000);
-            aVar.crM = jSONObject.optString(IjkMediaMeta.IJKM_KEY_FORMAT);
-            if (TextUtils.isEmpty(aVar.crM)) {
-                aVar.crM = TranscoderPlugin.AUDIO_CODEC;
+            aVar.ctN = jSONObject.optInt("duration", 60000);
+            aVar.ctO = jSONObject.optString("format");
+            if (TextUtils.isEmpty(aVar.ctO)) {
+                aVar.ctO = TranscoderPlugin.AUDIO_CODEC;
             }
             aVar.channel = jSONObject.optInt("numberOfChannels", 1);
             aVar.sampleRate = jSONObject.optInt("sampleRate", CoolPraiseGuideLottieView.ANIM_DURATION);
@@ -42,26 +41,26 @@ public class a {
                         break;
                 }
             }
-            aVar.crN = lV(jSONObject.optString("audioSource", "auto"));
-            aVar.crO = jSONObject.optString("cb");
+            aVar.ctP = mw(jSONObject.optString("audioSource", "auto"));
+            aVar.ctQ = jSONObject.optString("cb");
         }
         return aVar;
     }
 
-    public JSONObject aku() {
-        if (this.crL > 600000 || this.crL < 0) {
+    public JSONObject alK() {
+        if (this.ctN > 600000 || this.ctN < 0) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
         }
         if (this.channel != 1 && this.channel != 2) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
         }
-        if (!TextUtils.equals(this.crM, TranscoderPlugin.AUDIO_CODEC) && !TextUtils.equals(this.crM, "pcm")) {
+        if (!TextUtils.equals(this.ctO, TranscoderPlugin.AUDIO_CODEC) && !TextUtils.equals(this.ctO, "pcm")) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
         }
         if (this.sampleRate != 8000 && this.sampleRate != 16000 && this.sampleRate != 44100) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
         }
-        if (!TextUtils.equals(this.crM, "pcm")) {
+        if (!TextUtils.equals(this.ctO, "pcm")) {
             boolean z = false;
             switch (this.sampleRate) {
                 case CoolPraiseGuideLottieView.ANIM_DURATION /* 8000 */:
@@ -87,18 +86,18 @@ public class a {
                 return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
             }
         }
-        if (this.crN < 0) {
+        if (this.ctP < 0) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error audioSource");
         }
         return null;
     }
 
     public String toString() {
-        return "recordTime : " + this.crL + "; channel : " + this.channel + "; audioFormat : " + this.crM + "; sampleRate : " + this.sampleRate + "; bitRate : " + this.bitRate + "; callbacks : " + this.crO;
+        return "recordTime : " + this.ctN + "; channel : " + this.channel + "; audioFormat : " + this.ctO + "; sampleRate : " + this.sampleRate + "; bitRate : " + this.bitRate + "; callbacks : " + this.ctQ;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private static int lV(String str) {
+    private static int mw(String str) {
         char c;
         switch (str.hashCode()) {
             case -401509030:

@@ -21,16 +21,16 @@ import android.widget.ImageView;
 import com.baidu.poly.b;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class PayWebActivity extends Activity {
-    private Bundle bAS;
+    private Bundle bBi;
     private ImageView i;
     private boolean j;
     private String k;
     private WebView webView;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         a() {
         }
@@ -42,16 +42,16 @@ public class PayWebActivity extends Activity {
         }
     }
 
-    private void M() {
+    private void U() {
         Intent intent = getIntent();
         if (intent != null) {
             this.k = intent.getStringExtra("load_url");
-            this.bAS = intent.getBundleExtra("launch_payment_data");
+            this.bBi = intent.getBundleExtra("launch_payment_data");
         }
     }
 
     @SuppressLint({"SetJavaScriptEnabled"})
-    private void N() {
+    private void V() {
         this.i = (ImageView) findViewById(b.e.iv_pay_back);
         this.i.setOnClickListener(new a());
         this.webView = (WebView) findViewById(b.e.webView);
@@ -69,7 +69,7 @@ public class PayWebActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean l(String str) {
+    public boolean m(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
@@ -100,8 +100,8 @@ public class PayWebActivity extends Activity {
         super.onCreate(bundle);
         setContentView(b.f.activity_pay_web);
         this.j = false;
-        M();
-        N();
+        U();
+        V();
     }
 
     @Override // android.app.Activity
@@ -122,14 +122,14 @@ public class PayWebActivity extends Activity {
         super.onResume();
         if (this.j) {
             Intent intent = new Intent();
-            intent.putExtras(this.bAS);
+            intent.putExtras(this.bBi);
             setResult(-1, intent);
             finish();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public class b extends WebViewClient {
         b() {
         }
@@ -156,7 +156,7 @@ public class PayWebActivity extends Activity {
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
-            return PayWebActivity.this.l(str);
+            return PayWebActivity.this.m(str);
         }
 
         @Override // android.webkit.WebViewClient
@@ -168,7 +168,7 @@ public class PayWebActivity extends Activity {
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
-                return PayWebActivity.this.l(uri);
+                return PayWebActivity.this.m(uri);
             }
             return true;
         }

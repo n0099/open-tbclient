@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class RestTemplate {
     public static final String TAG = "RestTemplate";
     private Context mContext;
@@ -281,7 +281,7 @@ public class RestTemplate {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public final class AcceptHeaderRequestInterceptor implements RestHttpRequestInterceptor {
         private final Class<?> responseType;
 

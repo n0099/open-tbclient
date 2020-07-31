@@ -1,17 +1,17 @@
 package com.qiniu.android.common;
 
 import java.net.URI;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class Zone {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface QueryHandler {
-        void KH(int i);
+        void Lb(int i);
 
         void onSuccess();
     }
 
-    public abstract void RC(String str);
+    public abstract void Sn(String str);
 
     public abstract void a(String str, QueryHandler queryHandler);
 
@@ -26,16 +26,16 @@ public abstract class Zone {
         int i = 0;
         synchronized (this) {
             if (str != null) {
-                zoneInfo.RC(URI.create(str).getHost());
+                zoneInfo.Sn(URI.create(str).getHost());
             }
             while (true) {
                 int i2 = i;
-                if (i2 >= zoneInfo.nCP.size()) {
+                if (i2 >= zoneInfo.nLx.size()) {
                     str2 = null;
                     break;
                 }
-                str5 = zoneInfo.nCP.get(i2);
-                long longValue = zoneInfo.nCQ.get(str5).longValue();
+                str5 = zoneInfo.nLx.get(i2);
+                long longValue = zoneInfo.nLy.get(str5).longValue();
                 if (longValue == 0 || longValue <= System.currentTimeMillis() / 1000) {
                     break;
                 }
@@ -43,13 +43,13 @@ public abstract class Zone {
             }
             str2 = str5;
             if (str2 != null) {
-                zoneInfo.nCQ.put(str2, 0L);
+                zoneInfo.nLy.put(str2, 0L);
                 str3 = str2;
             } else {
-                for (String str6 : zoneInfo.nCP) {
-                    zoneInfo.nCQ.put(str6, 0L);
+                for (String str6 : zoneInfo.nLx) {
+                    zoneInfo.nLy.put(str6, 0L);
                 }
-                str3 = zoneInfo.nCP.size() > 0 ? zoneInfo.nCP.get(0) : str2;
+                str3 = zoneInfo.nLx.size() > 0 ? zoneInfo.nLx.get(0) : str2;
             }
             if (str3 == null) {
                 str4 = null;

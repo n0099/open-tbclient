@@ -7,99 +7,100 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.pb.data.f;
 import com.baidu.tieba.pb.pb.main.PbFragment;
 import tbclient.SmartApp;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class b {
-    private View.OnClickListener hCn;
-    private PbFragment kbv;
-    private RelativeLayout kpb;
-    private HeadImageView kpc;
-    private TextView kpd;
-    private TextView kpe;
-    private ImageView kpf;
+    private View.OnClickListener hIl;
+    private PbFragment kjZ;
+    private RelativeLayout kxZ;
+    private HeadImageView kya;
+    private TextView kyb;
+    private TextView kyc;
+    private ImageView kyd;
 
     public b(PbFragment pbFragment, View.OnClickListener onClickListener) {
-        this.hCn = null;
-        this.kbv = pbFragment;
-        this.hCn = onClickListener;
+        this.hIl = null;
+        this.kjZ = pbFragment;
+        this.hIl = onClickListener;
         initView();
     }
 
     public void initView() {
-        if (this.kpb == null) {
-            this.kpb = (RelativeLayout) LayoutInflater.from(this.kbv.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
-            this.kpc = (HeadImageView) this.kpb.findViewById(R.id.iv_pb_video_smart_app_head);
-            this.kpc.setIsRound(true);
-            this.kpc.setPlaceHolder(1);
-            this.kpd = (TextView) this.kpb.findViewById(R.id.tv_pb_video_smart_app_title);
-            this.kpe = (TextView) this.kpb.findViewById(R.id.tv_pb_video_smart_app_abstract);
-            this.kpf = (ImageView) this.kpb.findViewById(R.id.iv_pb_video_smart_app_arrow);
-            this.kpb.setOnClickListener(this.hCn);
+        if (this.kxZ == null) {
+            this.kxZ = (RelativeLayout) LayoutInflater.from(this.kjZ.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
+            this.kya = (HeadImageView) this.kxZ.findViewById(R.id.iv_pb_video_smart_app_head);
+            this.kya.setIsRound(true);
+            this.kya.setPlaceHolder(1);
+            this.kyb = (TextView) this.kxZ.findViewById(R.id.tv_pb_video_smart_app_title);
+            this.kyc = (TextView) this.kxZ.findViewById(R.id.tv_pb_video_smart_app_abstract);
+            this.kyd = (ImageView) this.kxZ.findViewById(R.id.iv_pb_video_smart_app_arrow);
+            this.kxZ.setOnClickListener(this.hIl);
         }
     }
 
-    public void a(com.baidu.tieba.pb.data.e eVar, BdTypeListView bdTypeListView) {
+    public void a(f fVar, BdTypeListView bdTypeListView) {
         String charSequence;
-        if (eVar != null && bdTypeListView != null) {
-            if (eVar.cGO().aQV() && eVar.cGO().aTe() != null) {
-                SmartApp aTe = eVar.cGO().aTe();
-                this.kpb.setVisibility(0);
+        if (fVar != null && bdTypeListView != null) {
+            if (fVar.cKx().aUR() && fVar.cKx().aXa() != null) {
+                SmartApp aXa = fVar.cKx().aXa();
+                this.kxZ.setVisibility(0);
                 c(bdTypeListView);
                 a(bdTypeListView, 1);
-                if (!ar.isEmpty(aTe.avatar)) {
-                    this.kpc.startLoad(aTe.avatar, 10, false, false);
+                if (!as.isEmpty(aXa.avatar)) {
+                    this.kya.startLoad(aXa.avatar, 10, false, false);
                 }
-                if (!ar.isEmpty(aTe.name)) {
-                    charSequence = aTe.name + " " + ((Object) this.kbv.getText(R.string.smart_app_suffix));
+                if (!as.isEmpty(aXa.name)) {
+                    charSequence = aXa.name + " " + ((Object) this.kjZ.getText(R.string.smart_app_suffix));
                 } else {
-                    charSequence = this.kbv.getText(R.string.intelligent_smart_app).toString();
+                    charSequence = this.kjZ.getText(R.string.intelligent_smart_app).toString();
                 }
-                this.kpd.setText(charSequence);
-                if (!ar.isEmpty(aTe._abstract)) {
-                    this.kpe.setText(aTe._abstract);
+                this.kyb.setText(charSequence);
+                if (!as.isEmpty(aXa._abstract)) {
+                    this.kyc.setText(aXa._abstract);
                 } else {
-                    this.kpe.setText(this.kbv.getText(R.string.smart_app_default_abstract));
+                    this.kyc.setText(this.kjZ.getText(R.string.smart_app_default_abstract));
                 }
-                this.kpb.setTag(aTe);
+                this.kxZ.setTag(aXa);
                 return;
             }
-            this.kpb.setVisibility(8);
+            this.kxZ.setVisibility(8);
             c(bdTypeListView);
         }
     }
 
     public void a(BdTypeListView bdTypeListView, int i) {
-        if (bdTypeListView != null && this.kpb != null) {
-            bdTypeListView.addHeaderView(this.kpb, i);
+        if (bdTypeListView != null && this.kxZ != null) {
+            bdTypeListView.addHeaderView(this.kxZ, i);
         }
     }
 
     public void c(BdTypeListView bdTypeListView) {
-        if (bdTypeListView != null && this.kpb != null) {
-            bdTypeListView.removeHeaderView(this.kpb);
+        if (bdTypeListView != null && this.kxZ != null) {
+            bdTypeListView.removeHeaderView(this.kxZ);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kpb != null) {
-            an.setBackgroundColor(this.kpb, R.color.cp_bg_line_c);
+        if (this.kxZ != null) {
+            ao.setBackgroundColor(this.kxZ, R.color.cp_bg_line_c);
         }
-        if (this.kpc != null) {
-            this.kpc.setIsNight(i == 1);
+        if (this.kya != null) {
+            this.kya.setIsNight(i == 1);
         }
-        if (this.kpd != null) {
-            an.setViewTextColor(this.kpd, (int) R.color.cp_cont_b);
+        if (this.kyb != null) {
+            ao.setViewTextColor(this.kyb, R.color.cp_cont_b);
         }
-        if (this.kpe != null) {
-            an.setViewTextColor(this.kpe, (int) R.color.cp_cont_j);
+        if (this.kyc != null) {
+            ao.setViewTextColor(this.kyc, R.color.cp_cont_j);
         }
-        if (this.kpf != null) {
-            an.setBackgroundResource(this.kpf, R.drawable.icon_common_arrow16_right_n);
+        if (this.kyd != null) {
+            ao.setBackgroundResource(this.kyd, R.drawable.icon_common_arrow16_right_n);
         }
     }
 }

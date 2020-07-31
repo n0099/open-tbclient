@@ -10,7 +10,7 @@ import com.baidu.ar.bean.ARConfig;
 import com.baidu.ar.constants.ARConfigKey;
 import com.baidu.ar.constants.HttpConstants;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class a {
     private String ha;
     private String hb;

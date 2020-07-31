@@ -63,7 +63,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class FragmentedMp4Builder implements Mp4Builder {
     private static final Logger LOG = Logger.getLogger(FragmentedMp4Builder.class.getName());
     protected FragmentIntersectionFinder intersectionFinder;
@@ -214,20 +214,20 @@ public class FragmentedMp4Builder implements Mp4Builder {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes20.dex */
     public class a implements Box {
-        private final /* synthetic */ int lYz;
-        long ndB = -1;
-        private final /* synthetic */ long ndC;
-        private final /* synthetic */ long ndD;
-        private final /* synthetic */ Track ndE;
+        private final /* synthetic */ int mfQ;
+        long nml = -1;
+        private final /* synthetic */ long nmm;
+        private final /* synthetic */ long nmn;
+        private final /* synthetic */ Track nmo;
         Container parent;
 
         a(long j, long j2, Track track, int i) {
-            this.ndC = j;
-            this.ndD = j2;
-            this.ndE = track;
-            this.lYz = i;
+            this.nmm = j;
+            this.nmn = j2;
+            this.nmo = track;
+            this.mfQ = i;
         }
 
         @Override // com.coremedia.iso.boxes.Box
@@ -247,14 +247,14 @@ public class FragmentedMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            if (this.ndB != -1) {
-                return this.ndB;
+            if (this.nml != -1) {
+                return this.nml;
             }
             long j = 8;
-            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.ndC, this.ndD, this.ndE, this.lYz)) {
+            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.nmm, this.nmn, this.nmo, this.mfQ)) {
                 j = sample.getSize() + j;
             }
-            this.ndB = j;
+            this.nml = j;
             return j;
         }
 
@@ -270,7 +270,7 @@ public class FragmentedMp4Builder implements Mp4Builder {
             allocate.put(IsoFile.fourCCtoBytes(getType()));
             allocate.rewind();
             writableByteChannel.write(allocate);
-            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.ndC, this.ndD, this.ndE, this.lYz)) {
+            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.nmm, this.nmn, this.nmo, this.mfQ)) {
                 sample.writeTo(writableByteChannel);
             }
         }

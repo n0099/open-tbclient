@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class a {
     private String url;
 
@@ -23,13 +23,13 @@ public class a {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(String... strArr) {
-                HashMap cxk = a.this.cxk();
+                HashMap cBi = a.this.cBi();
                 HashMap b = a.this.b(str, i, i2, i3, str2, str3);
                 e eVar = new e();
                 eVar.kT().setUrl(a.this.url);
                 eVar.kT().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-                if (cxk != null && !cxk.isEmpty()) {
-                    eVar.kT().v(a.this.cxk());
+                if (cBi != null && !cBi.isEmpty()) {
+                    eVar.kT().v(a.this.cBi());
                 }
                 if (b != null && !b.isEmpty()) {
                     ArrayList arrayList = new ArrayList();
@@ -46,7 +46,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap<String, String> cxk() {
+    public HashMap<String, String> cBi() {
         String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put(SM.COOKIE, cookie);

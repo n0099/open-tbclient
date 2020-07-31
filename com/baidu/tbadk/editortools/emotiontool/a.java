@@ -4,11 +4,11 @@ public abstract class a implements Comparable<a> {
 
     /* renamed from: com.baidu.tbadk.editortools.emotiontool.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0494a {
+    public interface InterfaceC0506a {
         void a(c cVar);
     }
 
-    public abstract void a(InterfaceC0494a interfaceC0494a);
+    public abstract void a(InterfaceC0506a interfaceC0506a);
 
     public abstract int getIndex();
 

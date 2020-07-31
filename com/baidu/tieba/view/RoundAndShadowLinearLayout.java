@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class RoundAndShadowLinearLayout extends LinearLayout {
-    private Shape dQj;
+    private Shape dWB;
     private Paint mPaint;
     private float mRadius;
 
@@ -46,16 +46,16 @@ public class RoundAndShadowLinearLayout extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.dQj == null) {
+            if (this.dWB == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 RectF rectF = new RectF(getPaddingLeft() <= 0 ? 0.1f : getPaddingLeft(), getPaddingTop() <= 0 ? 0.1f : getPaddingTop(), getPaddingRight() <= 0 ? 0.1f : getPaddingRight(), getPaddingBottom() > 0 ? getPaddingBottom() : 0.1f);
                 float[] fArr2 = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 Arrays.fill(fArr2, this.mRadius);
-                this.dQj = new RoundRectShape(fArr, rectF, fArr2);
+                this.dWB = new RoundRectShape(fArr, rectF, fArr2);
             }
-            this.dQj.resize(getWidth(), getHeight());
+            this.dWB.resize(getWidth(), getHeight());
         }
     }
 
@@ -64,9 +64,11 @@ public class RoundAndShadowLinearLayout extends LinearLayout {
         int saveCount = canvas.getSaveCount();
         canvas.save();
         super.dispatchDraw(canvas);
-        if (this.dQj != null) {
-            this.dQj.draw(canvas, this.mPaint);
+        if (this.dWB != null) {
+            this.dWB.draw(canvas, this.mPaint);
         }
-        canvas.restoreToCount(saveCount);
+        if (saveCount >= 1 && saveCount <= canvas.getSaveCount()) {
+            canvas.restoreToCount(saveCount);
+        }
     }
 }

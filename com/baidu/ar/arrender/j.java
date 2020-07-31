@@ -4,7 +4,7 @@ import android.graphics.PointF;
 import com.baidu.ar.arplay.core.engine.ARPEngine;
 import com.baidu.ar.arplay.core.filter.TakePictureCallback;
 import com.baidu.ar.arplay.representation.Matrixf4x4;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public interface j extends IRenderer {
     void a(float f);
 

@@ -24,8 +24,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.EmotionEditActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.view.a;
 import com.baidu.tbadk.gif.GifInfo;
@@ -40,24 +40,24 @@ import com.baidu.tieba.pbextra.emotion.view.ChooseColorLayout;
 import com.baidu.tieba.pbextra.emotion.view.EmotionEditLayout;
 import com.baidu.tieba.pbextra.emotion.view.EmotionEditText;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class EmotionEditActivity extends BaseActivity implements EmotionEditModel.a {
-    private ImageView gqS;
-    private a icD;
-    private EmotionEditLayout kBR;
-    private View kBS;
-    private ChooseColorLayout kBT;
-    private int kBU;
-    private EmotionEditText kBV;
-    private EmotionEditModel kBW;
-    private String kBX;
-    private EmotionImageData kBY;
-    private boolean kBZ;
-    private String kCa;
-    private int kCb = 0;
-    private Bitmap kCc;
-    private long kCd;
-    private EmotionImageData kfG;
+    private ImageView gwo;
+    private a iiF;
+    private EmotionEditLayout kKT;
+    private View kKU;
+    private ChooseColorLayout kKV;
+    private int kKW;
+    private EmotionEditText kKX;
+    private EmotionEditModel kKY;
+    private String kKZ;
+    private EmotionImageData kLa;
+    private boolean kLb;
+    private String kLc;
+    private int kLd = 0;
+    private Bitmap kLe;
+    private long kLf;
+    private EmotionImageData kov;
     private String mFrom;
     private int mImageHeight;
     private ImageView mImageView;
@@ -73,88 +73,88 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(R.layout.emotion_edit_activity);
-        this.kfG = (EmotionImageData) getIntent().getSerializableExtra(EmotionEditActivityConfig.EMOTION_DATA);
+        this.kov = (EmotionImageData) getIntent().getSerializableExtra(EmotionEditActivityConfig.EMOTION_DATA);
         this.mIsGif = getIntent().getBooleanExtra(EmotionEditActivityConfig.EMOTION_IS_GIF, false);
         this.mFrom = getIntent().getStringExtra("from");
         initView();
-        this.kBW = new EmotionEditModel(this, this);
+        this.kKY = new EmotionEditModel(this, this);
         addGlobalLayoutListener();
         adjustResizeForSoftInput(R.color.black_alpha40, false);
         this.mInputManager = (InputMethodManager) getSystemService("input_method");
-        this.icD = new a(getPageContext());
-        this.icD.setTipString(R.string.emotion_composition);
-        this.icD.setCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.pbextra.emotion.EmotionEditActivity.1
+        this.iiF = new a(getPageContext());
+        this.iiF.setTipString(R.string.emotion_composition);
+        this.iiF.setCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.pbextra.emotion.EmotionEditActivity.1
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                EmotionEditActivity.this.kBW.setCancel(true);
-                EmotionEditActivity.this.cQR();
-                EmotionEditActivity.this.cev();
+                EmotionEditActivity.this.kKY.setCancel(true);
+                EmotionEditActivity.this.cUH();
+                EmotionEditActivity.this.chU();
             }
         });
     }
 
     private void initView() {
         this.mRootView = findViewById(R.id.root_layout);
-        this.kBR = (EmotionEditLayout) findViewById(R.id.edit_container);
-        this.gqS = (ImageView) findViewById(R.id.close);
-        this.kBS = findViewById(R.id.send);
-        this.kBT = (ChooseColorLayout) findViewById(R.id.choose_color_layout);
-        this.kBT.setOnChooseColorChangeListener(new ChooseColorLayout.a() { // from class: com.baidu.tieba.pbextra.emotion.EmotionEditActivity.2
+        this.kKT = (EmotionEditLayout) findViewById(R.id.edit_container);
+        this.gwo = (ImageView) findViewById(R.id.close);
+        this.kKU = findViewById(R.id.send);
+        this.kKV = (ChooseColorLayout) findViewById(R.id.choose_color_layout);
+        this.kKV.setOnChooseColorChangeListener(new ChooseColorLayout.a() { // from class: com.baidu.tieba.pbextra.emotion.EmotionEditActivity.2
             @Override // com.baidu.tieba.pbextra.emotion.view.ChooseColorLayout.a
-            public void Cb(int i) {
-                EmotionEditActivity.this.kBV.setTextColor(i);
+            public void CB(int i) {
+                EmotionEditActivity.this.kKX.setTextColor(i);
             }
         });
         this.mRootView.setOnClickListener(this);
-        this.gqS.setOnClickListener(this);
-        this.kBS.setOnClickListener(this);
-        this.kBU = l.getEquipmentWidth(getPageContext().getPageActivity()) - getPageContext().getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds300);
-        cQQ();
-        cQP();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.kBR.getLayoutParams();
+        this.gwo.setOnClickListener(this);
+        this.kKU.setOnClickListener(this);
+        this.kKW = l.getEquipmentWidth(getPageContext().getPageActivity()) - getPageContext().getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds300);
+        cUG();
+        cUF();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.kKT.getLayoutParams();
         layoutParams.width = this.mImageWidth + getPageContext().getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds80);
         layoutParams.height = this.mImageHeight + getPageContext().getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds80);
-        this.kBR.setLayoutParams(layoutParams);
-        this.kBV.setMaxImageSize(layoutParams.width - getPageContext().getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds40), layoutParams.height - getPageContext().getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds40));
-        this.kBR.a(this.kBV);
-        this.kBT.setVisibility(8);
+        this.kKT.setLayoutParams(layoutParams);
+        this.kKX.setMaxImageSize(layoutParams.width - getPageContext().getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds40), layoutParams.height - getPageContext().getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds40));
+        this.kKT.a(this.kKX);
+        this.kKV.setVisibility(8);
     }
 
-    private void cQP() {
-        this.kBV = new EmotionEditText(getPageContext().getPageActivity());
+    private void cUF() {
+        this.kKX = new EmotionEditText(getPageContext().getPageActivity());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 81;
         layoutParams.setMargins(0, 0, 0, getPageContext().getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds40));
-        this.kBR.addView(this.kBV, layoutParams);
-        this.kBV.setTextColor(this.kBT.getCurrentChooseColor());
-        this.kBV.getEditText().setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.pbextra.emotion.EmotionEditActivity.3
+        this.kKT.addView(this.kKX, layoutParams);
+        this.kKX.setTextColor(this.kKV.getCurrentChooseColor());
+        this.kKX.getEditText().setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.pbextra.emotion.EmotionEditActivity.3
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (z) {
-                    EmotionEditActivity.this.ShowSoftKeyPad(EmotionEditActivity.this.mInputManager, EmotionEditActivity.this.kBV.getEditText());
+                    EmotionEditActivity.this.ShowSoftKeyPad(EmotionEditActivity.this.mInputManager, EmotionEditActivity.this.kKX.getEditText());
                 } else {
-                    EmotionEditActivity.this.HidenSoftKeyPad(EmotionEditActivity.this.mInputManager, EmotionEditActivity.this.kBV.getEditText());
+                    EmotionEditActivity.this.HidenSoftKeyPad(EmotionEditActivity.this.mInputManager, EmotionEditActivity.this.kKX.getEditText());
                 }
             }
         });
     }
 
-    private void cQQ() {
+    private void cUG() {
         if (this.mIsGif) {
             this.mImageView = new GifView(getPageContext().getPageActivity());
             ((GifView) this.mImageView).setSupportNoImage(false);
             GifInfo gifInfo = new GifInfo();
-            gifInfo.mSharpText = this.kfG.getPicUrl();
-            gifInfo.mDynamicUrl = this.kfG.getPicUrl();
-            gifInfo.mStaticUrl = this.kfG.getThumbUrl();
+            gifInfo.mSharpText = this.kov.getPicUrl();
+            gifInfo.mDynamicUrl = this.kov.getPicUrl();
+            gifInfo.mStaticUrl = this.kov.getThumbUrl();
             this.mImageView.setTag(gifInfo.mSharpText);
             ((GifView) this.mImageView).a(gifInfo);
         } else {
             this.mImageView = new TbImageView(getPageContext().getPageActivity());
             ((TbImageView) this.mImageView).setGifIconSupport(false);
             ((TbImageView) this.mImageView).setAutoChangeStyle(false);
-            ((TbImageView) this.mImageView).startLoad(this.kfG.getPicUrl(), 10, true);
-            c.ln().a(this.kfG.getPicUrl(), 10, new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.pbextra.emotion.EmotionEditActivity.4
+            ((TbImageView) this.mImageView).startLoad(this.kov.getPicUrl(), 10, true);
+            c.ln().a(this.kov.getPicUrl(), 10, new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.pbextra.emotion.EmotionEditActivity.4
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.e.b
@@ -166,9 +166,9 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                             EmotionEditActivity.this.mImageView = new GifView(EmotionEditActivity.this.getPageContext().getPageActivity());
                             ((GifView) EmotionEditActivity.this.mImageView).setSupportNoImage(false);
                             GifInfo gifInfo2 = new GifInfo();
-                            gifInfo2.mSharpText = EmotionEditActivity.this.kfG.getPicUrl();
-                            gifInfo2.mDynamicUrl = EmotionEditActivity.this.kfG.getPicUrl();
-                            gifInfo2.mStaticUrl = EmotionEditActivity.this.kfG.getThumbUrl();
+                            gifInfo2.mSharpText = EmotionEditActivity.this.kov.getPicUrl();
+                            gifInfo2.mDynamicUrl = EmotionEditActivity.this.kov.getPicUrl();
+                            gifInfo2.mStaticUrl = EmotionEditActivity.this.kov.getThumbUrl();
                             EmotionEditActivity.this.mImageView.setTag(gifInfo2.mSharpText);
                             ((GifView) EmotionEditActivity.this.mImageView).a(gifInfo2);
                         }
@@ -176,32 +176,32 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                 }
             }, getUniqueId());
         }
-        this.mImageWidth = this.kfG.getWidth();
-        this.mImageHeight = this.kfG.getHeight();
+        this.mImageWidth = this.kov.getWidth();
+        this.mImageHeight = this.kov.getHeight();
         if (this.mImageWidth == this.mImageHeight) {
-            this.mImageWidth = this.kBU;
-            this.mImageHeight = this.kBU;
+            this.mImageWidth = this.kKW;
+            this.mImageHeight = this.kKW;
         } else if (this.mImageWidth > this.mImageHeight) {
-            this.mImageHeight = (int) ((this.kBU / this.mImageWidth) * this.mImageHeight);
-            this.mImageWidth = this.kBU;
+            this.mImageHeight = (int) ((this.kKW / this.mImageWidth) * this.mImageHeight);
+            this.mImageWidth = this.kKW;
         } else {
-            this.mImageWidth = (int) ((this.kBU / this.mImageHeight) * this.mImageWidth);
-            this.mImageHeight = this.kBU;
+            this.mImageWidth = (int) ((this.kKW / this.mImageHeight) * this.mImageWidth);
+            this.mImageHeight = this.kKW;
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mImageWidth, this.mImageHeight);
         layoutParams.gravity = 17;
-        this.kBR.addView(this.mImageView, layoutParams);
+        this.kKT.addView(this.mImageView, layoutParams);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.gqS) {
+        if (view == this.gwo) {
             finish();
-        } else if (view == this.kBS) {
+        } else if (view == this.kKU) {
             send();
         } else if (view == this.mRootView) {
-            HidenSoftKeyPad(this.mInputManager, this.kBV.getEditText());
+            HidenSoftKeyPad(this.mInputManager, this.kKX.getEditText());
         }
     }
 
@@ -216,101 +216,101 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         }
         this.mPermissionJudgement.clearRequestPermissionList();
         this.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        if (!this.mPermissionJudgement.startRequestPermission(pageActivity) && !this.kBZ) {
-            this.kBW.setCancel(false);
-            this.kBZ = true;
-            this.kCd = System.currentTimeMillis();
-            this.icD.setDialogVisiable(true);
-            HidenSoftKeyPad(this.mInputManager, this.kBV.getEditText());
-            if (TextUtils.isEmpty(this.kBV.getText())) {
-                this.kBY = this.kfG;
-                cQV();
+        if (!this.mPermissionJudgement.startRequestPermission(pageActivity) && !this.kLb) {
+            this.kKY.setCancel(false);
+            this.kLb = true;
+            this.kLf = System.currentTimeMillis();
+            this.iiF.setDialogVisiable(true);
+            HidenSoftKeyPad(this.mInputManager, this.kKX.getEditText());
+            if (TextUtils.isEmpty(this.kKX.getText())) {
+                this.kLa = this.kov;
+                cUL();
                 return;
             }
-            String text = this.kBV.getText();
-            switch (this.kCb) {
+            String text = this.kKX.getText();
+            switch (this.kLd) {
                 case 2:
-                    if (!TextUtils.isEmpty(this.kCa) && this.kCa.equals(text)) {
-                        cQX();
+                    if (!TextUtils.isEmpty(this.kLc) && this.kLc.equals(text)) {
+                        cUN();
                         return;
                     }
                     break;
                 case 3:
-                    if (!TextUtils.isEmpty(this.kCa) && this.kCa.equals(text) && !TextUtils.isEmpty(this.kBX)) {
-                        Kz(this.kBX);
+                    if (!TextUtils.isEmpty(this.kLc) && this.kLc.equals(text) && !TextUtils.isEmpty(this.kKZ)) {
+                        Ln(this.kKZ);
                         return;
                     }
                     break;
             }
-            cQR();
-            this.kCa = this.kBV.getText();
-            cQS();
+            cUH();
+            this.kLc = this.kKX.getText();
+            cUI();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cQR() {
-        if (this.kCc != null && !this.kCc.isRecycled()) {
-            this.kCc.recycle();
-            this.kCc = null;
+    public void cUH() {
+        if (this.kLe != null && !this.kLe.isRecycled()) {
+            this.kLe.recycle();
+            this.kLe = null;
         }
     }
 
-    private void cQS() {
-        this.kBW.KA(this.kBV.getText());
+    private void cUI() {
+        this.kKY.Lo(this.kKX.getText());
     }
 
-    private void cQT() {
-        if (!this.kBW.isCancel()) {
-            this.kBV.getTextView().setBackgroundColor(getPageContext().getResources().getColor(R.color.transparent));
+    private void cUJ() {
+        if (!this.kKY.isCancel()) {
+            this.kKX.getTextView().setBackgroundColor(getPageContext().getResources().getColor(R.color.transparent));
             if (this.mIsGif) {
                 if (this.mImageView instanceof GifView) {
                     ((GifView) this.mImageView).pause();
-                    this.kBW.a(((GifView) this.mImageView).getGif());
+                    this.kKY.a(((GifView) this.mImageView).getGif());
                 }
             } else if (this.mImageView instanceof TbImageView) {
                 com.baidu.adp.widget.ImageView.a bdImage = ((TbImageView) this.mImageView).getBdImage();
                 if (bdImage != null) {
-                    if (!this.kBW.isCancel()) {
-                        Bitmap D = D(bdImage.getRawBitmap());
-                        if (D != null) {
-                            this.kBW.b(D, f.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/emotion.png");
+                    if (!this.kKY.isCancel()) {
+                        Bitmap G = G(bdImage.getRawBitmap());
+                        if (G != null) {
+                            this.kKY.b(G, f.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/emotion.png");
                             return;
                         }
                         showToast(R.string.upload_error);
-                        this.kCb = 2;
-                        cev();
+                        this.kLd = 2;
+                        chU();
                         return;
                     }
                     return;
                 }
                 showToast(R.string.upload_error);
-                this.kCb = 2;
-                cev();
+                this.kLd = 2;
+                chU();
             }
         }
     }
 
-    private void cQU() {
-        if (TextUtils.isEmpty(this.kBX)) {
-            cev();
+    private void cUK() {
+        if (TextUtils.isEmpty(this.kKZ)) {
+            chU();
         } else {
-            this.kBW.aQ(this.kBX, true);
+            this.kKY.aO(this.kKZ, true);
         }
     }
 
-    private void cQV() {
-        if (!this.kBW.isCancel()) {
-            this.kCb = 0;
-            cev();
-            if (this.kBY != null) {
+    private void cUL() {
+        if (!this.kKY.isCancel()) {
+            this.kLd = 0;
+            chU();
+            if (this.kLa != null) {
                 Intent intent = new Intent();
-                intent.putExtra("emotion_data", this.kBY);
+                intent.putExtra("emotion_data", this.kLa);
                 setResult(-1, intent);
                 finish();
-                cQW();
-                if (!TextUtils.isEmpty(this.kBX)) {
-                    File file = new File(this.kBX);
+                cUM();
+                if (!TextUtils.isEmpty(this.kKZ)) {
+                    File file = new File(this.kKZ);
                     if (file.exists()) {
                         file.delete();
                         return;
@@ -323,24 +323,24 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         }
     }
 
-    private void cQW() {
-        ao aoVar = new ao("c12329");
+    private void cUM() {
+        ap apVar = new ap("c12329");
         if (!TextUtils.isEmpty(this.mFrom)) {
             if (EmotionEditActivityConfig.FROM_PB_BOTTOM.equals(this.mFrom)) {
-                aoVar.ag("obj_locate", 1);
+                apVar.ah("obj_locate", 1);
             } else if (EmotionEditActivityConfig.FROM_PB_SEARCH.equals(this.mFrom)) {
-                aoVar.ag("obj_locate", 2);
+                apVar.ah("obj_locate", 2);
             }
         }
-        if (!TextUtils.isEmpty(this.kBV.getText())) {
-            aoVar.ag("obj_type", 1);
+        if (!TextUtils.isEmpty(this.kKX.getText())) {
+            apVar.ah("obj_type", 1);
         } else {
-            aoVar.ag("obj_type", 2);
+            apVar.ah("obj_type", 2);
         }
-        TiebaStatic.log(aoVar);
+        TiebaStatic.log(apVar);
     }
 
-    public Bitmap D(Bitmap bitmap) {
+    public Bitmap G(Bitmap bitmap) {
         if (bitmap == null) {
             return null;
         }
@@ -357,14 +357,14 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         Bitmap createBitmap = Bitmap.createBitmap(this.mIsGif ? width : i, this.mIsGif ? height : i2, config);
         Canvas canvas = new Canvas(createBitmap);
         canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-        if (!TextUtils.isEmpty(this.kBV.getText())) {
+        if (!TextUtils.isEmpty(this.kKX.getText())) {
             if (!this.mIsGif) {
                 height = i2;
                 width = i;
             }
-            Bitmap cN = cN(width, height);
-            if (cN != null) {
-                canvas.drawBitmap(cN, (width * this.kBV.getLeft()) / i, (height * this.kBV.getTop()) / i2, (Paint) null);
+            Bitmap cQ = cQ(width, height);
+            if (cQ != null) {
+                canvas.drawBitmap(cQ, (width * this.kKX.getLeft()) / i, (height * this.kKX.getTop()) / i2, (Paint) null);
             }
         }
         canvas.save(31);
@@ -372,21 +372,21 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         return createBitmap;
     }
 
-    public Bitmap cN(int i, int i2) {
-        if (this.kCc != null) {
-            return this.kCc;
+    public Bitmap cQ(int i, int i2) {
+        if (this.kLe != null) {
+            return this.kLe;
         }
         int i3 = this.mImageWidth;
         int i4 = this.mImageHeight;
-        this.kBV.getTextView().buildDrawingCache();
-        Bitmap drawingCache = this.kBV.getTextView().getDrawingCache();
-        this.kCc = drawingCache;
+        this.kKX.getTextView().buildDrawingCache();
+        Bitmap drawingCache = this.kKX.getTextView().getDrawingCache();
+        this.kLe = drawingCache;
         if (this.mIsGif) {
             Matrix matrix = new Matrix();
             matrix.postScale(i / i3, i2 / i4);
-            this.kCc = Bitmap.createBitmap(drawingCache, 0, 0, drawingCache.getWidth(), drawingCache.getHeight(), matrix, true);
+            this.kLe = Bitmap.createBitmap(drawingCache, 0, 0, drawingCache.getWidth(), drawingCache.getHeight(), matrix, true);
         }
-        return this.kCc;
+        return this.kLe;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -394,12 +394,12 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     public void onKeyboardVisibilityChanged(boolean z) {
         super.onKeyboardVisibilityChanged(z);
         if (z) {
-            this.kBT.setVisibility(0);
-            this.kBV.cRs();
+            this.kKV.setVisibility(0);
+            this.kKX.cVi();
             return;
         }
-        this.kBT.setVisibility(8);
-        this.kBV.cRr();
+        this.kKV.setVisibility(8);
+        this.kKX.cVh();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -416,55 +416,55 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        an.setBackgroundColor(this.mRootView, R.color.black_alpha40);
-        an.setImageResource(this.gqS, R.drawable.icon_emotion_close_n);
-        an.setViewTextColor(this.kBS, (int) R.color.cp_cont_g);
+        ao.setBackgroundColor(this.mRootView, R.color.black_alpha40);
+        ao.setImageResource(this.gwo, R.drawable.icon_emotion_close_n);
+        ao.setViewTextColor(this.kKU, R.color.cp_cont_g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        cQR();
-        if (this.kBW != null) {
-            this.kBW.cancelLoadData();
+        cUH();
+        if (this.kKY != null) {
+            this.kKY.cancelLoadData();
         }
     }
 
     @Override // com.baidu.tieba.pbextra.emotion.model.EmotionEditModel.a
-    public void cQX() {
-        cQT();
+    public void cUN() {
+        cUJ();
     }
 
     @Override // com.baidu.tieba.pbextra.emotion.model.EmotionEditModel.a
-    public void Ky(String str) {
+    public void Lm(String str) {
         showToast(str);
-        this.kCb = 1;
-        cev();
+        this.kLd = 1;
+        chU();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cev() {
-        this.kBV.getTextView().setBackgroundResource(R.drawable.bg_emotion_edit);
-        this.icD.setDialogVisiable(false);
-        this.kBZ = false;
+    public void chU() {
+        this.kKX.getTextView().setBackgroundResource(R.drawable.bg_emotion_edit);
+        this.iiF.setDialogVisiable(false);
+        this.kLb = false;
         if (this.mIsGif) {
             ((GifView) this.mImageView).resume();
         }
     }
 
     @Override // com.baidu.tieba.pbextra.emotion.model.EmotionEditModel.a
-    public void Kz(String str) {
-        this.kBV.getTextView().setBackgroundResource(R.drawable.bg_emotion_edit);
+    public void Ln(String str) {
+        this.kKX.getTextView().setBackgroundResource(R.drawable.bg_emotion_edit);
         if (TextUtils.isEmpty(str)) {
-            cev();
+            chU();
         } else if (!new File(str).exists()) {
-            cev();
+            chU();
         } else {
-            this.kBX = str;
-            this.kCb = 3;
-            BdLog.e("cost time = " + (System.currentTimeMillis() - this.kCd) + "ms");
-            cQU();
+            this.kKZ = str;
+            this.kLd = 3;
+            BdLog.e("cost time = " + (System.currentTimeMillis() - this.kLf) + "ms");
+            cUK();
         }
     }
 
@@ -473,30 +473,30 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         if (imageUploadResult != null) {
             UploadedImageInfo uploadedPicInfo = imageUploadResult.getUploadedPicInfo();
             if (uploadedPicInfo != null) {
-                this.kBY = new EmotionImageData();
-                this.kBY.setPicId(uploadedPicInfo.getPic_id());
-                this.kBY.setWidth(uploadedPicInfo.getWidth());
-                this.kBY.setHeight(uploadedPicInfo.getHeight());
-                if (!TextUtils.isEmpty(this.kfG.getMemeContSign())) {
-                    this.kBY.setMemeContSign(this.kfG.getMemeContSign());
+                this.kLa = new EmotionImageData();
+                this.kLa.setPicId(uploadedPicInfo.getPic_id());
+                this.kLa.setWidth(uploadedPicInfo.getWidth());
+                this.kLa.setHeight(uploadedPicInfo.getHeight());
+                if (!TextUtils.isEmpty(this.kov.getMemeContSign())) {
+                    this.kLa.setMemeContSign(this.kov.getMemeContSign());
                 }
                 ImageUploadResult.picInfo picinfo = imageUploadResult.picInfo;
                 if (picinfo != null) {
-                    this.kBY.setPicUrl(picinfo.originPic.picUrl);
-                    this.kBY.setThumbUrl(picinfo.smallPic.picUrl);
+                    this.kLa.setPicUrl(picinfo.originPic.picUrl);
+                    this.kLa.setThumbUrl(picinfo.smallPic.picUrl);
                 }
-                this.kBY.setMemeText(this.kBV.getText());
-                this.kBY.setAuthorNameShow(this.kfG.getAuthorNameShow());
-                cQV();
+                this.kLa.setMemeText(this.kKX.getText());
+                this.kLa.setAuthorNameShow(this.kov.getAuthorNameShow());
+                cUL();
                 return;
             }
             showToast(R.string.upload_error);
-            this.kCb = 3;
-            cev();
+            this.kLd = 3;
+            chU();
             return;
         }
         showToast(R.string.upload_error);
-        this.kCb = 3;
-        cev();
+        this.kLd = 3;
+        chU();
     }
 }

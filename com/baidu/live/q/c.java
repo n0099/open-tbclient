@@ -1,17 +1,17 @@
 package com.baidu.live.q;
 
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface c {
-    View GB();
+    View GI();
 
-    b GC();
+    b GJ();
 
-    b GD();
+    b GK();
 
-    void GE();
+    void GL();
 
-    void GF();
+    void GM();
 
     void destory();
 }

@@ -13,74 +13,74 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes13.dex */
 public class ImageProblemItemView extends FrameLayout {
-    protected LinearLayout eqD;
-    protected TextView eqE;
-    protected ImageView eqH;
-    protected LinearLayout jmq;
-    protected TextView jmr;
+    protected LinearLayout ewV;
+    protected TextView ewW;
+    protected ImageView ewZ;
+    protected LinearLayout juU;
+    protected TextView juV;
     protected Context mContext;
     protected TextView textView;
 
     public ImageProblemItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        bdE();
+        bhn();
         e(attributeSet);
     }
 
     public ImageProblemItemView(Context context) {
         super(context);
         this.mContext = context;
-        bdE();
+        bhn();
     }
 
     public void displayTip() {
-        if (this.eqE != null) {
-            this.eqE.setVisibility(0);
+        if (this.ewW != null) {
+            this.ewW.setVisibility(0);
         }
     }
 
     public void hideTip() {
-        if (this.eqE != null) {
-            this.eqE.setVisibility(8);
+        if (this.ewW != null) {
+            this.ewW.setVisibility(8);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.eqE != null) {
-            this.eqE.setTextColor(i);
+        if (this.ewW != null) {
+            this.ewW.setTextColor(i);
         }
     }
 
     public void hideArrow() {
-        this.eqH.setVisibility(8);
+        this.ewZ.setVisibility(8);
     }
 
     public void displayArrow() {
-        this.eqH.setVisibility(0);
+        this.ewZ.setVisibility(0);
     }
 
     public void setArrowImg(int i) {
-        this.eqH.setImageResource(i);
+        this.ewZ.setImageResource(i);
     }
 
     public void setHelpText(String str) {
         if (TextUtils.isEmpty(str)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jmq.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.juU.getLayoutParams();
             layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.ds26);
-            this.jmq.setLayoutParams(layoutParams);
-            this.jmr.setText("");
-            this.jmr.setVisibility(8);
+            this.juU.setLayoutParams(layoutParams);
+            this.juV.setText("");
+            this.juV.setVisibility(8);
             return;
         }
-        this.jmq.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.jmq.getLayoutParams();
+        this.juU.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.juU.getLayoutParams();
         layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.ds10);
-        this.jmq.setLayoutParams(layoutParams2);
-        this.jmr.setText(str);
-        this.jmr.setVisibility(0);
+        this.juU.setLayoutParams(layoutParams2);
+        this.juV.setText(str);
+        this.juV.setVisibility(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -103,33 +103,33 @@ public class ImageProblemItemView extends FrameLayout {
     }
 
     public void setTip(String str) {
-        this.eqE.setText(str);
+        this.ewW.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.eqE.getText();
+        return this.ewW.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.eqE.setBackgroundDrawable(drawable);
+        this.ewW.setBackgroundDrawable(drawable);
     }
 
-    protected void bdE() {
+    protected void bhn() {
         LayoutInflater.from(this.mContext).inflate(R.layout.image_problem_item_view, (ViewGroup) this, true);
-        this.eqD = (LinearLayout) findViewById(R.id.container);
+        this.ewV = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.eqE = (TextView) findViewById(R.id.tip);
-        this.eqH = (ImageView) findViewById(R.id.arrow2);
-        this.jmq = (LinearLayout) findViewById(R.id.ll_container);
-        this.jmr = (TextView) findViewById(R.id.tv_help);
+        this.ewW = (TextView) findViewById(R.id.tip);
+        this.ewZ = (ImageView) findViewById(R.id.arrow2);
+        this.juU = (LinearLayout) findViewById(R.id.ll_container);
+        this.juV = (TextView) findViewById(R.id.tv_help);
     }
 
     protected void e(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, R.styleable.TbSettingView);
-        String string = obtainStyledAttributes.getString(5);
-        int color = obtainStyledAttributes.getColor(3, -1);
-        String string2 = obtainStyledAttributes.getString(1);
-        int color2 = obtainStyledAttributes.getColor(4, -1);
+        String string = obtainStyledAttributes.getString(R.styleable.TbSettingView_settingText);
+        int color = obtainStyledAttributes.getColor(R.styleable.TbSettingView_settingTextColor, -1);
+        String string2 = obtainStyledAttributes.getString(R.styleable.TbSettingView_settingTip);
+        int color2 = obtainStyledAttributes.getColor(R.styleable.TbSettingView_settingTipColor, -1);
         if (string != null) {
             this.textView.setText(string);
         }
@@ -137,14 +137,14 @@ public class ImageProblemItemView extends FrameLayout {
             this.textView.setTextColor(color);
         }
         if (string2 != null) {
-            this.eqE.setText(string2);
+            this.ewW.setText(string2);
         }
         if (color2 > -1) {
-            this.eqE.setTextColor(color2);
+            this.ewW.setTextColor(color2);
         }
         obtainStyledAttributes.recycle();
-        this.eqD.setClickable(false);
-        this.eqD.setFocusable(false);
-        this.eqH.setVisibility(4);
+        this.ewV.setClickable(false);
+        this.ewV.setFocusable(false);
+        this.ewZ.setVisibility(4);
     }
 }

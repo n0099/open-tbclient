@@ -8,7 +8,7 @@ import android.content.pm.Signature;
 import com.sina.weibo.sdk.ApiUtils;
 import com.sina.weibo.sdk.auth.WbAppInfo;
 import com.sina.weibo.sdk.constant.WBConstants;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SecurityHelper {
     public static boolean validateAppSignatureForIntent(Context context, Intent intent) {
         ResolveInfo resolveActivity;

@@ -1,7 +1,8 @@
 package com.coremedia.iso;
 
+import com.baidu.searchbox.account.contants.AccountConstants;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public final class IsoTypeWriter {
     static final /* synthetic */ boolean $assertionsDisabled;
 
@@ -17,14 +18,14 @@ public final class IsoTypeWriter {
     }
 
     public static void writeUInt32(ByteBuffer byteBuffer, long j) {
-        if (!$assertionsDisabled && (j < 0 || j > 4294967296L)) {
+        if (!$assertionsDisabled && (j < 0 || j > AccountConstants.TYPE_MODIFY_EXT_FIELDS)) {
             throw new AssertionError("The given long is not in the range of uint32 (" + j + ")");
         }
         byteBuffer.putInt((int) j);
     }
 
     public static void writeUInt32BE(ByteBuffer byteBuffer, long j) {
-        if (!$assertionsDisabled && (j < 0 || j > 4294967296L)) {
+        if (!$assertionsDisabled && (j < 0 || j > AccountConstants.TYPE_MODIFY_EXT_FIELDS)) {
             throw new AssertionError("The given long is not in the range of uint32 (" + j + ")");
         }
         writeUInt16BE(byteBuffer, ((int) j) & 65535);

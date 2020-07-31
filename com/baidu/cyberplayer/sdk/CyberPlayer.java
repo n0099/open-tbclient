@@ -2,21 +2,26 @@ package com.baidu.cyberplayer.sdk;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import java.io.FileDescriptor;
-import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes.dex */
-public class CyberPlayer {
+/* loaded from: classes10.dex */
+public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaInstanceManagerProvider.OnClientInstanceHandler {
     private PlayerProvider a;
     private boolean b;
+    private boolean c;
+    private int d;
+    private MediaInstanceState e;
+    private CyberPlayerManager.OnErrorListener f;
 
     public CyberPlayer() {
         this(0, null);
@@ -32,7 +37,67 @@ public class CyberPlayer {
 
     public CyberPlayer(int i, CyberPlayerManager.HttpDNS httpDNS, boolean z) {
         this.b = true;
-        this.a = k.a().a(i, httpDNS, z);
+        this.c = true;
+        this.d = 0;
+        this.a = l.a().a(i, httpDNS, z);
+        if (z && a() && MultiInstanceManager.getInstance() != null) {
+            this.d = MultiInstanceManager.getInstance().registerInstance(this);
+            CyberLog.i("CyberPlayer", "[MultiInstanceManager] register instance: " + this.d);
+            if (this.d > 0) {
+                this.e = new MediaInstanceState();
+                this.e.updateInstanceState(0);
+                this.e.updateDns(httpDNS);
+                this.e.updateDecoderMode(i);
+                this.e.updateRemote(z);
+            }
+        }
+    }
+
+    private void a(boolean z) {
+        if (this.e != null) {
+            this.a = l.a().a(this.e.getDecoderMode(), this.e.dns(), z);
+        }
+        if (this.a == null || this.e == null) {
+            return;
+        }
+        if (!z) {
+            this.a.setOnPreparedListener(this.e.getOnPreparedListener());
+        }
+        this.a.setOnCompletionListener(this.e.getOnCompletionListener());
+        this.a.setOnBufferingUpdateListener(this.e.getOnBufferingUpdateListener());
+        this.a.setOnSeekCompleteListener(this.e.getOnSeekCompleteListener());
+        this.a.setOnVideoSizeChangedListener(this.e.getOnVideoSizeChangedListener());
+        this.a.setOnErrorListener(this);
+        this.a.setOnInfoListener(this.e.getOnInfoListener());
+        Bundle instanceStatusByType = MultiInstanceManager.getInstance().getInstanceStatusByType(this.d, 0);
+        if (instanceStatusByType != null) {
+            for (String str : instanceStatusByType.keySet()) {
+                setOption(str, instanceStatusByType.getString(str));
+            }
+        }
+        float lRVolume = this.e.getLRVolume();
+        if (lRVolume >= 0.0f) {
+            setVolume(lRVolume, lRVolume);
+        }
+        this.a.muteOrUnmuteAudio(this.e.getPlayStateByType(0));
+        this.a.setLooping(this.e.getPlayStateByType(1));
+        this.a.setEnableDumediaUA(this.b);
+        if (this.e.getInstanceContext() != null) {
+            setDataSource(this.e.getInstanceContext(), this.e.getInstanceUri(), this.e.getInstanceHeader());
+        } else if (this.e.getInstanceUri() != null) {
+            setDataSource(this.e.getInstanceUri().getPath(), this.e.getInstanceHeader());
+        } else {
+            CyberLog.i("CyberPlayer", "[MultiInstanceManager] esumeInstance failed, source is null");
+        }
+        this.a.setSurface(this.e.getInstanceSurface());
+        this.a.prepareAsync();
+        if (this.e.getCurrentPosition() >= 0) {
+            seekTo(this.e.getCurrentPosition());
+        }
+    }
+
+    private boolean a() {
+        return CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_MULTI_INSTANCE, false);
     }
 
     public void changeProxyDynamic(String str, boolean z) {
@@ -45,12 +110,18 @@ public class CyberPlayer {
         if (this.a != null) {
             return this.a.getCurrentPosition();
         }
+        if (this.d > 0) {
+            return this.e.getCurrentPosition();
+        }
         return 0;
     }
 
     public int getCurrentPositionSync() {
         if (this.a != null) {
             return this.a.getCurrentPositionSync();
+        }
+        if (this.d > 0) {
+            return this.e.getCurrentPosition();
         }
         return 0;
     }
@@ -79,6 +150,9 @@ public class CyberPlayer {
     public long getPlayedTime() {
         if (this.a != null) {
             return this.a.getPlayedTime();
+        }
+        if (this.d > 0) {
+            return this.e.getPlayedTime();
         }
         return 0L;
     }
@@ -116,11 +190,98 @@ public class CyberPlayer {
         if (this.a != null) {
             this.a.muteOrUnmuteAudio(z);
         }
+        if (this.d <= 0 || this.e == null) {
+            return;
+        }
+        this.e.updatePlayStateByType(0, z);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider.OnClientInstanceHandler
+    public boolean onDestroyInstance() {
+        CyberLog.i("CyberPlayer", "[MultiInstanceManager] onDestroyInstance:" + this.d);
+        if (this.a == null || this.d <= 0) {
+            return false;
+        }
+        this.e.updateSeekPos(getCurrentPosition(), getDuration());
+        this.e.updatePlayedTime(getPlayedTime());
+        this.e.updateDownLoadSpeed(getDownloadSpeed());
+        this.e.updateDecoderMode(getDecodeMode());
+        this.e.updateInstanceDecodeMode(getDecodeMode());
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("multi_instance_destroy", this.e.getInstanceStaticsCount(true));
+            sendCommand(1003, 0, 0L, jSONObject.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        this.a.stop();
+        this.a.release();
+        this.a = null;
+        this.e.updateInstanceState(0);
+        return true;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
+    public boolean onError(int i, int i2, Object obj) {
+        if (CyberCfgManager.getInstance().a(CyberCfgManager.KEY_INT_REMOTE_RESUME_FORBIDDEN, false) || !(i == -30000 || i == -30001)) {
+            if (this.d > 0) {
+                MultiInstanceManager.getInstance().unRegisterInstance(this.d);
+                CyberLog.i("CyberPlayer", "[MultiInstanceManager] unRegister instance:" + this.d);
+                this.d = 0;
+                this.e.release();
+                this.e = null;
+            }
+            return this.f != null && this.f.onError(i, i2, obj);
+        } else if (this.d <= 0 || this.a == null) {
+            return true;
+        } else {
+            this.a.stop();
+            this.a.release();
+            a(true);
+            if (this.e != null) {
+                if (this.e.getPlayingStatus()) {
+                    start();
+                } else {
+                    pause();
+                }
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("multi_instance_resume_process", "1");
+                sendCommand(1003, 0, 0L, jSONObject.toString());
+                return true;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return true;
+            }
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider.OnClientInstanceHandler
+    public boolean onResumeInstance() {
+        CyberLog.i("CyberPlayer", "[MultiInstanceManager] onResumeInstance:" + this.d);
+        if (this.d <= 0 || this.a != null) {
+            return false;
+        }
+        a(this.e.isRemote());
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("multi_instance_resume", this.e.getInstanceStaticsCount(false));
+            sendCommand(1003, 0, 0L, jSONObject.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
     public void pause() {
         if (this.a != null) {
             this.a.pause();
+        }
+        if (this.d > 0) {
+            this.e.updatePlayingStatus(false);
+            this.e.updateSeekPos(getCurrentPosition(), getDuration());
+            MultiInstanceManager.getInstance().updateInstanceTimestamp(this.d, System.currentTimeMillis());
         }
     }
 
@@ -134,7 +295,24 @@ public class CyberPlayer {
         if (this.a != null) {
             this.a.release();
         }
-        m.j();
+        if (this.c) {
+            setOnPreparedListener(null);
+            setOnCompletionListener(null);
+            setOnBufferingUpdateListener(null);
+            setOnSeekCompleteListener(null);
+            setOnVideoSizeChangedListener(null);
+            setOnErrorListener(null);
+            setOnInfoListener(null);
+        }
+        if (this.d > 0) {
+            MultiInstanceManager.getInstance().unRegisterInstance(this.d);
+            CyberLog.i("CyberPlayer", "[MultiInstanceManager] unRegister instance:" + this.d);
+            this.d = 0;
+            this.e.release();
+            this.e = null;
+        }
+        this.f = null;
+        n.j();
         CyberCfgManager.getInstance().a();
     }
 
@@ -165,21 +343,15 @@ public class CyberPlayer {
                 this.a.setDataSource(context, Uri.parse(a));
             }
         }
+        if (this.d > 0) {
+            this.e.updateDataSource(context, uri, null);
+        }
     }
 
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
         if (this.a != null) {
             if (this.b) {
-                if (map == null) {
-                    map = new HashMap<>();
-                }
-                String str = map.get("User-Agent");
-                if (TextUtils.isEmpty(str)) {
-                    str = "dumedia/7.7.2.20";
-                } else if (str.indexOf("dumedia") == -1) {
-                    str = str + " dumedia/" + SDKVersion.VERSION;
-                }
-                map.put("User-Agent", str);
+                map = n.a(map);
             }
             String a = CyberCfgManager.getInstance().a("force_url", (String) null);
             if (TextUtils.isEmpty(a)) {
@@ -187,6 +359,9 @@ public class CyberPlayer {
             } else {
                 this.a.setDataSource(context, Uri.parse(a), map);
             }
+        }
+        if (this.d > 0) {
+            this.e.updateDataSource(context, uri, map);
         }
     }
 
@@ -197,13 +372,23 @@ public class CyberPlayer {
     }
 
     public void setDataSource(String str) {
+        setDataSource(str, (Map<String, String>) null);
+    }
+
+    public void setDataSource(String str, Map<String, String> map) {
         if (this.a != null) {
+            if (this.b) {
+                map = n.a(map);
+            }
             String a = CyberCfgManager.getInstance().a("force_url", (String) null);
             if (TextUtils.isEmpty(a)) {
-                this.a.setDataSource(str);
+                this.a.setDataSource(str, map);
             } else {
-                this.a.setDataSource(a);
+                this.a.setDataSource(a, map);
             }
+        }
+        if (this.d > 0) {
+            this.e.updateDataSource(null, Uri.parse(str), map);
         }
     }
 
@@ -211,6 +396,10 @@ public class CyberPlayer {
         if (this.a != null) {
             this.a.setDisplay(surfaceHolder);
         }
+        if (this.d <= 0 || surfaceHolder == null) {
+            return;
+        }
+        this.e.updateSurface(surfaceHolder.getSurface());
     }
 
     public void setEnableDumediaUA(boolean z) {
@@ -250,9 +439,16 @@ public class CyberPlayer {
         }
     }
 
+    public void setIsInMainProcess(boolean z) {
+        this.c = z;
+    }
+
     public void setLooping(boolean z) {
         if (this.a != null) {
             this.a.setLooping(z);
+        }
+        if (this.d > 0) {
+            this.e.updatePlayStateByType(1, z);
         }
     }
 
@@ -260,17 +456,24 @@ public class CyberPlayer {
         if (this.a != null) {
             this.a.setOnBufferingUpdateListener(onBufferingUpdateListener);
         }
+        if (this.d > 0) {
+            this.e.setOnBufferingUpdateListener(onBufferingUpdateListener);
+        }
     }
 
     public void setOnCompletionListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
         if (this.a != null) {
             this.a.setOnCompletionListener(onCompletionListener);
         }
+        if (this.d > 0) {
+            this.e.setOnCompletionListener(onCompletionListener);
+        }
     }
 
     public void setOnErrorListener(CyberPlayerManager.OnErrorListener onErrorListener) {
+        this.f = onErrorListener;
         if (this.a != null) {
-            this.a.setOnErrorListener(onErrorListener);
+            this.a.setOnErrorListener(this);
         }
     }
 
@@ -278,11 +481,18 @@ public class CyberPlayer {
         if (this.a != null) {
             this.a.setOnInfoListener(onInfoListener);
         }
+        if (this.d <= 0 || this.e == null) {
+            return;
+        }
+        this.e.setOnInfoListener(onInfoListener);
     }
 
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
         if (this.a != null) {
             this.a.setOnPreparedListener(onPreparedListener);
+        }
+        if (this.d > 0) {
+            this.e.setOnPreparedListener(onPreparedListener);
         }
     }
 
@@ -290,11 +500,17 @@ public class CyberPlayer {
         if (this.a != null) {
             this.a.setOnSeekCompleteListener(onSeekCompleteListener);
         }
+        if (this.d > 0) {
+            this.e.setOnSeekCompleteListener(onSeekCompleteListener);
+        }
     }
 
     public void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener) {
         if (this.a != null) {
             this.a.setOnVideoSizeChangedListener(onVideoSizeChangedListener);
+        }
+        if (this.d > 0) {
+            this.e.setOnVideoSizeChangedListener(onVideoSizeChangedListener);
         }
     }
 
@@ -306,10 +522,12 @@ public class CyberPlayer {
     }
 
     public void setOption(String str, String str2) {
-        if (this.a == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return;
+        if (this.a != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            this.a.setOption(str, str2);
         }
-        this.a.setOption(str, str2);
+        if (this.d > 0) {
+            MultiInstanceManager.getInstance().updateStringOption(this.d, str, str2);
+        }
     }
 
     public void setScreenOnWhilePlaying(boolean z) {
@@ -328,6 +546,9 @@ public class CyberPlayer {
         if (this.a != null) {
             this.a.setSurface(surface);
         }
+        if (this.d > 0) {
+            this.e.updateSurface(surface);
+        }
     }
 
     public void setVolume(float f, float f2) {
@@ -343,6 +564,14 @@ public class CyberPlayer {
     }
 
     public void start() {
+        if (this.d > 0) {
+            if (this.e.needActiveInstance()) {
+                CyberLog.i("CyberPlayer", "[MultiInstanceManager] active instance: " + this.d);
+                MultiInstanceManager.getInstance().activeInstance(this.d);
+                this.e.updateInstanceState(1);
+            }
+            this.e.updatePlayingStatus(true);
+        }
         if (this.a != null) {
             this.a.start();
         }

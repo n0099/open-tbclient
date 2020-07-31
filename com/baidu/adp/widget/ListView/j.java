@@ -8,7 +8,7 @@ import com.baidu.adp.widget.ListView.ad;
 import com.baidu.adp.widget.ListView.ad.a;
 /* loaded from: classes.dex */
 public class j<V extends ad.a> extends a<i, V> {
-    private a<q, V> Vu;
+    private a<q, V> Vn;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.ad$a] */
     /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: com.baidu.adp.widget.ListView.ad$a */
@@ -23,46 +23,46 @@ public class j<V extends ad.a> extends a<i, V> {
     }
 
     public void a(a aVar) {
-        this.Vu = aVar;
+        this.Vn = aVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.a
     public V b(ViewGroup viewGroup) {
-        if (this.Vu == null) {
+        if (this.Vn == null) {
             return null;
         }
-        if (this.Un == this.Vu.pe()) {
-            return this.Vu.c(viewGroup);
+        if (this.Uh == this.Vn.pf()) {
+            return this.Vn.c(viewGroup);
         }
-        if (this.Un == this.Vu.pf()) {
-            return this.Vu.d(viewGroup);
+        if (this.Uh == this.Vn.pg()) {
+            return this.Vn.d(viewGroup);
         }
-        if (this.Un == this.Vu.pg()) {
-            return this.Vu.e(viewGroup);
+        if (this.Uh == this.Vn.ph()) {
+            return this.Vn.e(viewGroup);
         }
-        if (this.Un == this.Vu.ph()) {
-            return this.Vu.f(viewGroup);
+        if (this.Uh == this.Vn.pi()) {
+            return this.Vn.f(viewGroup);
         }
-        return this.Vu.b(viewGroup);
+        return this.Vn.b(viewGroup);
     }
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public View a2(int i, View view, ViewGroup viewGroup, i iVar, V v) {
-        if (this.Vu == null) {
+        if (this.Vn == null) {
             return null;
         }
-        if (this.Un == this.Vu.pe()) {
-            return this.Vu.b(i, view, viewGroup, iVar.po(), v);
+        if (this.Uh == this.Vn.pf()) {
+            return this.Vn.b(i, view, viewGroup, iVar.pp(), v);
         }
-        if (this.Un == this.Vu.pf()) {
-            return this.Vu.c(i, view, viewGroup, iVar.po(), v);
+        if (this.Uh == this.Vn.pg()) {
+            return this.Vn.c(i, view, viewGroup, iVar.pp(), v);
         }
-        if (this.Un == this.Vu.pg()) {
-            return this.Vu.d(i, view, viewGroup, iVar.po(), v);
+        if (this.Uh == this.Vn.ph()) {
+            return this.Vn.d(i, view, viewGroup, iVar.pp(), v);
         }
-        if (this.Un == this.Vu.ph()) {
-            return this.Vu.e(i, view, viewGroup, iVar.po(), v);
+        if (this.Uh == this.Vn.pi()) {
+            return this.Vn.e(i, view, viewGroup, iVar.pp(), v);
         }
-        return this.Vu.a(i, view, viewGroup, iVar.po(), v);
+        return this.Vn.a(i, view, viewGroup, iVar.pp(), v);
     }
 }

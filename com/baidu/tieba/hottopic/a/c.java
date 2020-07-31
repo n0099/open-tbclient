@@ -4,24 +4,24 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.ad;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class c extends ad.a {
-    public int ahx;
-    public View iFv;
-    public TextView iFw;
+    public int aho;
+    public TextView iLA;
+    public View iLz;
 
     public c(View view) {
         super(view);
-        this.ahx = 3;
-        this.iFv = null;
-        this.iFw = null;
-        ck(view);
+        this.aho = 3;
+        this.iLz = null;
+        this.iLA = null;
+        cq(view);
     }
 
-    private void ck(View view) {
+    private void cq(View view) {
         if (view != null) {
-            this.iFv = view.findViewById(R.id.top_divider_line);
-            this.iFw = (TextView) view.findViewById(R.id.item_theme_title);
+            this.iLz = view.findViewById(R.id.top_divider_line);
+            this.iLA = (TextView) view.findViewById(R.id.item_theme_title);
         }
     }
 }

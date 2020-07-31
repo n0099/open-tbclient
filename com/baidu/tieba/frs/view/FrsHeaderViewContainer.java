@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class FrsHeaderViewContainer extends LinearLayout {
     public FrsHeaderViewContainer(Context context) {
         super(context);

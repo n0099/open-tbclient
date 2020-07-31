@@ -2,7 +2,7 @@ package com.google.zxing;
 
 import com.google.zxing.common.BitArray;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public abstract class Binarizer {
     private final LuminanceSource source;
 

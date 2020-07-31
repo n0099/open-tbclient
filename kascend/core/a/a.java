@@ -3,13 +3,13 @@ package kascend.core.a;
 import android.content.Context;
 import android.text.TextUtils;
 import kascend.core.KSDevice;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public abstract class a {
     protected Context context;
-    protected a nOV;
-    protected KSDevice nOW;
+    protected a nXE;
+    protected KSDevice nXF;
 
-    public abstract void Sp(String str);
+    public abstract void Ta(String str);
 
     public abstract String getDS();
 
@@ -18,32 +18,32 @@ public abstract class a {
     }
 
     public void a(a aVar) {
-        this.nOV = aVar;
+        this.nXE = aVar;
     }
 
     public void a(KSDevice kSDevice) {
-        this.nOW = kSDevice;
+        this.nXF = kSDevice;
     }
 
-    public String dQj() {
+    public String dTF() {
         String ds = getDS();
         if (TextUtils.isEmpty(ds)) {
-            if (this.nOV == null) {
-                return dQk();
+            if (this.nXE == null) {
+                return dTG();
             }
-            return this.nOV.dQj();
+            return this.nXE.dTF();
         }
         return ds;
     }
 
-    public void So(String str) {
-        Sp(str);
-        if (this.nOV != null) {
-            this.nOV.Sp(str);
+    public void SZ(String str) {
+        Ta(str);
+        if (this.nXE != null) {
+            this.nXE.Ta(str);
         }
     }
 
-    public String dQk() {
-        return this.nOW != null ? this.nOW.getDeviceId() : "";
+    public String dTG() {
+        return this.nXF != null ? this.nXF.getDeviceId() : "";
     }
 }

@@ -1,10 +1,10 @@
 package com.baidu.swan.pms.c.a.d;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class e {
-    com.baidu.swan.pms.model.a dqN;
-    com.baidu.swan.pms.model.e dqO;
+    com.baidu.swan.pms.model.a dwF;
+    com.baidu.swan.pms.model.e dwG;
 
     public e(com.baidu.swan.pms.model.e eVar) {
-        this.dqO = eVar;
+        this.dwG = eVar;
     }
 }

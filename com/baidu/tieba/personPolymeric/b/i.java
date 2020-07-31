@@ -6,14 +6,14 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.data.m;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class i {
-    public static String e(TbPageContext tbPageContext, String str) {
+    public static String g(TbPageContext tbPageContext, String str) {
         if (tbPageContext == null || StringUtils.isNull(str)) {
             return null;
         }
@@ -24,9 +24,9 @@ public class i {
     }
 
     public static void a(m mVar, BdUniqueId bdUniqueId) {
-        if (mVar != null && !StringUtils.isNull(mVar.beF()) && w.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
+        if (mVar != null && !StringUtils.isNull(mVar.bio()) && x.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(1003063);
-            httpMessage.addParam("pic_url", mVar.beF());
+            httpMessage.addParam("pic_url", mVar.bio());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -34,13 +34,13 @@ public class i {
 
     public static void a(m mVar, List<q> list) {
         m mVar2;
-        if (mVar != null && !w.isEmpty(list) && !StringUtils.isNull(mVar.beF())) {
+        if (mVar != null && !x.isEmpty(list) && !StringUtils.isNull(mVar.bio())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 q qVar = list.get(i);
-                if ((qVar instanceof m) && (mVar2 = (m) qVar) != mVar && !mVar2.beG()) {
-                    jSONArray.put(mVar2.beF());
+                if ((qVar instanceof m) && (mVar2 = (m) qVar) != mVar && !mVar2.bip()) {
+                    jSONArray.put(mVar2.bio());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(1003064);
@@ -65,8 +65,8 @@ public class i {
                 q qVar = list.get(i);
                 if (qVar instanceof m) {
                     m mVar = (m) qVar;
-                    if (!mVar.beG()) {
-                        jSONArray.put(mVar.beF());
+                    if (!mVar.bip()) {
+                        jSONArray.put(mVar.bio());
                     }
                 }
             }

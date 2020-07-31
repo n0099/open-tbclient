@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
     private List<com.baidu.tieba.im.data.a> mDatas;
     private int mErrCode;
@@ -54,7 +54,7 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
                     } else {
                         aVar.setStatus(1);
                     }
-                    aVar.yg(1);
+                    aVar.yB(1);
                     this.mDatas.add(aVar);
                 }
             }

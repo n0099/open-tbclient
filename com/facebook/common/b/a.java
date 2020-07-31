@@ -4,12 +4,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.AbstractExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes13.dex */
+/* loaded from: classes12.dex */
 public class a extends AbstractExecutorService {
-    private static final a mIu = new a();
+    private static final a mQx = new a();
 
-    public static a dzd() {
-        return mIu;
+    public static a dCp() {
+        return mQx;
     }
 
     private a() {

@@ -13,34 +13,34 @@ import java.util.Collection;
 import java.util.concurrent.Executor;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public abstract class TurbonetEngine {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     public enum AppState {
         APP_STATE_BACKGROUND,
         APP_STATE_FOREGROUND
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     public enum QUICConnectStatus {
         UNKNOWN,
         REACHABLE,
         UNREACHABLE
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     public interface RequestFinishedListener {
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     public enum TCPNetworkQualityStatus {
         UNKNOWN,
         WEAK,
         NORMAL
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     public static final class UrlRequestInfo {
     }
 
@@ -50,80 +50,80 @@ public abstract class TurbonetEngine {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void a(String str, String str2, int i, int i2, long j, long j2, long j3, long j4);
 
-    public abstract boolean dvu();
+    public abstract boolean dyH();
 
     abstract boolean isEnabled();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     public static class Builder {
-        private String dvh;
-        private boolean mAB;
+        private String dAX;
         private String mAppName;
-        private String mBV;
-        private String mBX;
-        private LibraryLoader mBY;
-        private String mBZ;
-        private boolean mCa;
-        private boolean mCb;
-        private int mCc;
-        private long mCd;
-        private JSONObject mCe;
-        private String mCf;
         private final Context mContext;
+        private boolean mIK;
+        private boolean mIf;
+        private String mKd;
+        private String mKf;
+        private LibraryLoader mKg;
+        private String mKh;
+        private boolean mKi;
+        private boolean mKj;
+        private int mKk;
+        private long mKl;
+        private JSONObject mKm;
+        private String mKn;
         private String mUserAgent;
-        private boolean mzZ;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes.dex */
+        /* loaded from: classes19.dex */
         public @interface HttpCacheSetting {
         }
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes19.dex */
         public static abstract class LibraryLoader {
             public abstract void loadLibrary(String str);
         }
 
         public Builder(Context context) {
             this.mContext = context;
-            PD("turbonet");
-            this.mCe = new JSONObject();
-            wk(false);
+            Qo("turbonet");
+            this.mKm = new JSONObject();
+            wP(false);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void dvT() {
-            if (this.mBY == null) {
-                if (this.mBZ.equals("turbonet")) {
-                    System.loadLibrary(this.mBZ);
+        public void dzg() {
+            if (this.mKg == null) {
+                if (this.mKh.equals("turbonet")) {
+                    System.loadLibrary(this.mKh);
                     return;
                 } else {
-                    System.load(this.mBZ);
+                    System.load(this.mKh);
                     return;
                 }
             }
-            this.mBY.loadLibrary(this.mBZ);
+            this.mKg.loadLibrary(this.mKh);
         }
 
-        public Builder PD(String str) {
-            this.mBZ = str;
+        public Builder Qo(String str) {
+            this.mKh = str;
             return this;
         }
 
-        private void e(String str, String str2, Object obj) {
+        private void f(String str, String str2, Object obj) {
             try {
-                JSONObject optJSONObject = this.mCe.optJSONObject(str);
+                JSONObject optJSONObject = this.mKm.optJSONObject(str);
                 if (optJSONObject == null) {
                     optJSONObject = new JSONObject();
                 }
                 optJSONObject.put(str2, obj);
-                this.mCe.put(str, optJSONObject);
+                this.mKm.put(str, optJSONObject);
             } catch (JSONException e) {
                 throw new IllegalStateException("JSON expcetion:", e);
             }
         }
 
-        public Builder PE(String str) {
-            e(SchemeCollecter.CLASSIFY_BASE, "user_agent", str);
+        public Builder Qp(String str) {
+            f(SchemeCollecter.CLASSIFY_BASE, "user_agent", str);
             this.mUserAgent = str;
             return this;
         }
@@ -133,91 +133,91 @@ public abstract class TurbonetEngine {
             return this.mUserAgent;
         }
 
-        public Builder wk(boolean z) {
-            e(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
-            this.mCa = z;
+        public Builder wP(boolean z) {
+            f(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
+            this.mKi = z;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean dvU() {
-            return this.mCa;
+        public boolean dzh() {
+            return this.mKi;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean dvV() {
-            return this.mCb;
+        public boolean dzi() {
+            return this.mKj;
         }
 
-        public Builder PF(String str) {
+        public Builder Qq(String str) {
             if (!new File(str).isDirectory()) {
                 throw new IllegalArgumentException("Storage path must be set to existing directory");
             }
-            this.mBV = str;
+            this.mKd = str;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String dvP() {
-            return this.mBV;
+        public String dzc() {
+            return this.mKd;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public boolean cacheDisabled() {
-            return this.mzZ;
+            return this.mIf;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public long dvW() {
-            return this.mCd;
+        public long dzj() {
+            return this.mKl;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public int dvX() {
-            return this.mCc;
+        public int dzk() {
+            return this.mKk;
         }
 
         public String getAppPackageName() {
-            return this.dvh;
+            return this.dAX;
         }
 
         public Builder F(boolean z, String str) {
-            e("nq", "network_quality_enabled", Boolean.valueOf(z));
-            e("nq", "watched_groups", str);
-            this.mAB = z;
+            f("nq", "network_quality_enabled", Boolean.valueOf(z));
+            f("nq", "watched_groups", str);
+            this.mIK = z;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean dvY() {
-            return this.mAB;
+        public boolean dzl() {
+            return this.mIK;
         }
 
-        public Builder PG(String str) {
-            e("app", "cuid", str);
-            this.mBX = str;
+        public Builder Qr(String str) {
+            f("app", "cuid", str);
+            this.mKf = str;
             return this;
         }
 
-        public Builder PH(String str) {
-            e("app", "app_name", str);
+        public Builder Qs(String str) {
+            f("app", "app_name", str);
             this.mAppName = str;
             return this;
         }
 
-        public Builder PI(String str) {
-            this.mCf = str;
+        public Builder Qt(String str) {
+            this.mKn = str;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String dvZ() {
-            return this.mCf;
+        public String dzm() {
+            return this.mKn;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String dwa() {
-            return this.mCe.toString();
+        public String dzn() {
+            return this.mKm.toString();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -225,16 +225,16 @@ public abstract class TurbonetEngine {
             return this.mContext;
         }
 
-        public TurbonetEngine dwb() {
+        public TurbonetEngine dzo() {
             String str = "";
             if (Environment.getExternalStorageState().equals("mounted")) {
                 str = Environment.getExternalStorageDirectory().getPath();
             } else {
                 Log.e("chromium", "SD card is not mounted correctly");
             }
-            e(SchemeCollecter.CLASSIFY_BASE, "config_path", str);
+            f(SchemeCollecter.CLASSIFY_BASE, "config_path", str);
             if (getUserAgent() == null) {
-                PE(c.fG(this.mContext));
+                Qp(c.fJ(this.mContext));
             }
             return TurbonetEngine.a(this);
         }
@@ -255,26 +255,26 @@ public abstract class TurbonetEngine {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     public static final class UrlRequestMetrics {
         @Nullable
-        private final Long mAt;
+        private final Long mIB;
         @Nullable
-        private final Long mAu;
+        private final Long mIC;
         @Nullable
-        private final Long mCg;
+        private final Long mKo;
         @Nullable
-        private final Long mCh;
+        private final Long mKp;
 
         public UrlRequestMetrics(@Nullable Long l, @Nullable Long l2, @Nullable Long l3, @Nullable Long l4) {
-            this.mAt = l;
-            this.mAu = l2;
-            this.mCg = l3;
-            this.mCh = l4;
+            this.mIB = l;
+            this.mIC = l2;
+            this.mKo = l3;
+            this.mKp = l4;
         }
     }
 
-    public long dvb() {
+    public long dyo() {
         return 0L;
     }
 }

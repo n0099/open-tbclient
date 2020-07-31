@@ -1,6 +1,6 @@
 package com.baidu.platform.comapi.walknavi.g.b;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class n implements Runnable {
     final /* synthetic */ String a;
     final /* synthetic */ c b;

@@ -5,7 +5,7 @@ import com.baidu.ar.ARType;
 import com.baidu.ar.libloader.a;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 class c implements a {
     private boolean rQ = false;
     private Map<String, a.c> rR = new HashMap();
@@ -23,9 +23,9 @@ class c implements a {
     }
 
     @Override // com.baidu.ar.libloader.a
-    public void a(ARType aRType, String str, String str2, a.InterfaceC0085a interfaceC0085a) {
-        if (interfaceC0085a != null) {
-            interfaceC0085a.a(aRType, str, str2);
+    public void a(ARType aRType, String str, String str2, a.InterfaceC0086a interfaceC0086a) {
+        if (interfaceC0086a != null) {
+            interfaceC0086a.a(aRType, str, str2);
         }
     }
 

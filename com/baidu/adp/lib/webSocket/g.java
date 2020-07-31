@@ -21,7 +21,7 @@ public interface g {
 
         void m(byte[] bArr);
 
-        void mW();
+        void mX();
 
         void onOpen(Map<String, String> map);
 

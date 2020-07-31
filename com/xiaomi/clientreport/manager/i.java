@@ -2,21 +2,21 @@ package com.xiaomi.clientreport.manager;
 
 import com.xiaomi.push.bh;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class i implements Runnable {
     final /* synthetic */ a a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ bh f27a;
+    final /* synthetic */ bh f23a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(a aVar, bh bhVar) {
         this.a = aVar;
-        this.f27a = bhVar;
+        this.f23a = bhVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f27a.run();
+        this.f23a.run();
     }
 }

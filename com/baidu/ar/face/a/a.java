@@ -22,14 +22,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class a {
     private static a nc = null;
     private AlgoHandleController ch;
     private long nG;
     private long nH;
     private HandlerThread nL;
-    private HandlerC0083a nM;
+    private HandlerC0084a nM;
     private c ne;
     private ByteBuffer nh;
     private long ni;
@@ -68,11 +68,11 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.face.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static final class HandlerC0083a extends Handler {
+    /* loaded from: classes11.dex */
+    public static final class HandlerC0084a extends Handler {
         private boolean cF;
 
-        public HandlerC0083a(Looper looper) {
+        public HandlerC0084a(Looper looper) {
             super(looper);
             this.cF = false;
         }
@@ -714,7 +714,7 @@ public class a {
             this.nL.start();
         }
         if (this.nM == null) {
-            this.nM = new HandlerC0083a(this.nL.getLooper());
+            this.nM = new HandlerC0084a(this.nL.getLooper());
         }
         if (this.nL == null || !this.nL.isAlive() || this.nM == null) {
             return false;

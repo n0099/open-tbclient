@@ -1,7 +1,5 @@
 package com.baidu.adp.lib.network.http.a;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.k;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -9,48 +7,40 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b Lk = null;
-    private com.baidu.adp.lib.network.http.a.a Lj;
+    private static b Lj = null;
     private HashMap<String, com.baidu.adp.lib.network.http.a.a> mCache = new HashMap<>();
-    private InterfaceC0022b Ll = null;
-    private int Lm = 0;
+    private a Lk = null;
+    private int Ll = 0;
 
-    /* renamed from: com.baidu.adp.lib.network.http.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0022b {
-        void u(String str, String str2);
+    public interface a {
     }
 
     private b() {
     }
 
     public static b ld() {
-        if (Lk == null) {
+        if (Lj == null) {
             synchronized (b.class) {
-                if (Lk == null) {
-                    Lk = new b();
+                if (Lj == null) {
+                    Lj = new b();
                 }
             }
         }
-        return Lk;
-    }
-
-    public void a(InterfaceC0022b interfaceC0022b) {
-        this.Ll = interfaceC0022b;
+        return Lj;
     }
 
     public c bE(String str) {
         c cVar = new c();
         com.baidu.adp.lib.network.http.a.a aVar = this.mCache.get(str);
         if (aVar != null && !aVar.F(System.currentTimeMillis()) && aVar.lc() != null && aVar.lc().size() > 0) {
-            cVar.bI(aVar.lc().get(0));
+            cVar.bG(aVar.lc().get(0));
         }
         return cVar;
     }
@@ -63,20 +53,20 @@ public class b {
         com.baidu.adp.lib.network.http.a.a aVar = this.mCache.get(str);
         if (aVar != null && !aVar.F(System.currentTimeMillis()) && aVar.lc() != null && aVar.lc().size() > 0) {
             for (int i = 0; i < aVar.lc().size(); i++) {
-                if (!k.z(str2, aVar.lc().get(i))) {
-                    cVar.ah(i);
-                    cVar.bI(aVar.lc().get(i));
+                if (!k.y(str2, aVar.lc().get(i))) {
+                    cVar.aj(i);
+                    cVar.bG(aVar.lc().get(i));
                     return cVar;
                 } else if (i == aVar.lc().size() - 1) {
-                    cVar.ah(0);
-                    cVar.bI(aVar.lc().get(0));
+                    cVar.aj(0);
+                    cVar.bG(aVar.lc().get(0));
                     return cVar;
                 }
             }
         }
         for (int i2 = 0; i2 < 3; i2++) {
             cVar.lf();
-            cVar.ak(i2);
+            cVar.am(i2);
             long currentTimeMillis = System.currentTimeMillis();
             com.baidu.adp.lib.network.http.a.a a2 = a(str, cVar);
             cVar.G(System.currentTimeMillis() - currentTimeMillis);
@@ -84,13 +74,13 @@ public class b {
                 a2.E(300L);
                 this.mCache.put(str, a2);
                 for (int i3 = 0; i3 < a2.lc().size(); i3++) {
-                    if (!k.z(str2, a2.lc().get(i2))) {
-                        cVar.ah(i3);
-                        cVar.bI(a2.lc().get(i3));
+                    if (!k.y(str2, a2.lc().get(i2))) {
+                        cVar.aj(i3);
+                        cVar.bG(a2.lc().get(i3));
                         return cVar;
                     } else if (i3 == a2.lc().size() - 1) {
-                        cVar.ah(0);
-                        cVar.bI(a2.lc().get(0));
+                        cVar.aj(0);
+                        cVar.bG(a2.lc().get(0));
                         return cVar;
                     }
                 }
@@ -98,7 +88,7 @@ public class b {
             } else {
                 com.baidu.adp.lib.network.http.a.a aVar2 = this.mCache.get(str);
                 if (aVar2 != null && aVar2.lc() != null && aVar2.lc().size() > 0) {
-                    cVar.bI(aVar2.lc().get(0));
+                    cVar.bG(aVar2.lc().get(0));
                     return cVar;
                 }
             }
@@ -106,38 +96,6 @@ public class b {
         return cVar;
     }
 
-    public boolean bF(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        if (bG(str) && this.Lj.lc().size() > this.Lm) {
-            if (this.Ll != null) {
-                InterfaceC0022b interfaceC0022b = this.Ll;
-                List<String> lc = this.Lj.lc();
-                int i = this.Lm;
-                this.Lm = i + 1;
-                interfaceC0022b.u(lc.get(i), str);
-            }
-            return true;
-        } else if (this.Lj != null && this.Lj.lc() != null && this.Lj.lc().size() <= this.Lm) {
-            this.Lm = 0;
-            this.Lj = null;
-            return false;
-        } else {
-            this.Lm = 0;
-            this.Lj = null;
-            a aVar = new a();
-            aVar.setHost(str);
-            aVar.execute(new Void[0]);
-            return true;
-        }
-    }
-
-    private boolean bG(String str) {
-        return (this.Lj == null || TextUtils.isEmpty(str) || !str.equals(this.Lj.getHost()) || this.Lj.lc() == null || this.Lj.lc().size() == 0 || this.Lj.F(System.currentTimeMillis()) || this.Lj.lc().size() <= this.Lm) ? false : true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Removed duplicated region for block: B:22:0x0082 A[Catch: all -> 0x0151, TryCatch #9 {all -> 0x0151, blocks: (B:15:0x0068, B:17:0x006e, B:35:0x00f6, B:20:0x0073, B:22:0x0082, B:23:0x0086), top: B:80:0x0068 }] */
     /* JADX WARN: Removed duplicated region for block: B:27:0x0090 A[Catch: Exception -> 0x0154, TryCatch #5 {Exception -> 0x0154, blocks: (B:25:0x008b, B:27:0x0090, B:29:0x0095, B:31:0x009a), top: B:78:0x008b }] */
     /* JADX WARN: Removed duplicated region for block: B:29:0x0095 A[Catch: Exception -> 0x0154, TryCatch #5 {Exception -> 0x0154, blocks: (B:25:0x008b, B:27:0x0090, B:29:0x0095, B:31:0x009a), top: B:78:0x008b }] */
@@ -150,7 +108,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public com.baidu.adp.lib.network.http.a.a a(String str, final c cVar) {
+    private com.baidu.adp.lib.network.http.a.a a(String str, final c cVar) {
         BufferedReader bufferedReader;
         InputStreamReader inputStreamReader;
         InputStream inputStream;
@@ -351,49 +309,6 @@ public class b {
             bufferedReader = null;
             inputStreamReader = null;
             inputStream = null;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    private class a extends BdAsyncTask<Void, com.baidu.adp.lib.network.http.a.a, Void> {
-        private String mHost = null;
-
-        public a() {
-        }
-
-        public void setHost(String str) {
-            this.mHost = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            publishProgress(b.this.a(this.mHost, new c()));
-            return null;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: a */
-        public void onProgressUpdate(com.baidu.adp.lib.network.http.a.a... aVarArr) {
-            super.onProgressUpdate(aVarArr);
-            if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.mHost)) {
-                b.this.Lj = aVarArr[0];
-                if (aVarArr[0].lc() != null && aVarArr[0].lc().size() > 0 && b.this.Ll != null) {
-                    b.this.Ll.u(aVarArr[0].lc().get(0), aVarArr[0].getHost());
-                    return;
-                }
-            }
-            if (b.this.Ll != null) {
-                b.this.Ll.u(null, null);
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            super.cancel();
         }
     }
 }

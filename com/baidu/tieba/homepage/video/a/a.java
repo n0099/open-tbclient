@@ -9,86 +9,89 @@ import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.card.data.l;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a {
-    private BdTypeRecyclerView Wa;
-    private f iBc;
-    private b iBd;
-    private d iBe;
-    private e iBf;
-    private c iBg;
-    private LinkedList<com.baidu.adp.widget.ListView.a> ipv = new LinkedList<>();
+    private BdTypeRecyclerView VT;
+    private f iHg;
+    private b iHh;
+    private d iHi;
+    private e iHj;
+    private c iHk;
+    private LinkedList<com.baidu.adp.widget.ListView.a> ivz = new LinkedList<>();
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
-        this.Wa = bdTypeRecyclerView;
-        Dz();
+        this.VT = bdTypeRecyclerView;
+        DS();
     }
 
-    private void Dz() {
-        this.iBc = new f(this.mPageContext, k.gUF);
-        this.iBd = new b(this.mPageContext, l.dLH);
-        this.iBe = new d(this.mPageContext, k.gUN);
-        this.iBf = new e(this.mPageContext, k.gUL);
-        this.iBg = new c(this.mPageContext, k.gUG);
-        this.iBc.a(this.Wa);
-        this.iBd.a(this.Wa);
-        this.iBe.a(this.Wa);
-        this.iBf.a(this.Wa);
-        this.iBg.a(this.Wa);
-        this.ipv.add(this.iBc);
-        this.ipv.add(this.iBd);
-        this.ipv.add(this.iBe);
-        this.ipv.add(this.iBf);
-        this.ipv.add(this.iBg);
-        this.Wa.addAdapters(this.ipv);
+    private void DS() {
+        this.iHg = new f(this.mPageContext, k.haj);
+        this.iHh = new b(this.mPageContext, l.dRS);
+        this.iHi = new d(this.mPageContext, k.har);
+        this.iHj = new e(this.mPageContext, k.hap);
+        this.iHk = new c(this.mPageContext, k.hak);
+        this.iHg.a(this.VT);
+        this.iHh.a(this.VT);
+        this.iHi.a(this.VT);
+        this.iHj.a(this.VT);
+        this.iHk.a(this.VT);
+        this.ivz.add(this.iHg);
+        this.ivz.add(this.iHh);
+        this.ivz.add(this.iHi);
+        this.ivz.add(this.iHj);
+        this.ivz.add(this.iHk);
+        this.VT.addAdapters(this.ivz);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Wa != null) {
-            this.Wa.getListAdapter().notifyDataSetChanged();
+        if (this.VT != null) {
+            this.VT.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.iBc != null) {
-            this.iBc.setPageUniqueId(bdUniqueId);
+        if (this.iHg != null) {
+            this.iHg.setPageUniqueId(bdUniqueId);
         }
-        if (this.iBd != null) {
-            this.iBd.setPageUniqueId(bdUniqueId);
+        if (this.iHh != null) {
+            this.iHh.setPageUniqueId(bdUniqueId);
         }
-        if (this.iBe != null) {
-            this.iBe.setPageUniqueId(bdUniqueId);
+        if (this.iHi != null) {
+            this.iHi.setPageUniqueId(bdUniqueId);
         }
-        if (this.iBf != null) {
-            this.iBf.setPageUniqueId(bdUniqueId);
+        if (this.iHj != null) {
+            this.iHj.setPageUniqueId(bdUniqueId);
         }
-        if (this.iBg != null) {
-            this.iBg.setPageUniqueId(bdUniqueId);
+        if (this.iHk != null) {
+            this.iHk.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void setData(List<q> list) {
-        this.Wa.setData(list);
+        this.VT.setData(list);
     }
 
     public List<q> getDataList() {
-        if (this.Wa != null) {
-            return this.Wa.getData();
+        if (this.VT != null) {
+            return this.VT.getData();
         }
         return null;
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.iBf != null) {
-            this.iBf.setEventCallback(aVar);
+        if (this.iHj != null) {
+            this.iHj.setEventCallback(aVar);
+        }
+        if (this.iHg != null) {
+            this.iHg.setEventCallback(aVar);
         }
     }
 
     public void onPause() {
-        if (this.iBd != null) {
-            this.iBd.onPause();
+        if (this.iHh != null) {
+            this.iHh.onPause();
         }
     }
 
@@ -96,8 +99,8 @@ public class a {
     }
 
     public void b(com.baidu.tieba.homepage.personalize.model.e eVar) {
-        if (this.iBd != null) {
-            this.iBd.b(eVar);
+        if (this.iHh != null) {
+            this.iHh.b(eVar);
         }
     }
 }

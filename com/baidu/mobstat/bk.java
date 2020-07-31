@@ -8,11 +8,11 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.WeakHashMap;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public abstract class bk implements bi.a {
     private bi a;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(View view, boolean z, Activity activity);
     }
@@ -20,11 +20,11 @@ public abstract class bk implements bi.a {
     public abstract void a();
 
     @TargetApi(14)
-    /* loaded from: classes11.dex */
+    /* loaded from: classes6.dex */
     public static class a extends bk {
         private WeakReference<Activity> a;
         private b b;
-        private final WeakHashMap<View, C0218a> c = new WeakHashMap<>();
+        private final WeakHashMap<View, C0219a> c = new WeakHashMap<>();
 
         public a(int i, WeakReference<Activity> weakReference, b bVar) {
             this.a = weakReference;
@@ -33,8 +33,8 @@ public abstract class bk implements bi.a {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.mobstat.bk$a$a  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
-        public class C0218a extends View.AccessibilityDelegate {
+        /* loaded from: classes6.dex */
+        public class C0219a extends View.AccessibilityDelegate {
             private View.AccessibilityDelegate b;
             private View c;
             private volatile boolean d;
@@ -43,7 +43,7 @@ public abstract class bk implements bi.a {
                 this.d = z;
             }
 
-            public C0218a(WeakReference<Activity> weakReference, View view, String str, View.AccessibilityDelegate accessibilityDelegate, boolean z) {
+            public C0219a(WeakReference<Activity> weakReference, View view, String str, View.AccessibilityDelegate accessibilityDelegate, boolean z) {
                 this.b = accessibilityDelegate;
                 a.this.a = weakReference;
                 this.c = view;
@@ -78,13 +78,13 @@ public abstract class bk implements bi.a {
 
         public void a(WeakReference<Activity> weakReference, View view, String str, boolean z) {
             View.AccessibilityDelegate a = a(view);
-            if (!(a instanceof C0218a)) {
-                C0218a c0218a = new C0218a(weakReference, view, str, a, z);
-                view.setAccessibilityDelegate(c0218a);
-                this.c.put(view, c0218a);
+            if (!(a instanceof C0219a)) {
+                C0219a c0219a = new C0219a(weakReference, view, str, a, z);
+                view.setAccessibilityDelegate(c0219a);
+                this.c.put(view, c0219a);
                 return;
             }
-            ((C0218a) a).a(z);
+            ((C0219a) a).a(z);
         }
 
         private View.AccessibilityDelegate a(View view) {
@@ -103,7 +103,7 @@ public abstract class bk implements bi.a {
         @Override // com.baidu.mobstat.bk
         public void a() {
             if (this.c != null) {
-                for (Map.Entry<View, C0218a> entry : this.c.entrySet()) {
+                for (Map.Entry<View, C0219a> entry : this.c.entrySet()) {
                     entry.getKey().setAccessibilityDelegate(entry.getValue().a());
                 }
                 this.c.clear();

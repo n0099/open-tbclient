@@ -6,12 +6,12 @@ import java.util.List;
 import tbclient.BannerImage;
 /* loaded from: classes.dex */
 public class k extends com.baidu.tieba.card.data.b implements com.baidu.adp.widget.ListView.q {
-    public static BdUniqueId dHK = BdUniqueId.gen();
+    public static BdUniqueId dNV = BdUniqueId.gen();
     public List<j> dataList = new ArrayList();
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return dHK;
+        return dNV;
     }
 
     public void parserProtobuf(List<BannerImage> list) {

@@ -15,29 +15,29 @@ import com.baidu.tbadk.data.PayMemberInfoData;
 import com.baidu.tbadk.data.UserData;
 /* loaded from: classes.dex */
 public class b {
-    private static b exb;
-    private UserData exc;
+    private static b eDu;
+    private UserData eDv;
 
     private b() {
     }
 
-    public static b bgs() {
-        if (exb == null) {
+    public static b bkd() {
+        if (eDu == null) {
             synchronized (b.class) {
-                if (exb == null) {
-                    exb = new b();
+                if (eDu == null) {
+                    eDu = new b();
                 }
             }
         }
-        return exb;
+        return eDu;
     }
 
-    public void xp() {
+    public void registerTask() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_USER_INFO, GetUserInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_USER_INFO, 1003001, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void bgt() {
+    public void bke() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(1003001, CmdConfigSocket.CMD_GET_USER_INFO);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
@@ -48,7 +48,7 @@ public class b {
     }
 
     public void a(UserData userData) {
-        this.exc = userData;
+        this.eDv = userData;
         if (userData != null) {
             final AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj == null) {
@@ -86,8 +86,8 @@ public class b {
             }
             CloseAdData closeAdData = userData.getCloseAdData();
             if (closeAdData != null) {
-                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.beu());
-                currentAccountObj.setMemberCloseAdVipClose(closeAdData.bev());
+                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.bid());
+                currentAccountObj.setMemberCloseAdVipClose(closeAdData.bie());
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
@@ -101,7 +101,7 @@ public class b {
         }
     }
 
-    public UserData bgu() {
-        return this.exc;
+    public UserData bkf() {
+        return this.eDv;
     }
 }

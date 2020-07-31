@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.HorseRace;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetHorseRaceLampList.GetHorseRaceLampListResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class GetLiveHorseRaceSocketResponseMessage extends TbSocketReponsedMessage {
     private a mData;
 

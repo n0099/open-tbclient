@@ -2,10 +2,10 @@ package com.baidu.tieba.ala.alasquare.special_forum.b;
 
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e {
-    public a fvx;
-    private int fvy = -1;
+    public a fAE;
+    private int fAF = -1;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext) {
@@ -14,95 +14,95 @@ public class e {
 
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar, boolean z) {
         if (aVar == null) {
-            this.fvy = -1;
-            this.fvx = new b(this.mTbPageContext);
+            this.fAF = -1;
+            this.fAE = new b(this.mTbPageContext);
         } else if (z) {
-            this.fvy = aVar.ftG;
-            switch (aVar.ftG) {
+            this.fAF = aVar.fyN;
+            switch (aVar.fyN) {
                 case 1:
-                    this.fvx = new d(this.mTbPageContext);
+                    this.fAE = new d(this.mTbPageContext);
                     break;
                 case 2:
-                    this.fvx = new f(this.mTbPageContext);
+                    this.fAE = new f(this.mTbPageContext);
                     break;
                 case 3:
-                    this.fvx = new c(this.mTbPageContext);
+                    this.fAE = new c(this.mTbPageContext);
                     break;
                 default:
-                    this.fvx = new b(this.mTbPageContext);
+                    this.fAE = new b(this.mTbPageContext);
                     break;
             }
         }
-        if (this.fvx.b(aVar)) {
+        if (this.fAE.b(aVar)) {
             if (z) {
-                this.fvx.init();
+                this.fAE.init();
             }
-            this.fvx.a(aVar);
+            this.fAE.a(aVar);
             return;
         }
-        this.fvy = -1;
-        this.fvx = new b(this.mTbPageContext);
+        this.fAF = -1;
+        this.fAE = new b(this.mTbPageContext);
         if (z) {
-            this.fvx.init();
+            this.fAE.init();
         }
-        this.fvx.a(aVar);
+        this.fAE.a(aVar);
     }
 
     public boolean c(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
-        return aVar == null || this.fvy != aVar.ftG;
+        return aVar == null || this.fAF != aVar.fyN;
     }
 
     public void pause() {
-        if (this.fvx != null) {
-            this.fvx.pause();
+        if (this.fAE != null) {
+            this.fAE.pause();
         }
     }
 
     public void resume() {
-        if (this.fvx != null) {
-            this.fvx.resume();
+        if (this.fAE != null) {
+            this.fAE.resume();
         }
     }
 
-    public void jw(boolean z) {
-        if (this.fvx != null) {
-            this.fvx.jw(z);
+    public void ka(boolean z) {
+        if (this.fAE != null) {
+            this.fAE.ka(z);
         }
     }
 
-    public void V(ViewGroup viewGroup) {
-        if (this.fvx != null) {
-            this.fvx.V(viewGroup);
+    public void W(ViewGroup viewGroup) {
+        if (this.fAE != null) {
+            this.fAE.W(viewGroup);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.fvx != null) {
-            this.fvx.onChangeSkinType(i);
+        if (this.fAE != null) {
+            this.fAE.onChangeSkinType(i);
         }
     }
 
     public void startPlay() {
-        if (this.fvx != null) {
-            this.fvx.startPlay();
+        if (this.fAE != null) {
+            this.fAE.startPlay();
         }
     }
 
     public void stopPlay() {
-        if (this.fvx != null) {
-            this.fvx.stopPlay();
+        if (this.fAE != null) {
+            this.fAE.stopPlay();
         }
     }
 
-    public void buN() {
-        if (this.fvx != null) {
-            this.fvx.buN();
+    public void bxW() {
+        if (this.fAE != null) {
+            this.fAE.bxW();
         }
     }
 
     public void onDestroy() {
-        if (this.fvx != null) {
-            this.fvx.onDestroy();
+        if (this.fAE != null) {
+            this.fAE.onDestroy();
         }
     }
 }

@@ -16,39 +16,39 @@ import com.baidu.tieba.forumMember.member.r;
 import com.baidu.tieba.forumMember.member.s;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> aUP = new ArrayList();
-    private BdTypeListView fml;
-    private o hwN;
-    private r hwO;
+    private List<com.baidu.adp.widget.ListView.a> aWf = new ArrayList();
+    private BdTypeListView frv;
+    private o hCB;
+    private r hCC;
 
-    public List<com.baidu.adp.widget.ListView.a> btW() {
-        return this.aUP;
+    public List<com.baidu.adp.widget.ListView.a> bxf() {
+        return this.aWf;
     }
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
-        this.fml = bdTypeListView;
-        this.aUP.add(new i(baseActivity.getPageContext(), j.hwa));
-        this.aUP.add(new l(baseActivity.getPageContext(), m.hwl));
-        this.aUP.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.m.hzt));
-        this.aUP.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.hvD));
-        this.aUP.add(new d(baseActivity.getPageContext(), e.hvG));
-        this.aUP.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
-        this.hwN = new o(baseActivity.getPageContext(), p.hwB);
-        this.aUP.add(this.hwN);
-        this.hwO = new r(baseActivity.getPageContext(), s.hwL);
-        this.aUP.add(this.hwO);
+        this.frv = bdTypeListView;
+        this.aWf.add(new i(baseActivity.getPageContext(), j.hBM));
+        this.aWf.add(new l(baseActivity.getPageContext(), m.hBX));
+        this.aWf.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.m.hFi));
+        this.aWf.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.hBp));
+        this.aWf.add(new d(baseActivity.getPageContext(), e.hBs));
+        this.aWf.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
+        this.hCB = new o(baseActivity.getPageContext(), p.hCo);
+        this.aWf.add(this.hCB);
+        this.hCC = new r(baseActivity.getPageContext(), s.hCz);
+        this.aWf.add(this.hCC);
     }
 
     public void notifyDataSetChanged() {
-        if (this.fml != null && (this.fml.getAdapter() instanceof f)) {
-            this.fml.getAdapter().notifyDataSetChanged();
+        if (this.frv != null && (this.frv.getAdapter() instanceof f)) {
+            this.frv.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        this.hwN.onDestroy();
-        this.hwO.onDestroy();
+        this.hCB.onDestroy();
+        this.hCC.onDestroy();
     }
 }

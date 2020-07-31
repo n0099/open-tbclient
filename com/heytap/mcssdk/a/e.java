@@ -7,7 +7,7 @@ import com.heytap.mcssdk.mode.Message;
 import com.heytap.mcssdk.mode.SptDataMessage;
 import com.heytap.mcssdk.utils.CryptoUtil;
 import com.heytap.mcssdk.utils.LogUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes20.dex */
 public final class e extends c {
     @Override // com.heytap.mcssdk.a.d
     public final Message a(Context context, int i, Intent intent) {

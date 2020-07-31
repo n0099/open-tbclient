@@ -748,16 +748,16 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
         int i3 = 0;
         while (i3 < size) {
             View view3 = (View) focusables.get(i3);
-            int top2 = view3.getTop();
+            int top = view3.getTop();
             int bottom = view3.getBottom();
-            if (i < bottom && top2 < i2) {
-                boolean z4 = i < top2 && bottom < i2;
+            if (i < bottom && top < i2) {
+                boolean z4 = i < top && bottom < i2;
                 if (view2 == null) {
                     boolean z5 = z4;
                     view = view3;
                     z2 = z5;
                 } else {
-                    boolean z6 = (z && top2 < view2.getTop()) || (!z && bottom > view2.getBottom());
+                    boolean z6 = (z && top < view2.getTop()) || (!z && bottom > view2.getBottom());
                     if (z3) {
                         if (z4 && z6) {
                             view = view3;

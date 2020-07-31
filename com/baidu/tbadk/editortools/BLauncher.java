@@ -10,13 +10,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements g {
-    private Drawable WT;
-    private l ets;
-    private boolean ett;
+    private Drawable WM;
+    private l ezK;
+    private boolean ezL;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -24,9 +24,9 @@ public class BLauncher extends ImageView implements g {
     public BLauncher(Context context, l lVar) {
         super(context);
         this.mSkinType = 0;
-        this.ett = false;
+        this.ezL = false;
         if (lVar != null) {
-            this.ets = lVar;
+            this.ezK = lVar;
             setIcon();
             setToolId(lVar.id);
         }
@@ -37,11 +37,11 @@ public class BLauncher extends ImageView implements g {
     }
 
     public void setIcon() {
-        if (this.ets != null) {
-            if (this.ets.euw) {
-                setImageDrawable(SvgManager.aWQ().x(this.ets.eut, this.ets.euu, this.mSkinType));
+        if (this.ezK != null) {
+            if (this.ezK.eAP) {
+                setImageDrawable(SvgManager.baR().x(this.ezK.eAM, this.ezK.eAN, this.mSkinType));
             } else {
-                an.setImageResource(this, this.ets.eut, this.mSkinType);
+                ao.setImageResource(this, this.ezK.eAM, this.mSkinType);
             }
         }
     }
@@ -62,23 +62,23 @@ public class BLauncher extends ImageView implements g {
 
     @Override // com.baidu.tbadk.editortools.g
     public void hide() {
-        beY();
+        biH();
         setVisibility(8);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        if (this.ets.euC) {
-            this.WT = an.getDrawable(R.drawable.icon_news_red_dot);
+        if (this.ezK.eAV) {
+            this.WM = ao.getDrawable(R.drawable.icon_news_red_dot);
             int width = getWidth();
-            int intrinsicHeight = this.WT.getIntrinsicHeight();
-            this.WT.setBounds(getWidth() - this.WT.getIntrinsicWidth(), 0, width, intrinsicHeight);
-            this.WT.draw(canvas);
+            int intrinsicHeight = this.WM.getIntrinsicHeight();
+            this.WM.setBounds(getWidth() - this.WM.getIntrinsicWidth(), 0, width, intrinsicHeight);
+            this.WM.draw(canvas);
         }
     }
 
-    public void yp(String str) {
+    public void zv(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -93,23 +93,23 @@ public class BLauncher extends ImageView implements g {
                     ((ViewGroup) parent2).addView(this.mTip);
                 }
             }
-            an.setViewTextColor(this.mTip, R.color.cp_cont_g, 1, this.mSkinType);
+            ao.setViewTextColor(this.mTip, R.color.cp_cont_g, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(10.0f);
                 this.mTip.setText(str);
-                an.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, this.mSkinType);
+                ao.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, this.mSkinType);
             } else {
                 this.mTip.setWidth(0);
                 this.mTip.setHeight(0);
                 this.mTip.setText("");
-                an.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, this.mSkinType);
+                ao.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, this.mSkinType);
             }
             this.mTip.setVisibility(0);
         }
     }
 
-    public void beY() {
+    public void biH() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -121,8 +121,8 @@ public class BLauncher extends ImageView implements g {
     }
 
     @Override // com.baidu.tbadk.editortools.g
-    public void beZ() {
-        this.ets.euC = false;
+    public void biI() {
+        this.ezK.eAV = false;
         invalidate();
     }
 
@@ -130,9 +130,9 @@ public class BLauncher extends ImageView implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                beY();
+                biH();
             } else if (aVar.data instanceof String) {
-                yp((String) aVar.data);
+                zv((String) aVar.data);
             }
         }
     }
@@ -142,21 +142,21 @@ public class BLauncher extends ImageView implements g {
         this.mSkinType = i;
         setIcon();
         if (this.mTip != null) {
-            an.setViewTextColor(this.mTip, R.color.cp_cont_g, 1, i);
+            ao.setViewTextColor(this.mTip, R.color.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {
-                an.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, i);
+                ao.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, i);
             } else {
-                an.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, i);
+                ao.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, i);
             }
         }
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.ett;
+        return this.ezL;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.ett = z;
+        this.ezL = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

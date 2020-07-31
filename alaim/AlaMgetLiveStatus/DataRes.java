@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class DataRes extends Message {
     public static final List<Long> DEFAULT_CLOSE_LIVE = Collections.emptyList();
     public static final Long DEFAULT_INTERVAL = 0L;
@@ -33,7 +33,7 @@ public final class DataRes extends Message {
         this.interval = builder.interval;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public List<Long> close_live;
         public Long interval;

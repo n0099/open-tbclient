@@ -1,15 +1,14 @@
 package com.baidu.live.tbadk.core.util;
 
 import android.content.Context;
-import com.baidu.down.utils.Constants;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LocalViewSize {
     private static LocalViewSize sInstance = null;
     private Context mContext = null;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ImageSize implements Serializable {
         public int height;
         public int width;
@@ -31,8 +30,8 @@ public class LocalViewSize {
 
     public ImageSize getMsgUpPicMaxSize() {
         ImageSize imageSize = new ImageSize();
-        imageSize.height = Constants.HTTP_DNS_INAVAILABLE_TIME;
-        imageSize.width = Constants.HTTP_DNS_INAVAILABLE_TIME;
+        imageSize.height = 600;
+        imageSize.width = 600;
         return imageSize;
     }
 
@@ -126,6 +125,6 @@ public class LocalViewSize {
     }
 
     public int getGroupHeaderSize() {
-        return Constants.HTTP_DNS_INAVAILABLE_TIME;
+        return 600;
     }
 }

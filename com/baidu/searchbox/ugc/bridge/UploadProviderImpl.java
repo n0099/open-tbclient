@@ -23,7 +23,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes14.dex */
 public class UploadProviderImpl implements IUploadInterface {
     public static String STS_FROM = "ugc";
     private static final String TAG = "UploadProviderImpl";

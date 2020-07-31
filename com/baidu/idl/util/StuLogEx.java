@@ -1,7 +1,7 @@
 package com.baidu.idl.util;
 
 import android.util.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes20.dex */
 public class StuLogEx {
     private static final boolean DEBUG_ENABLE = Log.isLoggable("stu", 3);
     public static final String TAG = "IDL";

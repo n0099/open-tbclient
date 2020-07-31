@@ -3,7 +3,7 @@ package com.baidu.browser.sailor.lightapp;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.browser.sailor.lightapp.BdLightappKernelJsCallback;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public abstract class BdLightappActionClient implements INoProGuard, BdLightappKernelJsCallback.a {
     private static final String TAG = "BdLightappActionClient";
     private WebView mWebView;

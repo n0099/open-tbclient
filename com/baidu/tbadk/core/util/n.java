@@ -36,7 +36,7 @@ public class n {
 
     /* loaded from: classes.dex */
     public interface b {
-        void E(HashMap<String, String> hashMap);
+        void D(HashMap<String, String> hashMap);
     }
 
     public static boolean checkSD() {
@@ -373,11 +373,11 @@ public class n {
         return ((float) imageFileWH[0]) * equipmentDensity >= 100.0f && f >= 3.0f && f <= 50.0f;
     }
 
-    public static boolean wu(String str) {
+    public static boolean xB(String str) {
         return str.endsWith(".heif") || str.endsWith(".heic");
     }
 
-    public static boolean wv(String str) {
+    public static boolean xC(String str) {
         return str != null && str.endsWith(".css");
     }
 
@@ -1382,7 +1382,7 @@ public class n {
         }
     }
 
-    public static boolean dj(String str, String str2) {
+    public static boolean dm(String str, String str2) {
         return v(str, str2, false);
     }
 
@@ -1838,7 +1838,7 @@ public class n {
                 bArr = com.baidu.adp.lib.util.d.mC().Bitmap2Bytes(decodeByteArray, 100);
                 decodeByteArray.recycle();
             }
-            String nameMd5FromUrl = at.getNameMd5FromUrl(str);
+            String nameMd5FromUrl = au.getNameMd5FromUrl(str);
             if (nameMd5FromUrl != null) {
                 String str3 = nameMd5FromUrl + str2;
                 for (int i = 0; CheckFile(str3) && i < 10000; i++) {
@@ -1846,7 +1846,7 @@ public class n {
                 }
                 String i2 = i(str3, bArr);
                 if (i2 != null) {
-                    new x(context).saveImage(i2);
+                    new y(context).saveImage(i2);
                     return 0;
                 }
                 return -2;
@@ -1861,7 +1861,7 @@ public class n {
     public static void a(String[] strArr, final b bVar) {
         if (strArr == null || strArr.length == 0) {
             if (bVar != null) {
-                bVar.E(null);
+                bVar.D(null);
                 return;
             }
             return;
@@ -1869,7 +1869,7 @@ public class n {
         for (String str : strArr) {
             if (TextUtils.isEmpty(str)) {
                 if (bVar != null) {
-                    bVar.E(null);
+                    bVar.D(null);
                     return;
                 } else {
                     return;
@@ -1882,20 +1882,20 @@ public class n {
         }
         final int length = strArr.length;
         MediaScannerConnection.scanFile(TbadkCoreApplication.getInst(), strArr, null, new MediaScannerConnection.OnScanCompletedListener() { // from class: com.baidu.tbadk.core.util.n.1
-            int dTb = 0;
+            int dZt = 0;
 
             @Override // android.media.MediaScannerConnection.OnScanCompletedListener
             public void onScanCompleted(String str3, Uri uri) {
-                this.dTb++;
+                this.dZt++;
                 if (uri != null) {
                     hashMap.put(str3, uri.toString());
                 }
-                if (this.dTb == length) {
+                if (this.dZt == length) {
                     com.baidu.adp.lib.f.e.lt().post(new Runnable() { // from class: com.baidu.tbadk.core.util.n.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (bVar != null) {
-                                bVar.E(hashMap);
+                                bVar.D(hashMap);
                             }
                         }
                     });
@@ -1915,7 +1915,7 @@ public class n {
             } else {
                 str3 = ".gif";
             }
-            String nameMd5FromUrl = at.getNameMd5FromUrl(str2);
+            String nameMd5FromUrl = au.getNameMd5FromUrl(str2);
             if (nameMd5FromUrl != null) {
                 String str4 = nameMd5FromUrl + str3;
                 for (int i = 0; CheckFile(str4) && i < 10000; i++) {
@@ -1923,7 +1923,7 @@ public class n {
                 }
                 String str5 = getCacheDir() + str4;
                 com.baidu.adp.lib.util.f.copyFile(new File(str), new File(str5));
-                new x(context).saveImage(str5);
+                new y(context).saveImage(str5);
                 return 0;
             }
             return -1;
@@ -1994,7 +1994,7 @@ public class n {
         return str.toLowerCase().startsWith("content:") || str.toLowerCase().startsWith("file:");
     }
 
-    public static String ww(String str) {
+    public static String xD(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -2002,7 +2002,7 @@ public class n {
         return parse.getLastPathSegment();
     }
 
-    public static String wx(String str) {
+    public static String xE(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -2010,18 +2010,18 @@ public class n {
         return (TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/") + parse.getLastPathSegment();
     }
 
-    public static void wy(@NonNull String str) {
+    public static void xF(@NonNull String str) {
         if (str != null) {
-            I(new File(CACHE_DIR + "/" + str));
+            M(new File(CACHE_DIR + "/" + str));
         }
     }
 
-    private static void I(File file) {
+    private static void M(File file) {
         File[] listFiles;
         if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    I(file2);
+                    M(file2);
                     file2.delete();
                 } else {
                     file2.delete();

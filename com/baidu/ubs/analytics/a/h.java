@@ -5,13 +5,13 @@ import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.IMConstants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 final class h {
-    private SQLiteDatabase mEH = f.dxj().dxk();
+    private SQLiteDatabase mML = f.dAw().aec();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<i> dxi() {
-        Cursor rawQuery = this.mEH.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
+    public final List<i> dAv() {
+        Cursor rawQuery = this.mML.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             i iVar = new i();
@@ -29,6 +29,6 @@ final class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(int i) {
-        this.mEH.execSQL("delete from tb_ab_netlog where _id <= " + i);
+        this.mML.execSQL("delete from tb_ab_netlog where _id <= " + i);
     }
 }

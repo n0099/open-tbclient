@@ -29,7 +29,7 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ScrollingTabContainerView extends HorizontalScrollView implements AdapterView.OnItemSelectedListener {
     private static final int FADE_DURATION = 200;
     private static final String TAG = "ScrollingTabContainerView";
@@ -313,7 +313,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class TabView extends LinearLayout {
         private final int[] BG_ATTRS;
         private View mCustomView;
@@ -442,7 +442,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class TabAdapter extends BaseAdapter {
         TabAdapter() {
         }
@@ -473,7 +473,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class TabClickListener implements View.OnClickListener {
         TabClickListener() {
         }
@@ -489,7 +489,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     protected class VisibilityAnimListener extends AnimatorListenerAdapter {
         private boolean mCanceled = false;
         private int mFinalVisibility;

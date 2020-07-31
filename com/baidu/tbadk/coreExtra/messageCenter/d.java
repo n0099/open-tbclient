@@ -10,223 +10,223 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 /* loaded from: classes.dex */
 public class d {
-    private static d elQ = new d();
-    public int elR = 300;
-    public boolean elS = true;
-    public boolean elT = false;
-    public boolean elU = true;
-    public boolean elV = true;
-    public boolean elW = true;
-    public boolean elX = true;
-    public boolean elY = false;
-    public boolean elZ = true;
-    public boolean ema = true;
-    public boolean emb = false;
-    public String emc = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
-    public String emd = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
+    private static d esb = new d();
+    public int esc = 300;
+    public boolean esd = true;
+    public boolean ese = false;
+    public boolean esf = true;
+    public boolean esg = true;
+    public boolean esh = true;
+    public boolean esi = true;
+    public boolean esj = false;
+    public boolean esk = true;
+    public boolean esl = true;
+    public boolean esm = false;
+    public String esn = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
+    public String eso = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
 
     private d() {
     }
 
-    public static d bbV() {
-        return elQ;
+    public static d bfO() {
+        return esb;
     }
 
     public void initSetting() {
-        com.baidu.tieba.tbadkCore.util.a.diV();
+        com.baidu.tieba.tbadkCore.util.a.dmd();
     }
 
-    public void bbW() {
-        com.baidu.tieba.tbadkCore.util.a.bbW();
+    public void bfP() {
+        com.baidu.tieba.tbadkCore.util.a.bfP();
     }
 
-    public boolean bbX() {
-        return this.elR > 0;
+    public boolean bfQ() {
+        return this.esc > 0;
     }
 
-    public int bbY() {
-        return this.elR;
+    public int bfR() {
+        return this.esc;
     }
 
-    public boolean bbZ() {
-        return this.elT;
+    public boolean bfS() {
+        return this.ese;
     }
 
-    public boolean bca() {
-        return this.elU;
+    public boolean bfT() {
+        return this.esf;
     }
 
-    public boolean bcb() {
-        return this.elX;
+    public boolean bfU() {
+        return this.esi;
     }
 
-    public boolean bcc() {
-        return this.elV;
+    public boolean bfV() {
+        return this.esg;
     }
 
-    public boolean bcd() {
-        return this.elS;
+    public boolean bfW() {
+        return this.esd;
     }
 
-    public boolean bce() {
-        return this.elZ;
+    public boolean bfX() {
+        return this.esk;
     }
 
-    public boolean bcf() {
-        return this.ema;
+    public boolean bfY() {
+        return this.esl;
     }
 
-    public boolean bcg() {
-        return this.emb;
+    public boolean bfZ() {
+        return this.esm;
     }
 
-    public boolean bch() {
-        return this.elY;
+    public boolean bga() {
+        return this.esj;
     }
 
-    public String bci() {
-        return this.emc;
+    public String bgb() {
+        return this.esn;
     }
 
-    public String bcj() {
-        return this.emd;
+    public String bgc() {
+        return this.eso;
     }
 
-    private void bck() {
+    private void bgd() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
 
-    public void hE(boolean z) {
-        this.elS = z;
-        bck();
+    public void ii(boolean z) {
+        this.esd = z;
+        bgd();
     }
 
-    public void nc(int i) {
+    public void nu(int i) {
         if (i == 0) {
-            this.elR = i;
-            b.bbo().setMsgBookmark(0);
-            b.bbo().setMsgGiftNum(0);
-            b.bbo().setMsgFans(0);
+            this.esc = i;
+            b.bfl().setMsgBookmark(0);
+            b.bfl().setMsgGiftNum(0);
         } else {
-            this.elR = 300;
+            this.esc = 300;
         }
-        bck();
+        bgd();
     }
 
-    public boolean bcl() {
+    public boolean bge() {
         return TbadkSettings.getInst().loadBoolean(SharedPrefConfig.GROUP_NOTIFY, true) && TbadkCoreApplication.getInst().appResponseToIntentClass(GroupChatActivityConfig.class);
     }
 
-    public void hF(boolean z) {
+    public void ij(boolean z) {
         TbadkSettings.getInst().saveBoolean(SharedPrefConfig.GROUP_NOTIFY, z);
-        bck();
+        bgd();
     }
 
-    public boolean bcm() {
-        return this.elW;
+    public boolean bgf() {
+        return this.esh;
     }
 
-    public void hG(boolean z) {
-        this.elW = z;
-        bck();
+    public void ik(boolean z) {
+        this.esh = z;
+        bgd();
     }
 
-    public void hH(boolean z) {
-        this.elT = z;
+    public void il(boolean z) {
+        this.ese = z;
     }
 
-    public void hI(boolean z) {
-        this.emb = z;
+    public void im(boolean z) {
+        this.esm = z;
     }
 
-    public void xG(String str) {
-        this.emc = str;
+    public void yM(String str) {
+        this.esn = str;
     }
 
-    public void xH(String str) {
-        this.emd = str;
+    public void yN(String str) {
+        this.eso = str;
     }
 
-    public void hJ(boolean z) {
-        this.elY = z;
+    public void in(boolean z) {
+        this.esj = z;
     }
 
-    public void hK(boolean z) {
-        this.ema = z;
+    public void io(boolean z) {
+        this.esl = z;
     }
 
-    public void hL(boolean z) {
-        this.elZ = z;
+    public void ip(boolean z) {
+        this.esk = z;
     }
 
-    public void hM(boolean z) {
-        com.baidu.tbadk.core.sharedPref.b.aVP().putBoolean(SharedPrefConfig.PERMIT_SCREEN_LOCK, z);
+    public void iq(boolean z) {
+        com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean(SharedPrefConfig.PERMIT_SCREEN_LOCK, z);
     }
 
-    public boolean bcn() {
-        return com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean(SharedPrefConfig.PERMIT_SCREEN_LOCK, true);
+    public boolean bgg() {
+        return com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean(SharedPrefConfig.PERMIT_SCREEN_LOCK, true);
     }
 
-    public void hN(boolean z) {
-        this.elV = z;
-        bck();
+    public void ir(boolean z) {
+        this.esg = z;
+        bgd();
     }
 
-    public void hO(boolean z) {
-        this.elU = z;
-        bck();
+    public void is(boolean z) {
+        this.esf = z;
+        bgd();
     }
 
-    public void hP(boolean z) {
-        this.elX = z;
+    public void it(boolean z) {
+        this.esi = z;
+        bgd();
     }
 
     public boolean isSignAlertOn() {
-        return f.bcq().isSignAlertOn();
+        return f.bgj().isSignAlertOn();
     }
 
     public void setSignAlertOn(boolean z) {
-        f.bcq().setSignAlertOn(z);
+        f.bgj().setSignAlertOn(z);
     }
 
     public int getSignAlertHours() {
-        return f.bcq().getSignAlertHours();
+        return f.bgj().getSignAlertHours();
     }
 
     public int getSignAlertMins() {
-        return f.bcq().getSignAlertMins();
+        return f.bgj().getSignAlertMins();
     }
 
     public void setSignAlertTime(int i, int i2) {
-        f.bcq().setSignAlertTime(i, i2);
+        f.bgj().setSignAlertTime(i, i2);
     }
 
     public void updateSignAlarm() {
-        f.bcq().updateSignAlarm();
+        f.bgj().updateSignAlarm();
     }
 
-    public void nd(int i) {
+    public void nv(int i) {
         if (i == 0) {
-            hL(false);
-            hJ(false);
+            ip(false);
+            in(false);
         } else if (i == 1) {
-            hL(true);
-            hJ(false);
+            ip(true);
+            in(false);
         } else if (i == 2) {
-            hL(false);
-            hJ(true);
+            ip(false);
+            in(true);
         } else {
-            hL(true);
-            hJ(true);
+            ip(true);
+            in(true);
         }
     }
 
-    public int bco() {
-        if (!this.elZ && !this.elY) {
+    public int bgh() {
+        if (!this.esk && !this.esj) {
             return 0;
         }
-        if (!this.elZ || this.elY) {
-            if (!this.elZ && this.elY) {
+        if (!this.esk || this.esj) {
+            if (!this.esk && this.esj) {
                 return 2;
             }
             return 3;
@@ -234,11 +234,11 @@ public class d {
         return 1;
     }
 
-    public void hQ(boolean z) {
+    public void iu(boolean z) {
         TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.REMIND_FORUM_BROADCAST_SWITCH, z);
     }
 
-    public boolean bcp() {
+    public boolean bgi() {
         return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.REMIND_FORUM_BROADCAST_SWITCH, true);
     }
 }

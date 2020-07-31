@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.c;
 import android.os.Build;
 import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.imagepipeline.c.h;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class d implements h.a {
     @Override // com.facebook.imagepipeline.c.h.a
     public double b(MemoryTrimType memoryTrimType) {

@@ -3,7 +3,7 @@ package com.baidu.mapsdkplatform.comapi.synchronization.d;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.Point;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static double a(LatLng latLng, LatLng latLng2) {
         if (latLng == null || latLng2 == null) {

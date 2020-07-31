@@ -3,7 +3,7 @@ package com.baidu.fsg.base.router;
 import android.content.Context;
 import com.baidu.fsg.base.utils.LogUtil;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class LocalRouter {
     private static final String a = "LocalRouter";
     private static LocalRouter b = null;

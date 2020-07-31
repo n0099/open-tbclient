@@ -22,7 +22,7 @@ import com.baidu.sapi2.utils.enums.SocialType;
 import java.net.HttpCookie;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class ThirdPartyService implements AbstractThirdPartyService {
     private static final long MIN_INVOKE_INTER_TIME = 500;
     private long lastInvokeTime = 0;

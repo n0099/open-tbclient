@@ -1,7 +1,7 @@
 package com.baidu.swan.apps;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static String getVersion() {
-        return "2.17.0";
+        return "2.19.0";
     }
 }

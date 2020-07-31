@@ -7,7 +7,7 @@ import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.message.PublicMsg;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CommandService extends Service {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {

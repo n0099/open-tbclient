@@ -1,5 +1,6 @@
 package okhttp3.internal;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -38,7 +39,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Source;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public final class Util {
     private static final Pattern VERIFY_AS_IP_ADDRESS;
     private static final Method addSuppressedExceptionMethod;
@@ -151,7 +152,7 @@ public final class Util {
         source.timeout().deadlineNanoTime(Math.min(deadlineNanoTime, timeUnit.toNanos(i)) + nanoTime);
         try {
             Buffer buffer = new Buffer();
-            while (source.read(buffer, 8192L) != -1) {
+            while (source.read(buffer, PlaybackStateCompat.ACTION_PLAY_FROM_URI) != -1) {
                 buffer.clear();
             }
             if (deadlineNanoTime == Long.MAX_VALUE) {

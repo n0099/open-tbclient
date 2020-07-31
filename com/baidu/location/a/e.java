@@ -2,7 +2,7 @@ package com.baidu.location.a;
 
 import android.location.Location;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e implements Runnable {
     final /* synthetic */ Location a;
     final /* synthetic */ d b;

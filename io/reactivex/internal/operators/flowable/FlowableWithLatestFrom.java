@@ -7,15 +7,15 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final io.reactivex.c.c<? super T, ? super U, ? extends R> combiner;
-    final org.a.b<? extends U> nKw;
+    final org.a.b<? extends U> nTe;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(bVar, this.combiner);
         bVar.onSubscribe(withLatestFromSubscriber);
-        this.nKw.subscribe(new a(withLatestFromSubscriber));
-        this.nJW.a((j) withLatestFromSubscriber);
+        this.nTe.subscribe(new a(withLatestFromSubscriber));
+        this.nSE.a((j) withLatestFromSubscriber);
     }
 
     /* loaded from: classes7.dex */
@@ -52,7 +52,7 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
                     this.actual.onNext(io.reactivex.internal.functions.a.k(this.combiner.apply(t, u), "The combiner returned a null value"));
                     return true;
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.L(th);
+                    io.reactivex.exceptions.a.K(th);
                     cancel();
                     this.actual.onError(th);
                     return false;
@@ -96,27 +96,27 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
 
     /* loaded from: classes7.dex */
     final class a implements j<U> {
-        private final WithLatestFromSubscriber<T, U, R> nKX;
+        private final WithLatestFromSubscriber<T, U, R> nTF;
 
         a(WithLatestFromSubscriber<T, U, R> withLatestFromSubscriber) {
-            this.nKX = withLatestFromSubscriber;
+            this.nTF = withLatestFromSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            if (this.nKX.setOther(dVar)) {
+            if (this.nTF.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(U u) {
-            this.nKX.lazySet(u);
+            this.nTF.lazySet(u);
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.nKX.otherError(th);
+            this.nTF.otherError(th);
         }
 
         @Override // org.a.c

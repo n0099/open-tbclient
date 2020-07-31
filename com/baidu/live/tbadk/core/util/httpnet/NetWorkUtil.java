@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.util.httpnet;
 
 import android.net.Proxy;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NetWorkUtil {
     public static final String NET_TYPE_NET = "1";
     public static final String NET_TYPE_WAP = "2";

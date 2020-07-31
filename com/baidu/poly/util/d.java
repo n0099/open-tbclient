@@ -1,25 +1,25 @@
 package com.baidu.poly.util;
 
 import android.util.Log;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class d {
-    private static String bAL = null;
-    private static String bAM = null;
-    private static int bAN = 0;
-    public static boolean bAO = true;
+    private static String bBb = null;
+    private static String bBc = null;
+    private static int bBd = 0;
+    public static boolean bBe = true;
 
     private static void a(StackTraceElement[] stackTraceElementArr) {
-        bAL = stackTraceElementArr[1].getFileName();
-        bAM = stackTraceElementArr[1].getMethodName();
-        bAN = stackTraceElementArr[1].getLineNumber();
+        bBb = stackTraceElementArr[1].getFileName();
+        bBc = stackTraceElementArr[1].getMethodName();
+        bBd = stackTraceElementArr[1].getLineNumber();
     }
 
-    private static String dy(String str) {
-        return Thread.currentThread().getName() + "[" + bAL + ":" + bAM + ":" + bAN + "]" + str;
+    private static String dC(String str) {
+        return Thread.currentThread().getName() + "[" + bBb + ":" + bBc + ":" + bBd + "]" + str;
     }
 
     public static void info(String str) {
-        if (!bAO) {
+        if (!bBe) {
             return;
         }
         Log.i("CashierSdk", str);
@@ -32,18 +32,18 @@ public class d {
                 sb.append(obj.toString());
             }
         }
-        return dy(sb.toString());
+        return dC(sb.toString());
     }
 
     public static void l(Object... objArr) {
-        if (bAO) {
+        if (bBe) {
             a(new Throwable().getStackTrace());
             Log.e("CashierSdk", k(objArr));
         }
     }
 
     public static void a(String str, Throwable th) {
-        if (bAO) {
+        if (bBe) {
             a(new Throwable().getStackTrace());
             Log.e("CashierSdk", k(str), th);
         }

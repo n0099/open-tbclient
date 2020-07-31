@@ -259,9 +259,9 @@ public class BdStatisticsManager {
 
     public void saveAndUploadlog(String str) {
         if (!BdBaseApplication.getInst().checkInterrupt()) {
-            com.baidu.adp.lib.stats.base.a y = com.baidu.adp.lib.stats.b.g.mu().y(str, null);
-            com.baidu.adp.lib.stats.b.g.mu().k(y);
-            com.baidu.adp.lib.stats.b.g.mu().j(y);
+            com.baidu.adp.lib.stats.base.a x = com.baidu.adp.lib.stats.b.g.mu().x(str, null);
+            com.baidu.adp.lib.stats.b.g.mu().k(x);
+            com.baidu.adp.lib.stats.b.g.mu().j(x);
         }
     }
 
@@ -363,7 +363,7 @@ public class BdStatisticsManager {
     private void alert(String str, String str2, Object[] objArr) {
         if (com.baidu.adp.lib.stats.switchs.a.mn().isUpload("alert", str) && !checkUploadRecently(str)) {
             setUploadTime(str);
-            com.baidu.adp.lib.stats.base.a y = com.baidu.adp.lib.stats.b.g.mu().y("alert", null);
+            com.baidu.adp.lib.stats.base.a x = com.baidu.adp.lib.stats.b.g.mu().x("alert", null);
             com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("alert");
             aVar.append(BdStatsConstant.StatsKey.TYPE, "alert");
             if (!TextUtils.isEmpty(str)) {
@@ -376,13 +376,13 @@ public class BdStatisticsManager {
             if (objArr != null && objArr.length > 0) {
                 aVar.append(objArr);
             }
-            y.a(aVar);
+            x.a(aVar);
             if (f.lG()) {
                 aVar.a(this.mCommonData);
-                com.baidu.adp.lib.stats.upload.b.ms().b(y, aVar.lw().lJ().toString());
+                com.baidu.adp.lib.stats.upload.b.ms().b(x, aVar.lw().lJ().toString());
             }
             BdLog.i("alert item = " + aVar.toString());
-            com.baidu.adp.lib.stats.upload.b.ms().a(y, aVar.toString());
+            com.baidu.adp.lib.stats.upload.b.ms().a(x, aVar.toString());
         }
     }
 
@@ -422,7 +422,7 @@ public class BdStatisticsManager {
     }
 
     private void addLog(String str, String str2, long j, String str3, com.baidu.adp.lib.stats.a aVar, Object... objArr) {
-        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !e.lx().bR(str)) {
+        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !e.lx().bP(str)) {
             if (j == -1) {
                 com.baidu.adp.lib.stats.b.g.mu().a(str, str2, null, str3, aVar, objArr);
             } else {
@@ -432,13 +432,13 @@ public class BdStatisticsManager {
     }
 
     public void log(String str, Object... objArr) {
-        com.baidu.adp.lib.stats.base.a y = com.baidu.adp.lib.stats.b.g.mu().y(str, null);
-        if (y != null && com.baidu.adp.lib.stats.switchs.a.mn().isWrite(str, null)) {
+        com.baidu.adp.lib.stats.base.a x = com.baidu.adp.lib.stats.b.g.mu().x(str, null);
+        if (x != null && com.baidu.adp.lib.stats.switchs.a.mn().isWrite(str, null)) {
             com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a(str);
             if (objArr != null && objArr.length > 0) {
                 aVar.append(objArr);
             }
-            y.a(aVar);
+            x.a(aVar);
         }
     }
 
@@ -471,37 +471,37 @@ public class BdStatisticsManager {
     }
 
     public void file(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.lx().bR("file")) {
+        if (!e.lx().bP("file")) {
             op(true, "file", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void db(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.lx().bR(BdStatsConstant.OpSubType.DB)) {
+        if (!e.lx().bP(BdStatsConstant.OpSubType.DB)) {
             op(true, BdStatsConstant.OpSubType.DB, str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void imgErr(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.lx().bR("img")) {
+        if (!e.lx().bP("img")) {
             op(true, "img", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void voiceErr(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.lx().bR("voice")) {
+        if (!e.lx().bP("voice")) {
             op(true, "voice", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void liveErr(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.lx().bR("live")) {
+        if (!e.lx().bP("live")) {
             op(true, "live", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void aladinPortErr(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.lx().bR(BdStatsConstant.OpSubType.ALADIN_PORT_ERROR)) {
+        if (!e.lx().bP(BdStatsConstant.OpSubType.ALADIN_PORT_ERROR)) {
             op(true, BdStatsConstant.OpSubType.ALADIN_PORT_ERROR, str, str2, 0L, i, str3, objArr);
         }
     }

@@ -1,15 +1,13 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes9.dex */
-public class j extends PostData {
-    public static final BdUniqueId Wk = BdUniqueId.gen();
-    public String jZT;
-    private int position = 0;
+/* loaded from: classes16.dex */
+public class j implements com.baidu.adp.widget.ListView.q {
+    public static final BdUniqueId kin = BdUniqueId.gen();
+    public String showText;
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return Wk;
+        return kin;
     }
 }

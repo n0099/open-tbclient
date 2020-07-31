@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.i.m;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class OpNotifyActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {

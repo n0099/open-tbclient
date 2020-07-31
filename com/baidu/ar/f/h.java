@@ -3,7 +3,7 @@ package com.baidu.ar.f;
 import android.graphics.Bitmap;
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class h {
     public static Bitmap a(int i, int i2, byte[] bArr) {
         if (bArr.length <= 0) {

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes20.dex */
 public class CryptoUtil {
     private static final int DEFAULT_RADIX = 16;
     public static final String DES_KEY = "com.nearme.mcs";

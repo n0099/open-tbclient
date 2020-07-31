@@ -27,27 +27,27 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private static com.baidu.tieba.write.b.c.a moO;
-    private static CopyOnWriteArrayList<String> moP = new CopyOnWriteArrayList<>();
+    private static com.baidu.tieba.write.b.c.a mwN;
+    private static CopyOnWriteArrayList<String> mwO = new CopyOnWriteArrayList<>();
 
     /* renamed from: com.baidu.tieba.write.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0765a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0775a {
         void a(BaseUploadData baseUploadData);
 
         void onError();
     }
 
     static {
-        b.drQ().init();
+        b.dvc().init();
     }
 
-    public static void a(final WriteData writeData, final InterfaceC0765a interfaceC0765a) {
+    public static void a(final WriteData writeData, final InterfaceC0775a interfaceC0775a) {
         if (writeData == null || writeData.mDynamicImageTextData == null) {
-            if (interfaceC0765a != null) {
-                interfaceC0765a.onError();
+            if (interfaceC0775a != null) {
+                interfaceC0775a.onError();
                 return;
             }
             return;
@@ -55,19 +55,19 @@ public class a {
         writeData.mDynamicImageTextData.inputText = writeData.getContent();
         final WriteImagesInfo writeImagesInfo = writeData.getWriteImagesInfo();
         if (writeImagesInfo == null || writeImagesInfo.getChosedFiles() == null || writeImagesInfo.getChosedFiles().size() <= 0) {
-            if (interfaceC0765a != null) {
-                interfaceC0765a.a(writeData.mDynamicImageTextData);
+            if (interfaceC0775a != null) {
+                interfaceC0775a.a(writeData.mDynamicImageTextData);
                 return;
             }
             return;
         }
-        if (moO == null) {
-            moO = new com.baidu.tieba.write.b.c.a();
+        if (mwN == null) {
+            mwN = new com.baidu.tieba.write.b.c.a();
         }
         final LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
-        moO.a(chosedFiles, writeImagesInfo.isOriginalImg(), new a.InterfaceC0766a() { // from class: com.baidu.tieba.write.b.a.1
-            @Override // com.baidu.tieba.write.b.c.a.InterfaceC0766a
-            public void cBI() {
+        mwN.a(chosedFiles, writeImagesInfo.isOriginalImg(), new a.InterfaceC0776a() { // from class: com.baidu.tieba.write.b.a.1
+            @Override // com.baidu.tieba.write.b.c.a.InterfaceC0776a
+            public void cFF() {
                 ArrayList arrayList = new ArrayList();
                 Iterator it = chosedFiles.iterator();
                 while (it.hasNext()) {
@@ -81,8 +81,8 @@ public class a {
                     if (chosedUriStr != null && chosedUriStr.size() > 0) {
                         writeData.mDynamicImageTextData.imagePaths = chosedUriStr;
                     }
-                    if (interfaceC0765a != null) {
-                        interfaceC0765a.a(writeData.mDynamicImageTextData);
+                    if (interfaceC0775a != null) {
+                        interfaceC0775a.a(writeData.mDynamicImageTextData);
                         return;
                     }
                     return;
@@ -97,7 +97,7 @@ public class a {
                     } else {
                         n.a(strArr, new n.b() { // from class: com.baidu.tieba.write.b.a.1.1
                             @Override // com.baidu.tbadk.core.util.n.b
-                            public void E(HashMap<String, String> hashMap) {
+                            public void D(HashMap<String, String> hashMap) {
                                 if (hashMap != null) {
                                     Iterator it2 = chosedFiles.iterator();
                                     while (it2.hasNext()) {
@@ -111,8 +111,8 @@ public class a {
                                         writeData.mDynamicImageTextData.imagePaths = chosedUriStr2;
                                     }
                                 }
-                                if (interfaceC0765a != null) {
-                                    interfaceC0765a.a(writeData.mDynamicImageTextData);
+                                if (interfaceC0775a != null) {
+                                    interfaceC0775a.a(writeData.mDynamicImageTextData);
                                 }
                             }
                         });
@@ -123,10 +123,10 @@ public class a {
         });
     }
 
-    public static void a(final WriteData writeData, final InterfaceC0765a interfaceC0765a, final a.InterfaceC0744a interfaceC0744a) {
+    public static void a(final WriteData writeData, final InterfaceC0775a interfaceC0775a, final a.InterfaceC0754a interfaceC0754a) {
         if (writeData == null || writeData.mDynamicVideoData == null || writeData.getVideoInfo() == null) {
-            if (interfaceC0765a != null) {
-                interfaceC0765a.onError();
+            if (interfaceC0775a != null) {
+                interfaceC0775a.onError();
                 return;
             }
             return;
@@ -137,8 +137,8 @@ public class a {
         String videoUriStr = videoInfo.getVideoUriStr();
         ArrayList arrayList = new ArrayList();
         if (TextUtils.isEmpty(videoInfo.getThumbPath()) || TextUtils.isEmpty(videoInfo.getVideoPath())) {
-            if (interfaceC0765a != null) {
-                interfaceC0765a.onError();
+            if (interfaceC0775a != null) {
+                interfaceC0775a.onError();
                 return;
             }
             return;
@@ -160,15 +160,15 @@ public class a {
                 } else {
                     n.a(strArr, new n.b() { // from class: com.baidu.tieba.write.b.a.2
                         @Override // com.baidu.tbadk.core.util.n.b
-                        public void E(HashMap<String, String> hashMap) {
+                        public void D(HashMap<String, String> hashMap) {
                             if (hashMap != null) {
                                 VideoInfo.this.setThumbUriStr(hashMap.get(VideoInfo.this.getThumbPath()));
                                 VideoInfo.this.setVideoUriStr(hashMap.get(VideoInfo.this.getVideoPath()));
                             }
                             if (!TextUtils.isEmpty(VideoInfo.this.getThumbUriStr()) && !TextUtils.isEmpty(VideoInfo.this.getVideoUriStr())) {
-                                a.b(writeData, interfaceC0765a, interfaceC0744a);
-                            } else if (interfaceC0765a != null) {
-                                interfaceC0765a.onError();
+                                a.b(writeData, interfaceC0775a, interfaceC0754a);
+                            } else if (interfaceC0775a != null) {
+                                interfaceC0775a.onError();
                             }
                         }
                     });
@@ -176,72 +176,72 @@ public class a {
                 }
             }
         } else {
-            b(writeData, interfaceC0765a, interfaceC0744a);
+            b(writeData, interfaceC0775a, interfaceC0754a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void b(final WriteData writeData, final InterfaceC0765a interfaceC0765a, final a.InterfaceC0744a interfaceC0744a) {
+    public static void b(final WriteData writeData, final InterfaceC0775a interfaceC0775a, final a.InterfaceC0754a interfaceC0754a) {
         UploadProviderManager.getUploadProvider().upLoadImage(writeData.getVideoInfo().getThumbUriStr(), new UploadImageListener() { // from class: com.baidu.tieba.write.b.a.3
             @Override // com.baidu.searchbox.upload.provider.listener.UploadImageListener
             public void uploadSuccess(String str, int i, int i2, long j) {
                 WriteData.this.mDynamicVideoData.videos = new VideoUploadData.VideoInfo();
                 WriteData.this.mDynamicVideoData.videos.coverUrl = str;
                 WriteData.this.mDynamicVideoData.videos.videoFirstFrame = str;
-                a.c(WriteData.this, interfaceC0765a, interfaceC0744a);
+                a.c(WriteData.this, interfaceC0775a, interfaceC0754a);
             }
 
             @Override // com.baidu.searchbox.upload.provider.listener.UploadImageListener
             public void uploadFail() {
-                if (interfaceC0765a != null) {
-                    interfaceC0765a.onError();
+                if (interfaceC0775a != null) {
+                    interfaceC0775a.onError();
                 }
             }
 
             @Override // com.baidu.searchbox.upload.provider.listener.UploadImageListener
             public void uploadProgress(float f) {
-                if (interfaceC0744a != null) {
-                    interfaceC0744a.EZ((int) (100.0f * f * 0.1f));
+                if (interfaceC0754a != null) {
+                    interfaceC0754a.Fv((int) (100.0f * f * 0.1f));
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void c(final WriteData writeData, final InterfaceC0765a interfaceC0765a, final a.InterfaceC0744a interfaceC0744a) {
-        if (interfaceC0744a != null) {
-            interfaceC0744a.EZ(10);
+    public static void c(final WriteData writeData, final InterfaceC0775a interfaceC0775a, final a.InterfaceC0754a interfaceC0754a) {
+        if (interfaceC0754a != null) {
+            interfaceC0754a.Fv(10);
         }
         UploadProviderManager.getUploadProvider().uploadVideo(writeData.getVideoInfo().getVideoUriStr(), new UploadVideoListener() { // from class: com.baidu.tieba.write.b.a.4
             @Override // com.baidu.searchbox.upload.provider.listener.UploadVideoListener
             public void uploadSuccess(String str, String str2, String str3) {
                 WriteData.this.mDynamicVideoData.videos.mediaId = str;
                 WriteData.this.mDynamicVideoData.videos.sourceKey = str2;
-                a.a(str3, WriteData.this, interfaceC0765a);
+                a.a(str3, WriteData.this, interfaceC0775a);
             }
 
             @Override // com.baidu.searchbox.upload.provider.listener.UploadVideoListener
             public void uploadFail(String str) {
-                if (interfaceC0765a != null) {
-                    interfaceC0765a.onError();
+                if (interfaceC0775a != null) {
+                    interfaceC0775a.onError();
                 }
             }
 
             @Override // com.baidu.searchbox.upload.provider.listener.UploadVideoListener
             public void uploadProgress(int i) {
-                if (interfaceC0744a != null) {
-                    interfaceC0744a.EZ((int) (10.0f + (i * 0.9f)));
+                if (interfaceC0754a != null) {
+                    interfaceC0754a.Fv((int) (10.0f + (i * 0.9f)));
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void a(String str, WriteData writeData, InterfaceC0765a interfaceC0765a) {
+    public static void a(String str, WriteData writeData, InterfaceC0775a interfaceC0775a) {
         MediaMetadataRetriever mediaMetadataRetriever = getMediaMetadataRetriever(str);
         if (mediaMetadataRetriever == null) {
-            if (interfaceC0765a != null) {
-                interfaceC0765a.onError();
+            if (interfaceC0775a != null) {
+                interfaceC0775a.onError();
                 return;
             }
             return;
@@ -259,8 +259,8 @@ public class a {
         writeData.mDynamicVideoData.videos.width = extractMetadata2;
         writeData.mDynamicVideoData.videos.height = extractMetadata;
         writeData.mDynamicVideoData.videos.size = valueOf;
-        if (interfaceC0765a != null) {
-            interfaceC0765a.a(writeData.mDynamicVideoData);
+        if (interfaceC0775a != null) {
+            interfaceC0775a.a(writeData.mDynamicVideoData);
         }
     }
 
@@ -274,15 +274,15 @@ public class a {
         return mediaMetadataRetriever;
     }
 
-    public static void OW(String str) {
-        moP.add(str);
+    public static void PH(String str) {
+        mwO.add(str);
     }
 
-    public static void drH() {
+    public static void duT() {
         try {
-            if (moP != null && moP.size() > 0) {
-                moP.clear();
-                n.deleteFileOrDir(new File(e.eyb));
+            if (mwO != null && mwO.size() > 0) {
+                mwO.clear();
+                n.deleteFileOrDir(new File(e.eEt));
                 TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE"));
             }
         } catch (Exception e) {

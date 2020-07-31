@@ -14,67 +14,67 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ala.data.k;
+import com.baidu.tieba.ala.data.l;
 import com.baidu.tieba.ala.view.AlaChallengeHistoryHeaderView;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private Activity bdo;
-    private BdListView fOg;
-    private LinearLayout fOh;
-    private LinearLayout fOi;
-    private com.baidu.tieba.ala.adapter.a fOj;
-    private AlaChallengeHistoryHeaderView fOk;
-    private TextView fOl;
+    private Activity bdG;
+    private LinearLayout fTA;
+    private LinearLayout fTB;
+    private com.baidu.tieba.ala.adapter.a fTC;
+    private AlaChallengeHistoryHeaderView fTD;
+    private TextView fTE;
+    private BdListView fTz;
     private TbPageContext<BaseFragmentActivity> mTbPageContext;
     private View view;
 
     public a(TbPageContext<BaseFragmentActivity> tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.bdo = this.mTbPageContext.getPageActivity();
+        this.bdG = this.mTbPageContext.getPageActivity();
         initView();
     }
 
     private void initView() {
-        this.view = LayoutInflater.from(this.bdo).inflate(a.h.ala_challenge_fragment_layout, (ViewGroup) null);
-        this.fOg = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
-        this.fOg.setVisibility(4);
-        this.fOh = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
-        this.fOi = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
-        this.fOl = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
-        this.fOj = new com.baidu.tieba.ala.adapter.a(this.bdo);
-        this.fOg.setAdapter((ListAdapter) this.fOj);
-        this.fOk = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
-        this.fOg.setEmptyView(this.fOh);
+        this.view = LayoutInflater.from(this.bdG).inflate(a.h.ala_challenge_fragment_layout, (ViewGroup) null);
+        this.fTz = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
+        this.fTz.setVisibility(4);
+        this.fTA = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
+        this.fTB = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
+        this.fTE = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
+        this.fTC = new com.baidu.tieba.ala.adapter.a(this.bdG);
+        this.fTz.setAdapter((ListAdapter) this.fTC);
+        this.fTD = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
+        this.fTz.setEmptyView(this.fTA);
     }
 
-    public void a(ArrayList<com.baidu.tieba.ala.data.a> arrayList, k kVar) {
-        this.fOg.setVisibility(0);
-        if (!ListUtils.isEmpty(arrayList) && kVar != null) {
-            if (this.fOk.getParent() == null) {
-                if (this.fOk.getParent() != null) {
-                    ((ViewGroup) this.fOk.getParent()).removeView(this.fOk);
+    public void a(ArrayList<com.baidu.tieba.ala.data.a> arrayList, l lVar) {
+        this.fTz.setVisibility(0);
+        if (!ListUtils.isEmpty(arrayList) && lVar != null) {
+            if (this.fTD.getParent() == null) {
+                if (this.fTD.getParent() != null) {
+                    ((ViewGroup) this.fTD.getParent()).removeView(this.fTD);
                 }
-                this.fOg.addHeaderView(this.fOk);
-                this.fOk.setData(kVar);
+                this.fTz.addHeaderView(this.fTD);
+                this.fTD.setData(lVar);
             }
-        } else if (this.fOk.getParent() != null) {
-            ((ViewGroup) this.fOk.getParent()).removeView(this.fOk);
+        } else if (this.fTD.getParent() != null) {
+            ((ViewGroup) this.fTD.getParent()).removeView(this.fTD);
         }
-        if (this.fOj != null && arrayList != null) {
-            this.fOj.setData(arrayList);
+        if (this.fTC != null && arrayList != null) {
+            this.fTC.setData(arrayList);
         }
     }
 
-    public void Cv(String str) {
+    public void Dh(String str) {
         if (!StringUtils.isNull(str)) {
-            if (this.fOj != null && this.fOj.getCount() <= 0) {
-                this.fOh.setVisibility(8);
-                this.fOi.setVisibility(0);
-                this.fOl.setText(str);
+            if (this.fTC != null && this.fTC.getCount() <= 0) {
+                this.fTA.setVisibility(8);
+                this.fTB.setVisibility(0);
+                this.fTE.setText(str);
                 return;
             }
-            BdUtilHelper.showToast(this.bdo, str, 1);
+            BdUtilHelper.showToast(this.bdG, str, 1);
         }
     }
 

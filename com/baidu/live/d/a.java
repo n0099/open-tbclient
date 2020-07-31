@@ -4,25 +4,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.live.data.q;
 import com.baidu.live.im.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface a {
 
     /* renamed from: com.baidu.live.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0160a {
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0159a {
     }
 
     void a(ViewGroup viewGroup, q qVar);
 
-    void a(InterfaceC0160a interfaceC0160a);
+    void a(InterfaceC0159a interfaceC0159a);
 
     void a(d dVar, boolean z, boolean z2);
 
-    void aT(boolean z);
+    void aW(boolean z);
 
     void b(q qVar);
 
-    void bK(int i);
+    void bQ(int i);
 
     View getRootView();
 
@@ -32,9 +32,9 @@ public interface a {
 
     void setVisible(int i);
 
-    boolean vG();
+    boolean wc();
 
-    void vH();
+    void wd();
 
-    void vI();
+    void we();
 }

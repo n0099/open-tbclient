@@ -6,7 +6,7 @@ import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetADList.GetADListResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class ADHttpResponseMessage extends TbHttpResponsedMessage {
     private int has_more;
     List<c> list;
@@ -33,11 +33,11 @@ public class ADHttpResponseMessage extends TbHttpResponsedMessage {
                     c cVar = new c();
                     cVar.a(getADListResIdl.data.ad_list.get(i2));
                     if (getADListResIdl.data.ad_list.size() - 1 == i2) {
-                        cVar.ns(true);
+                        cVar.nX(true);
                     } else {
-                        cVar.ns(false);
+                        cVar.nX(false);
                     }
-                    if (cVar.cat() == 0 || cVar.cat() == 2) {
+                    if (cVar.cdR() == 0 || cVar.cdR() == 2) {
                         this.list.add(cVar);
                     }
                 }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.k;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.n;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tieba.R;
 import java.io.Closeable;
 import java.io.File;
@@ -23,10 +23,10 @@ import java.util.LinkedList;
 public class f {
     private int bigHeight;
     private int bigWidth;
-    private int exO;
-    private a eyl;
-    private e eyn;
-    public boolean eyo;
+    private a eEC;
+    private e eED;
+    public boolean eEE;
+    private int eEg;
     private String from;
     private boolean isCancelled;
     private Object progressObject;
@@ -34,7 +34,7 @@ public class f {
     private int smallWidth;
     private int chunkSize = 512000;
     private String groupId = "1";
-    private y mNetwork = null;
+    private z mNetwork = null;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -45,8 +45,8 @@ public class f {
         this.from = str;
     }
 
-    public void nN(int i) {
-        this.exO = i;
+    public void of(int i) {
+        this.eEg = i;
     }
 
     public void setServersideResize(int i, int i2, int i3, int i4) {
@@ -57,7 +57,7 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.eyl = aVar;
+        this.eEC = aVar;
         this.progressObject = obj;
         if (aVar != null) {
             this.chunkSize = 10240;
@@ -90,7 +90,7 @@ public class f {
                     UploadedImageInfo uploadedPicInfo = a2.getUploadedPicInfo();
                     if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
                         uploadedPicInfo.isGif = imageFileInfo.isGif();
-                        uploadedPicInfo.isBJH = this.eyo;
+                        uploadedPicInfo.isBJH = this.eEE;
                         imageFileInfo.setServerImageCode(uploadedPicInfo.toPostString());
                     } else {
                         errorData.setError_code(-53);
@@ -132,112 +132,112 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.eyn == null) {
-            this.eyn = new e();
+        if (this.eED == null) {
+            this.eED = new e();
         }
-        return f(this.eyn.c(imageFileInfo, z), z, z2);
+        return f(this.eED.c(imageFileInfo, z), z, z2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
         return a(imageFileInfo, false, z);
     }
 
-    public ImageUploadResult ao(String str, boolean z) {
+    public ImageUploadResult an(String str, boolean z) {
         return f(str, false, z);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [454=6, 455=4] */
     /* JADX DEBUG: Multi-variable search result rejected for r4v8, resolved type: java.io.File */
-    /* JADX WARN: Code restructure failed: missing block: B:100:0x0382, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:100:0x0380, code lost:
         r5 = true;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:101:0x0383, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:101:0x0381, code lost:
         r20.append(r5);
         r20.append("|picErrNo=");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:102:0x0390, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:102:0x038e, code lost:
         if (r12 == null) goto L93;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:103:0x0392, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:103:0x0390, code lost:
         r20.append(r12.error_code);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:104:0x0399, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:104:0x0397, code lost:
         r5 = r12;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:125:0x0412, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:125:0x0410, code lost:
         r5 = false;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:132:0x0423, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:132:0x0421, code lost:
         r5 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:133:0x0424, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:133:0x0422, code lost:
         r20.append("|startChunk=");
         r20.append(r8);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:135:0x0433, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:135:0x0431, code lost:
         r6 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:136:0x0434, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:136:0x0432, code lost:
         r13 = r4;
         r4 = null;
         r5 = r6;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:149:0x0495, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:149:0x0493, code lost:
         com.baidu.adp.lib.util.BdLog.e(r5.getMessage());
      */
-    /* JADX WARN: Code restructure failed: missing block: B:150:0x049e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:150:0x049c, code lost:
         r4 = th;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:151:0x049f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:151:0x049d, code lost:
         r5 = r13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:152:0x04a2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:152:0x04a0, code lost:
         r10 = -1002;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:153:0x04a6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:153:0x04a4, code lost:
         r11 = r5.getMessage();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:166:0x04c7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:166:0x04c5, code lost:
         r5 = r12;
      */
     /* JADX WARN: Code restructure failed: missing block: B:188:?, code lost:
         return r4;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x0184, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0182, code lost:
         r20.append("|startChunk=");
         r20.append(r8);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x019b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x0199, code lost:
         if (r25.isCancelled != false) goto L117;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x019d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x019b, code lost:
         r20.append("|request cancelled.");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x01a5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x01a3, code lost:
         if (r4 != null) goto L119;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x01a7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x01a5, code lost:
         r10 = r4.error_code;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x01a9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x01a7, code lost:
         if (r4 != null) goto L121;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x01ab, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x01a9, code lost:
         r11 = r4.error_msg;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x01ad, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x01ab, code lost:
         com.baidu.tbadk.core.d.a.a("img", -1, -1, "imageUpload", r10, r11, "comment", r20.toString());
      */
-    /* JADX WARN: Code restructure failed: missing block: B:44:0x01c9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x01c7, code lost:
         com.baidu.adp.lib.f.a.close(r13);
         r25.mNetwork = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:98:0x036b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:98:0x0369, code lost:
         r20.append("|startChunk=");
         r20.append(r8);
         r20.append("|picNull=");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:99:0x0380, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:99:0x037e, code lost:
         if (r12 != null) goto L94;
      */
     /* JADX WARN: Multi-variable type inference failed */
@@ -335,7 +335,7 @@ public class f {
                                                 randomAccessFile2.read(bArr2, 0, i4);
                                                 bArr = bArr2;
                                             }
-                                            this.mNetwork = new y(TbConfig.UPLOAD_IMG_URL);
+                                            this.mNetwork = new z(TbConfig.UPLOAD_IMG_URL);
                                             this.mNetwork.addPostData("resourceId", str2);
                                             this.mNetwork.addPostData("chunkNo", String.valueOf(i3));
                                             if (i3 >= j2) {
@@ -343,7 +343,7 @@ public class f {
                                             } else {
                                                 this.mNetwork.addPostData("isFinish", String.valueOf(0));
                                             }
-                                            if (this.eyo) {
+                                            if (this.eEE) {
                                                 this.mNetwork.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(1));
                                             } else {
                                                 this.mNetwork.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(0));
@@ -366,11 +366,11 @@ public class f {
                                             } else {
                                                 this.mNetwork.addPostData("saveOrigin", "0");
                                             }
-                                            if (this.exO != 0) {
-                                                this.mNetwork.addPostData("pic_water_type", String.valueOf(this.exO));
+                                            if (this.eEg != 0) {
+                                                this.mNetwork.addPostData("pic_water_type", String.valueOf(this.eEg));
                                             }
                                             if (z2) {
-                                                int imageWaterType = k.aPA().getImageWaterType();
+                                                int imageWaterType = k.aTv().getImageWaterType();
                                                 if (imageWaterType != 0) {
                                                     this.mNetwork.addPostData("pic_water_type", String.valueOf(imageWaterType));
                                                 }
@@ -378,12 +378,12 @@ public class f {
                                                 if (!StringUtils.isNull(currentAccountName) && imageWaterType == 1) {
                                                     this.mNetwork.addPostData("user_name", currentAccountName);
                                                 }
-                                                String forumNameForWaterImage = k.aPA().getForumNameForWaterImage();
+                                                String forumNameForWaterImage = k.aTv().getForumNameForWaterImage();
                                                 if (!StringUtils.isNull(forumNameForWaterImage) && imageWaterType == 2) {
                                                     this.mNetwork.addPostData("forum_name", forumNameForWaterImage);
                                                 }
                                             }
-                                            String forumNameForWaterImage2 = k.aPA().getForumNameForWaterImage();
+                                            String forumNameForWaterImage2 = k.aTv().getForumNameForWaterImage();
                                             if (!StringUtils.isNull(forumNameForWaterImage2)) {
                                                 this.mNetwork.addPostData("small_flow_fname", forumNameForWaterImage2);
                                             }
@@ -400,8 +400,8 @@ public class f {
                                                     int i5 = i3 + 1;
                                                     long j4 = j3 + i4;
                                                     long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.chunkSize) : j4;
-                                                    if (this.eyl != null) {
-                                                        this.eyl.onImageDataSentInBackground(str, this.progressObject, j5, length);
+                                                    if (this.eEC != null) {
+                                                        this.eEC.onImageDataSentInBackground(str, this.progressObject, j5, length);
                                                     }
                                                     i = i5;
                                                     j = j4;

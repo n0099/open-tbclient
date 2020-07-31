@@ -19,7 +19,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.http.HttpHost;
 @NotProguard
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class WebGLImageLoader {
     private static final String ASSET_URL = "asset://";
     static final String BDFILE = "bdfile://";
@@ -87,7 +87,7 @@ public class WebGLImageLoader {
         }
         if (obj instanceof String) {
             String str2 = (String) obj;
-            if (a.hb(str2)) {
+            if (a.gZ(str2)) {
                 bitmap = BitmapFactory.decodeFile(str2, options);
                 if (bitmap == null) {
                     bitmap = BitmapFactory.decodeFile(str2);
@@ -216,11 +216,38 @@ public class WebGLImageLoader {
         runInIOThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.WebGLImageLoader.5
             @Override // java.lang.Runnable
             public void run() {
+                InputStream inputStream = null;
                 try {
-                    WebGLImageLoader.loadImageFromConvertedSource(webGLImage, imageId, src, V8Engine.getAppContext().getResources().getAssets().open(replace));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    WebGLImageLoader.loadBitmapData(webGLImage, imageId, null);
+                    try {
+                        inputStream = V8Engine.getAppContext().getResources().getAssets().open(replace);
+                        WebGLImageLoader.loadImageFromConvertedSource(webGLImage, imageId, src, inputStream);
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                        WebGLImageLoader.loadBitmapData(webGLImage, imageId, null);
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                    }
+                } catch (Throwable th) {
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    throw th;
                 }
             }
         });
@@ -240,7 +267,7 @@ public class WebGLImageLoader {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class NetValueCallback implements ValueCallback<String> {
         private final WebGLImage mImage;
         private final int mImageId;

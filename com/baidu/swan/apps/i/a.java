@@ -7,35 +7,35 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.a;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a {
-    public String bXO;
-    public String bXP;
-    public String bXQ;
-    public String bXR;
-    public String bXS;
-    public String bXT;
-    public String bXU;
-    public String bXV;
-    public String bXW;
-    public String bXX;
-    public String bXY;
-    public String bXZ;
-    public String bYa;
-    public String bYb;
-    public String bYc;
-    public String bYd;
-    public String bYe;
-    public String bYf;
-    public String bYg;
-    public String bYh;
-    public String bYi;
-    public String bYj;
-    public String bYk;
-    public String bYl;
-    public String bYm;
-    public String bYn;
-    public String bYo;
+    public String bYH;
+    public String bYI;
+    public String bYJ;
+    public String bYK;
+    public String bYL;
+    public String bYM;
+    public String bYN;
+    public String bYO;
+    public String bYP;
+    public String bYQ;
+    public String bYR;
+    public String bYS;
+    public String bYT;
+    public String bYU;
+    public String bYV;
+    public String bYW;
+    public String bYX;
+    public String bYY;
+    public String bYZ;
+    public String bZa;
+    public String bZb;
+    public String bZc;
+    public String bZd;
+    public String bZe;
+    public String bZf;
+    public String bZg;
+    public String bZh;
     public String email;
     public String nickName;
     public String remark;
@@ -43,63 +43,63 @@ public class a {
     public String url;
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.bXR);
+        return !TextUtils.isEmpty(this.bYK);
     }
 
-    public static a aG(JSONObject jSONObject) {
+    public static a aJ(JSONObject jSONObject) {
         a aVar = new a();
         if (jSONObject != null) {
-            aVar.bXO = jSONObject.optString("photoFilePath");
+            aVar.bYH = jSONObject.optString("photoFilePath");
             aVar.nickName = jSONObject.optString("nickName");
-            aVar.bXP = jSONObject.optString("lastName");
-            aVar.bXQ = jSONObject.optString("middleName");
-            aVar.bXR = jSONObject.optString("firstName");
+            aVar.bYI = jSONObject.optString("lastName");
+            aVar.bYJ = jSONObject.optString("middleName");
+            aVar.bYK = jSONObject.optString("firstName");
             aVar.remark = jSONObject.optString("remark");
-            aVar.bXS = jSONObject.optString("mobilePhoneNumber");
-            aVar.bXT = jSONObject.optString("weChatNumber");
-            aVar.bXU = jSONObject.optString("addressCountry");
-            aVar.bXV = jSONObject.optString("addressState");
-            aVar.bXW = jSONObject.optString("addressCity");
-            aVar.bXX = jSONObject.optString("addressStreet");
-            aVar.bXY = jSONObject.optString("addressPostalCode");
-            aVar.bXZ = jSONObject.optString("organization");
+            aVar.bYL = jSONObject.optString("mobilePhoneNumber");
+            aVar.bYM = jSONObject.optString("weChatNumber");
+            aVar.bYN = jSONObject.optString("addressCountry");
+            aVar.bYO = jSONObject.optString("addressState");
+            aVar.bYP = jSONObject.optString("addressCity");
+            aVar.bYQ = jSONObject.optString("addressStreet");
+            aVar.bYR = jSONObject.optString("addressPostalCode");
+            aVar.bYS = jSONObject.optString("organization");
             aVar.title = jSONObject.optString("title");
-            aVar.bYa = jSONObject.optString("workFaxNumber");
-            aVar.bYb = jSONObject.optString("workPhoneNumber");
-            aVar.bYc = jSONObject.optString("hostNumber");
+            aVar.bYT = jSONObject.optString("workFaxNumber");
+            aVar.bYU = jSONObject.optString("workPhoneNumber");
+            aVar.bYV = jSONObject.optString("hostNumber");
             aVar.email = jSONObject.optString(NotificationCompat.CATEGORY_EMAIL);
             aVar.url = jSONObject.optString("url");
-            aVar.bYd = jSONObject.optString("workAddressCountry");
-            aVar.bYe = jSONObject.optString("workAddressState");
-            aVar.bYf = jSONObject.optString("workAddressCity");
-            aVar.bYg = jSONObject.optString("workAddressStreet");
-            aVar.bYh = jSONObject.optString("workAddressPostalCode");
-            aVar.bYi = jSONObject.optString("homeFaxNumber");
-            aVar.bYj = jSONObject.optString("homePhoneNumber");
-            aVar.bYk = jSONObject.optString("homeAddressCountry");
-            aVar.bYl = jSONObject.optString("homeAddressState");
-            aVar.bYm = jSONObject.optString("homeAddressCity");
-            aVar.bYn = jSONObject.optString("homeAddressStreet");
-            aVar.bYo = jSONObject.optString("homeAddressPostalCode");
+            aVar.bYW = jSONObject.optString("workAddressCountry");
+            aVar.bYX = jSONObject.optString("workAddressState");
+            aVar.bYY = jSONObject.optString("workAddressCity");
+            aVar.bYZ = jSONObject.optString("workAddressStreet");
+            aVar.bZa = jSONObject.optString("workAddressPostalCode");
+            aVar.bZb = jSONObject.optString("homeFaxNumber");
+            aVar.bZc = jSONObject.optString("homePhoneNumber");
+            aVar.bZd = jSONObject.optString("homeAddressCountry");
+            aVar.bZe = jSONObject.optString("homeAddressState");
+            aVar.bZf = jSONObject.optString("homeAddressCity");
+            aVar.bZg = jSONObject.optString("homeAddressStreet");
+            aVar.bZh = jSONObject.optString("homeAddressPostalCode");
         }
         return aVar;
     }
 
     public String getDisplayName() {
         StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(this.bXP)) {
-            sb.append(this.bXP);
+        if (!TextUtils.isEmpty(this.bYI)) {
+            sb.append(this.bYI);
         }
-        if (!TextUtils.isEmpty(this.bXQ)) {
-            sb.append(this.bXQ);
+        if (!TextUtils.isEmpty(this.bYJ)) {
+            sb.append(this.bYJ);
         }
-        if (!TextUtils.isEmpty(this.bXR)) {
-            sb.append(this.bXR);
+        if (!TextUtils.isEmpty(this.bYK)) {
+            sb.append(this.bYK);
         }
         return sb.toString();
     }
 
-    public ContentValues XW() {
+    public ContentValues YC() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/nickname");
         contentValues.put("data2", (Integer) 1);
@@ -107,80 +107,80 @@ public class a {
         return contentValues;
     }
 
-    public ContentValues XX() {
+    public ContentValues YD() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/note");
         contentValues.put("data1", this.remark);
         return contentValues;
     }
 
-    public ContentValues XY() {
+    public ContentValues YE() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 2);
-        contentValues.put("data1", this.bXS);
+        contentValues.put("data1", this.bYL);
         return contentValues;
     }
 
-    public ContentValues XZ() {
+    public ContentValues YF() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 1);
-        contentValues.put("data1", this.bYj);
+        contentValues.put("data1", this.bZc);
         return contentValues;
     }
 
-    public ContentValues Ya() {
+    public ContentValues YG() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 3);
-        contentValues.put("data1", this.bYb);
+        contentValues.put("data1", this.bYU);
         return contentValues;
     }
 
-    public ContentValues Yb() {
+    public ContentValues YH() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 10);
-        contentValues.put("data1", this.bYc);
+        contentValues.put("data1", this.bYV);
         return contentValues;
     }
 
-    public ContentValues Yc() {
+    public ContentValues YI() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 5);
-        contentValues.put("data1", this.bYi);
+        contentValues.put("data1", this.bZb);
         return contentValues;
     }
 
-    public ContentValues Yd() {
+    public ContentValues YJ() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 4);
-        contentValues.put("data1", this.bYa);
+        contentValues.put("data1", this.bYT);
         return contentValues;
     }
 
-    public ContentValues Ye() {
+    public ContentValues YK() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/im");
         contentValues.put("data5", (Integer) (-1));
         contentValues.put("data6", AppRuntime.getAppContext().getString(a.h.aiapps_cantact_wechat_lable));
-        contentValues.put("data1", this.bXT);
+        contentValues.put("data1", this.bYM);
         return contentValues;
     }
 
-    public ContentValues Yf() {
+    public ContentValues YL() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/organization");
         contentValues.put("data2", (Integer) 1);
-        contentValues.put("data1", this.bXZ);
+        contentValues.put("data1", this.bYS);
         contentValues.put("data4", this.title);
         return contentValues;
     }
 
-    public ContentValues Yg() {
+    public ContentValues YM() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/website");
         contentValues.put("data2", (Integer) 1);
@@ -188,89 +188,89 @@ public class a {
         return contentValues;
     }
 
-    public ContentValues Yh() {
+    public ContentValues YN() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/postal-address_v2");
         contentValues.put("data2", (Integer) 3);
-        contentValues.put("data1", Ym());
-        contentValues.put("data9", this.bXY);
+        contentValues.put("data1", YS());
+        contentValues.put("data9", this.bYR);
         return contentValues;
     }
 
-    public ContentValues Yi() {
+    public ContentValues YO() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/postal-address_v2");
         contentValues.put("data2", (Integer) 2);
-        contentValues.put("data1", Yl());
-        contentValues.put("data9", this.bYh);
+        contentValues.put("data1", YR());
+        contentValues.put("data9", this.bZa);
         return contentValues;
     }
 
-    public ContentValues Yj() {
+    public ContentValues YP() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/postal-address_v2");
         contentValues.put("data2", (Integer) 1);
-        contentValues.put("data1", Yk());
-        contentValues.put("data9", this.bYo);
+        contentValues.put("data1", YQ());
+        contentValues.put("data9", this.bZh);
         return contentValues;
     }
 
-    public String Yk() {
+    public String YQ() {
         StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(this.bYk)) {
-            sb.append(this.bYk);
+        if (!TextUtils.isEmpty(this.bZd)) {
+            sb.append(this.bZd);
         }
-        if (!TextUtils.isEmpty(this.bYl)) {
-            sb.append(this.bYl);
+        if (!TextUtils.isEmpty(this.bZe)) {
+            sb.append(this.bZe);
         }
-        if (!TextUtils.isEmpty(this.bYm)) {
-            sb.append(this.bYm);
+        if (!TextUtils.isEmpty(this.bZf)) {
+            sb.append(this.bZf);
         }
-        if (!TextUtils.isEmpty(this.bYn)) {
-            sb.append(this.bYn);
+        if (!TextUtils.isEmpty(this.bZg)) {
+            sb.append(this.bZg);
         }
-        if (!TextUtils.isEmpty(this.bYo)) {
-            sb.append(" ").append(this.bYo);
+        if (!TextUtils.isEmpty(this.bZh)) {
+            sb.append(" ").append(this.bZh);
         }
         return sb.toString();
     }
 
-    public String Yl() {
+    public String YR() {
         StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(this.bYd)) {
-            sb.append(this.bYd);
+        if (!TextUtils.isEmpty(this.bYW)) {
+            sb.append(this.bYW);
         }
-        if (!TextUtils.isEmpty(this.bYe)) {
-            sb.append(this.bYe);
+        if (!TextUtils.isEmpty(this.bYX)) {
+            sb.append(this.bYX);
         }
-        if (!TextUtils.isEmpty(this.bYf)) {
-            sb.append(this.bYf);
+        if (!TextUtils.isEmpty(this.bYY)) {
+            sb.append(this.bYY);
         }
-        if (!TextUtils.isEmpty(this.bYg)) {
-            sb.append(this.bYg);
+        if (!TextUtils.isEmpty(this.bYZ)) {
+            sb.append(this.bYZ);
         }
-        if (!TextUtils.isEmpty(this.bYh)) {
-            sb.append(" ").append(this.bYh);
+        if (!TextUtils.isEmpty(this.bZa)) {
+            sb.append(" ").append(this.bZa);
         }
         return sb.toString();
     }
 
-    public String Ym() {
+    public String YS() {
         StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(this.bXU)) {
-            sb.append(this.bXU);
+        if (!TextUtils.isEmpty(this.bYN)) {
+            sb.append(this.bYN);
         }
-        if (!TextUtils.isEmpty(this.bXV)) {
-            sb.append(this.bXV);
+        if (!TextUtils.isEmpty(this.bYO)) {
+            sb.append(this.bYO);
         }
-        if (!TextUtils.isEmpty(this.bXW)) {
-            sb.append(this.bXW);
+        if (!TextUtils.isEmpty(this.bYP)) {
+            sb.append(this.bYP);
         }
-        if (!TextUtils.isEmpty(this.bXX)) {
-            sb.append(this.bXX);
+        if (!TextUtils.isEmpty(this.bYQ)) {
+            sb.append(this.bYQ);
         }
-        if (!TextUtils.isEmpty(this.bXY)) {
-            sb.append(" ").append(this.bXY);
+        if (!TextUtils.isEmpty(this.bYR)) {
+            sb.append(" ").append(this.bYR);
         }
         return sb.toString();
     }

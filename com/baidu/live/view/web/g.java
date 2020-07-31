@@ -6,38 +6,38 @@ import com.baidu.live.tbadk.ala.AlaLastLiveroomInfo;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
 import com.baidu.live.view.web.a.j;
 import com.baidu.live.view.web.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g {
     private BaseActivity baseActivity;
-    private f bdt;
-    private SchemeCallback bpg;
-    private AlaLastLiveroomInfo bph;
-    private h bpi;
+    private f bdL;
+    private SchemeCallback bpB;
+    private AlaLastLiveroomInfo bpC;
+    private h bpD;
     private Activity context;
     private boolean isHost = false;
     private long liveId;
     private long userId;
     private String userName;
 
-    public a[] KO() {
-        r0[0].a(this.bpi);
+    public a[] KV() {
+        r0[0].a(this.bpD);
         com.baidu.live.view.web.a.d dVar = new com.baidu.live.view.web.a.d();
         dVar.setHost(this.isHost);
-        dVar.b(this.bph);
+        dVar.b(this.bpC);
         com.baidu.live.view.web.a.h hVar = new com.baidu.live.view.web.a.h(this.context);
         hVar.setHost(this.isHost);
         com.baidu.live.view.web.a.i iVar = new com.baidu.live.view.web.a.i();
-        iVar.v(this.context);
+        iVar.w(this.context);
         iVar.setUserId(this.userId);
         iVar.setUserName(this.userName);
         iVar.setLiveId(this.liveId);
-        com.baidu.live.view.web.a.g gVar = new com.baidu.live.view.web.a.g(this.bpg);
+        com.baidu.live.view.web.a.g gVar = new com.baidu.live.view.web.a.g(this.bpB);
         gVar.b(this.baseActivity);
-        a[] aVarArr = {new j(this.context, this.bpg), dVar, hVar, new com.baidu.live.view.web.a.f(this.bpg), iVar, new com.baidu.live.view.web.a.e(this.bpg), new com.baidu.live.view.web.a.c(), new com.baidu.live.view.web.a.a(this.bdt), new com.baidu.live.view.web.a.b(this.bpg), new k(this.bpg), gVar};
+        a[] aVarArr = {new j(this.context, this.bpB), dVar, hVar, new com.baidu.live.view.web.a.f(this.bpB), iVar, new com.baidu.live.view.web.a.e(this.bpB), new com.baidu.live.view.web.a.c(), new com.baidu.live.view.web.a.a(this.bdL), new com.baidu.live.view.web.a.b(this.bpB), new k(this.bpB), gVar};
         return aVarArr;
     }
 
-    public g u(Activity activity) {
+    public g v(Activity activity) {
         this.context = activity;
         return this;
     }
@@ -48,12 +48,12 @@ public class g {
     }
 
     public g a(SchemeCallback schemeCallback) {
-        this.bpg = schemeCallback;
+        this.bpB = schemeCallback;
         return this;
     }
 
     public g b(f fVar) {
-        this.bdt = fVar;
+        this.bdL = fVar;
         return this;
     }
 
@@ -62,18 +62,18 @@ public class g {
         return this;
     }
 
-    public g gc(String str) {
+    public g gb(String str) {
         this.userName = str;
         return this;
     }
 
-    public g cB(boolean z) {
+    public g cD(boolean z) {
         this.isHost = z;
         return this;
     }
 
     public g b(h hVar) {
-        this.bpi = hVar;
+        this.bpD = hVar;
         return this;
     }
 
@@ -83,7 +83,7 @@ public class g {
     }
 
     public g a(AlaLastLiveroomInfo alaLastLiveroomInfo) {
-        this.bph = alaLastLiveroomInfo;
+        this.bpC = alaLastLiveroomInfo;
         return this;
     }
 }

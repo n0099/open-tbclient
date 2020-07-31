@@ -1,7 +1,9 @@
 package com.baidu.swan.apps.adaptation.a;
 
-import android.content.Context;
-/* loaded from: classes11.dex */
+import com.baidu.searchbox.v8engine.JsObject;
+/* loaded from: classes7.dex */
 public interface aq {
-    void a(com.baidu.swan.apps.model.c cVar, Context context);
+    com.baidu.swan.games.a.c a(com.baidu.swan.games.f.b bVar, JsObject jsObject);
+
+    com.baidu.swan.games.a.b b(com.baidu.swan.games.f.b bVar, JsObject jsObject);
 }

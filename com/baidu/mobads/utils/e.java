@@ -50,7 +50,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @SuppressLint({"NewApi"})
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class e implements IXAdCommonUtils {
     private static String a;
     private static String b;

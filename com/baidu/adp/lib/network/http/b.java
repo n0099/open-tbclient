@@ -115,13 +115,13 @@ public class b {
                     String str2 = host.contains("hiphotos.baidu.com") ? "hiphotos.baidu.com" : host;
                     BDHttpDnsResult j = BDHttpDns.L(BdBaseApplication.getInst().getApplicationContext()).j(str2, true);
                     if (j != null) {
-                        dVar.KJ = j.rd();
-                        dVar.KK = j.re();
-                        ArrayList<String> rf = j.rf();
-                        if (rf != null && rf.size() > 0) {
-                            dVar.KL = rf.toString();
-                            int size = this.Ku % rf.size();
-                            String str3 = rf.get(size);
+                        dVar.KJ = j.rf();
+                        dVar.KK = j.rg();
+                        ArrayList<String> rh = j.rh();
+                        if (rh != null && rh.size() > 0) {
+                            dVar.KL = rh.toString();
+                            int size = this.Ku % rh.size();
+                            String str3 = rh.get(size);
                             if (!TextUtils.isEmpty(str3) && (!str3.startsWith("10.") || !url2.getProtocol().equals("https"))) {
                                 this.Hs.kT().s("Host", str2);
                                 URL url3 = new URL(str.replaceFirst("://(.*)" + str2, "://" + str3));
@@ -272,7 +272,7 @@ public class b {
             }
             String contentType = this.Kl.getContentType();
             this.firstByteReachTime = System.currentTimeMillis();
-            if (com.baidu.adp.lib.network.a.b.bO(contentType)) {
+            if (com.baidu.adp.lib.network.a.b.bM(contentType)) {
                 this.Kl.disconnect();
                 this.Kl.connect();
                 if (this.Hs.kU().Le) {
@@ -409,7 +409,7 @@ public class b {
             dVar.KG = -7;
             String contentType = this.Kl.getContentType();
             this.firstByteReachTime = System.currentTimeMillis();
-            if (com.baidu.adp.lib.network.a.b.bO(contentType)) {
+            if (com.baidu.adp.lib.network.a.b.bM(contentType)) {
                 this.Kl.disconnect();
                 this.Kl.connect();
                 if (this.Hs.kU().Le) {
@@ -662,7 +662,7 @@ public class b {
             }
             String contentType = this.Kl.getContentType();
             this.firstByteReachTime = System.currentTimeMillis();
-            if (com.baidu.adp.lib.network.a.b.bO(contentType)) {
+            if (com.baidu.adp.lib.network.a.b.bM(contentType)) {
                 this.Kl.disconnect();
                 this.Kl.connect();
                 if (this.Hs.kU().Le) {
@@ -686,7 +686,7 @@ public class b {
         }
     }
 
-    public void ah(int i) {
+    public void aj(int i) {
         this.Ku = i;
     }
 

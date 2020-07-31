@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class CommonOverflowMenuView extends LinearLayout implements BdMenu.OnMenuSetChangedListener {
     private HashMap<BdMenuItem, ImageView> mBdMenuItemIconMap;
     private List<TextView> mBdMenuItemTexList;

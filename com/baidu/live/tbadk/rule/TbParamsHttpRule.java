@@ -22,7 +22,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbParamsHttpRule extends HttpRule {
     private static final String SIGN_SUFFIX = "tiebaclient!!!";
 

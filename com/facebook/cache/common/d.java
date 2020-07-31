@@ -2,16 +2,16 @@ package com.facebook.cache.common;
 
 import android.net.Uri;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class d implements b {
-    final List<b> mHo;
+    final List<b> mPu;
 
-    public List<b> dyx() {
-        return this.mHo;
+    public List<b> dBJ() {
+        return this.mPu;
     }
 
     public String toString() {
-        return "MultiCacheKey:" + this.mHo.toString();
+        return "MultiCacheKey:" + this.mPu.toString();
     }
 
     public boolean equals(Object obj) {
@@ -19,20 +19,20 @@ public class d implements b {
             return true;
         }
         if (obj instanceof d) {
-            return this.mHo.equals(((d) obj).mHo);
+            return this.mPu.equals(((d) obj).mPu);
         }
         return false;
     }
 
     @Override // com.facebook.cache.common.b
     public int hashCode() {
-        return this.mHo.hashCode();
+        return this.mPu.hashCode();
     }
 
     @Override // com.facebook.cache.common.b
-    public boolean H(Uri uri) {
-        for (int i = 0; i < this.mHo.size(); i++) {
-            if (this.mHo.get(i).H(uri)) {
+    public boolean G(Uri uri) {
+        for (int i = 0; i < this.mPu.size(); i++) {
+            if (this.mPu.get(i).G(uri)) {
                 return true;
             }
         }
@@ -40,7 +40,7 @@ public class d implements b {
     }
 
     @Override // com.facebook.cache.common.b
-    public String dyw() {
-        return this.mHo.get(0).dyw();
+    public String dBI() {
+        return this.mPu.get(0).dBI();
     }
 }

@@ -5,6 +5,6 @@ public class bb extends ay {
     public String errMsg;
     public boolean isLocal = true;
     public boolean hasMore = true;
-    public boolean hEq = true;
-    public boolean hEr = true;
+    public boolean hKo = true;
+    public boolean hKp = true;
 }

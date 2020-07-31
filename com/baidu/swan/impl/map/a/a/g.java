@@ -6,39 +6,39 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.swan.impl.map.item.b;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
-public class g extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.f> {
+/* loaded from: classes19.dex */
+public class g extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.f> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = g.class.getSimpleName();
 
-    public static g aEY() {
+    public static g aIP() {
         return new g();
     }
 
-    private boolean a(Context context, com.baidu.swan.apps.x.a.f fVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.runtime.e eVar) {
+    private boolean a(Context context, com.baidu.swan.apps.w.a.f fVar, com.baidu.swan.apps.w.b bVar, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("map", "TranslateMarkerAction start");
-        com.baidu.swan.apps.adaptation.b.e jW = com.baidu.swan.apps.w.f.ajb().jW(fVar.bUu);
-        if (!(jW instanceof com.baidu.swan.apps.adaptation.b.c)) {
+        com.baidu.swan.apps.adaptation.b.e kq = com.baidu.swan.apps.v.f.akr().kq(fVar.bVm);
+        if (!(kq instanceof com.baidu.swan.apps.adaptation.b.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        com.baidu.swan.impl.map.item.c sY = com.baidu.swan.impl.map.c.aEN().h((com.baidu.swan.apps.adaptation.b.c) jW).sY(fVar.bUt);
-        if (sY == null) {
-            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + fVar.bUt);
+        com.baidu.swan.impl.map.item.c ub = com.baidu.swan.impl.map.c.aIE().h((com.baidu.swan.apps.adaptation.b.c) kq).ub(fVar.bVl);
+        if (ub == null) {
+            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + fVar.bVl);
             return false;
         }
-        return a(fVar, sY, bVar);
+        return a(fVar, ub, bVar);
     }
 
-    private boolean a(final com.baidu.swan.apps.x.a.f fVar, com.baidu.swan.impl.map.item.c cVar, final com.baidu.swan.apps.x.b bVar) {
+    private boolean a(final com.baidu.swan.apps.w.a.f fVar, com.baidu.swan.impl.map.item.c cVar, final com.baidu.swan.apps.w.b bVar) {
         if (!fVar.isValid()) {
             return false;
         }
-        LatLng latLng = new LatLng(fVar.cnA.latitude, fVar.cnA.longitude);
-        List<com.baidu.swan.impl.map.item.b> sZ = cVar.sZ(fVar.cnT);
+        LatLng latLng = new LatLng(fVar.cpG.latitude, fVar.cpG.longitude);
+        List<com.baidu.swan.impl.map.item.b> uc = cVar.uc(fVar.cpZ);
         com.baidu.swan.apps.console.c.i("map", "TranslateMarkerAction animation start");
-        if (sZ != null) {
-            for (com.baidu.swan.impl.map.item.b bVar2 : sZ) {
+        if (uc != null) {
+            for (com.baidu.swan.impl.map.item.b bVar2 : uc) {
                 bVar2.a(cVar, latLng, fVar.duration, new b.a() { // from class: com.baidu.swan.impl.map.a.a.g.1
                     @Override // com.baidu.swan.impl.map.item.b.a
                     public void onAnimationEnd() {
@@ -57,7 +57,7 @@ public class g extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.f> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.impl.map.a.a
-    public boolean a(Context context, com.baidu.swan.apps.x.a.f fVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.runtime.e eVar, JSONObject jSONObject) {
+    public boolean a(Context context, com.baidu.swan.apps.w.a.f fVar, com.baidu.swan.apps.w.b bVar, com.baidu.swan.apps.runtime.e eVar, JSONObject jSONObject) {
         return a(context, fVar, bVar, eVar);
     }
 }

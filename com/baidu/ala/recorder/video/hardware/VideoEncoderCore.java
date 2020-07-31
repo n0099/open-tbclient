@@ -12,9 +12,8 @@ import android.view.Surface;
 import com.baidu.ala.recorder.video.hardware.TextureEncoder;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
 @TargetApi(16)
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class VideoEncoderCore {
     private static final int DEFAULT_FRAME_RATE = 15;
     private static final int DEFAULT_IFRAME_INTERVAL = 2;
@@ -39,7 +38,7 @@ public class VideoEncoderCore {
     private int mH264MetaSize = 0;
     private byte[] mH264MetaBuff = null;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface OutputCallback {
         public static final int KEY_FRAME = 2;
         public static final int MC_ENCODER_CONFIGURE_ERR = 1;
@@ -71,7 +70,7 @@ public class VideoEncoderCore {
                             checkTextureEncoderConfig(this.mEncodeConfig);
                             MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", this.mEncodeConfig.isLandscape ? this.mEncodeConfig.encodeHeight : this.mEncodeConfig.encodeWidth, this.mEncodeConfig.isLandscape ? this.mEncodeConfig.encodeWidth : this.mEncodeConfig.encodeHeight);
                             createVideoFormat.setInteger("color-format", 2130708361);
-                            createVideoFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, this.mEncodeConfig.encodeBitrate);
+                            createVideoFormat.setInteger("bitrate", this.mEncodeConfig.encodeBitrate);
                             createVideoFormat.setInteger("frame-rate", this.mEncodeConfig.H264FPS);
                             createVideoFormat.setInteger("i-frame-interval", this.mEncodeConfig.H264GOP);
                             this.mEncoder = MediaCodec.createEncoderByType("video/avc");

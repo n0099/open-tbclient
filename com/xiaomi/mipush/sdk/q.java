@@ -5,7 +5,7 @@ import com.xiaomi.push.dp;
 import com.xiaomi.push.hm;
 import com.xiaomi.push.hz;
 import com.xiaomi.push.il;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class q implements dp {
     private Context a;
 
@@ -15,7 +15,7 @@ public class q implements dp {
 
     @Override // com.xiaomi.push.dp
     public String a() {
-        return b.m88a(this.a).d();
+        return b.m89a(this.a).d();
     }
 
     @Override // com.xiaomi.push.dp

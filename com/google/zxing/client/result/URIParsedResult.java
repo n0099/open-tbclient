@@ -1,7 +1,7 @@
 package com.google.zxing.client.result;
 
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class URIParsedResult extends ParsedResult {
     private static final Pattern USER_IN_HOST = Pattern.compile(":/*([^/@]+)@[^/]+");
     private final String title;

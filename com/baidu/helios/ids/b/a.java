@@ -7,22 +7,22 @@ import com.baidu.helios.common.c.a;
 import com.baidu.helios.ids.a;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class a extends com.baidu.helios.ids.a {
-    a.C0143a aqD;
-    private C0146a asE;
+    a.C0141a aqz;
+    private C0144a asA;
 
     /* renamed from: com.baidu.helios.ids.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    class C0146a {
+    /* loaded from: classes11.dex */
+    class C0144a {
         private long c;
         private String f;
         private String g;
         private int h;
         private boolean d = true;
-        private e asF = new e();
+        private e asB = new e();
 
-        C0146a() {
+        C0144a() {
         }
 
         public String a() {
@@ -57,7 +57,7 @@ public class a extends com.baidu.helios.ids.a {
         }
 
         public boolean d() {
-            String q = a.this.aqD.q("cache.dat", true);
+            String q = a.this.aqz.q("cache.dat", true);
             if (!TextUtils.isEmpty(q)) {
                 try {
                     JSONObject jSONObject = new JSONObject(q);
@@ -65,7 +65,7 @@ public class a extends com.baidu.helios.ids.a {
                     this.c = jSONObject.getLong("lst_fe_ts");
                     this.h = jSONObject.getInt("c_form_ver");
                     this.g = jSONObject.getString("uuid");
-                    this.asF.R(jSONObject.getLong("flags"));
+                    this.asB.R(jSONObject.getLong("flags"));
                     return true;
                 } catch (Exception e) {
                 }
@@ -80,9 +80,9 @@ public class a extends com.baidu.helios.ids.a {
                     jSONObject.put("form_id", this.f);
                     jSONObject.put("lst_fe_ts", this.c);
                     jSONObject.put("c_form_ver", 1);
-                    jSONObject.put("flags", this.asF.uH());
+                    jSONObject.put("flags", this.asB.uH());
                     jSONObject.put("uuid", this.g);
-                    a.this.aqD.d("cache.dat", jSONObject.toString(), true);
+                    a.this.aqz.d("cache.dat", jSONObject.toString(), true);
                     this.d = false;
                     return true;
                 } catch (Exception e) {
@@ -95,27 +95,27 @@ public class a extends com.baidu.helios.ids.a {
 
     public a() {
         super("iid");
-        this.asE = new C0146a();
+        this.asA = new C0144a();
     }
 
     @Override // com.baidu.helios.ids.a
     public void a(a.b bVar) {
-        this.aqD = this.ash.ed(getName());
-        this.asE.d();
-        if (TextUtils.isEmpty(this.asE.a())) {
+        this.aqz = this.asd.ec(getName());
+        this.asA.d();
+        if (TextUtils.isEmpty(this.asA.a())) {
             String uuid = UUID.randomUUID().toString();
-            this.asE.b(uuid);
+            this.asA.b(uuid);
             try {
-                this.asE.a(com.baidu.helios.ids.a.aa("A50", new b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(uuid.getBytes("UTF-8"))));
+                this.asA.a(com.baidu.helios.ids.a.Z("A50", new b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(uuid.getBytes("UTF-8"))));
             } catch (Exception e) {
             }
-            this.asE.b(System.currentTimeMillis());
+            this.asA.b(System.currentTimeMillis());
         }
-        this.asE.e();
+        this.asA.e();
     }
 
     @Override // com.baidu.helios.ids.a
     public String uP() {
-        return this.asE.a();
+        return this.asA.a();
     }
 }

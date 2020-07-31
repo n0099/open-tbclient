@@ -2,7 +2,7 @@ package com.baidu.mapapi.search.geocode;
 
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.l;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class GeoCoder extends l {
     private com.baidu.platform.core.b.d a = new com.baidu.platform.core.b.a();
     private boolean b;

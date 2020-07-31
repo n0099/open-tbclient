@@ -94,8 +94,9 @@ public class SyncAllMessage extends SyncStrategy {
         return true;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
-    protected void onComplete(int i) {
+    public void onComplete(int i) {
         super.onComplete(i);
     }
 }

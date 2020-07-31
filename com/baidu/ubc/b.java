@@ -12,7 +12,7 @@ import java.io.FileReader;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes13.dex */
+/* loaded from: classes9.dex */
 public class b {
     private static final boolean DEBUG = AppConfig.isDebug();
     private Context mContext;
@@ -60,19 +60,19 @@ public class b {
             jSONObject.put("type", "0");
             if (!TextUtils.isEmpty(nVar.getContent())) {
                 jSONObject.put("content", nVar.getContent());
-            } else if (nVar.aJB() != null) {
-                jSONObject.put("content", nVar.aJB().toString());
+            } else if (nVar.aNt() != null) {
+                jSONObject.put("content", nVar.aNt().toString());
             }
-            if (!TextUtils.isEmpty(nVar.aJA())) {
-                jSONObject.put("abtest", nVar.aJA());
+            if (!TextUtils.isEmpty(nVar.aNs())) {
+                jSONObject.put("abtest", nVar.aNs());
             }
             if (!TextUtils.isEmpty(nVar.getCategory())) {
                 jSONObject.put("c", nVar.getCategory());
             }
-            if (nVar.aJw()) {
+            if (nVar.aNo()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", g.dwM().tS(nVar.getId()));
+            jSONObject.put("idtype", g.dzZ().uV(nVar.getId()));
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("UBCFileData", e.getMessage());
@@ -159,7 +159,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                ahVar.ud("1");
+                                ahVar.vg("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -170,7 +170,7 @@ public class b {
                                     j2 = j3;
                                 }
                             }
-                            ahVar.cE(jSONObject);
+                            ahVar.cK(jSONObject);
                             a = true;
                         } catch (Exception e) {
                             e = e;
@@ -202,7 +202,7 @@ public class b {
                         throw th;
                     }
                 }
-                ahVar.s(j, j2);
+                ahVar.t(j, j2);
                 if (bufferedReader != null) {
                     try {
                         bufferedReader.close();
@@ -249,7 +249,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                ahVar.ud("1");
+                                ahVar.vg("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -263,7 +263,7 @@ public class b {
                             if (DEBUG) {
                                 Log.d("UBCFileData", jSONObject.toString());
                             }
-                            ahVar.cE(jSONObject);
+                            ahVar.cK(jSONObject);
                             i++;
                         } catch (Throwable th) {
                             th = th;
@@ -288,7 +288,7 @@ public class b {
                         }
                     }
                 } while (i < 10);
-                ahVar.s(j, j2);
+                ahVar.t(j, j2);
                 if (DEBUG) {
                     Log.d("UBCFileData", "line num " + i + " delete file ");
                 }
@@ -311,7 +311,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void gq(boolean z) {
+    public void gL(boolean z) {
         File[] listFiles;
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (file.exists()) {

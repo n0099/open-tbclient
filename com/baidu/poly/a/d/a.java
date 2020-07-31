@@ -2,69 +2,59 @@ package com.baidu.poly.a.d;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Environment;
-import com.baidu.poly.a.c.d;
-import com.baidu.poly.a.e.a;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-/* loaded from: classes11.dex */
-public class a {
-    private com.baidu.poly.a.e.a bzm;
+import android.widget.ImageView;
+/* loaded from: classes9.dex */
+public class a implements c {
+    private static a bzq;
+    private static e bzr;
+    private static com.baidu.poly.a.e.b bzs;
+    private static com.baidu.poly.a.e.a bzt;
+    private Context context;
 
-    public a(Context context) {
-        File G = G(context, "bitmap");
-        if (!G.exists()) {
-            G.mkdirs();
-        }
-        try {
-            this.bzm = com.baidu.poly.a.e.a.a(G, 1, 1, 10485760L);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private a(Context context) {
+        this.context = context.getApplicationContext();
+        bzs = new com.baidu.poly.a.e.b();
+        bzt = new com.baidu.poly.a.e.a(context);
+        bzr = new e();
     }
 
-    public void d(String str) {
-        if (this.bzm != null) {
-            try {
-                a.c gE = this.bzm.gE(com.baidu.poly.a.f.b.g(str));
-                if (gE != null) {
-                    if (d.a(str, gE.dT(0))) {
-                        gE.commit();
-                    } else {
-                        gE.abort();
-                    }
-                    this.bzm.flush();
+    public static com.baidu.poly.a.e.b Of() {
+        if (bzs == null) {
+            bzs = new com.baidu.poly.a.e.b();
+        }
+        return bzs;
+    }
+
+    public static a aI(Context context) {
+        if (bzq == null) {
+            synchronized (a.class) {
+                if (bzq == null) {
+                    bzq = new a(context);
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
         }
+        return bzq;
     }
 
-    public Bitmap k(String str, int i, int i2) {
-        if (this.bzm == null) {
-            return null;
-        }
-        a.e gD = this.bzm.gD(com.baidu.poly.a.f.b.g(str));
-        if (gD != null) {
-            FileInputStream fileInputStream = (FileInputStream) gD.dW(0);
-            if (i > 0 && i2 > 0) {
-                return com.baidu.poly.a.f.a.a(fileInputStream.getFD(), i, i2);
-            }
-            return BitmapFactory.decodeFileDescriptor(fileInputStream.getFD());
-        }
-        return null;
+    @Override // com.baidu.poly.a.d.c
+    public void a(ImageView imageView, String str) {
+        a(imageView, str, 0, 0);
     }
 
-    public File G(Context context, String str) {
-        String path;
-        if ("mounted".equals(Environment.getExternalStorageState()) && context.getExternalCacheDir() != null) {
-            path = context.getExternalCacheDir().getPath();
+    public void a(ImageView imageView, String str, int i, int i2) {
+        imageView.setTag(str);
+        Bitmap gB = bzs.gB(str);
+        if (gB != null) {
+            imageView.setImageBitmap(gB);
         } else {
-            path = context.getCacheDir().getPath();
+            com.baidu.poly.c.a.execute(new g(this.context, bzr, str, imageView, i, i2));
         }
-        return new File(path + File.separator + str);
+    }
+
+    public static com.baidu.poly.a.e.a aJ(Context context) {
+        if (bzt == null) {
+            bzt = new com.baidu.poly.a.e.a(context);
+        }
+        return bzt;
     }
 }

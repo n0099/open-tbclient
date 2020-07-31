@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable;
 import com.baidu.android.common.ui.R;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.facebook.drawee.drawable.g;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class BdPlaceHolderDrawable extends g {
     private static final boolean DEBUG = false;
     private static final String TAG = "BdPlaceHolderDrawable";

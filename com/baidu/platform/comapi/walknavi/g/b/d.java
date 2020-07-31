@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.g.b;
 import android.os.Handler;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d extends com.baidu.platform.comapi.wnplatform.o.m {
     final /* synthetic */ c a;
 

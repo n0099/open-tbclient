@@ -5,7 +5,7 @@ import android.content.res.TypedArray;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class EllipsizedTextView extends TextView {
     private int mMaxLines;
 

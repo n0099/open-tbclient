@@ -10,7 +10,7 @@ import android.view.animation.LinearInterpolator;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class q {
     private static SparseArrayCompat<WeakReference<Interpolator>> FY;
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();

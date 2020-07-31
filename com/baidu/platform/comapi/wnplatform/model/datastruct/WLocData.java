@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.wnplatform.model.datastruct;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class WLocData implements Cloneable {
     public static final double LOCDEFAULT = -1.0d;
     public float accuracy;

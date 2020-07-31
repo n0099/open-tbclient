@@ -3,13 +3,13 @@ package com.baidu.mobads;
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 class e implements IOAdEventListener {
-    final /* synthetic */ BaiduHybridAdManager bxB;
+    final /* synthetic */ BaiduHybridAdManager bxQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(BaiduHybridAdManager baiduHybridAdManager) {
-        this.bxB = baiduHybridAdManager;
+        this.bxQ = baiduHybridAdManager;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener

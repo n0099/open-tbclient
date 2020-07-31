@@ -1,5 +1,5 @@
 package com.heytap.mcssdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes20.dex */
 public final class h {
     public static final int app_name = 2130837504;
 }

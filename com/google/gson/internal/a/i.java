@@ -15,13 +15,13 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class i implements TypeAdapterFactory {
     private final com.google.gson.internal.b constructorConstructor;
     private final com.google.gson.internal.c excluder;
     private final FieldNamingStrategy fieldNamingPolicy;
     private final d jsonAdapterFactory;
-    private final com.google.gson.internal.b.b mZY = com.google.gson.internal.b.b.dIi();
+    private final com.google.gson.internal.b.b niI = com.google.gson.internal.b.b.dLD();
 
     public i(com.google.gson.internal.b bVar, FieldNamingStrategy fieldNamingStrategy, com.google.gson.internal.c cVar, d dVar) {
         this.constructorConstructor = bVar;
@@ -44,13 +44,13 @@ public final class i implements TypeAdapterFactory {
             return Collections.singletonList(this.fieldNamingPolicy.translateName(field));
         }
         String value = cVar.value();
-        String[] dHy = cVar.dHy();
-        if (dHy.length == 0) {
+        String[] dKT = cVar.dKT();
+        if (dKT.length == 0) {
             return Collections.singletonList(value);
         }
-        ArrayList arrayList = new ArrayList(dHy.length + 1);
+        ArrayList arrayList = new ArrayList(dKT.length + 1);
         arrayList.add(value);
-        for (String str : dHy) {
+        for (String str : dKT) {
             arrayList.add(str);
         }
         return arrayList;
@@ -58,15 +58,15 @@ public final class i implements TypeAdapterFactory {
 
     @Override // com.google.gson.TypeAdapterFactory
     public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-        Class<? super T> dIl = aVar.dIl();
-        if (!Object.class.isAssignableFrom(dIl)) {
+        Class<? super T> dLG = aVar.dLG();
+        if (!Object.class.isAssignableFrom(dLG)) {
             return null;
         }
-        return new a(this.constructorConstructor.a(aVar), a(gson, (com.google.gson.b.a<?>) aVar, (Class<?>) dIl));
+        return new a(this.constructorConstructor.a(aVar), a(gson, (com.google.gson.b.a<?>) aVar, (Class<?>) dLG));
     }
 
     private b a(final Gson gson, final Field field, String str, final com.google.gson.b.a<?> aVar, boolean z, boolean z2) {
-        final boolean j = com.google.gson.internal.h.j(aVar.dIl());
+        final boolean j = com.google.gson.internal.h.j(aVar.dLG());
         com.google.gson.a.b bVar = (com.google.gson.a.b) field.getAnnotation(com.google.gson.a.b.class);
         final TypeAdapter<?> typeAdapter = null;
         if (bVar != null) {
@@ -92,7 +92,7 @@ public final class i implements TypeAdapterFactory {
 
             @Override // com.google.gson.internal.a.i.b
             public boolean bt(Object obj) throws IOException, IllegalAccessException {
-                return this.nbx && field.get(obj) != obj;
+                return this.nkh && field.get(obj) != obj;
             }
         };
     }
@@ -109,7 +109,7 @@ public final class i implements TypeAdapterFactory {
                 boolean a2 = a(field, true);
                 boolean a3 = a(field, false);
                 if (a2 || a3) {
-                    this.mZY.b(field);
+                    this.niI.b(field);
                     Type a4 = C$Gson$Types.a(aVar.getType(), cls, field.getGenericType());
                     List<String> a5 = a(field);
                     b bVar = null;
@@ -133,17 +133,17 @@ public final class i implements TypeAdapterFactory {
                 }
             }
             aVar = com.google.gson.b.a.k(C$Gson$Types.a(aVar.getType(), cls, cls.getGenericSuperclass()));
-            cls = aVar.dIl();
+            cls = aVar.dLG();
         }
         return linkedHashMap;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static abstract class b {
         final String name;
-        final boolean nbx;
-        final boolean nby;
+        final boolean nkh;
+        final boolean nki;
 
         abstract void a(com.google.gson.stream.a aVar, Object obj) throws IOException, IllegalAccessException;
 
@@ -153,34 +153,34 @@ public final class i implements TypeAdapterFactory {
 
         protected b(String str, boolean z, boolean z2) {
             this.name = str;
-            this.nbx = z;
-            this.nby = z2;
+            this.nkh = z;
+            this.nki = z2;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class a<T> extends TypeAdapter<T> {
-        private final com.google.gson.internal.f<T> nba;
-        private final Map<String, b> nbw;
+        private final com.google.gson.internal.f<T> njK;
+        private final Map<String, b> nkg;
 
         a(com.google.gson.internal.f<T> fVar, Map<String, b> map) {
-            this.nba = fVar;
-            this.nbw = map;
+            this.njK = fVar;
+            this.nkg = map;
         }
 
         @Override // com.google.gson.TypeAdapter
         public T read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.dHS() == JsonToken.NULL) {
-                aVar.dHX();
+            if (aVar.dLn() == JsonToken.NULL) {
+                aVar.dLs();
                 return null;
             }
-            T construct = this.nba.construct();
+            T construct = this.njK.construct();
             try {
-                aVar.dHR();
+                aVar.dLm();
                 while (aVar.hasNext()) {
-                    b bVar = this.nbw.get(aVar.dHV());
-                    if (bVar == null || !bVar.nby) {
-                        aVar.dHY();
+                    b bVar = this.nkg.get(aVar.dLq());
+                    if (bVar == null || !bVar.nki) {
+                        aVar.dLt();
                     } else {
                         bVar.a(aVar, construct);
                     }
@@ -197,18 +197,18 @@ public final class i implements TypeAdapterFactory {
         @Override // com.google.gson.TypeAdapter
         public void write(com.google.gson.stream.b bVar, T t) throws IOException {
             if (t == null) {
-                bVar.dIh();
+                bVar.dLC();
                 return;
             }
-            bVar.dIf();
+            bVar.dLA();
             try {
-                for (b bVar2 : this.nbw.values()) {
+                for (b bVar2 : this.nkg.values()) {
                     if (bVar2.bt(t)) {
-                        bVar.Rc(bVar2.name);
+                        bVar.RO(bVar2.name);
                         bVar2.write(bVar, t);
                     }
                 }
-                bVar.dIg();
+                bVar.dLB();
             } catch (IllegalAccessException e) {
                 throw new AssertionError(e);
             }

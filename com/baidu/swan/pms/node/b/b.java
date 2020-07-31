@@ -2,62 +2,62 @@ package com.baidu.swan.pms.node.b;
 
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import com.baidu.swan.e.j;
+import com.baidu.swan.d.i;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class b {
-    private static volatile b drG;
-    private a drH = new a();
+    private static volatile b dxx;
+    private a dxy = new a();
 
-    public static b aIl() {
-        if (drG == null) {
+    public static b aMd() {
+        if (dxx == null) {
             synchronized (b.class) {
-                if (drG == null) {
-                    drG = new b();
+                if (dxx == null) {
+                    dxx = new b();
                 }
             }
         }
-        return drG;
+        return dxx;
     }
 
     private b() {
     }
 
     public String getVersion() {
-        return this.drH.getString("version", "0");
+        return this.dxy.getString("version", "0");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void co(JSONObject jSONObject) {
+    public void cu(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("version");
             if (!TextUtils.isEmpty(optString)) {
                 String optString2 = jSONObject.optString("data");
                 if (!TextUtils.isEmpty(optString2)) {
-                    this.drH.edit().putString("version", optString).putString("data", optString2).apply();
+                    this.dxy.edit().putString("version", optString).putString("data", optString2).apply();
                 }
             }
         }
     }
 
     @NonNull
-    public com.baidu.swan.pms.node.b.a aIm() {
+    public com.baidu.swan.pms.node.b.a aMe() {
         com.baidu.swan.pms.node.b.a aVar;
         try {
-            aVar = com.baidu.swan.pms.node.b.a.cn(new JSONObject(this.drH.getString("data", "")));
+            aVar = com.baidu.swan.pms.node.b.a.ct(new JSONObject(this.dxy.getString("data", "")));
         } catch (JSONException e) {
             e.printStackTrace();
             aVar = null;
         }
         if (aVar == null) {
-            return com.baidu.swan.pms.node.b.a.drF;
+            return com.baidu.swan.pms.node.b.a.dxw;
         }
         return aVar;
     }
 
-    /* loaded from: classes11.dex */
-    private static class a extends j {
+    /* loaded from: classes19.dex */
+    private static class a extends i {
         private a() {
             super("swan_clean_stratey");
         }

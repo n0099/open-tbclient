@@ -1,60 +1,55 @@
 package com.baidu.swan.b.d;
 
-import android.support.annotation.NonNull;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.swan.apps.adaptation.a.ap;
-import java.util.HashMap;
-import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
-public class b implements ap {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private HashMap<String, a> cXO = new HashMap<>();
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b() {
-        aqU();
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.searchbox.http.request.HttpCommonRequest;
+import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import org.apache.http.client.methods.HttpOptions;
+/* loaded from: classes10.dex */
+public class b extends HttpCommonRequest<a> {
+    public b(a aVar) {
+        super(aVar);
     }
 
-    private void aqU() {
-        a(new com.baidu.swan.b.c.a());
-        a(new com.baidu.swan.b.c.b());
-        a(new com.baidu.swan.b.a.a.a());
-        a(new com.baidu.swan.b.a.a.d());
-        a(new com.baidu.swan.b.a.a.b());
-        a(new com.baidu.swan.b.f.b.a());
-        a(new com.baidu.swan.b.a.a.c());
-        a(new com.baidu.swan.b.e.a());
-        a(new com.baidu.swan.b.f.a.a());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    /* renamed from: aKI */
+    public a newBuilder() {
+        return new a(this);
     }
 
-    public void a(a aVar) {
-        if (DEBUG && TextUtils.isEmpty(aVar.name)) {
-            throw new IllegalArgumentException("action name is null");
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    /* renamed from: b */
+    public a newBuilder(AbstractHttpManager abstractHttpManager) {
+        return new a(this, abstractHttpManager);
+    }
+
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    protected Request buildOkRequest(RequestBody requestBody) {
+        return this.okRequestBuilder.method(HttpOptions.METHOD_NAME, requestBody).build();
+    }
+
+    /* loaded from: classes10.dex */
+    public static class a extends HttpCommonRequestBuilder<a> {
+        public a(AbstractHttpManager abstractHttpManager) {
+            super(abstractHttpManager);
         }
-        if (DEBUG && this.cXO.containsKey(aVar.name)) {
-            throw new IllegalArgumentException("duplicate action: " + aVar);
+
+        public a(b bVar) {
+            this(bVar, null);
         }
-        this.cXO.put(aVar.name, aVar);
-    }
 
-    @Override // com.baidu.swan.apps.adaptation.a.ap
-    public com.baidu.swan.apps.api.c.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.n.b bVar) {
-        return b(str, jSONObject, bVar);
-    }
+        public a(b bVar, AbstractHttpManager abstractHttpManager) {
+            super(bVar, abstractHttpManager);
+        }
 
-    private com.baidu.swan.apps.api.c.b b(String str, JSONObject jSONObject, com.baidu.swan.apps.n.b bVar) {
-        a aVar = this.cXO.get(str);
-        if (aVar != null) {
-            if (DEBUG) {
-                Log.i("GameCenterDispatcher", "action: " + str + " params: " + jSONObject);
-            }
-            return aVar.b(jSONObject, bVar);
-        } else if (DEBUG) {
-            throw new NullPointerException("action has not found: " + str + ", params: " + jSONObject);
-        } else {
-            return new com.baidu.swan.apps.api.c.b(10002, "no such api.");
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
+        /* renamed from: aKs */
+        public b build() {
+            return new b(this);
         }
     }
 }

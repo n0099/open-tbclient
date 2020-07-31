@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public final class b implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
@@ -20,7 +20,7 @@ public final class b implements Application.ActivityLifecycleCallbacks {
     public final void onActivityPaused(Activity activity) {
         boolean z;
         com.baidu.crabsdk.c.a.v("##onActivityPaused " + activity.getClass().getName());
-        z = a.amg;
+        z = a.amb;
         if (z) {
             n.onPause(activity);
         }
@@ -29,7 +29,7 @@ public final class b implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
         com.baidu.crabsdk.c.a.v("##onActivityResumed " + activity.getClass().getName());
-        boolean unused = a.amg = true;
+        boolean unused = a.amb = true;
         n.onResume(activity);
     }
 

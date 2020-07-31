@@ -2,7 +2,7 @@ package org.conscrypt;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class ClientSessionContext extends AbstractSessionContext {
     private SSLClientSessionCache persistentCache;
     private final Map<HostAndPort, NativeSslSession> sessionsByHostAndPort;
@@ -123,7 +123,7 @@ public final class ClientSessionContext extends AbstractSessionContext {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class HostAndPort {
         final String host;
         final int port;

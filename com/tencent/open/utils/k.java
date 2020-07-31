@@ -1,5 +1,5 @@
 package com.tencent.open.utils;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class k implements Cloneable {
     private long a;
 

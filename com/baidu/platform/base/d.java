@@ -3,7 +3,7 @@ package com.baidu.platform.base;
 import com.baidu.mapapi.search.core.SearchResult;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class d {
     protected SearchType a;
 

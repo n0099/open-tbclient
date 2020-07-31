@@ -6,15 +6,15 @@ import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class a {
     static final int b;
-    static final AbstractC0007a zR;
+    static final AbstractC0007a zT;
 
     /* renamed from: com.a.a.a.a.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     static abstract class AbstractC0007a {
-        protected static final Throwable[] zS = new Throwable[0];
+        protected static final Throwable[] zU = new Throwable[0];
 
         AbstractC0007a() {
         }
@@ -24,14 +24,14 @@ public final class a {
         public abstract void a(Throwable th, PrintWriter printWriter);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     static final class b {
         private final ConcurrentHashMap<C0008a, List<Throwable>> a = new ConcurrentHashMap<>(16, 0.75f, 10);
-        private final ReferenceQueue<Throwable> zT = new ReferenceQueue<>();
+        private final ReferenceQueue<Throwable> zV = new ReferenceQueue<>();
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.a.a.a.a.a.a.a$b$a  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
+        /* loaded from: classes8.dex */
         public static final class C0008a extends WeakReference<Throwable> {
             private final int a;
 
@@ -63,18 +63,18 @@ public final class a {
         }
 
         public final List<Throwable> f(Throwable th) {
-            Reference<? extends Throwable> poll = this.zT.poll();
+            Reference<? extends Throwable> poll = this.zV.poll();
             while (poll != null) {
                 this.a.remove(poll);
-                poll = this.zT.poll();
+                poll = this.zV.poll();
             }
             return this.a.get(new C0008a(th));
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     static final class c extends AbstractC0007a {
-        private final b zU = new b();
+        private final b zW = new b();
 
         c() {
         }
@@ -82,7 +82,7 @@ public final class a {
         @Override // com.a.a.a.a.a.a.a.AbstractC0007a
         public final void a(Throwable th) {
             th.printStackTrace();
-            List<Throwable> f = this.zU.f(th);
+            List<Throwable> f = this.zW.f(th);
             if (f == null) {
                 return;
             }
@@ -97,7 +97,7 @@ public final class a {
         @Override // com.a.a.a.a.a.a.a.AbstractC0007a
         public final void a(Throwable th, PrintWriter printWriter) {
             th.printStackTrace(printWriter);
-            List<Throwable> f = this.zU.f(th);
+            List<Throwable> f = this.zW.f(th);
             if (f == null) {
                 return;
             }
@@ -110,7 +110,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     static final class d extends AbstractC0007a {
         d() {
         }
@@ -126,7 +126,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     static final class e extends AbstractC0007a {
         e() {
         }
@@ -161,17 +161,17 @@ public final class a {
                 System.err.println("An error has occured when initializing the try-with-resources desuguring strategy. The default strategy " + d.class.getName() + "will be used. The error is: ");
                 th.printStackTrace(System.err);
                 dVar = new d();
-                zR = dVar;
+                zT = dVar;
                 b = num == null ? 1 : num.intValue();
             }
             if (num.intValue() >= 19) {
                 dVar = new e();
-                zR = dVar;
+                zT = dVar;
                 b = num == null ? 1 : num.intValue();
             }
         }
         dVar = !Boolean.getBoolean("com.google.devtools.build.android.desugar.runtime.twr_disable_mimic") ? new c() : new d();
-        zR = dVar;
+        zT = dVar;
         b = num == null ? 1 : num.intValue();
     }
 
@@ -186,10 +186,10 @@ public final class a {
     }
 
     public static void a(Throwable th) {
-        zR.a(th);
+        zT.a(th);
     }
 
     public static void a(Throwable th, PrintWriter printWriter) {
-        zR.a(th, printWriter);
+        zT.a(th, printWriter);
     }
 }

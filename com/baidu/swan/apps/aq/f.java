@@ -1,64 +1,42 @@
 package com.baidu.swan.apps.aq;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import java.io.IOException;
-import java.io.InputStream;
-/* loaded from: classes11.dex */
-public final class f {
-    public static boolean exists(Context context, String str) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return false;
-        }
-        try {
-            com.baidu.swan.e.d.closeSafely(context.getAssets().open(str, 0));
-            return true;
-        } catch (IOException e) {
-            com.baidu.swan.e.d.closeSafely(null);
-            return false;
-        } catch (Throwable th) {
-            com.baidu.swan.e.d.closeSafely(null);
-            throw th;
+import android.view.View;
+/* loaded from: classes7.dex */
+public class f {
+    public static void a(com.baidu.swan.apps.core.d.f fVar, Context context) {
+        final View view;
+        if (fVar != null && fVar.abc() >= 2) {
+            com.baidu.swan.apps.core.d.c fc = fVar.fc(fVar.abc() - 2);
+            float displayWidth = ai.getDisplayWidth(context) >> 2;
+            if (fc != null && (view = fc.getView()) != null) {
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationX", 0.0f, -displayWidth);
+                ofFloat.setDuration(300L).start();
+                ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.apps.aq.f.1
+                    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                    public void onAnimationEnd(Animator animator) {
+                        view.setTranslationX(0.0f);
+                    }
+                });
+            }
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [152=4] */
-    public static String loadAssetsFile(Context context, String str) {
-        Throwable th;
-        InputStream inputStream;
-        String str2 = null;
-        try {
-            try {
-                inputStream = context.getAssets().open(str);
-                if (inputStream == null) {
-                    com.baidu.swan.e.d.closeSafely(inputStream);
-                } else {
-                    try {
-                        str2 = com.baidu.swan.e.g.streamToString(inputStream);
-                        com.baidu.swan.e.d.closeSafely(inputStream);
-                    } catch (IOException e) {
-                        e = e;
-                        if (com.baidu.swan.apps.b.DEBUG) {
-                            Log.w("AssetUtils", "loadPresetDatas", e);
-                        }
-                        com.baidu.swan.e.d.closeSafely(inputStream);
-                        return str2;
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                com.baidu.swan.e.d.closeSafely(null);
-                throw th;
+    public static void b(com.baidu.swan.apps.core.d.f fVar, Context context) {
+        a(fVar, context, 2);
+    }
+
+    public static void a(com.baidu.swan.apps.core.d.f fVar, Context context, int i) {
+        View view;
+        if (fVar != null && fVar.abc() >= i) {
+            com.baidu.swan.apps.core.d.c fc = fVar.fc(fVar.abc() - i);
+            float displayWidth = ai.getDisplayWidth(context) >> 2;
+            if (fc != null && (view = fc.getView()) != null) {
+                ObjectAnimator.ofFloat(view, "translationX", -displayWidth, 0.0f).setDuration(300L).start();
             }
-        } catch (IOException e2) {
-            e = e2;
-            inputStream = null;
-        } catch (Throwable th3) {
-            th = th3;
-            com.baidu.swan.e.d.closeSafely(null);
-            throw th;
         }
-        return str2;
     }
 }

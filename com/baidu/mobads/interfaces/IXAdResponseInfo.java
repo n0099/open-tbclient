@@ -1,7 +1,7 @@
 package com.baidu.mobads.interfaces;
 
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public interface IXAdResponseInfo {
     ArrayList<IXAdInstanceInfo> getAdInstanceList();
 

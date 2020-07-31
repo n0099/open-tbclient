@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 @RequiresApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes12.dex */
 class FragmentTransitionCompat21 extends FragmentTransitionImpl {
     @Override // android.support.v4.app.FragmentTransitionImpl
     public boolean canHandle(Object obj) {

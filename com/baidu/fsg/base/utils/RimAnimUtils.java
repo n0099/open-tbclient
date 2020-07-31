@@ -2,7 +2,7 @@ package com.baidu.fsg.base.utils;
 
 import android.app.Activity;
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public final class RimAnimUtils {
     private static int a;
     private static int b;

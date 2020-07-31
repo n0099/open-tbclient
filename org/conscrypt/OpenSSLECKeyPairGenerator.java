@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class OpenSSLECKeyPairGenerator extends KeyPairGenerator {
     private static final String ALGORITHM = "EC";
     private static final int DEFAULT_KEY_SIZE = 256;

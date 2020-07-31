@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class Oauth2AccessToken {
     public static final String KEY_ACCESS_TOKEN = "access_token";
     public static final String KEY_EXPIRES_IN = "expires_in";

@@ -6,17 +6,17 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.bdutil.cuid.sdk.AppCuidRuntime;
 import com.baidu.searchbox.http.cookie.CookieManager;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c implements CookieManager {
-    private static String moZ;
-    private boolean mjR;
-    private boolean mpa;
+    private static String mwY;
+    private boolean mrR;
+    private boolean mwZ;
 
     public c(boolean z, boolean z2) {
-        this.mjR = true;
-        this.mpa = false;
-        this.mjR = z;
-        this.mpa = z2;
+        this.mrR = true;
+        this.mwZ = false;
+        this.mrR = z;
+        this.mwZ = z2;
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -24,7 +24,7 @@ public class c implements CookieManager {
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.mpa || !OX(str2);
+        return this.mwZ || !PI(str2);
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -41,7 +41,7 @@ public class c implements CookieManager {
                 for (String str2 : list) {
                     cookieManager.setCookie(str, str2);
                 }
-                if (this.mjR && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
+                if (this.mrR && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
                     cookieSyncManager.sync();
                 }
             } catch (Exception e) {
@@ -52,18 +52,18 @@ public class c implements CookieManager {
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
-        return moZ;
+        return mwY;
     }
 
-    public static void bK(String str) {
-        moZ = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
+    public static void bI(String str) {
+        mwY = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
     }
 
-    public static void drJ() {
-        moZ = "";
+    public static void duV() {
+        mwY = "";
     }
 
-    public static boolean OX(String str) {
+    public static boolean PI(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

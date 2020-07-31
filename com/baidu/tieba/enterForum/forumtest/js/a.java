@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a {
-    private ArrayList<b> hci = new ArrayList<>();
+    private ArrayList<b> hhO = new ArrayList<>();
 
     public void b(b bVar) {
         if (bVar != null) {
-            this.hci.add(bVar);
+            this.hhO.add(bVar);
         }
     }
 
@@ -35,8 +35,8 @@ public class a {
     }
 
     private boolean b(String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (this.hci.size() > 0) {
-            Iterator<b> it = this.hci.iterator();
+        if (this.hhO.size() > 0) {
+            Iterator<b> it = this.hhO.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && next.dealJsInterface(str, str2, str3, jsPromptResult)) {

@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.UserMuteQuery.DataReq;
 import tbclient.UserMuteQuery.UserMuteQueryReqIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class UserMuteQueryRequestMessage extends NetMessage {
     private int pn;
     private int rn;

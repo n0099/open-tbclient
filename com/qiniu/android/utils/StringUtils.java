@@ -1,5 +1,5 @@
 package com.qiniu.android.utils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class StringUtils {
     public static String b(String[] strArr, String str) {
         if (strArr == null) {
@@ -18,7 +18,7 @@ public final class StringUtils {
         return sb.toString();
     }
 
-    public static String W(String[] strArr) {
+    public static String U(String[] strArr) {
         int length = strArr.length;
         StringBuilder sb = new StringBuilder((strArr[0].length() + 3) * length);
         for (int i = 0; i < length; i++) {
@@ -32,11 +32,11 @@ public final class StringUtils {
         return sb.toString();
     }
 
-    public static boolean RL(String str) {
+    public static boolean Sw(String str) {
         return str == null || "".equals(str);
     }
 
-    public static String RM(String str) {
+    public static String Sx(String str) {
         StringBuilder sb = new StringBuilder();
         int length = str.length();
         for (int i = 0; i < length; i++) {

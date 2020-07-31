@@ -3,22 +3,22 @@ package com.baidu.tieba.forumMember.tbtitle.model.cache;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class a {
-    private l<byte[]> hvk;
+    private l<byte[]> hAW;
 
     public a() {
-        aIY();
+        aMQ();
     }
 
-    private void aIY() {
-        if (this.hvk == null) {
-            this.hvk = com.baidu.tbadk.core.c.a.aUM().wb("tb.tbtiel_level_info");
+    private void aMQ() {
+        if (this.hAW == null) {
+            this.hAW = com.baidu.tbadk.core.c.a.aYG().xi("tb.tbtiel_level_info");
         }
     }
 
-    public byte[] ET(String str) {
-        l.b<byte[]> bu = (this.hvk == null || str == null) ? null : this.hvk.bu(str);
+    public byte[] FE(String str) {
+        l.b<byte[]> bu = (this.hAW == null || str == null) ? null : this.hAW.bu(str);
         if (bu == null || bu.value == null) {
             return null;
         }
@@ -27,8 +27,8 @@ public class a {
 
     public void l(String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            aIY();
-            this.hvk.set(str, bArr, TbConfig.MILLS_7DAYS);
+            aMQ();
+            this.hAW.set(str, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

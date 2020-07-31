@@ -12,12 +12,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.write.upload.ForwardUploadData;
 import com.baidu.tieba.write.upload.ImageTextUploadData;
 import com.baidu.tieba.write.upload.VideoUploadData;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class b {
     private boolean isInit;
-    private com.baidu.tieba.write.b.b.a mpq;
+    private com.baidu.tieba.write.b.b.a mxp;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void onFail(String str);
 
@@ -25,13 +25,13 @@ public final class b {
     }
 
     /* renamed from: com.baidu.tieba.write.b.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    private static class C0767b {
-        private static final b mpt = new b();
+    /* loaded from: classes3.dex */
+    private static class C0777b {
+        private static final b mxs = new b();
     }
 
-    public static final b drQ() {
-        return C0767b.mpt;
+    public static final b dvc() {
+        return C0777b.mxs;
     }
 
     private b() {
@@ -44,17 +44,17 @@ public final class b {
             this.isInit = true;
             UgcServerApiUtils.setHostAddress(UgcServerApiUtils.ONLINE_HOST_ADRESS);
             UgcServerApiUtils.setPublisherUserAgent(UgcServerApiUtils.DEFAULT_PUBLISHER_USER_AGENT);
-            com.baidu.a.a.a.sL().setAppName("tieba");
-            if (this.mpq == null) {
-                this.mpq = new com.baidu.tieba.write.b.b.a();
+            com.baidu.b.a.a.sN().setAppName("tieba");
+            if (this.mxp == null) {
+                this.mxp = new com.baidu.tieba.write.b.b.a();
             }
-            this.mpq.vP(false);
+            this.mxp.wt(false);
             MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.write.b.c.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.mpq != null) {
-                        b.this.mpq.vP(false);
+                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.mxp != null) {
+                        b.this.mxp.wt(false);
                     }
                 }
             });

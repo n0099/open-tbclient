@@ -5,35 +5,35 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class a {
-    public boolean bCq;
-    public List<C0253a> bCr;
+    public boolean bCI;
+    public List<C0256a> bCJ;
 
     /* renamed from: com.baidu.poly.widget.coupon.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class C0253a {
-        public String bCs;
-        public String bCt;
-        public String bCu;
-        public Long bCv;
-        public int bCw;
-        public String bCx;
+    /* loaded from: classes9.dex */
+    public static class C0256a {
+        public String af;
+        public String bCK;
+        public String bCL;
+        public Long bCM;
+        public int bCN;
+        public String bCO;
         public String icon;
         public int type;
 
-        public C0253a() {
+        public C0256a() {
         }
 
-        C0253a(JSONObject jSONObject) {
+        C0256a(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.bCs = jSONObject.optString("display_name");
-                this.bCt = jSONObject.optString("pay_text");
+                this.bCK = jSONObject.optString("display_name");
+                this.bCL = jSONObject.optString("pay_text");
                 this.icon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-                this.bCu = jSONObject.optString("valid_info");
-                this.bCx = jSONObject.optString("host_marketing_detail");
-                this.bCv = Long.valueOf(jSONObject.optLong("available_par_money"));
-                this.bCw = jSONObject.optInt("is_selected");
+                this.af = jSONObject.optString("valid_info");
+                this.bCO = jSONObject.optString("host_marketing_detail");
+                this.bCM = Long.valueOf(jSONObject.optLong("available_par_money"));
+                this.bCN = jSONObject.optInt("is_selected");
                 this.type = jSONObject.optInt("type");
             }
         }
@@ -41,15 +41,15 @@ public class a {
 
     public a(JSONArray jSONArray) {
         if (jSONArray != null) {
-            this.bCr = new ArrayList();
+            this.bCJ = new ArrayList();
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject = (JSONObject) jSONArray.opt(i);
                 if (jSONObject != null) {
-                    this.bCr.add(new C0253a(jSONObject));
+                    this.bCJ.add(new C0256a(jSONObject));
                 }
             }
-            this.bCq = this.bCr.size() > 1;
+            this.bCI = this.bCJ.size() > 1;
         }
     }
 }

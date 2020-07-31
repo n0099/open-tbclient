@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.os.Message;
 import android.util.Log;
 import com.baidu.swan.apps.process.messaging.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
@@ -26,8 +26,8 @@ public class a {
         com.baidu.swan.apps.process.a.a.b.a(-1000, str, str2, bundle);
     }
 
-    public static void O(Bundle bundle) {
-        com.baidu.swan.apps.process.messaging.a.anM().a(new c(300, bundle));
+    public static void P(Bundle bundle) {
+        com.baidu.swan.apps.process.messaging.a.apw().a(new c(300, bundle));
     }
 
     public static void o(Message message) {
@@ -40,7 +40,7 @@ public class a {
         Bundle bundle = (Bundle) message.obj;
         com.baidu.swan.apps.process.a.b.a.b bVar = new com.baidu.swan.apps.process.a.b.a.b(bundle.getString("key_observer_id", ""));
         bVar.m(bundle.getBundle("key_result_data"));
-        com.baidu.swan.apps.process.a.b.b.a.anD().a(bVar);
+        com.baidu.swan.apps.process.a.b.b.a.apn().a(bVar);
     }
 
     public static void p(Message message) {
@@ -65,7 +65,7 @@ public class a {
     }
 
     public static void c(int i, Bundle bundle) {
-        com.baidu.swan.apps.process.messaging.a.anM().a(new c(302, bundle).e(i));
+        com.baidu.swan.apps.process.messaging.a.apw().a(new c(302, bundle).e(i));
     }
 
     public static void q(Message message) {
@@ -78,6 +78,6 @@ public class a {
         Bundle bundle = (Bundle) message.obj;
         com.baidu.swan.apps.process.a.b.a.b bVar = new com.baidu.swan.apps.process.a.b.a.b(bundle.getString("key_observer_id", ""));
         bVar.m(bundle.getBundle("key_result_data"));
-        com.baidu.swan.apps.process.a.b.b.a.anD().a(bVar);
+        com.baidu.swan.apps.process.a.b.b.a.apn().a(bVar);
     }
 }

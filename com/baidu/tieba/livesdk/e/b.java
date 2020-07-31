@@ -5,7 +5,7 @@ import com.baidu.live.adp.lib.image.loader.interfaces.IImageLoader;
 import com.baidu.live.adp.lib.image.loader.interfaces.IImageLoaderListener;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.URLDecoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements IImageLoader {
     @Override // com.baidu.live.adp.lib.image.loader.interfaces.IImageLoader
     public void loadImage(final String str, final IImageLoaderListener iImageLoaderListener) {

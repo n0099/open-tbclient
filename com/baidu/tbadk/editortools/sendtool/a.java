@@ -10,24 +10,24 @@ import com.baidu.tbadk.editortools.l;
 public class a extends l {
     public a(Context context) {
         super(context, (String) null, 4);
-        this.euA = false;
-        this.euz = 2;
-        this.euB = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
-        this.etH = new SendView(context);
+        this.eAT = false;
+        this.eAS = 2;
+        this.eAU = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
+        this.ezZ = new SendView(context);
         RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 80;
-        ((View) this.etH).setLayoutParams(layoutParams);
+        ((View) this.ezZ).setLayoutParams(layoutParams);
     }
 
     public void setText(int i) {
-        if (this.etH != null && (this.etH instanceof TextView)) {
-            ((TextView) this.etH).setText(i);
+        if (this.ezZ != null && (this.ezZ instanceof TextView)) {
+            ((TextView) this.ezZ).setText(i);
         }
     }
 
     public void setTextColor(@ColorRes int i) {
-        if (this.etH != null) {
-            ((SendView) this.etH).setTextColor(i);
+        if (this.ezZ != null) {
+            ((SendView) this.ezZ).setTextColor(i);
         }
     }
 }

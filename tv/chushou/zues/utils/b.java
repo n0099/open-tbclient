@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.text.DecimalFormat;
 import tv.chushou.zues.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static String o(long j, boolean z) {
         String str;
@@ -40,48 +40,48 @@ public class b {
     }
 
     public static String formatNumber(String str) {
-        return bR(str, 1);
+        return bP(str, 1);
     }
 
-    public static String bR(String str, int i) {
+    public static String bP(String str, int i) {
         if (TextUtils.isEmpty(str)) {
             str = "0";
         }
         try {
             long parseLong = Long.parseLong(str);
-            Resources dWM = h.dWM();
+            Resources eai = h.eai();
             DecimalFormat decimalFormat = new DecimalFormat("#.#");
             switch (i) {
                 case 1:
                     if (((float) parseLong) < 1.0E8f) {
                         if (((float) parseLong) >= 10000.0f) {
-                            return decimalFormat.format(((float) parseLong) / 10000.0f) + dWM.getString(b.g.zues_str_wan);
+                            return decimalFormat.format(((float) parseLong) / 10000.0f) + eai.getString(b.g.zues_str_wan);
                         }
                         return str;
                     }
-                    return decimalFormat.format(((float) parseLong) / 1.0E8f) + dWM.getString(b.g.zues_str_yi);
+                    return decimalFormat.format(((float) parseLong) / 1.0E8f) + eai.getString(b.g.zues_str_yi);
                 case 2:
                     if (((float) parseLong) < 1.0E8f) {
                         if (((float) parseLong) >= 1000000.0f) {
-                            return decimalFormat.format(((float) parseLong) / 1000000.0f) + dWM.getString(b.g.zues_str_bai_wan);
+                            return decimalFormat.format(((float) parseLong) / 1000000.0f) + eai.getString(b.g.zues_str_bai_wan);
                         }
                         return str;
                     }
-                    return decimalFormat.format(((float) parseLong) / 1.0E8f) + dWM.getString(b.g.zues_str_yi);
+                    return decimalFormat.format(((float) parseLong) / 1.0E8f) + eai.getString(b.g.zues_str_yi);
                 case 3:
                     if (((float) parseLong) < 1.0E8f) {
                         if (((float) parseLong) < 1000000.0f) {
                             if (((float) parseLong) < 10000.0f) {
                                 if (((float) parseLong) >= 1000.0f) {
-                                    return decimalFormat.format(((float) parseLong) / 1000.0f) + dWM.getString(b.g.zues_str_qian);
+                                    return decimalFormat.format(((float) parseLong) / 1000.0f) + eai.getString(b.g.zues_str_qian);
                                 }
                                 return str;
                             }
-                            return decimalFormat.format(((float) parseLong) / 10000.0f) + dWM.getString(b.g.zues_str_wan);
+                            return decimalFormat.format(((float) parseLong) / 10000.0f) + eai.getString(b.g.zues_str_wan);
                         }
-                        return decimalFormat.format(((float) parseLong) / 1000000.0f) + dWM.getString(b.g.zues_str_bai_wan);
+                        return decimalFormat.format(((float) parseLong) / 1000000.0f) + eai.getString(b.g.zues_str_bai_wan);
                     }
-                    return decimalFormat.format(((float) parseLong) / 1.0E8f) + dWM.getString(b.g.zues_str_yi);
+                    return decimalFormat.format(((float) parseLong) / 1.0E8f) + eai.getString(b.g.zues_str_yi);
                 default:
                     return str;
             }
@@ -90,42 +90,42 @@ public class b {
         }
     }
 
-    public static String bS(String str, int i) {
+    public static String bQ(String str, int i) {
         if (TextUtils.isEmpty(str)) {
             str = "0";
         }
         try {
             long parseLong = Long.parseLong(str);
-            Resources dWM = h.dWM();
+            Resources eai = h.eai();
             DecimalFormat decimalFormat = new DecimalFormat("#.#");
             switch (i) {
                 case 1:
                     if (((float) parseLong) < 1.0E8f) {
                         if (((float) parseLong) >= 10000.0f) {
-                            return decimalFormat.format(((float) parseLong) / 10000.0f) + dWM.getString(b.g.zues_str_wan);
+                            return decimalFormat.format(((float) parseLong) / 10000.0f) + eai.getString(b.g.zues_str_wan);
                         }
                         return str;
                     }
-                    return decimalFormat.format(((float) parseLong) / 1.0E8f) + dWM.getString(b.g.zues_str_yi);
+                    return decimalFormat.format(((float) parseLong) / 1.0E8f) + eai.getString(b.g.zues_str_yi);
                 case 2:
                     if (((float) parseLong) < 1.0E8f) {
                         if (((float) parseLong) >= 1000000.0f) {
-                            return decimalFormat.format(((float) parseLong) / 1000000.0f) + dWM.getString(b.g.zues_str_bai_wan);
+                            return decimalFormat.format(((float) parseLong) / 1000000.0f) + eai.getString(b.g.zues_str_bai_wan);
                         }
                         return str;
                     }
-                    return decimalFormat.format(((float) parseLong) / 1.0E8f) + dWM.getString(b.g.zues_str_yi);
+                    return decimalFormat.format(((float) parseLong) / 1.0E8f) + eai.getString(b.g.zues_str_yi);
                 case 3:
                     if (((float) parseLong) < 1.0E8f) {
                         if (((float) parseLong) < 1000000.0f) {
                             if (((float) parseLong) >= 10000.0f) {
-                                return decimalFormat.format(((float) parseLong) / 10000.0f) + dWM.getString(b.g.zues_str_wan);
+                                return decimalFormat.format(((float) parseLong) / 10000.0f) + eai.getString(b.g.zues_str_wan);
                             }
                             return str;
                         }
-                        return decimalFormat.format(((float) parseLong) / 1000000.0f) + dWM.getString(b.g.zues_str_bai_wan);
+                        return decimalFormat.format(((float) parseLong) / 1000000.0f) + eai.getString(b.g.zues_str_bai_wan);
                     }
-                    return decimalFormat.format(((float) parseLong) / 1.0E8f) + dWM.getString(b.g.zues_str_yi);
+                    return decimalFormat.format(((float) parseLong) / 1.0E8f) + eai.getString(b.g.zues_str_yi);
                 default:
                     return str;
             }
@@ -134,7 +134,7 @@ public class b {
         }
     }
 
-    public static String LH(int i) {
+    public static String Mb(int i) {
         return i > 99 ? "99+" : String.valueOf(i);
     }
 }

@@ -11,10 +11,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.p;
 import com.airbnb.lottie.k;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class c extends a {
     @Nullable
-    private com.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> BT;
+    private com.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> BV;
     private final Rect dst;
     private final Paint paint;
     private final Rect src;
@@ -33,8 +33,8 @@ public class c extends a {
         if (bitmap != null && !bitmap.isRecycled()) {
             float jA = com.airbnb.lottie.d.f.jA();
             this.paint.setAlpha(i);
-            if (this.BT != null) {
-                this.paint.setColorFilter(this.BT.getValue());
+            if (this.BV != null) {
+                this.paint.setColorFilter(this.BV.getValue());
             }
             canvas.save();
             canvas.concat(matrix);
@@ -63,11 +63,11 @@ public class c extends a {
     @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
         super.a((c) t, (com.airbnb.lottie.e.c<c>) cVar);
-        if (t == k.Bv) {
+        if (t == k.Bx) {
             if (cVar == null) {
-                this.BT = null;
+                this.BV = null;
             } else {
-                this.BT = new p(cVar);
+                this.BV = new p(cVar);
             }
         }
     }

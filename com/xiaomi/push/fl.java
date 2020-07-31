@@ -7,40 +7,40 @@ import com.xiaomi.push.ek;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class fl {
 
     /* renamed from: a  reason: collision with other field name */
-    private ek.a f345a;
+    private ek.a f341a;
 
     /* renamed from: a  reason: collision with other field name */
-    String f346a;
+    String f342a;
 
     /* renamed from: a  reason: collision with other field name */
-    private short f347a;
+    private short f343a;
 
     /* renamed from: b  reason: collision with other field name */
-    private byte[] f348b;
+    private byte[] f344b;
     private static String b = gu.a(5) + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
     private static long a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final byte[] f344a = new byte[0];
+    private static final byte[] f340a = new byte[0];
 
     public fl() {
-        this.f347a = (short) 2;
-        this.f348b = f344a;
-        this.f346a = null;
-        this.f345a = new ek.a();
+        this.f343a = (short) 2;
+        this.f344b = f340a;
+        this.f342a = null;
+        this.f341a = new ek.a();
     }
 
     fl(ek.a aVar, short s, byte[] bArr) {
-        this.f347a = (short) 2;
-        this.f348b = f344a;
-        this.f346a = null;
-        this.f345a = aVar;
-        this.f347a = s;
-        this.f348b = bArr;
+        this.f343a = (short) 2;
+        this.f344b = f340a;
+        this.f342a = null;
+        this.f341a = aVar;
+        this.f343a = s;
+        this.f344b = bArr;
     }
 
     @Deprecated
@@ -50,7 +50,7 @@ public class fl {
         try {
             i = Integer.parseInt(gjVar.k());
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m48a("Blob parse chid err " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m49a("Blob parse chid err " + e.getMessage());
         }
         flVar.a(i);
         flVar.a(gjVar.j());
@@ -58,7 +58,7 @@ public class fl {
         flVar.b(gjVar.n());
         flVar.a("XMLMSG", (String) null);
         try {
-            flVar.a(gjVar.m310a().getBytes("utf8"), str);
+            flVar.a(gjVar.m311a().getBytes("utf8"), str);
             if (TextUtils.isEmpty(str)) {
                 flVar.a((short) 3);
             } else {
@@ -66,7 +66,7 @@ public class fl {
                 flVar.a("SECMSG", (String) null);
             }
         } catch (UnsupportedEncodingException e2) {
-            com.xiaomi.channel.commonutils.logger.b.m48a("Blob setPayload err： " + e2.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m49a("Blob setPayload err： " + e2.getMessage());
         }
         return flVar;
     }
@@ -85,7 +85,7 @@ public class fl {
             slice.get(bArr, 0, i);
             return new fl(aVar, s, bArr);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m48a("read Blob err :" + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m49a("read Blob err :" + e.getMessage());
             throw new IOException("Malformed Input");
         }
     }
@@ -102,124 +102,124 @@ public class fl {
     }
 
     public int a() {
-        return this.f345a.c();
+        return this.f341a.c();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m274a() {
-        return this.f345a.m235c();
+    public String m275a() {
+        return this.f341a.m236c();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: a  reason: collision with other method in class */
-    public ByteBuffer mo275a(ByteBuffer byteBuffer) {
+    public ByteBuffer mo276a(ByteBuffer byteBuffer) {
         if (byteBuffer == null) {
             byteBuffer = ByteBuffer.allocate(c());
         }
-        byteBuffer.putShort(this.f347a);
-        byteBuffer.putShort((short) this.f345a.a());
-        byteBuffer.putInt(this.f348b.length);
+        byteBuffer.putShort(this.f343a);
+        byteBuffer.putShort((short) this.f341a.a());
+        byteBuffer.putInt(this.f344b.length);
         int position = byteBuffer.position();
-        this.f345a.a(byteBuffer.array(), byteBuffer.arrayOffset() + position, this.f345a.a());
-        byteBuffer.position(position + this.f345a.a());
-        byteBuffer.put(this.f348b);
+        this.f341a.a(byteBuffer.array(), byteBuffer.arrayOffset() + position, this.f341a.a());
+        byteBuffer.position(position + this.f341a.a());
+        byteBuffer.put(this.f344b);
         return byteBuffer;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public short m276a() {
-        return this.f347a;
+    public short m277a() {
+        return this.f343a;
     }
 
     public void a(int i) {
-        this.f345a.a(i);
+        this.f341a.a(i);
     }
 
     public void a(long j, String str, String str2) {
         if (j != 0) {
-            this.f345a.a(j);
+            this.f341a.a(j);
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f345a.a(str);
+            this.f341a.a(str);
         }
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f345a.b(str2);
+        this.f341a.b(str2);
     }
 
     public void a(String str) {
-        this.f345a.e(str);
+        this.f341a.e(str);
     }
 
     public void a(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("command should not be empty");
         }
-        this.f345a.c(str);
-        this.f345a.a();
+        this.f341a.c(str);
+        this.f341a.a();
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f345a.d(str2);
+        this.f341a.d(str2);
     }
 
     public void a(short s) {
-        this.f347a = s;
+        this.f343a = s;
     }
 
     public void a(byte[] bArr, String str) {
         if (TextUtils.isEmpty(str)) {
-            this.f345a.c(0);
-            this.f348b = bArr;
+            this.f341a.c(0);
+            this.f344b = bArr;
             return;
         }
-        this.f345a.c(1);
-        this.f348b = com.xiaomi.push.service.ay.a(com.xiaomi.push.service.ay.a(str, e()), bArr);
+        this.f341a.c(1);
+        this.f344b = com.xiaomi.push.service.ay.a(com.xiaomi.push.service.ay.a(str, e()), bArr);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m277a() {
-        return this.f345a.j();
+    public boolean m278a() {
+        return this.f341a.j();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m278a() {
-        return this.f348b;
+    public byte[] m279a() {
+        return this.f344b;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m279a(String str) {
-        if (this.f345a.e() == 1) {
-            return com.xiaomi.push.service.ay.a(com.xiaomi.push.service.ay.a(str, e()), this.f348b);
+    public byte[] m280a(String str) {
+        if (this.f341a.e() == 1) {
+            return com.xiaomi.push.service.ay.a(com.xiaomi.push.service.ay.a(str, e()), this.f344b);
         }
-        if (this.f345a.e() == 0) {
-            return this.f348b;
+        if (this.f341a.e() == 0) {
+            return this.f344b;
         }
-        com.xiaomi.channel.commonutils.logger.b.m48a("unknow cipher = " + this.f345a.e());
-        return this.f348b;
+        com.xiaomi.channel.commonutils.logger.b.m49a("unknow cipher = " + this.f341a.e());
+        return this.f344b;
     }
 
     public int b() {
-        return this.f345a.f();
+        return this.f341a.f();
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public String m280b() {
-        return this.f345a.m237d();
+    public String m281b() {
+        return this.f341a.m238d();
     }
 
     public void b(String str) {
-        this.f346a = str;
+        this.f342a = str;
     }
 
     public int c() {
-        return this.f345a.b() + 8 + this.f348b.length;
+        return this.f341a.b() + 8 + this.f344b.length;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public String m281c() {
-        return this.f345a.m241f();
+    public String m282c() {
+        return this.f341a.m242f();
     }
 
     public void c(String str) {
@@ -232,39 +232,39 @@ public class fl {
             int indexOf2 = str.indexOf("/", indexOf);
             String substring = str.substring(indexOf + 1, indexOf2);
             String substring2 = str.substring(indexOf2 + 1);
-            this.f345a.a(parseLong);
-            this.f345a.a(substring);
-            this.f345a.b(substring2);
+            this.f341a.a(parseLong);
+            this.f341a.a(substring);
+            this.f341a.b(substring2);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m48a("Blob parse user err " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m49a("Blob parse user err " + e.getMessage());
         }
     }
 
     public String e() {
-        String m239e = this.f345a.m239e();
-        if ("ID_NOT_AVAILABLE".equals(m239e)) {
+        String m240e = this.f341a.m240e();
+        if ("ID_NOT_AVAILABLE".equals(m240e)) {
             return null;
         }
-        if (this.f345a.g()) {
-            return m239e;
+        if (this.f341a.g()) {
+            return m240e;
         }
         String d = d();
-        this.f345a.e(d);
+        this.f341a.e(d);
         return d;
     }
 
     public String f() {
-        return this.f346a;
+        return this.f342a;
     }
 
     public String g() {
-        if (this.f345a.b()) {
-            return Long.toString(this.f345a.a()) + UgcConstant.AT_RULE_TAG + this.f345a.a() + "/" + this.f345a.b();
+        if (this.f341a.b()) {
+            return Long.toString(this.f341a.a()) + UgcConstant.AT_RULE_TAG + this.f341a.a() + "/" + this.f341a.b();
         }
         return null;
     }
 
     public String toString() {
-        return "Blob [chid=" + a() + "; Id=" + e() + "; cmd=" + m274a() + "; type=" + ((int) m276a()) + "; from=" + g() + " ]";
+        return "Blob [chid=" + a() + "; Id=" + e() + "; cmd=" + m275a() + "; type=" + ((int) m277a()) + "; from=" + g() + " ]";
     }
 }

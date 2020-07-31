@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.alasquare.widget.banner;
 
 import android.support.v7.widget.RecyclerView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface e {
     void onScrollStateChanged(RecyclerView recyclerView, int i);
 

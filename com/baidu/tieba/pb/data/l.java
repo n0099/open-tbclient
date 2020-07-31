@@ -1,29 +1,21 @@
 package com.baidu.tieba.pb.data;
 
+import android.support.annotation.DrawableRes;
 import com.baidu.adp.BdUniqueId;
-import java.util.List;
-import tbclient.PbPage.PbSortType;
-/* loaded from: classes9.dex */
-public class l implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId jZY = BdUniqueId.gen();
-    public static final BdUniqueId jZZ = BdUniqueId.gen();
-    public BdUniqueId Un;
-    public boolean isDynamic;
-    public long kaa;
-    public String kab;
-    public List<PbSortType> kae;
-    public boolean isNew = true;
-    public int sortType = 0;
-    public String kac = "";
-    public boolean kad = false;
+import com.baidu.tieba.tbadkCore.data.PostData;
+/* loaded from: classes16.dex */
+public class l extends PostData {
+    public static final BdUniqueId Wc = BdUniqueId.gen();
+    public int fsQ;
+    @DrawableRes
+    public int kiw;
+    public String kix;
+    public int kiy;
+    public int kiz;
+    private int position = 0;
 
-    public l(BdUniqueId bdUniqueId) {
-        this.Un = jZZ;
-        this.Un = bdUniqueId;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return this.Un;
+        return Wc;
     }
 }

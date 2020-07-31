@@ -11,19 +11,19 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.ad;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.newdetail.a.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.jOf);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.jWD);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ca */
+    /* renamed from: cb */
     public a b(ViewGroup viewGroup) {
         LinearLayout linearLayout = new LinearLayout(viewGroup.getContext());
         linearLayout.setOrientation(1);
@@ -58,31 +58,31 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public static class a extends ad.a {
-        private TextView dDu;
-        private View dQh;
-        private int iqP;
+        private TextView dJr;
+        private View dWz;
+        private int iwT;
 
         a(View view, TextView textView, View view2) {
             super(view);
-            this.iqP = 3;
-            this.dDu = textView;
-            this.dQh = view2;
+            this.iwT = 3;
+            this.dJr = textView;
+            this.dWz = view2;
         }
 
         void a(c cVar) {
             if (cVar != null) {
-                this.dDu.setText(cVar.title);
-                this.dQh.setVisibility(cVar.jBo ? 0 : 8);
+                this.dJr.setText(cVar.title);
+                this.dWz.setVisibility(cVar.jJS ? 0 : 8);
             }
         }
 
         void onChangeSkinType(int i) {
-            if (this.iqP != i) {
-                an.setViewTextColor(this.dDu, (int) R.color.cp_cont_b);
-                an.setBackgroundColor(this.dQh, R.color.cp_bg_line_c);
-                this.iqP = i;
+            if (this.iwT != i) {
+                ao.setViewTextColor(this.dJr, R.color.cp_cont_b);
+                ao.setBackgroundColor(this.dWz, R.color.cp_bg_line_c);
+                this.iwT = i;
             }
         }
     }

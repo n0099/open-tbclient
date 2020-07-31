@@ -1,12 +1,12 @@
 package com.baidu.searchbox.ui.animview.praise;
-/* loaded from: classes13.dex */
+/* loaded from: classes7.dex */
 public class ClickTracker {
     private int mClickCounts;
     private long mFirstClickTimeMs;
     private int mLastClickCounts;
     private int mTotalClickCounts;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes7.dex */
     public enum SpeedLevel {
         V0(-1, "NONE"),
         V1(5, "V1"),

@@ -1,7 +1,7 @@
 package com.kascend.chushou.player.ui.pk;
 
 import android.animation.ValueAnimator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h implements ValueAnimator.AnimatorUpdateListener {
     protected Object b;
 

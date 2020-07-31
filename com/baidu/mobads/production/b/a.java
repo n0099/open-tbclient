@@ -5,7 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.telephony.TelephonyManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a {
     public static int a(Context context) {
         NetworkInfo networkInfo;

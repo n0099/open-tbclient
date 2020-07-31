@@ -11,11 +11,12 @@ import com.baidu.ar.arplay.representation.Matrixf4x4;
 import com.baidu.ar.arplay.representation.Quaternion;
 import com.baidu.ar.arplay.representation.Vector3f;
 import com.baidu.ar.arplay.representation.Vector4f;
+import io.flutter.plugin.platform.PlatformPlugin;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class ARPEngine {
     private static final String LOWEST_VERSION_KEY = "compatible_version";
     public static final String MYTAG = "tracking_data_debug";
@@ -38,7 +39,7 @@ public class ARPEngine {
     private volatile boolean mIsTempleteDestoryed = false;
     private boolean mIsFrontCamera = true;
     private int mWindowWidth = 720;
-    private int mWindowHeight = 1280;
+    private int mWindowHeight = PlatformPlugin.DEFAULT_SYSTEM_UI;
     private boolean mIsPaused = false;
     private int mPreviewWidth = 0;
     private int mPreviewHeight = 0;
@@ -55,7 +56,7 @@ public class ARPEngine {
     private int mImuType = 0;
     private long start = 0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public class a implements Runnable {
         private ARPHandle et;
         final /* synthetic */ ARPEngine eu;
@@ -77,13 +78,13 @@ public class ARPEngine {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public interface b {
         void a(Bitmap bitmap);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public enum c {
         EUninit,
         ECreating,
@@ -91,17 +92,17 @@ public class ARPEngine {
         EDestroying
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public interface d {
         boolean c(int i, int i2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public interface e {
         void a(float f, float f2, float f3);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public enum f {
         SCREEN_ORIENTATION_PORTRAIT,
         SCREEN_ORIENTATION_LANDSCAPE,
@@ -110,7 +111,7 @@ public class ARPEngine {
         SCREEN_ORIENTATION_NOT_DEFINED
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public interface g {
         void a(String str, int i, String str2, String str3);
     }

@@ -1,65 +1,65 @@
 package com.baidu.adp.widget.ListView;
 /* loaded from: classes.dex */
 public class l {
-    private float VD = 8.0f;
-    private float VE = 15.0f;
-    private float VF = 4.0f;
-    private float VG = 60.0f;
-    private int VH = 150;
-    private int VI = 150;
-    private int VJ = 500;
-    private float VK = 0.4f;
-    private float VL = 1.0f;
-    private float VM = 20.0f;
-    private float VN = 10.0f;
-    private int VP = 360;
-    private float VQ = 5.0f;
-
-    public float pq() {
-        return this.VD;
-    }
+    private float Vw = 8.0f;
+    private float Vx = 15.0f;
+    private float Vy = 4.0f;
+    private float Vz = 60.0f;
+    private int VA = 150;
+    private int VB = 150;
+    private int VC = 500;
+    private float VD = 0.4f;
+    private float VE = 1.0f;
+    private float VF = 20.0f;
+    private float VG = 10.0f;
+    private int VH = 360;
+    private float VI = 5.0f;
 
     public float pr() {
-        return this.VE;
+        return this.Vw;
     }
 
     public float ps() {
-        return this.VF;
+        return this.Vx;
     }
 
     public float pt() {
-        return this.VG;
+        return this.Vy;
     }
 
-    public int pu() {
-        return this.VH;
+    public float pu() {
+        return this.Vz;
     }
 
     public int pv() {
-        return this.VI;
+        return this.VA;
     }
 
     public int pw() {
-        return this.VJ;
+        return this.VB;
     }
 
-    public float px() {
-        return this.VK;
+    public int px() {
+        return this.VC;
     }
 
     public float py() {
-        return this.VL;
+        return this.VD;
     }
 
     public float pz() {
-        return this.VM;
+        return this.VE;
     }
 
     public float pA() {
-        return this.VN;
+        return this.VF;
     }
 
-    public int pB() {
-        return this.VP;
+    public float pB() {
+        return this.VG;
+    }
+
+    public int pC() {
+        return this.VH;
     }
 }

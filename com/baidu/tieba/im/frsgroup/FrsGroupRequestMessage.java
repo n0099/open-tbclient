@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryGroupsByFid.DataReq;
 import protobuf.QueryGroupsByFid.QueryGroupsByFidReqIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class FrsGroupRequestMessage extends TbSocketMessage {
     public static final int CARD_HOT = 2;
     public static final int CARD_OFFICIAL = 3;

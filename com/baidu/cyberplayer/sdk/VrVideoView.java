@@ -9,11 +9,11 @@ import android.view.SurfaceView;
 import android.view.TextureView;
 import android.widget.FrameLayout;
 import com.baidu.cyberplayer.sdk.CyberVRRenderProvider;
-import com.baidu.cyberplayer.sdk.c.a;
+import com.baidu.cyberplayer.sdk.b.a;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 @Keep
-/* loaded from: classes.dex */
-public class VrVideoView extends com.baidu.cyberplayer.sdk.c.a {
+/* loaded from: classes10.dex */
+public class VrVideoView extends com.baidu.cyberplayer.sdk.b.a {
     protected CyberVRRenderProvider a;
 
     public VrVideoView(Context context) {
@@ -90,7 +90,7 @@ public class VrVideoView extends com.baidu.cyberplayer.sdk.c.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.cyberplayer.sdk.c.a
+    @Override // com.baidu.cyberplayer.sdk.b.a
     public void a(int i, int i2, int i3, int i4) {
         if (this.a == null) {
             super.a(i, i2, i3, i4);
@@ -110,7 +110,7 @@ public class VrVideoView extends com.baidu.cyberplayer.sdk.c.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.cyberplayer.sdk.c.a
+    @Override // com.baidu.cyberplayer.sdk.b.a
     public boolean a(int i) {
         if (super.a(i)) {
             return true;
@@ -143,12 +143,12 @@ public class VrVideoView extends com.baidu.cyberplayer.sdk.c.a {
         return b(this.b);
     }
 
-    @Override // com.baidu.cyberplayer.sdk.c.a
+    @Override // com.baidu.cyberplayer.sdk.b.a
     protected boolean b() {
         return this.f || this.a != null;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.c.a
+    @Override // com.baidu.cyberplayer.sdk.b.a
     public void destroyRender() {
         if (this.a != null) {
             this.a.onDestroy();
@@ -187,7 +187,7 @@ public class VrVideoView extends com.baidu.cyberplayer.sdk.c.a {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.c.a
+    @Override // com.baidu.cyberplayer.sdk.b.a
     public void pauseRender() {
         if (this.a == null || this.S != a.i.RESUMED) {
             return;
@@ -202,7 +202,7 @@ public class VrVideoView extends com.baidu.cyberplayer.sdk.c.a {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.c.a
+    @Override // com.baidu.cyberplayer.sdk.b.a
     public void resumeRender() {
         if (this.a == null || this.S != a.i.PAUSED) {
             return;

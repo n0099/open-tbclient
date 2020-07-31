@@ -5,7 +5,7 @@ import android.support.annotation.RequiresApi;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(18)
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ViewUtilsApi18 extends ViewUtilsApi14 {
     @Override // android.support.transition.ViewUtilsApi14, android.support.transition.ViewUtilsImpl
     public ViewOverlayImpl getOverlay(@NonNull View view) {

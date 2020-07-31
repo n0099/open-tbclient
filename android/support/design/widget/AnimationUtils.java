@@ -6,7 +6,7 @@ import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 class AnimationUtils {
     static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
     static final Interpolator FAST_OUT_SLOW_IN_INTERPOLATOR = new FastOutSlowInInterpolator();

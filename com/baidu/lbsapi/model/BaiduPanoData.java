@@ -2,7 +2,7 @@ package com.baidu.lbsapi.model;
 
 import android.text.TextUtils;
 import com.baidu.pano.platform.c.j;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BaiduPanoData {
     private String a;
     private String b;
