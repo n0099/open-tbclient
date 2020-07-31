@@ -1,5 +1,5 @@
 package com.baidu.android.common.others;
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 public interface IStringUtil {
     public static final String CURRENT_PATH = ".";
     public static final char EXTENSION_SEPARATOR = '.';

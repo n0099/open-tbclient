@@ -3,48 +3,52 @@ package com.idlefish.flutterboost;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.packageManager.pluginSettings.c;
+import com.baidu.adp.plugin.util.Util;
 import com.baidu.adp.plugin.util.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.FlutterCrashRepairEnableSwitch;
 import com.idlefish.flutterboost.interfaces.IContainerManager;
 import com.idlefish.flutterboost.interfaces.INativeRouter;
+import dalvik.system.PathClassLoader;
 import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.engine.FlutterEngine;
+import io.flutter.embedding.engine.FlutterJNI;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.loader.FlutterLoader;
-import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.view.FlutterMain;
+import java.io.File;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public class FlutterBoost {
+    private static boolean sInit;
     static FlutterBoost sInstance = null;
     private Application.ActivityLifecycleCallbacks mActivityLifecycleCallbacks;
     private Activity mCurrentActiveActivity;
     private FlutterEngine mEngine;
     private FlutterViewContainerManager mManager;
     private Platform mPlatform;
-    private PluginRegistry mRegistry;
     public boolean isReady = false;
+    private boolean mEnterActivityCreate = false;
     private long FlutterPostFrameCallTime = 0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public interface BoostLifecycleListener {
+        void beforeCreateEngine();
+
         void onEngineCreated();
-
-        void onPluginsRegistered();
-    }
-
-    /* loaded from: classes6.dex */
-    public interface BoostPluginsRegister {
-        void registerPlugins(PluginRegistry pluginRegistry);
     }
 
     public void setFlutterPostFrameCallTime(long j) {
@@ -59,50 +63,57 @@ public class FlutterBoost {
     }
 
     public void init(Platform platform) {
+        if (sInit) {
+            Debuger.log("FlutterBoost is alread inited. Do not init twice");
+            return;
+        }
         this.mPlatform = platform;
         this.mManager = new FlutterViewContainerManager();
         this.mActivityLifecycleCallbacks = new Application.ActivityLifecycleCallbacks() { // from class: com.idlefish.flutterboost.FlutterBoost.1
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityCreated(Activity activity, Bundle bundle) {
+                FlutterBoost.this.mEnterActivityCreate = true;
                 FlutterBoost.this.mCurrentActiveActivity = activity;
                 if (FlutterBoost.this.mPlatform.whenEngineStart() == ConfigBuilder.ANY_ACTIVITY_CREATED) {
                     FlutterBoost.this.doInitialFlutter();
-                    FlutterBoost.this.boostPluginRegistry();
-                }
-                if (FlutterBoost.this.mPlatform.whenEngineStart() == ConfigBuilder.IMMEDIATELY) {
-                    FlutterBoost.this.boostPluginRegistry();
                 }
             }
 
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityStarted(Activity activity) {
-                if (FlutterBoost.this.mCurrentActiveActivity == null) {
-                    Debuger.log("Application entry foreground");
-                    FlutterBoostPlugin channel = FlutterBoost.this.channel();
-                    if (FlutterBoost.this.createEngine() != null && channel != null) {
-                        HashMap hashMap = new HashMap();
-                        hashMap.put("type", "foreground");
-                        channel.sendEvent("lifecycle", hashMap);
+                if (FlutterBoost.this.mEnterActivityCreate) {
+                    if (FlutterBoost.this.mCurrentActiveActivity == null) {
+                        Debuger.log("Application entry foreground");
+                        FlutterBoostPlugin channel = FlutterBoost.this.channel();
+                        if (FlutterBoost.this.mEngine != null && channel != null) {
+                            HashMap hashMap = new HashMap();
+                            hashMap.put("type", "foreground");
+                            channel.sendEvent("lifecycle", hashMap);
+                        }
                     }
+                    FlutterBoost.this.mCurrentActiveActivity = activity;
                 }
-                FlutterBoost.this.mCurrentActiveActivity = activity;
             }
 
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityResumed(Activity activity) {
-                FlutterBoost.this.mCurrentActiveActivity = activity;
+                if (FlutterBoost.this.mEnterActivityCreate) {
+                    FlutterBoost.this.mCurrentActiveActivity = activity;
+                }
             }
 
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityPaused(Activity activity) {
+                if (!FlutterBoost.this.mEnterActivityCreate) {
+                }
             }
 
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityStopped(Activity activity) {
-                if (FlutterBoost.this.mCurrentActiveActivity == activity) {
+                if (FlutterBoost.this.mEnterActivityCreate && FlutterBoost.this.mCurrentActiveActivity == activity) {
                     Debuger.log("Application entry background");
                     FlutterBoostPlugin channel = FlutterBoost.this.channel();
-                    if (FlutterBoost.this.createEngine() != null && channel != null) {
+                    if (FlutterBoost.this.mEngine != null && channel != null) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("type", "background");
                         channel.sendEvent("lifecycle", hashMap);
@@ -113,14 +124,16 @@ public class FlutterBoost {
 
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+                if (!FlutterBoost.this.mEnterActivityCreate) {
+                }
             }
 
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityDestroyed(Activity activity) {
-                if (FlutterBoost.this.mCurrentActiveActivity == activity) {
+                if (FlutterBoost.this.mEnterActivityCreate && FlutterBoost.this.mCurrentActiveActivity == activity) {
                     Debuger.log("Application entry background");
                     FlutterBoostPlugin channel = FlutterBoost.this.channel();
-                    if (FlutterBoost.this.createEngine() != null && channel != null) {
+                    if (FlutterBoost.this.mEngine != null && channel != null) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("type", "background");
                         channel.sendEvent("lifecycle", hashMap);
@@ -133,21 +146,24 @@ public class FlutterBoost {
         if (this.mPlatform.whenEngineStart() == ConfigBuilder.IMMEDIATELY) {
             doInitialFlutter();
         }
+        sInit = true;
     }
 
     public void doInitialFlutter() {
-        if (this.mRegistry == null) {
+        if (this.mEngine == null) {
             long currentTimeMillis = System.currentTimeMillis();
+            if (this.mPlatform.lifecycleListener != null) {
+                this.mPlatform.lifecycleListener.beforeCreateEngine();
+            }
             FlutterEngine createEngine = createEngine();
             if (this.mPlatform.lifecycleListener != null) {
                 this.mPlatform.lifecycleListener.onEngineCreated();
             }
-            if (createEngine != null && !createEngine.getDartExecutor().isExecutingDart()) {
+            if (!createEngine.getDartExecutor().isExecutingDart()) {
                 if (this.mPlatform.initialRoute() != null) {
                     createEngine.getNavigationChannel().setInitialRoute(this.mPlatform.initialRoute());
                 }
-                createEngine.getDartExecutor().executeDartEntrypoint(new DartExecutor.DartEntrypoint(FlutterMain.findAppBundlePath(), "main"));
-                this.mRegistry = new BoostPluginRegistry(createEngine());
+                createEngine.getDartExecutor().executeDartEntrypoint(new DartExecutor.DartEntrypoint(FlutterMain.findAppBundlePath(), this.mPlatform.dartEntrypoint()));
                 HashMap hashMap = new HashMap();
                 hashMap.put("seb", String.valueOf(currentTimeMillis));
                 hashMap.put("see", String.valueOf(System.currentTimeMillis()));
@@ -156,14 +172,7 @@ public class FlutterBoost {
         }
     }
 
-    public void boostPluginRegistry() {
-        if (this.mRegistry != null && !this.mRegistry.hasPlugin("boostPluginRegistry")) {
-            this.mPlatform.registerPlugins(this.mRegistry);
-            this.mRegistry.registrarFor("boostPluginRegistry");
-        }
-    }
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public static class ConfigBuilder {
         private BoostLifecycleListener lifecycleListener;
         private Application mApp;
@@ -219,6 +228,11 @@ public class FlutterBoost {
                 }
 
                 @Override // com.idlefish.flutterboost.Platform
+                public String dartEntrypoint() {
+                    return ConfigBuilder.this.dartEntrypoint;
+                }
+
+                @Override // com.idlefish.flutterboost.Platform
                 public String initialRoute() {
                     return ConfigBuilder.this.initialRoute;
                 }
@@ -259,35 +273,88 @@ public class FlutterBoost {
         return sInstance.mCurrentActiveActivity;
     }
 
-    public PluginRegistry getPluginRegistry() {
-        return this.mRegistry;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public FlutterEngine createEngine() {
+    private FlutterEngine createEngine() {
+        boolean z = false;
         if (this.mEngine == null) {
             synchronized (a.mLock) {
+                PluginSetting findPluginSetting = c.oR().findPluginSetting("com.baidu.tieba.pluginFlutter");
+                try {
+                    if (FlutterCrashRepairEnableSwitch.isOn() && findPluginSetting != null && findPluginSetting.apkPath != null) {
+                        Object pathList = a.getPathList((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());
+                        Object C = a.C(pathList);
+                        if (C instanceof File[]) {
+                            File[] fileArr = (File[]) C;
+                            for (int i = 0; i < fileArr.length; i++) {
+                                if (fileArr[i] != null && fileArr[i].getPath().contains("pluginFlutter")) {
+                                    z = true;
+                                }
+                            }
+                        } else if (C instanceof List) {
+                            List list = (List) C;
+                            int i2 = 0;
+                            boolean z2 = false;
+                            while (i2 < list.size()) {
+                                boolean z3 = (list.get(i2) == null || !((File) list.get(i2)).getPath().contains("pluginFlutter")) ? z2 : true;
+                                i2++;
+                                z2 = z3;
+                            }
+                            z = z2;
+                        }
+                        if (!z) {
+                            String replace = findPluginSetting.apkPath.replace(".apk", "/lib");
+                            if (C instanceof File[]) {
+                                a.e(C, new File(replace));
+                            } else if (C instanceof List) {
+                                ((List) C).add(new File(replace));
+                            }
+                            a.setField(pathList, pathList.getClass(), "nativeLibraryDirectories", C);
+                            if (Build.VERSION.SDK_INT > 25 || (Build.VERSION.SDK_INT == 25 && Util.isPreview())) {
+                                Method declaredMethod = pathList.getClass().getDeclaredMethod("makePathElements", List.class);
+                                declaredMethod.setAccessible(true);
+                                a.setField(pathList, pathList.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(pathList.getClass(), (List) C));
+                            } else if (Build.VERSION.SDK_INT >= 23) {
+                                Method declaredMethod2 = pathList.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
+                                declaredMethod2.setAccessible(true);
+                                a.setField(pathList, pathList.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(pathList.getClass(), (List) C, null, new ArrayList()));
+                            } else {
+                                a.setField(pathList, pathList.getClass(), "nativeLibraryDirectories", C);
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    BdLog.e("add flutter.so path err");
+                    e.printStackTrace();
+                }
                 FlutterMain.startInitialization(this.mPlatform.getApplication());
-                PluginSetting findPluginSetting = c.oQ().findPluginSetting("com.baidu.tieba.pluginFlutter");
                 if (findPluginSetting != null && findPluginSetting.apkPath != null) {
-                    String replace = findPluginSetting.apkPath.replace(".apk", "");
+                    String replace2 = findPluginSetting.apkPath.replace(".apk", "");
                     try {
                         FlutterLoader flutterLoader = FlutterLoader.getInstance();
                         Field declaredField = FlutterLoader.class.getDeclaredField("aotSharedLibraryName");
                         declaredField.setAccessible(true);
-                        declaredField.set(flutterLoader, replace + "/lib/libapp.so");
-                    } catch (Exception e) {
+                        declaredField.set(flutterLoader, replace2 + "/lib/libapp.so");
+                    } catch (Exception e2) {
                         BdLog.e("resSetSupplier2 exception");
-                        e.printStackTrace();
+                        e2.printStackTrace();
                     }
                 } else if (!TbadkCoreApplication.getInst().isDebugMode()) {
                     return null;
                 }
+                FlutterMain.startInitialization(this.mPlatform.getApplication());
                 FlutterMain.ensureInitializationComplete(this.mPlatform.getApplication().getApplicationContext(), new FlutterShellArgs(new String[0]).toArray());
-                this.mEngine = new FlutterEngine(this.mPlatform.getApplication().getApplicationContext());
+                this.mEngine = new FlutterEngine(this.mPlatform.getApplication().getApplicationContext(), FlutterLoader.getInstance(), new FlutterJNI(), null, false);
+                registerPlugins(this.mEngine);
             }
         }
         return this.mEngine;
+    }
+
+    private void registerPlugins(FlutterEngine flutterEngine) {
+        try {
+            Class.forName("io.flutter.plugins.GeneratedPluginRegistrant").getDeclaredMethod("registerWith", FlutterEngine.class).invoke(null, flutterEngine);
+        } catch (Exception e) {
+            Debuger.exception(e);
+        }
     }
 
     public FlutterEngine engineProvider() {

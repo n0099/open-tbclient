@@ -1,16 +1,18 @@
 package com.baidu.swan.apps.adaptation.a;
 
-import android.content.Context;
-import com.baidu.swan.apps.core.container.NgWebView;
-/* loaded from: classes11.dex */
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
+/* loaded from: classes7.dex */
 public interface am {
-    void a(NgWebView ngWebView);
+    void G(String str, int i);
 
-    void a(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z);
+    ExecutorService TZ();
 
-    void a(NgWebView ngWebView, String str);
+    void a(String str, int i, JSONArray jSONArray);
 
-    void p(String str, Context context);
+    void a(String str, String str2, int i, String str3, int i2);
 
-    void q(String str, Context context);
+    void a(String str, String str2, int i, String str3, long j, int i2);
+
+    void f(String str, int i, String str2);
 }

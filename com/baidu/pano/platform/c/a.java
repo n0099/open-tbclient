@@ -2,7 +2,7 @@ package com.baidu.pano.platform.c;
 
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     private float[] a = {0.0f, 0.0f};
     private long b = -1;
@@ -11,7 +11,7 @@ public class a {
     private EnumC0222a e = EnumC0222a.None;
 
     /* renamed from: com.baidu.pano.platform.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public enum EnumC0222a {
         None,
         Running

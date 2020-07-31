@@ -2,12 +2,12 @@ package com.baidu.swan.apps.storage.c;
 
 import android.os.Bundle;
 import android.util.Log;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class f extends d {
     @Override // com.baidu.swan.apps.storage.c.d
     protected Bundle a(c cVar) {
-        b po = h.po(cVar.cLO);
-        if (po == null) {
+        b pZ = h.pZ(cVar.cPj);
+        if (pZ == null) {
             if (DEBUG) {
                 throw new IllegalArgumentException("illegal sp.");
             }
@@ -15,19 +15,19 @@ public class f extends d {
         }
         switch (cVar.mDataType) {
             case 1:
-                po.putInt(cVar.cLP, Integer.parseInt(cVar.cLQ));
+                pZ.putInt(cVar.cPk, Integer.parseInt(cVar.cPl));
                 break;
             case 2:
-                po.putLong(cVar.cLP, Long.parseLong(cVar.cLQ));
+                pZ.putLong(cVar.cPk, Long.parseLong(cVar.cPl));
                 break;
             case 3:
-                po.putBoolean(cVar.cLP, Boolean.parseBoolean(cVar.cLQ));
+                pZ.putBoolean(cVar.cPk, Boolean.parseBoolean(cVar.cPl));
                 break;
             case 4:
-                po.putString(cVar.cLP, cVar.cLQ);
+                pZ.putString(cVar.cPk, cVar.cPl);
                 break;
             case 5:
-                po.putFloat(cVar.cLP, Float.parseFloat(cVar.cLQ));
+                pZ.putFloat(cVar.cPk, Float.parseFloat(cVar.cPl));
                 break;
             default:
                 if (DEBUG) {

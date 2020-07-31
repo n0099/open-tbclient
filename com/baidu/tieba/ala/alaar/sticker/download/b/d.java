@@ -15,11 +15,11 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.e {
-    private final a fhv;
-    private final i fhw;
-    private final e.a fhx;
+    private final a fmE;
+    private final i fmF;
+    private final e.a fmG;
     private volatile int mCommend = 0;
     private volatile int mStatus;
     private String mTag;
@@ -37,9 +37,9 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
     protected abstract String getTag();
 
     public d(a aVar, i iVar, e.a aVar2) {
-        this.fhv = aVar;
-        this.fhw = iVar;
-        this.fhx = aVar2;
+        this.fmE = aVar;
+        this.fmF = iVar;
+        this.fmG = aVar2;
         this.mTag = getTag();
         if (TextUtils.isEmpty(this.mTag)) {
             this.mTag = getClass().getSimpleName();
@@ -69,13 +69,13 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
     @Override // java.lang.Runnable
     public void run() {
         Process.setThreadPriority(10);
-        a(this.fhw);
+        a(this.fmF);
         try {
             this.mStatus = 104;
             executeDownload();
-            synchronized (this.fhx) {
+            synchronized (this.fmG) {
                 this.mStatus = 105;
-                this.fhx.onDownloadCompleted(createFileSavedPath());
+                this.fmG.onDownloadCompleted(createFileSavedPath());
             }
         } catch (DownloadException e) {
             e(e);
@@ -84,19 +84,19 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
 
     private void e(DownloadException downloadException) {
         if (downloadException.getErrorCode() == 108) {
-            synchronized (this.fhx) {
+            synchronized (this.fmG) {
                 this.mStatus = 108;
-                this.fhx.c(downloadException);
+                this.fmG.c(downloadException);
             }
         } else if (downloadException.getErrorCode() == 106) {
-            synchronized (this.fhx) {
+            synchronized (this.fmG) {
                 this.mStatus = 106;
-                this.fhx.onDownloadPaused();
+                this.fmG.onDownloadPaused();
             }
         } else if (downloadException.getErrorCode() == 107) {
-            synchronized (this.fhx) {
+            synchronized (this.fmG) {
                 this.mStatus = 107;
-                this.fhx.onDownloadCanceled();
+                this.fmG.onDownloadCanceled();
             }
         } else {
             throw new IllegalArgumentException("Unknown state");
@@ -109,7 +109,7 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
             HttpURLConnection httpURLConnection2 = null;
             try {
                 try {
-                    httpURLConnection = (HttpURLConnection) new URL(this.fhw.getUri()).openConnection();
+                    httpURLConnection = (HttpURLConnection) new URL(this.fmF.getUri()).openConnection();
                 } catch (Throwable th) {
                     th = th;
                 }
@@ -122,7 +122,7 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
                 httpURLConnection.setConnectTimeout(4000);
                 httpURLConnection.setReadTimeout(4000);
                 httpURLConnection.setRequestMethod("GET");
-                setHttpHeader(c(this.fhw), httpURLConnection);
+                setHttpHeader(c(this.fmF), httpURLConnection);
                 int responseCode = httpURLConnection.getResponseCode();
                 if (responseCode == getResponseCode()) {
                     transferData(httpURLConnection);
@@ -173,13 +173,13 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
             inputStream = null;
         }
         try {
-            long start = this.fhw.getStart() + this.fhw.getFinished();
+            long start = this.fmF.getStart() + this.fmF.getFinished();
             try {
-                File dir = this.fhv.getDir();
+                File dir = this.fmE.getDir();
                 if (!dir.exists()) {
                     dir.mkdirs();
                 }
-                RandomAccessFile file = getFile(dir, this.fhv.getName(), start);
+                RandomAccessFile file = getFile(dir, this.fmE.getName(), start);
                 transferData(inputStream, file);
                 try {
                     close(inputStream);
@@ -212,16 +212,16 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
                 int read = inputStream.read(bArr);
                 if (read != -1) {
                     randomAccessFile.write(bArr, 0, read);
-                    this.fhw.setFinished(this.fhw.getFinished() + read);
-                    synchronized (this.fhx) {
-                        this.fhv.setFinished(this.fhv.getFinished() + read);
-                        this.fhx.onDownloadProgress(this.fhv.getFinished(), this.fhv.getLength());
+                    this.fmF.setFinished(this.fmF.getFinished() + read);
+                    synchronized (this.fmG) {
+                        this.fmE.setFinished(this.fmE.getFinished() + read);
+                        this.fmG.onDownloadProgress(this.fmE.getFinished(), this.fmE.getLength());
                     }
                 } else {
                     return;
                 }
             } catch (IOException e) {
-                b(this.fhw);
+                b(this.fmF);
                 throw new DownloadException(108, e);
             }
         }
@@ -232,7 +232,7 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
             throw new DownloadException(107, "Download canceled!");
         }
         if (this.mCommend == 106) {
-            b(this.fhw);
+            b(this.fmF);
             throw new DownloadException(106, "Download paused!");
         }
     }
@@ -246,6 +246,6 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
     }
 
     private final String createFileSavedPath() {
-        return this.fhv.getDir().getAbsolutePath() + File.separator + this.fhv.getName();
+        return this.fmE.getDir().getAbsolutePath() + File.separator + this.fmE.getName();
     }
 }

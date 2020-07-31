@@ -16,42 +16,42 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     public String a;
     public ArrayList<PlayUrl> f;
     public String h;
-    private PlayUrl ngD;
-    public ListItem ngJ;
-    public ListItem ngK;
-    public ListItem ngL;
-    public ListItem ngM;
-    public ListItem ngN;
-    public ListItem ngO;
-    public ListItem ngP;
-    public ListItem ngQ;
-    public TrumpetPocket ngT;
+    public ListItem npA;
+    public ListItem npB;
+    public ListItem npC;
+    public TrumpetPocket npF;
+    private PlayUrl npp;
+    public ListItem npv;
+    public ListItem npw;
+    public ListItem npx;
+    public ListItem npy;
+    public ListItem npz;
     public List<ListItem> t;
     private final String A = "PlayerViewHelper";
     private boolean B = false;
-    private FullRoomInfo ngE = null;
+    private FullRoomInfo npq = null;
     public int b = 0;
     public int c = 0;
     public boolean d = false;
     public boolean e = false;
-    private ArrayList<ChatInfo> ngF = null;
+    private ArrayList<ChatInfo> npr = null;
     private HashMap<String, com.kascend.chushou.player.ui.h5.c.a> F = null;
     private boolean I = true;
-    public IconConfig ngR = new IconConfig();
-    public final Map<String, SkinConfig.SkinRes> ngU = new HashMap();
+    public IconConfig npD = new IconConfig();
+    public final Map<String, SkinConfig.SkinRes> npG = new HashMap();
     public boolean z = false;
     public List<tv.chushou.zues.widget.gift.a.a> i = new ArrayList();
     public List<GeneralTabGift> j = new ArrayList();
-    a ngG = new a();
-    private List<ListItem> ngH = new ArrayList();
-    private List<ListItem> ngI = new ArrayList();
+    a nps = new a();
+    private List<ListItem> npt = new ArrayList();
+    private List<ListItem> npu = new ArrayList();
     public List<ListItem> s = new ArrayList();
-    public List<ListItem> ngS = new ArrayList();
+    public List<ListItem> npE = new ArrayList();
     public List<g.a> w = new ArrayList();
 
     public b(String str) {
@@ -59,26 +59,26 @@ public class b {
     }
 
     public void a() {
-        this.ngU.clear();
+        this.npG.clear();
         this.z = false;
     }
 
     public void b() {
-        if (this.ngG != null) {
-            this.ngG.a();
-            this.ngG = null;
+        if (this.nps != null) {
+            this.nps.a();
+            this.nps = null;
         }
         if (this.f != null) {
             this.f.clear();
             this.f = null;
         }
-        if (this.ngF != null) {
-            this.ngF.clear();
-            this.ngF = null;
+        if (this.npr != null) {
+            this.npr.clear();
+            this.npr = null;
         }
-        if (this.ngE != null) {
-            this.ngE.release();
-            this.ngE = null;
+        if (this.npq != null) {
+            this.npq.release();
+            this.npq = null;
         }
         if (this.F != null) {
             this.F.clear();
@@ -98,22 +98,22 @@ public class b {
                     arrayList2.add(arrayList.get(i));
                 }
             }
-            if (this.ngF == null) {
-                this.ngF = new ArrayList<>(arrayList2);
+            if (this.npr == null) {
+                this.npr = new ArrayList<>(arrayList2);
                 return;
             }
-            this.ngF.addAll(new ArrayList(arrayList2));
-            int size = this.ngF.size();
+            this.npr.addAll(new ArrayList(arrayList2));
+            int size = this.npr.size();
             if (size > 100) {
                 for (int i2 = 0; i2 < size - 100; i2++) {
-                    this.ngF.remove(i2);
+                    this.npr.remove(i2);
                 }
             }
         }
     }
 
     public ArrayList<ChatInfo> c() {
-        return this.ngF;
+        return this.npr;
     }
 
     public void a(boolean z) {
@@ -125,7 +125,7 @@ public class b {
     }
 
     public void a(FullRoomInfo fullRoomInfo) {
-        this.ngE = fullRoomInfo;
+        this.npq = fullRoomInfo;
     }
 
     public void a(com.kascend.chushou.player.ui.h5.c.a aVar) {
@@ -153,39 +153,39 @@ public class b {
         }
     }
 
-    public FullRoomInfo dJF() {
-        return this.ngE;
+    public FullRoomInfo dNa() {
+        return this.npq;
     }
 
     public void a(PlayUrl playUrl) {
-        this.ngD = playUrl;
+        this.npp = playUrl;
     }
 
-    public PlayUrl dJG() {
-        return this.ngD;
+    public PlayUrl dNb() {
+        return this.npp;
     }
 
-    public List<ListItem> dJH() {
-        return this.ngH;
+    public List<ListItem> dNc() {
+        return this.npt;
     }
 
     public List<ListItem> j() {
-        return this.ngI;
+        return this.npu;
     }
 
-    public b fv(List<ListItem> list) {
-        this.ngH = list;
-        this.ngI.clear();
+    public b fE(List<ListItem> list) {
+        this.npt = list;
+        this.npu.clear();
         if (list != null) {
-            this.ngI.addAll(list);
+            this.npu.addAll(list);
         }
         return this;
     }
 
     @Nullable
-    public RoomInfo dJI() {
-        if (this.ngE != null) {
-            return this.ngE.mRoominfo;
+    public RoomInfo dNd() {
+        if (this.npq != null) {
+            return this.npq.mRoominfo;
         }
         return null;
     }
@@ -199,11 +199,11 @@ public class b {
     }
 
     public boolean m() {
-        return (this.ngE == null || this.ngE.mRoominfo == null || !this.ngE.mRoominfo.mIsSubscribed) ? false : true;
+        return (this.npq == null || this.npq.mRoominfo == null || !this.npq.mRoominfo.mIsSubscribed) ? false : true;
     }
 
     public String b(String str) {
-        SkinConfig.SkinRes skinRes = this.ngU.get(str);
+        SkinConfig.SkinRes skinRes = this.npG.get(str);
         if (skinRes != null) {
             return skinRes.image;
         }

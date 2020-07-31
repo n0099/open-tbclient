@@ -4,14 +4,14 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.data.ap;
-import com.baidu.tbadk.core.data.bu;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.data.aq;
+import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class SpecialColumnListData extends AbsThreadDataSupport implements Parcelable {
     public static final int MAX_SIZE = 3;
     private List<SpecialColumnItemData> mListData;
@@ -21,14 +21,14 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
     public static final Parcelable.Creator<SpecialColumnListData> CREATOR = new Parcelable.Creator<SpecialColumnListData>() { // from class: com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: W */
+        /* renamed from: Y */
         public SpecialColumnListData createFromParcel(Parcel parcel) {
             return new SpecialColumnListData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: xq */
+        /* renamed from: xI */
         public SpecialColumnListData[] newArray(int i) {
             return new SpecialColumnListData[i];
         }
@@ -60,7 +60,7 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
                     i = i2 + 1;
                 } else {
                     this.mResultListData.addAll(arrayList);
-                    this.mListData.addAll(w.trimToSize(arrayList, 3));
+                    this.mListData.addAll(x.trimToSize(arrayList, 3));
                     return;
                 }
             }
@@ -79,16 +79,16 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bu aPS() {
+    public bv aTN() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ap aPU() {
+    public aq aTP() {
         return null;
     }
 
-    public List<SpecialColumnItemData> ckz() {
+    public List<SpecialColumnItemData> cnZ() {
         return this.mListData;
     }
 
@@ -96,7 +96,7 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
         return this.title;
     }
 
-    public List<SpecialColumnItemData> bua() {
+    public List<SpecialColumnItemData> bxj() {
         return this.mResultListData;
     }
 

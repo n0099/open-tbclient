@@ -1,5 +1,5 @@
 package com.baidu.fsg.face.liveness;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class d {
     public static final String A = "ABTestEnd";
     public static final String B = "showLivenessConfirm";

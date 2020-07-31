@@ -1,32 +1,32 @@
 package com.baidu.tieba;
 /* loaded from: classes.dex */
 public class d {
-    public a eSQ;
-    private int eSR = 0;
+    public a eZl;
+    private int eZm = 0;
 
     /* loaded from: classes.dex */
     public interface a {
-        void bl(int i, int i2);
+        void bo(int i, int i2);
     }
 
-    public void pp(int i) {
-        if (this.eSR != i) {
-            if (this.eSQ != null) {
-                this.eSQ.bl(this.eSR, i);
+    public void pG(int i) {
+        if (this.eZm != i) {
+            if (this.eZl != null) {
+                this.eZl.bo(this.eZm, i);
             }
-            this.eSR = i;
+            this.eZm = i;
         }
     }
 
-    public void pq(int i) {
-        this.eSR = i;
+    public void pH(int i) {
+        this.eZm = i;
     }
 
-    public int bmQ() {
-        return this.eSR;
+    public int bqK() {
+        return this.eZm;
     }
 
     public void a(a aVar) {
-        this.eSQ = aVar;
+        this.eZl = aVar;
     }
 }

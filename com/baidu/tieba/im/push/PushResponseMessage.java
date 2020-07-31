@@ -2,7 +2,7 @@ package com.baidu.tieba.im.push;
 
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ar;
+import com.baidu.tbadk.core.data.as;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.message.ResponsePullMessage;
 import com.baidu.tieba.im.util.MessageUtils;
@@ -12,7 +12,7 @@ import protobuf.PushMessage.PushMessageResIdl;
 import protobuf.PushMsgInfo;
 /* loaded from: classes.dex */
 public class PushResponseMessage extends ResponsePullMessage {
-    private ar notificationData;
+    private as notificationData;
 
     public PushResponseMessage() {
         super(CmdConfigSocket.CMD_PUSH_MESSAGE);
@@ -39,7 +39,7 @@ public class PushResponseMessage extends ResponsePullMessage {
         }
     }
 
-    public ar getNotificationData() {
+    public as getNotificationData() {
         return this.notificationData;
     }
 }

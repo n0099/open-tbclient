@@ -1,7 +1,7 @@
 package com.baidu.mapsdkvi;
 
 import android.content.Context;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
     static Context a;
 

@@ -8,7 +8,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class h extends RecyclerView.OnFlingListener {
     private Scroller mGravityScroller;
     RecyclerView mRecyclerView;

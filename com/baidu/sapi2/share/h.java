@@ -3,7 +3,7 @@ package com.baidu.sapi2.share;
 import android.content.ComponentName;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 class h implements ServiceConnection {
     final /* synthetic */ Runnable a;
     final /* synthetic */ i b;

@@ -9,14 +9,15 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     /* loaded from: classes.dex */
     public class a {
         private int msgCount = 0;
-        private boolean elJ = false;
-        private int eme = 0;
-        private int emf = 0;
-        private int emg = 0;
-        private int emh = 0;
-        private boolean elL = false;
-        private int emi = 0;
-        private boolean emj = false;
+        private boolean erW = false;
+        private int esp = 0;
+        private int esq = 0;
+        private int esr = 0;
+        private int ess = 0;
+        private int est = 0;
+        private boolean erY = false;
+        private int esu = 0;
+        private boolean esv = false;
 
         public a() {
         }
@@ -25,6 +26,14 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     public NewsRemindMessage() {
         super(CmdConfigCustom.CMD_MESSAGE_REMIND);
         this.mData = new a();
+    }
+
+    public int getMsgFansCount() {
+        return this.mData.ess;
+    }
+
+    public void setMsgFansCount(int i) {
+        this.mData.ess = i;
     }
 
     public int getMsgCount() {
@@ -36,66 +45,66 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     }
 
     public boolean hasMsgRemind() {
-        return this.mData.elJ;
+        return this.mData.erW;
     }
 
     public void setHasMsgRemind(boolean z) {
-        this.mData.elJ = z;
+        this.mData.erW = z;
     }
 
     public int getMsgAgreeCount() {
-        return this.mData.eme;
+        return this.mData.esp;
     }
 
     public void setMsgAgreeCount(int i) {
-        this.mData.eme = i;
+        this.mData.esp = i;
     }
 
     public int getMsgReplyCount() {
-        return this.mData.emf;
+        return this.mData.esq;
     }
 
     public void setMsgReplyCount(int i) {
-        this.mData.emf = i;
+        this.mData.esq = i;
     }
 
     public int getMsgAtCount() {
-        return this.mData.emg;
+        return this.mData.esr;
     }
 
     public void setMsgAtCount(int i) {
-        this.mData.emg = i;
+        this.mData.esr = i;
     }
 
     public int getChatCount() {
-        return this.mData.emh;
+        return this.mData.est;
     }
 
     public void setChatCount(int i) {
-        this.mData.emh = i;
+        this.mData.est = i;
     }
 
     public boolean hasChatRemind() {
-        return this.mData.elL;
+        return this.mData.erY;
     }
 
     public void setHasChatRemind(boolean z) {
-        this.mData.elL = z;
+        this.mData.erY = z;
     }
 
     public int getNotificationCount() {
-        return this.mData.emi;
+        return this.mData.esu;
     }
 
     public void setNotificationCount(int i) {
-        this.mData.emi = i;
+        this.mData.esu = i;
     }
 
     public boolean hasNotificationRemind() {
-        return this.mData.emj;
+        return this.mData.esv;
     }
 
     public void setHasNotificationRemind(boolean z) {
-        this.mData.emj = z;
+        this.mData.esv = z;
     }
 }

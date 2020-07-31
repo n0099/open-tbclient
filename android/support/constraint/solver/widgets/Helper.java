@@ -1,7 +1,7 @@
 package android.support.constraint.solver.widgets;
 
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class Helper extends ConstraintWidget {
     protected ConstraintWidget[] mWidgets = new ConstraintWidget[4];
     protected int mWidgetsCount = 0;

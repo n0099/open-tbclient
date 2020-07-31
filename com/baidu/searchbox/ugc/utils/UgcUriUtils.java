@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.io.File;
-/* loaded from: classes13.dex */
+/* loaded from: classes19.dex */
 public class UgcUriUtils {
     public static final String LOCAL_CONTENT_SCHEME = "content";
     public static final String LOCAL_FILE_SCHEME = "file";

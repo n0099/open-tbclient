@@ -1,5 +1,5 @@
 package com.facebook.rebound;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class SimpleSpringListener implements SpringListener {
     @Override // com.facebook.rebound.SpringListener
     public void onSpringUpdate(Spring spring) {

@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.chatmessage.messages.ChatMsgFactory;
 import com.baidu.android.imsdk.chatmessage.messages.HtmlMsg;
 import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.android.imsdk.chatmessage.request.Type;
+import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
 import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.android.imsdk.mcast.McastManagerImpl;
 import com.baidu.android.imsdk.pubaccount.IGetPaInfosListener;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.PaManager;
@@ -37,8 +37,9 @@ import org.json.JSONObject;
 public class MessageParser {
     private static final String TAG = "MessageParser";
 
-    /* JADX WARN: Type inference failed for: r16v0, types: [T, java.lang.Long] */
+    /* JADX WARN: Type inference failed for: r6v1, types: [T, java.lang.Long] */
     public static ChatMsg parserMessage(Context context, JSONObject jSONObject, Type<Long> type, boolean z) {
+        int i;
         try {
             long optLong = jSONObject.optLong("msgid");
             long optLong2 = jSONObject.optLong("from_user");
@@ -54,7 +55,15 @@ public class MessageParser {
                     int optInt2 = jSONObject.optInt("type");
                     long optLong5 = jSONObject.optLong("msg_expires", 0L);
                     int optInt3 = jSONObject.optInt(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE);
-                    if (optInt2 == 80 || (optInt2 == 0 && optInt3 == 10)) {
+                    try {
+                        i = new JSONObject(optString).optInt(TableDefine.MessageColumns.COLUME_TEMPLATE, 0);
+                    } catch (JSONException e) {
+                        LogUtils.e(TAG, "parserMessage template_type:", e);
+                        i = 0;
+                    }
+                    boolean z3 = (optInt2 == 80 || (optInt2 == 0 && optInt3 == 10)) && i == 0;
+                    boolean z4 = i == 2 || i == 3;
+                    if (z3 || z4) {
                         DuParser invokeParse = new DuParser(context, optString, optInt).invokeParse();
                         if (invokeParse.isMsgNull()) {
                             return null;
@@ -62,10 +71,12 @@ public class MessageParser {
                         chatMsg = invokeParse.getMsg();
                         z2 = invokeParse.isJsonParseResult();
                     } else {
-                        chatMsg = ChatMsgFactory.getInstance().newChatMsg(context, optInt, optInt2, -1);
+                        int i2 = (i == 1 && optInt2 == 80) ? 0 : optInt2;
+                        chatMsg = ChatMsgFactory.getInstance().newChatMsg(context, optInt, i2, -1);
                         if (chatMsg != null) {
-                            chatMsg.setMsgType(optInt2);
+                            chatMsg.setMsgType(i2);
                             z2 = chatMsg.setMsgContentFromServer(optString);
+                            chatMsg.setTemplateType(i);
                             if (chatMsg.isDumiMessage()) {
                                 chatMsg.setChatType(100);
                                 LogUtils.d(TAG, "setchattype as dumi " + chatMsg.getMsgId());
@@ -95,14 +106,14 @@ public class MessageParser {
                         return chatMsg;
                     }
                 case 2:
-                    int i = jSONObject.getInt("cmd");
-                    ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(context, optInt, -1, i);
+                    int i3 = jSONObject.getInt("cmd");
+                    ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(context, optInt, -1, i3);
                     if (newChatMsg != null) {
                         newChatMsg.setCategory(optInt);
                         newChatMsg.setContacter(optLong4);
                         newChatMsg.setFromUser(optLong2);
                         z2 = newChatMsg.setMsgContentFromServer(optString);
-                        newChatMsg.setNotifyCmd(i);
+                        newChatMsg.setNotifyCmd(i3);
                         chatMsg = handleSysChatMsg(newChatMsg);
                         chatMsg.setMsgType(-1);
                         break;
@@ -110,13 +121,13 @@ public class MessageParser {
                         return newChatMsg;
                     }
                 case 3:
-                    int i2 = jSONObject.getInt("cmd");
-                    chatMsg = ChatMsgFactory.getInstance().newChatMsg(context, 3, -1, i2);
+                    int i4 = jSONObject.getInt("cmd");
+                    chatMsg = ChatMsgFactory.getInstance().newChatMsg(context, 3, -1, i4);
                     if (chatMsg != null) {
                         chatMsg.setCategory(optInt);
                         chatMsg.setContacter(optLong4);
                         chatMsg.setFromUser(optLong2);
-                        chatMsg.setNotifyCmd(i2);
+                        chatMsg.setNotifyCmd(i4);
                         z2 = chatMsg.setMsgContentFromServer(optString);
                         break;
                     } else {
@@ -131,7 +142,7 @@ public class MessageParser {
                         chatMsg.setFromUser(optLong2);
                         chatMsg.setMsgType(optInt5);
                         boolean msgContentFromServer = chatMsg.setMsgContentFromServer(optString);
-                        if (McastManagerImpl.getInstance(context).isReliable(optLong4).booleanValue()) {
+                        if (ConversationStudioManImpl.getInstance(context).isReliable(optLong4)) {
                             ((TextMsg) chatMsg).setCastId(optLong4);
                             ((TextMsg) chatMsg).setPriority(jSONObject.optLong("prority"));
                             chatMsg.setMsgContent(jSONObject.toString());
@@ -190,13 +201,12 @@ public class MessageParser {
                 }
                 chatMsg.setMsgKey(jSONObject.optString("msg_key", ""));
                 chatMsg.setDeviceFlag(2);
-                LogUtils.d("msg", chatMsg.getMsgKey());
                 return chatMsg;
             }
             return chatMsg;
-        } catch (Exception e) {
-            LogUtils.e(TAG, "parserMessage:", e);
-            new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "parserMessage:", e2);
+            new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
             return null;
         }
     }
@@ -244,7 +254,6 @@ public class MessageParser {
         return arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static synchronized void handleAck(Context context, ArrayList<ChatMsg> arrayList, boolean z) {
         boolean z2;
         String str;
@@ -341,7 +350,7 @@ public class MessageParser {
                             if (jSONObject != null) {
                                 tripule.setAck(jSONObject);
                             }
-                            if (category == 4 && McastManagerImpl.getInstance(context).isReliable(((TextMsg) chatMsg).getCastId()).booleanValue()) {
+                            if (category == 4 && ConversationStudioManImpl.getInstance(context).isReliable(((TextMsg) chatMsg).getCastId())) {
                                 tripule.setMcastId(((TextMsg) chatMsg).getCastId());
                                 tripule.setStudioIsReliable(true);
                                 z2 = true;
@@ -400,7 +409,7 @@ public class MessageParser {
         if (i == 1 || i == 5) {
             return Constants.PAGE_SHOWBAIFUWUHAO_NAME;
         }
-        if (i != 19 && i != 6) {
+        if (i != 19 && i != 6 && i != 29) {
             return "";
         }
         return Constants.PAGE_HUDONG_NAME;
@@ -474,8 +483,8 @@ public class MessageParser {
             return this.jsonParseResult;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:15:0x0096  */
-        /* JADX WARN: Removed duplicated region for block: B:31:0x014e  */
+        /* JADX WARN: Removed duplicated region for block: B:15:0x009e  */
+        /* JADX WARN: Removed duplicated region for block: B:31:0x0156  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -484,6 +493,7 @@ public class MessageParser {
             String str;
             JSONObject jSONObject = new JSONObject(this.content);
             String optString = jSONObject.optString("text");
+            int optInt = jSONObject.optInt(TableDefine.MessageColumns.COLUME_TEMPLATE, 0);
             String optString2 = jSONObject.optString(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, "");
             if (!TextUtils.isEmpty(optString)) {
                 String optString3 = new JSONObject(optString).optString("msg");
@@ -492,17 +502,17 @@ public class MessageParser {
                     String optString4 = jSONObject2.optString("ext");
                     if (!TextUtils.isEmpty(optString4)) {
                         JSONObject jSONObject3 = new JSONObject(optString4);
-                        int optInt = jSONObject3.optInt("type");
+                        int optInt2 = jSONObject3.optInt("type");
                         String optString5 = jSONObject3.optString("content");
                         if (jSONObject3.has("body")) {
-                            int optInt2 = jSONObject3.optInt("type", 1);
-                            if (optInt2 == 1) {
+                            int optInt3 = jSONObject3.optInt("type", 1);
+                            if (optInt3 == 1) {
                                 JSONObject jSONObject4 = new JSONObject();
                                 jSONObject4.put("text", jSONObject3.optString("body"));
                                 String jSONObject5 = jSONObject4.toString();
                                 i = 0;
                                 str = jSONObject5;
-                            } else if (optInt2 == 0) {
+                            } else if (optInt3 == 0) {
                                 JSONArray jSONArray = new JSONArray(jSONObject3.optString("body"));
                                 if (jSONArray != null && jSONArray.length() > 1) {
                                     JSONArray jSONArray2 = new JSONArray();
@@ -535,27 +545,29 @@ public class MessageParser {
                             } else {
                                 String optString6 = jSONObject.optString("ext");
                                 if (!TextUtils.isEmpty(optString6)) {
-                                    int optInt3 = new JSONObject(optString6).optInt("sub_app_identity");
-                                    if (optInt3 == 7) {
+                                    int optInt4 = new JSONObject(optString6).optInt("sub_app_identity");
+                                    if (optInt4 == 7) {
                                         this.msg.setChatType(7);
-                                    } else if (optInt3 == 16) {
+                                    } else if (optInt4 == 16) {
                                         this.msgIsNull = true;
-                                    } else if (optInt3 == 17) {
+                                    } else if (optInt4 == 17) {
                                         this.msg.setChatType(17);
-                                    } else if (optInt3 == 6) {
+                                    } else if (optInt4 == 6) {
                                         this.msgIsNull = true;
-                                    } else if (optInt3 == 19) {
+                                    } else if (optInt4 == 19) {
                                         this.msg.setChatType(19);
-                                    } else if (optInt3 == 23) {
+                                    } else if (optInt4 == 23) {
                                         this.msg.setChatType(23);
-                                    } else if (optInt3 == 24) {
+                                    } else if (optInt4 == 24) {
                                         this.msg.setChatType(24);
-                                    } else if (optInt3 == 25) {
+                                    } else if (optInt4 == 25) {
                                         this.msg.setChatType(25);
-                                    } else if (optInt3 == 26) {
+                                    } else if (optInt4 == 26) {
                                         this.msg.setChatType(26);
-                                    } else if (optInt3 == 27) {
+                                    } else if (optInt4 == 27) {
                                         this.msg.setChatType(27);
+                                    } else if (optInt4 == 29) {
+                                        this.msg.setChatType(29);
                                     }
                                     this.msg.setMsgType(i);
                                     if (i == 18) {
@@ -564,13 +576,14 @@ public class MessageParser {
                                     this.jsonParseResult = this.msg.setMsgContentFromServer(str);
                                     this.msg.setmExtJson(optString6);
                                     this.msg.setServiceType(optString2);
+                                    this.msg.setTemplateType(optInt);
                                 } else {
                                     LogUtils.e(MessageParser.TAG, "duzhan msg parse error! ext in content is null!");
                                 }
                             }
                             return this;
                         }
-                        i = optInt;
+                        i = optInt2;
                         str = optString5;
                         this.msg = ChatMsgFactory.getInstance().newChatMsg(this.context, this.category, i, -1);
                         if (this.msg != null) {

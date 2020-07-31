@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class FaceAR extends c implements IFace {
     private static final String TAG = FaceAR.class.getSimpleName();
     private LuaMsgListener ci;
@@ -36,7 +36,7 @@ public class FaceAR extends c implements IFace {
     private d mr;
     private FaceListener ms;
     private int[] mx;
-    private a.C0084a mz;
+    private a.C0085a mz;
     private List<String> mt = new ArrayList();
     private String mu = null;
     private String mv = null;
@@ -281,7 +281,7 @@ public class FaceAR extends c implements IFace {
         eVar.W(this.my.oT);
         eVar.ad(this.my.oY);
         eVar.ae(this.my.oZ);
-        a.C0084a c0084a = null;
+        a.C0085a c0085a = null;
         String str = this.my.oV;
         String str2 = this.my.oW;
         String str3 = this.my.oX;
@@ -289,33 +289,33 @@ public class FaceAR extends c implements IFace {
         switch (this.my.pe) {
             case 0:
                 this.mI = 1;
-                c0084a = this.my.pb;
+                c0085a = this.my.pb;
                 break;
             case 1:
                 this.mI = 1;
-                c0084a = this.my.pc;
+                c0085a = this.my.pc;
                 break;
             case 2:
                 this.mI = 4;
-                c0084a = this.my.pd;
+                c0085a = this.my.pd;
                 break;
             default:
                 com.baidu.ar.f.b.b(TAG, "createFaceParams() device not support!!!");
                 break;
         }
         this.mJ = this.mI;
-        if (c0084a != null) {
-            this.mz = c0084a;
-            this.mA = b.a(c0084a.oM, str, str2, str3);
-            eVar.X(c0084a.oL);
+        if (c0085a != null) {
+            this.mz = c0085a;
+            this.mA = b.a(c0085a.oM, str, str2, str3);
+            eVar.X(c0085a.oL);
             eVar.Y(str);
             eVar.Z(str2);
             eVar.aa(str3);
-            eVar.ab(c0084a.oN);
-            eVar.ac(c0084a.oO);
-            eVar.setTrackingSmoothAlpha(Float.parseFloat(c0084a.oP));
-            eVar.setTrackingSmoothThreshold(Float.parseFloat(c0084a.oQ));
-            eVar.setTrackingMouthThreshold(Float.parseFloat(c0084a.oR));
+            eVar.ab(c0085a.oN);
+            eVar.ac(c0085a.oO);
+            eVar.setTrackingSmoothAlpha(Float.parseFloat(c0085a.oP));
+            eVar.setTrackingSmoothThreshold(Float.parseFloat(c0085a.oQ));
+            eVar.setTrackingMouthThreshold(Float.parseFloat(c0085a.oR));
         }
         return eVar;
     }

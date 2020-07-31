@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.kascend.chushou.a;
 import com.kascend.chushou.constants.MicStatus;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PlayShowMicStatusView extends RelativeLayout implements View.OnClickListener {
     private TextView a;
     private Context b;

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class GetMediaResourceResponse extends AbstractBceResponse {
     private Attributes attributes;
     private String createTime;

@@ -740,6 +740,13 @@ public class ChatMsgManagerImpl {
         return null;
     }
 
+    public List<ChatMsg> getPaMsgByChatType(List<Integer> list, int i) {
+        if (AccountManager.isLogin(mContext)) {
+            return ChatMessageDBManager.getInstance(mContext).getPaMsgByChatTypeAndPaidList(list, null, 0L, i);
+        }
+        return null;
+    }
+
     public void getPaMsgByChatTypeAndPaidList(final List<Integer> list, final List<Long> list2, final long j, int i, final IFetchNotificationDataListener iFetchNotificationDataListener) {
         if (AccountManager.isLogin(mContext) && iFetchNotificationDataListener != null) {
             final int i2 = Math.abs(i) <= 20 ? i : 20;
@@ -1217,6 +1224,7 @@ public class ChatMsgManagerImpl {
     }
 
     private void deliverMcastMessage(JSONArray jSONArray) {
+        LogUtils.d(TAG, "old deliverMcastMessage deliver");
         onDeliverMcastResponse("", jSONArray, this.mReceiveStudioListener, null);
     }
 
@@ -1240,9 +1248,6 @@ public class ChatMsgManagerImpl {
         for (int i = 1; i <= jSONArray.length(); i++) {
             try {
                 jSONArray2.put(jSONArray.getJSONObject(i - 1));
-                if (list != null) {
-                    arrayList.add(list.get(i - 1));
-                }
                 if (i % 10 == 0) {
                     onDeliverResponse(str, jSONArray2, iLiveMsgReceiveListener, arrayList);
                     JSONArray jSONArray3 = new JSONArray();
@@ -1268,7 +1273,7 @@ public class ChatMsgManagerImpl {
     private void onDeliverResponse(String str, JSONArray jSONArray, ILiveMsgReceiveListener iLiveMsgReceiveListener, List<Long> list) {
         if (iLiveMsgReceiveListener != null) {
             iLiveMsgReceiveListener.onReceiveMessage(0, jSONArray);
-            LogUtils.d(TAG, "deliver reliableMsgs cast arr size :" + list.size() + ", ids :" + list.toString());
+            LogUtils.d(TAG, "listener != null and onDeliverResponse arr size :" + jSONArray.length());
             return;
         }
         LogUtils.d(TAG, "mReceiveStudioListener is null");

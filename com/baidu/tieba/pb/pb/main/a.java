@@ -8,49 +8,49 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a {
-    private TbPageContext dPv;
+    private TbPageContext dVN;
 
     public a(TbPageContext tbPageContext) {
-        this.dPv = tbPageContext;
+        this.dVN = tbPageContext;
     }
 
     public boolean a(PbModel pbModel) {
         String str;
         int i = 2;
-        if (this.dPv.getPageActivity() == null || pbModel == null || pbModel.kcE == null) {
+        if (this.dVN.getPageActivity() == null || pbModel == null || pbModel.klg == null) {
             return false;
         }
-        if ("3".equals(pbModel.kcE.jZG)) {
-            MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.dPv.getPageActivity()).createNormalCfg(2);
-            createNormalCfg.setSubTabName(this.dPv.getString(R.string.tab_name_topic_rank));
-            this.dPv.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg));
+        if ("3".equals(pbModel.klg.kii)) {
+            MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.dVN.getPageActivity()).createNormalCfg(2);
+            createNormalCfg.setSubTabName(this.dVN.getString(R.string.tab_name_topic_rank));
+            this.dVN.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg));
             return true;
         }
-        String string = com.baidu.tbadk.core.sharedPref.b.aVP().getString("key_pb_back_sid1", "");
-        String string2 = com.baidu.tbadk.core.sharedPref.b.aVP().getString("key_pb_back_sid2", "");
-        if (!TextUtils.isEmpty(string) && com.baidu.tbadk.a.c.aNI().uM(string) != null) {
+        String string = com.baidu.tbadk.core.sharedPref.b.aZP().getString("key_pb_back_sid1", "");
+        String string2 = com.baidu.tbadk.core.sharedPref.b.aZP().getString("key_pb_back_sid2", "");
+        if (!TextUtils.isEmpty(string) && com.baidu.tbadk.a.c.aRw().vO(string) != null) {
             str = "1";
         } else {
-            str = (TextUtils.isEmpty(string2) || com.baidu.tbadk.a.c.aNI().uM(string2) == null) ? null : "2";
+            str = (TextUtils.isEmpty(string2) || com.baidu.tbadk.a.c.aRw().vO(string2) == null) ? null : "2";
         }
-        if (str == null && pbModel.kcE.jZF != null) {
-            str = pbModel.kcE.jZF;
+        if (str == null && pbModel.klg.kih != null) {
+            str = pbModel.klg.kih;
         }
         if (str != null) {
             if (str.equals("1")) {
-                MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.dPv.getPageActivity()).createNormalCfg(2);
+                MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.dVN.getPageActivity()).createNormalCfg(2);
                 createNormalCfg2.setSubTab(1, null);
-                this.dPv.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg2));
+                this.dVN.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg2));
                 a(pbModel, 1);
                 return true;
             } else if (str.equals("2")) {
-                MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.dPv.getPageActivity()).createNormalCfg(1);
-                createNormalCfg3.setSubTab(0, pbModel.kcE.jZG);
-                this.dPv.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg3));
-                if (!"游戏".equals(pbModel.kcE.jZG)) {
-                    i = "数码".equals(pbModel.kcE.jZG) ? 3 : 0;
+                MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.dVN.getPageActivity()).createNormalCfg(1);
+                createNormalCfg3.setSubTab(0, pbModel.klg.kii);
+                this.dVN.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg3));
+                if (!"游戏".equals(pbModel.klg.kii)) {
+                    i = "数码".equals(pbModel.klg.kii) ? 3 : 0;
                 }
                 a(pbModel, i);
                 return true;
@@ -63,19 +63,19 @@ public class a {
 
     private void a(PbModel pbModel, int i) {
         if (pbModel != null) {
-            com.baidu.tbadk.core.util.ao aoVar = new com.baidu.tbadk.core.util.ao("c13719");
-            aoVar.dk("fid", pbModel.kcE.getForumId());
-            aoVar.dk("tid", pbModel.kcE.getThreadId());
-            aoVar.ag("obj_type", i);
-            if (pbModel.cKK() == 5) {
-                aoVar.ag("obj_source", 1);
-            } else if (pbModel.cKK() == 7) {
-                aoVar.ag("obj_source", 2);
+            com.baidu.tbadk.core.util.ap apVar = new com.baidu.tbadk.core.util.ap("c13719");
+            apVar.dn("fid", pbModel.klg.getForumId());
+            apVar.dn("tid", pbModel.klg.getThreadId());
+            apVar.ah("obj_type", i);
+            if (pbModel.cOv() == 5) {
+                apVar.ah("obj_source", 1);
+            } else if (pbModel.cOv() == 7) {
+                apVar.ah("obj_source", 2);
             } else {
-                aoVar.ag("obj_source", 3);
+                apVar.ah("obj_source", 3);
             }
-            aoVar.dk("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(aoVar);
+            apVar.dn("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(apVar);
         }
     }
 }

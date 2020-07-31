@@ -2,13 +2,15 @@ package com.baidu.cyberplayer.sdk.dlna;
 
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public abstract class CtrlPointProvider {
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface CtrlPointListener {
         void onComplete();
+
+        void onError(int i, int i2);
 
         void onPrepared();
     }

@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.widget.RelativeLayout;
 import com.baidu.mapapi.model.inner.Point;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b extends Handler {
     final /* synthetic */ a a;
 

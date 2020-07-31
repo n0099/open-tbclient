@@ -2,7 +2,7 @@ package com.baidu.tieba.recapp.activity;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class AdDebugActivityConfig extends IntentConfig {
     public AdDebugActivityConfig(Context context) {
         super(context);

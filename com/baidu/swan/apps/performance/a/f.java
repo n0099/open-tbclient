@@ -1,99 +1,108 @@
 package com.baidu.swan.apps.performance.a;
 
 import android.text.TextUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class f implements d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile f cwP;
-    private d cwQ;
+    private static volatile f cze;
+    private d czf;
+    private boolean czg;
     private long mCostTime;
     private long mStartTime;
 
-    private void Qn() {
-        if (this.cwQ == null) {
-            this.cwQ = new b(new c() { // from class: com.baidu.swan.apps.performance.a.f.1
+    private void QC() {
+        if (this.czf == null) {
+            this.czf = new b(new c() { // from class: com.baidu.swan.apps.performance.a.f.1
                 @Override // com.baidu.swan.apps.performance.a.c
                 public boolean a(a aVar) {
-                    if (aVar == null || aVar.amM() < 0) {
+                    if (aVar == null || aVar.aog() < 0) {
                         return false;
                     }
-                    return (f.DEBUG || !d.cwO.contains(aVar.amL())) && aVar.getStart() <= f.this.amO();
+                    return (f.DEBUG || !d.czd.contains(aVar.aof())) && aVar.getStart() <= f.this.aoi();
                 }
             });
         }
     }
 
-    public static f amN() {
-        if (cwP == null) {
+    public static f aoh() {
+        if (cze == null) {
             synchronized (f.class) {
-                if (cwP == null) {
-                    cwP = new f();
+                if (cze == null) {
+                    cze = new f();
                 }
             }
         }
-        return cwP;
+        return cze;
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
     public void start(long j) {
+        this.czg = true;
         if (isOn()) {
-            Qn();
+            QC();
             this.mStartTime = j;
-            this.cwQ.start(j);
+            this.czf.start(j);
+            com.baidu.swan.apps.performance.d.b.aoz().start(j);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
-    public void bh(long j) {
+    public void bl(long j) {
+        this.czg = false;
         if (isOn()) {
-            Qn();
+            QC();
             this.mCostTime = j;
-            this.cwQ.bh(j);
-            amP();
+            this.czf.bl(j);
+            aoj();
+            com.baidu.swan.apps.performance.d.b.aoz().bl(j);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.a.d
-    public void iy(String str) {
-        if (this.cwQ != null) {
-            this.cwQ.iy(str);
+    public void iI(String str) {
+        if (this.czf != null) {
+            this.czf.iI(str);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.a.d
-    public void iz(String str) {
-        if (this.cwQ != null) {
-            this.cwQ.iz(str);
+    public void iJ(String str) {
+        if (this.czf != null) {
+            this.czf.iJ(str);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.a.d
     public String format() {
-        return this.cwQ != null ? this.cwQ.format() : "";
+        return this.czf != null ? this.czf.format() : "";
     }
 
-    public long amO() {
+    public long aoi() {
         return this.mStartTime + this.mCostTime;
     }
 
-    private void amP() {
-        com.baidu.swan.apps.an.e.cNO.T(Long.valueOf(this.mCostTime));
-        com.baidu.swan.apps.an.e.cNP.T(this.cwQ.format());
+    private void aoj() {
+        com.baidu.swan.apps.an.e.cRj.T(Long.valueOf(this.mCostTime));
+        com.baidu.swan.apps.an.e.cRk.T(this.czf.format());
     }
 
     public boolean isOn() {
-        return amQ();
+        return aok();
     }
 
-    private boolean amQ() {
+    private boolean aok() {
         if (DEBUG) {
             return true;
         }
-        com.baidu.swan.apps.runtime.e apN = com.baidu.swan.apps.runtime.e.apN();
-        if (apN == null) {
+        com.baidu.swan.apps.runtime.e arw = com.baidu.swan.apps.runtime.e.arw();
+        if (arw == null) {
             return false;
         }
-        String appId = apN.getAppId();
-        return (TextUtils.isEmpty(appId) || com.baidu.swan.apps.e.a.iC(appId) == 0) ? false : true;
+        String appId = arw.getAppId();
+        return (TextUtils.isEmpty(appId) || com.baidu.swan.apps.e.a.iM(appId) == 0) ? false : true;
+    }
+
+    public boolean aol() {
+        return this.czg;
     }
 }

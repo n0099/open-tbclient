@@ -2,7 +2,7 @@ package com.baidu.ala.atomdata;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaPersonCenterExpActivityConfig extends IntentConfig {
     public static final String CURRENT_EXP = "current_exp";
     public static final String CURRENT_LEVEL = "current_level";

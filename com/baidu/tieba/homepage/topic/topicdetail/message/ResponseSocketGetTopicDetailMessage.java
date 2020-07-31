@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.homepage.topic.topicdetail.b.a;
 import com.squareup.wire.Wire;
 import tbclient.NewHottopic.NewHottopicResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class ResponseSocketGetTopicDetailMessage extends SocketResponsedMessage {
     private a mTopicDetailData;
 

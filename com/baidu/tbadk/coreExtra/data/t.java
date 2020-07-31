@@ -4,6 +4,8 @@ import android.text.TextUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class t {
+    public String eqk;
+    public boolean isShowRedDot;
     public String tabCode;
     public String tabName;
     public int tabType;
@@ -13,6 +15,7 @@ public class t {
             this.tabType = jSONObject.optInt("tab_type");
             this.tabName = jSONObject.optString("tab_name");
             this.tabCode = jSONObject.optString("tab_code");
+            this.eqk = jSONObject.optString("tab_version");
         }
     }
 

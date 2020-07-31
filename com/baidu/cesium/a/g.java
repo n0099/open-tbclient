@@ -2,11 +2,11 @@ package com.baidu.cesium.a;
 
 import com.baidu.cesium.a.i;
 import java.lang.reflect.Method;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 final class g extends f {
-    private a ajV;
+    private a ajQ;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes3.dex */
     private static class a {
         private Class<?> a;
         private Method b;
@@ -56,16 +56,16 @@ final class g extends f {
         this.e = 32;
         this.f = i;
         this.g = i2;
-        this.ajV = new a();
+        this.ajQ = new a();
     }
 
     @Override // com.baidu.cesium.a.f
     public b i(byte[] bArr, int i, int i2) {
         long j = 4294967295L;
         try {
-            Object b = this.ajV.b();
-            this.ajV.a(b, bArr, i, i2);
-            j = this.ajV.E(b);
+            Object b = this.ajQ.b();
+            this.ajQ.a(b, bArr, i, i2);
+            j = this.ajQ.E(b);
         } catch (Exception e) {
         }
         return b.a(new long[]{j});

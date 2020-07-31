@@ -9,9 +9,9 @@ import android.widget.TextView;
 import com.baidu.live.data.g;
 import com.baidu.live.sdk.a;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends BaseAdapter {
-    private List<g> aJP;
+    private List<g> aLl;
     private Context mContext;
     private int mType;
 
@@ -20,26 +20,26 @@ public class b extends BaseAdapter {
         this.mType = i;
     }
 
-    public void B(List<g> list) {
-        this.aJP = list;
+    public void D(List<g> list) {
+        this.aLl = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aJP == null) {
+        if (this.aLl == null) {
             return 1;
         }
-        return this.aJP.size() + 1;
+        return this.aLl.size() + 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: cb */
+    /* renamed from: ch */
     public g getItem(int i) {
-        if (this.aJP == null || i < 0 || i >= getCount() - 1) {
+        if (this.aLl == null || i < 0 || i >= getCount() - 1) {
             return null;
         }
-        return this.aJP.get(i);
+        return this.aLl.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -87,7 +87,7 @@ public class b extends BaseAdapter {
         return view;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private class a {
         public TextView text;
 

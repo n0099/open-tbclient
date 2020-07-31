@@ -2,19 +2,19 @@ package com.baidu.tieba.ala.liveroom.guideim;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class c {
-    boolean giZ = false;
+    boolean gnX = false;
     String date = "";
-    int fKO = 0;
+    int cVg = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String toJsonString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("hasInput", this.giZ);
+            jSONObject.put("hasInput", this.gnX);
             jSONObject.put("date", this.date);
-            jSONObject.put("times", this.fKO);
+            jSONObject.put("times", this.cVg);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

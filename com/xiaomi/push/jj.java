@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class jj extends jc {
     protected int a;
 

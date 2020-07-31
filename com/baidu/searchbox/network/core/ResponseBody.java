@@ -11,7 +11,7 @@ import java.nio.charset.Charset;
 import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public abstract class ResponseBody implements Closeable {
     @Nullable
     private Reader reader;
@@ -116,7 +116,7 @@ public abstract class ResponseBody implements Closeable {
         };
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     static final class BomAwareReader extends Reader {
         private final Charset charset;
         private boolean closed;

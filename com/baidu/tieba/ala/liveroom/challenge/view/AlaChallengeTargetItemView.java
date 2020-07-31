@@ -14,22 +14,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaChallengeTargetItemView extends RelativeLayout implements View.OnClickListener {
-    private HeadImageView aIh;
-    private TextView fMu;
-    private TextView fMv;
-    private View geC;
-    private View geD;
-    private AlaChallengeTargetItemActionView geE;
-    private GradientDrawable geF;
-    private a geG;
+    private HeadImageView avs;
+    private TextView fRO;
+    private TextView fRP;
+    private View gjK;
+    private View gjL;
+    private AlaChallengeTargetItemActionView gjM;
+    private GradientDrawable gjN;
+    private a gjO;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        void bDe();
+        void bGp();
 
-        void bDf();
+        void bGq();
     }
 
     public AlaChallengeTargetItemView(Context context, AttributeSet attributeSet) {
@@ -38,42 +38,42 @@ public class AlaChallengeTargetItemView extends RelativeLayout implements View.O
     }
 
     public void setCallback(a aVar) {
-        this.geG = aVar;
+        this.gjO = aVar;
     }
 
     public void setData(com.baidu.live.challenge.d dVar) {
         if (dVar != null) {
-            this.aIh.startLoad(dVar.portrait, 12, false, false);
-            this.fMu.setText(!TextUtils.isEmpty(dVar.userName) ? Html.fromHtml(dVar.userName) : "");
-            this.fMv.setText(getResources().getString(a.i.sdk_charm_name, String.valueOf(dVar.charmCount)));
+            this.avs.startLoad(dVar.portrait, 12, false, false);
+            this.fRO.setText(!TextUtils.isEmpty(dVar.userName) ? Html.fromHtml(dVar.userName) : "");
+            this.fRP.setText(getResources().getString(a.i.sdk_charm_name, String.valueOf(dVar.charmCount)));
             if (dVar.liveStatus == 1) {
-                this.geD.setBackgroundDrawable(getLivingAnimDrawable());
-                if (dVar.awo == 2) {
-                    this.geE.setStyle(2);
+                this.gjL.setBackgroundDrawable(getLivingAnimDrawable());
+                if (dVar.axt == 2) {
+                    this.gjM.setStyle(2);
                     return;
                 } else {
-                    this.geE.setStyle(1);
+                    this.gjM.setStyle(1);
                     return;
                 }
             }
-            this.geD.setBackgroundColor(0);
-            this.geE.setStyle(3);
+            this.gjL.setBackgroundColor(0);
+            this.gjM.setStyle(3);
         }
     }
 
     public void setActionEnabled(boolean z) {
-        if (this.geE != null) {
-            this.geE.setEnabled(z);
+        if (this.gjM != null) {
+            this.gjM.setEnabled(z);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.geG != null) {
-            if (view == this.geC) {
-                this.geG.bDe();
-            } else if (view == this.geE) {
-                this.geG.bDf();
+        if (this.gjO != null) {
+            if (view == this.gjK) {
+                this.gjO.bGp();
+            } else if (view == this.gjM) {
+                this.gjO.bGq();
             }
         }
     }
@@ -82,25 +82,25 @@ public class AlaChallengeTargetItemView extends RelativeLayout implements View.O
         setBackgroundColor(0);
         setPadding(0, getResources().getDimensionPixelOffset(a.e.sdk_ds24), 0, getResources().getDimensionPixelOffset(a.e.sdk_ds24));
         LayoutInflater.from(getContext()).inflate(a.h.ala_challenge_target_item, (ViewGroup) this, true);
-        this.geC = findViewById(a.g.layout_challenge_latest_item_avatar);
-        this.geD = findViewById(a.g.anim_challenge_latest_item_avatar);
-        this.aIh = (HeadImageView) findViewById(a.g.iv_challenge_latest_item_avatar);
-        this.fMu = (TextView) findViewById(a.g.tv_challenge_latest_item_name);
-        this.fMv = (TextView) findViewById(a.g.tv_challenge_latest_item_value);
-        this.geE = (AlaChallengeTargetItemActionView) findViewById(a.g.tv_challenge_latest_item_action);
-        this.aIh.setAutoChangeStyle(false);
-        this.aIh.setDrawBorder(false);
-        this.aIh.setIsRound(true);
-        this.geC.setOnClickListener(this);
-        this.geE.setOnClickListener(this);
+        this.gjK = findViewById(a.g.layout_challenge_latest_item_avatar);
+        this.gjL = findViewById(a.g.anim_challenge_latest_item_avatar);
+        this.avs = (HeadImageView) findViewById(a.g.iv_challenge_latest_item_avatar);
+        this.fRO = (TextView) findViewById(a.g.tv_challenge_latest_item_name);
+        this.fRP = (TextView) findViewById(a.g.tv_challenge_latest_item_value);
+        this.gjM = (AlaChallengeTargetItemActionView) findViewById(a.g.tv_challenge_latest_item_action);
+        this.avs.setAutoChangeStyle(false);
+        this.avs.setDrawBorder(false);
+        this.avs.setIsRound(true);
+        this.gjK.setOnClickListener(this);
+        this.gjM.setOnClickListener(this);
     }
 
     private Drawable getLivingAnimDrawable() {
-        if (this.geF == null) {
-            this.geF = new GradientDrawable();
-            this.geF.setShape(1);
-            this.geF.setStroke((int) TypedValue.applyDimension(1, 1.0f, getResources().getDisplayMetrics()), getResources().getColor(a.d.ala_challenge_latest_primary));
+        if (this.gjN == null) {
+            this.gjN = new GradientDrawable();
+            this.gjN.setShape(1);
+            this.gjN.setStroke((int) TypedValue.applyDimension(1, 1.0f, getResources().getDisplayMetrics()), getResources().getColor(a.d.ala_challenge_latest_primary));
         }
-        return this.geF;
+        return this.gjN;
     }
 }

@@ -1,30 +1,25 @@
 package com.baidu.swan.apps.aq;
-/* loaded from: classes11.dex */
-public class an {
-    private int cPa;
 
+import android.support.annotation.NonNull;
+import java.io.File;
+/* loaded from: classes7.dex */
+public class an implements com.baidu.swan.pms.f.a {
     private an() {
-        this.cPa = 0;
     }
 
-    public void hV(int i) {
-        this.cPa = i;
+    public static an axi() {
+        return a.cSs;
     }
 
-    public void reset() {
-        this.cPa = 0;
+    @Override // com.baidu.swan.pms.f.a
+    public boolean qN(@NonNull String str) {
+        File file = new File(com.baidu.swan.apps.r.d.agZ(), str);
+        return file.exists() && file.isDirectory();
     }
 
-    public boolean avd() {
-        return this.cPa != 0;
-    }
-
-    public static an ave() {
-        return a.cPb;
-    }
-
-    /* loaded from: classes11.dex */
-    private static class a {
-        private static final an cPb = new an();
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes7.dex */
+    public static class a {
+        private static final an cSs = new an();
     }
 }

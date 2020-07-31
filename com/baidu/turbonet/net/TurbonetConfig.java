@@ -7,101 +7,101 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class TurbonetConfig {
-    private String mBV;
-    private boolean mBW = false;
-    private JSONObject mBU = new JSONObject();
+    private String mKd;
+    private boolean mKe = false;
+    private JSONObject mKc = new JSONObject();
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     public @interface HttpCacheSetting {
     }
 
-    public void wg(boolean z) {
-        e(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
+    public void wL(boolean z) {
+        f(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
     }
 
-    public void wh(boolean z) {
-        e(SchemeCollecter.CLASSIFY_BASE, ETAG.KEY_QUIC_ENABLED, Boolean.valueOf(z));
+    public void wM(boolean z) {
+        f(SchemeCollecter.CLASSIFY_BASE, ETAG.KEY_QUIC_ENABLED, Boolean.valueOf(z));
     }
 
-    public void PB(String str) {
+    public void Qm(String str) {
         if (!new File(str).isDirectory()) {
             throw new IllegalArgumentException("Storage path must be set to existing directory");
         }
-        this.mBV = str;
+        this.mKd = str;
     }
 
     public void A(int i, long j) {
         if (i == 3 || i == 2) {
-            if (dvP() == null) {
+            if (dzc() == null) {
                 throw new IllegalArgumentException("Storage path must be set");
             }
-            this.mBW = true;
-        } else if (dvP() != null) {
+            this.mKe = true;
+        } else if (dzc() != null) {
             throw new IllegalArgumentException("Storage path must not be set");
         }
-        e(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(i == 0 || i == 2 ? false : true));
+        f(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(i == 0 || i == 2 ? false : true));
         switch (i) {
             case 0:
-                e(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "DISABLED");
+                f(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "DISABLED");
                 break;
             case 1:
-                e(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "MEMORY");
+                f(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "MEMORY");
                 break;
             case 2:
             case 3:
-                e(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "DISK");
+                f(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "DISK");
                 break;
             default:
                 throw new IllegalArgumentException("Unknown cache mode");
         }
-        e(SchemeCollecter.CLASSIFY_BASE, "http_cache_size", Long.valueOf(j));
+        f(SchemeCollecter.CLASSIFY_BASE, "http_cache_size", Long.valueOf(j));
     }
 
-    public void wi(boolean z) {
-        e("conn", "preconnect_enabled", Boolean.valueOf(z));
+    public void wN(boolean z) {
+        f("conn", "preconnect_enabled", Boolean.valueOf(z));
     }
 
-    public void PC(String str) {
-        e("conn", "preconnect_app_hosts", str);
+    public void Qn(String str) {
+        f("conn", "preconnect_app_hosts", str);
     }
 
-    public void wj(boolean z) {
-        e("bdns", "baidu_dns_enabled", Boolean.valueOf(z));
+    public void wO(boolean z) {
+        f("bdns", "baidu_dns_enabled", Boolean.valueOf(z));
     }
 
     public void setRequestTimeout(int i) {
         if (i < 0) {
             throw new IllegalArgumentException(String.format("Invalid timeout second, %d is negative.", Integer.valueOf(i)));
         }
-        e("misc", "request_timeout", Integer.valueOf(i));
+        f("misc", "request_timeout", Integer.valueOf(i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public JSONObject dvO() {
-        return this.mBU;
+    public JSONObject dzb() {
+        return this.mKc;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String dvP() {
-        return this.mBV;
+    public String dzc() {
+        return this.mKd;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean dvQ() {
-        return this.mBW;
+    public boolean dzd() {
+        return this.mKe;
     }
 
-    public void e(String str, String str2, Object obj) {
+    public void f(String str, String str2, Object obj) {
         try {
-            JSONObject optJSONObject = this.mBU.optJSONObject(str);
+            JSONObject optJSONObject = this.mKc.optJSONObject(str);
             if (optJSONObject == null) {
                 optJSONObject = new JSONObject();
             }
             optJSONObject.put(str2, obj);
-            this.mBU.put(str, optJSONObject);
+            this.mKc.put(str, optJSONObject);
         } catch (JSONException e) {
             throw new IllegalStateException("JSON expcetion:", e);
         }

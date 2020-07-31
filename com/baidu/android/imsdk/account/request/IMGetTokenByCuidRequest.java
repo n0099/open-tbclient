@@ -73,7 +73,7 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
             case 1:
                 return "http://cp01-ocean-749.epc.baidu.com:8080/rest/3.0/im/generate_token";
             case 2:
-                return "http://10.232.27.22:8090/rest/3.0/im/generate_token";
+                return "http://10.64.132.67:8080/rest/3.0/im/generate_token";
             case 3:
                 return "http://180.97.36.95:8080/rest/3.0/im/generate_token";
             default:

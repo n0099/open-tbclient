@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.statistic;
 
 import com.baidu.swan.ubc.Flow;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private final Flow cKy;
+    private final Flow cNP;
 
     public a(Flow flow) {
-        this.cKy = flow;
+        this.cNP = flow;
     }
 
-    public Flow asi() {
-        return this.cKy;
+    public Flow auf() {
+        return this.cNP;
     }
 }

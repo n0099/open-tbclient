@@ -20,7 +20,7 @@ import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class VideoPasterRequestData extends HttpMessage {
     private static String _ANDROID_ID = "";
     private static final TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST, TbConfig.SERVER_ADDRESS + "tiebaads/ads");
@@ -29,37 +29,31 @@ public class VideoPasterRequestData extends HttpMessage {
         super(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
         addCommonParams();
         addHeader(SM.COOKIE, CookieManager.getInstance().getCookie("tieba.baidu.com"));
-        addParam("pid", aVar.pT());
+        addParam("pid", aVar.pU());
         addParam("ac", "1");
         String ext = getExt(aVar);
         if (!StringUtils.isNull(ext)) {
             addParam("ext", ext);
         }
         addParam("is_https", 1);
-        addParam("flr", String.valueOf(aVar.pI()));
+        addParam("flr", String.valueOf(aVar.pJ()));
         addParam("sw", String.valueOf(aVar.width()));
         addParam(IXAdRequestInfo.SCREEN_HEIGHT, String.valueOf(aVar.height()));
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
-        addParam("fc", String.valueOf(aVar.pI()));
-        addParam("ft", aVar.pG());
+        addParam("fc", String.valueOf(aVar.pJ()));
+        addParam("ft", aVar.pH());
         addParam(Config.EXCEPTION_CRASH_TYPE, "2");
     }
 
     private static String getExt(com.baidu.afd.videopaster.a aVar) {
-        if (aVar == null) {
+        if (aVar == null || aVar.pK() == null || aVar.pK().isEmpty()) {
             return null;
         }
-        if (aVar == null || aVar.pJ() != null) {
-            if (aVar == null || !aVar.pJ().isEmpty()) {
-                JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, String> entry : aVar.pJ().entrySet()) {
-                    jSONArray.put(create(entry.getKey(), entry.getValue()));
-                }
-                return jSONArray.toString();
-            }
-            return null;
+        JSONArray jSONArray = new JSONArray();
+        for (Map.Entry<String, String> entry : aVar.pK().entrySet()) {
+            jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
-        return null;
+        return jSONArray.toString();
     }
 
     private void addCommonParams() {

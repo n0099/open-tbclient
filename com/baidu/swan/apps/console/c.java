@@ -5,37 +5,38 @@ import android.util.Log;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.aq.i;
-import com.baidu.swan.apps.w.f;
-import com.baidu.tbadk.TbConfig;
-/* loaded from: classes11.dex */
+import com.baidu.swan.apps.aq.j;
+import com.baidu.swan.apps.v.f;
+/* loaded from: classes7.dex */
 public class c {
-    private static boolean bVP = false;
+    private static boolean bWG = false;
 
-    public static void dw(boolean z) {
-        bVP = z;
+    public static void dz(boolean z) {
+        bWG = z;
     }
 
-    public static boolean WX() {
-        return bVP;
-    }
-
-    public static void v(String str, String str2) {
-        t(TbConfig.TMP_LOG_DIR_NAME, str, str2);
-        if (com.baidu.swan.apps.b.DEBUG) {
-            Log.v(str, str2);
-        }
+    public static boolean XD() {
+        return bWG;
     }
 
     public static void d(String str, String str2) {
-        t("debug", str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
+            Log.d(str, str2);
+        }
+    }
+
+    public static void c(String str, String str2, Object obj) {
+        if (com.baidu.swan.apps.b.DEBUG) {
+            if (obj != null) {
+                str2 = str2 + obj;
+            }
             Log.d(str, str2);
         }
     }
 
     public static void i(String str, String str2) {
         t("info", str, str2);
+        com.baidu.swan.apps.t.a.aij().i(str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.i(str, str2);
         }
@@ -43,6 +44,7 @@ public class c {
 
     public static void w(String str, String str2) {
         t("warn", str, str2);
+        com.baidu.swan.apps.t.a.aij().w(str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.w(str, str2);
         }
@@ -50,6 +52,7 @@ public class c {
 
     public static void e(String str, String str2) {
         t(BdStatsConstant.StatsType.ERROR, str, str2);
+        com.baidu.swan.apps.t.a.aij().e(str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.e(str, str2);
         }
@@ -57,18 +60,33 @@ public class c {
 
     public static void e(String str, String str2, Throwable th) {
         t(BdStatsConstant.StatsType.ERROR, str, th != null ? "Exception:" + th.getMessage() + "\n" + str2 : str2);
+        com.baidu.swan.apps.t.a.aij().e(str, str2, th);
+        if (com.baidu.swan.apps.b.DEBUG) {
+            Log.e(str, str2, th);
+        }
+    }
+
+    public static void aW(String str, String str2) {
+        com.baidu.swan.apps.t.a.aij().i(str, str2);
+        if (com.baidu.swan.apps.b.DEBUG) {
+            Log.i(str, str2);
+        }
+    }
+
+    public static void f(String str, String str2, Throwable th) {
+        com.baidu.swan.apps.t.a.aij().e(str, str2, th);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.e(str, str2, th);
         }
     }
 
     private static void t(String str, String str2, String str3) {
-        if (!TextUtils.isEmpty(str3) && bVP) {
+        if (!TextUtils.isEmpty(str3) && bWG) {
             StringBuilder sb = new StringBuilder();
-            String a = i.a(i.auw(), "yyyy-MM-dd HH:mm:ss");
+            String a = j.a(j.awy(), "yyyy-MM-dd HH:mm:ss");
             String fileName = getFileName();
             sb.append(a).append("  ").append(fileName).append("  ").append("line:").append(getLineNumber()).append("\n").append("module:").append(str2).append("\n").append(str3);
-            f.ajb().aiE().aP(str, sb.toString());
+            f.akr().ajU().aQ(str, sb.toString());
         }
     }
 

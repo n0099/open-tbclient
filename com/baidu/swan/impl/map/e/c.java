@@ -8,58 +8,58 @@ import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLngBounds;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public abstract class c implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
-    BaiduMap dkL;
-    private List<OverlayOptions> dnd;
-    List<Overlay> dne;
+    BaiduMap dqF;
+    private List<OverlayOptions> dsZ;
+    List<Overlay> dta;
 
-    public abstract List<OverlayOptions> aFJ();
+    public abstract List<OverlayOptions> aJA();
 
     public c(BaiduMap baiduMap) {
-        this.dkL = null;
-        this.dnd = null;
-        this.dne = null;
-        this.dkL = baiduMap;
-        if (this.dnd == null) {
-            this.dnd = new ArrayList();
+        this.dqF = null;
+        this.dsZ = null;
+        this.dta = null;
+        this.dqF = baiduMap;
+        if (this.dsZ == null) {
+            this.dsZ = new ArrayList();
         }
-        if (this.dne == null) {
-            this.dne = new ArrayList();
-        }
-    }
-
-    public final void aFL() {
-        if (this.dkL != null) {
-            aFM();
-            if (aFJ() != null) {
-                this.dnd.addAll(aFJ());
-            }
-            for (OverlayOptions overlayOptions : this.dnd) {
-                this.dne.add(this.dkL.addOverlay(overlayOptions));
-            }
+        if (this.dta == null) {
+            this.dta = new ArrayList();
         }
     }
 
-    public final void aFM() {
-        if (this.dkL != null) {
-            for (Overlay overlay : this.dne) {
+    public final void aJC() {
+        if (this.dqF != null) {
+            aJD();
+            if (aJA() != null) {
+                this.dsZ.addAll(aJA());
+            }
+            for (OverlayOptions overlayOptions : this.dsZ) {
+                this.dta.add(this.dqF.addOverlay(overlayOptions));
+            }
+        }
+    }
+
+    public final void aJD() {
+        if (this.dqF != null) {
+            for (Overlay overlay : this.dta) {
                 overlay.remove();
             }
-            this.dnd.clear();
-            this.dne.clear();
+            this.dsZ.clear();
+            this.dta.clear();
         }
     }
 
-    public void aFN() {
-        if (this.dkL != null && this.dne.size() > 0) {
+    public void aJE() {
+        if (this.dqF != null && this.dta.size() > 0) {
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            for (Overlay overlay : this.dne) {
+            for (Overlay overlay : this.dta) {
                 if (overlay instanceof Marker) {
                     builder.include(((Marker) overlay).getPosition());
                 }
             }
-            this.dkL.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+            this.dqF.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
         }
     }
 }

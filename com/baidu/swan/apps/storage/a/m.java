@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.aa;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class m extends aa {
     public m(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/setStorageSync");
@@ -29,22 +29,22 @@ public class m extends aa {
         if (TextUtils.isEmpty(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty key");
             return false;
-        } else if (com.baidu.swan.apps.storage.c.pe(optString)) {
+        } else if (com.baidu.swan.apps.storage.c.pP(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage key max length");
             return false;
         } else {
             String optString2 = optParamsAsJo.optString("data");
-            if (com.baidu.swan.apps.storage.c.pf(optString2)) {
+            if (com.baidu.swan.apps.storage.c.pQ(optString2)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage item max length");
                 return false;
             }
-            com.baidu.swan.apps.storage.c apX = eVar.apX();
-            if (!apX.available() && apX.asF().getString(optString, "").length() < optString2.length()) {
+            com.baidu.swan.apps.storage.c arG = eVar.arG();
+            if (!arG.available() && arG.auG().getString(optString, "").length() < optString2.length()) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not available");
                 return false;
             }
-            apX.asF().putString(optString, optString2);
-            com.baidu.swan.apps.an.e.cNN.update();
+            arG.auG().putString(optString, optString2);
+            com.baidu.swan.apps.an.e.cRi.update();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
             return true;
         }

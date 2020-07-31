@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class k {
     private static long j = 12000;
     public e a;
@@ -32,7 +32,7 @@ public class k {
     private boolean l;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends Handler {
         a(Looper looper) {
             super(looper);
@@ -192,7 +192,7 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b {
         private String b;
         private String c;
@@ -233,13 +233,13 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class c {
         private static final k a = new k();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class d {
         private d() {
         }
@@ -263,7 +263,7 @@ public class k {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class e extends BDAbstractLocationListener {
         public e() {
         }
@@ -298,7 +298,7 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class f implements Runnable {
         private f() {
         }

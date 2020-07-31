@@ -12,10 +12,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class VideoZoomBehavior extends AppBarLayout.Behavior {
-    private e kbG;
-    private VideoContainerLayout kwV;
+    private VideoContainerLayout kFP;
+    private e kkk;
 
     public VideoZoomBehavior() {
     }
@@ -27,8 +27,8 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.AppBarLayout.Behavior, android.support.design.widget.CoordinatorLayout.Behavior
     public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull View view, @NonNull View view2, int i, int i2) {
-        this.kwV = cs(appBarLayout);
-        return (this.kwV == null || (i & 2) == 0) ? false : true;
+        this.kFP = cv(appBarLayout);
+        return (this.kFP == null || (i & 2) == 0) ? false : true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.AppBarLayout.Behavior, android.support.design.widget.ViewOffsetBehavior, android.support.design.widget.CoordinatorLayout.Behavior
     public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i) {
-        this.kwV = cs(appBarLayout);
+        this.kFP = cv(appBarLayout);
         return super.onLayoutChild(coordinatorLayout, appBarLayout, i);
     }
 
@@ -49,25 +49,25 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
     public boolean setTopAndBottomOffset(int i) {
         ViewGroup.LayoutParams layoutParams;
         boolean topAndBottomOffset = super.setTopAndBottomOffset(i);
-        if (topAndBottomOffset && this.kwV != null && (layoutParams = this.kwV.getLayoutParams()) != null) {
-            int maxHeight = this.kwV.getMaxHeight() + i;
+        if (topAndBottomOffset && this.kFP != null && (layoutParams = this.kFP.getLayoutParams()) != null) {
+            int maxHeight = this.kFP.getMaxHeight() + i;
             if (layoutParams.height != maxHeight) {
                 layoutParams.height = maxHeight;
-                this.kwV.setLayoutParams(layoutParams);
+                this.kFP.setLayoutParams(layoutParams);
             }
-            if (this.kbG == null && (this.kwV.getContext() instanceof PbActivity)) {
-                this.kbG = (e) y.b((PbActivity) this.kwV.getContext()).l(e.class);
+            if (this.kkk == null && (this.kFP.getContext() instanceof PbActivity)) {
+                this.kkk = (e) y.b((PbActivity) this.kFP.getContext()).l(e.class);
             }
-            if (this.kbG != null) {
+            if (this.kkk != null) {
                 if (i > -5) {
-                    p<Boolean> cPR = this.kbG.cPR();
-                    if (cPR == null || cPR.getValue() == null || !cPR.getValue().booleanValue()) {
-                        this.kbG.sR(true);
+                    p<Boolean> cTF = this.kkk.cTF();
+                    if (cTF == null || cTF.getValue() == null || !cTF.getValue().booleanValue()) {
+                        this.kkk.tx(true);
                     }
                 } else {
-                    p<Boolean> cPR2 = this.kbG.cPR();
-                    if (cPR2 == null || cPR2.getValue() == null || cPR2.getValue().booleanValue()) {
-                        this.kbG.sR(false);
+                    p<Boolean> cTF2 = this.kkk.cTF();
+                    if (cTF2 == null || cTF2.getValue() == null || cTF2.getValue().booleanValue()) {
+                        this.kkk.tx(false);
                     }
                 }
             }
@@ -75,16 +75,16 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
         return topAndBottomOffset;
     }
 
-    private VideoContainerLayout cs(ViewGroup viewGroup) {
-        VideoContainerLayout cs;
+    private VideoContainerLayout cv(ViewGroup viewGroup) {
+        VideoContainerLayout cv;
         if (viewGroup instanceof VideoContainerLayout) {
             return (VideoContainerLayout) viewGroup;
         }
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = viewGroup.getChildAt(i);
-            if ((childAt instanceof ViewGroup) && (cs = cs((ViewGroup) childAt)) != null) {
-                return cs;
+            if ((childAt instanceof ViewGroup) && (cv = cv((ViewGroup) childAt)) != null) {
+                return cv;
             }
         }
         return null;

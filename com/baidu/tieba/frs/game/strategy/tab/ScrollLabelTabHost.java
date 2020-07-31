@@ -8,8 +8,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
@@ -18,72 +18,72 @@ import com.baidu.tieba.frs.game.strategy.view.FoldedGridView;
 import com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView;
 import com.baidu.tieba.frs.game.strategy.view.g;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class ScrollLabelTabHost extends RelativeLayout {
-    private ScrollHorizontalTabView hNC;
-    private FoldedGridView hND;
-    private d hNE;
-    private CustomViewPager hNF;
-    private FrsGameTabPagerAdapter hNG;
-    private View hNH;
-    private View hNI;
-    private boolean hNJ;
-    private g hNK;
-    private a hNL;
-    private List<e> hNl;
-    private int hNn;
-    private int hNo;
-    private a hNw;
-    private c hNx;
+    private ScrollHorizontalTabView hTB;
+    private FoldedGridView hTC;
+    private d hTD;
+    private CustomViewPager hTE;
+    private FrsGameTabPagerAdapter hTF;
+    private View hTG;
+    private View hTH;
+    private boolean hTI;
+    private g hTJ;
+    private a hTK;
+    private List<e> hTk;
+    private int hTm;
+    private int hTn;
+    private a hTv;
+    private c hTw;
 
     public ScrollLabelTabHost(Context context) {
         super(context);
-        this.hNn = 0;
-        this.hNo = 0;
-        this.hNJ = false;
-        this.hNw = new a() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.1
+        this.hTm = 0;
+        this.hTn = 0;
+        this.hTI = false;
+        this.hTv = new a() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.1
             @Override // com.baidu.tieba.frs.game.strategy.tab.a
-            public void bZ(int i, int i2) {
-                if (ScrollLabelTabHost.this.hNL != null) {
-                    ScrollLabelTabHost.this.hNL.bZ(i, i2);
+            public void cc(int i, int i2) {
+                if (ScrollLabelTabHost.this.hTK != null) {
+                    ScrollLabelTabHost.this.hTK.cc(i, i2);
                 }
             }
 
             @Override // com.baidu.tieba.frs.game.strategy.tab.a
-            public void ca(int i, int i2) {
-                if (ScrollLabelTabHost.this.hNL != null) {
-                    ScrollLabelTabHost.this.hNL.ca(i, i2);
+            public void cd(int i, int i2) {
+                if (ScrollLabelTabHost.this.hTK != null) {
+                    ScrollLabelTabHost.this.hTK.cd(i, i2);
                 }
             }
 
             @Override // com.baidu.tieba.frs.game.strategy.tab.a
-            public boolean cb(int i, int i2) {
-                if (ScrollLabelTabHost.this.hNL != null) {
-                    return ScrollLabelTabHost.this.hNL.cb(i, i2);
+            public boolean ce(int i, int i2) {
+                if (ScrollLabelTabHost.this.hTK != null) {
+                    return ScrollLabelTabHost.this.hTK.ce(i, i2);
                 }
                 return false;
             }
 
             @Override // com.baidu.tieba.frs.game.strategy.tab.a
             public String getForumId() {
-                if (ScrollLabelTabHost.this.hNL != null) {
-                    return ScrollLabelTabHost.this.hNL.getForumId();
+                if (ScrollLabelTabHost.this.hTK != null) {
+                    return ScrollLabelTabHost.this.hTK.getForumId();
                 }
                 return null;
             }
 
             @Override // com.baidu.tieba.frs.game.strategy.tab.a
-            public e vg(int i) {
-                if (ScrollLabelTabHost.this.hNL != null) {
-                    return ScrollLabelTabHost.this.hNL.vg(i);
+            public e vy(int i) {
+                if (ScrollLabelTabHost.this.hTK != null) {
+                    return ScrollLabelTabHost.this.hTK.vy(i);
                 }
                 return null;
             }
         };
-        this.hNx = new c() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.2
+        this.hTw = new c() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.2
             @Override // com.baidu.tieba.frs.game.strategy.tab.c
-            public e vj(int i) {
-                return (e) w.getItem(ScrollLabelTabHost.this.hNl, i);
+            public e vB(int i) {
+                return (e) x.getItem(ScrollLabelTabHost.this.hTk, i);
             }
         };
         init(context);
@@ -91,52 +91,52 @@ public class ScrollLabelTabHost extends RelativeLayout {
 
     public ScrollLabelTabHost(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hNn = 0;
-        this.hNo = 0;
-        this.hNJ = false;
-        this.hNw = new a() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.1
+        this.hTm = 0;
+        this.hTn = 0;
+        this.hTI = false;
+        this.hTv = new a() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.1
             @Override // com.baidu.tieba.frs.game.strategy.tab.a
-            public void bZ(int i, int i2) {
-                if (ScrollLabelTabHost.this.hNL != null) {
-                    ScrollLabelTabHost.this.hNL.bZ(i, i2);
+            public void cc(int i, int i2) {
+                if (ScrollLabelTabHost.this.hTK != null) {
+                    ScrollLabelTabHost.this.hTK.cc(i, i2);
                 }
             }
 
             @Override // com.baidu.tieba.frs.game.strategy.tab.a
-            public void ca(int i, int i2) {
-                if (ScrollLabelTabHost.this.hNL != null) {
-                    ScrollLabelTabHost.this.hNL.ca(i, i2);
+            public void cd(int i, int i2) {
+                if (ScrollLabelTabHost.this.hTK != null) {
+                    ScrollLabelTabHost.this.hTK.cd(i, i2);
                 }
             }
 
             @Override // com.baidu.tieba.frs.game.strategy.tab.a
-            public boolean cb(int i, int i2) {
-                if (ScrollLabelTabHost.this.hNL != null) {
-                    return ScrollLabelTabHost.this.hNL.cb(i, i2);
+            public boolean ce(int i, int i2) {
+                if (ScrollLabelTabHost.this.hTK != null) {
+                    return ScrollLabelTabHost.this.hTK.ce(i, i2);
                 }
                 return false;
             }
 
             @Override // com.baidu.tieba.frs.game.strategy.tab.a
             public String getForumId() {
-                if (ScrollLabelTabHost.this.hNL != null) {
-                    return ScrollLabelTabHost.this.hNL.getForumId();
+                if (ScrollLabelTabHost.this.hTK != null) {
+                    return ScrollLabelTabHost.this.hTK.getForumId();
                 }
                 return null;
             }
 
             @Override // com.baidu.tieba.frs.game.strategy.tab.a
-            public e vg(int i) {
-                if (ScrollLabelTabHost.this.hNL != null) {
-                    return ScrollLabelTabHost.this.hNL.vg(i);
+            public e vy(int i) {
+                if (ScrollLabelTabHost.this.hTK != null) {
+                    return ScrollLabelTabHost.this.hTK.vy(i);
                 }
                 return null;
             }
         };
-        this.hNx = new c() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.2
+        this.hTw = new c() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.2
             @Override // com.baidu.tieba.frs.game.strategy.tab.c
-            public e vj(int i) {
-                return (e) w.getItem(ScrollLabelTabHost.this.hNl, i);
+            public e vB(int i) {
+                return (e) x.getItem(ScrollLabelTabHost.this.hTk, i);
             }
         };
         init(context);
@@ -144,52 +144,52 @@ public class ScrollLabelTabHost extends RelativeLayout {
 
     public ScrollLabelTabHost(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hNn = 0;
-        this.hNo = 0;
-        this.hNJ = false;
-        this.hNw = new a() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.1
+        this.hTm = 0;
+        this.hTn = 0;
+        this.hTI = false;
+        this.hTv = new a() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.1
             @Override // com.baidu.tieba.frs.game.strategy.tab.a
-            public void bZ(int i2, int i22) {
-                if (ScrollLabelTabHost.this.hNL != null) {
-                    ScrollLabelTabHost.this.hNL.bZ(i2, i22);
+            public void cc(int i2, int i22) {
+                if (ScrollLabelTabHost.this.hTK != null) {
+                    ScrollLabelTabHost.this.hTK.cc(i2, i22);
                 }
             }
 
             @Override // com.baidu.tieba.frs.game.strategy.tab.a
-            public void ca(int i2, int i22) {
-                if (ScrollLabelTabHost.this.hNL != null) {
-                    ScrollLabelTabHost.this.hNL.ca(i2, i22);
+            public void cd(int i2, int i22) {
+                if (ScrollLabelTabHost.this.hTK != null) {
+                    ScrollLabelTabHost.this.hTK.cd(i2, i22);
                 }
             }
 
             @Override // com.baidu.tieba.frs.game.strategy.tab.a
-            public boolean cb(int i2, int i22) {
-                if (ScrollLabelTabHost.this.hNL != null) {
-                    return ScrollLabelTabHost.this.hNL.cb(i2, i22);
+            public boolean ce(int i2, int i22) {
+                if (ScrollLabelTabHost.this.hTK != null) {
+                    return ScrollLabelTabHost.this.hTK.ce(i2, i22);
                 }
                 return false;
             }
 
             @Override // com.baidu.tieba.frs.game.strategy.tab.a
             public String getForumId() {
-                if (ScrollLabelTabHost.this.hNL != null) {
-                    return ScrollLabelTabHost.this.hNL.getForumId();
+                if (ScrollLabelTabHost.this.hTK != null) {
+                    return ScrollLabelTabHost.this.hTK.getForumId();
                 }
                 return null;
             }
 
             @Override // com.baidu.tieba.frs.game.strategy.tab.a
-            public e vg(int i2) {
-                if (ScrollLabelTabHost.this.hNL != null) {
-                    return ScrollLabelTabHost.this.hNL.vg(i2);
+            public e vy(int i2) {
+                if (ScrollLabelTabHost.this.hTK != null) {
+                    return ScrollLabelTabHost.this.hTK.vy(i2);
                 }
                 return null;
             }
         };
-        this.hNx = new c() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.2
+        this.hTw = new c() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.2
             @Override // com.baidu.tieba.frs.game.strategy.tab.c
-            public e vj(int i2) {
-                return (e) w.getItem(ScrollLabelTabHost.this.hNl, i2);
+            public e vB(int i2) {
+                return (e) x.getItem(ScrollLabelTabHost.this.hTk, i2);
             }
         };
         init(context);
@@ -197,12 +197,12 @@ public class ScrollLabelTabHost extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_game_strategy_tab_host_layout, this);
-        this.hNG = new FrsGameTabPagerAdapter(context, this.hNw, this.hNx);
-        this.hNF = (CustomViewPager) findViewById(R.id.frs_game_pager);
-        this.hNF.setAdapter(this.hNG);
-        this.hNC = (ScrollHorizontalTabView) findViewById(R.id.frs_game_tab_widget);
-        this.hNC.setViewPager(this.hNF);
-        this.hNC.setScrollTabPageListener(new ScrollHorizontalTabView.b() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.3
+        this.hTF = new FrsGameTabPagerAdapter(context, this.hTv, this.hTw);
+        this.hTE = (CustomViewPager) findViewById(R.id.frs_game_pager);
+        this.hTE.setAdapter(this.hTF);
+        this.hTB = (ScrollHorizontalTabView) findViewById(R.id.frs_game_tab_widget);
+        this.hTB.setViewPager(this.hTE);
+        this.hTB.setScrollTabPageListener(new ScrollHorizontalTabView.b() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.3
             @Override // com.baidu.tieba.frs.game.strategy.tab.ScrollHorizontalTabView.b
             public boolean a(int i, e eVar) {
                 return true;
@@ -212,72 +212,72 @@ public class ScrollLabelTabHost extends RelativeLayout {
             public void b(int i, e eVar) {
                 com.baidu.tieba.frs.game.strategy.data.a aVar;
                 if (eVar != null) {
-                    ScrollLabelTabHost.this.hNn = eVar.tabId;
+                    ScrollLabelTabHost.this.hTm = eVar.tabId;
                     if (eVar.extra instanceof LabelDataList) {
                         LabelDataList labelDataList = (LabelDataList) eVar.extra;
                         if (!labelDataList.isEmpty() && (aVar = labelDataList.get(0)) != null) {
-                            ScrollLabelTabHost.this.hNo = aVar.labelId;
+                            ScrollLabelTabHost.this.hTn = aVar.labelId;
                         }
                     }
                     if (ScrollLabelTabHost.this.a(eVar)) {
-                        ScrollLabelTabHost.this.hND.setVisibility(0);
+                        ScrollLabelTabHost.this.hTC.setVisibility(0);
                     } else {
-                        ScrollLabelTabHost.this.hND.setVisibility(8);
+                        ScrollLabelTabHost.this.hTC.setVisibility(8);
                     }
                 }
             }
         });
-        this.hNE = new d(getContext());
-        this.hND = (FoldedGridView) findViewById(R.id.frs_game_label_widget);
-        this.hND.setArrowResouceId(R.drawable.icon_arrow_gray_down, R.drawable.icon_arrow_gray_up);
-        this.hND.setNumColumns(5);
-        this.hND.setFoldAdapter(this.hNE);
-        this.hND.setExpandedBottomShadeResourceId(R.drawable.shape_frs_game_lable_bottom_shade);
-        this.hND.setFoldGridViewOnItemClickListener(new FoldedGridView.a() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.4
+        this.hTD = new d(getContext());
+        this.hTC = (FoldedGridView) findViewById(R.id.frs_game_label_widget);
+        this.hTC.setArrowResouceId(R.drawable.icon_arrow_gray_down, R.drawable.icon_arrow_gray_up);
+        this.hTC.setNumColumns(5);
+        this.hTC.setFoldAdapter(this.hTD);
+        this.hTC.setExpandedBottomShadeResourceId(R.drawable.shape_frs_game_lable_bottom_shade);
+        this.hTC.setFoldGridViewOnItemClickListener(new FoldedGridView.a() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.4
             @Override // com.baidu.tieba.frs.game.strategy.view.FoldedGridView.a
             public void i(int i, Object obj) {
                 if (obj instanceof com.baidu.tieba.frs.game.strategy.data.a) {
-                    ScrollLabelTabHost.this.hNo = ((com.baidu.tieba.frs.game.strategy.data.a) obj).labelId;
-                    FrsGameStrategyItemListView cch = ScrollLabelTabHost.this.hNG.cch();
-                    cch.cf(ScrollLabelTabHost.this.hNn, ScrollLabelTabHost.this.hNo);
-                    if (ScrollLabelTabHost.this.hNw != null && !ScrollLabelTabHost.this.hNw.cb(ScrollLabelTabHost.this.hNn, ScrollLabelTabHost.this.hNo)) {
-                        cch.pullToRefresh();
+                    ScrollLabelTabHost.this.hTn = ((com.baidu.tieba.frs.game.strategy.data.a) obj).labelId;
+                    FrsGameStrategyItemListView cfF = ScrollLabelTabHost.this.hTF.cfF();
+                    cfF.ci(ScrollLabelTabHost.this.hTm, ScrollLabelTabHost.this.hTn);
+                    if (ScrollLabelTabHost.this.hTv != null && !ScrollLabelTabHost.this.hTv.ce(ScrollLabelTabHost.this.hTm, ScrollLabelTabHost.this.hTn)) {
+                        cfF.pullToRefresh();
                     }
                 }
             }
         });
-        this.hNH = findViewById(R.id.frs_game_tab_line);
-        this.hNI = findViewById(R.id.frs_game_label_line);
+        this.hTG = findViewById(R.id.frs_game_tab_line);
+        this.hTH = findViewById(R.id.frs_game_label_line);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        if (this.hNG != null) {
-            this.hNG.setPageId(bdUniqueId);
+        if (this.hTF != null) {
+            this.hTF.setPageId(bdUniqueId);
         }
     }
 
     public void setTabData(List<e> list, boolean z) {
-        if (!w.isEmpty(list)) {
-            if (this.hNJ || this.hNl == null) {
-                this.hNJ = z;
-                this.hNl = list;
-                this.hNG.setCount(this.hNl == null ? 0 : this.hNl.size());
-                this.hNC.setData(list);
-                if (w.isEmpty(list)) {
-                    this.hNC.setVisibility(8);
-                    this.hNH.setVisibility(8);
+        if (!x.isEmpty(list)) {
+            if (this.hTI || this.hTk == null) {
+                this.hTI = z;
+                this.hTk = list;
+                this.hTF.setCount(this.hTk == null ? 0 : this.hTk.size());
+                this.hTB.setData(list);
+                if (x.isEmpty(list)) {
+                    this.hTB.setVisibility(8);
+                    this.hTG.setVisibility(8);
                     return;
                 }
-                this.hNC.setVisibility(0);
-                this.hNH.setVisibility(0);
-                this.hNC.setCurrentIndex(0, false);
+                this.hTB.setVisibility(0);
+                this.hTG.setVisibility(0);
+                this.hTB.setCurrentIndex(0, false);
                 if (a(list.get(0))) {
-                    this.hND.setVisibility(0);
-                    this.hNI.setVisibility(0);
+                    this.hTC.setVisibility(0);
+                    this.hTH.setVisibility(0);
                     return;
                 }
-                this.hND.setVisibility(8);
-                this.hNI.setVisibility(8);
+                this.hTC.setVisibility(8);
+                this.hTH.setVisibility(8);
             }
         }
     }
@@ -290,71 +290,71 @@ public class ScrollLabelTabHost extends RelativeLayout {
         if (labelDataList.isEmpty()) {
             return false;
         }
-        this.hNE.a(labelDataList);
+        this.hTD.a(labelDataList);
         return true;
     }
 
     public void b(int i, int i2, List<q> list, List<e> list2, boolean z, boolean z2, int i3) {
-        FrsGameStrategyItemListView ce = this.hNG.ce(i, i2);
-        if (ce != null) {
-            ce.a(i, i2, list, list2, z, z2, i3);
+        FrsGameStrategyItemListView ch = this.hTF.ch(i, i2);
+        if (ch != null) {
+            ch.a(i, i2, list, list2, z, z2, i3);
             if (i3 != -1) {
-                vk(i3);
+                vC(i3);
             }
         }
     }
 
-    public void vk(int i) {
-        if (this.hNK != null && this.hNK.isShowing()) {
-            this.hNK.cap();
+    public void vC(int i) {
+        if (this.hTJ != null && this.hTJ.isShowing()) {
+            this.hTJ.cdN();
         }
-        this.hNK = new g(getContext());
+        this.hTJ = new g(getContext());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.ds60));
         layoutParams.addRule(10);
-        TextView ccq = this.hNK.ccq();
+        TextView cfO = this.hTJ.cfO();
         if (i == 0) {
-            ccq.setText(getResources().getString(R.string.recommend_frs_refresh_nodata));
+            cfO.setText(getResources().getString(R.string.recommend_frs_refresh_nodata));
         } else {
-            ccq.setText(String.format(getResources().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i)));
+            cfO.setText(String.format(getResources().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i)));
         }
-        addView(ccq, layoutParams);
-        this.hNK.ccr();
+        addView(cfO, layoutParams);
+        this.hTJ.cfP();
     }
 
-    public void k(int i, int i2, String str) {
-        FrsGameStrategyItemListView ce = this.hNG.ce(i, i2);
-        if (ce != null) {
-            ce.j(i, i2, str);
+    public void l(int i, int i2, String str) {
+        FrsGameStrategyItemListView ch = this.hTF.ch(i, i2);
+        if (ch != null) {
+            ch.k(i, i2, str);
         }
     }
 
     public void setDelegateFrsGameTabDataLoadListener(a aVar) {
-        this.hNL = aVar;
+        this.hTK = aVar;
     }
 
     public void onChangeSkinType(int i) {
-        this.hNC.onChangeSkinType(i);
-        this.hND.onChangeSkinType(i);
-        this.hNG.onChangeSkinType(i);
-        an.setBackgroundColor(this.hNH, R.color.cp_bg_line_c);
-        an.setBackgroundColor(this.hNI, R.color.cp_bg_line_c);
+        this.hTB.onChangeSkinType(i);
+        this.hTC.onChangeSkinType(i);
+        this.hTF.onChangeSkinType(i);
+        ao.setBackgroundColor(this.hTG, R.color.cp_bg_line_c);
+        ao.setBackgroundColor(this.hTH, R.color.cp_bg_line_c);
     }
 
     public void onDestory() {
-        if (this.hNK != null) {
-            this.hNK.cap();
+        if (this.hTJ != null) {
+            this.hTJ.cdN();
         }
-        this.hNG.onDestory();
+        this.hTF.onDestory();
     }
 
     public FrsGameStrategyItemListView getCurrentPageView() {
-        return this.hNG.cch();
+        return this.hTF.cfF();
     }
 
-    public void buI() {
-        FrsGameStrategyItemListView cch = this.hNG.cch();
-        if (cch != null) {
-            cch.pullToRefresh();
+    public void bxR() {
+        FrsGameStrategyItemListView cfF = this.hTF.cfF();
+        if (cfF != null) {
+            cfF.pullToRefresh();
         }
     }
 }

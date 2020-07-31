@@ -1,5 +1,5 @@
 package com.baidu.tieba.frs.entelechy.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public interface d {
-    boolean cbO();
+    boolean cfm();
 }

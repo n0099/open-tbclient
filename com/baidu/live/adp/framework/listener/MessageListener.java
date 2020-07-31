@@ -3,7 +3,7 @@ package com.baidu.live.adp.framework.listener;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.framework.Priority;
 import com.baidu.live.adp.framework.message.ResponsedMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class MessageListener<T extends ResponsedMessage<?>> extends Priority {
     private int mCmd;
     private boolean mSelfListener;

@@ -1,5 +1,9 @@
 package com.baidu.swan.config;
-/* loaded from: classes11.dex */
+
+import com.baidu.searchbox.http.cookie.CookieManager;
+/* loaded from: classes10.dex */
 public interface a {
+    CookieManager aiv();
+
     boolean isDebug();
 }

@@ -2,14 +2,14 @@ package com.baidu.mapapi.map;
 
 import android.graphics.Color;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class Gradient {
     private final int a;
     private final int[] b;
     private final float[] c;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a {
         private final int b;
         private final int c;

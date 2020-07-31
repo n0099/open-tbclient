@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import org.conscrypt.OpenSSLX509CertificateFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 final class OpenSSLX509CertPath extends CertPath {
     private static final int PUSHBACK_SIZE = 64;
     private static final long serialVersionUID = -3249106005255170761L;
@@ -25,7 +25,7 @@ final class OpenSSLX509CertPath extends CertPath {
     private static final Encoding DEFAULT_ENCODING = Encoding.PKI_PATH;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public enum Encoding {
         PKI_PATH("PkiPath"),
         PKCS7("PKCS7");

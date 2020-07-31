@@ -10,9 +10,9 @@ import com.airbnb.lottie.a.b.p;
 import com.airbnb.lottie.k;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class b extends a {
-    private final List<a> An;
+    private final List<a> Ap;
     @Nullable
     private com.airbnb.lottie.a.b.a<Float, Float> Fk;
     private final RectF Fl;
@@ -26,7 +26,7 @@ public class b extends a {
         super(gVar, layer);
         a aVar;
         a aVar2;
-        this.An = new ArrayList();
+        this.Ap = new ArrayList();
         this.rect = new RectF();
         this.Fl = new RectF();
         com.airbnb.lottie.model.a.b jj = layer.jj();
@@ -50,7 +50,7 @@ public class b extends a {
                     aVar3.b(a);
                     aVar2 = null;
                 } else {
-                    this.An.add(0, a);
+                    this.Ap.add(0, a);
                     switch (r0.jd()) {
                         case Add:
                         case Invert:
@@ -79,13 +79,13 @@ public class b extends a {
         int save = canvas.save();
         this.Fl.set(0.0f, 0.0f, this.Fa.ja(), this.Fa.jb());
         matrix.mapRect(this.Fl);
-        for (int size = this.An.size() - 1; size >= 0; size--) {
+        for (int size = this.Ap.size() - 1; size >= 0; size--) {
             boolean z = true;
             if (!this.Fl.isEmpty()) {
                 z = canvas.clipRect(this.Fl);
             }
             if (z) {
-                this.An.get(size).a(canvas, matrix, i);
+                this.Ap.get(size).a(canvas, matrix, i);
             }
         }
         if (save > 0) {
@@ -98,8 +98,8 @@ public class b extends a {
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
-        for (int size = this.An.size() - 1; size >= 0; size--) {
-            this.An.get(size).a(this.rect, this.EZ);
+        for (int size = this.Ap.size() - 1; size >= 0; size--) {
+            this.Ap.get(size).a(this.rect, this.EZ);
             if (rectF.isEmpty()) {
                 rectF.set(this.rect);
             } else {
@@ -118,15 +118,15 @@ public class b extends a {
             f /= this.Fa.iX();
         }
         float iY = f - this.Fa.iY();
-        for (int size = this.An.size() - 1; size >= 0; size--) {
-            this.An.get(size).setProgress(iY);
+        for (int size = this.Ap.size() - 1; size >= 0; size--) {
+            this.Ap.get(size).setProgress(iY);
         }
     }
 
     public boolean hasMasks() {
         if (this.Fn == null) {
-            for (int size = this.An.size() - 1; size >= 0; size--) {
-                a aVar = this.An.get(size);
+            for (int size = this.Ap.size() - 1; size >= 0; size--) {
+                a aVar = this.Ap.get(size);
                 if (aVar instanceof e) {
                     if (aVar.iV()) {
                         this.Fn = true;
@@ -148,8 +148,8 @@ public class b extends a {
                 this.Fm = true;
                 return true;
             }
-            for (int size = this.An.size() - 1; size >= 0; size--) {
-                if (this.An.get(size).iT()) {
+            for (int size = this.Ap.size() - 1; size >= 0; size--) {
+                if (this.Ap.get(size).iT()) {
                     this.Fm = true;
                     return true;
                 }
@@ -164,8 +164,8 @@ public class b extends a {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.An.size()) {
-                this.An.get(i3).a(eVar, i, list, eVar2);
+            if (i3 < this.Ap.size()) {
+                this.Ap.get(i3).a(eVar, i, list, eVar2);
                 i2 = i3 + 1;
             } else {
                 return;
@@ -176,7 +176,7 @@ public class b extends a {
     @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
         super.a((b) t, (com.airbnb.lottie.e.c<b>) cVar);
-        if (t == k.Bu) {
+        if (t == k.Bw) {
             if (cVar == null) {
                 this.Fk = null;
                 return;

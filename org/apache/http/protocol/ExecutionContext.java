@@ -1,6 +1,6 @@
 package org.apache.http.protocol;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public interface ExecutionContext {
     public static final String HTTP_CONNECTION = "http.connection";
     public static final String HTTP_PROXY_HOST = "http.proxy_host";

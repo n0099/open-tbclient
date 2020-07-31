@@ -2,15 +2,15 @@ package com.facebook.imagepipeline.memory;
 
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class i {
-    private final com.facebook.common.references.c<byte[]> mIT;
-    final a mVk;
+    private final com.facebook.common.references.c<byte[]> mQV;
+    final a ndl;
 
     public i(com.facebook.common.memory.c cVar, r rVar) {
-        com.facebook.common.internal.g.checkArgument(rVar.mVH > 0);
-        this.mVk = new a(cVar, rVar, n.dFG());
-        this.mIT = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
+        com.facebook.common.internal.g.checkArgument(rVar.ndI > 0);
+        this.ndl = new a(cVar, rVar, n.dIS());
+        this.mQV = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c
             /* renamed from: am */
@@ -20,24 +20,24 @@ public class i {
         };
     }
 
-    public com.facebook.common.references.a<byte[]> ID(int i) {
-        return com.facebook.common.references.a.a(this.mVk.get(i), this.mIT);
+    public com.facebook.common.references.a<byte[]> IY(int i) {
+        return com.facebook.common.references.a.a(this.ndl.get(i), this.mQV);
     }
 
     public void am(byte[] bArr) {
-        this.mVk.release(bArr);
+        this.ndl.release(bArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public static class a extends j {
         public a(com.facebook.common.memory.c cVar, r rVar, s sVar) {
             super(cVar, rVar, sVar);
         }
 
         @Override // com.facebook.imagepipeline.memory.BasePool
-        d<byte[]> IX(int i) {
-            return new o(IU(i), this.mUS.mVH, 0);
+        d<byte[]> Js(int i) {
+            return new o(Jp(i), this.ncT.ndI, 0);
         }
     }
 }

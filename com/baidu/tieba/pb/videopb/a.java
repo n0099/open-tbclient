@@ -1,5 +1,5 @@
 package com.baidu.tieba.pb.videopb;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public interface a {
-    void b(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.e eVar, String str, int i4);
+    void b(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.f fVar, String str, int i4);
 }

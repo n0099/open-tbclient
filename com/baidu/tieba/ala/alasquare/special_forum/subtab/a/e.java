@@ -6,21 +6,21 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.ad;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.g> {
-    private a fvi;
+    private a fAp;
 
     public e(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.fvi = new a(getView());
+        this.fAp = new a(getView());
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        an.setViewTextColor(this.fvi.textView, (int) R.color.cp_cont_d);
+        ao.setViewTextColor(this.fAp.textView, R.color.cp_cont_d);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -31,11 +31,11 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.g gVar) {
-        if (this.fvi != null) {
-            if (gVar.ftM) {
-                this.fvi.devider.setVisibility(0);
+        if (this.fAp != null) {
+            if (gVar.fyT) {
+                this.fAp.devider.setVisibility(0);
             } else {
-                this.fvi.devider.setVisibility(8);
+                this.fAp.devider.setVisibility(8);
             }
         }
     }
@@ -44,17 +44,17 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     public void onClick(View view) {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends ad.a {
         public View devider;
-        public View djj;
+        public View dpe;
         public TextView textView;
 
         public a(View view) {
             super(view);
-            this.djj = view;
-            this.textView = (TextView) this.djj.findViewById(R.id.title);
-            this.devider = this.djj.findViewById(R.id.divider);
+            this.dpe = view;
+            this.textView = (TextView) this.dpe.findViewById(R.id.title);
+            this.devider = this.dpe.findViewById(R.id.divider);
         }
     }
 }

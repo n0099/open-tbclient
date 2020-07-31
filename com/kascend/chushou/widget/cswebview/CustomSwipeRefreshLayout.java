@@ -3,11 +3,11 @@ package com.kascend.chushou.widget.cswebview;
 import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CustomSwipeRefreshLayout extends SwipeRefreshLayout {
-    private a nxZ;
+    private a nGI;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         boolean a();
     }
@@ -21,11 +21,11 @@ public class CustomSwipeRefreshLayout extends SwipeRefreshLayout {
     }
 
     public void setCanChildScrollUpCallback(a aVar) {
-        this.nxZ = aVar;
+        this.nGI = aVar;
     }
 
     @Override // android.support.v4.widget.SwipeRefreshLayout
     public boolean canChildScrollUp() {
-        return this.nxZ != null ? this.nxZ.a() : super.canChildScrollUp();
+        return this.nGI != null ? this.nGI.a() : super.canChildScrollUp();
     }
 }

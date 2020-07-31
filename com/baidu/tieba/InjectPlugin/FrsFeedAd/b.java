@@ -5,55 +5,55 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class b implements q, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> eSw = new SparseArray<>();
-    private Object eSx;
-    private int eSy;
+    private static SparseArray<BdUniqueId> eYR = new SparseArray<>();
+    private Object eYS;
+    private int eYT;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return eSw.get(this.eSy);
+        return eYR.get(this.eYT);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object bmw() {
-        return this.eSx;
+    public Object bqq() {
+        return this.eYS;
     }
 
     public void at(Object obj) {
-        this.eSx = obj;
+        this.eYS = obj;
     }
 
-    public int bmx() {
-        return this.eSy;
+    public int bqr() {
+        return this.eYT;
     }
 
-    public void pl(int i) {
-        this.eSy = i;
+    public void pD(int i) {
+        this.eYT = i;
     }
 
-    public static void be(List<Integer> list) {
-        if (eSw.size() <= 0 && list != null) {
+    public static void bi(List<Integer> list) {
+        if (eYR.size() <= 0 && list != null) {
             for (Integer num : list) {
-                eSw.put(num.intValue(), BdUniqueId.gen());
+                eYR.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> bmy() {
+    public static List<BdUniqueId> bqs() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < eSw.size(); i++) {
-            arrayList.add(eSw.valueAt(i));
+        for (int i = 0; i < eYR.size(); i++) {
+            arrayList.add(eYR.valueAt(i));
         }
         return arrayList;
     }
 
-    public static int n(BdUniqueId bdUniqueId) {
+    public static int o(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (eSw.size() == 0 || (indexOfValue = eSw.indexOfValue(bdUniqueId)) == -1 || eSw.size() <= indexOfValue) {
+        if (eYR.size() == 0 || (indexOfValue = eYR.indexOfValue(bdUniqueId)) == -1 || eYR.size() <= indexOfValue) {
             return -1;
         }
-        return eSw.keyAt(indexOfValue);
+        return eYR.keyAt(indexOfValue);
     }
 }

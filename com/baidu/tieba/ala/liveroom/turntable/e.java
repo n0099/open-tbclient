@@ -14,78 +14,78 @@ import com.baidu.live.view.web.g;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tieba.ala.liveroom.turntable.d;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e {
-    private Activity bdo;
-    private CustomMessageListener fxk;
-    private d.a gse;
-    private d gsg;
+    private Activity bdG;
+    private CustomMessageListener fCr;
+    private d.a gxB;
+    private d gxD;
 
     public e(Activity activity) {
-        this.bdo = activity;
-        buY();
+        this.bdG = activity;
+        byh();
     }
 
     public void a(String str, long j, long j2, long j3) {
-        this.gsg = new d(this.bdo);
-        this.gsg.a(this.gse);
-        this.gsg.Hf().setBackgroundColor(fI(str));
+        this.gxD = new d(this.bdG);
+        this.gxD.a(this.gxB);
+        this.gxD.Hl().setBackgroundColor(fG(str));
         g gVar = new g();
-        gVar.u(this.bdo).b(this.gsg).a(this.gsg.Hf().getSchemeCallback());
-        com.baidu.live.view.web.a[] KO = gVar.KO();
-        for (com.baidu.live.view.web.a aVar : KO) {
-            this.gsg.Hf().addJavascriptInterface(aVar, aVar.getName());
+        gVar.v(this.bdG).b(this.gxD).a(this.gxD.Hl().getSchemeCallback());
+        com.baidu.live.view.web.a[] KV = gVar.KV();
+        for (com.baidu.live.view.web.a aVar : KV) {
+            this.gxD.Hl().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.gsg.show(b(str, j, j2, j3));
+        this.gxD.show(b(str, j, j2, j3));
     }
 
     public void resume() {
-        if (this.gsg != null && this.gsg.isShowing() && this.gsg.Hf() != null) {
-            this.gsg.Hf().onResume();
+        if (this.gxD != null && this.gxD.isShowing() && this.gxD.Hl() != null) {
+            this.gxD.Hl().onResume();
         }
     }
 
     public void pause() {
-        if (this.gsg != null && this.gsg.isShowing() && this.gsg.Hf() != null) {
-            this.gsg.Hf().onPause();
+        if (this.gxD != null && this.gxD.isShowing() && this.gxD.Hl() != null) {
+            this.gxD.Hl().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.gsg != null) {
-            this.gsg.buZ();
+        if (this.gxD != null) {
+            this.gxD.byi();
         }
     }
 
-    public void cA(int i) {
-        if (this.gsg != null && this.gsg.isShowing()) {
-            this.gsg.cA(i);
+    public void bN(int i) {
+        if (this.gxD != null && this.gxD.isShowing()) {
+            this.gxD.bN(i);
         }
     }
 
-    public void yW() {
+    public void zy() {
         dismiss();
     }
 
     public void release() {
-        yW();
-        MessageManager.getInstance().unRegisterListener(this.fxk);
+        zy();
+        MessageManager.getInstance().unRegisterListener(this.fCr);
     }
 
-    private void buY() {
-        this.fxk = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
+    private void byh() {
+        this.fCr = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (e.this.gsg != null && e.this.gsg.isShowing()) {
-                    e.this.gsg.dismiss();
+                if (e.this.gxD != null && e.this.gxD.isShowing()) {
+                    e.this.gxD.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.fxk);
+        MessageManager.getInstance().registerListener(this.fCr);
     }
 
-    private int fI(String str) {
+    private int fG(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
@@ -122,15 +122,15 @@ public class e {
         sb.append("&_sdk_version=");
         sb.append(TbConfig.SDK_VERSION);
         sb.append("&scene_from=");
-        sb.append(p.Jq());
+        sb.append(p.Jx());
         return sb.toString();
     }
 
     public void a(d.a aVar) {
-        this.gse = aVar;
+        this.gxB = aVar;
     }
 
-    public d.a bJC() {
-        return this.gse;
+    public d.a bMI() {
+        return this.gxB;
     }
 }

@@ -6,23 +6,23 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b extends HttpManager {
-    private static volatile b dpo;
+    private static volatile b dvf;
 
     private b() {
         super(AppRuntime.getAppContext());
     }
 
-    public static b aGt() {
-        if (dpo == null) {
+    public static b aKk() {
+        if (dvf == null) {
             synchronized (b.class) {
-                if (dpo == null) {
-                    dpo = new b();
+                if (dvf == null) {
+                    dvf = new b();
                 }
             }
         }
-        return dpo;
+        return dvf;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

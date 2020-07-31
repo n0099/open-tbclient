@@ -1,19 +1,19 @@
 package com.baidu.live.im.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends HttpMessage {
-    private long aWr;
+    private long aXl;
 
     public c(int i) {
         super(i);
     }
 
     public void al(long j) {
-        this.aWr = j;
+        this.aXl = j;
     }
 
     public boolean am(long j) {
-        return j - this.aWr >= 2000;
+        return j - this.aXl >= 2000;
     }
 }

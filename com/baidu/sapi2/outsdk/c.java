@@ -11,7 +11,7 @@ import com.baidu.sapi2.utils.Log;
 import com.cmic.sso.sdk.auth.AuthnHelper;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class c {
     public static final String a = "OneKeyLogin";
     private static final int b = 1;
@@ -33,7 +33,7 @@ public class c {
     static String r;
     static String s;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public interface a {
         void onGetTokenComplete(JSONObject jSONObject);
     }

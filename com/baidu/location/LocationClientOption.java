@@ -3,7 +3,7 @@ package com.baidu.location;
 import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class LocationClientOption {
     public static final int GpsFirst = 1;
     public static final int GpsOnly = 3;
@@ -40,7 +40,7 @@ public final class LocationClientOption {
     public int timeOut;
     public int wifiCacheTimeOut;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public enum LocationMode {
         Hight_Accuracy,
         Battery_Saving,

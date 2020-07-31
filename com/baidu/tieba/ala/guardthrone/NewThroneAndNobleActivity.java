@@ -26,37 +26,37 @@ import com.baidu.live.utils.h;
 import com.baidu.live.utils.q;
 import com.baidu.tieba.ala.guardthrone.adapter.AlaThroneAndNobleControllerAdapter;
 import com.baidu.tieba.ala.guardthrone.view.AlaThroneAndNobleTabHost;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NewThroneAndNobleActivity extends BaseActivity implements View.OnTouchListener {
-    private String aAL;
-    private String aZa;
-    private AlaThroneAndNobleTabHost fMQ;
-    private AlaThroneAndNobleControllerAdapter fMS;
+    private String aBY;
+    private String aYY;
+    private AlaThroneAndNobleTabHost fSk;
+    private AlaThroneAndNobleControllerAdapter fSm;
     private boolean mIsHost;
     private String mLiveId;
     private View mRootView;
     private int mScreenWidth;
     private int mTabId;
-    private String fMR = "guard_throne";
+    private String fSl = "guard_throne";
     private Handler mHandler = new Handler();
-    private boolean aGX = false;
-    private boolean aKp = false;
-    private boolean aKq = false;
-    private final CustomMessageListener aHn = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.guardthrone.NewThroneAndNobleActivity.4
+    private boolean aIs = false;
+    private boolean aLL = false;
+    private boolean aLM = false;
+    private final CustomMessageListener aII = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.guardthrone.NewThroneAndNobleActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             NewThroneAndNobleActivity.this.closeActivity();
         }
     };
-    private final CustomMessageListener fMT = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.guardthrone.NewThroneAndNobleActivity.5
+    private final CustomMessageListener fjq = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.guardthrone.NewThroneAndNobleActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             NewThroneAndNobleActivity.this.closeActivity();
         }
     };
-    private ViewTreeObserver.OnGlobalLayoutListener aKl = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.guardthrone.NewThroneAndNobleActivity.6
+    private ViewTreeObserver.OnGlobalLayoutListener aLH = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.guardthrone.NewThroneAndNobleActivity.6
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(NewThroneAndNobleActivity.this.getPageContext().getPageActivity());
@@ -67,7 +67,7 @@ public class NewThroneAndNobleActivity extends BaseActivity implements View.OnTo
                         @Override // java.lang.Runnable
                         public void run() {
                             if (NewThroneAndNobleActivity.this.mRootView != null) {
-                                h.U(NewThroneAndNobleActivity.this.mRootView);
+                                h.X(NewThroneAndNobleActivity.this.mRootView);
                                 q.e(NewThroneAndNobleActivity.this.getActivity(), false);
                             }
                         }
@@ -85,24 +85,24 @@ public class NewThroneAndNobleActivity extends BaseActivity implements View.OnTo
         super.onCreate(bundle);
         if (bundle != null) {
             this.mLiveId = bundle.getString(AlaGuardThroneActivityConfig.GUARD_THRONE_LIVE_ID);
-            this.aZa = bundle.getString(AlaGuardThroneActivityConfig.GUARD_THRONE_ANCHOR_ID);
-            this.aAL = bundle.getString(AlaGuardThroneActivityConfig.GUARD_THRONE_GIFT_ID);
+            this.aYY = bundle.getString(AlaGuardThroneActivityConfig.GUARD_THRONE_ANCHOR_ID);
+            this.aBY = bundle.getString(AlaGuardThroneActivityConfig.GUARD_THRONE_GIFT_ID);
             this.mTabId = bundle.getInt(AlaGuardThroneActivityConfig.GUARD_THRONE_TAB_ID, 1);
             this.mIsHost = bundle.getBoolean(AlaGuardThroneActivityConfig.GUARD_THRONE_IS_HOST, false);
-            this.fMR = bundle.getString(AlaGuardThroneActivityConfig.DEFAULT_TAB_TYPE);
+            this.fSl = bundle.getString(AlaGuardThroneActivityConfig.DEFAULT_TAB_TYPE);
         } else {
             this.mLiveId = getIntent().getStringExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_LIVE_ID);
-            this.aZa = getIntent().getStringExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_ANCHOR_ID);
-            this.aAL = getIntent().getStringExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_GIFT_ID);
+            this.aYY = getIntent().getStringExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_ANCHOR_ID);
+            this.aBY = getIntent().getStringExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_GIFT_ID);
             this.mTabId = getIntent().getIntExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_TAB_ID, 1);
             this.mIsHost = getIntent().getBooleanExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_IS_HOST, false);
-            this.fMR = getIntent().getStringExtra(AlaGuardThroneActivityConfig.DEFAULT_TAB_TYPE);
+            this.fSl = getIntent().getStringExtra(AlaGuardThroneActivityConfig.DEFAULT_TAB_TYPE);
         }
-        registerListener(this.fMT);
-        registerListener(this.aHn);
+        registerListener(this.fjq);
+        registerListener(this.aII);
         initView();
         ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-        this.aKp = false;
+        this.aLL = false;
         this.mRootView.setVisibility(4);
     }
 
@@ -110,32 +110,32 @@ public class NewThroneAndNobleActivity extends BaseActivity implements View.OnTo
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (!this.aGX) {
+        if (!this.aIs) {
             this.mRootView.setVisibility(0);
-            zy();
-            this.aGX = true;
+            Aa();
+            this.aIs = true;
         }
     }
 
     private void initTabSpec() {
-        this.fMS = new AlaThroneAndNobleControllerAdapter(getPageContext(), this.mLiveId, this.aZa, this.aAL, this.mTabId, this.mIsHost);
-        this.fMQ = (AlaThroneAndNobleTabHost) this.mRootView.findViewById(a.g.ala_throne_and_noble_list_tabhost);
-        this.fMQ.setAdapter(this.fMS);
-        this.fMQ.setPageSelectedListener(new AlaThroneAndNobleTabHost.b() { // from class: com.baidu.tieba.ala.guardthrone.NewThroneAndNobleActivity.1
+        this.fSm = new AlaThroneAndNobleControllerAdapter(getPageContext(), this.mLiveId, this.aYY, this.aBY, this.mTabId, this.mIsHost);
+        this.fSk = (AlaThroneAndNobleTabHost) this.mRootView.findViewById(a.g.ala_throne_and_noble_list_tabhost);
+        this.fSk.setAdapter(this.fSm);
+        this.fSk.setPageSelectedListener(new AlaThroneAndNobleTabHost.b() { // from class: com.baidu.tieba.ala.guardthrone.NewThroneAndNobleActivity.1
             @Override // com.baidu.tieba.ala.guardthrone.view.AlaThroneAndNobleTabHost.b
             public void onPageSelected(int i) {
-                NewThroneAndNobleActivity.this.fMS.pP(i);
+                NewThroneAndNobleActivity.this.fSm.qe(i);
             }
         });
     }
 
-    private void zy() {
+    private void Aa() {
         Animation loadAnimation;
-        this.aKp = true;
+        this.aLL = true;
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0176a.sdk_in_from_right);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0178a.sdk_in_from_right);
         } else {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0176a.sdk_in_from_bottom);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0178a.sdk_in_from_bottom);
         }
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.guardthrone.NewThroneAndNobleActivity.2
             @Override // android.view.animation.Animation.AnimationListener
@@ -144,7 +144,7 @@ public class NewThroneAndNobleActivity extends BaseActivity implements View.OnTo
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                NewThroneAndNobleActivity.this.aKp = false;
+                NewThroneAndNobleActivity.this.aLL = false;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -154,13 +154,13 @@ public class NewThroneAndNobleActivity extends BaseActivity implements View.OnTo
         this.mRootView.startAnimation(loadAnimation);
     }
 
-    private void zz() {
+    private void Ab() {
         Animation loadAnimation;
-        if (!this.aKq && !this.aKp) {
+        if (!this.aLM && !this.aLL) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0176a.sdk_out_to_right);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0178a.sdk_out_to_right);
             } else {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0176a.sdk_out_to_bottom);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0178a.sdk_out_to_bottom);
             }
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.guardthrone.NewThroneAndNobleActivity.3
                 @Override // android.view.animation.Animation.AnimationListener
@@ -177,14 +177,14 @@ public class NewThroneAndNobleActivity extends BaseActivity implements View.OnTo
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.aKq = true;
+            this.aLM = true;
             this.mRootView.startAnimation(loadAnimation);
         }
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void finish() {
-        zz();
+        Ab();
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
@@ -192,32 +192,32 @@ public class NewThroneAndNobleActivity extends BaseActivity implements View.OnTo
         super.onConfigurationChanged(configuration);
         if (this.mRootView != null) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                h.U(this.mRootView);
+                h.X(this.mRootView);
                 q.e(getActivity(), false);
             } else {
-                h.V(this.mRootView);
+                h.Y(this.mRootView);
                 q.e(getActivity(), true);
             }
-            if (this.fMS != null) {
-                this.fMS.onConfigurationChanged(configuration);
+            if (this.fSm != null) {
+                this.fSm.onConfigurationChanged(configuration);
             }
-            byj();
-            brt();
+            buA();
+            buz();
         }
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.h.ala_activity_throne_and_noble_layout, (ViewGroup) null);
-        byj();
+        buA();
         setContentView(this.mRootView);
         initTabSpec();
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            h.U(this.mRootView);
+            h.X(this.mRootView);
             q.e(getActivity(), false);
         }
     }
 
-    private void byj() {
+    private void buA() {
         if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
             this.mRootView.setBackgroundResource(a.f.ala_new_throne_and_noble_land_bg);
         } else {
@@ -229,20 +229,20 @@ public class NewThroneAndNobleActivity extends BaseActivity implements View.OnTo
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putString(AlaGuardThroneActivityConfig.GUARD_THRONE_LIVE_ID, this.mLiveId);
-        bundle.putString(AlaGuardThroneActivityConfig.GUARD_THRONE_ANCHOR_ID, this.aZa);
-        bundle.putString(AlaGuardThroneActivityConfig.GUARD_THRONE_GIFT_ID, this.aAL);
+        bundle.putString(AlaGuardThroneActivityConfig.GUARD_THRONE_ANCHOR_ID, this.aYY);
+        bundle.putString(AlaGuardThroneActivityConfig.GUARD_THRONE_GIFT_ID, this.aBY);
         bundle.putInt(AlaGuardThroneActivityConfig.GUARD_THRONE_TAB_ID, this.mTabId);
         bundle.putBoolean(AlaGuardThroneActivityConfig.GUARD_THRONE_IS_HOST, this.mIsHost);
-        bundle.putString(AlaGuardThroneActivityConfig.DEFAULT_TAB_TYPE, this.fMR);
+        bundle.putString(AlaGuardThroneActivityConfig.DEFAULT_TAB_TYPE, this.fSl);
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        brt();
+        buz();
     }
 
-    private void brt() {
+    private void buz() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -261,7 +261,7 @@ public class NewThroneAndNobleActivity extends BaseActivity implements View.OnTo
             }
             this.mScreenWidth = screenDimensions[0];
             window.setBackgroundDrawableResource(17170445);
-            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aKl);
+            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aLH);
             if (this.mRootView.getLayoutParams() instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mRootView.getLayoutParams();
                 if (screenDimensions[1] > screenDimensions[0]) {
@@ -300,11 +300,11 @@ public class NewThroneAndNobleActivity extends BaseActivity implements View.OnTo
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.fMS != null) {
-            this.fMS.onDestroy();
+        if (this.fSm != null) {
+            this.fSm.onDestroy();
         }
         this.mHandler.removeCallbacksAndMessages(null);
-        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aKl);
-        this.aKl = null;
+        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aLH);
+        this.aLH = null;
     }
 }

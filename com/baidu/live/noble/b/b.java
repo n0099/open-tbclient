@@ -3,39 +3,39 @@ package com.baidu.live.noble.b;
 import com.baidu.live.noble.b.a;
 import com.baidu.live.noble.c.d;
 import com.baidu.live.noble.data.NobleUserInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements a {
-    private a.InterfaceC0173a bac;
-    private com.baidu.live.noble.c.a bad;
+    private a.InterfaceC0173a baa;
+    private com.baidu.live.noble.c.a bab;
 
     @Override // com.baidu.live.noble.b.a
     public void a(a.InterfaceC0173a interfaceC0173a) {
-        this.bac = interfaceC0173a;
+        this.baa = interfaceC0173a;
     }
 
     @Override // com.baidu.live.noble.b.a
-    public void Gi() {
-        if (this.bad == null) {
-            this.bad = new com.baidu.live.noble.c.b();
-            this.bad.a(new d() { // from class: com.baidu.live.noble.b.b.1
+    public void Gc() {
+        if (this.bab == null) {
+            this.bab = new com.baidu.live.noble.c.b();
+            this.bab.a(new d() { // from class: com.baidu.live.noble.b.b.1
                 @Override // com.baidu.live.noble.c.d, com.baidu.live.noble.c.c
                 public void b(NobleUserInfo nobleUserInfo) {
                     super.b(nobleUserInfo);
-                    if (b.this.bac != null) {
-                        b.this.bac.a(nobleUserInfo);
+                    if (b.this.baa != null) {
+                        b.this.baa.a(nobleUserInfo);
                     }
                 }
             });
         }
-        this.bad.Go();
+        this.bab.Gi();
     }
 
     @Override // com.baidu.live.noble.b.a
     public void release() {
-        this.bac = null;
-        if (this.bad != null) {
-            this.bad.release();
-            this.bad = null;
+        this.baa = null;
+        if (this.bab != null) {
+            this.bab.release();
+            this.bab = null;
         }
     }
 }

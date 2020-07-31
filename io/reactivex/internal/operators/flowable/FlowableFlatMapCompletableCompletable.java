@@ -12,11 +12,11 @@ public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex
     final boolean delayErrors;
     final h<? super T, ? extends io.reactivex.e> mapper;
     final int maxConcurrency;
-    final io.reactivex.g<T> nJW;
+    final io.reactivex.g<T> nSE;
 
     @Override // io.reactivex.a
     protected void b(io.reactivex.c cVar) {
-        this.nJW.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.nSE.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
     /* loaded from: classes7.dex */
@@ -63,7 +63,7 @@ public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex
                     eVar.a(innerObserver);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.L(th);
+                io.reactivex.exceptions.a.K(th);
                 this.s.cancel();
                 onError(th);
             }

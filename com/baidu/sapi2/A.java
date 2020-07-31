@@ -14,7 +14,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class A implements com.baidu.sapi2.callback.a.a {
     final /* synthetic */ OneKeyLoginCallback a;
     final /* synthetic */ com.baidu.sapi2.callback.a.b b;

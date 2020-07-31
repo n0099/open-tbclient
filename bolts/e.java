@@ -4,19 +4,19 @@ import java.io.Closeable;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ScheduledFuture;
-/* loaded from: classes7.dex */
+/* loaded from: classes19.dex */
 public class e implements Closeable {
     private boolean closed;
     private final Object lock;
-    private final List<d> zu;
-    private ScheduledFuture<?> zv;
-    private boolean zw;
+    private final List<d> zw;
+    private ScheduledFuture<?> zx;
+    private boolean zy;
 
     public boolean gF() {
         boolean z;
         synchronized (this.lock) {
             gG();
-            z = this.zw;
+            z = this.zy;
         }
         return z;
     }
@@ -26,10 +26,10 @@ public class e implements Closeable {
         synchronized (this.lock) {
             if (!this.closed) {
                 gH();
-                for (d dVar : this.zu) {
+                for (d dVar : this.zw) {
                     dVar.close();
                 }
-                this.zu.clear();
+                this.zw.clear();
                 this.closed = true;
             }
         }
@@ -39,7 +39,7 @@ public class e implements Closeable {
     public void a(d dVar) {
         synchronized (this.lock) {
             gG();
-            this.zu.remove(dVar);
+            this.zw.remove(dVar);
         }
     }
 
@@ -54,9 +54,9 @@ public class e implements Closeable {
     }
 
     private void gH() {
-        if (this.zv != null) {
-            this.zv.cancel(true);
-            this.zv = null;
+        if (this.zx != null) {
+            this.zx.cancel(true);
+            this.zx = null;
         }
     }
 }

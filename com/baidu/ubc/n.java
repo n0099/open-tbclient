@@ -1,29 +1,29 @@
 package com.baidu.ubc;
 
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes9.dex */
 class n {
-    private String Zt;
-    private String duJ;
-    private int duK;
-    private JSONObject duL;
-    private String duM;
-    private boolean duN;
+    private String Zo;
+    private JSONObject dAA;
+    private String dAB;
+    private boolean dAC;
+    private String dAy;
+    private int dAz;
     private String mCategory;
     private String mContent;
-    private String mEl;
     private String mId;
+    private String mMp;
     private int mOption;
     private long mTime;
 
     public n(String str, String str2, int i) {
         this.mContent = "";
-        this.duN = false;
-        this.Zt = "";
-        this.mEl = "0";
+        this.dAC = false;
+        this.Zo = "";
+        this.mMp = "0";
         this.mId = str;
-        this.duJ = str;
-        this.duK = -1;
+        this.dAy = str;
+        this.dAz = -1;
         this.mContent = str2;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
@@ -33,13 +33,13 @@ class n {
 
     public n(String str, JSONObject jSONObject, int i) {
         this.mContent = "";
-        this.duN = false;
-        this.Zt = "";
-        this.mEl = "0";
+        this.dAC = false;
+        this.Zo = "";
+        this.mMp = "0";
         this.mId = str;
-        this.duJ = str;
-        this.duK = -1;
-        this.duL = jSONObject;
+        this.dAy = str;
+        this.dAz = -1;
+        this.dAA = jSONObject;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
@@ -48,12 +48,12 @@ class n {
 
     public n(String str, String str2, int i, String str3, int i2) {
         this.mContent = "";
-        this.duN = false;
-        this.Zt = "";
-        this.mEl = "0";
+        this.dAC = false;
+        this.Zo = "";
+        this.mMp = "0";
         this.mId = str2;
-        this.duJ = str;
-        this.duK = i;
+        this.dAy = str;
+        this.dAz = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
@@ -63,12 +63,12 @@ class n {
 
     public n(String str, String str2, int i, String str3, long j, int i2) {
         this.mContent = "";
-        this.duN = false;
-        this.Zt = "";
-        this.mEl = "0";
+        this.dAC = false;
+        this.Zo = "";
+        this.mMp = "0";
         this.mId = str2;
-        this.duJ = str;
-        this.duK = i;
+        this.dAy = str;
+        this.dAz = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
@@ -84,12 +84,12 @@ class n {
         return this.mId;
     }
 
-    public String aJy() {
-        return this.duJ;
+    public String aNq() {
+        return this.dAy;
     }
 
-    public int aJz() {
-        return this.duK;
+    public int aNr() {
+        return this.dAz;
     }
 
     public String getContent() {
@@ -104,8 +104,8 @@ class n {
         return this.mOption;
     }
 
-    public String aJA() {
-        return this.duM;
+    public String aNs() {
+        return this.dAB;
     }
 
     public void setCategory(String str) {
@@ -116,37 +116,37 @@ class n {
         return this.mCategory;
     }
 
-    public JSONObject aJB() {
-        return this.duL;
+    public JSONObject aNt() {
+        return this.dAA;
     }
 
     public void setFileName(String str) {
-        this.Zt = str;
+        this.Zo = str;
     }
 
     public String getFileName() {
-        return this.Zt;
+        return this.Zo;
     }
 
-    public void gs(boolean z) {
-        this.duN = z;
+    public void gN(boolean z) {
+        this.dAC = z;
     }
 
-    public boolean aJw() {
-        return this.duN;
+    public boolean aNo() {
+        return this.dAC;
     }
 
-    public void aJD() {
-        if (this.mId != null && this.mId.equals(this.duJ) && g.dwM().tN(this.mId)) {
-            this.duM = UBC.getUBCContext().alX();
+    public void aNv() {
+        if (this.mId != null && this.mId.equals(this.dAy) && g.dzZ().uQ(this.mId)) {
+            this.dAB = UBC.getUBCContext().anq();
         }
     }
 
-    public void PV(String str) {
-        this.mEl = str;
+    public void QG(String str) {
+        this.mMp = str;
     }
 
-    public String dwQ() {
-        return this.mEl;
+    public String dAd() {
+        return this.mMp;
     }
 }

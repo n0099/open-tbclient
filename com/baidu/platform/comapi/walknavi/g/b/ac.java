@@ -8,7 +8,7 @@ import com.baidu.mapapi.walknavi.model.BaseNpcModel;
 import com.baidu.platform.comapi.walknavi.g.b.c;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ac implements c.d {
     final /* synthetic */ BaseNpcModel a;
     final /* synthetic */ c b;
@@ -48,6 +48,6 @@ public class ac implements c.d {
             iWNPCLoadAndInitListener2.onFail();
         }
         view = this.b.N;
-        ((ImageView) view).setImageBitmap(BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_game_keyboard_sendbutton_disabled));
+        ((ImageView) view).setImageBitmap(BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_highlight_toast_view_bg));
     }
 }

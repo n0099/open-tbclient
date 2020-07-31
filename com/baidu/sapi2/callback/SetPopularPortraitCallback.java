@@ -1,6 +1,6 @@
 package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.result.SetPopularPortraitResult;
-/* loaded from: classes6.dex */
+/* loaded from: classes12.dex */
 public abstract class SetPopularPortraitCallback implements SapiCallback<SetPopularPortraitResult> {
 }

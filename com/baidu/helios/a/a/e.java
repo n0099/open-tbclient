@@ -8,7 +8,7 @@ import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 class e implements h {
     @Override // com.baidu.helios.a.a.h
     public String a(Context context) {
@@ -17,15 +17,15 @@ class e implements h {
 
     @Override // com.baidu.helios.a.a.h
     public JSONArray aj(Context context) {
-        b.C0130b c0130b;
+        b.C0128b c0128b;
         c cVar = new c();
         com.baidu.helios.b.af(context).a(cVar);
         boolean a = cVar.a(10000);
         JSONArray jSONArray = new JSONArray();
         if (a) {
             c.b uA = cVar.uA();
-            if (uA != null && uA.result != 0 && (c0130b = (b.C0130b) uA.result) != null && c0130b.uk() != null) {
-                for (b.c cVar2 : c0130b.uk()) {
+            if (uA != null && uA.result != 0 && (c0128b = (b.C0128b) uA.result) != null && c0128b.uk() != null) {
+                for (b.c cVar2 : c0128b.uk()) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("aid", cVar2.aid);

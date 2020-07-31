@@ -1,68 +1,40 @@
 package com.baidu.live.data;
 
-import com.baidu.tieba.ala.live.walletconfig.CashierData;
+import com.coremedia.iso.boxes.TrackReferenceTypeBox;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class be {
-    public bd aDA;
-    public String aDB;
-    public long aDt;
-    public int aDu;
-    public int aDv;
-    public long aDw;
-    public long aDx;
-    public int aDy;
-    public int aDz;
-    public String call_type;
-    public String extData;
-    public String imei;
-    public String itemInfo;
-    public String mobile;
-    public String notifyUrl;
-    public String orderId;
-    public String passuid;
-    public String pay_channel;
-    public String pay_url;
-    public String service;
-    public String sign;
-    public int signType;
-    public String tag;
-    public String title;
-    public String tn;
-    public String url;
+    public int aEJ;
+    public int aEK;
+    public int aEL;
+    public int aEM;
+    public int app_size;
+    public String app_version;
+    public String appendix_link;
+    public String appendix_text;
+    public String changelogs;
+    public String hint;
+    public String n_btn_link;
+    public String n_btn_text;
+    public String y_btn_link;
+    public String y_btn_text;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aDt = jSONObject.optInt(CashierData.CUSTOMER_ID);
-            this.service = jSONObject.optString("service");
-            this.orderId = jSONObject.optString(CashierData.ORDERID);
-            this.aDu = jSONObject.optInt(CashierData.ORDER_CREATE_TIME);
-            this.aDv = jSONObject.optInt(CashierData.DEVICE_TYPE);
-            this.aDw = jSONObject.optLong(CashierData.PAY_AMOUNT);
-            this.aDx = jSONObject.optLong(CashierData.ORIGINALAMOUNT_AMOUNT);
-            this.notifyUrl = jSONObject.optString(CashierData.NOTIFY_URL);
-            this.passuid = jSONObject.optString(CashierData.PASS_UID);
-            this.title = jSONObject.optString("title");
-            this.tn = jSONObject.optString(CashierData.TN);
-            this.url = jSONObject.optString("url");
-            this.mobile = jSONObject.optString("mobile");
-            this.itemInfo = jSONObject.optString(CashierData.ITEM_INFO);
-            this.imei = jSONObject.optString("imei");
-            this.aDy = jSONObject.optInt(CashierData.SDK);
-            this.aDz = jSONObject.optInt(CashierData.SDK_STYLE);
-            this.extData = jSONObject.optString(CashierData.EXT_DATA);
-            this.signType = jSONObject.optInt(CashierData.SIGN_TYPE);
-            this.tag = jSONObject.optString("tag");
-            this.sign = jSONObject.optString("sign");
-            JSONObject optJSONObject = jSONObject.optJSONObject("popup");
-            if (optJSONObject != null) {
-                this.aDA = new bd();
-                this.aDA.parserJson(optJSONObject);
-            }
-            this.pay_url = jSONObject.optString("pay_url");
-            this.call_type = jSONObject.optString("call_type");
-            this.pay_channel = jSONObject.optString("pay_channel");
-            this.aDB = jSONObject.optString("real_channel");
+            this.aEJ = jSONObject.optInt("popup_id");
+            this.aEK = jSONObject.optInt("popup_times");
+            this.aEL = jSONObject.optInt("popup_type");
+            this.hint = jSONObject.optString(TrackReferenceTypeBox.TYPE1);
+            this.app_version = jSONObject.optString("app_version");
+            this.app_size = jSONObject.optInt("app_size");
+            this.changelogs = jSONObject.optString("changelogs");
+            this.appendix_text = jSONObject.optString("appendix_text");
+            this.appendix_link = jSONObject.optString("appendix_link");
+            this.aEM = jSONObject.optInt("appendix_optional");
+            this.y_btn_text = jSONObject.optString("y_btn_text");
+            this.y_btn_link = jSONObject.optString("y_btn_link");
+            this.n_btn_text = jSONObject.optString("n_btn_text");
+            this.n_btn_link = jSONObject.optString("n_btn_link");
         }
     }
 }

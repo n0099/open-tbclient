@@ -3,27 +3,27 @@ package com.baidu.turbonet.net;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InterruptedIOException;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class PipedInputStreamAndroid25 extends InputStream {
     static final /* synthetic */ boolean $assertionsDisabled;
     protected byte[] buffer;
-    Thread mBD;
-    Thread mBE;
-    boolean mBA = false;
-    volatile boolean mBB = false;
-    boolean mBC = false;
-    protected int mBF = -1;
-    protected int mBG = 0;
+    Thread mJL;
+    Thread mJM;
+    boolean mJI = false;
+    volatile boolean mJJ = false;
+    boolean mJK = false;
+    protected int mJN = -1;
+    protected int mJO = 0;
 
     static {
         $assertionsDisabled = !PipedInputStreamAndroid25.class.desiredAssertionStatus();
     }
 
     public PipedInputStreamAndroid25() {
-        Hv(1024);
+        HQ(1024);
     }
 
-    private void Hv(int i) {
+    private void HQ(int i) {
         if (i <= 0) {
             throw new IllegalArgumentException("Pipe Size <= 0");
         }
@@ -31,45 +31,45 @@ public class PipedInputStreamAndroid25 extends InputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public synchronized void Hw(int i) throws IOException {
-        dvK();
-        this.mBE = Thread.currentThread();
-        if (this.mBF == this.mBG) {
-            dvL();
+    public synchronized void HR(int i) throws IOException {
+        dyX();
+        this.mJM = Thread.currentThread();
+        if (this.mJN == this.mJO) {
+            dyY();
         }
-        if (this.mBF < 0) {
-            this.mBF = 0;
-            this.mBG = 0;
+        if (this.mJN < 0) {
+            this.mJN = 0;
+            this.mJO = 0;
         }
         byte[] bArr = this.buffer;
-        int i2 = this.mBF;
-        this.mBF = i2 + 1;
+        int i2 = this.mJN;
+        this.mJN = i2 + 1;
         bArr[i2] = (byte) (i & 255);
-        if (this.mBF >= this.buffer.length) {
-            this.mBF = 0;
+        if (this.mJN >= this.buffer.length) {
+            this.mJN = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void r(byte[] bArr, int i, int i2) throws IOException {
+    public synchronized void s(byte[] bArr, int i, int i2) throws IOException {
         int i3;
-        dvK();
-        this.mBE = Thread.currentThread();
+        dyX();
+        this.mJM = Thread.currentThread();
         int i4 = i2;
         while (i4 > 0) {
-            if (this.mBF == this.mBG) {
-                dvL();
+            if (this.mJN == this.mJO) {
+                dyY();
             }
-            if (this.mBG < this.mBF) {
-                i3 = this.buffer.length - this.mBF;
-            } else if (this.mBF >= this.mBG) {
+            if (this.mJO < this.mJN) {
+                i3 = this.buffer.length - this.mJN;
+            } else if (this.mJN >= this.mJO) {
                 i3 = 0;
-            } else if (this.mBF == -1) {
-                this.mBG = 0;
-                this.mBF = 0;
-                i3 = this.buffer.length - this.mBF;
+            } else if (this.mJN == -1) {
+                this.mJO = 0;
+                this.mJN = 0;
+                i3 = this.buffer.length - this.mJN;
             } else {
-                i3 = this.mBG - this.mBF;
+                i3 = this.mJO - this.mJN;
             }
             if (i3 > i4) {
                 i3 = i4;
@@ -77,31 +77,31 @@ public class PipedInputStreamAndroid25 extends InputStream {
             if (!$assertionsDisabled && i3 <= 0) {
                 throw new AssertionError();
             }
-            System.arraycopy(bArr, i, this.buffer, this.mBF, i3);
+            System.arraycopy(bArr, i, this.buffer, this.mJN, i3);
             i4 -= i3;
             i += i3;
-            this.mBF = i3 + this.mBF;
-            if (this.mBF >= this.buffer.length) {
-                this.mBF = 0;
+            this.mJN = i3 + this.mJN;
+            if (this.mJN >= this.buffer.length) {
+                this.mJN = 0;
             }
         }
     }
 
-    private void dvK() throws IOException {
-        if (!this.mBC) {
+    private void dyX() throws IOException {
+        if (!this.mJK) {
             throw new IOException("Pipe not connected");
         }
-        if (this.mBA || this.mBB) {
+        if (this.mJI || this.mJJ) {
             throw new IOException("Pipe closed");
         }
-        if (this.mBD != null && !this.mBD.isAlive()) {
+        if (this.mJL != null && !this.mJL.isAlive()) {
             throw new IOException("Read end dead");
         }
     }
 
-    private void dvL() throws IOException {
-        while (this.mBF == this.mBG) {
-            dvK();
+    private void dyY() throws IOException {
+        while (this.mJN == this.mJO) {
+            dyX();
             notifyAll();
             try {
                 wait(1000L);
@@ -113,8 +113,8 @@ public class PipedInputStreamAndroid25 extends InputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void dvM() {
-        this.mBA = true;
+    public synchronized void dyZ() {
+        this.mJI = true;
         notifyAll();
     }
 
@@ -122,22 +122,22 @@ public class PipedInputStreamAndroid25 extends InputStream {
     public synchronized int read() throws IOException {
         int i = -1;
         synchronized (this) {
-            if (!this.mBC) {
+            if (!this.mJK) {
                 throw new IOException("Pipe not connected");
             }
-            if (this.mBB) {
+            if (this.mJJ) {
                 throw new IOException("Pipe closed");
             }
-            if (this.mBE != null && !this.mBE.isAlive() && !this.mBA && this.mBF < 0) {
+            if (this.mJM != null && !this.mJM.isAlive() && !this.mJI && this.mJN < 0) {
                 throw new IOException("Write end dead");
             }
-            this.mBD = Thread.currentThread();
+            this.mJL = Thread.currentThread();
             int i2 = 2;
             while (true) {
-                if (this.mBF < 0) {
-                    if (this.mBA) {
+                if (this.mJN < 0) {
+                    if (this.mJI) {
                         break;
-                    } else if (this.mBE != null && !this.mBE.isAlive() && i2 - 1 < 0) {
+                    } else if (this.mJM != null && !this.mJM.isAlive() && i2 - 1 < 0) {
                         throw new IOException("Pipe broken");
                     } else {
                         notifyAll();
@@ -150,14 +150,14 @@ public class PipedInputStreamAndroid25 extends InputStream {
                     }
                 } else {
                     byte[] bArr = this.buffer;
-                    int i3 = this.mBG;
-                    this.mBG = i3 + 1;
+                    int i3 = this.mJO;
+                    this.mJO = i3 + 1;
                     i = bArr[i3] & 255;
-                    if (this.mBG >= this.buffer.length) {
-                        this.mBG = 0;
+                    if (this.mJO >= this.buffer.length) {
+                        this.mJO = 0;
                     }
-                    if (this.mBF == this.mBG) {
-                        this.mBF = -1;
+                    if (this.mJN == this.mJO) {
+                        this.mJN = -1;
                     }
                 }
             }
@@ -183,24 +183,24 @@ public class PipedInputStreamAndroid25 extends InputStream {
                 } else {
                     bArr[i] = (byte) read;
                     i3 = 1;
-                    while (this.mBF >= 0 && i2 > 1) {
-                        if (this.mBF > this.mBG) {
-                            length = Math.min(this.buffer.length - this.mBG, this.mBF - this.mBG);
+                    while (this.mJN >= 0 && i2 > 1) {
+                        if (this.mJN > this.mJO) {
+                            length = Math.min(this.buffer.length - this.mJO, this.mJN - this.mJO);
                         } else {
-                            length = this.buffer.length - this.mBG;
+                            length = this.buffer.length - this.mJO;
                         }
                         if (length > i2 - 1) {
                             length = i2 - 1;
                         }
-                        System.arraycopy(this.buffer, this.mBG, bArr, i + i3, length);
-                        this.mBG += length;
+                        System.arraycopy(this.buffer, this.mJO, bArr, i + i3, length);
+                        this.mJO += length;
                         i3 += length;
                         i2 -= length;
-                        if (this.mBG >= this.buffer.length) {
-                            this.mBG = 0;
+                        if (this.mJO >= this.buffer.length) {
+                            this.mJO = 0;
                         }
-                        if (this.mBF == this.mBG) {
-                            this.mBF = -1;
+                        if (this.mJN == this.mJO) {
+                            this.mJN = -1;
                         }
                     }
                 }
@@ -212,23 +212,23 @@ public class PipedInputStreamAndroid25 extends InputStream {
     @Override // java.io.InputStream
     public synchronized int available() throws IOException {
         int length;
-        if (this.mBF < 0) {
+        if (this.mJN < 0) {
             length = 0;
-        } else if (this.mBF == this.mBG) {
+        } else if (this.mJN == this.mJO) {
             length = this.buffer.length;
-        } else if (this.mBF > this.mBG) {
-            length = this.mBF - this.mBG;
+        } else if (this.mJN > this.mJO) {
+            length = this.mJN - this.mJO;
         } else {
-            length = (this.mBF + this.buffer.length) - this.mBG;
+            length = (this.mJN + this.buffer.length) - this.mJO;
         }
         return length;
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.mBB = true;
+        this.mJJ = true;
         synchronized (this) {
-            this.mBF = -1;
+            this.mJN = -1;
         }
     }
 }

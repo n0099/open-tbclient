@@ -1,10 +1,10 @@
 package com.baidu.afd.videopaster.data;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class b {
+    private int Yp = -1;
+    private int Yq = -1;
+    private int Yr = -1;
     private String video_id;
-    private int Yz = -1;
-    private int YA = -1;
-    private int YB = -1;
 
     public String getVideoId() {
         return this.video_id;
@@ -14,27 +14,27 @@ public class b {
         this.video_id = str;
     }
 
-    public int qq() {
-        return this.Yz;
-    }
-
-    public void aS(int i) {
-        this.Yz = i;
-    }
-
     public int qr() {
-        return this.YA;
-    }
-
-    public void aT(int i) {
-        this.YA = i;
-    }
-
-    public int qs() {
-        return this.YB;
+        return this.Yp;
     }
 
     public void aU(int i) {
-        this.YB = i;
+        this.Yp = i;
+    }
+
+    public int qs() {
+        return this.Yq;
+    }
+
+    public void aV(int i) {
+        this.Yq = i;
+    }
+
+    public int qt() {
+        return this.Yr;
+    }
+
+    public void aW(int i) {
+        this.Yr = i;
     }
 }

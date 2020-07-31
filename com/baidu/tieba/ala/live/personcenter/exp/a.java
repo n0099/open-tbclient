@@ -9,41 +9,41 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.view.ALALevelView;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private ArrayList<b> fPG = new ArrayList<>();
-    private AlaPersonCenterExpActivity fPH;
+    private ArrayList<b> fUZ = new ArrayList<>();
+    private AlaPersonCenterExpActivity fVa;
     private Context mContext;
     private int mSkinType;
 
     public a(AlaPersonCenterExpActivity alaPersonCenterExpActivity) {
-        this.fPH = alaPersonCenterExpActivity;
+        this.fVa = alaPersonCenterExpActivity;
         this.mContext = alaPersonCenterExpActivity.getPageContext().getPageActivity();
     }
 
-    public void qU(int i) {
+    public void rk(int i) {
         this.mSkinType = i;
     }
 
-    public void W(ArrayList<b> arrayList) {
-        this.fPG.clear();
-        this.fPG.addAll(arrayList);
+    public void X(ArrayList<b> arrayList) {
+        this.fUZ.clear();
+        this.fUZ.addAll(arrayList);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fPG == null) {
+        if (this.fUZ == null) {
             return 1;
         }
-        return this.fPG.size() + 1;
+        return this.fUZ.size() + 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.fPG.size())) {
+        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.fUZ.size())) {
             return null;
         }
-        return this.fPG.get(i - 1);
+        return this.fUZ.get(i - 1);
     }
 
     @Override // android.widget.Adapter
@@ -77,45 +77,45 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_exp_header, viewGroup, false);
         }
-        this.fPH.getLayoutMode().onModeChanged(view);
+        this.fVa.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     private View b(int i, View view, ViewGroup viewGroup) {
-        C0561a c0561a;
+        C0572a c0572a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_exp_item, viewGroup, false);
-            C0561a c0561a2 = new C0561a(view);
-            view.setTag(c0561a2);
-            c0561a = c0561a2;
+            C0572a c0572a2 = new C0572a(view);
+            view.setTag(c0572a2);
+            c0572a = c0572a2;
         } else {
-            c0561a = (C0561a) view.getTag();
+            c0572a = (C0572a) view.getTag();
         }
         b bVar = (b) getItem(i);
         if (bVar != null) {
-            c0561a.aI(bVar.level, bVar.fPK);
+            c0572a.aK(bVar.level, bVar.fVd);
         }
-        this.fPH.getLayoutMode().onModeChanged(view);
+        this.fVa.getLayoutMode().onModeChanged(view);
         if (this.mSkinType == 1) {
-            c0561a.fBq.b(a.d.sdk_cp_cont_g, 0.7f);
+            c0572a.fGA.b(a.d.sdk_cp_cont_g, 0.7f);
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.live.personcenter.exp.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0561a {
-        private ALALevelView fBq;
-        private TextView fPI;
+    /* loaded from: classes4.dex */
+    public class C0572a {
+        private ALALevelView fGA;
+        private TextView fVb;
 
-        public C0561a(View view) {
-            this.fBq = (ALALevelView) view.findViewById(a.g.ala_person_center_exp_level);
-            this.fPI = (TextView) view.findViewById(a.g.ala_person_center_exp_level_range);
+        public C0572a(View view) {
+            this.fGA = (ALALevelView) view.findViewById(a.g.ala_person_center_exp_level);
+            this.fVb = (TextView) view.findViewById(a.g.ala_person_center_exp_level_range);
         }
 
-        public void aI(int i, String str) {
-            this.fBq.setupLevelIcon(i);
-            this.fPI.setText(str);
+        public void aK(int i, String str) {
+            this.fGA.setupLevelIcon(i);
+            this.fVb.setText(str);
         }
     }
 

@@ -2,40 +2,40 @@ package com.baidu.swan.pms.node.a;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.e.j;
+import com.baidu.swan.d.i;
 import com.baidu.swan.pms.node.Node;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class b {
-    private static volatile b drz;
-    private a drA = new a();
+    private static volatile b dxq;
+    private a dxr = new a();
 
-    public static b aIi() {
-        if (drz == null) {
+    public static b aMa() {
+        if (dxq == null) {
             synchronized (b.class) {
-                if (drz == null) {
-                    drz = new b();
+                if (dxq == null) {
+                    dxq = new b();
                 }
             }
         }
-        return drz;
+        return dxq;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String aIj() {
-        return this.drA.getString("ceres_info", "0");
+    public String aMb() {
+        return this.dxr.getString("ceres_info", "0");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String aIk() {
-        return this.drA.getString("global_info", "0");
+    public String aMc() {
+        return this.dxr.getString("global_info", "0");
     }
 
     private b() {
     }
 
-    public com.baidu.swan.pms.node.a.a cm(JSONObject jSONObject) {
+    public com.baidu.swan.pms.node.a.a cs(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -57,12 +57,12 @@ public class b {
         if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
             return null;
         }
-        this.drA.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
+        this.dxr.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
         return new com.baidu.swan.pms.node.a.a(optJSONArray, optJSONObject3);
     }
 
-    /* loaded from: classes11.dex */
-    private static class a extends j {
+    /* loaded from: classes19.dex */
+    private static class a extends i {
         private a() {
             super("updatecore_node_ceres");
         }

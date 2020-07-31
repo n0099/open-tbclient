@@ -109,6 +109,7 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         };
         private static final String TAG = "SubscriptionInfo";
         private String mDescription;
+        private String mMiNiTopicId;
         private int mStatus;
         private long mTopicId;
         private String mTopicName;
@@ -131,6 +132,7 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
             this.mTopicName = "";
             this.mDescription = "";
             this.mTopicId = parcel.readLong();
+            this.mMiNiTopicId = parcel.readString();
             this.mTopicName = parcel.readString();
             this.mDescription = parcel.readString();
             this.mStatus = parcel.readInt();
@@ -138,6 +140,10 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
 
         public long getTopicId() {
             return this.mTopicId;
+        }
+
+        public String getMiNiTopicId() {
+            return this.mMiNiTopicId;
         }
 
         public String getTopicName() {
@@ -154,6 +160,10 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
 
         public void setTopicId(long j) {
             this.mTopicId = j;
+        }
+
+        public void setMiNiTopicId(String str) {
+            this.mMiNiTopicId = str;
         }
 
         public void setTopicName(String str) {
@@ -176,6 +186,7 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             parcel.writeLong(this.mTopicId);
+            parcel.writeString(this.mMiNiTopicId);
             parcel.writeString(this.mTopicName);
             parcel.writeString(this.mDescription);
             parcel.writeInt(this.mStatus);

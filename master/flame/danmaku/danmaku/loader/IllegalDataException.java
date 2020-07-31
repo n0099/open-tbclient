@@ -1,5 +1,5 @@
 package master.flame.danmaku.danmaku.loader;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class IllegalDataException extends Exception {
     private static final long serialVersionUID = 10441759254L;
 

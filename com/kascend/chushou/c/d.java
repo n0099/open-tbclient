@@ -6,9 +6,9 @@ import com.kascend.chushou.constants.ParserRet;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
-    public static ParserRet dP(JSONObject jSONObject) {
+    public static ParserRet dW(JSONObject jSONObject) {
         String str;
         Exception e;
         int i = -1;
@@ -29,7 +29,7 @@ public class d {
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                         if (optJSONObject != null) {
-                            arrayList.add(a.dR(optJSONObject));
+                            arrayList.add(a.dY(optJSONObject));
                         }
                     }
                 }
@@ -51,7 +51,7 @@ public class d {
         return parserRet2;
     }
 
-    public static ParserRet dT(JSONObject jSONObject) {
+    public static ParserRet ea(JSONObject jSONObject) {
         String str;
         Exception e;
         JSONObject jSONObject2;
@@ -63,7 +63,7 @@ public class d {
             if (i == 0) {
                 try {
                     if (jSONObject.has("data") && (jSONObject2 = jSONObject.getJSONObject("data").getJSONObject("advert")) != null) {
-                        listItem = a.dR(jSONObject2);
+                        listItem = a.dY(jSONObject2);
                     }
                 } catch (Exception e2) {
                     e = e2;
@@ -86,8 +86,8 @@ public class d {
         return parserRet2;
     }
 
-    public static ParserRet dU(JSONObject jSONObject) {
-        ArrayList<PannelItem> Z;
+    public static ParserRet eb(JSONObject jSONObject) {
+        ArrayList<PannelItem> aa;
         int optInt = jSONObject.optInt("code", -1);
         String optString = jSONObject.optString("message", "");
         String str = null;
@@ -96,8 +96,8 @@ public class d {
         if (optJSONObject != null) {
             str = optJSONObject.optString("breakpoint");
             JSONArray optJSONArray = optJSONObject.optJSONArray("panels");
-            if (optJSONArray != null && (Z = a.Z(optJSONArray)) != null) {
-                arrayList.addAll(Z);
+            if (optJSONArray != null && (aa = a.aa(optJSONArray)) != null) {
+                arrayList.addAll(aa);
             }
         }
         ParserRet parserRet = new ParserRet();

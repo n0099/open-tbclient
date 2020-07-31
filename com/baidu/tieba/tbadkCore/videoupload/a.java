@@ -9,61 +9,61 @@ import com.baidu.tieba.tbadkCore.videoupload.a.d;
 import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
-    private static int lIX = 524288;
-    private static int lIY = 6144000;
-    private static int lIZ = 524288;
-    private h lHf;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b lJa;
+    private static int lQl = 524288;
+    private static int lQm = 6144000;
+    private static int lQn = 524288;
+    private h lOt;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b lQo;
 
     public a(h hVar) {
-        this.lHf = hVar;
+        this.lOt = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                this.lJa = new d(str2, lIZ, this.lHf);
+                this.lQo = new d(str2, lQn, this.lOt);
             } else {
-                this.lJa = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, lIX, lIY, this.lHf);
+                this.lQo = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, lQl, lQm, this.lOt);
             }
-            this.lJa.a(eVar);
-            return this.lJa.bF(str2, i);
+            this.lQo.a(eVar);
+            return this.lQo.bD(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.lHf != null) {
-                this.lHf.l(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.k.a.t(e));
+            if (this.lOt != null) {
+                this.lOt.m(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.k.a.s(e));
             }
             return null;
         }
     }
 
     public void cancelUpload() {
-        if (this.lJa != null) {
-            this.lJa.cancel();
+        if (this.lQo != null) {
+            this.lQo.cancel();
         }
     }
 
-    public static void Fj(int i) {
+    public static void FF(int i) {
         if (i <= 0) {
-            lIZ = 524288;
+            lQn = 524288;
         } else {
-            lIZ = i;
+            lQn = i;
         }
     }
 
-    public static void Fk(int i) {
+    public static void FG(int i) {
         if (i <= 0) {
-            lIX = 524288;
+            lQl = 524288;
         } else {
-            lIX = i;
+            lQl = i;
         }
     }
 
-    public static void Fl(int i) {
+    public static void FH(int i) {
         if (i <= 0) {
-            lIY = 6144000;
+            lQm = 6144000;
         } else {
-            lIY = i;
+            lQm = i;
         }
     }
 }

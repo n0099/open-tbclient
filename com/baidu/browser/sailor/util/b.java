@@ -23,19 +23,10 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
-import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class b {
-    private static final String a;
-    private static SimpleDateFormat adJ = null;
-    private static final Pattern b;
-    private static Handler c;
-
-    static {
-        String str = "(((?<=[\\.])|^)((([a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef][a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef\\-]*)*[a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef]\\.)(" + f.a + "\\.)*" + f.a + ")|^" + f.adK + ")$";
-        a = str;
-        b = Pattern.compile(str);
-    }
+    private static Handler a;
+    private static SimpleDateFormat b = null;
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x0044 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
@@ -143,7 +134,7 @@ public final class b {
 
     public static void a(Runnable runnable) {
         if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-            rE().post(runnable);
+            rG().post(runnable);
         } else {
             runnable.run();
         }
@@ -255,12 +246,12 @@ public final class b {
         return false;
     }
 
-    private static Handler rE() {
+    private static Handler rG() {
         synchronized (b.class) {
-            if (c == null) {
-                c = new Handler(Looper.getMainLooper());
+            if (a == null) {
+                a = new Handler(Looper.getMainLooper());
             }
         }
-        return c;
+        return a;
     }
 }

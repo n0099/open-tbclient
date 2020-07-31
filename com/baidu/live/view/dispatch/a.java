@@ -1,11 +1,11 @@
 package com.baidu.live.view.dispatch;
 
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface a {
-    void KJ();
+    void KQ();
 
-    boolean X(View view);
+    boolean aa(View view);
 
     int indexOfChild(View view);
 

@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.setting.oauth;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public enum TaskState {
     INIT(0),
     CALLING(1),

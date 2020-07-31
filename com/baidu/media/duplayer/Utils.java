@@ -19,7 +19,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class Utils {
     public static String a = "filecache-Utils";
     public static int b = 536870912;
@@ -88,15 +88,13 @@ public class Utils {
     }
 
     public static void a(String str, boolean z) {
-        if (CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_MONITOR, false)) {
-            try {
-                String str2 = Build.DISPLAY;
-                if (TextUtils.isEmpty(str2)) {
-                    str2 = "sdk-" + Build.VERSION.SDK_INT;
-                }
-                nativeMonitorInit(str, str2, z);
-            } catch (Exception e2) {
+        try {
+            String str2 = Build.DISPLAY;
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "sdk-" + Build.VERSION.SDK_INT;
             }
+            nativeMonitorInit(str, str2, z);
+        } catch (Exception e2) {
         }
     }
 

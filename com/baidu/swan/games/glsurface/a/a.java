@@ -2,12 +2,12 @@ package com.baidu.swan.games.glsurface.a;
 
 import android.view.MotionEvent;
 import com.baidu.searchbox.v8engine.event.JSEvent;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class a {
-    private com.baidu.swan.games.f.a ddp;
+    private com.baidu.swan.games.f.a dja;
 
     public void setV8Engine(com.baidu.swan.games.f.a aVar) {
-        this.ddp = aVar;
+        this.dja = aVar;
     }
 
     public void ar(int i, int i2) {
@@ -19,18 +19,18 @@ public final class a {
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.ddp != null) {
-            boolean a = b.a(this.ddp.aAH());
-            boolean a2 = b.a(this.ddp.aAI());
+        if (this.dja != null) {
+            boolean a = b.a(this.dja.aEm());
+            boolean a2 = b.a(this.dja.aEn());
             JSEvent jSEvent = null;
             if (a || a2) {
                 jSEvent = b.o(motionEvent);
             }
-            r0 = a ? this.ddp.dispatchEvent(jSEvent) : false;
-            if (a2 && this.ddp.isLoaded()) {
-                this.ddp.aAI().dispatchEvent(jSEvent);
+            r0 = a ? this.dja.dispatchEvent(jSEvent) : false;
+            if (a2 && this.dja.isLoaded()) {
+                this.dja.aEn().dispatchEvent(jSEvent);
             }
-            b.fS(true);
+            b.gj(true);
         }
         return r0;
     }

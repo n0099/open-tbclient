@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 @ControllerAdvice
 @Order
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class FastJsonViewResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     /* renamed from: beforeBodyWrite  reason: collision with other method in class */
     public /* bridge */ /* synthetic */ Object m9beforeBodyWrite(Object obj, MethodParameter methodParameter, MediaType mediaType, Class cls, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {

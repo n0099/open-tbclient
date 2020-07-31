@@ -6,42 +6,51 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class d extends a {
-    private boolean egE;
+    private boolean emN;
 
     public d() {
-        this.ego = R.color.cp_link_tip_a;
-        this.egE = false;
+        this.emy = R.color.cp_link_tip_a;
+        this.emN = false;
     }
 
-    public void mF(@ColorInt int i) {
-        this.ego = i;
-        this.egE = false;
-        this.egA = false;
-        if (this.egC != null) {
-            this.egC.aYR();
+    public void mV(@ColorRes int i) {
+        this.emy = i;
+        this.emN = false;
+        this.emJ = true;
+        if (this.emL != null) {
+            this.emL.bcO();
         }
     }
 
-    public void aYV() {
-        this.ego = R.color.cp_cont_a;
-        this.egE = false;
-        this.egA = true;
-        if (this.egC != null) {
-            this.egC.aYR();
+    public void mY(@ColorInt int i) {
+        this.emy = i;
+        this.emN = false;
+        this.emJ = false;
+        if (this.emL != null) {
+            this.emL.bcO();
         }
     }
 
-    public void mE(@ColorRes int i) {
-        this.ego = i;
-        this.egp = R.color.cp_btn_b;
-        this.egE = true;
-        this.egA = true;
-        if (this.egC != null) {
-            this.egC.aYR();
+    public void bcS() {
+        this.emy = R.color.cp_cont_a;
+        this.emN = false;
+        this.emJ = true;
+        if (this.emL != null) {
+            this.emL.bcO();
+        }
+    }
+
+    public void mX(@ColorRes int i) {
+        this.emy = i;
+        this.emz = R.color.cp_btn_b;
+        this.emN = true;
+        this.emJ = true;
+        if (this.emL != null) {
+            this.emL.bcO();
         }
     }
 
@@ -53,10 +62,10 @@ public class d extends a {
 
     private Drawable X(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        if (this.egE) {
-            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), an.getColor(this.egp));
+        if (this.emN) {
+            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), ao.getColor(this.emz));
         } else {
-            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), com.baidu.tieba.tbadkCore.c.l(this.egA ? an.getColor(this.ego) : this.ego, 0.5f));
+            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), com.baidu.tieba.tbadkCore.c.l(this.emJ ? ao.getColor(this.emy) : this.emy, 0.5f));
         }
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);

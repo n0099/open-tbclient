@@ -2,109 +2,109 @@ package com.baidu.minivideo.arface;
 
 import android.os.Environment;
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c {
-    private static String bvL;
-    private static String bvM;
-    private static String bvN;
-    private static String bvO;
-    private static String bvP;
-    private static String bvQ;
-    private static String bvS;
-    private static String bvT;
-    private static String bvU;
-    private static String bvV;
-    private static String bvW;
-    private static String bvX;
-    private static String bvY;
-    private static String bvZ;
     private static String bwa;
     private static String bwb;
     private static String bwc;
     private static String bwd;
     private static String bwe;
-    public static String bvI = "arface_main_res_version";
-    public static int bvJ = 0;
-    public static boolean bvK = true;
-    public static String bvR = "global/res/filter";
+    private static String bwf;
+    private static String bwh;
+    private static String bwi;
+    private static String bwj;
+    private static String bwk;
+    private static String bwl;
+    private static String bwm;
+    private static String bwn;
+    private static String bwo;
+    private static String bwp;
+    private static String bwq;
+    private static String bwr;
+    private static String bws;
+    private static String bwt;
+    public static String bvX = "arface_main_res_version";
+    public static int bvY = 0;
+    public static boolean bvZ = true;
+    public static String bwg = "global/res/filter";
 
     public c(String str) {
         setPath(str);
     }
 
     private static void setPath(String str) {
-        bvL = str + "/";
-        bvM = bvL;
-        bvN = bvL + "ext/";
-        bvO = bvM + "faceModels/";
+        bwa = str + "/";
+        bwb = bwa;
+        bwc = bwa + "ext/";
+        bwd = bwb + "faceModels/";
         if (TextUtils.isEmpty(str)) {
-            bvX = "file:///android_asset/arsource/filters/yuantu/yuantu.png";
-            bvV = "file:///android_asset/arsource/filter/beauty_skin_stream.png";
-            bvW = "file:///android_asset/arsource/filter/beauty_skin_small_video.png";
-            bvO = "file:///android_asset/arsource/faceModels/";
+            bwm = "file:///android_asset/arsource/filters/yuantu/yuantu.png";
+            bwk = "file:///android_asset/arsource/filter/beauty_skin_stream.png";
+            bwl = "file:///android_asset/arsource/filter/beauty_skin_small_video.png";
+            bwd = "file:///android_asset/arsource/faceModels/";
             String str2 = Environment.getExternalStorageDirectory() + "/baidu/quanminvideo/arsource";
-            bvY = str2 + "/makeup";
-            bvZ = str2 + "/beauty";
-            bwa = str2 + "/arFilterInit";
-            bwb = str2 + "/arFilterEditInit";
-            bwc = bvZ + "/liveVideoFace/live_face_knead.json";
-            bwd = bvZ + "/liveVideoFace/goddess_face_knead.json";
-            bwe = bvZ + "/liveVideoFace/baby_face_knead.json";
+            bwn = str2 + "/makeup";
+            bwo = str2 + "/beauty";
+            bwp = str2 + "/arFilterInit";
+            bwq = str2 + "/arFilterEditInit";
+            bwr = bwo + "/liveVideoFace/live_face_knead.json";
+            bws = bwo + "/liveVideoFace/goddess_face_knead.json";
+            bwt = bwo + "/liveVideoFace/baby_face_knead.json";
         } else {
-            bvX = bvM + "filters/yuantu/yuantu.png";
-            bvV = bvM + "filter/beauty_skin_stream.png";
-            bvW = bvM + "filter/beauty_skin_small_video.png";
-            bvY = bvL + "makeup/";
-            bvZ = bvL + "beauty/";
-            bwa = bvL + "arFilterInit/";
-            bwb = bvL + "arFilterEditInit/";
-            bwc = bvZ + "liveVideoFace/live_face_knead.json";
-            bwd = bvZ + "liveVideoFace/goddess_face_knead.json";
-            bwe = bvZ + "liveVideoFace/baby_face_knead.json";
+            bwm = bwb + "filters/yuantu/yuantu.png";
+            bwk = bwb + "filter/beauty_skin_stream.png";
+            bwl = bwb + "filter/beauty_skin_small_video.png";
+            bwn = bwa + "makeup/";
+            bwo = bwa + "beauty/";
+            bwp = bwa + "arFilterInit/";
+            bwq = bwa + "arFilterEditInit/";
+            bwr = bwo + "liveVideoFace/live_face_knead.json";
+            bws = bwo + "liveVideoFace/goddess_face_knead.json";
+            bwt = bwo + "liveVideoFace/baby_face_knead.json";
         }
-        bvQ = bvM + "global";
-        bvU = bvM + "vip_list.json";
-        bvT = bvM + "filters";
-        bvP = bvM + "dlModels/";
-        bvS = bvT + "/all";
-        bvR = bvM + "global/res/filter";
-    }
-
-    public static String Ne() {
-        return bvX;
-    }
-
-    public static String Nf() {
-        return bvM;
-    }
-
-    public static String Ng() {
-        return bvO;
-    }
-
-    public static String Nh() {
-        return bvQ;
-    }
-
-    public static String Ni() {
-        return "/filter_config.json";
+        bwf = bwb + "global";
+        bwj = bwb + "vip_list.json";
+        bwi = bwb + "filters";
+        bwe = bwb + "dlModels/";
+        bwh = bwi + "/all";
+        bwg = bwb + "global/res/filter";
     }
 
     public static String Nj() {
+        return bwm;
+    }
+
+    public static String Nk() {
+        return bwb;
+    }
+
+    public static String Nl() {
+        return bwd;
+    }
+
+    public static String Nm() {
+        return bwf;
+    }
+
+    public static String Nn() {
+        return "/filter_config.json";
+    }
+
+    public static String No() {
         return dO(0);
     }
 
     public static String dO(int i) {
         if (i == 1) {
-            return bwd;
+            return bws;
         }
         if (i == 2) {
-            return bwe;
+            return bwt;
         }
-        return bwc;
+        return bwr;
     }
 
-    public static String cM(boolean z) {
-        return z ? bwa : bwb;
+    public static String cO(boolean z) {
+        return z ? bwp : bwq;
     }
 }

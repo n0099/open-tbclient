@@ -1,9 +1,9 @@
 package master.flame.danmaku.danmaku.model;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface m {
     void a(float f, int i, float f2);
 
-    void aS(float f);
+    void aR(float f);
 
     void b(int i, float[] fArr);
 
@@ -11,15 +11,15 @@ public interface m {
 
     void c(d dVar, boolean z);
 
-    float dSu();
+    float dVQ();
 
-    int dSv();
+    int dVR();
 
-    int dSw();
+    int dVS();
 
-    int dSx();
+    int dVT();
 
-    int dSy();
+    int dVU();
 
     float getDensity();
 
@@ -39,5 +39,5 @@ public interface m {
 
     void setSize(int i, int i2);
 
-    void xu(boolean z);
+    void xZ(boolean z);
 }

@@ -11,12 +11,12 @@ import android.util.Pair;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.NullableCallbackHandler;
 import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.aq.al;
 import com.baidu.swan.apps.runtime.e;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public abstract class d implements com.baidu.swan.apps.api.a.a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
@@ -24,19 +24,19 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
     @NonNull
     private b mSwanApiContext;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         com.baidu.swan.apps.api.c.b a(e eVar, JSONObject jSONObject, @Nullable String str);
     }
 
     public d(@NonNull b bVar) {
         this.mSwanApiContext = bVar;
-        this.mCallbackHandler = bVar.UW();
+        this.mCallbackHandler = bVar.VB();
     }
 
     @Override // com.baidu.swan.apps.api.a.a
     @NonNull
-    public final b UY() {
+    public final b VD() {
         return this.mSwanApiContext;
     }
 
@@ -61,7 +61,7 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
             if (DEBUG) {
                 Log.d("Api-Base", "invokeCallback: other thread " + Thread.currentThread().getName());
             }
-            aj.p(new Runnable() { // from class: com.baidu.swan.apps.api.a.d.1
+            al.p(new Runnable() { // from class: com.baidu.swan.apps.api.a.d.1
                 @Override // java.lang.Runnable
                 public void run() {
                     d.this.b(str, bVar);
@@ -77,7 +77,7 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
     }
 
     @NonNull
-    public static Pair<com.baidu.swan.apps.api.c.a, JSONObject> hj(String str) {
+    public static Pair<com.baidu.swan.apps.api.c.a, JSONObject> hr(String str) {
         if (DEBUG) {
             Log.d("Api-Base", "parseParams(String): String");
         }
@@ -269,12 +269,12 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean Va() {
-        e apN = e.apN();
-        if (apN == null) {
+    public final boolean VF() {
+        e arw = e.arw();
+        if (arw == null) {
             return true;
         }
-        return apN.Va();
+        return arw.VF();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -292,8 +292,8 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public com.baidu.swan.apps.api.c.b a(@Nullable String str, @NonNull c cVar) {
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aR = com.baidu.swan.apps.api.d.b.aR("Api-Base", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aR.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aS = com.baidu.swan.apps.api.d.b.aS("Api-Base", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aS.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Base", "parse fail");
@@ -301,7 +301,7 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
             }
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) aR.second;
+        JSONObject jSONObject = (JSONObject) aS.second;
         String optString = jSONObject.optString("cb");
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.e("Api-Base", "cb is required");
@@ -312,17 +312,17 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public com.baidu.swan.apps.api.c.b a(String str, boolean z, a aVar) {
-        e apM = e.apM();
-        if (apM == null) {
+        e arv = e.arv();
+        if (arv == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "swan app is null");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aR = com.baidu.swan.apps.api.d.b.aR("Api-Base", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aR.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aS = com.baidu.swan.apps.api.d.b.aS("Api-Base", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aS.first;
         if (!bVar.isSuccess()) {
             com.baidu.swan.apps.console.c.e("Api-Base", "parse fail");
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) aR.second;
+        JSONObject jSONObject = (JSONObject) aS.second;
         String str2 = null;
         if (z) {
             str2 = jSONObject.optString("cb");
@@ -331,11 +331,11 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
                 return new com.baidu.swan.apps.api.c.b(202, "callback is null");
             }
         }
-        return aVar.a(apM, jSONObject, str2);
+        return aVar.a(arv, jSONObject, str2);
     }
 
     @Nullable
-    public static JSONObject hk(String str) {
+    public static JSONObject hs(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

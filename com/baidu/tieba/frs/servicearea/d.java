@@ -6,44 +6,50 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.y;
 import com.baidu.tieba.tbadkCore.z;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class d implements a, b {
-    private ImageView hMJ;
-    private View hVY;
-    private z hVZ;
-    private TextView hWc;
-    private TextView hWd;
-    private TextView hWe;
-    private TbClipImageView hWf;
+    private TextView cXo;
+    private ImageView hSI;
+    private View ibX;
+    private z ibY;
+    private TextView icb;
+    private TextView icc;
+    private TbClipImageView icd;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.servicearea.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            e.a(view.getContext(), d.this.hVZ, d.this.hVY);
-            e.c(d.this.hVZ);
+            if (d.this.ibY != null && d.this.ibY.lMh != null) {
+                TiebaStatic.log(new ap("c13274").t("uid", TbadkCoreApplication.getCurrentAccountId()).dn("fid", d.this.ibY.forumId).dn("obj_source", "frs_card").dn("obj_id", d.this.ibY.lMh.id).dn("obj_name", d.this.ibY.lMh.name).ah("obj_param1", d.this.ibY.lMh.dGy.intValue()));
+            }
+            e.a(view.getContext(), d.this.ibY, d.this.ibX);
+            e.c(d.this.ibY);
         }
     };
     private View mRootView;
 
     public d(Context context) {
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.frs_one_service_layout, (ViewGroup) null);
-        this.hWc = (TextView) this.mRootView.findViewById(R.id.frs_service);
-        this.hWd = (TextView) this.mRootView.findViewById(R.id.frs_service_category);
-        this.hWe = (TextView) this.mRootView.findViewById(R.id.frs_service_name);
-        this.hWf = (TbClipImageView) this.mRootView.findViewById(R.id.frs_service_icon);
-        this.hWf.setDrawerType(1);
-        this.hWf.setIsRound(true);
-        this.hWf.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.cXo = (TextView) this.mRootView.findViewById(R.id.frs_service);
+        this.icb = (TextView) this.mRootView.findViewById(R.id.frs_service_category);
+        this.icc = (TextView) this.mRootView.findViewById(R.id.frs_service_name);
+        this.icd = (TbClipImageView) this.mRootView.findViewById(R.id.frs_service_icon);
+        this.icd.setDrawerType(1);
+        this.icd.setIsRound(true);
+        this.icd.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.mRootView.setOnClickListener(this.mOnClickListener);
-        this.hVY = this.mRootView.findViewById(R.id.view_red_dot);
-        this.hMJ = (ImageView) this.mRootView.findViewById(R.id.frs_service_arrow);
+        this.ibX = this.mRootView.findViewById(R.id.view_red_dot);
+        this.hSI = (ImageView) this.mRootView.findViewById(R.id.frs_service_arrow);
     }
 
     @Override // com.baidu.tieba.frs.servicearea.b
@@ -54,31 +60,31 @@ public class d implements a, b {
     @Override // com.baidu.tieba.frs.servicearea.b
     public void setData(y yVar) {
         z zVar;
-        if (yVar != null && !w.isEmpty(yVar.dataList) && (zVar = yVar.dataList.get(0)) != null) {
-            this.hVZ = zVar;
-            if (this.hVZ.lES != null) {
-                this.hWd.setText(this.mRootView.getContext().getString(R.string.ai_smart_app));
+        if (yVar != null && !x.isEmpty(yVar.dataList) && (zVar = yVar.dataList.get(0)) != null) {
+            this.ibY = zVar;
+            if (this.ibY.lMh != null) {
+                this.icb.setText(this.mRootView.getContext().getString(R.string.ai_smart_app));
             } else {
-                this.hWd.setText(this.mRootView.getContext().getString(R.string.frs_service_special));
+                this.icb.setText(this.mRootView.getContext().getString(R.string.frs_service_special));
             }
-            this.hWe.setText(ar.ah(zVar.name, 20));
-            this.hWf.startLoad(zVar.imageUrl, 10, false);
-            this.hVY.setVisibility(zVar.hdb ? 0 : 8);
+            this.icc.setText(as.ai(zVar.name, 20));
+            this.icd.startLoad(zVar.imageUrl, 10, false);
+            this.ibX.setVisibility(zVar.hiL ? 0 : 8);
             e.b(zVar);
         }
     }
 
     @Override // com.baidu.tieba.frs.servicearea.b
     public void onChangeSkinType(int i) {
-        an.setViewTextColor(this.hWd, (int) R.color.cp_cont_b);
-        an.setViewTextColor(this.hWe, (int) R.color.cp_cont_b);
-        an.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        this.hVY.setBackground(an.getDrawable(R.drawable.frs_service_red_dot));
-        this.hMJ.setImageDrawable(SvgManager.aWQ().a(R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null));
+        ao.setViewTextColor(this.icb, R.color.cp_cont_b);
+        ao.setViewTextColor(this.icc, R.color.cp_cont_b);
+        ao.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
+        this.ibX.setBackground(ao.getDrawable(R.drawable.frs_service_red_dot));
+        this.hSI.setImageDrawable(SvgManager.baR().a(R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null));
     }
 
     @Override // com.baidu.tieba.frs.servicearea.a
     public void setThemeFontColor(int i) {
-        this.hWc.setTextColor(i);
+        this.cXo.setTextColor(i);
     }
 }

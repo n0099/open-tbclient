@@ -2,7 +2,7 @@ package com.baidu.pass.biometrics.base.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SharedPreferencesUtils {
     private SharedPreferencesUtils() {
     }

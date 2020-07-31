@@ -5,7 +5,7 @@ import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.swan.games.utils.so.SoUtils;
 import com.tencent.connect.common.Constants;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static String a(String str) {
         if (h.isEmpty(str)) {
@@ -104,7 +104,7 @@ public class b {
                 }
                 break;
             case 1604:
-                if (str.equals("26")) {
+                if (str.equals(SoUtils.SO_EVENT_ID_V8_SO)) {
                     c = 7;
                     break;
                 }

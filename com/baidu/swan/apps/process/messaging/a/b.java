@@ -10,7 +10,7 @@ import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.apps.process.a.b.c.c;
 import com.baidu.swan.apps.process.messaging.service.e;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = b.class.getSimpleName();
@@ -20,31 +20,31 @@ public class b {
             Log.d(TAG, "sendMessageToClient: delegation: " + cls.getName());
         }
         Message obtain = Message.obtain((Handler) null, 301);
-        obtain.replyTo = e.aov().mMessenger;
+        obtain.replyTo = e.aqf().mMessenger;
         Bundle bundle2 = new Bundle();
         bundle2.putString("ai_apps_delegation_name", cls.getName());
         if (cVar != null) {
-            bundle2.putString("ai_apps_observer_id", cVar.anC());
-            com.baidu.swan.apps.process.a.b.b.a.anD().a(cVar);
+            bundle2.putString("ai_apps_observer_id", cVar.apm());
+            com.baidu.swan.apps.process.a.b.b.a.apn().a(cVar);
         }
         if (bundle != null) {
             bundle2.putBundle("ai_apps_data", bundle);
         }
         obtain.obj = bundle2;
-        com.baidu.swan.apps.process.messaging.a.anM().a(new com.baidu.swan.apps.process.messaging.c(obtain).a(swanAppProcessInfo));
+        com.baidu.swan.apps.process.messaging.a.apw().a(new com.baidu.swan.apps.process.messaging.c(obtain).a(swanAppProcessInfo));
     }
 
     public static void a(@Nullable Bundle bundle, @NonNull Class<? extends com.baidu.swan.apps.process.a.a.a> cls) {
-        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = e.aov().aox().iterator();
+        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = e.aqf().aqh().iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.process.messaging.service.c next = it.next();
-            if (next != null && next.aom()) {
-                a(next.cyQ, bundle, cls, null);
+            if (next != null && next.apW()) {
+                a(next.cBq, bundle, cls, null);
             }
         }
     }
 
     public static void a(@Nullable Bundle bundle, @NonNull Class<? extends com.baidu.swan.apps.process.a.a.a> cls, @Nullable c cVar) {
-        com.baidu.swan.apps.process.messaging.client.a.anW().b(bundle, cls, cVar);
+        com.baidu.swan.apps.process.messaging.client.a.apG().b(bundle, cls, cVar);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.wnplatform.o;
 
 import android.content.Context;
 import android.media.AudioManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class h {
     private static AudioManager b(Context context) {
         if (context != null) {

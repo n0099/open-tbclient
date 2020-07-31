@@ -1,5 +1,5 @@
 package com.baidu.ar.face.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class f {
     private double oA;
     private double oB;

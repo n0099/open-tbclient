@@ -1,13 +1,13 @@
 package com.baidu.tieba.write.write.sticker.a;
 
 import android.graphics.Bitmap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface c {
-    boolean S(Bitmap bitmap);
+    boolean V(Bitmap bitmap);
 
-    void dsF();
+    void dvR();
 
-    void dsG();
+    void dvS();
 
-    void dsH();
+    void dvT();
 }

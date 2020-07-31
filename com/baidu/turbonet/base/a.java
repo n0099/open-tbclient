@@ -2,7 +2,7 @@ package com.baidu.turbonet.base;
 
 import android.util.Log;
 import java.util.Locale;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class a {
     private a() {
     }
@@ -14,7 +14,7 @@ public class a {
         return str;
     }
 
-    public static String Pu(String str) {
+    public static String Qf(String str) {
         if (!str.startsWith("cr_")) {
             int i = 0;
             if (str.startsWith("cr.")) {
@@ -26,16 +26,16 @@ public class a {
     }
 
     private static String k(String str, Object... objArr) {
-        return "[" + duN() + "] " + j(str, objArr);
+        return "[" + dya() + "] " + j(str, objArr);
     }
 
     private static void f(String str, String str2, Object... objArr) {
         String k = k(str2, objArr);
         Throwable M = M(objArr);
         if (M != null) {
-            Log.d(Pu(str), k, M);
+            Log.d(Qf(str), k, M);
         } else {
-            Log.d(Pu(str), k);
+            Log.d(Qf(str), k);
         }
     }
 
@@ -47,9 +47,9 @@ public class a {
         String j = j(str2, objArr);
         Throwable M = M(objArr);
         if (M != null) {
-            Log.i(Pu(str), j, M);
+            Log.i(Qf(str), j, M);
         } else {
-            Log.i(Pu(str), j);
+            Log.i(Qf(str), j);
         }
     }
 
@@ -57,9 +57,9 @@ public class a {
         String j = j(str2, objArr);
         Throwable M = M(objArr);
         if (M != null) {
-            Log.e(Pu(str), j, M);
+            Log.e(Qf(str), j, M);
         } else {
-            Log.e(Pu(str), j);
+            Log.e(Qf(str), j);
         }
     }
 
@@ -74,7 +74,7 @@ public class a {
         return null;
     }
 
-    private static String duN() {
+    private static String dya() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         String name = a.class.getName();
         int i = 0;

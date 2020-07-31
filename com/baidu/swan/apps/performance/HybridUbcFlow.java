@@ -2,7 +2,7 @@ package com.baidu.swan.apps.performance;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.aq.n;
+import com.baidu.swan.apps.aq.p;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -12,75 +12,75 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class HybridUbcFlow {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final SubmitStrategy cwj = SubmitStrategy.HYBRID;
-    private String cvX;
-    private final JSONObject cvY = new JSONObject();
-    private final Map<String, String> cvZ = new HashMap();
-    public final List<String> cwa = new ArrayList();
-    private final Map<String, UbcFlowEvent> cwb = new HashMap();
-    public final List<UbcFlowEvent> cwc = new ArrayList();
-    private boolean cwd = false;
-    private boolean cwe = false;
-    private boolean cwf = false;
-    private boolean cwg = false;
-    private boolean cwh = false;
-    private volatile boolean cwi = false;
-    private SubmitStrategy cwk = cwj;
-    private final Map<String, List<a>> cwl = new HashMap();
-    private String cwm = "";
+    public static final SubmitStrategy cyx = SubmitStrategy.HYBRID;
+    private String cyl;
     public final String name;
+    private final JSONObject cym = new JSONObject();
+    private final Map<String, String> cyn = new HashMap();
+    public final List<String> cyo = new ArrayList();
+    private final Map<String, UbcFlowEvent> cyp = new HashMap();
+    public final List<UbcFlowEvent> cyq = new ArrayList();
+    private boolean cyr = false;
+    private boolean cys = false;
+    private boolean cyt = false;
+    private boolean cyu = false;
+    private boolean cyv = false;
+    private volatile boolean cyw = false;
+    private SubmitStrategy cyy = cyx;
+    private final Map<String, List<a>> cyz = new HashMap();
+    private String cyA = "";
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public enum SubmitStrategy {
         HYBRID { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy.1
             @Override // com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy
             boolean submitAllowed(HybridUbcFlow hybridUbcFlow) {
-                return hybridUbcFlow.amn() && hybridUbcFlow.amo() && hybridUbcFlow.amp();
+                return hybridUbcFlow.anH() && hybridUbcFlow.anI() && hybridUbcFlow.anJ();
             }
         },
         HYBRID_WEB { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy.2
             @Override // com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy
             boolean submitAllowed(HybridUbcFlow hybridUbcFlow) {
-                return hybridUbcFlow.amn() && hybridUbcFlow.amo() && hybridUbcFlow.amq();
+                return hybridUbcFlow.anH() && hybridUbcFlow.anI() && hybridUbcFlow.anK();
             }
         },
         RELAUNCH { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy.3
             @Override // com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy
             boolean submitAllowed(HybridUbcFlow hybridUbcFlow) {
-                return hybridUbcFlow.amn() && hybridUbcFlow.amo() && hybridUbcFlow.amp();
+                return hybridUbcFlow.anH() && hybridUbcFlow.anI() && hybridUbcFlow.anJ();
             }
         },
         RELAUNCH_WEB { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy.4
             @Override // com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy
             boolean submitAllowed(HybridUbcFlow hybridUbcFlow) {
-                return hybridUbcFlow.amn() && hybridUbcFlow.amo() && hybridUbcFlow.amq();
+                return hybridUbcFlow.anH() && hybridUbcFlow.anI() && hybridUbcFlow.anK();
             }
         },
         NA_ONLY { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy.5
             @Override // com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy
             boolean submitAllowed(HybridUbcFlow hybridUbcFlow) {
-                return hybridUbcFlow.amn();
+                return hybridUbcFlow.anH();
             }
         },
         ROUTE { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy.6
             @Override // com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy
             boolean submitAllowed(HybridUbcFlow hybridUbcFlow) {
-                return hybridUbcFlow.amn() && hybridUbcFlow.amo();
+                return hybridUbcFlow.anH() && hybridUbcFlow.anI();
             }
         },
         ROUTE_NA { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy.7
             @Override // com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy
             boolean submitAllowed(HybridUbcFlow hybridUbcFlow) {
-                return hybridUbcFlow.amn();
+                return hybridUbcFlow.anH();
             }
         },
         ROUTE_WEB { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy.8
             @Override // com.baidu.swan.apps.performance.HybridUbcFlow.SubmitStrategy
             boolean submitAllowed(HybridUbcFlow hybridUbcFlow) {
-                return hybridUbcFlow.amn() && hybridUbcFlow.amo() && hybridUbcFlow.amr();
+                return hybridUbcFlow.anH() && hybridUbcFlow.anI() && hybridUbcFlow.anL();
             }
         };
 
@@ -92,53 +92,53 @@ public final class HybridUbcFlow {
         this.name = str;
     }
 
-    public boolean mA(String str) {
+    public boolean na(String str) {
         boolean z = false;
         boolean z2 = !TextUtils.isEmpty(str);
-        if (TextUtils.isEmpty(this.cwm)) {
+        if (TextUtils.isEmpty(this.cyA)) {
             if (z2) {
-                str = this.cwm;
+                str = this.cyA;
             }
-            this.cwm = str;
+            this.cyA = str;
             return true;
         }
-        if (!z2 || TextUtils.equals(this.cwm, str)) {
+        if (!z2 || TextUtils.equals(this.cyA, str)) {
             z = true;
         }
         return z;
     }
 
-    public HybridUbcFlow mB(String str) {
-        this.cvX = str;
+    public HybridUbcFlow nb(String str) {
+        this.cyl = str;
         return this;
     }
 
-    public String amg() {
-        return this.cvX;
+    public String anA() {
+        return this.cyl;
     }
 
     private void a(UbcFlowEvent ubcFlowEvent) {
-        this.cwa.remove(ubcFlowEvent.id);
-        this.cwa.add(ubcFlowEvent.id);
-        this.cwb.put(ubcFlowEvent.id, ubcFlowEvent);
+        this.cyo.remove(ubcFlowEvent.id);
+        this.cyo.add(ubcFlowEvent.id);
+        this.cyp.put(ubcFlowEvent.id, ubcFlowEvent);
     }
 
     private void b(UbcFlowEvent ubcFlowEvent) {
-        UbcFlowEvent ubcFlowEvent2 = this.cwb.get(ubcFlowEvent.id);
-        if (!e(ubcFlowEvent2) || ubcFlowEvent.amH() > ubcFlowEvent2.amH()) {
+        UbcFlowEvent ubcFlowEvent2 = this.cyp.get(ubcFlowEvent.id);
+        if (!e(ubcFlowEvent2) || ubcFlowEvent.aob() > ubcFlowEvent2.aob()) {
             a(ubcFlowEvent);
         }
     }
 
     private void c(UbcFlowEvent ubcFlowEvent) {
-        UbcFlowEvent ubcFlowEvent2 = this.cwb.get(ubcFlowEvent.id);
-        if (!e(ubcFlowEvent2) || ubcFlowEvent.amH() < ubcFlowEvent2.amH()) {
+        UbcFlowEvent ubcFlowEvent2 = this.cyp.get(ubcFlowEvent.id);
+        if (!e(ubcFlowEvent2) || ubcFlowEvent.aob() < ubcFlowEvent2.aob()) {
             a(ubcFlowEvent);
         }
     }
 
     private void d(UbcFlowEvent ubcFlowEvent) {
-        if (!e(this.cwb.get(ubcFlowEvent.id))) {
+        if (!e(this.cyp.get(ubcFlowEvent.id))) {
             a(ubcFlowEvent);
         }
     }
@@ -152,8 +152,8 @@ public final class HybridUbcFlow {
             Log.i("HybridUbcFlow", "record " + ubcFlowEvent);
         }
         if (e(ubcFlowEvent)) {
-            synchronized (this.cwa) {
-                switch (ubcFlowEvent.amK()) {
+            synchronized (this.cyo) {
+                switch (ubcFlowEvent.aoe()) {
                     case UPDATE:
                         a(ubcFlowEvent);
                         break;
@@ -176,7 +176,7 @@ public final class HybridUbcFlow {
         if (DEBUG) {
             Log.i("HybridUbcFlow", "record events size = " + list.size());
         }
-        synchronized (this.cwa) {
+        synchronized (this.cyo) {
             for (UbcFlowEvent ubcFlowEvent : list) {
                 f(ubcFlowEvent);
             }
@@ -184,20 +184,20 @@ public final class HybridUbcFlow {
         return this;
     }
 
-    public HybridUbcFlow bF(String str, String str2) {
-        this.cvZ.put(str, str2);
+    public HybridUbcFlow bH(String str, String str2) {
+        this.cyn.put(str, str2);
         return this;
     }
 
-    public String mC(String str) {
-        return this.cvZ.get(str);
+    public String nc(String str) {
+        return this.cyn.get(str);
     }
 
-    public HybridUbcFlow c(HybridUbcFlow hybridUbcFlow) {
+    public HybridUbcFlow d(HybridUbcFlow hybridUbcFlow) {
         if (hybridUbcFlow != null) {
-            hybridUbcFlow.ams();
-            an(hybridUbcFlow.cwc);
-            this.cvZ.putAll(hybridUbcFlow.cvZ);
+            hybridUbcFlow.anM();
+            an(hybridUbcFlow.cyq);
+            this.cyn.putAll(hybridUbcFlow.cyn);
         }
         return this;
     }
@@ -205,7 +205,7 @@ public final class HybridUbcFlow {
     public HybridUbcFlow r(String str, Object obj) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.cvY.put(str, obj);
+                this.cym.put(str, obj);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -215,90 +215,90 @@ public final class HybridUbcFlow {
         return this;
     }
 
-    public JSONObject amh() {
-        return this.cvY;
+    public JSONObject anB() {
+        return this.cym;
     }
 
-    public HybridUbcFlow ami() {
+    public HybridUbcFlow anC() {
         if (DEBUG) {
             Log.i("HybridUbcFlow", "naFlowDone");
         }
-        this.cwd = true;
-        amv();
+        this.cyr = true;
+        anP();
         return this;
     }
 
-    public HybridUbcFlow amj() {
+    public HybridUbcFlow anD() {
         if (DEBUG) {
             Log.i("HybridUbcFlow", "h5FlowDone");
         }
-        this.cwe = true;
-        amv();
+        this.cys = true;
+        anP();
         return this;
     }
 
-    public HybridUbcFlow amk() {
+    public HybridUbcFlow anE() {
         if (DEBUG) {
             Log.i("HybridUbcFlow", "webViewWidgetDone");
         }
-        this.cwh = true;
-        amv();
+        this.cyv = true;
+        anP();
         return this;
     }
 
-    public HybridUbcFlow aml() {
+    public HybridUbcFlow anF() {
         if (DEBUG) {
             Log.i("HybridUbcFlow", "naPaintFlowDone");
         }
-        this.cwf = true;
-        amv();
+        this.cyt = true;
+        anP();
         return this;
     }
 
-    public HybridUbcFlow amm() {
+    public HybridUbcFlow anG() {
         if (DEBUG) {
             Log.i("HybridUbcFlow", "webwidgetPaintDone");
         }
-        this.cwg = true;
-        amv();
+        this.cyu = true;
+        anP();
         return this;
     }
 
-    public boolean amn() {
-        return this.cwd;
+    public boolean anH() {
+        return this.cyr;
     }
 
-    public boolean amo() {
-        return this.cwe;
+    public boolean anI() {
+        return this.cys;
     }
 
-    public boolean amp() {
-        return this.cwf;
+    public boolean anJ() {
+        return this.cyt;
     }
 
-    public boolean amq() {
-        return this.cwg;
+    public boolean anK() {
+        return this.cyu;
     }
 
-    public boolean amr() {
-        return this.cwh;
+    public boolean anL() {
+        return this.cyv;
     }
 
     private boolean isEmpty() {
         boolean isEmpty;
-        synchronized (this.cwa) {
-            isEmpty = this.cwa.isEmpty();
+        synchronized (this.cyo) {
+            isEmpty = this.cyo.isEmpty();
         }
         return isEmpty;
     }
 
-    public void ams() {
+    public void anM() {
         UbcFlowEvent ubcFlowEvent;
-        synchronized (this.cwa) {
-            this.cwc.clear();
-            for (String str : this.cwa) {
-                if (!TextUtils.isEmpty(str) && (ubcFlowEvent = this.cwb.get(str)) != null && ubcFlowEvent.amH() > 0) {
-                    this.cwc.add(ubcFlowEvent);
+        synchronized (this.cyo) {
+            this.cyq.clear();
+            for (String str : this.cyo) {
+                if (!TextUtils.isEmpty(str) && (ubcFlowEvent = this.cyp.get(str)) != null && ubcFlowEvent.aob() > 0) {
+                    this.cyq.add(ubcFlowEvent);
                 }
             }
             sort();
@@ -306,66 +306,70 @@ public final class HybridUbcFlow {
     }
 
     private void sort() {
-        Collections.sort(this.cwc, new Comparator<UbcFlowEvent>() { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.1
+        Collections.sort(this.cyq, new Comparator<UbcFlowEvent>() { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(UbcFlowEvent ubcFlowEvent, UbcFlowEvent ubcFlowEvent2) {
-                return Long.compare(ubcFlowEvent.amH(), ubcFlowEvent2.amH());
+                return Long.compare(ubcFlowEvent.aob(), ubcFlowEvent2.aob());
             }
         });
     }
 
     public HybridUbcFlow a(SubmitStrategy submitStrategy) {
         if (submitStrategy != null) {
-            this.cwk = submitStrategy;
+            this.cyy = submitStrategy;
         }
         return this;
     }
 
-    public SubmitStrategy amt() {
-        return this.cwk;
+    public SubmitStrategy anN() {
+        return this.cyy;
     }
 
-    private boolean amu() {
-        return (this.cwk == null ? cwj : this.cwk).submitAllowed(this);
+    private boolean anO() {
+        return (this.cyy == null ? cyx : this.cyy).submitAllowed(this);
     }
 
-    private void amv() {
-        if (amu()) {
-            amw();
+    private void anP() {
+        if (anO()) {
+            anQ();
         }
     }
 
-    private synchronized void amw() {
-        if (!this.cwi) {
-            this.cwi = true;
-            mD("callback_on_submit");
-            n.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.2
+    private synchronized void anQ() {
+        if (!this.cyw) {
+            this.cyw = true;
+            nd("callback_on_submit");
+            p.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    HybridUbcFlow.this.amx();
+                    HybridUbcFlow.this.anR();
                 }
             }, "HybridUbcFlow");
+            com.baidu.swan.apps.performance.b.c.aoq();
+            if (DEBUG) {
+                Log.d("HybridUbcFlow", "UBC submit " + anA() + ", this=" + hashCode(), new Exception());
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void amx() {
-        ams();
-        mD("component_reporter");
-        if (!TextUtils.isEmpty(this.cvX)) {
-            com.baidu.swan.apps.statistic.a oE = com.baidu.swan.apps.statistic.h.oE(this.cvX);
-            for (UbcFlowEvent ubcFlowEvent : this.cwc) {
-                if (!ubcFlowEvent.amJ()) {
-                    com.baidu.swan.apps.statistic.b.a(oE, ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.amH());
+    public void anR() {
+        anM();
+        nd("component_reporter");
+        if (!TextUtils.isEmpty(this.cyl)) {
+            com.baidu.swan.apps.statistic.a pn = com.baidu.swan.apps.statistic.h.pn(this.cyl);
+            for (UbcFlowEvent ubcFlowEvent : this.cyq) {
+                if (!ubcFlowEvent.aod()) {
+                    com.baidu.swan.apps.statistic.b.a(pn, ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.aob());
                 }
             }
-            com.baidu.swan.apps.performance.b.a.ao(this.cwc);
+            com.baidu.swan.apps.performance.b.a.ao(this.cyq);
             if (!isEmpty()) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    for (Map.Entry<String, String> entry : this.cvZ.entrySet()) {
+                    for (Map.Entry<String, String> entry : this.cyn.entrySet()) {
                         String key = entry.getKey();
                         if (!TextUtils.isEmpty(key)) {
                             String value = entry.getValue();
@@ -381,18 +385,18 @@ public final class HybridUbcFlow {
                         e.printStackTrace();
                     }
                 }
-                com.baidu.swan.apps.statistic.b.a(oE, this.cvY.toString());
-                com.baidu.swan.apps.statistic.b.c(oE);
+                com.baidu.swan.apps.statistic.b.a(pn, this.cym.toString());
+                com.baidu.swan.apps.statistic.b.c(pn);
             }
         }
     }
 
-    private void mD(String str) {
-        List<a> list = this.cwl.get(str);
+    private void nd(String str) {
+        List<a> list = this.cyz.get(str);
         if (list != null && !list.isEmpty()) {
             for (a aVar : list) {
-                if (aVar != null && aVar.cwp != null) {
-                    aVar.cwp.H(this);
+                if (aVar != null && aVar.cyD != null) {
+                    aVar.cyD.H(this);
                 }
             }
         }
@@ -400,17 +404,25 @@ public final class HybridUbcFlow {
 
     public HybridUbcFlow c(String str, com.baidu.swan.apps.aq.e.b<HybridUbcFlow> bVar) {
         a aVar = new a(str, bVar);
-        if (aVar.amz()) {
-            synchronized (this.cwl) {
-                List<a> list = this.cwl.get(str);
+        if (aVar.anT()) {
+            synchronized (this.cyz) {
+                List<a> list = this.cyz.get(str);
                 if (list == null) {
                     list = new ArrayList<>();
-                    this.cwl.put(str, list);
+                    this.cyz.put(str, list);
                 }
                 list.add(aVar);
             }
         }
         return this;
+    }
+
+    public boolean ne(String str) {
+        return this.cyp.get(str) != null;
+    }
+
+    public UbcFlowEvent nf(String str) {
+        return this.cyp.get(str);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x002f, code lost:
@@ -420,16 +432,16 @@ public final class HybridUbcFlow {
         if (r0 == null) goto L27;
      */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0039, code lost:
-        if (r1.amH() < 1) goto L27;
+        if (r1.aob() < 1) goto L27;
      */
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0041, code lost:
-        if (r0.amH() >= 1) goto L25;
+        if (r0.aob() >= 1) goto L25;
      */
     /* JADX WARN: Code restructure failed: missing block: B:31:?, code lost:
         return -1;
      */
     /* JADX WARN: Code restructure failed: missing block: B:32:?, code lost:
-        return r1.amH() - r0.amH();
+        return r1.aob() - r0.aob();
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -444,12 +456,12 @@ public final class HybridUbcFlow {
                 ubcFlowEvent = null;
                 break;
             }
-            ubcFlowEvent = this.cwb.get(strArr[i]);
+            ubcFlowEvent = this.cyp.get(strArr[i]);
             if (ubcFlowEvent2 == null) {
-                if (ubcFlowEvent == null || ubcFlowEvent.amH() < 1) {
+                if (ubcFlowEvent == null || ubcFlowEvent.aob() < 1) {
                     break;
                 }
-            } else if (ubcFlowEvent != null && ubcFlowEvent.amH() > 0) {
+            } else if (ubcFlowEvent != null && ubcFlowEvent.aob() > 0) {
                 break;
             } else {
                 ubcFlowEvent = ubcFlowEvent2;
@@ -460,16 +472,16 @@ public final class HybridUbcFlow {
         return -1L;
     }
 
-    public synchronized JSONObject amy() throws JSONException {
+    public synchronized JSONObject anS() throws JSONException {
         JSONObject jSONObject;
         UbcFlowEvent ubcFlowEvent;
         jSONObject = new JSONObject();
         try {
-            String[] strArr = new String[this.cwa.size()];
-            this.cwa.toArray(strArr);
+            String[] strArr = new String[this.cyo.size()];
+            this.cyo.toArray(strArr);
             ArrayList<UbcFlowEvent> arrayList = new ArrayList(strArr.length);
             for (String str : strArr) {
-                if (!TextUtils.isEmpty(str) && (ubcFlowEvent = this.cwb.get(str)) != null && ubcFlowEvent.amH() > 0) {
+                if (!TextUtils.isEmpty(str) && (ubcFlowEvent = this.cyp.get(str)) != null && ubcFlowEvent.aob() > 0) {
                     arrayList.add(ubcFlowEvent);
                 }
             }
@@ -478,7 +490,7 @@ public final class HybridUbcFlow {
                 @Override // java.util.Comparator
                 /* renamed from: a */
                 public int compare(UbcFlowEvent ubcFlowEvent2, UbcFlowEvent ubcFlowEvent3) {
-                    return Long.compare(ubcFlowEvent2.amH(), ubcFlowEvent3.amH());
+                    return Long.compare(ubcFlowEvent2.aob(), ubcFlowEvent3.aob());
                 }
             });
             JSONArray jSONArray = new JSONArray();
@@ -489,7 +501,7 @@ public final class HybridUbcFlow {
                 jSONObject.put("events", jSONArray);
             }
             JSONObject jSONObject2 = new JSONObject();
-            for (Map.Entry<String, String> entry : this.cvZ.entrySet()) {
+            for (Map.Entry<String, String> entry : this.cyn.entrySet()) {
                 String key = entry.getKey();
                 if (!TextUtils.isEmpty(key)) {
                     String value = entry.getValue();
@@ -502,8 +514,8 @@ public final class HybridUbcFlow {
             if (jSONObject2.length() != 0) {
                 jSONObject.put("ext", jSONObject2);
             }
-            if (this.cvY != null && this.cvY.length() > 0) {
-                jSONObject.put("values", this.cvY);
+            if (this.cym != null && this.cym.length() > 0) {
+                jSONObject.put("values", this.cym);
             }
         } catch (Exception e) {
             jSONObject.put("excp", e.getMessage());
@@ -512,18 +524,18 @@ public final class HybridUbcFlow {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public class a {
-        final com.baidu.swan.apps.aq.e.b<HybridUbcFlow> cwp;
+        final com.baidu.swan.apps.aq.e.b<HybridUbcFlow> cyD;
         final String type;
 
         private a(String str, com.baidu.swan.apps.aq.e.b<HybridUbcFlow> bVar) {
             this.type = str;
-            this.cwp = bVar;
+            this.cyD = bVar;
         }
 
-        boolean amz() {
-            return (this.cwp == null || TextUtils.isEmpty(this.type)) ? false : true;
+        boolean anT() {
+            return (this.cyD == null || TextUtils.isEmpty(this.type)) ? false : true;
         }
     }
 }

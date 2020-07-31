@@ -1,5 +1,5 @@
 package com.baidu.tieba.sharesdk.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public interface b {
-    void cV(int i, int i2);
+    void cX(int i, int i2);
 }

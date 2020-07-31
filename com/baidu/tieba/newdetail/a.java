@@ -3,13 +3,13 @@ package com.baidu.tieba.newdetail;
 import android.view.View;
 import com.baidu.tieba.hottopic.data.d;
 import com.baidu.tieba.hottopic.data.e;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public interface a {
 
     /* renamed from: com.baidu.tieba.newdetail.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0688a {
-        void Av(int i);
+    /* loaded from: classes15.dex */
+    public interface InterfaceC0700a {
+        void AU(int i);
 
         void a(int i, long j, long j2, int i2);
 
@@ -20,37 +20,37 @@ public interface a {
         void e(e eVar);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public interface b {
-        void AA(int i);
+        void AX(int i);
 
-        d AB(int i);
+        void AY(int i);
 
-        void Ay(int i);
+        void AZ(int i);
 
-        void Az(int i);
+        d Ba(int i);
 
         void C(boolean z, int i);
 
-        void E(long j, long j2);
+        void F(long j, long j2);
 
         void a(d dVar, boolean z, int i);
 
-        void btV();
+        void bxe();
 
-        void c(long j, long j2, int i);
+        void cHB();
 
-        void cDT();
+        void cHC();
 
-        void cDU();
+        void cHD();
 
-        void cDV();
+        e cHE();
 
-        e cDW();
+        int cHF();
 
-        int cDX();
+        void cHG();
 
-        void cDY();
+        void d(long j, long j2, int i);
 
         void destroy();
 
@@ -64,7 +64,7 @@ public interface a {
 
         void pause();
 
-        void qX(boolean z);
+        void rC(boolean z);
 
         void resume();
     }

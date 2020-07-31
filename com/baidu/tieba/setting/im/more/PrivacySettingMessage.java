@@ -2,7 +2,7 @@ package com.baidu.tieba.setting.im.more;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.searchbox.ugc.model.UgcConstant;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class PrivacySettingMessage extends HttpMessage {
     private String opt;
     private int val;

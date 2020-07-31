@@ -1,430 +1,256 @@
 package com.baidu.tieba.ala.view;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Paint;
-import android.os.Handler;
+import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.TranslateAnimation;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.live.adp.BdUniqueId;
+import android.widget.ListAdapter;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.c.o;
+import com.baidu.live.adp.widget.listview.BdListView;
 import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.tbadk.ala.AlaLastLiveroomInfo;
+import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.core.data.AlaBroadcastGiftToastData;
-import com.baidu.live.tbadk.core.data.RequestResponseCode;
+import com.baidu.live.tbadk.core.atomdata.AlaPersonCardActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.StringHelper;
-import com.baidu.live.tbadk.log.LogManager;
-import com.baidu.tieba.ala.data.m;
-import com.baidu.tieba.ala.f.i;
-import com.baidu.tieba.ala.f.j;
-import com.baidu.tieba.ala.message.AlaGetHourRankListResponseMessage;
+import com.baidu.live.tbadk.core.util.TbEnum;
+import com.baidu.live.tbadk.statics.SdkStaticKeys;
+import com.baidu.live.tbadk.widget.CommonEmptyView;
+import com.baidu.tieba.ala.data.n;
+import com.baidu.tieba.ala.data.o;
+import com.baidu.tieba.ala.view.AlaRankListHeaderView;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes3.dex */
-public class f implements com.baidu.live.q.c {
-    private AnimatorSet aIN;
-    private String aMu;
-    private int ayf;
-    private long ffd;
-    private ImageView gIG;
-    private ImageView gIH;
-    private FrameLayout gII;
-    private BdUniqueId gIJ;
-    private i gIK;
-    private m gIL;
-    private long gIO;
-    private boolean gIP;
-    private long gIe;
-    private int gom;
-    private ArrayList<Animator> mAnimators;
+/* loaded from: classes4.dex */
+public class f {
+    private int azs;
+    private LinearLayout baL;
+    private CommonEmptyView baQ;
+    private a fKU;
+    private long fkg;
+    private String fki;
+    private boolean fkj;
+    private AlaLastLiveroomInfo flX = new AlaLastLiveroomInfo();
+    private BdListView gNT;
+    private com.baidu.tieba.ala.adapter.c gNU;
+    private c gNV;
+    private e gNW;
+    private d gNX;
+    private AlaRankListHeaderView gNY;
+    private LinearLayout gNZ;
+    private TbPageContext<BaseFragmentActivity> gNs;
+    private o gOa;
+    private ArrayList<com.baidu.tieba.ala.data.h> gOb;
     private Context mContext;
-    private boolean mHasInited;
-    private boolean mIsHost;
-    private Paint mPaint;
     private String mPortrait;
-    private LinearLayout mRootView;
-    private TextView mTextView;
+    private View mRootView;
     private long mUserId;
     private String mUserName;
-    private String otherParams;
-    private long gIF = 5000;
-    private Handler mHandler = new Handler();
-    private boolean fxP = true;
-    private boolean gIM = false;
-    private long gIN = 17;
-    private String gIQ = "default";
-    private ArrayList<String> gIR = new ArrayList<>();
-    private Map<String, Long> gIS = new HashMap();
-    private final Runnable fOd = new Runnable() { // from class: com.baidu.tieba.ala.view.f.1
-        @Override // java.lang.Runnable
-        public void run() {
-            if (f.this.gIe <= 0) {
-                f.this.gIe = 0L;
-            } else {
-                if (f.this.gIe == 300 && f.this.gIL != null && !f.this.gIR.contains(f.this.gIL.Ji())) {
-                    f.this.gIR.add(f.this.gIL.Ji());
-                    AlaBroadcastGiftToastData alaBroadcastGiftToastData = new AlaBroadcastGiftToastData();
-                    alaBroadcastGiftToastData.localBroadcastType = 1;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913103, alaBroadcastGiftToastData));
-                }
-                f.d(f.this);
-            }
-            if (f.this.gIe <= 1) {
-                f.this.resetData();
-            }
-            for (Map.Entry entry : f.this.gIS.entrySet()) {
-                if (System.currentTimeMillis() / 1000 == ((Long) entry.getValue()).longValue()) {
-                    f.this.gIJ = BdUniqueId.gen();
-                    f.this.gIK.a(f.this.mUserId, (String) entry.getKey(), 1, 1, f.this.gIJ);
-                }
-            }
-            f.this.startCountDown();
-        }
-    };
-    private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.f.2
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            f.this.DG("hour");
-            LogManager.getCommonLogger().doClickHourRankEntryLog(f.this.aMu, f.this.gIQ, f.this.otherParams);
-        }
-    };
-    private j fFy = new j() { // from class: com.baidu.tieba.ala.view.f.3
-        @Override // com.baidu.tieba.ala.f.j
-        public void a(int i, String str, Object obj) {
-            if (i == 0 && obj != null && (obj instanceof AlaGetHourRankListResponseMessage)) {
-                AlaGetHourRankListResponseMessage alaGetHourRankListResponseMessage = (AlaGetHourRankListResponseMessage) obj;
-                m bKH = alaGetHourRankListResponseMessage.bKH();
-                if (alaGetHourRankListResponseMessage.getOrginalMessage() != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag() == f.this.gIJ) {
-                    f.this.d(bKH);
-                } else if (alaGetHourRankListResponseMessage.getOrginalMessage() != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag() == f.this.aZD) {
-                    f.this.e(bKH);
-                }
-                f.this.gIF = bKH.bwH();
-                f.this.gIN = bKH.bwI();
-            }
-            if (!f.this.gIM && f.this.gIT != null) {
-                f.this.mHandler.removeCallbacks(f.this.gIT);
-                f.this.mHandler.postDelayed(f.this.gIT, f.this.gIF);
-            }
-        }
-    };
-    private Runnable gIT = new Runnable() { // from class: com.baidu.tieba.ala.view.f.4
-        @Override // java.lang.Runnable
-        public void run() {
-            if (f.this.gIK != null) {
-                f.this.gIK.g(f.this.mUserId, "");
-            }
-        }
-    };
-    private BdUniqueId aZD = BdUniqueId.gen();
 
-    static /* synthetic */ long d(f fVar) {
-        long j = fVar.gIe;
-        fVar.gIe = j - 1;
-        return j;
+    /* loaded from: classes4.dex */
+    public interface a {
+        void g(View view, String str);
     }
 
-    public f(Context context, int i, long j, String str, boolean z, String str2, String str3, String str4, long j2) {
-        this.otherParams = "";
-        this.mContext = context;
-        this.ayf = i;
+    public f(TbPageContext<BaseFragmentActivity> tbPageContext, String str, int i, a aVar, boolean z, long j, String str2, String str3, long j2) {
+        this.gNs = tbPageContext;
+        this.mContext = this.gNs.getPageActivity();
+        this.fKU = aVar;
+        this.fkj = z;
         this.mUserId = j;
-        this.mUserName = str;
-        this.mIsHost = z;
-        this.mPortrait = str2;
-        this.aMu = str4;
-        this.ffd = j2;
-        this.otherParams = str3;
-        initView();
-        this.gIK = new i(this.aZD, this.fFy);
-        this.gIK.g(this.mUserId, "");
+        this.mUserName = str2;
+        this.azs = i;
+        this.mPortrait = str3;
+        this.fkg = j2;
+        this.flX.setLastAnchorPortrait(str3);
+        this.flX.setLastAnchorUname(str2);
+        this.flX.setLastAnchorUid(String.valueOf(j));
+        this.flX.setLastLiveId(this.fkg);
+        this.flX.setFrom(AlaLastLiveroomInfo.TYPE_FROM_HOUR_RANK);
+        Eq(str);
     }
 
-    public void startCountDown() {
-        if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isRankHourUnabled()) {
-            this.mHandler.removeCallbacks(this.fOd);
-            this.mHandler.postDelayed(this.fOd, 1000L);
+    private void Eq(String str) {
+        this.fki = str;
+        this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.ala_rank_fragment_layout, (ViewGroup) null);
+        this.gNT = (BdListView) this.mRootView.findViewById(a.g.ala_rank_list_view);
+        this.gNU = new com.baidu.tieba.ala.adapter.c(this.mContext, str, this.fkg, this.fkj, this.flX);
+        this.gNT.setAdapter((ListAdapter) this.gNU);
+        this.gNY = new AlaRankListHeaderView(this.gNs.getPageActivity(), this.fkg, this.fkj, this.flX);
+        this.gNY.a(this.gNs, str, 0L);
+        this.gNT.addHeaderView(this.gNY);
+        if (TextUtils.equals("hour", this.fki) && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu()) {
+            this.gNZ = (LinearLayout) LayoutInflater.from(this.mContext).inflate(a.h.hour_rank_list_footer_view, (ViewGroup) null);
+            this.gNT.addFooterView(this.gNZ);
+            this.gNZ.setVisibility(0);
+        } else if (this.gNZ != null) {
+            this.gNZ.setVisibility(8);
+        }
+        this.baL = (LinearLayout) this.mRootView.findViewById(a.g.ala_rank_list_bottom_container);
+        if ("hot".equals(str) || SdkStaticKeys.RANK_TYPE_FLOWER.equals(str)) {
+            this.gNV = new c(this.mContext, str, this.fkj);
+            this.gNV.a(this.fKU);
+            this.baL.addView(this.gNV.getView(), new LinearLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds124)));
+        } else if ("pk".equals(str)) {
+            this.gNW = new e(this.mContext, str, this.fkj, this.mUserId, this.azs, this.mPortrait);
+            this.baL.addView(this.gNW.getView(), new LinearLayout.LayoutParams(-1, -2));
+        } else if ("guard".equals(str)) {
+            this.gNX = new d(this.mContext, str, this.fkj, this.mPortrait);
+            this.baL.addView(this.gNX.getView(), new LinearLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds92)));
+        } else if ("challenge_history".equals(str)) {
+            Log.d("rankType", "ALA_RANK_LIST_TYPE_CHALLENGE_HISTORY");
+        } else {
+            this.gNV = new c(this.mContext, str, this.fkj);
+            this.gNV.a(this.fKU);
+            this.baL.addView(this.gNV.getView(), new LinearLayout.LayoutParams(-1, -2));
+        }
+        this.baQ = (CommonEmptyView) this.mRootView.findViewById(a.g.ala_rank_list_empty);
+        this.gNT.setEmptyView(this.baQ);
+    }
+
+    public void zc() {
+        if (this.gNV != null) {
+            this.gNV.zc();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d(m mVar) {
-        if (mVar != null && mVar.getList() != null && mVar.getList().size() > 0 && mVar.getList().get(0).fDW != null && mVar.getList().get(0).fDW.size() > 0) {
-            AlaBroadcastGiftToastData alaBroadcastGiftToastData = new AlaBroadcastGiftToastData();
-            alaBroadcastGiftToastData.localBroadcastType = 2;
-            alaBroadcastGiftToastData.receiver = mVar.getList().get(0).getName_show();
-            if (mVar.getList().get(0).dMs == 1) {
-                alaBroadcastGiftToastData.live_id = mVar.getList().get(0).live_id;
-            } else {
-                alaBroadcastGiftToastData.live_id = -1L;
+    public void setDatas(ArrayList<com.baidu.tieba.ala.data.h> arrayList) {
+        if (this.gNU != null) {
+            this.gNU.setData(arrayList);
+            this.gOb = arrayList;
+        }
+    }
+
+    public void a(ArrayList<com.baidu.tieba.ala.data.h> arrayList, long j, AlaRankListHeaderView.a aVar) {
+        setDatas(arrayList);
+        this.gNY.setCountDownCallback(aVar);
+        this.gNY.a(this.gNs, this.fki, j);
+    }
+
+    public ArrayList<com.baidu.tieba.ala.data.h> boJ() {
+        return this.gOb;
+    }
+
+    public void c(n nVar) {
+        this.gNY.b(nVar);
+    }
+
+    public void sO(int i) {
+        if (this.gNY != null) {
+            this.gNY.setHourHeaderInfoVisible(i);
+        }
+    }
+
+    public void sP(int i) {
+        if (this.gNZ != null) {
+            this.gNZ.setVisibility(i);
+        }
+    }
+
+    public void a(AlaRankListHeaderView.b bVar) {
+        if (this.gNY != null) {
+            this.gNY.setRankListCallback(bVar);
+        }
+    }
+
+    public void sQ(int i) {
+        this.gNT.setVisibility(i);
+    }
+
+    public o bQd() {
+        return this.gOa;
+    }
+
+    public void c(final o oVar) {
+        if (oVar == null) {
+            if (this.gNV != null) {
+                this.gNV.getView().setVisibility(8);
+                return;
             }
-            alaBroadcastGiftToastData.sender = mVar.getList().get(0).fDW.get(0).getName_show();
-            alaBroadcastGiftToastData.feed_id = this.aMu;
-            alaBroadcastGiftToastData.otherParams = this.otherParams;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913103, alaBroadcastGiftToastData));
+            return;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e(m mVar) {
-        if (mVar != null) {
-            this.gIS.put(mVar.Ji(), Long.valueOf(mVar.bwK()));
-            if (a(this.gIL, mVar)) {
-                this.gIO = System.currentTimeMillis();
-                dR(f(mVar), b(this.gIL, mVar));
-                this.gIL = mVar;
-            } else {
-                this.gIL = mVar;
-                if (!this.mHasInited) {
-                    this.mHasInited = true;
-                    this.mTextView.setText(f(mVar));
-                    this.mRootView.setVisibility(0);
-                    this.gom = BdUtilHelper.getTextWidth(this.mPaint, f(mVar));
-                } else if (mVar.bwL() != null && !this.gIP) {
-                    b(this.mTextView, f(mVar));
+        if (!oVar.isValid()) {
+            oVar.userName = this.mUserName;
+            oVar.fJN = this.mPortrait;
+        }
+        this.gOa = oVar;
+        View view = null;
+        if (this.gNV != null) {
+            this.gNV.b(oVar);
+            this.gNV.getView().setVisibility(0);
+            view = this.gNV.getView();
+        }
+        if (TbadkCoreApplication.getInst().isNotMobileBaidu()) {
+            view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.f.1
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view2) {
+                    if (oVar != null && (f.this.mContext instanceof Activity)) {
+                        Intent intent = ((Activity) f.this.mContext).getIntent();
+                        long longExtra = intent.getLongExtra(TbEnum.SystemMessage.KEY_USER_ID, 0L);
+                        String stringExtra = intent.getStringExtra("group_id");
+                        String stringExtra2 = intent.getStringExtra("live_id");
+                        boolean booleanExtra = intent.getBooleanExtra("live_owner_flag", false);
+                        String stringExtra3 = intent.getStringExtra("live_owner_uid");
+                        if (longExtra == oVar.userId) {
+                            stringExtra3 = longExtra + "";
+                        }
+                        AlaPersonCardActivityConfig alaPersonCardActivityConfig = new AlaPersonCardActivityConfig(f.this.mContext, oVar.userId + "", oVar.userName, oVar.fJN, 0, 0, null, null, 0L, 0L, 0L, 0, stringExtra, stringExtra2, booleanExtra, stringExtra3, null, oVar.getNameShow(), "");
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig));
+                    }
                 }
-            }
-            this.gIe = mVar.bwJ();
-            startCountDown();
+            });
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void resetData() {
-        this.gIO = System.currentTimeMillis();
-        this.gIL = null;
-    }
-
-    private boolean a(m mVar, m mVar2) {
-        if (mVar2 == null || System.currentTimeMillis() - this.gIO < this.gIN * 1000 || mVar == null || mVar.bwL() == null) {
-            return false;
+    public void bQe() {
+        if (this.gNV != null) {
+            this.gNV.getView().setVisibility(8);
         }
-        if (mVar.bwL().fEo > 0 || mVar2.bwL().fEo <= 0) {
-            return (mVar.bwL().fEo > 0 || mVar2.bwL().fEo > 0) ? true : true;
+        if (this.gNW != null) {
+            this.gNW.getView().setVisibility(8);
         }
-        return false;
-    }
-
-    private String f(m mVar) {
-        if (mVar.bwL().fEo < 1) {
-            return this.mContext.getString(a.i.hour_rank_list_entry_no);
+        if (this.gNX != null) {
+            this.gNX.getView().setVisibility(8);
         }
-        return String.format(this.mContext.getString(a.i.hour_rank_list_entry_text_def), StringHelper.formatForHourRankValue(mVar.bwL().fEo) + "");
     }
 
-    private String b(m mVar, m mVar2) {
-        if (mVar.bwL().fEo == mVar2.bwL().fEo) {
-            this.gIQ = "change";
-            if (mVar2.bwL().fEo <= 0) {
-                return this.mContext.getString(a.i.hour_rank_list_entry_diff_no);
-            }
-            if (mVar2.bwL().fEo == 1) {
-                return String.format(this.mContext.getString(a.i.hour_rank_list_entry_diff_down), StringHelper.formatForHourRankValue(mVar2.bwL().fEp - mVar2.bwL().fEr) + "");
-            } else if (mVar2.bwL().fEo <= 1) {
-                return "";
-            } else {
-                return String.format(this.mContext.getString(a.i.hour_rank_list_entry_diff_up), StringHelper.formatForHourRankValue((mVar2.bwL().fEq - mVar2.bwL().fEp) + 1) + "");
-            }
+    public void l(View.OnClickListener onClickListener) {
+        this.baQ.reset();
+        this.baQ.setTitle(a.i.sdk_net_fail_tip_rank);
+        this.baQ.setRefreshButton(a.i.sdk_click_refresh_net_text, onClickListener);
+        this.baQ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+        this.baQ.setVisibility(0);
+    }
+
+    public void bwX() {
+        this.baQ.setVisibility(8);
+    }
+
+    public void kw(boolean z) {
+        if (z) {
+            this.baQ.reset();
+            this.baQ.setTitle(a.i.rank_empty_text);
+            this.baQ.setup(CommonEmptyView.ImgType.NO_RANK_LIST, CommonEmptyView.StyleType.DARK);
+            this.baQ.setVisibility(0);
+            return;
         }
-        this.gIQ = "up_down";
-        int i = mVar2.bwL().fEo - mVar.bwL().fEo;
-        return i < 0 ? String.format(this.mContext.getString(a.i.hour_rank_list_entry_updown_up), (-i) + "") : i > 0 ? String.format(this.mContext.getString(a.i.hour_rank_list_entry_updown_down), i + "") : "";
+        this.baQ.setVisibility(8);
     }
 
-    private void initView() {
-        this.mRootView = (LinearLayout) LayoutInflater.from(this.mContext).inflate(a.h.hour_rank_list_entry_layout, (ViewGroup) null);
-        this.mTextView = (TextView) this.mRootView.findViewById(a.g.hour_rank_list_text);
-        this.mTextView.setMaxLines(1);
-        this.mTextView.setOnClickListener(this.mClickListener);
-        this.gII = (FrameLayout) this.mRootView.findViewById(a.g.fr_entry);
-        this.gIG = (ImageView) this.mRootView.findViewById(a.g.hour_entry_scale_hide_l);
-        this.gIH = (ImageView) this.mRootView.findViewById(a.g.hour_entry_scale_hide_r);
-        this.gII.setAlpha(0.7f);
-        this.mTextView.setAlpha(0.7f);
-        this.mPaint = new Paint();
-        this.mPaint.setTextSize(this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds24));
+    public void release() {
+        if (this.gNY != null) {
+            this.gNY.release();
+        }
     }
 
-    @Override // com.baidu.live.q.c
-    public View GB() {
+    public View getView() {
         return this.mRootView;
-    }
-
-    @Override // com.baidu.live.q.c
-    public com.baidu.live.q.b GC() {
-        return null;
-    }
-
-    @Override // com.baidu.live.q.c
-    public com.baidu.live.q.b GD() {
-        return null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void DG(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new o(this.mContext, this.ayf, this.mUserId, this.mUserName, str, RequestResponseCode.REQUEST_RANK_LIST_TO_SHARE, this.mIsHost, this.mPortrait, this.otherParams, this.aMu, this.ffd, this.gIL == null ? com.baidu.live.utils.i.dC(0) : this.gIL.Ji())));
-    }
-
-    @Override // com.baidu.live.q.c
-    public void GE() {
-        this.gIM = false;
-        if (this.gIK != null) {
-            this.gIK.g(this.mUserId, "");
-        }
-    }
-
-    @Override // com.baidu.live.q.c
-    public void GF() {
-        this.gIM = true;
-        this.mHandler.removeCallbacks(this.gIT);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void DH(String str) {
-        this.mTextView.setText(str);
-        int textWidth = BdUtilHelper.getTextWidth(this.mPaint, str);
-        if (this.gII.getLayoutParams() != null) {
-            ViewGroup.LayoutParams layoutParams = this.gII.getLayoutParams();
-            layoutParams.width = this.gom + BdUtilHelper.dip2px(this.mContext, 16.0f);
-            this.gII.setLayoutParams(layoutParams);
-        }
-        if (this.mTextView.getLayoutParams() != null) {
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mTextView.getLayoutParams();
-            layoutParams2.width = (int) (textWidth * 1.2d);
-            this.mTextView.setLayoutParams(layoutParams2);
-        }
-        this.gIG.setVisibility(0);
-        this.gIH.setVisibility(0);
-        if (textWidth > this.gom) {
-            TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, -(((textWidth - this.gom) * 1.0f) / this.gom), 1, 0.0f, 1, 0.0f);
-            translateAnimation.setDuration(2800L);
-            translateAnimation.setFillAfter(true);
-            this.mTextView.startAnimation(translateAnimation);
-        }
-    }
-
-    private void dR(final String str, final String str2) {
-        if (this.aIN == null) {
-            this.aIN = new AnimatorSet();
-        }
-        this.aIN.cancel();
-        this.mRootView.setPivotX(0.0f);
-        this.mRootView.setPivotY(0.0f);
-        final ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mRootView, "scaleX", 1.0f, 1.2f);
-        final ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.mRootView, "scaleY", 1.0f, 1.2f);
-        ofFloat.setDuration(500L);
-        ofFloat2.setDuration(500L);
-        ofFloat.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.view.f.5
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationStart(Animator animator) {
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                ofFloat.cancel();
-                ofFloat.removeAllListeners();
-                ofFloat2.cancel();
-                f.this.DH(str2);
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationRepeat(Animator animator) {
-            }
-        });
-        final ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.mRootView, "scaleX", 1.2f, 1.0f);
-        final ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.mRootView, "scaleY", 1.2f, 1.0f);
-        ofFloat3.setDuration(500L);
-        ofFloat3.setStartDelay(3300L);
-        ofFloat4.setDuration(500L);
-        ofFloat4.setStartDelay(3300L);
-        ofFloat3.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.view.f.6
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationStart(Animator animator) {
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                f.this.gIG.setVisibility(4);
-                f.this.gIH.setVisibility(4);
-                f.this.b(f.this.mTextView, str);
-                f.this.aIN.cancel();
-                f.this.mRootView.clearAnimation();
-                ofFloat3.cancel();
-                ofFloat4.cancel();
-                ofFloat3.removeAllListeners();
-                f.this.mTextView.clearAnimation();
-                f.this.gIP = false;
-                f.this.gIQ = "default";
-                f.this.gII.setAlpha(0.7f);
-                f.this.mTextView.setAlpha(0.7f);
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationRepeat(Animator animator) {
-            }
-        });
-        if (this.mAnimators == null) {
-            this.mAnimators = new ArrayList<>();
-        }
-        this.mAnimators.clear();
-        this.mAnimators.add(ofFloat);
-        this.mAnimators.add(ofFloat2);
-        this.mAnimators.add(ofFloat3);
-        this.mAnimators.add(ofFloat4);
-        this.aIN.playTogether(this.mAnimators);
-        this.aIN.start();
-        this.gIP = true;
-        this.gII.setAlpha(1.0f);
-        this.mTextView.setAlpha(1.0f);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str)) {
-            int textWidth = BdUtilHelper.getTextWidth(this.mPaint, str);
-            if (this.gII.getLayoutParams() != null) {
-                ViewGroup.LayoutParams layoutParams = this.gII.getLayoutParams();
-                layoutParams.width = BdUtilHelper.dip2px(this.mContext, 16.0f) + textWidth;
-                this.gII.setLayoutParams(layoutParams);
-            }
-            ViewGroup.LayoutParams layoutParams2 = this.mTextView.getLayoutParams();
-            layoutParams2.width = BdUtilHelper.dip2px(this.mContext, 6.0f) + textWidth;
-            textView.setLayoutParams(layoutParams2);
-            textView.setText(str);
-            this.gom = textWidth;
-        }
-    }
-
-    @Override // com.baidu.live.q.c
-    public void destory() {
-        if (this.mHandler != null) {
-            this.mHandler.removeCallbacksAndMessages(null);
-        }
-        if (this.gIK != null) {
-            this.gIK.destory();
-        }
     }
 }

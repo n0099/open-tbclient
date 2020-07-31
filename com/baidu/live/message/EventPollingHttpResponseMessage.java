@@ -1,16 +1,16 @@
 package com.baidu.live.message;
 
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.live.data.ar;
+import com.baidu.live.data.as;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EventPollingHttpResponseMessage extends JsonHttpResponsedMessage {
-    public int aZv;
-    public List<ar> aZw;
+    public int aZt;
+    public List<as> aZu;
     public long currentTime;
     public long liveId;
 
@@ -22,17 +22,17 @@ public class EventPollingHttpResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.aZw = new ArrayList();
+            this.aZu = new ArrayList();
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null && getError() == 0) {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("list");
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                    ar arVar = new ar();
-                    arVar.parseJson(jSONObject2);
-                    this.aZw.add(arVar);
+                    as asVar = new as();
+                    asVar.parseJson(jSONObject2);
+                    this.aZu.add(asVar);
                 }
-                this.aZv = optJSONObject.optInt("polling_interval");
+                this.aZt = optJSONObject.optInt("polling_interval");
                 this.liveId = optJSONObject.optLong("live_id");
                 this.currentTime = optJSONObject.optLong("current_time");
             }

@@ -1,7 +1,7 @@
 package com.baidu.platform.comjni.jninative.tts;
 
 import com.baidu.platform.comapi.wnplatform.m.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class WNaviTTSPlayer {
     private static b mTtsPlayerListener = null;
     private static boolean bStopVoiceOutput = false;

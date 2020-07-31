@@ -6,7 +6,7 @@ import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.n;
+import com.baidu.swan.apps.aq.p;
 import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.swan.apps.scheme.j;
 import java.io.File;
@@ -14,7 +14,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class h extends a {
     @Override // com.baidu.swan.apps.canvas.a.a
     public /* bridge */ /* synthetic */ void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
@@ -22,8 +22,8 @@ public class h extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject eC(int i) {
-        return super.eC(i);
+    public /* bridge */ /* synthetic */ JSONObject eD(int i) {
+        return super.eD(i);
     }
 
     public h(j jVar) {
@@ -33,40 +33,40 @@ public class h extends a {
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.runtime.e eVar) {
         final String str;
-        com.baidu.swan.apps.core.d.d ZW;
+        com.baidu.swan.apps.core.d.e aba;
         final com.baidu.swan.apps.canvas.b.f d = d(unitedSchemeEntity);
         if (d == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath action parse model is null");
-            unitedSchemeEntity.result = eC(201);
+            unitedSchemeEntity.result = eD(201);
             return false;
         }
-        String oW = com.baidu.swan.apps.storage.b.oW(eVar.id);
-        if (TextUtils.isEmpty(oW)) {
+        String pH = com.baidu.swan.apps.storage.b.pH(eVar.id);
+        if (TextUtils.isEmpty(pH)) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
-            unitedSchemeEntity.result = eC(201);
+            unitedSchemeEntity.result = eD(201);
             return false;
         }
-        String str2 = oW + File.separator + Calendar.getInstance().getTimeInMillis();
-        if (d.We()) {
+        String str2 = pH + File.separator + Calendar.getInstance().getTimeInMillis();
+        if (d.WL()) {
             str = str2 + ".jpg";
         } else {
             str = str2 + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX;
         }
-        if (TextUtils.isEmpty(d.bUu) && (ZW = com.baidu.swan.apps.w.f.ajb().ZW()) != null) {
-            d.bUu = ZW.ZH();
+        if (TextUtils.isEmpty(d.bVm) && (aba = com.baidu.swan.apps.v.f.akr().aba()) != null) {
+            d.bVm = aba.aaL();
         }
-        if (TextUtils.isEmpty(d.bUu) || TextUtils.isEmpty(d.bUt)) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath slave id = " + d.bUu + " ; canvas id = " + d.bUt);
-            unitedSchemeEntity.result = eC(201);
+        if (TextUtils.isEmpty(d.bVm) || TextUtils.isEmpty(d.bVl)) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath slave id = " + d.bVm + " ; canvas id = " + d.bVl);
+            unitedSchemeEntity.result = eD(201);
             return false;
         }
         final CanvasView a = com.baidu.swan.apps.component.components.d.a.a.a(d);
         if (a == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath canvas view is null");
-            unitedSchemeEntity.result = eC(201);
+            unitedSchemeEntity.result = eD(201);
             return false;
         }
-        n.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.canvas.a.h.1
+        p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.canvas.a.h.1
             /* JADX WARN: Removed duplicated region for block: B:13:0x004c  */
             /* JADX WARN: Removed duplicated region for block: B:28:? A[RETURN, SYNTHETIC] */
             @Override // java.lang.Runnable
@@ -87,7 +87,7 @@ public class h extends a {
                         try {
                             str3 = new JSONObject(str4).optString("cb");
                             try {
-                                jSONObject.putOpt("tempFilePath", com.baidu.swan.apps.storage.b.bY(str, eVar.id));
+                                jSONObject.putOpt("tempFilePath", com.baidu.swan.apps.storage.b.bZ(str, eVar.id));
                             } catch (JSONException e2) {
                                 e = e2;
                                 e.printStackTrace();

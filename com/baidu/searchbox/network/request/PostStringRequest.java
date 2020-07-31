@@ -5,7 +5,7 @@ import com.baidu.searchbox.network.AbstractHttpManager;
 import com.baidu.searchbox.network.core.MediaType;
 import com.baidu.searchbox.network.core.Request;
 import com.baidu.searchbox.network.core.RequestBody;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
     private static final MediaType MEDIA_TYPE_PLAIN = MediaType.parse("text/plain");
     private String content;
@@ -56,7 +56,7 @@ public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
         return this.okRequestBuilder.post(requestBody).build();
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public static class PostStringRequestBuilder extends HttpRequestBuilder<PostStringRequestBuilder> {
         private String content;
         private MediaType mediaType;

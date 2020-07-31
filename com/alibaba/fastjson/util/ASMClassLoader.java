@@ -55,7 +55,7 @@ import java.security.PrivilegedAction;
 import java.security.ProtectionDomain;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class ASMClassLoader extends ClassLoader {
     private static Map<String, Class<?>> classMapping = new HashMap();
     private static ProtectionDomain DOMAIN = (ProtectionDomain) AccessController.doPrivileged(new PrivilegedAction<Object>() { // from class: com.alibaba.fastjson.util.ASMClassLoader.1

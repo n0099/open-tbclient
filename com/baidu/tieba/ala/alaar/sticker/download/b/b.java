@@ -1,81 +1,81 @@
 package com.baidu.tieba.ala.alaar.sticker.download.b;
 
 import com.baidu.tieba.ala.alaar.sticker.download.exception.DownloadException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements com.baidu.tieba.ala.alaar.sticker.download.a.b {
-    private com.baidu.tieba.ala.alaar.sticker.download.a.d fho;
-    private com.baidu.tieba.ala.alaar.sticker.download.a.c fhs = new com.baidu.tieba.ala.alaar.sticker.download.a.c();
+    private com.baidu.tieba.ala.alaar.sticker.download.a.c fmB = new com.baidu.tieba.ala.alaar.sticker.download.a.c();
+    private com.baidu.tieba.ala.alaar.sticker.download.a.d fmx;
 
     public b(com.baidu.tieba.ala.alaar.sticker.download.a.d dVar, com.baidu.tieba.ala.alaar.sticker.download.a.a aVar) {
-        this.fho = dVar;
-        this.fhs.a(aVar);
+        this.fmx = dVar;
+        this.fmB.a(aVar);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onStarted() {
-        this.fhs.setStatus(101);
-        this.fhs.bsq().onStarted();
+        this.fmB.setStatus(101);
+        this.fmB.bvz().onStarted();
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onConnecting() {
-        this.fhs.setStatus(102);
-        this.fho.a(this.fhs);
+        this.fmB.setStatus(102);
+        this.fmx.a(this.fmB);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onConnected(long j, long j2, boolean z) {
-        this.fhs.setTime(j);
-        this.fhs.setAcceptRanges(z);
-        this.fhs.setStatus(103);
-        this.fho.a(this.fhs);
+        this.fmB.setTime(j);
+        this.fmB.setAcceptRanges(z);
+        this.fmB.setStatus(103);
+        this.fmx.a(this.fmB);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void b(DownloadException downloadException) {
-        this.fhs.d(downloadException);
-        this.fhs.setStatus(108);
-        this.fho.a(this.fhs);
+        this.fmB.d(downloadException);
+        this.fmB.setStatus(108);
+        this.fmx.a(this.fmB);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onConnectCanceled() {
-        this.fhs.setStatus(107);
-        this.fho.a(this.fhs);
+        this.fmB.setStatus(107);
+        this.fmx.a(this.fmB);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onDownloadProgress(long j, long j2, int i) {
-        this.fhs.setFinished(j);
-        this.fhs.setLength(j2);
-        this.fhs.setPercent(i);
-        this.fhs.setStatus(104);
-        this.fho.a(this.fhs);
+        this.fmB.setFinished(j);
+        this.fmB.setLength(j2);
+        this.fmB.setPercent(i);
+        this.fmB.setStatus(104);
+        this.fmx.a(this.fmB);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onDownloadCompleted(String str) {
-        this.fhs.setStatus(105);
-        this.fhs.setSavedPath(str);
-        this.fho.a(this.fhs);
+        this.fmB.setStatus(105);
+        this.fmB.setSavedPath(str);
+        this.fmx.a(this.fmB);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onDownloadPaused() {
-        this.fhs.setStatus(106);
-        this.fho.a(this.fhs);
+        this.fmB.setStatus(106);
+        this.fmx.a(this.fmB);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onDownloadCanceled() {
-        this.fhs.setStatus(107);
-        this.fho.a(this.fhs);
+        this.fmB.setStatus(107);
+        this.fmx.a(this.fmB);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void c(DownloadException downloadException) {
-        this.fhs.d(downloadException);
-        this.fhs.setStatus(108);
-        this.fho.a(this.fhs);
+        this.fmB.d(downloadException);
+        this.fmB.setStatus(108);
+        this.fmx.a(this.fmB);
     }
 }

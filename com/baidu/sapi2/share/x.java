@@ -31,7 +31,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public final class x {
     private static final String a = "share_account";
     private static final String b = "share_fail_reason";
@@ -316,7 +316,7 @@ public final class x {
                 intent.putExtra(m.b, str4);
                 intent.putExtra(m.a, str3);
                 intent.setComponent(componentName);
-                activity.startActivityForResult(intent, 20001);
+                activity.startActivityForResult(intent, m.g);
             } else {
                 Toast.makeText(activity, "登录失败", 0).show();
             }

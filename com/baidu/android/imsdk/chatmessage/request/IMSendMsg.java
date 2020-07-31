@@ -138,36 +138,35 @@ public class IMSendMsg extends Message {
 
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        long j;
         int i2;
-        long j2 = -1;
+        long j = -1;
         String str2 = "";
-        if (i == 0) {
-            try {
-                if (jSONObject.has("msgid")) {
-                    getChatMsg().setMsgId(jSONObject.getLong("msgid"));
-                    j2 = jSONObject.optLong("time", -1L);
-                    if (jSONObject.optBoolean("display_tips")) {
-                        str2 = jSONObject.optString(TableDefine.MessageColumns.COLUME_TIPS);
-                    }
-                } else {
-                    i = 1015;
-                    str = Constants.ERROR_MSG_SERVER_INTERNAL_ERROR;
-                }
-                j = j2;
-                i2 = i;
-            } catch (Exception e) {
-                LogUtils.e(TAG, "handle IMSendMsg exception :", e);
-                j = j2;
-                i2 = i;
+        boolean z = false;
+        try {
+            z = jSONObject.has("msgid");
+            if (z) {
+                getChatMsg().setMsgId(jSONObject.getLong("msgid"));
             }
-        } else {
-            if (i == 4001) {
-                LoginManager.getInstance(this.mContext).triggleLogoutListener(i, str);
+            j = jSONObject.optLong("time", -1L);
+            if (jSONObject.optBoolean("display_tips")) {
+                str2 = jSONObject.optString(TableDefine.MessageColumns.COLUME_TIPS);
             }
-            j = -1;
-            i2 = i;
+        } catch (Exception e) {
+            LogUtils.e(TAG, "handle IMSendMsg exception :", e);
         }
+        if (i == 0) {
+            if (!z) {
+                str = Constants.ERROR_MSG_SERVER_INTERNAL_ERROR;
+                i2 = 1015;
+                LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str);
+                getChatMsg().setTipsCode(i2);
+                getChatMsg().setTips(str2);
+                ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(i2, getChatMsg(), j, getListenerKey());
+            }
+        } else if (i == 4001) {
+            LoginManager.getInstance(this.mContext).triggleLogoutListener(i, str);
+        }
+        i2 = i;
         LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str);
         getChatMsg().setTipsCode(i2);
         getChatMsg().setTips(str2);

@@ -3,10 +3,10 @@ package com.baidu.tieba.imMessageCenter.im.chat;
 import com.baidu.tieba.im.chat.AbsMsgImageActivity;
 import com.baidu.tieba.im.sendmessage.a;
 import com.baidu.tieba.im.sendmessage.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class PersonalMsgImageActivity extends AbsMsgImageActivity {
     @Override // com.baidu.tieba.im.chat.AbsMsgImageActivity
     protected void a(String str, c cVar) {
-        a.ctl().c(str, cVar);
+        a.cxn().c(str, cVar);
     }
 }

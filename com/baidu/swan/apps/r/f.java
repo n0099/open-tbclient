@@ -1,181 +1,160 @@
 package com.baidu.swan.apps.r;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import com.baidu.swan.apps.r.a.a;
-import com.baidu.swan.apps.r.e;
-import com.baidu.swan.apps.r.g;
-import com.baidu.swan.games.l.a;
-import com.baidu.swan.pms.a.h;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.channels.Channels;
+import android.util.Log;
+import com.baidu.swan.apps.runtime.i;
+import com.baidu.swan.apps.runtime.m;
+import com.baidu.swan.apps.u.c.a.c;
 import java.nio.channels.Pipe;
-/* loaded from: classes11.dex */
-public class f extends g.a {
+import java.nio.channels.ReadableByteChannel;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes7.dex */
+public class f extends m {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final com.baidu.swan.pms.a.d clb;
-    private final com.baidu.swan.pms.model.e cli;
+    private final Map<String, a> cnn = new HashMap();
+    public final com.baidu.swan.apps.u.c.a.c cno = new c.a();
+    private final com.baidu.swan.apps.u.c.a.c cnp = new c.a();
 
-    public f(com.baidu.swan.pms.model.e eVar, com.baidu.swan.pms.a.d dVar) {
-        super("extract");
-        this.cli = eVar;
-        this.clb = dVar;
+    public f a(a... aVarArr) {
+        com.baidu.swan.apps.aq.e.a.a(new com.baidu.swan.apps.aq.e.b<a>() { // from class: com.baidu.swan.apps.r.f.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.swan.apps.aq.e.b
+            /* renamed from: a */
+            public void H(a aVar) {
+                aVar.b(f.this);
+                f.this.cnn.put(aVar.id, aVar);
+            }
+        }, aVarArr);
+        return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.apps.r.g.a
-    public void afS() {
-        super.afS();
-        if (afU().getBoolean("result_output_dir_allow_rollback", false)) {
-            com.baidu.swan.e.d.ue(afU().getString("result_output_dir"));
+    public f C(Bundle bundle) {
+        this.cno.F(bundle);
+        return this;
+    }
+
+    public synchronized f a(ReadableByteChannel readableByteChannel) {
+        long currentTimeMillis = System.currentTimeMillis();
+        this.cnp.ajF();
+        final com.baidu.swan.apps.aq.b.a Y = new com.baidu.swan.apps.aq.b.a().ih(32768).a(30L, TimeUnit.SECONDS).Y(this.cno.toBundle());
+        Y.w(new com.baidu.swan.apps.aq.e.b<String>() { // from class: com.baidu.swan.apps.r.f.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.swan.apps.aq.e.b
+            /* renamed from: onCallback */
+            public void H(String str) {
+                if ("on_progress".equals(str)) {
+                    f.this.i((i.a) new i.a("installer_on_progress").d(" event_params_installer_progress", Y.getProgress()));
+                } else if ("pump_finish".equals(str)) {
+                    f.this.oi("installer_on_pump_finish");
+                } else if ("finish".equals(str)) {
+                    f.this.oi("installer_on_finish");
+                } else if ("start".equals(str)) {
+                    f.this.oi("installer_on_start");
+                }
+            }
+        });
+        i(new com.baidu.swan.apps.aq.e.b<a>() { // from class: com.baidu.swan.apps.r.f.3
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.swan.apps.aq.e.b
+            /* renamed from: a */
+            public void H(a aVar) {
+                Y.a(aVar);
+            }
+        });
+        log("connect: " + readableByteChannel + " at: " + currentTimeMillis);
+        Y.b(readableByteChannel);
+        boolean isOk = isOk();
+        if (DEBUG) {
+            log("allOk: " + isOk + " cost: " + (System.currentTimeMillis() - currentTimeMillis));
         }
-    }
-
-    @Override // com.baidu.swan.apps.r.g.a
-    protected boolean a(Pipe.SourceChannel sourceChannel, Bundle bundle) {
-        String string = bundle.getString("launch_id");
-        com.baidu.swan.apps.v.c.a ls = com.baidu.swan.apps.v.c.a.ls(string);
-        ls.aiq().lv("SwanExtractor").fR(1);
-        boolean e = e(Channels.newInputStream(sourceChannel), string);
-        ls.bv("SwanExtractor", "done: " + e);
-        return e;
-    }
-
-    private boolean e(InputStream inputStream, String str) {
-        if (inputStream == null) {
-            return false;
+        if (!isOk) {
+            i(new com.baidu.swan.apps.aq.e.b<a>() { // from class: com.baidu.swan.apps.r.f.4
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.swan.apps.aq.e.b
+                /* renamed from: a */
+                public void H(a aVar) {
+                    aVar.ahe();
+                }
+            });
         }
-        com.baidu.swan.apps.an.a a = a(new BufferedInputStream(inputStream), str);
-        if (a == null) {
+        return this;
+    }
+
+    public boolean isOk() {
+        if (this.cnn.isEmpty() || this.cnp.getBoolean("flag_is_ok", false)) {
             return true;
         }
-        com.baidu.swan.apps.v.c.a.ls(str).bv("SwanExtractor", "onProcess installe error=" + a);
-        afU().putLong("result_error_code", a.atS());
-        return false;
+        final boolean[] zArr = {true};
+        i(new com.baidu.swan.apps.aq.e.b<a>() { // from class: com.baidu.swan.apps.r.f.5
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.swan.apps.aq.e.b
+            /* renamed from: a */
+            public void H(a aVar) {
+                boolean[] zArr2 = zArr;
+                zArr2[0] = zArr2[0] & aVar.isOk();
+            }
+        });
+        this.cnp.O("flag_is_ok", zArr[0]);
+        return zArr[0];
     }
 
-    private com.baidu.swan.apps.an.a a(@NonNull BufferedInputStream bufferedInputStream, String str) {
-        File bm;
-        int i;
-        boolean z;
-        a.C0376a c0376a;
-        com.baidu.swan.apps.v.c.a ls = com.baidu.swan.apps.v.c.a.ls(str);
-        if (this.cli == null) {
-            com.baidu.swan.apps.an.a pB = new com.baidu.swan.apps.an.a().bw(11L).bx(2320L).pB("pkg info is empty");
-            com.baidu.swan.apps.an.e.atW().g(pB);
-            return pB;
-        }
-        if (this.cli.category == 1) {
-            bm = a.c.bm(this.cli.dqi, String.valueOf(this.cli.versionCode));
-        } else if (this.cli.category == 0) {
-            bm = e.d.bm(this.cli.dqi, String.valueOf(this.cli.versionCode));
-        } else {
-            com.baidu.swan.apps.an.a pB2 = new com.baidu.swan.apps.an.a().bw(11L).bx(2320L).pB("pkh category illegal");
-            com.baidu.swan.apps.an.e.atW().g(pB2);
-            return pB2;
-        }
-        if (bm.isFile() && !bm.delete()) {
-            if (DEBUG) {
-                ls.bv("SwanExtractor", "解压失败：解压目录被文件占用，且无法删除");
-            }
-            com.baidu.swan.apps.an.a pB3 = new com.baidu.swan.apps.an.a().bw(11L).bx(2320L).pB("解压失败：解压目录被文件占用，且无法删除");
-            com.baidu.swan.apps.an.e.atW().g(pB3);
-            return pB3;
-        }
-        if (!bm.exists()) {
-            afU().putBoolean("result_output_dir_allow_rollback", true);
-            if (!bm.mkdirs()) {
-                if (DEBUG) {
-                    ls.bv("SwanExtractor", "解压失败：解压文件夹创建失败");
-                }
-                com.baidu.swan.apps.an.a pB4 = new com.baidu.swan.apps.an.a().bw(11L).bx(2320L).pB("解压失败：解压文件夹创建失败");
-                com.baidu.swan.apps.an.e.atW().g(pB4);
-                return pB4;
-            }
-        }
+    private void i(com.baidu.swan.apps.aq.e.b<a> bVar) {
+        com.baidu.swan.apps.aq.e.a.a(bVar, this.cnn.values());
+    }
+
+    private void log(String str) {
         if (DEBUG) {
-            ls.bv("SwanExtractor", "开始执行解压操作, folder:" + bm.getPath());
-        }
-        afU().putString("result_output_dir", bm.toString());
-        long currentTimeMillis = System.currentTimeMillis();
-        try {
-            a.b a = com.baidu.swan.apps.r.a.a.a(bufferedInputStream);
-            boolean z2 = false;
-            int i2 = a == null ? -1 : a.type;
-            if (i2 != -1) {
-                z2 = true;
-            }
-            dZ(z2);
-            if (z2) {
-                a.C0376a a2 = com.baidu.swan.apps.r.a.a.a(bufferedInputStream, bm, i2);
-                int i3 = i2;
-                c0376a = a2;
-                z = a2 != null && a2.isSuccess;
-                i = i3;
-            } else {
-                boolean f = com.baidu.swan.e.g.f(bufferedInputStream, bm.getPath());
-                i = 0;
-                z = f;
-                c0376a = null;
-            }
-            ea(z2);
-            long currentTimeMillis2 = System.currentTimeMillis();
-            if (DEBUG) {
-                com.baidu.swan.apps.r.a.a.fJ((int) (currentTimeMillis2 - currentTimeMillis));
-            }
-            if (this.clb != null) {
-                Bundle bundle = new Bundle();
-                bundle.putInt("download_package_type_id", i);
-                h.a(this.clb, bundle, "event_download_package_type");
-            }
-            if (z) {
-                return null;
-            }
-            com.baidu.swan.apps.an.a bw = new com.baidu.swan.apps.an.a().bw(11L);
-            if (z2) {
-                bw.bx(2330L).pB("decrypt failed:" + c0376a.cdx);
-            } else {
-                bw.bx(2320L).pB("unzip failed");
-            }
-            com.baidu.swan.apps.an.e.atW().g(bw);
-            return bw;
-        } catch (IOException e) {
-            if (DEBUG) {
-                e.printStackTrace();
-            }
-            ls.bv("SwanExtractor", "obtainEncryptedBundle Exception: " + e.toString());
-            com.baidu.swan.apps.an.a pB5 = new com.baidu.swan.apps.an.a().bw(11L).bx(2320L).pB("obtainEncryptedBundle Exception: " + e.toString());
-            com.baidu.swan.apps.an.e.atW().g(pB5);
-            return pB5;
+            com.baidu.swan.apps.u.d.a.lT(this.cno.getString("launch_id", "")).lU(str).lW("SwanInstaller");
+            Log.i("SwanInstaller", str);
         }
     }
 
-    private void dZ(boolean z) {
-        if (z) {
-            bq("670", "package_start_decrypt");
-            bq("770", "na_package_start_decrypt");
-            return;
-        }
-        bq("670", "package_start_unzip");
-        bq("770", "na_package_start_unzip");
-    }
+    /* loaded from: classes7.dex */
+    public static abstract class a implements com.baidu.swan.apps.aq.e.b<Pipe.SourceChannel> {
+        private f cnu;
+        final String id;
+        private final Bundle mResult = new Bundle();
 
-    private void ea(boolean z) {
-        if (z) {
-            bq("670", "package_end_decrypt");
-            bq("770", "na_package_end_decrypt");
-            return;
-        }
-        bq("670", "package_end_unzip");
-        bq("770", "na_package_end_unzip");
-    }
+        protected abstract boolean a(Pipe.SourceChannel sourceChannel, Bundle bundle);
 
-    private void bq(String str, String str2) {
-        if (this.clb != null) {
-            this.clb.aW(str, str2);
+        public a(String str) {
+            this.id = str;
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void b(f fVar) {
+            this.cnu = fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.swan.apps.aq.e.b
+        /* renamed from: a */
+        public void H(Pipe.SourceChannel sourceChannel) {
+            if (this.cnu != null && a(sourceChannel, this.cnu.cno.toBundle())) {
+                ahf();
+            }
+        }
+
+        private void ahf() {
+            this.mResult.putBoolean("flag_is_ok", true);
+        }
+
+        public Bundle ahg() {
+            return this.mResult;
+        }
+
+        public boolean isOk() {
+            return ahg().getBoolean("flag_is_ok");
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        public void ahe() {
+        }
+
+        public String toString() {
+            return this.id;
         }
     }
 }

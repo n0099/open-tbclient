@@ -15,15 +15,21 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tbadk.core.util.a.g;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
+import com.baidu.tbadk.data.l;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.baidu.tieba.p.a;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tieba.tbadkCore.data.e;
 import com.baidu.tieba.tbadkCore.u;
+import io.flutter.Log;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class NativeListeners {
     public MethodChannel mMethodChannel;
     private final String MultiRemoveBlockFans = "MultiRemoveBlockFans";
@@ -35,10 +41,21 @@ public class NativeListeners {
     private final String SyncComplete = "SyncComplete";
     private final String ServiceCenterCheck = "ServiceCenterCheck";
     private final String LikeForumsSign = "LikeForumsSign";
+    private final String BarBroadcastCopyLink = "BarBroadcastCopyLink";
+    private final String ThreadAgreeChanged = "ThreadAgreeChanged";
+    private final String ChangePortraitImage = "ChangePortraitImage";
+    private final String ChangePendantImage = "ChangePendantImage";
+    private final String ChangeUserProfile = "ChangeUserProfile";
+    private final String ChangeUserProfileBackground = "ChangeUserProfileBackground";
     private final String kTBCLikeForumsInfoUpdateNotification = "kTBCLikeForumsInfoUpdateNotification";
     private final String kTBCLikeForumsInfoDeletedNotification = "kTBCLikeForumsInfoDeletedNotification";
     private final String kTBCShareSdkResultNotification = "kTBCShareSdkResultNotification";
     private final String kTBCCancleLikeFrsNotification = "kTBCCancleLikeFrsNotification";
+    private final String PersonDataChangedNotification = "PersonDataChangedNotification";
+    private final String ThreadWriteReplyListener = "ThreadWriteReplyListener";
+    private final String kTBCDeleteFrsSection = "kTBCDeleteFrsSection";
+    private final String kTBCBroadcastPublishSuccess = "kTBCBroadcastPublishSuccess";
+    private final String kTBCBroadcastEdditPageResume = "kTBCBroadcastEdditPageResume";
     private HttpMessageListener mRemoveForbiddenListener = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS) { // from class: com.example.utility_plugin.NativeListeners.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -77,11 +94,11 @@ public class NativeListeners {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (a.dar().dan()) {
+                if (a.ddy().ddu()) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("uniqueKey", "FansCountUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-                } else if (a.dar().dao()) {
+                } else if (a.ddy().ddv()) {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("uniqueKey", "BookMarkUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);
@@ -136,6 +153,124 @@ public class NativeListeners {
             }
         }
     };
+    private final CustomMessageListener mCopyBarBroadcastLinkListener = new CustomMessageListener(2921472) { // from class: com.example.utility_plugin.NativeListeners.9
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            String str = (String) customResponsedMessage.getData();
+            if (str != null) {
+                HashMap hashMap = new HashMap();
+                HashMap hashMap2 = new HashMap();
+                hashMap2.put("threadLink", str);
+                hashMap.put("uniqueKey", "BarBroadcastCopyLink");
+                hashMap.put("data", hashMap2);
+                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
+            }
+        }
+    };
+    private CustomMessageListener mThreadAgreeChangedListener = new CustomMessageListener(2016528) { // from class: com.example.utility_plugin.NativeListeners.10
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            AgreeData agreeData;
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e) && (agreeData = ((e) customResponsedMessage.getData()).agreeData) != null) {
+                HashMap hashMap = new HashMap();
+                HashMap hashMap2 = new HashMap();
+                hashMap2.put("nid", agreeData.nid);
+                hashMap2.put("tid", agreeData.threadId);
+                hashMap2.put("agreeType", String.valueOf(agreeData.agreeType));
+                hashMap2.put("hasAgree", agreeData.hasAgree ? "1" : "0");
+                hashMap2.put("diffAgreeNum", String.valueOf(agreeData.diffAgreeNum));
+                hashMap2.put("agreeNum", String.valueOf(agreeData.agreeNum));
+                hashMap2.put("disAgreeNum", String.valueOf(agreeData.disAgreeNum));
+                hashMap.put("uniqueKey", "ThreadAgreeChanged");
+                hashMap.put("data", hashMap2);
+                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
+            }
+        }
+    };
+    private HttpMessageListener mChangePortraitListener = new HttpMessageListener(1003063) { // from class: com.example.utility_plugin.NativeListeners.11
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (httpResponsedMessage != null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("uniqueKey", "ChangePortraitImage");
+                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
+            }
+        }
+    };
+    private HttpMessageListener mResetUserPicsListener = new HttpMessageListener(1003064) { // from class: com.example.utility_plugin.NativeListeners.12
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (httpResponsedMessage != null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("uniqueKey", "ChangePendantImage");
+                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
+            }
+        }
+    };
+    private CustomMessageListener mUpdatePendantListener = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_PENDANT) { // from class: com.example.utility_plugin.NativeListeners.13
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof l)) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("uniqueKey", "ChangeUserProfile");
+                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
+            }
+        }
+    };
+    private CustomMessageListener mBgRefreshListener = new CustomMessageListener(CmdConfigCustom.CMD_REFRESH_PERSONAL) { // from class: com.example.utility_plugin.NativeListeners.14
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("uniqueKey", "ChangeUserProfileBackground");
+            NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
+        }
+    };
+    private CustomMessageListener mPersonDataChangedListener = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_DATA_CHANGED) { // from class: com.example.utility_plugin.NativeListeners.15
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("uniqueKey", "PersonDataChangedNotification");
+            NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
+        }
+    };
+    private CustomMessageListener mThreadWriteReplyListener = new CustomMessageListener(CmdConfigCustom.CMD_FORCE_UPDATE_PREPARE_LOCATION_INFO) { // from class: com.example.utility_plugin.NativeListeners.16
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            HashMap hashMap = new HashMap();
+            if (customResponsedMessage.getData() instanceof g) {
+                g gVar = (g) customResponsedMessage.getData();
+                if (!x.isEmpty(gVar.mPostData)) {
+                    int i = 0;
+                    while (true) {
+                        int i2 = i;
+                        if (i2 >= gVar.mPostData.size()) {
+                            break;
+                        }
+                        if (gVar.mPostData.get(i2) != null) {
+                            hashMap.put(gVar.mPostData.get(i2).getName(), gVar.mPostData.get(i2).getValue());
+                        }
+                        i = i2 + 1;
+                    }
+                }
+            }
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("tid", hashMap.get("tid"));
+            hashMap2.put("nid", hashMap.get("ori_ugc_nid"));
+            HashMap hashMap3 = new HashMap();
+            hashMap3.put("uniqueKey", "ThreadWriteReplyListener");
+            hashMap3.put("data", hashMap2);
+            Log.e("native", hashMap.toString());
+            NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap3);
+        }
+    };
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public NativeListeners(MethodChannel methodChannel) {
@@ -177,11 +312,17 @@ public class NativeListeners {
     }
 
     public void addNotificationObserver(String str) {
-        MessageManager.getInstance().registerListener(getListererFromKey(str));
+        MessageListener<?> listererFromKey = getListererFromKey(str);
+        if (listererFromKey != null) {
+            MessageManager.getInstance().registerListener(listererFromKey);
+        }
     }
 
     public void removeNotificationObserver(String str) {
-        MessageManager.getInstance().unRegisterListener(getListererFromKey(str));
+        MessageListener<?> listererFromKey = getListererFromKey(str);
+        if (listererFromKey != null) {
+            MessageManager.getInstance().unRegisterListener(listererFromKey);
+        }
     }
 
     private Message getMessageFromName(String str, Object obj) {
@@ -208,6 +349,12 @@ public class NativeListeners {
     private ResponsedMessage getResponsedMessageFromName(String str, Object obj) {
         char c = 65535;
         switch (str.hashCode()) {
+            case -1789920843:
+                if (str.equals("kTBCBroadcastEdditPageResume")) {
+                    c = 5;
+                    break;
+                }
+                break;
             case -1017654699:
                 if (str.equals("kTBCLikeForumsInfoUpdateNotification")) {
                     c = 0;
@@ -217,6 +364,18 @@ public class NativeListeners {
             case 332172237:
                 if (str.equals("kTBCShareSdkResultNotification")) {
                     c = 2;
+                    break;
+                }
+                break;
+            case 558131307:
+                if (str.equals("kTBCBroadcastPublishSuccess")) {
+                    c = 4;
+                    break;
+                }
+                break;
+            case 1749524275:
+                if (str.equals("kTBCDeleteFrsSection")) {
+                    c = 3;
                     break;
                 }
                 break;
@@ -248,6 +407,24 @@ public class NativeListeners {
                     return new ShareSDKResultMessage(Boolean.valueOf(((Boolean) argument).booleanValue()));
                 }
                 break;
+            case 3:
+                Object argument2 = argument(obj, "payload");
+                if (argument2 instanceof Integer) {
+                    return new CustomResponsedMessage(2921470, Integer.valueOf(((Integer) argument2).intValue()));
+                }
+                break;
+            case 4:
+                Object argument3 = argument(obj, "payload");
+                if (argument3 instanceof Map) {
+                    return new CustomResponsedMessage(2921477, (Map) argument3);
+                }
+                break;
+            case 5:
+                Object argument4 = argument(obj, "payload");
+                if (argument4 instanceof Integer) {
+                    return new CustomResponsedMessage(2921478, Integer.valueOf(((Integer) argument4).intValue()));
+                }
+                break;
         }
         return null;
     }
@@ -255,15 +432,39 @@ public class NativeListeners {
     private MessageListener<?> getListererFromKey(String str) {
         char c = 65535;
         switch (str.hashCode()) {
+            case -1967337156:
+                if (str.equals("ChangeUserProfileBackground")) {
+                    c = '\r';
+                    break;
+                }
+                break;
+            case -1702113870:
+                if (str.equals("ThreadAgreeChanged")) {
+                    c = '\t';
+                    break;
+                }
+                break;
             case -994250872:
                 if (str.equals("AppDidEnterBackground")) {
                     c = 1;
                     break;
                 }
                 break;
+            case -815635840:
+                if (str.equals("PersonDataChangedNotification")) {
+                    c = 14;
+                    break;
+                }
+                break;
             case -712625697:
                 if (str.equals("BookMarkUpdate")) {
                     c = 2;
+                    break;
+                }
+                break;
+            case -336540695:
+                if (str.equals("ThreadWriteReplyListener")) {
+                    c = 15;
                     break;
                 }
                 break;
@@ -276,6 +477,12 @@ public class NativeListeners {
             case 215365908:
                 if (str.equals("SyncComplete")) {
                     c = 5;
+                    break;
+                }
+                break;
+            case 401543534:
+                if (str.equals("ChangeUserProfile")) {
+                    c = '\f';
                     break;
                 }
                 break;
@@ -294,6 +501,24 @@ public class NativeListeners {
             case 541940592:
                 if (str.equals("MultiRemoveBlockFans")) {
                     c = 0;
+                    break;
+                }
+                break;
+            case 757688464:
+                if (str.equals("ChangePortraitImage")) {
+                    c = '\n';
+                    break;
+                }
+                break;
+            case 790383375:
+                if (str.equals("ChangePendantImage")) {
+                    c = 11;
+                    break;
+                }
+                break;
+            case 1499680061:
+                if (str.equals("BarBroadcastCopyLink")) {
+                    c = '\b';
                     break;
                 }
                 break;
@@ -329,6 +554,23 @@ public class NativeListeners {
             case 7:
                 this.mSignChangedListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
                 return this.mSignChangedListener;
+            case '\b':
+                this.mCopyBarBroadcastLinkListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                return this.mCopyBarBroadcastLinkListener;
+            case '\t':
+                return this.mThreadAgreeChangedListener;
+            case '\n':
+                return this.mChangePortraitListener;
+            case 11:
+                return this.mResetUserPicsListener;
+            case '\f':
+                return this.mUpdatePendantListener;
+            case '\r':
+                return this.mBgRefreshListener;
+            case 14:
+                return this.mPersonDataChangedListener;
+            case 15:
+                return this.mThreadWriteReplyListener;
             default:
                 return null;
         }

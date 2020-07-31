@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import java.lang.reflect.Array;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public final class GaussBlur {
     public static final int RADIUS = 10;
 

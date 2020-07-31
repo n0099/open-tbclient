@@ -8,7 +8,6 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes3.dex */
 public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<VideoMsg> CREATOR = new Parcelable.Creator<VideoMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.VideoMsg.1
@@ -63,7 +62,7 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
         try {
             JSONObject jSONObject = new JSONObject(getJsonContent());
             this.mRemoteUrl = jSONObject.optString("url");
-            this.mFormat = jSONObject.optInt(IjkMediaMeta.IJKM_KEY_FORMAT);
+            this.mFormat = jSONObject.optInt("format");
             this.mDuration = jSONObject.optInt("duration");
             return true;
         } catch (JSONException e) {
@@ -89,7 +88,7 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("url", str);
-                jSONObject.put(IjkMediaMeta.IJKM_KEY_FORMAT, i);
+                jSONObject.put("format", i);
                 jSONObject.put("duration", i2);
                 jSONObject.put("thumbnail", Base64.encode(bArr));
                 return jSONObject.toString();

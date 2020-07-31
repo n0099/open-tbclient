@@ -17,8 +17,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tv.danmaku.ijk.media.player.IjkMediaPlayerLocal;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class p {
     private static final Object a = new Object();
     private static volatile p b;
@@ -549,19 +548,19 @@ public final class p {
                 String a2 = a(new a(adVar, iPushActionListener));
                 adVar.b(a2);
                 if (TextUtils.isEmpty(this.l)) {
-                    a(a2, 20001);
+                    a(a2, com.baidu.sapi2.share.m.g);
                     return;
                 } else if (arrayList.size() < 0) {
-                    a(a2, IjkMediaPlayerLocal.FFP_PROP_INT64_SELECTED_AUDIO_STREAM);
+                    a(a2, 20002);
                     return;
                 } else if (c().size() + arrayList.size() > 500) {
-                    a(a2, IjkMediaPlayerLocal.FFP_PROP_INT64_AUDIO_DECODER);
+                    a(a2, 20004);
                     return;
                 } else {
                     Iterator<String> it = arrayList.iterator();
                     while (it.hasNext()) {
                         if (it.next().length() > 70) {
-                            a(a2, IjkMediaPlayerLocal.FFP_PROP_INT64_VIDEO_DECODER);
+                            a(a2, 20003);
                             return;
                         }
                     }
@@ -624,19 +623,19 @@ public final class p {
                 String a2 = a(new a(adVar, iPushActionListener));
                 adVar.b(a2);
                 if (TextUtils.isEmpty(this.l)) {
-                    a(a2, 20001);
+                    a(a2, com.baidu.sapi2.share.m.g);
                     return;
                 } else if (arrayList.size() < 0) {
-                    a(a2, IjkMediaPlayerLocal.FFP_PROP_INT64_SELECTED_AUDIO_STREAM);
+                    a(a2, 20002);
                     return;
                 } else if (arrayList.size() > 500) {
-                    a(a2, IjkMediaPlayerLocal.FFP_PROP_INT64_AUDIO_DECODER);
+                    a(a2, 20004);
                     return;
                 } else {
                     Iterator<String> it = arrayList.iterator();
                     while (it.hasNext()) {
                         if (it.next().length() > 70) {
-                            a(a2, IjkMediaPlayerLocal.FFP_PROP_INT64_VIDEO_DECODER);
+                            a(a2, 20003);
                             return;
                         }
                     }
@@ -775,7 +774,7 @@ public final class p {
         return this.p.booleanValue();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         private IPushActionListener a;
         private com.vivo.push.b.c b;

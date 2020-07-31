@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumSearchActivityConfig;
 import com.baidu.tieba.forumsearch.message.SearchPostForumHttpResponseMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class ForumSearchStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(ForumSearchActivityConfig.class, ForumSearchActivity.class);
-        btt();
+        bwC();
     }
 
-    private static void btt() {
+    private static void bwC() {
         com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_SEARCH_POST_FORUM, SearchPostForumSocketResponseMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SEARCH_POST_FORUM, 1003335, TbConfig.SEARCH_POST_FORUM, SearchPostForumHttpResponseMessage.class, false, false, true, false);
     }

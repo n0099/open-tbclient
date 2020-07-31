@@ -10,10 +10,10 @@ import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.p;
 import com.airbnb.lottie.k;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class f extends a {
     @Nullable
-    private com.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> BT;
+    private com.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> BV;
     private final Layer Fa;
     private final Paint paint;
     private final Path path;
@@ -37,10 +37,10 @@ public class f extends a {
     public void b(Canvas canvas, Matrix matrix, int i) {
         int alpha = Color.alpha(this.Fa.getSolidColor());
         if (alpha != 0) {
-            int intValue = (int) (((this.CB.hO().getValue().intValue() * (alpha / 255.0f)) / 100.0f) * (i / 255.0f) * 255.0f);
+            int intValue = (int) (((this.CD.hO().getValue().intValue() * (alpha / 255.0f)) / 100.0f) * (i / 255.0f) * 255.0f);
             this.paint.setAlpha(intValue);
-            if (this.BT != null) {
-                this.paint.setColorFilter(this.BT.getValue());
+            if (this.BV != null) {
+                this.paint.setColorFilter(this.BV.getValue());
             }
             if (intValue > 0) {
                 this.points[0] = 0.0f;
@@ -75,11 +75,11 @@ public class f extends a {
     @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
         super.a((f) t, (com.airbnb.lottie.e.c<f>) cVar);
-        if (t == k.Bv) {
+        if (t == k.Bx) {
             if (cVar == null) {
-                this.BT = null;
+                this.BV = null;
             } else {
-                this.BT = new p(cVar);
+                this.BV = new p(cVar);
             }
         }
     }

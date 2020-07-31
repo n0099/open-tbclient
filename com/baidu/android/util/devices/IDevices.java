@@ -1,5 +1,5 @@
 package com.baidu.android.util.devices;
-/* loaded from: classes12.dex */
+/* loaded from: classes3.dex */
 public interface IDevices {
     public static final String ABI_MIPS = "mips";
     public static final String ABI_X86 = "x86";
@@ -8,7 +8,7 @@ public interface IDevices {
     public static final int EM_ARM = 40;
     public static final int EM_MIPS = 8;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes3.dex */
     public enum ARCH {
         Unknown,
         ARM,

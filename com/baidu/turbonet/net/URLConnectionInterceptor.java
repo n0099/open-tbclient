@@ -1,7 +1,7 @@
 package com.baidu.turbonet.net;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class URLConnectionInterceptor {
-    private boolean mCi = false;
+    private boolean mKq = false;
 
     private URLConnectionInterceptor() {
     }

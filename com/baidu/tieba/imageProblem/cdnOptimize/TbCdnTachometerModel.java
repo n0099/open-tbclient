@@ -11,27 +11,27 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.a.f;
-import com.baidu.tbadk.core.util.t;
+import com.baidu.tbadk.core.util.u;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.m;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes6.dex */
+/* loaded from: classes13.dex */
 public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
-    private TbCdnTachometerModelCallBack jlQ;
-    private HttpMessageListener jlR;
+    private TbCdnTachometerModelCallBack juv;
+    private HttpMessageListener juw;
     public static final String IPLIST_ADDRESS_PATH = "c/s/checkcdn";
     public static final String IPLIST_ADDRESS = TbConfig.SERVER_ADDRESS + IPLIST_ADDRESS_PATH;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes13.dex */
     public interface TbCdnTachometerModelCallBack {
         void callBack(TbCdnIpListData tbCdnIpListData);
     }
 
     public TbCdnTachometerModel(TbPageContext<T> tbPageContext) {
         super(tbPageContext);
-        this.jlQ = null;
-        this.jlR = new HttpMessageListener(1002600) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnTachometerModel.1
+        this.juv = null;
+        this.juw = new HttpMessageListener(1002600) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnTachometerModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -41,12 +41,12 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
                 boolean z2;
                 if (httpResponsedMessage != null && TbCdnTachometerModel.this.unique_id == httpResponsedMessage.getOrginalMessage().getTag() && (httpResponsedMessage instanceof TbCdnGetIPListHttpResponseMsg)) {
                     TbCdnIpListData tbCdnIpListData = ((TbCdnGetIPListHttpResponseMsg) httpResponsedMessage).ipListData;
-                    if (httpResponsedMessage.getError() != 0 || tbCdnIpListData == null || tbCdnIpListData.jlH != 0) {
-                        if (TbCdnTachometerModel.this.jlQ != null) {
+                    if (httpResponsedMessage.getError() != 0 || tbCdnIpListData == null || tbCdnIpListData.jum != 0) {
+                        if (TbCdnTachometerModel.this.juv != null) {
                             int error = httpResponsedMessage.getError();
                             String errorString = httpResponsedMessage.getErrorString();
                             if (httpResponsedMessage.getError() == 0) {
-                                i = tbCdnIpListData.jlH;
+                                i = tbCdnIpListData.jum;
                                 z = false;
                                 str = tbCdnIpListData.errorString;
                                 z2 = true;
@@ -62,10 +62,10 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
                         z = true;
                         i = -1;
                     } else {
-                        if (TbCdnTachometerModel.this.jlQ != null) {
-                            TbCdnTachometerModel.this.jlQ.callBack(tbCdnIpListData);
+                        if (TbCdnTachometerModel.this.juv != null) {
+                            TbCdnTachometerModel.this.juv.callBack(tbCdnIpListData);
                         }
-                        if (tbCdnIpListData.jlJ.size() == 0) {
+                        if (tbCdnIpListData.juo.size() == 0) {
                             str = "noList";
                             z2 = false;
                             z = true;
@@ -76,20 +76,20 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
                         z = true;
                         i = -1;
                     }
-                    t.a(z, z2, String.valueOf(i), str);
+                    u.a(z, z2, String.valueOf(i), str);
                 }
             }
         };
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002600, IPLIST_ADDRESS);
         tbHttpMessageTask.setResponsedClass(TbCdnGetIPListHttpResponseMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().unRegisterListener(this.jlR);
-        MessageManager.getInstance().registerListener(this.jlR);
+        MessageManager.getInstance().unRegisterListener(this.juw);
+        MessageManager.getInstance().registerListener(this.juw);
     }
 
     public void destroy() {
         MessageManager.getInstance().unRegisterTask(1002600);
-        MessageManager.getInstance().unRegisterListener(this.jlR);
+        MessageManager.getInstance().unRegisterListener(this.juw);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -103,7 +103,7 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
     }
 
     public void setCndTachometerModelCallBack(TbCdnTachometerModelCallBack tbCdnTachometerModelCallBack) {
-        this.jlQ = tbCdnTachometerModelCallBack;
+        this.juv = tbCdnTachometerModelCallBack;
     }
 
     public void getCDNIPList() {
@@ -160,7 +160,7 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
                 z2 = z4;
                 i = 0;
             }
-            t.a(z2, str, str2, "0", str5, String.valueOf(i), currentTimeMillis2, z);
+            u.a(z2, str, str2, "0", str5, String.valueOf(i), currentTimeMillis2, z);
             z3 = z2;
             return z3;
         } catch (Exception e) {
@@ -169,7 +169,7 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
             stringBuffer.append(e.getClass());
             stringBuffer.append(" message");
             stringBuffer.append(e.getMessage());
-            t.a(z3, str, str2, "-1", stringBuffer.toString(), "0", 0L, z);
+            u.a(z3, str, str2, "-1", stringBuffer.toString(), "0", 0L, z);
             return z3;
         }
     }

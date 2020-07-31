@@ -40,7 +40,7 @@ import com.baidu.megapp.ma.MAFragment;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseFragment extends MAFragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, IScrollable, IPageStayDuration {
     private static final int PRELOAD_DELAY = 100;
     private CustomToast customToast;
@@ -598,7 +598,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class NetRefreshListener implements View.OnClickListener {
         private NetRefreshListener() {
         }

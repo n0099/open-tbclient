@@ -1,5 +1,5 @@
 package tv.chushou.widget.ninepatch;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class WrongPaddingException extends RuntimeException {
     public WrongPaddingException() {
     }

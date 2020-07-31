@@ -4,20 +4,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class e extends RecyclerView.ViewHolder {
-    private VoteCandidateCard gKz;
+    private VoteCandidateCard gQf;
 
     public e(View view) {
         super(view);
         if (view instanceof VoteCandidateCard) {
-            this.gKz = (VoteCandidateCard) view;
+            this.gQf = (VoteCandidateCard) view;
         }
     }
 
     public void setData(int i, f fVar) {
-        if (this.gKz != null) {
-            this.gKz.setData(i, fVar);
+        if (this.gQf != null) {
+            this.gQf.setData(i, fVar);
         }
     }
 }

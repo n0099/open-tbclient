@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.LOCAL_VARIABLE, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public @interface FloatRange {
     double from() default Double.NEGATIVE_INFINITY;
 

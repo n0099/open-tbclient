@@ -5,12 +5,12 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.sofire.ac.FH;
-import com.baidu.swan.apps.u.b.k;
-/* loaded from: classes12.dex */
+import com.baidu.swan.apps.t.b.k;
+/* loaded from: classes19.dex */
 public class b implements k {
-    @Override // com.baidu.swan.apps.u.b.k
-    public String bS(Context context) {
-        return !ProcessUtils.isMainProcess() ? cV(context) : getZid(context);
+    @Override // com.baidu.swan.apps.t.b.k
+    public String bV(Context context) {
+        return !ProcessUtils.isMainProcess() ? da(context) : getZid(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,7 +18,7 @@ public class b implements k {
         return FH.gzfi(context, null, 0, null);
     }
 
-    private String cV(Context context) {
+    private String da(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, a.class, null);
         return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
     }

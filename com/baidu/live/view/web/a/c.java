@@ -6,7 +6,7 @@ import com.baidu.live.data.w;
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends com.baidu.live.view.web.a {
     @Override // com.baidu.live.view.web.a
     public String getName() {
@@ -14,13 +14,13 @@ public class c extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void fX(String str) {
+    public void fW(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             final w wVar = new w();
-            wVar.aya = jSONObject.optInt("tab", -1);
-            wVar.ayb = jSONObject.optInt("category_id", -1);
-            wVar.ayc = jSONObject.optInt(LogConfig.LOG_GIFT_ID, -1);
+            wVar.azn = jSONObject.optInt("tab", -1);
+            wVar.azo = jSONObject.optInt("category_id", -1);
+            wVar.azp = jSONObject.optInt(LogConfig.LOG_GIFT_ID, -1);
             if (jSONObject.optInt("close", 0) == 1) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913123));
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.view.web.a.c.1

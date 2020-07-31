@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.liveroom;
 
 import android.view.ViewGroup;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class a {
     TbPageContext mTbPageContext;
 
@@ -14,10 +14,10 @@ public abstract class a {
         return this.mTbPageContext;
     }
 
-    public void aq(ViewGroup viewGroup) {
+    public void ar(ViewGroup viewGroup) {
     }
 
-    public void vH() {
+    public void wd() {
     }
 
     public void onDestroy() {

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ugc.constant;
-/* loaded from: classes13.dex */
+/* loaded from: classes19.dex */
 public class Constant {
     public static final String AT = "at";
     public static final String CONTENT_KEY_DURATION = "duration";

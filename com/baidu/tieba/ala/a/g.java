@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class g {
-    private h fyl;
+    private h fDs;
 
     public abstract boolean gJ();
 
@@ -12,17 +12,17 @@ public abstract class g {
     protected abstract void onDetach();
 
     public void a(h hVar) {
-        this.fyl = hVar;
+        this.fDs = hVar;
         onAttach();
     }
 
     public void detach() {
-        this.fyl = null;
+        this.fDs = null;
         onDetach();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public h bvx() {
-        return this.fyl;
+    public h byG() {
+        return this.fDs;
     }
 }

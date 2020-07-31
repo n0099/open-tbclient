@@ -19,13 +19,13 @@ import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 import kotlin.jvm.internal.v;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a extends com.facebook.imagepipeline.request.a {
-    public static final C0848a nyn = new C0848a(null);
+    public static final C0857a nGW = new C0857a(null);
     private final int c;
     private final int d;
     private final String e;
-    private com.facebook.cache.common.b nym;
+    private com.facebook.cache.common.b nGV;
 
     public a(int i, int i2, String str) {
         this.c = i;
@@ -35,12 +35,12 @@ public final class a extends com.facebook.imagepipeline.request.a {
 
     @h
     /* renamed from: com.kascend.chushou.widget.gif.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C0848a {
-        private C0848a() {
+    /* loaded from: classes6.dex */
+    public static final class C0857a {
+        private C0857a() {
         }
 
-        public /* synthetic */ C0848a(o oVar) {
+        public /* synthetic */ C0857a(o oVar) {
             this();
         }
     }
@@ -51,25 +51,25 @@ public final class a extends com.facebook.imagepipeline.request.a {
     }
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
-    public com.facebook.cache.common.b dGb() {
-        String Te;
-        if (this.nym == null) {
-            v vVar = v.nPV;
+    public com.facebook.cache.common.b dJn() {
+        String TP;
+        if (this.nGV == null) {
+            v vVar = v.nYE;
             Locale locale = Locale.CHINA;
             q.l((Object) locale, "Locale.CHINA");
             Object[] objArr = new Object[1];
             String str = this.e;
             if (str == null || str.length() == 0) {
-                Te = SchemeCollecter.CLASSIFY_EMPTY;
+                TP = SchemeCollecter.CLASSIFY_EMPTY;
             } else {
-                Te = tv.chushou.zues.toolkit.b.a.okv.Te(this.e);
+                TP = tv.chushou.zues.toolkit.b.a.ota.TP(this.e);
             }
-            objArr[0] = Te;
+            objArr[0] = TP;
             String format = String.format(locale, "%s", Arrays.copyOf(objArr, objArr.length));
             q.l((Object) format, "java.lang.String.format(locale, format, *args)");
-            this.nym = new g(format);
+            this.nGV = new g(format);
         }
-        return this.nym;
+        return this.nGV;
     }
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
@@ -81,7 +81,7 @@ public final class a extends com.facebook.imagepipeline.request.a {
         int i = this.c;
         int i2 = this.c;
         if (config == null) {
-            config = com.facebook.imagepipeline.request.a.mXW;
+            config = com.facebook.imagepipeline.request.a.nfX;
         }
         com.facebook.common.references.a<Bitmap> c = fVar.c(i, i2, config);
         if (c == null) {
@@ -119,18 +119,18 @@ public final class a extends com.facebook.imagepipeline.request.a {
     }
 
     private final Bitmap a(String str, int i) {
-        File ag = tv.chushou.zues.widget.fresco.a.ag(i.Rk(str));
-        if (ag != null) {
-            return tv.chushou.zues.utils.c.B(ag.getAbsolutePath(), i, i);
+        File af = tv.chushou.zues.widget.fresco.a.af(i.RK(str));
+        if (af != null) {
+            return tv.chushou.zues.utils.c.A(af.getAbsolutePath(), i, i);
         }
-        File c = com.kascend.chushou.d.c.neT.c();
-        tv.chushou.a.a.d.a.ap(c);
-        File file = new File(c, tv.chushou.zues.toolkit.b.a.okv.Te(str));
+        File c = com.kascend.chushou.d.c.nnC.c();
+        tv.chushou.a.a.d.a.as(c);
+        File file = new File(c, tv.chushou.zues.toolkit.b.a.ota.TP(str));
         if (file.isFile() && file.exists()) {
-            return tv.chushou.zues.utils.c.B(file.getAbsolutePath(), i, i);
+            return tv.chushou.zues.utils.c.A(file.getAbsolutePath(), i, i);
         }
-        if (tv.chushou.zues.widget.fresco.a.q(str, file)) {
-            return tv.chushou.zues.utils.c.B(file.getAbsolutePath(), i, i);
+        if (tv.chushou.zues.widget.fresco.a.s(str, file)) {
+            return tv.chushou.zues.utils.c.A(file.getAbsolutePath(), i, i);
         }
         return null;
     }

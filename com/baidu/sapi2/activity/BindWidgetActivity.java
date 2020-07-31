@@ -3,7 +3,7 @@ package com.baidu.sapi2.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.f.a.a;
+import com.baidu.g.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
@@ -12,7 +12,7 @@ import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.WebBindWidgetResult;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class BindWidgetActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     public static final String EXTRA_BIND_WIDGET_ACTION = "EXTRA_BIND_WIDGET_ACTION";

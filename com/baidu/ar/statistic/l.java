@@ -14,12 +14,12 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 class l extends AsyncTask<String, Void, List<String>> {
     private a vy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void onPerformanceRequestFinished(List<String> list);
     }

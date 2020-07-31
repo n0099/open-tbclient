@@ -9,53 +9,53 @@ import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.card.data.n;
 import com.baidu.tieba.card.o;
 import com.baidu.tieba.frs.j;
-/* loaded from: classes9.dex */
-public class a extends j<n, C0620a> {
-    private boolean hMt;
+/* loaded from: classes16.dex */
+public class a extends j<n, C0629a> {
+    private boolean hSs;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.hMt = z;
+        this.hSs = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bm */
-    public C0620a b(ViewGroup viewGroup) {
+    /* renamed from: bn */
+    public C0629a b(ViewGroup viewGroup) {
         o oVar = new o(this.mPageContext);
         oVar.setStatKey(null, TbadkCoreStatisticKey.FRS_HOT_TOPIC_ITEM_CLICK);
-        return new C0620a(oVar);
+        return new C0629a(oVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, n nVar, C0620a c0620a) {
-        TiebaStatic.log(new ao(TbadkCoreStatisticKey.FRS_HOT_TOPIC_CARD_SHOW));
+    public View a(int i, View view, ViewGroup viewGroup, n nVar, C0629a c0629a) {
+        TiebaStatic.log(new ap(TbadkCoreStatisticKey.FRS_HOT_TOPIC_CARD_SHOW));
         if (nVar != null) {
             nVar.locate = i + 1;
-            c0620a.hMu.sO(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
-            c0620a.hMu.showBottomLine(this.hMt);
-            c0620a.hMu.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+            c0629a.hSt.tg(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
+            c0629a.hSt.showBottomLine(this.hSs);
+            c0629a.hSt.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
-        c0620a.hMu.a(nVar);
-        return c0620a.getView();
+        c0629a.hSt.a(nVar);
+        return c0629a.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.frs.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public class C0620a extends ad.a {
-        public o hMu;
+    /* loaded from: classes16.dex */
+    public class C0629a extends ad.a {
+        public o hSt;
 
-        public C0620a(o oVar) {
+        public C0629a(o oVar) {
             super(oVar.getView());
-            this.hMu = oVar;
+            this.hSt = oVar;
         }
     }
 }

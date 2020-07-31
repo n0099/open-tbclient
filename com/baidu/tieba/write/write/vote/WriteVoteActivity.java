@@ -3,7 +3,7 @@ package com.baidu.tieba.write.write.vote;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WriteVoteActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     protected com.baidu.tbadk.suspended.a a(LinearLayout linearLayout, NavigationBar navigationBar) {
@@ -11,6 +11,6 @@ public class WriteVoteActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected void bis() {
+    protected void bmd() {
     }
 }

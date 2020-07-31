@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.walknavi.d.a.a;
 
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b implements Serializable {
     private String b;
     private String c;

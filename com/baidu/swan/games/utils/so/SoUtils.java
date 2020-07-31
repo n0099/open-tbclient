@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class SoUtils {
     public static final String ARM64_V8A = "arm64-v8a";
     public static final String ARMEABI = "armeabi";
@@ -19,12 +19,13 @@ public final class SoUtils {
     private static final String PRE = "lib";
     public static final String SO_EVENT_ID_DEFAULT = "24";
     public static final String SO_EVENT_ID_NEW_SO = "25";
+    public static final String SO_EVENT_ID_V8_SO = "26";
     private static final String TAG = "SoUtils";
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static a sUbcImpl = new c();
     public static String[] uris = {"lib/armeabi", "lib/arm64-v8a"};
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void onEvent(String str, String str2);
     }

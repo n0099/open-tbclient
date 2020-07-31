@@ -1,9 +1,9 @@
 package com.baidu.tieba.ala.liveroom.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface c {
-    void aA(String str, int i);
+    void az(String str, int i);
 
-    void cA(int i);
+    void bN(int i);
 
     void e(long j, String str, String str2);
 

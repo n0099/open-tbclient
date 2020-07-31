@@ -5,44 +5,44 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
-    protected float eyS;
-    protected float eyT;
-    protected int eyU;
-    protected int eyV;
+    protected float eFi;
+    protected float eFj;
+    protected int eFk;
+    protected int eFl;
     protected boolean mIsContentSelectBold;
     protected ThemeColorInfo mThemeColorInfo;
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
         this.mIsContentSelectBold = false;
-        this.eyS = 0.0f;
-        this.eyT = 0.0f;
-        this.eyU = 0;
-        this.eyV = 0;
+        this.eFi = 0.0f;
+        this.eFj = 0.0f;
+        this.eFk = 0;
+        this.eFl = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mIsContentSelectBold = false;
-        this.eyS = 0.0f;
-        this.eyT = 0.0f;
-        this.eyU = 0;
-        this.eyV = 0;
+        this.eFi = 0.0f;
+        this.eFj = 0.0f;
+        this.eFk = 0;
+        this.eFl = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mIsContentSelectBold = false;
-        this.eyS = 0.0f;
-        this.eyT = 0.0f;
-        this.eyU = 0;
-        this.eyV = 0;
+        this.eFi = 0.0f;
+        this.eFj = 0.0f;
+        this.eFk = 0;
+        this.eFl = 0;
     }
 
     public void onChangeSkin(int i) {
@@ -67,7 +67,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a yR(String str) {
+    public a zY(String str) {
         return null;
     }
 
@@ -104,7 +104,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setTextColorResId(int i) {
     }
 
-    public void bgE() {
+    public void bkp() {
     }
 
     public void setAnimationResId(int i) {
@@ -115,19 +115,19 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     }
 
     public void setContentSelectTextSize(float f) {
-        this.eyS = f;
+        this.eFi = f;
     }
 
     public void setContentDefaultTextSize(float f) {
-        this.eyT = f;
+        this.eFj = f;
     }
 
     public void setContentSelectTextColor(int i) {
-        this.eyU = i;
+        this.eFk = i;
     }
 
     public void setContentDefaultTextColor(int i) {
-        this.eyV = i;
+        this.eFl = i;
     }
 
     public void setThemeColorInfo(ThemeColorInfo themeColorInfo) {
@@ -137,7 +137,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     /* loaded from: classes.dex */
     public static class a {
         public int bgDayRes;
-        public TbFragmentTabIndicator eyW;
+        public TbFragmentTabIndicator eFm;
         public int offsetX;
         public View view;
         public boolean isRight = true;
@@ -145,19 +145,19 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
 
         public void onChangeSkin(int i) {
             if (this.bgDayRes != 0) {
-                an.setBackgroundResource(this.view, this.bgDayRes);
+                ao.setBackgroundResource(this.view, this.bgDayRes);
             }
             if (this.view instanceof TextView) {
                 if (this.textDayColor != 0) {
-                    an.setViewTextColor(this.view, this.textDayColor, 1);
+                    ao.setViewTextColor(this.view, this.textDayColor, 1);
                 }
                 int messageCount = getMessageCount((TextView) this.view);
                 if (messageCount > 0 && messageCount < 10) {
-                    an.setBackgroundResource(this.view, R.drawable.icon_news_head_prompt_one);
+                    ao.setBackgroundResource(this.view, R.drawable.icon_news_head_prompt_one);
                 } else if (messageCount >= 10 && messageCount < 100) {
-                    an.setBackgroundResource(this.view, R.drawable.icon_news_head_prompt_two);
+                    ao.setBackgroundResource(this.view, R.drawable.icon_news_head_prompt_two);
                 } else if (messageCount >= 100) {
-                    an.setBackgroundResource(this.view, R.drawable.icon_news_head_prompt_more);
+                    ao.setBackgroundResource(this.view, R.drawable.icon_news_head_prompt_more);
                 }
             }
             if (this.view instanceof MessageRedDotView) {

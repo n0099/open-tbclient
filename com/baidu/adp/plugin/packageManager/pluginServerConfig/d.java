@@ -7,32 +7,32 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d SR;
-    private PluginNetConfigInfos SS = new PluginNetConfigInfos();
-    private b ST;
+    private static volatile d SL;
+    private PluginNetConfigInfos SM = new PluginNetConfigInfos();
+    private b SO;
 
-    public static d oK() {
-        if (SR == null) {
+    public static d oL() {
+        if (SL == null) {
             synchronized (d.class) {
-                if (SR == null) {
-                    SR = new d();
+                if (SL == null) {
+                    SL = new d();
                 }
             }
         }
-        return SR;
+        return SL;
     }
 
     public void a(PluginSettings pluginSettings, boolean z, final a aVar) {
         c b = b(pluginSettings);
-        if (this.ST != null) {
-            this.ST.a(z, b, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
+        if (this.SO != null) {
+            this.SO.a(z, b, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
                 @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.a
                 public void a(boolean z2, c cVar, PluginNetConfigInfos pluginNetConfigInfos, String str) {
                     if (z2) {
-                        d.this.SS = pluginNetConfigInfos;
+                        d.this.SM = pluginNetConfigInfos;
                     }
                     if (aVar != null) {
-                        aVar.a(z2, cVar, d.this.SS, str);
+                        aVar.a(z2, cVar, d.this.SM, str);
                     }
                 }
             });
@@ -54,11 +54,11 @@ public class d {
         return cVar;
     }
 
-    public PluginNetConfigInfos oL() {
-        return this.SS;
+    public PluginNetConfigInfos oM() {
+        return this.SM;
     }
 
     public void a(b bVar) {
-        this.ST = bVar;
+        this.SO = bVar;
     }
 }

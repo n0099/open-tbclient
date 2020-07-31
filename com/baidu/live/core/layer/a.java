@@ -1,12 +1,7 @@
 package com.baidu.live.core.layer;
-
-import android.view.View;
-import android.view.ViewGroup;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface a {
-    View getRootView();
+    void a(LayerChildView layerChildView);
 
-    void release();
-
-    ViewGroup.LayoutParams wj();
+    void b(LayerChildView layerChildView);
 }

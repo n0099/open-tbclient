@@ -1,12 +1,12 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public interface al {
     void a(com.baidu.adp.widget.ListView.z zVar);
 
@@ -14,27 +14,27 @@ public interface al {
 
     void b(ArrayList<com.baidu.adp.widget.ListView.q> arrayList, FrsViewData frsViewData);
 
-    HashMap<Integer, bu> cbE();
+    HashMap<Integer, bv> cfc();
 
-    int cbF();
+    int cfd();
 
-    void cbG();
+    void cfe();
 
-    int cbH();
+    int cff();
 
-    int cbI();
+    int cfg();
 
-    void cbJ();
+    void cfh();
 
     List<com.baidu.adp.widget.ListView.q> getDatas();
 
-    void nE(boolean z);
-
     void notifyDataSetChanged();
+
+    void oj(boolean z);
 
     void onDestory();
 
-    boolean r(BdUniqueId bdUniqueId);
+    boolean s(BdUniqueId bdUniqueId);
 
     void setForumName(String str);
 

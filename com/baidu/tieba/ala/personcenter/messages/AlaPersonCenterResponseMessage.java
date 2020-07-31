@@ -4,7 +4,7 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.personcenter.c.c;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaPersonCenterResponseMessage extends JsonHttpResponsedMessage {
     private c data;
     private int errCode;

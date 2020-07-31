@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.graphics.Point;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class MapStatusUpdateFactory {
     MapStatusUpdateFactory() {
     }

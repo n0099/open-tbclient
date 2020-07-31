@@ -2,14 +2,14 @@ package com.baidu.live.videochat.b;
 
 import com.baidu.live.data.AlaLiveUserInfoData;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
-    public AlaLiveUserInfoData aBG;
+    public AlaLiveUserInfoData aDb;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aBG = new AlaLiveUserInfoData();
-            this.aBG.parserJson(jSONObject);
+            this.aDb = new AlaLiveUserInfoData();
+            this.aDb.parserJson(jSONObject);
         }
     }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdvert {
     public static final int BG_SIZE_FULL_SCALE = 2;
     public static final int BG_SIZE_WIDTH_SCALE = 1;
@@ -35,50 +35,50 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
     public final f resultInfo;
     public final g titleInfo;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes20.dex */
     public static class a {
         public String color;
         public String img;
         public int mode;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes20.dex */
     public static class b {
         public String content;
         public String tag;
         public int type;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes20.dex */
     public static class c extends b {
-        public String lfU;
+        public String lnj;
         public String postUrl;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes20.dex */
     public static class d extends b {
-        public String lfV;
-        public h lfW;
+        public String lnk;
+        public h lnl;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes20.dex */
     public static class e extends b {
-        public String[] lfX;
+        public String[] lnm;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes20.dex */
     public static class f {
         public String desc;
         public String title;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes20.dex */
     public static class g extends b {
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes20.dex */
     public static class h extends b {
-        public String lfY;
+        public String lnn;
     }
 
     public FormCard(JSONObject jSONObject) throws CardParseException {
@@ -124,7 +124,7 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
             this.commitInfo.type = optJSONObject3.optInt("type", -1);
             this.commitInfo.postUrl = optJSONObject3.optString("post_url", "");
             this.commitInfo.content = optJSONObject3.optString("content", "");
-            this.commitInfo.lfU = optJSONObject3.optString("check_str", "");
+            this.commitInfo.lnj = optJSONObject3.optString("check_str", "");
             this.commitInfo.tag = optJSONObject3.optString("tag", "");
         } else {
             this.commitInfo = null;
@@ -157,7 +157,7 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
                                 c cVar = new c();
                                 cVar.type = optInt;
                                 cVar.content = jSONObject3.optString("content", "");
-                                cVar.lfU = jSONObject3.optString("check_str", "");
+                                cVar.lnj = jSONObject3.optString("check_str", "");
                                 cVar.postUrl = jSONObject3.optString("post_url", "");
                                 cVar.tag = jSONObject3.optString("tag", "");
                                 this.itemList.add(cVar);
@@ -169,13 +169,13 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
                                 dVar.type = optInt;
                                 dVar.content = jSONObject3.optString("content", "");
                                 dVar.tag = jSONObject3.optString("tag", "");
-                                dVar.lfV = jSONObject3.optString("reg_str", "");
+                                dVar.lnk = jSONObject3.optString("reg_str", "");
                                 if (jSONObject3.has("veri_code_info") && (jSONObject2 = jSONObject3.getJSONObject("veri_code_info")) != null) {
                                     h hVar = new h();
                                     hVar.content = jSONObject2.optString("content");
-                                    hVar.lfY = jSONObject2.optString("btn_title");
+                                    hVar.lnn = jSONObject2.optString("btn_title");
                                     hVar.tag = jSONObject2.optString("tag");
-                                    dVar.lfW = hVar;
+                                    dVar.lnl = hVar;
                                 }
                                 this.itemList.add(dVar);
                                 continue;
@@ -192,7 +192,7 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
                                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                                         strArr[i2] = jSONArray.getString(i2);
                                     }
-                                    eVar.lfX = strArr;
+                                    eVar.lnm = strArr;
                                 }
                                 this.itemList.add(eVar);
                                 continue;
@@ -217,10 +217,10 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
     public int getGoodsStyle() {
-        if (this.appInfo == null || this.appInfo.dGU == null) {
+        if (this.appInfo == null || this.appInfo.dNf == null) {
             return 0;
         }
-        return this.appInfo.dGU.dHh;
+        return this.appInfo.dNf.dNs;
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert

@@ -10,7 +10,7 @@ import javax.net.ssl.SSLSocketFactory;
 import okhttp3.HttpUrl;
 import okhttp3.internal.Util;
 import org.apache.http.HttpHost;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public final class Address {
     @Nullable
     final CertificatePinner certificatePinner;

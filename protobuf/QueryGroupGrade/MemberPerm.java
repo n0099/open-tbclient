@@ -2,7 +2,7 @@ package protobuf.QueryGroupGrade;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public final class MemberPerm extends Message {
     @ProtoField(tag = 3, type = Message.Datatype.INT32)
     public final Integer alreadyCreateNum;
@@ -49,7 +49,7 @@ public final class MemberPerm extends Message {
         this.leftCreateNum = builder.leftCreateNum;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes17.dex */
     public static final class Builder extends Message.Builder<MemberPerm> {
         public Integer alreadyCreateNum;
         public Integer canCreateMember;

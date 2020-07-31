@@ -5,32 +5,32 @@ import android.support.v4.app.FragmentManager;
 import com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
-    private static final String[] fsn = {TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_living), TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_whole)};
-    private static final int[] fso = {100, 200};
-    private Fragment[] aPo;
+    private static final String[] fxv = {TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_living), TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_whole)};
+    private static final int[] fxw = {100, 200};
+    private Fragment[] aQH;
 
     public AlaRecentHistoryAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
-        this.aPo = new Fragment[2];
-        this.aPo[0] = AlaRecentHistoryFragment.qf(0);
-        this.aPo[1] = AlaRecentHistoryFragment.qf(1);
+        this.aQH = new Fragment[2];
+        this.aQH[0] = AlaRecentHistoryFragment.qu(0);
+        this.aQH[1] = AlaRecentHistoryFragment.qu(1);
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter
     public int getPageType(int i) {
-        return fso[i];
+        return fxw[i];
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter
     public String getTabTitle(int i) {
-        return fsn[i];
+        return fxv[i];
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        return this.aPo[i];
+        return this.aQH[i];
     }
 
     @Override // android.support.v4.view.PagerAdapter

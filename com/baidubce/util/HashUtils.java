@@ -8,7 +8,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class HashUtils {
     private static final Charset UTF8 = Charset.forName("UTF-8");
 

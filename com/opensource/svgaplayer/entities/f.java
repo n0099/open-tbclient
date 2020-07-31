@@ -11,16 +11,16 @@ import kotlin.jvm.internal.q;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @h
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public final class f {
     private final List<g> frames;
     private final String imageKey;
 
-    public final String dLU() {
+    public final String dPp() {
         return this.imageKey;
     }
 
-    public final List<g> dMs() {
+    public final List<g> dPN() {
         return this.frames;
     }
 
@@ -35,8 +35,8 @@ public final class f {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     g gVar = new g(optJSONObject);
-                    if ((!gVar.hW().isEmpty()) && ((SVGAVideoShapeEntity) o.fG(gVar.hW())).dMi() && arrayList.size() > 0) {
-                        gVar.fw(((g) o.fH(arrayList)).hW());
+                    if ((!gVar.hW().isEmpty()) && ((SVGAVideoShapeEntity) o.fP(gVar.hW())).dPD() && arrayList.size() > 0) {
+                        gVar.fF(((g) o.fQ(arrayList)).hW());
                     }
                     arrayList.add(gVar);
                 }
@@ -46,7 +46,7 @@ public final class f {
     }
 
     public f(SpriteEntity spriteEntity) {
-        ArrayList dQs;
+        ArrayList dTO;
         q.m(spriteEntity, "obj");
         this.imageKey = spriteEntity.imageKey;
         g gVar = null;
@@ -58,16 +58,16 @@ public final class f {
             for (FrameEntity frameEntity : list2) {
                 q.l((Object) frameEntity, AdvanceSetting.NETWORK_TYPE);
                 g gVar3 = new g(frameEntity);
-                if ((!gVar3.hW().isEmpty()) && ((SVGAVideoShapeEntity) o.fG(gVar3.hW())).dMi() && gVar2 != null) {
-                    gVar3.fw(gVar2.hW());
+                if ((!gVar3.hW().isEmpty()) && ((SVGAVideoShapeEntity) o.fP(gVar3.hW())).dPD() && gVar2 != null) {
+                    gVar3.fF(gVar2.hW());
                 }
                 arrayList.add(gVar3);
                 gVar2 = gVar3;
             }
-            dQs = arrayList;
+            dTO = arrayList;
         } else {
-            dQs = o.dQs();
+            dTO = o.dTO();
         }
-        this.frames = dQs;
+        this.frames = dTO;
     }
 }

@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @RequiresApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 class ImageViewUtilsApi21 implements ImageViewUtilsImpl {
     private static final String TAG = "ImageViewUtilsApi21";
     private static Method sAnimateTransformMethod;

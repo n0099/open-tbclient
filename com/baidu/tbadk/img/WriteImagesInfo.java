@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.n;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -239,7 +239,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
             while (descendingIterator.hasNext()) {
                 ImageFileInfo next = descendingIterator.next();
                 if (next != null && !next.isHasAddPostQualityAction()) {
-                    next.addPersistAction(com.baidu.tbadk.img.effect.d.aW(as.aWR().getPostImageSize(), as.aWR().getPostImageHeightLimit()));
+                    next.addPersistAction(com.baidu.tbadk.img.effect.d.aX(at.baS().getPostImageSize(), at.baS().getPostImageHeightLimit()));
                     next.setHasAddPostQualityAction(true);
                 }
             }

@@ -2,7 +2,7 @@ package com.vivo.push.b;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class v extends u {
     private ArrayList<String> a;
     private ArrayList<String> b;

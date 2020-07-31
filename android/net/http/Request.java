@@ -1,5 +1,5 @@
 package android.net.http;
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 class Request {
     Request() {
         throw new RuntimeException("Stub!");

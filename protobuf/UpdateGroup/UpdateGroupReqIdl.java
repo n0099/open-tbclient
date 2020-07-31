@@ -3,7 +3,7 @@ package protobuf.UpdateGroup;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.GroupInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public final class UpdateGroupReqIdl extends Message {
     @ProtoField(tag = 1)
     public final GroupInfo data;
@@ -17,7 +17,7 @@ public final class UpdateGroupReqIdl extends Message {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes17.dex */
     public static final class Builder extends Message.Builder<UpdateGroupReqIdl> {
         public GroupInfo data;
 

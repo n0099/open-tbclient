@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ag {
     public static boolean a(Context context, String str, long j) {
         RandomAccessFile randomAccessFile;
@@ -23,7 +23,7 @@ public class ag {
         if (Build.VERSION.SDK_INT < 23 || g.c(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
             try {
                 File file = new File(new File(Environment.getExternalStorageDirectory(), "/.vdevdir/"), "lcfp.lock");
-                y.m584a(file);
+                y.m585a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     try {
@@ -156,7 +156,7 @@ public class ag {
                 bufferedReader = null;
                 th = th5;
             }
-        } else if (!y.m584a(file)) {
+        } else if (!y.m585a(file)) {
             return true;
         }
         arrayList.add(str2);

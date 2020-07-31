@@ -2,7 +2,7 @@ package com.baidu.location.b;
 
 import android.support.v7.widget.ActivityChooserView;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public int a;
     public int b;

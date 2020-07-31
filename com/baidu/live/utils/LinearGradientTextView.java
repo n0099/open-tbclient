@@ -9,31 +9,31 @@ import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LinearGradientTextView extends TextView {
-    private LinearGradient biq;
-    private int bkA;
-    private Rect bky;
-    private int bkz;
+    private LinearGradient biK;
+    private Rect bkS;
+    private int bkT;
+    private int bkU;
     private Paint mPaint;
     private int mViewWidth;
 
     public LinearGradientTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mViewWidth = 0;
-        this.bky = new Rect();
+        this.bkS = new Rect();
     }
 
     @Override // android.widget.TextView
     public void setTextColor(int i) {
-        this.bkz = i;
-        this.bkA = i;
+        this.bkT = i;
+        this.bkU = i;
         super.setTextColor(i);
     }
 
     public void setGradientColor(int i, int i2) {
-        this.bkz = i;
-        this.bkA = i2;
+        this.bkT = i;
+        this.bkU = i2;
         invalidate();
     }
 
@@ -42,9 +42,9 @@ public class LinearGradientTextView extends TextView {
         this.mViewWidth = getMeasuredWidth();
         this.mPaint = getPaint();
         String charSequence = getText().toString();
-        this.mPaint.getTextBounds(charSequence, 0, charSequence.length(), this.bky);
-        this.biq = new LinearGradient(0.0f, 0.0f, this.mViewWidth, 0.0f, new int[]{this.bkz, this.bkA}, (float[]) null, Shader.TileMode.REPEAT);
-        this.mPaint.setShader(this.biq);
-        canvas.drawText(charSequence, (getMeasuredWidth() / 2) - (this.bky.width() / 2), ((getMeasuredHeight() / 2) + (this.bky.height() / 2)) - BdUtilHelper.dip2px(getContext(), 1.0f), this.mPaint);
+        this.mPaint.getTextBounds(charSequence, 0, charSequence.length(), this.bkS);
+        this.biK = new LinearGradient(0.0f, 0.0f, this.mViewWidth, 0.0f, new int[]{this.bkT, this.bkU}, (float[]) null, Shader.TileMode.REPEAT);
+        this.mPaint.setShader(this.biK);
+        canvas.drawText(charSequence, (getMeasuredWidth() / 2) - (this.bkS.width() / 2), ((getMeasuredHeight() / 2) + (this.bkS.height() / 2)) - BdUtilHelper.dip2px(getContext(), 1.0f), this.mPaint);
     }
 }

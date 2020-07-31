@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.walknavi.d.a.d.a;
 
 import com.baidu.platform.comapi.walknavi.d.a.d.a.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 final class d implements c.b {
     final /* synthetic */ c.InterfaceC0228c a;
 

@@ -3,7 +3,7 @@ package com.baidu.tieba.imMessageCenter;
 import android.content.Context;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class PersonalTalkSettingActivityConfig extends IntentConfig {
     public PersonalTalkSettingActivityConfig(Context context, long j) {
         super(context);

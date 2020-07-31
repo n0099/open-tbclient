@@ -6,13 +6,13 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class a {
-    public static <T> List<T> dNq() {
+    public static <T> List<T> dQM() {
         return new MutableOnWriteList(Collections.emptyList());
     }
 
-    public static <K, V> Map<K, V> dNr() {
+    public static <K, V> Map<K, V> dQN() {
         return new LinkedHashMap();
     }
 
@@ -23,7 +23,7 @@ public final class a {
         return (list == Collections.emptyList() || (list instanceof ImmutableList)) ? new MutableOnWriteList(list) : new ArrayList(list);
     }
 
-    public static <K, V> Map<K, V> o(String str, Map<K, V> map) {
+    public static <K, V> Map<K, V> p(String str, Map<K, V> map) {
         if (map == null) {
             throw new NullPointerException(str + " == null");
         }
@@ -47,7 +47,7 @@ public final class a {
         return list;
     }
 
-    public static <K, V> Map<K, V> p(String str, Map<K, V> map) {
+    public static <K, V> Map<K, V> q(String str, Map<K, V> map) {
         if (map == null) {
             throw new NullPointerException(str + " == null");
         }
@@ -75,7 +75,7 @@ public final class a {
         return obj == obj2 || (obj != null && obj.equals(obj2));
     }
 
-    public static void fz(List<?> list) {
+    public static void fI(List<?> list) {
         if (list == null) {
             throw new NullPointerException("list == null");
         }

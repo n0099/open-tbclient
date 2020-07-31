@@ -10,10 +10,10 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.searchbox.unitedscheme.moniter.SchemeTimeCostMoniter;
-import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.aq.al;
 import com.baidu.swan.apps.performance.a.f;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class SwanAppGlobalJsBridge extends a {
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_jsbridge";
     private static final String TAG = "SwanAppGlobalJsBridge";
@@ -24,7 +24,7 @@ public class SwanAppGlobalJsBridge extends a {
 
     @JavascriptInterface
     public boolean dispatch(final String str) {
-        aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.jsbridge.SwanAppGlobalJsBridge.1
+        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.jsbridge.SwanAppGlobalJsBridge.1
             @Override // java.lang.Runnable
             public void run() {
                 SwanAppGlobalJsBridge.this.doSchemeDispatch(SwanAppGlobalJsBridge.this.mCallbackHandler.getCurrentPageUrl(), str);
@@ -46,9 +46,9 @@ public class SwanAppGlobalJsBridge extends a {
         }
         SchemeTimeCostMoniter.getInstance().schemeStart(str2);
         String path = unitedSchemeEntity.getUri().getPath();
-        f.amN().iy(path);
+        f.aoh().iI(path);
         boolean dispatch = this.mMainDispatcher.dispatch(getDispatchContext(), unitedSchemeEntity, this.mCallbackHandler);
-        f.amN().iz(path);
+        f.aoh().iJ(path);
         SchemeTimeCostMoniter.getInstance().schemeEnd(str2);
         return dispatch;
     }

@@ -1,7 +1,7 @@
 package tv.chushou.basis.c;
 
 import android.support.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface a {
     int getInt(String str, int i);
 

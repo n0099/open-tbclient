@@ -2,7 +2,7 @@ package com.baidu.mapapi.map;
 
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapsdkplatform.comapi.map.aa;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 /* synthetic */ class e {
     static final /* synthetic */ int[] a;
     static final /* synthetic */ int[] b = new int[aa.values().length];

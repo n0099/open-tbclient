@@ -14,7 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class AbsActionBarView extends ViewGroup {
     private static final int FADE_DURATION = 200;
     protected ActionMenuPresenter mActionMenuPresenter;
@@ -215,7 +215,7 @@ public abstract class AbsActionBarView extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class VisibilityAnimListener implements ViewPropertyAnimatorListener {
         private boolean mCanceled = false;
         int mFinalVisibility;

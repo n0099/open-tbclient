@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.view.View;
 import com.baidu.mapsdkplatform.comapi.map.ab;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class l implements View.OnClickListener {
     final /* synthetic */ MapView a;
 

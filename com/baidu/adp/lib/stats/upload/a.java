@@ -25,7 +25,7 @@ public class a {
             long j = 0;
             while (i < size) {
                 com.baidu.adp.lib.stats.base.d dVar = b.get(i);
-                j += dVar.mFileSize;
+                j += dVar.Ni;
                 arrayList2.add(dVar);
                 if (j >= ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
                     bdUploadingLogInfo.add(arrayList2);

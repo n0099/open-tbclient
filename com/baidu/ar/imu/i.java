@@ -1,17 +1,17 @@
 package com.baidu.ar.imu;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class i {
     private b rv = b.WORLD;
     private int rw = 0;
 
     /* renamed from: rx  reason: collision with root package name */
-    private boolean f982rx = false;
+    private boolean f961rx = false;
     private boolean ry = false;
     private boolean rz = false;
     private boolean rA = false;
 
     public void H(boolean z) {
-        this.f982rx = z;
+        this.f961rx = z;
     }
 
     public void I(boolean z) {
@@ -35,7 +35,7 @@ public class i {
     }
 
     public boolean dP() {
-        return this.f982rx;
+        return this.f961rx;
     }
 
     public boolean dQ() {

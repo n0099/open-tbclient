@@ -8,16 +8,16 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.live.tbadk.core.data.ConstantData;
 import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.n;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.z;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    public void cN(JSONObject jSONObject) {
+    public void cT(JSONObject jSONObject) {
         JSONArray jSONArray;
         JSONObject optJSONObject;
         String str;
@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        xJ(str2);
+                        yP(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        xJ(str2);
+                        yP(str2);
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bct() {
+    public void bgm() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
@@ -79,29 +79,28 @@ public class b {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void xJ(String str) {
+    public void yP(String str) {
         String localUrl = getLocalUrl();
         if (!TextUtils.equals(localUrl, str) || !isFileExist(localUrl)) {
-            m30do(str, localUrl);
+            dq(str, localUrl);
         }
     }
 
     private boolean isFileExist(String str) {
-        File GetFile = n.GetFile(at.getNameMd5FromUrl(str));
+        File GetFile = n.GetFile(au.getNameMd5FromUrl(str));
         return GetFile != null && GetFile.exists() && GetFile.isFile();
     }
 
-    /* renamed from: do  reason: not valid java name */
-    private void m30do(String str, String str2) {
+    private void dq(String str, String str2) {
         if (j.isWifiNet()) {
-            new a(str, at.getNameMd5FromUrl(str), str2).execute(new String[0]);
+            new a(str, au.getNameMd5FromUrl(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private y byb = null;
+        private z byq = null;
         private final String mFile;
         private final String mLocalUrl;
         private final String mRemoteUrl;
@@ -118,11 +117,11 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.byb = new y(this.mRemoteUrl);
-                bool = Boolean.valueOf(this.byb.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), 900002));
+                this.byq = new z(this.mRemoteUrl);
+                bool = Boolean.valueOf(this.byq.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), 900002));
                 if (bool != null && bool.booleanValue()) {
                     if (!StringUtils.isNull(n.renameTo(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.mRemoteUrl) && !this.mRemoteUrl.equals(this.mLocalUrl)) {
-                        n.DelFile(at.getNameMd5FromUrl(this.mLocalUrl));
+                        n.DelFile(au.getNameMd5FromUrl(this.mLocalUrl));
                     }
                 } else {
                     n.DelFile(this.mFile + ".tmp");
@@ -138,7 +137,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new b().bct();
+                new b().bgm();
             }
         }
     }

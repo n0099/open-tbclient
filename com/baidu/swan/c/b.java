@@ -1,13 +1,22 @@
 package com.baidu.swan.c;
 
-import com.baidu.swan.apps.u.a.f;
-/* loaded from: classes7.dex */
-public class b {
-    public static a aGz() {
-        return f.ahn();
+import com.baidu.swan.d.i;
+/* loaded from: classes9.dex */
+public final class b extends i {
+    private static volatile b dBr;
+
+    public b() {
+        super("aiapp_open_stat");
     }
 
-    public static boolean isDebug() {
-        return aGz().isDebug();
+    public static b aNW() {
+        if (dBr == null) {
+            synchronized (b.class) {
+                if (dBr == null) {
+                    dBr = new b();
+                }
+            }
+        }
+        return dBr;
     }
 }

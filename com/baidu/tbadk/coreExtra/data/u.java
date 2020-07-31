@@ -2,29 +2,29 @@ package com.baidu.tbadk.coreExtra.data;
 
 import android.net.Uri;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class u {
-    public static final List<String> ejX = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
-    private static List<String> ejY;
+    public static final List<String> eql = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
+    private static List<String> eqm;
 
-    public static boolean xA(String str) {
+    public static boolean yF(String str) {
         String string;
-        if (ar.isEmpty(str)) {
+        if (as.isEmpty(str)) {
             return false;
         }
-        if (ejY == null && (string = com.baidu.tbadk.core.sharedPref.b.aVP().getString("js_host_white_list", null)) != null) {
-            ejY = xC(string);
+        if (eqm == null && (string = com.baidu.tbadk.core.sharedPref.b.aZP().getString("js_host_white_list", null)) != null) {
+            eqm = yH(string);
         }
-        if (ejY == null) {
-            ejY = ejX;
+        if (eqm == null) {
+            eqm = eql;
         }
         Uri parse = Uri.parse(str);
         if (parse != null) {
             String host = parse.getHost();
-            for (String str2 : ejY) {
+            for (String str2 : eqm) {
                 if (host.endsWith(str2)) {
                     return true;
                 }
@@ -33,17 +33,17 @@ public class u {
         return false;
     }
 
-    public static void xB(String str) {
+    public static void yG(String str) {
         if (str == null) {
-            com.baidu.tbadk.core.sharedPref.b.aVP().putString("js_host_white_list", "");
+            com.baidu.tbadk.core.sharedPref.b.aZP().putString("js_host_white_list", "");
         } else {
-            com.baidu.tbadk.core.sharedPref.b.aVP().putString("js_host_white_list", str);
+            com.baidu.tbadk.core.sharedPref.b.aZP().putString("js_host_white_list", str);
         }
-        ejY = xC(str);
+        eqm = yH(str);
     }
 
-    private static List<String> xC(String str) {
-        if (ar.isEmpty(str)) {
+    private static List<String> yH(String str) {
+        if (as.isEmpty(str)) {
             return null;
         }
         return Arrays.asList(str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR));

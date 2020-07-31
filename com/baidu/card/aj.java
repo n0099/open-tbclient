@@ -2,50 +2,56 @@ package com.baidu.card;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class aj {
-    private static final int afQ = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44);
-    private static final int afR = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-    public static final int afS = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds15);
-    boolean afT = false;
-    int afU = afR;
-    int afV = 0;
-    int afW = afS;
-    int afX = afQ;
-    int afY = 0;
-    int afZ = afQ;
-    int aga = afQ;
-    int agb = R.color.cp_bg_line_e;
+    private static final int afH = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+    private static final int afI = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds12);
+    public static final int afJ = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds15);
+    int afL;
+    boolean afK = false;
+    int afM = 0;
+    int afN = afJ;
+    int afO = afH;
+    int afP = 0;
+    int afQ = afH;
+    int afR = afH;
+    int afS = R.color.cp_bg_line_e;
 
-    public void bk(int i) {
-        this.afU = i;
-    }
-
-    public void bl(int i) {
-        this.afV = i;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aj() {
+        this.afL = afI;
+        this.afL = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), com.baidu.tbadk.a.b.a.aE(R.dimen.tbds5, R.dimen.tbds20));
     }
 
     public void bm(int i) {
-        this.afW = i;
+        this.afL = i;
     }
 
     public void bn(int i) {
-        this.afX = i;
+        this.afM = i;
     }
 
     public void bo(int i) {
-        this.afY = i;
+        this.afN = i;
     }
 
     public void bp(int i) {
-        this.afZ = i;
+        this.afO = i;
     }
 
     public void bq(int i) {
-        this.aga = i;
+        this.afP = i;
+    }
+
+    public void br(int i) {
+        this.afQ = i;
+    }
+
+    public void bs(int i) {
+        this.afR = i;
     }
 
     public void setBackgroundResource(int i) {
-        this.agb = i;
+        this.afS = i;
     }
 }

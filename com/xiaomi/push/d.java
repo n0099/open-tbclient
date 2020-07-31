@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d extends IOException {
     public d(String str) {
         super(str);

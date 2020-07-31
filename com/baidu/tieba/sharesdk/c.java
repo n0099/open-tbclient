@@ -2,10 +2,11 @@ package com.baidu.tieba.sharesdk;
 
 import android.content.Context;
 import com.baidu.tbadk.coreExtra.share.d;
-/* loaded from: classes11.dex */
-public class c implements d {
-    @Override // com.baidu.tbadk.coreExtra.share.d
-    public com.baidu.tbadk.coreExtra.share.c a(Context context, com.baidu.tbadk.coreExtra.share.b bVar) {
-        return new b(context, bVar);
+import com.baidu.tbadk.coreExtra.share.e;
+/* loaded from: classes18.dex */
+public class c implements e {
+    @Override // com.baidu.tbadk.coreExtra.share.e
+    public d a(Context context, com.baidu.tbadk.coreExtra.share.c cVar) {
+        return new b(context, cVar);
     }
 }

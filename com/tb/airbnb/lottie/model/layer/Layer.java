@@ -7,10 +7,10 @@ import com.tb.airbnb.lottie.model.a.l;
 import com.tb.airbnb.lottie.model.content.Mask;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Layer {
-    private final float Ao;
-    private final List<Mask> CQ;
+    private final float Aq;
+    private final List<Mask> CW;
     private final List<com.tb.airbnb.lottie.e.a<Float>> FD;
     private final String Fp;
     private final long Fq;
@@ -24,18 +24,18 @@ public class Layer {
     private final int Fy;
     private final int Fz;
     private final com.tb.airbnb.lottie.d composition;
-    private final l nHd;
-    private final LayerType nHo;
+    private final l nPL;
+    private final LayerType nPW;
     @Nullable
-    private final j nHp;
+    private final j nPX;
     @Nullable
-    private final k nHq;
+    private final k nPY;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b nHr;
-    private final MatteType nHs;
+    private final com.tb.airbnb.lottie.model.a.b nPZ;
+    private final MatteType nQa;
     private final List<com.tb.airbnb.lottie.model.content.b> shapes;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum LayerType {
         PreComp,
         Solid,
@@ -46,7 +46,7 @@ public class Layer {
         Unknown
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum MatteType {
         None,
         Add,
@@ -59,23 +59,23 @@ public class Layer {
         this.composition = dVar;
         this.Fp = str;
         this.Fq = j;
-        this.nHo = layerType;
+        this.nPW = layerType;
         this.Fs = j2;
         this.Ft = str2;
-        this.CQ = list2;
-        this.nHd = lVar;
+        this.CW = list2;
+        this.nPL = lVar;
         this.Fu = i;
         this.Fv = i2;
         this.Fw = i3;
         this.Fx = f;
-        this.Ao = f2;
+        this.Aq = f2;
         this.Fy = i4;
         this.Fz = i5;
-        this.nHp = jVar;
-        this.nHq = kVar;
+        this.nPX = jVar;
+        this.nPY = kVar;
         this.FD = list3;
-        this.nHs = matteType;
-        this.nHr = bVar;
+        this.nQa = matteType;
+        this.nPZ = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -90,7 +90,7 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float iY() {
-        return this.Ao / this.composition.hb();
+        return this.Aq / this.composition.hb();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -125,16 +125,16 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<Mask> hK() {
-        return this.CQ;
+        return this.CW;
     }
 
-    public LayerType dOr() {
-        return this.nHo;
+    public LayerType dRN() {
+        return this.nPW;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public MatteType dOs() {
-        return this.nHs;
+    public MatteType dRO() {
+        return this.nQa;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -148,8 +148,8 @@ public class Layer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l dOl() {
-        return this.nHd;
+    public l dRH() {
+        return this.nPL;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -169,20 +169,20 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public j dOt() {
-        return this.nHp;
+    public j dRP() {
+        return this.nPX;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public k dOu() {
-        return this.nHq;
+    public k dRQ() {
+        return this.nPY;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public com.tb.airbnb.lottie.model.a.b dOv() {
-        return this.nHr;
+    public com.tb.airbnb.lottie.model.a.b dRR() {
+        return this.nPZ;
     }
 
     public String toString() {
@@ -192,13 +192,13 @@ public class Layer {
     public String toString(String str) {
         StringBuilder sb = new StringBuilder();
         sb.append(str).append(getName()).append("\n");
-        Layer gi = this.composition.gi(je());
-        if (gi != null) {
-            sb.append("\t\tParents: ").append(gi.getName());
-            Layer gi2 = this.composition.gi(gi.je());
-            while (gi2 != null) {
-                sb.append("->").append(gi2.getName());
-                gi2 = this.composition.gi(gi2.je());
+        Layer gv = this.composition.gv(je());
+        if (gv != null) {
+            sb.append("\t\tParents: ").append(gv.getName());
+            Layer gv2 = this.composition.gv(gv.je());
+            while (gv2 != null) {
+                sb.append("->").append(gv2.getName());
+                gv2 = this.composition.gv(gv2.je());
             }
             sb.append(str).append("\n");
         }

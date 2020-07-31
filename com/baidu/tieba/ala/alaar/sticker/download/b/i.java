@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.alaar.sticker.download.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i {
     private long end;
     private long finished;

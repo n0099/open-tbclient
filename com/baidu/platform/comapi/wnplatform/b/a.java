@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comjni.bikenavi.JNIGuidanceControl;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.platform.comapi.walknavi.a {
     int a;
     private JNIGuidanceControl b;

@@ -2,7 +2,7 @@ package com.baidu.mobads.production;
 
 import com.baidu.mobads.interfaces.download.activate.IXMonitorActivation;
 import com.baidu.mobads.production.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 class i implements Runnable {
     final /* synthetic */ h a;
 

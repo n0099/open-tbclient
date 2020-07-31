@@ -13,27 +13,27 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class HotTopicDetailPkProcess extends View {
-    private static int jOP = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds22);
-    private static int jOQ = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+    private static int jXn = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds22);
+    private static int jXo = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
     private RectF FG;
-    private ValueAnimator gdt;
-    private int iqP;
-    private int jOR;
-    private int jOS;
-    private int jOT;
-    private float jOU;
-    private int jOV;
+    private ValueAnimator giC;
+    private int iwT;
+    private int jXp;
+    private int jXq;
+    private int jXr;
+    private float jXs;
+    private int jXt;
     private Paint paint;
     private Path path;
 
     public HotTopicDetailPkProcess(Context context) {
         super(context);
-        this.iqP = 3;
-        this.jOU = 50.0f;
+        this.iwT = 3;
+        this.jXs = 50.0f;
         this.FG = new RectF();
         this.path = new Path();
         init();
@@ -41,8 +41,8 @@ public class HotTopicDetailPkProcess extends View {
 
     public HotTopicDetailPkProcess(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.iqP = 3;
-        this.jOU = 50.0f;
+        this.iwT = 3;
+        this.jXs = 50.0f;
         this.FG = new RectF();
         this.path = new Path();
         init();
@@ -50,8 +50,8 @@ public class HotTopicDetailPkProcess extends View {
 
     public HotTopicDetailPkProcess(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iqP = 3;
-        this.jOU = 50.0f;
+        this.iwT = 3;
+        this.jXs = 50.0f;
         this.FG = new RectF();
         this.path = new Path();
         init();
@@ -59,14 +59,14 @@ public class HotTopicDetailPkProcess extends View {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), i), jOP);
+        setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), i), jXn);
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.jOR = i;
-        this.jOV = ((int) ((((this.jOR - jOP) - (jOQ + jOP)) * this.jOU) / 100.0f)) + (jOP / 2);
+        this.jXp = i;
+        this.jXt = ((int) ((((this.jXp - jXn) - (jXo + jXn)) * this.jXs) / 100.0f)) + (jXn / 2);
     }
 
     private void init() {
@@ -78,7 +78,7 @@ public class HotTopicDetailPkProcess extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.jOR > 0) {
+        if (this.jXp > 0) {
             S(canvas);
         }
     }
@@ -90,34 +90,34 @@ public class HotTopicDetailPkProcess extends View {
     }
 
     private void T(Canvas canvas) {
-        this.paint.setColor(this.jOS);
-        this.FG.set(0.0f, 0.0f, jOP, jOP);
+        this.paint.setColor(this.jXq);
+        this.FG.set(0.0f, 0.0f, jXn, jXn);
         canvas.drawArc(this.FG, 90.0f, 180.0f, true, this.paint);
-        this.FG.set(jOP / 2, 0.0f, this.jOV, jOP);
+        this.FG.set(jXn / 2, 0.0f, this.jXt, jXn);
         canvas.drawRect(this.FG, this.paint);
     }
 
     private void U(Canvas canvas) {
-        this.paint.setColor(this.jOT);
-        this.FG.set(this.jOR - jOP, 0.0f, this.jOR, jOP);
+        this.paint.setColor(this.jXr);
+        this.FG.set(this.jXp - jXn, 0.0f, this.jXp, jXn);
         canvas.drawArc(this.FG, -90.0f, 180.0f, true, this.paint);
-        this.FG.set(this.jOV + jOP + jOQ, 0.0f, this.jOR - (jOP / 2), jOP);
+        this.FG.set(this.jXt + jXn + jXo, 0.0f, this.jXp - (jXn / 2), jXn);
         canvas.drawRect(this.FG, this.paint);
     }
 
     private void V(Canvas canvas) {
-        this.paint.setColor(this.jOS);
+        this.paint.setColor(this.jXq);
         this.path.reset();
-        this.path.moveTo(this.jOV, jOP);
-        this.path.lineTo(this.jOV + jOP, 0.0f);
-        this.path.lineTo(this.jOV, 0.0f);
+        this.path.moveTo(this.jXt, jXn);
+        this.path.lineTo(this.jXt + jXn, 0.0f);
+        this.path.lineTo(this.jXt, 0.0f);
         this.path.close();
         canvas.drawPath(this.path, this.paint);
-        this.paint.setColor(this.jOT);
+        this.paint.setColor(this.jXr);
         this.path.reset();
-        this.path.moveTo(this.jOV + jOQ, jOP);
-        this.path.lineTo(this.jOV + jOQ + jOP, jOP);
-        this.path.lineTo(this.jOV + jOQ + jOP, 0.0f);
+        this.path.moveTo(this.jXt + jXo, jXn);
+        this.path.lineTo(this.jXt + jXo + jXn, jXn);
+        this.path.lineTo(this.jXt + jXo + jXn, 0.0f);
         this.path.close();
         canvas.drawPath(this.path, this.paint);
     }
@@ -126,8 +126,8 @@ public class HotTopicDetailPkProcess extends View {
         float f2 = f >= 0.0f ? f : 0.0f;
         float f3 = f2 <= 1.0f ? f2 : 1.0f;
         if (!z) {
-            this.jOU = f3 * 100.0f;
-            this.jOV = ((int) ((((this.jOR - jOP) - (jOQ + jOP)) * this.jOU) / 100.0f)) + (jOP / 2);
+            this.jXs = f3 * 100.0f;
+            this.jXt = ((int) ((((this.jXp - jXn) - (jXo + jXn)) * this.jXs) / 100.0f)) + (jXn / 2);
             invalidate();
             return;
         }
@@ -135,29 +135,29 @@ public class HotTopicDetailPkProcess extends View {
     }
 
     private void aq(float f) {
-        if (this.gdt != null) {
-            this.gdt.cancel();
+        if (this.giC != null) {
+            this.giC.cancel();
         }
-        this.gdt = ValueAnimator.ofFloat(this.jOU / 100.0f, f);
-        this.gdt.setDuration(300L);
-        this.gdt.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.gdt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailPkProcess.1
+        this.giC = ValueAnimator.ofFloat(this.jXs / 100.0f, f);
+        this.giC.setDuration(300L);
+        this.giC.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.giC.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailPkProcess.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 HotTopicDetailPkProcess.this.setProcess(((Float) valueAnimator.getAnimatedValue()).floatValue(), false);
             }
         });
-        this.gdt.start();
+        this.giC.start();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.iqP != i) {
-            this.jOS = an.getColor(R.color.cp_other_b);
-            this.jOT = an.getColor(R.color.cp_link_tip_b);
-            if (this.iqP != 3) {
+        if (this.iwT != i) {
+            this.jXq = ao.getColor(R.color.cp_other_b);
+            this.jXr = ao.getColor(R.color.cp_link_tip_b);
+            if (this.iwT != 3) {
                 invalidate();
             }
-            this.iqP = i;
+            this.iwT = i;
         }
     }
 }

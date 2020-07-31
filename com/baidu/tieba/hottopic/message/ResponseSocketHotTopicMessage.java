@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.hottopic.data.e;
 import com.squareup.wire.Wire;
 import tbclient.Hottopic.HottopicResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
     private e topicData;
 

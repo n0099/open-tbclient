@@ -3,7 +3,7 @@ package com.google.zxing.datamatrix.decoder;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.google.zxing.FormatException;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class Version {
     private static final Version[] VERSIONS = buildVersions();
     private final int dataRegionSizeColumns;
@@ -73,7 +73,7 @@ public final class Version {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public static final class ECBlocks {
         private final ECB[] ecBlocks;
         private final int ecCodewords;
@@ -100,7 +100,7 @@ public final class Version {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public static final class ECB {
         private final int count;
         private final int dataCodewords;

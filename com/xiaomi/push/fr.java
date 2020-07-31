@@ -1,6 +1,6 @@
 package com.xiaomi.push;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class fr extends Thread {
     final /* synthetic */ fq a;
 
@@ -16,7 +16,7 @@ public class fr extends Thread {
         fm fmVar;
         try {
             fmVar = this.a.a;
-            fmVar.m283a();
+            fmVar.m284a();
         } catch (Exception e) {
             this.a.c(9, e);
         }

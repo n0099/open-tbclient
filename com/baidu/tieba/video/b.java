@@ -1,7 +1,7 @@
 package com.baidu.tieba.video;
 
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import java.io.File;
@@ -12,13 +12,13 @@ public abstract class b {
     public String coverPath;
     public String filterName;
     public boolean isMute;
-    public String lUu;
+    public String mbK;
     public String musicPath;
     public String originPath;
 
-    public abstract void dmh();
+    public abstract void dpr();
 
-    public abstract void dmi();
+    public abstract void dps();
 
     public b(BaseActivity baseActivity, String str, String str2) {
         this.originPath = str;
@@ -47,7 +47,7 @@ public abstract class b {
         }
     }
 
-    public void vf(boolean z) {
+    public void vJ(boolean z) {
         this.Le = z;
     }
 
@@ -55,25 +55,25 @@ public abstract class b {
         return this.Le;
     }
 
-    private void dmg() {
-        if (!ar.isEmpty(this.lUu)) {
-            n.deleteFile(new File(this.lUu));
+    private void dpq() {
+        if (!as.isEmpty(this.mbK)) {
+            n.deleteFile(new File(this.mbK));
         }
     }
 
     public void onCancel() {
-        dmg();
-    }
-
-    public void bE(int i, String str) {
-        dmg();
+        dpq();
     }
 
     public void bF(int i, String str) {
-        dmg();
+        dpq();
+    }
+
+    public void bG(int i, String str) {
+        dpq();
     }
 
     public void a(VideoInfo videoInfo) {
-        dmg();
+        dpq();
     }
 }

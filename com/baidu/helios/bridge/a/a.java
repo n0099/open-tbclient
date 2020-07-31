@@ -25,65 +25,65 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a extends com.baidu.helios.bridge.a {
-    private volatile b aqs;
+    private volatile b aqo;
     private Context c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.helios.bridge.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0132a {
-        private Map<String, C0133a> e = new HashMap();
+    /* loaded from: classes8.dex */
+    public static class C0130a {
+        private Map<String, C0131a> e = new HashMap();
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.helios.bridge.a.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class C0133a {
+        /* loaded from: classes8.dex */
+        public static class C0131a {
             boolean b;
             long c;
 
-            C0133a(boolean z, long j) {
+            C0131a(boolean z, long j) {
                 this.b = z;
                 this.c = j;
             }
         }
 
-        C0132a() {
+        C0130a() {
         }
 
         void a(TrustSubject trustSubject) {
             JSONObject optJSONObject;
             try {
-                String ef = trustSubject.ef("config-cs");
-                if (TextUtils.isEmpty(ef) || (optJSONObject = new JSONObject(ef).optJSONObject(IXAdRequestInfo.CS)) == null) {
+                String ee = trustSubject.ee("config-cs");
+                if (TextUtils.isEmpty(ee) || (optJSONObject = new JSONObject(ee).optJSONObject(IXAdRequestInfo.CS)) == null) {
                     return;
                 }
                 Iterator<String> keys = optJSONObject.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
                     JSONObject jSONObject = optJSONObject.getJSONObject(next);
-                    this.e.put(next, new C0133a(jSONObject.optBoolean(com.baidu.fsg.face.base.b.c.l, true), jSONObject.optLong("priority", -1L)));
+                    this.e.put(next, new C0131a(jSONObject.optBoolean(com.baidu.fsg.face.base.b.c.l, true), jSONObject.optLong("priority", -1L)));
                 }
             } catch (Exception e) {
             }
         }
 
-        C0133a dZ(String str) {
+        C0131a dY(String str) {
             return this.e.get(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class b {
-        volatile Future<Boolean> aqA;
-        volatile com.baidu.helios.common.c.a aqB;
-        volatile g aqC;
-        volatile com.baidu.helios.ids.b aqw;
-        volatile com.baidu.helios.channels.b aqx;
-        volatile TrustSubjectManager aqy;
-        volatile TrustSubjectManager.d aqz;
+        volatile com.baidu.helios.ids.b aqs;
+        volatile com.baidu.helios.channels.b aqt;
+        volatile TrustSubjectManager aqu;
+        volatile TrustSubjectManager.d aqv;
+        volatile Future<Boolean> aqw;
+        volatile com.baidu.helios.common.c.a aqx;
+        volatile g aqy;
         volatile Map<String, com.baidu.helios.channels.a> h = new HashMap();
         volatile Map<String, com.baidu.helios.ids.a> i = new HashMap();
 
@@ -91,37 +91,37 @@ public class a extends com.baidu.helios.bridge.a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     static class c<T> implements a.c<T> {
-        private a.c<T> aqu;
+        private a.c<T> aqq;
 
         public c(a.c<T> cVar) {
-            this.aqu = cVar;
+            this.aqq = cVar;
         }
 
         @Override // com.baidu.helios.ids.a.c
         public void a(int i, Exception exc, Bundle bundle) {
-            this.aqu.a(i, exc, bundle);
+            this.aqq.a(i, exc, bundle);
         }
 
         @Override // com.baidu.helios.ids.a.c
         public void a(T t, Bundle bundle) {
-            this.aqu.a(t, bundle);
+            this.aqq.a(t, bundle);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class d {
-        private Map<String, C0134a> d = new HashMap();
+        private Map<String, C0132a> d = new HashMap();
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.helios.bridge.a.a$d$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class C0134a {
+        /* loaded from: classes8.dex */
+        public static class C0132a {
             boolean a;
 
-            C0134a(boolean z) {
+            C0132a(boolean z) {
                 this.a = z;
             }
         }
@@ -132,40 +132,40 @@ public class a extends com.baidu.helios.bridge.a {
         void a(TrustSubject trustSubject) {
             JSONObject optJSONObject;
             try {
-                String ef = trustSubject.ef("config-ids");
-                if (TextUtils.isEmpty(ef) || (optJSONObject = new JSONObject(ef).optJSONObject("ids")) == null) {
+                String ee = trustSubject.ee("config-ids");
+                if (TextUtils.isEmpty(ee) || (optJSONObject = new JSONObject(ee).optJSONObject("ids")) == null) {
                     return;
                 }
                 Iterator<String> keys = optJSONObject.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    this.d.put(next, new C0134a(optJSONObject.getJSONObject(next).optBoolean(com.baidu.fsg.face.base.b.c.l, true)));
+                    this.d.put(next, new C0132a(optJSONObject.getJSONObject(next).optBoolean(com.baidu.fsg.face.base.b.c.l, true)));
                 }
             } catch (Exception e) {
             }
         }
 
-        C0134a ea(String str) {
+        C0132a dZ(String str) {
             return this.d.get(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class e {
-        private a.C0143a aqD;
-        private FileLock aqE;
+        private FileLock aqA;
+        private a.C0141a aqz;
         private FileOutputStream b;
 
-        public e(a.C0143a c0143a) {
-            this.aqD = c0143a;
+        public e(a.C0141a c0141a) {
+            this.aqz = c0141a;
         }
 
         public boolean a() {
-            this.aqD.uL();
+            this.aqz.uL();
             try {
-                this.b = new FileOutputStream(this.aqD.getFile("lock"));
-                this.aqE = this.b.getChannel().lock();
+                this.b = new FileOutputStream(this.aqz.getFile("lock"));
+                this.aqA = this.b.getChannel().lock();
                 return true;
             } catch (IOException e) {
                 return false;
@@ -174,27 +174,27 @@ public class a extends com.baidu.helios.bridge.a {
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IPUT, IGET, INVOKE, IPUT, IPUT, IF] complete} */
         public boolean b() {
-            if (this.aqE != null) {
+            if (this.aqA != null) {
                 try {
-                    this.aqE.release();
+                    this.aqA.release();
                     if (this.b != null) {
                         com.baidu.helios.common.b.a.c.b(this.b);
                         this.b = null;
                     }
-                    this.aqE = null;
+                    this.aqA = null;
                     return true;
                 } catch (IOException e) {
                     if (this.b != null) {
                         com.baidu.helios.common.b.a.c.b(this.b);
                         this.b = null;
                     }
-                    this.aqE = null;
+                    this.aqA = null;
                 } catch (Throwable th) {
                     if (this.b != null) {
                         com.baidu.helios.common.b.a.c.b(this.b);
                         this.b = null;
                     }
-                    this.aqE = null;
+                    this.aqA = null;
                     throw th;
                 }
             }
@@ -203,7 +203,7 @@ public class a extends com.baidu.helios.bridge.a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class f {
         public String a;
         public String b;
@@ -217,7 +217,7 @@ public class a extends com.baidu.helios.bridge.a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class g {
         private List<f> d = new ArrayList();
 
@@ -246,7 +246,7 @@ public class a extends com.baidu.helios.bridge.a {
 
     private void a() {
         try {
-            this.aqs.aqA.get();
+            this.aqo.aqw.get();
         } catch (InterruptedException e2) {
             throw new RuntimeException(e2);
         } catch (ExecutionException e3) {
@@ -258,33 +258,33 @@ public class a extends com.baidu.helios.bridge.a {
     public void a(b bVar) {
         d dVar;
         com.baidu.helios.common.c.a aVar = new com.baidu.helios.common.c.a(this.c);
-        bVar.aqB = aVar;
-        e eVar = new e(aVar.uK().ed(com.baidu.sapi2.outsdk.c.l));
+        bVar.aqx = aVar;
+        e eVar = new e(aVar.uK().ec(com.baidu.sapi2.outsdk.c.l));
         try {
             eVar.a();
             TrustSubjectManager.a aVar2 = new TrustSubjectManager.a();
             aVar2.applicationContext = this.c;
-            aVar2.aqW = aVar;
+            aVar2.aqS = aVar;
             TrustSubjectManager trustSubjectManager = new TrustSubjectManager();
-            bVar.aqy = trustSubjectManager;
+            bVar.aqu = trustSubjectManager;
             trustSubjectManager.a(aVar2);
             trustSubjectManager.a(new TrustSubjectManager.b());
-            bVar.aqz = trustSubjectManager.a(new TrustSubjectManager.c());
-            com.baidu.helios.ids.b bVar2 = new com.baidu.helios.ids.b(this.aql.aqn);
-            bVar.aqw = bVar2;
-            a.C0144a c0144a = new a.C0144a();
-            c0144a.applicationContext = this.c;
-            c0144a.aqW = aVar;
-            c0144a.asl = bVar.aqz;
-            c0144a.aqp = this.aql.aqp;
-            c0144a.aqq = this.aql.aqq;
+            bVar.aqv = trustSubjectManager.a(new TrustSubjectManager.c());
+            com.baidu.helios.ids.b bVar2 = new com.baidu.helios.ids.b(this.aqh.aqj);
+            bVar.aqs = bVar2;
+            a.C0142a c0142a = new a.C0142a();
+            c0142a.applicationContext = this.c;
+            c0142a.aqS = aVar;
+            c0142a.ash = bVar.aqv;
+            c0142a.aql = this.aqh.aql;
+            c0142a.aqm = this.aqh.aqm;
             a.b bVar3 = new a.b();
-            bVar3.asn = false;
+            bVar3.asi = false;
             List<com.baidu.helios.ids.a> uR = bVar2.uR();
             ArrayList<com.baidu.helios.ids.a> arrayList = uR == null ? new ArrayList() : new ArrayList(uR);
-            if (bVar.aqz.atk != null) {
+            if (bVar.aqv.atg != null) {
                 d dVar2 = new d();
-                dVar2.a(bVar.aqz.atk);
+                dVar2.a(bVar.aqv.atg);
                 dVar = dVar2;
             } else {
                 dVar = null;
@@ -292,52 +292,52 @@ public class a extends com.baidu.helios.bridge.a {
             if (arrayList.size() > 0 && dVar != null) {
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
-                    d.C0134a ea = dVar.ea(((com.baidu.helios.ids.a) it.next()).getName());
-                    if (ea != null && !ea.a) {
+                    d.C0132a dZ = dVar.dZ(((com.baidu.helios.ids.a) it.next()).getName());
+                    if (dZ != null && !dZ.a) {
                         it.remove();
                     }
                 }
             }
             for (com.baidu.helios.ids.a aVar3 : arrayList) {
                 bVar.i.put(aVar3.getName(), aVar3);
-                aVar3.a(c0144a);
+                aVar3.a(c0142a);
                 aVar3.a(bVar3);
             }
-            com.baidu.helios.channels.b bVar4 = new com.baidu.helios.channels.b(this.aql.aqo);
-            bVar.aqx = bVar4;
-            a.C0138a c0138a = new a.C0138a();
-            c0138a.applicationContext = this.c;
-            c0138a.aqX = bVar2;
-            c0138a.aqW = aVar;
+            com.baidu.helios.channels.b bVar4 = new com.baidu.helios.channels.b(this.aqh.aqk);
+            bVar.aqt = bVar4;
+            a.C0136a c0136a = new a.C0136a();
+            c0136a.applicationContext = this.c;
+            c0136a.aqT = bVar2;
+            c0136a.aqS = aVar;
             List<com.baidu.helios.channels.a> us = bVar4.us();
             ArrayList arrayList2 = us == null ? new ArrayList() : new ArrayList(us);
-            if (arrayList2.size() > 0 && bVar.aqz.atk != null) {
-                C0132a c0132a = new C0132a();
-                c0132a.a(bVar.aqz.atk);
+            if (arrayList2.size() > 0 && bVar.aqv.atg != null) {
+                C0130a c0130a = new C0130a();
+                c0130a.a(bVar.aqv.atg);
                 Iterator<com.baidu.helios.channels.a> it2 = arrayList2.iterator();
                 while (it2.hasNext()) {
                     com.baidu.helios.channels.a next = it2.next();
-                    C0132a.C0133a dZ = c0132a.dZ(next.getName());
-                    if (dZ != null) {
-                        if (!dZ.b) {
+                    C0130a.C0131a dY = c0130a.dY(next.getName());
+                    if (dY != null) {
+                        if (!dY.b) {
                             it2.remove();
-                        } else if (dZ.c > -1) {
-                            next.setPriority(dZ.c);
+                        } else if (dY.c > -1) {
+                            next.setPriority(dY.c);
                         }
                     }
                 }
             }
-            Collections.sort(arrayList2, com.baidu.helios.channels.a.aqV);
+            Collections.sort(arrayList2, com.baidu.helios.channels.a.aqR);
             a.c cVar = new a.c();
             a.d dVar3 = new a.d();
             for (com.baidu.helios.channels.a aVar4 : arrayList2) {
                 bVar.h.put(aVar4.getName(), aVar4);
-                aVar4.a(c0138a);
+                aVar4.a(c0136a);
                 aVar4.a(cVar);
                 aVar4.a(dVar3);
             }
-            d.C0134a ea2 = dVar != null ? dVar.ea("sids") : null;
-            if (ea2 == null || ea2.a) {
+            d.C0132a dZ2 = dVar != null ? dVar.dZ("sids") : null;
+            if (dZ2 == null || dZ2.a) {
                 a(bVar, arrayList2);
             }
         } finally {
@@ -346,10 +346,10 @@ public class a extends com.baidu.helios.bridge.a {
     }
 
     private void a(b bVar, List<com.baidu.helios.channels.a> list) {
-        List<TrustSubject> list2 = bVar.aqz.atj;
+        List<TrustSubject> list2 = bVar.aqv.atf;
         a.f fVar = new a.f();
-        fVar.aqY = true;
-        bVar.aqC = new g();
+        fVar.aqU = true;
+        bVar.aqy = new g();
         if (list2 != null) {
             for (TrustSubject trustSubject : list2) {
                 Iterator<com.baidu.helios.channels.a> it = list.iterator();
@@ -359,7 +359,7 @@ public class a extends com.baidu.helios.bridge.a {
                     }
                     a.g a = it.next().a(trustSubject.packageName, fVar);
                     if (a != null && a.isSuccess()) {
-                        bVar.aqC.a(trustSubject.packageName, a.id, trustSubject.uW());
+                        bVar.aqy.a(trustSubject.packageName, a.id, trustSubject.uW());
                         break;
                     }
                 }
@@ -370,22 +370,22 @@ public class a extends com.baidu.helios.bridge.a {
     @Override // com.baidu.helios.bridge.a
     public void a(String str, Bundle bundle, final a.c<String> cVar) {
         a();
-        com.baidu.helios.ids.a aVar = this.aqs.i.get(str);
+        com.baidu.helios.ids.a aVar = this.aqo.i.get(str);
         if (aVar != null) {
             aVar.a(new c(cVar));
         } else if ("sids".equals(str)) {
-            this.aql.aqp.submit(new Runnable() { // from class: com.baidu.helios.bridge.a.a.2
+            this.aqh.aql.submit(new Runnable() { // from class: com.baidu.helios.bridge.a.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.aqs.aqC == null) {
+                    if (a.this.aqo.aqy == null) {
                         cVar.a(-1, null, null);
                         return;
                     }
-                    cVar.a(a.this.aqs.aqC.a(), null);
+                    cVar.a(a.this.aqo.aqy.a(), null);
                 }
             });
         } else {
-            this.aql.aqp.submit(new Runnable() { // from class: com.baidu.helios.bridge.a.a.3
+            this.aqh.aql.submit(new Runnable() { // from class: com.baidu.helios.bridge.a.a.3
                 @Override // java.lang.Runnable
                 public void run() {
                     cVar.a(-1, null, null);
@@ -396,14 +396,14 @@ public class a extends com.baidu.helios.bridge.a {
 
     @Override // com.baidu.helios.bridge.a
     public void b(a.b bVar) {
-        this.c = this.aql.applicationContext;
-        this.aqs = new b();
-        this.aqs.aqA = this.aql.aqp.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.a.a.1
+        this.c = this.aqh.applicationContext;
+        this.aqo = new b();
+        this.aqo.aqw = this.aqh.aql.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: a */
             public Boolean call() {
-                a.this.a(a.this.aqs);
+                a.this.a(a.this.aqo);
                 return true;
             }
         });
@@ -412,14 +412,14 @@ public class a extends com.baidu.helios.bridge.a {
     @Override // com.baidu.helios.bridge.a
     public a.d d(String str, Bundle bundle) {
         a();
-        com.baidu.helios.ids.a aVar = this.aqs.i.get(str);
-        return aVar != null ? a.d.dY(aVar.uP()) : a.d.d(-1, null);
+        com.baidu.helios.ids.a aVar = this.aqo.i.get(str);
+        return aVar != null ? a.d.dX(aVar.uP()) : a.d.d(-1, null);
     }
 
     @Override // com.baidu.helios.bridge.a
-    public boolean dX(String str) {
+    public boolean dW(String str) {
         a();
-        List<TrustSubject> list = this.aqs.aqz.atj;
+        List<TrustSubject> list = this.aqo.aqv.atf;
         if (list != null) {
             for (TrustSubject trustSubject : list) {
                 if (trustSubject.packageName.equals(str)) {

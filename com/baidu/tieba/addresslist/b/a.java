@@ -6,120 +6,120 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class a {
-    private static a fam;
-    private List<com.baidu.tbadk.coreExtra.relationship.a> fan;
-    private List<InterfaceC0515a> mObservers = new ArrayList();
+    private static a feO;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> feP;
+    private List<InterfaceC0525a> mObservers = new ArrayList();
 
     /* renamed from: com.baidu.tieba.addresslist.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0515a {
-        void bm(List<com.baidu.tbadk.coreExtra.relationship.a> list);
+    /* loaded from: classes15.dex */
+    public interface InterfaceC0525a {
+        void bq(List<com.baidu.tbadk.coreExtra.relationship.a> list);
     }
 
     private a() {
     }
 
-    public static synchronized a bpy() {
+    public static synchronized a bsA() {
         a aVar;
         synchronized (a.class) {
-            if (fam == null) {
-                fam = new a();
+            if (feO == null) {
+                feO = new a();
             }
-            aVar = fam;
+            aVar = feO;
         }
         return aVar;
     }
 
-    public void a(InterfaceC0515a interfaceC0515a) {
-        if (interfaceC0515a != null && !this.mObservers.contains(interfaceC0515a)) {
-            this.mObservers.add(interfaceC0515a);
+    public void a(InterfaceC0525a interfaceC0525a) {
+        if (interfaceC0525a != null && !this.mObservers.contains(interfaceC0525a)) {
+            this.mObservers.add(interfaceC0525a);
         }
     }
 
-    public void b(InterfaceC0515a interfaceC0515a) {
-        if (interfaceC0515a != null) {
-            this.mObservers.remove(interfaceC0515a);
+    public void b(InterfaceC0525a interfaceC0525a) {
+        if (interfaceC0525a != null) {
+            this.mObservers.remove(interfaceC0525a);
         }
     }
 
-    public void bn(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.fan = list;
-        if (this.fan != null) {
-            Collections.sort(this.fan, new ContactComparator());
+    public void br(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
+        this.feP = list;
+        if (this.feP != null) {
+            Collections.sort(this.feP, new ContactComparator());
         }
-        bpA();
+        bsC();
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         boolean z = false;
-        if (this.fan != null && aVar != null) {
-            String bdb = aVar.bdb();
-            if (TextUtils.isEmpty(bdb)) {
-                bdb = "#";
-                aVar.xM("#");
+        if (this.feP != null && aVar != null) {
+            String bgI = aVar.bgI();
+            if (TextUtils.isEmpty(bgI)) {
+                bgI = "#";
+                aVar.yS("#");
             }
-            String str = bdb;
+            String str = bgI;
             String userName = aVar.getUserName();
             String str2 = userName == null ? "" : userName;
             boolean z2 = false;
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : this.fan) {
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : this.feP) {
                 if (str2.equals(aVar2.getUserName())) {
                     z = true;
                 }
-                z2 = str.equals(aVar2.bdb()) ? true : z2;
+                z2 = str.equals(aVar2.bgI()) ? true : z2;
             }
             if (!z) {
                 if (!z2) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar3 = new com.baidu.tbadk.coreExtra.relationship.a();
-                    aVar3.xM(str);
-                    this.fan.add(aVar3);
+                    aVar3.yS(str);
+                    this.feP.add(aVar3);
                 }
-                this.fan.add(aVar);
-                Collections.sort(this.fan, new ContactComparator());
-                bpA();
+                this.feP.add(aVar);
+                Collections.sort(this.feP, new ContactComparator());
+                bsC();
             }
         }
     }
 
-    public void dc(long j) {
-        if (this.fan != null) {
+    public void dq(long j) {
+        if (this.feP != null) {
             String str = null;
-            Iterator<com.baidu.tbadk.coreExtra.relationship.a> it = this.fan.iterator();
+            Iterator<com.baidu.tbadk.coreExtra.relationship.a> it = this.feP.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 com.baidu.tbadk.coreExtra.relationship.a next = it.next();
                 if (next.getUserId() == j) {
-                    str = next.bdb();
-                    this.fan.remove(next);
+                    str = next.bgI();
+                    this.feP.remove(next);
                     break;
                 }
             }
             if (str != null) {
                 ArrayList arrayList = new ArrayList();
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : this.fan) {
-                    if (str.equals(aVar.bdb())) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : this.feP) {
+                    if (str.equals(aVar.bgI())) {
                         arrayList.add(aVar);
                     }
                 }
                 if (arrayList.size() <= 1) {
-                    this.fan.removeAll(arrayList);
+                    this.feP.removeAll(arrayList);
                 }
             }
-            bpA();
+            bsC();
         }
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> bpz() {
-        return this.fan;
+    public List<com.baidu.tbadk.coreExtra.relationship.a> bsB() {
+        return this.feP;
     }
 
-    private void bpA() {
-        for (InterfaceC0515a interfaceC0515a : this.mObservers) {
-            interfaceC0515a.bm(this.fan);
+    private void bsC() {
+        for (InterfaceC0525a interfaceC0525a : this.mObservers) {
+            interfaceC0525a.bq(this.feP);
         }
     }
 }

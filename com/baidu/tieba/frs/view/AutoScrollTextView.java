@@ -11,14 +11,14 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class AutoScrollTextView extends TextView implements View.OnClickListener {
-    private float idd;
-    private float ide;
-    private float idf;
-    private float idg;
-    public boolean idh;
-    private View.OnClickListener idi;
+    private float ijf;
+    private float ijg;
+    private float ijh;
+    private float iji;
+    public boolean ijj;
+    private View.OnClickListener ijk;
     public boolean isStarting;
     private Paint paint;
     private float progress;
@@ -28,14 +28,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context) {
         super(context);
-        this.idd = 0.0f;
-        this.ide = 0.0f;
+        this.ijf = 0.0f;
+        this.ijg = 0.0f;
         this.step = 0.0f;
         this.y = 0.0f;
-        this.idf = 0.0f;
-        this.idg = 0.0f;
+        this.ijh = 0.0f;
+        this.iji = 0.0f;
         this.isStarting = false;
-        this.idh = false;
+        this.ijj = false;
         this.paint = null;
         this.text = "";
         initView();
@@ -43,14 +43,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.idd = 0.0f;
-        this.ide = 0.0f;
+        this.ijf = 0.0f;
+        this.ijg = 0.0f;
         this.step = 0.0f;
         this.y = 0.0f;
-        this.idf = 0.0f;
-        this.idg = 0.0f;
+        this.ijh = 0.0f;
+        this.iji = 0.0f;
         this.isStarting = false;
-        this.idh = false;
+        this.ijj = false;
         this.paint = null;
         this.text = "";
         initView();
@@ -64,14 +64,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         this.paint = getPaint();
         this.paint.setColor(-1);
         this.text = getText().toString();
-        this.idd = this.paint.measureText(this.text);
-        this.ide = getWidth();
-        if (this.ide == 0.0f && windowManager != null) {
-            this.ide = windowManager.getDefaultDisplay().getWidth();
+        this.ijf = this.paint.measureText(this.text);
+        this.ijg = getWidth();
+        if (this.ijg == 0.0f && windowManager != null) {
+            this.ijg = windowManager.getDefaultDisplay().getWidth();
         }
-        this.step = this.idd;
-        this.idf = this.idd;
-        this.idg = this.idd * 2.0f;
+        this.step = this.ijf;
+        this.ijh = this.ijf;
+        this.iji = this.ijf * 2.0f;
         this.y = getTextSize();
     }
 
@@ -95,19 +95,19 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         this.isStarting = savedState.isStarting;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.baidu.tieba.frs.view.AutoScrollTextView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: ww */
+            /* renamed from: wO */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: T */
+            /* renamed from: V */
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel);
             }
@@ -142,7 +142,7 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         }
     }
 
-    public void caD() {
+    public void ceb() {
         this.isStarting = true;
         invalidate();
     }
@@ -157,27 +157,27 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         if (!this.isStarting) {
             if (this.progress > 0.5f) {
                 setWidth((int) (3000.0f * (this.progress - 0.5f)));
-                canvas.drawText(this.text, this.idf - this.step, getTextSize() + 2.7f, this.paint);
+                canvas.drawText(this.text, this.ijh - this.step, getTextSize() + 2.7f, this.paint);
                 return;
             }
             return;
         }
-        canvas.drawText(this.text, this.idf - this.step, getTextSize() + 2.7f, this.paint);
+        canvas.drawText(this.text, this.ijh - this.step, getTextSize() + 2.7f, this.paint);
         this.step = TbadkApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds3) + this.step;
-        if (this.step > this.idg) {
-            this.step = this.idd;
+        if (this.step > this.iji) {
+            this.step = this.ijf;
         }
         invalidate();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.idi != null) {
-            this.idi.onClick(view);
+        if (this.ijk != null) {
+            this.ijk.onClick(view);
         }
     }
 
     public void setClickliner(View.OnClickListener onClickListener) {
-        this.idi = onClickListener;
+        this.ijk = onClickListener;
     }
 }

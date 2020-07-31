@@ -2,43 +2,43 @@ package com.baidu.tieba.forumMember.member;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class s implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId hwL = BdUniqueId.gen();
-    private String hwF;
-    private int hwD = -1;
-    private int hwM = -1;
+    public static final BdUniqueId hCz = BdUniqueId.gen();
+    private String hCs;
+    private int hCq = -1;
+    private int hCA = -1;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return hwL;
+        return hCz;
     }
 
-    public int bWB() {
-        return this.hwM;
+    public int bZU() {
+        return this.hCA;
     }
 
-    public void uc(int i) {
-        this.hwM = i;
+    public void uu(int i) {
+        this.hCA = i;
     }
 
-    public int bWz() {
-        return this.hwD;
+    public int bZS() {
+        return this.hCq;
     }
 
-    public void ub(int i) {
-        this.hwD = i;
+    public void ut(int i) {
+        this.hCq = i;
     }
 
-    public String bWA() {
-        return this.hwF;
+    public String bZT() {
+        return this.hCs;
     }
 
-    public void EX(String str) {
-        this.hwF = str;
+    public void FI(String str) {
+        this.hCs = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.hwF) || this.hwD < 0;
+        return StringUtils.isNull(this.hCs) || this.hCq < 0;
     }
 }

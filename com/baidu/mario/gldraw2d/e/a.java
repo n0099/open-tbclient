@@ -5,7 +5,7 @@ import android.util.Log;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
 

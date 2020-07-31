@@ -74,12 +74,12 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
                 try {
                     aVar.onNext(io.reactivex.internal.functions.a.k(this.valueSelector.apply(t), "The value supplied is null"));
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.L(th);
+                    io.reactivex.exceptions.a.K(th);
                     this.s.dispose();
                     onError(th);
                 }
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.L(th2);
+                io.reactivex.exceptions.a.K(th2);
                 this.s.dispose();
                 onError(th2);
             }
@@ -131,7 +131,7 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static final class a<K, T> extends io.reactivex.d.b<K, T> {
-        final State<T, K> nLA;
+        final State<T, K> nUi;
 
         public static <T, K> a<K, T> a(K k, int i, GroupByObserver<?, K, T> groupByObserver, boolean z) {
             return new a<>(k, new State(i, groupByObserver, k, z));
@@ -139,24 +139,24 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
 
         protected a(K k, State<T, K> state) {
             super(k);
-            this.nLA = state;
+            this.nUi = state;
         }
 
         @Override // io.reactivex.q
         protected void a(u<? super T> uVar) {
-            this.nLA.subscribe(uVar);
+            this.nUi.subscribe(uVar);
         }
 
         public void onNext(T t) {
-            this.nLA.onNext(t);
+            this.nUi.onNext(t);
         }
 
         public void onError(Throwable th) {
-            this.nLA.onError(th);
+            this.nUi.onError(th);
         }
 
         public void onComplete() {
-            this.nLA.onComplete();
+            this.nUi.onComplete();
         }
     }
 

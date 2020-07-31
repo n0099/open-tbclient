@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class TileOverlay {
     private static final String b = TileOverlay.class.getSimpleName();
     private static int f = 0;
@@ -56,7 +56,7 @@ public final class TileOverlay {
         }
         if (this.a != null && f == 0) {
             MapStatus mapStatus = this.a.getMapStatus();
-            f = (((mapStatus.a.j.bottom - mapStatus.a.j.f995top) / 256) + 2) * (((mapStatus.a.j.right - mapStatus.a.j.left) / 256) + 2);
+            f = (((mapStatus.a.j.bottom - mapStatus.a.j.top) / 256) + 2) * (((mapStatus.a.j.right - mapStatus.a.j.left) / 256) + 2);
         }
         if (this.d.size() > f) {
             a();

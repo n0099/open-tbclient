@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import com.baidu.sofire.i.u;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class THProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {

@@ -3,8 +3,8 @@ package com.baidu.sapi2.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.f.a.a;
 import com.baidu.fsg.base.BaiduRimConstants;
+import com.baidu.g.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccount;
@@ -21,7 +21,7 @@ import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.utils.enums.AccountType;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class LoadExternalWebViewActivity extends BaseActivity {
     public static final String EXTRA_BUSINESS_FROM = "business_from";
     public static final String EXTRA_BUSINESS_FROM_ONE_KEY_LOGIN = "business_from_one_key_login";

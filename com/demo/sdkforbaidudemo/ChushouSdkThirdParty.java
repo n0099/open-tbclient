@@ -10,7 +10,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
 import com.kascend.cstvsdk.bean.LoginParam;
 import com.kascend.cstvsdk.bean.LoginResp;
 import com.kascend.cstvsdk.bean.ShareParam;
@@ -19,7 +19,7 @@ import com.kascend.cstvsdk.interfaces.ShareListener;
 import com.kascend.cstvsdk.interfaces.ThirdParty;
 import tv.chushou.common.player.a;
 import tv.chushou.sdk.tieba.player.TiebaPlayer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ChushouSdkThirdParty implements ThirdParty {
     private final CustomMessageListener RechargeSucceedListener = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.demo.sdkforbaidudemo.ChushouSdkThirdParty.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -76,6 +76,6 @@ public class ChushouSdkThirdParty implements ThirdParty {
     }
 
     private void gotoLogin(Context context) {
-        be.skipToLoginActivity(context);
+        bf.skipToLoginActivity(context);
     }
 }

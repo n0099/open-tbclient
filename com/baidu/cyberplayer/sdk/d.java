@@ -4,24 +4,35 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.extractor.ExtractorProvider;
+import com.baidu.cyberplayer.sdk.loader.CyberClassLoader;
 import com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder;
+import com.baidu.cyberplayer.sdk.rtc.CaptureManagerProvider;
+import com.baidu.cyberplayer.sdk.rtc.RTCRoomProvider;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class d {
     private static CyberPlayerCoreProvider a = null;
     private static String b = "com.baidu.media.duplayer";
     private static final String c = b + ".CyberVRRenderProviderImpl";
-    private static final String d = b + ".CyberPlayerCoreImpl";
-    private static Class<?> e;
+    private static final String d = b + ".MediaInstanceManagerImpl";
+    private static final String e = b + ".CyberPlayerCoreImpl";
+    private static Class<?> f;
+
+    public static int a(String str, int i, int i2, int i3, Map<String, String> map) {
+        if (a(1)) {
+            return a.getDevicePlayQualityScore(str, i, i2, i3, map);
+        }
+        return -1;
+    }
 
     public static CyberVRRenderProvider a(Context context) {
-        if (a == null || e == null) {
+        if (a == null || f == null) {
             return null;
         }
         try {
-            return (CyberVRRenderProvider) e.getConstructor(Context.class).newInstance(context);
+            return (CyberVRRenderProvider) f.getConstructor(Context.class).newInstance(context);
         } catch (Exception e2) {
             e2.printStackTrace();
             CyberLog.e("CyberPlayerCoreInvoker", "create CyberVRRender failed");
@@ -36,6 +47,13 @@ public class d {
         return null;
     }
 
+    public static CaptureManagerProvider a(Context context, int i, int i2, int i3, int i4, int i5) {
+        if (a(33)) {
+            return a.createCaptureManager(context, i, i2, i3, i4, i5);
+        }
+        return null;
+    }
+
     public static String a() {
         return a != null ? a.getCoreVersion() : "";
     }
@@ -44,15 +62,15 @@ public class d {
         synchronized (d.class) {
             if (a == null) {
                 try {
-                    a = (CyberPlayerCoreProvider) Class.forName(d, true, classLoader).newInstance();
+                    a = (CyberPlayerCoreProvider) Class.forName(e, true, classLoader).newInstance();
                     a.init(context, str);
                     if (a != null) {
-                        com.baidu.cyberplayer.sdk.b.a.a(classLoader, a.getLibsSearchPath());
+                        CyberClassLoader.addNativeLibraryDirectories(classLoader, a.getLibsSearchPath());
                         try {
-                            e = Class.forName(c, false, context.getClassLoader());
+                            f = Class.forName(c, false, context.getClassLoader());
                         } catch (Exception e2) {
                             e2.printStackTrace();
-                            e = null;
+                            f = null;
                         }
                     }
                 } catch (Exception e3) {
@@ -72,7 +90,13 @@ public class d {
 
     public static void a(String str, String str2, String str3, int i, int i2, int i3, CyberPlayerManager.HttpDNS httpDNS, String str4) {
         if (!com.baidu.cyberplayer.sdk.remote.g.a().a(str, str2, str3, i, i2, i3) && a(1)) {
-            a.prefetch(str, TextUtils.isEmpty(str2) ? "dumedia/7.7.2.20" : str2.indexOf("dumedia") == -1 ? str2 + " dumedia/" + SDKVersion.VERSION : str2, str3, i, i2, i3, httpDNS, str4);
+            a.prefetch(str, TextUtils.isEmpty(str2) ? "dumedia/7.10.2.20" : str2.indexOf("dumedia") == -1 ? str2 + " dumedia/" + SDKVersion.VERSION : str2, str3, i, i2, i3, httpDNS, str4);
+        }
+    }
+
+    public static void a(boolean z) {
+        if (a(33)) {
+            a.setRTCVerbose(z);
         }
     }
 
@@ -105,6 +129,12 @@ public class d {
         return null;
     }
 
+    public static void b(boolean z) {
+        if (a(33)) {
+            a.enableRTCCaptureDebug(z);
+        }
+    }
+
     public static boolean b(String str) {
         int a2 = com.baidu.cyberplayer.sdk.remote.g.a().a(str);
         if (a2 >= 0) {
@@ -116,37 +146,51 @@ public class d {
         }
     }
 
-    public static CyberAudioRecorder c() {
+    public static MediaInstanceManagerProvider c() {
+        if (a(1)) {
+            return a.createInstanceManager();
+        }
+        return null;
+    }
+
+    public static CyberAudioRecorder d() {
         if (a(5)) {
             return a.createCyberAudioRecorder();
         }
         return null;
     }
 
-    public static void d() {
+    public static RTCRoomProvider e() {
+        if (a(33)) {
+            return a.createRTCRoom();
+        }
+        return null;
+    }
+
+    public static void f() {
         if (a(1)) {
             a.forceCleanFilecache();
         }
     }
 
-    public static boolean e() {
+    public static boolean g() {
         return a != null;
     }
 
-    public static void f() {
+    public static void h() {
         if (a(1)) {
             a.updateCfg();
         }
     }
 
-    public static long g() {
+    public static long i() {
         if (a(1)) {
             return a.caculateFolderSize();
         }
         return 0L;
     }
 
-    public static HashMap<Integer, Long> h() {
+    public static HashMap<Integer, Long> j() {
         if (a(1)) {
             return a.getSystemInfraInfo();
         }

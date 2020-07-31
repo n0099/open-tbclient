@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.List;
 import org.apache.http.cookie.SM;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public final class BridgeInterceptor implements Interceptor {
     private final CookieJar cookieJar;
 

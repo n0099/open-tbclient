@@ -16,8 +16,8 @@ import org.json.JSONObject;
 public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public static final String TAG = "IMGetSubscriptionRequest";
 
-    public IMGetSubscriptionRequest(Context context, long j, List<Long> list, String str, String str2) {
-        super(context, j, list, str2, str);
+    public IMGetSubscriptionRequest(Context context, long j, List<Long> list, List<String> list2, String str, String str2) {
+        super(context, j, list, list2, str2, str);
     }
 
     @Override // com.baidu.android.imsdk.shield.request.IMSubscriptionBaseRequest
@@ -107,6 +107,7 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
             subscriptionInfo.setDescription(jSONObject.optString("description"));
             subscriptionInfo.setTopicName(jSONObject.optString("topic_name"));
             subscriptionInfo.setTopicId(jSONObject.optLong("topic_id"));
+            subscriptionInfo.setMiNiTopicId(jSONObject.optString("fminapp_topic"));
             return subscriptionInfo;
         }
         return null;

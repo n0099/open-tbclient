@@ -1,4 +1,4 @@
 package com.baidu.swan.pms.model;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class b extends e {
 }

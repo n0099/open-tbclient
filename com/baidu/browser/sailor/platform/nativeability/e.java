@@ -5,13 +5,13 @@ import com.baidu.browser.sailor.util.c;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 final class e implements c.a {
-    final /* synthetic */ BdLightappKernelJsCallback adF;
+    final /* synthetic */ BdLightappKernelJsCallback adz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(BdLightappKernelJsCallback bdLightappKernelJsCallback) {
-        this.adF = bdLightappKernelJsCallback;
+        this.adz = bdLightappKernelJsCallback;
     }
 
     @Override // com.baidu.browser.sailor.util.c.a
@@ -20,11 +20,11 @@ final class e implements c.a {
             int i = jSONObject.getInt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
             int i2 = jSONObject.getInt("scale");
             int i3 = jSONObject.getInt("plugged");
-            this.adF.addField(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, String.valueOf(i2 != 0 ? i / i2 : 0.0f));
-            this.adF.addField("plugged", String.valueOf(i3 != 0));
-            this.adF.sendSuccCallBack();
+            this.adz.addField(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, String.valueOf(i2 != 0 ? i / i2 : 0.0f));
+            this.adz.addField("plugged", String.valueOf(i3 != 0));
+            this.adz.sendSuccCallBack();
         } catch (JSONException e) {
-            this.adF.sendFailCallBack(e.getMessage());
+            this.adz.sendFailCallBack(e.getMessage());
             e.printStackTrace();
         }
     }

@@ -1,80 +1,59 @@
 package com.baidu.tieba.ala.data;
+/* loaded from: classes4.dex */
+public class m {
+    private String aBY;
+    private int fJA;
+    private String fJB;
+    private String fJC;
+    private String fjG;
+    private String fji;
+    private String mIcon;
+    private String mName;
+    public int mStatus;
 
-import com.baidu.live.adp.lib.safe.JavaTypesHelper;
-import com.baidu.live.tbadk.core.data.BaseData;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class m extends BaseData {
-    private String fEi;
-    private long fEj;
-    private long fEk = 5000;
-    private long fEl = 15;
-    private long fEm;
-    private n fEn;
-    private ArrayList<g> fgO;
-    private long fgo;
-
-    public long bwH() {
-        return this.fEk;
+    public m() {
     }
 
-    public long bwI() {
-        return this.fEl;
+    public m(String str, String str2, String str3, String str4, String str5, String str6, String str7, int i) {
+        this.fJB = str;
+        this.mIcon = str2;
+        this.mName = str3;
+        this.fJC = str4;
+        this.fjG = str5;
+        this.fji = str6;
+        this.aBY = str7;
+        this.mStatus = i;
     }
 
-    public long bwJ() {
-        return this.fEj;
+    public int bzR() {
+        return this.fJA;
     }
 
-    public String Ji() {
-        return this.fEi;
+    public void qW(int i) {
+        this.fJA = i;
     }
 
-    public long bwK() {
-        return this.fEm;
+    public String bzS() {
+        return this.fJB;
     }
 
-    public ArrayList<g> getList() {
-        return this.fgO;
+    public String bzT() {
+        return this.mIcon;
     }
 
-    public n bwL() {
-        return this.fEn;
+    public String getmName() {
+        return this.mName;
     }
 
-    @Override // com.baidu.live.tbadk.core.data.BaseData
-    public void parserJson(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        if (jSONObject != null) {
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("rank_conf");
-            if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("hour")) != null) {
-                this.fgo = optJSONObject.optLong("current_time", 0L);
-                this.fEi = optJSONObject.optString("current_hour", "");
-                this.fEj = optJSONObject.optLong("hour_rank_left_time", 0L);
-                this.fEk = optJSONObject.optLong("pull_interval", 5L) * 1000;
-                this.fEl = optJSONObject.optLong("verify_notice_interval", 15L);
-                this.fEm = optJSONObject.optLong("show_champion_time", 0L);
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("rank_list");
-            if (optJSONArray != null) {
-                this.fgO = new ArrayList<>();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
-                    g gVar = new g();
-                    gVar.parserJson(optJSONObject3);
-                    this.fgO.add(gVar);
-                }
-            }
-            this.fEn = new n();
-            JSONObject optJSONObject4 = jSONObject.optJSONObject("charm_data");
-            if (optJSONObject4 != null) {
-                this.fEn.parserJson(optJSONObject4);
-                if (this.fgO != null && this.fgO.size() > 0) {
-                    this.fEn.fEt = JavaTypesHelper.toLong(this.fgO.get(this.fgO.size() - 1).point, 0L);
-                }
-            }
-        }
+    public String bzU() {
+        return this.fJC;
+    }
+
+    public String bzV() {
+        return this.fjG;
+    }
+
+    public String bzW() {
+        return this.fji;
     }
 }

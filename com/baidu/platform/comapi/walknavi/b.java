@@ -45,7 +45,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
     public static int a = 0;
     public static int b = 1;
@@ -92,7 +92,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
     private Handler z;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         static final b a = new b(null);
     }
@@ -344,7 +344,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
             this.K = new ArrayList<>();
         }
         if (this.L == null) {
-            this.L = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_favorite_guide_bg);
+            this.L = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_favorite_guide_close);
         }
         BaseNpcModel baseNpcModel = new BaseNpcModel();
         baseNpcModel.setDownLoadKey("");
@@ -353,7 +353,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
         baseNpcModel.setLoadFromLocal(true);
         this.K.add(baseNpcModel);
         if (this.M == null) {
-            this.M = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_follow_vip_blue);
+            this.M = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_game_keyboard_sendbutton_disabled);
         }
         BaseNpcModel baseNpcModel2 = new BaseNpcModel();
         baseNpcModel2.setDownLoadKey("10279765");

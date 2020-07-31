@@ -15,23 +15,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class XAdNativeResponse implements NativeResponse {
     private IXAdInstanceInfo a;
-    private BaiduNative bwA;
-    private IXAdFeedsRequestParameters bwB;
-    private IXAdContainer bwC;
+    private BaiduNative bwP;
+    private IXAdFeedsRequestParameters bwQ;
+    private IXAdContainer bwR;
     private boolean c;
 
     public XAdNativeResponse(IXAdInstanceInfo iXAdInstanceInfo, BaiduNative baiduNative, IXAdFeedsRequestParameters iXAdFeedsRequestParameters, IXAdContainer iXAdContainer) {
         this.c = false;
         this.a = iXAdInstanceInfo;
-        this.bwA = baiduNative;
-        this.bwC = iXAdContainer;
+        this.bwP = baiduNative;
+        this.bwR = iXAdContainer;
         if (this.a.getActionType() == XAdSDKFoundationFacade.getInstance().getAdConstants().getActTypeDownload()) {
             this.c = true;
         }
-        this.bwB = iXAdFeedsRequestParameters;
+        this.bwQ = iXAdFeedsRequestParameters;
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
@@ -79,7 +79,7 @@ public class XAdNativeResponse implements NativeResponse {
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public boolean isAdAvailable(Context context) {
-        return this.bwA.isAdAvailable(context, this.a, this.bwB);
+        return this.bwP.isAdAvailable(context, this.a, this.bwQ);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
@@ -120,7 +120,7 @@ public class XAdNativeResponse implements NativeResponse {
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void recordImpression(View view) {
-        this.bwA.c(view, this.a, this.bwB);
+        this.bwP.c(view, this.a, this.bwQ);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
@@ -136,30 +136,30 @@ public class XAdNativeResponse implements NativeResponse {
     private void a(View view, int i, IXAdInstanceInfo iXAdInstanceInfo) {
         if (isDownloadApp()) {
             Context context = view.getContext();
-            if (this.bwB.getAPPConfirmPolicy() == 3) {
+            if (this.bwQ.getAPPConfirmPolicy() == 3) {
                 iXAdInstanceInfo.setActionOnlyWifi(false);
-                this.bwA.b(view, iXAdInstanceInfo, i, this.bwB);
+                this.bwP.b(view, iXAdInstanceInfo, i, this.bwQ);
                 return;
-            } else if (this.bwB.getAPPConfirmPolicy() == 4) {
+            } else if (this.bwQ.getAPPConfirmPolicy() == 4) {
                 a(context);
-                this.bwA.b(view, iXAdInstanceInfo, i, this.bwB);
+                this.bwP.b(view, iXAdInstanceInfo, i, this.bwQ);
                 return;
-            } else if (this.bwB.getAPPConfirmPolicy() == 2) {
+            } else if (this.bwQ.getAPPConfirmPolicy() == 2) {
                 a(view, i);
                 return;
-            } else if (this.bwB.getAPPConfirmPolicy() == 1) {
+            } else if (this.bwQ.getAPPConfirmPolicy() == 1) {
                 if (XAdSDKFoundationFacade.getInstance().getSystemUtils().is3GConnected(context).booleanValue()) {
                     a(view, i);
                     return;
                 }
                 a(context);
-                this.bwA.b(view, iXAdInstanceInfo, i, this.bwB);
+                this.bwP.b(view, iXAdInstanceInfo, i, this.bwQ);
                 return;
             } else {
                 return;
             }
         }
-        this.bwA.b(view, this.a, i, this.bwB);
+        this.bwP.b(view, this.a, i, this.bwQ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -181,7 +181,7 @@ public class XAdNativeResponse implements NativeResponse {
             public void onClick(DialogInterface dialogInterface, int i2) {
                 dialogInterface.dismiss();
                 XAdNativeResponse.this.a(context);
-                XAdNativeResponse.this.bwA.b(view, XAdNativeResponse.this.a, i, XAdNativeResponse.this.bwB);
+                XAdNativeResponse.this.bwP.b(view, XAdNativeResponse.this.a, i, XAdNativeResponse.this.bwQ);
             }
         });
         builder.setNegativeButton(PayHelper.STATUS_CANCEL_DESC, new DialogInterface.OnClickListener() { // from class: com.baidu.mobad.feeds.XAdNativeResponse.2
@@ -195,27 +195,27 @@ public class XAdNativeResponse implements NativeResponse {
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onStart(Context context) {
-        this.bwA.e(context, this.a, this.bwB);
+        this.bwP.e(context, this.a, this.bwQ);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onError(Context context, int i, int i2) {
-        this.bwA.b(context, i, i2, this.a);
+        this.bwP.b(context, i, i2, this.a);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onComplete(Context context) {
-        this.bwA.f(context, this.a, this.bwB);
+        this.bwP.f(context, this.a, this.bwQ);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onClose(Context context, int i) {
-        this.bwA.c(context, i, this.a, this.bwB);
+        this.bwP.c(context, i, this.a, this.bwQ);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onFullScreen(Context context, int i) {
-        this.bwA.d(context, i, this.a, this.bwB);
+        this.bwP.d(context, i, this.a, this.bwQ);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
@@ -246,12 +246,12 @@ public class XAdNativeResponse implements NativeResponse {
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public WebView getWebView() {
-        return (WebView) this.bwC.getAdView();
+        return (WebView) this.bwR.getAdView();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onClickAd(Context context) {
-        this.bwA.g(context, this.a, this.bwB);
+        this.bwP.g(context, this.a, this.bwQ);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse

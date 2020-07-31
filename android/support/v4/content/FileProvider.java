@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FileProvider extends ContentProvider {
     private static final String ATTR_NAME = "name";
     private static final String ATTR_PATH = "path";
@@ -41,7 +41,7 @@ public class FileProvider extends ContentProvider {
     private static HashMap<String, PathStrategy> sCache = new HashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface PathStrategy {
         File getFileForUri(Uri uri);
 
@@ -211,7 +211,7 @@ public class FileProvider extends ContentProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class SimplePathStrategy implements PathStrategy {
         private final String mAuthority;
         private final HashMap<String, File> mRoots = new HashMap<>();

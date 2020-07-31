@@ -8,44 +8,44 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b> {
-    private TextView fqq;
-    private HeadImageView fqr;
-    private TextView fqs;
-    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b fqt;
-    private RelativeLayout fqu;
+    private TextView fvA;
+    private HeadImageView fvB;
+    private TextView fvC;
+    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b fvD;
+    private RelativeLayout fvE;
     private TextView mName;
     private View mRoot;
 
     public i(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
         this.mRoot = getView();
-        this.fqu = (RelativeLayout) getView().findViewById(R.id.id_tab_live_sub_offline_item_wrapper);
+        this.fvE = (RelativeLayout) getView().findViewById(R.id.id_tab_live_sub_offline_item_wrapper);
         this.mName = (TextView) getView().findViewById(R.id.id_tab_live_sub_offline_item_name);
-        this.fqq = (TextView) getView().findViewById(R.id.id_tab_live_sub_offline_item_description);
-        this.fqr = (HeadImageView) getView().findViewById(R.id.id_tab_live_sub_offline_item_avatar);
-        this.fqr.setAutoChangeStyle(true);
-        this.fqr.setIsRound(true);
-        this.fqr.setDrawBorder(true);
-        this.fqr.setDefaultResource(R.drawable.icon_default_avatar100_bg);
-        this.fqr.setDefaultBgResource(17170445);
-        this.fqr.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds1));
-        this.fqr.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fqs = (TextView) getView().findViewById(R.id.id_tab_live_sub_offline_item_time);
-        this.fqu.setOnClickListener(this);
+        this.fvA = (TextView) getView().findViewById(R.id.id_tab_live_sub_offline_item_description);
+        this.fvB = (HeadImageView) getView().findViewById(R.id.id_tab_live_sub_offline_item_avatar);
+        this.fvB.setAutoChangeStyle(true);
+        this.fvB.setIsRound(true);
+        this.fvB.setDrawBorder(true);
+        this.fvB.setDefaultResource(R.drawable.icon_default_avatar100_bg);
+        this.fvB.setDefaultBgResource(17170445);
+        this.fvB.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds1));
+        this.fvB.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fvC = (TextView) getView().findViewById(R.id.id_tab_live_sub_offline_item_time);
+        this.fvE.setOnClickListener(this);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        an.setBackgroundResource(this.mRoot, R.color.cp_bg_line_d);
-        an.setViewTextColor(this.mName, (int) R.color.cp_cont_b);
-        an.setViewTextColor(this.fqq, (int) R.color.cp_cont_c);
-        an.setViewTextColor(this.fqs, (int) R.color.cp_cont_c);
+        ao.setBackgroundResource(this.mRoot, R.color.cp_bg_line_d);
+        ao.setViewTextColor(this.mName, R.color.cp_cont_b);
+        ao.setViewTextColor(this.fvA, R.color.cp_cont_c);
+        ao.setViewTextColor(this.fvC, R.color.cp_cont_c);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -58,22 +58,22 @@ public class i extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     /* renamed from: b */
     public void a(com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b bVar) {
         if (bVar != null) {
-            this.fqt = bVar;
+            this.fvD = bVar;
             String str = bVar.user_nickname;
             if (StringUtils.isNull(str)) {
                 str = StringUtils.isNull(bVar.user_name) ? "" : bVar.user_name;
             }
             this.mName.setText(str);
-            this.fqq.setText(StringUtils.isNull(bVar.fpu) ? "" : bVar.fpu);
-            this.fqr.startLoad(bVar.portrait, 10, false);
-            this.fqs.setText(StringUtils.isNull(bVar.remark) ? "" : bVar.remark);
+            this.fvA.setText(StringUtils.isNull(bVar.fuE) ? "" : bVar.fuE);
+            this.fvB.startLoad(bVar.portrait, 10, false);
+            this.fvC.setText(StringUtils.isNull(bVar.remark) ? "" : bVar.remark);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (bOd() != null) {
-            bOd().a(view, this.fqt);
+        if (bRn() != null) {
+            bRn().a(view, this.fvD);
         }
     }
 }

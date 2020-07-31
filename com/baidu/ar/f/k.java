@@ -3,7 +3,7 @@ package com.baidu.ar.f;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public final class k {
     public static boolean r(Context context) {
         NetworkInfo t = t(context);

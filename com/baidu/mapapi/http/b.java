@@ -3,7 +3,7 @@ package com.baidu.mapapi.http;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class b implements HostnameVerifier {
     final /* synthetic */ HttpClient a;
 

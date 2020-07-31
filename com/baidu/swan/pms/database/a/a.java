@@ -7,7 +7,7 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class a extends b<PMSAppInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
@@ -33,7 +33,7 @@ public class a extends b<PMSAppInfo> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
-    /* renamed from: p */
+    /* renamed from: t */
     public ContentValues af(PMSAppInfo pMSAppInfo) throws IllegalArgumentException {
         ContentValues contentValues = new ContentValues();
         if (pMSAppInfo != null) {
@@ -69,6 +69,18 @@ public class a extends b<PMSAppInfo> {
             contentValues.put("global_private", Integer.valueOf(pMSAppInfo.globalPrivate));
             contentValues.put("pa_number", pMSAppInfo.paNumber);
             contentValues.put(Constants.PHONE_BRAND, pMSAppInfo.brandsInfo);
+            long lastLaunchTime = pMSAppInfo.getLastLaunchTime();
+            if (0 < lastLaunchTime) {
+                contentValues.put("last_launch_time", Long.valueOf(lastLaunchTime));
+            }
+            int awU = pMSAppInfo.awU();
+            if (awU > 0) {
+                contentValues.put("launch_count", Integer.valueOf(awU));
+            }
+            int aco = pMSAppInfo.aco();
+            if (aco > 0) {
+                contentValues.put("install_src", Integer.valueOf(aco));
+            }
         }
         return contentValues;
     }
@@ -107,6 +119,9 @@ public class a extends b<PMSAppInfo> {
             int columnIndex30 = cursor.getColumnIndex("global_private");
             int columnIndex31 = cursor.getColumnIndex("pa_number");
             int columnIndex32 = cursor.getColumnIndex(Constants.PHONE_BRAND);
+            int columnIndex33 = cursor.getColumnIndex("last_launch_time");
+            int columnIndex34 = cursor.getColumnIndex("launch_count");
+            int columnIndex35 = cursor.getColumnIndex("install_src");
             PMSAppInfo pMSAppInfo = new PMSAppInfo();
             pMSAppInfo.appId = cursor.getString(columnIndex);
             pMSAppInfo.appKey = cursor.getString(columnIndex2);
@@ -140,6 +155,9 @@ public class a extends b<PMSAppInfo> {
             pMSAppInfo.globalPrivate = cursor.getInt(columnIndex30);
             pMSAppInfo.paNumber = cursor.getString(columnIndex31);
             pMSAppInfo.brandsInfo = cursor.getString(columnIndex32);
+            pMSAppInfo.ca(cursor.getLong(columnIndex33));
+            pMSAppInfo.jF(cursor.getInt(columnIndex34));
+            pMSAppInfo.jG(cursor.getInt(columnIndex35));
             return pMSAppInfo;
         }
         return null;

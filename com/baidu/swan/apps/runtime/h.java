@@ -8,29 +8,29 @@ import com.baidu.swan.apps.runtime.i;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public interface h {
-    public static final Set<String> cEI = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
+    public static final Set<String> cHv = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
 
-    int RF();
+    int RU();
 
-    SwanAppProcessInfo aoi();
+    SwanAppProcessInfo apS();
 
-    boolean aoj();
+    boolean apT();
 
-    boolean aok();
+    boolean apU();
 
-    SwanAppCores aol();
+    SwanAppCores apV();
 
-    com.baidu.swan.apps.process.messaging.client.a apD();
+    com.baidu.swan.apps.process.messaging.client.a arm();
 
-    e apE();
+    e arn();
 
-    void apF();
+    void aro();
 
-    SwanAppActivity apG();
+    SwanAppActivity arp();
 
-    com.baidu.swan.apps.adaptation.a apK();
+    com.baidu.swan.apps.adaptation.a art();
 
     void d(Bundle bundle, String str);
 
@@ -38,17 +38,17 @@ public interface h {
 
     String getAppId();
 
-    void i(SwanAppActivity swanAppActivity);
-
     void i(i.a aVar);
 
     void j(SwanAppActivity swanAppActivity);
 
-    void n(com.baidu.swan.apps.aq.e.b<i.a> bVar);
-
-    void nA(String str);
+    void k(SwanAppActivity swanAppActivity);
 
     void o(com.baidu.swan.apps.aq.e.b<i.a> bVar);
+
+    void oi(String str);
+
+    void p(com.baidu.swan.apps.aq.e.b<i.a> bVar);
 
     String v(String... strArr);
 }

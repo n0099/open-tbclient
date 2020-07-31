@@ -6,15 +6,15 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.z;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class PostAsyncTask extends BdAsyncTask<String, Object, ResultData> {
     private String barId;
     private PostCallback callback;
     private String url;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public interface PostCallback {
         void onFailure(ResultData resultData);
 
@@ -32,12 +32,12 @@ public class PostAsyncTask extends BdAsyncTask<String, Object, ResultData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public ResultData doInBackground(String... strArr) {
         ResultData resultData;
-        y yVar = new y(TbConfig.SERVER_ADDRESS + "c/c/bawu/updateAvatar");
-        yVar.addPostData("forum_id", this.barId);
-        yVar.addPostData(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, this.url);
-        yVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
-        String postNetData = yVar.postNetData();
-        if (yVar.aWu().aWW().isRequestSuccess()) {
+        z zVar = new z(TbConfig.SERVER_ADDRESS + "c/c/bawu/updateAvatar");
+        zVar.addPostData("forum_id", this.barId);
+        zVar.addPostData(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, this.url);
+        zVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
+        String postNetData = zVar.postNetData();
+        if (zVar.bav().baX().isRequestSuccess()) {
             try {
                 resultData = (ResultData) OrmObject.objectWithJsonStr(postNetData, ResultData.class);
             } catch (Exception e) {
@@ -47,8 +47,8 @@ public class PostAsyncTask extends BdAsyncTask<String, Object, ResultData> {
             }
         } else {
             resultData = new ResultData();
-            resultData.error_code = yVar.getServerErrorCode();
-            resultData.error_msg = yVar.getErrorString();
+            resultData.error_code = zVar.getServerErrorCode();
+            resultData.error_msg = zVar.getErrorString();
         }
         resultData.url = this.url;
         return resultData;
@@ -66,7 +66,7 @@ public class PostAsyncTask extends BdAsyncTask<String, Object, ResultData> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static class ResultData extends OrmObject implements Serializable {
         public int error_code = 0;
         public String error_msg = "";

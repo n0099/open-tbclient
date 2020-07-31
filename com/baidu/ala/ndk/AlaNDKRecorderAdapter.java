@@ -1,5 +1,5 @@
 package com.baidu.ala.ndk;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AlaNDKRecorderAdapter {
     public static final int NATIVE_COMMON_MODE = 1;
     public static final int NATIVE_RTC_MODE = 2;
@@ -11,7 +11,7 @@ public class AlaNDKRecorderAdapter {
 
     private native String getPushStreamIpNative(long j);
 
-    private native float getStreamStateNative(long j, Integer num, Integer num2);
+    private native float getStreamStateNative(long j, int[] iArr, int[] iArr2);
 
     private native int initAudioEncoderNative(long j, int i, int i2, int i3);
 
@@ -127,8 +127,8 @@ public class AlaNDKRecorderAdapter {
         networkChangedNotifyNative(this.mNativeObject, i);
     }
 
-    public float getStreamStateNative(Integer num, Integer num2) {
-        return getStreamStateNative(this.mNativeObject, num, num2);
+    public float getStreamStateNative(int[] iArr, int[] iArr2) {
+        return getStreamStateNative(this.mNativeObject, iArr, iArr2);
     }
 
     public int updateVCodeParamNative(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {

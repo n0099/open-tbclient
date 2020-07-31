@@ -1,58 +1,58 @@
 package com.baidu.swan.apps.aq.d;
 
-import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.aq.al;
 import java.util.ArrayDeque;
 import java.util.Queue;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c implements b {
-    private final Queue<a> cPM = new ArrayDeque();
-    private a cPN;
+    private final Queue<a> cTn = new ArrayDeque();
+    private a cTo;
 
     public void b(a aVar) {
         if (aVar != null) {
-            synchronized (this.cPM) {
-                this.cPM.offer(aVar.a(this));
+            synchronized (this.cTn) {
+                this.cTn.offer(aVar.a(this));
             }
         }
-        avl();
+        axz();
     }
 
     @Override // com.baidu.swan.apps.aq.d.b
     public void a(a aVar) {
-        synchronized (this.cPM) {
-            if (aVar == this.cPN) {
+        synchronized (this.cTn) {
+            if (aVar == this.cTo) {
                 runNextTask();
             }
         }
     }
 
-    private void avl() {
-        synchronized (this.cPM) {
-            if (this.cPN == null) {
+    private void axz() {
+        synchronized (this.cTn) {
+            if (this.cTo == null) {
                 runNextTask();
             }
         }
     }
 
     private void runNextTask() {
-        synchronized (this.cPM) {
-            this.cPN = null;
-            if (!this.cPM.isEmpty()) {
-                this.cPN = this.cPM.poll();
-                if (this.cPN == null) {
+        synchronized (this.cTn) {
+            this.cTo = null;
+            if (!this.cTn.isEmpty()) {
+                this.cTo = this.cTn.poll();
+                if (this.cTo == null) {
                     runNextTask();
                 } else {
-                    aj.p(this.cPN);
+                    al.p(this.cTo);
                 }
             }
         }
     }
 
     public synchronized void clear() {
-        if (this.cPN != null) {
-            this.cPN.finish();
-            this.cPN = null;
+        if (this.cTo != null) {
+            this.cTo.finish();
+            this.cTo = null;
         }
-        this.cPM.clear();
+        this.cTn.clear();
     }
 }

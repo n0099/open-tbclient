@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.personcenter.privilege;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaTDouBuyPrivilegeResponsedMessage extends JsonHttpResponsedMessage {
     public String mark_id;
 

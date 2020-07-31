@@ -7,17 +7,17 @@ import com.baidu.card.view.MutiImgSingleVerticalLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class w extends b<AbsThreadDataSupport> {
-    public MutiImgSingleVerticalLayout aeV;
-    private AbsThreadDataSupport aea;
+    private AbsThreadDataSupport adQ;
+    public MutiImgSingleVerticalLayout aeL;
     private String mFrom;
     private int mSkinType;
 
     public w(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.aeV = new MutiImgSingleVerticalLayout(context);
+        this.aeL = new MutiImgSingleVerticalLayout(context);
     }
 
     public void setFrom(String str) {
@@ -27,21 +27,21 @@ public class w extends b<AbsThreadDataSupport> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.aeV;
+        return this.aeL;
     }
 
     @Override // com.baidu.card.b
     public void setOnCardSubClickListener(com.baidu.tieba.card.aa<AbsThreadDataSupport> aaVar) {
-        this.aeV.setSubClickListener(aaVar);
+        this.aeL.setSubClickListener(aaVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.n
     /* renamed from: b */
     public void D(AbsThreadDataSupport absThreadDataSupport) {
-        this.aea = absThreadDataSupport;
-        this.aeV.setFrom(this.mFrom);
-        this.aeV.D(absThreadDataSupport);
+        this.adQ = absThreadDataSupport;
+        this.aeL.setFrom(this.mFrom);
+        this.aeL.D(absThreadDataSupport);
     }
 
     @Override // com.baidu.card.o
@@ -53,14 +53,14 @@ public class w extends b<AbsThreadDataSupport> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
-    public void rI() {
+    public void rK() {
         a(1, new a.b() { // from class: com.baidu.card.w.1
             @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0098a c0098a) {
-                if (w.this.aea != null && w.this.aea.aPS() != null) {
-                    com.baidu.tieba.card.m.DO(w.this.aea.aPS().getId());
-                    com.baidu.tieba.card.m.a(w.this.aeV.mTitle, w.this.aea.aPS().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-                    com.baidu.tieba.card.m.a(w.this.aeV.aeA, w.this.aea.aPS().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+            public boolean a(a.C0096a c0096a) {
+                if (w.this.adQ != null && w.this.adQ.aTN() != null) {
+                    com.baidu.tieba.card.m.Ez(w.this.adQ.aTN().getId());
+                    com.baidu.tieba.card.m.a(w.this.aeL.mTitle, w.this.adQ.aTN().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
+                    com.baidu.tieba.card.m.a(w.this.aeL.aeq, w.this.adQ.aTN().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
                 }
                 return false;
             }
@@ -68,10 +68,10 @@ public class w extends b<AbsThreadDataSupport> {
     }
 
     public void setFromCDN(boolean z) {
-        this.aeV.setFromCDN(z);
+        this.aeL.setFromCDN(z);
     }
 
     public void setNeedFrsTabName(boolean z) {
-        this.aeV.setNeedFrsTabName(z);
+        this.aeL.setNeedFrsTabName(z);
     }
 }

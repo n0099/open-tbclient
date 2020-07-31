@@ -4,7 +4,7 @@ import android.os.Looper;
 import android.util.Log;
 import com.baidu.android.util.media.MimeType;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BinaryHttpResponseHandler extends HttpResponseHandler {
     private String[] a;
 

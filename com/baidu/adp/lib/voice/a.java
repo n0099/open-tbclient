@@ -27,7 +27,7 @@ public class a {
                     break;
                 case 6:
                     if (a.Ol != null) {
-                        a.Ol.at(message.arg1);
+                        a.Ol.av(message.arg1);
                     }
                     return true;
                 default:
@@ -48,11 +48,11 @@ public class a {
             if (Ok == null) {
                 Ok = new b(mHandler, i);
             } else {
-                Ok.as(i);
+                Ok.au(i);
             }
             mFileName = str;
             Ol = cVar;
-            Ok.cd(str);
+            Ok.cb(str);
             mPlayingState = 2;
             new Thread(Ok).start();
             return true;

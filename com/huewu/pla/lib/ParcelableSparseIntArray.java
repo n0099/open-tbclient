@@ -4,19 +4,19 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ParcelableSparseIntArray extends SparseIntArray implements Parcelable {
     public static final Parcelable.Creator<ParcelableSparseIntArray> CREATOR = new Parcelable.Creator<ParcelableSparseIntArray>() { // from class: com.huewu.pla.lib.ParcelableSparseIntArray.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: al */
+        /* renamed from: an */
         public ParcelableSparseIntArray createFromParcel(Parcel parcel) {
             return new ParcelableSparseIntArray(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Kb */
+        /* renamed from: Kw */
         public ParcelableSparseIntArray[] newArray(int i) {
             return new ParcelableSparseIntArray[i];
         }
@@ -26,7 +26,7 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
     }
 
     private ParcelableSparseIntArray(Parcel parcel) {
-        g(parcel.readSparseArray(ClassLoader.getSystemClassLoader()));
+        h(parcel.readSparseArray(ClassLoader.getSystemClassLoader()));
     }
 
     @Override // android.os.Parcelable
@@ -36,10 +36,10 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeSparseArray(dIL());
+        parcel.writeSparseArray(dMg());
     }
 
-    private SparseArray<Object> dIL() {
+    private SparseArray<Object> dMg() {
         SparseArray<Object> sparseArray = new SparseArray<>();
         int size = size();
         for (int i = 0; i < size; i++) {
@@ -48,7 +48,7 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
         return sparseArray;
     }
 
-    private void g(SparseArray<Integer> sparseArray) {
+    private void h(SparseArray<Integer> sparseArray) {
         int size = sparseArray.size();
         for (int i = 0; i < size; i++) {
             put(sparseArray.keyAt(i), sparseArray.valueAt(i).intValue());

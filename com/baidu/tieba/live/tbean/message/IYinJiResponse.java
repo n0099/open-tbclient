@@ -5,7 +5,7 @@ import com.baidu.tieba.live.tbean.data.IconInfoData;
 import com.baidu.tieba.live.tbean.data.SettingData;
 import com.baidu.tieba.live.tbean.data.UserInfoData;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IYinJiResponse {
     List<CustomData> getCustomList();
 

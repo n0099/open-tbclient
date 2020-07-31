@@ -23,31 +23,31 @@ import java.util.HashSet;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static final String[] ato = {"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
-    private a.C0143a atl;
-    private ZipFile atm;
-    private PackageManager atn;
+    private static final String[] atk = {"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
+    private a.C0141a ath;
+    private ZipFile ati;
+    private PackageManager atj;
     private String k;
     private Context l;
 
     /* renamed from: com.baidu.helios.trusts.zone.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    static class C0153a {
+    /* loaded from: classes10.dex */
+    static class C0151a {
         public long a;
 
-        C0153a() {
+        C0151a() {
         }
 
-        public static C0153a a(a aVar) {
+        public static C0151a a(a aVar) {
             try {
                 String a = aVar.a("info");
                 if (!TextUtils.isEmpty(a)) {
                     JSONObject jSONObject = new JSONObject(a);
-                    C0153a c0153a = new C0153a();
-                    c0153a.a = jSONObject.getLong("version");
-                    return c0153a;
+                    C0151a c0151a = new C0151a();
+                    c0151a.a = jSONObject.getLong("version");
+                    return c0151a;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -56,21 +56,21 @@ public class a {
         }
     }
 
-    private InputStream eg(String str) {
+    private InputStream ef(String str) {
         try {
-            return this.atm.getInputStream(new ZipEntry(str));
+            return this.ati.getInputStream(new ZipEntry(str));
         } catch (Exception e) {
             throw new TrustSubject.ConfigNotFoundException(e);
         }
     }
 
     private File vc() {
-        return this.atl.getFile("c.dat");
+        return this.ath.getFile("c.dat");
     }
 
     public long a() {
         try {
-            Bundle bundle = this.atn.getPackageInfo(this.k, 128).applicationInfo.metaData;
+            Bundle bundle = this.atj.getPackageInfo(this.k, 128).applicationInfo.metaData;
             if (bundle != null) {
                 String string = bundle.getString("com.baidu.helios.tc.qver");
                 if (!TextUtils.isEmpty(string) && string.startsWith("v")) {
@@ -86,7 +86,7 @@ public class a {
         InputStream inputStream = null;
         try {
             try {
-                inputStream = eg(str);
+                inputStream = ef(str);
                 return d.d(inputStream, "UTF-8");
             } catch (IOException e) {
                 throw new TrustSubject.ConfigNotFoundException(e);
@@ -96,11 +96,11 @@ public class a {
         }
     }
 
-    public void a(String str, Context context, a.C0143a c0143a) {
+    public void a(String str, Context context, a.C0141a c0141a) {
         this.k = str;
         this.l = context;
-        this.atl = c0143a;
-        this.atn = context.getPackageManager();
+        this.ath = c0141a;
+        this.atj = context.getPackageManager();
     }
 
     public int b() {
@@ -113,7 +113,7 @@ public class a {
         InputStream inputStream2;
         try {
             AssetManager assets = this.l.createPackageContext(this.k, 0).getAssets();
-            this.atl.uL();
+            this.ath.uL();
             File vc = vc();
             try {
                 vc.delete();
@@ -150,7 +150,7 @@ public class a {
                                         }
                                     }
                                     HashSet hashSet2 = new HashSet();
-                                    Collections.addAll(hashSet2, ato);
+                                    Collections.addAll(hashSet2, atk);
                                     if (!hashSet2.equals(hashSet)) {
                                         c.b(inputStream);
                                         c.b(fileOutputStream);
@@ -291,7 +291,7 @@ public class a {
 
     public boolean d() {
         boolean z = false;
-        File[] listFiles = this.atl.uM().listFiles(new FilenameFilter() { // from class: com.baidu.helios.trusts.zone.a.a.1
+        File[] listFiles = this.ath.uM().listFiles(new FilenameFilter() { // from class: com.baidu.helios.trusts.zone.a.a.1
             @Override // java.io.FilenameFilter
             public boolean accept(File file, String str) {
                 return str.endsWith(".cfgtmp");
@@ -310,13 +310,13 @@ public class a {
     }
 
     public boolean e() {
-        if (this.atm != null) {
+        if (this.ati != null) {
             return true;
         }
         File vc = vc();
         if (vc.exists()) {
             try {
-                this.atm = new ZipFile(vc);
+                this.ati = new ZipFile(vc);
                 return true;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -326,16 +326,16 @@ public class a {
     }
 
     public boolean f() {
-        if (this.atm != null) {
-            c.a(this.atm);
-            this.atm = null;
+        if (this.ati != null) {
+            c.a(this.ati);
+            this.ati = null;
             return true;
         }
         return false;
     }
 
     public long g() {
-        C0153a a = C0153a.a(this);
+        C0151a a = C0151a.a(this);
         if (a != null) {
             return a.a;
         }

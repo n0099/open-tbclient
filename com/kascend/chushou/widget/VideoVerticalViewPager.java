@@ -15,10 +15,10 @@ import com.kascend.chushou.widget.guide.PaoGuideView;
 import com.kascend.chushou.widget.menu.PlayShowH5View;
 import com.kascend.chushou.widget.showplayer.PlayShowRecommendView;
 import tv.chushou.zues.widget.viewpager.KasVerticalViewPager;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class VideoVerticalViewPager extends KasVerticalViewPager {
     private boolean a;
-    private int[] akq;
+    private int[] akl;
     private int b;
     private float c;
     private float d;
@@ -145,7 +145,7 @@ public class VideoVerticalViewPager extends KasVerticalViewPager {
 
     public void setSurfaceLoc(int[] iArr) {
         if (iArr != null && iArr.length == 4) {
-            this.akq = iArr;
+            this.akl = iArr;
         }
     }
 }

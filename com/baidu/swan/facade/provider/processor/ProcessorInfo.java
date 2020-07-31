@@ -1,5 +1,5 @@
 package com.baidu.swan.facade.provider.processor;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public enum ProcessorInfo {
     PARAMS(d.class, "params"),
     FAVORITE(b.class, "favorite"),

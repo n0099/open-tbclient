@@ -13,7 +13,7 @@ import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.URLEncoder;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public abstract class a {
     public long a;
     public String b;
@@ -29,20 +29,20 @@ public abstract class a {
     protected Context l;
     protected e m;
     protected IXAdSystemUtils n;
-    private C0216a o;
+    private C0217a o;
 
     protected abstract HashMap<String, String> b();
 
     /* renamed from: com.baidu.mobads.vo.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0216a {
+    /* loaded from: classes20.dex */
+    public static class C0217a {
         String a;
         String b;
         String c;
         String d;
         String e;
 
-        public C0216a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
+        public C0217a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
             this.a = "";
             this.b = "";
             this.c = "";
@@ -60,9 +60,9 @@ public abstract class a {
         }
     }
 
-    public a(C0216a c0216a) {
-        this(c0216a.a, c0216a.b, c0216a.c);
-        this.o = c0216a;
+    public a(C0217a c0217a) {
+        this(c0217a.a, c0217a.b, c0217a.c);
+        this.o = c0217a;
     }
 
     @Deprecated

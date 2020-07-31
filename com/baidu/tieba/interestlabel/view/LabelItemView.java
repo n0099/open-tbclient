@@ -13,15 +13,15 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class LabelItemView extends LinearLayout {
-    private boolean jnh;
-    private int jni;
-    private int jnj;
+    private boolean jvL;
+    private int jvM;
+    private int jvN;
     private Paint mPaint;
 
     public LabelItemView(Context context) {
@@ -44,19 +44,19 @@ public class LabelItemView extends LinearLayout {
         setOrientation(0);
         this.mPaint = new Paint();
         this.mPaint.setStyle(Paint.Style.STROKE);
-        this.mPaint.setColor(an.getColor(R.color.cp_bg_line_c));
+        this.mPaint.setColor(ao.getColor(R.color.cp_bg_line_c));
         this.mPaint.setStrokeWidth(1.0f);
-        this.jnj = l.getDimens(getContext(), R.dimen.ds46);
+        this.jvN = l.getDimens(getContext(), R.dimen.ds46);
         for (int i = 0; i < 3; i++) {
-            addView(cwz());
+            addView(cAx());
         }
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list, boolean z) {
-        if (!w.isEmpty(list)) {
-            this.jnh = z;
-            this.jni = Math.min(list.size(), 3);
-            for (int i = 0; i < this.jni; i++) {
+        if (!x.isEmpty(list)) {
+            this.jvL = z;
+            this.jvM = Math.min(list.size(), 3);
+            for (int i = 0; i < this.jvM; i++) {
                 com.baidu.tieba.interestlabel.b.a aVar = list.get(i);
                 if (aVar != null && (getChildAt(i) instanceof TextView)) {
                     TextView textView = (TextView) getChildAt(i);
@@ -66,13 +66,13 @@ public class LabelItemView extends LinearLayout {
                         str = aVar.labelName.substring(0, 3) + StringHelper.STRING_MORE;
                     }
                     textView.setText(str);
-                    an.setViewTextColor(textView, (int) R.drawable.color_lable_selector);
-                    textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, an.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
+                    ao.setViewTextColor(textView, R.drawable.color_lable_selector);
+                    textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
                     textView.setSelected(aVar.isFollow);
                     textView.setTag(aVar);
                 }
             }
-            for (int i2 = this.jni; i2 < getChildCount(); i2++) {
+            for (int i2 = this.jvM; i2 < getChildCount(); i2++) {
                 View childAt = getChildAt(i2);
                 if (childAt != null) {
                     childAt.setVisibility(8);
@@ -81,7 +81,7 @@ public class LabelItemView extends LinearLayout {
         }
     }
 
-    private TextView cwz() {
+    private TextView cAx() {
         return (TextView) LayoutInflater.from(getContext()).inflate(R.layout.label_recommend_column_item, (ViewGroup) this, false);
     }
 
@@ -105,13 +105,13 @@ public class LabelItemView extends LinearLayout {
         int i = 1;
         while (true) {
             int i2 = i;
-            if (i2 >= this.jni) {
+            if (i2 >= this.jvM) {
                 break;
             }
-            canvas.drawLine(width * i2, (height - this.jnj) / 2, (width * i2) + 1, (this.jnj + height) / 2, this.mPaint);
+            canvas.drawLine(width * i2, (height - this.jvN) / 2, (width * i2) + 1, (this.jvN + height) / 2, this.mPaint);
             i = i2 + 1;
         }
-        if (!this.jnh) {
+        if (!this.jvL) {
             canvas.drawLine(0.0f, height - 1, getWidth(), height, this.mPaint);
         }
     }

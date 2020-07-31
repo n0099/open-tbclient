@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tieba.sdk.c.a;
 import com.baidu.tieba.sdk.login.a;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetLoginTbsResponsedMessage extends JsonHttpResponsedMessage {
     public GetLoginTbsResponsedMessage() {
         super(1003402);
@@ -20,23 +20,23 @@ public class GetLoginTbsResponsedMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0) {
-            a dbd = com.baidu.tieba.sdk.login.a.dba().dbd();
-            a.C0733a c0733a = new a.C0733a();
-            if (dbd != null) {
-                c0733a.Mo(dbd.bduss);
-                c0733a.Mm(dbd.userName);
-                c0733a.Mn(dbd.nickName);
-                c0733a.Ml(dbd.userId);
-                c0733a.Mq(dbd.portrait);
-                c0733a.DM(dbd.sex);
+            a dek = com.baidu.tieba.sdk.login.a.deh().dek();
+            a.C0743a c0743a = new a.C0743a();
+            if (dek != null) {
+                c0743a.MW(dek.bduss);
+                c0743a.MU(dek.userName);
+                c0743a.MV(dek.nickName);
+                c0743a.MT(dek.userId);
+                c0743a.MY(dek.portrait);
+                c0743a.Ei(dek.sex);
             }
-            c0733a.DN(1);
+            c0743a.Ej(1);
             if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI)) != null) {
-                c0733a.Mp(optJSONObject.optString("tbs"));
+                c0743a.MX(optJSONObject.optString("tbs"));
             }
-            AccountData dbi = c0733a.dbi();
-            TbadkCoreApplication.setCurrentAccount(dbi, TbadkCoreApplication.getInst().getApp().getApplicationContext());
-            c.vf().putString("ala_account_user_tbs", dbi.getTbs());
+            AccountData dep = c0743a.dep();
+            TbadkCoreApplication.setCurrentAccount(dep, TbadkCoreApplication.getInst().getApp().getApplicationContext());
+            c.vf().putString("ala_account_user_tbs", dep.getTbs());
         }
     }
 }

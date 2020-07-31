@@ -12,7 +12,7 @@ import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class ZeusClassLoader extends BaseDexClassLoader {
     static Class DexPathListClass = null;
     static Class ElementClass = null;

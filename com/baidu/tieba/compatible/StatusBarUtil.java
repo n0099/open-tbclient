@@ -8,9 +8,10 @@ import android.os.Build;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import io.flutter.plugin.platform.PlatformPlugin;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public final class StatusBarUtil {
     View actionBarView;
     boolean lightStatusBar;
@@ -149,14 +150,14 @@ public final class StatusBarUtil {
             systemUiVisibility |= -2147475456;
         }
         if (this.transparentStatusBar) {
-            systemUiVisibility |= 1280;
+            systemUiVisibility |= PlatformPlugin.DEFAULT_SYSTEM_UI;
         }
         this.window.getDecorView().setSystemUiVisibility(systemUiVisibility);
         this.window.setStatusBarColor(0);
         return true;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder {
         private View actionBarView;
         private boolean lightStatusBar = false;

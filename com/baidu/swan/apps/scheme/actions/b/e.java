@@ -12,10 +12,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class e extends b {
-    private static final String cHg = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
-    private static final String cHh = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    private static final String cKa = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+    private static final String cKb = SchemeConfig.getSchemeHead() + "://swangame/%s";
 
     public e(j jVar) {
         super(jVar, "/swanAPI/getFavor");
@@ -24,9 +24,9 @@ public class e extends b {
     @Override // com.baidu.swan.apps.scheme.actions.b.b
     protected void b(com.baidu.swan.apps.runtime.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         JSONArray jSONArray = new JSONArray();
-        List<SwanFavorItemData> aed = SwanFavorDataManager.aec().aed();
-        if (aed.size() > 0) {
-            for (SwanFavorItemData swanFavorItemData : aed) {
+        List<SwanFavorItemData> afu = SwanFavorDataManager.aft().afu();
+        if (afu.size() > 0) {
+            for (SwanFavorItemData swanFavorItemData : afu) {
                 jSONArray.put(b(swanFavorItemData));
             }
         }
@@ -49,9 +49,9 @@ public class e extends b {
             jSONObject.put("title", swanFavorItemData.getAppName());
             jSONObject.put("frameType", swanFavorItemData.getAppFrameType());
             if (swanFavorItemData.getAppFrameType() == 1) {
-                str = String.format(cHh, swanFavorItemData.getAppKey());
+                str = String.format(cKb, swanFavorItemData.getAppKey());
             } else {
-                str = cHg + swanFavorItemData.getAppKey() + "\"}";
+                str = cKa + swanFavorItemData.getAppKey() + "\"}";
             }
             jSONObject.put(SuspensionBallEntity.KEY_SCHEME, str);
         } catch (JSONException e) {

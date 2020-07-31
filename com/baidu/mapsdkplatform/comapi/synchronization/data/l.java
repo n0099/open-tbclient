@@ -3,7 +3,7 @@ package com.baidu.mapsdkplatform.comapi.synchronization.data;
 import android.view.View;
 import com.baidu.mapapi.synchronization.DisplayOptions;
 import com.baidu.mapapi.synchronization.RoleOptions;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class l {
     private static final String a = l.class.getSimpleName();
     private d b = d.a();

@@ -6,11 +6,11 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tieba.imMessageCenter.RequestCommitInviteMessage;
 import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class e extends BdBaseModel<InviteFriendListActivity> {
-    private long iKR;
-    private RequestCommitInviteMessage jfn;
-    private long jfo;
+    private long iQW;
+    private RequestCommitInviteMessage jnJ;
+    private long jnK;
 
     public e(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -23,26 +23,26 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.iKR = intent.getLongExtra("gid", -1L);
-            this.jfo = intent.getLongExtra("groupid", -1L);
+            this.iQW = intent.getLongExtra("gid", -1L);
+            this.jnK = intent.getLongExtra("groupid", -1L);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.iKR = bundle.getLong("gid", -1L);
-            this.jfo = bundle.getLong("groupid", -1L);
+            this.iQW = bundle.getLong("gid", -1L);
+            this.jnK = bundle.getLong("groupid", -1L);
         }
     }
 
-    public void ax(Bundle bundle) {
-        bundle.putLong("gid", this.iKR);
-        bundle.putLong("groupid", this.jfo);
+    public void ay(Bundle bundle) {
+        bundle.putLong("gid", this.iQW);
+        bundle.putLong("groupid", this.jnK);
     }
 
-    public void HD(String str) {
-        this.jfn = c(this.iKR, this.jfo, str);
-        super.sendMessage(this.jfn);
+    public void Is(String str) {
+        this.jnJ = c(this.iQW, this.jnK, str);
+        super.sendMessage(this.jnJ);
     }
 
     private RequestCommitInviteMessage c(long j, long j2, String str) {

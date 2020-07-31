@@ -26,7 +26,7 @@ import java.net.HttpURLConnection;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
     private static final String LOGTAG = "WebViewSystemFactoryProvider";
     private static WebViewSystemFactoryProvider mInstance;
@@ -614,7 +614,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setDitingMaxEnabled(boolean z, boolean z2) {
+            public void setDitingMaxEnabled(boolean z, boolean z2, boolean z3) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -647,6 +647,10 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setFastPac(String str) {
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public void setFileInIOEnabled(boolean z) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics

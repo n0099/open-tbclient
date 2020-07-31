@@ -1,5 +1,5 @@
 package com.tb.airbnb.lottie.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface e<T> {
     T a(b<T> bVar);
 }

@@ -6,27 +6,27 @@ import com.baidu.bdhttpdns.h;
 import com.baidu.bdhttpdns.i;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes9.dex */
 public class k implements i.a {
-    private final BDHttpDns abS;
-    private final h aca;
-    private final BDHttpDns.CachePolicy acb;
-    private final i acc;
+    private final BDHttpDns abN;
+    private final h abV;
+    private final BDHttpDns.CachePolicy abW;
+    private final i abX;
 
     public k(Context context) {
-        this.abS = BDHttpDns.L(context);
-        this.aca = this.abS.qZ();
-        this.acb = this.abS.rb();
-        this.acc = this.abS.rc();
+        this.abN = BDHttpDns.L(context);
+        this.abV = this.abN.rb();
+        this.abW = this.abN.rd();
+        this.abX = this.abN.re();
     }
 
     @Override // com.baidu.bdhttpdns.i.a
     public void a(int i, i.d dVar, Map<String, i.e> map, String str) {
         switch (i) {
             case -1:
-                if (dVar.equals(i.d.DNLIST_HOSTS) && this.acb == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+                if (dVar.equals(i.d.DNLIST_HOSTS) && this.abW == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
                     for (String str2 : str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-                        this.aca.b(str2);
+                        this.abV.b(str2);
                     }
                     break;
                 }
@@ -40,9 +40,9 @@ public class k implements i.a {
                         aVar.a(value.b());
                         aVar.b(System.currentTimeMillis() / 1000);
                         aVar.a(value.a());
-                        this.aca.a(key, aVar);
-                    } else if (this.acb == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                        this.aca.b(key);
+                        this.abV.a(key, aVar);
+                    } else if (this.abW == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+                        this.abV.b(key);
                     }
                 }
                 break;
@@ -50,10 +50,10 @@ public class k implements i.a {
                 l.a("Internal error: async httpdns resolve completion get error ret(%d)", Integer.valueOf(i));
                 break;
         }
-        if (this.abS.e() <= 0 || this.acc.f()) {
+        if (this.abN.e() <= 0 || this.abX.f()) {
             return;
         }
-        this.acc.b(true);
+        this.abX.b(true);
         l.a("preResolve has finished", new Object[0]);
     }
 }

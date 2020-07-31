@@ -10,8 +10,8 @@ import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.account.request.IMUserLoginByTokenMsg;
 import com.baidu.android.imsdk.chatmessage.request.IMFetchConfigMsg;
+import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
 import com.baidu.android.imsdk.internal.IMSocketAddrProvider;
-import com.baidu.android.imsdk.mcast.McastManagerImpl;
 import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
@@ -368,7 +368,7 @@ public final class IMConnection {
                                 }
                             }
                         }
-                        McastManagerImpl.getInstance(IMConnection.this.mContext).setMcastQuickHeartBeat();
+                        ConversationStudioManImpl.getInstance(IMConnection.this.mContext).setMcastQuickHeartBeat();
                     } catch (IOException e) {
                         LogUtils.e(IMConnection.TAG, "ReadThread exception: " + e, e);
                         IMConnection.this.mStoped = false;

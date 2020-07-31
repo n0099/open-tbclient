@@ -1,30 +1,30 @@
 package com.baidu.live.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends HttpMessage {
-    private String aZa;
-    private int aZb;
-    private int aZc;
+    private String aYY;
+    private int aYZ;
+    private int aZa;
 
     public a(String str, int i, int i2) {
         super(1021154);
-        this.aZa = "";
-        this.aZb = 1;
-        this.aZc = 1;
-        this.aZa = str;
-        this.aZb = i;
-        this.aZc = i2;
+        this.aYY = "";
+        this.aYZ = 1;
+        this.aZa = 1;
+        this.aYY = str;
+        this.aYZ = i;
+        this.aZa = i2;
         setParams();
     }
 
-    public int FT() {
-        return this.aZb;
+    public int FN() {
+        return this.aYZ;
     }
 
     private void setParams() {
-        addParam("anchor_id", this.aZa);
-        addParam("open_status", this.aZb);
-        addParam("check_status", this.aZc);
+        addParam("anchor_id", this.aYY);
+        addParam("open_status", this.aYZ);
+        addParam("check_status", this.aZa);
     }
 }

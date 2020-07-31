@@ -8,7 +8,7 @@ import com.kascend.chushou.constants.GeneralGift;
 import com.kascend.chushou.constants.GiftPanelStatus;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BaseGiftView extends RelativeLayout {
     protected View a;
     protected View c;
@@ -16,10 +16,10 @@ public class BaseGiftView extends RelativeLayout {
     protected Object f;
     public boolean g;
     protected boolean h;
-    protected a nyq;
-    protected GeneralGift nyr;
+    protected a nGZ;
+    protected GeneralGift nHa;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(int i);
 
@@ -32,7 +32,7 @@ public class BaseGiftView extends RelativeLayout {
 
     public BaseGiftView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nyr = null;
+        this.nHa = null;
         this.e = -1;
         this.f = null;
         this.g = false;
@@ -48,7 +48,7 @@ public class BaseGiftView extends RelativeLayout {
     }
 
     public void setViewListener(a aVar) {
-        this.nyq = aVar;
+        this.nGZ = aVar;
     }
 
     public View getCurGiftView() {
@@ -56,7 +56,7 @@ public class BaseGiftView extends RelativeLayout {
     }
 
     public GeneralGift getCurObj() {
-        return this.nyr;
+        return this.nHa;
     }
 
     public int getCurSelectPos() {

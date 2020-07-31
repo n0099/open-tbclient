@@ -1,10 +1,10 @@
 package com.baidu.swan.apps.statistic;
 
 import android.text.TextUtils;
-import com.baidu.swan.apps.aq.n;
+import com.baidu.swan.apps.aq.p;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c {
     private c() {
     }
@@ -30,21 +30,22 @@ public class c {
                     jSONObject.put("page", aVar.page);
                 }
                 boolean isEmpty = TextUtils.isEmpty(aVar.appId);
-                boolean isEmpty2 = TextUtils.isEmpty(aVar.cKC);
+                boolean isEmpty2 = TextUtils.isEmpty(aVar.cNT);
                 if (!isEmpty || !isEmpty2) {
                     JSONObject jSONObject2 = new JSONObject();
                     if (!isEmpty) {
                         jSONObject2.put("appid", aVar.appId);
                     }
                     if (!isEmpty2) {
-                        jSONObject2.put("info", aVar.cKC);
+                        jSONObject2.put("info", aVar.cNT);
                     }
                     jSONObject.put("ext", jSONObject2);
                 }
-                n.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.statistic.c.1
+                p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.statistic.c.1
                     @Override // java.lang.Runnable
                     public void run() {
                         b.onEvent("777", jSONObject);
+                        com.baidu.swan.apps.console.c.aW("SwanAppBusinessUbc", jSONObject.toString());
                     }
                 }, "SwanAppBusinessUbcRunnable");
             } catch (JSONException e) {
@@ -55,38 +56,38 @@ public class c {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         private String appId;
-        private String cKC;
+        private String cNT;
         private String page;
         private String source;
         private String type;
         private String value;
-        private c cKB = new c();
+        private c cNS = new c();
         private String from = "swan";
 
         public a(int i) {
             this.type = String.valueOf(i);
         }
 
-        public a oy(String str) {
+        public a ph(String str) {
             this.page = str;
             return this;
         }
 
-        public a oz(String str) {
+        public a pi(String str) {
             this.appId = str;
             return this;
         }
 
-        public a oA(String str) {
-            this.cKC = str;
+        public a pj(String str) {
+            this.cNT = str;
             return this;
         }
 
-        public void ait() {
-            this.cKB.a(this);
+        public void aeU() {
+            this.cNS.a(this);
         }
     }
 }

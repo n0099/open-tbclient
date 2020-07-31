@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ui.animview.praise.ioc;
-/* loaded from: classes13.dex */
+/* loaded from: classes7.dex */
 public interface IPraiseUBCContext {
     void beginFlow(String str);
 

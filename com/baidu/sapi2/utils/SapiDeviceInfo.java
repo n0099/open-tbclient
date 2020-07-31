@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class SapiDeviceInfo implements com.baidu.sapi2.c {
     private static final int a = 11;
     private static final String c = "android";
@@ -174,7 +174,7 @@ public class SapiDeviceInfo implements com.baidu.sapi2.c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static final class a {
         static Map<String, String> a = new HashMap();
 

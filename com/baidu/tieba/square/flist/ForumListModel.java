@@ -10,10 +10,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tieba.square.data.ForumInfoData;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class ForumListModel extends BdBaseModel<ForumListActivity> implements Serializable {
     private static final String KEY = "_list";
     private static boolean isOk = false;
@@ -28,14 +28,14 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
     public List recommend_list_right;
     public long time;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes17.dex */
     public static class List extends OrmObject implements Serializable {
         private static final long serialVersionUID = -3206282936395220632L;
         public ForumInfoData[] forum_list;
         public int has_more = 0;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes17.dex */
     public static class RequestParams extends OrmObject implements Serializable {
         private static final long serialVersionUID = -8487620337266534315L;
         public int rn = 6;
@@ -78,24 +78,24 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
 
     public static ForumListModel new_fetch(RequestParams requestParams) {
         int i;
-        l<String> wc;
+        l<String> xj;
         if (requestParams.menu_id == 0) {
             i = requestParams.menu_name.equals(requestParams.parent_menu_name) ? 9 : 10;
         } else {
             i = (requestParams.menu_type == 2 || !requestParams.menu_name.equals(requestParams.parent_menu_name)) ? 137 : 136;
         }
         menu_name = requestParams.menu_name;
-        y yVar = new y(TbConfig.SERVER_ADDRESS + Config.FORUM_LIST_DETAIL);
-        yVar.addPostData("rn", String.valueOf(requestParams.rn));
-        yVar.addPostData("offset", String.valueOf(requestParams.offset));
-        yVar.addPostData(AlaLiveRoomActivityConfig.SDK_EXTRA_RECOMMEND_TYPE, String.valueOf(requestParams.recommend_type));
-        yVar.addPostData("menu_name", requestParams.menu_name);
-        yVar.addPostData(ForumListActivityConfig.KEY_MENU_TYPE, String.valueOf(i));
-        String postNetData = yVar.postNetData();
-        isOk = yVar.isNetSuccess();
+        z zVar = new z(TbConfig.SERVER_ADDRESS + Config.FORUM_LIST_DETAIL);
+        zVar.addPostData("rn", String.valueOf(requestParams.rn));
+        zVar.addPostData("offset", String.valueOf(requestParams.offset));
+        zVar.addPostData(AlaLiveRoomActivityConfig.SDK_EXTRA_RECOMMEND_TYPE, String.valueOf(requestParams.recommend_type));
+        zVar.addPostData("menu_name", requestParams.menu_name);
+        zVar.addPostData(ForumListActivityConfig.KEY_MENU_TYPE, String.valueOf(i));
+        String postNetData = zVar.postNetData();
+        isOk = zVar.isNetSuccess();
         ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(postNetData, ForumListModel.class);
-        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (wc = com.baidu.tbadk.core.c.a.aUM().wc("tb.my_posts")) != null)) {
-            wc.set(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + menu_name + KEY, postNetData, 86400000L);
+        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (xj = com.baidu.tbadk.core.c.a.aYG().xj("tb.my_posts")) != null)) {
+            xj.set(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + menu_name + KEY, postNetData, 86400000L);
         }
         return forumListModel;
     }

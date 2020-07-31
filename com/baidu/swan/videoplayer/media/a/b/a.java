@@ -4,11 +4,11 @@ import android.util.Log;
 import com.baidu.swan.apps.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    public int dwY;
-    public int dwZ;
+    public int dCQ;
+    public int dCR;
     public int mAudioBitrate;
     public int mVideoBitrate;
     public int mVideoHeight;
@@ -20,8 +20,8 @@ public final class a {
         try {
             jSONObject.put("videoBitrate", this.mVideoBitrate);
             jSONObject.put("audioBitrate", this.mAudioBitrate);
-            jSONObject.put("videoFPS", this.dwY);
-            jSONObject.put("netSpeed", this.dwZ);
+            jSONObject.put("videoFPS", this.dCQ);
+            jSONObject.put("netSpeed", this.dCR);
             jSONObject.put("videoWidth", this.mVideoWidth);
             jSONObject.put("videoHeight", this.mVideoHeight);
             jSONObject2.putOpt("info", jSONObject);

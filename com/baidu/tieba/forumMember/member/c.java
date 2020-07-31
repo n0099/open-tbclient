@@ -6,10 +6,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.ad;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class c extends ad.a {
-    public RelativeLayout bjv;
-    public ImageView gFh;
+    public RelativeLayout bjP;
+    public ImageView gKE;
     public View mLineView;
     public int mSkinType;
     public TextView mTitleView;
@@ -17,9 +17,9 @@ public class c extends ad.a {
     public c(View view) {
         super(view);
         this.mSkinType = 3;
-        this.bjv = (RelativeLayout) view.findViewById(R.id.bar_info_complaint_lay);
+        this.bjP = (RelativeLayout) view.findViewById(R.id.bar_info_complaint_lay);
         this.mLineView = view.findViewById(R.id.info_complaint_diver_top);
         this.mTitleView = (TextView) view.findViewById(R.id.bar_info_complaint_tv);
-        this.gFh = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
+        this.gKE = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
     }
 }

@@ -1,69 +1,69 @@
 package com.baidu.tbadk.util;
 
-import android.graphics.Color;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.R;
-import java.util.LinkedList;
-import java.util.List;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class f {
-    private static LinkedList<Integer> RL;
-
-    public static int biH() {
-        return bb(null);
-    }
-
-    public static int bb(List<Integer> list) {
-        if (RL == null) {
-            generate();
+    public static String[] bmA() {
+        String string = com.baidu.tbadk.core.sharedPref.b.aZP().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+        if (StringUtils.isNull(string)) {
+            return new String[0];
         }
-        Integer bc = bc(list);
-        return bc != null ? bc.intValue() : R.color.cp_atp_a;
-    }
-
-    public static int of(int i) {
-        Color.colorToHSV(an.getColor(i), r0);
-        float[] fArr = {0.0f, 0.83f, 0.75f};
-        return Color.HSVToColor(fArr);
-    }
-
-    private static void generate() {
-        RL = new LinkedList<>();
-        RL.offer(Integer.valueOf((int) R.color.cp_atp_a));
-        RL.offer(Integer.valueOf((int) R.color.cp_atp_b));
-        RL.offer(Integer.valueOf((int) R.color.cp_atp_c));
-        RL.offer(Integer.valueOf((int) R.color.cp_atp_d));
-        RL.offer(Integer.valueOf((int) R.color.cp_atp_e));
-    }
-
-    private static Integer bc(List<Integer> list) {
-        Integer peek = RL.peek();
-        if (list == null || list.size() == 0) {
-            RL.offer(RL.poll());
-            return peek;
-        } else if (list.size() > 4) {
-            RL.offer(RL.poll());
-            return peek;
-        } else {
-            int i = 0;
-            while (true) {
-                if (i >= RL.size()) {
-                    i = 0;
-                    break;
+        String[] split = string.split("\\^");
+        if (split != null && split.length > 0) {
+            ArrayList arrayList = new ArrayList();
+            for (String str : split) {
+                a Ap = a.Ap(str);
+                if (Ap != null && !StringUtils.isNull(Ap.forumName)) {
+                    arrayList.add(Ap.forumName);
                 }
-                Integer num = RL.get(i);
-                boolean z = false;
-                for (Integer num2 : list) {
-                    z = num2.intValue() == num.intValue() ? true : z;
-                }
-                if (!z) {
-                    break;
-                }
-                i++;
             }
-            Integer remove = RL.remove(i);
-            RL.offer(remove);
-            return remove;
+            return (String[]) arrayList.toArray(new String[arrayList.size()]);
+        }
+        return null;
+    }
+
+    /* loaded from: classes.dex */
+    public static class a {
+        public String forumName;
+        public int level;
+
+        public a() {
+        }
+
+        public a(String str, int i) {
+            this.forumName = str;
+            this.level = i;
+        }
+
+        public String toString() {
+            if (StringUtils.isNull(this.forumName)) {
+                return null;
+            }
+            return this.forumName + "#" + this.level;
+        }
+
+        public static a Ap(String str) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            a aVar = new a();
+            if (str.contains("#")) {
+                String[] split = str.split("#");
+                if (split.length == 1) {
+                    aVar.forumName = split[0];
+                    return aVar;
+                } else if (split.length == 2) {
+                    aVar.forumName = split[0];
+                    aVar.level = com.baidu.adp.lib.f.b.toInt(split[1], -1);
+                    return aVar;
+                } else {
+                    return aVar;
+                }
+            }
+            aVar.forumName = str;
+            return aVar;
         }
     }
 }

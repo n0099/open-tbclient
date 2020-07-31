@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public final class PersonExtraStaticAutoGenerateUrlCollectorImpl implements d {
     @Override // com.baidu.adp.framework.a.d
     public Map<String, ArrayList<String>> getConfigRouterMap() {

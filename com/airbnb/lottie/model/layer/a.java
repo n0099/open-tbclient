@@ -20,9 +20,9 @@ import com.airbnb.lottie.model.layer.Layer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public abstract class a implements com.airbnb.lottie.a.a.d, a.InterfaceC0010a, com.airbnb.lottie.model.f {
-    final o CB;
+    final o CD;
     private final String EY;
     final Layer Fa;
     @Nullable
@@ -85,8 +85,8 @@ public abstract class a implements com.airbnb.lottie.a.a.d, a.InterfaceC0010a, c
         } else {
             this.ET.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         }
-        this.CB = layer.iL().ik();
-        this.CB.a((a.InterfaceC0010a) this);
+        this.CD = layer.iL().ik();
+        this.CD.a((a.InterfaceC0010a) this);
         if (layer.hK() != null && !layer.hK().isEmpty()) {
             this.Fb = new com.airbnb.lottie.a.b.g(layer.hK());
             for (com.airbnb.lottie.a.b.a<h, Path> aVar : this.Fb.hL()) {
@@ -163,7 +163,7 @@ public abstract class a implements com.airbnb.lottie.a.a.d, a.InterfaceC0010a, c
     @CallSuper
     public void a(RectF rectF, Matrix matrix) {
         this.EZ.set(matrix);
-        this.EZ.preConcat(this.CB.getMatrix());
+        this.EZ.preConcat(this.CD.getMatrix());
     }
 
     @Override // com.airbnb.lottie.a.a.d
@@ -178,12 +178,12 @@ public abstract class a implements com.airbnb.lottie.a.a.d, a.InterfaceC0010a, c
         this.matrix.reset();
         this.matrix.set(matrix);
         for (int size = this.Fe.size() - 1; size >= 0; size--) {
-            this.matrix.preConcat(this.Fe.get(size).CB.getMatrix());
+            this.matrix.preConcat(this.Fe.get(size).CD.getMatrix());
         }
         com.airbnb.lottie.d.aW("Layer#parentMatrix");
-        int intValue = (int) (((this.CB.hO().getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f);
+        int intValue = (int) (((this.CD.hO().getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f);
         if (!iT() && !iV()) {
-            this.matrix.preConcat(this.CB.getMatrix());
+            this.matrix.preConcat(this.CD.getMatrix());
             com.airbnb.lottie.d.beginSection("Layer#drawLayer");
             b(canvas, this.matrix, intValue);
             com.airbnb.lottie.d.aW("Layer#drawLayer");
@@ -194,7 +194,7 @@ public abstract class a implements com.airbnb.lottie.a.a.d, a.InterfaceC0010a, c
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
         a(this.rect, this.matrix);
         c(this.rect, this.matrix);
-        this.matrix.preConcat(this.CB.getMatrix());
+        this.matrix.preConcat(this.CD.getMatrix());
         b(this.rect, this.matrix);
         this.rect.set(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
         com.airbnb.lottie.d.aW("Layer#computeBounds");
@@ -333,7 +333,7 @@ public abstract class a implements com.airbnb.lottie.a.a.d, a.InterfaceC0010a, c
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        this.CB.setProgress(f);
+        this.CD.setProgress(f);
         if (this.Fb != null) {
             for (int i = 0; i < this.Fb.hL().size(); i++) {
                 this.Fb.hL().get(i).setProgress(f);
@@ -393,6 +393,6 @@ public abstract class a implements com.airbnb.lottie.a.a.d, a.InterfaceC0010a, c
     @Override // com.airbnb.lottie.model.f
     @CallSuper
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
-        this.CB.b(t, cVar);
+        this.CD.b(t, cVar);
     }
 }

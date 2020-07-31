@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
     private static volatile b iH;
@@ -13,7 +13,7 @@ public class b {
     private Handler iG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);

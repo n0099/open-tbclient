@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import android.support.v4.os.BuildCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public interface AutoSizeableTextView {
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final boolean PLATFORM_SUPPORTS_AUTOSIZE = BuildCompat.isAtLeastOMR1();

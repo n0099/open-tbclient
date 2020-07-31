@@ -4,7 +4,7 @@ import com.baidubce.model.User;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class ListPartsResponse extends BosResponse {
     private String bucketName;
     private Date initiated;

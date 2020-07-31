@@ -14,7 +14,7 @@ import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ak;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class FrsGameStrategyFragmentDelegateStatic extends b {
     public static String Tag = "tag";
 

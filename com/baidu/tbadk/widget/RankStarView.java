@@ -14,96 +14,96 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class RankStarView extends View {
-    private int ahx;
-    private int eFA;
-    private int eFB;
-    private int eFC;
-    private int eFD;
-    private int eFE;
-    private int eFF;
-    private Drawable eFG;
-    private Drawable eFH;
-    private int eFx;
-    private int eFy;
-    private int eFz;
+    private int aho;
+    private int eLT;
+    private int eLU;
+    private int eLV;
+    private int eLW;
+    private int eLX;
+    private int eLY;
+    private int eLZ;
+    private int eMa;
+    private int eMb;
+    private Drawable eMc;
+    private Drawable eMd;
 
     public RankStarView(Context context) {
         super(context);
-        this.eFy = 5;
-        this.eFC = R.drawable.icon_pure_evaluation_star24_n;
-        this.eFD = R.color.cp_cont_i;
-        this.eFE = R.drawable.icon_pure_evaluation_star24_n;
-        this.eFF = R.color.cp_link_tip_d;
-        this.ahx = 3;
+        this.eLU = 5;
+        this.eLY = R.drawable.icon_pure_evaluation_star24_n;
+        this.eLZ = R.color.cp_cont_i;
+        this.eMa = R.drawable.icon_pure_evaluation_star24_n;
+        this.eMb = R.color.cp_link_tip_d;
+        this.aho = 3;
         init(context);
     }
 
     public RankStarView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eFy = 5;
-        this.eFC = R.drawable.icon_pure_evaluation_star24_n;
-        this.eFD = R.color.cp_cont_i;
-        this.eFE = R.drawable.icon_pure_evaluation_star24_n;
-        this.eFF = R.color.cp_link_tip_d;
-        this.ahx = 3;
+        this.eLU = 5;
+        this.eLY = R.drawable.icon_pure_evaluation_star24_n;
+        this.eLZ = R.color.cp_cont_i;
+        this.eMa = R.drawable.icon_pure_evaluation_star24_n;
+        this.eMb = R.color.cp_link_tip_d;
+        this.aho = 3;
         init(context);
     }
 
     public RankStarView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eFy = 5;
-        this.eFC = R.drawable.icon_pure_evaluation_star24_n;
-        this.eFD = R.color.cp_cont_i;
-        this.eFE = R.drawable.icon_pure_evaluation_star24_n;
-        this.eFF = R.color.cp_link_tip_d;
-        this.ahx = 3;
+        this.eLU = 5;
+        this.eLY = R.drawable.icon_pure_evaluation_star24_n;
+        this.eLZ = R.color.cp_cont_i;
+        this.eMa = R.drawable.icon_pure_evaluation_star24_n;
+        this.eMb = R.color.cp_link_tip_d;
+        this.aho = 3;
         init(context);
     }
 
     private void init(Context context) {
-        this.eFA = l.getDimens(context, R.dimen.tbds63);
-        aYW();
+        this.eLW = l.getDimens(context, R.dimen.tbds63);
+        bcT();
     }
 
     public int getStarCount() {
-        return this.eFx;
+        return this.eLT;
     }
 
     public void setStarCount(int i) {
         if (i < 0) {
             i = 0;
         }
-        if (i > this.eFy) {
-            i = this.eFy;
+        if (i > this.eLU) {
+            i = this.eLU;
         }
-        if (this.eFx != i) {
-            this.eFx = i;
+        if (this.eLT != i) {
+            this.eLT = i;
             invalidate();
         }
     }
 
     public void setStarSpacing(int i) {
-        this.eFz = i;
+        this.eLV = i;
     }
 
     public void setStarResource(@DrawableRes int i, @ColorRes int i2, @DrawableRes int i3, @ColorRes int i4) {
-        this.eFC = i;
-        this.eFD = i2;
-        this.eFE = i3;
-        this.eFF = i4;
-        aYW();
+        this.eLY = i;
+        this.eLZ = i2;
+        this.eMa = i3;
+        this.eMb = i4;
+        bcT();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.ahx != i) {
-            this.ahx = i;
-            aYW();
+        if (this.aho != i) {
+            this.aho = i;
+            bcT();
         }
     }
 
-    public void aYW() {
-        this.eFG = SvgManager.aWQ().a(this.eFC, this.eFD, (SvgManager.SvgResourceStateType) null);
-        this.eFH = SvgManager.aWQ().a(this.eFE, this.eFF, (SvgManager.SvgResourceStateType) null);
+    public void bcT() {
+        this.eMc = SvgManager.baR().a(this.eLY, this.eLZ, (SvgManager.SvgResourceStateType) null);
+        this.eMd = SvgManager.baR().a(this.eMa, this.eMb, (SvgManager.SvgResourceStateType) null);
     }
 
     @Override // android.view.View
@@ -111,10 +111,10 @@ public class RankStarView extends View {
         boolean onTouchEvent = super.onTouchEvent(motionEvent);
         if (motionEvent != null && onTouchEvent) {
             int x = (int) motionEvent.getX();
-            if (x < getPaddingLeft() - 10 || x > this.eFB + getPaddingLeft() + 10) {
+            if (x < getPaddingLeft() - 10 || x > this.eLX + getPaddingLeft() + 10) {
                 return true;
             }
-            setStarCount(((int) ((((x - getPaddingLeft()) * 1.0f) / this.eFB) * this.eFy)) + 1);
+            setStarCount(((int) ((((x - getPaddingLeft()) * 1.0f) / this.eLX) * this.eLU)) + 1);
             return onTouchEvent;
         }
         return onTouchEvent;
@@ -128,32 +128,32 @@ public class RankStarView extends View {
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
         if (mode2 == 1073741824) {
-            this.eFA = (size2 - getPaddingBottom()) - getPaddingTop();
+            this.eLW = (size2 - getPaddingBottom()) - getPaddingTop();
         } else {
-            size2 = this.eFA + getPaddingBottom() + getPaddingTop();
+            size2 = this.eLW + getPaddingBottom() + getPaddingTop();
         }
-        this.eFB = (this.eFA * this.eFy) + (this.eFz * (this.eFy - 1));
+        this.eLX = (this.eLW * this.eLU) + (this.eLV * (this.eLU - 1));
         if (mode != 1073741824) {
-            size = this.eFB + getPaddingLeft() + getPaddingRight();
-        } else if (size < this.eFB) {
-            this.eFB = (size - getPaddingLeft()) - getPaddingRight();
+            size = this.eLX + getPaddingLeft() + getPaddingRight();
+        } else if (size < this.eLX) {
+            this.eLX = (size - getPaddingLeft()) - getPaddingRight();
         }
         setMeasuredDimension(size, size2);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.eFG != null && this.eFH != null) {
+        if (this.eMc != null && this.eMd != null) {
             int paddingLeft = getPaddingLeft();
-            for (int i = 0; i < this.eFx; i++) {
-                this.eFH.setBounds(paddingLeft, getPaddingTop(), this.eFA + paddingLeft, this.eFA + getPaddingTop());
-                this.eFH.draw(canvas);
-                paddingLeft += this.eFz + this.eFA;
+            for (int i = 0; i < this.eLT; i++) {
+                this.eMd.setBounds(paddingLeft, getPaddingTop(), this.eLW + paddingLeft, this.eLW + getPaddingTop());
+                this.eMd.draw(canvas);
+                paddingLeft += this.eLV + this.eLW;
             }
-            for (int i2 = this.eFx; i2 < this.eFy; i2++) {
-                this.eFG.setBounds(paddingLeft, getPaddingTop(), this.eFA + paddingLeft, this.eFA + getPaddingTop());
-                this.eFG.draw(canvas);
-                paddingLeft += this.eFz + this.eFA;
+            for (int i2 = this.eLT; i2 < this.eLU; i2++) {
+                this.eMc.setBounds(paddingLeft, getPaddingTop(), this.eLW + paddingLeft, this.eLW + getPaddingTop());
+                this.eMc.draw(canvas);
+                paddingLeft += this.eLV + this.eLW;
             }
         }
     }

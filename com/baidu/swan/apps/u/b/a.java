@@ -1,101 +1,96 @@
 package com.baidu.swan.apps.u.b;
 
+import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import com.baidu.swan.apps.adaptation.a.q;
-/* loaded from: classes11.dex */
-public abstract class a implements q {
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public String TN() {
-        return String.format("%s/pms", "https://ossapi.baidu.com");
+import android.text.TextUtils;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.SwanAppErrorActivity;
+import com.baidu.swan.apps.a;
+import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.aq.j;
+import com.baidu.swan.apps.aq.k;
+import com.baidu.swan.apps.aq.q;
+import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.console.c;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.performance.i;
+import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
+import com.baidu.swan.apps.statistic.search.SearchFlowEvent;
+import com.baidu.swan.apps.v.f;
+import com.baidu.swan.d.d;
+import com.baidu.swan.pms.node.b.e;
+import java.io.File;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes7.dex */
+public class a {
+    private static final boolean DEBUG = b.DEBUG;
+    private static boolean isShowing = false;
+    private static final long cof = TimeUnit.SECONDS.toMillis(1);
+
+    public static void a(Context context, @NonNull com.baidu.swan.apps.an.a aVar, int i, String str) {
+        i.a(aVar);
+        a(context, aVar, i, str, false);
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public String Tk() {
-        return com.baidu.swan.apps.u.a.agH().getHostName();
+    public static void a(Context context, @NonNull com.baidu.swan.apps.an.a aVar, int i, String str, boolean z) {
+        File awz;
+        if (context != null) {
+            if ((context instanceof SwanAppActivity) && ((SwanAppActivity) context).isDestroyed()) {
+                c.aW("LaunchError", "launch activity closed, ignore launch error");
+                return;
+            }
+            c.aW("LaunchError", "handleLaunchError errCode: " + aVar.toString());
+            String a = com.baidu.swan.apps.swancore.b.a(f.akr().ajT(), i);
+            long avP = aVar.avP();
+            String avR = aVar.avR();
+            if (!(1020 == avP && !TextUtils.isEmpty(avR))) {
+                avR = e.aMf().cf(avP);
+            }
+            String format = String.format(context.getResources().getString(a.h.aiapps_open_failed_detail_format), al.getVersionName(), a, String.valueOf(aVar.avT()));
+            if (!com.baidu.swan.apps.t.a.ahQ().a(context, str, aVar)) {
+                Intent intent = new Intent();
+                intent.putExtra("swan_error_type", T(context, str) ? "type_network_error" : "type_normal");
+                com.baidu.swan.apps.runtime.e arw = com.baidu.swan.apps.runtime.e.arw();
+                if (arw != null) {
+                    ForbiddenInfo forbiddenInfo = new ForbiddenInfo(arw.arz(), avR, format);
+                    forbiddenInfo.enableSlidingFlag = -1;
+                    intent.putExtra("swan_error_forbidden_info", forbiddenInfo);
+                }
+                intent.setComponent(new ComponentName(context, SwanAppErrorActivity.class));
+                if (!(context instanceof Activity)) {
+                    intent.addFlags(268435456);
+                }
+                context.startActivity(intent);
+            }
+            StringBuilder sb = new StringBuilder();
+            String a2 = j.a(j.awy(), "yyyy-MM-dd HH:mm:ss");
+            if (!TextUtils.isEmpty(str)) {
+                sb.append(a2).append(": ").append(str).append("\r\n");
+            }
+            sb.append(a2).append(": ").append(format).append("\r\n");
+            q.X(sb.toString(), false);
+            com.baidu.swan.apps.statistic.search.b.a(new SearchFlowEvent("nreach", System.currentTimeMillis(), "swan_error", "", SearchFlowEvent.EventType.END));
+            if (b.DEBUG) {
+                String awZ = al.awZ();
+                if (!TextUtils.isEmpty(awZ) && (awz = k.awz()) != null) {
+                    File file = new File(awz.getPath(), "error_dialog_info.txt");
+                    d.deleteFile(file);
+                    StringBuilder sb2 = new StringBuilder();
+                    if (!TextUtils.isEmpty(format)) {
+                        sb2.append(format).append("\n");
+                    }
+                    sb2.append(awZ).append("\n");
+                    d.saveFile(sb2.toString(), file);
+                }
+            }
+        }
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public int TP() {
-        return 2;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public String TQ() {
-        return String.format("%s/ma/landingpage?t=service_agreement_m", "https://ossapi.baidu.com");
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public String TR() {
-        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/navigate", "https://mbd.baidu.com"));
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public boolean ST() {
-        return isDebug();
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public boolean isDebug() {
-        return false;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public String TI() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public String TJ() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public void TK() {
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public void TL() {
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public String bf(Context context) {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public String TM() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public String SW() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public String Th() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public String Ti() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public String Tj() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    public boolean TO() {
-        return false;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.q
-    @Nullable
-    public String Tl() {
-        return null;
+    private static boolean T(@NonNull Context context, @Nullable String str) {
+        return (TextUtils.isEmpty(str) || SwanAppNetworkUtils.isNetworkConnected(context) || com.baidu.swan.apps.u.e.a.lY(str)) ? false : true;
     }
 }

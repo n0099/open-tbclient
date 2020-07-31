@@ -8,21 +8,21 @@ import android.hardware.SensorManager;
 import android.util.Log;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.runtime.e;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static volatile a cMj;
-    private SensorManager bhI;
-    private SensorEventListener cMk;
-    private Sensor cMl;
-    private InterfaceC0295a cMm;
-    private double[] cMn = new double[3];
-    private boolean cMo = false;
-    private long cMp = 0;
-    private int cMq;
+    private static volatile a cPE;
+    private SensorManager bic;
+    private SensorEventListener cPF;
+    private Sensor cPG;
+    private InterfaceC0295a cPH;
+    private double[] cPI = new double[3];
+    private boolean cPJ = false;
+    private long cPK = 0;
+    private int cPL;
     private Context mContext;
 
     /* renamed from: com.baidu.swan.apps.am.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public interface InterfaceC0295a {
         void a(double[] dArr);
     }
@@ -30,37 +30,37 @@ public class a {
     private a() {
     }
 
-    public static a atm() {
-        if (cMj == null) {
+    public static a avn() {
+        if (cPE == null) {
             synchronized (a.class) {
-                if (cMj == null) {
-                    cMj = new a();
+                if (cPE == null) {
+                    cPE = new a();
                 }
             }
         }
-        return cMj;
+        return cPE;
     }
 
     public void m(Context context, int i) {
         this.mContext = context;
-        this.cMq = i;
+        this.cPL = i;
     }
 
     public void a(InterfaceC0295a interfaceC0295a) {
-        this.cMm = interfaceC0295a;
+        this.cPH = interfaceC0295a;
     }
 
-    public void atn() {
+    public void avo() {
         if (this.mContext == null) {
             c.e("accelerometer", "start error, none context");
-        } else if (this.cMo) {
+        } else if (this.cPJ) {
             c.w("accelerometer", "has already start");
         } else {
-            this.bhI = (SensorManager) this.mContext.getSystemService("sensor");
-            if (this.bhI != null) {
-                this.cMl = this.bhI.getDefaultSensor(1);
-                this.bhI.registerListener(atq(), this.cMl, 1);
-                this.cMo = true;
+            this.bic = (SensorManager) this.mContext.getSystemService("sensor");
+            if (this.bic != null) {
+                this.cPG = this.bic.getDefaultSensor(1);
+                this.bic.registerListener(avr(), this.cPG, 1);
+                this.cPJ = true;
                 c.i("accelerometer", "start listen");
                 return;
             }
@@ -68,58 +68,58 @@ public class a {
         }
     }
 
-    public void ato() {
-        if (!this.cMo) {
+    public void avp() {
+        if (!this.cPJ) {
             c.w("accelerometer", "has already stop");
             return;
         }
-        if (this.cMk != null && this.bhI != null) {
-            this.bhI.unregisterListener(this.cMk);
-            this.cMk = null;
+        if (this.cPF != null && this.bic != null) {
+            this.bic.unregisterListener(this.cPF);
+            this.cPF = null;
         }
-        this.bhI = null;
-        this.cMl = null;
-        this.cMo = false;
+        this.bic = null;
+        this.cPG = null;
+        this.cPJ = false;
     }
 
     public static void release() {
-        if (cMj != null) {
-            cMj.atp();
+        if (cPE != null) {
+            cPE.avq();
         }
     }
 
-    private void atp() {
+    private void avq() {
         c.i("accelerometer", "release");
-        if (this.cMo) {
-            ato();
+        if (this.cPJ) {
+            avp();
         }
-        this.bhI = null;
-        this.cMl = null;
-        this.cMk = null;
-        this.cMn = null;
+        this.bic = null;
+        this.cPG = null;
+        this.cPF = null;
+        this.cPI = null;
         this.mContext = null;
-        cMj = null;
+        cPE = null;
     }
 
-    private SensorEventListener atq() {
+    private SensorEventListener avr() {
         c.i("accelerometer", "get Accelerometer listener");
-        if (this.cMk != null) {
-            return this.cMk;
+        if (this.cPF != null) {
+            return this.cPF;
         }
-        this.cMk = new SensorEventListener() { // from class: com.baidu.swan.apps.am.a.a.1
+        this.cPF = new SensorEventListener() { // from class: com.baidu.swan.apps.am.a.a.1
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 1) {
                     if (sensorEvent.values != null && sensorEvent.values.length == 3) {
-                        if (a.this.cMm != null && System.currentTimeMillis() - a.this.cMp > a.this.cMq) {
-                            a.this.cMn[0] = (-sensorEvent.values[0]) / 9.8d;
-                            a.this.cMn[1] = (-sensorEvent.values[1]) / 9.8d;
-                            a.this.cMn[2] = (-sensorEvent.values[2]) / 9.8d;
-                            a.this.cMm.a(a.this.cMn);
-                            a.this.cMp = System.currentTimeMillis();
+                        if (a.this.cPH != null && System.currentTimeMillis() - a.this.cPK > a.this.cPL) {
+                            a.this.cPI[0] = (-sensorEvent.values[0]) / 9.8d;
+                            a.this.cPI[1] = (-sensorEvent.values[1]) / 9.8d;
+                            a.this.cPI[2] = (-sensorEvent.values[2]) / 9.8d;
+                            a.this.cPH.a(a.this.cPI);
+                            a.this.cPK = System.currentTimeMillis();
                         }
                         if (e.DEBUG) {
-                            Log.d("AccelerometerManager", "current Time : " + a.this.cMp + "current Acc x : " + a.this.cMn[0] + "current Acc y : " + a.this.cMn[1] + "current Acc z : " + a.this.cMn[2]);
+                            Log.d("AccelerometerManager", "current Time : " + a.this.cPK + "current Acc x : " + a.this.cPI[0] + "current Acc y : " + a.this.cPI[1] + "current Acc z : " + a.this.cPI[2]);
                             return;
                         }
                         return;
@@ -132,6 +132,6 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.cMk;
+        return this.cPF;
     }
 }

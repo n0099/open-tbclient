@@ -6,38 +6,38 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.BaseFragment;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class SpecialForumTabBaseFragment extends BaseFragment {
     private Handler mHandler = new Handler();
-    private Runnable ftq = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment.1
+    private Runnable fyy = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment.1
         @Override // java.lang.Runnable
         public void run() {
             SpecialForumTabBaseFragment.this.notifyDataSetChanged();
         }
     };
-    private CustomMessageListener dGa = new CustomMessageListener(2921414) { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment.2
+    private CustomMessageListener dMl = new CustomMessageListener(2921414) { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            SpecialForumTabBaseFragment.this.mHandler.removeCallbacks(SpecialForumTabBaseFragment.this.ftq);
-            SpecialForumTabBaseFragment.this.mHandler.postDelayed(SpecialForumTabBaseFragment.this.ftq, 500L);
+            SpecialForumTabBaseFragment.this.mHandler.removeCallbacks(SpecialForumTabBaseFragment.this.fyy);
+            SpecialForumTabBaseFragment.this.mHandler.postDelayed(SpecialForumTabBaseFragment.this.fyy, 500L);
         }
     };
 
     protected abstract void notifyDataSetChanged();
 
-    public void buI() {
+    public void bxR() {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        MessageManager.getInstance().registerListener(this.dGa);
+        MessageManager.getInstance().registerListener(this.dMl);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.dGa);
+        MessageManager.getInstance().unRegisterListener(this.dMl);
     }
 }

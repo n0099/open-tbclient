@@ -6,33 +6,33 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.aq.ab;
+import com.baidu.swan.apps.aq.ad;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.storage.c.g;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static void putBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            a.WV().putBoolean(str, z);
+            a.XB().putBoolean(str, z);
         } else {
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0329b.class, E(str, z));
+            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0331b.class, E(str, z));
         }
     }
 
-    public static void dv(boolean z) {
-        e apM = e.apM();
-        if (apM != null) {
-            putBoolean(iU(apM.getAppKey()), z);
+    public static void dy(boolean z) {
+        e arv = e.arv();
+        if (arv != null) {
+            putBoolean(je(arv.getAppKey()), z);
         }
     }
 
-    public static boolean iT(String str) {
-        return !TextUtils.isEmpty(str) && a.WV().getBoolean(iU(str), false);
+    public static boolean jd(String str) {
+        return !TextUtils.isEmpty(str) && a.XB().getBoolean(je(str), false);
     }
 
-    private static String iU(String str) {
-        String bc = com.baidu.swan.apps.u.a.agc().bc(com.baidu.swan.apps.u.a.afX());
-        return "consoleSwitch" + str + (TextUtils.isEmpty(bc) ? "" : ab.toHash(bc.getBytes(), false));
+    private static String je(String str) {
+        String be = com.baidu.swan.apps.t.a.aho().be(com.baidu.swan.apps.t.a.ahj());
+        return "consoleSwitch" + str + (TextUtils.isEmpty(be) ? "" : ad.toHash(be.getBytes(), false));
     }
 
     public static Bundle E(String str, boolean z) {
@@ -42,7 +42,7 @@ public class b {
         return bundle;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static class a extends g {
         private a() {
             super("searchbox_sconsole_sp");
@@ -50,26 +50,26 @@ public class b {
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.swan.apps.console.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
-        public static final class C0328a {
-            private static final a bVO = new a();
+        /* loaded from: classes7.dex */
+        public static final class C0330a {
+            private static final a bWF = new a();
         }
 
-        public static a WV() {
-            return C0328a.bVO;
+        public static a XB() {
+            return C0330a.bWF;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.console.b$b  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class C0329b extends ProviderDelegation {
-        private C0329b() {
+    /* loaded from: classes7.dex */
+    public static class C0331b extends ProviderDelegation {
+        private C0331b() {
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
-            a.WV().putBoolean(bundle.getString("key"), bundle.getBoolean("value"));
+            a.XB().putBoolean(bundle.getString("key"), bundle.getBoolean("value"));
             return Bundle.EMPTY;
         }
     }

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.base.e;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
@@ -21,8 +22,8 @@ import com.baidu.tbadk.core.atomData.MsgRemindActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.g;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -34,8 +35,8 @@ public class a {
         }
         String format = String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.url_notify), str);
         String string = TbadkCoreApplication.getInst().getContext().getString(R.string.confirm_title);
-        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).wd(string).we(format).a(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(R.string.cancel), bVar2).b(tbPageContext);
-        b.aUN();
+        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).xk(string).xl(format).a(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(R.string.cancel), bVar2).b(tbPageContext);
+        b.aYL();
         return b;
     }
 
@@ -52,8 +53,8 @@ public class a {
             return null;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.wd(str);
-        aVar.we(str2);
+        aVar.xk(str);
+        aVar.xl(str2);
         aVar.a(str3, bVar);
         aVar.b(str4, bVar2);
         aVar.b(tbPageContext);
@@ -70,13 +71,13 @@ public class a {
             TextView textView2 = (TextView) inflate.findViewById(R.id.permission_des);
             TextView textView3 = (TextView) inflate.findViewById(R.id.permission_title);
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            aVar.aP(inflate);
-            aVar.kW(2);
-            aVar.hg(true);
-            aVar.hf(true);
+            aVar.aV(inflate);
+            aVar.lq(2);
+            aVar.hK(true);
+            aVar.hJ(true);
             aVar.setAutoNight(true);
             int dimens = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds31);
-            an.c(inflate, dimens, R.color.cp_bg_line_d, R.color.cp_bg_line_d);
+            ao.c(inflate, dimens, R.color.cp_bg_line_d, R.color.cp_bg_line_d);
             tbImageView.setRadius(dimens);
             tbImageView.setConrers(3);
             tbImageView.setIsBitmapPic(true);
@@ -90,7 +91,7 @@ public class a {
             layoutParams.width = -1;
             layoutParams.height = (equipmentWidth * 556) / 988;
             tbImageView.setLayoutParams(layoutParams);
-            an.setImageResource(tbImageView, R.drawable.pic_notification_permission);
+            ao.setImageResource(tbImageView, R.drawable.pic_notification_permission);
             StateListDrawable stateListDrawable = new StateListDrawable();
             Drawable mutate = tbPageContext.getResources().getDrawable(R.drawable.icon_prefession_popup_close_n).getConstantState().newDrawable().mutate();
             Drawable mutate2 = tbPageContext.getResources().getDrawable(R.drawable.icon_prefession_popup_close_n).getConstantState().newDrawable().mutate();
@@ -98,9 +99,9 @@ public class a {
             stateListDrawable.addState(new int[]{16842919}, mutate2);
             stateListDrawable.addState(new int[0], mutate);
             imageView.setBackgroundDrawable(stateListDrawable);
-            com.baidu.tbadk.core.util.e.a.aH(R.color.cp_link_tip_a, R.color.cp_link_tip_a_alpha50).a(textView);
+            com.baidu.tbadk.core.util.e.a.aI(R.color.cp_link_tip_a, R.color.cp_link_tip_a_alpha50).c(textView);
             textView2.setText(str2);
-            an.setViewTextColor(textView2, (int) R.color.cp_cont_j);
+            ao.setViewTextColor(textView2, R.color.cp_cont_j);
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) textView3.getLayoutParams();
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) textView2.getLayoutParams();
             RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) textView.getLayoutParams();
@@ -115,7 +116,7 @@ public class a {
             } else {
                 textView3.setVisibility(0);
                 textView3.setText(str);
-                an.setViewTextColor(textView3, (int) R.color.cp_cont_b);
+                ao.setViewTextColor(textView3, R.color.cp_cont_b);
                 layoutParams2.topMargin = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds70);
                 textView3.setLayoutParams(layoutParams2);
                 layoutParams3.addRule(3, R.id.permission_title);
@@ -136,7 +137,7 @@ public class a {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (zArr[0]) {
-                        a.j(tbPageContext);
+                        a.f(tbPageContext);
                     } else if (zArr[1]) {
                         tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MsgRemindActivityConfig(tbPageContext.getPageActivity())));
                     }
@@ -144,43 +145,43 @@ public class a {
                     aVar.dismiss();
                 }
             });
-            ao aoVar = new ao("c13674");
-            aoVar.ag("obj_source", i);
-            TiebaStatic.log(aoVar);
-            aVar.c(new DialogInterface.OnDismissListener() { // from class: com.baidu.tbadk.coreExtra.c.a.3
+            ap apVar = new ap("c13674");
+            apVar.ah("obj_source", i);
+            TiebaStatic.log(apVar);
+            aVar.b(new DialogInterface.OnDismissListener() { // from class: com.baidu.tbadk.coreExtra.c.a.3
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
-                    ao aoVar2 = new ao("c13673");
-                    aoVar2.ag("obj_source", i);
-                    aoVar2.ag("obj_type", iArr[0]);
-                    TiebaStatic.log(aoVar2);
+                    ap apVar2 = new ap("c13673");
+                    apVar2.ah("obj_source", i);
+                    apVar2.ah("obj_type", iArr[0]);
+                    TiebaStatic.log(apVar2);
                 }
             });
-            aVar.b(tbPageContext).aUN();
+            aVar.b(tbPageContext).aYL();
         }
     }
 
-    public static void j(TbPageContext tbPageContext) {
+    public static void f(e eVar) {
         try {
             if (g.isHuaWei()) {
                 Intent intent = new Intent();
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-                intent.setData(Uri.fromParts("package", tbPageContext.getPageActivity().getPackageName(), null));
-                tbPageContext.getPageActivity().startActivity(intent);
+                intent.setData(Uri.fromParts("package", eVar.getPageActivity().getPackageName(), null));
+                eVar.getPageActivity().startActivity(intent);
             } else {
                 Intent intent2 = new Intent();
                 intent2.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
-                intent2.putExtra("android.provider.extra.APP_PACKAGE", tbPageContext.getPageActivity().getPackageName());
-                intent2.putExtra("android.provider.extra.CHANNEL_ID", tbPageContext.getPageActivity().getApplicationInfo().uid);
-                intent2.putExtra("app_package", tbPageContext.getPageActivity().getPackageName());
-                intent2.putExtra("app_uid", tbPageContext.getPageActivity().getApplicationInfo().uid);
-                tbPageContext.getPageActivity().startActivity(intent2);
+                intent2.putExtra("android.provider.extra.APP_PACKAGE", eVar.getPageActivity().getPackageName());
+                intent2.putExtra("android.provider.extra.CHANNEL_ID", eVar.getPageActivity().getApplicationInfo().uid);
+                intent2.putExtra("app_package", eVar.getPageActivity().getPackageName());
+                intent2.putExtra("app_uid", eVar.getPageActivity().getApplicationInfo().uid);
+                eVar.getPageActivity().startActivity(intent2);
             }
         } catch (Exception e) {
             Intent intent3 = new Intent();
             intent3.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-            intent3.setData(Uri.fromParts("package", tbPageContext.getPageActivity().getPackageName(), null));
-            tbPageContext.getPageActivity().startActivity(intent3);
+            intent3.setData(Uri.fromParts("package", eVar.getPageActivity().getPackageName(), null));
+            eVar.getPageActivity().startActivity(intent3);
         }
     }
 }

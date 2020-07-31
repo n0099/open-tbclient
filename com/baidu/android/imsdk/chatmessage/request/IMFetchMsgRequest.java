@@ -49,11 +49,10 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
         int i2;
-        int i3;
         String str;
-        ArrayList<ChatMsg> arrayList;
+        int i3;
         String str2;
-        IMListener removeListener;
+        ArrayList<ChatMsg> arrayList;
         String str3 = new String(bArr);
         LogUtils.d("IMFetchMsgRequest", "  " + str3);
         ArrayList<ChatMsg> arrayList2 = null;
@@ -63,34 +62,33 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
         int i4 = 0;
         try {
             JSONObject jSONObject = new JSONObject(str3);
-            int i5 = jSONObject.getInt("err_code");
-            String optString = jSONObject.optString("err_msg", "");
+            i3 = jSONObject.getInt("err_code");
+            str2 = jSONObject.optString("err_msg", "");
             str4 = jSONObject.optString("request_id", "0");
-            if (i5 == 0 && jSONObject.has("messages")) {
+            if (i3 == 0 && jSONObject.has("messages")) {
                 JSONArray jSONArray = jSONObject.getJSONArray("messages");
                 if (jSONArray != null) {
                     i4 = jSONArray.length();
                 }
                 arrayList2 = MessageParser.parserMessage(this.mContext, jSONArray, type, true, false);
             }
-            i2 = i5;
-            i3 = i4;
-            str = str4;
+            i2 = i4;
             arrayList = arrayList2;
-            str2 = optString;
-        } catch (Exception e) {
-            LogUtils.e("IMPaSetDisturbRequest", "JSONException", e);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-            i2 = 1010;
-            i3 = i4;
             str = str4;
-            arrayList = null;
+        } catch (Exception e) {
+            i2 = i4;
+            str = str4;
+            LogUtils.e("IMPaSetDisturbRequest", "JSONException", e);
+            i3 = 1010;
             str2 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+            arrayList = null;
         }
-        if (i2 == 0 && (removeListener = ListenerManager.getInstance().removeListener(this.mKey)) != null && (removeListener instanceof IFetchMsgByIdListener)) {
-            ((IFetchMsgByIdListener) removeListener).onFetchMsgByIdResult(i, str2, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i3, ((Long) type.t).longValue(), arrayList);
+        LogUtils.d("IMFetchMsgRequest", "requestid : " + str + " , resultCode: " + i3 + " , resultMsg : " + str2);
+        IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
+        if (removeListener instanceof IFetchMsgByIdListener) {
+            ((IFetchMsgByIdListener) removeListener).onFetchMsgByIdResult(i3, str2, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), arrayList);
         }
-        LogUtils.d("IMFetchMsgRequest", "requestid : " + str + " , resultCode: " + i2 + " , resultMsg : " + str2);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
@@ -106,8 +104,10 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
                 str = Constants.URL_HTTP_ONLINE;
                 break;
             case 1:
-            case 2:
                 str = "http://cp01-ocean-749.epc.baidu.com:8111/";
+                break;
+            case 2:
+                str = Constants.URL_HTTP_QA;
                 break;
             case 3:
                 str = Constants.URL_HTTP_BOX;

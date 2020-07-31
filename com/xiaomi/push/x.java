@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class x {
     private static final HashMap<String, String> a = new HashMap<>();
 

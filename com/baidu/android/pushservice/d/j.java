@@ -4,13 +4,13 @@ import android.content.Context;
 import android.text.TextUtils;
 import java.io.InputStream;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class j extends com.baidu.android.pushservice.g.c {
     private Context a;
     private a b;
     private String c;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(int i, String[] strArr);
     }

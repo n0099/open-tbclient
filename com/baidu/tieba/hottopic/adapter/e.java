@@ -7,63 +7,63 @@ import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.hottopic.data.n;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class e {
-    private List<com.baidu.adp.widget.ListView.a> aUP = new ArrayList();
-    private BdTypeListView fml;
-    private j iCd;
-    private h iCe;
-    private k iCf;
-    private f iCg;
-    private g iCh;
-    private a iCi;
-    private i iCj;
+    private List<com.baidu.adp.widget.ListView.a> aWf = new ArrayList();
+    private BdTypeListView frv;
+    private j iIh;
+    private h iIi;
+    private k iIj;
+    private f iIk;
+    private g iIl;
+    private a iIm;
+    private i iIn;
 
     public e(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
         a(hotTopicActivity, bdTypeListView);
     }
 
     private void a(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
-        this.iCg = new f(hotTopicActivity, com.baidu.tieba.hottopic.data.g.TYPE);
-        this.iCd = new j(hotTopicActivity, com.baidu.tieba.hottopic.data.m.iEM);
-        this.iCe = new h(hotTopicActivity, com.baidu.tieba.hottopic.data.i.iEu);
-        this.iCf = new k(hotTopicActivity, n.iEP);
+        this.iIk = new f(hotTopicActivity, com.baidu.tieba.hottopic.data.g.TYPE);
+        this.iIh = new j(hotTopicActivity, com.baidu.tieba.hottopic.data.m.iKQ);
+        this.iIi = new h(hotTopicActivity, com.baidu.tieba.hottopic.data.i.iKy);
+        this.iIj = new k(hotTopicActivity, n.iKT);
         TbPageContext pageContext = hotTopicActivity.getPageContext();
-        this.iCh = new g(pageContext, com.baidu.tieba.card.data.k.TYPE);
-        this.iCi = new a(pageContext, com.baidu.tieba.card.data.l.dLH);
-        this.iCj = new i(pageContext, com.baidu.tieba.card.data.k.dLL);
-        this.aUP.add(this.iCd);
-        this.aUP.add(this.iCe);
-        this.aUP.add(this.iCf);
-        this.aUP.add(this.iCg);
-        this.aUP.add(this.iCh);
-        this.aUP.add(this.iCi);
-        this.aUP.add(this.iCj);
-        this.fml = bdTypeListView;
-        this.fml.addAdapters(this.aUP);
+        this.iIl = new g(pageContext, com.baidu.tieba.card.data.k.TYPE);
+        this.iIm = new a(pageContext, com.baidu.tieba.card.data.l.dRS);
+        this.iIn = new i(pageContext, com.baidu.tieba.card.data.k.dRW);
+        this.aWf.add(this.iIh);
+        this.aWf.add(this.iIi);
+        this.aWf.add(this.iIj);
+        this.aWf.add(this.iIk);
+        this.aWf.add(this.iIl);
+        this.aWf.add(this.iIm);
+        this.aWf.add(this.iIn);
+        this.frv = bdTypeListView;
+        this.frv.addAdapters(this.aWf);
     }
 
     public void a(com.baidu.tieba.hottopic.data.e eVar) {
         ArrayList<q> arrayList;
-        if (eVar.clM() != null) {
-            arrayList = eVar.clM();
+        if (eVar.cpm() != null) {
+            arrayList = eVar.cpm();
         } else {
             arrayList = new ArrayList<>();
         }
-        if (this.fml != null) {
-            this.fml.setData(arrayList);
+        if (this.frv != null) {
+            this.frv.setData(arrayList);
         }
     }
 
     public void setFromCDN(boolean z) {
-        if (this.iCh != null) {
-            this.iCh.setFromCDN(z);
+        if (this.iIl != null) {
+            this.iIl.setFromCDN(z);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.fml.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
-            this.fml.getAdapter().notifyDataSetChanged();
+        if (this.frv.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
+            this.frv.getAdapter().notifyDataSetChanged();
         }
     }
 }

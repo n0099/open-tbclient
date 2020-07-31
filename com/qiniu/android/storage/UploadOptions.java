@@ -5,13 +5,13 @@ import android.util.Log;
 import com.qiniu.android.utils.AndroidNetwork;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class UploadOptions {
     final String mimeType;
-    final boolean nEo;
-    final UpProgressHandler nEp;
-    final UpCancellationSignal nEq;
-    final NetReadyHandler nEr;
+    final boolean nMW;
+    final UpProgressHandler nMX;
+    final UpCancellationSignal nMY;
+    final NetReadyHandler nMZ;
     final Map<String, String> params;
 
     public UploadOptions(Map<String, String> map, String str, boolean z, UpProgressHandler upProgressHandler, UpCancellationSignal upCancellationSignal) {
@@ -20,23 +20,23 @@ public final class UploadOptions {
 
     public UploadOptions(Map<String, String> map, String str, boolean z, UpProgressHandler upProgressHandler, UpCancellationSignal upCancellationSignal, NetReadyHandler netReadyHandler) {
         this.params = z(map);
-        this.mimeType = RK(str);
-        this.nEo = z;
-        this.nEp = upProgressHandler == null ? new UpProgressHandler() { // from class: com.qiniu.android.storage.UploadOptions.1
+        this.mimeType = Sv(str);
+        this.nMW = z;
+        this.nMX = upProgressHandler == null ? new UpProgressHandler() { // from class: com.qiniu.android.storage.UploadOptions.1
             @Override // com.qiniu.android.storage.UpProgressHandler
             public void b(String str2, double d) {
                 Log.d("Qiniu.UploadProgress", "" + d);
             }
         } : upProgressHandler;
-        this.nEq = upCancellationSignal == null ? new UpCancellationSignal() { // from class: com.qiniu.android.storage.UploadOptions.2
+        this.nMY = upCancellationSignal == null ? new UpCancellationSignal() { // from class: com.qiniu.android.storage.UploadOptions.2
             @Override // com.qiniu.android.http.CancellationHandler
             public boolean isCancelled() {
                 return false;
             }
         } : upCancellationSignal;
-        this.nEr = netReadyHandler == null ? new NetReadyHandler() { // from class: com.qiniu.android.storage.UploadOptions.3
+        this.nMZ = netReadyHandler == null ? new NetReadyHandler() { // from class: com.qiniu.android.storage.UploadOptions.3
             @Override // com.qiniu.android.storage.NetReadyHandler
-            public void dMR() {
+            public void dQn() {
                 if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
                     for (int i = 0; i < 6; i++) {
                         try {
@@ -44,7 +44,7 @@ public final class UploadOptions {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        if (AndroidNetwork.dMX()) {
+                        if (AndroidNetwork.dQt()) {
                             return;
                         }
                     }
@@ -67,11 +67,11 @@ public final class UploadOptions {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static UploadOptions dMW() {
+    public static UploadOptions dQs() {
         return new UploadOptions(null, null, false, null, null);
     }
 
-    private static String RK(String str) {
+    private static String Sv(String str) {
         if (str == null || str.equals("")) {
             return "application/octet-stream";
         }

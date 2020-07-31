@@ -2,11 +2,11 @@ package com.opensource.svgaplayer;
 
 import kotlin.h;
 @h
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public interface a {
-    void RB();
+    void RQ();
 
-    void RC();
+    void RR();
 
     void b(int i, double d);
 

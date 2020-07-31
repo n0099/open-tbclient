@@ -1,12 +1,12 @@
 package com.baidu.tieba.ala.alasquare.special_forum.subtab.a;
 
 import com.baidu.adp.widget.ListView.ad;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g extends ad.a {
-    public f ftz;
+    public f fyG;
 
     public g(f fVar) {
         super(fVar.getView());
-        this.ftz = fVar;
+        this.fyG = fVar;
     }
 }

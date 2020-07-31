@@ -15,7 +15,7 @@ import org.json.JSONObject;
 import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
     public static final String TYPE_DECLARE = "declare";
     public static final String TYPE_GRAFFITI = "graffiti";

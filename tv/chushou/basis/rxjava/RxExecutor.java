@@ -12,7 +12,7 @@ import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.util.concurrent.TimeUnit;
 import tv.chushou.basis.rxjava.thread.EventThread;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RxExecutor {
     private static final b EMPTY = new b() { // from class: tv.chushou.basis.rxjava.RxExecutor.1
         @Override // io.reactivex.disposables.b
@@ -36,15 +36,15 @@ public class RxExecutor {
                 }
                 if (!(th instanceof SocketException) && !(th instanceof SocketTimeoutException) && !(th instanceof IOException) && !(th instanceof InterruptedException)) {
                     if ((th instanceof NullPointerException) || (th instanceof IllegalArgumentException)) {
-                        if (tv.chushou.a.a.c.a.dWu().dWv()) {
+                        if (tv.chushou.a.a.c.a.dZQ().dZR()) {
                             Thread.currentThread().getUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), th);
                         }
                     } else if (th instanceof IllegalStateException) {
-                        if (tv.chushou.a.a.c.a.dWu().dWv()) {
+                        if (tv.chushou.a.a.c.a.dZQ().dZR()) {
                             Thread.currentThread().getUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), th);
                         }
                     } else {
-                        tv.chushou.a.a.c.a.dWu().e("RxJava UnHandled Exceptions", "Default Error Handler:", th);
+                        tv.chushou.a.a.c.a.dZQ().e("RxJava UnHandled Exceptions", "Default Error Handler:", th);
                     }
                 }
             }
@@ -95,13 +95,13 @@ public class RxExecutor {
         if (aVar != null && aVar.isDisposed()) {
             return EMPTY;
         }
-        v.c dPv = vVar.dPv();
-        DisposeTask disposeTask = new DisposeTask(a.M(runnable), dPv, aVar);
-        dPv.c(disposeTask, j, timeUnit);
+        v.c dSR = vVar.dSR();
+        DisposeTask disposeTask = new DisposeTask(a.L(runnable), dSR, aVar);
+        dSR.c(disposeTask, j, timeUnit);
         return disposeTask;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class DisposeTask implements b, Runnable {
         final io.reactivex.disposables.a c;
         final Runnable decoratedRun;

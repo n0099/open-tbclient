@@ -11,8 +11,8 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -26,37 +26,37 @@ import org.json.JSONObject;
 public class d {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] cCm;
+        String[] cGj;
         if (bVar == null) {
             return null;
         }
         try {
-            cCm = cCm();
+            cGj = cGj();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (cCm != null) {
+        if (cGj != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair("tpl", "tb"));
             arrayList.add(new BasicNameValuePair("appid", "1"));
             arrayList.add(new BasicNameValuePair("clientip", getClientIP()));
-            arrayList.add(new BasicNameValuePair("cert_id", cCm[0]));
+            arrayList.add(new BasicNameValuePair("cert_id", cGj[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("bduss", bVar.mBduss);
             jSONObject.put("ptoken", bVar.mPtoken);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-            arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new com.baidu.tbadk.core.a.c().encrypt(cCm[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new com.baidu.tbadk.core.a.c().encrypt(cGj[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", f(arrayList, "6e93e7659ae637845c7f83abee68a740")));
-            y yVar = new y("http://passport.baidu.com/v2/sapi/bdusslogin");
-            yVar.aWu().aWV().mIsNeedAddCommenParam = false;
-            yVar.aWu().aWV().mIsUseCurrentBDUSS = false;
-            yVar.setPostData(arrayList);
-            yVar.aWu().aWV().aWZ().mRequestGzip = true;
-            yVar.aWu().aWV().aWZ().mIsBaiduServer = false;
-            String postNetData = yVar.postNetData();
-            if (yVar.aWu().aWW().isRequestSuccess() && !ar.isEmpty(postNetData)) {
+            z zVar = new z("http://passport.baidu.com/v2/sapi/bdusslogin");
+            zVar.bav().baW().mIsNeedAddCommenParam = false;
+            zVar.bav().baW().mIsUseCurrentBDUSS = false;
+            zVar.setPostData(arrayList);
+            zVar.bav().baW().bba().mRequestGzip = true;
+            zVar.bav().baW().bba().mIsBaiduServer = false;
+            String postNetData = zVar.postNetData();
+            if (zVar.bav().baX().isRequestSuccess() && !as.isEmpty(postNetData)) {
                 JSONObject jSONObject2 = new JSONObject(postNetData);
                 if ("0".equals(jSONObject2.optString(BaseJsonData.TAG_ERRNO))) {
                     bVar2 = new a.b();
@@ -72,12 +72,12 @@ public class d {
         return null;
     }
 
-    private static String[] cCm() {
+    private static String[] cGj() {
         try {
-            y yVar = new y("http://passport.baidu.com/sslcrypt/get_last_cert");
-            yVar.aWu().aWV().mIsNeedAddCommenParam = false;
-            yVar.aWu().aWV().mIsUseCurrentBDUSS = false;
-            JSONObject jSONObject = new JSONObject(new String(yVar.getNetData()));
+            z zVar = new z("http://passport.baidu.com/sslcrypt/get_last_cert");
+            zVar.bav().baW().mIsNeedAddCommenParam = false;
+            zVar.bav().baW().mIsUseCurrentBDUSS = false;
+            JSONObject jSONObject = new JSONObject(new String(zVar.getNetData()));
             return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
         } catch (Exception e) {
             return null;

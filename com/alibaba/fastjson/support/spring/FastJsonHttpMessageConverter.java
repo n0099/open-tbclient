@@ -24,7 +24,7 @@ import org.springframework.http.converter.GenericHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.util.StringUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<Object> implements GenericHttpMessageConverter<Object> {
     public static final MediaType APPLICATION_JAVASCRIPT = new MediaType("application", "javascript");
     private Charset charset;
@@ -220,7 +220,7 @@ public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<O
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public static class Spring4TypeResolvableHelper {
         private static boolean hasClazzResolvableType;
 

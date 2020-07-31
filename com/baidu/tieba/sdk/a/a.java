@@ -8,7 +8,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends HttpRule {
     public a(int i) {
         super(i);
@@ -36,7 +36,7 @@ public class a extends HttpRule {
     @Override // com.baidu.live.adp.framework.controller.MessageRule
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         if (httpMessage != null && httpMessage.getCmd() < 1030999 && httpMessage.getCmd() >= 1021000) {
-            String str = "3.8/darkscreen|2020-07-01 12:00:21|751f5d4";
+            String str = "3.8.2/dev|2020-07-28 11:24:42|ff8eb9a";
             try {
                 str = URLEncoder.encode(str);
             } catch (Exception e) {

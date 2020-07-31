@@ -3,7 +3,7 @@ package com.baidu.swan.bdprivate.a;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.aq.ah;
+import com.baidu.swan.apps.aq.aj;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.CookieSyncManager;
@@ -17,20 +17,20 @@ import java.util.SimpleTimeZone;
 /* loaded from: classes11.dex */
 public class x {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String cSq = "cookieMap";
-    public static String cSr = "ptokenDomains";
-    public static String cSs = "bdussDomains";
+    public static String cWh = "cookieMap";
+    public static String cWi = "ptokenDomains";
+    public static String cWj = "bdussDomains";
 
-    public static void cW(Context context) {
-        cX(context);
+    public static void db(Context context) {
+        dc(context);
     }
 
-    public static void cX(Context context) {
+    public static void dc(Context context) {
         if (context != null) {
-            String cI = a.cI(context);
-            String cP = a.cP(context);
-            b(context, cI, avP());
-            c(context, cP, avP());
+            String cN = a.cN(context);
+            String cU = a.cU(context);
+            b(context, cN, ayi());
+            c(context, cU, ayi());
         }
     }
 
@@ -45,7 +45,7 @@ public class x {
         }
         for (String str2 : list) {
             if (TextUtils.isEmpty(str)) {
-                buildBDUSSCookie = ah.getCookieStr(str2, "BDUSS", "deleted", 0L);
+                buildBDUSSCookie = aj.getCookieStr(str2, "BDUSS", "deleted", 0L);
             } else {
                 buildBDUSSCookie = buildBDUSSCookie(str2, str);
             }
@@ -85,7 +85,7 @@ public class x {
         }
         for (String str2 : list) {
             if (TextUtils.isEmpty(str)) {
-                buildPtokenCookie = ah.getCookieStr(str2, "PTOKEN", "deleted", 0L);
+                buildPtokenCookie = aj.getCookieStr(str2, "PTOKEN", "deleted", 0L);
             } else {
                 buildPtokenCookie = buildPtokenCookie(str2, str);
             }
@@ -100,7 +100,7 @@ public class x {
         }
     }
 
-    private static List<String> avP() {
+    private static List<String> ayi() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("baidu.com");
         arrayList.add("hao123.com");

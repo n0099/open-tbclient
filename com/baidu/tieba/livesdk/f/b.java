@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.a;
 import com.baidu.live.tbadk.location.LocationInfo;
 import com.baidu.live.tbadk.location.interfaces.ILocation;
 import com.baidu.live.tbadk.location.interfaces.LocationCallback;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements ILocation {
     @Override // com.baidu.live.tbadk.location.interfaces.ILocation
     public LocationInfo getLocationInfo() {
@@ -15,8 +15,8 @@ public class b implements ILocation {
     @Override // com.baidu.live.tbadk.location.interfaces.ILocation
     public void getLocation(final LocationCallback locationCallback) {
         if (locationCallback != null) {
-            com.baidu.adp.lib.c.a.kG().a(false, new a.InterfaceC0020a() { // from class: com.baidu.tieba.livesdk.f.b.1
-                @Override // com.baidu.adp.lib.c.a.InterfaceC0020a
+            com.baidu.adp.lib.c.a.kG().a(false, new a.InterfaceC0021a() { // from class: com.baidu.tieba.livesdk.f.b.1
+                @Override // com.baidu.adp.lib.c.a.InterfaceC0021a
                 public void onLocationGeted(int i, String str, Address address) {
                     locationCallback.onGetLocationInfo(b.this.a(address));
                 }

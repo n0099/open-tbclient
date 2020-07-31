@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class NoClickRecyclerView extends RecyclerView {
     public NoClickRecyclerView(Context context) {
         super(context);

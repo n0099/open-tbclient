@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static final int a = 1;
     public static final int b = 2;
@@ -506,7 +506,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public int a;
         public int b;

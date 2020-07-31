@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.AlaGuardThroneActivityConfig;
 import com.baidu.tieba.ala.guardthrone.c.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GuardThroneInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(AlaGuardThroneActivityConfig.class, NewThroneAndNobleActivity.class);

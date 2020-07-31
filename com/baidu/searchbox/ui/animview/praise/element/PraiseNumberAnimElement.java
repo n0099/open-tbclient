@@ -7,7 +7,7 @@ import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.ui.animview.util.PraiseLevelUtil;
 import java.util.Stack;
-/* loaded from: classes13.dex */
+/* loaded from: classes7.dex */
 public class PraiseNumberAnimElement extends BaseAnimatedElement {
     private static final boolean DEBUG = false;
     private static final int OFFSET_Y_DP = 2;

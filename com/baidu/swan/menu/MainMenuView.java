@@ -12,15 +12,15 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.baidu.swan.menu.g;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class MainMenuView extends BaseMenuView {
-    private RecyclerView dnE;
-    private d dnF;
-    private RecyclerView dnG;
-    private d dnH;
-    private List<List<i>> dnI;
-    private View dnJ;
-    private boolean dnK;
+    private RecyclerView dtA;
+    private d dtB;
+    private RecyclerView dtC;
+    private d dtD;
+    private List<List<i>> dtE;
+    private View dtF;
+    private boolean dtG;
     private LinearLayout mContentView;
     private View mDivider;
     private View mHeaderView;
@@ -37,11 +37,11 @@ public class MainMenuView extends BaseMenuView {
         super(context, attributeSet, i);
         this.mContentView = new LinearLayout(context, attributeSet, i);
         this.mContentView.setOrientation(1);
-        this.dnE = new RecyclerView(context, attributeSet, i);
-        this.dnE.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
+        this.dtA = new RecyclerView(context, attributeSet, i);
+        this.dtA.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.dnE.setPadding(0, (int) this.mContext.getResources().getDimension(g.b.aiapp_menu_gridview_padding_top), 0, 0);
-        this.mContentView.addView(this.dnE, layoutParams);
+        this.dtA.setPadding(0, (int) this.mContext.getResources().getDimension(g.b.aiapp_menu_gridview_padding_top), 0, 0);
+        this.mContentView.addView(this.dtA, layoutParams);
         this.mDivider = new View(context);
         this.mDivider.setVisibility(8);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, 1);
@@ -49,20 +49,20 @@ public class MainMenuView extends BaseMenuView {
         layoutParams2.leftMargin = dimensionPixelSize;
         layoutParams2.rightMargin = dimensionPixelSize;
         this.mContentView.addView(this.mDivider, layoutParams2);
-        this.dnG = new RecyclerView(context, attributeSet, i);
-        this.dnG.setVisibility(8);
-        this.dnG.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-        this.mContentView.addView(this.dnG, new LinearLayout.LayoutParams(-1, -2));
+        this.dtC = new RecyclerView(context, attributeSet, i);
+        this.dtC.setVisibility(8);
+        this.dtC.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
+        this.mContentView.addView(this.dtC, new LinearLayout.LayoutParams(-1, -2));
         a(this.mContentView, new FrameLayout.LayoutParams(-1, -2));
     }
 
     @Override // com.baidu.swan.menu.BaseMenuView
-    public boolean aFW() {
-        return this.dnI != null && this.dnI.size() > 1;
+    public boolean aJN() {
+        return this.dtE != null && this.dtE.size() > 1;
     }
 
     public void a(List<List<i>> list, View view, boolean z, int i) {
-        aFX();
+        aJO();
         setMenuHeader(view);
         a(list, z, i);
     }
@@ -78,66 +78,66 @@ public class MainMenuView extends BaseMenuView {
     }
 
     private void a(List<List<i>> list, boolean z, int i) {
-        this.dnI = list;
-        this.dnK = z;
+        this.dtE = list;
+        this.dtG = z;
         if (z && list.size() > 1) {
-            iY(i);
+            jp(i);
         } else {
-            iZ(i);
+            jq(i);
         }
     }
 
-    private void iY(int i) {
+    private void jp(int i) {
         this.mDivider.setVisibility(0);
-        this.dnG.setVisibility(0);
-        if (this.dnF == null) {
-            this.dnF = new d(getContext());
-            this.dnE.setAdapter(this.dnF);
+        this.dtC.setVisibility(0);
+        if (this.dtB == null) {
+            this.dtB = new d(getContext());
+            this.dtA.setAdapter(this.dtB);
         }
-        this.dnF.b(this.dnI.subList(0, 1), this.dnK, i);
-        if (this.dnH == null) {
-            this.dnH = new d(getContext());
-            this.dnG.setAdapter(this.dnH);
+        this.dtB.b(this.dtE.subList(0, 1), this.dtG, i);
+        if (this.dtD == null) {
+            this.dtD = new d(getContext());
+            this.dtC.setAdapter(this.dtD);
         }
-        this.dnH.b(this.dnI.subList(1, 2), this.dnK, i);
+        this.dtD.b(this.dtE.subList(1, 2), this.dtG, i);
     }
 
-    private void iZ(int i) {
+    private void jq(int i) {
         this.mDivider.setVisibility(8);
-        this.dnG.setVisibility(8);
-        if (this.dnF == null) {
-            this.dnF = new d(getContext());
-            this.dnE.setAdapter(this.dnF);
+        this.dtC.setVisibility(8);
+        if (this.dtB == null) {
+            this.dtB = new d(getContext());
+            this.dtA.setAdapter(this.dtB);
         }
-        this.dnF.b(this.dnI, this.dnK, i);
+        this.dtB.b(this.dtE, this.dtG, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reset() {
-        if (this.dnE != null) {
-            this.dnE.scrollToPosition(0);
+        if (this.dtA != null) {
+            this.dtA.scrollToPosition(0);
         }
-        if (this.dnG != null) {
-            this.dnE.scrollToPosition(0);
+        if (this.dtC != null) {
+            this.dtA.scrollToPosition(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aFY() {
-        if (this.dnF != null) {
-            this.dnF.notifyDataSetChanged();
+    public void aJP() {
+        if (this.dtB != null) {
+            this.dtB.notifyDataSetChanged();
         }
-        if (this.dnH != null) {
-            this.dnH.notifyDataSetChanged();
+        if (this.dtD != null) {
+            this.dtD.notifyDataSetChanged();
         }
     }
 
     @Nullable
     public View getCoverView() {
-        return this.dnJ;
+        return this.dtF;
     }
 
     public void setCoverView(View view) {
-        this.dnJ = view;
+        this.dtF = view;
     }
 }

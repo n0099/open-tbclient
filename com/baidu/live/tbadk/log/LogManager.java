@@ -35,7 +35,7 @@ import com.baidu.live.tbadk.log.qmimpl.QuanminYuanPackageLogger;
 import com.baidu.live.tbadk.log.tbimpl.TiebaMigrateFromTiebaLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LogManager {
     public static ICommonLogger getCommonLogger() {
         if (TbadkCoreApplication.getInst().isHaokan()) {

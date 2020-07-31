@@ -10,20 +10,20 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.adaptation.b.d;
 import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
 import com.baidu.swan.apps.view.SwanAppNARootViewScrollView;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a<T extends d> implements PullToRefreshBaseWebView.a, com.baidu.swan.apps.core.f.c, com.baidu.swan.apps.view.b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private T bLW;
-    private FrameLayout cRU;
-    private FrameLayout cRV;
-    private PullToRefreshBaseWebView cRW;
-    private com.baidu.swan.apps.adaptation.b.c cfz;
+    private T bMv;
+    private FrameLayout cVL;
+    private FrameLayout cVM;
+    private PullToRefreshBaseWebView cVN;
+    private com.baidu.swan.apps.adaptation.b.c chj;
     private Context mContext;
 
     public a(Context context, @NonNull com.baidu.swan.apps.adaptation.b.c<T> cVar, @NonNull FrameLayout frameLayout) {
         this.mContext = context;
-        this.cRU = frameLayout;
-        this.cfz = cVar;
+        this.cVL = frameLayout;
+        this.chj = cVar;
         g(cVar);
     }
 
@@ -38,26 +38,26 @@ public class a<T extends d> implements PullToRefreshBaseWebView.a, com.baidu.swa
         b bVar = new b();
         c.a(bVar, aVar);
         view.setTag(a.f.aiapps_na_root_view_tag, bVar);
-        if (this.cRV.indexOfChild(view) >= 0) {
-            com.baidu.swan.apps.component.e.a.aU("NAParentViewManager", "repeat insert view!");
-            this.cRV.removeView(view);
+        if (this.cVM.indexOfChild(view) >= 0) {
+            com.baidu.swan.apps.component.e.a.aV("NAParentViewManager", "repeat insert view!");
+            this.cVM.removeView(view);
         }
-        this.cRV.addView(view, c.a(this.bLW, aVar));
+        this.cVM.addView(view, c.a(this.bMv, aVar));
         return true;
     }
 
     @Override // com.baidu.swan.apps.view.b.a
-    public boolean av(View view) {
-        if (a(view, this.cRV)) {
+    public boolean ay(View view) {
+        if (a(view, this.cVM)) {
             try {
-                this.cRV.removeView(view);
+                this.cVM.removeView(view);
             } catch (Exception e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
             return true;
-        } else if (aw(view)) {
+        } else if (az(view)) {
             try {
                 ((ViewGroup) view.getParent()).removeView(view);
             } catch (Exception e2) {
@@ -73,29 +73,29 @@ public class a<T extends d> implements PullToRefreshBaseWebView.a, com.baidu.swa
 
     @Override // com.baidu.swan.apps.view.b.a
     public boolean b(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        if (view == null || this.cRV == null || aVar == null) {
+        if (view == null || this.cVM == null || aVar == null) {
             return false;
         }
         if (DEBUG) {
             Log.d("NAParentViewManager", "updateView pos: " + aVar);
         }
-        if (a(view, this.cRV)) {
+        if (a(view, this.cVM)) {
             Object tag = view.getTag(a.f.aiapps_na_root_view_tag);
             if (tag instanceof b) {
                 b bVar = (b) tag;
                 c.a(bVar, aVar);
                 view.setTag(a.f.aiapps_na_root_view_tag, bVar);
             }
-            this.cRV.updateViewLayout(view, c.a(this.bLW, aVar));
+            this.cVM.updateViewLayout(view, c.a(this.bMv, aVar));
             return true;
-        } else if (aw(view)) {
+        } else if (az(view)) {
             Object tag2 = view.getTag(a.f.aiapps_na_root_view_tag);
             if (tag2 instanceof b) {
                 b bVar2 = (b) tag2;
                 c.a(bVar2, aVar);
                 view.setTag(a.f.aiapps_na_root_view_tag, bVar2);
             }
-            ((ViewGroup) view.getParent()).updateViewLayout(view, c.a(this.bLW, aVar));
+            ((ViewGroup) view.getParent()).updateViewLayout(view, c.a(this.bMv, aVar));
             return true;
         } else {
             return false;
@@ -106,7 +106,7 @@ public class a<T extends d> implements PullToRefreshBaseWebView.a, com.baidu.swa
         return view != null && viewGroup != null && view.getParent() == viewGroup && viewGroup.indexOfChild(view) >= 0;
     }
 
-    private boolean aw(View view) {
+    private boolean az(View view) {
         if (view == null) {
             return false;
         }
@@ -118,38 +118,38 @@ public class a<T extends d> implements PullToRefreshBaseWebView.a, com.baidu.swa
             Log.d("NAParentViewManager", "createViewAndListener");
         }
         cVar.a(this);
-        this.bLW = cVar.Un();
-        if (this.bLW == null) {
+        this.bMv = cVar.UP();
+        if (this.bMv == null) {
             return false;
         }
         SwanAppNARootViewScrollView swanAppNARootViewScrollView = new SwanAppNARootViewScrollView(this.mContext);
-        this.cRU.addView(swanAppNARootViewScrollView, new FrameLayout.LayoutParams(-1, -1));
-        this.cRV = new FrameLayout(this.mContext);
-        swanAppNARootViewScrollView.addView(this.cRV, new FrameLayout.LayoutParams(-1, -1));
+        this.cVL.addView(swanAppNARootViewScrollView, new FrameLayout.LayoutParams(-1, -1));
+        this.cVM = new FrameLayout(this.mContext);
+        swanAppNARootViewScrollView.addView(this.cVM, new FrameLayout.LayoutParams(-1, -1));
         swanAppNARootViewScrollView.setFillViewport(true);
-        this.cRW = cVar.Ug();
-        if (this.cRW != null) {
-            this.cRW.setOnPullToRefreshScrollChangeListener(this);
+        this.cVN = cVar.UH();
+        if (this.cVN != null) {
+            this.cVN.setOnPullToRefreshScrollChangeListener(this);
             return true;
         }
         return true;
     }
 
-    public void ic(int i) {
-        this.cRV.setVisibility(i);
+    public void in(int i) {
+        this.cVM.setVisibility(i);
     }
 
     @Override // com.baidu.swan.apps.core.f.c
     public void onScrollChanged(int i, int i2, int i3, int i4) {
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.cRV.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.cVM.getLayoutParams();
         marginLayoutParams.leftMargin = -i;
         marginLayoutParams.topMargin = -i2;
-        this.cRV.setLayoutParams(marginLayoutParams);
+        this.cVM.setLayoutParams(marginLayoutParams);
         int i5 = 0;
         while (true) {
             int i6 = i5;
-            if (i6 < this.cRV.getChildCount()) {
-                View childAt = this.cRV.getChildAt(i6);
+            if (i6 < this.cVM.getChildCount()) {
+                View childAt = this.cVM.getChildAt(i6);
                 if (childAt != null) {
                     Object tag = childAt.getTag(a.f.aiapps_na_root_view_tag);
                     b bVar = null;
@@ -158,8 +158,8 @@ public class a<T extends d> implements PullToRefreshBaseWebView.a, com.baidu.swa
                     }
                     if (bVar != null && bVar.isFixed()) {
                         ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) childAt.getLayoutParams();
-                        marginLayoutParams2.leftMargin = bVar.avL() + i;
-                        marginLayoutParams2.topMargin = bVar.avM() + i2;
+                        marginLayoutParams2.leftMargin = bVar.aye() + i;
+                        marginLayoutParams2.topMargin = bVar.ayf() + i2;
                         childAt.setLayoutParams(marginLayoutParams2);
                     }
                 }
@@ -172,10 +172,10 @@ public class a<T extends d> implements PullToRefreshBaseWebView.a, com.baidu.swa
 
     @Override // com.baidu.swan.apps.core.container.PullToRefreshBaseWebView.a
     public void i(int i, int i2, int i3, int i4) {
-        this.cRV.scrollTo(i, i2);
+        this.cVM.scrollTo(i, i2);
     }
 
     public void destroy() {
-        this.cfz.b(this);
+        this.chj.b(this);
     }
 }

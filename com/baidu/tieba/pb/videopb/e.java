@@ -5,31 +5,32 @@ import android.arch.lifecycle.w;
 import android.content.Intent;
 import android.graphics.Rect;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.pb.pb.main.PbModel;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class e extends w {
-    private PbModel kbF;
-    private d kxU = new d();
-    private int kxV = 0;
+    private d kGP = new d();
+    private int kGQ = 0;
+    private PbModel kkj;
 
     public void init(Intent intent) {
-        this.kxU.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
-        this.kxU.sQ(intent.getBooleanExtra("key_jump_to_comment_area", false));
+        this.kGP.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
+        this.kGP.tw(intent.getBooleanExtra("key_jump_to_comment_area", false));
     }
 
     public void i(PbModel pbModel) {
-        this.kbF = pbModel;
+        this.kkj = pbModel;
     }
 
-    public void b(com.baidu.tieba.pb.data.e eVar, int i) {
+    public void b(com.baidu.tieba.pb.data.f fVar, int i) {
         boolean z = true;
-        if (i >= this.kxV) {
-            this.kxV = i;
-            this.kxU.L(eVar);
-            if (eVar != null) {
-                d dVar = this.kxU;
-                if (eVar.getIsNewUrl() != 1 && !eVar.cHq()) {
+        if (i >= this.kGQ) {
+            this.kGQ = i;
+            this.kGP.L(fVar);
+            if (fVar != null) {
+                d dVar = this.kGP;
+                if (fVar.getIsNewUrl() != 1 && !fVar.cLa()) {
                     z = false;
                 }
                 dVar.setFromCDN(z);
@@ -37,111 +38,111 @@ public class e extends w {
         }
     }
 
-    public com.baidu.tieba.pb.data.e cPJ() {
-        return this.kxU.cPJ();
+    public com.baidu.tieba.pb.data.f cTx() {
+        return this.kGP.cTx();
     }
 
     public boolean isFromCDN() {
-        return this.kxU.isFromCDN();
+        return this.kGP.isFromCDN();
     }
 
-    public com.baidu.tieba.pb.data.e cPK() {
-        return this.kxU.cPK();
+    public com.baidu.tieba.pb.data.f cTy() {
+        return this.kGP.cTy();
     }
 
-    public void c(com.baidu.tieba.pb.data.e eVar, int i) {
+    public void c(com.baidu.tieba.pb.data.f fVar, int i) {
         if (i == 3) {
-            this.kxU.setData(eVar);
+            this.kGP.setData(fVar);
         }
     }
 
-    public p<bu> cPL() {
-        return this.kxU.cPL();
+    public p<bv> cTz() {
+        return this.kGP.cTz();
     }
 
-    public Rect cPM() {
-        if (this.kxU.cPM() == null || this.kxU.cPM().isEmpty()) {
+    public Rect cTA() {
+        if (this.kGP.cTA() == null || this.kGP.cTA().isEmpty()) {
             return null;
         }
-        return this.kxU.cPM();
+        return this.kGP.cTA();
     }
 
-    public void sT(boolean z) {
-        if (this.kxU.cPQ().getValue() != null) {
-            com.baidu.tieba.pb.data.e aJ = this.kbF.aJ(this.kxU.cPQ().getValue());
-            if (aJ != null) {
-                this.kxU.cPO().addLast(this.kxU.cPK());
-                this.kxU.setData(aJ);
-                this.kxU.aR(!com.baidu.tbadk.core.util.w.isEmpty(aJ.cHp()) ? aJ.cHp().get(0) : null);
-                this.kxU.aQ(this.kxU.cPO().getLast() != null ? this.kxU.cPO().getLast().cGO() : null);
-                this.kbF.Bw(z ? 21 : 22);
-                this.kbF.j(aJ);
-                this.kxU.setIsLoading(true);
+    public void tz(boolean z) {
+        if (this.kGP.cTE().getValue() != null) {
+            com.baidu.tieba.pb.data.f aG = this.kkj.aG(this.kGP.cTE().getValue());
+            if (aG != null) {
+                this.kGP.cTC().addLast(this.kGP.cTy());
+                this.kGP.setData(aG);
+                this.kGP.aO(!x.isEmpty(aG.cKZ()) ? aG.cKZ().get(0) : null);
+                this.kGP.aN(this.kGP.cTC().getLast() != null ? this.kGP.cTC().getLast().cKx() : null);
+                this.kkj.BV(z ? 21 : 22);
+                this.kkj.j(aG);
+                this.kGP.setIsLoading(true);
             }
         }
     }
 
-    public void aS(bu buVar) {
-        com.baidu.tieba.pb.data.e aJ;
-        if (buVar != null && (aJ = this.kbF.aJ(buVar)) != null) {
-            this.kxU.cPO().addLast(this.kxU.cPK());
-            this.kxU.setData(aJ);
-            this.kxU.aR(!com.baidu.tbadk.core.util.w.isEmpty(aJ.cHp()) ? aJ.cHp().get(0) : null);
-            this.kxU.aQ(this.kxU.cPO().getLast() != null ? this.kxU.cPO().getLast().cGO() : null);
-            this.kbF.Bw(20);
-            this.kbF.j(aJ);
-            this.kxU.setIsLoading(true);
+    public void aP(bv bvVar) {
+        com.baidu.tieba.pb.data.f aG;
+        if (bvVar != null && (aG = this.kkj.aG(bvVar)) != null) {
+            this.kGP.cTC().addLast(this.kGP.cTy());
+            this.kGP.setData(aG);
+            this.kGP.aO(!x.isEmpty(aG.cKZ()) ? aG.cKZ().get(0) : null);
+            this.kGP.aN(this.kGP.cTC().getLast() != null ? this.kGP.cTC().getLast().cKx() : null);
+            this.kkj.BV(20);
+            this.kkj.j(aG);
+            this.kGP.setIsLoading(true);
         }
     }
 
-    public void cPV() {
-        com.baidu.tieba.pb.data.e pollLast = this.kxU.cPO().pollLast();
+    public void cTJ() {
+        com.baidu.tieba.pb.data.f pollLast = this.kGP.cTC().pollLast();
         if (pollLast != null) {
-            this.kxU.setData(pollLast);
-            this.kxU.aR(!com.baidu.tbadk.core.util.w.isEmpty(pollLast.cHp()) ? pollLast.cHp().get(0) : null);
-            this.kxU.aQ(this.kxU.cPO().peekLast() != null ? this.kxU.cPO().peekLast().cGO() : null);
-            this.kbF.j(pollLast);
-            this.kxU.setIsLoading(true);
+            this.kGP.setData(pollLast);
+            this.kGP.aO(!x.isEmpty(pollLast.cKZ()) ? pollLast.cKZ().get(0) : null);
+            this.kGP.aN(this.kGP.cTC().peekLast() != null ? this.kGP.cTC().peekLast().cKx() : null);
+            this.kkj.j(pollLast);
+            this.kGP.setIsLoading(true);
         }
     }
 
-    public p<bu> cPP() {
-        return this.kxU.cPP();
+    public p<bv> cTD() {
+        return this.kGP.cTD();
     }
 
-    public p<bu> cPQ() {
-        return this.kxU.cPQ();
+    public p<bv> cTE() {
+        return this.kGP.cTE();
     }
 
-    public p<Boolean> cPR() {
-        return this.kxU.cPR();
+    public p<Boolean> cTF() {
+        return this.kGP.cTF();
     }
 
-    public void sR(boolean z) {
-        this.kxU.sR(z);
+    public void tx(boolean z) {
+        this.kGP.tx(z);
     }
 
-    public p<Boolean> cPS() {
-        return this.kxU.cPS();
+    public p<Boolean> cTG() {
+        return this.kGP.cTG();
     }
 
-    public void sS(boolean z) {
-        this.kxU.sS(z);
+    public void ty(boolean z) {
+        this.kGP.ty(z);
     }
 
     public void setIsLoading(boolean z) {
-        this.kxU.setIsLoading(z);
+        this.kGP.setIsLoading(z);
     }
 
-    public p<Boolean> cPT() {
-        return this.kxU.cPT();
+    public p<Boolean> cTH() {
+        return this.kGP.cTH();
     }
 
-    public boolean cPN() {
-        return this.kxU.cPN();
+    public boolean cTB() {
+        return this.kGP.cTB();
     }
 
-    public p<Integer> cPU() {
-        return this.kxU.cPU();
+    public p<Integer> cTI() {
+        return this.kGP.cTI();
     }
 }

@@ -1,62 +1,62 @@
 package com.facebook.fresco.animation.d;
 
 import com.facebook.fresco.animation.a.d;
-/* loaded from: classes13.dex */
+/* loaded from: classes18.dex */
 public class a implements b {
-    private final d mOR;
-    private long mPL = -1;
+    private long mXT = -1;
+    private final d mXb;
 
     public a(d dVar) {
-        this.mOR = dVar;
+        this.mXb = dVar;
     }
 
     @Override // com.facebook.fresco.animation.d.b
-    public int K(long j, long j2) {
-        if (!dCh() && j / dCg() >= this.mOR.getLoopCount()) {
+    public int M(long j, long j2) {
+        if (!dFt() && j / dFs() >= this.mXb.getLoopCount()) {
             return -1;
         }
-        return fU(j % dCg());
+        return gh(j % dFs());
     }
 
-    public long dCg() {
-        if (this.mPL != -1) {
-            return this.mPL;
+    public long dFs() {
+        if (this.mXT != -1) {
+            return this.mXT;
         }
-        this.mPL = 0L;
-        int frameCount = this.mOR.getFrameCount();
+        this.mXT = 0L;
+        int frameCount = this.mXb.getFrameCount();
         for (int i = 0; i < frameCount; i++) {
-            this.mPL += this.mOR.Iv(i);
+            this.mXT += this.mXb.IQ(i);
         }
-        return this.mPL;
+        return this.mXT;
     }
 
     @Override // com.facebook.fresco.animation.d.b
-    public long fT(long j) {
+    public long gg(long j) {
         long j2 = 0;
-        long dCg = dCg();
-        if (dCg == 0) {
+        long dFs = dFs();
+        if (dFs == 0) {
             return -1L;
         }
-        if (dCh() || j / dCg() < this.mOR.getLoopCount()) {
-            long j3 = j % dCg;
-            int frameCount = this.mOR.getFrameCount();
+        if (dFt() || j / dFs() < this.mXb.getLoopCount()) {
+            long j3 = j % dFs;
+            int frameCount = this.mXb.getFrameCount();
             for (int i = 0; i < frameCount && j2 <= j3; i++) {
-                j2 += this.mOR.Iv(i);
+                j2 += this.mXb.IQ(i);
             }
             return (j2 - j3) + j;
         }
         return -1L;
     }
 
-    public boolean dCh() {
-        return this.mOR.getLoopCount() == 0;
+    public boolean dFt() {
+        return this.mXb.getLoopCount() == 0;
     }
 
-    int fU(long j) {
+    int gh(long j) {
         int i = 0;
         long j2 = 0;
         do {
-            j2 += this.mOR.Iv(i);
+            j2 += this.mXb.IQ(i);
             i++;
         } while (j >= j2);
         return i - 1;

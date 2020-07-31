@@ -1,5 +1,6 @@
 package okio;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.io.Closeable;
@@ -19,7 +20,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public final class Buffer implements Cloneable, ByteChannel, BufferedSink, BufferedSource {
     private static final byte[] DIGITS = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
     static final int REPLACEMENT_CHARACTER = 65533;
@@ -1038,7 +1039,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         }
         long j = 0;
         while (true) {
-            long read = source.read(this, 8192L);
+            long read = source.read(this, PlaybackStateCompat.ACTION_PLAY_FROM_URI);
             if (read != -1) {
                 j += read;
             } else {
@@ -1267,7 +1268,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             if (j < buffer.head.limit - buffer.head.pos) {
                 Segment segment = this.head != null ? this.head.prev : null;
                 if (segment != null && segment.owner) {
-                    if ((segment.limit + j) - (segment.shared ? 0 : segment.pos) <= 8192) {
+                    if ((segment.limit + j) - (segment.shared ? 0 : segment.pos) <= PlaybackStateCompat.ACTION_PLAY_FROM_URI) {
                         buffer.head.writeTo(segment, (int) j);
                         buffer.size -= j;
                         this.size += j;
@@ -1758,7 +1759,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         return unsafeCursor;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes20.dex */
     public static final class UnsafeCursor implements Closeable {
         public Buffer buffer;
         public byte[] data;

@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.aq.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b extends a {
-    public com.baidu.swan.apps.an.a cPd;
+    public com.baidu.swan.apps.an.a cSE;
 }

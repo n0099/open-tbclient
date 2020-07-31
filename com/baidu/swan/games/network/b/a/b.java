@@ -6,26 +6,26 @@ import com.baidu.swan.games.network.b.d;
 import com.baidu.swan.games.network.b.e;
 import com.baidu.swan.games.network.c.c;
 import okhttp3.Request;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b extends c implements com.baidu.swan.games.network.b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private e dfq;
+    private e dkZ;
 
     public b(com.baidu.swan.games.f.b bVar, com.baidu.swan.games.binding.model.c cVar) {
         super(bVar, cVar);
-        this.dfq = new e(this);
+        this.dkZ = new e(this);
     }
 
     @Override // com.baidu.swan.games.network.a
     public void j(com.baidu.swan.games.binding.model.c cVar) {
         super.j(cVar);
-        this.dfq.aCh();
+        this.dkZ.aFO();
     }
 
     @Override // com.baidu.swan.games.network.c.c
     protected void d(Request request) {
-        if (this.deZ != null) {
-            d.aCg().a(this.deZ.optString("url"), this);
+        if (this.dkI != null) {
+            d.aFN().a(this.dkI.optString("url"), this);
             super.d(request);
         }
     }
@@ -33,17 +33,17 @@ public class b extends c implements com.baidu.swan.games.network.b.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a
     public void onSuccess(Object obj) {
-        this.dfq.onSuccess(obj);
+        this.dkZ.onSuccess(obj);
     }
 
     @Override // com.baidu.swan.games.network.c.c, com.baidu.swan.games.network.a
     protected void i(String str, int i, String str2) {
-        this.dfq.i(str, i, str2);
+        this.dkZ.i(str, i, str2);
     }
 
     @Override // com.baidu.swan.games.network.a, com.baidu.searchbox.v8engine.event.EventTargetImpl, com.baidu.searchbox.v8engine.event.EventTarget
     public boolean dispatchEvent(JSEvent jSEvent) {
-        return this.dfq.b(jSEvent);
+        return this.dkZ.b(jSEvent);
     }
 
     @Override // com.baidu.swan.games.network.b.a

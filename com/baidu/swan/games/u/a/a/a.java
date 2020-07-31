@@ -5,21 +5,20 @@ import android.support.annotation.NonNull;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.d.i;
+import com.baidu.swan.apps.core.d.f;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.swan.apps.w.f;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public abstract class a extends aa {
-    private final String dgQ;
+    private final String dmz;
 
     abstract boolean a(@NonNull com.baidu.swan.games.u.a.b.a aVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(j jVar, String str, String str2) {
         super(jVar, str);
-        this.dgQ = str2;
+        this.dmz = str2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,18 +28,18 @@ public abstract class a extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        com.baidu.swan.apps.core.d.e RN = f.ajb().RN();
-        if (RN == null) {
-            com.baidu.swan.apps.console.c.e(this.dgQ, "fragment manager is null");
+        f Sc = com.baidu.swan.apps.v.f.akr().Sc();
+        if (Sc == null) {
+            com.baidu.swan.apps.console.c.e(this.dmz, "fragment manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.games.u.a.b.b bVar = (com.baidu.swan.games.u.a.b.b) RN.q(i.class);
+        com.baidu.swan.games.u.a.b.b bVar = (com.baidu.swan.games.u.a.b.b) Sc.q(com.baidu.swan.apps.core.d.j.class);
         if (bVar == null) {
-            com.baidu.swan.apps.console.c.e(this.dgQ, "fragment is null");
+            com.baidu.swan.apps.console.c.e(this.dmz, "fragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        return a(bVar.aav(), unitedSchemeEntity, callbackHandler);
+        return a(bVar.abx(), unitedSchemeEntity, callbackHandler);
     }
 }

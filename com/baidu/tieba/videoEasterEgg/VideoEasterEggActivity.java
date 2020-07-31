@@ -17,41 +17,41 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.widget.ScaleVideoView;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity> implements b {
-    private ImageView gqS;
-    private com.baidu.tbadk.core.view.a icD;
-    private ImageView meS;
-    private ScaleVideoView meT;
-    private View meU;
-    private TextView meV;
-    private TextView meW;
-    private com.baidu.tieba.videoEasterEgg.b.a meX;
-    private a mfb;
-    private boolean mfc;
+    private ImageView gwo;
+    private com.baidu.tbadk.core.view.a iiF;
+    private ImageView mmi;
+    private ScaleVideoView mmj;
+    private View mmk;
+    private TextView mml;
+    private TextView mmm;
+    private com.baidu.tieba.videoEasterEgg.b.a mmn;
+    private a mmr;
+    private boolean mms;
     private int mSkinType = 3;
-    private int meY = 0;
-    private boolean meZ = false;
-    private boolean mfa = false;
-    private Runnable mfd = new Runnable() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.1
+    private int mmo = 0;
+    private boolean mmp = false;
+    private boolean mmq = false;
+    private Runnable mmt = new Runnable() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.1
         @Override // java.lang.Runnable
         public void run() {
-            if (VideoEasterEggActivity.this.meX != null) {
-                VideoEasterEggActivity.this.meX.cUY();
+            if (VideoEasterEggActivity.this.mmn != null) {
+                VideoEasterEggActivity.this.mmn.cYL();
             }
         }
     };
-    private MediaPlayer.OnInfoListener mfe = new MediaPlayer.OnInfoListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.6
+    private MediaPlayer.OnInfoListener mmu = new MediaPlayer.OnInfoListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.6
         @Override // android.media.MediaPlayer.OnInfoListener
         public boolean onInfo(MediaPlayer mediaPlayer, int i, int i2) {
             if (i == 3) {
-                VideoEasterEggActivity.this.vw(false);
-                e.lt().removeCallbacks(VideoEasterEggActivity.this.mfd);
+                VideoEasterEggActivity.this.wa(false);
+                e.lt().removeCallbacks(VideoEasterEggActivity.this.mmt);
             }
             return false;
         }
@@ -62,76 +62,76 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         UtilHelper.useNavigationBarStyleImmersiveSticky(this, true);
-        this.meX = new com.baidu.tieba.videoEasterEgg.b.b(getPageContext(), this, getIntent());
+        this.mmn = new com.baidu.tieba.videoEasterEgg.b.b(getPageContext(), this, getIntent());
         initUI();
-        TiebaStatic.log(new ao(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_SHOW));
+        TiebaStatic.log(new ap(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_SHOW));
     }
 
     private void initUI() {
-        this.icD = new com.baidu.tbadk.core.view.a(getPageContext());
+        this.iiF = new com.baidu.tbadk.core.view.a(getPageContext());
         setSwipeBackEnabled(false);
         setContentView(R.layout.video_easter_egg_layout);
-        biq();
-        dpC();
-        dpD();
+        bmb();
+        dsL();
+        dsM();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void biq() {
-        this.gqS = (ImageView) findViewById(R.id.close);
-        this.gqS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.7
+    private void bmb() {
+        this.gwo = (ImageView) findViewById(R.id.close);
+        this.gwo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (VideoEasterEggActivity.this.meX != null) {
-                    VideoEasterEggActivity.this.meX.onClose();
+                if (VideoEasterEggActivity.this.mmn != null) {
+                    VideoEasterEggActivity.this.mmn.onClose();
                 }
             }
         });
-        this.meS = (ImageView) findViewById(R.id.share);
-        this.meS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.8
+        this.mmi = (ImageView) findViewById(R.id.share);
+        this.mmi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (VideoEasterEggActivity.this.meX != null) {
-                    VideoEasterEggActivity.this.meX.dpE();
-                    VideoEasterEggActivity.this.caG();
-                    TiebaStatic.log(new ao(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_SHARE).ag("obj_locate", 1));
+                if (VideoEasterEggActivity.this.mmn != null) {
+                    VideoEasterEggActivity.this.mmn.bhd();
+                    VideoEasterEggActivity.this.cee();
+                    TiebaStatic.log(new ap(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_SHARE).ah("obj_locate", 1));
                 }
             }
         });
     }
 
-    private void dpC() {
-        this.meT = (ScaleVideoView) findViewById(R.id.scale_video_view);
-        this.meT.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.9
+    private void dsL() {
+        this.mmj = (ScaleVideoView) findViewById(R.id.scale_video_view);
+        this.mmj.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.9
             @Override // android.media.MediaPlayer.OnErrorListener
             public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-                if (VideoEasterEggActivity.this.meX != null) {
-                    VideoEasterEggActivity.this.meX.cUY();
+                if (VideoEasterEggActivity.this.mmn != null) {
+                    VideoEasterEggActivity.this.mmn.cYL();
                     return true;
                 }
                 return true;
             }
         });
-        this.meT.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.10
+        this.mmj.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.10
             @Override // android.media.MediaPlayer.OnCompletionListener
             public void onCompletion(MediaPlayer mediaPlayer) {
-                VideoEasterEggActivity.this.mfc = true;
-                if (VideoEasterEggActivity.this.meX != null) {
-                    VideoEasterEggActivity.this.meX.dpG();
+                VideoEasterEggActivity.this.mms = true;
+                if (VideoEasterEggActivity.this.mmn != null) {
+                    VideoEasterEggActivity.this.mmn.dsO();
                 }
             }
         });
-        this.meT.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.11
+        this.mmj.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.11
             @Override // android.media.MediaPlayer.OnPreparedListener
             public void onPrepared(MediaPlayer mediaPlayer) {
-                VideoEasterEggActivity.this.meT.setMediaPlayer(mediaPlayer);
-                mediaPlayer.setOnInfoListener(VideoEasterEggActivity.this.mfe);
+                VideoEasterEggActivity.this.mmj.setMediaPlayer(mediaPlayer);
+                mediaPlayer.setOnInfoListener(VideoEasterEggActivity.this.mmu);
             }
         });
-        this.meT.getHolder().addCallback(new SurfaceHolder.Callback() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.12
+        this.mmj.getHolder().addCallback(new SurfaceHolder.Callback() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.12
             @Override // android.view.SurfaceHolder.Callback
             public void surfaceCreated(SurfaceHolder surfaceHolder) {
-                VideoEasterEggActivity.this.vw(true);
+                VideoEasterEggActivity.this.wa(true);
             }
 
             @Override // android.view.SurfaceHolder.Callback
@@ -140,50 +140,50 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
 
             @Override // android.view.SurfaceHolder.Callback
             public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-                VideoEasterEggActivity.this.mfc = false;
+                VideoEasterEggActivity.this.mms = false;
             }
         });
-        vw(true);
+        wa(true);
     }
 
-    private void dpD() {
-        this.meU = findViewById(R.id.error_container);
-        this.meV = (TextView) findViewById(R.id.load_error_text);
-        this.meV.setText(R.string.loading_error);
-        this.meW = (TextView) findViewById(R.id.play_text);
-        this.meW.setText(R.string.continues_play);
-        this.meW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.13
+    private void dsM() {
+        this.mmk = findViewById(R.id.error_container);
+        this.mml = (TextView) findViewById(R.id.load_error_text);
+        this.mml.setText(R.string.loading_error);
+        this.mmm = (TextView) findViewById(R.id.play_text);
+        this.mmm.setText(R.string.continues_play);
+        this.mmm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.13
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (VideoEasterEggActivity.this.meX != null) {
-                    VideoEasterEggActivity.this.meX.dpF();
+                if (VideoEasterEggActivity.this.mmn != null) {
+                    VideoEasterEggActivity.this.mmn.dsN();
                 }
             }
         });
-        this.meU.setVisibility(8);
+        this.mmk.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vw(boolean z) {
+    public void wa(boolean z) {
         if (z) {
-            if (this.icD != null && !this.icD.isShowing()) {
-                this.icD.setDialogVisiable(true);
+            if (this.iiF != null && !this.iiF.isShowing()) {
+                this.iiF.setDialogVisiable(true);
             }
-            this.meT.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.cp_cont_a));
+            this.mmj.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.cp_cont_a));
             return;
         }
-        if (this.icD != null) {
-            this.icD.setDialogVisiable(false);
+        if (this.iiF != null) {
+            this.iiF.setDialogVisiable(false);
         }
-        this.meT.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+        this.mmj.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.meX != null) {
-            this.meX.onResume();
+        if (this.mmn != null) {
+            this.mmn.onResume();
         }
     }
 
@@ -191,18 +191,18 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        caG();
-        if (this.meX != null) {
-            this.meX.onPause();
+        cee();
+        if (this.mmn != null) {
+            this.mmn.onPause();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void caG() {
-        if (this.meT != null && this.meT.isPlaying()) {
-            this.meY = this.meT.getCurrentPosition();
-            this.meT.pause();
-            this.meZ = true;
+    public void cee() {
+        if (this.mmj != null && this.mmj.isPlaying()) {
+            this.mmo = this.mmj.getCurrentPosition();
+            this.mmj.pause();
+            this.mmp = true;
         }
     }
 
@@ -210,48 +210,48 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.meX != null) {
-            this.meX.onDestroy();
+        if (this.mmn != null) {
+            this.mmn.onDestroy();
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b
-    public void OA(String str) {
-        if (!ar.isEmpty(str) && !this.meT.isPlaying() && !this.mfc) {
-            if (this.meZ) {
-                this.meT.seekTo(this.meY);
-                this.meZ = false;
+    public void Pi(String str) {
+        if (!as.isEmpty(str) && !this.mmj.isPlaying() && !this.mms) {
+            if (this.mmp) {
+                this.mmj.seekTo(this.mmo);
+                this.mmp = false;
             } else {
-                this.meT.setVideoURI(Uri.parse(str));
-                e.lt().postDelayed(this.mfd, 5000L);
+                this.mmj.setVideoURI(Uri.parse(str));
+                e.lt().postDelayed(this.mmt, 5000L);
             }
-            this.meT.start();
+            this.mmj.start();
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b
-    public void OB(String str) {
-        this.meU.setVisibility(8);
-        this.meZ = true;
-        this.meY = 0;
-        this.mfc = false;
-        OA(str);
+    public void Pj(String str) {
+        this.mmk.setVisibility(8);
+        this.mmp = true;
+        this.mmo = 0;
+        this.mms = false;
+        Pi(str);
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b
-    public void fK(String str, String str2) {
-        if (this.mfb == null) {
-            this.mfb = fL(str, str2);
+    public void fM(String str, String str2) {
+        if (this.mmr == null) {
+            this.mmr = fN(str, str2);
         }
-        this.mfb.aUN();
+        this.mmr.aYL();
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b
-    public void acn() {
-        e.lt().removeCallbacks(this.mfd);
-        this.meT.pause();
-        this.icD.setDialogVisiable(false);
-        this.meU.setVisibility(0);
+    public void ads() {
+        e.lt().removeCallbacks(this.mmt);
+        this.mmj.pause();
+        this.iiF.setDialogVisiable(false);
+        this.mmk.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b
@@ -279,56 +279,56 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            an.setViewTextColor(this.meV, (int) R.color.cp_cont_a);
-            an.setViewTextColor(this.meW, (int) R.color.cp_cont_a);
-            an.setBackgroundResource(this.meW, R.drawable.continue_play_bg);
-            an.setImageResource(this.gqS, R.drawable.icon_frs_luhan_close);
-            an.setImageResource(this.meS, R.drawable.icon_frs_luhan_share);
+            ao.setViewTextColor(this.mml, R.color.cp_cont_a);
+            ao.setViewTextColor(this.mmm, R.color.cp_cont_a);
+            ao.setBackgroundResource(this.mmm, R.drawable.continue_play_bg);
+            ao.setImageResource(this.gwo, R.drawable.icon_frs_luhan_close);
+            ao.setImageResource(this.mmi, R.drawable.icon_frs_luhan_share);
         }
     }
 
-    private a fL(String str, String str2) {
-        this.mfb = new a(this);
-        this.mfb.Oy(str2);
-        if (ar.isEmpty(str)) {
+    private a fN(String str, String str2) {
+        this.mmr = new a(this);
+        this.mmr.Pg(str2);
+        if (as.isEmpty(str)) {
             str = getResources().getString(R.string.easter_dialog_default_message);
         }
-        this.mfb.we(str);
-        this.mfb.a(R.string.easter_dialog_checkbox_text_not_again, new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.2
+        this.mmr.xl(str);
+        this.mmr.a(R.string.easter_dialog_checkbox_text_not_again, new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.2
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                VideoEasterEggActivity.this.mfa = z;
+                VideoEasterEggActivity.this.mmq = z;
             }
         });
-        this.mfb.b(R.string.easter_dialog_btn_text_replay, new a.b() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.3
+        this.mmr.b(R.string.easter_dialog_btn_text_replay, new a.b() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                if (VideoEasterEggActivity.this.meX != null) {
-                    VideoEasterEggActivity.this.meX.dpF();
-                    TiebaStatic.log(new ao(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_REPLAY));
+                if (VideoEasterEggActivity.this.mmn != null) {
+                    VideoEasterEggActivity.this.mmn.dsN();
+                    TiebaStatic.log(new ap(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_REPLAY));
                 }
-                VideoEasterEggActivity.this.mfb.dismiss();
+                VideoEasterEggActivity.this.mmr.dismiss();
             }
         });
-        this.mfb.a(R.string.easter_dialog_btn_text_share, new a.b() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.4
+        this.mmr.a(R.string.easter_dialog_btn_text_share, new a.b() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                if (VideoEasterEggActivity.this.meX != null) {
-                    VideoEasterEggActivity.this.meX.dpE();
-                    TiebaStatic.log(new ao(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_SHARE).ag("obj_locate", 2));
+                if (VideoEasterEggActivity.this.mmn != null) {
+                    VideoEasterEggActivity.this.mmn.bhd();
+                    TiebaStatic.log(new ap(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_SHARE).ah("obj_locate", 2));
                 }
-                VideoEasterEggActivity.this.mfb.dismiss();
+                VideoEasterEggActivity.this.mmr.dismiss();
             }
         });
-        this.mfb.c(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.5
+        this.mmr.b(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.5
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (VideoEasterEggActivity.this.mfa) {
-                    VideoEasterEggActivity.this.meX.dpH();
+                if (VideoEasterEggActivity.this.mmq) {
+                    VideoEasterEggActivity.this.mmn.dsP();
                 }
             }
         });
-        this.mfb.b(getPageContext());
-        return this.mfb;
+        this.mmr.b(getPageContext());
+        return this.mmr;
     }
 }

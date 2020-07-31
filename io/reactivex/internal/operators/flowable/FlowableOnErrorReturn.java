@@ -10,7 +10,7 @@ public final class FlowableOnErrorReturn<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nJW.a((j) new OnErrorReturnSubscriber(cVar, this.valueSupplier));
+        this.nSE.a((j) new OnErrorReturnSubscriber(cVar, this.valueSupplier));
     }
 
     /* loaded from: classes7.dex */
@@ -34,7 +34,7 @@ public final class FlowableOnErrorReturn<T> extends a<T, T> {
             try {
                 complete(io.reactivex.internal.functions.a.k(this.valueSupplier.apply(th), "The valueSupplier returned a null value"));
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.L(th2);
+                io.reactivex.exceptions.a.K(th2);
                 this.actual.onError(new CompositeException(th, th2));
             }
         }

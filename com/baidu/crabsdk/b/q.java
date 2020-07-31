@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public final class q {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     private static boolean b(String str) {
@@ -13,7 +13,7 @@ public final class q {
             try {
                 process = Runtime.getRuntime().exec("ls -l " + str);
                 String readLine = new BufferedReader(new InputStreamReader(process.getInputStream())).readLine();
-                com.baidu.crabsdk.c.a.di("isExecutable" + readLine);
+                com.baidu.crabsdk.c.a.dh("isExecutable" + readLine);
                 if (readLine != null && readLine.length() >= 4) {
                     char charAt = readLine.charAt(3);
                     if (charAt == 's' || charAt == 'x') {
@@ -37,7 +37,7 @@ public final class q {
         }
     }
 
-    public static int ti() {
+    public static int tk() {
         if (new File("/system/bin/su").exists() && b("/system/bin/su")) {
             return 1;
         }

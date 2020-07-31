@@ -3,7 +3,7 @@ package com.baidu.ar.arplay.a;
 import android.content.Context;
 import android.view.OrientationEventListener;
 import com.baidu.ar.arplay.core.engine.ARPEngine;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class c extends OrientationEventListener {
     private ARPEngine.f dI;
     private boolean dJ;

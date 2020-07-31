@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.HorizontalScrollView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MyHorizontalScrollView extends HorizontalScrollView {
     private GestureDetector mGestureDetector;
 
@@ -37,7 +37,7 @@ public class MyHorizontalScrollView extends HorizontalScrollView {
         return false;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private class XScrollDetector extends GestureDetector.SimpleOnGestureListener {
         private XScrollDetector() {
         }

@@ -21,21 +21,22 @@ import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.live.tbadk.BaseActivity;
+import com.baidu.live.tbadk.core.atomdata.AlaCharmCardActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.coreextra.message.UpdateAttentionMessage;
 import com.baidu.live.utils.h;
 import com.baidu.live.utils.q;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ALaCharmCardActivity extends BaseActivity<ALaCharmCardActivity> implements View.OnTouchListener {
-    private com.baidu.tieba.ala.charm.view.c fze;
+    private com.baidu.tieba.ala.charm.view.c fEl;
     private View mRootView;
     private int mScreenWidth;
     private Handler mHandler = new Handler();
-    private boolean aGX = false;
-    private boolean aKp = false;
-    private boolean aKq = false;
-    private ViewTreeObserver.OnGlobalLayoutListener aKl = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.charm.ALaCharmCardActivity.3
+    private boolean aIs = false;
+    private boolean aLL = false;
+    private boolean aLM = false;
+    private ViewTreeObserver.OnGlobalLayoutListener aLH = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.charm.ALaCharmCardActivity.3
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(ALaCharmCardActivity.this.getPageContext().getPageActivity());
@@ -45,29 +46,29 @@ public class ALaCharmCardActivity extends BaseActivity<ALaCharmCardActivity> imp
                     ALaCharmCardActivity.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.charm.ALaCharmCardActivity.3.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            h.U(ALaCharmCardActivity.this.fze.getView());
+                            h.X(ALaCharmCardActivity.this.fEl.getView());
                         }
                     }, 300L);
                 }
             }
         }
     };
-    CustomMessageListener aHo = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.charm.ALaCharmCardActivity.4
+    CustomMessageListener aIJ = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.charm.ALaCharmCardActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             ALaCharmCardActivity.this.closeActivity();
         }
     };
-    private CustomMessageListener fzf = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.charm.ALaCharmCardActivity.5
+    private CustomMessageListener fEm = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.charm.ALaCharmCardActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage updateAttentionMessage;
             if ((customResponsedMessage instanceof UpdateAttentionMessage) && (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage) != null && updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
                 if (updateAttentionMessage.getData().isSucc) {
-                    if (ALaCharmCardActivity.this.fze != null) {
-                        ALaCharmCardActivity.this.fze.ar(updateAttentionMessage.getData().toUid, updateAttentionMessage.getData().isAttention);
+                    if (ALaCharmCardActivity.this.fEl != null) {
+                        ALaCharmCardActivity.this.fEl.ap(updateAttentionMessage.getData().toUid, updateAttentionMessage.getData().isAttention);
                     }
                     Message<?> message = updateAttentionMessage.getmOrginalMessage();
                     if (message != null && message.getTag() != null && message.getTag().equals(ALaCharmCardActivity.this.getUniqueId())) {
@@ -81,8 +82,8 @@ public class ALaCharmCardActivity extends BaseActivity<ALaCharmCardActivity> imp
                     }
                     return;
                 }
-                if (ALaCharmCardActivity.this.fze != null) {
-                    ALaCharmCardActivity.this.fze.ar(updateAttentionMessage.getData().toUid, !updateAttentionMessage.getData().isAttention);
+                if (ALaCharmCardActivity.this.fEl != null) {
+                    ALaCharmCardActivity.this.fEl.ap(updateAttentionMessage.getData().toUid, !updateAttentionMessage.getData().isAttention);
                 }
                 Message<?> message2 = updateAttentionMessage.getmOrginalMessage();
                 if (message2 != null && message2.getTag() != null && message2.getTag().equals(ALaCharmCardActivity.this.getUniqueId())) {
@@ -91,19 +92,19 @@ public class ALaCharmCardActivity extends BaseActivity<ALaCharmCardActivity> imp
             }
         }
     };
-    CustomMessageListener fzg = new CustomMessageListener(2913096) { // from class: com.baidu.tieba.ala.charm.ALaCharmCardActivity.6
+    CustomMessageListener fEn = new CustomMessageListener(2913096) { // from class: com.baidu.tieba.ala.charm.ALaCharmCardActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Long)) {
                 Long l = (Long) customResponsedMessage.getData();
-                if (ALaCharmCardActivity.this.fze != null) {
-                    ALaCharmCardActivity.this.fze.dp(l.longValue());
+                if (ALaCharmCardActivity.this.fEl != null) {
+                    ALaCharmCardActivity.this.fEl.dD(l.longValue());
                 }
             }
         }
     };
-    private CustomMessageListener aHn = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.charm.ALaCharmCardActivity.7
+    private CustomMessageListener aII = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.charm.ALaCharmCardActivity.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -117,17 +118,17 @@ public class ALaCharmCardActivity extends BaseActivity<ALaCharmCardActivity> imp
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         if (!isFinishing()) {
-            this.fze = new com.baidu.tieba.ala.charm.view.c(this);
-            this.mRootView = this.fze.getView();
+            this.fEl = new com.baidu.tieba.ala.charm.view.c(this);
+            this.mRootView = this.fEl.getView();
             setContentView(this.mRootView);
-            registerListener(this.aHn);
-            registerListener(this.aHo);
-            registerListener(this.fzf);
+            registerListener(this.aII);
+            registerListener(this.aIJ);
+            registerListener(this.fEm);
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-            this.aKp = false;
+            this.aLL = false;
             this.mRootView.setVisibility(4);
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                h.U(this.fze.getView());
+                h.X(this.fEl.getView());
                 q.e(getActivity(), false);
             }
         }
@@ -137,20 +138,20 @@ public class ALaCharmCardActivity extends BaseActivity<ALaCharmCardActivity> imp
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (!this.aGX) {
+        if (!this.aIs) {
             this.mRootView.setVisibility(0);
-            zy();
-            this.aGX = true;
+            Aa();
+            this.aIs = true;
         }
     }
 
-    private void zy() {
+    private void Aa() {
         Animation loadAnimation;
-        this.aKp = true;
+        this.aLL = true;
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0176a.sdk_in_from_right);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0178a.sdk_in_from_right);
         } else {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0176a.sdk_in_from_bottom);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0178a.sdk_in_from_bottom);
         }
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.charm.ALaCharmCardActivity.1
             @Override // android.view.animation.Animation.AnimationListener
@@ -159,7 +160,7 @@ public class ALaCharmCardActivity extends BaseActivity<ALaCharmCardActivity> imp
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                ALaCharmCardActivity.this.aKp = false;
+                ALaCharmCardActivity.this.aLL = false;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -169,13 +170,13 @@ public class ALaCharmCardActivity extends BaseActivity<ALaCharmCardActivity> imp
         this.mRootView.startAnimation(loadAnimation);
     }
 
-    private void zz() {
+    private void Ab() {
         Animation loadAnimation;
-        if (!this.aKq && !this.aKp) {
+        if (!this.aLM && !this.aLL) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0176a.sdk_out_to_right);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0178a.sdk_out_to_right);
             } else {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0176a.sdk_out_to_bottom);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0178a.sdk_out_to_bottom);
             }
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.charm.ALaCharmCardActivity.2
                 @Override // android.view.animation.Animation.AnimationListener
@@ -192,39 +193,39 @@ public class ALaCharmCardActivity extends BaseActivity<ALaCharmCardActivity> imp
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.aKq = true;
+            this.aLM = true;
             this.mRootView.startAnimation(loadAnimation);
         }
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void finish() {
-        zz();
+        Ab();
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.fze != null) {
+        if (this.fEl != null) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                h.U(this.fze.getView());
+                h.X(this.fEl.getView());
                 q.e(getActivity(), false);
             } else {
-                h.V(this.fze.getView());
+                h.Y(this.fEl.getView());
                 q.e(getActivity(), true);
             }
-            this.fze.yA();
-            brt();
+            this.fEl.zc();
+            buz();
         }
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        brt();
+        buz();
     }
 
-    private void brt() {
+    private void buz() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -238,9 +239,9 @@ public class ALaCharmCardActivity extends BaseActivity<ALaCharmCardActivity> imp
             }
             this.mScreenWidth = screenDimensions[0];
             window.setBackgroundDrawableResource(17170445);
-            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aKl);
-            if (this.fze.getView().getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fze.getView().getLayoutParams();
+            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aLH);
+            if (this.fEl.getView().getLayoutParams() instanceof FrameLayout.LayoutParams) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fEl.getView().getLayoutParams();
                 if (screenDimensions[1] > screenDimensions[0]) {
                     layoutParams.width = screenDimensions[0];
                     layoutParams.height = (int) (screenDimensions[1] * 0.618d);
@@ -250,7 +251,7 @@ public class ALaCharmCardActivity extends BaseActivity<ALaCharmCardActivity> imp
                     layoutParams.height = screenDimensions[1];
                     layoutParams.gravity = 53;
                 }
-                this.fze.getView().setLayoutParams(layoutParams);
+                this.fEl.getView().setLayoutParams(layoutParams);
             }
         }
     }
@@ -271,15 +272,15 @@ public class ALaCharmCardActivity extends BaseActivity<ALaCharmCardActivity> imp
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.fze.onDestory();
+        this.fEl.onDestory();
         this.mHandler.removeCallbacksAndMessages(null);
-        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aKl);
-        this.aKl = null;
+        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aLH);
+        this.aLH = null;
     }
 
-    public void bvU() {
+    public void bzd() {
         Intent intent = new Intent();
-        intent.putExtra("need_show_gift_panel", true);
+        intent.putExtra(AlaCharmCardActivityConfig.NEED_SHOW_GIFT_PANEL, true);
         setResult(-1, intent);
         finish();
     }

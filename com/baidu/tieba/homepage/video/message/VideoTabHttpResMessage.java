@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.RecomVideo.DataRes;
 import tbclient.RecomVideo.RecomVideoResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class VideoTabHttpResMessage extends HttpResponsedMessage {
     public DataRes mResultData;
 

@@ -20,12 +20,12 @@ import tv.chushou.zues.utils.e;
 import tv.chushou.zues.utils.h;
 import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
 import tv.chushou.zues.widget.fresco.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ItemTagView extends FrameLayout {
     private TextView c;
     private Context d;
-    private FrescoThumbnailView nqN;
-    private FrescoThumbnailView nrc;
+    private FrescoThumbnailView nzM;
+    private FrescoThumbnailView nzx;
 
     public ItemTagView(@NonNull Context context) {
         this(context, null, 0);
@@ -39,9 +39,9 @@ public class ItemTagView extends FrameLayout {
         super(context, attributeSet, i);
         this.d = context;
         View inflate = LayoutInflater.from(context).inflate(a.h.widget_room_tag, (ViewGroup) this, true);
-        this.nqN = (FrescoThumbnailView) inflate.findViewById(a.f.iv_bg);
-        this.nrc = (FrescoThumbnailView) inflate.findViewById(a.f.iv_tag_icon);
-        this.nrc.setVisibility(8);
+        this.nzx = (FrescoThumbnailView) inflate.findViewById(a.f.iv_bg);
+        this.nzM = (FrescoThumbnailView) inflate.findViewById(a.f.iv_tag_icon);
+        this.nzM.setVisibility(8);
         this.c = (TextView) inflate.findViewById(a.f.tv_tag);
     }
 
@@ -49,19 +49,19 @@ public class ItemTagView extends FrameLayout {
         if (listItem != null) {
             if (!TextUtils.isEmpty(listItem.mCornerIcon) && listItem.mDisplayTagBgHeight > 0) {
                 setVisibility(0);
-                this.nrc.setVisibility(8);
+                this.nzM.setVisibility(8);
                 this.c.setVisibility(8);
-                this.nqN.setVisibility(0);
-                this.nqN.i(listItem.mCornerIcon, a.c.transparent, b.C0944b.small, b.C0944b.small);
-                this.nqN.getHierarchy().Io(a.e.bg_listitem_room_tag);
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nqN.getLayoutParams();
+                this.nzx.setVisibility(0);
+                this.nzx.i(listItem.mCornerIcon, a.c.transparent, b.C0959b.small, b.C0959b.small);
+                this.nzx.getHierarchy().IJ(a.e.bg_listitem_room_tag);
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nzx.getLayoutParams();
                 layoutParams.height = tv.chushou.zues.utils.a.dip2px(this.d, listItem.mDisplayTagBgHeight);
                 if (listItem.mDisplayTagBgWidth > 0.01f) {
                     layoutParams.width = (int) (layoutParams.height * listItem.mDisplayTagBgWidth);
                 } else {
                     layoutParams.width = -1;
                 }
-                this.nqN.setLayoutParams(layoutParams);
+                this.nzx.setLayoutParams(layoutParams);
             } else if (PayHelper.STATUS_SUCC.equals(listItem.mType)) {
                 b(listItem);
             } else {
@@ -79,16 +79,16 @@ public class ItemTagView extends FrameLayout {
         setVisibility(0);
         if (!h.isEmpty(str4)) {
             this.c.setVisibility(8);
-            this.nqN.setVisibility(0);
-            this.nqN.a(str4, a.c.transparent, b.C0944b.small, b.C0944b.small, 1, new FrescoThumbnailView.a() { // from class: com.kascend.chushou.widget.ItemTagView.1
+            this.nzx.setVisibility(0);
+            this.nzx.a(str4, a.c.transparent, b.C0959b.small, b.C0959b.small, 1, new FrescoThumbnailView.a() { // from class: com.kascend.chushou.widget.ItemTagView.1
                 @Override // tv.chushou.zues.widget.fresco.FrescoThumbnailView.a
-                public void dJ(int i, int i2) {
+                public void dL(int i, int i2) {
                     e.d("ItemTagView", "on image size getwidth: " + i);
-                    if (ItemTagView.this.nqN != null && i2 > 0) {
-                        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) ItemTagView.this.nqN.getLayoutParams();
+                    if (ItemTagView.this.nzx != null && i2 > 0) {
+                        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) ItemTagView.this.nzx.getLayoutParams();
                         layoutParams.height = tv.chushou.zues.utils.a.dip2px(ItemTagView.this.d, 16.0f);
                         layoutParams.width = (int) (((i * 1.0d) / i2) * layoutParams.height);
-                        ItemTagView.this.nqN.setLayoutParams(layoutParams);
+                        ItemTagView.this.nzx.setLayoutParams(layoutParams);
                     }
                 }
             });
@@ -103,22 +103,22 @@ public class ItemTagView extends FrameLayout {
         this.c.setTextColor(color);
         this.c.setText(str);
         if (h.isEmpty(listItem.mDisplayTagIcon)) {
-            this.nrc.setVisibility(8);
+            this.nzM.setVisibility(8);
         } else {
             this.c.setPadding(tv.chushou.zues.utils.a.dip2px(this.d, 2.0f), 0, tv.chushou.zues.utils.a.dip2px(this.d, 4.0f), 0);
-            this.nrc.setVisibility(0);
-            this.nrc.i(listItem.mDisplayTagIcon, a.c.transparent, tv.chushou.zues.utils.a.dip2px(this.d, 9.0f), tv.chushou.zues.utils.a.dip2px(this.d, 9.0f));
+            this.nzM.setVisibility(0);
+            this.nzM.i(listItem.mDisplayTagIcon, a.c.transparent, tv.chushou.zues.utils.a.dip2px(this.d, 9.0f), tv.chushou.zues.utils.a.dip2px(this.d, 9.0f));
         }
-        this.nqN.i(str2, a.c.transparent, b.C0944b.small, b.C0944b.small);
-        this.nqN.getHierarchy().Io(a.e.bg_listitem_room_tag);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nqN.getLayoutParams();
+        this.nzx.i(str2, a.c.transparent, b.C0959b.small, b.C0959b.small);
+        this.nzx.getHierarchy().IJ(a.e.bg_listitem_room_tag);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nzx.getLayoutParams();
         layoutParams.height = tv.chushou.zues.utils.a.dip2px(this.d, 16.0f);
         if (f != 0.0f) {
             layoutParams.width = (int) (layoutParams.height * f);
         } else {
             layoutParams.width = -1;
         }
-        this.nqN.setLayoutParams(layoutParams);
+        this.nzx.setLayoutParams(layoutParams);
     }
 
     public void b(ListItem listItem) {
@@ -138,29 +138,29 @@ public class ItemTagView extends FrameLayout {
             this.c.setTextColor(color);
             this.c.setText(listItem.mDisplayTag);
             if (h.isEmpty(listItem.mDisplayTagIcon)) {
-                this.nrc.setVisibility(8);
+                this.nzM.setVisibility(8);
             } else {
                 this.c.setPadding(tv.chushou.zues.utils.a.dip2px(this.d, 2.0f), 0, tv.chushou.zues.utils.a.dip2px(this.d, 4.0f), 0);
-                this.nrc.setVisibility(0);
-                this.nrc.i(listItem.mDisplayTagIcon, a.c.transparent, tv.chushou.zues.utils.a.dip2px(this.d, 9.0f), tv.chushou.zues.utils.a.dip2px(this.d, 9.0f));
+                this.nzM.setVisibility(0);
+                this.nzM.i(listItem.mDisplayTagIcon, a.c.transparent, tv.chushou.zues.utils.a.dip2px(this.d, 9.0f), tv.chushou.zues.utils.a.dip2px(this.d, 9.0f));
             }
-            this.nqN.i(listItem.mDisplayTagBackground, a.c.transparent, b.C0944b.small, b.C0944b.small);
-            this.nqN.getHierarchy().Io(a.e.bg_listitem_room_tag);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nqN.getLayoutParams();
+            this.nzx.i(listItem.mDisplayTagBackground, a.c.transparent, b.C0959b.small, b.C0959b.small);
+            this.nzx.getHierarchy().IJ(a.e.bg_listitem_room_tag);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nzx.getLayoutParams();
             layoutParams.height = tv.chushou.zues.utils.a.dip2px(this.d, 16.0f);
             if (listItem.mDisplayTagBgWidth != 0.0f) {
                 layoutParams.width = (int) (layoutParams.height * listItem.mDisplayTagBgWidth);
             } else {
                 layoutParams.width = -1;
             }
-            this.nqN.setLayoutParams(layoutParams);
+            this.nzx.setLayoutParams(layoutParams);
         }
     }
 
     public void a(float f, float f2, float f3, float f4) {
-        RoundingParams dBk;
-        if (this.nqN != null && (dBk = this.nqN.getHierarchy().dBk()) != null) {
-            dBk.h(f, f2, f3, f4);
+        RoundingParams dEw;
+        if (this.nzx != null && (dEw = this.nzx.getHierarchy().dEw()) != null) {
+            dEw.h(f, f2, f3, f4);
         }
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.RedNotify.DataReq;
 import tbclient.RedNotify.RedNotifyReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class CheckRedNotifyReqMessage extends NetMessage {
     public boolean reqUnreadTipAfterFinish;
 

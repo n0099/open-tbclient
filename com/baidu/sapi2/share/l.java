@@ -2,7 +2,7 @@ package com.baidu.sapi2.share;
 
 import com.baidu.sapi2.SapiAccountManager;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class l implements Runnable {
     final /* synthetic */ boolean a;
     final /* synthetic */ m b;

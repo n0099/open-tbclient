@@ -7,7 +7,7 @@ import com.baidu.live.pendantview.PendantChildView;
 import com.baidu.live.pendantview.PendantParentView;
 import com.baidu.live.sdk.a;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaActiveRootView extends PendantChildView implements com.baidu.live.g.b {
     private final int pos;
 

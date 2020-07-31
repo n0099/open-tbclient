@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class dl implements LoggerInterface {
     private LoggerInterface a;
     private LoggerInterface b;

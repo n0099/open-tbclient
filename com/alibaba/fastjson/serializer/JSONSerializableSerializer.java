@@ -2,7 +2,7 @@ package com.alibaba.fastjson.serializer;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class JSONSerializableSerializer implements ObjectSerializer {
     public static JSONSerializableSerializer instance = new JSONSerializableSerializer();
 

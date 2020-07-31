@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.g;
 import com.baidu.platform.comapi.walknavi.g.a;
 import com.baidu.platform.comapi.walknavi.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d implements a.InterfaceC0233a {
     final /* synthetic */ a a;
 

@@ -5,21 +5,21 @@ import android.view.View;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class g extends com.baidu.card.b<AbsThreadDataSupport> {
-    private com.baidu.tieba.homepage.topic.topictab.view.a iwf;
+    private com.baidu.tieba.homepage.topic.topictab.view.a iCj;
 
     public g(Context context, TbPageContext<?> tbPageContext) {
         super(context);
-        this.iwf = new com.baidu.tieba.homepage.topic.topictab.view.a(tbPageContext);
+        this.iCj = new com.baidu.tieba.homepage.topic.topictab.view.a(tbPageContext);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.iwf.ckQ();
+        return this.iCj.coq();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,17 +27,17 @@ public class g extends com.baidu.card.b<AbsThreadDataSupport> {
     /* renamed from: b */
     public void D(AbsThreadDataSupport absThreadDataSupport) {
         if (absThreadDataSupport instanceof com.baidu.tieba.homepage.topic.topictab.b.a) {
-            this.iwf.a((com.baidu.tieba.homepage.topic.topictab.b.a) absThreadDataSupport);
+            this.iCj.a((com.baidu.tieba.homepage.topic.topictab.b.a) absThreadDataSupport);
         }
     }
 
     @Override // com.baidu.card.o
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        an.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
-        this.iwf.onChangeSkinType(tbPageContext, i);
+        ao.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
+        this.iCj.onChangeSkinType(tbPageContext, i);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
-        this.iwf.setTag(bdUniqueId);
+        this.iCj.setTag(bdUniqueId);
     }
 }

@@ -1,30 +1,50 @@
 package com.baidu.tieba.pb.data;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes9.dex */
-public class o {
-    private TbPageContext dPv;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.bv;
+/* loaded from: classes16.dex */
+public class o implements com.baidu.adp.widget.ListView.q {
+    public static final BdUniqueId kiL = BdUniqueId.gen();
+    private bv aii;
+    private AntiData ein;
+    private boolean kiM = false;
+    public boolean kiN = false;
 
-    public o(TbPageContext tbPageContext) {
-        this.dPv = tbPageContext;
-        SocketMessageTask socketMessageTask = new SocketMessageTask(309644);
-        socketMessageTask.setResponsedClass(ThreadPublishSocketResMessage.class);
-        MessageManager.getInstance().registerTask(socketMessageTask);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, com.baidu.tieba.tbadkCore.a.a.bE(TbConfig.URL_THREAD_PUBLISH, 309644));
-        tbHttpMessageTask.setResponsedClass(ThreadPublishHttpResMeesage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    public o(bv bvVar, AntiData antiData) {
+        this.aii = bvVar;
+        this.ein = antiData;
     }
 
-    public void G(long j, long j2) {
-        ThreadPublishReqMessage threadPublishReqMessage = new ThreadPublishReqMessage();
-        threadPublishReqMessage.tid = j;
-        threadPublishReqMessage.fid = j2;
-        threadPublishReqMessage.setTag(this.dPv.getUniqueId());
-        MessageManager.getInstance().sendMessage(threadPublishReqMessage);
+    @Override // com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return kiL;
+    }
+
+    public int aXM() {
+        if (this.aii != null) {
+            return this.aii.aXM();
+        }
+        return 0;
+    }
+
+    public boolean cLq() {
+        return this.aii != null && this.aii.aXL() == 1;
+    }
+
+    public AntiData getAnti() {
+        return this.ein;
+    }
+
+    public bv aTN() {
+        return this.aii;
+    }
+
+    public void rV(boolean z) {
+        this.kiM = z;
+    }
+
+    public boolean cLr() {
+        return this.kiM;
     }
 }

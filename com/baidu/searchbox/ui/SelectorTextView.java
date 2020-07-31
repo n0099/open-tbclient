@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.TextView;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class SelectorTextView extends TextView {
     private static final float NORMAL_ALPHA = 1.0f;
     private static final float PRESSED_ALPHA = 0.4f;

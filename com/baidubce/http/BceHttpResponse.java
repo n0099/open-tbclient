@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import okhttp3.Response;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class BceHttpResponse {
     private InputStream content;
     private Response httpResponse;

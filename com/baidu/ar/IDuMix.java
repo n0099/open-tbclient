@@ -1,7 +1,7 @@
 package com.baidu.ar;
 
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public interface IDuMix extends View.OnTouchListener {
     void changeOutput(DuMixOutput duMixOutput);
 

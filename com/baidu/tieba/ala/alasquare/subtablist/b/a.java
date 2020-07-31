@@ -1,14 +1,14 @@
 package com.baidu.tieba.ala.alasquare.subtablist.b;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fvF = BdUniqueId.gen();
-    public com.baidu.tieba.ala.alasquare.a.c foi;
-    public com.baidu.tieba.ala.alasquare.a.c foj;
+    public static final BdUniqueId fAM = BdUniqueId.gen();
+    public com.baidu.tieba.ala.alasquare.a.c fts;
+    public com.baidu.tieba.ala.alasquare.a.c ftt;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return fvF;
+        return fAM;
     }
 }

@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public final class Error extends Message {
     public static final Integer DEFAULT_ERRORNO = 0;
     public static final String DEFAULT_USERMSG = "";
@@ -31,7 +31,7 @@ public final class Error extends Message {
         this.usermsg = builder.usermsg;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static final class Builder extends Message.Builder<Error> {
         public Integer errorno;
         public String usermsg;

@@ -7,34 +7,34 @@ import android.media.MediaMuxer;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(18)
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 class e {
-    private final MediaMuxer btG;
-    private volatile boolean lWM;
-    private volatile boolean lWN;
-    private int lWL = 2;
+    private final MediaMuxer buc;
+    private volatile boolean mec;
+    private volatile boolean med;
+    private int meb = 2;
     private boolean mIsStarted = false;
 
     public e(String str) throws IOException {
-        this.btG = new MediaMuxer(str, 0);
+        this.buc = new MediaMuxer(str, 0);
     }
 
-    public void dnb() {
-        this.lWM = true;
+    public void dql() {
+        this.mec = true;
     }
 
-    public void dnc() {
-        this.lWN = true;
+    public void dqm() {
+        this.med = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         boolean z;
-        if (!this.lWN || !this.lWM) {
+        if (!this.med || !this.mec) {
             z = false;
         } else {
-            if (this.lWL > 0 && this.lWN && this.lWM) {
-                this.btG.start();
+            if (this.meb > 0 && this.med && this.mec) {
+                this.buc.start();
                 this.mIsStarted = true;
                 notifyAll();
             }
@@ -45,10 +45,10 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        if (this.lWL > 0) {
+        if (this.meb > 0) {
             try {
-                this.btG.stop();
-                this.btG.release();
+                this.buc.stop();
+                this.buc.release();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -61,13 +61,13 @@ class e {
         if (this.mIsStarted) {
             throw new IllegalStateException("muxer already started");
         }
-        return this.btG.addTrack(mediaFormat);
+        return this.buc.addTrack(mediaFormat);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void c(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         if (this.mIsStarted) {
-            this.btG.writeSampleData(i, byteBuffer, bufferInfo);
+            this.buc.writeSampleData(i, byteBuffer, bufferInfo);
         }
     }
 

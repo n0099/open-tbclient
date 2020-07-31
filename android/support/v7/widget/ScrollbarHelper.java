@@ -3,7 +3,7 @@ package android.support.v7.widget;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ScrollbarHelper {
     ScrollbarHelper() {
     }

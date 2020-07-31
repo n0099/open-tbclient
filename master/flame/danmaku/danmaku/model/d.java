@@ -1,142 +1,142 @@
 package master.flame.danmaku.danmaku.model;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class d {
     public int index;
-    public boolean jMK;
-    protected f nSF;
-    public long nSZ;
-    public String[] nTa;
-    public float nTb;
-    public int nTc;
-    public g nTh;
-    public n<?> nTm;
-    public boolean nTn;
-    public String nTo;
-    public boolean nTp;
-    public boolean nTv;
+    public boolean jVi;
+    public long obJ;
+    public String[] obK;
+    public float obL;
+    public int obM;
+    public g obQ;
+    public n<?> obV;
+    public boolean obW;
+    public String obX;
+    public boolean obY;
     public Object obj;
+    protected f obp;
+    public boolean oce;
     public float rotationY;
     public Object tag;
     public CharSequence text;
     public int textColor;
     private long time;
     public int visibility;
-    public boolean nSY = false;
-    public int nTd = 0;
-    public float bnu = -1.0f;
+    public boolean obI = false;
+    public int underlineColor = 0;
+    public float bnP = -1.0f;
     public int borderColor = 0;
     public int padding = 0;
-    public byte nTe = 0;
-    public float nTf = -1.0f;
-    public float nTg = -1.0f;
-    private int nTi = 0;
-    public int nTj = 0;
-    public int nTk = 0;
-    public int nTl = -1;
+    public byte obN = 0;
+    public float obO = -1.0f;
+    public float obP = -1.0f;
+    private int obR = 0;
+    public int obS = 0;
+    public int obT = 0;
+    public int obU = -1;
     public int userId = 0;
     protected int alpha = c.MAX;
-    public int nTq = 0;
-    public int nTr = -1;
-    public j nTs = null;
-    public int nTt = 0;
-    public int nTu = -1;
+    public int obZ = 0;
+    public int oca = -1;
+    public j ocb = null;
+    public int occ = 0;
+    public int ocd = -1;
 
     public abstract void a(m mVar, float f, float f2);
 
     public abstract float[] a(m mVar, long j);
 
-    public abstract float dSd();
+    public abstract float dVA();
 
-    public abstract float dSe();
+    public abstract float dVB();
 
-    public abstract float dSf();
+    public abstract float dVC();
 
-    public abstract float dSg();
+    public abstract float dVz();
 
     public abstract int getType();
 
     public long getDuration() {
-        return this.nTh.value;
+        return this.obQ.value;
     }
 
     public int a(m mVar) {
         return mVar.n(this);
     }
 
-    public boolean dRX() {
-        return this.nTf > -1.0f && this.nTg > -1.0f && this.nTj == this.nTs.nTE;
+    public boolean dVt() {
+        return this.obO > -1.0f && this.obP > -1.0f && this.obS == this.ocb.ocn;
     }
 
     public void a(m mVar, boolean z) {
         mVar.c(this, z);
-        this.nTj = this.nTs.nTE;
+        this.obS = this.ocb.ocn;
     }
 
     public boolean isPrepared() {
-        return this.nTl == this.nTs.nTJ;
+        return this.obU == this.ocb.oct;
     }
 
     public void b(m mVar, boolean z) {
         mVar.b(this, z);
-        this.nTl = this.nTs.nTJ;
+        this.obU = this.ocb.oct;
     }
 
-    public n<?> dRY() {
-        return this.nTm;
+    public n<?> dVu() {
+        return this.obV;
     }
 
     public boolean isShown() {
-        return this.visibility == 1 && this.nTi == this.nTs.nTF;
+        return this.visibility == 1 && this.obR == this.ocb.oco;
     }
 
     public boolean isTimeOut() {
-        return this.nSF == null || gs(this.nSF.nTw);
+        return this.obp == null || gF(this.obp.ocf);
     }
 
-    public boolean gs(long j) {
-        return j - dSi() >= this.nTh.value;
+    public boolean gF(long j) {
+        return j - dVE() >= this.obQ.value;
     }
 
-    public boolean dRZ() {
-        return this.nSF == null || gt(this.nSF.nTw);
+    public boolean dVv() {
+        return this.obp == null || gG(this.obp.ocf);
     }
 
-    public boolean gt(long j) {
-        long dSi = j - dSi();
-        return dSi <= 0 || dSi >= this.nTh.value;
+    public boolean gG(long j) {
+        long dVE = j - dVE();
+        return dVE <= 0 || dVE >= this.obQ.value;
     }
 
-    public boolean dSa() {
-        return this.nSF == null || this.nSF.nTw < dSi();
+    public boolean dVw() {
+        return this.obp == null || this.obp.ocf < dVE();
     }
 
-    public boolean dSb() {
-        if (this.nTr != this.nTs.nTG) {
-            this.nTq = 0;
+    public boolean dVx() {
+        if (this.oca != this.ocb.ocp) {
+            this.obZ = 0;
             return false;
         }
         return true;
     }
 
-    public boolean dSc() {
-        return this.nTr == this.nTs.nTG && this.nTq != 0;
+    public boolean dVy() {
+        return this.oca == this.ocb.ocp && this.obZ != 0;
     }
 
     public void setVisibility(boolean z) {
         if (z) {
-            this.nTi = this.nTs.nTF;
+            this.obR = this.ocb.oco;
             this.visibility = 1;
             return;
         }
         this.visibility = 0;
     }
 
-    public f dSh() {
-        return this.nSF;
+    public f dVD() {
+        return this.obp;
     }
 
     public void c(f fVar) {
-        this.nSF = fVar;
+        this.obp = fVar;
     }
 
     public int getAlpha() {
@@ -147,28 +147,28 @@ public abstract class d {
         this.tag = obj;
     }
 
-    public void gu(long j) {
-        this.nSZ = j;
-        this.nTk = this.nTs.nTI;
+    public void gH(long j) {
+        this.obJ = j;
+        this.obT = this.ocb.ocs;
     }
 
     public void setTime(long j) {
         this.time = j;
-        this.nSZ = 0L;
+        this.obJ = 0L;
     }
 
     public long getTime() {
         return this.time;
     }
 
-    public long dSi() {
-        return (this.nTs == null || this.nTs.nTI != this.nTk) ? this.time : this.time + this.nSZ;
+    public long dVE() {
+        return (this.ocb == null || this.ocb.ocs != this.obT) ? this.time : this.time + this.obJ;
     }
 
-    public boolean dSj() {
-        if (this.nTs == null || this.nTs.nTI != this.nTk) {
+    public boolean dVF() {
+        if (this.ocb == null || this.ocb.ocs != this.obT) {
             return false;
         }
-        return this.nTv;
+        return this.oce;
     }
 }

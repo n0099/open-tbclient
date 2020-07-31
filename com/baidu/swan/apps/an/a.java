@@ -2,25 +2,25 @@ package com.baidu.swan.apps.an;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.Locale;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class a {
-    private a cNA = null;
-    private long cNB = 0;
-    private long cNC = 0;
-    private long cND = 2;
+    private a cQV = null;
+    private long cQW = 0;
+    private long cQX = 0;
+    private long cQY = 2;
     private String mDesc = "";
-    private String cNE = "";
+    private String cQZ = "";
     private final StringBuilder mDetails = new StringBuilder();
-    private boolean cNF = false;
+    private boolean cRa = false;
 
     public String toString(int i) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(atS()), Long.valueOf(atM()), Long.valueOf(atN()), Long.valueOf(atO()), atP()));
+        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(avT()), Long.valueOf(avN()), Long.valueOf(avO()), Long.valueOf(avP()), avQ()));
         if (i >= -200) {
-            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(atM()), Long.valueOf(atN()), Long.valueOf(atO())));
+            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(avN()), Long.valueOf(avO()), Long.valueOf(avP())));
         }
         if (i >= -100) {
-            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", atR()));
+            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", avS()));
         }
         return sb.toString();
     }
@@ -29,34 +29,34 @@ public final class a {
         return toString(-100);
     }
 
-    public a bv(long j) {
-        this.cND = a(j, 9L, "platform");
+    public a bI(long j) {
+        this.cQY = a(j, 9L, "platform");
         return this;
     }
 
-    public long atM() {
-        return this.cND;
+    public long avN() {
+        return this.cQY;
     }
 
-    public a bw(long j) {
-        this.cNB = a(j, 999L, "feature");
+    public a bJ(long j) {
+        this.cQW = a(j, 999L, "feature");
         return this;
     }
 
-    public long atN() {
-        return this.cNB;
+    public long avO() {
+        return this.cQW;
     }
 
-    public a bx(long j) {
-        this.cNC = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
+    public a bK(long j) {
+        this.cQX = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
         return this;
     }
 
-    public long atO() {
-        return this.cNC;
+    public long avP() {
+        return this.cQX;
     }
 
-    public a pz(String str) {
+    public a qk(String str) {
         if (str == null) {
             str = "";
         }
@@ -64,55 +64,55 @@ public final class a {
         return this;
     }
 
-    public String atP() {
+    public String avQ() {
         return this.mDesc;
     }
 
-    public a pA(String str) {
+    public a ql(String str) {
         if (str == null) {
             str = "";
         }
-        this.cNE = str;
+        this.cQZ = str;
         return this;
     }
 
-    public String atQ() {
-        return this.cNE;
+    public String avR() {
+        return this.cQZ;
     }
 
-    public a pB(String str) {
+    public a qm(String str) {
         this.mDetails.append(str).append("\n");
         return this;
     }
 
-    public StringBuilder atR() {
+    public StringBuilder avS() {
         return this.mDetails;
     }
 
-    public long atS() {
-        return (atM() * 10000000) + (atN() * 10000) + (atO() * 1);
+    public long avT() {
+        return (avN() * 10000000) + (avO() * 10000) + (avP() * 1);
     }
 
-    public a by(long j) {
-        bv(j / 10000000);
+    public a bL(long j) {
+        bI(j / 10000000);
         long j2 = j % 10000000;
-        bw(j2 / 10000);
-        bx((j2 % 10000) / 1);
+        bJ(j2 / 10000);
+        bK((j2 % 10000) / 1);
         return this;
     }
 
-    public boolean atT() {
-        return this.cNF;
+    public boolean avU() {
+        return this.cRa;
     }
 
-    public void atU() {
-        this.cNF = true;
+    public void avV() {
+        this.cRa = true;
     }
 
     private long a(long j, long j2, String str) {
         boolean z = j < 0 || j > j2;
         if (z) {
-            pB("illegalFallback " + str + "::" + String.valueOf(j));
+            qm("illegalFallback " + str + "::" + j);
         }
         return z ? j2 : j;
     }

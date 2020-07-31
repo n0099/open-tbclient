@@ -9,9 +9,7 @@ import android.media.MediaMuxer;
 import android.util.Log;
 import java.io.FileDescriptor;
 import java.io.IOException;
-import tv.danmaku.ijk.media.player.IMediaFormat;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 class Mp4ComposerEngine {
     private static final long PROGRESS_INTERVAL_STEPS = 10;
     private static final float PROGRESS_UNKNOWN = -1.0f;
@@ -21,7 +19,7 @@ class Mp4ComposerEngine {
     private ProgressCallback mProgressCallback;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface ProgressCallback {
         void onProgress(float f);
     }
@@ -67,7 +65,7 @@ class Mp4ComposerEngine {
                 throw new RuntimeException("No video track found in " + str);
             }
             MediaFormat trackFormat = mediaExtractor.getTrackFormat(selectVideoTrackIndex);
-            String string = trackFormat.getString(IMediaFormat.KEY_MIME);
+            String string = trackFormat.getString("mime");
             try {
                 i = trackFormat.getInteger("frame-rate");
             } catch (Exception e) {
@@ -77,7 +75,7 @@ class Mp4ComposerEngine {
             this.mDurationUs = mp4Info.getDurationUs();
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(string, mp4Info.getWidth(), mp4Info.getHeight());
             createVideoFormat.setInteger("bitrate-mode", 0);
-            createVideoFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, mp4Info.getBitrate() * 3);
+            createVideoFormat.setInteger("bitrate", mp4Info.getBitrate() * 3);
             createVideoFormat.setInteger("frame-rate", i);
             createVideoFormat.setInteger("i-frame-interval", 0);
             createVideoFormat.setInteger("color-format", 2130708361);
@@ -149,7 +147,7 @@ class Mp4ComposerEngine {
     private static int selectVideoTrackIndex(MediaExtractor mediaExtractor) {
         int trackCount = mediaExtractor.getTrackCount();
         for (int i = 0; i < trackCount; i++) {
-            if (mediaExtractor.getTrackFormat(i).getString(IMediaFormat.KEY_MIME).startsWith("video/")) {
+            if (mediaExtractor.getTrackFormat(i).getString("mime").startsWith("video/")) {
                 return i;
             }
         }

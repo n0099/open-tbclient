@@ -10,24 +10,24 @@ import com.baidu.ala.downloader.ResourceDownloader;
 import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private InterfaceC0598a gEh;
-    private BdAsyncTask gEi;
-    private HttpMessageListener gEj = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT) { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.1
+    private InterfaceC0607a gJE;
+    private BdAsyncTask gJF;
+    private HttpMessageListener gJG = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT) { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(final HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof AlaGetEnterEffectResponsedMessage) {
                 final List<q> effectList = ((AlaGetEnterEffectResponsedMessage) httpResponsedMessage).getEffectList();
-                if (w.isEmpty(effectList)) {
-                    a.this.gEh.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
+                if (x.isEmpty(effectList)) {
+                    a.this.gJE.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
                     return;
                 }
-                a.this.gEi = new BdAsyncTask() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.1.1
+                a.this.gJF = new BdAsyncTask() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.1.1
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     protected Object doInBackground(Object[] objArr) {
                         for (q qVar : effectList) {
@@ -49,14 +49,14 @@ public class a {
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     public void onPostExecute(Object obj) {
                         super.onPostExecute(obj);
-                        a.this.gEh.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
+                        a.this.gJE.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
                     }
 
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     public void onCancelled() {
                         super.onCancelled();
-                        a.this.gEh.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
+                        a.this.gJE.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
                     }
                 }.execute(new Object[0]);
             }
@@ -65,26 +65,26 @@ public class a {
     private TbPageContext mPageContext;
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.entereffect.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0598a {
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0607a {
         void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0598a interfaceC0598a) {
+    public a(TbPageContext tbPageContext, InterfaceC0607a interfaceC0607a) {
         this.mPageContext = tbPageContext;
-        this.gEh = interfaceC0598a;
-        this.mPageContext.registerListener(this.gEj);
+        this.gJE = interfaceC0607a;
+        this.mPageContext.registerListener(this.gJG);
     }
 
-    public void bLR() {
+    public void bOZ() {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
         this.mPageContext.sendMessage(httpMessage);
     }
 
     public void onDestory() {
-        if (this.gEi != null) {
-            this.gEi.cancel();
+        if (this.gJF != null) {
+            this.gJF.cancel();
         }
     }
 }

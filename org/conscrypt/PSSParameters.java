@@ -6,7 +6,7 @@ import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
 import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.PSSParameterSpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class PSSParameters extends AlgorithmParametersSpi {
     private PSSParameterSpec spec = PSSParameterSpec.DEFAULT;
 

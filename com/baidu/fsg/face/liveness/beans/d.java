@@ -13,7 +13,7 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class d extends BaseBean {
     private int a;
     private int b;

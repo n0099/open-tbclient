@@ -5,11 +5,11 @@ import com.facebook.drawee.drawable.p;
 import com.kascend.chushou.a;
 import tv.chushou.widget.a.c;
 import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static void a(FrescoThumbnailView frescoThumbnailView, String str, int i, int i2) {
         if (frescoThumbnailView != null) {
-            frescoThumbnailView.getHierarchy().b(c.dWA(), p.b.mNj);
+            frescoThumbnailView.getHierarchy().b(c.dZW(), p.b.mVs);
             frescoThumbnailView.i(str, 0, i, i2);
         }
     }

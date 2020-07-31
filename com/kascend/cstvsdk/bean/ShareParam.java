@@ -6,7 +6,7 @@ import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @Keep
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ShareParam {
     public static final Companion Companion = new Companion(null);
     public static final int PLATFORM_OTHER = 100;
@@ -132,7 +132,7 @@ public final class ShareParam {
 
     @Keep
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class Companion {
         private Companion() {
         }

@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.live.walletconfig;
 
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CashierData implements Serializable {
     public static final String CHANNEL = "channel";
     public static final String CUSTOMER_ID = "customerId";
@@ -29,32 +29,10 @@ public class CashierData implements Serializable {
     public static final String TN = "tn";
     public static final String URL = "url";
     private static final long serialVersionUID = 1;
-    private String customerId;
-    private String defaultResPage;
-    private String failUrl;
-    private String itemInfo;
     private Map<String, String> mData;
     private Map<String, String[]> mExtraData;
-    private String mobile;
-    private String orderCreateTime;
-    private String orderId;
-    private String passuid;
-    private String payAmount;
-    private String sdk;
-    private String service;
-    private String sign;
-    private String signType;
-    private String title;
-    private String tn;
-    private String url;
     public static String DELIVERY_CASHIER_DATA = "delivery_cashier_data";
     public static String DELIVERY_CASHIER_CONTENT = "delivery_cashier_content";
-    private String deviceType = "1";
-    private String returnUrl = "";
-    private String notifyUrl = "";
-    private String imei = "";
-    private String fuser = "";
-    private String extData = "";
 
     public void setData(Map<String, String> map) {
         this.mData = map;
@@ -62,40 +40,5 @@ public class CashierData implements Serializable {
 
     public Map<String, String> getData() {
         return this.mData;
-    }
-
-    public String getGoodsName() {
-        return this.mData != null ? this.mData.get("title") : "";
-    }
-
-    public String originAmount() {
-        return this.mData != null ? this.mData.get(ORIGINALAMOUNT_AMOUNT) : "";
-    }
-
-    public String amount() {
-        return this.mData != null ? this.mData.get(PAY_AMOUNT) : "";
-    }
-
-    public String getUid() {
-        return this.mData != null ? this.mData.get(PASS_UID) : "";
-    }
-
-    public String getOrderNo() {
-        return this.mData != null ? this.mData.get(ORDERID) : "";
-    }
-
-    public String getCustomId() {
-        return this.mData != null ? this.mData.get(CUSTOMER_ID) : "";
-    }
-
-    public void setExtraData(Map<String, String[]> map) {
-        this.mExtraData = map;
-    }
-
-    public String[] getOderInfoDescArray() {
-        if (this.mExtraData != null) {
-            return this.mExtraData.get("orderInfoDescArray");
-        }
-        return null;
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.webkit.internal.daemon;
 
 import android.content.Context;
+import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.internal.CfgFileUtils;
 import com.baidu.webkit.internal.blink.VideoFreeFlowConfigManager;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
@@ -15,7 +16,7 @@ import com.baidu.webkit.sdk.WebSettings;
 import com.baidubce.http.Headers;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class VideoPacDownload implements IResourceTask, INetListener {
     private static final String LOG_TAG = "VideoPacDownload";
     private static boolean mDownloading;
@@ -39,7 +40,7 @@ public class VideoPacDownload implements IResourceTask, INetListener {
                 VideoFreeFlowConfigManager.getInstance().setPacData(str);
             }
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            a.a(th);
         }
     }
 
@@ -74,7 +75,7 @@ public class VideoPacDownload implements IResourceTask, INetListener {
             bdNetTask.setUrl(getPacUrl());
             bdNet.start(bdNetTask, false);
         } catch (Exception e) {
-            com.a.a.a.a.a.a.a.a(e);
+            a.a(e);
         }
     }
 

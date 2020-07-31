@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Looper;
 import android.text.TextUtils;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a {
     protected Context a;
     private String b;

@@ -8,31 +8,31 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0169a aZC;
-    private HttpMessageListener aZE = new HttpMessageListener(1021154) { // from class: com.baidu.live.l.a.1
+    private InterfaceC0169a aZA;
+    private HttpMessageListener aZC = new HttpMessageListener(1021154) { // from class: com.baidu.live.l.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021154 && (httpResponsedMessage.getOrginalMessage() instanceof com.baidu.live.message.a) && a.this.aZC != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021154 && (httpResponsedMessage.getOrginalMessage() instanceof com.baidu.live.message.a) && a.this.aZA != null) {
                 com.baidu.live.message.a aVar = (com.baidu.live.message.a) httpResponsedMessage.getOrginalMessage();
-                if (aVar.getTag() == a.this.aZD) {
+                if (aVar.getTag() == a.this.aZB) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                        a.this.aZC.onFailed(httpResponsedMessage.getErrorString());
+                        a.this.aZA.onFailed(httpResponsedMessage.getErrorString());
                     } else if (httpResponsedMessage.getError() == 0) {
-                        a.this.aZC.onSuccess(aVar.FT());
+                        a.this.aZA.onSuccess(aVar.FN());
                     } else {
-                        a.this.aZC.onFailed(httpResponsedMessage.getErrorString());
+                        a.this.aZA.onFailed(httpResponsedMessage.getErrorString());
                     }
                 }
             }
         }
     };
-    private BdUniqueId aZD = BdUniqueId.gen();
+    private BdUniqueId aZB = BdUniqueId.gen();
 
     /* renamed from: com.baidu.live.l.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface InterfaceC0169a {
         void onFailed(String str);
 
@@ -40,12 +40,12 @@ public class a extends BdBaseModel {
     }
 
     public a() {
-        setUniqueId(this.aZD);
-        xp();
-        registerListener(this.aZE);
+        setUniqueId(this.aZB);
+        registerTask();
+        registerListener(this.aZC);
     }
 
-    private void xp() {
+    private void registerTask() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021154, TbConfig.SERVER_ADDRESS + "ala/sdk/notice/updateAutomaticStatus");
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -66,13 +66,13 @@ public class a extends BdBaseModel {
     }
 
     public void a(InterfaceC0169a interfaceC0169a) {
-        this.aZC = interfaceC0169a;
+        this.aZA = interfaceC0169a;
     }
 
     public void onDestroy() {
         cancelMessage();
-        if (this.aZE != null) {
-            MessageManager.getInstance().unRegisterListener(this.aZE);
+        if (this.aZC != null) {
+            MessageManager.getInstance().unRegisterListener(this.aZC);
         }
     }
 }

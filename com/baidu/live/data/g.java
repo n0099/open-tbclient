@@ -1,7 +1,7 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g {
     public int id = 0;
     public String name;

@@ -3,7 +3,7 @@ package com.google.zxing.pdf417.decoder;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 final class BoundingBox {
     private ResultPoint bottomLeft;
     private ResultPoint bottomRight;

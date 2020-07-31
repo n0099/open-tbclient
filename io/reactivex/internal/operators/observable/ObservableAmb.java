@@ -9,19 +9,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ObservableAmb<T> extends q<T> {
-    final Iterable<? extends t<? extends T>> nJX;
-    final t<? extends T>[] nLs;
+    final Iterable<? extends t<? extends T>> nSF;
+    final t<? extends T>[] nUa;
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
         int length;
         t<? extends T>[] tVarArr;
-        t<? extends T>[] tVarArr2 = this.nLs;
+        t<? extends T>[] tVarArr2 = this.nUa;
         if (tVarArr2 == null) {
             t<? extends T>[] tVarArr3 = new q[8];
             try {
                 int i = 0;
-                for (t<? extends T> tVar : this.nJX) {
+                for (t<? extends T> tVar : this.nSF) {
                     if (tVar == null) {
                         EmptyDisposable.error(new NullPointerException("One of the sources is null"), uVar);
                         return;
@@ -40,7 +40,7 @@ public final class ObservableAmb<T> extends q<T> {
                 length = i;
                 tVarArr2 = tVarArr3;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.L(th);
+                io.reactivex.exceptions.a.K(th);
                 EmptyDisposable.error(th, uVar);
                 return;
             }
@@ -59,33 +59,33 @@ public final class ObservableAmb<T> extends q<T> {
     /* loaded from: classes7.dex */
     static final class a<T> implements io.reactivex.disposables.b {
         final u<? super T> actual;
-        final AtomicInteger nJZ = new AtomicInteger();
-        final AmbInnerObserver<T>[] nLt;
+        final AtomicInteger nSH = new AtomicInteger();
+        final AmbInnerObserver<T>[] nUb;
 
         a(u<? super T> uVar, int i) {
             this.actual = uVar;
-            this.nLt = new AmbInnerObserver[i];
+            this.nUb = new AmbInnerObserver[i];
         }
 
         public void subscribe(t<? extends T>[] tVarArr) {
-            AmbInnerObserver<T>[] ambInnerObserverArr = this.nLt;
+            AmbInnerObserver<T>[] ambInnerObserverArr = this.nUb;
             int length = ambInnerObserverArr.length;
             for (int i = 0; i < length; i++) {
                 ambInnerObserverArr[i] = new AmbInnerObserver<>(this, i + 1, this.actual);
             }
-            this.nJZ.lazySet(0);
+            this.nSH.lazySet(0);
             this.actual.onSubscribe(this);
-            for (int i2 = 0; i2 < length && this.nJZ.get() == 0; i2++) {
+            for (int i2 = 0; i2 < length && this.nSH.get() == 0; i2++) {
                 tVarArr[i2].subscribe(ambInnerObserverArr[i2]);
             }
         }
 
-        public boolean KQ(int i) {
-            int i2 = this.nJZ.get();
+        public boolean Lk(int i) {
+            int i2 = this.nSH.get();
             if (i2 != 0) {
                 return i2 == i;
-            } else if (this.nJZ.compareAndSet(0, i)) {
-                AmbInnerObserver<T>[] ambInnerObserverArr = this.nLt;
+            } else if (this.nSH.compareAndSet(0, i)) {
+                AmbInnerObserver<T>[] ambInnerObserverArr = this.nUb;
                 int length = ambInnerObserverArr.length;
                 for (int i3 = 0; i3 < length; i3++) {
                     if (i3 + 1 != i) {
@@ -100,9 +100,9 @@ public final class ObservableAmb<T> extends q<T> {
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
-            if (this.nJZ.get() != -1) {
-                this.nJZ.lazySet(-1);
-                for (AmbInnerObserver<T> ambInnerObserver : this.nLt) {
+            if (this.nSH.get() != -1) {
+                this.nSH.lazySet(-1);
+                for (AmbInnerObserver<T> ambInnerObserver : this.nUb) {
                     ambInnerObserver.dispose();
                 }
             }
@@ -110,7 +110,7 @@ public final class ObservableAmb<T> extends q<T> {
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return this.nJZ.get() == -1;
+            return this.nSH.get() == -1;
         }
     }
 
@@ -138,7 +138,7 @@ public final class ObservableAmb<T> extends q<T> {
         public void onNext(T t) {
             if (this.won) {
                 this.actual.onNext(t);
-            } else if (this.parent.KQ(this.index)) {
+            } else if (this.parent.Lk(this.index)) {
                 this.won = true;
                 this.actual.onNext(t);
             } else {
@@ -150,7 +150,7 @@ public final class ObservableAmb<T> extends q<T> {
         public void onError(Throwable th) {
             if (this.won) {
                 this.actual.onError(th);
-            } else if (this.parent.KQ(this.index)) {
+            } else if (this.parent.Lk(this.index)) {
                 this.won = true;
                 this.actual.onError(th);
             } else {
@@ -162,7 +162,7 @@ public final class ObservableAmb<T> extends q<T> {
         public void onComplete() {
             if (this.won) {
                 this.actual.onComplete();
-            } else if (this.parent.KQ(this.index)) {
+            } else if (this.parent.Lk(this.index)) {
                 this.won = true;
                 this.actual.onComplete();
             }

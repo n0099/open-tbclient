@@ -1,56 +1,46 @@
 package com.baidu.swan.apps.r;
 
 import android.os.Bundle;
-import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
-import com.baidu.swan.apps.r.g;
-import java.io.File;
-import java.io.FileOutputStream;
+import com.baidu.swan.apps.r.f;
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.channels.Channels;
 import java.nio.channels.Pipe;
-import java.nio.channels.ReadableByteChannel;
-import java.nio.channels.WritableByteChannel;
-/* loaded from: classes11.dex */
-public class c extends g.a {
+/* loaded from: classes7.dex */
+public class c extends f.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final File ckZ;
+    private final String cne;
+    private final com.baidu.swan.pms.a.d cnf;
 
-    public c(File file) {
-        super("dump");
-        this.ckZ = file;
+    public c(String str, com.baidu.swan.pms.a.d dVar) {
+        super("check_sign");
+        this.cne = str;
+        this.cnf = dVar;
     }
 
-    @Override // com.baidu.swan.apps.r.g.a
+    @Override // com.baidu.swan.apps.r.f.a
     protected boolean a(Pipe.SourceChannel sourceChannel, Bundle bundle) {
-        com.baidu.swan.apps.v.c.a ls = com.baidu.swan.apps.v.c.a.ls(bundle.getString("launch_id"));
-        ls.aiq().lv("DumpFileProcessor").fR(1);
-        WritableByteChannel writableByteChannel = null;
+        com.baidu.swan.apps.an.a qm;
+        com.baidu.swan.apps.u.d.a lT = com.baidu.swan.apps.u.d.a.lT(bundle.getString("launch_id"));
+        lT.ajH().lW("SignChecker").gb(1);
+        long currentTimeMillis = System.currentTimeMillis();
         try {
-            writableByteChannel = Channels.newChannel(new FileOutputStream(this.ckZ, false));
-            a(sourceChannel, writableByteChannel);
-            ls.bv("DumpFileProcessor", AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
-            return true;
+            qm = com.baidu.swan.apps.core.pms.f.a.a(sourceChannel, this.cne, this.cnf);
         } catch (IOException e) {
-            ls.bv("DumpFileProcessor", "done with exception: " + e.toString());
             if (DEBUG) {
                 e.printStackTrace();
             }
-            return false;
+            qm = new com.baidu.swan.apps.an.a().bJ(11L).bK(2300L).qm("inputStream IOException:" + e.toString());
+            com.baidu.swan.apps.an.e.avX().g(qm);
+            lT.bx("SignChecker", qm.toString());
         } finally {
             com.baidu.swan.apps.aq.b.b.a(sourceChannel);
-            com.baidu.swan.e.d.closeSafely(writableByteChannel);
         }
-    }
-
-    private void a(ReadableByteChannel readableByteChannel, WritableByteChannel writableByteChannel) throws IOException {
-        if (readableByteChannel != null && writableByteChannel != null) {
-            ByteBuffer allocate = ByteBuffer.allocate(32768);
-            while (readableByteChannel.read(allocate) != -1) {
-                allocate.flip();
-                writableByteChannel.write(allocate);
-                allocate.clear();
-            }
+        lT.bx("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
+        boolean z = qm == null;
+        if (qm != null) {
+            lT.bx("SignChecker", qm.toString());
+            ahg().putLong("result_error_code", qm.avT());
         }
+        lT.bx("SignChecker", "done: " + z);
+        return z;
     }
 }

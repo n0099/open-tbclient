@@ -2,7 +2,7 @@ package com.baidubce.services.bos.model;
 
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.util.CheckUtils;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class CopyObjectRequest extends GenericObjectRequest {
     private String eTag;
     private String modifiedSinceConstraint;

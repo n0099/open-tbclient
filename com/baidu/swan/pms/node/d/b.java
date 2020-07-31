@@ -4,32 +4,33 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.swan.pms.a.g;
 import com.baidu.swan.pms.f.e;
+import com.baidu.swan.pms.f.f;
 import com.baidu.swan.pms.model.PMSPkgStatus;
 import com.baidu.webkit.internal.ETAG;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class b {
-    private static volatile b drY;
+    private static volatile b dxP;
 
-    public static b aIs() {
-        if (drY == null) {
+    public static b aMk() {
+        if (dxP == null) {
             synchronized (b.class) {
-                if (drY == null) {
-                    drY = new b();
+                if (dxP == null) {
+                    dxP = new b();
                 }
             }
         }
-        return drY;
+        return dxP;
     }
 
     public void b(JSONArray jSONArray, g gVar, g gVar2) {
         if (jSONArray != null && jSONArray.length() != 0) {
             a aVar = new a();
             a aVar2 = new a();
-            e eVar = new e();
-            e eVar2 = new e();
+            f fVar = new f();
+            f fVar2 = new f();
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
@@ -60,28 +61,28 @@ public class b {
                             }
                             switch (c) {
                                 case 0:
-                                    com.baidu.swan.pms.model.d dVar = (com.baidu.swan.pms.model.d) com.baidu.swan.pms.f.d.a(jSONObject2, new com.baidu.swan.pms.model.d());
+                                    com.baidu.swan.pms.model.d dVar = (com.baidu.swan.pms.model.d) e.a(jSONObject2, new com.baidu.swan.pms.model.d());
                                     if (dVar != null) {
-                                        a(dVar, eVar);
-                                        aVar.drX = dVar;
+                                        a(dVar, fVar);
+                                        aVar.dxO = dVar;
                                         break;
                                     } else {
                                         continue;
                                     }
                                 case 1:
-                                    com.baidu.swan.pms.model.d dVar2 = (com.baidu.swan.pms.model.d) com.baidu.swan.pms.f.d.a(jSONObject2, new com.baidu.swan.pms.model.d());
+                                    com.baidu.swan.pms.model.d dVar2 = (com.baidu.swan.pms.model.d) e.a(jSONObject2, new com.baidu.swan.pms.model.d());
                                     if (dVar2 != null) {
-                                        a(dVar2, eVar2);
-                                        aVar2.drW = dVar2;
+                                        a(dVar2, fVar2);
+                                        aVar2.dxN = dVar2;
                                         break;
                                     } else {
                                         continue;
                                     }
                                 case 2:
-                                    com.baidu.swan.pms.model.b bVar = (com.baidu.swan.pms.model.b) com.baidu.swan.pms.f.d.a(jSONObject2, new com.baidu.swan.pms.model.b());
+                                    com.baidu.swan.pms.model.b bVar = (com.baidu.swan.pms.model.b) e.a(jSONObject2, new com.baidu.swan.pms.model.b());
                                     if (bVar != null) {
-                                        a(bVar, eVar);
-                                        aVar.drk = bVar;
+                                        a(bVar, fVar);
+                                        aVar.dxc = bVar;
                                         break;
                                     } else {
                                         continue;
@@ -95,27 +96,27 @@ public class b {
                 }
             }
             if (gVar != null) {
-                if (eVar.aIt() == 0) {
-                    gVar.aaR();
+                if (fVar.aMl() == 0) {
+                    gVar.Zs();
                 } else {
-                    gVar.a(eVar);
+                    gVar.a(fVar);
                     com.baidu.swan.pms.c.a.a.a(aVar, gVar);
                 }
             }
             if (gVar2 != null) {
-                if (eVar2.aIt() == 0) {
-                    gVar2.aaR();
+                if (fVar2.aMl() == 0) {
+                    gVar2.Zs();
                     return;
                 }
-                gVar2.a(eVar2);
+                gVar2.a(fVar2);
                 com.baidu.swan.pms.c.a.a.a(aVar2, gVar2);
             }
         }
     }
 
-    protected void a(com.baidu.swan.pms.model.e eVar, e eVar2) {
+    protected void a(com.baidu.swan.pms.model.e eVar, f fVar) {
         if (eVar != null) {
-            eVar2.a(eVar, PMSPkgStatus.WAIT);
+            fVar.a(eVar, PMSPkgStatus.WAIT);
         }
     }
 }

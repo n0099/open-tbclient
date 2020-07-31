@@ -4,18 +4,18 @@ import android.text.TextUtils;
 import com.baidu.browser.sailor.lightapp.BdLightappKernelJsCallback;
 import com.baidu.browser.sailor.util.c;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 final class c implements c.a {
-    final /* synthetic */ BdLightappKernelJsCallback adF;
+    final /* synthetic */ BdLightappKernelJsCallback adz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(BdLightappKernelJsCallback bdLightappKernelJsCallback) {
-        this.adF = bdLightappKernelJsCallback;
+        this.adz = bdLightappKernelJsCallback;
     }
 
     @Override // com.baidu.browser.sailor.util.c.a
     public final void a(JSONObject jSONObject) {
         String jSONObject2 = jSONObject.toString();
-        this.adF.sendCallBack((String) null, jSONObject2, !TextUtils.isEmpty(jSONObject2));
+        this.adz.sendCallBack((String) null, jSONObject2, !TextUtils.isEmpty(jSONObject2));
     }
 }

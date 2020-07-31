@@ -3,7 +3,7 @@ package com.baidu.webkit.logsdk.a;
 import android.os.Message;
 import android.text.TextUtils;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class c implements Runnable {
     final /* synthetic */ String a;
     final /* synthetic */ String b;
@@ -36,7 +36,6 @@ public final class c implements Runnable {
                 String a2 = com.baidu.webkit.logsdk.c.c.a(str2, j);
                 if (!TextUtils.isEmpty(a2)) {
                     h.a.add(new com.baidu.webkit.logsdk.upload.a(a, a2));
-                    h.a(1);
                     com.baidu.webkit.logsdk.c.c.a(a);
                     if ("frame_app".equals(a.a) && "app_pause".equals(str2)) {
                         com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "checkAppPause");

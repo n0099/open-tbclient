@@ -1,121 +1,127 @@
 package com.baidu.tieba.ala.liveroom.i;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.live.sdk.a;
-import com.baidu.live.tbadk.core.view.HeadImageView;
-import com.baidu.live.tbadk.log.LogManager;
-import com.baidu.live.utils.k;
-/* loaded from: classes3.dex */
-public class a extends Dialog implements View.OnClickListener {
-    private HeadImageView gha;
-    private TextView ghb;
-    private TextView ghc;
-    private InterfaceC0572a ghd;
-    private String ghe;
-    private String ghf;
-    private String ghg;
-    private String ghh;
-    private String ghi;
-    private View mClose;
-    private long roomId;
+import android.app.ActivityManager;
+import android.os.Build;
+import android.os.Debug;
+import android.os.Process;
+import android.text.TextUtils;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.RandomAccessFile;
+/* loaded from: classes4.dex */
+public class a {
+    private static volatile a glO = null;
+    private ActivityManager cRE;
+    private Long glP;
+    private Long glQ;
+    private RandomAccessFile glR;
+    private RandomAccessFile glS;
+    private String mPackageName;
 
-    /* renamed from: com.baidu.tieba.ala.liveroom.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0572a {
-        void bEu();
-
-        void bEv();
+    private a() {
     }
 
-    public a(Context context) {
-        super(context, a.j.ala_tips_dialog_style);
-    }
-
-    @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(a.h.dialog_anchor_letter);
-        initView();
-        initListener();
-        initData();
-    }
-
-    private void initData() {
-        this.gha.setIsRound(true);
-        this.gha.setBorderWidth(getContext().getResources().getDimensionPixelSize(a.e.sdk_ds2));
-        this.gha.setBorderColor(getContext().getResources().getColor(a.d.sdk_white_alpha100));
-    }
-
-    private void initView() {
-        this.gha = (HeadImageView) findViewById(a.g.user_icon);
-        this.ghb = (TextView) findViewById(a.g.invite_txt);
-        this.ghc = (TextView) findViewById(a.g.go_to_client);
-        this.mClose = findViewById(a.g.close);
-        k.a(this.gha, this.ghe, true, false);
-        this.ghb.setText(this.ghf);
-        this.ghc.setText(this.ghg);
-    }
-
-    private void initListener() {
-        this.ghc.setOnClickListener(this);
-        this.mClose.setOnClickListener(this);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view == this.ghc) {
-            if (this.ghd != null) {
-                this.ghd.bEv();
+    public static a bHA() {
+        if (glO == null) {
+            synchronized (a.class) {
+                if (glO == null) {
+                    glO = new a();
+                }
             }
-            dismiss();
-            LogManager.getFeedDiversionLogger().doClickGuideFloatDialogLog(this.roomId + "", this.ghh, this.ghi);
-        } else if (view == this.mClose) {
-            if (this.ghd != null) {
-                this.ghd.bEu();
+        }
+        return glO;
+    }
+
+    public double bHB() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            String DA = DA(this.mPackageName);
+            if (TextUtils.isEmpty(DA)) {
+                return 0.0d;
             }
-            dismiss();
-            LogManager.getFeedDiversionLogger().doCloseGuideFloatDialogLog(this.roomId + "", this.ghi);
+            try {
+                return Double.valueOf(DA).doubleValue();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0.0d;
+            }
         }
+        return bHC();
     }
 
-    public void CP(String str) {
-        this.ghe = str;
-        if (this.gha != null) {
-            k.a(this.gha, this.ghe, true, false);
+    private String DA(String str) {
+        Process exec;
+        BufferedReader bufferedReader;
+        String[] split;
+        try {
+            exec = Runtime.getRuntime().exec(new String[]{IXAdRequestInfo.SCREEN_HEIGHT, "-c", "top -n 1"});
+            bufferedReader = new BufferedReader(new InputStreamReader(exec.getInputStream()));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        do {
+            String readLine = bufferedReader.readLine();
+            if (readLine != null) {
+                split = readLine.trim().split(" ");
+            } else {
+                try {
+                    exec.waitFor();
+                } catch (InterruptedException e2) {
+                    e2.printStackTrace();
+                }
+                return "";
+            }
+        } while (!str.startsWith(split[split.length - 1].substring(0, split[split.length - 1].length() - 1)));
+        return split[16];
     }
 
-    public void CQ(String str) {
-        this.ghf = str;
-        if (this.ghb != null) {
-            this.ghb.setText(this.ghf);
+    private double bHC() {
+        double d = 0.0d;
+        try {
+            if (this.glR == null || this.glS == null) {
+                this.glR = new RandomAccessFile("/proc/stat", "r");
+                this.glS = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", "r");
+            } else {
+                this.glR.seek(0L);
+                this.glS.seek(0L);
+            }
+            String readLine = this.glR.readLine();
+            String readLine2 = this.glS.readLine();
+            String[] split = readLine.split(" ");
+            String[] split2 = readLine2.split(" ");
+            long parseLong = Long.parseLong(split[2]) + Long.parseLong(split[3]) + Long.parseLong(split[4]) + Long.parseLong(split[5]) + Long.parseLong(split[6]) + Long.parseLong(split[7]) + Long.parseLong(split[8]);
+            long parseLong2 = Long.parseLong(split2[14]) + Long.parseLong(split2[13]);
+            if (this.glP == null && this.glQ == null) {
+                this.glP = Long.valueOf(parseLong);
+                this.glQ = Long.valueOf(parseLong2);
+            } else {
+                if (this.glP != null && this.glQ != null) {
+                    d = ((parseLong2 - this.glQ.longValue()) / (parseLong - this.glP.longValue())) * 100.0d;
+                }
+                this.glP = Long.valueOf(parseLong);
+                this.glQ = Long.valueOf(parseLong2);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return d;
     }
 
-    public void CR(String str) {
-        this.ghg = str;
-        if (this.ghc != null) {
-            this.ghc.setText(this.ghg);
+    public double bHD() {
+        try {
+            Debug.MemoryInfo[] processMemoryInfo = this.cRE.getProcessMemoryInfo(new int[]{Process.myPid()});
+            if (processMemoryInfo.length <= 0) {
+                return 0.0d;
+            }
+            int totalPss = processMemoryInfo[0].getTotalPss();
+            if (totalPss < 0) {
+                return 0.0d;
+            }
+            return totalPss / 1024.0d;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0.0d;
         }
-    }
-
-    public void setRoomId(long j) {
-        this.roomId = j;
-    }
-
-    public void CS(String str) {
-        this.ghh = str;
-    }
-
-    public void CT(String str) {
-        this.ghi = str;
-    }
-
-    public void a(InterfaceC0572a interfaceC0572a) {
-        this.ghd = interfaceC0572a;
     }
 }

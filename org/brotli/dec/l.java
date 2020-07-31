@@ -1,15 +1,15 @@
 package org.brotli.dec;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 final class l {
-    private static final byte[] nZv = new byte[1024];
-    private static final int[] nZw = new int[1024];
+    private static final byte[] oif = new byte[1024];
+    private static final int[] oig = new int[1024];
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void w(byte[] bArr, int i, int i2) {
+    public static void x(byte[] bArr, int i, int i2) {
         int i3 = 0;
         while (i3 < i2) {
             int min = Math.min(i3 + 1024, i2) - i3;
-            System.arraycopy(nZv, 0, bArr, i + i3, min);
+            System.arraycopy(oif, 0, bArr, i + i3, min);
             i3 += min;
         }
     }
@@ -19,7 +19,7 @@ final class l {
         int i3 = 0;
         while (i3 < i2) {
             int min = Math.min(i3 + 1024, i2) - i3;
-            System.arraycopy(nZw, 0, iArr, i + i3, min);
+            System.arraycopy(oig, 0, iArr, i + i3, min);
             i3 += min;
         }
     }

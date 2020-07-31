@@ -11,13 +11,13 @@ import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class f extends ClickableSpan {
-    private String eOt;
-    private int eOu;
+    private String eUO;
+    private int eUP;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -42,8 +42,8 @@ public class f extends ClickableSpan {
         this.mType = i;
     }
 
-    public void oO(int i) {
-        this.eOu = i;
+    public void pf(int i) {
+        this.eUP = i;
     }
 
     public void setColor(int i) {
@@ -54,12 +54,12 @@ public class f extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void oP(int i) {
+    public void pg(int i) {
         this.urlType = i;
     }
 
-    public void zv(String str) {
-        this.eOt = str;
+    public void AD(String str) {
+        this.eUO = str;
     }
 
     public String getLink() {
@@ -69,8 +69,8 @@ public class f extends ClickableSpan {
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
     public void updateDrawState(TextPaint textPaint) {
         if (this.textColor != -1) {
-            textPaint.setColor(an.getColor(this.textColor));
-        } else if (blq()) {
+            textPaint.setColor(ao.getColor(this.textColor));
+        } else if (bpk()) {
             textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.cp_link_tip_c));
         } else {
             textPaint.setColor(textPaint.linkColor);
@@ -78,18 +78,18 @@ public class f extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.eOu == 1 && blr()) {
+        } else if (this.eUP == 1 && bpl()) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textPaint.bgColor = an.getColor(R.color.cp_bg_line_c);
+                textPaint.bgColor = ao.getColor(R.color.cp_bg_line_c);
             } else {
-                textPaint.bgColor = an.getColor(R.color.cp_bg_line_z);
+                textPaint.bgColor = ao.getColor(R.color.cp_bg_line_z);
             }
-        } else if (this.eOu == 2) {
-            textPaint.bgColor = an.getColor(R.color.transparent);
+        } else if (this.eUP == 2) {
+            textPaint.bgColor = ao.getColor(R.color.transparent);
         }
     }
 
-    private boolean blq() {
+    private boolean bpk() {
         switch (this.mType) {
             case 2:
             case 16:
@@ -100,7 +100,7 @@ public class f extends ClickableSpan {
         }
     }
 
-    public boolean blr() {
+    public boolean bpl() {
         switch (this.mType) {
             case 16:
             case 18:
@@ -115,7 +115,7 @@ public class f extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.eOt));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.eUO));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -125,7 +125,7 @@ public class f extends ClickableSpan {
                     i = 1;
                 }
             }
-            TiebaStatic.log(new ao(TbadkCoreStatisticKey.PB_URL_CLICK_KEY).ag("obj_source", i2).ag("obj_type", i));
+            TiebaStatic.log(new ap(TbadkCoreStatisticKey.PB_URL_CLICK_KEY).ah("obj_source", i2).ah("obj_type", i));
         }
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }
@@ -137,25 +137,25 @@ public class f extends ClickableSpan {
                     iVar.f(context, str, false);
                     return;
                 case 16:
-                    iVar.al(context, str);
+                    iVar.am(context, str);
                     return;
                 case 18:
                     iVar.f(context, str, true);
                     return;
                 case 32:
-                    iVar.am(context, str);
-                    return;
-                case 64:
                     iVar.an(context, str);
                     return;
-                case 128:
+                case 64:
                     iVar.ao(context, str);
                     return;
+                case 128:
+                    iVar.ap(context, str);
+                    return;
                 case 256:
-                    iVar.s(context, str, str2);
+                    iVar.r(context, str, str2);
                     return;
                 case 1024:
-                    iVar.ap(context, str);
+                    iVar.aq(context, str);
                     return;
                 default:
                     return;

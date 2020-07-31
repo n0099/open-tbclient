@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class b extends com.baidu.ar.arplay.b.a {
     private boolean aH;
     private List<WeakReference<c>> rY;

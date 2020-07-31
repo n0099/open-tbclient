@@ -13,15 +13,15 @@ import com.baidu.tbadk.browser.TbWebViewActivity;
 import com.baidu.tbadk.core.atomData.SupplementSignActivityConfig;
 import com.baidu.tieba.tbadkCore.e.b;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class SupplementSignActivity extends TbWebViewActivity {
     private int forumId;
-    private final String lDp = "signSuccess";
+    private final String lKE = "signSuccess";
     private final String INTERFACE_NAME = "SupplementSignInterface";
-    private int lDq = 0;
-    private int lDr = 0;
-    private int lDs = 0;
-    private CustomMessageListener lDt = new CustomMessageListener(CmdConfigCustom.CMD_RESPONSE_MEM) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.1
+    private int lKF = 0;
+    private int lKG = 0;
+    private int lKH = 0;
+    private CustomMessageListener lKI = new CustomMessageListener(CmdConfigCustom.CMD_RESPONSE_MEM) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -30,16 +30,16 @@ public class SupplementSignActivity extends TbWebViewActivity {
             }
         }
     };
-    private b lDu = new b() { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
+    private b lKJ = new b() { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
         @Override // com.baidu.tieba.tbadkCore.e.b
         public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if ("SupplementSignInterface".equalsIgnoreCase(str) && "signSuccess".equalsIgnoreCase(str2)) {
                 if (!StringUtils.isNull(str3)) {
                     try {
                         JSONObject jSONObject = new JSONObject(str3);
-                        SupplementSignActivity.this.lDq = jSONObject.optInt(SchemeCollecter.CLASSIFY_ALL);
-                        SupplementSignActivity.this.lDr += jSONObject.optInt("signed", 0);
-                        SupplementSignActivity.this.lDs = jSONObject.optInt("bonus", 0) + SupplementSignActivity.this.lDs;
+                        SupplementSignActivity.this.lKF = jSONObject.optInt(SchemeCollecter.CLASSIFY_ALL);
+                        SupplementSignActivity.this.lKG += jSONObject.optInt("signed", 0);
+                        SupplementSignActivity.this.lKH = jSONObject.optInt("bonus", 0) + SupplementSignActivity.this.lKH;
                     } catch (Throwable th) {
                         BdLog.e(th);
                     }
@@ -58,24 +58,24 @@ public class SupplementSignActivity extends TbWebViewActivity {
         if (intent != null) {
             this.forumId = intent.getIntExtra(SupplementSignActivityConfig.FORUM_ID, 0);
         }
-        addJsPromptInterface(this.lDu);
-        this.mView.gN(false);
-        registerListener(this.lDt);
+        addJsPromptInterface(this.lKJ);
+        this.mView.hi(false);
+        registerListener(this.lKI);
     }
 
     @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.mView.aPi();
+        this.mView.aTd();
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
         Intent intent = new Intent();
         intent.putExtra(SupplementSignActivityConfig.FORUM_ID, this.forumId);
-        intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.lDq);
-        intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.lDr);
-        intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.lDs);
+        intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.lKF);
+        intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.lKG);
+        intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.lKH);
         super.finish(-1, intent);
     }
 

@@ -83,7 +83,7 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class SapiUtils implements com.baidu.sapi2.c {
     public static final String COOKIE_HTTPS_URL_PREFIX = "https://";
     public static final String COOKIE_URL_PREFIX = "https://www.";

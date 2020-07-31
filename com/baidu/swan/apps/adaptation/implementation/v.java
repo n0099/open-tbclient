@@ -1,33 +1,49 @@
 package com.baidu.swan.apps.adaptation.implementation;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.adaptation.a.an;
-import java.io.File;
-import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class v implements an {
-    private v() {
-    }
-
-    public static v TD() {
-        return a.bMz;
+    @Override // com.baidu.swan.apps.adaptation.a.an
+    public void Ua() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.an
-    public com.baidu.swan.e.b e(Context context, String str, boolean z) {
-        return new com.baidu.swan.e.j(str);
+    public boolean onBackPressed() {
+        return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.an
-    public void a(@NonNull String str, Set<String> set, boolean z) {
-        com.baidu.swan.apps.env.d.a(new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/"), str, ".xml", set, z);
+    public an Ub() {
+        return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
-    public static class a {
-        private static final v bMz = new v();
+    @Override // com.baidu.swan.apps.adaptation.a.an
+    public void a(com.baidu.swan.apps.media.c.c cVar, Context context) {
+    }
+
+    @Override // com.baidu.swan.apps.adaptation.a.an
+    public void resume() {
+    }
+
+    @Override // com.baidu.swan.apps.adaptation.a.an
+    public void pause() {
+    }
+
+    @Override // com.baidu.swan.apps.adaptation.a.an
+    public void stop() {
+    }
+
+    @Override // com.baidu.swan.apps.adaptation.a.an
+    public boolean isPlaying() {
+        return false;
+    }
+
+    @Override // com.baidu.swan.apps.adaptation.a.an
+    public void Uc() {
+    }
+
+    @Override // com.baidu.swan.apps.adaptation.a.an
+    public void a(com.baidu.swan.apps.media.c.c cVar, boolean z) {
     }
 }

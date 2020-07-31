@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.core.view.NavigationBar;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
     private View mBack;
     private NavigationBar mNavigationBar;

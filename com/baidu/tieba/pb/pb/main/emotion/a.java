@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.pb.main.emotion;
 
 import com.baidu.tieba.face.data.EmotionImageData;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public interface a {
     void a(EmotionImageData emotionImageData, boolean z);
 }

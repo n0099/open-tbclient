@@ -2,18 +2,18 @@ package com.qiniu.android.utils;
 
 import android.app.Application;
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ContextGetter {
-    public static Context dMY() {
+    public static Context dQu() {
         try {
-            return dMZ().getApplicationContext();
+            return dQv().getApplicationContext();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    private static Application dMZ() throws Exception {
+    private static Application dQv() throws Exception {
         return (Application) Class.forName("android.app.ActivityThread").getMethod("currentApplication", new Class[0]).invoke(null, null);
     }
 }

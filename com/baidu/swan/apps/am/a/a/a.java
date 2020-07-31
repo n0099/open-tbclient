@@ -16,7 +16,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/startAccelerometer");
@@ -61,9 +61,9 @@ public class a extends aa {
             }
             c.i("accelerometer", " init ");
             final i iVar = new i("accelerometerChange", optParamsAsJo, optString);
-            com.baidu.swan.apps.am.a.a atm = com.baidu.swan.apps.am.a.a.atm();
-            atm.m(context, a.C0317a.im(optParamsAsJo.optString("interval")));
-            atm.a(new a.InterfaceC0295a() { // from class: com.baidu.swan.apps.am.a.a.a.1
+            com.baidu.swan.apps.am.a.a avn = com.baidu.swan.apps.am.a.a.avn();
+            avn.m(context, a.C0317a.iw(optParamsAsJo.optString("interval")));
+            avn.a(new a.InterfaceC0295a() { // from class: com.baidu.swan.apps.am.a.a.a.1
                 @Override // com.baidu.swan.apps.am.a.a.InterfaceC0295a
                 public void a(double[] dArr) {
                     if (dArr == null || dArr.length != 3) {
@@ -74,7 +74,7 @@ public class a extends aa {
                     a.this.a(unitedSchemeEntity, callbackHandler, iVar, dArr);
                 }
             });
-            atm.atn();
+            avn.avo();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             iVar.a(unitedSchemeEntity, callbackHandler);
             return true;

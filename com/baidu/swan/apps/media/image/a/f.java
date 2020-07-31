@@ -13,7 +13,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class f implements d {
     private BitmapRegionDecoder decoder;
     private final Object decoderLock = new Object();
@@ -55,7 +55,7 @@ public class f implements d {
                 inputStream = context.getContentResolver().openInputStream(uri);
                 this.decoder = BitmapRegionDecoder.newInstance(inputStream, false);
             } finally {
-                com.baidu.swan.e.d.closeSafely(inputStream);
+                com.baidu.swan.d.d.closeSafely(inputStream);
             }
         }
         return new Point(this.decoder.getWidth(), this.decoder.getHeight());
@@ -65,17 +65,17 @@ public class f implements d {
     public Point a(Context context, Bitmap bitmap) throws Exception {
         InputStream inputStream = null;
         try {
-            inputStream = k(bitmap);
+            inputStream = n(bitmap);
             this.decoder = BitmapRegionDecoder.newInstance(inputStream, false);
-            com.baidu.swan.e.d.closeSafely(inputStream);
+            com.baidu.swan.d.d.closeSafely(inputStream);
             return new Point(this.decoder.getWidth(), this.decoder.getHeight());
         } catch (Throwable th) {
-            com.baidu.swan.e.d.closeSafely(inputStream);
+            com.baidu.swan.d.d.closeSafely(inputStream);
             throw th;
         }
     }
 
-    public InputStream k(Bitmap bitmap) {
+    public InputStream n(Bitmap bitmap) {
         if (bitmap == null) {
             return null;
         }

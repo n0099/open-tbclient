@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import org.apache.http.HttpHost;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public final class WebpUtils {
     public static final String TYPE_IMG_WEBP = "webp";
     public static final String TYPE_PARAM_H5 = "imgtype";

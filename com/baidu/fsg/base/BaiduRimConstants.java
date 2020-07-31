@@ -1,5 +1,5 @@
 package com.baidu.fsg.base;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class BaiduRimConstants {
     public static final String ACTION_TARGET = "target";
     public static final String APPID_INIT_KEY = "appid";

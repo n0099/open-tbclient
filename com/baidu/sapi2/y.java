@@ -8,7 +8,7 @@ import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.sapi2.utils.Log;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class y extends HttpHandlerWrap {
     final /* synthetic */ OneKeyLoginResult a;
     final /* synthetic */ String b;

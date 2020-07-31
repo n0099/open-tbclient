@@ -8,7 +8,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class s implements j {
     private static final s za = new s();
     private Handler mHandler;

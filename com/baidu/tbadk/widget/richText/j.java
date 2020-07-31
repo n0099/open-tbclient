@@ -4,12 +4,12 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class j {
+    private int bOe;
     private int duration;
-    private int eOA;
-    private int eOy;
-    private String eOz;
+    private int eUT;
+    private String eUU;
+    private int eUV;
     private int height;
-    private int playCount;
     private String thumbUrl;
     private String videoUrl;
     private int width;
@@ -20,11 +20,11 @@ public class j {
             this.thumbUrl = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.eOy = pbContent.e_type.intValue();
-            this.eOz = pbContent.text;
+            this.eUT = pbContent.e_type.intValue();
+            this.eUU = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.playCount = pbContent.count.intValue();
-            this.eOA = pbContent.origin_size.intValue();
+            this.bOe = pbContent.count.intValue();
+            this.eUV = pbContent.origin_size.intValue();
         }
     }
 
@@ -44,12 +44,12 @@ public class j {
         return this.height;
     }
 
-    public String blG() {
-        return this.eOz;
+    public String bpA() {
+        return this.eUU;
     }
 
-    public boolean blH() {
-        return this.eOy == 15;
+    public boolean bpB() {
+        return this.eUT == 15;
     }
 
     public boolean isAvaliable() {
@@ -61,6 +61,6 @@ public class j {
     }
 
     public int getFileSize() {
-        return this.eOA;
+        return this.eUV;
     }
 }

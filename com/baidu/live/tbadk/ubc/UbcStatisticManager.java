@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UbcStatisticManager {
     private static final long FLOW_LOOP_DURATION = 60000;
     public static volatile UbcStatisticManager mInstance = new UbcStatisticManager();
@@ -254,6 +254,9 @@ public class UbcStatisticManager {
         if (!TextUtils.isEmpty(this.mEntry)) {
             fillJson(jSONObject, "entry", this.mEntry);
         }
+        if (!jSONObject.has(UbcStatConstant.KEY_CONTENT_EXT_LIVESDK)) {
+            fillJson(jSONObject, UbcStatConstant.KEY_CONTENT_EXT_LIVESDK, TbConfig.SDK_VERSION);
+        }
         String baiduSid = ExtraParamsManager.getBaiduSid();
         if (!TextUtils.isEmpty(baiduSid)) {
             fillJson(jSONObject, UbcStatConstant.KEY_CONTENT_EXT_SID, baiduSid);
@@ -351,7 +354,7 @@ public class UbcStatisticManager {
 
     private void beginFlowLoop(UbcStatisticItem ubcStatisticItem) {
         if (ubcStatisticItem != null && !TextUtils.isEmpty(ubcStatisticItem.getId()) && this.mUbcManager != null) {
-            JSONObject genFlowContent = !TextUtils.isEmpty(this.mLiveId) ? genFlowContent(ubcStatisticItem) : null;
+            JSONObject genFlowContent = (TextUtils.isEmpty(this.mLiveId) || "0".equals(this.mLiveId)) ? null : genFlowContent(ubcStatisticItem);
             Object flowBegin = this.mUbcManager.flowBegin(ubcStatisticItem.getId(), genFlowContent);
             if (flowBegin != null) {
                 FlowData flowData = new FlowData();
@@ -497,7 +500,7 @@ public class UbcStatisticManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public JSONObject genFlowContent(UbcStatisticItem ubcStatisticItem) {
-        return genCommonContent(ubcStatisticItem, false);
+        return genCommonContent(ubcStatisticItem, true);
     }
 
     private JSONObject genEventContent(UbcStatisticItem ubcStatisticItem) {
@@ -520,7 +523,7 @@ public class UbcStatisticManager {
                     contentExt = ubcStatisticItem.getContentExt();
                 }
                 if (z) {
-                    if (!contentExt.has("live_id") && !TextUtils.isEmpty(this.mLiveId)) {
+                    if (!contentExt.has("live_id") && !TextUtils.isEmpty(this.mLiveId) && !"0".equals(this.mLiveId)) {
                         contentExt.put("live_id", this.mLiveId);
                     }
                     if (!contentExt.has("room_id")) {
@@ -540,6 +543,9 @@ public class UbcStatisticManager {
                 }
                 if (!TextUtils.isEmpty(this.mEntry)) {
                     contentExt.put("entry", this.mEntry);
+                }
+                if (!contentExt.has(UbcStatConstant.KEY_CONTENT_EXT_LIVESDK)) {
+                    contentExt.put(UbcStatConstant.KEY_CONTENT_EXT_LIVESDK, TbConfig.SDK_VERSION);
                 }
                 String baiduSid = ExtraParamsManager.getBaiduSid();
                 if (!TextUtils.isEmpty(baiduSid)) {
@@ -590,7 +596,7 @@ public class UbcStatisticManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class FlowData {
         public Object flow;
         public JSONObject formattedValue;
@@ -602,7 +608,7 @@ public class UbcStatisticManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SlotData {
         public String category;
         public JSONObject option;

@@ -5,7 +5,7 @@ import com.vivo.push.cache.ISubscribeAppTagManager;
 import com.vivo.push.model.SubscribeAppInfo;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class g implements Runnable {
     final /* synthetic */ LocalAliasTagsManager a;
 

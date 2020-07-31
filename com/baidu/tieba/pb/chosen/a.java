@@ -16,17 +16,17 @@ import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.coreExtra.share.f;
+import com.baidu.tbadk.coreExtra.share.g;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.chosen.view.ShareThreadView;
 import java.text.MessageFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class a {
-    private PbChosenActivity jXJ;
+    private PbChosenActivity kgj;
 
     public a(PbChosenActivity pbChosenActivity) {
-        this.jXJ = pbChosenActivity;
+        this.kgj = pbChosenActivity;
     }
 
     public void a(com.baidu.tieba.pb.chosen.net.a aVar, String str) {
@@ -34,40 +34,40 @@ public class a {
             String str2 = aVar.getThreadInfo().forum.forum_name;
             String str3 = aVar.getThreadInfo().title;
             String str4 = aVar.getThreadInfo()._abstract;
-            Resources resources = this.jXJ.getPageContext().getPageActivity().getResources();
+            Resources resources = this.kgj.getPageContext().getPageActivity().getResources();
             String format = MessageFormat.format(resources.getString(R.string.share_content_tpl), str3, str4);
             String string = resources.getString(R.string.chosen_pb_share_content, str3);
             final ShareItem shareItem = new ShareItem();
             shareItem.title = str3;
             shareItem.content = format;
             shareItem.linkUrl = "http://tieba.baidu.com/mo/q/recommendpb?ftid=" + aVar.getThreadInfo().excid;
-            shareItem.enF = string;
-            shareItem.enE = str4;
-            shareItem.enD = Long.toString(aVar.getThreadInfo().excid.longValue());
+            shareItem.etR = string;
+            shareItem.etQ = str4;
+            shareItem.etP = Long.toString(aVar.getThreadInfo().excid.longValue());
             shareItem.tid = Long.toString(aVar.getThreadInfo().thread_id.longValue());
-            shareItem.enp = true;
+            shareItem.etC = true;
             if (!StringUtils.isNull(str)) {
                 shareItem.imageUri = Uri.parse(str);
             }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.jXJ.getPageContext().getPageActivity(), shareItem, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.kgj.getPageContext().getPageActivity(), shareItem, true);
             shareDialogConfig.setIsCopyLink(true);
             shareDialogConfig.addOutsideTextView(R.string.forum_friend, R.drawable.icon_share_friends_n, new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.jXJ.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(a.this.jXJ.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_SHARE_FRIEND_FORUM)));
-                    TiebaStatic.eventStat(a.this.jXJ.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
+                    a.this.kgj.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(a.this.kgj.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_SHARE_FRIEND_FORUM)));
+                    TiebaStatic.eventStat(a.this.kgj.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
                 }
             });
             shareDialogConfig.setCopyLinkListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    shareItem.linkUrl = f.dq(shareItem.linkUrl, shareItem.tid);
+                    shareItem.linkUrl = g.dr(shareItem.linkUrl, shareItem.tid);
                     com.baidu.adp.lib.util.a.copyToClipboard(shareItem.linkUrl);
-                    l.showToast(a.this.jXJ.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
+                    l.showToast(a.this.kgj.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
                 }
             });
-            this.jXJ.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
+            this.kgj.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
         }
     }
 
@@ -93,8 +93,8 @@ public class a {
             final ShareThreadView shareThreadView = new ShareThreadView(pbChosenActivity.getPageContext().getPageActivity());
             shareThreadView.setTitle(aVar.getThreadInfo().title);
             shareThreadView.setDesc(aVar.getThreadInfo()._abstract);
-            shareThreadView.aH(str4, false);
-            aVar2.aP(shareThreadView);
+            shareThreadView.aF(str4, false);
+            aVar2.aV(shareThreadView);
             aVar2.a(R.string.share, new a.b() { // from class: com.baidu.tieba.pb.chosen.a.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
@@ -112,8 +112,8 @@ public class a {
                     aVar3.dismiss();
                 }
             });
-            aVar2.hg(false);
-            aVar2.b(pbChosenActivity.getPageContext()).aUN();
+            aVar2.hK(false);
+            aVar2.b(pbChosenActivity.getPageContext()).aYL();
         }
     }
 
@@ -121,10 +121,10 @@ public class a {
         if (aVar != null && aVar.getThreadInfo() != null) {
             com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(pbChosenActivity.getPageContext().getPageActivity());
             final ShareThreadView shareThreadView = new ShareThreadView(pbChosenActivity.getPageContext().getPageActivity());
-            shareThreadView.aH(str2, false);
+            shareThreadView.aF(str2, false);
             shareThreadView.setTitle(aVar.getThreadInfo().title);
             shareThreadView.setDesc(aVar.getThreadInfo()._abstract);
-            aVar2.aP(shareThreadView);
+            aVar2.aV(shareThreadView);
             aVar2.a(R.string.share, new a.b() { // from class: com.baidu.tieba.pb.chosen.a.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
@@ -142,8 +142,8 @@ public class a {
                     aVar3.dismiss();
                 }
             });
-            aVar2.hg(false);
-            aVar2.b(pbChosenActivity.getPageContext()).aUN();
+            aVar2.hK(false);
+            aVar2.b(pbChosenActivity.getPageContext()).aYL();
         }
     }
 }

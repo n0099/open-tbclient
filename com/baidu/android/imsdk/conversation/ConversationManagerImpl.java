@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.BIMConversation;
+import com.baidu.android.imsdk.BIMConversationMsg;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
@@ -24,10 +25,11 @@ import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class ConversationManagerImpl {
     private static final String TAG = "ConversationManagerImpl";
+    public static Context mContext;
     private static volatile ConversationManagerImpl sInstance = null;
-    private static Object syncObject = new Object();
+    protected static Object syncObject = new Object();
     private ArrayList<IConversationChangeListener> mAllConversationChangeListener;
-    private Context mContext;
+    private ArrayList<BIMConversation> mAllConversations;
     private String mUid = null;
     private HashMap<BIMManager.CATEGORY, ArrayList<BIMConversation>> mConversationsListMaps = new HashMap<>();
     private HashMap<String, BIMConversation> mConversationsMaps = new HashMap<>();
@@ -40,7 +42,7 @@ public class ConversationManagerImpl {
                     if (ConversationManagerImpl.this.mConversationsMaps.containsKey(str)) {
                         ((BIMConversation) ConversationManagerImpl.this.mConversationsMaps.get(str)).updateConversation(chatSession);
                     } else {
-                        ConversationManagerImpl.this.putConversationInternal(new BIMConversation(ConversationManagerImpl.this.mContext, ConversationManagerImpl.getCategoryByProtocolCategory(chatSession.getCategory(), chatSession.getChatType()), String.valueOf(chatSession.getContacterId()), chatSession));
+                        ConversationManagerImpl.this.putConversationInternal(new BIMConversationMsg(ConversationManagerImpl.mContext, ConversationManagerImpl.getCategoryByProtocolCategory(chatSession.getCategory(), chatSession.getChatType()), String.valueOf(chatSession.getContacterId()), chatSession));
                     }
                 }
                 ConversationManagerImpl.this.notifyConversationChange();
@@ -55,7 +57,6 @@ public class ConversationManagerImpl {
             ConversationManagerImpl.this.notifyConversationChange();
         }
     };
-    private ArrayList<BIMConversation> mAllConversations = new ArrayList<>();
 
     public static ConversationManagerImpl getInstance(Context context) {
         if (sInstance == null) {
@@ -72,18 +73,19 @@ public class ConversationManagerImpl {
         return sInstance;
     }
 
-    private ConversationManagerImpl(Context context) {
+    public ConversationManagerImpl(Context context) {
         this.mAllConversationChangeListener = null;
-        this.mContext = context.getApplicationContext();
+        mContext = context.getApplicationContext();
         this.mAllConversationChangeListener = new ArrayList<>();
+        this.mAllConversations = new ArrayList<>();
         this.mConversationsListMaps.put(BIMManager.CATEGORY.ALL, this.mAllConversations);
     }
 
     public void init(String str) {
         LogUtils.d(TAG, "uid: " + str + " , mUid : " + this.mUid);
         if (this.mUid == null || !this.mUid.equals(str)) {
-            ArrayList<ChatSession> chatRecords = ChatSessionManagerImpl.getInstance(this.mContext).getChatRecords(0L, 0L);
-            ChatSessionManagerImpl.getInstance(this.mContext).registerRecordChangeListener(this.mContext, this.listener);
+            ArrayList<ChatSession> chatRecords = ChatSessionManagerImpl.getInstance(mContext).getChatRecords(0L, 0L);
+            ChatSessionManagerImpl.getInstance(mContext).registerRecordChangeListener(mContext, this.listener);
             clear();
             synchronized (syncObject) {
                 this.mUid = str;
@@ -99,7 +101,7 @@ public class ConversationManagerImpl {
             Iterator<ChatSession> it = arrayList.iterator();
             while (it.hasNext()) {
                 ChatSession next = it.next();
-                putConversationInternal(new BIMConversation(this.mContext, getCategoryByProtocolCategory(next.getCategory(), next.getChatType()), String.valueOf(next.getContacterId()), next));
+                putConversationInternal(new BIMConversationMsg(mContext, getCategoryByProtocolCategory(next.getCategory(), next.getChatType()), String.valueOf(next.getContacterId()), next));
             }
         }
     }
@@ -129,7 +131,7 @@ public class ConversationManagerImpl {
             this.mConversationsListMaps.get(bIMConversation.getCategory()).add(bIMConversation);
         } catch (Exception e) {
             LogUtils.e(TAG, "putConversationInternal exception :", e);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+            new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
         }
     }
 
@@ -142,30 +144,6 @@ public class ConversationManagerImpl {
             this.mAllConversations.remove(bIMConversation);
             this.mConversationsListMaps.get(bIMConversation.getCategory()).remove(bIMConversation);
         }
-    }
-
-    public BIMConversation getConversation(BIMManager.CATEGORY category, String str, String str2, int i) {
-        BIMConversation bIMConversation;
-        if (TextUtils.isEmpty(str)) {
-            LogUtils.e(TAG, "id should not be empty");
-            return null;
-        }
-        synchronized (syncObject) {
-            try {
-                long longValue = Long.valueOf(str).longValue();
-                int value = category.getValue();
-                if (BIMManager.CATEGORY.STUDIO == category) {
-                    bIMConversation = new BIMConversation(this.mContext, category, str, new ChatSession(value, longValue, longValue, null), str2, i);
-                } else {
-                    bIMConversation = null;
-                }
-            } catch (Exception e) {
-                LogUtils.e(TAG, "Id is not long value", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                bIMConversation = null;
-            }
-        }
-        return bIMConversation;
     }
 
     public BIMConversation getConversation(final BIMManager.CATEGORY category, final String str) {
@@ -183,15 +161,15 @@ public class ConversationManagerImpl {
                 long longValue = Long.valueOf(str).longValue();
                 int value = category.getValue();
                 if (BIMManager.CATEGORY.SINGLEPERSON == category) {
-                    long uKbyBuid = IMUserManager.getInstance(this.mContext).getUKbyBuid(longValue);
+                    long uKbyBuid = IMUserManager.getInstance(mContext).getUKbyBuid(longValue);
                     if (uKbyBuid >= 0) {
-                        ChatSession chatRecord = ChatSessionManagerImpl.getInstance(this.mContext).getChatRecord(value, uKbyBuid);
-                        BIMConversation bIMConversation = new BIMConversation(this.mContext, BIMManager.CATEGORY.SINGLEPERSON, str, chatRecord == null ? new ChatSession(value, uKbyBuid, longValue, null) : chatRecord);
-                        putConversationInternal(bIMConversation);
-                        return bIMConversation;
+                        ChatSession chatRecord = ChatSessionManagerImpl.getInstance(mContext).getChatRecord(value, uKbyBuid);
+                        BIMConversationMsg bIMConversationMsg = new BIMConversationMsg(mContext, BIMManager.CATEGORY.SINGLEPERSON, str, chatRecord == null ? new ChatSession(value, uKbyBuid, longValue, null) : chatRecord);
+                        putConversationInternal(bIMConversationMsg);
+                        return bIMConversationMsg;
                     }
                     ChatSession chatSession2 = new ChatSession(value, uKbyBuid, longValue, null);
-                    ChatUserManagerImpl.getInstance(this.mContext).getUserByBuid(longValue, 0, new IGetUserListener() { // from class: com.baidu.android.imsdk.conversation.ConversationManagerImpl.2
+                    ChatUserManagerImpl.getInstance(mContext).getUserByBuid(longValue, 0, new IGetUserListener() { // from class: com.baidu.android.imsdk.conversation.ConversationManagerImpl.2
                         @Override // com.baidu.android.imsdk.chatuser.IGetUserListener
                         public void onGetUserResult(int i, long j, ChatUser chatUser) {
                             BIMConversation conversation;
@@ -204,17 +182,17 @@ public class ConversationManagerImpl {
                             }
                         }
                     });
-                    BIMConversation bIMConversation2 = new BIMConversation(this.mContext, category, str, chatSession2);
-                    putConversationInternal(bIMConversation2);
-                    return bIMConversation2;
+                    BIMConversationMsg bIMConversationMsg2 = new BIMConversationMsg(mContext, category, str, chatSession2);
+                    putConversationInternal(bIMConversationMsg2);
+                    return bIMConversationMsg2;
                 } else if (BIMManager.CATEGORY.GROUP == category) {
-                    ChatSession chatRecord2 = ChatSessionManagerImpl.getInstance(this.mContext).getChatRecord(value, longValue);
+                    ChatSession chatRecord2 = ChatSessionManagerImpl.getInstance(mContext).getChatRecord(value, longValue);
                     if (chatRecord2 == null) {
                         ChatSession chatSession3 = new ChatSession(value, longValue, longValue, null);
                         if (value == 1) {
                             ArrayList arrayList = new ArrayList();
                             arrayList.add(String.valueOf(longValue));
-                            ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(this.mContext, arrayList);
+                            ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
                             if (groupInfo != null && groupInfo.size() > 0 && groupInfo.get(0).getType() == 2 && chatSession3 != null) {
                                 chatSession3.setChatType(4);
                             }
@@ -223,24 +201,24 @@ public class ConversationManagerImpl {
                     } else {
                         chatSession = chatRecord2;
                     }
-                    BIMConversation bIMConversation3 = new BIMConversation(this.mContext, category, str, chatSession);
-                    putConversationInternal(bIMConversation3);
-                    return bIMConversation3;
+                    BIMConversationMsg bIMConversationMsg3 = new BIMConversationMsg(mContext, category, str, chatSession);
+                    putConversationInternal(bIMConversationMsg3);
+                    return bIMConversationMsg3;
                 } else if (BIMManager.CATEGORY.PA == category) {
-                    ChatSession chatRecord3 = ChatSessionManagerImpl.getInstance(this.mContext).getChatRecord(0, longValue);
-                    BIMConversation bIMConversation4 = new BIMConversation(this.mContext, category, str, chatRecord3 == null ? new ChatSession(value, longValue, longValue, null) : chatRecord3);
-                    putConversationInternal(bIMConversation4);
-                    return bIMConversation4;
+                    ChatSession chatRecord3 = ChatSessionManagerImpl.getInstance(mContext).getChatRecord(0, longValue);
+                    BIMConversationMsg bIMConversationMsg4 = new BIMConversationMsg(mContext, category, str, chatRecord3 == null ? new ChatSession(value, longValue, longValue, null) : chatRecord3);
+                    putConversationInternal(bIMConversationMsg4);
+                    return bIMConversationMsg4;
                 } else if (BIMManager.CATEGORY.STUDIO == category) {
-                    BIMConversation bIMConversation5 = new BIMConversation(this.mContext, category, str, new ChatSession(value, longValue, longValue, null));
-                    putConversationInternal(bIMConversation5);
-                    return bIMConversation5;
+                    BIMConversationMsg bIMConversationMsg5 = new BIMConversationMsg(mContext, category, str, new ChatSession(value, longValue, longValue, null));
+                    putConversationInternal(bIMConversationMsg5);
+                    return bIMConversationMsg5;
                 } else {
                     return null;
                 }
             } catch (ClassCastException e) {
                 LogUtils.e(TAG, "Id is not long value", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                 return null;
             }
         }
@@ -251,7 +229,7 @@ public class ConversationManagerImpl {
         BIMConversation bIMConversation = this.mConversationsMaps.get(i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2);
         if (bIMConversation != null && (chatSession = bIMConversation.getChatSession()) != null) {
             chatSession.setName(str);
-            ChatMsgManagerImpl.getInstance(this.mContext).updateChatSeesionName(bIMConversation.getChatSession());
+            ChatMsgManagerImpl.getInstance(mContext).updateChatSeesionName(bIMConversation.getChatSession());
             notifyConversationChange();
         }
     }
@@ -268,8 +246,8 @@ public class ConversationManagerImpl {
         if (bIMConversation == null) {
             return false;
         }
-        ChatMsgManagerImpl.getInstance(this.mContext).deleteAllMsgs(bIMConversation.getCategory().getValue(), bIMConversation.getChatSession().getContacter(), false);
-        return ChatSessionManagerImpl.getInstance(this.mContext).deleteChatSession(bIMConversation.getChatSession());
+        ChatMsgManagerImpl.getInstance(mContext).deleteAllMsgs(bIMConversation.getCategory().getValue(), bIMConversation.getChatSession().getContacter(), false);
+        return ChatSessionManagerImpl.getInstance(mContext).deleteChatSession(bIMConversation.getChatSession());
     }
 
     public ArrayList<BIMConversation> getAllConversation(BIMManager.CATEGORY category) {

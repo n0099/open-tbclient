@@ -6,11 +6,11 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.person.a.e;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PlaybacksResponseMessage extends JsonHttpResponsedMessage {
     public int errCode;
     public String errMsg;
-    public e gzb;
+    public e gEC;
 
     public PlaybacksResponseMessage(int i) {
         super(i);
@@ -25,8 +25,8 @@ public class PlaybacksResponseMessage extends JsonHttpResponsedMessage {
                 this.errCode = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
                 this.errMsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
                 if (!TextUtils.isEmpty(jSONObject.optString("data"))) {
-                    this.gzb = new e();
-                    this.gzb.parserJson(jSONObject.optString("data"));
+                    this.gEC = new e();
+                    this.gEC.parserJson(jSONObject.optString("data"));
                 }
             } catch (Exception e) {
                 BdLog.e(e);

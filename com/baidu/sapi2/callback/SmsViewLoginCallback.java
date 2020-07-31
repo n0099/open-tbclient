@@ -2,7 +2,7 @@ package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public abstract class SmsViewLoginCallback extends WebAuthListener {
     public abstract void onCheckCodeViewHide();
 

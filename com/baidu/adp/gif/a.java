@@ -7,12 +7,12 @@ public interface a {
 
     /* renamed from: com.baidu.adp.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0018a implements a {
+    public static class C0019a implements a {
         private static a Is;
         private int It;
         private final d Iu = new d();
 
-        public C0018a() {
+        public C0019a() {
             this.It = 0;
             if (NSGif.Iw) {
                 this.It = 0;
@@ -23,9 +23,9 @@ public interface a {
 
         public static synchronized a ke() {
             a aVar;
-            synchronized (C0018a.class) {
+            synchronized (C0019a.class) {
                 if (Is == null) {
-                    Is = new C0018a();
+                    Is = new C0019a();
                 }
                 aVar = Is;
             }

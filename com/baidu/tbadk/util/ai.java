@@ -81,7 +81,7 @@ public class ai {
             File file = new File(TbadkCoreApplication.getInst().getCacheDir(), str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + TbConfig.getVersion());
             byte[] bArr = null;
             try {
-                if (file.exists() && (bArr = N(file)) != null) {
+                if (file.exists() && (bArr = R(file)) != null) {
                     wire.parseFrom(bArr, cls);
                 }
                 if (bArr == null) {
@@ -119,7 +119,7 @@ public class ai {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [173=4, 174=4] */
-    private static byte[] N(java.io.File r6) {
+    private static byte[] R(java.io.File r6) {
         /*
             r0 = 0
             if (r6 != 0) goto L4
@@ -182,7 +182,7 @@ public class ai {
             r2 = r0
             goto L24
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.util.ai.N(java.io.File):byte[]");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.util.ai.R(java.io.File):byte[]");
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [200=5] */

@@ -7,13 +7,13 @@ import com.baidu.adp.base.f;
 import com.baidu.adp.base.i;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.GuildActivityConfig;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
 public class c {
-    public static b dV(Context context) {
+    public static b ea(Context context) {
         if (context != null) {
             f<?> F = i.F(context);
             if (F instanceof a) {
@@ -24,15 +24,15 @@ public class c {
         return null;
     }
 
-    public static TbPageTag dW(Context context) {
-        b dV = dV(context);
-        if (dV == null) {
+    public static TbPageTag eb(Context context) {
+        b ea = ea(context);
+        if (ea == null) {
             return null;
         }
-        return dV.bhy();
+        return ea.blj();
     }
 
-    public static TbPageTag dX(Context context) {
+    public static TbPageTag ec(Context context) {
         f<?> F;
         if (context == null || (F = i.F(context)) == null || F.getPageContext() == null || F.getPageContext().getPageActivity() == null) {
             return null;
@@ -47,93 +47,93 @@ public class c {
         return null;
     }
 
-    public static ao a(Context context, ao aoVar) {
-        return (context == null || aoVar == null) ? aoVar : a(aoVar, dV(context));
+    public static ap a(Context context, ap apVar) {
+        return (context == null || apVar == null) ? apVar : a(apVar, ea(context));
     }
 
-    public static ao b(Context context, ao aoVar) {
-        return (context == null || aoVar == null) ? aoVar : b(aoVar, dV(context));
+    public static ap b(Context context, ap apVar) {
+        return (context == null || apVar == null) ? apVar : b(apVar, ea(context));
     }
 
-    public static ao a(ao aoVar, b bVar) {
-        return (bVar == null || aoVar == null) ? aoVar : a(aoVar, bVar.getPrePageTag(), bVar.bhy());
+    public static ap a(ap apVar, b bVar) {
+        return (bVar == null || apVar == null) ? apVar : a(apVar, bVar.getPrePageTag(), bVar.blj());
     }
 
-    public static ao b(ao aoVar, b bVar) {
-        return (bVar == null || aoVar == null) ? aoVar : b(aoVar, bVar.getPrePageTag(), bVar.bhy());
+    public static ap b(ap apVar, b bVar) {
+        return (bVar == null || apVar == null) ? apVar : b(apVar, bVar.getPrePageTag(), bVar.blj());
     }
 
-    public static ao a(ao aoVar, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
-        if (aoVar == null) {
+    public static ap a(ap apVar, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
+        if (apVar == null) {
             return null;
         }
         if (tbPageTag2 != null) {
             if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
-                aoVar.dk("obj_tab", tbPageTag2.locatePage);
+                apVar.dn("obj_tab", tbPageTag2.locatePage);
             }
-            aoVar.ag("sort_tab", tbPageTag2.sortType);
+            apVar.ah("sort_tab", tbPageTag2.sortType);
         }
         if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
-            aoVar.dk(GuildActivityConfig.FROM_PAGE, tbPageTag.locatePage);
-            return aoVar;
+            apVar.dn(GuildActivityConfig.FROM_PAGE, tbPageTag.locatePage);
+            return apVar;
         }
-        return aoVar;
+        return apVar;
     }
 
-    public static ao b(ao aoVar, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
-        if (aoVar == null) {
+    public static ap b(ap apVar, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
+        if (apVar == null) {
             return null;
         }
         if (tbPageTag2 != null) {
             if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
-                aoVar.dk("obj_page", tbPageTag2.locatePage);
+                apVar.dn("obj_page", tbPageTag2.locatePage);
             }
-            aoVar.ag("sort_tab", tbPageTag2.sortType);
+            apVar.ah("sort_tab", tbPageTag2.sortType);
         }
         if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
-            aoVar.dk("obj_tab", tbPageTag.locatePage);
-            return aoVar;
+            apVar.dn("obj_tab", tbPageTag.locatePage);
+            return apVar;
         }
-        return aoVar;
+        return apVar;
     }
 
-    public static ao a(ao aoVar, TbPageTag tbPageTag) {
-        if (tbPageTag == null || aoVar == null) {
+    public static ap a(ap apVar, TbPageTag tbPageTag) {
+        if (tbPageTag == null || apVar == null) {
             return null;
         }
         if (!TextUtils.isEmpty(tbPageTag.locatePage)) {
-            aoVar.dk("obj_tab", tbPageTag.locatePage);
+            apVar.dn("obj_tab", tbPageTag.locatePage);
         }
-        aoVar.ag("sort_tab", tbPageTag.sortType);
-        return aoVar;
+        apVar.ah("sort_tab", tbPageTag.sortType);
+        return apVar;
     }
 
-    private static ao c(Context context, ao aoVar) {
-        if (context == null || aoVar == null) {
+    private static ap c(Context context, ap apVar) {
+        if (context == null || apVar == null) {
             return null;
         }
-        TbPageTag dX = dX(context);
-        if (dX != null) {
-            if (!TextUtils.isEmpty(dX.locatePage)) {
-                aoVar.dk("obj_tab", dX.locatePage);
+        TbPageTag ec = ec(context);
+        if (ec != null) {
+            if (!TextUtils.isEmpty(ec.locatePage)) {
+                apVar.dn("obj_tab", ec.locatePage);
             }
-            aoVar.ag("sort_tab", dX.sortType);
-            return aoVar;
+            apVar.ah("sort_tab", ec.sortType);
+            return apVar;
         }
-        return aoVar;
+        return apVar;
     }
 
-    public static ao a(Context context, bu buVar, String str) {
-        if (context == null || buVar == null || StringUtils.isNull(str)) {
+    public static ap a(Context context, bv bvVar, String str) {
+        if (context == null || bvVar == null || StringUtils.isNull(str)) {
             return null;
         }
-        ao aoVar = new ao(str);
-        aoVar.dk("tid", buVar.getId()).s("fid", buVar.getFid()).ag(IntentConfig.CARD_TYPE, buVar.aUp()).dk("nid", buVar.getNid());
-        if (buVar.getBaijiahaoData() != null && !ar.isEmpty(buVar.getBaijiahaoData().oriUgcVid)) {
-            aoVar.dk("obj_param6", buVar.getBaijiahaoData().oriUgcVid);
+        ap apVar = new ap(str);
+        apVar.dn("tid", bvVar.getId()).t("fid", bvVar.getFid()).ah(IntentConfig.CARD_TYPE, bvVar.aYk()).dn("nid", bvVar.getNid());
+        if (bvVar.getBaijiahaoData() != null && !as.isEmpty(bvVar.getBaijiahaoData().oriUgcVid)) {
+            apVar.dn("obj_param6", bvVar.getBaijiahaoData().oriUgcVid);
         }
-        aoVar.dk("weight", buVar.mRecomWeight).dk("ab_tag", buVar.mRecomAbTag).dk("extra", buVar.mRecomExtra).dk("source", buVar.mRecomSource);
-        c(context, aoVar);
-        return aoVar;
+        apVar.dn("weight", bvVar.mRecomWeight).dn("ab_tag", bvVar.mRecomAbTag).dn("extra", bvVar.mRecomExtra).dn("source", bvVar.mRecomSource);
+        c(context, apVar);
+        return apVar;
     }
 }

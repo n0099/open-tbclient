@@ -7,20 +7,20 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.data.bu;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.as;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static final List<String> lDg = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
+    private static final List<String> lKv = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
 
-    public static String MQ(String str) {
+    public static String Ny(String str) {
         return "enterfourm_att_" + str;
     }
 
-    public static String MR(String str) {
+    public static String Nz(String str) {
         return "enterfourm_rec_" + str;
     }
 
@@ -51,128 +51,128 @@ public class a {
         return str3;
     }
 
-    public static ao a(bu buVar, String str, String str2, int i, int i2, boolean z, String str3, String str4) {
-        return a(true, buVar, str, str2, i, i2, z, str3, str4, false, "", 0);
+    public static ap a(bv bvVar, String str, String str2, int i, int i2, boolean z, String str3, String str4) {
+        return a(true, bvVar, str, str2, i, i2, z, str3, str4, false, "", 0);
     }
 
-    public static ao a(bu buVar, String str, String str2, int i, int i2, boolean z, String str3, String str4, int i3) {
-        if (buVar == null) {
+    public static ap a(bv bvVar, String str, String str2, int i, int i2, boolean z, String str3, String str4, int i3) {
+        if (bvVar == null) {
             return null;
         }
-        return a(true, buVar, str, str2, i, i2, z, str3, str4, false, "", i3);
+        return a(true, bvVar, str, str2, i, i2, z, str3, str4, false, "", i3);
     }
 
-    public static ao a(bu buVar, String str, String str2, int i, boolean z, String str3, String str4) {
-        return a(false, buVar, str, str2, -1, i, z, str3, str4, false, "", 0);
+    public static ap a(bv bvVar, String str, String str2, int i, boolean z, String str3, String str4) {
+        return a(false, bvVar, str, str2, -1, i, z, str3, str4, false, "", 0);
     }
 
-    public static ao a(bu buVar, String str, String str2, int i, boolean z, String str3, String str4, int i2) {
-        if (buVar == null) {
+    public static ap a(bv bvVar, String str, String str2, int i, boolean z, String str3, String str4, int i2) {
+        if (bvVar == null) {
             return null;
         }
-        return a(false, buVar, str, str2, -1, i, z, str3, str4, false, "", i2);
+        return a(false, bvVar, str, str2, -1, i, z, str3, str4, false, "", i2);
     }
 
-    public static ao b(String str, String str2, boolean z, int i) {
-        return b(str, str2, z, i, 0);
+    public static ap b(String str, String str2, boolean z, int i) {
+        return a(str, str2, z, i, 0);
     }
 
-    public static ao b(String str, String str2, boolean z, int i, int i2) {
-        ao aoVar = new ao(str2);
-        aoVar.dk("page_type", str).ag("ad_exp", z ? 1 : 0).ag("ad_exp_cnt", i).ag("obj_floor", 0).ag("obj_adlocate", i2);
-        if (str != null && lDg.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            aoVar.dk("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().ejy);
+    public static ap a(String str, String str2, boolean z, int i, int i2) {
+        ap apVar = new ap(str2);
+        apVar.dn("page_type", str).ah("ad_exp", z ? 1 : 0).ah("ad_exp_cnt", i).ah("obj_floor", 0).ah("obj_adlocate", i2);
+        if (str != null && lKv.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+            apVar.dn("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().epK);
         }
-        return aoVar;
+        return apVar;
     }
 
-    public static ao a(bu buVar, String str, String str2, int i, int i2, String str3) {
-        if (buVar == null) {
+    public static ap a(bv bvVar, String str, String str2, int i, int i2, String str3) {
+        if (bvVar == null) {
             return null;
         }
-        return a(true, buVar, str, str2, i, i2, false, "", null, true, str3, 0);
+        return a(true, bvVar, str, str2, i, i2, false, "", null, true, str3, 0);
     }
 
-    public static ao a(bu buVar, String str, String str2, int i, String str3) {
-        if (buVar == null) {
+    public static ap a(bv bvVar, String str, String str2, int i, String str3) {
+        if (bvVar == null) {
             return null;
         }
-        return a(false, buVar, str, str2, -1, i, false, "", null, true, str3, 0);
+        return a(false, bvVar, str, str2, -1, i, false, "", null, true, str3, 0);
     }
 
-    public static ao a(boolean z, bu buVar, String str, String str2, int i, int i2, boolean z2, String str3, String str4, boolean z3, String str5, int i3) {
-        ao aoVar = new ao(str2);
-        aoVar.dk("page_type", str).ag("obj_floor", i2).ag("obj_isad", z2 ? 1 : 0).dk("obj_id", a(z2, str3, z3, str5, buVar.getId(), buVar.getBaijiahaoData())).dk("tid", buVar.getTid()).ag("thread_type", z2 ? -1 : buVar.getThreadType()).ag("obj_adlocate", i3).dk("nid", buVar.getNid());
-        if (!ar.isEmpty(buVar.aTL())) {
-            aoVar.dk("list_strategy", buVar.aTL());
+    public static ap a(boolean z, bv bvVar, String str, String str2, int i, int i2, boolean z2, String str3, String str4, boolean z3, String str5, int i3) {
+        ap apVar = new ap(str2);
+        apVar.dn("page_type", str).ah("obj_floor", i2).ah("obj_isad", z2 ? 1 : 0).dn("obj_id", a(z2, str3, z3, str5, bvVar.getId(), bvVar.getBaijiahaoData())).dn("tid", bvVar.getTid()).ah("thread_type", z2 ? -1 : bvVar.getThreadType()).ah("obj_adlocate", i3).dn("nid", bvVar.getNid());
+        if (!as.isEmpty(bvVar.aXH())) {
+            apVar.dn("list_strategy", bvVar.aXH());
         }
-        if (str != null && lDg.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().ejy)) {
-            aoVar.dk("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().ejy);
-        } else if (!ar.isEmpty(buVar.mRecomAbTag)) {
-            aoVar.dk("ab_tag", buVar.mRecomAbTag);
+        if (str != null && lKv.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().epK)) {
+            apVar.dn("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().epK);
+        } else if (!as.isEmpty(bvVar.mRecomAbTag)) {
+            apVar.dn("ab_tag", bvVar.mRecomAbTag);
         }
         if (z) {
-            aoVar.ag("obj_locate", i);
+            apVar.ah("obj_locate", i);
         }
-        if (buVar.getFid() > 0) {
-            aoVar.s("fid", buVar.getFid());
+        if (bvVar.getFid() > 0) {
+            apVar.t("fid", bvVar.getFid());
         }
-        if (!StringUtils.isNull(buVar.aTX())) {
-            aoVar.dk("first_dir", buVar.aTX());
+        if (!StringUtils.isNull(bvVar.aXT())) {
+            apVar.dn("first_dir", bvVar.aXT());
         }
-        if (!StringUtils.isNull(buVar.aTY())) {
-            aoVar.dk("second_dir", buVar.aTY());
+        if (!StringUtils.isNull(bvVar.aXU())) {
+            apVar.dn("second_dir", bvVar.aXU());
         }
-        if (buVar.getBaijiahaoData() != null) {
-            aoVar.dk("ugc_vid", buVar.getBaijiahaoData().oriUgcVid);
-            aoVar.dk("ugc_nid", buVar.getBaijiahaoData().oriUgcNid);
+        if (bvVar.getBaijiahaoData() != null) {
+            apVar.dn("ugc_vid", bvVar.getBaijiahaoData().oriUgcVid);
+            apVar.dn("ugc_nid", bvVar.getBaijiahaoData().oriUgcNid);
         }
         if (!StringUtils.isNull(str4)) {
-            aoVar.dk("pid", str4);
+            apVar.dn("pid", str4);
         }
-        return aoVar;
+        return apVar;
     }
 
-    public static ao a(boolean z, String str, String str2, int i, int i2, boolean z2, String str3, String str4, int i3) {
-        ao aoVar = new ao(str2);
-        ao ag = aoVar.dk("page_type", str).ag("obj_floor", i2).ag("obj_isad", z2 ? 1 : 0);
+    public static ap a(boolean z, String str, String str2, int i, int i2, boolean z2, String str3, String str4, int i3) {
+        ap apVar = new ap(str2);
+        ap ah = apVar.dn("page_type", str).ah("obj_floor", i2).ah("obj_isad", z2 ? 1 : 0);
         if (!z2) {
             str3 = str4;
         }
-        ag.dk("obj_id", str3).ag("obj_adlocate", i3);
-        if (str != null && lDg.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            aoVar.dk("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().ejy);
+        ah.dn("obj_id", str3).ah("obj_adlocate", i3);
+        if (str != null && lKv.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+            apVar.dn("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().epK);
         }
         if (z) {
-            aoVar.ag("obj_locate", i);
+            apVar.ah("obj_locate", i);
         }
-        return aoVar;
+        return apVar;
     }
 
-    public static ao c(String str, bu buVar) {
-        return a(str, buVar, 0, 0);
+    public static ap c(String str, bv bvVar) {
+        return a(str, bvVar, 0, 0);
     }
 
-    public static ao a(String str, bu buVar, int i) {
-        return a(str, buVar, i, 0);
+    public static ap a(String str, bv bvVar, int i) {
+        return a(str, bvVar, i, 0);
     }
 
-    public static ao a(String str, bu buVar, int i, int i2) {
-        if (buVar == null) {
+    public static ap a(String str, bv bvVar, int i, int i2) {
+        if (bvVar == null) {
             return null;
         }
-        ao aoVar = new ao(str);
-        aoVar.dk("tid", buVar.getTid()).s("fid", buVar.getFid()).dk("uid", TbadkCoreApplication.getCurrentAccount());
+        ap apVar = new ap(str);
+        apVar.dn("tid", bvVar.getTid()).t("fid", bvVar.getFid()).dn("uid", TbadkCoreApplication.getCurrentAccount());
         if (i != 0) {
-            aoVar.ag("obj_locate", i);
+            apVar.ah("obj_locate", i);
         }
         if (i2 != 0) {
-            aoVar.ag("obj_type", i2);
+            apVar.ah("obj_type", i2);
         }
         if (BdLog.isDebugMode()) {
-            Log.d("CardSimpleStatisticItem", aoVar.toString());
-            return aoVar;
+            Log.d("CardSimpleStatisticItem", apVar.toString());
+            return apVar;
         }
-        return aoVar;
+        return apVar;
     }
 }

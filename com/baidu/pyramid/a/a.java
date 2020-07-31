@@ -1,5 +1,5 @@
 package com.baidu.pyramid.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public interface a<T> {
     T get();
 }

@@ -1,16 +1,15 @@
 package com.baidu.swan.apps.media.c.a;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b extends aa {
-    private a ctp;
-    private e ctq;
-    private d ctr;
+    private a cvt;
+    private e cvu;
+    private d cvv;
 
     public b(j jVar) {
         super(jVar, "/swanAPI/vrvideo");
@@ -18,18 +17,14 @@ public class b extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (DEBUG) {
-            Log.d("VrVideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
-            return false;
-        }
+        com.baidu.swan.apps.console.c.c("VrVideoPlayerAction", "handle entity: ", unitedSchemeEntity);
         return false;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar) {
         boolean a;
-        com.baidu.swan.apps.console.c.d("VrVideoPlayerAction", "handleSubAction subAction : " + str);
-        com.baidu.swan.apps.console.c.d("VrVideoPlayerAction", "params : " + b(unitedSchemeEntity, "params"));
+        com.baidu.swan.apps.console.c.c("VrVideoPlayerAction", "handleSubAction subAction : " + str + "params : ", b(unitedSchemeEntity, "params"));
         char c = 65535;
         switch (str.hashCode()) {
             case 533456719:
@@ -53,22 +48,22 @@ public class b extends aa {
         }
         switch (c) {
             case 0:
-                if (this.ctp == null) {
-                    this.ctp = new a("/swanAPI/vrvideo/open");
+                if (this.cvt == null) {
+                    this.cvt = new a("/swanAPI/vrvideo/open");
                 }
-                a = this.ctp.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.cvt.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 1:
-                if (this.ctq == null) {
-                    this.ctq = new e("/swanAPI/vrvideo/update");
+                if (this.cvu == null) {
+                    this.cvu = new e("/swanAPI/vrvideo/update");
                 }
-                a = this.ctq.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.cvu.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 2:
-                if (this.ctr == null) {
-                    this.ctr = new d("/swanAPI/vrvideo/remove");
+                if (this.cvv == null) {
+                    this.cvv = new d("/swanAPI/vrvideo/remove");
                 }
-                a = this.ctr.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.cvv.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             default:
                 a = false;

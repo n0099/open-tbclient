@@ -1,53 +1,27 @@
 package com.baidu.tieba.k;
 /* loaded from: classes.dex */
 public interface i {
-    void Am(int i);
+    void AL(int i);
 
-    void An(int i);
+    void AM(int i);
 
-    void Ao(int i);
+    void AN(int i);
 
-    void IZ(String str);
+    void JO(String str);
 
-    void Ja(String str);
+    String JP(String str);
 
-    String Jb(String str);
+    boolean JQ(String str);
 
-    boolean Jc(String str);
+    void ae(boolean z, boolean z2);
 
-    void Jd(String str);
+    void cGr();
 
-    String a(int i, int i2, int i3, String str, boolean z, long j, String str2);
-
-    void a(int i, String str, int i2, int i3, int i4, String str2, int i5);
-
-    void a(b bVar);
-
-    void ad(boolean z, boolean z2);
-
-    void cCA();
-
-    void cCB();
-
-    String cCC();
-
-    String cCD();
-
-    void cCw();
-
-    void cCx();
-
-    void cCy();
-
-    void cCz();
+    void cGs();
 
     void h(long j, long j2, long j3);
 
-    void m(int i, int i2, String str);
+    void ro(boolean z);
 
-    void qH(boolean z);
-
-    void qI(boolean z);
-
-    void s(long j, int i);
+    void t(long j, int i);
 }

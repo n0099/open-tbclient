@@ -7,7 +7,7 @@ import com.baidubce.auth.BceCredentials;
 import com.baidubce.http.RetryPolicy;
 import com.baidubce.util.CheckUtils;
 import java.net.InetAddress;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class BosClientConfiguration extends BceClientConfiguration {
     public static final int DEFAULT_STREAM_BUFFER_SIZE = 5242880;
     private Boolean cnameEnabled;

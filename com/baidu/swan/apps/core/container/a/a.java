@@ -2,52 +2,57 @@ package com.baidu.swan.apps.core.container.a;
 
 import android.util.Log;
 import com.baidu.browser.sailor.BdSailor;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.adaptation.b.i;
+import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a implements i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private volatile boolean bZl;
-    private volatile boolean bZm;
-    private InterfaceC0339a bZn;
-    private WebKitFactory.IForceInitZeusListener bZo;
+    private volatile boolean caC;
+    private volatile boolean caD;
+    private int caE;
+    private InterfaceC0341a caF;
+    private WebKitFactory.IForceInitZeusListener caG;
     private ArrayList<com.baidu.swan.apps.core.container.a.b> mListeners;
     private final Lock mLock;
 
     /* renamed from: com.baidu.swan.apps.core.container.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0339a {
-        void Sl();
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0341a {
+        void SC();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static class b {
-        public static final a bZq = new a();
+        public static final a caI = new a();
     }
 
     private a() {
         this.mListeners = new ArrayList<>();
         this.mLock = new ReentrantLock();
-        this.bZl = false;
-        this.bZm = false;
-        this.bZn = new InterfaceC0339a() { // from class: com.baidu.swan.apps.core.container.a.a.1
-            @Override // com.baidu.swan.apps.core.container.a.a.InterfaceC0339a
-            public void Sl() {
+        this.caC = false;
+        this.caD = false;
+        this.caE = -1;
+        this.caF = new InterfaceC0341a() { // from class: com.baidu.swan.apps.core.container.a.a.1
+            @Override // com.baidu.swan.apps.core.container.a.a.InterfaceC0341a
+            public void SC() {
                 try {
                     a.this.mLock.lock();
-                    a.this.bZm = true;
-                    a.this.YT();
+                    a.this.caD = true;
+                    a.this.ZJ();
+                    a.this.ZM();
                 } finally {
                     a.this.mLock.unlock();
                 }
             }
         };
-        this.bZo = new WebKitFactory.IForceInitZeusListener() { // from class: com.baidu.swan.apps.core.container.a.a.2
+        this.caG = new WebKitFactory.IForceInitZeusListener() { // from class: com.baidu.swan.apps.core.container.a.a.2
             @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
             public void onForceInitZeusStart() {
                 if (a.DEBUG) {
@@ -59,30 +64,40 @@ public class a implements i {
             public void onForceInitZeusFinish(boolean z) {
                 try {
                     a.this.mLock.lock();
-                    a.this.bZl = true;
-                    a.this.YT();
+                    a.this.caC = true;
+                    a.this.ZM();
                     a.this.mLock.unlock();
-                    BdSailor.getInstance().removeForceInitListener(a.this.bZo);
+                    BdSailor.getInstance().removeForceInitListener(a.this.caG);
                 } catch (Throwable th) {
                     a.this.mLock.unlock();
                     throw th;
                 }
             }
         };
-        BdSailor.addForceInitListener(this.bZo);
-        com.baidu.swan.apps.u.a.agt().a(this.bZn);
+        BdSailor.addForceInitListener(this.caG);
+        com.baidu.swan.apps.t.a.ahG().a(this.caF);
     }
 
-    public static a YR() {
-        return b.bZq;
+    /* JADX INFO: Access modifiers changed from: private */
+    public synchronized void ZJ() {
+        if (this.caE == -1) {
+            this.caE = com.baidu.swan.apps.t.a.ahm().getSwitch("swan_enable_file_in_io", 0);
+        }
+        if (!ProcessUtils.isMainProcess() && this.caE == 1) {
+            WebSettingsGlobalBlink.setFileInIOEnabled(true);
+        }
     }
 
-    public void YS() {
-        dC(false);
+    public static a ZK() {
+        return b.caI;
     }
 
-    public void dC(boolean z) {
-        com.baidu.swan.apps.u.a.agt().dh(z);
+    public void ZL() {
+        dF(false);
+    }
+
+    public void dF(boolean z) {
+        com.baidu.swan.apps.t.a.ahG().dk(z);
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.i
@@ -94,7 +109,7 @@ public class a implements i {
                     this.mListeners.add(bVar);
                 }
                 if (isLoaded()) {
-                    YT();
+                    ZM();
                 }
             }
         } finally {
@@ -115,7 +130,7 @@ public class a implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void YT() {
+    public void ZM() {
         try {
             this.mLock.lock();
             if (isLoaded()) {
@@ -123,7 +138,7 @@ public class a implements i {
                 while (it.hasNext()) {
                     com.baidu.swan.apps.core.container.a.b next = it.next();
                     if (next != null) {
-                        next.Sl();
+                        next.SC();
                     }
                 }
                 this.mListeners.clear();
@@ -144,11 +159,11 @@ public class a implements i {
         try {
             this.mLock.lock();
             if (DEBUG) {
-                Log.d("NgWebViewInitHelper", "isLoaded() mIsBlinkInited: " + this.bZm);
-                Log.d("NgWebViewInitHelper", "isLoaded() mIsZeusForceInited: " + this.bZl + " ,isZeusForceInited: " + isZeusForceInited());
+                Log.d("NgWebViewInitHelper", "isLoaded() mIsBlinkInited: " + this.caD);
+                Log.d("NgWebViewInitHelper", "isLoaded() mIsZeusForceInited: " + this.caC + " ,isZeusForceInited: " + isZeusForceInited());
             }
-            if (this.bZm) {
-                if (!this.bZl) {
+            if (this.caD) {
+                if (!this.caC) {
                 }
                 z = true;
                 return z;

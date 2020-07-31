@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.walknavi.d.a.g;
 
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class c {
     public static boolean a(File file) {
         if (file == null) {

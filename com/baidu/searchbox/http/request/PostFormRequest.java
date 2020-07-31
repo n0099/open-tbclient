@@ -6,7 +6,7 @@ import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class PostFormRequest extends HttpParaRequest<PostFormRequestBuilder> {
     public PostFormRequest(PostFormRequestBuilder postFormRequestBuilder) {
         super(postFormRequestBuilder);
@@ -41,7 +41,7 @@ public class PostFormRequest extends HttpParaRequest<PostFormRequestBuilder> {
         return this.okRequestBuilder.post(requestBody).build();
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public static class PostFormRequestBuilder extends HttpRequestParasBuilder<PostFormRequestBuilder> {
         public PostFormRequestBuilder(AbstractHttpManager abstractHttpManager) {
             super(abstractHttpManager);

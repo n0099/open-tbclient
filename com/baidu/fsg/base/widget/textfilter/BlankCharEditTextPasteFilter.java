@@ -1,7 +1,7 @@
 package com.baidu.fsg.base.widget.textfilter;
 
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BlankCharEditTextPasteFilter implements IEditTextPasteFilter {
     private static final String a = BlankCharEditTextPasteFilter.class.getSimpleName();
 

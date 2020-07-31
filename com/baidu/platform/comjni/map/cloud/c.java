@@ -1,5 +1,5 @@
 package com.baidu.platform.comjni.map.cloud;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class c implements Runnable {
     final /* synthetic */ String a;
     final /* synthetic */ b b;

@@ -2,11 +2,11 @@ package com.baidu.live.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaGetLiveStatusHttpResponseMessage extends JsonHttpResponsedMessage {
+    public String aZd;
+    public String aZe;
     public String aZf;
-    public String aZg;
-    public String aZh;
     public long liveId;
 
     public AlaGetLiveStatusHttpResponseMessage() {
@@ -19,9 +19,9 @@ public class AlaGetLiveStatusHttpResponseMessage extends JsonHttpResponsedMessag
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.liveId = optJSONObject.optLong("liveId");
-            this.aZf = optJSONObject.optString("queryType");
-            this.aZg = optJSONObject.optString("queryResult");
-            this.aZh = optJSONObject.optString("requestType");
+            this.aZd = optJSONObject.optString("queryType");
+            this.aZe = optJSONObject.optString("queryResult");
+            this.aZf = optJSONObject.optString("requestType");
         }
     }
 }

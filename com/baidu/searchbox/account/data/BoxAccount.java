@@ -5,7 +5,7 @@ import com.baidu.searchbox.account.contants.AccountConstants;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes9.dex */
 public class BoxAccount {
     private boolean addressSwitch;
     private int age;
@@ -347,7 +347,7 @@ public class BoxAccount {
         return null;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes9.dex */
     public class ErrorBean {
         private int errorCode;
         private String errorMsg;

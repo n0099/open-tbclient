@@ -2,7 +2,7 @@ package com.baidu.sapi2.views;
 
 import android.animation.ValueAnimator;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class a implements ValueAnimator.AnimatorUpdateListener {
     final /* synthetic */ ClipBoxView a;
 

@@ -4,27 +4,27 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static int cdO = -1;
+    private static int cfv = -1;
 
-    public static int abB() {
-        if (com.baidu.swan.apps.af.a.a.ang()) {
-            cdO = 2;
-            return cdO;
+    public static int acD() {
+        if (com.baidu.swan.apps.ae.a.a.aoP()) {
+            cfv = 2;
+            return cfv;
         }
-        if (DEBUG && cdO == -1) {
-            cdO = abC();
-            Log.d("PrefetchABSwitcher", "getPrefetchABSwitch switch: " + cdO);
+        if (DEBUG && cfv == -1) {
+            cfv = acE();
+            Log.d("PrefetchABSwitcher", "getPrefetchABSwitch switch: " + cfv);
         }
-        if (cdO == -1) {
-            cdO = com.baidu.swan.apps.u.a.aga().getSwitch("swan_prefetch_policy", 0);
+        if (cfv == -1) {
+            cfv = com.baidu.swan.apps.t.a.ahm().getSwitch("swan_prefetch_policy", 0);
         }
-        return cdO;
+        return cfv;
     }
 
-    public static int abC() {
+    public static int acE() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("swan_prefetch_policy", -1);
     }
 }

@@ -3,13 +3,13 @@ package com.baidu.swan.apps.canvas.a.a;
 import android.graphics.Canvas;
 import android.graphics.Typeface;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class o extends a {
-    String bTb = "sans-serif";
-    float bTc = com.baidu.swan.apps.aq.ag.D(10.0f);
-    boolean bTd = false;
+    String bTT = "sans-serif";
+    float bTU = com.baidu.swan.apps.aq.ai.D(10.0f);
+    boolean bTV = false;
     boolean mItalic = false;
-    boolean bTe = true;
+    boolean bTW = true;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
@@ -22,9 +22,9 @@ public class o extends a {
                     } else if (str.contains("oblique")) {
                         this.mItalic = true;
                     } else if (str.contains("bold")) {
-                        this.bTd = true;
+                        this.bTV = true;
                     } else if (str.contains("normal")) {
-                        this.bTe = true;
+                        this.bTW = true;
                     } else if (Character.isDigit(str.charAt(0))) {
                         int length = str.length();
                         int i = 0;
@@ -38,9 +38,9 @@ public class o extends a {
                                 i++;
                             }
                         }
-                        this.bTc = com.baidu.swan.apps.aq.ag.D(Float.parseFloat(str.substring(0, i)));
+                        this.bTU = com.baidu.swan.apps.aq.ai.D(Float.parseFloat(str.substring(0, i)));
                     } else {
-                        this.bTb = str;
+                        this.bTT = str;
                     }
                 }
             }
@@ -54,14 +54,14 @@ public class o extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         int i = 0;
-        if (this.bTd && this.mItalic) {
+        if (this.bTV && this.mItalic) {
             i = 3;
-        } else if (this.bTd) {
+        } else if (this.bTV) {
             i = 1;
         } else if (this.mItalic) {
             i = 2;
         }
-        bVar.bSE.setTypeface(Typeface.create(this.bTb, i));
-        bVar.bSE.setTextSize(this.bTc);
+        bVar.bTw.setTypeface(Typeface.create(this.bTT, i));
+        bVar.bTw.setTextSize(this.bTU);
     }
 }

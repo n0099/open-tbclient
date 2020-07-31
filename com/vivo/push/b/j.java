@@ -1,7 +1,7 @@
 package com.vivo.push.b;
 
 import com.baidu.android.imsdk.IMConstants;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class j extends com.vivo.push.y {
     private String a;
 

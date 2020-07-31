@@ -4,71 +4,71 @@ import android.content.Context;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface a {
-    public static final AtomicReference<a> bEl = new AtomicReference<>();
+    public static final AtomicReference<a> bEI = new AtomicReference<>();
 
     @NonNull
-    String OA();
+    Context OO();
 
     @NonNull
-    String OB();
-
-    @NonNull
-    String OC();
-
-    @NonNull
-    String OD();
-
-    @NonNull
-    String OE();
-
-    @NonNull
-    String OF();
-
-    @NonNull
-    String OG();
-
-    @NonNull
-    String OH();
-
-    @NonNull
-    String OI();
-
-    boolean OJ();
-
-    @NonNull
-    String OK();
-
-    boolean OL();
-
-    String OM();
-
-    String ON();
-
-    String[] OO();
-
     String OP();
 
+    @NonNull
     String OQ();
 
-    @IdRes
-    int OR();
+    @NonNull
+    String OR();
 
-    @IdRes
-    int OS();
+    @NonNull
+    String OS();
 
-    @IdRes
-    int OT();
+    @NonNull
+    String OT();
 
+    @NonNull
     String OU();
 
-    int OV();
+    @NonNull
+    String OV();
 
+    @NonNull
     String OW();
 
     @NonNull
-    Context Oz();
+    String OX();
+
+    boolean OY();
+
+    @NonNull
+    String OZ();
+
+    boolean Pa();
+
+    String Pb();
+
+    String Pc();
+
+    String[] Pd();
+
+    String Pe();
+
+    String Pf();
+
+    @IdRes
+    int Pg();
+
+    @IdRes
+    int Ph();
+
+    @IdRes
+    int Pi();
+
+    String Pj();
+
+    int Pk();
+
+    String Pl();
 
     boolean a(String str, com.baidu.prologue.c.b bVar);
 
@@ -76,7 +76,7 @@ public interface a {
     String androidId();
 
     @NonNull
-    String pT();
+    String pU();
 
     @NonNull
     String userAgent();

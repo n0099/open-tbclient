@@ -23,7 +23,7 @@ import com.baidu.fsg.face.liveness.d;
 import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
 import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LivenessRecogGuidActivity extends LivenessBaseActivity {
     public static final String EXTRA_PARAM_SWITCH_RECORD_VIDEO = "extra_switch_record_video";
     private Button a;

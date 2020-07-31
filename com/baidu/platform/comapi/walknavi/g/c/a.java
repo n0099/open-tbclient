@@ -1,17 +1,17 @@
 package com.baidu.platform.comapi.walknavi.g.c;
 
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static int a = -1;
     private static final int[] b = {500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 30, 20, 10};
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     static class b {
         static final a a = new a();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface c {
         void a(int i, int i2);
     }
@@ -136,53 +136,53 @@ public class a {
 
     public int a(int i) {
         if (i == 0 || i == 1 || i == 2) {
-            return R.drawable.aiapps_entry_guide_nightmode_mask;
+            return R.drawable.aiapps_favorite_guide_bg;
         }
         if (i == 3) {
-            return R.drawable.aiapps_favorite_guide_add_bg;
+            return R.drawable.aiapps_favorite_guide_checkbox_normal;
         }
         if (i == 4) {
-            return R.drawable.aiapps_favorite_guide_arrow;
+            return R.drawable.aiapps_favorite_guide_checkbox_selector;
         }
         if (i == 5) {
-            return R.drawable.aiapps_empty_icon_error;
-        }
-        if (i == 6) {
-            return R.drawable.aiapps_enter_fullscreen;
-        }
-        if (i == 7) {
             return R.drawable.aiapps_emptyview_btn_bg_pressed;
         }
-        if (i == 8) {
-            return R.drawable.aiapps_discovery_home_menu_item_selector;
-        }
-        if (i == 9) {
-            return R.drawable.aiapps_emptyview_btn_bg;
-        }
-        if (i == 10) {
-            return R.drawable.aiapps_empty_icon_network;
-        }
-        if (i == 11) {
+        if (i == 6) {
             return R.drawable.aiapps_favorite_guide_add_text;
         }
-        if (i == 12) {
-            return R.drawable.aiapps_discovery_feedback_menu_bg;
+        if (i == 7) {
+            return R.drawable.aiapps_favorite_guide_add_bg;
         }
-        if (i == 13) {
-            return R.drawable.aiapps_dialog_btn_bg_day_right;
+        if (i == 8) {
+            return R.drawable.aiapps_emptyview_btn_bg_default;
         }
-        if (i == 14) {
+        if (i == 9) {
             return R.drawable.aiapps_entry_guide_bg;
         }
+        if (i == 10) {
+            return R.drawable.aiapps_enter_fullscreen;
+        }
+        if (i == 11) {
+            return R.drawable.aiapps_favorite_guide_checkbox_selected;
+        }
+        if (i == 12) {
+            return R.drawable.aiapps_emptyview_btn_bg;
+        }
+        if (i == 13) {
+            return R.drawable.aiapps_empty_icon_network;
+        }
+        if (i == 14) {
+            return R.drawable.aiapps_favorite_guide_arrow;
+        }
         if (i == 15) {
-            return R.drawable.aiapps_emptyview_btn_bg_default;
+            return R.drawable.aiapps_entry_guide_nightmode_mask;
         }
         return -1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class C0232a {
         public int a;
         public int b;

@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.view.View;
 import io.flutter.embedding.android.SplashScreen;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public final class ViewSplashScreen implements SplashScreen {
     private final long crossfadeDurationInMillis = 5;
     private final View splashView;
@@ -17,11 +17,13 @@ public final class ViewSplashScreen implements SplashScreen {
         this.splashView = view;
     }
 
+    @Override // io.flutter.embedding.android.SplashScreen
     @Nullable
     public View createSplashView(@NonNull Context context, @Nullable Bundle bundle) {
         return this.splashView;
     }
 
+    @Override // io.flutter.embedding.android.SplashScreen
     @RequiresApi(api = 12)
     public void transitionToFlutter(@NonNull final Runnable runnable) {
         if (this.splashView == null) {
@@ -49,10 +51,12 @@ public final class ViewSplashScreen implements SplashScreen {
         }
     }
 
+    @Override // io.flutter.embedding.android.SplashScreen
     public boolean doesSplashViewRememberItsTransition() {
         return false;
     }
 
+    @Override // io.flutter.embedding.android.SplashScreen
     public Bundle saveSplashScreenState() {
         return null;
     }

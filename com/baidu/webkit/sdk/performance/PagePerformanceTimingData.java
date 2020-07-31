@@ -1,5 +1,5 @@
 package com.baidu.webkit.sdk.performance;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class PagePerformanceTimingData {
     public long mConnectEnd;
     public long mConnectStart;

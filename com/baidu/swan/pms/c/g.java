@@ -4,12 +4,12 @@ import com.baidu.searchbox.http.callback.StatResponseCallback;
 import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.swan.pms.c.f;
 import okhttp3.Response;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class g implements StatResponseCallback<String> {
-    private final f.a dqA;
+    private final f.a dws;
 
     public g(f.a aVar) {
-        this.dqA = aVar;
+        this.dws = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,8 +22,8 @@ public class g implements StatResponseCallback<String> {
             str = response.request().url().toString();
             str2 = response.body().string();
         }
-        if (HJ()) {
-            this.dqA.b(str, str2, networkStatRecord.toUBCJson());
+        if (HP()) {
+            this.dws.b(str, str2, networkStatRecord.toUBCJson());
         }
         return str2;
     }
@@ -31,19 +31,19 @@ public class g implements StatResponseCallback<String> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.callback.StatResponseCallback
     public void onSuccess(String str, int i) {
-        if (HJ()) {
-            this.dqA.onSuccess(str, i);
+        if (HP()) {
+            this.dws.onSuccess(str, i);
         }
     }
 
     @Override // com.baidu.searchbox.http.callback.StatResponseCallback
     public void onFail(Exception exc) {
-        if (HJ()) {
-            this.dqA.onFail(exc);
+        if (HP()) {
+            this.dws.onFail(exc);
         }
     }
 
-    private boolean HJ() {
-        return this.dqA != null;
+    private boolean HP() {
+        return this.dws != null;
     }
 }

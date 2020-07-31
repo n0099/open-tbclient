@@ -11,18 +11,18 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.CreateGroupMainActivityConfig;
 import com.baidu.tbadk.core.atomData.CreateGroupStepActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupPermData;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class a extends com.baidu.tieba.frs.j<GroupPermData, b> {
-    private View.OnClickListener ebA;
+    private View.OnClickListener ehM;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.ebA = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
+        this.ehM = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
@@ -31,8 +31,8 @@ public class a extends com.baidu.tieba.frs.j<GroupPermData, b> {
                         int intValue = ((Integer) tag).intValue();
                         if (a.this.getItem(intValue) instanceof GroupPermData) {
                             GroupPermData groupPermData = (GroupPermData) a.this.getItem(intValue);
-                            if (be.checkUpIsLogin(a.this.mPageContext.getPageActivity())) {
-                                TiebaStatic.log(new ao("c10332"));
+                            if (bf.checkUpIsLogin(a.this.mPageContext.getPageActivity())) {
+                                TiebaStatic.log(new ap("c10332"));
                                 a.this.a(groupPermData);
                             }
                         }
@@ -44,9 +44,9 @@ public class a extends com.baidu.tieba.frs.j<GroupPermData, b> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bS */
+    /* renamed from: bT */
     public b b(ViewGroup viewGroup) {
-        return new b(LayoutInflater.from(this.mContext).inflate(R.layout.frs_create_group_item_view, (ViewGroup) null), this.ebA);
+        return new b(LayoutInflater.from(this.mContext).inflate(R.layout.frs_create_group_item_view, (ViewGroup) null), this.ehM);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,11 +56,11 @@ public class a extends com.baidu.tieba.frs.j<GroupPermData, b> {
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         bVar.rootView.setTag(Integer.valueOf(i));
-        an.setBackgroundResource(bVar.rootView, R.drawable.frs_group_item_bg);
-        an.setBackgroundColor(bVar.iIH, R.color.cp_bg_line_c);
-        an.setViewTextColor(bVar.iRx, R.color.cp_cont_b, 1);
-        bVar.iRx.setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(R.drawable.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
-        an.setBackgroundResource(bVar.dQh, R.color.cp_bg_line_c);
+        ao.setBackgroundResource(bVar.rootView, R.drawable.frs_group_item_bg);
+        ao.setBackgroundColor(bVar.iOM, R.color.cp_bg_line_c);
+        ao.setViewTextColor(bVar.iZH, R.color.cp_cont_b, 1);
+        bVar.iZH.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(R.drawable.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
+        ao.setBackgroundResource(bVar.dWz, R.color.cp_bg_line_c);
         return view;
     }
 

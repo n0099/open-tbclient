@@ -1,79 +1,32 @@
 package com.baidu.tieba.pb.data;
 
-import java.util.List;
-import tbclient.ManagerElection;
-/* loaded from: classes9.dex */
+import android.support.v7.widget.ActivityChooserView;
+import tbclient.PbPage.ForumHeadlineImgInfo;
+/* loaded from: classes16.dex */
 public class i {
-    private boolean gKR;
-    private int jZL;
-    private int jZM;
-    private List<String> jZN;
-    private List<String> jZO;
-    private List<String> jZP;
-    private String jZQ;
-    private boolean jZR;
-    private int jZS;
-    private int status;
+    private long dOJ = 0;
+    private String dOK = "";
+    private String imgUrl = "";
+    private int kil = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private String kim = "";
+    private String aDm = "";
 
-    public static i b(ManagerElection managerElection) {
-        if (managerElection == null) {
-            return null;
+    public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+        if (forumHeadlineImgInfo != null) {
+            this.dOJ = forumHeadlineImgInfo.img_user_id.longValue();
+            this.dOK = forumHeadlineImgInfo.img_user_name;
+            this.imgUrl = forumHeadlineImgInfo.img_url;
+            this.kil = forumHeadlineImgInfo.rank_num.intValue();
+            this.kim = forumHeadlineImgInfo.rank_up_info;
+            this.aDm = forumHeadlineImgInfo.rank_url;
         }
-        i iVar = new i();
-        iVar.jZM = managerElection.begin_vote_time.intValue();
-        iVar.gKR = managerElection.can_vote.intValue() == 1;
-        iVar.jZL = managerElection.vote_num.intValue();
-        iVar.jZR = managerElection.is_show_distribute.intValue() == 1;
-        iVar.jZS = managerElection.remainder_time.intValue();
-        iVar.status = managerElection.status.intValue();
-        iVar.jZQ = managerElection.tail_text;
-        iVar.jZN = managerElection.vote_condition_pic;
-        iVar.jZO = managerElection.vote_condition_title;
-        iVar.jZP = managerElection.vote_condition;
-        return iVar;
     }
 
-    public int getStatus() {
-        return this.status;
+    public String cLf() {
+        return this.aDm;
     }
 
-    public boolean cHw() {
-        return this.jZR;
-    }
-
-    public int cHx() {
-        return this.jZS;
-    }
-
-    public int cHy() {
-        return this.jZL;
-    }
-
-    public List<String> cHz() {
-        return this.jZO;
-    }
-
-    public List<String> cHA() {
-        return this.jZP;
-    }
-
-    public String cHB() {
-        return this.jZQ;
-    }
-
-    public boolean bNt() {
-        return this.gKR;
-    }
-
-    public void lR(boolean z) {
-        this.gKR = z;
-    }
-
-    public void setStatus(int i) {
-        this.status = i;
-    }
-
-    public void AY(int i) {
-        this.jZL = i;
+    public String aUh() {
+        return this.imgUrl;
     }
 }

@@ -2,13 +2,11 @@ package com.baidu.cyberplayer.sdk.statistics;
 
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.cyberplayer.sdk.j;
-import java.net.MalformedURLException;
-import java.net.URL;
+import com.baidu.cyberplayer.sdk.k;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class h {
     private boolean b = false;
     private g a = new g();
@@ -53,30 +51,25 @@ public class h {
         }
     }
 
-    public synchronized void a(j jVar) {
-        if (this.a != null && jVar != null) {
-            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_CURRENT_POSITION, String.valueOf(jVar.getCurrentPosition()));
-            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "decode_mode", String.valueOf(jVar.getDecodeMode()));
+    public synchronized void a(k kVar) {
+        if (this.a != null && kVar != null) {
+            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_CURRENT_POSITION, String.valueOf(kVar.getCurrentPosition()));
+            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "decode_mode", String.valueOf(kVar.getDecodeMode()));
             this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_FILE_CACHE, "0");
-            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_P_ID, String.valueOf(jVar.b()));
+            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_P_ID, String.valueOf(kVar.b()));
             this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "network", DpNetworkUtils.getNetworkStatisticsData(CyberPlayerManager.getApplicationContext()));
             this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_NETWORK_STATUS, DpNetworkUtils.a(CyberPlayerManager.getApplicationContext()));
-            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "url", jVar.a());
-            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "timestamp", String.valueOf(jVar.b()));
-            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "duration", String.valueOf(jVar.getDuration()));
-            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_REAL_PLAY_TIME, String.valueOf(jVar.getPlayedTime()));
+            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "url", kVar.a());
+            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "timestamp", String.valueOf(kVar.b()));
+            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "duration", String.valueOf(kVar.getDuration()));
+            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_REAL_PLAY_TIME, String.valueOf(kVar.getPlayedTime()));
         }
     }
 
-    public synchronized void b(j jVar) {
-        if (this.a != null && jVar != null) {
-            this.a.a(DpStatConstants.SESSION_TYPE_MEDIA_FORMAT_INFO, "width", String.valueOf(jVar.getVideoWidth()));
-            this.a.a(DpStatConstants.SESSION_TYPE_MEDIA_FORMAT_INFO, "height", String.valueOf(jVar.getVideoHeight()));
-            try {
-                this.a.a(DpStatConstants.SESSION_TYPE_MEDIA_FORMAT_INFO, DpStatConstants.KEY_PROTO, new URL(jVar.a()).getProtocol());
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
+    public synchronized void b(k kVar) {
+        if (this.a != null && kVar != null) {
+            this.a.a(DpStatConstants.SESSION_TYPE_MEDIA_FORMAT_INFO, "width", String.valueOf(kVar.getVideoWidth()));
+            this.a.a(DpStatConstants.SESSION_TYPE_MEDIA_FORMAT_INFO, "height", String.valueOf(kVar.getVideoHeight()));
         }
     }
 
@@ -91,9 +84,9 @@ public class h {
         this.b = false;
     }
 
-    public synchronized void c(j jVar) {
+    public synchronized void c(k kVar) {
         String a;
-        if (jVar != null) {
+        if (kVar != null) {
             if (this.a != null && (a = a()) != null) {
                 this.b = true;
                 DpSessionDatasUploader.getInstance().upload(a, DpSessionDatasUploader.SAILOR_MONITOR);

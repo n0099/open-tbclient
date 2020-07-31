@@ -1,84 +1,91 @@
 package com.baidu.tieba.ala.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.live.sdk.a;
-import com.baidu.live.tbadk.ala.AlaLastLiveroomInfo;
-import com.baidu.tieba.ala.data.g;
-import com.baidu.tieba.ala.view.e;
+import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+import java.util.List;
+/* loaded from: classes4.dex */
 public class b extends BaseAdapter {
-    private long ffd;
-    private String fff;
-    private boolean ffg;
-    private ArrayList<g> fgO;
-    private AlaLastLiveroomInfo fgP;
-    private Context mContext;
+    private int flT = -1;
+    private List<com.baidu.tieba.ala.data.b> mDataList;
+    private TbPageContext mTbPageContext;
 
-    public b(Context context, String str, long j, boolean z, AlaLastLiveroomInfo alaLastLiveroomInfo) {
-        this.mContext = context;
-        this.fff = str;
-        this.ffd = j;
-        this.ffg = z;
-        this.fgP = alaLastLiveroomInfo;
-    }
-
-    public void setData(ArrayList<g> arrayList) {
-        if (this.fgO == null) {
-            this.fgO = new ArrayList<>();
-        } else {
-            this.fgO.clear();
-        }
-        if (arrayList != null) {
-            this.fgO.addAll(arrayList);
-        }
-        notifyDataSetChanged();
+    public b(TbPageContext tbPageContext) {
+        this.mTbPageContext = tbPageContext;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fgO == null) {
-            return 0;
-        }
-        return this.fgO.size();
+        return ListUtils.getCount(this.mDataList);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        if (this.fgO == null) {
-            return null;
-        }
-        return this.fgO.get(i);
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public boolean isEmpty() {
-        return this.fgO == null || this.fgO.size() == 0;
+    /* renamed from: qc */
+    public com.baidu.tieba.ala.data.b getItem(int i) {
+        return (com.baidu.tieba.ala.data.b) ListUtils.getItem(this.mDataList, i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        return i;
+        return 0L;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        e eVar;
-        View view2;
+        a aVar;
         if (view == null) {
-            view2 = LayoutInflater.from(this.mContext).inflate(a.h.ala_rank_list_item_view, (ViewGroup) null);
-            e eVar2 = new e(this.mContext, view2, this.fff, this.ffd, this.ffg, this.fgP);
-            view2.setTag(eVar2);
-            eVar = eVar2;
+            a aVar2 = new a();
+            view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.h.ala_choose_feedback_reason_item_layout, viewGroup, false);
+            aVar2.flU = (TextView) view.findViewById(a.g.id_feedback_content);
+            view.setTag(aVar2);
+            aVar = aVar2;
         } else {
-            eVar = (e) view.getTag();
-            view2 = view;
+            aVar = (a) view.getTag();
         }
-        eVar.a(this.fgO.get(i), i);
-        return view2;
+        com.baidu.tieba.ala.data.b item = getItem(i);
+        if (item != null) {
+            aVar.flU.setText(item.bzG());
+        }
+        if (i == this.flT) {
+            aVar.flU.setSelected(true);
+        } else {
+            aVar.flU.setSelected(false);
+        }
+        return view;
+    }
+
+    public void setData(List<com.baidu.tieba.ala.data.b> list) {
+        if (this.mDataList == null) {
+            this.mDataList = new ArrayList();
+        } else {
+            this.mDataList.clear();
+        }
+        if (list != null) {
+            this.mDataList.addAll(list);
+        }
+        notifyDataSetChanged();
+    }
+
+    public int bve() {
+        return this.flT;
+    }
+
+    public void qd(int i) {
+        this.flT = i;
+    }
+
+    /* loaded from: classes4.dex */
+    private class a {
+        public TextView flU;
+
+        private a() {
+        }
     }
 }

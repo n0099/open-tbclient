@@ -2,21 +2,21 @@ package com.baidu.tieba.e;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId gXT = BdUniqueId.gen();
-    private ScoreCardInfo gXU;
+    public static final BdUniqueId hdy = BdUniqueId.gen();
+    private ScoreCardInfo hdz;
 
     public void a(ScoreCardInfo scoreCardInfo) {
-        this.gXU = scoreCardInfo;
+        this.hdz = scoreCardInfo;
     }
 
-    public ScoreCardInfo bPX() {
-        return this.gXU;
+    public ScoreCardInfo bTi() {
+        return this.hdz;
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return gXT;
+        return hdy;
     }
 }

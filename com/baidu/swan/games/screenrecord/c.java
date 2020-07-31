@@ -8,19 +8,19 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.statistic.a.e;
 import com.baidu.swan.apps.statistic.h;
 import com.baidu.swan.games.screenrecord.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c extends EventTargetImpl implements com.baidu.mario.a.c {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private int dgD;
-    private b.C0445b dgE;
-    private String dgF;
+    private int dmm;
+    private b.C0458b dmn;
+    private String dmo;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(JSRuntime jSRuntime) {
         super(jSRuntime);
-        this.dgD = -1;
-        this.dgE = new b.C0445b();
-        d.aCB().aCC().setGameRecordCallback(this);
+        this.dmm = -1;
+        this.dmn = new b.C0458b();
+        d.aGi().aGj().setGameRecordCallback(this);
     }
 
     private void w(String str, Object obj) {
@@ -31,18 +31,18 @@ public class c extends EventTargetImpl implements com.baidu.mario.a.c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void iG(int i) {
-        this.dgD = i;
+    public void iX(int i) {
+        this.dmm = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void su(String str) {
-        this.dgF = str;
+    public void ts(String str) {
+        this.dmo = str;
     }
 
     @Override // com.baidu.mario.a.c
     public void onStart() {
-        w("start", this.dgD == -1 ? this.dgE : new b.c(this.dgD));
+        w("start", this.dmm == -1 ? this.dmn : new b.c(this.dmm));
         e eVar = new e();
         eVar.mType = "start";
         h.d(eVar);
@@ -50,7 +50,7 @@ public class c extends EventTargetImpl implements com.baidu.mario.a.c {
 
     @Override // com.baidu.mario.a.c
     public void onPause() {
-        w("pause", this.dgE);
+        w("pause", this.dmn);
         e eVar = new e();
         eVar.mType = "pause";
         h.d(eVar);
@@ -58,7 +58,7 @@ public class c extends EventTargetImpl implements com.baidu.mario.a.c {
 
     @Override // com.baidu.mario.a.c
     public void onResume() {
-        w("resume", this.dgE);
+        w("resume", this.dmn);
         e eVar = new e();
         eVar.mType = "resume";
         h.d(eVar);
@@ -67,9 +67,9 @@ public class c extends EventTargetImpl implements com.baidu.mario.a.c {
     @Override // com.baidu.mario.a.c
     public void H(int i, String str) {
         if (DEBUG) {
-            Log.d("GameRecorderApi", "schemeVideoPath:" + this.dgF);
+            Log.d("GameRecorderApi", "schemeVideoPath:" + this.dmo);
         }
-        w("stop", new b.d(this.dgF));
+        w("stop", new b.d(this.dmo));
         e eVar = new e();
         eVar.mType = "stop";
         eVar.v("dura", String.valueOf(i / 1000.0f));

@@ -4,7 +4,7 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class c {
     static final Charset US_ASCII = Charset.forName("US-ASCII");
     static final Charset UTF_8 = Charset.forName("UTF-8");

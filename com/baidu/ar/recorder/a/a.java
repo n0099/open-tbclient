@@ -9,7 +9,7 @@ import com.baidu.ar.record.EncoderParams;
 import com.baidu.ar.recorder.b.c;
 import com.baidu.ar.recorder.b.d;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
     private volatile boolean sI = false;
@@ -19,13 +19,13 @@ public class a {
     private com.baidu.ar.recorder.b.a tl;
 
     /* renamed from: com.baidu.ar.recorder.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private class C0086a {
+    /* loaded from: classes11.dex */
+    private class C0087a {
         ByteBuffer tm;
         int tn;
         long to;
 
-        public C0086a(ByteBuffer byteBuffer, int i, long j) {
+        public C0087a(ByteBuffer byteBuffer, int i, long j) {
             this.tm = byteBuffer;
             this.tn = i;
             this.to = j;
@@ -33,7 +33,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public class b extends Handler {
         public b(Looper looper) {
             super(looper);
@@ -49,8 +49,8 @@ public class a {
                     a.this.ex();
                     return;
                 case 1003:
-                    C0086a c0086a = (C0086a) message.obj;
-                    a.this.b(c0086a.tm, c0086a.tn, c0086a.to);
+                    C0087a c0087a = (C0087a) message.obj;
+                    a.this.b(c0087a.tm, c0087a.tn, c0087a.to);
                     return;
                 case 1004:
                     a.this.ey();
@@ -132,11 +132,11 @@ public class a {
         if (byteBuffer == null || i <= 0) {
             return;
         }
-        C0086a c0086a = new C0086a(byteBuffer, i, j);
+        C0087a c0087a = new C0087a(byteBuffer, i, j);
         if (this.tk == null || !this.sI) {
             return;
         }
-        this.tk.sendMessage(this.tk.obtainMessage(1003, c0086a));
+        this.tk.sendMessage(this.tk.obtainMessage(1003, c0087a));
     }
 
     public boolean a(EncoderParams encoderParams, d dVar, c cVar) {

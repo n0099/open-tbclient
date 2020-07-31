@@ -1,5 +1,5 @@
 package com.baidu.searchbox.cloudconfig;
-/* loaded from: classes13.dex */
+/* loaded from: classes18.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.cloudconfig";
     public static final String BUILD_TYPE = "release";

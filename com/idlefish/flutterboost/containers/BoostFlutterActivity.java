@@ -1,6 +1,5 @@
 package com.idlefish.flutterboost.containers;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.j;
@@ -17,10 +16,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.Window;
-import com.baidu.adp.lib.util.BdLog;
+import android.widget.ImageView;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.XFlutterView;
+import com.idlefish.flutterboost.XPlatformPlugin;
 import com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate;
+import io.flutter.Log;
+import io.flutter.embedding.android.DrawableSplashScreen;
 import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.android.SplashScreen;
 import io.flutter.embedding.engine.FlutterEngine;
@@ -29,7 +31,7 @@ import io.flutter.plugin.platform.PlatformPlugin;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public class BoostFlutterActivity extends Activity implements j, FlutterActivityAndFragmentDelegate.Host {
     protected static final String DEFAULT_BACKGROUND_MODE = BackgroundMode.opaque.name();
     protected static final String EXTRA_ANIMATED = "animated";
@@ -42,11 +44,12 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
     protected static final String NORMAL_THEME_META_DATA_KEY = "io.flutter.embedding.android.NormalTheme";
     protected static final String SPLASH_SCREEN_META_DATA_KEY = "io.flutter.embedding.android.SplashScreenDrawable";
     private static final String TAG = "NewBoostFlutterActivity";
+    private static XPlatformPlugin sXPlatformPlugin;
     private FlutterActivityAndFragmentDelegate delegate;
     @NonNull
     private k lifecycle = new k(this);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public enum BackgroundMode {
         opaque,
         transparent
@@ -60,14 +63,14 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         return new NewEngineIntentBuilder(BoostFlutterActivity.class);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public static class NewEngineIntentBuilder {
         private final Class<? extends BoostFlutterActivity> activityClass;
         private String backgroundMode = BoostFlutterActivity.DEFAULT_BACKGROUND_MODE;
         private String url = "";
         private Map params = new HashMap();
 
-        protected NewEngineIntentBuilder(@NonNull Class<? extends BoostFlutterActivity> cls) {
+        public NewEngineIntentBuilder(@NonNull Class<? extends BoostFlutterActivity> cls) {
             this.activityClass = cls;
         }
 
@@ -78,7 +81,7 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public static class SerializableMap implements Serializable {
         private Map<String, Object> map;
 
@@ -111,20 +114,23 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
                     setTheme(i);
                 }
             } else {
-                BdLog.d("Using the launch theme as normal theme.");
+                Log.d(TAG, "Using the launch theme as normal theme.");
             }
         } catch (PackageManager.NameNotFoundException e) {
-            BdLog.e("Could not read meta-data for FlutterActivity. Using the launch theme as normal theme.");
+            Log.e(TAG, "Could not read meta-data for FlutterActivity. Using the launch theme as normal theme.");
         }
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
+    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.SplashScreenProvider
     @Nullable
     public SplashScreen provideSplashScreen() {
+        Drawable splashScreenFromManifest = getSplashScreenFromManifest();
+        if (splashScreenFromManifest != null) {
+            return new DrawableSplashScreen(splashScreenFromManifest, ImageView.ScaleType.CENTER, 500L);
+        }
         return null;
     }
 
-    @SuppressLint({"WrongConstant"})
     @Nullable
     private Drawable getSplashScreenFromManifest() {
         try {
@@ -159,7 +165,7 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
             Window window = getWindow();
             window.addFlags(Integer.MIN_VALUE);
             window.setStatusBarColor(0);
-            window.getDecorView().setSystemUiVisibility(1280);
+            window.getDecorView().setSystemUiVisibility(PlatformPlugin.DEFAULT_SYSTEM_UI);
         }
     }
 
@@ -178,7 +184,7 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
     protected void onResume() {
         super.onResume();
         this.lifecycle.b(Lifecycle.Event.ON_RESUME);
-        this.delegate.onResume(true);
+        this.delegate.onResume();
     }
 
     @Override // android.app.Activity
@@ -190,7 +196,7 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
     @Override // android.app.Activity
     protected void onPause() {
         super.onPause();
-        this.delegate.onPause(true);
+        this.delegate.onPause();
         this.lifecycle.b(Lifecycle.Event.ON_PAUSE);
     }
 
@@ -262,7 +268,6 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         return FlutterShellArgs.fromIntent(getIntent());
     }
 
-    @SuppressLint({"NewApi"})
     private boolean isDebuggable() {
         return (getApplicationInfo().flags & 2) != 0;
     }
@@ -283,7 +288,7 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         return getIntent().hasExtra(EXTRA_BACKGROUND_MODE) ? BackgroundMode.valueOf(getIntent().getStringExtra(EXTRA_BACKGROUND_MODE)) : BackgroundMode.opaque;
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
+    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.FlutterEngineProvider
     @Nullable
     public FlutterEngine provideFlutterEngine(@NonNull Context context) {
         return FlutterBoost.instance().engineProvider();
@@ -296,17 +301,15 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
 
     @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     @Nullable
-    public PlatformPlugin providePlatformPlugin(@Nullable Activity activity, @NonNull FlutterEngine flutterEngine) {
-        if (activity != null) {
-            return new PlatformPlugin(getActivity(), flutterEngine.getPlatformChannel());
-        }
-        return null;
+    public XPlatformPlugin providePlatformPlugin(@NonNull FlutterEngine flutterEngine) {
+        return BoostViewUtils.getPlatformPlugin(flutterEngine.getPlatformChannel());
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
+    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.FlutterEngineConfigurator
     public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
     }
 
+    @Override // io.flutter.embedding.android.FlutterEngineConfigurator
     public void cleanUpFlutterEngine(@NonNull FlutterEngine flutterEngine) {
     }
 

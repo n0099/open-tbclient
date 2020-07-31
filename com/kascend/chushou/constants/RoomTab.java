@@ -1,7 +1,7 @@
 package com.kascend.chushou.constants;
 
 import tv.chushou.zues.utils.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RoomTab {
     public static final int H5_TYPE_CONTRIBUTION = 1001;
     public static final int H5_TYPE_LOYALFANS = 1000;

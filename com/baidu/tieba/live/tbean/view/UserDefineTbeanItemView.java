@@ -23,7 +23,7 @@ import com.baidu.live.tieba.b.a;
 import com.baidu.tieba.live.tbean.TBeanUtil;
 import com.baidu.tieba.live.tbean.TbeanStatisticKey;
 import com.baidu.tieba.live.tbean.data.UserDefineTbeanWrapperData;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UserDefineTbeanItemView extends a<UserDefineTbeanWrapperData> {
     private EditText mEtUserDefine;
     private boolean mIsFromAlaLiveRoom;
@@ -45,7 +45,7 @@ public class UserDefineTbeanItemView extends a<UserDefineTbeanWrapperData> {
     private UserDefineConfirmBottomView mUserDefineConfirmBottomView;
     private UserDefineTbeanWrapperData mWrapperData;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface OnPayListener {
         void onPayBySdk(String str, int i, int i2, int i3, String str2, int i4, String str3);
     }

@@ -4,7 +4,7 @@ import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceQueryOptions;
 import com.baidu.mapsdkplatform.comapi.synchronization.b.b;
 import com.baidu.mapsdkplatform.comapi.synchronization.c.c;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
     final /* synthetic */ int a;
     final /* synthetic */ HistoryTraceQueryOptions b;

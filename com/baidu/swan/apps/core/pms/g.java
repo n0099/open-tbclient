@@ -6,44 +6,57 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.down.common.intercepter.IIntercepter;
 import com.baidu.mobstat.Config;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class g extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final com.baidu.swan.apps.runtime.e ccW;
+    private final com.baidu.swan.apps.runtime.e cez;
+    private long mStartTime;
 
     public g(com.baidu.swan.apps.runtime.e eVar) {
         super(eVar.id);
-        this.ccW = eVar;
+        this.mStartTime = 0L;
+        this.cez = eVar;
+    }
+
+    @Override // com.baidu.swan.apps.core.pms.j
+    protected int abW() {
+        return 1;
     }
 
     @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
-    public void YC() {
-        com.baidu.swan.apps.performance.g.mx("startup").f(new UbcFlowEvent("aps_start_req"));
-        super.YC();
+    public void Zu() {
+        this.mStartTime = System.currentTimeMillis();
+        com.baidu.swan.apps.performance.i.mX("startup").f(new UbcFlowEvent("aps_start_req"));
+        super.Zu();
     }
 
     @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
-    public void aaV() {
-        super.aaV();
-        com.baidu.swan.apps.performance.g.mx("startup").f(new UbcFlowEvent("aps_end_req"));
+    public void abX() {
+        super.abX();
+        com.baidu.swan.apps.performance.i.mX("startup").f(new UbcFlowEvent("aps_end_req"));
+        if (this.mStartTime > 0 && System.currentTimeMillis() - this.mStartTime > 3000) {
+            com.baidu.swan.apps.core.d.log("PMS获取包接口返回超过3秒，检查弱网");
+            com.baidu.swan.apps.core.d.YX();
+        }
         if (DEBUG) {
-            Log.d("SwanAppPkgSyncDownloadCallback", "PMS CS协议信息获取成功");
+            Log.d("PkgSyncDownloadCallback", "PMS CS协议信息获取成功");
         }
     }
 
     @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
-    public void a(com.baidu.swan.pms.f.e eVar) {
-        com.baidu.swan.apps.performance.g.mx("startup").f(new UbcFlowEvent("aps_start_download"));
-        super.a(eVar);
+    public void a(com.baidu.swan.pms.f.f fVar) {
+        com.baidu.swan.apps.performance.i.mX("startup").f(new UbcFlowEvent("aps_start_download"));
+        super.a(fVar);
     }
 
     @Override // com.baidu.swan.pms.a.g, com.baidu.swan.pms.a.d
-    public void aW(String str, String str2) {
-        super.aW(str, str2);
+    public void aY(String str, String str2) {
+        super.aY(str, str2);
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             char c = 65535;
             switch (str.hashCode()) {
@@ -62,11 +75,11 @@ public class g extends f {
             }
             switch (c) {
                 case 0:
-                    com.baidu.swan.apps.performance.g.mx("startup").f(new UbcFlowEvent(str2));
+                    com.baidu.swan.apps.performance.i.mX("startup").f(new UbcFlowEvent(str2));
                     return;
                 case 1:
-                    if (this.ccx != null) {
-                        this.ccx.add(new UbcFlowEvent(str2));
+                    if (this.ceb != null) {
+                        this.ceb.add(new UbcFlowEvent(str2));
                         return;
                     }
                     return;
@@ -80,49 +93,52 @@ public class g extends f {
     public void b(String str, String str2, JSONObject jSONObject) {
         if (jSONObject != null) {
             if (DEBUG) {
+                String str3 = null;
                 try {
                     try {
-                        Log.i("SwanAppPkgSyncDownloadCallback", "onStatRecord: url:" + str + " networkStatRecord:\n" + jSONObject.toString(4));
+                        str3 = "PkgSyncDownloadCallback";
+                        Log.i("PkgSyncDownloadCallback", "onStatRecord: url:" + str + " networkStatRecord:\n" + jSONObject.toString(4));
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        Log.i("SwanAppPkgSyncDownloadCallback", "onStatRecord: url:" + str + " networkStatRecord:\n" + jSONObject.toString());
+                        str3 = "PkgSyncDownloadCallback";
+                        Log.i("PkgSyncDownloadCallback", "onStatRecord: url:" + str + " networkStatRecord:\n" + jSONObject.toString());
                     }
                 } catch (Throwable th) {
-                    Log.i("SwanAppPkgSyncDownloadCallback", "onStatRecord: url:" + str + " networkStatRecord:\n" + ((String) null));
+                    Log.i("PkgSyncDownloadCallback", "onStatRecord: url:" + str + " networkStatRecord:\n" + str3);
                     throw th;
                 }
             }
-            long currentTimeMillis = System.currentTimeMillis();
-            long optLong = jSONObject.optLong("dnsEndTime", currentTimeMillis);
-            long optLong2 = jSONObject.optLong("dnsStartTime", currentTimeMillis);
-            long optLong3 = jSONObject.optLong("connectedTime", currentTimeMillis);
-            long optLong4 = jSONObject.optLong("startTime", currentTimeMillis);
-            com.baidu.swan.apps.performance.g.mx("startup").f(new UbcFlowEvent("pms_network_start").bg(optLong4)).f(new UbcFlowEvent("pms_network_conn").bg(optLong3)).f(new UbcFlowEvent("pms_dns_start").bg(optLong2)).f(new UbcFlowEvent("pms_dns_end").bg(optLong)).f(new UbcFlowEvent("pms_network_response").bg(jSONObject.optLong("responseTime", currentTimeMillis))).f(new UbcFlowEvent("pms_send_header").bg(jSONObject.optLong("sendHeaderTime", currentTimeMillis))).f(new UbcFlowEvent("pms_receive_header").bg(jSONObject.optLong("receiveHeaderTime", currentTimeMillis)));
-            long j = optLong - optLong2;
-            long j2 = optLong3 - optLong4;
-            int amU = com.baidu.swan.apps.performance.e.a.amU();
-            if (amU > 0 && j > amU) {
+            long optLong = jSONObject.optLong("stat_recode_start_time", System.currentTimeMillis());
+            long optLong2 = jSONObject.optLong("dnsEndTime", optLong);
+            long optLong3 = jSONObject.optLong("dnsStartTime", optLong);
+            long optLong4 = jSONObject.optLong("connectedTime", optLong);
+            long optLong5 = jSONObject.optLong("startTime", optLong);
+            com.baidu.swan.apps.performance.i.mX("startup").f(new UbcFlowEvent("pms_network_start").bm(optLong5)).f(new UbcFlowEvent("pms_network_conn").bm(optLong4)).f(new UbcFlowEvent("pms_dns_start").bm(optLong3)).f(new UbcFlowEvent("pms_dns_end").bm(optLong2)).f(new UbcFlowEvent("pms_network_response").bm(jSONObject.optLong("responseTime", optLong))).f(new UbcFlowEvent("pms_send_header").bm(jSONObject.optLong("sendHeaderTime", optLong))).f(new UbcFlowEvent("pms_receive_header").bm(jSONObject.optLong("receiveHeaderTime", optLong)));
+            long j = optLong2 - optLong3;
+            long j2 = optLong4 - optLong5;
+            int aoC = com.baidu.swan.apps.performance.f.a.aoC();
+            if (aoC > 0 && j > aoC) {
                 if (DEBUG) {
-                    Log.e("SwanAppPkgSyncDownloadCallback", "pms dns too slow:" + j);
+                    Log.e("PkgSyncDownloadCallback", "pms dns too slow:" + j);
                 }
-                a(str2, jSONObject, new com.baidu.swan.apps.an.a().bw(10L).bx(2910L).pz("pms dns too slow"));
+                a(str2, jSONObject, new com.baidu.swan.apps.an.a().bJ(10L).bK(2910L).qk("pms dns too slow"));
             }
-            int amV = com.baidu.swan.apps.performance.e.a.amV();
-            if (amV > 0 && j2 > amV) {
+            int aoD = com.baidu.swan.apps.performance.f.a.aoD();
+            if (aoD > 0 && j2 > aoD) {
                 if (DEBUG) {
-                    Log.e("SwanAppPkgSyncDownloadCallback", "pms connect too slow:" + j2);
+                    Log.e("PkgSyncDownloadCallback", "pms connect too slow:" + j2);
                 }
-                a(str2, jSONObject, new com.baidu.swan.apps.an.a().bw(10L).bx(2911L).pz("pms connect too slow"));
+                a(str2, jSONObject, new com.baidu.swan.apps.an.a().bJ(10L).bK(2911L).qk("pms connect too slow"));
             }
             if (DEBUG) {
-                Log.d("SwanAppPkgSyncDownloadCallback", "pms dns=" + j + "  conn=" + j2 + "  " + jSONObject.toString());
+                Log.d("PkgSyncDownloadCallback", "pms dns=" + j + "  conn=" + j2 + "  " + jSONObject.toString());
             }
         }
     }
 
     private void a(String str, JSONObject jSONObject, com.baidu.swan.apps.an.a aVar) {
-        if (this.ccW != null && aVar != null) {
-            com.baidu.swan.apps.statistic.a.d oL = new com.baidu.swan.apps.statistic.a.d().f(aVar).a(this.ccW.RP()).oK(com.baidu.swan.apps.statistic.h.hf(this.ccW.RF())).oL(this.mAppId);
+        if (this.cez != null && aVar != null) {
+            com.baidu.swan.apps.statistic.a.d pv = new com.baidu.swan.apps.statistic.a.d().f(aVar).a(this.cez.Se()).pu(com.baidu.swan.apps.statistic.h.ho(this.cez.RU())).pv(this.mAppId);
             JSONObject jSONObject2 = new JSONObject();
             if (jSONObject != null) {
                 try {
@@ -134,12 +150,12 @@ public class g extends f {
                 }
             }
             jSONObject2.put(IIntercepter.TYPE_RESPONSE, str);
-            oL.bA(jSONObject2);
-            JSONObject jSONObject3 = oL.toJSONObject();
-            com.baidu.swan.apps.statistic.h.b(oL);
-            com.baidu.swan.apps.al.a.arZ().u(aVar.atP(), jSONObject3);
+            pv.bF(jSONObject2);
+            JSONObject jSONObject3 = pv.toJSONObject();
+            com.baidu.swan.apps.statistic.h.b(pv);
+            com.baidu.swan.apps.al.a.atW().u(aVar.avQ(), jSONObject3);
             if (DEBUG) {
-                Log.d("SwanAppPkgSyncDownloadCallback", "event=" + jSONObject3.toString());
+                Log.d("PkgSyncDownloadCallback", "event=" + jSONObject3.toString());
             }
         }
     }
@@ -149,7 +165,7 @@ public class g extends f {
     public Bundle a(@NonNull Bundle bundle, Set<String> set) {
         Bundle a = super.a(bundle, set);
         if (set.contains("get_launch_id")) {
-            a.putString("launch_id", this.ccW.apQ().aij());
+            a.putString("launch_id", this.cez.arz().ajz());
         }
         return a;
     }
@@ -158,123 +174,127 @@ public class g extends f {
     public void b(com.baidu.swan.pms.model.a aVar) {
         super.b(aVar);
         if (DEBUG) {
-            Log.e("SwanAppPkgSyncDownloadCallback", "onFetchError: " + aVar.toString());
+            Log.e("PkgSyncDownloadCallback", "onFetchError: " + aVar.toString());
         }
-        com.baidu.swan.apps.an.a pA = new com.baidu.swan.apps.an.a().bw(10L).bx(aVar.errorNo).pz(aVar.errorMsg).pA(aVar.dqq);
-        if (aVar.errorNo == 1013 && com.baidu.swan.apps.u.a.agD().a(this.mAppId, pA)) {
-            a(pA, false);
-            a(this.ccW.apQ(), pA);
+        com.baidu.swan.apps.an.a ql = new com.baidu.swan.apps.an.a().bJ(10L).bK(aVar.errorNo).qk(aVar.errorMsg).ql(aVar.dwi);
+        if (aVar.errorNo == 1013 && com.baidu.swan.apps.t.a.ahQ().a(com.baidu.swan.apps.t.a.ahj(), this.mAppId, ql)) {
+            a(ql, false);
+            a(this.cez.arz(), ql);
         } else if (aVar.errorNo == 1020) {
-            a(pA, false);
-            a(this.ccW.apQ(), pA);
+            a(ql, false);
+            a(this.cez.arz(), ql);
         } else {
-            a(pA, true);
+            a(ql, true);
         }
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void aaR() {
-        super.aaR();
-        if (this.ccw != null) {
-            abh();
+    public void Zs() {
+        super.Zs();
+        if (this.cea != null) {
+            acj();
         }
-        a(new com.baidu.swan.apps.an.a().bw(10L).bx(2901L).pz("同步获取-> Server无包"), true);
+        a(new com.baidu.swan.apps.an.a().bJ(10L).bK(2901L).qk("同步获取-> Server无包"), true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.pms.f
-    public void aaX() {
-        super.aaX();
+    public void aca() {
+        super.aca();
         if (DEBUG) {
-            Log.i("SwanAppPkgSyncDownloadCallback", "onDownloadProcessComplete: ");
+            Log.i("PkgSyncDownloadCallback", "onDownloadProcessComplete: ");
         }
-        com.baidu.swan.apps.performance.g.mx("startup").f(new UbcFlowEvent("aps_end_download")).r("type", "0");
-        this.ccx.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.an.a abg = abg();
-        this.ccx.add(new UbcFlowEvent("na_end_update_db"));
-        if (abg == null) {
+        com.baidu.swan.apps.performance.i.mX("startup").f(new UbcFlowEvent("aps_end_download")).r("type", "0");
+        this.ceb.add(new UbcFlowEvent("na_start_update_db"));
+        com.baidu.swan.apps.an.a aci = aci();
+        this.ceb.add(new UbcFlowEvent("na_end_update_db"));
+        if (aci == null) {
             if (DEBUG) {
-                Log.d("SwanAppPkgSyncDownloadCallback", "同步获取-> DB 存储成功");
+                Log.d("PkgSyncDownloadCallback", "同步获取-> DB 存储成功");
             }
-            com.baidu.swan.apps.v.b.b abj = abj();
-            if (this.ccu != null && this.ccu.category == 0) {
-                abj.b(com.baidu.swan.apps.swancore.b.ho(0));
-                abj.fQ(1);
+            com.baidu.swan.apps.u.c.b acl = acl();
+            if (this.cdY != null && this.cdY.category == 0) {
+                acl.b(com.baidu.swan.apps.swancore.b.hx(0));
+                acl.ga(1);
             }
-            if (this.ccu != null && this.ccu.category == 1) {
-                abj.b(com.baidu.swan.apps.swancore.b.ho(1));
-                abj.fQ(1);
+            if (this.cdY != null && this.cdY.category == 1) {
+                acl.b(com.baidu.swan.apps.swancore.b.hx(1));
+                acl.ga(1);
             }
-            if (this.ccv != null && this.ccv.category == 0) {
-                abj.c(com.baidu.swan.apps.extcore.b.fr(0));
-                abj.fQ(2);
+            if (this.cdZ != null && this.cdZ.category == 0) {
+                acl.c(com.baidu.swan.apps.extcore.b.fA(0));
+                acl.ga(2);
             }
-            if (this.ccv != null && this.ccv.category == 1) {
-                abj.c(com.baidu.swan.apps.extcore.b.fr(1));
-                abj.fQ(2);
+            if (this.cdZ != null && this.cdZ.category == 1) {
+                acl.c(com.baidu.swan.apps.extcore.b.fA(1));
+                acl.ga(2);
             }
-            if (this.ccz != null) {
-                abj.eg(this.ccz.dqt);
-                abj.lo(this.ccz.pkgName);
+            if (this.ced != null) {
+                acl.eo(this.ced.dwl);
+                acl.lP(this.ced.pkgName);
             }
-            b(this.ccw);
-            bc("main_download", "0");
+            d(this.cea);
+            be("main_download", "0");
             return;
         }
         if (DEBUG) {
-            Log.e("SwanAppPkgSyncDownloadCallback", "同步获取-> DB 存储失败");
+            Log.e("PkgSyncDownloadCallback", "同步获取-> DB 存储失败");
         }
-        a(abg, true);
+        a(aci, true);
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
     protected void p(Throwable th) {
-        com.baidu.swan.apps.an.a pz;
+        com.baidu.swan.apps.an.a qk;
         if (th instanceof PkgDownloadError) {
             PkgDownloadError pkgDownloadError = (PkgDownloadError) th;
             if (DEBUG) {
-                Log.e("SwanAppPkgSyncDownloadCallback", "PkgDownloadError:  pkg:" + pkgDownloadError.getPackage() + ", message:" + pkgDownloadError.getMessage() + ", ErrCode: " + pkgDownloadError.getErrCode());
+                Log.e("PkgSyncDownloadCallback", "PkgDownloadError:  pkg:" + pkgDownloadError.getPackage() + ", message:" + pkgDownloadError.getMessage() + ", ErrCode: " + pkgDownloadError.getErrCode());
             }
-            pz = pkgDownloadError.getErrCode();
+            qk = pkgDownloadError.getErrCode();
         } else {
             if (DEBUG) {
-                Log.e("SwanAppPkgSyncDownloadCallback", "未知错误");
+                Log.e("PkgSyncDownloadCallback", "未知错误");
             }
-            pz = new com.baidu.swan.apps.an.a().bw(10L).bx(2900L).pz("包下载过程未知错误");
+            qk = new com.baidu.swan.apps.an.a().bJ(10L).bK(2900L).qk("包下载过程未知错误");
         }
-        a(pz, true);
+        a(qk, true);
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType aaY() {
+    protected PMSDownloadType acb() {
         return PMSDownloadType.SYNC;
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected int YD() {
+    protected int Zv() {
         return 200;
     }
 
-    public com.baidu.swan.apps.v.b.b abj() {
-        return this.ccW.apQ();
+    public com.baidu.swan.apps.u.c.b acl() {
+        return this.cez.arz();
     }
 
-    private void a(com.baidu.swan.apps.v.b.b bVar, com.baidu.swan.apps.an.a aVar) {
+    private void a(com.baidu.swan.apps.u.c.b bVar, com.baidu.swan.apps.an.a aVar) {
         if (bVar != null) {
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-            fVar.mFrom = com.baidu.swan.apps.statistic.h.hf(bVar.getAppFrameType());
+            fVar.mFrom = com.baidu.swan.apps.statistic.h.ho(bVar.getAppFrameType());
             fVar.mAppId = bVar.getAppId();
-            fVar.mSource = bVar.ahQ();
+            fVar.mSource = bVar.ajg();
             fVar.mType = Config.LAUNCH;
             fVar.mValue = "success";
             fVar.v("status", "1");
             if (aVar != null) {
-                fVar.v("errcode", String.valueOf(aVar.atS()));
-                fVar.v("msg", aVar.atR().toString());
+                fVar.v("errcode", String.valueOf(aVar.avT()));
+                fVar.v("msg", aVar.avS().toString());
             }
-            fVar.oO(bVar.ahW().getString("ubc"));
+            fVar.py(bVar.ajm().getString("ubc"));
             fVar.b(bVar);
             com.baidu.swan.apps.statistic.h.onEvent(fVar);
+            HybridUbcFlow mZ = com.baidu.swan.apps.performance.i.mZ("startup");
+            if (mZ != null) {
+                mZ.r("value", "na_success");
+            }
         }
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tieba.homepage.tabfeed.data.a;
 import com.squareup.wire.Wire;
 import tbclient.ActivityPage.ActivityPageResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage {
     public a tabFeedData;
 

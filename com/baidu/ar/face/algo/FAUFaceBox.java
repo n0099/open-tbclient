@@ -1,5 +1,5 @@
 package com.baidu.ar.face.algo;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class FAUFaceBox {
     float angle;
     float height;

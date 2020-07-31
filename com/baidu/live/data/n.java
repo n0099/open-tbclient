@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class n extends BaseData {
-    public List<m> axA;
+    public List<m> ayN;
     public int pn;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
@@ -16,13 +16,13 @@ public class n extends BaseData {
         JSONObject optJSONObject;
         if (jSONObject != null) {
             this.pn = jSONObject.optInt(Config.PACKAGE_NAME);
-            this.axA = new ArrayList();
+            this.ayN = new ArrayList();
             JSONArray optJSONArray = jSONObject.optJSONArray("live");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length() && (optJSONObject = optJSONArray.optJSONObject(i)) != null; i++) {
                     m mVar = new m();
                     mVar.parserJson(optJSONObject);
-                    this.axA.add(mVar);
+                    this.ayN.add(mVar);
                 }
             }
         }

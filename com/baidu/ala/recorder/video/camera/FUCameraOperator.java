@@ -45,7 +45,7 @@ import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class FUCameraOperator implements IFaceUnityOperator, ICameraOperator {
     private static final int DEFAULT_ROTATE = 0;
     private static final String EFFECT_NONE = "none";

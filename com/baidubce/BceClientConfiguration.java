@@ -1,11 +1,12 @@
 package com.baidubce;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.http.RetryPolicy;
 import com.baidubce.util.CheckUtils;
 import com.baidubce.util.JoinerUtils;
 import java.net.InetAddress;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class BceClientConfiguration {
     public static final int DEFAULT_CONNECTION_TIMEOUT_IN_MILLIS = 30000;
     public static final int DEFAULT_MAX_CONNECTIONS = 5;
@@ -383,7 +384,7 @@ public class BceClientConfiguration {
     }
 
     public void setUploadSegmentPart(long j) {
-        this.uploadSegmentPart = (j < 1 || j > 8192) ? 2048L : 2048L;
+        this.uploadSegmentPart = (j < 1 || j > PlaybackStateCompat.ACTION_PLAY_FROM_URI) ? 2048L : 2048L;
     }
 
     public BceClientConfiguration withUploadSegmentPart(Long l) {

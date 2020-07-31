@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
-    public C0552a fNh;
-    public b fNi;
+    public C0563a fSA;
+    public b fSB;
     public int status;
 
     public void parserJson(JSONObject jSONObject) {
@@ -18,87 +18,87 @@ public class a {
             this.status = jSONObject.optInt("status");
             JSONObject optJSONObject = jSONObject.optJSONObject("config");
             if (optJSONObject != null) {
-                this.fNh = new C0552a();
-                this.fNh.cY(optJSONObject);
+                this.fSA = new C0563a();
+                this.fSA.de(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("rank");
             if (optJSONObject2 != null) {
-                this.fNi = new b();
-                this.fNi.da(optJSONObject2);
+                this.fSB = new b();
+                this.fSB.dg(optJSONObject2);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0552a {
-        public String fNj;
-        public String fNk;
-        public String fNl;
-        public String fNm;
-        public String fNn;
-        public long fNo;
-        public long fNp;
-        public long fNq;
-        public List<C0553a> fNr;
+    /* loaded from: classes4.dex */
+    public static class C0563a {
+        public String fSC;
+        public String fSD;
+        public String fSE;
+        public String fSF;
+        public String fSG;
+        public long fSH;
+        public long fSI;
+        public long fSJ;
+        public List<C0564a> fSK;
         public long startTime;
         public String username;
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public static class C0553a {
+        /* loaded from: classes4.dex */
+        public static class C0564a {
             public String pic;
             public String text;
 
-            public void cZ(JSONObject jSONObject) {
+            public void df(JSONObject jSONObject) {
                 this.pic = jSONObject.optString(UgcUBCUtils.UGC_TYPE_PIC_BTN);
                 this.text = jSONObject.optString("text");
             }
         }
 
-        public void cY(JSONObject jSONObject) {
+        public void de(JSONObject jSONObject) {
             JSONArray optJSONArray = jSONObject.optJSONArray(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.fNr = new ArrayList();
+                this.fSK = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    C0553a c0553a = new C0553a();
-                    c0553a.cZ(optJSONArray.optJSONObject(i));
-                    this.fNr.add(c0553a);
+                    C0564a c0564a = new C0564a();
+                    c0564a.df(optJSONArray.optJSONObject(i));
+                    this.fSK.add(c0564a);
                 }
             }
             if (!jSONObject.isNull("portrait")) {
-                this.fNj = jSONObject.optString("portrait");
+                this.fSC = jSONObject.optString("portrait");
             }
             if (!jSONObject.isNull("user_name")) {
                 this.username = jSONObject.optString("user_name");
             }
             if (!jSONObject.isNull("guard_seat_user")) {
-                this.fNn = jSONObject.optString("guard_seat_user");
+                this.fSG = jSONObject.optString("guard_seat_user");
             }
-            this.fNk = jSONObject.optString("frame_pic");
-            this.fNl = jSONObject.optString("time_text");
-            this.fNm = jSONObject.optString("rule_url");
+            this.fSD = jSONObject.optString("frame_pic");
+            this.fSE = jSONObject.optString("time_text");
+            this.fSF = jSONObject.optString("rule_url");
             this.startTime = jSONObject.optLong("start_time");
-            this.fNo = jSONObject.optLong("count_down");
-            this.fNp = jSONObject.optLong("effect_time");
-            this.fNq = jSONObject.optLong("polling_time");
+            this.fSH = jSONObject.optLong("count_down");
+            this.fSI = jSONObject.optLong("effect_time");
+            this.fSJ = jSONObject.optLong("polling_time");
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b {
-        public C0554a fNs;
-        public List<C0555b> fNt;
+        public C0565a fSL;
+        public List<C0566b> fSM;
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$b$b  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public static class C0555b {
+        /* loaded from: classes4.dex */
+        public static class C0566b {
             public String nickname;
             public String portrait;
             public String rank;
             public String score;
 
-            public void dc(JSONObject jSONObject) {
+            public void di(JSONObject jSONObject) {
                 this.rank = jSONObject.optString("rank");
                 this.nickname = jSONObject.optString("user_nickname");
                 this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
@@ -107,32 +107,32 @@ public class a {
         }
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$b$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public static class C0554a {
+        /* loaded from: classes4.dex */
+        public static class C0565a {
             public int rank;
             public String text;
 
-            public void db(JSONObject jSONObject) {
+            public void dh(JSONObject jSONObject) {
                 this.rank = jSONObject.optInt("rank");
                 this.text = jSONObject.optString("bottom_text");
             }
         }
 
-        public void da(JSONObject jSONObject) {
+        public void dg(JSONObject jSONObject) {
             if (jSONObject != null) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("list");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    this.fNt = new ArrayList();
+                    this.fSM = new ArrayList();
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        C0555b c0555b = new C0555b();
-                        c0555b.dc(optJSONArray.optJSONObject(i));
-                        this.fNt.add(c0555b);
+                        C0566b c0566b = new C0566b();
+                        c0566b.di(optJSONArray.optJSONObject(i));
+                        this.fSM.add(c0566b);
                     }
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject != null) {
-                    this.fNs = new C0554a();
-                    this.fNs.db(optJSONObject);
+                    this.fSL = new C0565a();
+                    this.fSL.dh(optJSONObject);
                 }
             }
         }

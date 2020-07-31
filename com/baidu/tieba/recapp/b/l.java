@@ -1,103 +1,106 @@
 package com.baidu.tieba.recapp.b;
 
-import android.content.Context;
 import android.view.View;
 import com.baidu.adp.widget.ListView.ad;
-/* loaded from: classes13.dex */
-public class l extends ad.a implements com.baidu.tieba.play.f {
-    com.baidu.tieba.lego.card.view.e<?> hTt;
-    private com.baidu.tieba.recapp.h leU;
+/* loaded from: classes20.dex */
+public class l extends ad.a implements com.baidu.tieba.play.e {
+    com.baidu.tieba.lego.card.view.e<?> hZs;
+    private com.baidu.tieba.recapp.h lmi;
 
     public l(com.baidu.tieba.lego.card.view.e<?> eVar) {
         super((View) eVar);
-        this.hTt = eVar;
+        this.hZs = eVar;
     }
 
-    public void cxF() {
-        if (this.hTt != null) {
-            this.hTt.cxF();
+    public void cBD() {
+        if (this.hZs != null) {
+            this.hZs.cBD();
         }
     }
 
     public void a(com.baidu.tieba.recapp.h hVar) {
-        this.leU = hVar;
+        this.lmi = hVar;
     }
 
-    @Override // com.baidu.tieba.play.f
+    @Override // com.baidu.tieba.play.e
     public boolean isPlayStarted() {
-        if (this.leU == null) {
+        if (this.lmi == null) {
             return false;
         }
-        return this.leU.isPlayStarted();
+        return this.lmi.isPlayStarted();
     }
 
-    @Override // com.baidu.tieba.play.f
+    @Override // com.baidu.tieba.play.e
     public boolean isPlaying() {
-        if (this.leU == null) {
+        if (this.lmi == null) {
             return false;
         }
-        return this.leU.isPlaying();
+        return this.lmi.isPlaying();
     }
 
-    @Override // com.baidu.tieba.play.f
+    @Override // com.baidu.tieba.play.e
     public boolean isFullScreen() {
         return false;
     }
 
-    @Override // com.baidu.tieba.play.f
+    @Override // com.baidu.tieba.play.e
     public void startPlay() {
-        if (this.leU != null) {
-            this.leU.startPlay();
+        if (this.lmi != null) {
+            this.lmi.startPlay();
         }
     }
 
-    @Override // com.baidu.tieba.play.f
+    @Override // com.baidu.tieba.play.e
     public void stopPlay() {
-        if (this.leU != null) {
-            this.leU.stopPlay();
+        if (this.lmi != null) {
+            this.lmi.stopPlay();
         }
     }
 
-    @Override // com.baidu.tieba.play.f
+    @Override // com.baidu.tieba.play.e
     public View getVideoContainer() {
-        if (this.leU == null) {
+        if (this.lmi == null) {
             return null;
         }
-        return this.leU.getVideoContainer();
+        return this.lmi.getVideoContainer();
     }
 
-    @Override // com.baidu.tieba.play.f
+    @Override // com.baidu.tieba.play.e
     public String getPlayUrl() {
-        return this.leU == null ? "" : this.leU.getPlayUrl();
+        return this.lmi == null ? "" : this.lmi.getPlayUrl();
     }
 
-    @Override // com.baidu.tieba.play.f
+    @Override // com.baidu.tieba.play.e
     public int getCurrentPosition() {
-        if (this.leU == null) {
+        if (this.lmi == null) {
             return 0;
         }
-        return (int) this.leU.getCurrentPosition();
+        return (int) this.lmi.getCurrentPosition();
+    }
+
+    public void release() {
+        if (this.lmi != null) {
+            this.lmi.release();
+        }
     }
 
     public int getPlayStatus() {
-        if (this.leU != null) {
-            return this.leU.getPlayStatus();
+        if (this.lmi != null) {
+            return this.lmi.getPlayStatus();
         }
         return -2;
     }
 
     public void autoPlay(int i) {
-        if (this.leU != null) {
-            this.leU.autoPlay(i);
+        if (this.lmi != null) {
+            this.lmi.autoPlay(i);
         }
     }
 
-    public boolean fi(Context context) {
-        if (this.leU == null) {
+    public boolean canPlay() {
+        if (this.lmi == null) {
             return false;
         }
-        int[] iArr = new int[2];
-        this.leU.getLocationInWindow(iArr);
-        return iArr[1] + this.leU.getHeight() >= 0 && iArr[1] <= com.baidu.adp.lib.util.l.getEquipmentHeight(context);
+        return this.lmi.canPlay();
     }
 }

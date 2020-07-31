@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.swan.config.c.a;
 import com.baidu.swan.config.c.b;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public enum ConfigNode {
     HOST_INFO("host_info", a.class, b.class),
     FRAMEWORK("framework", com.baidu.swan.config.b.a.class, com.baidu.swan.config.b.b.class),

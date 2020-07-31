@@ -8,9 +8,7 @@ import android.view.Surface;
 import com.baidu.searchbox.afx.recode.QueuedMuxer;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import tv.danmaku.ijk.media.player.IMediaFormat;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class VideoTrackTranscoder {
     private static final int DRAIN_STATE_CONSUMED = 2;
     private static final int DRAIN_STATE_NONE = 0;
@@ -44,13 +42,13 @@ public class VideoTrackTranscoder {
 
     public void setup(Mp4Info mp4Info) throws IOException {
         this.mExtractor.selectTrack(this.mTrackIndex);
-        this.mEncoder = MediaCodec.createEncoderByType(this.mOutputFormat.getString(IMediaFormat.KEY_MIME));
+        this.mEncoder = MediaCodec.createEncoderByType(this.mOutputFormat.getString("mime"));
         try {
             this.mEncoder.configure(this.mOutputFormat, (Surface) null, (MediaCrypto) null, 1);
         } catch (IllegalStateException e) {
             e.printStackTrace();
             this.mOutputFormat.setInteger("bitrate-mode", 1);
-            this.mOutputFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, mp4Info.getBitrate());
+            this.mOutputFormat.setInteger("bitrate", mp4Info.getBitrate());
             this.mEncoder.configure(this.mOutputFormat, (Surface) null, (MediaCrypto) null, 1);
         }
         this.mEncoderInputSurfaceWrapper = new InputSurface(this.mEncoder.createInputSurface());
@@ -62,7 +60,7 @@ public class VideoTrackTranscoder {
         if (trackFormat.containsKey("rotation-degrees")) {
             trackFormat.setInteger("rotation-degrees", 0);
         }
-        this.mDecoder = MediaCodec.createDecoderByType(trackFormat.getString(IMediaFormat.KEY_MIME));
+        this.mDecoder = MediaCodec.createDecoderByType(trackFormat.getString("mime"));
         this.mDecoderOutputSurfaceWrapper = new OutputSurface();
         this.mDecoder.configure(trackFormat, this.mDecoderOutputSurfaceWrapper.getSurface(), (MediaCrypto) null, 0);
         this.mDecoder.start();

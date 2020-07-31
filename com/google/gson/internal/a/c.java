@@ -13,12 +13,12 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class c extends TypeAdapter<Date> {
-    public static final TypeAdapterFactory naX = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.c.1
+    public static final TypeAdapterFactory njH = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.c.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-            if (aVar.dIl() == Date.class) {
+            if (aVar.dLG() == Date.class) {
                 return new c();
             }
             return null;
@@ -31,19 +31,19 @@ public final class c extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateTimeInstance(2, 2));
         }
-        if (com.google.gson.internal.d.dHG()) {
-            this.dateFormats.add(com.google.gson.internal.g.dH(2, 2));
+        if (com.google.gson.internal.d.dLb()) {
+            this.dateFormats.add(com.google.gson.internal.g.dJ(2, 2));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public Date read(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.dHS() == JsonToken.NULL) {
-            aVar.dHX();
+        if (aVar.dLn() == JsonToken.NULL) {
+            aVar.dLs();
             return null;
         }
-        return deserializeToDate(aVar.dHW());
+        return deserializeToDate(aVar.dLr());
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0019, code lost:
@@ -77,9 +77,9 @@ public final class c extends TypeAdapter<Date> {
     @Override // com.google.gson.TypeAdapter
     public synchronized void write(com.google.gson.stream.b bVar, Date date) throws IOException {
         if (date == null) {
-            bVar.dIh();
+            bVar.dLC();
         } else {
-            bVar.Rd(this.dateFormats.get(0).format(date));
+            bVar.RP(this.dateFormats.get(0).format(date));
         }
     }
 }

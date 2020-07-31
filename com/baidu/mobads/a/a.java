@@ -1,5 +1,5 @@
 package com.baidu.mobads.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public final class a {
     public static final boolean a = b.a.booleanValue();
     public static final int b;

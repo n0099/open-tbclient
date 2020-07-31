@@ -8,11 +8,11 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaConfig;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveUserNotifyManager {
     private static AlaLiveUserNotifyManager mInstance;
     private ArrayList<AlaLiveUserNotifyData> dataList;
@@ -24,20 +24,20 @@ public class AlaLiveUserNotifyManager {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if ((httpResponsedMessage instanceof AlaLiveGetUserNotifyResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaLiveUserNotifyManager.this.mCurTag) {
                 AlaLiveGetUserNotifyResponsedMessage alaLiveGetUserNotifyResponsedMessage = (AlaLiveGetUserNotifyResponsedMessage) httpResponsedMessage;
-                if (w.getCount(alaLiveGetUserNotifyResponsedMessage.getDataList()) > 0) {
+                if (x.getCount(alaLiveGetUserNotifyResponsedMessage.getDataList()) > 0) {
                     if (AlaLiveUserNotifyManager.this.dataList == null) {
                         AlaLiveUserNotifyManager.this.dataList = new ArrayList();
                     }
                     AlaLiveUserNotifyManager.this.dataList.addAll(alaLiveGetUserNotifyResponsedMessage.getDataList());
                     AlaLiveUserNotifyManager.this.notifyMsg();
-                } else if (!w.isEmpty(AlaLiveUserNotifyManager.this.dataList)) {
+                } else if (!x.isEmpty(AlaLiveUserNotifyManager.this.dataList)) {
                     AlaLiveUserNotifyManager.this.notifyMsg();
                 }
             }
         }
     };
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface AlaLiveNotifyListener {
         void onCallBack();
     }
@@ -93,7 +93,7 @@ public class AlaLiveUserNotifyManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyMsg() {
-        if (!w.isEmpty(this.listeners)) {
+        if (!x.isEmpty(this.listeners)) {
             Iterator<AlaLiveNotifyListener> it = this.listeners.iterator();
             while (it.hasNext()) {
                 AlaLiveNotifyListener next = it.next();

@@ -1,5 +1,5 @@
 package com.davemorrissey.labs.subscaleview.decoder;
-/* loaded from: classes8.dex */
+/* loaded from: classes20.dex */
 public class CompatDecoderFactory<T> implements DecoderFactory<T> {
     private Class<? extends T> clazz;
 

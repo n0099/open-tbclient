@@ -7,7 +7,7 @@ import com.baidu.mapapi.JNIInitializer;
 import com.baidu.mapapi.common.EnvironmentUtilities;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
     private static boolean a;
 

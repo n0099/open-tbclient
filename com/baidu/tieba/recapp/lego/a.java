@@ -27,26 +27,26 @@ import com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView;
 import com.baidu.tieba.recapp.lego.view.postad.AdPostImageView;
 import com.baidu.tieba.recapp.lego.view.postad.AdPostPbView;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 class a extends e {
     @Override // com.baidu.tieba.lego.card.e
-    protected void cxe() {
-        jqm.put(17, jqm.size() + 1);
-        jqm.put(26, jqm.size() + 1);
-        jqm.put(27, jqm.size() + 1);
-        jqm.put(31, jqm.size() + 1);
-        jqm.put(32, jqm.size() + 1);
-        jqm.put(33, jqm.size() + 1);
-        jqm.put(34, jqm.size() + 1);
-        jqm.put(99, jqm.size() + 1);
-        jqn.put(17, BdUniqueId.gen());
-        jqn.put(26, BdUniqueId.gen());
-        jqn.put(27, BdUniqueId.gen());
-        jqn.put(31, BdUniqueId.gen());
-        jqn.put(32, BdUniqueId.gen());
-        jqn.put(33, BdUniqueId.gen());
-        jqn.put(34, BdUniqueId.gen());
-        jqn.put(99, BdUniqueId.gen());
+    protected void cBc() {
+        jyP.put(17, jyP.size() + 1);
+        jyP.put(26, jyP.size() + 1);
+        jyP.put(27, jyP.size() + 1);
+        jyP.put(31, jyP.size() + 1);
+        jyP.put(32, jyP.size() + 1);
+        jyP.put(33, jyP.size() + 1);
+        jyP.put(34, jyP.size() + 1);
+        jyP.put(99, jyP.size() + 1);
+        jyQ.put(17, BdUniqueId.gen());
+        jyQ.put(26, BdUniqueId.gen());
+        jyQ.put(27, BdUniqueId.gen());
+        jyQ.put(31, BdUniqueId.gen());
+        jyQ.put(32, BdUniqueId.gen());
+        jyQ.put(33, BdUniqueId.gen());
+        jyQ.put(34, BdUniqueId.gen());
+        jyQ.put(99, BdUniqueId.gen());
     }
 
     @Override // com.baidu.tieba.lego.card.e

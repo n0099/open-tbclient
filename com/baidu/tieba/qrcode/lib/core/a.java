@@ -12,14 +12,14 @@ import android.os.Build;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.WindowManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class a {
-    public static final int ff(Context context) {
-        Point fg = fg(context);
-        return fg.x > fg.y ? 1 : 0;
+    public static final int fj(Context context) {
+        Point fk = fk(context);
+        return fk.x > fk.y ? 1 : 0;
     }
 
-    public static Point fg(Context context) {
+    public static Point fk(Context context) {
         Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
         Point point = new Point();
         if (Build.VERSION.SDK_INT >= 13) {

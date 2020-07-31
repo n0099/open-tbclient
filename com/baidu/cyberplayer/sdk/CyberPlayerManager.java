@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class CyberPlayerManager {
     public static final int COMMAND_ADD_STAGE_INFO = 1001;
     public static final int COMMAND_ON_FIRST_FRAME_DRAWED = 1002;
@@ -37,6 +37,7 @@ public class CyberPlayerManager {
     public static final int LIB_TYPE_CRASHPAD = 16;
     public static final int LIB_TYPE_FFMPEG_EXTEND = 4;
     public static final int LIB_TYPE_PCDN = 2;
+    public static final int LIB_TYPE_RTC = 32;
     public static final int LIB_TYPE_VIDEO_SR = 8;
     public static final int MEDIA_ERROR_FOMAT_DEMUXER_NOT_FOUND = -2006;
     public static final int MEDIA_ERROR_IO = -1004;
@@ -58,6 +59,7 @@ public class CyberPlayerManager {
     public static final int MEDIA_INFO_CONNECT_BEGIN = 919;
     public static final int MEDIA_INFO_CONNECT_END = 920;
     public static final int MEDIA_INFO_DECODE_FAIL = 10008;
+    public static final int MEDIA_INFO_DECODE_MODE_CHANGED = 10102;
     public static final int MEDIA_INFO_DNS_BEGIN = 917;
     public static final int MEDIA_INFO_DNS_END = 918;
     public static final int MEDIA_INFO_DNS_EXCEPTION = 10014;
@@ -121,6 +123,7 @@ public class CyberPlayerManager {
     public static final String OPT_IS_LIVE_VIDEO = "is_live_video";
     public static final String OPT_KERNEL_NET_NETHANDLE = "kernel-net-nethandle";
     public static final String OPT_MAX_FRAMES = "max-frames";
+    public static final String OPT_NEED_HTTP_REFERER = "need-http-referer";
     public static final String OPT_NEED_T5_AUTH = "need-t5-auth";
     public static final String OPT_PCDN_NETHANDLE = "pcdn-nethandle";
     public static final String OPT_PCDN_TYPE = "pcdn-type";
@@ -169,13 +172,13 @@ public class CyberPlayerManager {
     private static Map<String, String> j = new HashMap();
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface HttpDNS {
         List<String> getIpList(String str);
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface InstallListener {
         void onInstallError(int i, int i2, String str);
 
@@ -185,55 +188,55 @@ public class CyberPlayerManager {
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface OnBufferingUpdateListener {
         void onBufferingUpdate(int i);
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface OnCompletionListener {
         void onCompletion();
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface OnDeleteListener {
         void onDeleteComplete(int i, long j);
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface OnErrorListener {
         boolean onError(int i, int i2, Object obj);
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface OnInfoListener {
         boolean onInfo(int i, int i2, Object obj);
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface OnPreparedListener {
         void onPrepared();
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface OnSeekCompleteListener {
         void onSeekComplete();
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface OnVideoFlowListener {
         void onRecordFlow(HashMap<String, String> hashMap);
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface OnVideoSizeChangedListener {
         void onVideoSizeChanged(int i, int i2, int i3, int i4);
     }
@@ -256,12 +259,12 @@ public class CyberPlayerManager {
 
     public static CyberAudioRecorder createCyberAudioRecorder() {
         CyberLog.d("CyberPlayerManager", "DuplayerCore Version:" + getCoreVersion() + " CyberSdk Version:" + getSDKVersion());
-        return d.c();
+        return d.d();
     }
 
     public static PlayerProvider createCyberPlayer(int i2, HttpDNS httpDNS) {
         CyberLog.d("CyberPlayerManager", "DuplayerCore Version:" + getCoreVersion() + " CyberSdk Version:" + getSDKVersion());
-        return k.a().a(i2, httpDNS, false);
+        return l.a().a(i2, httpDNS, false);
     }
 
     public static CyberVRRenderProvider createCyberVRRender(Context context) {
@@ -282,7 +285,7 @@ public class CyberPlayerManager {
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (CyberPlayerManager.d) {
-                    long a2 = m.a((Boolean) true);
+                    long a2 = n.a((Boolean) true);
                     if (CyberPlayerManager.b != null) {
                         if (a2 < 0) {
                             CyberPlayerManager.b.onDeleteComplete((int) a2, 0L);
@@ -318,6 +321,10 @@ public class CyberPlayerManager {
         return TextUtils.isEmpty(a2) ? "0.0.0.0" : a2;
     }
 
+    public static int getDevicePlayQualityScore(String str, int i2, int i3, int i4, Map<String, String> map) {
+        return d.a(str, i2, i3, i4, map);
+    }
+
     public static Map<String, String> getInstallOpts() {
         return j;
     }
@@ -343,11 +350,11 @@ public class CyberPlayerManager {
     }
 
     public static HashMap<Integer, Long> getSystemInfraInfo() {
-        return d.h();
+        return d.j();
     }
 
     public static long getVideoCacheSize() {
-        long k = m.k();
+        long k = n.k();
         CyberLog.d("CyberPlayerManager", "getVideoCacheSize:" + k);
         return k;
     }
@@ -381,7 +388,7 @@ public class CyberPlayerManager {
                 j.putAll(map);
                 a(map);
             }
-            com.baidu.cyberplayer.sdk.b.c.a().a(str2, i2, map, installListener);
+            com.baidu.cyberplayer.sdk.loader.b.a().a(str2, i2, map, installListener);
         }
     }
 

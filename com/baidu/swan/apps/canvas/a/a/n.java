@@ -5,7 +5,7 @@ import android.graphics.Paint;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class n extends a {
     private String mText;
     private int mX;
@@ -16,8 +16,8 @@ public class n extends a {
         try {
             if (jSONArray.length() > 2) {
                 this.mText = jSONArray.optString(0);
-                this.mX = com.baidu.swan.apps.aq.ag.D((float) jSONArray.optDouble(1));
-                this.mY = com.baidu.swan.apps.aq.ag.D((float) jSONArray.optDouble(2));
+                this.mX = com.baidu.swan.apps.aq.ai.D((float) jSONArray.optDouble(1));
+                this.mY = com.baidu.swan.apps.aq.ai.D((float) jSONArray.optDouble(2));
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
@@ -30,8 +30,8 @@ public class n extends a {
     public void a(b bVar, Canvas canvas) {
         float f;
         if (!TextUtils.isEmpty(this.mText)) {
-            TextPaint textPaint = bVar.bSE;
-            int i = bVar.bSJ;
+            TextPaint textPaint = bVar.bTw;
+            int i = bVar.bTB;
             Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
             float f2 = fontMetrics.top + this.mY;
             float f3 = fontMetrics.ascent + this.mY;

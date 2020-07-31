@@ -1,7 +1,7 @@
 package com.baidu.live.o;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends HttpMessage {
     private int mType;
 

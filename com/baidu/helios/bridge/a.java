@@ -5,33 +5,33 @@ import android.os.Bundle;
 import com.baidu.helios.channels.b;
 import com.baidu.helios.ids.b;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public abstract class a {
-    protected C0131a aql;
-    protected b aqm;
+    protected C0129a aqh;
+    protected b aqi;
 
     /* renamed from: com.baidu.helios.bridge.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0131a {
+    /* loaded from: classes20.dex */
+    public static class C0129a {
         public Context applicationContext;
-        public b.a aqn;
-        public b.a aqo;
-        public ExecutorService aqp;
-        public ExecutorService aqq;
+        public b.a aqj;
+        public b.a aqk;
+        public ExecutorService aql;
+        public ExecutorService aqm;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes20.dex */
     public static class b {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes20.dex */
     public interface c<T> {
         void a(int i, Exception exc, Bundle bundle);
 
         void a(T t, Bundle bundle);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes20.dex */
     public static class d {
         public int errCode;
         public Exception exception;
@@ -53,7 +53,7 @@ public abstract class a {
             return dVar;
         }
 
-        public static d dY(String str) {
+        public static d dX(String str) {
             d dVar = new d();
             dVar.errCode = 0;
             dVar.id = str;
@@ -65,12 +65,12 @@ public abstract class a {
         }
     }
 
-    public void a(C0131a c0131a) {
-        this.aql = c0131a;
+    public void a(C0129a c0129a) {
+        this.aqh = c0129a;
     }
 
     public void a(b bVar) {
-        this.aqm = bVar;
+        this.aqi = bVar;
         b(bVar);
     }
 
@@ -80,5 +80,5 @@ public abstract class a {
 
     public abstract d d(String str, Bundle bundle);
 
-    public abstract boolean dX(String str);
+    public abstract boolean dW(String str);
 }

@@ -25,7 +25,7 @@ public class DBOperationFactory {
         if (!sDbOperatioContainer.containsKey(str)) {
             synchronized (sDbOperatioContainer) {
                 LogUtils.e(TAG, "dbname : " + str);
-                if (!sDbOperatioContainer.containsKey(str) && (dBOperation = new DBOperation(context, new DBConnection(context, str, 45))) != null) {
+                if (!sDbOperatioContainer.containsKey(str) && (dBOperation = new DBOperation(context, new DBConnection(context, str, 46))) != null) {
                     DBGroupTableManager dBGroupTableManager = new DBGroupTableManager();
                     dBGroupTableManager.init(dBOperation);
                     dBOperation.setTag(DBGroupTableManager.KEY, dBGroupTableManager);

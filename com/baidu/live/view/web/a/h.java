@@ -13,7 +13,7 @@ import com.baidu.live.tbadk.schemeability.ISchemeAbility;
 import com.baidu.live.tbadk.schemeability.SchemeAbilityManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class h extends com.baidu.live.view.web.a {
     private Activity context;
     private boolean isHost;
@@ -32,7 +32,7 @@ public class h extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void fX(String str) {
+    public void fW(String str) {
         ISchemeAbility buildSchemeAbility;
         Log.d("JsInterface", "@@ JsInterface-impl PersonalCenterBridgeJsInterface params = " + str);
         try {

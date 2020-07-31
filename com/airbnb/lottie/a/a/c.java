@@ -8,12 +8,12 @@ import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
     @Nullable
-    private List<l> BW;
+    private List<l> BY;
     @Nullable
-    private com.airbnb.lottie.a.b.o BX;
+    private com.airbnb.lottie.a.b.o BZ;
     private final List<b> contents;
     private final com.airbnb.lottie.g lottieDrawable;
     private final Matrix matrix;
@@ -69,9 +69,9 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
         this.lottieDrawable = gVar;
         this.contents = list;
         if (lVar != null) {
-            this.BX = lVar.ik();
-            this.BX.a(aVar);
-            this.BX.a(this);
+            this.BZ = lVar.ik();
+            this.BZ.a(aVar);
+            this.BZ.a(this);
         }
         ArrayList arrayList = new ArrayList();
         for (int size = list.size() - 1; size >= 0; size--) {
@@ -108,8 +108,8 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<l> hr() {
-        if (this.BW == null) {
-            this.BW = new ArrayList();
+        if (this.BY == null) {
+            this.BY = new ArrayList();
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -118,18 +118,18 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
                 }
                 b bVar = this.contents.get(i2);
                 if (bVar instanceof l) {
-                    this.BW.add((l) bVar);
+                    this.BY.add((l) bVar);
                 }
                 i = i2 + 1;
             }
         }
-        return this.BW;
+        return this.BY;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Matrix hs() {
-        if (this.BX != null) {
-            return this.BX.getMatrix();
+        if (this.BZ != null) {
+            return this.BZ.getMatrix();
         }
         this.matrix.reset();
         return this.matrix;
@@ -138,8 +138,8 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
     @Override // com.airbnb.lottie.a.a.l
     public Path ht() {
         this.matrix.reset();
-        if (this.BX != null) {
-            this.matrix.set(this.BX.getMatrix());
+        if (this.BZ != null) {
+            this.matrix.set(this.BZ.getMatrix());
         }
         this.path.reset();
         for (int size = this.contents.size() - 1; size >= 0; size--) {
@@ -154,9 +154,9 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
     @Override // com.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         this.matrix.set(matrix);
-        if (this.BX != null) {
-            this.matrix.preConcat(this.BX.getMatrix());
-            i = (int) ((((this.BX.hO().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
+        if (this.BZ != null) {
+            this.matrix.preConcat(this.BZ.getMatrix());
+            i = (int) ((((this.BZ.hO().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
         }
         for (int size = this.contents.size() - 1; size >= 0; size--) {
             b bVar = this.contents.get(size);
@@ -169,8 +169,8 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
     @Override // com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         this.matrix.set(matrix);
-        if (this.BX != null) {
-            this.matrix.preConcat(this.BX.getMatrix());
+        if (this.BZ != null) {
+            this.matrix.preConcat(this.BZ.getMatrix());
         }
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
         for (int size = this.contents.size() - 1; size >= 0; size--) {
@@ -216,8 +216,8 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
 
     @Override // com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
-        if (this.BX != null) {
-            this.BX.b(t, cVar);
+        if (this.BZ != null) {
+            this.BZ.b(t, cVar);
         }
     }
 }

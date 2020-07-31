@@ -1,7 +1,7 @@
 package com.baidu.searchbox.network.core;
 
 import com.baidu.mobstat.Config;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public enum Protocol {
     HTTP_1_0("http/1.0"),
     HTTP_1_1("http/1.1"),

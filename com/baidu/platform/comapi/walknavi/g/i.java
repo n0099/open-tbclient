@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.g;
 
 import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class i implements DialogInterface.OnCancelListener {
     final /* synthetic */ a a;
 

@@ -6,7 +6,7 @@ import java.io.UnsupportedEncodingException;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes.dex */
+/* loaded from: classes9.dex */
 public class Encryption {
     private static SecretKeySpec createKey(String str) {
         byte[] bArr = null;

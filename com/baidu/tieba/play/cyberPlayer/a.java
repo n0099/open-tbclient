@@ -10,26 +10,26 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private HashMap<String, Integer> kVA;
-    private boolean kVy;
-    private boolean kVz;
+    private boolean lcR;
+    private boolean lcS;
+    private HashMap<String, Integer> lcT;
 
-    public void dG(JSONObject jSONObject) {
+    public void dN(JSONObject jSONObject) {
         if (jSONObject != null) {
-            boolean z = this.kVy;
-            this.kVy = jSONObject.optInt("switch", 0) == 1;
-            this.kVz = jSONObject.optInt("p2p_config", 0) == 1;
+            boolean z = this.lcR;
+            this.lcR = jSONObject.optInt("switch", 0) == 1;
+            this.lcS = jSONObject.optInt("p2p_config", 0) == 1;
             JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
             if (optJSONArray != null) {
-                this.kVA = new HashMap<>();
+                this.lcT = new HashMap<>();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     String optString = optJSONArray.optString(i);
                     if (!StringUtils.isNull(optString)) {
-                        this.kVA.put(optString, 0);
+                        this.lcT.put(optString, 0);
                     }
                 }
             }
-            if (this.kVy) {
+            if (this.lcR) {
                 c.init();
                 if (!z) {
                     Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
@@ -46,21 +46,21 @@ public class a {
         }
     }
 
-    public boolean cVY() {
-        if (this.kVy) {
+    public boolean cZc() {
+        if (this.lcR) {
             c.init();
         }
-        return this.kVy;
+        return this.lcR;
     }
 
-    public boolean cVZ() {
-        return this.kVz;
+    public boolean cZd() {
+        return this.lcS;
     }
 
-    public boolean y(Uri uri) {
-        if (this.kVA == null || uri == null) {
+    public boolean x(Uri uri) {
+        if (this.lcT == null || uri == null) {
             return false;
         }
-        return this.kVA.containsKey(uri.getHost());
+        return this.lcT.containsKey(uri.getHost());
     }
 }

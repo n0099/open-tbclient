@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Formatter;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i {
     public static String numFormatOverWanNaForAudienceNum(long j) {
         if (j > 99990000) {
@@ -47,11 +47,11 @@ public class i {
         return simpleDateFormat.format(date);
     }
 
-    public static String Ji() {
+    public static String Jp() {
         return new SimpleDateFormat("HH").format(new Date());
     }
 
-    public static String Jj() {
+    public static String Jq() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH");
         Date date = new Date();
         date.setHours(date.getHours() - 1);
@@ -71,7 +71,7 @@ public class i {
         return i4 > 0 ? formatter.format("%d:%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i3), Integer.valueOf(i2)).toString() : formatter.format("%02d:%02d", Integer.valueOf(i3), Integer.valueOf(i2)).toString();
     }
 
-    public static boolean fT(String str) {
+    public static boolean fR(String str) {
         if (str == null) {
             return false;
         }

@@ -13,7 +13,7 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class Retrofit2ConverterFactory extends Converter.Factory {
     private Feature[] features;
     private SerializeConfig serializeConfig;
@@ -76,7 +76,7 @@ public class Retrofit2ConverterFactory extends Converter.Factory {
         return this;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     final class ResponseBodyConverter<T> implements Converter<ResponseBody, T> {
         private Type type;
 
@@ -94,7 +94,7 @@ public class Retrofit2ConverterFactory extends Converter.Factory {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     final class RequestBodyConverter<T> implements Converter<T, RequestBody> {
         /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
         /* JADX WARN: Multi-variable type inference failed */

@@ -14,7 +14,7 @@ import protobuf.GroupInfo;
 import protobuf.Photo;
 import protobuf.QueryGroupDetail.QueryGroupDetailResIdl;
 import protobuf.UserInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
     private QueryGroupDetailResIdl mResData;
     private a selfData;
@@ -31,86 +31,86 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
         this.selfData = null;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes17.dex */
     public static class a {
-        private boolean iWD;
-        private boolean iWE;
-        private GroupData iYP;
-        private List<MemberData> iYQ;
-        private List<PhotoUrlData> iYR;
-        private int iYS;
-        private int iYT;
-        private boolean iYU;
-        private boolean iYV;
-        private GroupActivityData iYW;
         private boolean isMemGroup;
+        private boolean jeN;
+        private boolean jeO;
+        private GroupData jha;
+        private List<MemberData> jhb;
+        private List<PhotoUrlData> jhc;
+        private int jhd;
+        private int jhe;
+        private boolean jhf;
+        private boolean jhg;
+        private GroupActivityData jhh;
 
-        public GroupActivityData csm() {
-            return this.iYW;
+        public GroupActivityData cwk() {
+            return this.jhh;
         }
 
         public void a(GroupActivityData groupActivityData) {
-            this.iYW = groupActivityData;
+            this.jhh = groupActivityData;
         }
 
         public GroupData getGroup() {
-            return this.iYP;
+            return this.jha;
         }
 
         public void setGroup(GroupData groupData) {
-            this.iYP = groupData;
+            this.jha = groupData;
         }
 
-        public List<MemberData> csn() {
-            return this.iYQ;
+        public List<MemberData> cwl() {
+            return this.jhb;
         }
 
-        public void dA(List<MemberData> list) {
-            this.iYQ = list;
+        public void dH(List<MemberData> list) {
+            this.jhb = list;
         }
 
-        public List<PhotoUrlData> cso() {
-            return this.iYR;
+        public List<PhotoUrlData> cwm() {
+            return this.jhc;
         }
 
-        public void dB(List<PhotoUrlData> list) {
-            this.iYR = list;
+        public void dI(List<PhotoUrlData> list) {
+            this.jhc = list;
         }
 
-        public int csp() {
-            return this.iYS;
+        public int cwn() {
+            return this.jhd;
         }
 
-        public void yG(int i) {
-            this.iYS = i;
+        public void ze(int i) {
+            this.jhd = i;
         }
 
-        public int csq() {
-            return this.iYT;
+        public int cwo() {
+            return this.jhe;
         }
 
-        public void yH(int i) {
-            this.iYT = i;
+        public void zf(int i) {
+            this.jhe = i;
         }
 
-        public boolean csr() {
-            return this.iWD;
+        public boolean cwp() {
+            return this.jeN;
         }
 
-        public void pD(boolean z) {
-            this.iWD = z;
+        public void qk(boolean z) {
+            this.jeN = z;
         }
 
-        public boolean css() {
-            return this.iWE;
+        public boolean cwq() {
+            return this.jeO;
         }
 
-        public void pE(boolean z) {
-            this.iWE = z;
+        public void ql(boolean z) {
+            this.jeO = z;
         }
 
-        public void pF(boolean z) {
-            this.iYU = z;
+        public void qm(boolean z) {
+            this.jhf = z;
         }
 
         public boolean isMemGroup() {
@@ -121,12 +121,12 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.isMemGroup = z;
         }
 
-        public boolean cst() {
-            return this.iYV;
+        public boolean cwr() {
+            return this.jhg;
         }
 
-        public void pG(boolean z) {
-            this.iYV = z;
+        public void qn(boolean z) {
+            this.jhg = z;
         }
     }
 
@@ -144,13 +144,13 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
         setError(this.mResData.error.errorno.intValue());
         setErrorString(this.mResData.error.usermsg);
         if (getError() == 0) {
-            this.selfData.yH(this.mResData.data.canJoinGroupNum.intValue());
-            this.selfData.pE(this.mResData.data.isGroupManager.intValue() != 0);
-            this.selfData.pF(this.mResData.data.hideRecommendGroup.intValue() != 0);
-            this.selfData.pD(this.mResData.data.isJoin.intValue() != 0);
-            this.selfData.yG(this.mResData.data.joinGroupNum.intValue());
+            this.selfData.zf(this.mResData.data.canJoinGroupNum.intValue());
+            this.selfData.ql(this.mResData.data.isGroupManager.intValue() != 0);
+            this.selfData.qm(this.mResData.data.hideRecommendGroup.intValue() != 0);
+            this.selfData.qk(this.mResData.data.isJoin.intValue() != 0);
+            this.selfData.ze(this.mResData.data.joinGroupNum.intValue());
             this.selfData.setMemGroup(this.mResData.data.group.isMemberGroup.intValue() == 1);
-            this.selfData.pG(this.mResData.data.canCreateMember.intValue() == 1);
+            this.selfData.qn(this.mResData.data.canCreateMember.intValue() == 1);
             GroupInfo groupInfo = this.mResData.data.group;
             GroupData groupData = new GroupData();
             GroupInfo2GroupData(groupInfo, groupData);
@@ -164,7 +164,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
                     linkedList.add(memberData);
                 }
             }
-            this.selfData.dA(linkedList);
+            this.selfData.dH(linkedList);
             List<Photo> list2 = this.mResData.data.photo;
             LinkedList linkedList2 = new LinkedList();
             if (list2 != null) {
@@ -174,7 +174,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
                     linkedList2.add(photoUrlData);
                 }
             }
-            this.selfData.dB(linkedList2);
+            this.selfData.dI(linkedList2);
             ActivityInfo activityInfo = this.mResData.data.activity;
             if (activityInfo != null) {
                 GroupActivityData groupActivityData = new GroupActivityData();

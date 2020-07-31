@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.support.v4.app.NotificationCompat;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-import com.baidu.f.a.a.a.a;
+import com.baidu.g.a.a.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -27,7 +27,7 @@ import com.sina.weibo.sdk.auth.sso.SsoHandler;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
     private static final int SUCCESS_RESULTCODE = -1;
     private static final String TAG = "SinaSSOLoginActivity";

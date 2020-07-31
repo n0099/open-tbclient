@@ -6,7 +6,7 @@ import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class d implements b<String> {
     private Context mContext;
 
@@ -24,17 +24,17 @@ public class d implements b<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: auy */
+    /* renamed from: awA */
     public String get() {
-        return aKn();
+        return aOe();
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean aKl() {
+    public boolean aOc() {
         return false;
     }
 
-    private String aKn() {
+    private String aOe() {
         String str = null;
         List<ResolveInfo> queryBroadcastReceivers = this.mContext.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.intent.action.UUID"), 0);
         if (queryBroadcastReceivers == null || queryBroadcastReceivers.size() <= 0) {

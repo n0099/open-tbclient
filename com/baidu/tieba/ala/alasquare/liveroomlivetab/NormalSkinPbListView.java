@@ -10,7 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.c;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NormalSkinPbListView extends c {
     private ImageView lineView;
     private LinearLayout mContainer;
@@ -23,7 +23,7 @@ public class NormalSkinPbListView extends c {
     private TextView mTextView;
     private LinearLayout mTopExtraView;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum IconType {
         ICON_DOWN_WARD,
         ICON_UP_WARD

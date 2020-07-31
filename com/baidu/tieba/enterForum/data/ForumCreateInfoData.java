@@ -2,35 +2,35 @@ package com.baidu.tieba.enterForum.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import tbclient.ForumCreateInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class ForumCreateInfoData extends OrmObject {
-    private int hbD = 0;
-    private int hbE = 0;
-    private int hbF = 0;
-    private String hbG = null;
+    private int hhj = 0;
+    private int hhk = 0;
+    private int hhl = 0;
+    private String hhm = null;
 
-    public boolean bRf() {
-        return this.hbD != 0;
+    public boolean bUr() {
+        return this.hhj != 0;
     }
 
-    public boolean bRg() {
-        return this.hbE != 0;
+    public boolean bUs() {
+        return this.hhk != 0;
     }
 
-    public int bRh() {
-        return this.hbF;
+    public int bUt() {
+        return this.hhl;
     }
 
-    public String bRi() {
-        return this.hbG;
+    public String bUu() {
+        return this.hhm;
     }
 
     public void a(ForumCreateInfo forumCreateInfo) {
         if (forumCreateInfo != null) {
-            this.hbD = forumCreateInfo.is_show_create.intValue();
-            this.hbE = forumCreateInfo.is_can_create.intValue();
-            this.hbF = forumCreateInfo.can_create_errno.intValue();
-            this.hbG = forumCreateInfo.can_create_errdata;
+            this.hhj = forumCreateInfo.is_show_create.intValue();
+            this.hhk = forumCreateInfo.is_can_create.intValue();
+            this.hhl = forumCreateInfo.can_create_errno.intValue();
+            this.hhm = forumCreateInfo.can_create_errdata;
         }
     }
 }

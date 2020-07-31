@@ -4,19 +4,19 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.util.g;
 import com.baidu.tieba.write.write.sticker.a.a;
 import com.baidu.tieba.write.write.sticker.a.c;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StickerLayout extends FrameLayout {
     private Context mContext;
-    private List<StickerView> mww;
-    private FrameLayout.LayoutParams mwx;
-    private int mwy;
+    private List<StickerView> mEA;
+    private FrameLayout.LayoutParams mEB;
+    private int mEC;
 
     public StickerLayout(Context context) {
         this(context, null);
@@ -33,22 +33,22 @@ public class StickerLayout extends FrameLayout {
 
     private void init(Context context) {
         this.mContext = context;
-        this.mww = new ArrayList();
-        this.mwx = new FrameLayout.LayoutParams(-1, -1);
+        this.mEA = new ArrayList();
+        this.mEB = new FrameLayout.LayoutParams(-1, -1);
     }
 
     public StickerView a(Bitmap bitmap, final c cVar) {
         final StickerView stickerView = new StickerView(this.mContext);
         stickerView.setImageBitmap(bitmap);
-        stickerView.setLayoutParams(this.mwx);
+        stickerView.setLayoutParams(this.mEB);
         stickerView.setmOnStickerActionListener(new a() { // from class: com.baidu.tieba.write.write.sticker.view.StickerLayout.1
             @Override // com.baidu.tieba.write.write.sticker.a.a
-            public void dur() {
+            public void dxD() {
                 StickerLayout.this.removeView(stickerView);
-                StickerLayout.this.mww.remove(stickerView);
-                StickerLayout.this.cES();
+                StickerLayout.this.mEA.remove(stickerView);
+                StickerLayout.this.cIB();
                 if (cVar != null) {
-                    cVar.dsG();
+                    cVar.dvS();
                 }
             }
 
@@ -69,53 +69,53 @@ public class StickerLayout extends FrameLayout {
             }
         });
         addView(stickerView);
-        this.mww.add(stickerView);
-        cES();
+        this.mEA.add(stickerView);
+        cIB();
         if (cVar != null) {
-            cVar.dsF();
+            cVar.dvR();
         }
         return stickerView;
     }
 
     public void a(c cVar) {
-        Iterator<StickerView> it = this.mww.iterator();
+        Iterator<StickerView> it = this.mEA.iterator();
         while (it.hasNext()) {
             StickerView next = it.next();
             if (next != null) {
                 removeView(next);
                 it.remove();
-                cES();
+                cIB();
                 if (cVar != null) {
-                    cVar.dsG();
+                    cVar.dvS();
                 }
             }
         }
     }
 
-    public void cES() {
-        if (this.mww.size() > 0) {
-            for (StickerView stickerView : this.mww) {
+    public void cIB() {
+        if (this.mEA.size() > 0) {
+            for (StickerView stickerView : this.mEA) {
                 if (stickerView != null) {
-                    stickerView.setRemoveRes(this.mwy);
+                    stickerView.setRemoveRes(this.mEC);
                     stickerView.setEdit(false);
                 }
             }
         }
     }
 
-    public Bitmap dus() {
-        if (w.isEmpty(this.mww)) {
+    public Bitmap dxE() {
+        if (x.isEmpty(this.mEA)) {
             return null;
         }
-        cES();
-        return g.bl(this);
+        cIB();
+        return g.br(this);
     }
 
     public void setRemoveRes(int i) {
-        this.mwy = i;
+        this.mEC = i;
     }
 
     public List<StickerView> getStickerViews() {
-        return this.mww;
+        return this.mEA;
     }
 }

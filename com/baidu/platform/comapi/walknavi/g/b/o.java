@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.g.b;
 
 import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class o implements Runnable {
     final /* synthetic */ c a;
 

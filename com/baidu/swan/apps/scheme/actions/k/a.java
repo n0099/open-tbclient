@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.scheme.actions.k;
 
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -7,9 +8,9 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.ah;
+import com.baidu.swan.apps.aq.aa;
 import com.baidu.swan.apps.aq.aj;
-import com.baidu.swan.apps.aq.z;
+import com.baidu.swan.apps.aq.al;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.tieba.imMessageCenter.InvokeNewImMessageCenterFragmentConfig;
 import java.util.HashMap;
@@ -17,16 +18,16 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int cHD = -1;
+    private static int cKG = -1;
 
-    public static JSONObject ol(String str) {
-        return bQ(str, "");
+    public static JSONObject oV(String str) {
+        return bR(str, "");
     }
 
-    public static JSONObject bQ(String str, String str2) {
+    public static JSONObject bR(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("wvID", str);
@@ -68,7 +69,7 @@ public final class a {
     }
 
     @Nullable
-    public static String bn(JSONObject jSONObject) {
+    public static String bs(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -93,40 +94,43 @@ public final class a {
         }
     }
 
+    /* JADX WARN: Type inference failed for: r0v14, types: [com.baidu.swan.apps.adaptation.b.d] */
     public static void a(com.baidu.swan.apps.adaptation.b.c cVar, com.baidu.swan.apps.model.b bVar, String str) {
-        com.baidu.swan.apps.performance.f.D("route", "createAndLoadPage start.");
-        String N = aj.N(bVar.mBaseUrl, bVar.mPage, bVar.mParams);
-        com.baidu.swan.apps.runtime.config.c ly = com.baidu.swan.apps.w.f.ajb().ly(bVar.ctH);
+        com.baidu.swan.apps.performance.h.C("route", "createAndLoadPage start.");
+        String N = al.N(bVar.mBaseUrl, bVar.mPage, bVar.mParams);
+        com.baidu.swan.apps.runtime.config.c lZ = com.baidu.swan.apps.v.f.akr().lZ(bVar.cvJ);
         com.baidu.swan.apps.core.turbo.b bVar2 = new com.baidu.swan.apps.core.turbo.b();
-        bVar2.cfm = cVar.Ul();
+        bVar2.cgW = cVar.UM();
         bVar2.appPath = bVar.mBaseUrl;
-        if (com.baidu.swan.apps.runtime.e.apM() != null) {
-            bVar2.pageType = com.baidu.swan.apps.runtime.e.apM().nH(bVar.ctH);
+        if (com.baidu.swan.apps.runtime.e.arv() != null) {
+            bVar2.pageType = com.baidu.swan.apps.runtime.e.arv().op(bVar.cvJ);
         }
-        bVar2.cfk = com.baidu.swan.apps.core.turbo.a.b(com.baidu.swan.apps.runtime.e.apM(), bVar.mPage);
-        bVar2.cfo = com.baidu.swan.apps.model.b.d(bVar);
-        bVar2.cfp = ly.cfp;
-        bVar2.cfj = String.valueOf(com.baidu.swan.apps.console.a.WU());
-        if (com.baidu.swan.apps.runtime.e.apM() != null) {
-            String nJ = com.baidu.swan.apps.runtime.e.apM().nJ(bVar.ctH);
-            if (!TextUtils.isEmpty(nJ)) {
+        bVar2.cgU = com.baidu.swan.apps.core.turbo.a.b(com.baidu.swan.apps.runtime.e.arv(), bVar.mPage);
+        bVar2.cgY = com.baidu.swan.apps.model.b.d(bVar);
+        bVar2.cgZ = lZ.cgZ;
+        bVar2.cgT = String.valueOf(com.baidu.swan.apps.console.a.XA());
+        if (com.baidu.swan.apps.runtime.e.arv() != null) {
+            String or = com.baidu.swan.apps.runtime.e.arv().or(bVar.cvJ);
+            if (!TextUtils.isEmpty(or)) {
                 if (DEBUG) {
-                    Log.d("ActionUtils", "add initData: " + nJ);
+                    Log.d("ActionUtils", "add initData: " + or);
                 }
-                bVar2.cfq = nJ;
+                bVar2.cha = or;
             }
         }
-        bVar2.cfl = DEBUG || com.baidu.swan.apps.w.f.ajb().aiF();
-        bVar2.cfr = str;
-        if (com.baidu.swan.apps.af.a.a.anx()) {
-            bVar2.cfn = com.baidu.swan.apps.console.debugger.b.Xb();
+        bVar2.cgV = DEBUG || com.baidu.swan.apps.v.f.akr().ajV();
+        bVar2.chb = str;
+        if (com.baidu.swan.apps.ae.a.a.apg()) {
+            bVar2.cgX = com.baidu.swan.apps.console.debugger.b.XH();
         }
-        com.baidu.swan.apps.performance.g.bC("route", str).f(new UbcFlowEvent("slave_dispatch_start"));
-        z.auI();
-        com.baidu.swan.apps.w.f.ajb().a(cVar.Up(), com.baidu.swan.apps.core.turbo.b.b(bVar2));
-        com.baidu.swan.apps.statistic.e.bT(cVar.Up(), bVar2.cfo);
+        com.baidu.swan.apps.performance.i.bE("route", str).f(new UbcFlowEvent("slave_dispatch_start"));
+        aa.awK();
+        cVar.UP().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, bVar.getPage());
+        cVar.ho(bVar2.cgY);
+        com.baidu.swan.apps.v.f.akr().a(cVar.UR(), com.baidu.swan.apps.core.turbo.b.b(bVar2));
+        com.baidu.swan.apps.statistic.e.bU(cVar.UR(), bVar2.cgY);
         com.baidu.swan.apps.core.slave.b.a(N, cVar);
-        com.baidu.swan.apps.performance.f.D("route", "createAndLoadPage end.");
+        com.baidu.swan.apps.performance.h.C("route", "createAndLoadPage end.");
     }
 
     public static void J(String str, String str2, @NonNull String str3) {
@@ -135,65 +139,75 @@ public final class a {
             hashMap.put("from", str2);
         }
         hashMap.put("url", str3);
-        com.baidu.swan.apps.w.f.ajb().a(new com.baidu.swan.apps.event.a.b(str, hashMap));
+        com.baidu.swan.apps.v.f.akr().a(new com.baidu.swan.apps.event.a.b(str, hashMap));
     }
 
-    public static boolean om(@NonNull String str) {
-        String arb;
-        return (ara() <= 0 || (arb = arb()) == null || str == null || TextUtils.equals(com.baidu.swan.apps.v.b.b.kQ(arb), com.baidu.swan.apps.v.b.b.kQ(str))) ? false : true;
+    public static boolean oW(@NonNull String str) {
+        if (asR() <= 0) {
+            return false;
+        }
+        String asS = asS();
+        if (DEBUG) {
+            Log.i("ActionUtils", "lastPageUrl: " + asS + "\ncurPageUrl: " + str);
+        }
+        if (asS == null || str == null) {
+            return false;
+        }
+        String lq = com.baidu.swan.apps.u.c.b.lq(asS);
+        String lq2 = com.baidu.swan.apps.u.c.b.lq(str);
+        return (TextUtils.equals(lq, lq2) || TextUtils.equals(Uri.decode(lq), lq2) || TextUtils.equals(lq, Uri.decode(lq2))) ? false : true;
     }
 
-    private static int ara() {
-        if (cHD < 0) {
-            cHD = com.baidu.swan.apps.u.a.aga().getSwitch("swan_app_relaunch_switch", 0);
+    private static int asR() {
+        if (cKG < 0) {
+            cKG = com.baidu.swan.apps.t.a.ahm().getSwitch("swan_app_relaunch_switch", 0);
         }
         if (DEBUG) {
-            Log.d("ActionUtils", "getRelaunchSwitch:" + cHD);
+            Log.d("ActionUtils", "getRelaunchSwitch:" + cKG);
         }
-        return cHD;
+        return cKG;
     }
 
-    private static String arb() {
-        com.baidu.swan.apps.core.d.d ZW = com.baidu.swan.apps.w.f.ajb().ZW();
-        if (ZW == null) {
+    private static String asS() {
+        com.baidu.swan.apps.adaptation.b.c aaQ;
+        com.baidu.swan.apps.core.d.e aba = com.baidu.swan.apps.v.f.akr().aba();
+        if (aba == null || (aaQ = aba.aaQ()) == null) {
             return null;
         }
-        String page = ZW.ZL().getPage();
-        String params = ZW.ZL().getParams();
-        return !TextUtils.isEmpty(params) ? page + "?" + params : page;
+        return aaQ.UO();
     }
 
-    public static void oo(final String str) {
-        aj.p(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.k.a.1
+    public static void oX(final String str) {
+        al.p(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.k.a.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.core.d.e RN = com.baidu.swan.apps.w.f.ajb().RN();
-                if (RN != null) {
-                    RN.jx(str).aaf().aah();
+                com.baidu.swan.apps.core.d.f Sc = com.baidu.swan.apps.v.f.akr().Sc();
+                if (Sc != null) {
+                    Sc.jO(str).abj().abl();
                 }
             }
         });
     }
 
     private static JSONObject a(@NonNull com.baidu.swan.apps.runtime.e eVar, String str, String str2, List<String> list) {
-        String delAllParamsFromUrl = ah.delAllParamsFromUrl(str);
-        String params = ah.getParams(str);
-        String oq = j.oq(delAllParamsFromUrl);
-        String nF = eVar.nF(delAllParamsFromUrl);
-        String nH = eVar.nH(delAllParamsFromUrl);
+        String delAllParamsFromUrl = aj.delAllParamsFromUrl(str);
+        String params = aj.getParams(str);
+        String oZ = j.oZ(delAllParamsFromUrl);
+        String hq = eVar.hq(delAllParamsFromUrl);
+        String op = eVar.op(delAllParamsFromUrl);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("wvID", str2);
-            jSONObject.put("root", nF);
-            jSONObject.put(InvokeNewImMessageCenterFragmentConfig.PAGE_TYPE, nH);
+            jSONObject.put("root", hq);
+            jSONObject.put(InvokeNewImMessageCenterFragmentConfig.PAGE_TYPE, op);
             if (!TextUtils.isEmpty(str)) {
                 jSONObject.put("pageUrl", str);
             }
-            if (!TextUtils.equals(delAllParamsFromUrl, oq)) {
+            if (!TextUtils.equals(delAllParamsFromUrl, oZ)) {
                 if (!TextUtils.isEmpty(params)) {
-                    oq = oq + "?" + params;
+                    oZ = oZ + "?" + params;
                 }
-                jSONObject.put("pageRoutePath", oq);
+                jSONObject.put("pageRoutePath", oZ);
             }
             if (list != null && !list.isEmpty()) {
                 JSONArray jSONArray = new JSONArray();
@@ -210,10 +224,10 @@ public final class a {
         return jSONObject;
     }
 
-    public static List<String> e(com.baidu.swan.apps.core.d.e eVar) {
-        com.baidu.swan.apps.core.d.b eX;
-        if (eVar != null && eVar.ZY() >= com.baidu.swan.apps.api.module.g.b.bQK && (eX = eVar.eX(0)) != null && (eX instanceof com.baidu.swan.apps.core.d.d)) {
-            return ((com.baidu.swan.apps.core.d.d) eX).ZI();
+    public static List<String> e(com.baidu.swan.apps.core.d.f fVar) {
+        com.baidu.swan.apps.core.d.c fc;
+        if (fVar != null && fVar.abc() >= com.baidu.swan.apps.api.module.g.b.bRB && (fc = fVar.fc(0)) != null && (fc instanceof com.baidu.swan.apps.core.d.e)) {
+            return ((com.baidu.swan.apps.core.d.e) fc).aaM();
         }
         return null;
     }

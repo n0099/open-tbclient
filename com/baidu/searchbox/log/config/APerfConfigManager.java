@@ -3,7 +3,7 @@ package com.baidu.searchbox.log.config;
 import com.baidu.pyramid.runtime.service.d;
 import com.baidu.tbadk.TbConfig;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes11.dex */
 public interface APerfConfigManager {
     public static final d SERVICE_REFERENCE = new d(TbConfig.TMP_LOG_DIR_NAME, "APerfConfig");
 

@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.walknavi.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class l {
     public static double a(double d) {
         return (3.141592653589793d * d) / 180.0d;

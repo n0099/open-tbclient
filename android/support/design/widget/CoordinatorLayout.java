@@ -46,6 +46,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.ViewTreeObserver;
 import com.baidu.mapapi.map.WeightedLatLng;
+import io.flutter.plugin.platform.PlatformPlugin;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Constructor;
@@ -2051,7 +2052,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                     };
                 }
                 ViewCompat.setOnApplyWindowInsetsListener(this, this.mApplyWindowInsetsListener);
-                setSystemUiVisibility(1280);
+                setSystemUiVisibility(PlatformPlugin.DEFAULT_SYSTEM_UI);
                 return;
             }
             ViewCompat.setOnApplyWindowInsetsListener(this, null);

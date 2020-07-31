@@ -6,8 +6,8 @@ import android.text.SpanWatcher;
 import android.text.Spannable;
 /* loaded from: classes.dex */
 public class c implements SpanWatcher {
-    private int ehl;
-    private int ehm;
+    private int enw;
+    private int enx;
     private SpanGroupManager mSpanGroupManager;
 
     public c(@NonNull SpanGroupManager spanGroupManager) {
@@ -25,13 +25,13 @@ public class c implements SpanWatcher {
     @Override // android.text.SpanWatcher
     public void onSpanChanged(Spannable spannable, Object obj, int i, int i2, int i3, int i4) {
         if (this.mSpanGroupManager != null) {
-            if (obj == Selection.SELECTION_END && this.ehm != i3) {
-                this.ehm = i3;
-                a mJ = this.mSpanGroupManager.mJ(this.ehm);
-                if (mJ instanceof TbLinkSpanGroup) {
-                    int start = mJ.getStart();
-                    int end = mJ.getEnd();
-                    if (Math.abs(this.ehm - end) <= Math.abs(this.ehm - start)) {
+            if (obj == Selection.SELECTION_END && this.enx != i3) {
+                this.enx = i3;
+                a nb = this.mSpanGroupManager.nb(this.enx);
+                if (nb instanceof TbLinkSpanGroup) {
+                    int start = nb.getStart();
+                    int end = nb.getEnd();
+                    if (Math.abs(this.enx - end) <= Math.abs(this.enx - start)) {
                         start = end;
                     }
                     int selectionStart = Selection.getSelectionStart(spannable);
@@ -44,13 +44,13 @@ public class c implements SpanWatcher {
                     Selection.setSelection(spannable, selectionStart, start);
                 }
             }
-            if (obj == Selection.SELECTION_START && this.ehl != i3) {
-                this.ehl = i3;
-                a mJ2 = this.mSpanGroupManager.mJ(this.ehl);
-                if (mJ2 instanceof TbLinkSpanGroup) {
-                    int start2 = mJ2.getStart();
-                    int end2 = mJ2.getEnd();
-                    if (Math.abs(this.ehl - end2) <= Math.abs(this.ehl - start2)) {
+            if (obj == Selection.SELECTION_START && this.enw != i3) {
+                this.enw = i3;
+                a nb2 = this.mSpanGroupManager.nb(this.enw);
+                if (nb2 instanceof TbLinkSpanGroup) {
+                    int start2 = nb2.getStart();
+                    int end2 = nb2.getEnd();
+                    if (Math.abs(this.enw - end2) <= Math.abs(this.enw - start2)) {
                         start2 = end2;
                     }
                     int selectionEnd = Selection.getSelectionEnd(spannable);

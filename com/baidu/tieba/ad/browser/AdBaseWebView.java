@@ -18,55 +18,55 @@ import android.webkit.WebViewClient;
 import com.baidu.adp.lib.f.g;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class AdBaseWebView extends WebView {
-    private b eYd;
-    private b eYe;
-    private d eYf;
-    private c eYg;
-    private e eYh;
+    private b fcF;
+    private b fcG;
+    private d fcH;
+    private c fcI;
+    private e fcJ;
     private com.baidu.tieba.tbadkCore.e.c jsCallback;
     private Context mContext;
     private WebViewClient mWebViewClient;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public interface b {
         boolean shouldOverrideUrlLoading(WebView webView, String str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public interface c {
         void onPageFinished(WebView webView, String str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public interface d {
         void b(WebView webView, String str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public interface e {
         void onReceivedError(WebView webView, int i, String str, String str2);
     }
 
     public AdBaseWebView(Context context) {
         super(context);
-        this.eYd = null;
+        this.fcF = null;
         this.mContext = null;
-        this.eYe = null;
-        this.eYf = null;
-        this.eYg = null;
-        this.eYh = null;
+        this.fcG = null;
+        this.fcH = null;
+        this.fcI = null;
+        this.fcJ = null;
         this.mContext = context;
         init();
     }
 
     public void setDownloadEnabled(boolean z) {
         if (z) {
-            if (this.eYe == null) {
+            if (this.fcG == null) {
                 initDownload();
             }
-            setOnLoadUrlListener(this.eYe);
+            setOnLoadUrlListener(this.fcG);
             return;
         }
         setOnLoadUrlListener(null);
@@ -74,12 +74,12 @@ public class AdBaseWebView extends WebView {
 
     public AdBaseWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eYd = null;
+        this.fcF = null;
         this.mContext = null;
-        this.eYe = null;
-        this.eYf = null;
-        this.eYg = null;
-        this.eYh = null;
+        this.fcG = null;
+        this.fcH = null;
+        this.fcI = null;
+        this.fcJ = null;
         this.mContext = context;
         init();
     }
@@ -120,7 +120,7 @@ public class AdBaseWebView extends WebView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public class f extends WebChromeClient {
         private f() {
         }
@@ -161,7 +161,7 @@ public class AdBaseWebView extends WebView {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public class a extends WebViewClient {
         public a() {
         }
@@ -169,8 +169,8 @@ public class AdBaseWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
-            if (AdBaseWebView.this.eYf != null) {
-                AdBaseWebView.this.eYf.b(webView, str);
+            if (AdBaseWebView.this.fcH != null) {
+                AdBaseWebView.this.fcH.b(webView, str);
             }
         }
 
@@ -182,15 +182,15 @@ public class AdBaseWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
-            if (AdBaseWebView.this.eYg != null) {
-                AdBaseWebView.this.eYg.onPageFinished(webView, str);
+            if (AdBaseWebView.this.fcI != null) {
+                AdBaseWebView.this.fcI.onPageFinished(webView, str);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            if (AdBaseWebView.this.eYd != null) {
-                return AdBaseWebView.this.eYd.shouldOverrideUrlLoading(webView, str);
+            if (AdBaseWebView.this.fcF != null) {
+                return AdBaseWebView.this.fcF.shouldOverrideUrlLoading(webView, str);
             }
             return super.shouldOverrideUrlLoading(webView, str);
         }
@@ -198,8 +198,8 @@ public class AdBaseWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onReceivedError(WebView webView, int i, String str, String str2) {
             super.onReceivedError(webView, i, str, str2);
-            if (AdBaseWebView.this.eYh != null) {
-                AdBaseWebView.this.eYh.onReceivedError(webView, i, str, str2);
+            if (AdBaseWebView.this.fcJ != null) {
+                AdBaseWebView.this.fcJ.onReceivedError(webView, i, str, str2);
             }
         }
 
@@ -213,23 +213,23 @@ public class AdBaseWebView extends WebView {
     }
 
     public void setOnLoadUrlListener(b bVar) {
-        this.eYd = bVar;
+        this.fcF = bVar;
     }
 
     public void setOnPageStartedListener(d dVar) {
-        this.eYf = dVar;
+        this.fcH = dVar;
     }
 
     public void setOnPageFinishedListener(c cVar) {
-        this.eYg = cVar;
+        this.fcI = cVar;
     }
 
     public void setOnReceivedErrorListener(e eVar) {
-        this.eYh = eVar;
+        this.fcJ = eVar;
     }
 
     private void initDownload() {
-        this.eYe = new b() { // from class: com.baidu.tieba.ad.browser.AdBaseWebView.1
+        this.fcG = new b() { // from class: com.baidu.tieba.ad.browser.AdBaseWebView.1
             @Override // com.baidu.tieba.ad.browser.AdBaseWebView.b
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                 if (str != null) {
@@ -248,12 +248,12 @@ public class AdBaseWebView extends WebView {
     public void destroy() {
         super.destroy();
         this.mWebViewClient = null;
-        this.eYd = null;
+        this.fcF = null;
         this.mContext = null;
-        this.eYe = null;
-        this.eYf = null;
-        this.eYg = null;
-        this.eYh = null;
+        this.fcG = null;
+        this.fcH = null;
+        this.fcI = null;
+        this.fcJ = null;
         this.jsCallback = null;
     }
 }

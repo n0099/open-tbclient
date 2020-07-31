@@ -1,13 +1,13 @@
 package com.baidu.ubc;
 
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public interface q {
-    String alX();
+    String anq();
 
-    List<String> deP();
+    List<String> dhY();
 
     boolean isPeakTime();
 
-    boolean mr(String str);
+    boolean mR(String str);
 }

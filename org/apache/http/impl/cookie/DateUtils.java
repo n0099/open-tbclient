@@ -3,7 +3,7 @@ package org.apache.http.impl.cookie;
 import java.util.Date;
 import java.util.TimeZone;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public final class DateUtils {
     public static final TimeZone GMT = null;
     public static final String PATTERN_ASCTIME = "EEE MMM d HH:mm:ss yyyy";

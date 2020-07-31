@@ -1,7 +1,7 @@
 package tv.danmaku.ijk.media.player;
 
 import android.graphics.Rect;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public final class c {
     private Rect a;
     private String b;

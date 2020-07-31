@@ -6,9 +6,9 @@ import com.tencent.open.a.d;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class b {
-    private static SimpleDateFormat a = d.C0875d.a("yy.MM.dd.HH");
+    private static SimpleDateFormat a = d.C0884d.a("yy.MM.dd.HH");
     private File g;
     private String b = "Tracer.File";
     private int c = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;

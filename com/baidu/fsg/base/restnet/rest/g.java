@@ -9,7 +9,7 @@ import java.net.UnknownHostException;
 import java.util.HashSet;
 import java.util.Iterator;
 import javax.net.ssl.SSLException;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class g {
     private static final String a = g.class.getSimpleName();
     private static final HashSet<Class<?>> b = new HashSet<>();

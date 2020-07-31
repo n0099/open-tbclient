@@ -1,5 +1,5 @@
 package com.baidu.tieba.ad.download.state;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public enum StopStatus {
     UNKNOW_ERROR,
     DOWNLOAD_FAIL,

@@ -4,7 +4,7 @@ import com.baidu.ar.arplay.core.engine.pixel.FramePixels;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.engine.pixel.PixelType;
 import com.baidu.ar.c.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 class d extends j {
     private static final String TAG = d.class.getSimpleName();
     private volatile boolean kf = false;

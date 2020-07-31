@@ -22,9 +22,9 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
-    public static ParserRet dP(JSONObject jSONObject) {
+    public static ParserRet dW(JSONObject jSONObject) {
         int i = -1;
         String str = "";
         if (jSONObject != null) {
@@ -37,7 +37,7 @@ public class a {
         return parserRet;
     }
 
-    public static ShareInfo dQ(JSONObject jSONObject) {
+    public static ShareInfo dX(JSONObject jSONObject) {
         ShareInfo shareInfo = new ShareInfo();
         shareInfo.mThumbnail = jSONObject.optString("thumbnail", "");
         shareInfo.mTitle = jSONObject.optString("title", "");
@@ -56,14 +56,14 @@ public class a {
     }
 
     @Nullable
-    public static ListItem dR(JSONObject jSONObject) {
+    public static ListItem dY(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
-        return dS(jSONObject);
+        return dZ(jSONObject);
     }
 
-    public static ListItem dS(JSONObject jSONObject) {
+    public static ListItem dZ(JSONObject jSONObject) {
         ListItem listItem = new ListItem();
         listItem.mType = jSONObject.optString("type", "");
         listItem.mName = jSONObject.optString("name", "");
@@ -234,9 +234,9 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static ArrayList<PannelItem> Z(JSONArray jSONArray) {
+    public static ArrayList<PannelItem> aa(JSONArray jSONArray) {
         JSONArray optJSONArray;
-        ListItem dR;
+        ListItem dY;
         ArrayList<PannelItem> arrayList = new ArrayList<>();
         if (jSONArray == null || jSONArray.length() == 0) {
             return arrayList;
@@ -251,14 +251,14 @@ public class a {
                 pannelItem.mPannelPos = i + 1;
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
-                    if (optJSONObject2 != null && (dR = dR(optJSONObject2)) != null && (!"12".equals(dR.mDisplayStyle) || (!h.isEmpty(dR.hornContent) && !h.isEmpty(dR.hornFrontContent)))) {
-                        dR.mPannelPos = i + 1;
-                        pannelItem.mNavItemList.add(dR);
+                    if (optJSONObject2 != null && (dY = dY(optJSONObject2)) != null && (!"12".equals(dY.mDisplayStyle) || (!h.isEmpty(dY.hornContent) && !h.isEmpty(dY.hornFrontContent)))) {
+                        dY.mPannelPos = i + 1;
+                        pannelItem.mNavItemList.add(dY);
                     }
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("moreNav");
                 if (optJSONObject3 != null) {
-                    pannelItem.mMoreNav = dR(optJSONObject3);
+                    pannelItem.mMoreNav = dY(optJSONObject3);
                 }
                 arrayList.add(pannelItem);
             }

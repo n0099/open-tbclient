@@ -6,12 +6,12 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.aq.al;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/setSelectedAddressSync");
@@ -42,17 +42,17 @@ public class a extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "data is empty");
             return false;
         }
-        ak(optJSONObject);
+        al(optJSONObject);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
 
-    private void ak(JSONObject jSONObject) {
-        d.UT().ai(jSONObject);
-        aj.p(new Runnable() { // from class: com.baidu.swan.apps.c.a.b.a.a.1
+    private void al(JSONObject jSONObject) {
+        d.Vy().ai(jSONObject);
+        al.p(new Runnable() { // from class: com.baidu.swan.apps.c.a.b.a.a.1
             @Override // java.lang.Runnable
             public void run() {
-                c.aam();
+                c.abo();
             }
         });
     }

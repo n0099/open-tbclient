@@ -6,7 +6,7 @@ import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public final class WeakHashtable extends Hashtable {
     public WeakHashtable() {
         throw new RuntimeException("Stub!");

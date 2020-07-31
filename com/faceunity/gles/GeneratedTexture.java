@@ -5,13 +5,13 @@ import android.support.v4.view.InputDeviceCompat;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class GeneratedTexture {
     private static final int[] GRID = {-16776961, -16711681, -16711936, -65281, -1, 1073742079, 1073807104, -16711681, -65281, MotionEventCompat.ACTION_POINTER_INDEX_MASK, -2147483393, ViewCompat.MEASURED_STATE_MASK, InputDeviceCompat.SOURCE_ANY, -65281, InputDeviceCompat.SOURCE_ANY, SupportMenu.CATEGORY_MASK};
     private static final ByteBuffer sCoarseImageData = generateCoarseData();
     private static final ByteBuffer sFineImageData = generateFineData();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes17.dex */
     public enum Image {
         COARSE,
         FINE

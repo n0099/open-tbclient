@@ -1,7 +1,5 @@
 package com.idlefish.flutterboost;
 
-import android.annotation.SuppressLint;
-import android.support.annotation.RequiresApi;
 import android.support.v7.widget.ActivityChooserView;
 import android.text.DynamicLayout;
 import android.text.Editable;
@@ -12,10 +10,9 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.BaseInputConnection;
 import android.view.inputmethod.InputMethodManager;
-import com.baidu.adp.lib.util.BdLog;
+import io.flutter.Log;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
-@SuppressLint({"NewApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 class XInputConnectionAdaptor extends BaseInputConnection {
     private int mBatchCount;
     private final int mClient;
@@ -25,7 +22,6 @@ class XInputConnectionAdaptor extends BaseInputConnection {
     private final Layout mLayout;
     private final TextInputChannel textInputChannel;
 
-    @RequiresApi(api = 3)
     public XInputConnectionAdaptor(View view, int i, TextInputChannel textInputChannel, Editable editable) {
         super(view, true);
         this.mFlutterView = view;
@@ -37,7 +33,6 @@ class XInputConnectionAdaptor extends BaseInputConnection {
         this.mImm = (InputMethodManager) view.getContext().getSystemService("input_method");
     }
 
-    @RequiresApi(api = 3)
     private void updateEditingState() {
         if (this.mBatchCount <= 0) {
             int selectionStart = Selection.getSelectionStart(this.mEditable);
@@ -93,7 +88,6 @@ class XInputConnectionAdaptor extends BaseInputConnection {
     }
 
     @Override // android.view.inputmethod.BaseInputConnection, android.view.inputmethod.InputConnection
-    @RequiresApi(api = 3)
     public boolean setComposingText(CharSequence charSequence, int i) {
         boolean composingText;
         if (charSequence.length() == 0) {
@@ -115,13 +109,12 @@ class XInputConnectionAdaptor extends BaseInputConnection {
     private static int clampIndexToEditable(int i, Editable editable) {
         int max = Math.max(0, Math.min(editable.length(), i));
         if (max != i) {
-            BdLog.d("Text selection index was clamped (" + i + "->" + max + ") to remain in bounds. This may not be your fault, as some keyboards may select outside of bounds.");
+            Log.d("flutter", "Text selection index was clamped (" + i + "->" + max + ") to remain in bounds. This may not be your fault, as some keyboards may select outside of bounds.");
         }
         return max;
     }
 
     @Override // android.view.inputmethod.BaseInputConnection, android.view.inputmethod.InputConnection
-    @RequiresApi(api = 14)
     public boolean sendKeyEvent(KeyEvent keyEvent) {
         if (keyEvent.getAction() == 0) {
             if (keyEvent.getKeyCode() == 67) {
@@ -167,7 +160,6 @@ class XInputConnectionAdaptor extends BaseInputConnection {
                     }
                     this.mEditable.insert(max2, String.valueOf((char) unicodeChar));
                     setSelection(max2 + 1, max2 + 1);
-                    updateEditingState();
                     return true;
                 }
                 return true;

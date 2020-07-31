@@ -14,15 +14,15 @@ import kotlin.jvm.internal.q;
 import org.json.JSONObject;
 import tv.chushou.zues.utils.g;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b {
-    public static final b nAb = new b();
+    public static final b nIK = new b();
 
     private b() {
     }
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a implements com.kascend.chushou.c.b {
         final /* synthetic */ Context a;
         final /* synthetic */ String b;
@@ -42,11 +42,11 @@ public final class b {
             q.m(str, "responseString");
             JSONObject optJSONObject2 = (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) ? null : optJSONObject.optJSONObject("shareInfo");
             if (optJSONObject2 != null) {
-                ShareInfo dQ = com.kascend.chushou.c.a.dQ(optJSONObject2);
-                b bVar = b.nAb;
+                ShareInfo dX = com.kascend.chushou.c.a.dX(optJSONObject2);
+                b bVar = b.nIK;
                 Context context = this.a;
-                q.l((Object) dQ, "shareInfo");
-                bVar.a(context, dQ, this.b);
+                q.l((Object) dX, "shareInfo");
+                bVar.a(context, dX, this.b);
                 return;
             }
             a(-1, "");
@@ -60,7 +60,7 @@ public final class b {
 
     public final void a(Context context, String str, String str2, ShareInfo shareInfo, String str3, boolean z) {
         q.m(context, "context");
-        c.dIP().c(new a(context, str3), str, str2);
+        c.dMk().c(new a(context, str3), str, str2);
     }
 
     public final void a(Context context, ShareInfo shareInfo, String str) {
@@ -72,27 +72,27 @@ public final class b {
         shareParam.setThumbnail(shareInfo.mThumbnail);
         shareParam.setUrl(shareInfo.mUrl);
         shareParam.setPic(shareInfo.mPic);
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dWk().S(ThirdParty.class);
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dZG().S(ThirdParty.class);
         if (thirdParty != null) {
-            thirdParty.share(context, shareParam, new C0851b(shareParam, str));
+            thirdParty.share(context, shareParam, new C0860b(shareParam, str));
         }
     }
 
     @h
     /* renamed from: com.kascend.cstvsdk.utils.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C0851b implements ShareListener {
+    /* loaded from: classes6.dex */
+    public static final class C0860b implements ShareListener {
         final /* synthetic */ String b;
-        final /* synthetic */ ShareParam nAc;
+        final /* synthetic */ ShareParam nIL;
 
-        C0851b(ShareParam shareParam, String str) {
-            this.nAc = shareParam;
+        C0860b(ShareParam shareParam, String str) {
+            this.nIL = shareParam;
             this.b = str;
         }
 
         @Override // com.kascend.cstvsdk.interfaces.ShareListener
         public void onSuccess(int i) {
-            com.kascend.chushou.toolkit.a.a.a(b.nAb.a(i), this.nAc.getUrl(), this.b, "1009");
+            com.kascend.chushou.toolkit.a.a.a(b.nIK.a(i), this.nIL.getUrl(), this.b, "1009");
         }
 
         @Override // com.kascend.cstvsdk.interfaces.ShareListener

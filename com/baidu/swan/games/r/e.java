@@ -6,48 +6,48 @@ import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.searchbox.v8engine.event.JSEvent;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.f.b cYE;
     @V8JavascriptField
     public JsObject canvas = null;
+    private com.baidu.swan.games.f.b deo;
 
     public e(com.baidu.swan.games.f.b bVar) {
-        this.cYE = bVar;
-        aCm();
-        aCn();
+        this.deo = bVar;
+        aFT();
+        aFU();
     }
 
-    private boolean aCm() {
-        return cz(this.cYE.getInitBasePath(), "swan-game-open-data.js");
+    private boolean aFT() {
+        return cC(this.deo.getInitBasePath(), "swan-game-open-data.js");
     }
 
-    private boolean aCn() {
-        String aiI = com.baidu.swan.apps.w.f.ajb().aiI();
-        String aCq = f.aCo().aCq();
+    private boolean aFU() {
+        String ajY = com.baidu.swan.apps.v.f.akr().ajY();
+        String aFX = f.aFV().aFX();
         if (DEBUG) {
-            Log.d("SwanGameOpenDataContext", "baseFilePath: " + aiI);
-            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + aCq);
+            Log.d("SwanGameOpenDataContext", "baseFilePath: " + ajY);
+            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + aFX);
         }
-        return cz(aiI, aCq);
+        return cC(ajY, aFX);
     }
 
     @JavascriptInterface
     public void destroyOpenDataContext() {
-        this.cYE.aAF().aAR();
+        this.deo.aEk().aEw();
     }
 
     @JavascriptInterface
     public void postMessage(JsObject jsObject) {
-        this.cYE.aAI().dispatchEvent(new JSEvent("postmessage", jsObject));
+        this.deo.aEn().dispatchEvent(new JSEvent("postmessage", jsObject));
     }
 
-    private boolean cz(String str, String str2) {
-        if (!f.aCo().aCp() || TextUtils.isEmpty(str)) {
+    private boolean cC(String str, String str2) {
+        if (!f.aFV().aFW() || TextUtils.isEmpty(str)) {
             return false;
         }
-        this.cYE.aAF().cm(str, str2);
+        this.deo.aEk().cp(str, str2);
         return true;
     }
 }

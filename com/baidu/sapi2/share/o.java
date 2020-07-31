@@ -2,7 +2,7 @@ package com.baidu.sapi2.share;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 class o implements Parcelable.Creator<ShareModel> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */

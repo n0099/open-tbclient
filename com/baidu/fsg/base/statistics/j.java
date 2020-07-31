@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class j {
     public static final String a = "cu";
     public static final String b = "cu2";
@@ -26,7 +26,7 @@ public class j {
     private Pattern j;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         private static j a = new j();
 

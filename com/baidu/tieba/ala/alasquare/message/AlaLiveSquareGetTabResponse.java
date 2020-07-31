@@ -7,7 +7,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveSquareGetTabResponse extends JsonHttpResponsedMessage {
     private AlaSquareTabData mTabData;
 

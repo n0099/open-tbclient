@@ -712,13 +712,13 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
 
         abstract d<E> a(d<E> dVar);
 
-        abstract d<E> mJ();
+        abstract d<E> mK();
 
         a() {
             ReentrantLock reentrantLock = BlockingLinkedDeque.this.lock;
             reentrantLock.lock();
             try {
-                this.Od = mJ();
+                this.Od = mK();
                 this.nextItem = this.Od == null ? null : this.Od.item;
             } finally {
                 reentrantLock.unlock();
@@ -733,7 +733,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
                 }
                 if (a.item == null) {
                     if (a == dVar) {
-                        return mJ();
+                        return mK();
                     }
                     dVar = a;
                 } else {
@@ -795,7 +795,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         }
 
         @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.a
-        d<E> mJ() {
+        d<E> mK() {
             return BlockingLinkedDeque.this.first;
         }
 
@@ -812,7 +812,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         }
 
         @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.a
-        d<E> mJ() {
+        d<E> mK() {
             return BlockingLinkedDeque.this.last;
         }
 

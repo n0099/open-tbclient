@@ -2,7 +2,7 @@ package com.baidu.tieba.personPolymeric.b;
 
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.personPolymeric.constant.PersonStatus;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public abstract class d {
     protected boolean mIsHost;
 

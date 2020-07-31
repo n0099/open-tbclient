@@ -1,9 +1,9 @@
 package com.bun.miitmdid.utils;
 
 import android.util.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class a {
-    private static a mGX;
+    private static a mPb;
     private int b = -1;
 
     private a() {
@@ -22,7 +22,7 @@ public class a {
     }
 
     public static void a(boolean z) {
-        dyb().b = z ? 1 : 0;
+        dBn().b = z ? 1 : 0;
     }
 
     public static void b(String str, String str2) {
@@ -38,17 +38,17 @@ public class a {
     }
 
     public static boolean b() {
-        return dyb().b == 1;
+        return dBn().b == 1;
     }
 
-    public static a dyb() {
-        if (mGX == null) {
+    public static a dBn() {
+        if (mPb == null) {
             synchronized (a.class) {
-                if (mGX == null) {
-                    mGX = new a();
+                if (mPb == null) {
+                    mPb = new a();
                 }
             }
         }
-        return mGX;
+        return mPb;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.ar.arrender;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class Texture {
     private long eG;
     private int iC;

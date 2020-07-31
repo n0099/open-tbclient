@@ -2,7 +2,7 @@ package com.baidubce.util;
 
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class JoinerUtils {
     public static String on(String str, List<String> list) {
         Iterator<String> it;

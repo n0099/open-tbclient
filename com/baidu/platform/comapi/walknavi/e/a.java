@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.walknavi.e;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface a {
     int a(String str, int i);
 

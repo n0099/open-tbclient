@@ -5,25 +5,25 @@ import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import com.baidu.live.sdk.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g extends b {
     /* JADX INFO: Access modifiers changed from: protected */
     public g(Context context) {
-        super(context, com.baidu.live.im.a.aRN);
+        super(context, com.baidu.live.im.a.aTg);
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void DC() {
-        if (DD()) {
-            DE();
+    protected void DV() {
+        if (DW()) {
+            DX();
         } else {
-            DF();
+            DY();
         }
     }
 
     @Override // com.baidu.live.im.a.b
     protected int getColor() {
-        if (DD()) {
+        if (DW()) {
             return -7479041;
         }
         return this.mContext.getResources().getColor(a.d.sdk_cp_cont_d);
@@ -32,7 +32,7 @@ public class g extends b {
     @Override // com.baidu.live.im.a.b
     protected SpannableStringBuilder a(com.baidu.live.im.data.a aVar, com.baidu.live.im.c cVar) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        a(spannableStringBuilder, aVar.Ed(), cVar, false, false);
+        a(spannableStringBuilder, aVar.Eh(), cVar, false, false);
         String string = this.mContext.getString(a.i.ala_zan_content);
         SpannableString valueOf = SpannableString.valueOf(string);
         if (string != null) {

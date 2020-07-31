@@ -9,9 +9,9 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class d {
-    public static boolean g(File file, String str) {
+    public static boolean h(File file, String str) {
         return a(file, str, true);
     }
 
@@ -49,7 +49,7 @@ public class d {
         }
     }
 
-    public static void IQ(String str) {
+    public static void JF(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -58,7 +58,7 @@ public class d {
         }
     }
 
-    public static String T(File file) {
+    public static String W(File file) {
         FileInputStream fileInputStream;
         StringBuilder sb = new StringBuilder();
         try {
@@ -97,21 +97,21 @@ public class d {
         return sb.toString();
     }
 
-    public static JSONArray IR(String str) {
+    public static JSONArray JG(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
         }
         File file = new File(str);
         if (file.exists()) {
-            String T = T(file);
-            String[] split = T.split("\n");
+            String W = W(file);
+            String[] split = W.split("\n");
             if (split.length > 0) {
                 for (String str2 : split) {
-                    b(str2, jSONArray);
+                    c(str2, jSONArray);
                 }
             } else {
-                b(T, jSONArray);
+                c(W, jSONArray);
             }
             n.deleteFile(file);
             return jSONArray;
@@ -119,7 +119,7 @@ public class d {
         return jSONArray;
     }
 
-    private static void b(String str, JSONArray jSONArray) {
+    private static void c(String str, JSONArray jSONArray) {
         if (!StringUtils.isNull(str) && jSONArray != null) {
             try {
                 JSONArray jSONArray2 = new JSONArray(str);
@@ -132,9 +132,9 @@ public class d {
         }
     }
 
-    public static void IS(String str) {
+    public static void JH(String str) {
         if (!StringUtils.isNull(str)) {
-            n.deleteFileOrDir(new File(g.a.jJl + g.a.jJc + str));
+            n.deleteFileOrDir(new File(g.a.jRQ + g.a.jRG + str));
         }
     }
 }

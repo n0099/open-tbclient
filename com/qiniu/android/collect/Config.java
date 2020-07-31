@@ -1,19 +1,19 @@
 package com.qiniu.android.collect;
 
 import com.qiniu.android.utils.ContextGetter;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class Config {
-    public static String nCo;
-    public static boolean nCn = true;
+    public static String nKW;
+    public static boolean nKV = true;
     public static boolean isUpload = true;
-    public static int nCp = 2097152;
-    public static int nCq = 4096;
-    public static int ayh = 10;
+    public static int nKX = 2097152;
+    public static int nKY = 4096;
+    public static int azu = 10;
 
     static {
-        nCo = null;
+        nKW = null;
         try {
-            nCo = ContextGetter.dMY().getCacheDir().getAbsolutePath();
+            nKW = ContextGetter.dQu().getCacheDir().getAbsolutePath();
         } catch (Throwable th) {
             th.fillInStackTrace();
         }

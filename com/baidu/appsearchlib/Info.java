@@ -1,5 +1,5 @@
 package com.baidu.appsearchlib;
-/* loaded from: classes.dex */
+/* loaded from: classes9.dex */
 public class Info {
     public static final String APPID = "teiba";
     public static final String IV = "BAIDUAPPSEARCHIV";

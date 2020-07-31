@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
 
 import java.util.Date;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class BucketSummary {
     private Date creationDate;
     private String location;

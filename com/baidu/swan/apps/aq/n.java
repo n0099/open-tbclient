@@ -1,206 +1,145 @@
 package com.baidu.swan.apps.aq;
 
+import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
+import android.util.Base64;
 import android.util.Log;
-import android.util.Pair;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.concurrent.Executor;
-import java.util.concurrent.TimeUnit;
-import rx.schedulers.Schedulers;
-import rx.subjects.PublishSubject;
-/* loaded from: classes11.dex */
-public final class n {
-    private static volatile b cOB;
-    private static volatile b cOC;
-    private static volatile b cOD;
-    private static final String TAG = n.class.getSimpleName();
+import com.baidu.android.common.security.RSAUtil;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.security.KeyFactory;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+/* loaded from: classes7.dex */
+public class n {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final rx.functions.b cOE = new rx.functions.b<Pair<Runnable, String>>() { // from class: com.baidu.swan.apps.aq.n.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.b
-        /* renamed from: a */
-        public void call(Pair<Runnable, String> pair) {
-            boolean z;
-            long j;
-            String name = Thread.currentThread().getName();
-            Thread.currentThread().setName(name + Constants.ACCEPT_TIME_SEPARATOR_SERVER + ((String) pair.second));
-            try {
-                if (!n.DEBUG) {
-                    j = 0;
-                } else {
-                    j = System.currentTimeMillis();
-                }
-                ((Runnable) pair.first).run();
-                if (n.DEBUG) {
-                    Log.d(n.TAG, "Task [" + ((String) pair.second) + "] caused " + (System.currentTimeMillis() - j) + "ms");
-                }
-            } finally {
-                if (z) {
-                }
-                Thread.currentThread().setName(name);
-            }
-            Thread.currentThread().setName(name);
+
+    public static String encrypt(String str, byte[] bArr, boolean z) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance(str);
+            messageDigest.reset();
+            messageDigest.update(bArr);
+            return toHexString(messageDigest.digest(), "", z);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
         }
-    };
-
-    /* loaded from: classes11.dex */
-    public interface a extends Executor {
-        void execute(@NonNull Runnable runnable, @NonNull String str);
     }
 
-    private n() {
-    }
-
-    public static a auA() {
-        if (cOB == null) {
-            synchronized (n.class) {
-                if (cOB == null) {
-                    cOB = new b(PublishSubject.dVH());
-                    cOB.dUk().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.aq.n.4
-                        /* JADX DEBUG: Method merged with bridge method */
-                        @Override // rx.functions.f
-                        /* renamed from: b */
-                        public rx.d<?> call(Pair<Runnable, String> pair) {
-                            return rx.h.bT(pair).e(Schedulers.io()).e(n.cOE).dUn();
-                        }
-                    }).dUm().dUb();
-                }
-            }
-        }
-        return cOB;
-    }
-
-    public static a auB() {
-        if (cOC == null) {
-            synchronized (n.class) {
-                if (cOC == null) {
-                    cOC = new b(PublishSubject.dVH());
-                    cOC.dUk().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.aq.n.5
-                        /* JADX DEBUG: Method merged with bridge method */
-                        @Override // rx.functions.f
-                        /* renamed from: b */
-                        public rx.d<?> call(Pair<Runnable, String> pair) {
-                            return rx.h.bT(pair).e(Schedulers.computation()).e(n.cOE).dUn();
-                        }
-                    }).dUm().dUb();
-                }
-            }
-        }
-        return cOC;
-    }
-
-    public static a auC() {
-        if (cOD == null) {
-            synchronized (n.class) {
-                if (cOD == null) {
-                    cOD = new b(PublishSubject.dVH());
-                    cOD.dUk().c(Schedulers.io()).b(cOE).dUm().dUb();
-                }
-            }
-        }
-        return cOD;
-    }
-
-    public static void postOnIO(@NonNull Runnable runnable, @NonNull String str) {
-        auA().execute(runnable, str);
-    }
-
-    public static void postOnComputation(@NonNull Runnable runnable, @NonNull String str) {
-        auB().execute(runnable, str);
-    }
-
-    public static void postOnSerial(@NonNull Runnable runnable, @NonNull String str) {
-        auC().execute(runnable, str);
-    }
-
-    public static rx.k a(@NonNull Runnable runnable, @NonNull final String str, @NonNull long j, @NonNull TimeUnit timeUnit) {
-        return rx.h.bT(Pair.create(runnable, getStandardThreadName(str))).d(j, timeUnit).e(new rx.functions.b<Pair<Runnable, String>>() { // from class: com.baidu.swan.apps.aq.n.7
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // rx.functions.b
-            /* renamed from: a */
-            public void call(Pair<Runnable, String> pair) {
-                n.auA().execute((Runnable) pair.first, (String) pair.second);
-            }
-        }).d(new rx.functions.b<Throwable>() { // from class: com.baidu.swan.apps.aq.n.6
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // rx.functions.b
-            public void call(Throwable th) {
-                if (n.DEBUG) {
-                    Log.wtf(n.TAG, "delay task [" + str + "] fail!", th);
-                }
-            }
-        }).dUb();
-    }
-
-    public static rx.k b(@NonNull Runnable runnable, @NonNull final String str, @NonNull long j, @NonNull TimeUnit timeUnit) {
-        return rx.h.bT(Pair.create(runnable, getStandardThreadName(str))).d(j, timeUnit).e(new rx.functions.b<Pair<Runnable, String>>() { // from class: com.baidu.swan.apps.aq.n.9
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // rx.functions.b
-            /* renamed from: a */
-            public void call(Pair<Runnable, String> pair) {
-                n.auB().execute((Runnable) pair.first, (String) pair.second);
-            }
-        }).d(new rx.functions.b<Throwable>() { // from class: com.baidu.swan.apps.aq.n.8
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // rx.functions.b
-            public void call(Throwable th) {
-                if (n.DEBUG) {
-                    Log.wtf(n.TAG, "delay task [" + str + "] fail!", th);
-                }
-            }
-        }).dUb();
-    }
-
-    public static String getStandardThreadName(String str) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [104=5] */
+    public static String encrypt(String str, File file, boolean z) {
+        Throwable th;
+        FileInputStream fileInputStream;
         String str2 = null;
-        if (str != null) {
-            String str3 = TAG + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS;
-            str2 = !str.startsWith(str3) ? str3 + str : str;
-        }
-        if (str2 == null) {
-            str2 = TAG;
-        }
-        if (str2.length() > 256) {
-            return str2.substring(0, 255);
+        try {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance(str);
+                messageDigest.reset();
+                fileInputStream = new FileInputStream(file);
+                try {
+                    byte[] bArr = new byte[8192];
+                    while (true) {
+                        int read = fileInputStream.read(bArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        messageDigest.update(bArr, 0, read);
+                    }
+                    str2 = toHexString(messageDigest.digest(), "", z);
+                    com.baidu.swan.d.d.closeSafely(fileInputStream);
+                } catch (FileNotFoundException e) {
+                    e = e;
+                    if (DEBUG) {
+                        e.printStackTrace();
+                    }
+                    com.baidu.swan.d.d.closeSafely(fileInputStream);
+                    return str2;
+                } catch (IOException e2) {
+                    e = e2;
+                    if (DEBUG) {
+                        e.printStackTrace();
+                    }
+                    com.baidu.swan.d.d.closeSafely(fileInputStream);
+                    return str2;
+                } catch (NoSuchAlgorithmException e3) {
+                    e = e3;
+                    if (DEBUG) {
+                        e.printStackTrace();
+                    }
+                    com.baidu.swan.d.d.closeSafely(fileInputStream);
+                    return str2;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                com.baidu.swan.d.d.closeSafely(null);
+                throw th;
+            }
+        } catch (FileNotFoundException e4) {
+            e = e4;
+            fileInputStream = null;
+        } catch (IOException e5) {
+            e = e5;
+            fileInputStream = null;
+        } catch (NoSuchAlgorithmException e6) {
+            e = e6;
+            fileInputStream = null;
+        } catch (Throwable th3) {
+            th = th3;
+            com.baidu.swan.d.d.closeSafely(null);
+            throw th;
         }
         return str2;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
-    public static class b extends rx.subjects.b<Pair<Runnable, String>, Pair<Runnable, String>> implements a {
-        public b(rx.subjects.c cVar) {
-            super(cVar);
+    private static String toHexString(byte[] bArr, String str, boolean z) {
+        StringBuilder sb = new StringBuilder();
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
+            if (z) {
+                hexString = hexString.toUpperCase();
+            }
+            if (hexString.length() == 1) {
+                sb.append("0");
+            }
+            sb.append(hexString).append(str);
         }
+        return sb.toString();
+    }
 
-        @Override // java.util.concurrent.Executor
-        public void execute(@NonNull Runnable runnable) {
-            execute(runnable, "");
-        }
-
-        @Override // com.baidu.swan.apps.aq.n.a
-        public void execute(@NonNull Runnable runnable, @NonNull String str) {
-            onNext(Pair.create(runnable, n.getStandardThreadName(str)));
+    @CheckResult
+    @NonNull
+    public static String M(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+        try {
+            PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
+            Cipher cipher = Cipher.getInstance(str3);
+            cipher.init(1, generatePublic);
+            return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
+        } catch (Exception e) {
+            if (DEBUG) {
+                Log.e("SwanAppEncryptUtils", "rsaEncrypt", e);
+            }
+            return "";
         }
     }
 
-    public static rx.k a(Runnable runnable, long j, TimeUnit timeUnit) {
-        return rx.h.bT(runnable).d(j, timeUnit).f(Schedulers.immediate()).e(new rx.functions.b<Runnable>() { // from class: com.baidu.swan.apps.aq.n.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // rx.functions.b
-            /* renamed from: m */
-            public void call(Runnable runnable2) {
-                runnable2.run();
+    @CheckResult
+    @NonNull
+    public static String s(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
+        try {
+            Cipher cipher = Cipher.getInstance(str3);
+            cipher.init(1, new SecretKeySpec(str.getBytes("utf-8"), com.baidu.sapi2.utils.h.q), new IvParameterSpec(str4.getBytes("utf-8")));
+            return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
+        } catch (Exception e) {
+            if (DEBUG) {
+                Log.e("SwanAppEncryptUtils", "aesEncrypt", e);
             }
-        }).d(new rx.functions.b<Throwable>() { // from class: com.baidu.swan.apps.aq.n.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // rx.functions.b
-            public void call(Throwable th) {
-                if (n.DEBUG) {
-                    Log.wtf(n.TAG, "delay task fail", th);
-                }
-            }
-        }).dUb();
+            return "";
+        }
     }
 }

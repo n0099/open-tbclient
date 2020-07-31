@@ -12,14 +12,14 @@ import com.baidu.swan.apps.statistic.i;
 import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c implements V8Engine.JavaScriptExceptionDelegate {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.f.a bXp;
-    private String dbv = "";
+    private com.baidu.swan.games.f.a bYi;
+    private String dhe = "";
 
     public c(com.baidu.swan.games.f.a aVar) {
-        this.bXp = aVar;
+        this.bYi = aVar;
     }
 
     @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
@@ -28,58 +28,58 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
         if (v8ExceptionInfo != null) {
             String str = TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg) ? "" : v8ExceptionInfo.exceptionMsg;
             String str2 = TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace) ? "" : v8ExceptionInfo.exceptionTrace;
-            Log.e("V8Exception", this.bXp.getLogTag() + "msg: " + str + " ,stack: " + str2);
-            this.bXp.aAJ().error(str);
-            if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.dbv.equals(str)) {
-                this.dbv = str;
-                cn(str, str2);
-                com.baidu.swan.games.v.c.sy(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2);
+            Log.e("V8Exception", this.bYi.getLogTag() + "msg: " + str + " ,stack: " + str2);
+            this.bYi.aEo().error(str);
+            if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.dhe.equals(str)) {
+                this.dhe = str;
+                cq(str, str2);
+                com.baidu.swan.games.v.c.tw(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2);
                 i.a(v8ExceptionInfo);
-                DuMixGameSurfaceView aBl = com.baidu.swan.games.j.a.aBj().aBl();
-                if (aBl != null) {
-                    aBl.d(v8ExceptionInfo);
+                DuMixGameSurfaceView aEQ = com.baidu.swan.games.j.a.aEO().aEQ();
+                if (aEQ != null) {
+                    aEQ.d(v8ExceptionInfo);
                 }
             }
         }
     }
 
-    private void cn(String str, String str2) {
-        if (this.bXp.aAH() != null) {
-            this.bXp.aAH().dispatchEvent(new a().rG(str + "\n" + str2).rH("").aAQ());
+    private void cq(String str, String str2) {
+        if (this.bYi.aEm() != null) {
+            this.bYi.aEm().dispatchEvent(new a().sF(str + "\n" + str2).sG("").aEv());
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-        private String dbv;
-        private JSEvent dbw = new JSEvent(BdStatsConstant.StatsType.ERROR);
-        private String dbx;
+        private String dhe;
+        private JSEvent dhf = new JSEvent(BdStatsConstant.StatsType.ERROR);
+        private String dhg;
 
-        public a rG(String str) {
-            this.dbv = str;
+        public a sF(String str) {
+            this.dhe = str;
             return this;
         }
 
-        public a rH(String str) {
-            this.dbx = str;
+        public a sG(String str) {
+            this.dhg = str;
             return this;
         }
 
-        public JSEvent aAQ() {
+        public JSEvent aEv() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("message", this.dbv);
-                jSONObject.put("stack", this.dbx);
+                jSONObject.put("message", this.dhe);
+                jSONObject.put("stack", this.dhg);
             } catch (JSONException e) {
                 if (DEBUG) {
                     Log.e("V8Exception", Log.getStackTraceString(e));
                 }
             }
             if (jSONObject.length() > 0) {
-                this.dbw.data = jSONObject;
+                this.dhf.data = jSONObject;
             }
-            return this.dbw;
+            return this.dhf;
         }
     }
 }

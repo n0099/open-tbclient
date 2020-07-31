@@ -1,8 +1,8 @@
 package com.baidu.tieba.tbadkCore;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class d {
     public int cur_score;
-    public String lDy;
+    public String lKN;
     public int level;
     public int levelup_score;
 }

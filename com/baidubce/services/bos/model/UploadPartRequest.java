@@ -4,7 +4,7 @@ import com.baidubce.auth.BceCredentials;
 import com.baidubce.services.bos.callback.BosProgressCallback;
 import com.baidubce.util.CheckUtils;
 import java.io.InputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class UploadPartRequest extends GenericUploadRequest {
     private Long crc32;
     private InputStream inputStream;

@@ -149,8 +149,9 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
             case 0:
                 return "https://pim.baidu.com/rest/3.0/im/bos/generate_bos_url";
             case 1:
-            case 2:
                 return "http://cp01-ocean-749.epc.baidu.com:8111/rest/3.0/im/bos/generate_bos_url";
+            case 2:
+                return "http://10.64.132.67:8080/rest/3.0/im/bos/generate_bos_url";
             case 3:
                 return "http://180.97.36.95:8080/rest/3.0/im/bos/generate_bos_url";
             default:

@@ -1,14 +1,14 @@
 package com.baidu.tieba.hottopic.b;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-/* loaded from: classes8.dex */
+import com.baidu.tbadk.core.util.ap;
+/* loaded from: classes15.dex */
 public class b {
-    public static void a(bu buVar, String str, String str2, int i) {
-        if (buVar != null && !TextUtils.isEmpty(str)) {
-            TiebaStatic.log(new ao("c13022").dk("obj_name", str).dk("tid", buVar.getTid()).s("fid", buVar.getFid()).dk("obj_source", buVar.mRecomSource).dk("obj_locate", str2).ag("obj_type", i).dk("ab_tag", buVar.mRecomAbTag));
+    public static void a(bv bvVar, String str, String str2, int i) {
+        if (bvVar != null && !TextUtils.isEmpty(str)) {
+            TiebaStatic.log(new ap("c13022").dn("obj_name", str).dn("tid", bvVar.getTid()).t("fid", bvVar.getFid()).dn("obj_source", bvVar.mRecomSource).dn("obj_locate", str2).ah("obj_type", i).dn("ab_tag", bvVar.mRecomAbTag));
         }
     }
 }

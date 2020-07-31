@@ -1,9 +1,9 @@
 package com.baidu.live.view.input;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface b {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        void fc(String str);
+        void fb(String str);
     }
 }

@@ -11,9 +11,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public final class m {
-    private static ActivityManager amu;
+    private static ActivityManager amp;
     private static Context mContext;
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x007a */
@@ -164,14 +164,14 @@ public final class m {
     public static String E() {
         Debug.MemoryInfo memoryInfo;
         StringBuilder sb = new StringBuilder();
-        if (amu == null) {
+        if (amp == null) {
             return sb.toString();
         }
         try {
             ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-            amu.getMemoryInfo(memoryInfo2);
+            amp.getMemoryInfo(memoryInfo2);
             sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).append("\navailMem: ").append(com.baidu.crabsdk.c.c.Q(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.Q(memoryInfo2.threshold)).append("\n");
-            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = amu.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = amp.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
                 sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.Q(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.Q(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.Q(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
             }
         } catch (Exception e) {
@@ -183,7 +183,7 @@ public final class m {
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            amu = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+            amp = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         }
     }
 }

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public final class h extends j {
     public static final g a = g.a("multipart/mixed");
     public static final g b = g.a("multipart/alternative");
@@ -20,7 +20,7 @@ public final class h extends j {
     private final List<b> l;
     private long m = -1;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         private final com.meizu.cloud.pushsdk.b.g.e a;
         private g b;
@@ -67,7 +67,7 @@ public final class h extends j {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes5.dex */
     public static final class b {
         private final c a;
         private final j b;

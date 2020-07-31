@@ -4,6 +4,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.internal.monitor.a;
@@ -23,7 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class SessionMonitorEngine implements INoProGuard {
     private static final boolean DEBUG = false;
     private static final String LOG_TAG = SessionMonitorEngine.class.getSimpleName();
@@ -39,16 +40,16 @@ public class SessionMonitorEngine implements INoProGuard {
     private a sFrameworkBehaviorProvider;
     private WeakReference<IPrototype> sImplement;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public interface IExtraInfoCollector extends INoProGuard {
         JSONObject onPageSessionFinished(WebView webView, String str);
 
         void onPageSessionStarted(WebView webView, String str, boolean z, boolean z2, boolean z3);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public interface IPrototype extends INoProGuard {
-        void notifyPageActive(String str, WebView webView);
+        void notifyPageActive(String str, WebView webView, boolean z);
 
         void notifyPageLeave(String str, WebView webView);
 
@@ -89,9 +90,14 @@ public class SessionMonitorEngine implements INoProGuard {
                 this.mStaticPublicData.put("zeus_version", WebKitFactory.getZeusVersionName());
                 String str = Build.BRAND;
                 String str2 = Build.MODEL;
-                this.mStaticPublicData.put("product", Build.MANUFACTURER);
+                String str3 = Build.MANUFACTURER;
+                String str4 = Build.VERSION.RELEASE;
+                int i = Build.VERSION.SDK_INT;
+                this.mStaticPublicData.put("product", str3);
                 this.mStaticPublicData.put(Constants.PHONE_BRAND, str);
                 this.mStaticPublicData.put("model", str2);
+                this.mStaticPublicData.put("version", str4);
+                this.mStaticPublicData.put(CashierData.SDK, i);
                 Log.i(LOG_TAG, "processStaticPublicData: " + this.mStaticPublicData.toString());
             } catch (Throwable th) {
                 Log.printStackTrace(th);
@@ -225,11 +231,11 @@ public class SessionMonitorEngine implements INoProGuard {
         }
     }
 
-    public void notifyPageActive(String str, WebView webView) {
+    public void notifyPageActive(String str, WebView webView, boolean z) {
         if (this.sImplement == null || this.sImplement.get() == null) {
             return;
         }
-        this.sImplement.get().notifyPageActive(str, webView);
+        this.sImplement.get().notifyPageActive(str, webView, z);
     }
 
     public void notifyPageLeave(String str, WebView webView) {
@@ -281,7 +287,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void recordFrameworkBehaviorValue(int i, Object obj) {
         a aVar = this.sFrameworkBehaviorProvider;
         if (aVar.a == null) {
-            aVar.a = new a.C0790a(aVar, (byte) 0);
+            aVar.a = new a.C0799a(aVar, (byte) 0);
         }
         if (i == 9) {
             aVar.a.a();
@@ -424,7 +430,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void startFrameworkBehaviorMonitor() {
         a aVar = this.sFrameworkBehaviorProvider;
         if (aVar.a == null) {
-            aVar.a = new a.C0790a(aVar, (byte) 0);
+            aVar.a = new a.C0799a(aVar, (byte) 0);
         }
         if (aVar.a.c == -1) {
             aVar.a.a();

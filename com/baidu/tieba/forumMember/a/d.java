@@ -14,12 +14,12 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.util.ae;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.j;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class d extends j<e, f> {
     private View.OnClickListener mOnItemClickListener;
 
@@ -38,7 +38,7 @@ public class d extends j<e, f> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aY */
+    /* renamed from: aZ */
     public f b(ViewGroup viewGroup) {
         return new f(LayoutInflater.from(this.mContext).inflate(R.layout.manito_item_member, (ViewGroup) null));
     }
@@ -50,22 +50,22 @@ public class d extends j<e, f> {
         super.a(i, view, viewGroup, (ViewGroup) eVar, (e) fVar);
         if (eVar != null && fVar != null) {
             if (fVar.mSkinType != this.mSkinType) {
-                an.setBackgroundResource(fVar.getView(), R.drawable.frs_member_manito_bg);
-                an.setViewTextColor(fVar.djl, R.color.cp_cont_f, 1);
-                an.setViewTextColor(fVar.hvI, R.color.cp_cont_d, 1);
-                an.setBackgroundColor(fVar.dividerLine, R.color.cp_bg_line_c);
-                an.setViewTextColor(fVar.hvJ, R.color.cp_cont_d, 1);
+                ao.setBackgroundResource(fVar.getView(), R.drawable.frs_member_manito_bg);
+                ao.setViewTextColor(fVar.dpg, R.color.cp_cont_f, 1);
+                ao.setViewTextColor(fVar.hBu, R.color.cp_cont_d, 1);
+                ao.setBackgroundColor(fVar.dividerLine, R.color.cp_bg_line_c);
+                ao.setViewTextColor(fVar.hBv, R.color.cp_cont_d, 1);
             }
-            fVar.hvH.startLoad(eVar.getHeadUrl(), 12, false);
-            fVar.djl.setText(ae.interceptString(eVar.getNameShow(), 16));
+            fVar.hBt.startLoad(eVar.getHeadUrl(), 12, false);
+            fVar.dpg.setText(ae.interceptString(eVar.getNameShow(), 16));
             if (StringUtils.isNull(eVar.getIntro())) {
-                fVar.hvI.setText(R.string.god_intro_default);
+                fVar.hBu.setText(R.string.god_intro_default);
             } else {
-                fVar.hvI.setText(ae.interceptString(eVar.getIntro(), 30));
+                fVar.hBu.setText(ae.interceptString(eVar.getIntro(), 30));
             }
-            int color = an.getColor(R.color.cp_cont_h);
-            String numberUniformFormat = ar.numberUniformFormat(eVar.getFansNum());
-            fVar.hvJ.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
+            int color = ao.getColor(R.color.cp_cont_h);
+            String numberUniformFormat = as.numberUniformFormat(eVar.getFansNum());
+            fVar.hBv.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
             fVar.getView().setTag(eVar);
             fVar.getView().setOnClickListener(this.mOnItemClickListener);
             fVar.mSkinType = this.mSkinType;

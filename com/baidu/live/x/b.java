@@ -1,21 +1,23 @@
 package com.baidu.live.x;
 
-import com.baidu.live.data.ac;
+import com.baidu.live.data.q;
 import com.baidu.live.pendantview.PendantChildView;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface b {
-    PendantChildView HD();
+    PendantChildView HJ();
 
-    void HE();
+    void HK();
 
-    void HF();
+    void HL();
 
     void L(JSONObject jSONObject);
 
-    void a(ac acVar);
+    void j(q qVar);
 
     void onDestroy();
 
     void setCanVisible(boolean z);
+
+    void setOtherParams(String str);
 }

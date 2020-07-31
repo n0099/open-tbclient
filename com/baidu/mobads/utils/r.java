@@ -2,7 +2,7 @@ package com.baidu.mobads.utils;
 
 import android.net.wifi.ScanResult;
 import java.util.Comparator;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 class r implements Comparator<ScanResult> {
     final /* synthetic */ p a;
 

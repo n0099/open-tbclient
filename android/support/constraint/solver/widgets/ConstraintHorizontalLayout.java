@@ -2,11 +2,11 @@ package android.support.constraint.solver.widgets;
 
 import android.support.constraint.solver.LinearSystem;
 import android.support.constraint.solver.widgets.ConstraintAnchor;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class ConstraintHorizontalLayout extends ConstraintWidgetContainer {
     private ContentAlignment mAlignment;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public enum ContentAlignment {
         BEGIN,
         MIDDLE,

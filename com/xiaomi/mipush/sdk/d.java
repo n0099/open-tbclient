@@ -1,5 +1,5 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public enum d {
     ASSEMBLE_PUSH_HUAWEI(1),
     ASSEMBLE_PUSH_FCM(2),
@@ -8,9 +8,9 @@ public enum d {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private int f77a;
+    private int f73a;
 
     d(int i) {
-        this.f77a = i;
+        this.f73a = i;
     }
 }

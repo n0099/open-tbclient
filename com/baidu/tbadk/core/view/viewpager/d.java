@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private int ehZ;
-    private List<q> eif;
-    private List<q> eig;
-    private boolean eih;
-    private boolean eii;
-    private int eij = 2;
-    private int eik = 1;
+    private int eol;
+    private List<q> eor;
+    private List<q> eos;
+    private boolean eot;
+    private boolean eou;
+    private int eov = 2;
+    private int eow = 1;
 
     public d(List<q> list, boolean z, int i) {
-        this.ehZ = 2;
-        this.eif = list;
-        this.eii = z;
-        this.ehZ = i;
-        aR(list);
+        this.eol = 2;
+        this.eor = list;
+        this.eou = z;
+        this.eol = i;
+        aX(list);
     }
 
-    public void aR(List<q> list) {
-        if (list != null && list.size() >= this.eij && list.size() <= this.ehZ) {
-            this.eih = true;
-        } else if (list.size() > this.ehZ && this.eii) {
-            this.eih = true;
+    public void aX(List<q> list) {
+        if (list != null && list.size() >= this.eov && list.size() <= this.eol) {
+            this.eot = true;
+        } else if (list.size() > this.eol && this.eou) {
+            this.eot = true;
         } else {
-            this.eih = false;
+            this.eot = false;
         }
-        this.eig = aZo();
+        this.eos = bdl();
     }
 
-    private List<q> aZo() {
+    private List<q> bdl() {
         ArrayList arrayList = new ArrayList();
-        if (this.eif != null) {
-            if (this.eih) {
-                if (this.eif.size() > this.ehZ && this.eif.size() >= this.eik) {
-                    arrayList.addAll(this.eif.subList(0, this.ehZ));
-                    arrayList.addAll(0, this.eif.subList(this.ehZ - this.eik, this.ehZ));
-                    arrayList.addAll(this.eif.subList(0, this.eik));
+        if (this.eor != null) {
+            if (this.eot) {
+                if (this.eor.size() > this.eol && this.eor.size() >= this.eow) {
+                    arrayList.addAll(this.eor.subList(0, this.eol));
+                    arrayList.addAll(0, this.eor.subList(this.eol - this.eow, this.eol));
+                    arrayList.addAll(this.eor.subList(0, this.eow));
                 } else {
-                    arrayList.addAll(this.eif);
-                    arrayList.addAll(0, this.eif.subList(this.eif.size() - this.eik, this.eif.size()));
-                    arrayList.addAll(this.eif.subList(0, this.eik));
+                    arrayList.addAll(this.eor);
+                    arrayList.addAll(0, this.eor.subList(this.eor.size() - this.eow, this.eor.size()));
+                    arrayList.addAll(this.eor.subList(0, this.eow));
                 }
-            } else if (this.eif != null && this.eif.size() > 0 && this.eif.size() >= this.eik) {
-                arrayList.addAll(this.eif.subList(0, this.eik));
+            } else if (this.eor != null && this.eor.size() > 0 && this.eor.size() >= this.eow) {
+                arrayList.addAll(this.eor.subList(0, this.eow));
             }
         }
         return arrayList;
     }
 
-    public int mO(int i) {
-        if (this.eih) {
-            int size = this.eig.size();
+    public int ng(int i) {
+        if (this.eot) {
+            int size = this.eos.size();
             if (i == 0) {
-                return (size - 1) - this.eik;
+                return (size - 1) - this.eow;
             }
-            if (i == size - this.eik) {
-                return this.eik;
+            if (i == size - this.eow) {
+                return this.eow;
             }
             return i;
         }
         return i;
     }
 
-    public int mP(int i) {
-        if (this.eih) {
-            return i - this.eik;
+    public int nh(int i) {
+        if (this.eot) {
+            return i - this.eow;
         }
         return i;
     }
 
-    public int aZp() {
-        if (this.eif == null) {
+    public int bdm() {
+        if (this.eor == null) {
             return 0;
         }
-        return this.eif.size();
+        return this.eor.size();
     }
 
-    public int aZq() {
-        if (this.eih) {
-            return this.eik;
+    public int bdn() {
+        if (this.eot) {
+            return this.eow;
         }
         return 0;
     }
 
-    public void mQ(int i) {
-        this.ehZ = i;
-        aR(this.eif);
+    public void ni(int i) {
+        this.eol = i;
+        aX(this.eor);
     }
 
-    public void mR(int i) {
-        this.eij = i;
-        aR(this.eif);
+    public void nj(int i) {
+        this.eov = i;
+        aX(this.eor);
     }
 
-    public List<q> aZr() {
-        return this.eig;
+    public List<q> bdo() {
+        return this.eos;
     }
 
-    public void mS(int i) {
-        this.eik = i;
-        aR(this.eif);
+    public void nk(int i) {
+        this.eow = i;
+        aX(this.eor);
     }
 }

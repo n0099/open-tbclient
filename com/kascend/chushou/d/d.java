@@ -10,14 +10,14 @@ import java.util.List;
 import kotlin.jvm.internal.q;
 import kotlin.text.l;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class d {
-    public static final d neU = new d();
+    public static final d nnD = new d();
 
     private d() {
     }
 
-    public final File n(String str, File file) {
+    public final File p(String str, File file) {
         String str2;
         q.m(file, "f");
         String str3 = str;
@@ -25,7 +25,7 @@ public final class d {
             return null;
         }
         if (str == null) {
-            q.dQK();
+            q.dUg();
         }
         List b = l.b((CharSequence) str, new String[]{Constants.ACCEPT_TIME_SEPARATOR_SP}, false, 0, 6, (Object) null);
         if (b.size() > 1) {
@@ -54,11 +54,11 @@ public final class d {
         q.m(str2, "avatarUrl");
         q.m(cVar, "sp");
         int length = cVar.length();
-        ImageRequestBuilder wM = ImageRequestBuilder.ac(i.Rk(str2)).a(new com.kascend.chushou.widget.gif.a(i, i2, str)).wM(true);
-        com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(tv.chushou.widget.a.c.getResources()).Iq(com.kascend.chushou.view.a.a(null)).dBB(), tv.chushou.basis.d.b.dWi());
-        com.facebook.drawee.controller.a dAN = com.facebook.drawee.a.a.c.dAa().bc(wM.dHf()).dAR();
+        ImageRequestBuilder xr = ImageRequestBuilder.ab(i.RK(str2)).a(new com.kascend.chushou.widget.gif.a(i, i2, str)).xr(true);
+        com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(tv.chushou.widget.a.c.getResources()).IL(com.kascend.chushou.view.a.a(null)).dEN(), tv.chushou.basis.d.b.dZE());
+        com.facebook.drawee.controller.a dDZ = com.facebook.drawee.a.a.c.dDm().bc(xr.dKr()).dEd();
         q.l((Object) a, "draweeHolder");
-        a.setController(dAN);
+        a.setController(dDZ);
         cVar.append(" ");
         String str3 = str;
         int i3 = str3 == null || str3.length() == 0 ? i2 : i;
@@ -67,7 +67,7 @@ public final class d {
     }
 
     public final void a() {
-        tv.chushou.zues.utils.h.dWN();
+        tv.chushou.zues.utils.h.eaj();
         System.gc();
     }
 }

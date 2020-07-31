@@ -12,7 +12,7 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class g {
     private static ConnectivityManager a = null;
     private static TelephonyManager b = null;

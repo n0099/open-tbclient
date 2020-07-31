@@ -5,7 +5,7 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public final class i {
-    public static final Object R(Throwable th) {
+    public static final Object Q(Throwable th) {
         q.m(th, "exception");
         return new Result.Failure(th);
     }

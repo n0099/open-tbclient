@@ -13,20 +13,20 @@ import java.util.Iterator;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public final class c {
-    private static SimpleDateFormat amI;
-    private static PackageManager amJ;
+    private static SimpleDateFormat amE;
+    private static PackageManager amF;
 
     public static String Q(long j) {
         return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / TimeUtils.NANOS_PER_MS > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
     }
 
     public static String a(Date date) {
-        if (amI == null) {
-            amI = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (amE == null) {
+            amE = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return amI.format(date);
+        return amE.format(date);
     }
 
     public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -135,7 +135,7 @@ public final class c {
         return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
     }
 
-    public static byte[] dl(String str) {
+    public static byte[] dk(String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -143,11 +143,11 @@ public final class c {
     }
 
     public static boolean g(Context context, String str) {
-        if (amJ == null) {
-            amJ = context.getPackageManager();
+        if (amF == null) {
+            amF = context.getPackageManager();
         }
         try {
-            return amJ.checkPermission(str, context.getPackageName()) == 0;
+            return amF.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }
@@ -171,9 +171,9 @@ public final class c {
             th = th.getCause();
         }
         StackTraceElement[] stackTrace = th.getStackTrace();
-        String J = p.J();
+        String ti = p.ti();
         for (int i = 0; i < stackTrace.length; i++) {
-            if (stackTrace[i].getClassName().contains(J)) {
+            if (stackTrace[i].getClassName().contains(ti)) {
                 return stackTrace[i].toString();
             }
         }

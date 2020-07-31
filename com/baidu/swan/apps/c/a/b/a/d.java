@@ -1,30 +1,30 @@
 package com.baidu.swan.apps.c.a.b.a;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class d {
-    private com.baidu.swan.apps.b.a.b bNL;
+    private com.baidu.swan.apps.b.a.b bOB;
 
-    public static d UT() {
-        return a.bNM;
+    public static d Vy() {
+        return a.bOC;
     }
 
-    public void ev(int i) {
-        if (this.bNL != null) {
-            this.bNL.ev(i);
-            this.bNL = null;
+    public void er(int i) {
+        if (this.bOB != null) {
+            this.bOB.er(i);
+            this.bOB = null;
         }
     }
 
     public void ai(JSONObject jSONObject) {
-        if (this.bNL != null) {
-            this.bNL.ai(jSONObject);
-            this.bNL = null;
+        if (this.bOB != null) {
+            this.bOB.ai(jSONObject);
+            this.bOB = null;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     private static class a {
-        private static final d bNM = new d();
+        private static final d bOC = new d();
     }
 }

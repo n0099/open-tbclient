@@ -9,7 +9,7 @@ import com.heytap.mcssdk.mode.AppMessage;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.heytap.mcssdk.mode.SptDataMessage;
 import com.heytap.mcssdk.utils.LogUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes20.dex */
 public class AppPushService extends Service implements MessageCallback {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {

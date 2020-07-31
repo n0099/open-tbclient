@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ChildHelper {
     private static final boolean DEBUG = false;
     private static final String TAG = "ChildrenHelper";
@@ -15,7 +15,7 @@ public class ChildHelper {
     final List<View> mHiddenViews = new ArrayList();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface Callback {
         void addView(View view, int i);
 
@@ -245,7 +245,7 @@ public class ChildHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Bucket {
         static final int BITS_PER_WORD = 64;
         static final long LAST_BIT = Long.MIN_VALUE;

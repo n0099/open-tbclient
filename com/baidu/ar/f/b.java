@@ -1,7 +1,7 @@
 package com.baidu.ar.f;
 
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public final class b {
     private static int wG = 5;
 

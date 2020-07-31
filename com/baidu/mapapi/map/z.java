@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.view.View;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class z extends AnimatorListenerAdapter {
     final /* synthetic */ View a;
     final /* synthetic */ WearMapView b;

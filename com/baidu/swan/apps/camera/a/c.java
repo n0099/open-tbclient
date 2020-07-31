@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c extends a {
     public c(j jVar) {
         super(jVar, "/swanAPI/camera/remove");
@@ -21,9 +21,9 @@ public class c extends a {
         }
         com.baidu.swan.apps.component.components.c.a aVar = (com.baidu.swan.apps.component.components.c.a) com.baidu.swan.apps.component.container.a.d(c(unitedSchemeEntity));
         if (aVar != null) {
-            com.baidu.swan.apps.component.b.c Wo = aVar.Wo();
-            if (!Wo.isSuccess()) {
-                com.baidu.swan.apps.console.c.e("CameraRemoveAction", "remove camera fail: " + Wo.msg);
+            com.baidu.swan.apps.component.b.c WV = aVar.WV();
+            if (!WV.isSuccess()) {
+                com.baidu.swan.apps.console.c.e("CameraRemoveAction", "remove camera fail: " + WV.msg);
             }
             a(unitedSchemeEntity, callbackHandler, true);
             return true;

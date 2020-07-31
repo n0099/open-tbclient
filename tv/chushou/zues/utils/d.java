@@ -9,11 +9,11 @@ import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
     private static final Gson gson;
-    private static final Map<String, String> okw;
-    private static final Type okx;
+    private static final Map<String, String> otb;
+    private static final Type otc;
 
     static {
         Gson gson2 = null;
@@ -22,8 +22,8 @@ public class d {
         } catch (Throwable th) {
         }
         gson = gson2;
-        okw = Collections.unmodifiableMap(new HashMap());
-        okx = new com.google.gson.b.a<Map<String, String>>() { // from class: tv.chushou.zues.utils.d.1
+        otb = Collections.unmodifiableMap(new HashMap());
+        otc = new com.google.gson.b.a<Map<String, String>>() { // from class: tv.chushou.zues.utils.d.1
         }.getType();
     }
 
@@ -35,7 +35,7 @@ public class d {
         try {
             return (T) gson.fromJson(str, (Class<Object>) cls);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dWu().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dZQ().e("JsonUtils", "", e);
             return null;
         }
     }
@@ -48,7 +48,7 @@ public class d {
         try {
             return (T) gson.fromJson(str, type);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dWu().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dZQ().e("JsonUtils", "", e);
             return null;
         }
     }
@@ -61,17 +61,17 @@ public class d {
         try {
             return gson.toJson(obj);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dWu().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dZQ().e("JsonUtils", "", e);
             return null;
         }
     }
 
     @NonNull
-    public static Map<String, String> Th(String str) {
+    public static Map<String, String> TS(String str) {
         if (TextUtils.isEmpty(str)) {
-            return okw;
+            return otb;
         }
-        Map<String, String> map = (Map) c(str, okx);
-        return map == null ? okw : map;
+        Map<String, String> map = (Map) c(str, otc);
+        return map == null ? otb : map;
     }
 }

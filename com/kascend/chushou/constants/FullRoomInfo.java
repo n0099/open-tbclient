@@ -3,7 +3,7 @@ package com.kascend.chushou.constants;
 import android.support.v4.util.SparseArrayCompat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FullRoomInfo {
     public CycleLiveRoomInfo cycleLiveRoomInfo;
     public SparseArrayCompat<BangListInfo> mBangMap;

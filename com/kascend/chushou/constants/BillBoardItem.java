@@ -1,7 +1,7 @@
 package com.kascend.chushou.constants;
 
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BillBoardItem implements Serializable {
     private static final long serialVersionUID = 4158671122429529252L;
     public String mUid = "";

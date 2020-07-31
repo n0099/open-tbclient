@@ -13,7 +13,7 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.swan.apps.scheme.actions.b {
     public a(j jVar) {
         super(jVar, "/swanAPI/coverview");
@@ -36,12 +36,12 @@ public class a extends com.baidu.swan.apps.scheme.actions.b {
             c.e("Component-Action-CoverView", "model is null");
             return false;
         }
-        com.baidu.swan.apps.component.b.c Wm = new com.baidu.swan.apps.component.components.e.c.a(context, k).Wm();
-        boolean isSuccess = Wm.isSuccess();
+        com.baidu.swan.apps.component.b.c WT = new com.baidu.swan.apps.component.components.e.c.a(context, k).WT();
+        boolean isSuccess = WT.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         } else {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Wm.msg);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, WT.msg);
         }
         return isSuccess;
     }
@@ -59,7 +59,7 @@ public class a extends com.baidu.swan.apps.scheme.actions.b {
         }
         com.baidu.swan.apps.component.components.e.c.a aVar = (com.baidu.swan.apps.component.components.e.c.a) com.baidu.swan.apps.component.container.a.d(k);
         if (aVar == null) {
-            String str2 = "can't find coverView component:#" + k.bUt;
+            String str2 = "can't find coverView component:#" + k.bVl;
             c.e("Component-Action-CoverView", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
@@ -87,18 +87,18 @@ public class a extends com.baidu.swan.apps.scheme.actions.b {
         }
         com.baidu.swan.apps.component.components.e.c.a aVar = (com.baidu.swan.apps.component.components.e.c.a) com.baidu.swan.apps.component.container.a.d(k);
         if (aVar == null) {
-            String str2 = "can't find coverView component:#" + k.bUt;
+            String str2 = "can't find coverView component:#" + k.bVl;
             c.e("Component-Action-CoverView", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
         }
-        com.baidu.swan.apps.component.b.c Wo = aVar.Wo();
-        boolean isSuccess = Wo.isSuccess();
+        com.baidu.swan.apps.component.b.c WV = aVar.WV();
+        boolean isSuccess = WV.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return isSuccess;
         }
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Wo.msg);
+        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, WV.msg);
         return isSuccess;
     }
 

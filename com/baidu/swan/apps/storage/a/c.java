@@ -12,7 +12,7 @@ import com.baidu.swan.apps.storage.PathType;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c extends aa {
     public c(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/file/getInfo");
@@ -20,7 +20,7 @@ public class c extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (context == null || callbackHandler == null || eVar == null || eVar.apX() == null) {
+        if (context == null || callbackHandler == null || eVar == null || eVar.arG() == null) {
             com.baidu.swan.apps.console.c.e("fileInfo", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -33,9 +33,9 @@ public class c extends aa {
         }
         String optString = optParamsAsJo.optString("filePath");
         String str = "";
-        if (com.baidu.swan.apps.storage.b.oY(optString) == PathType.BD_FILE) {
-            str = com.baidu.swan.apps.storage.b.bV(optString, com.baidu.swan.apps.runtime.e.apO());
-        } else if (com.baidu.swan.apps.storage.b.oY(optString) == PathType.RELATIVE) {
+        if (com.baidu.swan.apps.storage.b.pJ(optString) == PathType.BD_FILE) {
+            str = com.baidu.swan.apps.storage.b.bW(optString, com.baidu.swan.apps.runtime.e.arx());
+        } else if (com.baidu.swan.apps.storage.b.pJ(optString) == PathType.RELATIVE) {
             str = com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion());
         }
         if (DEBUG) {
@@ -48,7 +48,7 @@ public class c extends aa {
             return false;
         }
         File file = new File(str);
-        String encrypt = com.baidu.swan.apps.aq.m.encrypt(TextUtils.equals(optParamsAsJo.optString("digestAlgorithm", "md5"), "md5") ? "MD5" : "SHA-1", file, false);
+        String encrypt = com.baidu.swan.apps.aq.n.encrypt(TextUtils.equals(optParamsAsJo.optString("digestAlgorithm", "md5"), "md5") ? "MD5" : "SHA-1", file, false);
         if (TextUtils.isEmpty(encrypt)) {
             com.baidu.swan.apps.console.c.e("fileInfo", "hash is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, com.baidu.swan.apps.scheme.f.getErrMessage(2001)));

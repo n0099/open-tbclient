@@ -8,10 +8,10 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.GridLayoutAnimationController;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class GameVideoGridView extends BdGridView {
-    private Animation iqr;
-    private GridLayoutAnimationController iqs;
+    private Animation iwv;
+    private GridLayoutAnimationController iww;
     private int mMaxHeight;
 
     public GameVideoGridView(Context context, AttributeSet attributeSet, int i) {
@@ -33,15 +33,15 @@ public class GameVideoGridView extends BdGridView {
     }
 
     private void init() {
-        if (this.iqr == null) {
-            this.iqr = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
+        if (this.iwv == null) {
+            this.iwv = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
         }
-        if (this.iqs == null) {
-            this.iqs = new GridLayoutAnimationController(this.iqr);
-            this.iqs.setColumnDelay(0.4f);
-            this.iqs.setRowDelay(0.2f);
-            this.iqs.setDirection(0);
-            this.iqs.setDirectionPriority(0);
+        if (this.iww == null) {
+            this.iww = new GridLayoutAnimationController(this.iwv);
+            this.iww.setColumnDelay(0.4f);
+            this.iww.setRowDelay(0.2f);
+            this.iww.setDirection(0);
+            this.iww.setDirectionPriority(0);
         }
     }
 
@@ -57,17 +57,17 @@ public class GameVideoGridView extends BdGridView {
         super.onMeasure(i, i2);
     }
 
-    public void cjc() {
-        if (this.iqs != null) {
-            setLayoutAnimation(this.iqs);
-            this.iqs.start();
+    public void cmD() {
+        if (this.iww != null) {
+            setLayoutAnimation(this.iww);
+            this.iww.start();
             startLayoutAnimation();
         }
     }
 
     public void onDestroy() {
-        if (this.iqr != null) {
-            this.iqr.cancel();
+        if (this.iwv != null) {
+            this.iwv.cancel();
         }
     }
 }

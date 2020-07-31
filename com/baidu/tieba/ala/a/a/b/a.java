@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.a.a.b;
 
 import java.lang.reflect.Array;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static Object a(Class cls, Object[] objArr, Object obj) {
         Object newInstance = Array.newInstance(cls, objArr.length + 1);

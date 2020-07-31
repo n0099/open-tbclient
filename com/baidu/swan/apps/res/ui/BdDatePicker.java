@@ -9,201 +9,200 @@ import android.widget.LinearLayout;
 import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.aq.ag;
+import com.baidu.swan.apps.aq.ai;
 import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class BdDatePicker extends LinearLayout {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private int TG;
-    private int TH;
-    private int TI;
-    private int czA;
-    private int czB;
-    private WheelView3d czl;
-    private WheelView3d czm;
-    private WheelView3d czn;
-    private a czo;
-    private Date czp;
-    private Date czq;
-    private int czr;
-    private int czs;
-    private int czt;
-    private int czu;
-    private int czv;
-    private int czw;
-    private int czx;
-    private String czy;
-    private boolean czz;
+    private int TA;
+    private int TB;
+    private int TC;
+    private WheelView3d cBV;
+    private WheelView3d cBW;
+    private WheelView3d cBX;
+    private a cBY;
+    private Date cBZ;
+    private Date cCa;
+    private int cCb;
+    private int cCc;
+    private int cCd;
+    private int cCe;
+    private int cCf;
+    private int cCg;
+    private int cCh;
+    private String cCi;
+    private boolean cCj;
+    private int cCk;
+    private int cCl;
     private int mTextSize;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public interface a {
     }
 
     public BdDatePicker(Context context) {
         super(context);
-        this.TG = FeatureCodes.SKY_SEG;
-        this.TH = 1;
-        this.TI = 1;
-        this.czr = FeatureCodes.SKY_SEG;
-        this.czs = PushConstants.BROADCAST_MESSAGE_ARRIVE;
-        this.czt = 1;
-        this.czu = 12;
-        this.czv = 31;
-        this.czw = 1;
-        this.czx = this.czv;
-        this.czA = 12;
+        this.TA = FeatureCodes.SKY_SEG;
+        this.TB = 1;
+        this.TC = 1;
+        this.cCb = FeatureCodes.SKY_SEG;
+        this.cCc = 2100;
+        this.cCd = 1;
+        this.cCe = 12;
+        this.cCf = 31;
+        this.cCg = 1;
+        this.cCh = this.cCf;
+        this.cCk = 12;
         init(context);
     }
 
     public BdDatePicker(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.TG = FeatureCodes.SKY_SEG;
-        this.TH = 1;
-        this.TI = 1;
-        this.czr = FeatureCodes.SKY_SEG;
-        this.czs = PushConstants.BROADCAST_MESSAGE_ARRIVE;
-        this.czt = 1;
-        this.czu = 12;
-        this.czv = 31;
-        this.czw = 1;
-        this.czx = this.czv;
-        this.czA = 12;
+        this.TA = FeatureCodes.SKY_SEG;
+        this.TB = 1;
+        this.TC = 1;
+        this.cCb = FeatureCodes.SKY_SEG;
+        this.cCc = 2100;
+        this.cCd = 1;
+        this.cCe = 12;
+        this.cCf = 31;
+        this.cCg = 1;
+        this.cCh = this.cCf;
+        this.cCk = 12;
         init(context);
     }
 
     public BdDatePicker(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.TG = FeatureCodes.SKY_SEG;
-        this.TH = 1;
-        this.TI = 1;
-        this.czr = FeatureCodes.SKY_SEG;
-        this.czs = PushConstants.BROADCAST_MESSAGE_ARRIVE;
-        this.czt = 1;
-        this.czu = 12;
-        this.czv = 31;
-        this.czw = 1;
-        this.czx = this.czv;
-        this.czA = 12;
+        this.TA = FeatureCodes.SKY_SEG;
+        this.TB = 1;
+        this.TC = 1;
+        this.cCb = FeatureCodes.SKY_SEG;
+        this.cCc = 2100;
+        this.cCd = 1;
+        this.cCe = 12;
+        this.cCf = 31;
+        this.cCg = 1;
+        this.cCh = this.cCf;
+        this.cCk = 12;
         init(context);
     }
 
     private void init(Context context) {
         setOrientation(0);
         LayoutInflater.from(context).inflate(a.g.aiapps_datepicker_layout, this);
-        this.czA = ag.D(this.czA);
-        this.mTextSize = ag.D(16.0f);
-        this.czB = ag.D(14.0f);
-        this.czl = (WheelView3d) findViewById(a.f.wheel_year);
-        this.czl.setCenterTextSize(this.mTextSize);
-        this.czl.setOuterTextSize(this.czB);
-        this.czl.setLineSpacingMultiplier(3.0f);
-        this.czl.setTextColorCenter(ViewCompat.MEASURED_STATE_MASK);
-        this.czl.setTextColorOut(ViewCompat.MEASURED_STATE_MASK);
-        this.czl.setDividerType(WheelView3d.DividerType.FILL);
-        this.czl.setVisibleItem(7);
-        this.czl.setOnItemSelectedListener(new com.baidu.swan.apps.res.ui.wheelview3d.c.b() { // from class: com.baidu.swan.apps.res.ui.BdDatePicker.1
+        this.cCk = ai.D(this.cCk);
+        this.mTextSize = ai.D(16.0f);
+        this.cCl = ai.D(14.0f);
+        this.cBV = (WheelView3d) findViewById(a.f.wheel_year);
+        this.cBV.setCenterTextSize(this.mTextSize);
+        this.cBV.setOuterTextSize(this.cCl);
+        this.cBV.setLineSpacingMultiplier(3.0f);
+        this.cBV.setTextColorCenter(ViewCompat.MEASURED_STATE_MASK);
+        this.cBV.setTextColorOut(ViewCompat.MEASURED_STATE_MASK);
+        this.cBV.setDividerType(WheelView3d.DividerType.FILL);
+        this.cBV.setVisibleItem(7);
+        this.cBV.setOnItemSelectedListener(new com.baidu.swan.apps.res.ui.wheelview3d.c.b() { // from class: com.baidu.swan.apps.res.ui.BdDatePicker.1
             @Override // com.baidu.swan.apps.res.ui.wheelview3d.c.b
             public void a(WheelView3d wheelView3d, int i) {
-                BdDatePicker.this.TG = BdDatePicker.this.czr + i;
-                BdDatePicker.this.aoG();
-                BdDatePicker.this.aoH();
+                BdDatePicker.this.TA = BdDatePicker.this.cCb + i;
+                BdDatePicker.this.aqq();
+                BdDatePicker.this.aqr();
             }
         });
-        this.czm = (WheelView3d) findViewById(a.f.wheel_month);
-        this.czm.setCenterTextSize(this.mTextSize);
-        this.czm.setOuterTextSize(this.czB);
-        this.czm.setTextColorCenter(ViewCompat.MEASURED_STATE_MASK);
-        this.czm.setTextColorOut(ViewCompat.MEASURED_STATE_MASK);
-        this.czm.setLineSpacingMultiplier(3.0f);
-        this.czm.setDividerType(WheelView3d.DividerType.FILL);
-        this.czm.setVisibleItem(7);
-        this.czm.setOnItemSelectedListener(new com.baidu.swan.apps.res.ui.wheelview3d.c.b() { // from class: com.baidu.swan.apps.res.ui.BdDatePicker.2
+        this.cBW = (WheelView3d) findViewById(a.f.wheel_month);
+        this.cBW.setCenterTextSize(this.mTextSize);
+        this.cBW.setOuterTextSize(this.cCl);
+        this.cBW.setTextColorCenter(ViewCompat.MEASURED_STATE_MASK);
+        this.cBW.setTextColorOut(ViewCompat.MEASURED_STATE_MASK);
+        this.cBW.setLineSpacingMultiplier(3.0f);
+        this.cBW.setDividerType(WheelView3d.DividerType.FILL);
+        this.cBW.setVisibleItem(7);
+        this.cBW.setOnItemSelectedListener(new com.baidu.swan.apps.res.ui.wheelview3d.c.b() { // from class: com.baidu.swan.apps.res.ui.BdDatePicker.2
             @Override // com.baidu.swan.apps.res.ui.wheelview3d.c.b
             public void a(WheelView3d wheelView3d, int i) {
-                BdDatePicker.this.TH = BdDatePicker.this.czt + i;
-                BdDatePicker.this.aoH();
+                BdDatePicker.this.TB = BdDatePicker.this.cCd + i;
+                BdDatePicker.this.aqr();
             }
         });
-        this.czn = (WheelView3d) findViewById(a.f.wheel_day);
-        this.czn.setCenterTextSize(this.mTextSize);
-        this.czn.setOuterTextSize(this.czB);
-        this.czn.setTextColorCenter(ViewCompat.MEASURED_STATE_MASK);
-        this.czn.setTextColorOut(ViewCompat.MEASURED_STATE_MASK);
-        this.czn.setLineSpacingMultiplier(3.0f);
-        this.czn.setDividerType(WheelView3d.DividerType.FILL);
-        this.czn.setVisibleItem(7);
-        this.czn.setOnItemSelectedListener(new com.baidu.swan.apps.res.ui.wheelview3d.c.b() { // from class: com.baidu.swan.apps.res.ui.BdDatePicker.3
+        this.cBX = (WheelView3d) findViewById(a.f.wheel_day);
+        this.cBX.setCenterTextSize(this.mTextSize);
+        this.cBX.setOuterTextSize(this.cCl);
+        this.cBX.setTextColorCenter(ViewCompat.MEASURED_STATE_MASK);
+        this.cBX.setTextColorOut(ViewCompat.MEASURED_STATE_MASK);
+        this.cBX.setLineSpacingMultiplier(3.0f);
+        this.cBX.setDividerType(WheelView3d.DividerType.FILL);
+        this.cBX.setVisibleItem(7);
+        this.cBX.setOnItemSelectedListener(new com.baidu.swan.apps.res.ui.wheelview3d.c.b() { // from class: com.baidu.swan.apps.res.ui.BdDatePicker.3
             @Override // com.baidu.swan.apps.res.ui.wheelview3d.c.b
             public void a(WheelView3d wheelView3d, int i) {
-                BdDatePicker.this.TI = BdDatePicker.this.czw + i;
+                BdDatePicker.this.TC = BdDatePicker.this.cCg + i;
             }
         });
-        aoD();
+        aqn();
     }
 
-    private void aoD() {
+    private void aqn() {
         Calendar calendar = Calendar.getInstance();
-        this.TG = calendar.get(1);
-        this.TH = calendar.get(2) + 1;
-        this.TI = calendar.get(5);
-        aoE();
+        this.TA = calendar.get(1);
+        this.TB = calendar.get(2) + 1;
+        this.TC = calendar.get(5);
+        aqo();
     }
 
-    public void aoE() {
-        aoF();
-        aoG();
-        aoH();
+    public void aqo() {
+        aqp();
+        aqq();
+        aqr();
     }
 
-    private void aoF() {
-        if (this.TG < this.czr || this.TG > this.czs) {
-            this.TG = this.czr;
+    private void aqp() {
+        if (this.TA < this.cCb || this.TA > this.cCc) {
+            this.TA = this.cCb;
         }
-        this.czl.setAdapter(new com.baidu.swan.apps.res.ui.wheelview3d.a.b(this.czr, this.czs));
-        a(this.czl, this.czr, this.czs);
+        this.cBV.setAdapter(new com.baidu.swan.apps.res.ui.wheelview3d.a.b(this.cCb, this.cCc));
+        a(this.cBV, this.cCb, this.cCc);
     }
 
-    public void aoG() {
-        this.czt = 1;
-        this.czu = 12;
-        if (this.czp != null && this.TG == this.czr) {
-            this.czt = this.czp.getMonth() + 1;
+    public void aqq() {
+        this.cCd = 1;
+        this.cCe = 12;
+        if (this.cBZ != null && this.TA == this.cCb) {
+            this.cCd = this.cBZ.getMonth() + 1;
         }
-        if (this.czq != null && this.TG == this.czs) {
-            this.czu = this.czq.getMonth() + 1;
+        if (this.cCa != null && this.TA == this.cCc) {
+            this.cCe = this.cCa.getMonth() + 1;
         }
-        this.czm.setAdapter(new com.baidu.swan.apps.res.ui.wheelview3d.a.b(this.czt, this.czu));
-        a(this.czm, this.czt, this.czu);
-        setMonth(this.TH);
+        this.cBW.setAdapter(new com.baidu.swan.apps.res.ui.wheelview3d.a.b(this.cCd, this.cCe));
+        a(this.cBW, this.cCd, this.cCe);
+        setMonth(this.TB);
     }
 
-    public void aoH() {
+    public void aqr() {
         int[] iArr = {4, 6, 9, 11};
-        if (Arrays.binarySearch(new int[]{1, 3, 5, 7, 8, 10, 12}, this.TH) >= 0) {
-            this.czv = 31;
-        } else if (Arrays.binarySearch(iArr, this.TH) >= 0) {
-            this.czv = 30;
-        } else if ((this.TG % 4 == 0 && this.TG % 100 != 0) || this.TG % 400 == 0) {
-            this.czv = 29;
+        if (Arrays.binarySearch(new int[]{1, 3, 5, 7, 8, 10, 12}, this.TB) >= 0) {
+            this.cCf = 31;
+        } else if (Arrays.binarySearch(iArr, this.TB) >= 0) {
+            this.cCf = 30;
+        } else if ((this.TA % 4 == 0 && this.TA % 100 != 0) || this.TA % 400 == 0) {
+            this.cCf = 29;
         } else {
-            this.czv = 28;
+            this.cCf = 28;
         }
-        this.czw = 1;
-        this.czx = this.czv;
-        if (this.czp != null && this.TG == this.czr && this.TH == this.czp.getMonth() + 1) {
-            this.czw = this.czp.getDate();
+        this.cCg = 1;
+        this.cCh = this.cCf;
+        if (this.cBZ != null && this.TA == this.cCb && this.TB == this.cBZ.getMonth() + 1) {
+            this.cCg = this.cBZ.getDate();
         }
-        if (this.czq != null && this.TG == this.czs && this.TH == this.czq.getMonth() + 1) {
-            this.czx = this.czq.getDate();
+        if (this.cCa != null && this.TA == this.cCc && this.TB == this.cCa.getMonth() + 1) {
+            this.cCh = this.cCa.getDate();
         }
-        this.czn.setAdapter(new com.baidu.swan.apps.res.ui.wheelview3d.a.b(this.czw, this.czx));
-        a(this.czn, this.czw, this.czx);
-        setDay(this.TI);
+        this.cBX.setAdapter(new com.baidu.swan.apps.res.ui.wheelview3d.a.b(this.cCg, this.cCh));
+        a(this.cBX, this.cCg, this.cCh);
+        setDay(this.TC);
     }
 
     private void a(WheelView3d wheelView3d, int i, int i2) {
@@ -213,89 +212,89 @@ public class BdDatePicker extends LinearLayout {
     }
 
     public void setOnTimeChangeListener(a aVar) {
-        this.czo = aVar;
+        this.cBY = aVar;
     }
 
     public void setYear(int i) {
-        if (i < this.czr) {
-            i = this.czr;
+        if (i < this.cCb) {
+            i = this.cCb;
             if (DEBUG) {
-                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The year must be between " + this.czr + " and " + this.czs).showToastBottom();
+                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The year must be between " + this.cCb + " and " + this.cCc).showToastBottom();
             }
-        } else if (i > this.czs) {
-            i = this.czs;
+        } else if (i > this.cCc) {
+            i = this.cCc;
             if (DEBUG) {
-                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The year must be between " + this.czr + " and " + this.czs).showToast();
+                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The year must be between " + this.cCb + " and " + this.cCc).showToast();
             }
         }
-        this.TG = i;
-        this.czl.setCurrentItem(this.TG - this.czr);
+        this.TA = i;
+        this.cBV.setCurrentItem(this.TA - this.cCb);
     }
 
     public int getYear() {
-        return this.TG;
+        return this.TA;
     }
 
     public void setMonth(int i) {
-        if (i < this.czt) {
-            i = this.czt;
+        if (i < this.cCd) {
+            i = this.cCd;
             if (DEBUG) {
-                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The month must be between " + this.czt + " and " + this.czu).showToastBottom();
+                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The month must be between " + this.cCd + " and " + this.cCe).showToastBottom();
             }
-        } else if (i > this.czu) {
-            i = this.czu;
+        } else if (i > this.cCe) {
+            i = this.cCe;
             if (DEBUG) {
-                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The month must be between " + this.czt + " and " + this.czu).showToast();
+                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The month must be between " + this.cCd + " and " + this.cCe).showToast();
             }
         }
-        this.TH = i;
-        this.czm.setCurrentItem(this.TH - this.czt);
+        this.TB = i;
+        this.cBW.setCurrentItem(this.TB - this.cCd);
     }
 
     public int getMonth() {
-        return this.TH;
+        return this.TB;
     }
 
     public void setDay(int i) {
-        if (i < this.czw || i > this.czx) {
-            i = this.czw;
+        if (i < this.cCg || i > this.cCh) {
+            i = this.cCg;
             if (DEBUG) {
-                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The day must be between " + this.czw + " and " + this.czx).showToast();
+                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The day must be between " + this.cCg + " and " + this.cCh).showToast();
             }
-        } else if (i > this.czx) {
-            i = this.czx;
+        } else if (i > this.cCh) {
+            i = this.cCh;
             if (DEBUG) {
-                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The day must be between " + this.czw + " and " + this.czx).showToastBottom();
+                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The day must be between " + this.cCg + " and " + this.cCh).showToastBottom();
             }
         }
-        this.TI = i;
-        this.czn.setCurrentItem(this.TI - this.czw);
+        this.TC = i;
+        this.cBX.setCurrentItem(this.TC - this.cCg);
     }
 
     public int getDay() {
-        return this.TI;
+        return this.TC;
     }
 
     public void setStartDate(Date date) {
         if (date != null) {
-            this.czp = date;
-            this.czr = this.czp.getYear() + FeatureCodes.SKY_SEG;
+            this.cBZ = date;
+            this.cCb = this.cBZ.getYear() + FeatureCodes.SKY_SEG;
             return;
         }
-        this.czr = FeatureCodes.SKY_SEG;
+        this.cCb = FeatureCodes.SKY_SEG;
     }
 
     public void setEndDate(Date date) {
         if (date != null) {
-            this.czq = date;
-            this.czs = this.czq.getYear() + FeatureCodes.SKY_SEG;
+            this.cCa = date;
+            this.cCc = this.cCa.getYear() + FeatureCodes.SKY_SEG;
             return;
         }
-        this.czs = PushConstants.BROADCAST_MESSAGE_ARRIVE;
+        this.cCc = 2100;
     }
 
     public void setFields(String str) {
-        this.czy = str;
+        this.cCi = str;
         if (!TextUtils.isEmpty(str)) {
             char c = 65535;
             switch (str.hashCode()) {
@@ -314,31 +313,31 @@ public class BdDatePicker extends LinearLayout {
             }
             switch (c) {
                 case 0:
-                    this.czl.setGravity(17);
-                    this.czm.setVisibility(8);
-                    this.czn.setVisibility(8);
+                    this.cBV.setGravity(17);
+                    this.cBW.setVisibility(8);
+                    this.cBX.setVisibility(8);
                     return;
                 case 1:
-                    this.czl.setGravity(5);
-                    this.czl.setGravityOffset(this.czA);
-                    this.czm.setGravity(3);
-                    this.czm.setGravityOffset(this.czA);
-                    this.czm.setVisibility(0);
-                    this.czn.setVisibility(8);
+                    this.cBV.setGravity(5);
+                    this.cBV.setGravityOffset(this.cCk);
+                    this.cBW.setGravity(3);
+                    this.cBW.setGravityOffset(this.cCk);
+                    this.cBW.setVisibility(0);
+                    this.cBX.setVisibility(8);
                     return;
                 default:
-                    this.czl.setGravity(5);
-                    this.czl.setGravityOffset(this.czA);
-                    this.czn.setGravity(3);
-                    this.czn.setGravityOffset(this.czA);
-                    this.czm.setVisibility(0);
-                    this.czn.setVisibility(0);
+                    this.cBV.setGravity(5);
+                    this.cBV.setGravityOffset(this.cCk);
+                    this.cBX.setGravity(3);
+                    this.cBX.setGravityOffset(this.cCk);
+                    this.cBW.setVisibility(0);
+                    this.cBX.setVisibility(0);
                     return;
             }
         }
     }
 
-    public boolean nr(String str) {
+    public boolean nY(String str) {
         WheelView3d wheelView3d = null;
         char c = 65535;
         switch (str.hashCode()) {
@@ -363,28 +362,28 @@ public class BdDatePicker extends LinearLayout {
         }
         switch (c) {
             case 0:
-                wheelView3d = this.czl;
+                wheelView3d = this.cBV;
                 break;
             case 1:
-                wheelView3d = this.czm;
+                wheelView3d = this.cBW;
                 break;
             case 2:
-                wheelView3d = this.czn;
+                wheelView3d = this.cBX;
                 break;
         }
         return wheelView3d != null && wheelView3d.getVisibility() == 0;
     }
 
     public void setDisabled(boolean z) {
-        this.czz = z;
-        this.czl.setIsOptions(z);
-        this.czm.setIsOptions(z);
-        this.czn.setIsOptions(z);
+        this.cCj = z;
+        this.cBV.setIsOptions(z);
+        this.cBW.setIsOptions(z);
+        this.cBX.setIsOptions(z);
     }
 
     public void setScrollCycle(boolean z) {
-        this.czm.setCyclic(z);
-        this.czl.setCyclic(z);
-        this.czn.setCyclic(z);
+        this.cBW.setCyclic(z);
+        this.cBV.setCyclic(z);
+        this.cBX.setCyclic(z);
     }
 }

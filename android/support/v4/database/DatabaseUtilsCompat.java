@@ -2,7 +2,7 @@ package android.support.v4.database;
 
 import android.text.TextUtils;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public final class DatabaseUtilsCompat {
     private DatabaseUtilsCompat() {
     }

@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.wnplatform.o.b.a;
 import android.content.Context;
 import android.os.Build;
 import android.util.DisplayMetrics;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     private int a = -1;
     private int b = -1;

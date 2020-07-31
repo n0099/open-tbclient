@@ -5,7 +5,7 @@ import com.heytap.mcssdk.mode.Message;
 import com.vivo.push.util.NotifyAdapterUtil;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class ah extends ab {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(com.vivo.push.y yVar) {

@@ -18,7 +18,7 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Observable;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public abstract class WebViewFactoryProvider extends Observable {
     private static final String LOG_TAG = "WebViewFactoryProvider";
     public static final String SETTING_AD_BLOCK = "ADBlock";
@@ -58,7 +58,7 @@ public abstract class WebViewFactoryProvider extends Observable {
     public static final Boolean SETTING_NO_IMAGE_MODE_VALUE = new Boolean(false);
     public static final Boolean SETTING_NA2_WEB_VALUE = new Boolean(false);
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public interface SettingsStatics {
         boolean canUseFreeFlow();
 
@@ -260,7 +260,7 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         void setCuid(String str);
 
-        void setDitingMaxEnabled(boolean z, boolean z2);
+        void setDitingMaxEnabled(boolean z, boolean z2, boolean z3);
 
         void setEnableEngineStat(boolean z);
 
@@ -277,6 +277,8 @@ public abstract class WebViewFactoryProvider extends Observable {
         void setFakeBaiduWhiteList(String str);
 
         void setFastPac(String str);
+
+        void setFileInIOEnabled(boolean z);
 
         void setFreeFlow(boolean z);
 
@@ -385,7 +387,7 @@ public abstract class WebViewFactoryProvider extends Observable {
         boolean useCronet();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public interface Statics {
         int AdBlockInit(String str, boolean z);
 
@@ -547,6 +549,9 @@ public abstract class WebViewFactoryProvider extends Observable {
     }
 
     public void onPageKeySectionTimeCostKeySection(WebView webView, String str, int i, long j) {
+    }
+
+    public void preInitWebView() {
     }
 
     public void setLocation(ZeusGeoLocationInfo zeusGeoLocationInfo, boolean z) {

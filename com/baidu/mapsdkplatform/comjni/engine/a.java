@@ -5,7 +5,7 @@ import android.os.Message;
 import android.util.SparseArray;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final String a = a.class.getSimpleName();
     private static SparseArray<List<Handler>> b = new SparseArray<>();

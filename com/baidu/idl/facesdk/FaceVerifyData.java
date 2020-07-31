@@ -1,5 +1,5 @@
 package com.baidu.idl.facesdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class FaceVerifyData {
     public int cols;
     public byte[] mRegDigest;

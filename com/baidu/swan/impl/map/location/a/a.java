@@ -8,18 +8,18 @@ import com.baidu.swan.impl.map.a.b.d;
 import com.baidu.swan.impl.map.location.a;
 import com.baidu.swan.impl.map.location.model.SelectedLocationInfo;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
-public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.a> implements a.InterfaceC0455a {
+/* loaded from: classes19.dex */
+public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.a> implements a.InterfaceC0467a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
-    private com.baidu.swan.apps.x.b dmq;
-    private com.baidu.swan.apps.x.a.a dmr;
+    private com.baidu.swan.apps.w.b dsl;
+    private com.baidu.swan.apps.w.a.a dsm;
 
-    public static a aFx() {
+    public static a aJo() {
         return new a();
     }
 
-    private boolean a(Context context, com.baidu.swan.apps.x.a.a aVar, final com.baidu.swan.apps.x.b bVar, e eVar) {
+    private boolean a(Context context, com.baidu.swan.apps.w.a.a aVar, final com.baidu.swan.apps.w.b bVar, e eVar) {
         c.i("map", "ChooseLocationAction start");
         if (!aVar.isValid()) {
             c.e("map", "model is invalid");
@@ -30,13 +30,13 @@ public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.a> im
             c.e("map", "cb is empty");
             return false;
         }
-        this.dmq = bVar;
-        this.dmr = aVar;
+        this.dsl = bVar;
+        this.dsm = aVar;
         d.a(context, new d.a() { // from class: com.baidu.swan.impl.map.location.a.a.1
             @Override // com.baidu.swan.impl.map.a.b.d.a
             public void onSuccess() {
                 c.w("map", "location permission success");
-                a.this.aFy();
+                a.this.aJp();
             }
 
             @Override // com.baidu.swan.impl.map.a.b.d.a
@@ -50,39 +50,39 @@ public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.a> im
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aFy() {
-        com.baidu.swan.impl.map.location.a aa = com.baidu.swan.impl.map.location.a.aa(null);
-        aa.a(this);
-        aa.aFe();
+    public void aJp() {
+        com.baidu.swan.impl.map.location.a ab = com.baidu.swan.impl.map.location.a.ab(null);
+        ab.a(this);
+        ab.aIV();
     }
 
-    @Override // com.baidu.swan.impl.map.location.a.InterfaceC0455a
+    @Override // com.baidu.swan.impl.map.location.a.InterfaceC0467a
     public void onCancel() {
         c.i("map", "choose location cancel");
-        if (this.dmq != null && this.dmr != null) {
-            this.dmq.g(this.dmr.callBack, 1002, "choose location canceled");
+        if (this.dsl != null && this.dsm != null) {
+            this.dsl.g(this.dsm.callBack, 1002, "choose location canceled");
         }
     }
 
-    @Override // com.baidu.swan.impl.map.location.a.InterfaceC0455a
+    @Override // com.baidu.swan.impl.map.location.a.InterfaceC0467a
     public void onError() {
         c.i("map", "choose location fail");
-        if (this.dmq != null && this.dmr != null) {
-            this.dmq.g(this.dmr.callBack, 1007, "choose location failed");
+        if (this.dsl != null && this.dsm != null) {
+            this.dsl.g(this.dsm.callBack, 1007, "choose location failed");
         }
     }
 
-    @Override // com.baidu.swan.impl.map.location.a.InterfaceC0455a
+    @Override // com.baidu.swan.impl.map.location.a.InterfaceC0467a
     public void a(SelectedLocationInfo selectedLocationInfo) {
-        if (this.dmq != null && this.dmr != null) {
-            this.dmq.d(this.dmr.callBack, selectedLocationInfo.toJson());
+        if (this.dsl != null && this.dsm != null) {
+            this.dsl.d(this.dsm.callBack, selectedLocationInfo.toJson());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.impl.map.a.a
-    public boolean a(Context context, com.baidu.swan.apps.x.a.a aVar, com.baidu.swan.apps.x.b bVar, e eVar, JSONObject jSONObject) {
+    public boolean a(Context context, com.baidu.swan.apps.w.a.a aVar, com.baidu.swan.apps.w.b bVar, e eVar, JSONObject jSONObject) {
         return a(context, aVar, bVar, eVar);
     }
 }

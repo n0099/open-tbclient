@@ -9,7 +9,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.searchbox.ui.animview.base.IResourcePackage;
 import com.baidu.searchbox.ui.animview.base.IResourceProvider;
 import com.baidu.searchbox.ui.animview.praise.resource.PraiseResourceAPSManager;
-/* loaded from: classes13.dex */
+/* loaded from: classes7.dex */
 public class CoolPraiseGuideLottieView extends LottieAnimationView {
     public static final int ANIM_DURATION = 8000;
     public static final int HEIGTH = 145;

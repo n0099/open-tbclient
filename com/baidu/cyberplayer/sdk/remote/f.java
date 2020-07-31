@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener {
     private CyberPlayer a;
     private int b;
@@ -25,23 +25,18 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     public f(int i, RemotePlayerService remotePlayerService) {
         this.b = i;
         this.c = remotePlayerService;
+        this.a = new CyberPlayer(this.b, this, false);
+        this.a.setIsInMainProcess(false);
+        this.a.setOnPreparedListener(this);
+        this.a.setOnCompletionListener(this);
+        this.a.setOnBufferingUpdateListener(this);
+        this.a.setOnVideoSizeChangedListener(this);
+        this.a.setOnSeekCompleteListener(this);
+        this.a.setOnErrorListener(this);
+        this.a.setOnInfoListener(this);
     }
 
     private CyberPlayer q() {
-        if (this.a == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    this.a = new CyberPlayer(this.b, this, false);
-                    this.a.setOnPreparedListener(this);
-                    this.a.setOnCompletionListener(this);
-                    this.a.setOnBufferingUpdateListener(this);
-                    this.a.setOnVideoSizeChangedListener(this);
-                    this.a.setOnSeekCompleteListener(this);
-                    this.a.setOnErrorListener(this);
-                    this.a.setOnInfoListener(this);
-                }
-            }
-        }
         return this.a;
     }
 
@@ -230,7 +225,6 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
             if (this.a != null) {
                 this.a.release();
             }
-            this.a = null;
         }
         synchronized (this.d) {
             this.d.kill();

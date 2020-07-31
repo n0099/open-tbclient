@@ -1,7 +1,7 @@
 package com.baidu.minivideo.arface.utils;
 
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static void deleteDir(File file) {
         d(file, true);

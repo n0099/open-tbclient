@@ -8,14 +8,14 @@ import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import com.baidu.swan.apps.scheme.actions.p;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class g implements com.baidu.swan.apps.adaptation.a.s {
     @Override // com.baidu.swan.apps.adaptation.a.s
     public boolean a(Activity activity, Uri uri, String str) {
         if (activity == null || uri == null || uri.getPath() == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        if (com.baidu.swan.apps.aq.b.hasNougat()) {
+        if (com.baidu.swan.apps.aq.c.hasNougat()) {
             uri = FileProvider.getUriForFile(activity, activity.getPackageName() + ".swan.fileprovider", new File(uri.getPath()));
         }
         b(activity, uri, str);
@@ -38,6 +38,6 @@ public class g implements com.baidu.swan.apps.adaptation.a.s {
         intent.addFlags(268435456);
         intent.addFlags(1);
         intent.setDataAndType(uri, str);
-        com.baidu.swan.apps.aq.d.startActivitySafely(activity, intent);
+        com.baidu.swan.apps.aq.e.startActivitySafely(activity, intent);
     }
 }

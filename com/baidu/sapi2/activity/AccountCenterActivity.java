@@ -3,7 +3,7 @@ package com.baidu.sapi2.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.f.a.a;
+import com.baidu.g.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccountManager;
@@ -24,7 +24,7 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class AccountCenterActivity extends SlideActiviy {
     private static final String A = "AccountCenterActivity";
     private static final String B = "AccountCenterActivity";

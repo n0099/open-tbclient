@@ -1,41 +1,26 @@
 package com.baidu.swan.apps.performance;
 
-import android.util.Log;
-import java.util.Date;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes11.dex */
-public class c {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static JSONObject cwq;
+import android.os.Bundle;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+/* loaded from: classes7.dex */
+public class c extends ProviderDelegation {
+    private static long cyk = -1;
 
-    public static void amA() {
-        try {
-            cwq = g.amD().amy();
-            if (cwq != null) {
-                cwq.put("_ts", com.baidu.swan.apps.aq.i.a(new Date(), "yyyy-MM-dd HH:mm:ss"));
-            }
-        } catch (JSONException e) {
-            if (DEBUG) {
-                Log.e("PerformanceUbcSnapshot", "JSONException:", e);
-            }
-        }
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        Bundle bundle2 = new Bundle();
+        bundle2.putLong("result", com.baidu.swan.apps.t.a.ahv().TH());
+        return bundle2;
     }
 
-    public static JSONObject amB() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            JSONObject amy = g.amD().amy();
-            if (amy == null || !amy.has("events")) {
-                amy = cwq != null ? cwq : jSONObject;
-            }
-            jSONObject = amy;
-        } catch (JSONException e) {
-            if (DEBUG) {
-                Log.e("PerformanceUbcSnapshot", "JSONException:", e);
-            }
+    public static long anz() {
+        if (cyk >= 0) {
+            return cyk;
         }
-        cwq = null;
-        return jSONObject;
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.ahj(), c.class, null);
+        cyk = callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getLong("result", 0L) : 0L;
+        return cyk;
     }
 }

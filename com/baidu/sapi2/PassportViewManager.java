@@ -2,16 +2,16 @@ package com.baidu.sapi2;
 
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.ActivityChooserView;
-import com.baidu.f.a.a;
+import com.baidu.g.a.a;
 import com.baidu.sapi2.callback.TitleBtnCallback;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class PassportViewManager implements c {
     private static SapiConfiguration a;
     private static PassportViewManager b;
     private TitleBtnCallback c;
     private TitleViewModule d = null;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static class TitleViewModule implements c {
         public static final int DEFAULT_TEXT_COLOR = PassportViewManager.a.context.getResources().getColor(a.b.sapi_sdk_edit_text_color);
         public int bgColor = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;

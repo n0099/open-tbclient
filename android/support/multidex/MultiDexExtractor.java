@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 final class MultiDexExtractor {
     private static final int BUFFER_SIZE = 16384;
     private static final String DEX_PREFIX = "classes";
@@ -43,7 +43,7 @@ final class MultiDexExtractor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class ExtractedDex extends File {
         public long crc;
 

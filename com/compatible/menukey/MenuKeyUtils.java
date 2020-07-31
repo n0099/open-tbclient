@@ -4,7 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Build;
 import android.view.Window;
-/* loaded from: classes.dex */
+/* loaded from: classes11.dex */
 public class MenuKeyUtils {
     public static boolean hasSmartBar() {
         try {

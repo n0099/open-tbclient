@@ -17,7 +17,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class k extends l {
     private String b;
     private String c;

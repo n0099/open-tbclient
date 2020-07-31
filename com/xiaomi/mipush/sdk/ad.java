@@ -3,22 +3,22 @@ package com.xiaomi.mipush.sdk;
 import com.xiaomi.mipush.sdk.MiTinyDataClient;
 import com.xiaomi.push.hq;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ad implements Runnable {
-    final /* synthetic */ MiTinyDataClient.a.C0880a a;
+    final /* synthetic */ MiTinyDataClient.a.C0889a a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ hq f45a;
+    final /* synthetic */ hq f41a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(MiTinyDataClient.a.C0880a c0880a, hq hqVar) {
-        this.a = c0880a;
-        this.f45a = hqVar;
+    public ad(MiTinyDataClient.a.C0889a c0889a, hq hqVar) {
+        this.a = c0889a;
+        this.f41a = hqVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.f40a.add(this.f45a);
+        this.a.f36a.add(this.f41a);
         this.a.a();
     }
 }

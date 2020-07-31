@@ -5,7 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import com.baidu.adp.lib.util.BdLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class a {
     public static String getMetaValue(Context context, String str) {
         if (context == null || str == null) {

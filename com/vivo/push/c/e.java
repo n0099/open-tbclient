@@ -3,7 +3,7 @@ package com.vivo.push.c;
 import android.content.Context;
 import android.text.TextUtils;
 import com.vivo.push.sdk.PushMessageCallback;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 final class e implements Runnable {
     final /* synthetic */ String a;
     final /* synthetic */ com.vivo.push.b.k b;

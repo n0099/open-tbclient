@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaPersonTagView extends TextView {
     public AlaPersonTagView(Context context) {
         this(context, null);

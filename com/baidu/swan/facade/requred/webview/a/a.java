@@ -5,13 +5,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.aq.d;
+import com.baidu.swan.apps.aq.e;
 import com.baidu.swan.apps.core.k.c;
+import com.baidu.swan.apps.runtime.d;
 import com.baidu.swan.apps.view.SwanAppErrorDialog;
 import com.baidu.swan.facade.a;
 import com.baidu.swan.facade.requred.webview.LoadingActivity;
 import com.baidu.swan.facade.requred.webview.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class a implements b.a {
     private boolean mIsLoading = false;
 
@@ -47,56 +48,56 @@ public class a implements b.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(final c cVar) {
-        com.baidu.swan.f.c.aLq().a(new com.baidu.swan.f.a() { // from class: com.baidu.swan.facade.requred.webview.a.a.2
-            @Override // com.baidu.swan.f.a
+        com.baidu.swan.e.c.aPe().a(new com.baidu.swan.e.a() { // from class: com.baidu.swan.facade.requred.webview.a.a.2
+            @Override // com.baidu.swan.e.a
             public void onSuccess() {
                 a.this.hideLoading();
                 cVar.onSuccess();
             }
 
-            @Override // com.baidu.swan.f.a
+            @Override // com.baidu.swan.e.a
             public void onFail() {
                 a.this.hideLoading();
                 cVar.onFail();
             }
 
-            @Override // com.baidu.swan.f.a
+            @Override // com.baidu.swan.e.a
             public void onProgress(long j, long j2) {
                 cVar.onProgress(j, j2);
-                a.this.q(j, j2);
+                a.this.r(j, j2);
             }
-        }).aLr();
+        }).aPf();
     }
 
     private void a(DialogInterface.OnClickListener onClickListener) {
-        SwanAppErrorDialog.avv().gB(a.e.aiapps_t7_download_tip_title).gC(a.e.aiapps_t7_download_tip_msg).b(a.e.aiapps_t7_download_tip_btn_cancel, onClickListener).a(a.e.aiapps_t7_download_tip_btn_ok, onClickListener).show();
+        SwanAppErrorDialog.axJ().gK(a.e.aiapps_t7_download_tip_title).gL(a.e.aiapps_t7_download_tip_msg).b(a.e.aiapps_t7_download_tip_btn_cancel, onClickListener).a(a.e.aiapps_t7_download_tip_btn_ok, onClickListener).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoading() {
         int i = 0;
-        if (com.baidu.swan.apps.u.a.agI().Uc()) {
+        if (com.baidu.swan.apps.t.a.ahV().UD()) {
             i = 100;
         }
         Context appContext = AppRuntime.getAppContext();
         Intent intent = new Intent(appContext, LoadingActivity.class);
         intent.addFlags(268435456);
         intent.putExtra("current", i);
-        d.startActivitySafely(appContext, intent);
+        e.startActivitySafely(appContext, intent);
         this.mIsLoading = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void q(long j, long j2) {
+    public void r(long j, long j2) {
         Bundle bundle = new Bundle();
         bundle.putLong("current", j);
         bundle.putLong("sum", j2);
-        com.baidu.swan.apps.runtime.d.apI().g("t7_loading", bundle);
+        d.arr().g("t7_loading", bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideLoading() {
-        com.baidu.swan.apps.runtime.d.apI().nA("loading_hide");
+        d.arr().oi("loading_hide");
         this.mIsLoading = false;
     }
 }

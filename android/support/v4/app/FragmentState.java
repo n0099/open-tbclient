@@ -7,7 +7,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes12.dex */
 public final class FragmentState implements Parcelable {
     public static final Parcelable.Creator<FragmentState> CREATOR = new Parcelable.Creator<FragmentState>() { // from class: android.support.v4.app.FragmentState.1
         /* JADX DEBUG: Method merged with bridge method */

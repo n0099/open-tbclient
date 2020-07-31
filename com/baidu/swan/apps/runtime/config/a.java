@@ -3,26 +3,26 @@ package com.baidu.swan.apps.runtime.config;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.e.d;
+import com.baidu.swan.d.d;
 import java.io.File;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, c> cEX = null;
+    private Map<String, c> cHN = null;
 
     public c a(String str, String str2, @NonNull c cVar) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return cVar;
         }
-        if (this.cEX == null) {
-            this.cEX = new TreeMap();
+        if (this.cHN == null) {
+            this.cHN = new TreeMap();
         }
-        c cVar2 = this.cEX.get(str2);
+        c cVar2 = this.cHN.get(str2);
         if (cVar2 == null) {
             c c = c(str, str2, cVar);
-            this.cEX.put(str2, c);
+            this.cHN.put(str2, c);
             return c;
         }
         return cVar2;
@@ -31,7 +31,7 @@ public final class a {
     public c b(String str, @NonNull String str2, @NonNull c cVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             c c = c(str, str2, cVar);
-            this.cEX.put(str2, c);
+            this.cHN.put(str2, c);
             return c;
         }
         return cVar;

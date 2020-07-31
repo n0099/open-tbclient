@@ -3,7 +3,7 @@ package com.baidu.sapi2;
 import android.content.Context;
 import com.baidu.sapi2.V;
 import com.baidu.sapi2.X;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 class O implements V.a {
     final /* synthetic */ Context a;
     final /* synthetic */ V b;
@@ -15,12 +15,12 @@ class O implements V.a {
     }
 
     @Override // com.baidu.sapi2.V.a
-    public void a(X.a.C0266a c0266a, String str) {
-        this.b.a(c0266a.a, str);
+    public void a(X.a.C0269a c0269a, String str) {
+        this.b.a(c0269a.a, str);
     }
 
     @Override // com.baidu.sapi2.V.a
-    public void a(X.a.C0266a c0266a) {
-        this.b.a(this.a, c0266a);
+    public void a(X.a.C0269a c0269a) {
+        this.b.a(this.a, c0269a);
     }
 }

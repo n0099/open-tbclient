@@ -1,5 +1,5 @@
 package com.airbnb.lottie.model.content;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class c {
     private final float[] Eg;
     private final int[] colors;

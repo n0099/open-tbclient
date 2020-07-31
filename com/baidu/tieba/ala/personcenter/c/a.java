@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.personcenter.c;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends com.baidu.tbadk.core.data.m {
     private String qq;
 
@@ -12,7 +12,7 @@ public class a extends com.baidu.tbadk.core.data.m {
         }
     }
 
-    public String bLt() {
+    public String bOB() {
         return this.qq;
     }
 }

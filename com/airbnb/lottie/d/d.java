@@ -1,5 +1,5 @@
 package com.airbnb.lottie.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class d {
     private float Gl;
     private int n;

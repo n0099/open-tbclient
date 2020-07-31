@@ -7,19 +7,19 @@ import android.util.Log;
 import com.baidu.swan.support.v4.app.e;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public final class BackStackState implements Parcelable {
     public static final Parcelable.Creator<BackStackState> CREATOR = new Parcelable.Creator<BackStackState>() { // from class: com.baidu.swan.support.v4.app.BackStackState.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: C */
+        /* renamed from: E */
         public BackStackState createFromParcel(Parcel parcel) {
             return new BackStackState(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: jz */
+        /* renamed from: jS */
         public BackStackState[] newArray(int i) {
             return new BackStackState[i];
         }
@@ -38,21 +38,21 @@ public final class BackStackState implements Parcelable {
 
     public BackStackState(e eVar) {
         int i = 0;
-        for (e.a aVar = eVar.dsd; aVar != null; aVar = aVar.dsp) {
-            if (aVar.dss != null) {
-                i += aVar.dss.size();
+        for (e.a aVar = eVar.dxU; aVar != null; aVar = aVar.dyg) {
+            if (aVar.dyj != null) {
+                i += aVar.dyj.size();
             }
         }
-        this.mOps = new int[i + (eVar.dsf * 7)];
+        this.mOps = new int[i + (eVar.dxW * 7)];
         if (!eVar.mAddToBackStack) {
             throw new IllegalStateException("Not on back stack");
         }
         int i2 = 0;
-        for (e.a aVar2 = eVar.dsd; aVar2 != null; aVar2 = aVar2.dsp) {
+        for (e.a aVar2 = eVar.dxU; aVar2 != null; aVar2 = aVar2.dyg) {
             int i3 = i2 + 1;
             this.mOps[i2] = aVar2.cmd;
             int i4 = i3 + 1;
-            this.mOps[i3] = aVar2.dsr != null ? aVar2.dsr.mIndex : -1;
+            this.mOps[i3] = aVar2.dyi != null ? aVar2.dyi.mIndex : -1;
             int i5 = i4 + 1;
             this.mOps[i4] = aVar2.enterAnim;
             int i6 = i5 + 1;
@@ -61,13 +61,13 @@ public final class BackStackState implements Parcelable {
             this.mOps[i6] = aVar2.popEnterAnim;
             int i8 = i7 + 1;
             this.mOps[i7] = aVar2.popExitAnim;
-            if (aVar2.dss != null) {
-                int size = aVar2.dss.size();
+            if (aVar2.dyj != null) {
+                int size = aVar2.dyj.size();
                 int i9 = i8 + 1;
                 this.mOps[i8] = size;
                 int i10 = 0;
                 while (i10 < size) {
-                    this.mOps[i9] = aVar2.dss.get(i10).mIndex;
+                    this.mOps[i9] = aVar2.dyj.get(i10).mIndex;
                     i10++;
                     i9++;
                 }
@@ -117,9 +117,9 @@ public final class BackStackState implements Parcelable {
             int i4 = i3 + 1;
             int i5 = this.mOps[i3];
             if (i5 >= 0) {
-                aVar.dsr = lVar.dsS.get(i5);
+                aVar.dyi = lVar.dyI.get(i5);
             } else {
-                aVar.dsr = null;
+                aVar.dyi = null;
             }
             int i6 = i4 + 1;
             aVar.enterAnim = this.mOps[i4];
@@ -132,13 +132,13 @@ public final class BackStackState implements Parcelable {
             int i10 = i9 + 1;
             int i11 = this.mOps[i9];
             if (i11 > 0) {
-                aVar.dss = new ArrayList<>(i11);
+                aVar.dyj = new ArrayList<>(i11);
                 int i12 = 0;
                 while (i12 < i11) {
                     if (l.DEBUG) {
                         Log.v("FragmentManager", "Instantiate " + eVar + " set remove fragment #" + this.mOps[i10]);
                     }
-                    aVar.dss.add(lVar.dsS.get(this.mOps[i10]));
+                    aVar.dyj.add(lVar.dyI.get(this.mOps[i10]));
                     i12++;
                     i10++;
                 }

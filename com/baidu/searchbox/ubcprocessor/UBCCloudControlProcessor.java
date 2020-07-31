@@ -14,7 +14,7 @@ import com.baidu.ubc.v;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes4.dex */
 public class UBCCloudControlProcessor implements ICloudControlProcessor {
     private static final String SP_UBC_FILE_NAME = "com.baidu.searchbox_ubc";
     static final String UBC_CLOUDCONFIG_VERSION = "ubc_cloudconfig_version";
@@ -34,7 +34,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
             }
             boolean z = !"0".equals(str);
             v vVar = new v("", serviceData);
-            vVar.aJR();
+            vVar.aNI();
             ((aa) c.a(aa.SERVICE_REFERENCE)).b(vVar, z, new s() { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
                 @Override // com.baidu.ubc.s
                 public void setUBCConfigStatisticData(JSONObject jSONObject) {
@@ -43,11 +43,11 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                     }
                 }
             });
-            String dwT = vVar.dwT();
-            if (!TextUtils.isEmpty(dwT)) {
-                sharedPrefsWrapper().putString(UBC_CLOUDCONFIG_VERSION, dwT);
+            String dAg = vVar.dAg();
+            if (!TextUtils.isEmpty(dAg)) {
+                sharedPrefsWrapper().putString(UBC_CLOUDCONFIG_VERSION, dAg);
             }
-            ((APerfConfigManager) c.a(APerfConfigManager.SERVICE_REFERENCE)).registerConfig(vVar.dwV(), z);
+            ((APerfConfigManager) c.a(APerfConfigManager.SERVICE_REFERENCE)).registerConfig(vVar.dAi(), z);
             List<UBCCloudConfigObserver> list = new UBCCloudConfigObservers().mObservers.getList();
             if (list != null && !list.isEmpty()) {
                 String jSONObject = serviceData.toString();

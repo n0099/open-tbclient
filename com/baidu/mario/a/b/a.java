@@ -6,31 +6,29 @@ import android.media.MediaFormat;
 import android.view.Surface;
 import com.baidu.ar.auth.FeatureCodes;
 import java.nio.ByteBuffer;
-import tv.danmaku.ijk.media.player.IMediaFormat;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends b {
     private static final String TAG = a.class.getSimpleName();
-    private long btx = 0;
+    private long btT = 0;
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ long LZ() {
-        return super.LZ();
+    public /* bridge */ /* synthetic */ void MG() {
+        super.MG();
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void MA() {
-        super.MA();
+    public /* bridge */ /* synthetic */ void MH() {
+        super.MH();
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void MB() {
-        super.MB();
+    public /* bridge */ /* synthetic */ void MI() {
+        super.MI();
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void Mz() {
-        super.Mz();
+    public /* bridge */ /* synthetic */ long Mg() {
+        return super.Mg();
     }
 
     @Override // com.baidu.mario.a.b.b
@@ -44,8 +42,8 @@ public class a extends b {
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void cK(boolean z) {
-        super.cK(z);
+    public /* bridge */ /* synthetic */ void cM(boolean z) {
+        super.cM(z);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:11:0x0065  */
@@ -56,58 +54,58 @@ public class a extends b {
     public void a(d dVar, e eVar) {
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.btA = eVar;
+            this.btW = eVar;
             MediaFormat mediaFormat = new MediaFormat();
-            mediaFormat.setString(IMediaFormat.KEY_MIME, dVar.getAudioCodec());
+            mediaFormat.setString("mime", dVar.getAudioCodec());
             mediaFormat.setInteger("aac-profile", 2);
             mediaFormat.setInteger("sample-rate", dVar.getAudioSampleRate());
             mediaFormat.setInteger("channel-count", dVar.getAudioChannel());
-            mediaFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, dVar.getAudioBitrate());
+            mediaFormat.setInteger("bitrate", dVar.getAudioBitrate());
             mediaFormat.setInteger("max-input-size", dVar.getAudioFrameSize());
             try {
                 this.mEncoder = MediaCodec.createEncoderByType(dVar.getAudioCodec());
                 this.mEncoder.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
                 if (!dVar.isVideoIncluded()) {
-                    this.btC = true;
+                    this.btY = true;
                 } else {
-                    this.btC = false;
+                    this.btY = false;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.btB == null) {
-                this.btB.cE(z);
+            if (this.btX == null) {
+                this.btX.cG(z);
                 return;
             }
             return;
         }
         z = false;
-        if (this.btB == null) {
+        if (this.btX == null) {
         }
     }
 
     @Override // com.baidu.mario.a.b.b
-    protected void My() {
-        if (this.btD == 0) {
-            this.btD = this.mBufferInfo.presentationTimeUs;
+    protected void MF() {
+        if (this.btZ == 0) {
+            this.btZ = this.mBufferInfo.presentationTimeUs;
         }
-        this.mBufferInfo.presentationTimeUs -= this.btD;
-        if (this.mBufferInfo.presentationTimeUs < this.btx) {
+        this.mBufferInfo.presentationTimeUs -= this.btZ;
+        if (this.mBufferInfo.presentationTimeUs < this.btT) {
             MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
-            long j = this.btx + 10000;
-            this.btx = j;
+            long j = this.btT + 10000;
+            this.btT = j;
             bufferInfo.presentationTimeUs = j;
         }
-        if (this.mBufferInfo.presentationTimeUs > btE + 500000) {
-            if (btE > this.btx) {
-                this.mBufferInfo.presentationTimeUs = btE + 5000;
+        if (this.mBufferInfo.presentationTimeUs > bua + 500000) {
+            if (bua > this.btT) {
+                this.mBufferInfo.presentationTimeUs = bua + 5000;
             } else {
-                this.mBufferInfo.presentationTimeUs = this.btx + 5000;
+                this.mBufferInfo.presentationTimeUs = this.btT + 5000;
             }
         }
-        if (btE > this.mBufferInfo.presentationTimeUs + 500000) {
-            btF = FeatureCodes.FACE;
+        if (bua > this.mBufferInfo.presentationTimeUs + 500000) {
+            bub = FeatureCodes.FACE;
         }
-        this.btx = this.mBufferInfo.presentationTimeUs;
+        this.btT = this.mBufferInfo.presentationTimeUs;
     }
 }

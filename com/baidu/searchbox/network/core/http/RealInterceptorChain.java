@@ -8,7 +8,7 @@ import com.baidu.searchbox.network.core.Response;
 import com.baidu.searchbox.network.core.connect.Connection;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public final class RealInterceptorChain implements Interceptor.Chain {
     private final Call call;
     private int calls;

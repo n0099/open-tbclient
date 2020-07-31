@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.ar.c;
 import com.baidu.ar.d;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class a extends d implements IFace {
     private String K;
     private WeakReference<IFace> mQ;

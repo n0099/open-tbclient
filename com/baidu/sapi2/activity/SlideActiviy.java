@@ -22,7 +22,7 @@ import com.baidu.searchbox.widget.SlideUtil;
 import com.baidu.searchbox.widget.SlidingPaneLayout;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class SlideActiviy extends BaseActivity {
     protected static final String ACCOUNT_CENTER_PAGE_NAME = "accountCenter";
     protected static final String ADDRESS_PAGE_NAME = "address";
@@ -41,7 +41,7 @@ public class SlideActiviy extends BaseActivity {
     private boolean v = false;
     private boolean y = true;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     private class PassSlideInterceptor implements SlideInterceptor {
         private PassSlideInterceptor() {
         }

@@ -15,15 +15,15 @@ import pl.droidsonroids.gif.GifDrawable;
 import tv.chushou.basis.http.HttpConsts;
 import tv.chushou.basis.http.listener.DownloadListener;
 import tv.chushou.zues.widget.a.e;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends e {
-    private static final tv.chushou.zues.toolkit.b.a nuf = tv.chushou.zues.toolkit.b.a.okv;
+    private static final tv.chushou.zues.toolkit.b.a nCP = tv.chushou.zues.toolkit.b.a.ota;
 
     private b(GifDrawable gifDrawable) {
         super(gifDrawable);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         private String a;
         @DrawableRes
@@ -34,53 +34,53 @@ public class b extends e {
         private int d;
         private WeakReference<TextView> e;
         private boolean f = false;
-        private Drawable.Callback nyo;
+        private Drawable.Callback nGX;
 
-        public a Rt(String str) {
+        public a Se(String str) {
             f.a(str);
             this.a = str;
             return this;
         }
 
-        public a Kx(@DrawableRes int i) {
+        public a KR(@DrawableRes int i) {
             this.b = i;
             return this;
         }
 
-        public a Ky(@Px int i) {
+        public a KS(@Px int i) {
             this.c = i;
             return this;
         }
 
-        public a Kz(@Px int i) {
+        public a KT(@Px int i) {
             this.d = i;
             return this;
         }
 
-        public a g(TextView textView) {
+        public a i(TextView textView) {
             this.e = new WeakReference<>(textView);
             return this;
         }
 
-        public a xe(boolean z) {
+        public a xJ(boolean z) {
             this.f = z;
             return this;
         }
 
         public a a(Drawable.Callback callback) {
-            this.nyo = callback;
+            this.nGX = callback;
             return this;
         }
 
-        public ImageSpan dLs() {
+        public ImageSpan dON() {
             Drawable drawable;
             f.a(this.a);
             f.a(this.d != 0, "should set height");
-            String Te = b.nuf.Te(this.a);
-            File c = com.kascend.chushou.d.c.neT.c();
-            final File file = new File(c, Te);
+            String TP = b.nCP.TP(this.a);
+            File c = com.kascend.chushou.d.c.nnC.c();
+            final File file = new File(c, TP);
             if (!file.exists() || file.isDirectory()) {
-                com.kascend.chushou.c.c.dIP().a(this.a, new File(c, Te + HttpConsts.FILE_BACKUP_SUFFIX), new DownloadListener() { // from class: com.kascend.chushou.widget.gif.b.a.1
+                com.kascend.chushou.c.c.dMk().a(this.a, new File(c, TP + HttpConsts.FILE_BACKUP_SUFFIX), new DownloadListener() { // from class: com.kascend.chushou.widget.gif.b.a.1
                     @Override // tv.chushou.basis.d.a.c.a
                     public void onStart() {
                     }
@@ -111,7 +111,7 @@ public class b extends e {
                                                 i = (gifDrawable.getIntrinsicWidth() * a.this.d) / gifDrawable.getIntrinsicHeight();
                                             }
                                             gifDrawable.setBounds(0, 0, i, a.this.d);
-                                            gifDrawable.setCallback(a.this.nyo);
+                                            gifDrawable.setCallback(a.this.nGX);
                                             int spanStart = spannable.getSpanStart(cVar);
                                             int spanEnd = spannable.getSpanEnd(cVar);
                                             spannable.removeSpan(cVar);
@@ -158,7 +158,7 @@ public class b extends e {
             }
             drawable.setBounds(0, 0, i2, this.d);
             if (drawable instanceof GifDrawable) {
-                drawable.setCallback(this.nyo);
+                drawable.setCallback(this.nGX);
                 return new b((GifDrawable) drawable);
             }
             return new e(drawable);

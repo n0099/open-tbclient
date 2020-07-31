@@ -9,7 +9,7 @@ import android.os.IBinder;
 import com.heytap.mcssdk.utils.LogUtil;
 import com.mcs.aidl.IMcsSdkService;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes20.dex */
 public final class d implements ServiceConnection {
     final /* synthetic */ Intent a;
     final /* synthetic */ PushManager b;

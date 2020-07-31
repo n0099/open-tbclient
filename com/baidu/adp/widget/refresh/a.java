@@ -49,19 +49,19 @@ public class a extends Drawable implements Animatable {
             a.this.unscheduleSelf(runnable);
         }
     };
-    private final C0033a Xc = new C0033a(this.mCallback);
+    private final C0033a WV = new C0033a(this.mCallback);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context, View view) {
         this.mParent = view;
         this.mResources = context.getResources();
-        this.Xc.setColors(COLORS);
+        this.WV.setColors(COLORS);
         updateSizes(1);
         setupAnimators();
     }
 
     private void setSizeParameters(double d, double d2, double d3, double d4, float f, float f2) {
-        C0033a c0033a = this.Xc;
+        C0033a c0033a = this.WV;
         float f3 = this.mResources.getDisplayMetrics().density;
         this.mWidth = f3 * d;
         this.mHeight = f3 * d2;
@@ -81,29 +81,29 @@ public class a extends Drawable implements Animatable {
     }
 
     public void showArrow(boolean z) {
-        this.Xc.setShowArrow(z);
+        this.WV.setShowArrow(z);
     }
 
     public void setArrowScale(float f) {
-        this.Xc.setArrowScale(f);
+        this.WV.setArrowScale(f);
     }
 
     public void setStartEndTrim(float f, float f2) {
-        this.Xc.setStartTrim(f);
-        this.Xc.setEndTrim(f2);
+        this.WV.setStartTrim(f);
+        this.WV.setEndTrim(f2);
     }
 
     public void setProgressRotation(float f) {
-        this.Xc.setRotation(f);
+        this.WV.setRotation(f);
     }
 
     public void setBackgroundColor(int i) {
-        this.Xc.setBackgroundColor(i);
+        this.WV.setBackgroundColor(i);
     }
 
     public void setColorSchemeColors(int... iArr) {
-        this.Xc.setColors(iArr);
-        this.Xc.setColorIndex(0);
+        this.WV.setColors(iArr);
+        this.WV.setColorIndex(0);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -121,23 +121,25 @@ public class a extends Drawable implements Animatable {
         Rect bounds = getBounds();
         int save = canvas.save();
         canvas.rotate(this.mRotation, bounds.exactCenterX(), bounds.exactCenterY());
-        this.Xc.draw(canvas, bounds);
-        canvas.restoreToCount(save);
+        this.WV.draw(canvas, bounds);
+        if (save >= 1 && save <= canvas.getSaveCount()) {
+            canvas.restoreToCount(save);
+        }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.Xc.setAlpha(i);
+        this.WV.setAlpha(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getAlpha() {
-        return this.Xc.getAlpha();
+        return this.WV.getAlpha();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        this.Xc.setColorFilter(colorFilter);
+        this.WV.setColorFilter(colorFilter);
     }
 
     void setRotation(float f) {
@@ -166,15 +168,15 @@ public class a extends Drawable implements Animatable {
     @Override // android.graphics.drawable.Animatable
     public void start() {
         this.mAnimation.reset();
-        this.Xc.storeOriginals();
-        if (this.Xc.getEndTrim() != this.Xc.getStartTrim()) {
+        this.WV.storeOriginals();
+        if (this.WV.getEndTrim() != this.WV.getStartTrim()) {
             this.mFinishing = true;
             this.mAnimation.setDuration(666L);
             this.mParent.startAnimation(this.mAnimation);
             return;
         }
-        this.Xc.setColorIndex(0);
-        this.Xc.resetOriginals();
+        this.WV.setColorIndex(0);
+        this.WV.resetOriginals();
         this.mAnimation.setDuration(1332L);
         this.mParent.startAnimation(this.mAnimation);
     }
@@ -183,9 +185,9 @@ public class a extends Drawable implements Animatable {
     public void stop() {
         this.mParent.clearAnimation();
         setRotation(0.0f);
-        this.Xc.setShowArrow(false);
-        this.Xc.setColorIndex(0);
-        this.Xc.resetOriginals();
+        this.WV.setShowArrow(false);
+        this.WV.setColorIndex(0);
+        this.WV.resetOriginals();
     }
 
     float a(C0033a c0033a) {
@@ -217,7 +219,7 @@ public class a extends Drawable implements Animatable {
     }
 
     private void setupAnimators() {
-        final C0033a c0033a = this.Xc;
+        final C0033a c0033a = this.WV;
         Animation animation = new Animation() { // from class: com.baidu.adp.widget.refresh.a.1
             @Override // android.view.animation.Animation
             public void applyTransformation(float f, Transformation transformation) {

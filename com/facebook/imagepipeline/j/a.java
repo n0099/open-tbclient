@@ -5,30 +5,30 @@ import com.facebook.cache.common.b;
 import com.facebook.common.internal.g;
 import com.facebook.imagepipeline.nativecode.NativeBlurFilter;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class a extends com.facebook.imagepipeline.request.a {
-    private b mIl;
-    private final int mVQ;
-    private final int mVR;
+    private b mQq;
+    private final int ndR;
+    private final int ndS;
 
     public a(int i, int i2) {
         g.checkArgument(i > 0);
         g.checkArgument(i2 > 0);
-        this.mVQ = i;
-        this.mVR = i2;
+        this.ndR = i;
+        this.ndS = i2;
     }
 
     @Override // com.facebook.imagepipeline.request.a
-    public void af(Bitmap bitmap) {
-        NativeBlurFilter.h(bitmap, this.mVQ, this.mVR);
+    public void ai(Bitmap bitmap) {
+        NativeBlurFilter.h(bitmap, this.ndR, this.ndS);
     }
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
     @Nullable
-    public b dGb() {
-        if (this.mIl == null) {
-            this.mIl = new com.facebook.cache.common.g(String.format(null, "i%dr%d", Integer.valueOf(this.mVQ), Integer.valueOf(this.mVR)));
+    public b dJn() {
+        if (this.mQq == null) {
+            this.mQq = new com.facebook.cache.common.g(String.format(null, "i%dr%d", Integer.valueOf(this.ndR), Integer.valueOf(this.ndS)));
         }
-        return this.mIl;
+        return this.mQq;
     }
 }

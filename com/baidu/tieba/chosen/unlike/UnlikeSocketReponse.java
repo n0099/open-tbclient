@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Unlike.UnlikeResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class UnlikeSocketReponse extends TbSocketReponsedMessage {
     private long threadId;
 

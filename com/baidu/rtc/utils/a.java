@@ -2,7 +2,7 @@ package com.baidu.rtc.utils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
     private ByteArrayOutputStream baos = new ByteArrayOutputStream();
     private static final String TAG = a.class.getSimpleName();

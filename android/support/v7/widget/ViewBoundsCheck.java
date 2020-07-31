@@ -3,7 +3,7 @@ package android.support.v7.widget;
 import android.view.View;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 class ViewBoundsCheck {
     static final int CVE_PVE_POS = 12;
     static final int CVE_PVS_POS = 8;
@@ -28,7 +28,7 @@ class ViewBoundsCheck {
     BoundFlags mBoundFlags = new BoundFlags();
     final Callback mCallback;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     interface Callback {
         View getChildAt(int i);
 
@@ -46,7 +46,7 @@ class ViewBoundsCheck {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface ViewBounds {
     }
 
@@ -55,7 +55,7 @@ class ViewBoundsCheck {
         this.mCallback = callback;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     static class BoundFlags {
         int mBoundFlags = 0;
         int mChildEnd;

@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 final class u implements c {
     private static final String a = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ".vivo/pushsdk/config";
     private static final String b = a + File.separator + "config.txt";

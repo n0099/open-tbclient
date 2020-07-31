@@ -1,5 +1,5 @@
 package com.baidu.media.duplayer;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class DuplayerCore {
     public static native void nativeSetInfo(String str, String str2);
 

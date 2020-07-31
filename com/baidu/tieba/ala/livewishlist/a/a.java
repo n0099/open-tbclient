@@ -12,38 +12,38 @@ import android.widget.TextView;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
-import com.baidu.tieba.ala.data.e;
+import com.baidu.tieba.ala.data.f;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private ArrayList<e> agU = new ArrayList<>();
+    private ArrayList<f> agL = new ArrayList<>();
     private Context mContext;
 
     public a(Context context) {
         this.mContext = context;
     }
 
-    public void setData(ArrayList<e> arrayList) {
-        this.agU = new ArrayList<>(arrayList);
+    public void setData(ArrayList<f> arrayList) {
+        this.agL = new ArrayList<>(arrayList);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.agU == null) {
+        if (this.agL == null) {
             return 0;
         }
-        return this.agU.size();
+        return this.agL.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: sd */
-    public e getItem(int i) {
-        if (this.agU == null) {
+    /* renamed from: sv */
+    public f getItem(int i) {
+        if (this.agL == null) {
             return null;
         }
-        return this.agU.get(i);
+        return this.agL.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -53,50 +53,50 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0585a c0585a;
+        C0594a c0594a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.ala_my_assis_wish_list_item_view, (ViewGroup) null);
-            C0585a c0585a2 = new C0585a();
-            c0585a2.gvG = (TbImageView) view.findViewById(a.g.gift_thumbnail);
-            c0585a2.gvG.setDefaultBgResource(a.f.icon_live_gift_default);
-            c0585a2.gvG.setDefaultErrorResource(a.f.icon_live_gift_default);
-            c0585a2.gvG.setAutoChangeStyle(false);
-            c0585a2.gvI = (TextView) view.findViewById(a.g.wish_name);
-            c0585a2.gvH = (TextView) view.findViewById(a.g.wish_count);
-            c0585a2.gvJ = (ImageView) view.findViewById(a.g.wish_icon_cheng);
-            view.setTag(c0585a2);
-            c0585a = c0585a2;
+            C0594a c0594a2 = new C0594a();
+            c0594a2.gBd = (TbImageView) view.findViewById(a.g.gift_thumbnail);
+            c0594a2.gBd.setDefaultBgResource(a.f.icon_live_gift_default);
+            c0594a2.gBd.setDefaultErrorResource(a.f.icon_live_gift_default);
+            c0594a2.gBd.setAutoChangeStyle(false);
+            c0594a2.gBf = (TextView) view.findViewById(a.g.wish_name);
+            c0594a2.gBe = (TextView) view.findViewById(a.g.wish_count);
+            c0594a2.gBg = (ImageView) view.findViewById(a.g.wish_icon_cheng);
+            view.setTag(c0594a2);
+            c0594a = c0594a2;
         } else {
-            c0585a = (C0585a) view.getTag();
+            c0594a = (C0594a) view.getTag();
         }
-        e item = getItem(i);
+        f item = getItem(i);
         if (item != null) {
-            c0585a.gvG.startLoad(item.fDG, 10, false);
-            c0585a.gvI.setText(item.mGiftName);
-            if (!TextUtils.isEmpty(item.fDR) && JavaTypesHelper.toInt(item.fDR, 0) <= 0) {
-                c0585a.gvJ.setVisibility(8);
-                c0585a.gvH.setText(this.mContext.getString(a.i.ala_my_not_assist));
-                c0585a.gvH.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize40));
-                c0585a.gvH.setTextColor(this.mContext.getResources().getColor(a.d.sdk_white_alpha60));
+            c0594a.gBd.startLoad(item.fJb, 10, false);
+            c0594a.gBf.setText(item.mGiftName);
+            if (!TextUtils.isEmpty(item.fJm) && JavaTypesHelper.toInt(item.fJm, 0) <= 0) {
+                c0594a.gBg.setVisibility(8);
+                c0594a.gBe.setText(this.mContext.getString(a.i.ala_my_not_assist));
+                c0594a.gBe.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize40));
+                c0594a.gBe.setTextColor(this.mContext.getResources().getColor(a.d.sdk_white_alpha60));
             } else {
-                c0585a.gvJ.setVisibility(0);
-                c0585a.gvH.setText(String.format("%s", item.fDR));
-                c0585a.gvH.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize48));
-                c0585a.gvH.setTextColor(Color.parseColor("#C4586A"));
+                c0594a.gBg.setVisibility(0);
+                c0594a.gBe.setText(String.format("%s", item.fJm));
+                c0594a.gBe.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize48));
+                c0594a.gBe.setTextColor(Color.parseColor("#C4586A"));
             }
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.livewishlist.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private static class C0585a {
-        public TbImageView gvG;
-        public TextView gvH;
-        public TextView gvI;
-        public ImageView gvJ;
+    /* loaded from: classes4.dex */
+    private static class C0594a {
+        public TbImageView gBd;
+        public TextView gBe;
+        public TextView gBf;
+        public ImageView gBg;
 
-        private C0585a() {
+        private C0594a() {
         }
     }
 }

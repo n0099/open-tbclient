@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.lang.reflect.Method;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class b {
     private static Context a;
     private static File e;

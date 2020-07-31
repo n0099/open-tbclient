@@ -56,7 +56,7 @@ import java.lang.ref.WeakReference;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class AuthAgent extends BaseApi {
     public static final String SECURE_LIB_ARM64_FILE_NAME = "libwbsafeedit_64";
     public static final String SECURE_LIB_ARM_FILE_NAME = "libwbsafeedit";
@@ -105,7 +105,7 @@ public class AuthAgent extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public class c implements IUiListener {
         private final IUiListener b;
         private final boolean c;
@@ -317,7 +317,7 @@ public class AuthAgent extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public class a implements IUiListener {
         IUiListener a;
 
@@ -360,7 +360,7 @@ public class AuthAgent extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public class b implements IUiListener {
         IUiListener a;
         private final String c = "sendinstall";
@@ -395,7 +395,7 @@ public class AuthAgent extends BaseApi {
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes19.dex */
         private abstract class a implements View.OnClickListener {
             Dialog d;
 

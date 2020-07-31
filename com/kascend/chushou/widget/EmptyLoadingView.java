@@ -9,16 +9,16 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import tv.chushou.widget.a.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class EmptyLoadingView extends RelativeLayout implements View.OnClickListener {
-    private static View.OnClickListener nwK;
+    private static View.OnClickListener nFt;
     private View.OnClickListener mLoginListener;
     private int mType;
-    private ImageView nwL;
-    private TextView nwM;
-    private AnimationImageView nwN;
-    private TextView nwO;
-    private View.OnClickListener nwP;
+    private ImageView nFu;
+    private TextView nFv;
+    private AnimationImageView nFw;
+    private TextView nFx;
+    private View.OnClickListener nFy;
 
     public EmptyLoadingView(Context context) {
         this(context, null, 0);
@@ -32,18 +32,18 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
         super(context, attributeSet, i);
         this.mType = 4;
         LayoutInflater.from(context.getApplicationContext()).inflate(b.e.commonres_empty_loading_view, (ViewGroup) this, true);
-        this.nwL = (ImageView) findViewById(b.d.iv_empty);
-        this.nwM = (TextView) findViewById(b.d.tv_desc);
-        this.nwN = (AnimationImageView) findViewById(b.d.iv_loading);
-        this.nwO = (TextView) findViewById(b.d.tv_button);
-        this.nwL.setOnClickListener(this);
-        this.nwM.setOnClickListener(this);
-        this.nwO.setOnClickListener(this);
+        this.nFu = (ImageView) findViewById(b.d.iv_empty);
+        this.nFv = (TextView) findViewById(b.d.tv_desc);
+        this.nFw = (AnimationImageView) findViewById(b.d.iv_loading);
+        this.nFx = (TextView) findViewById(b.d.tv_button);
+        this.nFu.setOnClickListener(this);
+        this.nFv.setOnClickListener(this);
+        this.nFx.setOnClickListener(this);
         setOnClickListener(this);
     }
 
-    public static void an(View.OnClickListener onClickListener) {
-        nwK = onClickListener;
+    public static void ao(View.OnClickListener onClickListener) {
+        nFt = onClickListener;
     }
 
     @Override // android.view.View.OnClickListener
@@ -53,15 +53,15 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
                 if (this.mLoginListener != null) {
                     this.mLoginListener.onClick(view);
                     return;
-                } else if (nwK != null) {
-                    nwK.onClick(view);
+                } else if (nFt != null) {
+                    nFt.onClick(view);
                     return;
                 } else {
                     return;
                 }
             default:
-                if (this.nwP != null) {
-                    this.nwP.onClick(view);
+                if (this.nFy != null) {
+                    this.nFy.onClick(view);
                     return;
                 }
                 return;
@@ -69,23 +69,23 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
     }
 
     public void setReloadListener(View.OnClickListener onClickListener) {
-        this.nwP = onClickListener;
+        this.nFy = onClickListener;
     }
 
     public void setLoginListener(View.OnClickListener onClickListener) {
         this.mLoginListener = onClickListener;
     }
 
-    public void Ku(int i) {
-        if (this.nwN != null) {
+    public void KO(int i) {
+        if (this.nFw != null) {
             switch (i) {
                 case 1:
                     this.mType = 1;
                     setVisibility(0);
-                    this.nwN.setVisibility(0);
-                    this.nwL.setVisibility(8);
-                    this.nwM.setVisibility(8);
-                    this.nwO.setVisibility(8);
+                    this.nFw.setVisibility(0);
+                    this.nFu.setVisibility(8);
+                    this.nFv.setVisibility(8);
+                    this.nFx.setVisibility(8);
                     return;
                 case 2:
                     this.mType = 2;
@@ -94,48 +94,48 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
                 case 3:
                     this.mType = 3;
                     setVisibility(0);
-                    this.nwN.setVisibility(8);
-                    this.nwL.setVisibility(0);
-                    this.nwL.setImageResource(b.c.commonres_pagestatus_net_error);
-                    this.nwL.setClickable(true);
-                    this.nwM.setVisibility(0);
-                    this.nwM.setText(b.f.commonres_pagestatus_net_error);
-                    this.nwO.setVisibility(0);
-                    this.nwO.setText(b.f.commonres_pagestatus_action_refresh);
+                    this.nFw.setVisibility(8);
+                    this.nFu.setVisibility(0);
+                    this.nFu.setImageResource(b.c.commonres_pagestatus_net_error);
+                    this.nFu.setClickable(true);
+                    this.nFv.setVisibility(0);
+                    this.nFv.setText(b.f.commonres_pagestatus_net_error);
+                    this.nFx.setVisibility(0);
+                    this.nFx.setText(b.f.commonres_pagestatus_action_refresh);
                     return;
                 case 4:
                     this.mType = 4;
                     setVisibility(0);
-                    this.nwN.setVisibility(8);
-                    this.nwL.setVisibility(0);
-                    this.nwL.setImageResource(b.c.commonres_pagestatus_unknown_error);
-                    this.nwL.setClickable(true);
-                    this.nwM.setVisibility(0);
-                    this.nwM.setText(b.f.commonres_pagestatus_unknown);
-                    this.nwO.setVisibility(0);
-                    this.nwO.setText(b.f.commonres_pagestatus_action_refresh);
+                    this.nFw.setVisibility(8);
+                    this.nFu.setVisibility(0);
+                    this.nFu.setImageResource(b.c.commonres_pagestatus_unknown_error);
+                    this.nFu.setClickable(true);
+                    this.nFv.setVisibility(0);
+                    this.nFv.setText(b.f.commonres_pagestatus_unknown);
+                    this.nFx.setVisibility(0);
+                    this.nFx.setText(b.f.commonres_pagestatus_action_refresh);
                     return;
                 case 5:
                     this.mType = 5;
                     setVisibility(0);
-                    this.nwN.setVisibility(8);
-                    this.nwL.setVisibility(0);
-                    this.nwL.setImageResource(b.c.commonres_pagestatus_need_login);
-                    this.nwL.setClickable(true);
-                    this.nwM.setVisibility(8);
-                    this.nwO.setVisibility(0);
-                    this.nwO.setText(b.f.commonres_pagestatus_action_login);
+                    this.nFw.setVisibility(8);
+                    this.nFu.setVisibility(0);
+                    this.nFu.setImageResource(b.c.commonres_pagestatus_need_login);
+                    this.nFu.setClickable(true);
+                    this.nFv.setVisibility(8);
+                    this.nFx.setVisibility(0);
+                    this.nFx.setText(b.f.commonres_pagestatus_action_login);
                     return;
                 case 6:
                     this.mType = 6;
                     setVisibility(0);
-                    this.nwN.setVisibility(8);
-                    this.nwL.setVisibility(0);
-                    this.nwL.setImageResource(b.c.commonres_pagestatus_empty);
-                    this.nwL.setClickable(true);
-                    this.nwM.setVisibility(0);
-                    this.nwM.setText(b.f.commonres_pagestatus_empty);
-                    this.nwO.setVisibility(8);
+                    this.nFw.setVisibility(8);
+                    this.nFu.setVisibility(0);
+                    this.nFu.setImageResource(b.c.commonres_pagestatus_empty);
+                    this.nFu.setClickable(true);
+                    this.nFv.setVisibility(0);
+                    this.nFv.setText(b.f.commonres_pagestatus_empty);
+                    this.nFx.setVisibility(8);
                     return;
                 default:
                     this.mType = -1;

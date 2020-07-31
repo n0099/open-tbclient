@@ -2,12 +2,12 @@ package com.baidu.tieba.enterForum.hotuserrank.a;
 
 import com.baidu.tbadk.core.data.MetaData;
 import tbclient.TiebaFieldsInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a {
-    public String heX;
-    public String heY;
-    public MetaData heZ;
-    public long hfa;
-    public String hfb;
-    public TiebaFieldsInfo hfc;
+    public String hkH;
+    public String hkI;
+    public MetaData hkJ;
+    public long hkK;
+    public String hkL;
+    public TiebaFieldsInfo hkM;
 }

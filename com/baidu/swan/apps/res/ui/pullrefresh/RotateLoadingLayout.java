@@ -15,18 +15,18 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.aq.b;
+import com.baidu.swan.apps.aq.c;
 import com.baidu.swan.apps.res.ui.pullrefresh.ILoadingLayout;
 @SuppressLint({"NewApi"})
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class RotateLoadingLayout extends LoadingLayout {
-    static final Interpolator cCH = new LinearInterpolator();
-    private ImageView bni;
-    private RelativeLayout cAE;
-    private TextView cAF;
-    private TextView cAG;
-    private TextView cAH;
-    private Animation cCI;
+    static final Interpolator cFu = new LinearInterpolator();
+    private ImageView bnD;
+    private RelativeLayout cDr;
+    private TextView cDs;
+    private TextView cDt;
+    private TextView cDu;
+    private Animation cFv;
 
     public RotateLoadingLayout(Context context) {
         super(context);
@@ -39,19 +39,19 @@ public class RotateLoadingLayout extends LoadingLayout {
     }
 
     private void init(Context context) {
-        this.cAE = (RelativeLayout) findViewById(a.f.pull_to_refresh_header_content);
-        this.bni = (ImageView) findViewById(a.f.pull_to_refresh_header_arrow);
-        this.cAF = (TextView) findViewById(a.f.pull_to_refresh_header_hint_textview);
-        this.cAG = (TextView) findViewById(a.f.pull_to_refresh_header_time);
-        this.cAH = (TextView) findViewById(a.f.pull_to_refresh_last_update_time_text);
-        this.bni.setScaleType(ImageView.ScaleType.CENTER);
-        this.bni.setImageResource(a.e.aiapps_default_ptr_rotate);
-        this.cCI = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
-        this.cCI.setFillAfter(true);
-        this.cCI.setInterpolator(cCH);
-        this.cCI.setDuration(1200L);
-        this.cCI.setRepeatCount(-1);
-        this.cCI.setRepeatMode(1);
+        this.cDr = (RelativeLayout) findViewById(a.f.pull_to_refresh_header_content);
+        this.bnD = (ImageView) findViewById(a.f.pull_to_refresh_header_arrow);
+        this.cDs = (TextView) findViewById(a.f.pull_to_refresh_header_hint_textview);
+        this.cDt = (TextView) findViewById(a.f.pull_to_refresh_header_time);
+        this.cDu = (TextView) findViewById(a.f.pull_to_refresh_last_update_time_text);
+        this.bnD.setScaleType(ImageView.ScaleType.CENTER);
+        this.bnD.setImageResource(a.e.aiapps_default_ptr_rotate);
+        this.cFv = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
+        this.cFv.setFillAfter(true);
+        this.cFv.setInterpolator(cFu);
+        this.cFv.setDuration(1200L);
+        this.cFv.setRepeatCount(-1);
+        this.cFv.setRepeatMode(1);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -61,13 +61,13 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void setLastUpdatedLabel(CharSequence charSequence) {
-        this.cAH.setVisibility(TextUtils.isEmpty(charSequence) ? 4 : 0);
-        this.cAG.setText(charSequence);
+        this.cDu.setVisibility(TextUtils.isEmpty(charSequence) ? 4 : 0);
+        this.cDt.setText(charSequence);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getContentSize() {
-        return this.cAE != null ? this.cAE.getHeight() : (int) getResources().getDimension(a.d.aiapps_picture_pull_to_refresh_height_height);
+        return this.cDr != null ? this.cDr.getHeight() : (int) getResources().getDimension(a.d.aiapps_picture_pull_to_refresh_height_height);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -78,45 +78,45 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onReset() {
-        apg();
-        this.cAF.setText(a.h.aiapps_pull_to_refresh_header_hint_normal);
+        aqQ();
+        this.cDs.setText(a.h.aiapps_pull_to_refresh_header_hint_normal);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onReleaseToRefresh() {
-        this.cAF.setText(a.h.aiapps_pull_to_refresh_header_hint_ready);
+        this.cDs.setText(a.h.aiapps_pull_to_refresh_header_hint_ready);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void aoN() {
-        super.aoN();
-        this.cAF.setText(a.h.aiapps_pull_to_refresh_header_hint_go_home);
+    public void aqx() {
+        super.aqx();
+        this.cDs.setText(a.h.aiapps_pull_to_refresh_header_hint_go_home);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onPullToRefresh() {
-        this.cAF.setText(a.h.aiapps_pull_to_refresh_header_hint_normal);
+        this.cDs.setText(a.h.aiapps_pull_to_refresh_header_hint_normal);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onRefreshing() {
-        apg();
-        this.bni.startAnimation(this.cCI);
-        this.cAF.setText(a.h.aiapps_pull_to_refresh_header_hint_loading);
+        aqQ();
+        this.bnD.startAnimation(this.cFv);
+        this.cDs.setText(a.h.aiapps_pull_to_refresh_header_hint_loading);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void onPull(float f) {
-        if (b.hasHoneycomb()) {
-            this.bni.setRotation(180.0f * f);
+        if (c.hasHoneycomb()) {
+            this.bnD.setRotation(180.0f * f);
         }
     }
 
-    private void apg() {
-        this.bni.clearAnimation();
-        if (b.hasHoneycomb()) {
-            this.bni.setRotation(0.0f);
+    private void aqQ() {
+        this.bnD.clearAnimation();
+        if (c.hasHoneycomb()) {
+            this.bnD.setRotation(0.0f);
         }
     }
 }

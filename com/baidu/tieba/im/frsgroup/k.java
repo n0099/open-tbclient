@@ -9,44 +9,44 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class k extends com.baidu.adp.base.c<GroupLevelActivity> {
-    private View iKr;
-    private TextView iSA;
-    private TextView iSB;
-    private TextView iSC;
-    private TextView iSD;
-    private TextView iSE;
-    private TextView iSF;
-    private TextView iSG;
-    private ImageView[] iSH;
-    private TextView[] iSI;
-    private TextView[] iSJ;
-    private String[] iSK;
-    private TextView iSL;
-    private TextView iSM;
-    private GroupLevelActivity iSu;
-    private ImageView iSv;
-    private ImageView iSw;
-    private ImageView iSx;
-    private TextView iSy;
-    private TextView iSz;
+    private View iQw;
     private boolean isMem;
+    private GroupLevelActivity jaE;
+    private ImageView jaF;
+    private ImageView jaG;
+    private ImageView jaH;
+    private TextView jaI;
+    private TextView jaJ;
+    private TextView jaK;
+    private TextView jaL;
+    private TextView jaM;
+    private TextView jaN;
+    private TextView jaO;
+    private TextView jaP;
+    private TextView jaQ;
+    private ImageView[] jaR;
+    private TextView[] jaS;
+    private TextView[] jaT;
+    private String[] jaU;
+    private TextView jaV;
+    private TextView jaW;
     protected NavigationBar mNavigationBar;
     private ProgressBar mProgressBar;
     private View mRoot;
 
     public k(GroupLevelActivity groupLevelActivity, boolean z) {
         super(groupLevelActivity.getPageContext());
-        this.iSH = new ImageView[4];
-        this.iSI = new TextView[4];
-        this.iSJ = new TextView[4];
-        this.iSK = new String[4];
+        this.jaR = new ImageView[4];
+        this.jaS = new TextView[4];
+        this.jaT = new TextView[4];
+        this.jaU = new String[4];
         this.mNavigationBar = null;
-        this.iSu = groupLevelActivity;
+        this.jaE = groupLevelActivity;
         this.isMem = z;
         groupLevelActivity.setContentView(R.layout.im_grouplevel_activity);
         e(groupLevelActivity);
@@ -54,108 +54,108 @@ public class k extends com.baidu.adp.base.c<GroupLevelActivity> {
     }
 
     private void d(GroupLevelActivity groupLevelActivity) {
-        this.iKr.setOnClickListener(this.iSu);
-        this.iSL.setOnClickListener(this.iSu);
+        this.iQw.setOnClickListener(this.jaE);
+        this.jaV.setOnClickListener(this.jaE);
     }
 
     private void e(GroupLevelActivity groupLevelActivity) {
         this.mRoot = groupLevelActivity.findViewById(R.id.parent);
         this.mProgressBar = (ProgressBar) groupLevelActivity.findViewById(R.id.progress_loading);
-        this.iSv = (ImageView) groupLevelActivity.findViewById(R.id.level_image_1);
-        this.iSw = (ImageView) groupLevelActivity.findViewById(R.id.level_image_2);
-        this.iSx = (ImageView) groupLevelActivity.findViewById(R.id.level_image_3);
-        this.iSy = (TextView) groupLevelActivity.findViewById(R.id.text_current_level);
-        this.iSz = (TextView) groupLevelActivity.findViewById(R.id.current_level);
-        this.iSA = (TextView) groupLevelActivity.findViewById(R.id.grouplevel_highest);
-        this.iSC = (TextView) groupLevelActivity.findViewById(R.id.active_day_surplus);
-        this.iSD = (TextView) groupLevelActivity.findViewById(R.id.text_level_intro);
-        SpannableString spannableString = new SpannableString(this.iSu.getPageContext().getPageActivity().getString(R.string.grouplevel_level_intro));
+        this.jaF = (ImageView) groupLevelActivity.findViewById(R.id.level_image_1);
+        this.jaG = (ImageView) groupLevelActivity.findViewById(R.id.level_image_2);
+        this.jaH = (ImageView) groupLevelActivity.findViewById(R.id.level_image_3);
+        this.jaI = (TextView) groupLevelActivity.findViewById(R.id.text_current_level);
+        this.jaJ = (TextView) groupLevelActivity.findViewById(R.id.current_level);
+        this.jaK = (TextView) groupLevelActivity.findViewById(R.id.grouplevel_highest);
+        this.jaM = (TextView) groupLevelActivity.findViewById(R.id.active_day_surplus);
+        this.jaN = (TextView) groupLevelActivity.findViewById(R.id.text_level_intro);
+        SpannableString spannableString = new SpannableString(this.jaE.getPageContext().getPageActivity().getString(R.string.grouplevel_level_intro));
         spannableString.setSpan(new StyleSpan(3), 0, spannableString.length(), 33);
-        this.iSD.setText(spannableString);
-        this.iSB = (TextView) groupLevelActivity.findViewById(R.id.active_condition);
-        this.iSE = (TextView) groupLevelActivity.findViewById(R.id.group_max1);
-        this.iSF = (TextView) groupLevelActivity.findViewById(R.id.group_max2);
-        this.iSG = (TextView) groupLevelActivity.findViewById(R.id.group_max3);
-        this.iSJ[1] = (TextView) groupLevelActivity.findViewById(R.id.vgroup_max1);
-        this.iSJ[2] = (TextView) groupLevelActivity.findViewById(R.id.vgroup_max2);
-        this.iSJ[3] = (TextView) groupLevelActivity.findViewById(R.id.vgroup_max3);
-        this.iSH[1] = this.iSv;
-        this.iSH[2] = this.iSw;
-        this.iSH[3] = this.iSx;
-        this.iSK[1] = groupLevelActivity.getPageContext().getString(R.string.grouplevel_level_1);
-        this.iSK[2] = groupLevelActivity.getPageContext().getString(R.string.grouplevel_level_2);
-        this.iSK[3] = groupLevelActivity.getPageContext().getString(R.string.grouplevel_level_3);
-        this.iSI[1] = this.iSE;
-        this.iSI[2] = this.iSF;
-        this.iSI[3] = this.iSG;
+        this.jaN.setText(spannableString);
+        this.jaL = (TextView) groupLevelActivity.findViewById(R.id.active_condition);
+        this.jaO = (TextView) groupLevelActivity.findViewById(R.id.group_max1);
+        this.jaP = (TextView) groupLevelActivity.findViewById(R.id.group_max2);
+        this.jaQ = (TextView) groupLevelActivity.findViewById(R.id.group_max3);
+        this.jaT[1] = (TextView) groupLevelActivity.findViewById(R.id.vgroup_max1);
+        this.jaT[2] = (TextView) groupLevelActivity.findViewById(R.id.vgroup_max2);
+        this.jaT[3] = (TextView) groupLevelActivity.findViewById(R.id.vgroup_max3);
+        this.jaR[1] = this.jaF;
+        this.jaR[2] = this.jaG;
+        this.jaR[3] = this.jaH;
+        this.jaU[1] = groupLevelActivity.getPageContext().getString(R.string.grouplevel_level_1);
+        this.jaU[2] = groupLevelActivity.getPageContext().getString(R.string.grouplevel_level_2);
+        this.jaU[3] = groupLevelActivity.getPageContext().getString(R.string.grouplevel_level_3);
+        this.jaS[1] = this.jaO;
+        this.jaS[2] = this.jaP;
+        this.jaS[3] = this.jaQ;
         this.mNavigationBar = (NavigationBar) groupLevelActivity.findViewById(R.id.grouplevel_top_bar);
         this.mNavigationBar.setSystemClickable(false);
-        this.mNavigationBar.setTitleText(this.iSu.getResources().getString(R.string.group_info_grade));
-        this.iKr = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.iSL = (TextView) groupLevelActivity.findViewById(R.id.upgrade_mem_group_btn);
-        this.iSM = (TextView) groupLevelActivity.findViewById(R.id.upgrade_mem_group_tip);
+        this.mNavigationBar.setTitleText(this.jaE.getResources().getString(R.string.group_info_grade));
+        this.iQw = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.jaV = (TextView) groupLevelActivity.findViewById(R.id.upgrade_mem_group_btn);
+        this.jaW = (TextView) groupLevelActivity.findViewById(R.id.upgrade_mem_group_tip);
         if (this.isMem) {
-            this.iSL.setVisibility(8);
-            this.iSM.setVisibility(8);
+            this.jaV.setVisibility(8);
+            this.jaW.setVisibility(8);
         }
     }
 
     public void a(boolean z, boolean z2, boolean z3, int i) {
         String string;
         if (z) {
-            this.iSy.setText(TbadkApplication.getInst().getString(R.string.grouplevel_vip_current_level));
-            an.setViewTextColor(this.iSy, R.color.common_color_10167, 1);
+            this.jaI.setText(TbadkApplication.getInst().getString(R.string.grouplevel_vip_current_level));
+            ao.setViewTextColor(this.jaI, R.color.common_color_10167, 1);
         } else {
-            this.iSy.setText(TbadkApplication.getInst().getString(R.string.grouplevel_current_level));
-            an.setViewTextColor(this.iSy, R.color.common_color_10166, 1);
+            this.jaI.setText(TbadkApplication.getInst().getString(R.string.grouplevel_current_level));
+            ao.setViewTextColor(this.jaI, R.color.common_color_10166, 1);
         }
         if (z || !z2) {
-            this.iSL.setVisibility(8);
-            this.iSM.setVisibility(8);
+            this.jaV.setVisibility(8);
+            this.jaW.setVisibility(8);
             return;
         }
-        this.iSL.setVisibility(0);
-        this.iSM.setVisibility(0);
+        this.jaV.setVisibility(0);
+        this.jaW.setVisibility(0);
         if (z3 && i > 0) {
-            this.iSL.setEnabled(true);
+            this.jaV.setEnabled(true);
             string = String.format(TbadkApplication.getInst().getString(R.string.upgrade_mem_group_left_num), String.valueOf(i));
-            an.setViewTextColor(this.iSL, R.color.cp_cont_a, 1);
-            this.iSL.setEnabled(true);
+            ao.setViewTextColor(this.jaV, R.color.cp_cont_a, 1);
+            this.jaV.setEnabled(true);
         } else {
             if (!z3) {
                 string = TbadkApplication.getInst().getString(R.string.upgrade_mem_group_cannot_up);
             } else {
                 string = TbadkApplication.getInst().getString(R.string.upgrade_mem_group_over_max_num);
             }
-            this.iSL.setEnabled(false);
-            an.setViewTextColor(this.iSL, R.color.common_color_10172, 1);
+            this.jaV.setEnabled(false);
+            ao.setViewTextColor(this.jaV, R.color.common_color_10172, 1);
         }
-        this.iSM.setText(string);
+        this.jaW.setText(string);
     }
 
-    public View cqo() {
-        return this.iKr;
+    public View cum() {
+        return this.iQw;
     }
 
-    public TextView cqp() {
-        return this.iSL;
+    public TextView cun() {
+        return this.jaV;
     }
 
     public void onChangeSkinType(int i) {
-        this.iSu.getLayoutMode().setNightMode(i == 1);
-        this.iSu.getLayoutMode().onModeChanged(this.mRoot);
-        this.mNavigationBar.onChangeSkinType(this.iSu.getPageContext(), i);
+        this.jaE.getLayoutMode().setNightMode(i == 1);
+        this.jaE.getLayoutMode().onModeChanged(this.mRoot);
+        this.mNavigationBar.onChangeSkinType(this.jaE.getPageContext(), i);
     }
 
-    public TextView[] cqq() {
-        return this.iSI;
+    public TextView[] cuo() {
+        return this.jaS;
     }
 
-    public TextView[] cqr() {
-        return this.iSJ;
+    public TextView[] cup() {
+        return this.jaT;
     }
 
-    public void po(boolean z) {
+    public void pV(boolean z) {
         this.mProgressBar.setVisibility(z ? 0 : 8);
     }
 
@@ -164,50 +164,54 @@ public class k extends com.baidu.adp.base.c<GroupLevelActivity> {
         if (i <= 1) {
             i = 1;
         }
+        int i3 = R.drawable.icon_grade_big_star_s;
+        int i4 = R.drawable.icon_grade_big_star_n;
+        int i5 = R.drawable.icon_vip_grade_big_star_s;
+        int i6 = R.drawable.icon_vip_grade_big_star_n;
         while (i2 <= i) {
-            if (!z) {
-                an.setImageResource(this.iSH[i2], R.drawable.icon_grade_big_star_s);
+            if (z) {
+                ao.setImageResource(this.jaR[i2], i5);
             } else {
-                an.setImageResource(this.iSH[i2], R.drawable.icon_vip_grade_big_star_s);
+                ao.setImageResource(this.jaR[i2], i3);
             }
             i2++;
         }
         while (i2 <= 3) {
-            if (!z) {
-                an.setImageResource(this.iSH[i2], R.drawable.icon_grade_big_star_n);
+            if (z) {
+                ao.setImageResource(this.jaR[i2], i6);
             } else {
-                an.setImageResource(this.iSH[i2], R.drawable.icon_vip_grade_big_star_n);
+                ao.setImageResource(this.jaR[i2], i4);
             }
             i2++;
         }
-        this.iSz.setText(this.iSK[i]);
+        this.jaJ.setText(this.jaU[i]);
     }
 
-    public TextView cqs() {
-        return this.iSB;
+    public TextView cuq() {
+        return this.jaL;
     }
 
-    public void T(int i, int i2, int i3) {
+    public void S(int i, int i2, int i3) {
         if (i >= 1 && i <= 2) {
-            this.iSC.setVisibility(0);
-            this.iSA.setVisibility(8);
-            int color = an.getColor(R.color.cp_cont_b);
-            int color2 = an.getColor(R.color.cp_link_tip_d);
+            this.jaM.setVisibility(0);
+            this.jaK.setVisibility(8);
+            int color = ao.getColor(R.color.cp_cont_b);
+            int color2 = ao.getColor(R.color.cp_link_tip_d);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            SpannableString spannableString = new SpannableString(this.iSu.getPageContext().getPageActivity().getString(R.string.activte_day_tip_surplus));
+            SpannableString spannableString = new SpannableString(this.jaE.getPageContext().getPageActivity().getString(R.string.activte_day_tip_surplus));
             spannableString.setSpan(new ForegroundColorSpan(color), 0, spannableString.length(), 33);
             spannableStringBuilder.append((CharSequence) spannableString);
             SpannableString spannableString2 = new SpannableString(String.valueOf(i3 - i2));
             spannableString2.setSpan(new ForegroundColorSpan(color2), 0, spannableString2.length(), 33);
             spannableStringBuilder.append((CharSequence) spannableString2);
-            SpannableString spannableString3 = new SpannableString(this.iSu.getPageContext().getPageActivity().getString(R.string.activte_day_tip_remind_up));
+            SpannableString spannableString3 = new SpannableString(this.jaE.getPageContext().getPageActivity().getString(R.string.activte_day_tip_remind_up));
             spannableString3.setSpan(new ForegroundColorSpan(color), 0, spannableString3.length(), 33);
             spannableStringBuilder.append((CharSequence) spannableString3);
-            this.iSC.setText(spannableStringBuilder);
+            this.jaM.setText(spannableStringBuilder);
         } else if (i >= 3) {
-            this.iSC.setVisibility(8);
-            this.iSA.setVisibility(0);
-            this.iSA.setText(R.string.grouplevel_highest_grade);
+            this.jaM.setVisibility(8);
+            this.jaK.setVisibility(0);
+            this.jaK.setText(R.string.grouplevel_highest_grade);
         }
     }
 }

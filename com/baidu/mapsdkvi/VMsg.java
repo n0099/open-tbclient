@@ -4,14 +4,14 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class VMsg {
     private static Handler b;
     private static HandlerThread c;
     private static final String a = VMsg.class.getSimpleName();
     private static VMsg d = new VMsg();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     static class a extends Handler {
         public a(Looper looper) {
             super(looper);

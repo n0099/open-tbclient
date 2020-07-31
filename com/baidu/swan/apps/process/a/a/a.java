@@ -4,29 +4,29 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public abstract class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public int cxW;
-    public Bundle cxV = new Bundle();
-    public String cxX = "";
-    public Bundle cxY = new Bundle();
+    public int cAv;
+    public Bundle cAu = new Bundle();
+    public String cAw = "";
+    public Bundle cAx = new Bundle();
 
     public abstract void A(@NonNull Bundle bundle);
 
     public void finish() {
-        L(this.cxY);
+        M(this.cAx);
     }
 
-    public void L(@Nullable Bundle bundle) {
+    public void M(@Nullable Bundle bundle) {
         if (DEBUG) {
             Log.d("MDelegate-Delegation", "messenger delegation finish");
         }
-        if (!com.baidu.swan.apps.process.a.b.d.a.nb(this.cxX)) {
+        if (!com.baidu.swan.apps.process.a.b.d.a.nI(this.cAw)) {
             if (DEBUG) {
-                Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.cxW + " observer: " + this.cxX);
+                Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.cAv + " observer: " + this.cAw);
             }
-            b.a(this.cxW, this.cxX, bundle);
+            b.a(this.cAv, this.cAw, bundle);
         }
     }
 }

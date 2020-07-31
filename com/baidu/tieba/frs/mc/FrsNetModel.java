@@ -18,22 +18,22 @@ import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 /* loaded from: classes.dex */
 public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba.tbadkCore.m, T> implements NetModel.b<FrsRequestData, com.baidu.tieba.tbadkCore.m> {
-    private boolean hUW;
-    private ResponsedMessage hUX;
-    private Message hUY;
-    private MvcNetMessage hUZ;
+    private boolean iaV;
+    private ResponsedMessage iaW;
+    private Message iaX;
+    private MvcNetMessage iaY;
 
     public FrsNetModel(TbPageContext<T> tbPageContext, FrsRequestData frsRequestData) {
         super(tbPageContext, frsRequestData);
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> NF() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> NK() {
         return FrsPageHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> NH() {
+    protected Class<? extends MvcSocketResponsedMessage> NM() {
         return FRSPageSocketResponsedMessage.class;
     }
 
@@ -43,26 +43,26 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int NC() {
+    protected int NH() {
         return 1001703;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int NB() {
+    protected int NG() {
         return CmdConfigSocket.CMD_FRS_PAGE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String Nv() {
+    protected String NA() {
         return TbConfig.FRS_ADDRESS;
     }
 
     public void a(FrsRequestData frsRequestData) {
-        this.byh = frsRequestData;
+        this.byw = frsRequestData;
     }
 
-    public FrsRequestData cea() {
-        return (FrsRequestData) this.byh;
+    public FrsRequestData chz() {
+        return (FrsRequestData) this.byw;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
@@ -72,37 +72,37 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
     public boolean loadData() {
-        this.hUW = super.loadData();
-        return this.hUW;
+        this.iaV = super.loadData();
+        return this.iaV;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<com.baidu.tieba.tbadkCore.m> mvcHttpResponsedMessage, MvcHttpMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcHttpMessage, MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
-        this.hUX = mvcHttpResponsedMessage;
-        this.hUY = mvcHttpMessage;
-        this.hUZ = mvcNetMessage;
+        this.iaW = mvcHttpResponsedMessage;
+        this.iaX = mvcHttpMessage;
+        this.iaY = mvcNetMessage;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcSocketMessage, MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
-        this.hUX = mvcSocketResponsedMessage;
-        this.hUY = mvcSocketMessage;
-        this.hUZ = mvcNetMessage;
+        this.iaW = mvcSocketResponsedMessage;
+        this.iaX = mvcSocketMessage;
+        this.iaY = mvcNetMessage;
     }
 
-    public boolean ceb() {
-        return this.hUW;
+    public boolean chA() {
+        return this.iaV;
     }
 
-    public ResponsedMessage cec() {
-        return this.hUX;
+    public ResponsedMessage chB() {
+        return this.iaW;
     }
 
-    public Message ced() {
-        return this.hUY;
+    public Message chC() {
+        return this.iaX;
     }
 
-    public MvcNetMessage cee() {
-        return this.hUZ;
+    public MvcNetMessage chD() {
+        return this.iaY;
     }
 }

@@ -1,7 +1,7 @@
 package com.kascend.chushou.player.ui.pk;
 
 import android.animation.Animator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g implements Animator.AnimatorListener {
     protected Object e;
 

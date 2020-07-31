@@ -1,10 +1,10 @@
 package com.baidu.tieba.ala.personcenter.privilege.achievementmark.a;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
-    private int gDk;
-    private int gDq;
+    private int gIH;
+    private int gIN;
     private String mark_name;
     private String mark_pic;
 
@@ -12,24 +12,24 @@ public class d {
         if (jSONObject != null) {
             this.mark_name = jSONObject.optString("mark_name");
             this.mark_pic = jSONObject.optString("mark_pic");
-            this.gDk = jSONObject.optInt("mark_rank");
-            this.gDq = jSONObject.optInt("mark_score");
+            this.gIH = jSONObject.optInt("mark_rank");
+            this.gIN = jSONObject.optInt("mark_score");
         }
     }
 
-    public String bLG() {
+    public String bOO() {
         return this.mark_name;
     }
 
-    public int bLO() {
-        return this.gDq;
+    public int bOW() {
+        return this.gIN;
     }
 
-    public int bLK() {
-        return this.gDk;
+    public int bOS() {
+        return this.gIH;
     }
 
-    public String bLH() {
+    public String bOP() {
         return this.mark_pic;
     }
 }

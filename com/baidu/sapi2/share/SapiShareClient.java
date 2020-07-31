@@ -22,7 +22,7 @@ import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public final class SapiShareClient {
     public static final String EXTRA_APP_PKG = "PKG";
     public static final String EXTRA_FACE_LOGIN_MODEL = "FACE_LOGIN_MODEL";

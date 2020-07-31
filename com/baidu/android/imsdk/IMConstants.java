@@ -35,6 +35,7 @@ public class IMConstants implements ResponseCode, NoProGuard {
     public static final int CHAT_TYPE_DUZHAN = 7;
     public static final int CHAT_TYPE_GROUP_DISCUSS = 3;
     public static final int CHAT_TYPE_INTERACTIVE = 19;
+    public static final int CHAT_TYPE_INTERACTIVE_COMMENT = 29;
     public static final int CHAT_TYPE_LAUNCH = 24;
     public static final int CHAT_TYPE_LEMON = 25;
     public static final int CHAT_TYPE_MEDIA = 5;
@@ -237,6 +238,10 @@ public class IMConstants implements ResponseCode, NoProGuard {
     public static final int IM_STATE_QUIT = 1;
     public static final int IM_SUBSCRIBE_ME_TYPE = 2;
     public static final long IM_SYS_ID = 0;
+    public static final int IM_TEMPLATE_TYPE_DEFAULT = 0;
+    public static final int IM_TEMPLATE_TYPE_INTERACTIVE = 3;
+    public static final int IM_TEMPLATE_TYPE_SERVICE_NOTIFY = 2;
+    public static final int IM_TEMPLATE_TYPE_SYSTEM_NOTIFY = 1;
     public static final int IM_UNSUBSCRIBE_TYPE = 0;
     public static final int INTERACTIVE_FOLLOW = 2;
     public static final int INTERACTIVE_REPLY = 0;

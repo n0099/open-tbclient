@@ -1,7 +1,7 @@
 package com.baidu.ar.arrender;
 
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class i extends com.baidu.ar.ability.c {
     private HashMap<String, Object> iv;
     private String mNodeName;

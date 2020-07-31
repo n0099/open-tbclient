@@ -1,6 +1,6 @@
 package com.facebook.common.b;
 
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes13.dex */
+/* loaded from: classes12.dex */
 public interface g extends ExecutorService {
 }

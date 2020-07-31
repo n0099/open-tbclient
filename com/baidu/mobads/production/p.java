@@ -26,7 +26,7 @@ import com.baidu.mobads.openad.interfaces.download.IOAdDownloaderManager;
 import com.baidu.mobads.openad.interfaces.utils.IOAdTimer;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class p extends com.baidu.mobads.openad.c.c implements IXAdContainerContext {
     public IXAdContainerEventListener a;
     private Context b;
@@ -39,7 +39,7 @@ public class p extends com.baidu.mobads.openad.c.c implements IXAdContainerConte
     private long j = 0;
     private HashMap<String, Integer> k = new HashMap<>();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public class a extends com.baidu.mobads.openad.c.b {
         private String b;
         private HashMap<String, Object> c;

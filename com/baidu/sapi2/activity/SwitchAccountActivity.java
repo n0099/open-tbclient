@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.webkit.WebBackForwardList;
 import android.webkit.WebHistoryItem;
-import com.baidu.f.a.a;
+import com.baidu.g.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiWebView;
@@ -17,7 +17,7 @@ import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class SwitchAccountActivity extends BaseActivity {
     private static final String r = "SwitchAccountActivity";
     private static final String s = "https://wappass.baidu.com/v6/changeAccount";

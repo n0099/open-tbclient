@@ -3,23 +3,23 @@ package com.baidu.adp.widget.ListView;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class i implements q {
-    private BdUniqueId Un;
-    private q Vt;
+    private BdUniqueId Uh;
+    private q Vm;
 
     public void g(BdUniqueId bdUniqueId) {
-        this.Un = bdUniqueId;
+        this.Uh = bdUniqueId;
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return this.Un;
+        return this.Uh;
     }
 
     public void a(q qVar) {
-        this.Vt = qVar;
+        this.Vm = qVar;
     }
 
-    public q po() {
-        return this.Vt;
+    public q pp() {
+        return this.Vm;
     }
 }

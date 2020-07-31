@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class SwanAppBearInfo extends SwanAppIPCData {
     private static final String BEAR_DESC = "sign";
     private static final String BEAR_ID = "office_id";
@@ -32,7 +32,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: gf */
+        /* renamed from: gq */
         public SwanAppBearInfo[] newArray(int i) {
             return new SwanAppBearInfo[i];
         }

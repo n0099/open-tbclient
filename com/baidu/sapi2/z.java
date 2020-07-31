@@ -8,7 +8,7 @@ import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.sapi2.utils.Log;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 class z extends HttpHandlerWrap {
     final /* synthetic */ A a;
 

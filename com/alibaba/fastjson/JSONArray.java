@@ -15,7 +15,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.RandomAccess;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class JSONArray extends JSON implements Serializable, Cloneable, List<Object>, RandomAccess {
     private static final long serialVersionUID = 1;
     protected transient Type componentType;

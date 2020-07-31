@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RimLivenessBaseDialog extends Dialog {
     private TextView a;
     private LinearLayout b;

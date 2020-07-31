@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class m {
     private static Map<Class, Integer> yL = new HashMap();
     private static Map<Class, List<Constructor<? extends g>>> yM = new HashMap();

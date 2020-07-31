@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.d.a.d;
 import com.baidu.platform.comapi.walknavi.d.a.d.a.c;
 import com.baidu.platform.comapi.walknavi.d.a.d.b;
 import com.baidu.platform.comapi.walknavi.d.a.g.j;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class d implements c.b {
     final /* synthetic */ b.C0229b a;
 

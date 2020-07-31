@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.telephony.TelephonyManager;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class j extends BroadcastReceiver {
     final /* synthetic */ b a;
 

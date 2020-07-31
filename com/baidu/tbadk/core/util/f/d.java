@@ -1,49 +1,76 @@
 package com.baidu.tbadk.core.util.f;
 
 import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.r;
-import com.baidu.adp.widget.ListView.t;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import java.util.ArrayList;
+import com.baidu.adp.lib.util.j;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.tbadk.switchs.VideoPreLoadSwitch;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    public static void a(t tVar, BdUniqueId bdUniqueId, c cVar) {
-        r adapter;
-        g.log("video preload start ");
-        if (tVar != null) {
-            if (cVar != null && !cVar.videoNeedPreload()) {
-                g.log("this page don't preload ");
-                return;
-            }
-            g.log("video preload switch  " + e.aXE().isOpen() + " num " + e.aXE().aXF() + " size " + e.aXE().getSize());
-            if (e.aXE().isOpen() && (adapter = tVar.getAdapter()) != null) {
-                boolean z = tVar.getFirstVisiblePosition() == 0;
-                int lastVisiblePosition = tVar.getLastVisiblePosition();
-                ArrayList arrayList = new ArrayList();
-                g.log("video preload  end=  " + lastVisiblePosition + "  " + adapter.getCount());
-                if (lastVisiblePosition >= 0 && adapter.getCount() > 0) {
-                    for (int i = z ? 0 : lastVisiblePosition; i < adapter.getCount() && i < lastVisiblePosition + 10 && arrayList.size() <= e.aXE().aXF(); i++) {
-                        g.log("video preload  i=  " + i);
-                        Object item = adapter.getItem(i);
-                        if (item instanceof a) {
-                            a aVar = (a) item;
-                            if (!TextUtils.isEmpty(aVar.getVideoUrl())) {
-                                g.log("url: " + aVar.getVideoUrl());
-                                if (cVar.isCyberVideoUsedThisPage()) {
-                                    CyberPlayerManager.prefetch(aVar.getVideoUrl(), null, null, e.aXE().getSize(), null);
-                                } else {
-                                    arrayList.add(aVar.getVideoUrl());
-                                }
-                            }
-                        }
-                    }
-                    g.log("video preload  urls size   " + arrayList.size());
-                    if (arrayList.size() > 0) {
-                        h.aXG().aO(arrayList);
-                    }
+    private static d ees;
+    private int eet = 3;
+    private boolean isWifi = true;
+    private int mSize = 0;
+
+    public static d bbF() {
+        if (ees == null) {
+            synchronized (d.class) {
+                if (ees == null) {
+                    ees = new d();
                 }
             }
+        }
+        return ees;
+    }
+
+    private d() {
+        e.log("PreLoadVideoSwitchManager init ");
+        try {
+            parseJson(com.baidu.tbadk.core.sharedPref.b.aZP().getString("video_sync_switch_json", ""));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean isOpen() {
+        if (VideoPreLoadSwitch.isOn()) {
+            return !this.isWifi || j.isWifiNet();
+        }
+        e.log("PreLoadVideoSwitchManager isOpen switch close ");
+        return false;
+    }
+
+    public int bbG() {
+        return this.eet;
+    }
+
+    public int getSize() {
+        if (this.mSize == 0) {
+            return 512000;
+        }
+        return this.mSize;
+    }
+
+    public void yj(String str) {
+        e.log("PreLoadVideoSwitchManager setSyncSwitchJson: " + str);
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                parseJson(str);
+                com.baidu.tbadk.core.sharedPref.b.aZP().putString("video_sync_switch_json", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void parseJson(String str) throws JSONException {
+        if (!TextUtils.isEmpty(str)) {
+            JSONObject jSONObject = new JSONObject(str);
+            this.eet = jSONObject.optInt("num", 3);
+            this.isWifi = jSONObject.optInt("is_wifi", 1) == 1;
+            this.mSize = jSONObject.optInt(TiebaInitialize.LogFields.SIZE, 512000);
+            e.log("PreLoadVideoSwitchManager parseJson:   num: " + this.eet + " size: " + this.mSize + " isWifi " + this.isWifi);
         }
     }
 }

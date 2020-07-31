@@ -1,7 +1,7 @@
 package com.baidu.webkit.internal;
 
 import com.baidu.webkit.sdk.IABTestInterface;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class ABTestConstants implements INoProGuard {
     private static final int ADBLOCK2_ON = 1;
     private static final int ADBLOCK3_ON = 4;
@@ -25,9 +25,13 @@ public final class ABTestConstants implements INoProGuard {
     public static final int DOM_PARSER_OPT_VALUE_DEFAULT = 0;
     public static final int DOM_PARSER_OPT_VALUE_DISABLE = 2;
     public static final int DOM_PARSER_OPT_VALUE_ENABLE = 1;
+    public static final String DOUBLE_LOG_ENABLED = "double_log_enabled";
     public static final String DULI_CRASHPAD_5_AND_ABOVE = "duli_crashpad_5_and_above";
-    public static final boolean DULI_CRASHPAD_5_AND_ABOVE_DEFAULT_VALUE = false;
-    public static final String ENGINE_COOKIE_USAGE = "engine_cookie_usage";
+    public static final boolean DULI_CRASHPAD_5_AND_ABOVE_DEFAULT_VALUE = true;
+    public static final String ENABLE_MEM_MULTI_MAX = "enable_mem_multi_max";
+    public static final boolean ENABLE_MEM_MULTI_MAX_DEFAULT_VALUE = false;
+    public static final String ENABLE_QUIC_BY_INIT = "enable_quic_by_init";
+    public static final String ENABLE_QUIC_BY_NQE = "enable_quic_by_nqe";
     public static final String FIRSTSCREEN_ELEMENT_OPT_DEFAULT = "false";
     public static final String FIRSTSCREEN_ELEMENT_OPT_DISABLE = "false";
     public static final String FIRSTSCREEN_ELEMENT_OPT_KEY = "firstscreen_element_opt";
@@ -46,6 +50,7 @@ public final class ABTestConstants implements INoProGuard {
     public static final String IPV6_CHECK_LIST = "zeus_ipv6_check_list";
     public static final String IPV6_CHECK_LIST_DEFAULT = "";
     public static final String IPV6_FIRST = "ipv6_first";
+    public static final String IPV6_HTTPDNS_ENV = "ipv6_httpdns_env";
     public static final String IPV6_TIMEOUT = "zeus_ipv6_timeout";
     public static final String LOCATION_HREF_OPTIMIZATION_DEFAULT = "false";
     public static final String LOCATION_HREF_OPTIMIZATION_DISABLE = "false";
@@ -66,6 +71,7 @@ public final class ABTestConstants implements INoProGuard {
     public static final int MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT = 10000000;
     private static final int MF_ON = 2;
     public static final String MULTIPLE_CONTAINER_KEY = "main_browser_frame_multi_container";
+    public static final String MULTIPLE_PROCESS_DEVICES_KEY = "multiple_process_devices";
     public static final String MULTIPLE_PROCESS_KEY = "multiple_process";
     public static final String NATIVE_HTTPDNS_ENABLED = "native_httpdns_enabled";
     public static final String NET_CHANGE_NOTIFY_ENABLE = "net_change_notify_enable";
@@ -83,6 +89,8 @@ public final class ABTestConstants implements INoProGuard {
     public static final boolean PRECREATE_CONTENT_CACHE_DISABLE = false;
     public static final boolean PRECREATE_CONTENT_CACHE_ENABLE = true;
     public static final String PRECREATE_CONTENT_CACHE_KEY = "precreate_content_cache";
+    public static final String PREFETCH_REUSE_AGE_DEFAULT_VALUE = "0";
+    public static final String PREFETCH_REUSE_AGE_KEY = "prefetch_reuse_age";
     public static final String PRE_INIT_WEBVIEW = "preinit_webview_enable";
     public static final int PRE_INIT_WEBVIEW_VALUE_CLOSE = 0;
     public static final int PRE_INIT_WEBVIEW_VALUE_DEFAULT = 0;
@@ -108,6 +116,12 @@ public final class ABTestConstants implements INoProGuard {
     public static final int ZEUS_ASYNC_DRAW_DISABLE = 0;
     public static final int ZEUS_ASYNC_DRAW_ENABLE = 1;
     public static final String ZEUS_ASYNC_DRAW_KEY = "zeus_async_draw";
+    public static final int ZEUS_DECODEED_IMAGE_BUF_DEFAULT = 24;
+    public static final String ZEUS_DECODEED_IMAGE_BUF_KEY = "decoded_image_buf";
+    public static final int ZEUS_DECODEED_IMAGE_BUF_MAX = 64;
+    public static final boolean ZEUS_DRAG_AND_DROP_DISABLE_VALUE = false;
+    public static final boolean ZEUS_DRAG_AND_DROP_ENABLE_VALUE = true;
+    public static final String ZEUS_DRAG_AND_DROP_KEY = "zeus_drag_and_drop_enabled";
     public static final int ZEUS_GPU_RASTER_ANDROID8_9_ENABLE = 1;
     public static final int ZEUS_GPU_RASTER_ANDROID8_9_GMEM_ENABLE = 3;
     public static final int ZEUS_GPU_RASTER_ANDROID8_9_GMEM_HIGH_MEM_ENABLE = 4;
@@ -121,12 +135,14 @@ public final class ABTestConstants implements INoProGuard {
     public static final String ZEUS_INIT_OPT_KEY = "zeus_init_opt";
     public static final int ZEUS_INIT_OPT_START_BROWSER_ALONE = 1;
     public static final int ZEUS_INIT_OPT_START_BROWSER_ALONE_TASK = 2;
-    public static final boolean ZEUS_INIT_WEBVIEW_PRELOAD_CLASS_DISABLE_VALUE = false;
-    public static final boolean ZEUS_INIT_WEBVIEW_PRELOAD_CLASS_ENABLE_VALUE = true;
-    public static final String ZEUS_INIT_WEBVIEW_PRELOAD_CLASS_KEY = "zeus_init_webview_preload_class";
+    public static final boolean ZEUS_LCP_IMAGE_TIME_DEFAULT = true;
+    public static final String ZEUS_LCP_IMAGE_TIME_KEY = "zeus_lcp_image_time";
     public static final int ZEUS_LONG_TASK_DISABLE = 0;
     public static final int ZEUS_LONG_TASK_ENABLE = 1;
     public static final String ZEUS_LONG_TASK_KEY = "zeus-long-task";
+    public static final int ZEUS_MAX_MEM_PREPAINT_PC_DEFAULT = 40;
+    public static final String ZEUS_MAX_MEM_PREPAINT_PC_KEY = "max_mem_prepaint_pc";
+    public static final int ZEUS_MAX_MEM_PREPAINT_PC_MAX = 50;
     public static final String ZEUS_NET_LOG_LEVEL_KEY = "zeus_net_log_level";
     public static final boolean ZEUS_RESOURCE_PREFETCH_DEFAULT = false;
     public static final boolean ZEUS_RESOURCE_PREFETCH_DISABLE = false;
@@ -135,8 +151,17 @@ public final class ABTestConstants implements INoProGuard {
     public static final boolean ZEUS_RESOURCE_PRESCAN_DEFAULT = false;
     public static final boolean ZEUS_RESOURCE_PRESCAN_DISABLE = false;
     public static final boolean ZEUS_RESOURCE_PRESCAN_ENABLE = true;
-    public static final String ZEUS_RESOURCE_PRESCAN_KEY = "zeus_resource_prescan";
+    public static final String ZEUS_RESOURCE_PRESCAN_KEY = "zeus_resource_prescan_4G";
     public static final String ZEUS_SKELETON_VIEW_ENABLE = "search_skeleton_ab_switch";
+    public static final int ZEUS_STAGING_BUF_DEFAULT = 24;
+    public static final String ZEUS_STAGING_BUF_KEY = "max_staging_buf";
+    public static final int ZEUS_STAGING_BUF_MAX = 32;
+    public static final boolean ZEUS_UKM_DISABLE_VALUE = false;
+    public static final boolean ZEUS_UKM_ENABLE_VALUE = true;
+    public static final String ZEUS_UKM_KEY = "zeus_ukm";
+    public static final boolean ZEUS_WEBVIEW_PREINIT_CLASSES_DISABLE_VALUE = false;
+    public static final boolean ZEUS_WEBVIEW_PREINIT_CLASSES_ENABLE_VALUE = true;
+    public static final String ZEUS_WEBVIEW_PREINIT_CLASSES_KEY = "zeus_webview_preinit_classes";
 
     private static final int getAdBlockAndMfOpt(IABTestInterface iABTestInterface) {
         if (iABTestInterface == null) {

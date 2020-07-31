@@ -1,5 +1,5 @@
 package com.baidu.tieba.advert.sdk.widget.scalablevideoview;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class b {
     private int mHeight;
     private int mWidth;

@@ -3,7 +3,7 @@ package com.vivo.push.b;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class ad extends c {
     private ArrayList<String> a;
 

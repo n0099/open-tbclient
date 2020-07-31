@@ -16,6 +16,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyCharacterMap;
 import android.view.ViewConfiguration;
@@ -25,41 +26,42 @@ import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.w.g;
-import com.baidu.swan.e.d;
+import com.baidu.swan.apps.v.g;
+import com.baidu.swan.d.d;
 import java.io.Closeable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c {
-    public static long cHZ;
-    private static ContentObserver cIa;
-    private static PackageManager cIb;
-    private static boolean cIc;
-    private static Runnable cId;
+    public static long cLh;
+    private static ContentObserver cLi;
+    private static PackageManager cLj;
+    private static boolean cLk;
+    private static Runnable cLl;
     private static ContentResolver mContentResolver;
     private static Uri mImageUri;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static long mLastTime = System.currentTimeMillis() - 10000;
     private static List<com.baidu.swan.apps.ai.a> mCallbacks = new ArrayList();
     private static int mCount = 0;
+    private static String cLm = null;
 
-    static /* synthetic */ int ari() {
+    static /* synthetic */ int ata() {
         int i = mCount;
         mCount = i + 1;
         return i;
     }
 
-    private static boolean arg() {
-        return System.currentTimeMillis() - mLastTime <= ((long) (com.baidu.swan.apps.aq.b.aug() ? 4000 : 1000));
+    private static boolean asX() {
+        return System.currentTimeMillis() - mLastTime <= 1000;
     }
 
-    public static void ci(Context context) {
-        cIb = context.getPackageManager();
+    public static void cl(Context context) {
+        cLj = context.getPackageManager();
         final Handler handler = new Handler(Looper.getMainLooper());
         mContentResolver = context.getContentResolver();
-        cIa = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ai.c.1
+        cLi = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ai.c.1
             @Override // android.database.ContentObserver
             public void onChange(boolean z, final Uri uri) {
                 super.onChange(z, uri);
@@ -74,104 +76,111 @@ public class c {
                 }, "systemScreenShot", 1);
             }
         };
-        if (cj(context)) {
-            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, cIa);
+        if (cm(context)) {
+            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, cLi);
         }
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [236=4] */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Type inference failed for: r0v6, types: [long] */
     public static void a(final Handler handler, Uri uri) {
         Cursor cursor;
         Closeable closeable = null;
-        if (uri.toString().matches(a.cIh + ".*")) {
-            if (arg() && cIc) {
-                mLastTime = System.currentTimeMillis();
-                return;
-            }
-            mCount = 0;
-            ?? currentTimeMillis = System.currentTimeMillis();
-            mLastTime = currentTimeMillis;
+        if (!uri.toString().matches(a.cLq + ".*")) {
+            return;
+        }
+        if (asX() && cLk) {
+            mLastTime = System.currentTimeMillis();
+            return;
+        }
+        mCount = 0;
+        ?? currentTimeMillis = System.currentTimeMillis();
+        mLastTime = currentTimeMillis;
+        try {
             try {
-                try {
-                    cursor = mContentResolver.query(uri, a.cIi, null, null, "date_added DESC");
-                    if (cursor != null) {
-                        try {
-                            if (cursor.moveToFirst()) {
-                                final String string = cursor.getString(cursor.getColumnIndex("_data"));
-                                long j = cursor.getLong(cursor.getColumnIndex("date_added"));
-                                long currentTimeMillis2 = System.currentTimeMillis() / 1000;
-                                mImageUri = uri;
-                                if (com.baidu.swan.apps.aq.b.aug()) {
-                                    mImageUri = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_ROW_ID)));
-                                }
-                                if (DEBUG) {
-                                    Log.d("SYSTEM_SCREENSHOT", "imagepath: " + string);
-                                    Log.d("SYSTEM_SCREENSHOT", "dateAdded: " + j);
-                                    Log.d("SYSTEM_SCREENSHOT", "nowSecs: " + currentTimeMillis2);
-                                    Log.d("SYSTEM_SCREENSHOT", "imageUri: " + mImageUri.toString());
-                                }
-                                if (a.or(string) && a.m(currentTimeMillis2, j)) {
-                                    cIc = true;
-                                    final b bVar = new b(string, Long.valueOf(j), mImageUri);
-                                    cId = new Runnable() { // from class: com.baidu.swan.apps.ai.c.2
-                                        @Override // java.lang.Runnable
-                                        public void run() {
-                                            c.ari();
-                                            if (c.DEBUG) {
-                                                Log.d("SYSTEM_SCREENSHOT", "mCount: " + c.mCount);
-                                            }
-                                            if (c.d(string, c.mImageUri) || c.mCount > 10) {
-                                                if (c.d(string, c.mImageUri) && c.arh() && !c.c(string, c.mImageUri)) {
-                                                    for (com.baidu.swan.apps.ai.a aVar : c.mCallbacks) {
-                                                        if (aVar != null) {
-                                                            aVar.a(bVar);
-                                                        }
+                cursor = mContentResolver.query(uri, a.cLr, null, null, "date_added DESC");
+                if (cursor != null) {
+                    try {
+                        if (cursor.moveToFirst()) {
+                            final String string = cursor.getString(cursor.getColumnIndex("_data"));
+                            long j = cursor.getLong(cursor.getColumnIndex("date_added"));
+                            long currentTimeMillis2 = System.currentTimeMillis() / 1000;
+                            mImageUri = uri;
+                            if (com.baidu.swan.apps.aq.c.awi()) {
+                                mImageUri = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_ROW_ID)));
+                            }
+                            if (DEBUG) {
+                                Log.d("SYSTEM_SCREENSHOT", "imagepath: " + string);
+                                Log.d("SYSTEM_SCREENSHOT", "dateAdded: " + j);
+                                Log.d("SYSTEM_SCREENSHOT", "nowSecs: " + currentTimeMillis2);
+                                Log.d("SYSTEM_SCREENSHOT", "imageUri: " + mImageUri.toString());
+                            }
+                            if (asZ()) {
+                                d.closeSafely(cursor);
+                                return;
+                            }
+                            cLm = mImageUri.toString();
+                            if (a.pa(string) && a.n(currentTimeMillis2, j)) {
+                                cLk = true;
+                                final b bVar = new b(string, Long.valueOf(j), mImageUri);
+                                cLl = new Runnable() { // from class: com.baidu.swan.apps.ai.c.2
+                                    @Override // java.lang.Runnable
+                                    public void run() {
+                                        c.ata();
+                                        if (c.DEBUG) {
+                                            Log.d("SYSTEM_SCREENSHOT", "mCount: " + c.mCount);
+                                        }
+                                        if (c.d(string, c.mImageUri) || c.mCount > 10) {
+                                            if (c.d(string, c.mImageUri) && c.asY() && !c.c(string, c.mImageUri)) {
+                                                for (com.baidu.swan.apps.ai.a aVar : c.mCallbacks) {
+                                                    if (aVar != null) {
+                                                        aVar.a(bVar);
                                                     }
-                                                    return;
                                                 }
                                                 return;
                                             }
-                                            handler.postDelayed(c.cId, 100L);
+                                            return;
                                         }
-                                    };
-                                    handler.post(cId);
-                                } else {
-                                    cIc = false;
-                                }
+                                        handler.postDelayed(c.cLl, 100L);
+                                    }
+                                };
+                                handler.post(cLl);
+                            } else {
+                                cLk = false;
                             }
-                        } catch (RuntimeException e) {
-                            if (cIb != null) {
-                                List<ProviderInfo> queryContentProviders = cIb.queryContentProviders(null, 0, 131072);
-                                HashMap hashMap = new HashMap();
-                                hashMap.put("from", "SystemScreenshot");
-                                hashMap.put("page", "SystemScreenshot");
-                                hashMap.put("ext", queryContentProviders.toString());
-                                com.baidu.swan.apps.statistic.b.onEvent(BdNetTypeUtil.NATION_CODE, hashMap);
-                            }
-                            d.closeSafely(cursor);
-                            return;
                         }
+                    } catch (RuntimeException e) {
+                        if (cLj != null) {
+                            List<ProviderInfo> queryContentProviders = cLj.queryContentProviders(null, 0, 131072);
+                            HashMap hashMap = new HashMap();
+                            hashMap.put("from", "SystemScreenshot");
+                            hashMap.put("page", "SystemScreenshot");
+                            hashMap.put("ext", queryContentProviders.toString());
+                            com.baidu.swan.apps.statistic.b.onEvent(BdNetTypeUtil.NATION_CODE, hashMap);
+                        }
+                        d.closeSafely(cursor);
+                        return;
                     }
-                    d.closeSafely(cursor);
-                } catch (Throwable th) {
-                    closeable = currentTimeMillis;
-                    th = th;
-                    d.closeSafely(closeable);
-                    throw th;
                 }
-            } catch (RuntimeException e2) {
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
+                d.closeSafely(cursor);
+            } catch (Throwable th) {
+                closeable = currentTimeMillis;
+                th = th;
                 d.closeSafely(closeable);
                 throw th;
             }
+        } catch (RuntimeException e2) {
+            cursor = null;
+        } catch (Throwable th2) {
+            th = th2;
+            d.closeSafely(closeable);
+            throw th;
         }
     }
 
-    public static boolean arh() {
-        return g.ajk().isForeground() && System.currentTimeMillis() - cHZ > 2000;
+    public static boolean asY() {
+        return g.akA().isForeground() && System.currentTimeMillis() - cLh > 2000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -184,7 +193,7 @@ public class c {
         int navigationBarHeight = point.y + getNavigationBarHeight();
         int i = point.x;
         double d = (i != 0 ? navigationBarHeight / (i * 1.0d) : 0.0d) * 1.2d;
-        double h = com.baidu.swan.apps.aq.b.aug() ? h(uri) : 0.0d;
+        double h = com.baidu.swan.apps.aq.c.awi() ? h(uri) : 0.0d;
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);
@@ -208,11 +217,15 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean d(String str, Uri uri) {
-        if (com.baidu.swan.apps.aq.b.aug()) {
+        if (com.baidu.swan.apps.aq.c.awi()) {
             return g(uri);
         }
         new BitmapFactory.Options().inJustDecodeBounds = true;
         return BitmapFactory.decodeFile(str) != null;
+    }
+
+    private static boolean asZ() {
+        return mImageUri == null || TextUtils.equals(cLm, mImageUri.toString());
     }
 
     private static boolean g(Uri uri) {
@@ -251,7 +264,7 @@ public class c {
         }
     }
 
-    private static boolean cj(Context context) {
+    private static boolean cm(Context context) {
         return Build.VERSION.SDK_INT < 23 || com.baidu.swan.support.v4.a.a.checkSelfPermission(context, "android.permission.READ_EXTERNAL_STORAGE") == 0;
     }
 
@@ -267,34 +280,34 @@ public class c {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static class b {
-        public long cIj;
-        public Uri cIk;
+        public long cLs;
+        public Uri cLt;
         public String mImagePath;
 
         private b(String str, Long l, Uri uri) {
             this.mImagePath = str;
-            this.cIj = l.longValue();
-            this.cIk = uri;
+            this.cLs = l.longValue();
+            this.cLt = uri;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        private static String cIh;
-        private static String[] cIi;
+        private static String cLq;
+        private static String[] cLr;
 
         static {
-            cIh = null;
-            cIi = null;
-            cIh = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
-            cIi = new String[]{"_display_name", "_data", "date_added", IMConstants.MSG_ROW_ID};
+            cLq = null;
+            cLr = null;
+            cLq = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
+            cLr = new String[]{"_display_name", "_data", "date_added", IMConstants.MSG_ROW_ID};
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static boolean or(String str) {
+        public static boolean pa(String str) {
             if (str == null) {
                 return false;
             }
@@ -305,7 +318,7 @@ public class c {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static boolean m(long j, long j2) {
+        public static boolean n(long j, long j2) {
             return Math.abs(j - j2) <= 10;
         }
     }

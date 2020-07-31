@@ -6,7 +6,7 @@ import com.baidu.ala.AlaCmdConfigSocket;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaMGetLiveStatusSocketResponseMessage extends SocketResponsedMessage {
     private List<Long> mCloseIds;
     private long mInterval;

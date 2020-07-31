@@ -4,7 +4,7 @@ import android.os.Build;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class f extends WebViewClient {
     final /* synthetic */ WebView a;
     final /* synthetic */ String b;

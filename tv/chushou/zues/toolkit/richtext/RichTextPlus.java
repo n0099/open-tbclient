@@ -2,7 +2,7 @@ package tv.chushou.zues.toolkit.richtext;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RichTextPlus implements Serializable {
     private static final long serialVersionUID = 7217061769597191037L;
     public String mBgImage;

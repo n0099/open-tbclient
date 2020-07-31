@@ -1,7 +1,7 @@
 package tv.chushou.zues.widget.adapterview;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface c {
-    void LJ(int i);
+    void Md(int i);
 
-    boolean dWQ();
+    boolean eam();
 }

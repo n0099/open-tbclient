@@ -11,18 +11,18 @@ import android.widget.Toast;
 import java.lang.reflect.Field;
 import tv.chushou.basis.rxjava.RxExecutor;
 import tv.chushou.basis.rxjava.thread.EventThread;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g {
     public static void y(CharSequence charSequence) {
-        a.d(h.dWi(), charSequence);
+        a.d(h.dZE(), charSequence);
     }
 
     public static void c(Context context, CharSequence charSequence) {
         a.d(context, charSequence);
     }
 
-    public static void LI(@StringRes int i) {
-        a.showToast(h.dWi(), i);
+    public static void Mc(@StringRes int i) {
+        a.showToast(h.dZE(), i);
     }
 
     public static void F(Context context, @StringRes int i) {
@@ -30,7 +30,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b extends Handler {
         private Handler handler;
 
@@ -65,43 +65,43 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
-        private static CharSequence okA;
-        private static Toast okB = null;
-        private static long okC = 0;
+        private static CharSequence otf;
+        private static Toast otg = null;
+        private static long oth = 0;
 
         static void d(final Context context, final CharSequence charSequence) {
             if (charSequence != null && charSequence.length() != 0) {
                 if (context == null) {
-                    context = h.dWi();
+                    context = h.dZE();
                 }
                 if (context != null) {
                     Runnable runnable = new Runnable() { // from class: tv.chushou.zues.utils.g.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (a.okB == null) {
-                                Toast unused = a.okB = Toast.makeText(context.getApplicationContext(), (CharSequence) null, 0);
-                                g.c(a.okB);
-                                a.okB.setText(charSequence);
-                                a.okB.show();
-                                CharSequence unused2 = a.okA = charSequence;
-                                long unused3 = a.okC = System.currentTimeMillis();
+                            if (a.otg == null) {
+                                Toast unused = a.otg = Toast.makeText(context.getApplicationContext(), (CharSequence) null, 0);
+                                g.c(a.otg);
+                                a.otg.setText(charSequence);
+                                a.otg.show();
+                                CharSequence unused2 = a.otf = charSequence;
+                                long unused3 = a.oth = System.currentTimeMillis();
                                 return;
                             }
                             long currentTimeMillis = System.currentTimeMillis();
-                            if (charSequence.equals(a.okA)) {
-                                if (currentTimeMillis - a.okC > 2000) {
-                                    a.okB.show();
-                                    long unused4 = a.okC = currentTimeMillis;
+                            if (charSequence.equals(a.otf)) {
+                                if (currentTimeMillis - a.oth > 2000) {
+                                    a.otg.show();
+                                    long unused4 = a.oth = currentTimeMillis;
                                     return;
                                 }
                                 return;
                             }
-                            CharSequence unused5 = a.okA = charSequence;
-                            a.okB.setText(charSequence);
-                            a.okB.show();
-                            long unused6 = a.okC = currentTimeMillis;
+                            CharSequence unused5 = a.otf = charSequence;
+                            a.otg.setText(charSequence);
+                            a.otg.show();
+                            long unused6 = a.oth = currentTimeMillis;
                         }
                     };
                     if (Looper.myLooper() != Looper.getMainLooper()) {
@@ -115,7 +115,7 @@ public class g {
 
         static void showToast(Context context, @StringRes int i) {
             if (context != null) {
-                d(context, h.dWM().getString(i));
+                d(context, h.eai().getString(i));
             }
         }
     }

@@ -27,7 +27,6 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidubce.http.Headers;
 import java.io.File;
 import java.util.HashMap;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes6.dex */
 public class BinaryReqTask extends AbstractTask {
     private static final boolean DEBUG = false;
@@ -510,7 +509,7 @@ public class BinaryReqTask extends AbstractTask {
             } else if (!lowerCase.contains("g")) {
                 return 0L;
             } else {
-                return IjkMediaMeta.AV_CH_STEREO_RIGHT;
+                return 1073741824L;
             }
         } catch (Exception e) {
             return 0L;

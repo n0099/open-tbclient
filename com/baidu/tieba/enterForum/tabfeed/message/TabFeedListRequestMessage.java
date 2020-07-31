@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.t;
 import tbclient.Tabfeedlist.DataReq;
 import tbclient.Tabfeedlist.TabfeedlistReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class TabFeedListRequestMessage extends NetMessage {
     public static final int LOAD_RN = 30;
     public static final int LOAD_TYPE_LOADMORE = 2;

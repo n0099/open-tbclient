@@ -4,7 +4,7 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class MapRenderer implements GLSurfaceView.Renderer {
     private static final String d = MapRenderer.class.getSimpleName();
     public int a;
@@ -14,7 +14,7 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     private a f;
     private final j g;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void f();
     }

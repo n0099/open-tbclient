@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.support.v4.app.NotificationCompat;
 import android.widget.RelativeLayout;
-import com.baidu.f.a.a.a.a;
+import com.baidu.g.a.a.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.ThirdPartyService;
 import com.baidu.sapi2.dto.PassNameValuePair;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
     private static final String TAG = "FacebookSSOLoginActivity";
     private CallbackManager callbackManager;

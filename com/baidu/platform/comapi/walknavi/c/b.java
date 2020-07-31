@@ -6,7 +6,7 @@ import android.os.Message;
 import android.util.Log;
 import com.baidu.platform.comjni.bikenavi.JNIEngineManager;
 import com.baidu.platform.comjni.jninative.EngineCommonConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.platform.comapi.walknavi.a {
     private JNIEngineManager a = null;
     private long b = 0;
@@ -57,7 +57,7 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends Thread {
         private EngineCommonConfig b;
         private long c;
@@ -117,7 +117,7 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class C0226b extends Thread {
         private Context b;
 

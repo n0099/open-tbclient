@@ -8,14 +8,14 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class g extends a {
     private final int arrayLength;
     private int currentIndex;
-    private ContinuousAnimationView eyx;
+    private ContinuousAnimationView eEN;
     private TextView loadingTextView;
     private int mSkinType;
     private Runnable runnable;
@@ -50,17 +50,17 @@ public class g extends a {
                 TbadkCoreApplication.getInst().handler.postDelayed(g.this.runnable, 200L);
             }
         };
-        this.eyx = (ContinuousAnimationView) this.attachedView.findViewById(R.id.common_loading_view);
+        this.eEN = (ContinuousAnimationView) this.attachedView.findViewById(R.id.common_loading_view);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.eyx.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.eEN.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.eyx.setLayoutParams(marginLayoutParams);
+                this.eEN.setLayoutParams(marginLayoutParams);
             }
         }
-        an.a(this.eyx, (int) R.raw.lottie_full_screen_refresh);
-        this.eyx.setSpeed(1.2f);
+        ao.a(this.eEN, R.raw.lottie_full_screen_refresh);
+        this.eEN.setSpeed(1.2f);
         this.textView = (TextView) this.attachedView.findViewById(R.id.loading_anim_ellipsis);
         this.loadingTextView = (TextView) this.attachedView.findViewById(R.id.loading_text);
         this.textArray = context.getResources().getStringArray(R.array.loading_anim_text_array);
@@ -68,14 +68,14 @@ public class g extends a {
     }
 
     private void startLoadingAnimation() {
-        if (this.eyx != null) {
-            this.eyx.playAnimation();
+        if (this.eEN != null) {
+            this.eEN.playAnimation();
         }
     }
 
     private void stopLoadingAnimation() {
-        if (this.eyx != null) {
-            this.eyx.pauseAnimation();
+        if (this.eEN != null) {
+            this.eEN.pauseAnimation();
         }
     }
 
@@ -89,11 +89,11 @@ public class g extends a {
         if (this.mSkinType == -1) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
-        an.a(this.eyx, (int) R.raw.lottie_full_screen_refresh);
+        ao.a(this.eEN, R.raw.lottie_full_screen_refresh);
         startLoadingAnimation();
-        an.setViewTextColor(this.textView, R.color.cp_cont_c, 1, this.mSkinType);
-        an.setViewTextColor(this.loadingTextView, R.color.cp_cont_c, 1, this.mSkinType);
-        an.setBackgroundColor(this.attachedView, R.color.cp_bg_line_d, this.mSkinType);
+        ao.setViewTextColor(this.textView, R.color.cp_cont_c, 1, this.mSkinType);
+        ao.setViewTextColor(this.loadingTextView, R.color.cp_cont_c, 1, this.mSkinType);
+        ao.setBackgroundColor(this.attachedView, R.color.cp_bg_line_d, this.mSkinType);
         this.textView.setText(this.textArray[0]);
         TbadkCoreApplication.getInst().handler.removeCallbacks(this.runnable);
         TbadkCoreApplication.getInst().handler.postDelayed(this.runnable, 200L);
@@ -118,9 +118,9 @@ public class g extends a {
         }
         if (isViewAttached()) {
             startLoadingAnimation();
-            an.setViewTextColor(this.textView, R.color.cp_cont_c, 1, this.mSkinType);
-            an.setViewTextColor(this.loadingTextView, R.color.cp_cont_c, 1, this.mSkinType);
-            an.setBackgroundColor(this.attachedView, R.color.cp_bg_line_d, this.mSkinType);
+            ao.setViewTextColor(this.textView, R.color.cp_cont_c, 1, this.mSkinType);
+            ao.setViewTextColor(this.loadingTextView, R.color.cp_cont_c, 1, this.mSkinType);
+            ao.setBackgroundColor(this.attachedView, R.color.cp_bg_line_d, this.mSkinType);
         }
     }
 
@@ -130,38 +130,38 @@ public class g extends a {
 
     @Override // com.baidu.tbadk.k.a
     public void dettachView(View view) {
-        if (this.eyx != null) {
-            this.eyx.cancelAnimation();
+        if (this.eEN != null) {
+            this.eEN.cancelAnimation();
         }
         TbadkCoreApplication.getInst().handler.removeCallbacks(this.runnable);
         super.dettachView(view);
     }
 
     public void setTopMargin(int i) {
-        if (this.eyx != null) {
-            ViewGroup.LayoutParams layoutParams = this.eyx.getLayoutParams();
+        if (this.eEN != null) {
+            ViewGroup.LayoutParams layoutParams = this.eEN.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.eyx.setLayoutParams(marginLayoutParams);
+                this.eEN.setLayoutParams(marginLayoutParams);
             }
         }
     }
 
-    public void bg(int i) {
-        if (this.eyx != null) {
-            ViewGroup.LayoutParams layoutParams = this.eyx.getLayoutParams();
+    public void bi(int i) {
+        if (this.eEN != null) {
+            ViewGroup.LayoutParams layoutParams = this.eEN.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.bottomMargin = i;
-                this.eyx.setLayoutParams(marginLayoutParams);
+                this.eEN.setLayoutParams(marginLayoutParams);
             }
         }
     }
 
-    public void bgC() {
-        if (this.eyx != null) {
-            ((RelativeLayout.LayoutParams) this.eyx.getLayoutParams()).addRule(15, 0);
+    public void bkn() {
+        if (this.eEN != null) {
+            ((RelativeLayout.LayoutParams) this.eEN.getLayoutParams()).addRule(15, 0);
         }
     }
 

@@ -1,24 +1,24 @@
 package com.baidu.live.s;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private b bbE;
-    private c bbF;
+    private b bbW;
+    private c bbX;
 
-    public static a GJ() {
-        return C0175a.bbG;
+    public static a GQ() {
+        return C0177a.bbY;
     }
 
     public void a(c cVar) {
-        this.bbF = cVar;
+        this.bbX = cVar;
     }
 
-    public b GK() {
-        return this.bbE;
+    public b GR() {
+        return this.bbW;
     }
 
     /* renamed from: com.baidu.live.s.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0175a {
-        private static final a bbG = new a();
+    /* loaded from: classes4.dex */
+    public static class C0177a {
+        private static final a bbY = new a();
     }
 }

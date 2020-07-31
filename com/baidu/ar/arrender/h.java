@@ -1,14 +1,14 @@
 package com.baidu.ar.arrender;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class h extends com.baidu.ar.ability.c {
     private String im;
     private String in;
 
     /* renamed from: io  reason: collision with root package name */
-    private Object f980io;
+    private Object f959io;
     private a ip;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public enum a {
         INT,
         FLOAT,
@@ -21,17 +21,17 @@ public class h extends com.baidu.ar.ability.c {
     }
 
     public void L(String str) {
-        this.f980io = str;
+        this.f959io = str;
         this.ip = a.STRING;
     }
 
     public void b(float f) {
-        this.f980io = Float.valueOf(f);
+        this.f959io = Float.valueOf(f);
         this.ip = a.FLOAT;
     }
 
     public void b(float[] fArr) {
-        this.f980io = fArr;
+        this.f959io = fArr;
         this.ip = a.FLOAT_ARRAY;
     }
 
@@ -40,7 +40,7 @@ public class h extends com.baidu.ar.ability.c {
     }
 
     public Object bH() {
-        return this.f980io;
+        return this.f959io;
     }
 
     public a bI() {
@@ -52,7 +52,7 @@ public class h extends com.baidu.ar.ability.c {
     }
 
     public void s(int i) {
-        this.f980io = Integer.valueOf(i);
+        this.f959io = Integer.valueOf(i);
         this.ip = a.INT;
     }
 

@@ -4,15 +4,15 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.asus.msa.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static abstract class AbstractBinderC0012a extends Binder implements a {
 
         /* renamed from: com.asus.msa.a.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
+        /* loaded from: classes19.dex */
         public static class C0013a implements a {
             public IBinder a;
 

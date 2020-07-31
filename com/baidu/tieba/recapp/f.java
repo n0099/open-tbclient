@@ -2,64 +2,64 @@ package com.baidu.tieba.recapp;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class f {
     public String forumName;
-    public int lep;
-    public int leq;
-    public int ler;
+    public int llC;
+    public int llD;
+    public int llE;
     public int refreshCount;
 
     public f() {
         this.refreshCount = 0;
-        this.lep = 0;
-        this.leq = 0;
-        this.ler = 0;
+        this.llC = 0;
+        this.llD = 0;
+        this.llE = 0;
     }
 
     public f(JSONObject jSONObject) {
         this.refreshCount = 0;
-        this.lep = 0;
-        this.leq = 0;
-        this.ler = 0;
+        this.llC = 0;
+        this.llD = 0;
+        this.llE = 0;
         if (jSONObject != null) {
             this.forumName = jSONObject.optString("forum_name");
             this.refreshCount = jSONObject.optInt("refresh_count");
-            this.lep = jSONObject.optInt("loadmore_count");
-            this.leq = jSONObject.optInt("loadmore_count_pb");
-            this.ler = jSONObject.optInt("refresh_count_pb");
+            this.llC = jSONObject.optInt("loadmore_count");
+            this.llD = jSONObject.optInt("loadmore_count_pb");
+            this.llE = jSONObject.optInt("refresh_count_pb");
         }
     }
 
-    public JSONObject UG() {
+    public JSONObject Vl() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);
             jSONObject.put("refresh_count", this.refreshCount);
-            jSONObject.put("loadmore_count", this.lep);
-            jSONObject.put("loadmore_count_pb", this.leq);
-            jSONObject.put("refresh_count_pb", this.ler);
+            jSONObject.put("loadmore_count", this.llC);
+            jSONObject.put("loadmore_count_pb", this.llD);
+            jSONObject.put("refresh_count_pb", this.llE);
             return jSONObject;
         } catch (JSONException e) {
             return null;
         }
     }
 
-    public int ap(boolean z, boolean z2) {
-        return z2 ? z ? this.ler : this.leq : z ? this.refreshCount : this.lep;
+    public int aq(boolean z, boolean z2) {
+        return z2 ? z ? this.llE : this.llD : z ? this.refreshCount : this.llC;
     }
 
-    public void aq(boolean z, boolean z2) {
+    public void ar(boolean z, boolean z2) {
         if (z2) {
             if (z) {
-                this.ler++;
+                this.llE++;
             } else {
-                this.leq++;
+                this.llD++;
             }
         } else if (z) {
             this.refreshCount++;
         } else {
-            this.lep++;
+            this.llC++;
         }
     }
 }

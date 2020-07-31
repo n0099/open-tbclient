@@ -1,256 +1,910 @@
 package com.baidu.cyberplayer.sdk.b;
 
+import android.content.Context;
+import android.media.AudioManager;
+import android.net.Uri;
 import android.os.Build;
-import android.util.AndroidRuntimeException;
-import com.baidu.adp.plugin.install.PluginInstallerService;
-import com.baidu.cyberplayer.sdk.CyberLog;
-import dalvik.system.BaseDexClassLoader;
-import dalvik.system.DexFile;
-import java.io.File;
-import java.lang.reflect.Array;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-/* loaded from: classes.dex */
-public class a extends BaseDexClassLoader {
-    static Class a = null;
-    static Class b = null;
+import android.text.TextUtils;
+import android.util.AttributeSet;
+import android.view.Surface;
+import android.view.View;
+import android.widget.FrameLayout;
+import com.baidu.cyberplayer.sdk.CyberPlayer;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.cyberplayer.sdk.ICyberVideoView;
+import com.baidu.cyberplayer.sdk.n;
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes10.dex */
+public class a extends FrameLayout implements ICyberVideoView {
+    protected g A;
+    protected CyberPlayerManager.OnVideoSizeChangedListener B;
+    protected CyberPlayerManager.OnErrorListener C;
+    protected c D;
+    protected View.OnTouchListener E;
+    protected d F;
+    protected h G;
+    protected h H;
+    protected int I;
+    protected boolean J;
+    protected boolean K;
+    protected int L;
+    protected int M;
+    protected int N;
+    protected int O;
+    protected int P;
+    protected int Q;
+    protected int R;
+    protected i S;
+    private String T;
+    private boolean U;
+    private int V;
+    private int W;
+    private int a;
+    private int aa;
+    private boolean ab;
+    private float ac;
+    private HashMap<String, String> ad;
+    protected Context b;
+    protected Surface c;
+    protected View d;
+    protected boolean e;
+    protected boolean f;
+    protected String g;
+    protected CyberPlayer h;
+    protected int i;
+    protected boolean j;
+    protected String k;
+    protected String l;
+    protected Uri m;
+    protected Uri n;
+    protected Map<String, String> o;
+    protected boolean p;
+    protected String q;
+    protected CyberPlayerManager.OnCompletionListener r;
+    protected CyberPlayerManager.OnPreparedListener s;
+    protected CyberPlayerManager.OnBufferingUpdateListener t;
+    protected f u;
+    protected CyberPlayerManager.OnSeekCompleteListener v;
+    protected CyberPlayerManager.OnInfoListener w;
+    protected b x;
+    protected InterfaceC0106a y;
+    protected e z;
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.cyberplayer.sdk.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static final class C0109a {
-        /* JADX INFO: Access modifiers changed from: private */
-        public static void b(ClassLoader classLoader, File file) throws Throwable {
-            a.b(a.b(classLoader, "pathList").get(classLoader), "nativeLibraryDirectories", new File[]{file});
-        }
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0106a {
+        void a();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static final class b {
-        /* JADX INFO: Access modifiers changed from: private */
-        public static void b(ClassLoader classLoader, File file) throws Throwable {
-            Object obj = a.b(classLoader, "pathList").get(classLoader);
-            List list = (List) a.b(obj, "nativeLibraryDirectories").get(obj);
-            list.add(0, file);
-            Method b = a.b(obj, "makePathElements", (Class<?>[]) new Class[]{List.class, File.class, List.class});
-            ArrayList arrayList = new ArrayList();
-            list.addAll((List) a.b(obj, "systemNativeLibraryDirectories").get(obj));
-            Field b2 = a.b(obj, "nativeLibraryPathElements");
-            b2.setAccessible(true);
-            b2.set(obj, (Object[]) b.invoke(obj, list, null, arrayList));
-        }
+    /* loaded from: classes10.dex */
+    public interface b {
+        void a();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static final class c {
-        /* JADX INFO: Access modifiers changed from: private */
-        public static void b(ClassLoader classLoader, File file) throws Throwable {
-            Object obj = a.b(classLoader, "pathList").get(classLoader);
-            List list = (List) a.b(obj, "nativeLibraryDirectories").get(obj);
-            list.add(0, file);
-            Method b = a.b(obj, "makePathElements", (Class<?>[]) new Class[]{List.class});
-            list.addAll((List) a.b(obj, "systemNativeLibraryDirectories").get(obj));
-            Field b2 = a.b(obj, "nativeLibraryPathElements");
-            b2.setAccessible(true);
-            b2.set(obj, (Object[]) b.invoke(obj, list));
-        }
+    /* loaded from: classes10.dex */
+    public interface c {
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static final class d {
-        /* JADX INFO: Access modifiers changed from: private */
-        public static void b(ClassLoader classLoader, File file) throws Throwable {
-            String path = file.getPath();
-            Field b = a.b(classLoader, "libPath");
-            StringBuilder sb = new StringBuilder((String) b.get(classLoader));
-            sb.append(':').append(path);
-            b.set(classLoader, sb.toString());
-            Field b2 = a.b(classLoader, "libraryPathElements");
-            List list = (List) b2.get(classLoader);
-            list.add(0, path);
-            b2.set(classLoader, list);
-        }
+    /* loaded from: classes10.dex */
+    public interface d {
     }
 
-    public a(String str, File file, String str2, ClassLoader classLoader) {
-        super(a(str, "super()"), file, str2, classLoader);
-        if (Build.VERSION.SDK_INT >= 21 || !str.endsWith(PluginInstallerService.APK_LIB_SUFFIX)) {
+    /* loaded from: classes10.dex */
+    public interface e {
+        void a();
+    }
+
+    /* loaded from: classes10.dex */
+    public interface f {
+        void a();
+    }
+
+    /* loaded from: classes10.dex */
+    public interface g {
+        void a();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    /* loaded from: classes10.dex */
+    public enum h {
+        ERROR,
+        IDLE,
+        PREPARING,
+        PREPARED,
+        PLAYING,
+        PAUSED,
+        PLAYBACK_COMPLETED
+    }
+
+    /* loaded from: classes10.dex */
+    protected enum i {
+        PAUSED,
+        RESUMED
+    }
+
+    public a(Context context) {
+        super(context);
+        this.e = true;
+        this.f = false;
+        this.i = 0;
+        this.j = true;
+        this.m = null;
+        this.n = null;
+        this.p = false;
+        this.a = 0;
+        this.T = "0.0.0.0";
+        this.U = true;
+        this.V = 0;
+        this.W = 0;
+        this.aa = 0;
+        this.ab = false;
+        this.ac = 1.0f;
+        this.ad = new HashMap<>();
+        this.G = h.IDLE;
+        this.H = h.IDLE;
+        this.J = false;
+        this.S = i.PAUSED;
+        if (isInEditMode()) {
             return;
         }
-        CyberLog.d("CyberClassLoader", "makeDexElements for our package. < L");
-        a(str, file, str2, classLoader);
+        a(context);
     }
 
-    private static Object a(Class cls, Object obj, String str) throws Exception {
-        Field declaredField = cls.getDeclaredField(str);
-        boolean isAccessible = declaredField.isAccessible();
-        declaredField.setAccessible(true);
-        Object obj2 = declaredField.get(obj);
-        declaredField.setAccessible(isAccessible);
-        return obj2;
+    public a(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.e = true;
+        this.f = false;
+        this.i = 0;
+        this.j = true;
+        this.m = null;
+        this.n = null;
+        this.p = false;
+        this.a = 0;
+        this.T = "0.0.0.0";
+        this.U = true;
+        this.V = 0;
+        this.W = 0;
+        this.aa = 0;
+        this.ab = false;
+        this.ac = 1.0f;
+        this.ad = new HashMap<>();
+        this.G = h.IDLE;
+        this.H = h.IDLE;
+        this.J = false;
+        this.S = i.PAUSED;
+        a(context);
     }
 
-    private static String a(String str, String str2) {
-        CyberLog.d("CyberClassLoader", str2);
-        return str;
+    public a(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.e = true;
+        this.f = false;
+        this.i = 0;
+        this.j = true;
+        this.m = null;
+        this.n = null;
+        this.p = false;
+        this.a = 0;
+        this.T = "0.0.0.0";
+        this.U = true;
+        this.V = 0;
+        this.W = 0;
+        this.aa = 0;
+        this.ab = false;
+        this.ac = 1.0f;
+        this.ad = new HashMap<>();
+        this.G = h.IDLE;
+        this.H = h.IDLE;
+        this.J = false;
+        this.S = i.PAUSED;
+        a(context);
     }
 
-    private static void a() throws Exception {
-        if (a == null || b == null) {
-            a = Class.forName("dalvik.system.DexPathList");
-            Class<?>[] declaredClasses = a.getDeclaredClasses();
-            int length = declaredClasses.length;
-            int i = 0;
-            while (true) {
-                if (i >= length) {
-                    break;
-                }
-                Class<?> cls = declaredClasses[i];
-                if (cls.getSimpleName().equals("Element")) {
-                    b = cls;
-                    break;
-                }
-                i++;
-            }
-            if (b == null) {
-                throw new AndroidRuntimeException("DexPathList$Element not found!");
-            }
+    protected void a(int i2, int i3) {
+        setCurPlayerState(h.ERROR);
+        this.H = h.ERROR;
+        if (this.C != null) {
+            this.C.onError(i2, i3, null);
         }
     }
 
-    private static void a(Class cls, Object obj, String str, Object obj2) throws Exception {
-        Field declaredField = cls.getDeclaredField(str);
-        boolean isAccessible = declaredField.isAccessible();
-        declaredField.setAccessible(true);
-        declaredField.set(obj, obj2);
-        declaredField.setAccessible(isAccessible);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(int i2, int i3, int i4, int i5) {
+        if (i2 == 0 || i3 == 0 || this.d == null) {
+            return;
+        }
+        a(1, "on23DVideoSizeChanged w:" + i2 + " h:" + i3);
     }
 
-    private static void a(ClassLoader classLoader, File file) throws Throwable {
-        if (file == null || !file.exists()) {
-            CyberLog.e("CyberClassLoader", "installNativeLibraryPath, folder (" + file + ") is illegal");
-        } else if ((Build.VERSION.SDK_INT == 25 && Build.VERSION.PREVIEW_SDK_INT != 0) || Build.VERSION.SDK_INT > 25) {
-            try {
-                c.b(classLoader, file);
-            } catch (Throwable th) {
-                CyberLog.e("CyberClassLoader", "installNativeLibraryPath, v25 fail, sdk: " + Build.VERSION.SDK_INT + ", error: " + th.getMessage() + ", try to fallback to V23");
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(int i2, String str) {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(Context context) {
+        if (context == null) {
+            throw new RuntimeException("Context not be null");
+        }
+        this.b = context.getApplicationContext();
+    }
+
+    protected void a(boolean z) {
+        a(z, true);
+    }
+
+    protected void a(boolean z, boolean z2) {
+        if (this.h != null) {
+            this.h.setDisplay(null);
+            this.h.release();
+            this.h = null;
+        }
+        setCurPlayerState(h.IDLE);
+        if (z2) {
+            this.H = h.IDLE;
+        }
+        ((AudioManager) this.b.getSystemService("audio")).abandonAudioFocus(null);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean a(int i2) {
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void b(int i2) {
+        f();
+        a(i2);
+        Object[] objArr = new Object[1];
+        objArr[0] = Integer.valueOf(this.d == null ? 0 : this.d.hashCode());
+        a(1, String.format("rendView hashCode = %d", objArr));
+        setFocusable(true);
+        setFocusableInTouchMode(true);
+    }
+
+    protected boolean b() {
+        return this.f;
+    }
+
+    protected void c() {
+        this.I = 0;
+        this.K = false;
+    }
+
+    protected void c(int i2) {
+        a(this.n != null, false);
+        ((AudioManager) this.b.getSystemService("audio")).requestAudioFocus(null, 3, 1);
+        this.h = d(i2);
+        if (this.ad != null) {
+            for (String str : this.ad.keySet()) {
+                this.h.setOption(str, this.ad.get(str));
             }
-        } else if (Build.VERSION.SDK_INT < 23) {
-            if (Build.VERSION.SDK_INT >= 14) {
-                C0109a.b(classLoader, file);
+        }
+        if (this.c != null) {
+            this.h.setSurface(this.c);
+        }
+        this.h.setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.cyberplayer.sdk.b.a.1
+            @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
+            public void onPrepared() {
+                a.this.a(1, "onPrepared");
+                a.this.setCurPlayerState(h.PREPARED);
+                a.this.h.setLooping(a.this.J);
+                if (a.this.s != null) {
+                    a.this.s.onPrepared();
+                }
+                if (a.this.I != 0) {
+                    a.this.seekTo(a.this.I);
+                }
+                if (a.this.H == h.PLAYING) {
+                    a.this.start();
+                } else if (a.this.K) {
+                    a.this.pauseBuffering();
+                }
+            }
+        });
+        this.h.setOnVideoSizeChangedListener(new CyberPlayerManager.OnVideoSizeChangedListener() { // from class: com.baidu.cyberplayer.sdk.b.a.2
+            @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
+            public void onVideoSizeChanged(int i3, int i4, int i5, int i6) {
+                a.this.a(1, String.format("onVideoSizeChanged,w=%d,h=%d", Integer.valueOf(i3), Integer.valueOf(i4)));
+                if (i3 == 0 || i4 == 0) {
+                    return;
+                }
+                a.this.a(i3, i4, i5, i6);
+                a.this.requestLayout();
+                a.this.W = i3;
+                a.this.aa = i4;
+                if (a.this.B != null) {
+                    a.this.B.onVideoSizeChanged(i3, i4, i5, i6);
+                }
+            }
+        });
+        this.h.setOnCompletionListener(new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.cyberplayer.sdk.b.a.3
+            @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+            public void onCompletion() {
+                a.this.a(1, "onCompletion");
+                a.this.setCurPlayerState(h.PLAYBACK_COMPLETED);
+                a.this.H = h.PLAYBACK_COMPLETED;
+                if (a.this.r != null) {
+                    a.this.r.onCompletion();
+                }
+            }
+        });
+        this.h.setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.cyberplayer.sdk.b.a.4
+            @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
+            public boolean onError(int i3, int i4, Object obj) {
+                a.this.a(1, String.format("onError:err=%d,detail=%d", Integer.valueOf(i3), Integer.valueOf(i4)));
+                if (i3 == -10000 && (i4 == 11 || i4 == 101 || i4 == -110 || i4 == -5)) {
+                    i4 = 300;
+                }
+                a.this.a(i3, i4);
+                return true;
+            }
+        });
+        this.h.setOnInfoListener(new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.cyberplayer.sdk.b.a.5
+            @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
+            public boolean onInfo(int i3, int i4, Object obj) {
+                a.this.a(1, String.format("onInfo:what=%d,extra=%d", Integer.valueOf(i3), Integer.valueOf(i4)));
+                if (a.this.w != null) {
+                    a.this.w.onInfo(i3, i4, null);
+                }
+                if (i3 == 701) {
+                    a.this.a(2, "onBufferingStart");
+                    if (a.this.x != null) {
+                        a.this.x.a();
+                    }
+                } else if (i3 == 702) {
+                    a.this.a(2, "onBufferingEnd");
+                    if (a.this.y != null) {
+                        a.this.y.a();
+                    }
+                } else if (i3 == 3) {
+                    a.this.a(1, "onRenderStart");
+                    if (a.this.z != null) {
+                        a.this.z.a();
+                    }
+                }
+                return true;
+            }
+        });
+        this.h.setOnBufferingUpdateListener(new CyberPlayerManager.OnBufferingUpdateListener() { // from class: com.baidu.cyberplayer.sdk.b.a.6
+            @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
+            public void onBufferingUpdate(int i3) {
+                a.this.a(2, String.format("onBufferingUpdate:percent=%d", Integer.valueOf(i3)));
+                if (a.this.t != null) {
+                    a.this.t.onBufferingUpdate(i3);
+                }
+            }
+        });
+        this.h.setOnSeekCompleteListener(new CyberPlayerManager.OnSeekCompleteListener() { // from class: com.baidu.cyberplayer.sdk.b.a.7
+            @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
+            public void onSeekComplete() {
+                a.this.a(1, "onSeekComplete");
+                if (a.this.v != null) {
+                    a.this.v.onSeekComplete();
+                }
+            }
+        });
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void changeProxyDynamic(String str) {
+        if (this.h != null && TextUtils.isEmpty(n.c())) {
+            String str2 = this.ad != null ? this.ad.get(CyberPlayerManager.OPT_HTTP_PROXY) : null;
+            if (TextUtils.isEmpty(str)) {
+                if (TextUtils.isEmpty(str2)) {
+                    return;
+                }
+                this.h.changeProxyDynamic(null, false);
+            } else if (str.equals(str2)) {
+                return;
             } else {
-                d.b(classLoader, file);
+                this.h.changeProxyDynamic(str, true);
             }
-        } else {
-            try {
-                b.b(classLoader, file);
-            } catch (Throwable th2) {
-                CyberLog.e("CyberClassLoader", "installNativeLibraryPath, v23 fail, sdk: " + Build.VERSION.SDK_INT + ", error: " + th2.getMessage() + ", try to fallback to V14");
-                C0109a.b(classLoader, file);
+            this.h.seekTo(getCurrentPosition() - 500);
+            if (this.ad != null) {
+                this.ad.put(CyberPlayerManager.OPT_HTTP_PROXY, str);
             }
         }
     }
 
-    public static void a(ClassLoader classLoader, String[] strArr) {
-        if (strArr == null || strArr.length == 0) {
+    protected CyberPlayer d(int i2) {
+        if (this.V == 3 || this.V < 0 || this.V > 4) {
+            this.V = 0;
+        }
+        a(1, "createplayer : " + i2);
+        return new CyberPlayer(this.V, null);
+    }
+
+    protected boolean d() {
+        return (this.f || this.c == null) ? false : true;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void destory() {
+        destroy();
+    }
+
+    public void destroy() {
+        a(1, "destroy");
+        if (this.ad != null) {
+            this.ad.clear();
+        }
+        a(false);
+        f();
+        destroyRender();
+        this.c = null;
+        this.r = null;
+        this.s = null;
+        this.t = null;
+        this.u = null;
+        this.v = null;
+        this.w = null;
+        this.x = null;
+        this.y = null;
+        this.z = null;
+        this.A = null;
+        this.B = null;
+        this.C = null;
+        this.D = null;
+    }
+
+    protected void destroyRender() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void e() {
+        if (this.m == null || !d()) {
             return;
         }
-        for (String str : strArr) {
-            try {
-                a(classLoader, new File(str));
-            } catch (Exception e) {
-                CyberLog.e("CyberClassLoader", "addNativeLibraryDirectories:" + e.toString());
-            } catch (Throwable th) {
-                CyberLog.e("CyberClassLoader", "addNativeLibraryDirectories:" + th.toString());
-            }
-        }
-    }
-
-    private void a(String str, File file, String str2, ClassLoader classLoader) {
-        Object newInstance;
+        a(1, String.format("uri:%s ", this.m));
+        c(this.i);
+        c();
         try {
-            a();
-            DexFile loadDex = DexFile.loadDex(str, file.getAbsolutePath() + File.separator + new File(str).getName().replace(PluginInstallerService.APK_LIB_SUFFIX, ".dex"), 0);
-            Constructor<?> constructor = b.getConstructors()[0];
-            int length = constructor.getParameterTypes().length;
-            if (length == 4) {
-                newInstance = constructor.newInstance(new File(str), false, null, loadDex);
-            } else if (length != 3) {
-                throw new Exception("Unsupported:" + constructor.toGenericString());
+            if (Build.VERSION.SDK_INT >= 14) {
+                this.h.setDataSource(this.b, this.m, this.o);
             } else {
-                newInstance = constructor.newInstance(new File(str), null, loadDex);
+                this.h.setDataSource(this.m.toString());
             }
-            Object newInstance2 = Array.newInstance(b, 1);
-            Array.set(newInstance2, 0, newInstance);
-            Object a2 = a(BaseDexClassLoader.class, this, "pathList");
-            a(a, a2, "dexElements", newInstance2);
-            if (Build.VERSION.SDK_INT >= 19) {
-                a(a, a2, "dexElementsSuppressedExceptions", (Object) null);
+            if (this.f) {
+                a(1, "video is 2d");
+            } else {
+                this.h.setSurface(this.c);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new AndroidRuntimeException(e);
+            this.h.prepareAsync();
+            if (this.ab) {
+                muteOrUnmuteAudio(this.ab);
+            }
+            setCurPlayerState(h.PREPARING);
+        } catch (Exception e2) {
+            a(1, 0);
+        }
+        requestLayout();
+        invalidate();
+    }
+
+    protected void e(int i2) {
+        if (!isInPlaybackState()) {
+            this.I = i2;
+            return;
+        }
+        this.h.seekTo(i2);
+        this.I = 0;
+    }
+
+    public void enableCache(String str) {
+        this.g = str;
+    }
+
+    protected void f() {
+        if (this.h != null) {
+            this.h.setDisplay(null);
+        }
+        if (this.d != null) {
+            removeView(this.d);
+            this.d = null;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static Field b(Object obj, String str) throws NoSuchFieldException {
-        for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
-            try {
-                Field declaredField = cls.getDeclaredField(str);
-                if (!declaredField.isAccessible()) {
-                    declaredField.setAccessible(true);
-                }
-                return declaredField;
-            } catch (NoSuchFieldException e) {
-            }
+    protected void g() {
+        if (isInPlaybackState() && (this.h.isPlaying() || this.G == h.PREPARED)) {
+            a(1, "pausePlayer");
+            this.h.pause();
+            setCurPlayerState(h.PAUSED);
         }
-        throw new NoSuchFieldException("Field " + str + " not found in " + obj.getClass());
+        this.H = h.PAUSED;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static Method b(Object obj, String str, Class<?>... clsArr) throws NoSuchMethodException {
-        for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
-            try {
-                Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
-                if (!declaredMethod.isAccessible()) {
-                    declaredMethod.setAccessible(true);
-                }
-                return declaredMethod;
-            } catch (NoSuchMethodException e) {
-            }
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public int getCurrentPosition() {
+        if (isInPlaybackState()) {
+            return this.h.getCurrentPosition();
         }
-        throw new NoSuchMethodException("Method " + str + " with parameters " + Arrays.asList(clsArr) + " not found in " + obj.getClass());
+        return 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void b(Object obj, String str, Object[] objArr) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
-        Field b2 = b(obj, str);
-        Object[] objArr2 = (Object[]) b2.get(obj);
-        Object[] objArr3 = (Object[]) Array.newInstance(objArr2.getClass().getComponentType(), objArr2.length + objArr.length);
-        System.arraycopy(objArr, 0, objArr3, 0, objArr.length);
-        System.arraycopy(objArr2, 0, objArr3, objArr.length, objArr2.length);
-        b2.set(obj, objArr3);
+    public int getDecodeMode() {
+        return this.V;
     }
 
-    @Override // java.lang.ClassLoader
-    public Class<?> loadClass(String str) throws ClassNotFoundException {
-        if (str != null) {
-            try {
-                if (str.startsWith("com.baidu.media.duplayer.") || str.startsWith("tv.danmaku.ijk.media.player.")) {
-                    return findClass(str);
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public int getDuration() {
+        if (isInPlaybackState()) {
+            return this.h.getDuration();
+        }
+        return -1;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public long getPlayedTime() {
+        if (this.h == null || this.G == h.IDLE || this.G == h.PREPARING) {
+            return -1L;
+        }
+        return this.h.getPlayedTime();
+    }
+
+    public int getPlayerType() {
+        return this.i;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public int getVideoHeight() {
+        return this.aa;
+    }
+
+    public Uri getVideoUri() {
+        return this.m;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public int getVideoWidth() {
+        return this.W;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public View getView() {
+        return this;
+    }
+
+    public int getViewType() {
+        return this.O;
+    }
+
+    public boolean init2D() {
+        this.f = true;
+        if (this.i == 0) {
+            this.i = 1;
+        }
+        if (this.O == 0) {
+            this.O = 1;
+        }
+        a(1, String.format("playerType:" + this.i + " interactiveMode:" + this.L + " displayMode:" + this.M + " sourceType:" + this.P + " viewType:" + this.O, new Object[0]));
+        b(this.O);
+        return true;
+    }
+
+    public boolean isAllReady() {
+        return (this.d == null || this.h == null || !b()) ? false : true;
+    }
+
+    public boolean isEnableDetachedSurfaceTextureView() {
+        return this.e;
+    }
+
+    public boolean isEnableMediaCodec() {
+        return this.j;
+    }
+
+    public boolean isInPlaybackState() {
+        return (this.h == null || this.G == h.ERROR || this.G == h.IDLE || this.G == h.PREPARING) ? false : true;
+    }
+
+    public boolean isLooping() {
+        return this.J;
+    }
+
+    public boolean isPlayerIdle() {
+        return this.h != null && this.G == h.IDLE;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public boolean isPlaying() {
+        return isInPlaybackState() && this.h.isPlaying();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void muteOrUnmuteAudio(boolean z) {
+        this.ab = z;
+        a(1, "muteOrUnmuteAudio flag:" + z);
+        if (this.h != null) {
+            this.h.muteOrUnmuteAudio(z);
+        } else {
+            a(1, "muteOrUnmuteAudio must call after setVideoPath or setVideoURI");
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void pause() {
+        a(1, "pause");
+        g();
+    }
+
+    public void pauseBuffering() {
+        a(1, "pauseBuffering");
+        if (isInPlaybackState()) {
+            a(1, "current state is in playback state ");
+        } else {
+            this.K = true;
+        }
+    }
+
+    protected void pauseRender() {
+    }
+
+    public void reStart() {
+        this.p = true;
+        setVideoName(this.k);
+        setVideoURI(this.m);
+        start();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void reset() {
+        this.ab = false;
+        this.ac = 1.0f;
+        resetPlayer();
+    }
+
+    public void resetPlayer() {
+        if (this.h != null) {
+            this.h.reset();
+            this.h.setSurface(this.c);
+        }
+        setCurPlayerState(h.IDLE);
+        this.H = h.IDLE;
+        this.W = 0;
+        this.aa = 0;
+    }
+
+    protected void resumeRender() {
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void seekTo(int i2) {
+        if (i2 < 0 || getDuration() == 0) {
+            return;
+        }
+        a(1, "seekTo");
+        if (this.u != null) {
+            this.u.a();
+        }
+        e(i2);
+    }
+
+    protected void setCurPlayerState(h hVar) {
+        this.G = hVar;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setDecodeMode(int i2) {
+        this.V = i2;
+    }
+
+    public void setEnableDetachedSurfaceTextureView(boolean z) {
+        this.e = z;
+    }
+
+    public void setEnableMediaCodec(boolean z) {
+        this.j = z;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setExternalInfo(String str, Object obj) {
+        if (TextUtils.isEmpty(str) || this.h == null) {
+            return;
+        }
+        this.h.setExternalInfo(str, obj);
+    }
+
+    public void setHttpProxy(String str) {
+        this.q = str;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setLooping(boolean z) {
+        if (this.h != null && this.G != h.ERROR) {
+            this.h.setLooping(z);
+        }
+        this.J = z;
+    }
+
+    public void setOnBufferingEndListener(InterfaceC0106a interfaceC0106a) {
+        this.y = interfaceC0106a;
+    }
+
+    public void setOnBufferingStartListener(b bVar) {
+        this.x = bVar;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOnBufferingUpdateListener(CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener) {
+        this.t = onBufferingUpdateListener;
+    }
+
+    public void setOnClickListener(c cVar) {
+        this.D = cVar;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOnCompletionListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
+        this.r = onCompletionListener;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOnErrorListener(CyberPlayerManager.OnErrorListener onErrorListener) {
+        this.C = onErrorListener;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener) {
+        this.w = onInfoListener;
+    }
+
+    public void setOnPitchYawRollListener(d dVar) {
+        this.F = dVar;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
+        this.s = onPreparedListener;
+    }
+
+    public void setOnRenderStartListener(e eVar) {
+        this.z = eVar;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {
+        this.v = onSeekCompleteListener;
+    }
+
+    public void setOnSeekStartListener(f fVar) {
+        this.u = fVar;
+    }
+
+    public void setOnSurfaceReadyListener(g gVar) {
+        this.A = gVar;
+    }
+
+    @Override // android.view.View
+    public void setOnTouchListener(View.OnTouchListener onTouchListener) {
+        super.setOnTouchListener(onTouchListener);
+        this.E = onTouchListener;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener) {
+        this.B = onVideoSizeChangedListener;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOption(String str, String str2) {
+        if (this.G != h.IDLE) {
+            a(1, "Do not set option when the video player playing");
+            return;
+        }
+        if (this.ad != null) {
+            this.ad.put(str, str2);
+        }
+        if (this.h != null) {
+            if (str == null || !str.equals(CyberPlayerManager.OPT_HTTP_PROXY) || TextUtils.isEmpty(n.c())) {
+                this.h.setOption(str, str2);
             }
         }
-        return super.loadClass(str);
+    }
+
+    public void setPlayerType(int i2) {
+        this.i = i2;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setRemote(boolean z) {
+        this.U = z;
+    }
+
+    public void setScaleType(int i2) {
+        this.a = i2;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setSpeed(float f2) {
+        a(1, "setSpeed()");
+        this.ac = f2;
+        if (this.h != null) {
+            this.h.setSpeed(f2);
+        } else {
+            a(1, "setSpeed must call after setVideoPath or setVideoURI");
+        }
+    }
+
+    public void setVideoName(String str) {
+        a(1, "videoName:" + str);
+        this.l = this.k;
+        this.k = str;
+    }
+
+    public void setVideoPath(String str) {
+        setVideoURI(Uri.parse(str));
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setVideoRotation(int i2) {
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setVideoScalingMode(int i2) {
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setVideoURI(Uri uri) {
+        setVideoURI(uri, null);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setVideoURI(Uri uri, Map<String, String> map) {
+        a(1, "videoURI:" + uri.toString());
+        this.n = this.m;
+        this.m = uri;
+        this.o = map;
+        e();
+    }
+
+    public void setViewType(int i2) {
+        this.O = i2;
+    }
+
+    public void setVolume(float f2) {
+        if (this.h != null) {
+            this.h.setVolume(f2, f2);
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void start() {
+        a(1, "start");
+        startPlayer();
+        resumeRender();
+    }
+
+    public void startPlayer() {
+        if (isInPlaybackState()) {
+            this.h.start();
+            setCurPlayerState(h.PLAYING);
+        }
+        this.H = h.PLAYING;
+        a(1, "startPlayer");
+    }
+
+    public void stop() {
+        a(1, "stop");
+        a(false);
+        pauseRender();
+        if (this.ad != null) {
+            this.ad.clear();
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void stopPlayback() {
+        stop();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public boolean takeSnapshotAsync(ICyberVideoView.OnSnapShotCompleteListener onSnapShotCompleteListener) {
+        return true;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public boolean takeSnapshotAsync(ICyberVideoView.OnSnapShotCompleteListener onSnapShotCompleteListener, float f2, int i2, int i3) {
+        return true;
     }
 }

@@ -1,7 +1,7 @@
 package tv.chushou.zues.widget.adapterview;
 
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface d {
-    void B(View view, int i);
+    void C(View view, int i);
 }

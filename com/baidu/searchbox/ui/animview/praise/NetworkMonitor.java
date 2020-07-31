@@ -8,7 +8,7 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import java.lang.ref.WeakReference;
-/* loaded from: classes13.dex */
+/* loaded from: classes7.dex */
 public class NetworkMonitor {
     private static String NET_CHANGE_ACTION = "android.net.conn.CONNECTIVITY_CHANGE";
     private ConnectivityManager mConnectivityManager;
@@ -17,7 +17,7 @@ public class NetworkMonitor {
     private INetworkMonitorCb mNetworkMonitorCb;
     private ConncetStatusReceiver mReceiver;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes7.dex */
     public interface INetworkMonitorCb {
         void onNetworkStateChanged();
     }
@@ -56,7 +56,7 @@ public class NetworkMonitor {
         return this.mIsInit && (activeNetworkInfo = this.mConnectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isConnected();
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes7.dex */
     private static class ConncetStatusReceiver extends BroadcastReceiver {
         private WeakReference<INetworkMonitorCb> mINetworkMonitorCb;
 

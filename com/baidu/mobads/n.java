@@ -3,13 +3,13 @@ package com.baidu.mobads;
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 class n implements IOAdEventListener {
-    final /* synthetic */ InterstitialAd bxI;
+    final /* synthetic */ InterstitialAd bxX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(InterstitialAd interstitialAd) {
-        this.bxI = interstitialAd;
+        this.bxX = interstitialAd;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener

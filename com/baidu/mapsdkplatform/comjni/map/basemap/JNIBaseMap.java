@@ -1,7 +1,7 @@
 package com.baidu.mapsdkplatform.comjni.map.basemap;
 
 import android.os.Bundle;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class JNIBaseMap {
     public long a;
 

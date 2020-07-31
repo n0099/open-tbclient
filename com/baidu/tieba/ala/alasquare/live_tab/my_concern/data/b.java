@@ -2,10 +2,10 @@ package com.baidu.tieba.ala.alasquare.live_tab.my_concern.data;
 
 import com.baidu.adp.BdUniqueId;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fpt = BdUniqueId.gen();
-    public String fpu;
+    public static final BdUniqueId fuD = BdUniqueId.gen();
+    public String fuE;
     public String portrait;
     public String remark;
     public long start_time;
@@ -15,7 +15,7 @@ public class b extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return fpt;
+        return fuD;
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -24,7 +24,7 @@ public class b extends com.baidu.tieba.card.data.b {
             this.user_name = jSONObject.optString("user_name");
             this.user_nickname = jSONObject.optString("user_nickname");
             this.portrait = jSONObject.optString("portrait");
-            this.fpu = jSONObject.optString("user_brief");
+            this.fuE = jSONObject.optString("user_brief");
             this.start_time = jSONObject.optLong("start_time");
             this.remark = jSONObject.optString("remark");
         }

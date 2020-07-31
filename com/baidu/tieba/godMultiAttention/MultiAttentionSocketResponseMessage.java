@@ -7,7 +7,7 @@ import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.MFollow.MFollowResIdl;
 import tbclient.MFollow.MFollowResult;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class MultiAttentionSocketResponseMessage extends TbSocketReponsedMessage {
     private List<MFollowResult> followResults;
     private boolean isAttentionAll;

@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class b<T extends b> {
     private static final String a = b.class.getSimpleName();
     private static final g w = g.a(AbstractBceClient.DEFAULT_CONTENT_TYPE);
@@ -61,7 +61,7 @@ public class b<T extends b> {
     private File v;
     private g y;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes5.dex */
     public static class a<T extends a> {
         private String b;
         private Object c;
@@ -87,8 +87,8 @@ public class b<T extends b> {
     }
 
     /* renamed from: com.meizu.cloud.pushsdk.b.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0853b<T extends C0853b> {
+    /* loaded from: classes5.dex */
+    public static class C0862b<T extends C0862b> {
         private int b;
         private String c;
         private Object d;
@@ -103,7 +103,7 @@ public class b<T extends b> {
         private HashMap<String, String> j = new HashMap<>();
         private HashMap<String, String> k = new HashMap<>();
 
-        public C0853b(String str) {
+        public C0862b(String str) {
             this.b = 0;
             this.c = str;
             this.b = 0;
@@ -123,7 +123,7 @@ public class b<T extends b> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes5.dex */
     public static class c<T extends c> {
         private String b;
         private Object c;
@@ -161,7 +161,7 @@ public class b<T extends b> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes5.dex */
     public static class d<T extends d> {
         private int b;
         private String c;
@@ -234,7 +234,7 @@ public class b<T extends b> {
         this.K = aVar.k;
     }
 
-    public b(C0853b c0853b) {
+    public b(C0862b c0862b) {
         this.i = new HashMap<>();
         this.j = new HashMap<>();
         this.k = new HashMap<>();
@@ -253,19 +253,19 @@ public class b<T extends b> {
         this.K = null;
         this.L = null;
         this.d = 0;
-        this.b = c0853b.b;
-        this.c = c0853b.a;
-        this.e = c0853b.c;
-        this.g = c0853b.d;
-        this.i = c0853b.i;
-        this.F = c0853b.e;
-        this.H = c0853b.g;
-        this.G = c0853b.f;
-        this.I = c0853b.h;
-        this.m = c0853b.j;
-        this.n = c0853b.k;
-        this.J = c0853b.l;
-        this.K = c0853b.m;
+        this.b = c0862b.b;
+        this.c = c0862b.a;
+        this.e = c0862b.c;
+        this.g = c0862b.d;
+        this.i = c0862b.i;
+        this.F = c0862b.e;
+        this.H = c0862b.g;
+        this.G = c0862b.f;
+        this.I = c0862b.h;
+        this.m = c0862b.j;
+        this.n = c0862b.k;
+        this.J = c0862b.l;
+        this.K = c0862b.m;
     }
 
     public b(c cVar) {

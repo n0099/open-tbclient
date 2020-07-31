@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.d.a;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
@@ -33,7 +32,7 @@ public class LoginActivityConfig extends IntentConfig {
 
     public LoginActivityConfig(Context context) {
         super(context);
-        a.a("account", -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
+        com.baidu.tbadk.core.d.a.a("account", -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
     }
 
     public LoginActivityConfig(Context context, boolean z) {

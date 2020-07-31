@@ -9,9 +9,9 @@ import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.data.q;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveRoomBlurPageLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaLoopViewPagerAdapter extends PagerAdapter {
-    private SimpleArrayMap<Integer, AlaLiveRoomBlurPageLayout> gjE = new SimpleArrayMap<>();
+    private SimpleArrayMap<Integer, AlaLiveRoomBlurPageLayout> goD = new SimpleArrayMap<>();
     private TbPageContext mTbPageContext;
 
     public AlaLoopViewPagerAdapter(TbPageContext tbPageContext) {
@@ -34,73 +34,73 @@ public class AlaLoopViewPagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.gjE.get(Integer.valueOf(i)).getParent() != null) {
-            ((ViewGroup) this.gjE.get(Integer.valueOf(i)).getParent()).removeView(this.gjE.get(Integer.valueOf(i)));
+        if (this.goD.get(Integer.valueOf(i)).getParent() != null) {
+            ((ViewGroup) this.goD.get(Integer.valueOf(i)).getParent()).removeView(this.goD.get(Integer.valueOf(i)));
         }
-        viewGroup.addView(this.gjE.get(Integer.valueOf(i)));
-        return this.gjE.get(Integer.valueOf(i));
+        viewGroup.addView(this.goD.get(Integer.valueOf(i)));
+        return this.goD.get(Integer.valueOf(i));
     }
 
-    public void bFM() {
-        if (this.gjE == null) {
-            this.gjE = new SimpleArrayMap<>();
+    public void bIU() {
+        if (this.goD == null) {
+            this.goD = new SimpleArrayMap<>();
         }
         AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout = new AlaLiveRoomBlurPageLayout(this.mTbPageContext.getPageActivity());
-        alaLiveRoomBlurPageLayout.d(this.mTbPageContext);
-        this.gjE.put(0, alaLiveRoomBlurPageLayout);
+        alaLiveRoomBlurPageLayout.c(this.mTbPageContext);
+        this.goD.put(0, alaLiveRoomBlurPageLayout);
         AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout2 = new AlaLiveRoomBlurPageLayout(this.mTbPageContext.getPageActivity());
-        alaLiveRoomBlurPageLayout2.d(this.mTbPageContext);
-        this.gjE.put(1, alaLiveRoomBlurPageLayout2);
+        alaLiveRoomBlurPageLayout2.c(this.mTbPageContext);
+        this.goD.put(1, alaLiveRoomBlurPageLayout2);
         AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout3 = new AlaLiveRoomBlurPageLayout(this.mTbPageContext.getPageActivity());
-        alaLiveRoomBlurPageLayout3.d(this.mTbPageContext);
-        this.gjE.put(2, alaLiveRoomBlurPageLayout3);
+        alaLiveRoomBlurPageLayout3.c(this.mTbPageContext);
+        this.goD.put(2, alaLiveRoomBlurPageLayout3);
     }
 
-    public AlaLiveRoomBlurPageLayout rB(int i) {
-        return this.gjE.get(Integer.valueOf(i));
+    public AlaLiveRoomBlurPageLayout rR(int i) {
+        return this.goD.get(Integer.valueOf(i));
     }
 
-    public AlaLiveRoomBlurPageLayout rC(int i) {
-        return this.gjE.get(Integer.valueOf(i));
+    public AlaLiveRoomBlurPageLayout rS(int i) {
+        return this.goD.get(Integer.valueOf(i));
     }
 
-    private int rD(int i) {
+    private int rT(int i) {
         return ((getCount() + i) - 1) % getCount();
     }
 
-    private int rE(int i) {
+    private int rU(int i) {
         return ((getCount() + i) + 1) % getCount();
     }
 
     public void a(int i, AlaLiveInfoData alaLiveInfoData, q qVar) {
-        AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout = this.gjE.get(Integer.valueOf(rD(i)));
+        AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout = this.goD.get(Integer.valueOf(rT(i)));
         if (alaLiveInfoData != null) {
-            alaLiveRoomBlurPageLayout.bJZ();
+            alaLiveRoomBlurPageLayout.bNf();
             alaLiveRoomBlurPageLayout.setBgImageUrl(alaLiveInfoData.cover, null);
         } else if (qVar != null && qVar.mLiveInfo != null) {
-            alaLiveRoomBlurPageLayout.bJZ();
+            alaLiveRoomBlurPageLayout.bNf();
             alaLiveRoomBlurPageLayout.setBgImageUrl(qVar.mLiveInfo.cover, null);
         }
     }
 
     public void b(int i, AlaLiveInfoData alaLiveInfoData, q qVar) {
-        AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout = this.gjE.get(Integer.valueOf(rE(i)));
+        AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout = this.goD.get(Integer.valueOf(rU(i)));
         if (alaLiveInfoData != null) {
-            alaLiveRoomBlurPageLayout.bJZ();
+            alaLiveRoomBlurPageLayout.bNf();
             alaLiveRoomBlurPageLayout.setBgImageUrl(alaLiveInfoData.cover, null);
         } else if (qVar != null && qVar.mLiveInfo != null) {
-            alaLiveRoomBlurPageLayout.bJZ();
+            alaLiveRoomBlurPageLayout.bNf();
             alaLiveRoomBlurPageLayout.setBgImageUrl(qVar.mLiveInfo.cover, null);
         }
     }
 
     public void a(int i, q qVar) {
         if (qVar != null) {
-            AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout = this.gjE.get(Integer.valueOf(i));
+            AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout = this.goD.get(Integer.valueOf(i));
             if (qVar.mLiveInfo != null && !TextUtils.isEmpty(qVar.mLiveInfo.cover)) {
                 alaLiveRoomBlurPageLayout.setBgImageUrl(qVar.mLiveInfo.cover, null);
-            } else if (qVar.axp != null) {
-                alaLiveRoomBlurPageLayout.setBgImageUrl(qVar.axp.portrait, null);
+            } else if (qVar.ayC != null) {
+                alaLiveRoomBlurPageLayout.setBgImageUrl(qVar.ayC.portrait, null);
             }
         }
     }
@@ -109,11 +109,11 @@ public class AlaLoopViewPagerAdapter extends PagerAdapter {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.gjE.size()) {
-                this.gjE.get(Integer.valueOf(i2)).release();
+            if (i2 < this.goD.size()) {
+                this.goD.get(Integer.valueOf(i2)).release();
                 i = i2 + 1;
             } else {
-                this.gjE.clear();
+                this.goD.clear();
                 return;
             }
         }

@@ -3,21 +3,21 @@ package com.baidu.tieba.ala.alasquare.live_tab.my_concern.data;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
     public List<b> followCloseList;
     public int followCloseNum;
-    public List<bu> followList;
+    public List<bv> followList;
     public int followStatus;
     public boolean hasMore;
     public int pn;
-    public List<bu> recommendList;
+    public List<bv> recommendList;
     public int totalFollowCount;
 
     public AlaLiveTabMyConcernResponse() {
@@ -43,9 +43,9 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
-                        bu buVar = new bu();
-                        buVar.parserJson(optJSONObject2);
-                        this.followList.add(buVar);
+                        bv bvVar = new bv();
+                        bvVar.parserJson(optJSONObject2);
+                        this.followList.add(bvVar);
                     }
                 }
             }
@@ -65,9 +65,9 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                 for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
                     JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i4);
                     if (optJSONObject4 != null) {
-                        bu buVar2 = new bu();
-                        buVar2.parserJson(optJSONObject4);
-                        this.recommendList.add(buVar2);
+                        bv bvVar2 = new bv();
+                        bvVar2.parserJson(optJSONObject4);
+                        this.recommendList.add(bvVar2);
                     }
                 }
             }

@@ -1,18 +1,18 @@
 package com.baidu.swan.apps.ao;
 
 import android.text.TextUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class a {
-    private static String cNV;
+    private static String cRr;
 
-    public static String pC(String str) {
-        return String.format("%s %s", str, atY());
+    public static String qn(String str) {
+        return String.format("%s %s", str, avZ());
     }
 
-    public static String atY() {
-        if (TextUtils.isEmpty(cNV)) {
-            cNV = b.atY();
+    public static String avZ() {
+        if (TextUtils.isEmpty(cRr)) {
+            cRr = b.avZ();
         }
-        return cNV;
+        return cRr;
     }
 }

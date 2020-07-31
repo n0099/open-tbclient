@@ -4,21 +4,21 @@ import android.media.AudioRecord;
 import android.support.annotation.NonNull;
 import com.baidu.ala.helper.StreamConfig;
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class b {
-    private static b mYu;
+    private static b ngv;
     private AudioRecord mAudioRecord;
-    private boolean mYv;
-    private static final int[] mYs = {1, 0, 5, 7, 6};
+    private boolean ngw;
+    private static final int[] ngt = {1, 0, 5, 7, 6};
     public static int SAMPLE_RATE = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
     public static int SAMPLES_PER_FRAME = 2048;
-    public static int mYt = 24;
+    public static int ngu = 24;
 
     public b() {
         int minBufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, 16, 2);
-        int i = SAMPLES_PER_FRAME * mYt;
+        int i = SAMPLES_PER_FRAME * ngu;
         i = i < minBufferSize ? ((minBufferSize / SAMPLES_PER_FRAME) + 1) * SAMPLES_PER_FRAME * 2 : i;
-        for (int i2 : mYs) {
+        for (int i2 : ngt) {
             try {
                 this.mAudioRecord = new AudioRecord(i2, SAMPLE_RATE, 16, 2, i);
                 if (this.mAudioRecord.getState() != 1) {
@@ -31,8 +31,8 @@ public class b {
     }
 
     public void release() {
-        if (!this.mYv) {
-            this.mYv = true;
+        if (!this.ngw) {
+            this.ngw = true;
             if (this.mAudioRecord != null) {
                 this.mAudioRecord.release();
                 this.mAudioRecord = null;
@@ -49,11 +49,11 @@ public class b {
 
     public void startRecording() {
         if (this.mAudioRecord != null) {
-            if (mYu != null && !mYu.MU()) {
-                mYu.release();
+            if (ngv != null && !ngv.MZ()) {
+                ngv.release();
             }
             this.mAudioRecord.startRecording();
-            mYu = this;
+            ngv = this;
         }
     }
 
@@ -63,11 +63,11 @@ public class b {
         }
     }
 
-    public boolean MU() {
-        return this.mYv;
+    public boolean MZ() {
+        return this.ngw;
     }
 
-    public AudioRecord dHi() {
+    public AudioRecord dKu() {
         return this.mAudioRecord;
     }
 }

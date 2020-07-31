@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.g.b;
 import android.view.View;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class x implements View.OnClickListener {
     final /* synthetic */ c a;
 

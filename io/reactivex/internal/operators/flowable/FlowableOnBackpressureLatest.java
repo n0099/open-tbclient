@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class FlowableOnBackpressureLatest<T> extends a<T, T> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nJW.a((j) new BackpressureLatestSubscriber(cVar));
+        this.nSE.a((j) new BackpressureLatestSubscriber(cVar));
     }
 
     /* loaded from: classes7.dex */

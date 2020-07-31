@@ -1,7 +1,7 @@
 package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
-import com.baidu.f.a.a;
+import com.baidu.g.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiJsCallBacks;
@@ -16,7 +16,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class InvoiceBuildActivity extends SlideActiviy {
     private static final String A = "InvoiceBuildActivity";
     private static final String B = "select";

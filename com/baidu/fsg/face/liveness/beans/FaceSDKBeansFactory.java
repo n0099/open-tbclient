@@ -5,7 +5,7 @@ import com.baidu.fsg.base.NoProguard;
 import com.baidu.fsg.base.restnet.beans.ApollonBean;
 import com.baidu.fsg.base.restnet.beans.BeanManager;
 import com.baidu.fsg.base.restnet.beans.IBeanFactory;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FaceSDKBeansFactory implements NoProguard, IBeanFactory {
     public static final int CONFIG_URL = 4;
     public static final int FACE_DETECT_BEAN = 8;

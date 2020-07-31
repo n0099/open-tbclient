@@ -1,118 +1,118 @@
 package tv.chushou.common;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    private static final a ojt;
-    private static final a oju;
-    private static volatile a ojv;
+    private static final a osd;
+    private static final a ose;
+    private static volatile a osf;
     private String ad;
     private String city;
-    private String ojc;
-    private String ojd;
-    private String oje;
-    private String ojf;
-    private String ojg;
-    private String ojh;
-    private String oji;
-    private String ojj;
-    private String ojk;
-    private String ojl;
-    private String ojm;
-    private String ojn;
-    private String ojo;
-    private String ojp;
-    private String ojq;
-    private int ojr;
-    private String ojs;
+    private String orM;
+    private String orN;
+    private String orO;
+    private String orP;
+    private String orQ;
+    private String orR;
+    private String orS;
+    private String orT;
+    private String orU;
+    private String orV;
+    private String orW;
+    private String orX;
+    private String orY;
+    private String orZ;
+    private String osa;
+    private int osb;
+    private String osc;
     private String sdk;
 
     static {
         a aVar = new a();
-        aVar.ojc = "https://api.chushou.tv/";
-        aVar.ojd = "https://bee.kascend.com/";
-        aVar.oje = "https://chushou.tv/";
-        aVar.ojf = "https://chat.chushou.tv/";
-        aVar.ojg = "https://qos-stat.chushou.tv/";
-        aVar.ojh = "im.chushou.tv";
-        aVar.oji = "https://imapi.chushou.tv/";
-        aVar.ojj = "https://pay.chushou.tv/kaspay/";
-        aVar.ojk = "https://gemini.chushou.tv/";
-        aVar.ojl = "https://mic.chushou.tv/";
+        aVar.orM = "https://api.chushou.tv/";
+        aVar.orN = "https://bee.kascend.com/";
+        aVar.orO = "https://chushou.tv/";
+        aVar.orP = "https://chat.chushou.tv/";
+        aVar.orQ = "https://qos-stat.chushou.tv/";
+        aVar.orR = "im.chushou.tv";
+        aVar.orS = "https://imapi.chushou.tv/";
+        aVar.orT = "https://pay.chushou.tv/kaspay/";
+        aVar.orU = "https://gemini.chushou.tv/";
+        aVar.orV = "https://mic.chushou.tv/";
         aVar.ad = "https://ja.chushou.tv/";
         aVar.city = "https://geo.chushou.tv/";
-        aVar.ojm = "https://playground.chushou.tv/";
-        aVar.ojn = "https://appstat.chushou.tv/";
-        aVar.ojo = "https://luck.chushou.tv/";
-        aVar.ojp = "https://gmapi.chushou.tv/";
-        aVar.ojq = "https://gm.chushou.tv/";
+        aVar.orW = "https://playground.chushou.tv/";
+        aVar.orX = "https://appstat.chushou.tv/";
+        aVar.orY = "https://luck.chushou.tv/";
+        aVar.orZ = "https://gmapi.chushou.tv/";
+        aVar.osa = "https://gm.chushou.tv/";
         aVar.sdk = "https://open.chushou.tv/";
-        aVar.ojr = 8178;
-        aVar.ojs = "rc";
-        ojt = aVar;
+        aVar.osb = 8178;
+        aVar.osc = "rc";
+        osd = aVar;
         a aVar2 = new a();
-        aVar2.ojc = "https://api.vchushou.com/";
-        aVar2.ojd = "https://bee.vchushou.com/";
-        aVar2.oje = "https://vchushou.com/";
-        aVar2.ojf = "https://chat.vchushou.com/";
-        aVar2.ojg = "https://qos-stat.vchushou.com/";
-        aVar2.ojh = "im.vchushou.com";
-        aVar2.oji = "https://imapi.vchushou.com/";
-        aVar2.ojj = "https://pay.vchushou.com/";
-        aVar2.ojk = "https://gemini.vchushou.com/";
-        aVar2.ojl = "https://mic.vchushou.com/";
+        aVar2.orM = "https://api.vchushou.com/";
+        aVar2.orN = "https://bee.vchushou.com/";
+        aVar2.orO = "https://vchushou.com/";
+        aVar2.orP = "https://chat.vchushou.com/";
+        aVar2.orQ = "https://qos-stat.vchushou.com/";
+        aVar2.orR = "im.vchushou.com";
+        aVar2.orS = "https://imapi.vchushou.com/";
+        aVar2.orT = "https://pay.vchushou.com/";
+        aVar2.orU = "https://gemini.vchushou.com/";
+        aVar2.orV = "https://mic.vchushou.com/";
         aVar2.ad = "https://ja.vchushou.com/";
         aVar2.city = "https://geo.vchushou.com/";
-        aVar2.ojm = "https://open-game.vchushou.com/";
-        aVar2.ojn = "https://vchushou.com/";
-        aVar2.ojo = "https://luck.vchushou.com/";
-        aVar2.ojp = "https://gamemate.vchushou.com/";
-        aVar2.ojq = "https://gamemate.vchushou.com/";
+        aVar2.orW = "https://open-game.vchushou.com/";
+        aVar2.orX = "https://vchushou.com/";
+        aVar2.orY = "https://luck.vchushou.com/";
+        aVar2.orZ = "https://gamemate.vchushou.com/";
+        aVar2.osa = "https://gamemate.vchushou.com/";
         aVar2.sdk = "https://open.vchushou.com/";
-        aVar2.ojr = 8178;
-        aVar2.ojs = "https";
-        oju = aVar2;
-        ojv = ojt;
+        aVar2.osb = 8178;
+        aVar2.osc = "https";
+        ose = aVar2;
+        osf = osd;
     }
 
     private a() {
     }
 
-    public static void SX(String str) {
+    public static void TI(String str) {
         if ("beta".equals(str)) {
-            ojv = oju;
+            osf = ose;
         } else {
-            ojv = ojt;
+            osf = osd;
         }
     }
 
-    public static String dWl() {
-        return ojv.ojc;
+    public static String dZH() {
+        return osf.orM;
     }
 
-    public static String dWm() {
-        return ojv.ojd;
+    public static String dZI() {
+        return osf.orN;
     }
 
-    public static String dWn() {
-        return ojv.oje;
+    public static String dZJ() {
+        return osf.orO;
     }
 
-    public static String dWo() {
-        return ojv.ojf;
+    public static String dZK() {
+        return osf.orP;
     }
 
-    public static String dWp() {
-        return ojv.ojl;
+    public static String dZL() {
+        return osf.orV;
     }
 
-    public static String dWq() {
-        return ojv.ad;
+    public static String dZM() {
+        return osf.ad;
     }
 
-    public static String dWr() {
-        return ojv.ojo;
+    public static String dZN() {
+        return osf.orY;
     }
 
-    public static String dWs() {
-        return ojv.sdk;
+    public static String dZO() {
+        return osf.sdk;
     }
 }

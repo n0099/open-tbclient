@@ -2,58 +2,58 @@ package com.tb.airbnb.lottie.model.content;
 
 import android.graphics.Path;
 import android.support.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d implements b {
     private final Path.FillType Ei;
-    private final com.tb.airbnb.lottie.model.a.d nGE;
-    private final GradientType nGI;
-    private final com.tb.airbnb.lottie.model.a.c nGJ;
-    private final com.tb.airbnb.lottie.model.a.f nGK;
-    private final com.tb.airbnb.lottie.model.a.f nGL;
+    private final com.tb.airbnb.lottie.model.a.d nPm;
+    private final GradientType nPq;
+    private final com.tb.airbnb.lottie.model.a.c nPr;
+    private final com.tb.airbnb.lottie.model.a.f nPs;
+    private final com.tb.airbnb.lottie.model.a.f nPt;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b nGM;
+    private final com.tb.airbnb.lottie.model.a.b nPu;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b nGN;
+    private final com.tb.airbnb.lottie.model.a.b nPv;
     private final String name;
 
     public d(String str, GradientType gradientType, Path.FillType fillType, com.tb.airbnb.lottie.model.a.c cVar, com.tb.airbnb.lottie.model.a.d dVar, com.tb.airbnb.lottie.model.a.f fVar, com.tb.airbnb.lottie.model.a.f fVar2, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2) {
-        this.nGI = gradientType;
+        this.nPq = gradientType;
         this.Ei = fillType;
-        this.nGJ = cVar;
-        this.nGE = dVar;
-        this.nGK = fVar;
-        this.nGL = fVar2;
+        this.nPr = cVar;
+        this.nPm = dVar;
+        this.nPs = fVar;
+        this.nPt = fVar2;
         this.name = str;
-        this.nGM = bVar;
-        this.nGN = bVar2;
+        this.nPu = bVar;
+        this.nPv = bVar2;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public GradientType dNR() {
-        return this.nGI;
+    public GradientType dRn() {
+        return this.nPq;
     }
 
     public Path.FillType ip() {
         return this.Ei;
     }
 
-    public com.tb.airbnb.lottie.model.a.c dNS() {
-        return this.nGJ;
+    public com.tb.airbnb.lottie.model.a.c dRo() {
+        return this.nPr;
     }
 
-    public com.tb.airbnb.lottie.model.a.d dNM() {
-        return this.nGE;
+    public com.tb.airbnb.lottie.model.a.d dRi() {
+        return this.nPm;
     }
 
-    public com.tb.airbnb.lottie.model.a.f dNT() {
-        return this.nGK;
+    public com.tb.airbnb.lottie.model.a.f dRp() {
+        return this.nPs;
     }
 
-    public com.tb.airbnb.lottie.model.a.f dNU() {
-        return this.nGL;
+    public com.tb.airbnb.lottie.model.a.f dRq() {
+        return this.nPt;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b

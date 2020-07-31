@@ -26,7 +26,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class ShareStorage {
     public static final String TAG = "ShareStorage";
     private static final String a = "sapi_share";
@@ -39,7 +39,7 @@ public class ShareStorage {
     public boolean readSpFromChmodFile = false;
     private Context h = SapiAccountManager.getInstance().getConfignation().context;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static class StorageModel {
         String a;
         public String app;
@@ -146,7 +146,7 @@ public class ShareStorage {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public interface a {
         void a(StorageModel storageModel);
     }

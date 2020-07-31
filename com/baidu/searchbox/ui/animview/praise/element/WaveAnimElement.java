@@ -7,7 +7,7 @@ import android.support.v4.internal.view.SupportMenu;
 import com.airbnb.lottie.g;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.ui.animview.base.IResourcePackage;
-/* loaded from: classes13.dex */
+/* loaded from: classes7.dex */
 public class WaveAnimElement extends BaseAnimatedElement {
     private static final boolean DEBUG = false;
     private Context mCtx;

@@ -7,107 +7,107 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.as;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class i {
-    private String jlh;
-    private int jli;
-    private int jlj;
-    private int jlk;
-    private long jlg = 0;
-    private HashMap<String, Boolean> jlf = new HashMap<>();
+    private String jtM;
+    private int jtN;
+    private int jtO;
+    private int jtP;
+    private long jtL = 0;
+    private HashMap<String, Boolean> jtK = new HashMap<>();
 
-    public void zl(int i) {
-        this.jlj = i;
+    public void zK(int i) {
+        this.jtO = i;
     }
 
-    public int cwd() {
-        return this.jlj;
+    public int cAb() {
+        return this.jtO;
     }
 
-    public void zm(int i) {
-        this.jlk = i;
+    public void zL(int i) {
+        this.jtP = i;
     }
 
-    public int cwe() {
-        return this.jlk;
+    public int cAc() {
+        return this.jtP;
     }
 
     public void b(Bundle bundle, Intent intent) {
         if (bundle != null) {
-            this.jlh = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.jtM = bundle.getString(ImageViewerConfig.PV_TYPE);
         } else if (intent != null) {
-            this.jlh = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+            this.jtM = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
             int intExtra = intent.getIntExtra("index", -1);
-            this.jli = intExtra;
-            this.jlj = intExtra;
-            this.jlk = intExtra;
+            this.jtN = intExtra;
+            this.jtO = intExtra;
+            this.jtP = intExtra;
         }
     }
 
-    public void ay(Bundle bundle) {
+    public void az(Bundle bundle) {
         if (bundle != null) {
-            bundle.putString(ImageViewerConfig.PV_TYPE, this.jlh);
+            bundle.putString(ImageViewerConfig.PV_TYPE, this.jtM);
         }
     }
 
-    public void e(List<String> list, int i, int i2) {
-        synchronized (this.jlf) {
-            if (System.nanoTime() - this.jlg > 300000000 && list != null && i < list.size()) {
-                this.jlf.put(list.get(i), true);
+    public void g(List<String> list, int i, int i2) {
+        synchronized (this.jtK) {
+            if (System.nanoTime() - this.jtL > 300000000 && list != null && i < list.size()) {
+                this.jtK.put(list.get(i), true);
             }
-            this.jlg = System.nanoTime();
-            if (list != null && i2 < list.size() && this.jlf.get(list.get(i2)) == null) {
-                this.jlf.put(list.get(i2), false);
+            this.jtL = System.nanoTime();
+            if (list != null && i2 < list.size() && this.jtK.get(list.get(i2)) == null) {
+                this.jtK.put(list.get(i2), false);
             }
         }
-        if (this.jlf.size() >= 100) {
-            cwf();
+        if (this.jtK.size() >= 100) {
+            cAd();
         }
     }
 
-    public void cwf() {
-        if (this.jlf != null) {
-            synchronized (this.jlf) {
-                if (this.jlf.size() > 0) {
+    public void cAd() {
+        if (this.jtK != null) {
+            synchronized (this.jtK) {
+                if (this.jtK.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.jlf.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.jtK.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkCoreApplication.getInst().sendImagePv(i, this.jlf.size(), this.jlh, this.jli + 1, this.jlj + 1);
-                    this.jlf.clear();
+                    TbadkCoreApplication.getInst().sendImagePv(i, this.jtK.size(), this.jtM, this.jtN + 1, this.jtO + 1);
+                    this.jtK.clear();
                 }
             }
         }
     }
 
-    public void bk(int i, String str) {
-        if (i == 1 && System.nanoTime() - this.jlg > 300000000) {
-            this.jlf.put(str, true);
+    public void bm(int i, String str) {
+        if (i == 1 && System.nanoTime() - this.jtL > 300000000) {
+            this.jtK.put(str, true);
         }
     }
 
     public void a(int i, String str, String str2, String str3, String str4, String str5) {
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
-        if (this.jlk == this.jlj) {
-            sb.append(this.jlk + 1);
-            if (this.jlj == i - 1) {
+        if (this.jtP == this.jtO) {
+            sb.append(this.jtP + 1);
+            if (this.jtO == i - 1) {
                 sb2.append(1);
             } else {
                 sb2.append(0);
             }
         } else {
-            for (int i2 = this.jlk; i2 <= this.jlj; i2++) {
-                if (i2 == this.jlj) {
+            for (int i2 = this.jtP; i2 <= this.jtO; i2++) {
+                if (i2 == this.jtO) {
                     sb.append(i2 + 1);
-                    if (this.jlj == i - 1) {
+                    if (this.jtO == i - 1) {
                         sb2.append(1);
                     } else {
                         sb2.append(0);
@@ -120,26 +120,26 @@ public class i {
                 }
             }
         }
-        ao aoVar = new ao("common_exp");
-        aoVar.dk("page_type", PageStayDurationConstants.PageName.BIGIMAGE);
-        if (!ar.isEmpty(str2)) {
-            aoVar.dk("fid", str2);
+        ap apVar = new ap("common_exp");
+        apVar.dn("page_type", PageStayDurationConstants.PageName.BIGIMAGE);
+        if (!as.isEmpty(str2)) {
+            apVar.dn("fid", str2);
         }
-        if (!ar.isEmpty(str3)) {
-            aoVar.dk("tid", str3);
+        if (!as.isEmpty(str3)) {
+            apVar.dn("tid", str3);
         }
         if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            aoVar.dk("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().ejy);
+            apVar.dn("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().epK);
         }
-        aoVar.ag("pic_count", i);
-        aoVar.dk("obj_floors", sb.toString());
-        aoVar.dk("obj_isads", sb2.toString());
-        int i3 = (this.jlj - this.jlk) + 1;
+        apVar.ah("pic_count", i);
+        apVar.dn("obj_floors", sb.toString());
+        apVar.dn("obj_isads", sb2.toString());
+        int i3 = (this.jtO - this.jtP) + 1;
         if (i3 == 1) {
-            if (this.jlj == i - 1) {
-                aoVar.dk("obj_id", str);
+            if (this.jtO == i - 1) {
+                apVar.dn("obj_id", str);
             } else {
-                aoVar.dk("obj_id", "");
+                apVar.dn("obj_id", "");
             }
         }
         if (i3 > 1) {
@@ -147,17 +147,17 @@ public class i {
             for (int i4 = 0; i4 < i3 - 1; i4++) {
                 sb3.append("|");
             }
-            if (this.jlj == i - 1) {
+            if (this.jtO == i - 1) {
                 sb3.append(str);
             }
-            aoVar.dk("obj_ids", str);
+            apVar.dn("obj_ids", str);
         }
         if (!StringUtils.isNull(str4)) {
-            aoVar.dk("first_dir", str4);
+            apVar.dn("first_dir", str4);
         }
         if (!StringUtils.isNull(str5)) {
-            aoVar.dk("second_dir", str5);
+            apVar.dn("second_dir", str5);
         }
-        TiebaStatic.log(aoVar);
+        TiebaStatic.log(apVar);
     }
 }

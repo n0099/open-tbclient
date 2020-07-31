@@ -9,14 +9,14 @@ import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.webkit.internal.ETAG;
 import java.net.MalformedURLException;
 import java.net.URL;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i {
     public static boolean D(Context context, String str) {
-        return c(context, str, "BAIDUZID", aF(ExtraParamsManager.getBaiduzid(), ge(str)));
+        return c(context, str, "BAIDUZID", aF(ExtraParamsManager.getBaiduzid(), gd(str)));
     }
 
     public static boolean E(Context context, String str) {
-        return c(context, str, "BAIDUCUID", aG(ExtraParamsManager.getBase64(ExtraParamsManager.getInstance().buildParamsExtra().getCuid()), ge(str)));
+        return c(context, str, "BAIDUCUID", aG(ExtraParamsManager.getBase64(ExtraParamsManager.getInstance().buildParamsExtra().getCuid()), gd(str)));
     }
 
     private static boolean c(Context context, String str, String str2, String str3) {
@@ -25,14 +25,14 @@ public class i {
             return false;
         }
         try {
-            String ge = ge(str);
-            if (TextUtils.isEmpty(ge)) {
+            String gd = gd(str);
+            if (TextUtils.isEmpty(gd)) {
                 return false;
             }
             CookieSyncManager.createInstance(context);
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
-            String[] split = cookieManager.getCookie(ge).split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            String[] split = cookieManager.getCookie(gd).split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             if (split.length > 0) {
                 z = true;
                 for (String str4 : split) {
@@ -50,7 +50,7 @@ public class i {
                 z = true;
             }
             if (z) {
-                cookieManager.setCookie(ge, str2 + ETAG.EQUAL + str3);
+                cookieManager.setCookie(gd, str2 + ETAG.EQUAL + str3);
                 CookieSyncManager.getInstance().sync();
                 return true;
             }
@@ -60,7 +60,7 @@ public class i {
         }
     }
 
-    public static String ge(String str) {
+    public static String gd(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

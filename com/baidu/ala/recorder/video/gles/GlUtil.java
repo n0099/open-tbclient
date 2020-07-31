@@ -8,7 +8,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 @TargetApi(16)
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class GlUtil {
     public static final float[] IDENTITY_MATRIX = new float[16];
     private static final int SIZEOF_FLOAT = 4;

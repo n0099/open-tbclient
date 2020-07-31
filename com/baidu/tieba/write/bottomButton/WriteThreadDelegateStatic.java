@@ -14,7 +14,7 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WriteThreadDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -34,7 +34,7 @@ public class WriteThreadDelegateStatic extends b {
     }
 
     static {
-        if (!d.aNV()) {
+        if (!d.aRN()) {
             CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener

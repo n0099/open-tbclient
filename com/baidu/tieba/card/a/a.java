@@ -2,16 +2,16 @@ package com.baidu.tieba.card.a;
 
 import com.baidu.adp.widget.ListView.ad;
 import com.baidu.tieba.card.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class a<T extends b> extends ad.a {
-    protected T gVN;
+    protected T hbs;
 
     public a(T t) {
         super(t.getView());
-        this.gVN = t;
+        this.hbs = t;
     }
 
-    public T bPh() {
-        return this.gVN;
+    public T bSs() {
+        return this.hbs;
     }
 }

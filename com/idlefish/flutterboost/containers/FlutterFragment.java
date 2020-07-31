@@ -7,27 +7,25 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.widget.ContinuousAnimationView;
-import com.baidu.tieba.R;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.XFlutterView;
+import com.idlefish.flutterboost.XPlatformPlugin;
 import com.idlefish.flutterboost.containers.BoostFlutterActivity;
 import com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate;
 import io.flutter.embedding.android.FlutterEngineConfigurator;
 import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.android.SplashScreen;
+import io.flutter.embedding.android.SplashScreenProvider;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
-import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public class FlutterFragment extends BaseFragment implements FlutterActivityAndFragmentDelegate.Host {
     protected static final String ARG_APP_BUNDLE_PATH = "app_bundle_path";
     protected static final String ARG_CACHED_ENGINE_ID = "cached_engine_id";
@@ -61,7 +59,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         return new NewEngineFragmentBuilder();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public static class NewEngineFragmentBuilder {
         private final Class<? extends FlutterFragment> fragmentClass;
         private boolean isUseTabHost;
@@ -96,11 +94,6 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
 
         public NewEngineFragmentBuilder url(@NonNull String str) {
             this.url = str;
-            return this;
-        }
-
-        public NewEngineFragmentBuilder isTabHost(@NonNull boolean z) {
-            this.isUseTabHost = z;
             return this;
         }
 
@@ -164,15 +157,17 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        this.delegate.onStart();
+        if (!isHidden()) {
+            this.delegate.onStart();
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (!this.isResumedOrVisibleToUser) {
+        if (!isHidden() && this.sendReumeToDart && !this.isResumedOrVisibleToUser) {
             this.isResumedOrVisibleToUser = true;
-            this.delegate.onResume(true);
+            this.delegate.onResume();
         }
     }
 
@@ -183,12 +178,12 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
                 if (!this.isResumedOrVisibleToUser) {
                     this.sendReumeToDart = true;
                     this.isResumedOrVisibleToUser = true;
-                    this.delegate.onResume(true);
+                    this.delegate.onResume();
                 }
             } else if (this.isResumedOrVisibleToUser) {
                 this.sendReumeToDart = false;
                 this.isResumedOrVisibleToUser = false;
-                this.delegate.onPause(true);
+                this.delegate.onPause();
             }
         }
     }
@@ -200,16 +195,18 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.isResumedOrVisibleToUser) {
+        if (!isHidden() && this.sendReumeToDart && this.isResumedOrVisibleToUser) {
             this.isResumedOrVisibleToUser = false;
-            this.delegate.onPause(true);
+            this.delegate.onPause();
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        this.delegate.onStop();
+        if (!isHidden()) {
+            this.delegate.onStop();
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -226,7 +223,17 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         this.delegate = null;
     }
 
-    @Override // android.support.v4.app.Fragment, com.baidu.h.a.a.InterfaceC0127a
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    public void onHiddenChanged(boolean z) {
+        super.onHiddenChanged(z);
+        if (z) {
+            this.delegate.onPause();
+        } else {
+            this.delegate.onResume();
+        }
+    }
+
+    @Override // android.support.v4.app.Fragment, com.baidu.i.a.a.InterfaceC0153a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         this.delegate.onRequestPermissionsResult(i, strArr, iArr);
     }
@@ -285,21 +292,17 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         return FlutterView.TransparencyMode.valueOf(getArguments().getString(ARG_FLUTTERVIEW_TRANSPARENCY_MODE, FlutterView.TransparencyMode.transparent.name()));
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
+    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.SplashScreenProvider
     @Nullable
     public SplashScreen provideSplashScreen() {
-        FrameLayout frameLayout = new FrameLayout(getActivity());
-        frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        ContinuousAnimationView continuousAnimationView = new ContinuousAnimationView(getActivity());
-        an.a(continuousAnimationView, R.raw.lottie_full_screen_refresh);
-        continuousAnimationView.setSpeed(1.2f);
-        continuousAnimationView.setLayoutParams(new FrameLayout.LayoutParams(290, 304, 17));
-        frameLayout.addView(continuousAnimationView);
-        continuousAnimationView.playAnimation();
-        return new ViewSplashScreen(frameLayout);
+        FragmentActivity activity = getActivity();
+        if (activity instanceof SplashScreenProvider) {
+            return ((SplashScreenProvider) activity).provideSplashScreen();
+        }
+        return null;
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
+    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.FlutterEngineProvider
     @Nullable
     public FlutterEngine provideFlutterEngine(@NonNull Context context) {
         return FlutterBoost.instance().engineProvider();
@@ -310,23 +313,25 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         return this.delegate.getFlutterEngine();
     }
 
+    public FlutterActivityAndFragmentDelegate getFlutterDelegate() {
+        return this.delegate;
+    }
+
     @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     @Nullable
-    public PlatformPlugin providePlatformPlugin(@Nullable Activity activity, @NonNull FlutterEngine flutterEngine) {
-        if (activity != null) {
-            return new PlatformPlugin(getActivity(), flutterEngine.getPlatformChannel());
-        }
-        return null;
+    public XPlatformPlugin providePlatformPlugin(@NonNull FlutterEngine flutterEngine) {
+        return BoostViewUtils.getPlatformPlugin(flutterEngine.getPlatformChannel());
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
+    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.FlutterEngineConfigurator
     public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
-        FlutterEngineConfigurator activity = getActivity();
+        FragmentActivity activity = getActivity();
         if (activity instanceof FlutterEngineConfigurator) {
-            activity.configureFlutterEngine(flutterEngine);
+            ((FlutterEngineConfigurator) activity).configureFlutterEngine(flutterEngine);
         }
     }
 
+    @Override // io.flutter.embedding.android.FlutterEngineConfigurator
     public void cleanUpFlutterEngine(@NonNull FlutterEngine flutterEngine) {
     }
 

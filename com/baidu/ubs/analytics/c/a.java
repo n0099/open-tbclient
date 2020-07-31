@@ -6,15 +6,15 @@ import android.content.Context;
 import android.os.Build;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 final class a {
-    private static final a mEQ = new a();
+    private static final a mMU = new a();
     private boolean ac;
-    private final Set<InterfaceC0786a> mER = new LinkedHashSet();
+    private final Set<InterfaceC0796a> mMV = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0786a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0796a {
         void T();
 
         void U();
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a dxl() {
-        return mEQ;
+    public static a dAx() {
+        return mMU;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0786a> dxm() {
-        return this.mER;
+    public final Set<InterfaceC0796a> dAy() {
+        return this.mMV;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0786a interfaceC0786a) {
-        synchronized (this.mER) {
-            this.mER.add(interfaceC0786a);
+    public final void a(InterfaceC0796a interfaceC0796a) {
+        synchronized (this.mMV) {
+            this.mMV.add(interfaceC0796a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void S() {
-        synchronized (this.mER) {
-            this.mER.clear();
+        synchronized (this.mMV) {
+            this.mMV.clear();
         }
     }
 

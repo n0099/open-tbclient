@@ -10,7 +10,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class f extends aa {
     public f(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/getStorage");
@@ -35,17 +35,17 @@ public class f extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty key");
             return false;
         }
-        String string = eVar.apX().asF().getString(optString, "");
+        String string = eVar.arG().auG().getString(optString, "");
         try {
-            JSONObject ij = com.baidu.swan.apps.api.module.i.a.ij(string);
-            if (ij == null) {
-                ij = new JSONObject();
+            JSONObject it = com.baidu.swan.apps.api.module.i.a.it(string);
+            if (it == null) {
+                it = new JSONObject();
                 if (TextUtils.isEmpty(string)) {
                     string = "";
                 }
-                ij.put("data", string);
+                it.put("data", string);
             }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(ij, 0));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(it, 0));
             return true;
         } catch (JSONException e) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "JSONException");

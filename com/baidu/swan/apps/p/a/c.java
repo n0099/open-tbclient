@@ -7,59 +7,59 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.aq.ag;
+import com.baidu.swan.apps.aq.ai;
+import com.baidu.swan.apps.core.d.e;
 import com.baidu.swan.apps.p.a.b.b;
 import com.baidu.swan.apps.p.d;
-import com.baidu.swan.apps.runtime.e;
-import com.baidu.swan.apps.w.f;
+import com.baidu.swan.apps.v.f;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c implements d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bNv;
-    private com.baidu.swan.apps.core.d.d bUS;
-    private int bUU;
-    private String ckf;
-    private Handler ckg;
-    private com.baidu.swan.apps.p.a.b.b ckh;
-    private a cki;
-    private b.a ckj = new b.a() { // from class: com.baidu.swan.apps.p.a.c.5
+    private String bOl;
+    private e bVK;
+    private int bVM;
+    private String cmj;
+    private Handler cmk;
+    private com.baidu.swan.apps.p.a.b.b cml;
+    private a cmm;
+    private b.a cmn = new b.a() { // from class: com.baidu.swan.apps.p.a.c.5
         @Override // com.baidu.swan.apps.p.a.b.b.a
-        public void kE(String str) {
-            bi("onInput", "inputText: " + str);
-            if (c.this.cki != null) {
-                c.this.cki.kE(str);
+        public void la(String str) {
+            bm("onInput", "inputText: " + str);
+            if (c.this.cmm != null) {
+                c.this.cmm.la(str);
             }
         }
 
         @Override // com.baidu.swan.apps.p.a.b.b.a
-        public void aft() {
-            bi("onDeletePressed", null);
-            if (c.this.cki != null) {
-                c.this.cki.aft();
+        public void agE() {
+            bm("onDeletePressed", null);
+            if (c.this.cmm != null) {
+                c.this.cmm.agE();
             }
         }
 
         @Override // com.baidu.swan.apps.p.a.b.b.a
-        public void eH(int i) {
-            bi("onKeyboardShow", "height: " + i);
-            if (c.this.cki != null) {
-                c.this.cki.eH(i);
+        public void eJ(int i) {
+            bm("onKeyboardShow", "height: " + i);
+            if (c.this.cmm != null) {
+                c.this.cmm.eJ(i);
             }
         }
 
         @Override // com.baidu.swan.apps.p.a.b.b.a
-        public void Wy() {
-            bi("onKeyboardHide", null);
-            if (c.this.cki != null) {
-                c.this.cki.Wy();
+        public void Xf() {
+            bm("onKeyboardHide", null);
+            if (c.this.cmm != null) {
+                c.this.cmm.Xf();
             }
         }
 
-        private void bi(String str, @Nullable String str2) {
+        private void bm(String str, @Nullable String str2) {
             if (c.DEBUG) {
-                String str3 = ("【" + c.this.afs() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + c.this.hashCode() + "】\t") + "【" + str + "】";
+                String str3 = ("【" + c.this.agD() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + c.this.hashCode() + "】\t") + "【" + str + "】";
                 if (!TextUtils.isEmpty(str2)) {
                     str3 = str3 + str2;
                 }
@@ -69,85 +69,85 @@ public class c implements d {
     };
     private Context mContext;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void Wy();
+        void Xf();
 
-        void aft();
+        void agE();
 
-        void eH(int i);
+        void eJ(int i);
 
-        void kE(String str);
+        void la(String str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ZeusPluginFactory.Invoker invoker, String str) {
         if (invoker != null) {
-            this.ckf = (String) invoker.get("id");
+            this.cmj = (String) invoker.get("id");
         }
-        this.mContext = com.baidu.swan.apps.u.a.afX();
-        this.bNv = str;
-        this.ckg = new Handler(this.mContext.getMainLooper());
-        this.bUS = afz();
+        this.mContext = com.baidu.swan.apps.t.a.ahj();
+        this.bOl = str;
+        this.cmk = new Handler(this.mContext.getMainLooper());
+        this.bVK = agK();
     }
 
     @Override // com.baidu.swan.apps.p.d
     public void a(@NonNull d.a aVar) {
-        if (e.apM() == null) {
-            aVar.dX(false);
+        if (com.baidu.swan.apps.runtime.e.arv() == null) {
+            aVar.ed(false);
         } else {
-            aVar.dX(true);
+            aVar.ed(true);
         }
     }
 
     @Override // com.baidu.swan.apps.p.d
     @Nullable
-    public String afs() {
-        return this.ckf;
+    public String agD() {
+        return this.cmj;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(@NonNull a aVar) {
-        this.cki = aVar;
+        this.cmm = aVar;
     }
 
-    public void fA(final int i) {
-        this.ckg.post(new Runnable() { // from class: com.baidu.swan.apps.p.a.c.1
+    public void fK(final int i) {
+        this.cmk.post(new Runnable() { // from class: com.baidu.swan.apps.p.a.c.1
             @Override // java.lang.Runnable
             public void run() {
-                c.this.fB(i);
+                c.this.fL(i);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fB(int i) {
-        Activity afy = afy();
-        if (afy != null) {
-            this.ckh = new com.baidu.swan.apps.p.a.b.b(afy, i, this.ckj);
-            this.ckh.show();
+    public void fL(int i) {
+        Activity agJ = agJ();
+        if (agJ != null) {
+            this.cml = new com.baidu.swan.apps.p.a.b.b(agJ, i, this.cmn);
+            this.cml.show();
         }
     }
 
-    public void afu() {
-        this.ckg.post(new Runnable() { // from class: com.baidu.swan.apps.p.a.c.2
+    public void agF() {
+        this.cmk.post(new Runnable() { // from class: com.baidu.swan.apps.p.a.c.2
             @Override // java.lang.Runnable
             public void run() {
-                c.this.afv();
+                c.this.agG();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afv() {
-        if (this.ckh != null) {
-            this.ckh.dismiss();
-            this.ckh = null;
+    public void agG() {
+        if (this.cml != null) {
+            this.cml.dismiss();
+            this.cml = null;
         }
     }
 
     public void j(final int i, final int i2, final int i3, final int i4) {
-        this.ckg.post(new Runnable() { // from class: com.baidu.swan.apps.p.a.c.3
+        this.cmk.post(new Runnable() { // from class: com.baidu.swan.apps.p.a.c.3
             @Override // java.lang.Runnable
             public void run() {
                 c.this.k(i, i2, i3, i4);
@@ -157,41 +157,41 @@ public class c implements d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k(int i, int i2, int i3, int i4) {
-        if (this.bUS != null) {
-            com.baidu.swan.apps.adaptation.b.d aiM = f.ajb().aiM();
-            if (this.bUU != i3 && aiM != null) {
-                this.bUU = i3;
-                int webViewScrollY = aiM.getWebViewScrollY() + ((this.bUS.getWebViewContainer().getHeight() - i) - i2) + ag.cx(this.mContext);
+        if (this.bVK != null) {
+            com.baidu.swan.apps.adaptation.b.d akc = f.akr().akc();
+            if (this.bVM != i3 && akc != null) {
+                this.bVM = i3;
+                int webViewScrollY = akc.getWebViewScrollY() + ((this.bVK.getWebViewContainer().getHeight() - i) - i2) + ai.cB(this.mContext);
                 if (i4 > webViewScrollY) {
                     i4 = webViewScrollY;
                 }
                 int i5 = webViewScrollY - i3;
-                int scrollY = this.bUS.getWebViewContainer().getScrollY();
+                int scrollY = this.bVK.getWebViewContainer().getScrollY();
                 if (i5 < 0) {
                     scrollY = i4 - i5;
                 } else if (i4 > i5) {
                     scrollY = i4 - i5;
                 }
-                this.bUS.getWebViewContainer().setScrollY(scrollY);
+                this.bVK.getWebViewContainer().setScrollY(scrollY);
             }
         }
     }
 
-    public void afw() {
-        this.ckg.post(new Runnable() { // from class: com.baidu.swan.apps.p.a.c.4
+    public void agH() {
+        this.cmk.post(new Runnable() { // from class: com.baidu.swan.apps.p.a.c.4
             @Override // java.lang.Runnable
             public void run() {
-                c.this.afx();
+                c.this.agI();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afx() {
-        if (this.bUS != null && this.bUU != 0) {
-            this.bUU = 0;
-            if (this.bUS.getWebViewContainer().getScrollY() > 0) {
-                this.bUS.getWebViewContainer().setScrollY(0);
+    public void agI() {
+        if (this.bVK != null && this.bVM != 0) {
+            this.bVM = 0;
+            if (this.bVK.getWebViewContainer().getScrollY() > 0) {
+                this.bVK.getWebViewContainer().setScrollY(0);
             }
         }
     }
@@ -200,27 +200,27 @@ public class c implements d {
     }
 
     @Nullable
-    private Activity afy() {
-        e apM = e.apM();
-        if (apM == null) {
+    private Activity agJ() {
+        com.baidu.swan.apps.runtime.e arv = com.baidu.swan.apps.runtime.e.arv();
+        if (arv == null) {
             return null;
         }
-        return apM.getActivity();
+        return arv.getActivity();
     }
 
     @Nullable
-    private com.baidu.swan.apps.core.d.d afz() {
-        com.baidu.swan.apps.core.d.e RN = f.ajb().RN();
-        if (RN == null) {
+    private e agK() {
+        com.baidu.swan.apps.core.d.f Sc = f.akr().Sc();
+        if (Sc == null) {
             return null;
         }
-        int ZY = RN.ZY();
-        for (int i = 0; i < ZY; i++) {
-            com.baidu.swan.apps.core.d.b eX = RN.eX(i);
-            if (eX instanceof com.baidu.swan.apps.core.d.d) {
-                com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) eX;
-                if (TextUtils.equals(dVar.ZH(), this.bNv)) {
-                    return dVar;
+        int abc = Sc.abc();
+        for (int i = 0; i < abc; i++) {
+            com.baidu.swan.apps.core.d.c fc = Sc.fc(i);
+            if (fc instanceof e) {
+                e eVar = (e) fc;
+                if (TextUtils.equals(eVar.aaL(), this.bOl)) {
+                    return eVar;
                 }
             }
         }

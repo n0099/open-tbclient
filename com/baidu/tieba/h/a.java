@@ -3,60 +3,60 @@ package com.baidu.tieba.h;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String aMb;
-    private String bmW;
-    private String eXQ;
-    private String igD;
-    private String igE;
-    private String igF;
+    private String aNw;
+    private String bnr;
+    private String fcs;
+    private String imH;
+    private String imI;
+    private String imJ;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.igD = String.valueOf(esportRank.rank);
-            this.aMb = esportRank.text;
-            this.eXQ = esportRank.url;
+            this.imH = String.valueOf(esportRank.rank);
+            this.aNw = esportRank.text;
+            this.fcs = esportRank.url;
             if (esportRank.user != null) {
-                this.igE = esportRank.user.steam_name;
-                this.igF = esportRank.user.steam_portrait;
+                this.imI = esportRank.user.steam_name;
+                this.imJ = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String cgL() {
+    public String ckk() {
         return this.mTitle;
     }
 
-    public String cgM() {
-        return this.igD;
+    public String ckl() {
+        return this.imH;
     }
 
-    public String cgN() {
-        return this.aMb;
+    public String ckm() {
+        return this.aNw;
     }
 
-    public String cgO() {
-        return this.igE;
+    public String ckn() {
+        return this.imI;
     }
 
-    public String cgP() {
-        return this.igF;
+    public String cko() {
+        return this.imJ;
     }
 
-    public String cgQ() {
-        return this.bmW;
+    public String ckp() {
+        return this.bnr;
     }
 
-    public void FP(String str) {
-        this.bmW = str;
+    public void GB(String str) {
+        this.bnr = str;
     }
 
-    public String cgR() {
-        return this.eXQ;
+    public String ckq() {
+        return this.fcs;
     }
 
-    public void FQ(String str) {
-        this.eXQ = str;
+    public void GC(String str) {
+        this.fcs = str;
     }
 }

@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import com.baidu.android.imsdk.IMConstants;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 class o extends j {
     public o() {
         super("app_apk3", "Create table if not exists app_apk3(_id Integer primary key AUTOINCREMENT,time VARCHAR(50),content TEXT);");

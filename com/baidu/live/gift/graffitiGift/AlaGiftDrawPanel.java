@@ -19,68 +19,68 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaGiftDrawPanel extends FrameLayout {
-    public List<m> aHS;
-    private Bitmap aHW;
-    private g aHX;
-    private Paint aOf;
-    private ArrayList<PointF> aOg;
-    private ArrayList<PointF> aOh;
-    private a aOi;
-    private boolean aOj;
-    private float aOk;
-    private float aOl;
-    private float aOm;
-    private float aOn;
-    private PointF aOo;
-    private boolean aOp;
-    private int aOq;
-    private int aOr;
-    private int aOs;
+    public List<m> aJn;
+    private Bitmap aJr;
+    private g aJs;
+    private Paint aPA;
+    private ArrayList<PointF> aPB;
+    private ArrayList<PointF> aPC;
+    private a aPD;
+    private boolean aPE;
+    private float aPF;
+    private float aPG;
+    private float aPH;
+    private float aPI;
+    private PointF aPJ;
+    private boolean aPK;
+    private int aPL;
+    private int aPM;
+    private int aPN;
     private int mBackgroundColor;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void d(int i, long j);
     }
 
     public AlaGiftDrawPanel(Context context) {
         super(context);
-        this.aOj = false;
+        this.aPE = false;
         this.mBackgroundColor = 0;
         init();
     }
 
     public AlaGiftDrawPanel(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aOj = false;
+        this.aPE = false;
         this.mBackgroundColor = 0;
         init();
     }
 
     public AlaGiftDrawPanel(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aOj = false;
+        this.aPE = false;
         this.mBackgroundColor = 0;
         init();
     }
 
     private void init() {
         View.inflate(getContext(), a.h.ala_gift_draw_region_layout, this);
-        this.aOf = new Paint();
-        this.aOf.setAntiAlias(true);
-        this.aOf.setFilterBitmap(true);
-        this.aOf.setDither(true);
-        this.aOg = new ArrayList<>();
-        this.aOh = new ArrayList<>();
-        this.aHS = new ArrayList();
+        this.aPA = new Paint();
+        this.aPA.setAntiAlias(true);
+        this.aPA.setFilterBitmap(true);
+        this.aPA.setDither(true);
+        this.aPB = new ArrayList<>();
+        this.aPC = new ArrayList<>();
+        this.aJn = new ArrayList();
         float dip2px = BdUtilHelper.dip2px(getContext(), 32.0f);
-        this.aOm = dip2px;
-        this.aOk = dip2px;
-        float f = this.aOm / 2.0f;
-        this.aOn = f;
-        this.aOl = f;
+        this.aPH = dip2px;
+        this.aPF = dip2px;
+        float f = this.aPH / 2.0f;
+        this.aPI = f;
+        this.aPG = f;
         this.mBackgroundColor = getResources().getColor(a.d.sdk_black_alpha50);
     }
 
@@ -89,49 +89,49 @@ public class AlaGiftDrawPanel extends FrameLayout {
         PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
         switch (motionEvent.getAction()) {
             case 0:
-                this.aOs = this.aOg.size();
-                this.aOh.clear();
+                this.aPN = this.aPB.size();
+                this.aPC.clear();
                 a(pointF);
                 break;
             case 1:
-                this.aOj = false;
-                AK();
-                this.aOg.addAll(this.aOh);
-                AL();
+                this.aPE = false;
+                Bm();
+                this.aPB.addAll(this.aPC);
+                Bn();
                 break;
             case 2:
-                if (!this.aOj) {
+                if (!this.aPE) {
                     b(pointF);
                     break;
                 }
                 break;
             case 6:
-                this.aOj = true;
+                this.aPE = true;
                 break;
         }
         return true;
     }
 
     private void a(PointF pointF) {
-        if (this.aHW != null && !this.aHW.isRecycled()) {
+        if (this.aJr != null && !this.aJr.isRecycled()) {
             if (c(pointF)) {
-                this.aOp = true;
-                this.aOo = pointF;
-                this.aOh.add(pointF);
-                if (this.aOi != null) {
-                    this.aOi.d(getCurrentPointSize(), getTotalPrice());
+                this.aPK = true;
+                this.aPJ = pointF;
+                this.aPC.add(pointF);
+                if (this.aPD != null) {
+                    this.aPD.d(getCurrentPointSize(), getTotalPrice());
                 }
             } else {
-                this.aOp = false;
+                this.aPK = false;
             }
             postInvalidate();
         }
     }
 
     private void b(PointF pointF) {
-        if (this.aOp) {
-            if (b(pointF, this.aOo)) {
-                d(this.aOo, pointF);
+        if (this.aPK) {
+            if (b(pointF, this.aPJ)) {
+                d(this.aPJ, pointF);
             }
             postInvalidate();
         }
@@ -144,40 +144,40 @@ public class AlaGiftDrawPanel extends FrameLayout {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.aOg.size()) {
+            if (i2 >= this.aPB.size()) {
                 break;
             }
-            PointF pointF = this.aOg.get(i2);
-            float f = pointF.x - this.aOl;
-            float f2 = pointF.y - this.aOn;
-            Bitmap cr = cr(i2);
-            if (cr != null && !cr.isRecycled()) {
-                canvas.drawBitmap(cr, f, f2, this.aOf);
+            PointF pointF = this.aPB.get(i2);
+            float f = pointF.x - this.aPG;
+            float f2 = pointF.y - this.aPI;
+            Bitmap cx = cx(i2);
+            if (cx != null && !cx.isRecycled()) {
+                canvas.drawBitmap(cx, f, f2, this.aPA);
             }
             i = i2 + 1;
         }
-        Iterator<PointF> it = this.aOh.iterator();
+        Iterator<PointF> it = this.aPC.iterator();
         while (it.hasNext()) {
             PointF next = it.next();
-            float f3 = next.x - this.aOl;
-            float f4 = next.y - this.aOn;
-            if (this.aHW != null) {
-                canvas.drawBitmap(this.aHW, f3, f4, this.aOf);
+            float f3 = next.x - this.aPG;
+            float f4 = next.y - this.aPI;
+            if (this.aJr != null) {
+                canvas.drawBitmap(this.aJr, f3, f4, this.aPA);
             }
         }
     }
 
-    private Bitmap cr(int i) {
+    private Bitmap cx(int i) {
         int i2 = 0;
         int i3 = -1;
         while (true) {
             int i4 = i2;
-            if (i4 < this.aHS.size()) {
-                m mVar = this.aHS.get(i4);
-                if (i3 < i && i <= mVar.yH() + i3) {
-                    return mVar.aHW;
+            if (i4 < this.aJn.size()) {
+                m mVar = this.aJn.get(i4);
+                if (i3 < i && i <= mVar.zj() + i3) {
+                    return mVar.aJr;
                 }
-                i3 += mVar.yH();
+                i3 += mVar.zj();
                 i2 = i4 + 1;
             } else {
                 return null;
@@ -188,47 +188,47 @@ public class AlaGiftDrawPanel extends FrameLayout {
     public void setGiftBitmp(Bitmap bitmap) {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        float f = this.aOk / width;
-        float f2 = this.aOm / height;
+        float f = this.aPF / width;
+        float f2 = this.aPH / height;
         Matrix matrix = new Matrix();
         matrix.postScale(f, f2);
-        this.aHW = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+        this.aJr = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
     }
 
     public void setGiftDrawEventListener(a aVar) {
-        this.aOi = aVar;
+        this.aPD = aVar;
     }
 
     public void setTipImageVisibility(int i) {
         findViewById(a.g.ala_gift_draw_tip_text).setVisibility(i);
     }
 
-    public void AJ() {
-        if (this.aOi != null && !ListUtils.isEmpty(this.aOg)) {
-            this.aOi.d(0, 0L);
+    public void Bl() {
+        if (this.aPD != null && !ListUtils.isEmpty(this.aPB)) {
+            this.aPD.d(0, 0L);
         }
-        ListUtils.clear(this.aOg);
+        ListUtils.clear(this.aPB);
         postInvalidate();
     }
 
     public void setGiftCountRange(int i, int i2) {
-        this.aOq = i;
-        this.aOr = i2;
+        this.aPL = i;
+        this.aPM = i2;
     }
 
     private boolean c(PointF pointF) {
-        if (getCurrentPointSize() >= this.aOr) {
+        if (getCurrentPointSize() >= this.aPM) {
             BdUtilHelper.showToast(getContext(), getContext().getString(a.i.ala_gift_tip_max_size));
         }
-        return getCurrentPointSize() < this.aOr && pointF.x > this.aOl && pointF.x < ((float) getWidth()) - this.aOl && pointF.y > this.aOn && pointF.y < ((float) getHeight()) - this.aOn;
+        return getCurrentPointSize() < this.aPM && pointF.x > this.aPG && pointF.x < ((float) getWidth()) - this.aPG && pointF.y > this.aPI && pointF.y < ((float) getHeight()) - this.aPI;
     }
 
     public int getCurrentPointSize() {
-        return this.aOg.size() + this.aOh.size();
+        return this.aPB.size() + this.aPC.size();
     }
 
     private boolean b(PointF pointF, PointF pointF2) {
-        return c(pointF) && c(pointF, pointF2) >= this.aOm;
+        return c(pointF) && c(pointF, pointF2) >= this.aPH;
     }
 
     private float c(PointF pointF, PointF pointF2) {
@@ -274,13 +274,13 @@ public class AlaGiftDrawPanel extends FrameLayout {
                 int i14 = i13 + i2;
                 int i15 = i12 + i10;
                 PointF pointF4 = new PointF(i14, i5);
-                if (c(pointF3, pointF4) < this.aOm) {
+                if (c(pointF3, pointF4) < this.aPH) {
                     pointF4 = pointF3;
-                } else if (getCurrentPointSize() < this.aOr) {
-                    this.aOh.add(pointF4);
-                    this.aOo = pointF4;
-                    if (this.aOi != null) {
-                        this.aOi.d(getCurrentPointSize(), getTotalPrice());
+                } else if (getCurrentPointSize() < this.aPM) {
+                    this.aPC.add(pointF4);
+                    this.aPJ = pointF4;
+                    if (this.aPD != null) {
+                        this.aPD.d(getCurrentPointSize(), getTotalPrice());
                     }
                 } else {
                     return;
@@ -303,13 +303,13 @@ public class AlaGiftDrawPanel extends FrameLayout {
             int i19 = i17 + i;
             int i20 = i16 + i11;
             PointF pointF6 = new PointF(i18, i19);
-            if (c(pointF5, pointF6) < this.aOm) {
+            if (c(pointF5, pointF6) < this.aPH) {
                 pointF6 = pointF5;
-            } else if (getCurrentPointSize() < this.aOr) {
-                this.aOh.add(pointF6);
-                this.aOo = pointF6;
-                if (this.aOi != null) {
-                    this.aOi.d(getCurrentPointSize(), getTotalPrice());
+            } else if (getCurrentPointSize() < this.aPM) {
+                this.aPC.add(pointF6);
+                this.aPJ = pointF6;
+                if (this.aPD != null) {
+                    this.aPD.d(getCurrentPointSize(), getTotalPrice());
                 }
             } else {
                 return;
@@ -321,85 +321,85 @@ public class AlaGiftDrawPanel extends FrameLayout {
     }
 
     public List<PointF> getPoints() {
-        return this.aOg;
+        return this.aPB;
     }
 
     public List<m> getGraffitiPointDesDatas() {
-        return this.aHS;
+        return this.aJn;
     }
 
     private long getTotalPrice() {
         long j = 0;
-        for (m mVar : this.aHS) {
-            j = mVar.aHX != null ? (mVar.yH() * JavaTypesHelper.toLong(mVar.aHX.getPrice(), 0L)) + j : j;
+        for (m mVar : this.aJn) {
+            j = mVar.aJs != null ? (mVar.zj() * JavaTypesHelper.toLong(mVar.aJs.getPrice(), 0L)) + j : j;
         }
-        if (this.aOh.size() > 0) {
-            return j + (JavaTypesHelper.toLong(this.aHX.getPrice(), 0L) * this.aOh.size());
+        if (this.aPC.size() > 0) {
+            return j + (JavaTypesHelper.toLong(this.aJs.getPrice(), 0L) * this.aPC.size());
         }
         return j;
     }
 
-    public void bA(boolean z) {
-        if (this.aHS != null) {
+    public void bD(boolean z) {
+        if (this.aJn != null) {
             if (z) {
-                for (m mVar : this.aHS) {
-                    if (mVar.aHW != null && !mVar.aHW.isRecycled()) {
-                        mVar.aHW.recycle();
-                        mVar.aHW = null;
+                for (m mVar : this.aJn) {
+                    if (mVar.aJr != null && !mVar.aJr.isRecycled()) {
+                        mVar.aJr.recycle();
+                        mVar.aJr = null;
                     }
                 }
             } else {
-                for (m mVar2 : this.aHS) {
-                    if (mVar2.aHW != null && !mVar2.aHW.isRecycled() && mVar2.aHX != this.aHX) {
-                        mVar2.aHW.recycle();
-                        mVar2.aHW = null;
+                for (m mVar2 : this.aJn) {
+                    if (mVar2.aJr != null && !mVar2.aJr.isRecycled() && mVar2.aJs != this.aJs) {
+                        mVar2.aJr.recycle();
+                        mVar2.aJr = null;
                     }
                 }
             }
         }
-        if (this.aHS != null) {
-            this.aHS.clear();
+        if (this.aJn != null) {
+            this.aJn.clear();
         }
-        AL();
-        AJ();
+        Bn();
+        Bl();
         postInvalidate();
     }
 
-    public void AK() {
-        if (this.aHS != null && this.aOh != null && this.aOh.size() > 0) {
-            this.aHS.add(getAlaGraffitiPointDesData());
+    public void Bm() {
+        if (this.aJn != null && this.aPC != null && this.aPC.size() > 0) {
+            this.aJn.add(getAlaGraffitiPointDesData());
         }
     }
 
-    public void AL() {
-        if (this.aOh != null) {
-            this.aOh.clear();
+    public void Bn() {
+        if (this.aPC != null) {
+            this.aPC.clear();
         }
     }
 
     private m getAlaGraffitiPointDesData() {
         m mVar = new m();
-        mVar.aHW = this.aHW;
-        mVar.aHX = this.aHX;
-        mVar.eM(this.aHX != null ? this.aHX.getThumbnail_url() : "");
-        mVar.setGiftId(this.aHX != null ? Integer.parseInt(this.aHX.xM()) : 0);
-        mVar.bU(getCurrentPointSize() - this.aOs);
+        mVar.aJr = this.aJr;
+        mVar.aJs = this.aJs;
+        mVar.eL(this.aJs != null ? this.aJs.getThumbnail_url() : "");
+        mVar.setGiftId(this.aJs != null ? Integer.parseInt(this.aJs.yo()) : 0);
+        mVar.ca(getCurrentPointSize() - this.aPN);
         return mVar;
     }
 
     public void setAlaGiftItem(g gVar) {
-        this.aHX = gVar;
+        this.aJs = gVar;
     }
 
-    public void AM() {
-        if (this.aHS != null && this.aHS.size() > 0) {
-            for (int yH = this.aHS.get(this.aHS.size() - 1).yH(); yH > 0; yH--) {
-                this.aOg.remove(this.aOg.size() - 1);
+    public void Bo() {
+        if (this.aJn != null && this.aJn.size() > 0) {
+            for (int zj = this.aJn.get(this.aJn.size() - 1).zj(); zj > 0; zj--) {
+                this.aPB.remove(this.aPB.size() - 1);
             }
-            this.aHS.remove(this.aHS.size() - 1);
+            this.aJn.remove(this.aJn.size() - 1);
             postInvalidate();
-            if (this.aOi != null) {
-                this.aOi.d(getCurrentPointSize(), getTotalPrice());
+            if (this.aPD != null) {
+                this.aPD.d(getCurrentPointSize(), getTotalPrice());
             }
         }
     }

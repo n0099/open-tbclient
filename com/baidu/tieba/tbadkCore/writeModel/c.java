@@ -12,8 +12,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
@@ -28,17 +28,17 @@ public class c {
 
     public static void f(Context context, String str, String str2, String str3) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.post_write_or_reply_lay, (ViewGroup) null);
-        inflate.setBackgroundDrawable(an.aG(l.getDimens(context, R.dimen.tbds32), an.getColor(R.color.cp_hud_a)));
+        inflate.setBackgroundDrawable(ao.aH(l.getDimens(context, R.dimen.tbds32), ao.getColor(R.color.cp_hud_a)));
         View findViewById = inflate.findViewById(R.id.experience_score);
         TextView textView = (TextView) inflate.findViewById(R.id.success_text);
-        an.setViewTextColor(textView, (int) R.color.cp_cont_a);
+        ao.setViewTextColor(textView, R.color.cp_cont_a);
         TextView textView2 = (TextView) inflate.findViewById(R.id.pre_msg);
-        an.setViewTextColor(textView2, (int) R.color.cp_cont_a);
+        ao.setViewTextColor(textView2, R.color.cp_cont_a);
         TextView textView3 = (TextView) inflate.findViewById(R.id.color_msg);
-        an.setViewTextColor(textView3, (int) R.color.cp_link_tip_d);
+        ao.setViewTextColor(textView3, R.color.cp_link_tip_d);
         ImageView imageView = (ImageView) inflate.findViewById(R.id.success_img);
         if (imageView != null) {
-            imageView.setBackgroundDrawable(SvgManager.aWQ().a(R.drawable.icon_pure_toast_succeed40_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
+            imageView.setBackgroundDrawable(SvgManager.baR().a(R.drawable.icon_pure_toast_succeed40_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
         }
         if (StringUtils.isNull(str)) {
             str = context.getString(R.string.send_success);
@@ -52,18 +52,18 @@ public class c {
         c(context, inflate);
     }
 
-    public static void a(y yVar, WriteData writeData) {
+    public static void a(z zVar, WriteData writeData) {
         if (writeData != null && writeData.isHasLocationData()) {
-            yVar.addPostData("is_location", "2");
+            zVar.addPostData("is_location", "2");
             Address address = com.baidu.adp.lib.c.a.kG().getAddress(false);
             if (address != null) {
-                yVar.addPostData("lat", String.valueOf(address.getLatitude()));
-                yVar.addPostData("lng", String.valueOf(address.getLongitude()));
+                zVar.addPostData("lat", String.valueOf(address.getLatitude()));
+                zVar.addPostData("lng", String.valueOf(address.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.diE().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.dlM().getLocationData();
             if (locationData != null) {
-                yVar.addPostData("name", locationData.diC());
-                yVar.addPostData(IXAdRequestInfo.SN, locationData.axE());
+                zVar.addPostData("name", locationData.dlK());
+                zVar.addPostData(IXAdRequestInfo.SN, locationData.aAC());
             }
         }
     }

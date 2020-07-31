@@ -32,12 +32,13 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a;
+import com.baidu.tbadk.core.c;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ae;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.af;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.util.e;
-import com.baidu.tbadk.core.util.f.c;
+import com.baidu.tbadk.core.util.f.b;
 import com.baidu.tbadk.core.view.GuidPageView;
 import com.baidu.tbadk.core.view.d;
 import com.baidu.tbadk.k.g;
@@ -51,7 +52,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c {
+public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b {
     public static final byte KEYBOARD_STATE_HIDE = -2;
     public static final byte KEYBOARD_STATE_INIT = -1;
     public static final byte KEYBOARD_STATE_SHOW = -3;
@@ -62,7 +63,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
     private View loadingRootView;
     private g loadingView;
     private a mLayoutInflateFactory;
-    private com.baidu.tbadk.core.c mLayoutMode;
+    private c mLayoutMode;
     private ProgressBar mProgressBar;
     protected SwipeBackLayout mSwipeBackLayout;
     private ProxyAdkBaseActivity<T>.NetRefreshListener netRefreshListener;
@@ -108,9 +109,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = e.aVX();
+        this.customToast = e.aZX();
         super.onCreate(bundle);
-        this.mLayoutMode = new com.baidu.tbadk.core.c();
+        this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new a();
         this.mLayoutInflateFactory.a(this.mLayoutMode);
         getLayoutInflater().setFactory(this.mLayoutInflateFactory);
@@ -121,7 +122,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
             this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        ba.setCurrentActivity(getClass().getName());
+        bb.setCurrentActivity(getClass().getName());
         registerListener(this.skinTypeChangeListener);
         enterExitAnimation();
         this.mIsLogin = TbadkCoreApplication.isLogin();
@@ -193,7 +194,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
 
     protected void adjustResizeForSoftInput() {
         if (this.mUseStyleImmersiveSticky) {
-            d.ac(getPageContext().getPageActivity());
+            d.ad(getPageContext().getPageActivity());
         }
     }
 
@@ -361,19 +362,19 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.a((Context) getActivity(), (CharSequence) str, i, false).aUS();
+        BdToast.a((Context) getActivity(), (CharSequence) str, i, false).aYR();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2, false).aUS();
+        BdToast.a(getActivity(), str, i, i2, false).aYR();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).aUS();
+        BdToast.a(getActivity(), str, defaultIcon).aYR();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).aUS();
+        BdToast.a(getActivity(), str, defaultIcon, i).aYR();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity
@@ -491,7 +492,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TbadkCoreApplication.getInst().AddResumeNum();
-        ba.setCurrentActivity(getClass().getName());
+        bb.setCurrentActivity(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
@@ -571,11 +572,11 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
         }
     }
 
-    public com.baidu.tbadk.core.c getLayoutMode() {
+    public c getLayoutMode() {
         return this.mLayoutMode;
     }
 
-    public void setLayoutMode(com.baidu.tbadk.core.c cVar) {
+    public void setLayoutMode(c cVar) {
         this.mLayoutMode = cVar;
     }
 
@@ -590,8 +591,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.h
     public void onPreLoad(t tVar) {
         super.onPreLoad(tVar);
-        ae.a(tVar, getUniqueId());
-        com.baidu.tbadk.core.util.f.d.a(tVar, getUniqueId(), this);
+        af.a(tVar, getUniqueId());
+        com.baidu.tbadk.core.util.f.c.a(tVar, getUniqueId(), this);
     }
 
     public boolean checkMessageIsBelongToCurPage(ResponsedMessage<?> responsedMessage) {
@@ -870,13 +871,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
         this.mUseStyleImmersiveSticky = z;
     }
 
-    @Override // com.baidu.tbadk.core.util.f.c
+    @Override // com.baidu.tbadk.core.util.f.b
     public boolean videoNeedPreload() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.core.util.f.c
-    public boolean isCyberVideoUsedThisPage() {
         return false;
     }
 }

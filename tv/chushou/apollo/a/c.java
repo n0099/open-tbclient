@@ -1,5 +1,5 @@
 package tv.chushou.apollo.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     public int id = -1;
     public int point = -1;

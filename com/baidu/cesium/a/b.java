@@ -8,7 +8,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.LongBuffer;
 import java.util.Arrays;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class b implements Serializable, Cloneable {
     static final /* synthetic */ boolean a;
     private static final int b = 6;

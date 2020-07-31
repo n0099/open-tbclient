@@ -8,10 +8,24 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class e {
-    public static <K, V> Map<K, V> Or() {
+    public static <K, V> Map<K, V> Oy() {
         return Build.VERSION.SDK_INT >= 19 ? new ArrayMap() : new HashMap();
+    }
+
+    public static Map<String, String> aa(JSONObject jSONObject) {
+        Map<String, String> Oy = Oy();
+        if (jSONObject != null) {
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (!TextUtils.isEmpty(next)) {
+                    Oy.put(next, jSONObject.optString(next));
+                }
+            }
+        }
+        return Oy;
     }
 
     public static Bundle j(Map<String, String> map) {
@@ -28,19 +42,5 @@ public class e {
             jSONObject.put(str, map.get(str));
         }
         return jSONObject;
-    }
-
-    public static Map<String, String> aa(JSONObject jSONObject) {
-        Map<String, String> Or = Or();
-        if (jSONObject != null) {
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next)) {
-                    Or.put(next, jSONObject.optString(next));
-                }
-            }
-        }
-        return Or;
     }
 }

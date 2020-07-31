@@ -1,21 +1,11 @@
 package com.baidu.swan.apps.adaptation.a;
-
-import android.support.annotation.NonNull;
-import com.baidu.swan.apps.event.SwanJSVersionUpdateEvent;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public interface aa {
-    void A(String str, boolean z);
+    void e(String str, String str2);
 
-    void a(@NonNull SwanJSVersionUpdateEvent swanJSVersionUpdateEvent);
+    void e(String str, String str2, Throwable th);
 
-    /* loaded from: classes11.dex */
-    public static class a implements aa {
-        @Override // com.baidu.swan.apps.adaptation.a.aa
-        public void A(String str, boolean z) {
-        }
+    void i(String str, String str2);
 
-        @Override // com.baidu.swan.apps.adaptation.a.aa
-        public void a(@NonNull SwanJSVersionUpdateEvent swanJSVersionUpdateEvent) {
-        }
-    }
+    void w(String str, String str2);
 }

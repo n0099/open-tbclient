@@ -3,48 +3,51 @@ package com.baidu.tieba.im.c.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.searchbox.ugc.model.UgcConstant;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tieba.im.chat.officialBar.RequestLocalHistoryMessage;
-import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
-import com.baidu.tieba.im.chat.officialBar.ResponseLocalHistoryMessage;
-import com.squareup.wire.Wire;
-import java.util.Date;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
+import com.baidu.tieba.im.message.OfficialFeedHeadResponsedMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import java.util.HashMap;
 import java.util.LinkedList;
-import protobuf.QueryHistoryMsg.MsgInfo;
-import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
-/* loaded from: classes13.dex */
-public class l implements CustomMessageTask.CustomRunnable<String> {
+import java.util.List;
+/* loaded from: classes20.dex */
+public class l implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
+    private int mCmd = 2001154;
+    private com.baidu.tieba.im.db.l jkn = com.baidu.tieba.im.db.l.ctw();
+
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        if (customMessage == null || !(customMessage instanceof RequestLocalHistoryMessage)) {
-            return null;
+    public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
+        if (this.jkn == null) {
+            return zq(this.mCmd);
         }
-        byte[] bArr = com.baidu.tbadk.core.c.a.aUM().wb("tb.im_official_history").get(TbadkApplication.getCurrentAccount() + UgcConstant.AT_RULE_TAG + ((RequestLocalHistoryMessage) customMessage).getData());
-        if (bArr == null) {
-            return null;
+        List<com.baidu.tieba.im.db.pojo.a> cty = com.baidu.tieba.im.db.l.cty();
+        if (cty == null || cty.size() <= 0) {
+            return zq(this.mCmd);
         }
-        LinkedList linkedList = new LinkedList();
+        HashMap hashMap = new HashMap(cty.size());
+        for (com.baidu.tieba.im.db.pojo.a aVar : cty) {
+            hashMap.put(aVar.getGid(), aVar);
+        }
+        LinkedList<ChatMessage> b = this.jkn.b(hashMap, 80);
+        if (b == null) {
+            return zq(this.mCmd);
+        }
+        OfficialFeedHeadResponsedMessage.a aVar2 = new OfficialFeedHeadResponsedMessage.a();
+        OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.mCmd);
+        aVar2.jgZ = b;
+        aVar2.msgList = cty;
         try {
-            QueryHistoryMsgResIdl queryHistoryMsgResIdl = (QueryHistoryMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryHistoryMsgResIdl.class);
-            if (queryHistoryMsgResIdl.data.res != null) {
-                for (MsgInfo msgInfo : queryHistoryMsgResIdl.data.res) {
-                    ResponseHistoryMessage.a aVar = new ResponseHistoryMessage.a();
-                    if (msgInfo != null) {
-                        Date date = new Date();
-                        date.setTime(msgInfo.sendTime.longValue() * 1000);
-                        aVar.time = ar.getDateStringMouth(date);
-                        aVar.type = msgInfo.type.intValue();
-                        aVar.content = msgInfo.content;
-                        aVar.id = msgInfo.id.intValue();
-                        linkedList.add(aVar);
-                    }
-                }
-            }
-            return new ResponseLocalHistoryMessage(linkedList);
+            officialFeedHeadResponsedMessage.decodeInBackGround(CmdConfigCustom.CMD_LOAD_HISTORY, aVar2);
+            return officialFeedHeadResponsedMessage;
         } catch (Exception e) {
-            return null;
+            e.printStackTrace();
+            return officialFeedHeadResponsedMessage;
         }
+    }
+
+    private LoadHistoryResponsedMessage zq(int i) {
+        LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
+        loadHistoryResponsedMessage.setError(-18);
+        return loadHistoryResponsedMessage;
     }
 }

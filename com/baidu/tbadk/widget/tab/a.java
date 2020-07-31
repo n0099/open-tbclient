@@ -1,5 +1,5 @@
 package com.baidu.tbadk.widget.tab;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public interface a {
-    boolean oR(int i);
+    boolean pi(int i);
 }

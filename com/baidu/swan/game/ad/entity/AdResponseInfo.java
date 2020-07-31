@@ -2,22 +2,23 @@ package com.baidu.swan.game.ad.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.TextUtils;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class AdResponseInfo implements Parcelable {
     public static final Parcelable.Creator<AdResponseInfo> CREATOR = new Parcelable.Creator<AdResponseInfo>() { // from class: com.baidu.swan.game.ad.entity.AdResponseInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: z */
+        /* renamed from: B */
         public AdResponseInfo createFromParcel(Parcel parcel) {
             return new AdResponseInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: io */
+        /* renamed from: iC */
         public AdResponseInfo[] newArray(int i) {
             return new AdResponseInfo[i];
         }
@@ -53,6 +54,32 @@ public class AdResponseInfo implements Parcelable {
         }
     }
 
+    public AdResponseInfo(String str, boolean z) {
+        JSONObject optJSONObject;
+        this.mAdsNum = 0;
+        this.mAdInstanceList = new ArrayList<>();
+        if (str != null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.mErrorCode = jSONObject.optString("ret", "");
+                if (TextUtils.equals(this.mErrorCode, "0") && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                    this.mRequestId = optJSONObject.optString("id");
+                    JSONArray optJSONArray = optJSONObject.optJSONArray("ads");
+                    if (optJSONArray != null) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                            if (optJSONObject2 != null) {
+                                this.mAdInstanceList.add(new AdElementInfo(optJSONObject2, z));
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                this.mAdInstanceList = new ArrayList<>();
+            }
+        }
+    }
+
     protected AdResponseInfo(Parcel parcel) {
         this.mAdsNum = 0;
         this.mAdInstanceList = new ArrayList<>();
@@ -73,7 +100,7 @@ public class AdResponseInfo implements Parcelable {
         return 0;
     }
 
-    public AdElementInfo axr() {
+    public AdElementInfo aAo() {
         if (this.mAdInstanceList.size() > 0) {
             return this.mAdInstanceList.get(0);
         }

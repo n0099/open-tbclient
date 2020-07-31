@@ -2,35 +2,35 @@ package com.baidu.tieba.forumsearch.b;
 
 import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class a extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId hxR = BdUniqueId.gen();
-    public static final BdUniqueId hxS = BdUniqueId.gen();
-    public static final BdUniqueId hxT = BdUniqueId.gen();
-    private BdUniqueId Un;
-    private ArrayList<String> hxU;
+    public static final BdUniqueId hDF = BdUniqueId.gen();
+    public static final BdUniqueId hDG = BdUniqueId.gen();
+    public static final BdUniqueId hDH = BdUniqueId.gen();
+    private BdUniqueId Uh;
+    private ArrayList<String> hDI;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return this.Un;
+        return this.Uh;
     }
 
     public void g(BdUniqueId bdUniqueId) {
-        this.Un = bdUniqueId;
+        this.Uh = bdUniqueId;
     }
 
     public a() {
-        this.Un = hxS;
-        this.Un = hxS;
+        this.Uh = hDG;
+        this.Uh = hDG;
     }
 
     public a(ArrayList<String> arrayList) {
-        this.Un = hxS;
-        this.hxU = arrayList;
-        this.Un = hxR;
+        this.Uh = hDG;
+        this.hDI = arrayList;
+        this.Uh = hDF;
     }
 
-    public ArrayList<String> bWP() {
-        return this.hxU;
+    public ArrayList<String> cai() {
+        return this.hDI;
     }
 }

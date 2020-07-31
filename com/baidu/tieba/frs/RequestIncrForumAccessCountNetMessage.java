@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import tbclient.IncrForumAccessCount.DataReq;
 import tbclient.IncrForumAccessCount.IncrForumAccessCountReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class RequestIncrForumAccessCountNetMessage extends NetMessage {
     private long mForumId;
 

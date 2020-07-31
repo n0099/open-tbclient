@@ -1,5 +1,5 @@
 package com.baidu.webkit.sdk;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public abstract class RenderProcessGoneDetail {
     public abstract boolean didCrash();
 

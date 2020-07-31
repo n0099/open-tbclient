@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.ETAG;
@@ -34,7 +35,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Enumeration;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class j {
     private static String f;
     private static String a = "";
@@ -108,7 +109,7 @@ public class j {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static class a {
         public String a;
         public long b;
@@ -376,7 +377,7 @@ public class j {
         bundle.putString("app_id", str5);
         bundle.putString("result", str6);
         bundle.putString("type", str7);
-        bundle.putString("login_status", str8);
+        bundle.putString(DpStatConstants.KEY_LOGIN_STATUS, str8);
         bundle.putString("need_user_auth", str9);
         bundle.putString("to_uin", str10);
         bundle.putString("call_source", str11);

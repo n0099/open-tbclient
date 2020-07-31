@@ -3,7 +3,7 @@ package com.baidu.tieba.im.data;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class GroupAddressInfoData implements Serializable {
     private static final long serialVersionUID = 5616188082014345808L;
     private List<String> addressList = new ArrayList();

@@ -41,16 +41,16 @@ public final class OnErrorThrowable extends RuntimeException {
         if (th == null) {
             th = new NullPointerException();
         }
-        Throwable V = a.V(th);
-        return V instanceof OnNextValue ? new OnErrorThrowable(th, ((OnNextValue) V).getValue()) : new OnErrorThrowable(th);
+        Throwable U = a.U(th);
+        return U instanceof OnNextValue ? new OnErrorThrowable(th, ((OnNextValue) U).getValue()) : new OnErrorThrowable(th);
     }
 
     public static Throwable addValueAsLastCause(Throwable th, Object obj) {
         if (th == null) {
             th = new NullPointerException();
         }
-        Throwable V = a.V(th);
-        if (!(V instanceof OnNextValue) || ((OnNextValue) V).getValue() != obj) {
+        Throwable U = a.U(th);
+        if (!(U instanceof OnNextValue) || ((OnNextValue) U).getValue() != obj) {
             a.a(th, new OnNextValue(obj));
         }
         return th;
@@ -64,9 +64,9 @@ public final class OnErrorThrowable extends RuntimeException {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes6.dex */
         public static final class a {
-            static final Set<Class<?>> obh = dUv();
+            static final Set<Class<?>> ojR = dXR();
 
-            private static Set<Class<?>> dUv() {
+            private static Set<Class<?>> dXR() {
                 HashSet hashSet = new HashSet();
                 hashSet.add(Boolean.class);
                 hashSet.add(Character.class);
@@ -100,7 +100,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj == null) {
                 return "null";
             }
-            if (a.obh.contains(obj.getClass())) {
+            if (a.ojR.contains(obj.getClass())) {
                 return obj.toString();
             }
             if (obj instanceof String) {
@@ -109,7 +109,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj instanceof Enum) {
                 return ((Enum) obj).name();
             }
-            String cd = f.dVo().dVp().cd(obj);
+            String cd = f.dYK().dYL().cd(obj);
             return cd != null ? cd : obj.getClass().getName() + ".class";
         }
     }

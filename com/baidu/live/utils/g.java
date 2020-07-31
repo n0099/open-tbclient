@@ -5,7 +5,7 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g {
     public static int av(Context context) {
         int aw = aw(context);

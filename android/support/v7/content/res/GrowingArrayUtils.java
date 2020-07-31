@@ -1,7 +1,7 @@
 package android.support.v7.content.res;
 
 import java.lang.reflect.Array;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 final class GrowingArrayUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
 

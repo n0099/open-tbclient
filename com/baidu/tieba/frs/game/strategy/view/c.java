@@ -6,33 +6,33 @@ import com.baidu.adp.widget.ListView.z;
 import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class c {
-    private final List<com.baidu.adp.widget.ListView.a> aUP = new ArrayList();
-    private com.baidu.adp.base.e dPR;
-    private BdTypeListView fml;
-    private b hNZ;
+    private final List<com.baidu.adp.widget.ListView.a> aWf = new ArrayList();
+    private com.baidu.adp.base.e dWk;
+    private BdTypeListView frv;
+    private b hTY;
 
     public c(com.baidu.adp.base.e eVar, BdTypeListView bdTypeListView) {
-        this.dPR = eVar;
-        this.fml = bdTypeListView;
-        Dz();
+        this.dWk = eVar;
+        this.frv = bdTypeListView;
+        DS();
     }
 
-    private void Dz() {
-        this.hNZ = new b((TbPageContext) this.dPR, com.baidu.tieba.frs.game.strategy.data.b.hNg);
-        this.aUP.add(this.hNZ);
-        this.fml.addAdapters(this.aUP);
+    private void DS() {
+        this.hTY = new b((TbPageContext) this.dWk, com.baidu.tieba.frs.game.strategy.data.b.hTf);
+        this.aWf.add(this.hTY);
+        this.frv.addAdapters(this.aWf);
     }
 
     public void setData(List<q> list) {
-        if (this.fml != null) {
-            this.fml.setData(list);
+        if (this.frv != null) {
+            this.frv.setData(list);
         }
     }
 
     public void b(z zVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.aUP) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.aWf) {
             if (aVar != null) {
                 aVar.a(zVar);
             }
@@ -40,8 +40,8 @@ public class c {
     }
 
     public void notifyDataSetChanged() {
-        if (this.fml.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
-            this.fml.getAdapter().notifyDataSetChanged();
+        if (this.frv.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
+            this.frv.getAdapter().notifyDataSetChanged();
         }
     }
 }

@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class FrsTabViewPager extends BdBaseViewPager {
     public FrsTabViewPager(Context context) {
         this(context, null);
@@ -20,10 +20,10 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                nn(true);
+                nS(true);
                 break;
             case 1:
-                nn(false);
+                nS(false);
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -33,46 +33,46 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 1:
-                nn(false);
+                nS(false);
                 break;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void nn(boolean z) {
+    public void nS(boolean z) {
         a aVar = new a();
-        aVar.no(cab());
-        aVar.np(z);
+        aVar.nT(cdy());
+        aVar.nU(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void caa() {
-        nn(false);
+    public void cdx() {
+        nS(false);
     }
 
-    private boolean cab() {
+    private boolean cdy() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class a {
-        private boolean hDY;
-        private boolean hDZ;
+        private boolean hJW;
+        private boolean hJX;
 
-        public boolean cac() {
-            return this.hDY;
+        public boolean cdz() {
+            return this.hJW;
         }
 
-        public void no(boolean z) {
-            this.hDY = z;
+        public void nT(boolean z) {
+            this.hJW = z;
         }
 
-        public boolean cad() {
-            return this.hDZ;
+        public boolean cdA() {
+            return this.hJX;
         }
 
-        public void np(boolean z) {
-            this.hDZ = z;
+        public void nU(boolean z) {
+            this.hJX = z;
         }
     }
 }

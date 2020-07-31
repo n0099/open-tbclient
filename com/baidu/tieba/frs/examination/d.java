@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.SearchMajorActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.coreExtra.data.r;
@@ -34,28 +34,28 @@ import com.baidu.tieba.frs.examination.c;
 import com.baidu.tieba.tbadkCore.w;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class d extends a {
-    private TbImageView hLY;
-    private TextView hLZ;
-    private TextView hMa;
-    private TextView hMb;
-    private TextView hMc;
-    private TextView hMd;
-    private TextView hMe;
-    private TextView hMf;
-    private TextView hMg;
-    private EditText hMh;
-    private EditText hMi;
-    private ImageView hMj;
-    private View hMk;
-    private View hMl;
-    private RankStarView hMm;
-    private RankStarView hMn;
-    private Editable hMo;
-    private Editable hMp;
-    private TextView hMq;
-    private TextView hMr;
+    private TbImageView hRX;
+    private TextView hRY;
+    private TextView hRZ;
+    private TextView hSa;
+    private TextView hSb;
+    private TextView hSc;
+    private TextView hSd;
+    private TextView hSe;
+    private TextView hSf;
+    private EditText hSg;
+    private EditText hSh;
+    private ImageView hSi;
+    private View hSj;
+    private View hSk;
+    private RankStarView hSl;
+    private RankStarView hSm;
+    private Editable hSn;
+    private Editable hSo;
+    private TextView hSp;
+    private TextView hSq;
 
     public d(BaseFragmentActivity baseFragmentActivity, ForumWriteData forumWriteData, SerializableItemInfo serializableItemInfo) {
         super(baseFragmentActivity, forumWriteData, serializableItemInfo);
@@ -63,68 +63,68 @@ public class d extends a {
 
     @Override // com.baidu.tieba.frs.examination.a
     protected void initUI() {
-        this.mRoot = LayoutInflater.from(this.hep).inflate(R.layout.activity_university_evaluation, (ViewGroup) null);
+        this.mRoot = LayoutInflater.from(this.hjZ).inflate(R.layout.activity_university_evaluation, (ViewGroup) null);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.navigation_bar);
-        this.hLY = (TbImageView) this.mRoot.findViewById(R.id.university_icon);
-        this.hLZ = (TextView) this.mRoot.findViewById(R.id.university_name);
-        this.hMa = (TextView) this.mRoot.findViewById(R.id.university_desc);
-        this.hMb = (TextView) this.mRoot.findViewById(R.id.university_grade);
-        this.hMc = (TextView) this.mRoot.findViewById(R.id.university_subject);
-        this.hMd = (TextView) this.mRoot.findViewById(R.id.university_subject_content);
-        this.hMj = (ImageView) this.mRoot.findViewById(R.id.subject_right_arrow);
-        this.hMe = (TextView) this.mRoot.findViewById(R.id.university_subject_grade);
-        this.hMf = (TextView) this.mRoot.findViewById(R.id.university_comment_title);
-        this.hMg = (TextView) this.mRoot.findViewById(R.id.subject_comment_title);
-        this.hMh = (EditText) this.mRoot.findViewById(R.id.university_comment);
-        this.hMh.setLineSpacing(l.getDimens(this.hep, R.dimen.tbds16), 1.0f);
-        this.hMi = (EditText) this.mRoot.findViewById(R.id.university_subject_comment);
-        this.hMi.setLineSpacing(l.getDimens(this.hep, R.dimen.tbds16), 1.0f);
-        this.hMq = (TextView) this.mRoot.findViewById(R.id.university_comment_counter);
-        this.hMr = (TextView) this.mRoot.findViewById(R.id.university_subject_comment_counter);
-        this.hMl = this.mRoot.findViewById(R.id.select_subject_layout);
-        this.hMm = (RankStarView) this.mRoot.findViewById(R.id.university_grade_star);
-        this.hMm.setClickable(true);
-        this.hMm.setStarSpacing(l.getDimens(this.hep, R.dimen.tbds24));
-        this.hMn = (RankStarView) this.mRoot.findViewById(R.id.university_subject_grade_star);
-        this.hMn.setClickable(true);
-        this.hMn.setStarSpacing(l.getDimens(this.hep, R.dimen.tbds24));
-        this.hMk = this.mRoot.findViewById(R.id.divider);
-        if (this.hLI != null) {
-            this.hMa.setText(cA(this.hLI.getTags()));
-            this.hLZ.setText(this.hLI.getName());
-            this.hLY.startLoad(this.hLI.icon_url, 10, false);
+        this.hRX = (TbImageView) this.mRoot.findViewById(R.id.university_icon);
+        this.hRY = (TextView) this.mRoot.findViewById(R.id.university_name);
+        this.hRZ = (TextView) this.mRoot.findViewById(R.id.university_desc);
+        this.hSa = (TextView) this.mRoot.findViewById(R.id.university_grade);
+        this.hSb = (TextView) this.mRoot.findViewById(R.id.university_subject);
+        this.hSc = (TextView) this.mRoot.findViewById(R.id.university_subject_content);
+        this.hSi = (ImageView) this.mRoot.findViewById(R.id.subject_right_arrow);
+        this.hSd = (TextView) this.mRoot.findViewById(R.id.university_subject_grade);
+        this.hSe = (TextView) this.mRoot.findViewById(R.id.university_comment_title);
+        this.hSf = (TextView) this.mRoot.findViewById(R.id.subject_comment_title);
+        this.hSg = (EditText) this.mRoot.findViewById(R.id.university_comment);
+        this.hSg.setLineSpacing(l.getDimens(this.hjZ, R.dimen.tbds16), 1.0f);
+        this.hSh = (EditText) this.mRoot.findViewById(R.id.university_subject_comment);
+        this.hSh.setLineSpacing(l.getDimens(this.hjZ, R.dimen.tbds16), 1.0f);
+        this.hSp = (TextView) this.mRoot.findViewById(R.id.university_comment_counter);
+        this.hSq = (TextView) this.mRoot.findViewById(R.id.university_subject_comment_counter);
+        this.hSk = this.mRoot.findViewById(R.id.select_subject_layout);
+        this.hSl = (RankStarView) this.mRoot.findViewById(R.id.university_grade_star);
+        this.hSl.setClickable(true);
+        this.hSl.setStarSpacing(l.getDimens(this.hjZ, R.dimen.tbds24));
+        this.hSm = (RankStarView) this.mRoot.findViewById(R.id.university_subject_grade_star);
+        this.hSm.setClickable(true);
+        this.hSm.setStarSpacing(l.getDimens(this.hjZ, R.dimen.tbds24));
+        this.hSj = this.mRoot.findViewById(R.id.divider);
+        if (this.hRH != null) {
+            this.hRZ.setText(cF(this.hRH.getTags()));
+            this.hRY.setText(this.hRH.getName());
+            this.hRX.startLoad(this.hRH.icon_url, 10, false);
         }
-        this.hLY.setPlaceHolder(2);
-        this.hLY.setPageId(this.hep.getUniqueId());
-        this.hLY.setConrers(15);
-        this.hLY.setRadius(l.getDimens(this.hep, R.dimen.tbds10));
+        this.hRX.setPlaceHolder(2);
+        this.hRX.setPageId(this.hjZ.getUniqueId());
+        this.hRX.setConrers(15);
+        this.hRX.setRadius(l.getDimens(this.hjZ, R.dimen.tbds10));
         this.mRoot.findViewById(R.id.scroll_view).setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.frs.examination.d.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent != null && motionEvent.getAction() == 2) {
-                    l.hideSoftKeyPad(d.this.hep, view);
+                    l.hideSoftKeyPad(d.this.hjZ, view);
                     return false;
                 }
                 return false;
             }
         });
-        this.hLJ.a(new c.a() { // from class: com.baidu.tieba.frs.examination.d.2
+        this.hRI.a(new c.a() { // from class: com.baidu.tieba.frs.examination.d.2
             @Override // com.baidu.tieba.frs.examination.c.a
             public void a(InputMethodManager inputMethodManager) {
                 if (inputMethodManager != null) {
-                    d.this.hep.HidenSoftKeyPad(inputMethodManager, d.this.hMh);
-                    d.this.hep.HidenSoftKeyPad(inputMethodManager, d.this.hMi);
+                    d.this.hjZ.HidenSoftKeyPad(inputMethodManager, d.this.hSg);
+                    d.this.hjZ.HidenSoftKeyPad(inputMethodManager, d.this.hSh);
                 }
             }
         });
     }
 
     @Override // com.baidu.tieba.frs.examination.a
-    protected void cbW() {
-        this.hCa.setOnClickListener(this);
-        this.hLH.setOnClickListener(this);
-        this.hMl.setOnClickListener(this);
-        this.hMh.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.examination.d.3
+    protected void cfu() {
+        this.hHY.setOnClickListener(this);
+        this.hRG.setOnClickListener(this);
+        this.hSk.setOnClickListener(this);
+        this.hSg.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.examination.d.3
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -135,17 +135,17 @@ public class d extends a {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                d.this.hMo = editable;
-                if (d.this.hMo.length() > 500) {
-                    d.this.hMq.setText((500 - d.this.hMo.length()) + "/500");
-                    d.this.hMq.setVisibility(0);
+                d.this.hSn = editable;
+                if (d.this.hSn.length() > 500) {
+                    d.this.hSp.setText((500 - d.this.hSn.length()) + "/500");
+                    d.this.hSp.setVisibility(0);
                 } else {
-                    d.this.hMq.setVisibility(4);
+                    d.this.hSp.setVisibility(4);
                 }
-                d.this.cca();
+                d.this.cfy();
             }
         });
-        this.hMi.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.examination.d.4
+        this.hSh.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.examination.d.4
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -156,20 +156,20 @@ public class d extends a {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                d.this.hMp = editable;
-                if (d.this.hMp.length() > 500) {
-                    d.this.hMr.setText((500 - d.this.hMp.length()) + "/500");
-                    d.this.hMr.setVisibility(0);
+                d.this.hSo = editable;
+                if (d.this.hSo.length() > 500) {
+                    d.this.hSq.setText((500 - d.this.hSo.length()) + "/500");
+                    d.this.hSq.setVisibility(0);
                 } else {
-                    d.this.hMr.setVisibility(4);
+                    d.this.hSq.setVisibility(4);
                 }
-                d.this.cca();
+                d.this.cfy();
             }
         });
-        this.hMh.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.frs.examination.d.5
+        this.hSg.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.frs.examination.d.5
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (view.getId() == R.id.university_comment && d.this.c(d.this.hMh)) {
+                if (view.getId() == R.id.university_comment && d.this.c(d.this.hSg)) {
                     view.getParent().requestDisallowInterceptTouchEvent(true);
                     if (motionEvent.getAction() == 1) {
                         view.getParent().requestDisallowInterceptTouchEvent(false);
@@ -178,10 +178,10 @@ public class d extends a {
                 return false;
             }
         });
-        this.hMi.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.frs.examination.d.6
+        this.hSh.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.frs.examination.d.6
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (view.getId() == R.id.university_subject_comment && d.this.c(d.this.hMi)) {
+                if (view.getId() == R.id.university_subject_comment && d.this.c(d.this.hSh)) {
                     view.getParent().requestDisallowInterceptTouchEvent(true);
                     if (motionEvent.getAction() == 1) {
                         view.getParent().requestDisallowInterceptTouchEvent(false);
@@ -193,75 +193,75 @@ public class d extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cca() {
-        if (!TextUtils.isEmpty(this.hMo) && this.hMo.length() >= 20 && !TextUtils.isEmpty(this.hMp) && this.hMp.length() >= 20 && !this.hep.getString(R.string.select_subject).equals(this.hMd.getText()) && this.hMo.length() <= 500 && this.hMp.length() <= 500) {
-            this.hLH.setAlpha(1.0f);
+    public void cfy() {
+        if (!TextUtils.isEmpty(this.hSn) && this.hSn.length() >= 20 && !TextUtils.isEmpty(this.hSo) && this.hSo.length() >= 20 && !this.hjZ.getString(R.string.select_subject).equals(this.hSc.getText()) && this.hSn.length() <= 500 && this.hSo.length() <= 500) {
+            this.hRG.setAlpha(1.0f);
         } else {
-            this.hLH.setAlpha(0.5f);
+            this.hRG.setAlpha(0.5f);
         }
     }
 
     @Override // com.baidu.tieba.frs.examination.a
     public void onChangeSkinType() {
         super.onChangeSkinType();
-        an.setBackgroundColor(this.hMk, R.color.cp_bg_line_c);
-        an.setViewTextColor(this.hLZ, (int) R.color.cp_cont_b);
-        an.setViewTextColor(this.hMa, (int) R.color.cp_cont_d);
-        an.setViewTextColor(this.hMb, (int) R.color.cp_cont_b);
-        an.setViewTextColor(this.hMc, (int) R.color.cp_cont_b);
-        if (this.hep.getString(R.string.select_subject).equals(this.hMd.getText())) {
-            an.setViewTextColor(this.hMd, (int) R.color.cp_cont_d);
-            SvgManager.aWQ().a(this.hMj, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        ao.setBackgroundColor(this.hSj, R.color.cp_bg_line_c);
+        ao.setViewTextColor(this.hRY, R.color.cp_cont_b);
+        ao.setViewTextColor(this.hRZ, R.color.cp_cont_d);
+        ao.setViewTextColor(this.hSa, R.color.cp_cont_b);
+        ao.setViewTextColor(this.hSb, R.color.cp_cont_b);
+        if (this.hjZ.getString(R.string.select_subject).equals(this.hSc.getText())) {
+            ao.setViewTextColor(this.hSc, R.color.cp_cont_d);
+            SvgManager.baR().a(this.hSi, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         } else {
-            an.setViewTextColor(this.hMd, (int) R.color.cp_cont_b);
-            SvgManager.aWQ().a(this.hMj, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            ao.setViewTextColor(this.hSc, R.color.cp_cont_b);
+            SvgManager.baR().a(this.hSi, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
-        an.setViewTextColor(this.hMe, (int) R.color.cp_cont_b);
-        an.setViewTextColor(this.hMf, (int) R.color.cp_cont_b);
-        an.setViewTextColor(this.hMg, (int) R.color.cp_cont_b);
-        an.setViewTextColor(this.hMh, (int) R.color.cp_cont_b);
-        an.setViewTextColor(this.hMi, (int) R.color.cp_cont_b);
-        an.setViewTextColor(this.hMq, (int) R.color.cp_cont_h);
-        an.setViewTextColor(this.hMr, (int) R.color.cp_cont_h);
-        this.hMh.setHintTextColor(an.getColor(R.color.cp_cont_d));
-        this.hMi.setHintTextColor(an.getColor(R.color.cp_cont_d));
-        if (this.hLY != null) {
-            this.hLY.setPlaceHolder(2);
-            this.hLY.invalidate();
+        ao.setViewTextColor(this.hSd, R.color.cp_cont_b);
+        ao.setViewTextColor(this.hSe, R.color.cp_cont_b);
+        ao.setViewTextColor(this.hSf, R.color.cp_cont_b);
+        ao.setViewTextColor(this.hSg, R.color.cp_cont_b);
+        ao.setViewTextColor(this.hSh, R.color.cp_cont_b);
+        ao.setViewTextColor(this.hSp, R.color.cp_cont_h);
+        ao.setViewTextColor(this.hSq, R.color.cp_cont_h);
+        this.hSg.setHintTextColor(ao.getColor(R.color.cp_cont_d));
+        this.hSh.setHintTextColor(ao.getColor(R.color.cp_cont_d));
+        if (this.hRX != null) {
+            this.hRX.setPlaceHolder(2);
+            this.hRX.invalidate();
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hCa) {
-            cbX();
-        } else if (view == this.hMl) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SearchMajorActivityConfig(this.hep, RequestResponseCode.REQUEST_REAL_AUTHEN)));
-        } else if (view == this.hLH) {
-            if (TextUtils.isEmpty(this.hMo) || TextUtils.isEmpty(this.hMp) || this.hep.getString(R.string.select_subject).equals(this.hMd.getText())) {
-                l.showToast(this.hep, (int) R.string.university_comment_must_write_tip);
-            } else if (this.hMo.length() < 20) {
-                l.showToast(this.hep, (int) R.string.university_comment_size_error_tip);
-            } else if (this.hMp.length() < 20) {
-                l.showToast(this.hep, (int) R.string.subject_comment_size_error_tip);
-            } else if (this.hMo.length() > 500) {
-                l.showToast(this.hep, (int) R.string.university_comment_lenght_error_tip);
-            } else if (this.hMp.length() > 500) {
-                l.showToast(this.hep, (int) R.string.subject_comment_lenght_error_tip);
+        if (view == this.hHY) {
+            cfv();
+        } else if (view == this.hSk) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SearchMajorActivityConfig(this.hjZ, RequestResponseCode.REQUEST_REAL_AUTHEN)));
+        } else if (view == this.hRG) {
+            if (TextUtils.isEmpty(this.hSn) || TextUtils.isEmpty(this.hSo) || this.hjZ.getString(R.string.select_subject).equals(this.hSc.getText())) {
+                l.showToast(this.hjZ, R.string.university_comment_must_write_tip);
+            } else if (this.hSn.length() < 20) {
+                l.showToast(this.hjZ, R.string.university_comment_size_error_tip);
+            } else if (this.hSo.length() < 20) {
+                l.showToast(this.hjZ, R.string.subject_comment_size_error_tip);
+            } else if (this.hSn.length() > 500) {
+                l.showToast(this.hjZ, R.string.university_comment_lenght_error_tip);
+            } else if (this.hSo.length() > 500) {
+                l.showToast(this.hjZ, R.string.subject_comment_lenght_error_tip);
             } else {
-                this.hLJ.a("学校评价：" + ((Object) this.hMo) + "\n专业评价：" + ((Object) this.hMp), ccb(), this.hLG);
+                this.hRI.a("学校评价：" + ((Object) this.hSn) + "\n专业评价：" + ((Object) this.hSo), cfz(), this.hRF);
             }
         }
     }
 
-    private String ccb() {
+    private String cfz() {
         ArrayList arrayList = new ArrayList();
-        int starCount = this.hMn.getStarCount();
-        int starCount2 = this.hMm.getStarCount();
+        int starCount = this.hSm.getStarCount();
+        int starCount2 = this.hSl.getStarCount();
         if (starCount != 0) {
             arrayList.add(new r("学校评分", String.valueOf(starCount2), 2));
         }
-        arrayList.add(new r("专业", this.hMd.getText().toString(), 1));
+        arrayList.add(new r("专业", this.hSc.getText().toString(), 1));
         if (starCount2 != 0) {
             arrayList.add(new r("专业评分", String.valueOf(starCount), 2));
         }
@@ -273,15 +273,15 @@ public class d extends a {
         if (i2 == -1 && intent != null && i == 25047) {
             String stringExtra = intent.getStringExtra(IntentConfig.SEARCH_MAJOR_NAME);
             if (!TextUtils.isEmpty(stringExtra)) {
-                this.hMd.setText(stringExtra);
-                an.setViewTextColor(this.hMd, (int) R.color.cp_cont_b);
-                SvgManager.aWQ().a(this.hMj, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                cca();
+                this.hSc.setText(stringExtra);
+                ao.setViewTextColor(this.hSc, R.color.cp_cont_b);
+                SvgManager.baR().a(this.hSi, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                cfy();
             }
         }
     }
 
-    private String cA(List<String> list) {
+    private String cF(List<String> list) {
         if (list != null) {
             StringBuilder sb = new StringBuilder();
             for (String str : list) {
@@ -293,39 +293,39 @@ public class d extends a {
     }
 
     @Override // com.baidu.tieba.frs.examination.a
-    public void bfY() {
-        if (this.hLG != null) {
+    public void bjJ() {
+        if (this.hRF != null) {
             WriteData writeData = new WriteData();
-            int starCount = this.hMn.getStarCount();
-            writeData.setmUniversityGrade(String.valueOf(this.hMm.getStarCount()));
+            int starCount = this.hSm.getStarCount();
+            writeData.setmUniversityGrade(String.valueOf(this.hSl.getStarCount()));
             writeData.setmUniversitySubjectGrade(String.valueOf(starCount));
-            writeData.setmUniversitySubjectContent(this.hMd.getText().toString());
-            writeData.setmUniversityComment(this.hMh.getText().toString());
-            writeData.setmUniversitySubjectComment(this.hMi.getText().toString());
-            w.c(String.valueOf(this.hLG.forumId), writeData);
+            writeData.setmUniversitySubjectContent(this.hSc.getText().toString());
+            writeData.setmUniversityComment(this.hSg.getText().toString());
+            writeData.setmUniversitySubjectComment(this.hSh.getText().toString());
+            w.c(String.valueOf(this.hRF.forumId), writeData);
         }
     }
 
     @Override // com.baidu.tieba.frs.examination.a
-    public void cbY() {
-        if (this.hLG != null) {
-            w.f(String.valueOf(this.hLG.forumId), new w.a() { // from class: com.baidu.tieba.frs.examination.d.7
+    public void cfw() {
+        if (this.hRF != null) {
+            w.f(String.valueOf(this.hRF.forumId), new w.a() { // from class: com.baidu.tieba.frs.examination.d.7
                 @Override // com.baidu.tieba.tbadkCore.w.a
                 public void a(WriteData writeData) {
                     if (writeData != null) {
                         try {
-                            d.this.hMn.setStarCount(Integer.parseInt(writeData.getmUniversitySubjectGrade()));
+                            d.this.hSm.setStarCount(Integer.parseInt(writeData.getmUniversitySubjectGrade()));
                         } catch (NumberFormatException e) {
-                            d.this.hMn.setStarCount(0);
+                            d.this.hSm.setStarCount(0);
                         }
                         try {
-                            d.this.hMm.setStarCount(Integer.parseInt(writeData.getmUniversityGrade()));
+                            d.this.hSl.setStarCount(Integer.parseInt(writeData.getmUniversityGrade()));
                         } catch (NumberFormatException e2) {
-                            d.this.hMm.setStarCount(0);
+                            d.this.hSl.setStarCount(0);
                         }
-                        d.this.hMd.setText(writeData.getmUniversitySubjectContent());
-                        d.this.hMh.setText(writeData.getmUniversityComment());
-                        d.this.hMi.setText(writeData.getmUniversitySubjectComment());
+                        d.this.hSc.setText(writeData.getmUniversitySubjectContent());
+                        d.this.hSg.setText(writeData.getmUniversityComment());
+                        d.this.hSh.setText(writeData.getmUniversitySubjectComment());
                     }
                 }
             });

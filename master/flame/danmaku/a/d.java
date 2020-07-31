@@ -6,39 +6,39 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.support.v4.internal.view.SupportMenu;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
-    private static boolean nSA = true;
-    private static boolean nSB = true;
-    public static Paint nSx = new Paint();
-    public static Paint nSy;
-    public static RectF nSz;
+    public static Paint obh;
+    public static RectF obi;
+    private static boolean obk = true;
+    private static boolean obl = true;
+    public static Paint obg = new Paint();
 
     static {
-        nSx.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        nSx.setColor(0);
-        nSz = new RectF();
+        obg.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        obg.setColor(0);
+        obi = new RectF();
     }
 
-    public static void az(boolean z, boolean z2) {
-        nSA = z;
-        nSB = z2;
+    public static void aA(boolean z, boolean z2) {
+        obk = z;
+        obl = z2;
     }
 
     public static void c(Canvas canvas, String str) {
-        if (nSy == null) {
-            nSy = new Paint();
-            nSy.setColor(SupportMenu.CATEGORY_MASK);
-            nSy.setTextSize(30.0f);
+        if (obh == null) {
+            obh = new Paint();
+            obh.setColor(SupportMenu.CATEGORY_MASK);
+            obh.setTextSize(30.0f);
         }
         int height = canvas.getHeight() - 50;
-        a(canvas, 10.0f, height - 50, (int) (nSy.measureText(str) + 20.0f), canvas.getHeight());
-        canvas.drawText(str, 10.0f, height, nSy);
+        a(canvas, 10.0f, height - 50, (int) (obh.measureText(str) + 20.0f), canvas.getHeight());
+        canvas.drawText(str, 10.0f, height, obh);
     }
 
     public static void e(Canvas canvas) {
-        if (nSA) {
-            if (nSB) {
+        if (obk) {
+            if (obl) {
                 canvas.drawColor(0, PorterDuff.Mode.CLEAR);
                 return;
             } else {
@@ -46,18 +46,18 @@ public class d {
                 return;
             }
         }
-        nSz.set(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
-        a(canvas, nSz);
+        obi.set(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
+        a(canvas, obi);
     }
 
     public static void a(Canvas canvas, float f, float f2, float f3, float f4) {
-        nSz.set(f, f2, f3, f4);
-        a(canvas, nSz);
+        obi.set(f, f2, f3, f4);
+        a(canvas, obi);
     }
 
     private static void a(Canvas canvas, RectF rectF) {
         if (rectF.width() > 0.0f && rectF.height() > 0.0f) {
-            canvas.drawRect(rectF, nSx);
+            canvas.drawRect(rectF, obg);
         }
     }
 }

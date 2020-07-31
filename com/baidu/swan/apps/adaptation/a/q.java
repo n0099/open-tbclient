@@ -4,68 +4,76 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import com.baidu.searchbox.http.request.HttpRequest;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public interface q {
-    boolean ST();
+    String TA();
 
-    String SU();
+    String TB();
 
-    String SV();
+    String TC();
 
-    String SW();
+    String TD();
 
-    String SX();
+    String TE();
 
-    String SY();
+    String TF();
 
-    String SZ();
+    @Nullable
+    String TG();
+
+    long TH();
 
     String TI();
 
     String TJ();
 
-    void TK();
+    boolean To();
 
-    void TL();
+    String Tp();
 
-    String TM();
+    String Tq();
 
-    String TN();
+    String Tr();
 
-    boolean TO();
+    String Ts();
 
-    int TP();
+    String Tt();
 
-    String TQ();
+    String Tu();
 
-    String TR();
+    String Tv();
 
-    String Ta();
+    String Tw();
 
-    String Tb();
+    String Tx();
 
-    String Tc();
+    String Ty();
 
-    String Td();
+    String Tz();
 
-    String Te();
+    void Uh();
 
-    String Tf();
+    void Ui();
 
-    String Tg();
+    String Uj();
 
-    String Th();
+    String Uk();
 
-    String Ti();
+    boolean Ul();
 
-    String Tj();
+    int Um();
 
-    String Tk();
+    String Un();
 
-    @Nullable
-    String Tl();
+    String Uo();
 
-    String bf(Context context);
+    String Up();
+
+    String Uq();
+
+    String Ur();
+
+    String bh(Context context);
 
     HttpRequest d(Context context, Map<String, String> map);
 

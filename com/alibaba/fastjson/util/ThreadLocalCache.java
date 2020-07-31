@@ -2,7 +2,7 @@ package com.alibaba.fastjson.util;
 
 import java.lang.ref.SoftReference;
 import java.nio.charset.CharsetDecoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class ThreadLocalCache {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final int BYTES_CACH_INIT_SIZE = 1024;

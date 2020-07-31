@@ -15,8 +15,8 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.aj;
-import com.baidu.swan.apps.aq.n;
+import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.aq.p;
 import com.baidu.swan.apps.database.subscribe.SwanAppSubscribeMsgProvider;
 import com.baidu.swan.apps.m.c;
 import com.baidu.swan.apps.runtime.e;
@@ -27,22 +27,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a extends aa {
 
     /* renamed from: com.baidu.swan.apps.m.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0359a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0361a {
         void d(@Nullable String str, @Nullable List<d> list);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public interface b {
-        void z(HashMap<String, Boolean> hashMap);
+        void a(@NonNull LinkedHashMap<String, Boolean> linkedHashMap, @NonNull List<String> list);
     }
 
     public a(j jVar) {
@@ -113,14 +114,14 @@ public class a extends aa {
                 }
                 a(context, appKey, strArr, new b() { // from class: com.baidu.swan.apps.m.a.1
                     @Override // com.baidu.swan.apps.m.a.b
-                    public void z(HashMap<String, Boolean> hashMap) {
-                        if (hashMap == null || hashMap.size() == 0) {
+                    public void a(@NonNull LinkedHashMap<String, Boolean> linkedHashMap, @NonNull List<String> list) {
+                        if (linkedHashMap == null || linkedHashMap.size() == 0) {
                             a.this.a(callbackHandler, appKey, Arrays.asList(strArr), optString3, z, optString);
                             return;
                         }
-                        a.this.a(context, callbackHandler, eVar, optString, appKey, optString3, hashMap, z);
+                        a.this.a(context, callbackHandler, eVar, optString, appKey, optString3, linkedHashMap, list, z);
                         if (a.DEBUG) {
-                            Iterator<String> it = hashMap.keySet().iterator();
+                            Iterator<String> it = linkedHashMap.keySet().iterator();
                             while (it.hasNext()) {
                                 Log.i("GetFormIdAction", "querySubscribeInfo unallowedTemplateId=" + it.next());
                             }
@@ -137,7 +138,7 @@ public class a extends aa {
 
     @AnyThread
     private void a(@NonNull final Context context, final String str, final String[] strArr, final b bVar) {
-        n.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.m.a.2
+        p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.m.a.2
             @Override // java.lang.Runnable
             public void run() {
                 String[] strArr2;
@@ -147,52 +148,55 @@ public class a extends aa {
                     do {
                         hashMap.put(query.getString(query.getColumnIndex("templateId")), Integer.valueOf(query.getInt(query.getColumnIndex("result"))));
                     } while (query.moveToNext());
-                    com.baidu.swan.e.d.closeSafely(query);
+                    com.baidu.swan.d.d.closeSafely(query);
                 }
-                HashMap<String, Boolean> hashMap2 = new HashMap<>();
+                LinkedHashMap<String, Boolean> linkedHashMap = new LinkedHashMap<>();
+                ArrayList arrayList = new ArrayList();
                 for (String str2 : strArr) {
                     Integer num = (Integer) hashMap.get(str2);
                     if (num == null) {
-                        hashMap2.put(str2, false);
+                        linkedHashMap.put(str2, false);
                     } else if (num.intValue() != 1) {
-                        hashMap2.put(str2, true);
+                        linkedHashMap.put(str2, true);
+                    } else {
+                        arrayList.add(str2);
                     }
                 }
-                bVar.z(hashMap2);
+                bVar.a(linkedHashMap, arrayList);
             }
         }, "querySubscribeInfo");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @AnyThread
-    public void a(final Context context, final CallbackHandler callbackHandler, final e eVar, final String str, final String str2, final String str3, final HashMap<String, Boolean> hashMap, final boolean z) {
-        com.baidu.swan.apps.u.a.agA().a(str2, hashMap.keySet(), new InterfaceC0359a() { // from class: com.baidu.swan.apps.m.a.3
-            @Override // com.baidu.swan.apps.m.a.InterfaceC0359a
-            public void d(@Nullable final String str4, final List<d> list) {
-                if (!TextUtils.isEmpty(str4) && list != null && list.size() > 0) {
-                    n.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.m.a.3.1
+    public void a(final Context context, final CallbackHandler callbackHandler, final e eVar, final String str, final String str2, final String str3, final LinkedHashMap<String, Boolean> linkedHashMap, @NonNull final List<String> list, final boolean z) {
+        com.baidu.swan.apps.t.a.ahN().a(str2, linkedHashMap.keySet(), new InterfaceC0361a() { // from class: com.baidu.swan.apps.m.a.3
+            @Override // com.baidu.swan.apps.m.a.InterfaceC0361a
+            public void d(@Nullable final String str4, final List<d> list2) {
+                if (!TextUtils.isEmpty(str4) && list2 != null && list2.size() > 0) {
+                    p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.m.a.3.1
                         @Override // java.lang.Runnable
                         public void run() {
                             ContentResolver contentResolver = context.getContentResolver();
-                            for (d dVar : list) {
-                                String str5 = dVar.ciU;
-                                Boolean bool = (Boolean) hashMap.get(str5);
+                            for (d dVar : list2) {
+                                String str5 = dVar.ckT;
+                                Boolean bool = (Boolean) linkedHashMap.get(str5);
                                 if (bool != null && !bool.booleanValue()) {
                                     ContentValues contentValues = new ContentValues();
                                     contentValues.put("appKey", str2);
                                     contentValues.put("templateId", str5);
                                     contentValues.put("result", (Integer) 0);
-                                    contentValues.put("title", dVar.ciV);
+                                    contentValues.put("title", dVar.ckU);
                                     contentValues.put(TableDefine.MessageColumns.COLUME_TIPS, str4);
                                     contentResolver.insert(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues);
                                 }
                             }
                         }
                     }, "createFormDataBase");
-                    aj.p(new Runnable() { // from class: com.baidu.swan.apps.m.a.3.2
+                    al.p(new Runnable() { // from class: com.baidu.swan.apps.m.a.3.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.a(context, callbackHandler, eVar, str, str2, str3, str4, list, z);
+                            a.this.a(context, callbackHandler, eVar, str, str2, str3, str4, list2, list, z);
                         }
                     });
                     return;
@@ -203,43 +207,42 @@ public class a extends aa {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final Context context, final CallbackHandler callbackHandler, final e eVar, final String str, final String str2, final String str3, final String str4, final List<d> list, final boolean z) {
+    public void a(final Context context, final CallbackHandler callbackHandler, final e eVar, final String str, final String str2, final String str3, final String str4, final List<d> list, @NonNull final List<String> list2, final boolean z) {
         c.a((Activity) context, eVar, str4, list, new c.a() { // from class: com.baidu.swan.apps.m.a.4
             @Override // com.baidu.swan.apps.m.c.a
-            public boolean a(DialogInterface dialogInterface, int i, final List<d> list2) {
+            public boolean a(DialogInterface dialogInterface, int i, final List<d> list3) {
                 String str5;
                 final boolean z2 = i == -1;
                 if (a.DEBUG) {
                     Log.i("GetFormIdAction", "showSubscribeDialog isPositive=" + z2);
                 }
-                if (z2 && list2.size() == 0) {
+                if (z2 && list3.size() == 0) {
                     return false;
                 }
-                n.auA().execute(new Runnable() { // from class: com.baidu.swan.apps.m.a.4.1
+                p.awC().execute(new Runnable() { // from class: com.baidu.swan.apps.m.a.4.1
                     @Override // java.lang.Runnable
                     public void run() {
                         ContentResolver contentResolver = context.getContentResolver();
-                        for (d dVar : list2) {
+                        for (d dVar : list3) {
                             ContentValues contentValues = new ContentValues();
-                            contentValues.put("title", dVar.ciV);
+                            contentValues.put("title", dVar.ckU);
                             contentValues.put(TableDefine.MessageColumns.COLUME_TIPS, str4);
                             contentValues.put("result", Integer.valueOf(z2 ? 1 : -1));
-                            contentResolver.update(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues, "appKey=? and templateId=?", new String[]{str2, dVar.ciU});
+                            contentResolver.update(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues, "appKey=? and templateId=?", new String[]{str2, dVar.ckT});
                         }
                     }
                 });
                 if (z2) {
-                    ArrayList arrayList = new ArrayList();
-                    for (d dVar : list2) {
-                        arrayList.add(dVar.ciU);
+                    for (d dVar : list3) {
+                        list2.add(dVar.ckT);
                     }
-                    a.this.a(callbackHandler, str2, arrayList, str3, z, str);
+                    a.this.a(callbackHandler, str2, list2, str3, z, str);
                     str5 = "permit_click";
                 } else {
                     callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(500102, "用户单次拒绝授权").toString());
                     str5 = "reject_click";
                 }
-                a.this.a(eVar, str5, list, list2);
+                a.this.a(eVar, str5, list, list3);
                 return true;
             }
         }, new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.m.a.5
@@ -252,13 +255,13 @@ public class a extends aa {
     }
 
     private void a(@NonNull final CallbackHandler callbackHandler, @NonNull String str, @NonNull final String str2) {
-        com.baidu.swan.apps.u.a.agA().a(str, new com.baidu.swan.apps.m.b() { // from class: com.baidu.swan.apps.m.a.6
-            @Override // com.baidu.swan.apps.ag.a
-            public void ah(JSONObject jSONObject) {
+        com.baidu.swan.apps.t.a.ahN().a(str, new com.baidu.swan.apps.m.b() { // from class: com.baidu.swan.apps.m.a.6
+            @Override // com.baidu.swan.apps.af.a
+            public void aj(JSONObject jSONObject) {
                 callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
             }
 
-            @Override // com.baidu.swan.apps.ag.a
+            @Override // com.baidu.swan.apps.af.a
             public void onFail(String str3) {
                 callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(500105, "请求formId失败").toString());
             }
@@ -267,13 +270,13 @@ public class a extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull final CallbackHandler callbackHandler, @NonNull String str, @NonNull List<String> list, @Nullable String str2, boolean z, @NonNull final String str3) {
-        com.baidu.swan.apps.u.a.agA().a(str, list, str2, z, new com.baidu.swan.apps.m.b() { // from class: com.baidu.swan.apps.m.a.7
-            @Override // com.baidu.swan.apps.ag.a
-            public void ah(JSONObject jSONObject) {
+        com.baidu.swan.apps.t.a.ahN().a(str, list, str2, z, new com.baidu.swan.apps.m.b() { // from class: com.baidu.swan.apps.m.a.7
+            @Override // com.baidu.swan.apps.af.a
+            public void aj(JSONObject jSONObject) {
                 callbackHandler.handleSchemeDispatchCallback(str3, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
             }
 
-            @Override // com.baidu.swan.apps.ag.a
+            @Override // com.baidu.swan.apps.af.a
             public void onFail(String str4) {
                 callbackHandler.handleSchemeDispatchCallback(str3, UnitedSchemeUtility.wrapCallbackParams(500105, "请求formId失败").toString());
             }
@@ -301,7 +304,7 @@ public class a extends aa {
         JSONArray jSONArray = new JSONArray();
         if (list != null && list.size() > 0) {
             for (d dVar : list) {
-                jSONArray.put(dVar.ciV);
+                jSONArray.put(dVar.ckU);
             }
         }
         return jSONArray;

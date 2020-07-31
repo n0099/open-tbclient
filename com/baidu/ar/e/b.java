@@ -2,7 +2,7 @@ package com.baidu.ar.e;
 
 import android.content.Context;
 import com.baidu.ar.e.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class b {
     private static b uL;
     private a uM;
@@ -29,9 +29,9 @@ public class b {
         }
     }
 
-    public void b(a.InterfaceC0082a interfaceC0082a) {
+    public void b(a.InterfaceC0083a interfaceC0083a) {
         if (this.uM != null) {
-            this.uM.a(interfaceC0082a);
+            this.uM.a(interfaceC0083a);
             if (this.uN) {
                 return;
             }

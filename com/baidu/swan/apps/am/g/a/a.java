@@ -16,7 +16,7 @@ import com.baidu.swan.apps.scheme.j;
 import java.util.Arrays;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/startDeviceMotion");
@@ -52,9 +52,9 @@ public class a extends aa {
             } else {
                 i = ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME.equals(optString2) ? 1 : 3;
             }
-            c.d("StartDeviceMotionAction", "startSensor===");
+            c.i("StartDeviceMotionAction", "startSensor===");
             final i iVar = new i("deviceMotionChange", optParamsAsJo, optString);
-            if (!com.baidu.swan.apps.am.g.a.atA().a(i, new a.InterfaceC0299a() { // from class: com.baidu.swan.apps.am.g.a.a.1
+            if (!com.baidu.swan.apps.am.g.a.avB().a(i, new a.InterfaceC0299a() { // from class: com.baidu.swan.apps.am.g.a.a.1
                 @Override // com.baidu.swan.apps.am.g.a.InterfaceC0299a
                 public void x(float[] fArr) {
                     if (fArr != null && fArr.length == 3) {

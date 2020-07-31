@@ -6,7 +6,7 @@ import com.baidu.mobads.interfaces.download.activate.IXAppInfo;
 import com.baidu.mobads.interfaces.download.activate.IXMonitorActivation;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public interface IXAdContainerFactory {
     IXAppInfo createAppInfo();
 

@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.stats;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BdStatsConstant {
     public static final String BD_STATISTICS_PERFORMANCE_UPLOADURL = "http://nlog.baidu.com/dplog/n";
     public static final String BROADCAST_ACCOUNT_CHANGED = "adp.bdstatisticsmanager.account_changed";
@@ -28,7 +28,7 @@ public class BdStatsConstant {
     public static final String SWITCHS_CONFIG_FILENAME = "switchsConfig";
     public static final int UPLOAD_RETRY_TIMES = 3;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class AlertTypeKey {
         public static final String ALERT_CRASH = "alert_crash";
         public static final String ALERT_HTTP = "alert_http";
@@ -38,20 +38,20 @@ public class BdStatsConstant {
         public static final String ALERT_PROTOBUF = "alert_protobuf";
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ErrorCode {
         public static final int ERR_LOG_BASE = -100000;
         public static final int ERR_LOG_FAST = 99999;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class NetSubType {
         public static final String DEFAULT = "d";
         public static final String IMG = "img";
         public static final String VOICE = "voice";
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class OpSubType {
         public static final String ALADIN_PORT_ERROR = "aladin_port_error";
         public static final String DB = "db";
@@ -63,7 +63,7 @@ public class BdStatsConstant {
         public static final String VOICE_ERR = "voice";
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class StatsFile {
         public static final String ALERT_LOG_FILE_PREFIX = "alert";
         public static final String DEBUG_LOG_DIR_NAME = "dbg";
@@ -74,7 +74,7 @@ public class BdStatsConstant {
         public static final String STAT_LOG_FILE_PREFIX = "stat";
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class StatsKey {
         public static final String ALERT_LOG = "alert_log";
         public static final String ALERT_TYPE = "alert_type";
@@ -123,7 +123,7 @@ public class BdStatsConstant {
         public static final String VOICE_INF = "voice_inf";
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class StatsType {
         public static final String ALERT = "alert";
         public static final String CRASH = "crash";
@@ -135,7 +135,7 @@ public class BdStatsConstant {
         public static final String STAT = "stat";
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SubType {
         public static final String FRS = "frs";
         public static final String IM = "im";

@@ -20,6 +20,7 @@ import com.baidu.ar.arplay.core.engine.pixel.PixelRotation;
 import com.baidu.ar.arplay.core.engine.pixel.PixelType;
 import com.baidu.ar.arplay.core.engine.rotate.OrientationManager;
 import com.baidu.ar.arplay.core.message.ARPMessage;
+import io.flutter.plugin.platform.PlatformPlugin;
 import java.io.IOException;
 import java.lang.ref.SoftReference;
 import java.nio.ByteBuffer;
@@ -28,7 +29,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class ARPFilter {
     private static final int MAX_FRAME_COUNT = 100;
     private static final String TAG = ARPFilter.class.getSimpleName();
@@ -46,7 +47,7 @@ public class ARPFilter {
     private long mTotalFrameTimeInMS = 0;
     private int mTotalFrameCount = 0;
     private int mInputTexWidth = 720;
-    private int mInputTexHeight = 1280;
+    private int mInputTexHeight = PlatformPlugin.DEFAULT_SYSTEM_UI;
     private SoftReference<Context> softContext = null;
     private TakePictureCallback mTakePictureCallback = null;
     private int mRotation = 0;

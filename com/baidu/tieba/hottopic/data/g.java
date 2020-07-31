@@ -3,10 +3,10 @@ package com.baidu.tieba.hottopic.data;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import tbclient.Hottopic.HotThread;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class g implements q {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public String iDR;
+    public String iJV;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
@@ -15,7 +15,7 @@ public class g implements q {
 
     public void a(HotThread hotThread) {
         if (hotThread != null) {
-            this.iDR = hotThread.hot_title;
+            this.iJV = hotThread.hot_title;
         }
     }
 }

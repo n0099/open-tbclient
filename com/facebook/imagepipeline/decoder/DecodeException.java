@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.decoder;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class DecodeException extends RuntimeException {
     private final com.facebook.imagepipeline.g.e mEncodedImage;
 

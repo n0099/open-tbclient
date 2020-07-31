@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 import java.net.DatagramSocket;
 import java.net.Socket;
 import java.net.SocketException;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public final class TrafficStatsCompat {
     @Deprecated
     public static void clearThreadStatsTag() {

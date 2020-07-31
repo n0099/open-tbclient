@@ -9,7 +9,7 @@ import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class Decoder {
     private final ReedSolomonDecoder rsDecoder = new ReedSolomonDecoder(GenericGF.QR_CODE_FIELD_256);
 

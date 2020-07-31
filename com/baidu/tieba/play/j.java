@@ -1,82 +1,122 @@
 package com.baidu.tieba.play;
 
+import android.app.Activity;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
-import android.widget.MediaController;
+import android.provider.Settings;
+import com.baidu.tieba.play.k;
 /* loaded from: classes.dex */
 public class j {
-    private MediaController.MediaPlayerControl eZk;
-    private a gRe;
-    private c kSR;
-    private b kSS;
-    private int kSP = 1000;
-    private int kSQ = 0;
-    private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.j.1
+    private SensorManager bic;
+    private Sensor bif;
+    private g lcb;
+    private k lcc;
+    private Activity mActivity;
+    private boolean bih = false;
+    private boolean bii = false;
+    private boolean bik = false;
+    private boolean bil = false;
+    private Handler mHandler = new Handler() { // from class: com.baidu.tieba.play.j.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message != null && message.what == 1 && j.this.eZk != null && j.this.eZk.isPlaying()) {
-                int currentPosition = j.this.eZk.getCurrentPosition();
-                int duration = j.this.eZk.getDuration();
-                if (currentPosition < j.this.kSQ) {
-                    if (j.this.gRe != null) {
-                        j.this.gRe.qx();
-                    }
-                } else if (currentPosition == j.this.kSQ && j.this.kSR != null) {
-                    j.this.kSR.btH();
+            if (message != null && j.this.mActivity != null && j.this.bil) {
+                switch (message.what) {
+                    case 1:
+                        int requestedOrientation = j.this.mActivity.getRequestedOrientation();
+                        int i = message.arg1;
+                        if (!j.this.bik) {
+                            if (i > 225 && i < 315) {
+                                if (requestedOrientation == 8) {
+                                    j.this.mActivity.setRequestedOrientation(0);
+                                    return;
+                                }
+                                return;
+                            } else if (i > 45 && i < 135 && requestedOrientation == 0) {
+                                j.this.mActivity.setRequestedOrientation(8);
+                                return;
+                            } else {
+                                return;
+                            }
+                        } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
+                            if (!j.this.bii) {
+                                if (i > 55 && i < 125) {
+                                    if (requestedOrientation != 8) {
+                                        j.this.mActivity.setRequestedOrientation(8);
+                                    }
+                                } else if (requestedOrientation != 0) {
+                                    j.this.mActivity.setRequestedOrientation(0);
+                                }
+                            }
+                            j.this.bih = false;
+                            return;
+                        } else if ((i > 325 && i < 360) || (i >= 0 && i < 35)) {
+                            if (!j.this.bih && requestedOrientation != 1) {
+                                j.this.mActivity.setRequestedOrientation(1);
+                            }
+                            j.this.bii = false;
+                            return;
+                        } else {
+                            return;
+                        }
+                    default:
+                        return;
                 }
-                if (j.this.kSS != null) {
-                    j.this.kSS.bM(duration, currentPosition);
-                }
-                j.this.kSQ = currentPosition;
-                j.this.cVj();
             }
         }
     };
+    private k.a lcd = new k.a() { // from class: com.baidu.tieba.play.j.2
+        @Override // com.baidu.tieba.play.k.a
+        public void onChange(boolean z) {
+            j.this.bik = z;
+        }
+    };
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void qx();
+    public void Io() {
+        if (this.mActivity != null) {
+            if (this.mActivity.getRequestedOrientation() == 1) {
+                this.mActivity.setRequestedOrientation(0);
+                this.bih = true;
+                return;
+            }
+            this.mActivity.setRequestedOrientation(1);
+            this.bii = true;
+        }
     }
 
-    /* loaded from: classes.dex */
-    public interface b {
-        void bM(int i, int i2);
-    }
-
-    /* loaded from: classes.dex */
-    public interface c {
-        void btH();
-    }
-
-    public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.eZk = mediaPlayerControl;
+    public j(Activity activity) {
+        if (activity != null) {
+            this.mActivity = activity;
+            this.bic = (SensorManager) activity.getSystemService("sensor");
+            this.bif = this.bic.getDefaultSensor(1);
+            this.lcb = new g(this.mHandler);
+            if (!this.mActivity.getClass().getName().contains("SwanAppActivity")) {
+                this.mActivity.setRequestedOrientation(1);
+            }
+            this.lcc = new k(this.mActivity, this.mHandler);
+            this.lcc.a(this.lcd);
+            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.lcc);
+        }
     }
 
     public void start() {
-        this.kSQ = 0;
-        cVj();
+        if (this.bic != null) {
+            this.bic.registerListener(this.lcb, this.bif, 2);
+        }
     }
 
     public void stop() {
-        this.mHandler.removeMessages(1);
+        if (this.bic != null) {
+            this.bic.unregisterListener(this.lcb);
+        }
+        this.mHandler.removeCallbacksAndMessages(null);
+        if (this.mActivity != null) {
+            this.mActivity.getContentResolver().unregisterContentObserver(this.lcc);
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cVj() {
-        this.mHandler.removeMessages(1);
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.kSP);
-    }
-
-    public void a(a aVar) {
-        this.gRe = aVar;
-    }
-
-    public void a(c cVar) {
-        this.kSR = cVar;
-    }
-
-    public void a(b bVar) {
-        this.kSS = bVar;
+    public void cj(boolean z) {
+        this.bil = z;
     }
 }

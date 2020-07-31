@@ -3,7 +3,7 @@ package com.baidu.mapsdkplatform.comapi.synchronization.d;
 import android.text.TextUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class c {
     private static final String a = c.class.getSimpleName();
 

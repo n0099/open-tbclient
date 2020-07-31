@@ -13,22 +13,22 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
 import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface;
-import com.baidu.swan.apps.u.b.i;
+import com.baidu.swan.apps.t.b.i;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class d implements i {
-    i.a fdB;
-    private CustomMessageListener fdC = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
+    i.a fij;
+    private CustomMessageListener fik = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (d.this.fdB != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (d.this.fij != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    d.this.fdB.ahq();
+                    d.this.fij.aiI();
                 } else {
-                    d.this.fdB.ahr();
+                    d.this.fij.aiJ();
                 }
             }
         }
@@ -36,13 +36,13 @@ public class d implements i {
 
     public d() {
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.fdC);
+        MessageManager.getInstance().registerListener(this.fik);
     }
 
-    @Override // com.baidu.swan.apps.u.b.i
+    @Override // com.baidu.swan.apps.t.b.i
     public void a(Context context, JSONObject jSONObject, final i.a aVar) {
         if (context instanceof Activity) {
-            this.fdB = aVar;
+            this.fij = aVar;
             Bundle bundle = new Bundle();
             try {
                 String optString = jSONObject.optString("shareUrl");
@@ -67,9 +67,9 @@ public class d implements i {
                 public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                     if (delegateResult.isOk()) {
                         if (delegateResult.mResult.getBoolean("share_result")) {
-                            aVar.ahq();
+                            aVar.aiI();
                         } else {
-                            aVar.ahr();
+                            aVar.aiJ();
                         }
                     }
                 }
@@ -77,7 +77,7 @@ public class d implements i {
         }
     }
 
-    @Override // com.baidu.swan.apps.u.b.i
+    @Override // com.baidu.swan.apps.t.b.i
     public void a(Context context, String str, Uri uri) {
     }
 }

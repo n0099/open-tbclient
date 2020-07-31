@@ -8,20 +8,20 @@ import android.graphics.Path;
 import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.a.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class VoteStatusView extends View {
-    private boolean gOr;
-    public int gOs;
-    public int gOt;
-    public int gOu;
-    private Path gOv;
-    private Path gOw;
-    private Path gOx;
-    private Path gOy;
-    private Path gOz;
+    private boolean gTX;
+    public int gTY;
+    public int gTZ;
+    public int gUa;
+    private Path gUb;
+    private Path gUc;
+    private Path gUd;
+    private Path gUe;
+    private Path gUf;
     private Paint mPaint;
     private Shader mShader;
     private int status;
@@ -33,23 +33,23 @@ public class VoteStatusView extends View {
     public VoteStatusView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.status = -1;
-        this.gOr = true;
+        this.gTX = true;
         initUI();
     }
 
     private void initUI() {
-        this.gOu = an.getColor(R.color.cp_bg_line_c);
-        this.gOs = an.getColor(R.color.cp_link_tip_b);
-        this.gOt = an.getColor(R.color.cp_link_tip_a);
+        this.gUa = ao.getColor(R.color.cp_bg_line_c);
+        this.gTY = ao.getColor(R.color.cp_link_tip_b);
+        this.gTZ = ao.getColor(R.color.cp_link_tip_a);
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(this.gOu);
-        this.gOv = new Path();
-        this.gOw = new Path();
-        this.gOx = new Path();
-        this.gOy = new Path();
-        this.gOz = new Path();
+        this.mPaint.setColor(this.gUa);
+        this.gUb = new Path();
+        this.gUc = new Path();
+        this.gUd = new Path();
+        this.gUe = new Path();
+        this.gUf = new Path();
     }
 
     public void setStatus(int i) {
@@ -62,38 +62,38 @@ public class VoteStatusView extends View {
         int height = (canvas.getHeight() - getPaddingBottom()) - getPaddingTop();
         int width = (canvas.getWidth() - getPaddingLeft()) - getPaddingRight();
         int i = height * 6 >= width ? width / 6 : height;
-        this.gOv.addCircle(i / 2, i / 2, i / 2, Path.Direction.CW);
-        this.gOw.addCircle(width / 2, i / 2, i / 2, Path.Direction.CW);
-        this.gOx.addCircle(width - (i / 2), i / 2, i / 2, Path.Direction.CW);
-        this.gOy.addRect(i / 2, (i * 9) / 26, width / 2, (i * 17) / 26, Path.Direction.CW);
-        this.gOz.addRect(width / 2, (i * 9) / 26, width - (i / 2), (i * 17) / 26, Path.Direction.CW);
-        this.mPaint.setColor(this.gOu);
+        this.gUb.addCircle(i / 2, i / 2, i / 2, Path.Direction.CW);
+        this.gUc.addCircle(width / 2, i / 2, i / 2, Path.Direction.CW);
+        this.gUd.addCircle(width - (i / 2), i / 2, i / 2, Path.Direction.CW);
+        this.gUe.addRect(i / 2, (i * 9) / 26, width / 2, (i * 17) / 26, Path.Direction.CW);
+        this.gUf.addRect(width / 2, (i * 9) / 26, width - (i / 2), (i * 17) / 26, Path.Direction.CW);
+        this.mPaint.setColor(this.gUa);
         this.mPaint.setShader(null);
-        if (this.mShader == null || this.gOr) {
-            this.mShader = new LinearGradient(i / 2, 0.0f, width - (i / 2), 0.0f, this.gOs, this.gOt, Shader.TileMode.CLAMP);
-            this.gOr = false;
+        if (this.mShader == null || this.gTX) {
+            this.mShader = new LinearGradient(i / 2, 0.0f, width - (i / 2), 0.0f, this.gTY, this.gTZ, Shader.TileMode.CLAMP);
+            this.gTX = false;
         }
-        if (this.status == d.gND) {
+        if (this.status == d.gTj) {
             this.mPaint.setShader(this.mShader);
         }
-        canvas.drawPath(this.gOz, this.mPaint);
-        canvas.drawPath(this.gOx, this.mPaint);
-        if (this.status == d.gNC) {
+        canvas.drawPath(this.gUf, this.mPaint);
+        canvas.drawPath(this.gUd, this.mPaint);
+        if (this.status == d.gTi) {
             this.mPaint.setShader(this.mShader);
         }
-        canvas.drawPath(this.gOy, this.mPaint);
-        canvas.drawPath(this.gOw, this.mPaint);
-        if (this.status == d.gNB) {
+        canvas.drawPath(this.gUe, this.mPaint);
+        canvas.drawPath(this.gUc, this.mPaint);
+        if (this.status == d.gTh) {
             this.mPaint.setShader(this.mShader);
         }
-        canvas.drawPath(this.gOv, this.mPaint);
+        canvas.drawPath(this.gUb, this.mPaint);
     }
 
-    public void qJ(int i) {
-        this.gOs = an.getColor(i, R.color.cp_link_tip_b);
-        this.gOt = an.getColor(i, R.color.cp_link_tip_a);
-        this.gOu = an.getColor(i, R.color.cp_bg_line_c);
-        this.gOr = true;
+    public void qZ(int i) {
+        this.gTY = ao.getColor(i, R.color.cp_link_tip_b);
+        this.gTZ = ao.getColor(i, R.color.cp_link_tip_a);
+        this.gUa = ao.getColor(i, R.color.cp_bg_line_c);
+        this.gTX = true;
         invalidate();
     }
 }

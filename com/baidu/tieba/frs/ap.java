@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public interface ap {
     void a(int i, int i2, ay ayVar);
 
     void a(at atVar);
 
-    void bzg();
+    void bCu();
 
     void init();
 }

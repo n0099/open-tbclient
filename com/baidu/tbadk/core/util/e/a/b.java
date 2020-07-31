@@ -5,74 +5,74 @@ import android.support.annotation.ColorRes;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class b {
-    private ColorStateList dWX;
-    private int dWZ;
-    private int dXa;
-    private int dXb;
-    private int dXc;
-    private int dXd;
-    private int dWY = 1;
-    private boolean dXe = false;
-    private boolean dXf = false;
-    private boolean dXg = false;
-    private boolean dXh = false;
+    private ColorStateList eds;
+    private int edu;
+    private int edv;
+    private int edw;
+    private int edx;
+    private int selectedColor;
+    private int edt = 1;
+    private boolean edy = false;
+    private boolean edz = false;
+    private boolean edA = false;
+    private boolean edB = false;
 
-    public static b aXr() {
+    public static b bbs() {
         return new b();
     }
 
-    public b lB(@ColorRes int i) {
+    public b lV(@ColorRes int i) {
         int color = com.baidu.tbadk.core.util.e.c.a.getColor(i);
-        this.dXd = color;
-        if (!this.dXe) {
-            this.dWZ = color;
+        this.edx = color;
+        if (!this.edy) {
+            this.edu = color;
         }
-        if (!this.dXf) {
-            this.dXb = color;
+        if (!this.edz) {
+            this.edw = color;
         }
-        if (!this.dXg) {
-            this.dXc = color;
+        if (!this.edA) {
+            this.selectedColor = color;
         }
-        if (!this.dXh) {
-            this.dXa = color;
+        if (!this.edB) {
+            this.edv = color;
         }
         return this;
     }
 
-    public b lC(@ColorRes int i) {
-        this.dXb = com.baidu.tbadk.core.util.e.c.a.getColor(i);
-        this.dXf = true;
+    public b lW(@ColorRes int i) {
+        this.edw = com.baidu.tbadk.core.util.e.c.a.getColor(i);
+        this.edz = true;
         return this;
     }
 
-    public b lD(int i) {
-        this.dWY = i;
+    public b lX(int i) {
+        this.edt = i;
         return this;
     }
 
-    public void a(TextView textView) {
+    public void c(TextView textView) {
         if (textView != null) {
-            aXs();
-            if (2 == this.dWY) {
-                textView.setHintTextColor(this.dWX);
+            bbt();
+            if (2 == this.edt) {
+                textView.setHintTextColor(this.eds);
             } else {
-                textView.setTextColor(this.dWX);
+                textView.setTextColor(this.eds);
             }
         }
     }
 
-    public ColorStateList aXs() {
-        this.dWX = aXt();
-        return this.dWX;
+    public ColorStateList bbt() {
+        this.eds = bbu();
+        return this.eds;
     }
 
-    private ColorStateList aXt() {
+    private ColorStateList bbu() {
         int[] iArr = new int[5];
-        iArr[0] = this.dXe ? this.dWZ : this.dXd;
-        iArr[1] = this.dXf ? this.dXb : this.dXd;
-        iArr[2] = this.dXg ? this.dXc : this.dXd;
-        iArr[3] = this.dXh ? this.dXa : this.dXd;
-        iArr[4] = this.dXd;
+        iArr[0] = this.edy ? this.edu : this.edx;
+        iArr[1] = this.edz ? this.edw : this.edx;
+        iArr[2] = this.edA ? this.selectedColor : this.edx;
+        iArr[3] = this.edB ? this.edv : this.edx;
+        iArr[4] = this.edx;
         return h(iArr);
     }
 

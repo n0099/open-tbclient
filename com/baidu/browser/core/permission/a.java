@@ -1,43 +1,43 @@
 package com.baidu.browser.core.permission;
 
-import com.baidu.h.a.a;
+import com.baidu.i.a.a;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static a acU = new a();
-    private Map<Integer, a.InterfaceC0127a> acT = new HashMap();
+    private static a acP = new a();
+    private Map<Integer, a.InterfaceC0153a> acO = new HashMap();
 
     private a() {
     }
 
-    public static a rB() {
-        return acU;
+    public static a rD() {
+        return acP;
     }
 
-    public void a(int i, a.InterfaceC0127a interfaceC0127a) {
-        if (this.acT != null) {
+    public void a(int i, a.InterfaceC0153a interfaceC0153a) {
+        if (this.acO != null) {
             synchronized (a.class) {
-                if (this.acT.containsKey(Integer.valueOf(i))) {
-                    this.acT.remove(Integer.valueOf(i));
+                if (this.acO.containsKey(Integer.valueOf(i))) {
+                    this.acO.remove(Integer.valueOf(i));
                 }
-                this.acT.put(Integer.valueOf(i), interfaceC0127a);
+                this.acO.put(Integer.valueOf(i), interfaceC0153a);
             }
         }
     }
 
-    public void bb(int i) {
+    public void bd(int i) {
         synchronized (a.class) {
-            if (this.acT != null && this.acT.containsKey(Integer.valueOf(i))) {
-                this.acT.remove(Integer.valueOf(i));
+            if (this.acO != null && this.acO.containsKey(Integer.valueOf(i))) {
+                this.acO.remove(Integer.valueOf(i));
             }
         }
     }
 
-    public a.InterfaceC0127a bc(int i) {
-        if (this.acT == null || !this.acT.containsKey(Integer.valueOf(i))) {
+    public a.InterfaceC0153a be(int i) {
+        if (this.acO == null || !this.acO.containsKey(Integer.valueOf(i))) {
             return null;
         }
-        return this.acT.get(Integer.valueOf(i));
+        return this.acO.get(Integer.valueOf(i));
     }
 }

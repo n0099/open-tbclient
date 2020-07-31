@@ -1,5 +1,5 @@
 package com.baidu.sapi2.utils.enums;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public enum AccountType {
     NORMAL(0),
     INCOMPLETE_USER(1),

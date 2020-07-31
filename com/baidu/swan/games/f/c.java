@@ -6,10 +6,10 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.searchbox.v8engine.event.EventTarget;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c extends com.baidu.swan.games.f.a {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         @V8JavascriptField
         public String basePath;
@@ -23,9 +23,9 @@ public class c extends com.baidu.swan.games.f.a {
 
     @Override // com.baidu.swan.games.f.a
     @NonNull
-    public EventTarget aAA() {
-        b bVar = new b(this, this.dbg.getInitBasePath());
-        bVar.env.config = com.baidu.swan.apps.swancore.a.a.atc();
+    public EventTarget aEf() {
+        b bVar = new b(this, this.dgP.getInitBasePath());
+        bVar.env.config = com.baidu.swan.apps.swancore.a.a.avd();
         return bVar;
     }
 
@@ -34,27 +34,27 @@ public class c extends com.baidu.swan.games.f.a {
         return 0;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static class b extends EventTargetImpl {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-        private com.baidu.swan.games.f.b cYE;
-        private com.baidu.swan.games.i.e dal;
+        private com.baidu.swan.games.f.b deo;
+        private com.baidu.swan.games.i.e dfW;
         @V8JavascriptField
         public a env;
 
         public b(com.baidu.swan.games.f.b bVar, String str) {
             super(bVar);
-            this.cYE = bVar;
+            this.deo = bVar;
             this.env = new a();
             this.env.basePath = str;
         }
 
         @JavascriptInterface
         public com.baidu.swan.games.i.e getFileSystemManager() {
-            if (this.dal == null) {
-                this.dal = new com.baidu.swan.games.i.e((com.baidu.swan.games.f.a) this.cYE);
+            if (this.dfW == null) {
+                this.dfW = new com.baidu.swan.games.i.e((com.baidu.swan.games.f.a) this.deo);
             }
-            return this.dal;
+            return this.dfW;
         }
 
         @JavascriptInterface
@@ -64,7 +64,7 @@ public class c extends com.baidu.swan.games.f.a {
 
         @JavascriptInterface
         public String getAPIs(int i) {
-            return DEBUG ? com.baidu.swan.apps.af.a.a.anz() ? com.baidu.swan.apps.aq.h.A(i, true) : "" : (com.baidu.swan.apps.aq.h.auo() && com.baidu.swan.apps.u.a.aga().Sn()) ? com.baidu.swan.apps.aq.h.A(i, true) : "";
+            return DEBUG ? com.baidu.swan.apps.ae.a.a.apj() ? com.baidu.swan.apps.aq.i.z(i, true) : "" : (com.baidu.swan.apps.aq.i.awq() && com.baidu.swan.apps.t.a.ahm().SE()) ? com.baidu.swan.apps.aq.i.z(i, true) : "";
         }
     }
 }

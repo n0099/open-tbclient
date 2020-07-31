@@ -5,17 +5,17 @@ import java.util.concurrent.ThreadLocalRandom;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a extends kotlin.random.a {
     @Override // kotlin.random.a
-    public Random dQO() {
+    public Random dUk() {
         ThreadLocalRandom current = ThreadLocalRandom.current();
         q.l((Object) current, "ThreadLocalRandom.current()");
         return current;
     }
 
     @Override // kotlin.random.d
-    public int dT(int i, int i2) {
+    public int dV(int i, int i2) {
         return ThreadLocalRandom.current().nextInt(i, i2);
     }
 }

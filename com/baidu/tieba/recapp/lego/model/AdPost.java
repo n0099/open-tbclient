@@ -10,7 +10,7 @@ import com.baidu.tieba.recapp.c.a;
 import com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert, b, a {
     public PostAdBaseData.a adData;
     public PostAdBaseData.b feedData;
@@ -32,13 +32,13 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
             e.printStackTrace();
             jSONObject2 = null;
         }
-        this.feedData = PostAdBaseData.b.dI(jSONObject2);
+        this.feedData = PostAdBaseData.b.dP(jSONObject2);
         try {
             jSONObject3 = jSONObject.getJSONObject("ad_content");
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        this.adData = PostAdBaseData.a.dH(jSONObject3);
+        this.adData = PostAdBaseData.a.dO(jSONObject3);
         try {
             this.preloadLegoCardStr = jSONObject.getString(LegoListActivityConfig.PRE_LOAD);
         } catch (JSONException e3) {
@@ -79,7 +79,7 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
             return 21;
         }
         if (this.adData.type == 2) {
-            return this.adData.Dq(i);
+            return this.adData.DM(i);
         }
         return 0;
     }

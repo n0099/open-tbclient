@@ -1,145 +1,212 @@
 package com.baidu.swan.pms.f;
 
-import com.baidu.swan.pms.model.PMSPkgStatus;
-import com.baidu.swan.pms.model.g;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Objects;
-import java.util.Set;
-/* loaded from: classes11.dex */
+import android.text.TextUtils;
+import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.mobstat.Config;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.swan.pms.c.c.a;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.swan.pms.model.h;
+import com.baidu.webkit.internal.ETAG;
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes19.dex */
 public class e {
-    private Set<a> drZ = Collections.synchronizedSet(new HashSet());
-
-    public void a(com.baidu.swan.pms.model.e eVar, PMSPkgStatus pMSPkgStatus) {
-        this.drZ.add(new a(eVar, pMSPkgStatus));
+    public static com.baidu.swan.pms.c.c.b cx(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
+        }
+        com.baidu.swan.pms.c.c.b bVar = new com.baidu.swan.pms.c.c.b();
+        JSONObject optJSONObject = jSONObject.optJSONObject(Config.INPUT_DEF_PKG);
+        if (optJSONObject != null) {
+            bVar.dwW = cC(optJSONObject.optJSONObject("main"));
+            bVar.dwX = H(optJSONObject.optJSONArray("sub"));
+        }
+        bVar.dxa = cD(jSONObject.optJSONObject("framework"));
+        bVar.dxc = cE(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
+        bVar.dxb = cG(jSONObject.optJSONObject("app_info"));
+        return bVar;
     }
 
-    public int aIt() {
-        return this.drZ.size();
+    public static com.baidu.swan.pms.c.c.d cy(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
+        }
+        com.baidu.swan.pms.c.c.d dVar = new com.baidu.swan.pms.c.c.d();
+        JSONObject optJSONObject = jSONObject.optJSONObject(Config.INPUT_DEF_PKG);
+        if (optJSONObject != null) {
+            dVar.dwX = H(optJSONObject.optJSONArray("sub"));
+            return dVar;
+        }
+        return dVar;
     }
 
-    public boolean isEmpty() {
-        return this.drZ.isEmpty();
+    public static com.baidu.swan.pms.c.c.e cz(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
+        }
+        com.baidu.swan.pms.c.c.e eVar = new com.baidu.swan.pms.c.c.e();
+        eVar.maxAge = jSONObject.optLong("max_age");
+        eVar.data = jSONObject;
+        return eVar;
     }
 
-    public boolean aIu() {
-        for (a aVar : this.drZ) {
-            if (aVar != null && (aVar.cli instanceof com.baidu.swan.pms.model.f)) {
-                return true;
+    public static com.baidu.swan.pms.c.c.a cA(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
+        }
+        com.baidu.swan.pms.c.c.a aVar = new com.baidu.swan.pms.c.c.a();
+        ArrayList arrayList = new ArrayList();
+        JSONArray optJSONArray = jSONObject.optJSONArray("list");
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                a.C0474a c0474a = new a.C0474a();
+                c0474a.errorCode = optJSONObject.optInt(BaseJsonData.TAG_ERRNO);
+                c0474a.dvZ = optJSONObject.optString("bundle_id");
+                c0474a.category = optJSONObject.optInt("category");
+                c0474a.dwW = cC(optJSONObject.optJSONObject("main"));
+                c0474a.dwX = H(optJSONObject.optJSONArray("sub"));
+                c0474a.dwY = cG(optJSONObject.optJSONObject("app_info"));
+                arrayList.add(c0474a);
             }
         }
-        return false;
+        aVar.dwV = arrayList;
+        return aVar;
     }
 
-    public boolean aIv() {
-        for (a aVar : this.drZ) {
-            if (aVar != null && (aVar.cli instanceof g)) {
-                return true;
-            }
+    public static com.baidu.swan.pms.c.c.c cB(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
         }
-        return false;
+        com.baidu.swan.pms.c.c.c cVar = new com.baidu.swan.pms.c.c.c();
+        cVar.dxd = cF(jSONObject);
+        return cVar;
     }
 
-    public boolean aIw() {
-        for (a aVar : this.drZ) {
-            if (aVar != null && (aVar.cli instanceof com.baidu.swan.pms.model.d)) {
-                return true;
-            }
+    private static com.baidu.swan.pms.model.f cC(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
         }
-        return false;
+        com.baidu.swan.pms.model.f fVar = (com.baidu.swan.pms.model.f) a(jSONObject, new com.baidu.swan.pms.model.f());
+        fVar.dwk = jSONObject.optInt("pkg_type");
+        return fVar;
     }
 
-    public boolean aIx() {
-        for (a aVar : this.drZ) {
-            if (aVar != null && (aVar.cli instanceof com.baidu.swan.pms.model.b)) {
-                return true;
+    private static List<com.baidu.swan.pms.model.g> H(JSONArray jSONArray) {
+        int length;
+        if (jSONArray != null && (length = jSONArray.length()) > 0) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                com.baidu.swan.pms.model.g gVar = (com.baidu.swan.pms.model.g) a(optJSONObject, new com.baidu.swan.pms.model.g());
+                gVar.dwk = optJSONObject.optInt("pkg_type");
+                gVar.pkgName = optJSONObject.optString("sub_path");
+                gVar.dwl = optJSONObject.optBoolean("independent");
+                arrayList.add(gVar);
             }
+            return arrayList;
         }
-        return false;
+        return null;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0023, code lost:
-        r0.dsa = com.baidu.swan.pms.model.PMSPkgStatus.ERROR;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized void f(com.baidu.swan.pms.model.e eVar) {
-        if (eVar != null) {
-            Iterator<a> it = this.drZ.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                a next = it.next();
-                if (next != null && next.cli.equals(eVar)) {
-                    break;
-                }
-            }
+    public static com.baidu.swan.pms.model.d cD(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
         }
+        return (com.baidu.swan.pms.model.d) a(jSONObject, new com.baidu.swan.pms.model.d());
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0023, code lost:
-        r0.dsa = com.baidu.swan.pms.model.PMSPkgStatus.FINISH;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized void g(com.baidu.swan.pms.model.e eVar) {
-        if (eVar != null) {
-            Iterator<a> it = this.drZ.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                a next = it.next();
-                if (next != null && next.cli.equals(eVar)) {
-                    break;
-                }
-            }
+    public static com.baidu.swan.pms.model.b cE(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
         }
+        return (com.baidu.swan.pms.model.b) a(jSONObject, new com.baidu.swan.pms.model.b());
     }
 
-    public synchronized boolean aIy() {
-        boolean z;
-        Iterator<a> it = this.drZ.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                z = false;
-                break;
-            }
-            a next = it.next();
-            if (next != null && (next.cli instanceof g) && next.dsa == PMSPkgStatus.WAIT) {
-                z = true;
-                break;
-            }
+    private static h cF(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
         }
-        return z;
+        h hVar = new h();
+        a(jSONObject, hVar);
+        long optLong = jSONObject.optLong("max_age");
+        hVar.maxAge = optLong >= 0 ? optLong : 0L;
+        return hVar;
     }
 
-    /* loaded from: classes11.dex */
-    public static class a {
-        private com.baidu.swan.pms.model.e cli;
-        private PMSPkgStatus dsa;
-
-        public a(com.baidu.swan.pms.model.e eVar, PMSPkgStatus pMSPkgStatus) {
-            this.cli = eVar;
-            this.dsa = pMSPkgStatus;
+    public static <T extends com.baidu.swan.pms.model.e> T a(JSONObject jSONObject, T t) {
+        if (jSONObject == null || t == null) {
+            return null;
         }
+        t.dvZ = jSONObject.optString("bundle_id");
+        t.category = jSONObject.optInt("category");
+        t.versionName = jSONObject.optString(SharedPrefConfig.VERSION_NAME);
+        t.versionCode = jSONObject.optInt("version_code");
+        t.size = jSONObject.optLong(TiebaInitialize.LogFields.SIZE);
+        t.md5 = jSONObject.optString("md5");
+        t.sign = jSONObject.optString("sign");
+        t.downloadUrl = jSONObject.optString("download_url");
+        return t;
+    }
 
-        public boolean equals(Object obj) {
-            if (super.equals(obj)) {
-                return true;
-            }
-            if (obj == null || !(obj instanceof a)) {
-                return false;
-            }
-            return this.cli.equals(((a) obj).cli);
+    public static PMSAppInfo cG(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
         }
+        PMSAppInfo pMSAppInfo = new PMSAppInfo();
+        pMSAppInfo.appKey = jSONObject.optString("app_key");
+        pMSAppInfo.appName = jSONObject.optString("app_name");
+        pMSAppInfo.description = jSONObject.optString("app_desc");
+        pMSAppInfo.appStatus = jSONObject.optInt("app_status");
+        pMSAppInfo.statusDetail = jSONObject.optString("status_detail");
+        pMSAppInfo.statusDesc = jSONObject.optString("status_desc");
+        pMSAppInfo.resumeDate = jSONObject.optString("resume_date");
+        pMSAppInfo.subjectInfo = jSONObject.optString("subject_info");
+        pMSAppInfo.maxAge = jSONObject.optLong("max_age");
+        pMSAppInfo.appCategory = jSONObject.optInt("sub_category");
+        pMSAppInfo.iconUrl = jSONObject.optString("icon_url");
+        pMSAppInfo.serviceCategory = jSONObject.optString("service_category");
+        pMSAppInfo.webViewDomains = jSONObject.optString("webview_domains");
+        pMSAppInfo.webAction = jSONObject.optString("web_action");
+        pMSAppInfo.domains = jSONObject.optString("domains");
+        pMSAppInfo.serverExt = jSONObject.optString("ext");
+        pMSAppInfo.appSign = jSONObject.optLong("app_sign");
+        pMSAppInfo.payProtected = jSONObject.optInt("pay_protected", PMSConstants.PayProtected.NO_PAY_PROTECTED.type);
+        pMSAppInfo.customerService = jSONObject.optInt("customer_service", PMSConstants.CustomerService.NO_CUSTOMER_SERVICE.type);
+        pMSAppInfo.globalNotice = jSONObject.optInt("global_notice", PMSConstants.CloudSwitch.NO_DISPLAY.value);
+        pMSAppInfo.globalPrivate = jSONObject.optInt("global_private", PMSConstants.CloudSwitch.NO_DISPLAY.value);
+        pMSAppInfo.paNumber = jSONObject.optString("pa_number");
+        JSONObject optJSONObject = parseString(pMSAppInfo.serverExt).optJSONObject("bear_info");
+        if (optJSONObject != null) {
+            pMSAppInfo.bearInfo = optJSONObject.toString();
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("plugins");
+        if (optJSONArray != null) {
+            pMSAppInfo.pluginInfo = optJSONArray.toString();
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject(Constants.PHONE_BRAND);
+        if (optJSONObject2 != null) {
+            pMSAppInfo.brandsInfo = optJSONObject2.toString();
+        }
+        com.baidu.swan.pms.d.aKM().b(jSONObject.optJSONArray("ban_path"), jSONObject.optString("ban_tips"), pMSAppInfo.appKey);
+        return pMSAppInfo;
+    }
 
-        public int hashCode() {
-            return Objects.hash(this.cli);
+    public static JSONObject parseString(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return new JSONObject();
+        }
+        try {
+            return new JSONObject(str);
+        } catch (JSONException e) {
+            return new JSONObject();
         }
     }
 }

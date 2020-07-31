@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ButtonBarLayout extends LinearLayout {
     private static final int PEEK_BUTTON_DP = 16;
     private boolean mAllowStacking;

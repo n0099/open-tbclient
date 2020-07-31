@@ -30,7 +30,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 @SuppressLint({"NewApi"})
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
     private TelephonyManager d = null;
     private com.baidu.location.b.a e = new com.baidu.location.b.a();
@@ -46,7 +46,7 @@ public class b {
     private static Class<?> k = null;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends PhoneStateListener {
         public a() {
         }

@@ -1,15 +1,15 @@
 package com.airbnb.lottie.model.content;
 
 import com.airbnb.lottie.a.a.r;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class ShapeTrimPath implements b {
-    private final Type CE;
+    private final Type CG;
     private final com.airbnb.lottie.model.a.b EF;
     private final com.airbnb.lottie.model.a.b EN;
     private final com.airbnb.lottie.model.a.b EO;
     private final String name;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes20.dex */
     public enum Type {
         Simultaneously,
         Individually;
@@ -28,7 +28,7 @@ public class ShapeTrimPath implements b {
 
     public ShapeTrimPath(String str, Type type, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.CE = type;
+        this.CG = type;
         this.EN = bVar;
         this.EO = bVar2;
         this.EF = bVar3;
@@ -39,7 +39,7 @@ public class ShapeTrimPath implements b {
     }
 
     public Type hA() {
-        return this.CE;
+        return this.CG;
     }
 
     public com.airbnb.lottie.model.a.b iQ() {

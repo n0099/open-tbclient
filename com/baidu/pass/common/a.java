@@ -7,7 +7,7 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class a {
     public String a(byte[] bArr, boolean z) {
         try {
@@ -77,7 +77,7 @@ class a {
     }
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     static class C0223a {
         private static final String a = "UTF-8";
         private static final String b = "AES/CBC/NoPadding";

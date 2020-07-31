@@ -8,21 +8,21 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.extcore.a;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.a, com.baidu.swan.games.h.d.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c chG;
+    private static volatile c cjF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c adJ() {
-        if (chG == null) {
+    public static c aeZ() {
+        if (cjF == null) {
             synchronized (c.class) {
-                if (chG == null) {
-                    chG = new c();
+                if (cjF == null) {
+                    cjF = new c();
                 }
             }
         }
-        return chG;
+        return cjF;
     }
 
     private c() {
@@ -31,9 +31,9 @@ public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.
 
     @Override // com.baidu.swan.apps.extcore.b.b
     @Nullable
-    public ExtensionCore acN() {
+    public ExtensionCore adR() {
         if (ProcessUtils.isMainProcess()) {
-            return adN();
+            return afd();
         }
         Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
         bundle.setClassLoader(ExtensionCore.class.getClassLoader());
@@ -45,13 +45,13 @@ public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.
         return extensionCore;
     }
 
-    /* loaded from: classes11.dex */
-    private static class a extends a.C0355a {
+    /* loaded from: classes7.dex */
+    private static class a extends a.C0357a {
         private a() {
         }
 
-        @Override // com.baidu.swan.apps.extcore.a.C0355a
-        protected int RF() {
+        @Override // com.baidu.swan.apps.extcore.a.C0357a
+        protected int RU() {
             return 1;
         }
     }

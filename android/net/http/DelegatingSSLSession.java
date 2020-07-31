@@ -6,10 +6,10 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSessionContext;
 import javax.security.cert.X509Certificate;
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public class DelegatingSSLSession implements SSLSession {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes20.dex */
     public static class CertificateWrap extends DelegatingSSLSession {
         public CertificateWrap(Certificate certificate) {
             throw new RuntimeException("Stub!");

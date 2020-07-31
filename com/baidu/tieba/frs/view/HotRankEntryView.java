@@ -14,19 +14,19 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotUserRankActivityConfig;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.ImageOverlayView;
 import java.util.ArrayList;
 import tbclient.HotUserRankEntry;
 import tbclient.ShortUserInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class HotRankEntryView extends RelativeLayout {
-    private boolean hIi;
-    private ImageView ifQ;
-    private ImageOverlayView ifR;
-    private TextView ifS;
+    private boolean hOi;
+    private ImageView ilT;
+    private ImageOverlayView ilU;
+    private TextView ilV;
     private ImageView mArrow;
     private int mSkinType;
 
@@ -42,15 +42,15 @@ public class HotRankEntryView extends RelativeLayout {
 
     private void init(final Context context) {
         LayoutInflater.from(context).inflate(R.layout.hot_rank_entry, (ViewGroup) this, true);
-        this.ifQ = (ImageView) findViewById(R.id.first_tag);
+        this.ilT = (ImageView) findViewById(R.id.first_tag);
         int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds62);
         int dimensionPixelOffset2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds1);
         int dimensionPixelOffset3 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds20);
-        this.ifR = (ImageOverlayView) findViewById(R.id.image_group);
-        this.ifR.k(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.cp_mask_c_alpha50, dimensionPixelOffset3);
-        this.ifR.setStrokeStyle(1);
-        this.ifR.setLoadImageType(12);
-        this.ifS = (TextView) findViewById(R.id.entry_describe);
+        this.ilU = (ImageOverlayView) findViewById(R.id.image_group);
+        this.ilU.k(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.cp_mask_c_alpha50, dimensionPixelOffset3);
+        this.ilU.setStrokeStyle(1);
+        this.ilU.setLoadImageType(12);
+        this.ilV = (TextView) findViewById(R.id.entry_describe);
         this.mArrow = (ImageView) findViewById(R.id.arrow);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.HotRankEntryView.1
             @Override // android.view.View.OnClickListener
@@ -69,21 +69,21 @@ public class HotRankEntryView extends RelativeLayout {
                     arrayList.add(shortUserInfo.portrait);
                 }
             }
-            this.ifR.setData(arrayList);
-            this.hIi = z;
-            this.ifS.setText(!ar.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(R.string.hot_rank));
-            an.setBackgroundResource(this, z ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
+            this.ilU.setData(arrayList);
+            this.hOi = z;
+            this.ilV.setText(!as.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(R.string.hot_rank));
+            ao.setBackgroundResource(this, z ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            an.setBackgroundResource(this, this.hIi ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
-            SvgManager.aWQ().a(this.ifQ, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
-            this.ifR.onChangeSkinType();
-            an.setViewTextColor(this.ifS, (int) R.color.cp_cont_a);
-            SvgManager.aWQ().a(this.mArrow, R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
+            ao.setBackgroundResource(this, this.hOi ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
+            SvgManager.baR().a(this.ilT, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
+            this.ilU.onChangeSkinType();
+            ao.setViewTextColor(this.ilV, R.color.cp_cont_a);
+            SvgManager.baR().a(this.mArrow, R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 }

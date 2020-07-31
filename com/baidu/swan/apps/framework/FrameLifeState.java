@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.framework;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public enum FrameLifeState {
     INACTIVATED,
     JUST_CREATED,

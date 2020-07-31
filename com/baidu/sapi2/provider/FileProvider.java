@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class FileProvider extends ContentProvider {
     private static final String b = "android.support.FILE_PROVIDER_PATHS";
     private static final String c = "root-path";
@@ -33,7 +33,7 @@ public class FileProvider extends ContentProvider {
     private static HashMap<String, a> j = new HashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public interface a {
         File getFileForUri(Uri uri);
 
@@ -41,7 +41,7 @@ public class FileProvider extends ContentProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static class b implements a {
         private final String a;
         private final HashMap<String, File> b = new HashMap<>();

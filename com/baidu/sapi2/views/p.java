@@ -9,9 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import com.baidu.f.a.a;
+import com.baidu.g.a.a;
 import com.baidu.sapi2.SapiAccountManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class p extends FrameLayout {
     private View a;
     private ObjectAnimator b;

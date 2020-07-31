@@ -1,4 +1,4 @@
 package com.baidu.turbonet.net;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class ConnectionSubtype {
 }

@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
 
 import com.baidubce.auth.BceCredentials;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class DeleteBucketRequest extends GenericBucketRequest {
     public DeleteBucketRequest(String str) {
         super(str);

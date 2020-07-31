@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public class ad {
-    public int hDR;
+    public int hJP;
     public String name;
 }

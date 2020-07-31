@@ -1,5 +1,5 @@
 package com.tb.airbnb.lottie.model.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface m<K, A> {
-    com.tb.airbnb.lottie.a.b.a<K, A> dNG();
+    com.tb.airbnb.lottie.a.b.a<K, A> dRc();
 }

@@ -10,38 +10,37 @@ import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
-import com.baidu.swan.apps.aq.ag;
-import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.aq.ai;
+import com.baidu.swan.apps.aq.al;
 import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static JSONObject bRC;
+    private static JSONObject bSu;
 
-    public static synchronized void VL() {
+    public static synchronized void Ws() {
         synchronized (d.class) {
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "release cache system info");
             }
-            bRC = null;
+            bSu = null;
         }
     }
 
     @Nullable
-    public static synchronized void bq(Context context) {
+    public static synchronized void bt(Context context) {
         synchronized (d.class) {
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "start pre cache");
             }
-            if (com.baidu.swan.apps.u.a.aga().SE()) {
-                if (bRC == null && context != null) {
+            if (com.baidu.swan.apps.t.a.ahm().SU()) {
+                if (bSu == null && context != null) {
                     if (DEBUG) {
                         Log.d("SystemInfoCacheHelper", "need create system info");
                     }
-                    bRC = bs(context);
+                    bSu = bv(context);
                 }
                 if (DEBUG) {
                     Log.d("SystemInfoCacheHelper", "end pre cache system info");
@@ -52,24 +51,24 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public static synchronized JSONObject br(Context context) {
+    public static synchronized JSONObject bu(Context context) {
         JSONObject jSONObject;
         synchronized (d.class) {
-            if (bRC == null && context != null) {
+            if (bSu == null && context != null) {
                 if (DEBUG) {
                     Log.d("SystemInfoCacheHelper", "need create system info");
                 }
-                bRC = bs(context);
+                bSu = bv(context);
             }
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "return cache system info");
             }
-            jSONObject = bRC;
+            jSONObject = bSu;
         }
         return jSONObject;
     }
 
-    public static JSONObject bs(@NonNull Context context) {
+    public static JSONObject bv(@NonNull Context context) {
         if (DEBUG) {
             Log.d("SystemInfoCacheHelper", "start create System Info");
         }
@@ -85,15 +84,15 @@ public class d {
             jSONObject.put("model", Build.MODEL);
             jSONObject.put("pixelRatio", displayMetrics.density);
             jSONObject.put("devicePixelRatio", displayMetrics.density);
-            jSONObject.put(IjkMediaMeta.IJKM_KEY_LANGUAGE, b(configuration));
-            jSONObject.put("version", aj.getVersionName());
+            jSONObject.put("language", b(configuration));
+            jSONObject.put("version", al.getVersionName());
             jSONObject.put("system", "Android " + Build.VERSION.RELEASE);
             jSONObject.put("platform", "android");
-            jSONObject.put("fontSizeSetting", com.baidu.swan.apps.u.a.agj().TP());
+            jSONObject.put("fontSizeSetting", com.baidu.swan.apps.t.a.ahv().Um());
             jSONObject.put("swanNativeVersion", com.baidu.swan.apps.c.getVersion());
-            jSONObject.put("host", com.baidu.swan.apps.u.a.agH().getHostName());
-            jSONObject.put("statusBarHeight", ag.F(ag.getStatusBarHeight()));
-            jSONObject.put("navigationBarHeight", ag.F(ag.getActionBarHeight()));
+            jSONObject.put("host", com.baidu.swan.apps.t.a.ahU().getHostName());
+            jSONObject.put("statusBarHeight", ai.F(ai.getStatusBarHeight()));
+            jSONObject.put("navigationBarHeight", ai.F(ai.getActionBarHeight()));
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "end create System Info");
                 return jSONObject;

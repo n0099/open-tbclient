@@ -11,7 +11,7 @@ import com.baidu.ar.statistic.StatisticApi;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class a extends com.baidu.ar.b.a.b {
     private static final String TAG = a.class.getSimpleName();
     private int cS = 7;

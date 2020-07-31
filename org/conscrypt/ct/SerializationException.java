@@ -1,5 +1,5 @@
 package org.conscrypt.ct;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class SerializationException extends Exception {
     public SerializationException() {
     }

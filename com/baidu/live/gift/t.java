@@ -7,17 +7,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class t {
-    private Map<String, s> aIc;
-    private Map<String, Integer> aId;
+    private Map<String, Integer> aJA;
+    private Map<String, s> aJz;
     private List<i> mDatas;
 
-    public static t yL() {
-        return a.aIe;
+    public static t zn() {
+        return a.aJB;
     }
 
-    public void A(List<i> list) {
+    public void C(List<i> list) {
         if (this.mDatas == null) {
             this.mDatas = new ArrayList();
         }
@@ -25,7 +25,7 @@ public class t {
         if (list != null) {
             this.mDatas.addAll(list);
         }
-        yO();
+        zq();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913122));
     }
 
@@ -33,46 +33,46 @@ public class t {
         return this.mDatas;
     }
 
-    public Map<String, s> yM() {
-        return this.aIc;
+    public Map<String, s> zo() {
+        return this.aJz;
     }
 
-    public Map<String, Integer> yN() {
-        return this.aId;
+    public Map<String, Integer> zp() {
+        return this.aJA;
     }
 
     public void release() {
         if (this.mDatas != null) {
             this.mDatas.clear();
         }
-        if (this.aIc != null) {
-            this.aIc.clear();
+        if (this.aJz != null) {
+            this.aJz.clear();
         }
-        if (this.aId != null) {
-            this.aId.clear();
+        if (this.aJA != null) {
+            this.aJA.clear();
         }
     }
 
-    private void yO() {
-        g.a.C0166a c0166a;
-        if (this.aIc == null) {
-            this.aIc = new HashMap();
+    private void zq() {
+        g.a.C0165a c0165a;
+        if (this.aJz == null) {
+            this.aJz = new HashMap();
         }
-        this.aIc.clear();
-        if (this.aId == null) {
-            this.aId = new HashMap();
+        this.aJz.clear();
+        if (this.aJA == null) {
+            this.aJA = new HashMap();
         }
-        this.aId.clear();
+        this.aJA.clear();
         if (this.mDatas != null && this.mDatas.size() > 0) {
             for (i iVar : this.mDatas) {
-                List<g> ym = iVar.ym();
-                if (ym != null && !ym.isEmpty()) {
-                    for (g gVar : ym) {
-                        if (gVar.aGH != null && (c0166a = gVar.aGH.aGR) != null && c0166a.key == 10 && c0166a.aGT != null) {
-                            String optString = c0166a.aGT.optString("id");
-                            if (this.aIc.get(optString) == null) {
-                                this.aIc.put(optString, new s(gVar.xM(), gVar.aGH.aGN, gVar.aGz));
-                                this.aId.put(optString, Integer.valueOf(gVar.aGH.aGO));
+                List<g> yO = iVar.yO();
+                if (yO != null && !yO.isEmpty()) {
+                    for (g gVar : yO) {
+                        if (gVar.aIc != null && (c0165a = gVar.aIc.aIm) != null && c0165a.key == 10 && c0165a.aIo != null) {
+                            String optString = c0165a.aIo.optString("id");
+                            if (this.aJz.get(optString) == null) {
+                                this.aJz.put(optString, new s(gVar.yo(), gVar.aIc.aIi, gVar.aHU));
+                                this.aJA.put(optString, Integer.valueOf(gVar.aIc.aIj));
                             }
                         }
                     }
@@ -84,8 +84,8 @@ public class t {
     private t() {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static class a {
-        private static final t aIe = new t();
+        private static final t aJB = new t();
     }
 }

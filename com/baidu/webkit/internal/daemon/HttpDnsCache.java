@@ -2,6 +2,7 @@ package com.baidu.webkit.internal.daemon;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.a.a.a.a.a.a.a;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.CfgFileUtils;
 import com.baidu.webkit.internal.ETAG;
@@ -12,21 +13,14 @@ import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class HttpDnsCache implements INoProGuard, INetListener {
     private static final String BACKUP_IP = "{\"area\": \"idc.ct\",   \"backup\": {    \"m.baidu.com\": {      \"ip\": [        \"220.181.38.130\",       \"220.181.38.129\"        ]    },    \"mbd.baidu.com\": {      \"ip\": [       \"180.149.145.177\",         \"112.34.111.104\",        \"111.206.37.66\",        \"180.97.104.214\",        \"117.185.17.20\",        \"112.80.248.204\",       \"14.215.177.166\",        \"183.232.231.184\",        \"163.177.151.106\"       ]    }  },   \"msg\": \"ok\",   \"ttl\": 300,  \"version\": \"v.01\"}";
-    private static final String JSON_KEY_DATA = "data";
-    private static final String JSON_KEY_EXTINFO = "ext-info";
-    private static final String JSON_KEY_IP = "ip";
-    private static final String JSON_KEY_IPV6 = "ipv6";
-    private static final String JSON_KEY_IPV6_GROUP = "ipv6-group";
-    private static final String JSON_KEY_MSG = "msg";
     private static final String LOG_TAG = "HttpDnsCache";
-    private static final String MSG_ERR = "error";
-    private static final String SERVER_BACKUP_IP = "&backup=v.00";
     private static final String SERVER_LABEL = "?label=browser&type=ipv4&group=ipv6_11_16";
-    private static final String SERVER_STATIC_URL = "https://httpsdns.baidu.com/v6/0010/?label=browser&type=ipv4&group=ipv6_11_16";
-    private static final String SERVER_URL = "https://180.76.76.112/v6/0010/?label=browser&type=ipv4&group=ipv6_11_16";
+    private static final String SERVER_LABEL_V1 = "?label=browser&type=ipv4,ipv6&group=ipv6_11_23";
+    private static final String SERVER_STATIC_URL = "https://httpsdns.baidu.com/v6/0010/";
+    private static final String SERVER_URL = "https://180.76.76.112/v6/0010/";
     private static String mBackupIpVersion = "v.00";
     private static boolean mRestore;
     public ByteArrayOutputStream mData = null;
@@ -75,13 +69,23 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         return sb.toString();
     }
 
+    private static String getHttpdnsLabel() {
+        if (WebSettingsGlobalBlink.getIpv6HttpdnsEnv()) {
+            Log.w(LOG_TAG, "SERVER_LABEL_V1");
+            return SERVER_LABEL_V1;
+        }
+        Log.w(LOG_TAG, "SERVER_LABEL");
+        return SERVER_LABEL;
+    }
+
     private static String getUrl(Context context) {
-        String str = SERVER_URL;
-        String httpDnsUrl = WebSettingsGlobalBlink.getHttpDnsUrl();
-        if (httpDnsUrl != null) {
-            str = httpDnsUrl + SERVER_LABEL;
-            Log.w(LOG_TAG, "urlNative!=null: " + httpDnsUrl);
+        String str;
+        String httpDnsUrlIP = WebSettingsGlobalBlink.getHttpDnsUrlIP();
+        if (httpDnsUrlIP != null) {
+            str = httpDnsUrlIP + getHttpdnsLabel();
+            Log.w(LOG_TAG, "urlNative!=null: " + httpDnsUrlIP);
         } else {
+            str = SERVER_URL + getHttpdnsLabel();
             Log.w(LOG_TAG, "urlNative==null ");
         }
         if (!TextUtils.isEmpty(mBackupIpVersion)) {
@@ -92,9 +96,17 @@ public class HttpDnsCache implements INoProGuard, INetListener {
     }
 
     private static String getUrlStaticIP() {
-        String str = SERVER_STATIC_URL;
+        String str;
+        String httpDnsUrlHOST = WebSettingsGlobalBlink.getHttpDnsUrlHOST();
+        if (httpDnsUrlHOST != null) {
+            str = httpDnsUrlHOST + getHttpdnsLabel();
+            Log.w(LOG_TAG, "urlNative!=null: " + httpDnsUrlHOST);
+        } else {
+            str = SERVER_STATIC_URL + getHttpdnsLabel();
+            Log.w(LOG_TAG, "urlNative==null ");
+        }
         if (!TextUtils.isEmpty(mBackupIpVersion)) {
-            str = (SERVER_STATIC_URL + "&backup=") + mBackupIpVersion;
+            str = (str + "&backup=") + mBackupIpVersion;
         }
         Log.d("cronet", "http_dns cloud url static ip " + str);
         return str;
@@ -118,7 +130,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
                 }
             }
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            a.a(th);
         }
     }
 
@@ -127,7 +139,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
             try {
                 CfgFileUtils.set(CfgFileUtils.KEY_HTTP_DNS_CACHE, str);
             } catch (Throwable th) {
-                com.a.a.a.a.a.a.a.a(th);
+                a.a(th);
             }
         }
     }
@@ -166,7 +178,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
                 bdNetTask.setUrl(getUrl(context));
                 bdNet.start(bdNetTask, true);
             } catch (Exception e) {
-                com.a.a.a.a.a.a.a.a(e);
+                a.a(e);
             }
         }
     }
@@ -193,7 +205,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
                 bdNetTask.setUrl(getUrlStaticIP());
                 bdNet.start(bdNetTask, true);
             } catch (Exception e) {
-                com.a.a.a.a.a.a.a.a(e);
+                a.a(e);
             }
         }
     }
@@ -254,7 +266,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
             Log.w(LOG_TAG, "saveLastCacheToCfg " + httpDnsCache);
             saveLastCacheToCfg(httpDnsCache);
         } catch (Exception e) {
-            com.a.a.a.a.a.a.a.a(e);
+            a.a(e);
         }
     }
 

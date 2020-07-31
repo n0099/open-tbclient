@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.ABTestConstant;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.ABTestUtils;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LivenessABTestUtil {
     private static LivenessABTestUtil a;
     private ABTestUtils b;

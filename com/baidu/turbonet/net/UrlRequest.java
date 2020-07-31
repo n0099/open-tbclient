@@ -12,25 +12,25 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.concurrent.Executor;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public interface UrlRequest {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     public static abstract class StatusListener {
-        public abstract void HB(int i);
+        public abstract void HW(int i);
     }
 
-    void Hi(int i);
+    void HD(int i);
 
-    void Hj(int i);
+    void HE(int i);
 
-    void Hk(int i);
+    void HF(int i);
 
-    void Px(String str);
+    void Qi(String str);
 
-    void Py(String str);
+    void Qj(String str);
 
-    void Pz(String str);
+    void Qk(String str);
 
     void a(UploadDataProvider uploadDataProvider, Executor executor);
 
@@ -38,11 +38,11 @@ public interface UrlRequest {
 
     void cancel();
 
-    void dvi();
+    void dyv();
 
-    void dvj();
+    void dyw();
 
-    void dvk();
+    void dyx();
 
     Object getTag();
 
@@ -54,33 +54,33 @@ public interface UrlRequest {
 
     void start();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     public static final class Builder {
-        String dac;
-        boolean mAa;
-        boolean mAb;
-        boolean mAd;
-        int mAe;
-        int mAf;
-        int mAg;
-        int mAh;
-        String mAi;
-        String mAj;
-        final TurbonetEngine mBw;
-        UploadDataProvider mCk;
-        Executor mCl;
-        boolean mCm;
+        String dfN;
         final Executor mExecutor;
+        final Callback mHO;
+        boolean mIf;
+        boolean mIg;
+        boolean mIh;
+        boolean mIj;
+        int mIk;
+        int mIl;
+        int mIm;
+        int mIn;
+        String mIo;
+        String mIq;
+        final TurbonetEngine mJE;
+        UploadDataProvider mKs;
+        Executor mKt;
+        boolean mKu;
         Object mTag;
         final String mUrl;
-        final Callback mzJ;
-        boolean mzZ;
-        final ArrayList<Pair<String, String>> mCj = new ArrayList<>();
+        final ArrayList<Pair<String, String>> mKr = new ArrayList<>();
         int mPriority = 3;
-        Collection<Object> mzY = Collections.emptyList();
+        Collection<Object> mIe = Collections.emptyList();
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes.dex */
+        /* loaded from: classes19.dex */
         public @interface RequestPriority {
         }
 
@@ -98,29 +98,29 @@ public interface UrlRequest {
                 throw new NullPointerException("TurbonetEngine is required.");
             }
             this.mUrl = str;
-            this.mzJ = callback;
+            this.mHO = callback;
             this.mExecutor = executor;
-            this.mBw = turbonetEngine;
-            this.mCm = false;
-            this.mAd = false;
-            this.mAe = 0;
-            this.mAf = 0;
-            this.mAg = 0;
-            this.mAh = 0;
+            this.mJE = turbonetEngine;
+            this.mKu = false;
+            this.mIj = false;
+            this.mIk = 0;
+            this.mIl = 0;
+            this.mIm = 0;
+            this.mIn = 0;
             this.mTag = null;
-            this.mAi = null;
-            this.mAj = null;
+            this.mIo = null;
+            this.mIq = null;
         }
 
-        public Builder PJ(String str) {
+        public Builder Qu(String str) {
             if (str == null) {
                 throw new NullPointerException("Method is required.");
             }
-            this.dac = str;
+            this.dfN = str;
             return this;
         }
 
-        public Builder fP(String str, String str2) {
+        public Builder fR(String str, String str2) {
             if (str == null) {
                 throw new NullPointerException("Invalid header name.");
             }
@@ -130,48 +130,48 @@ public interface UrlRequest {
             if (Headers.ACCEPT_ENCODING.equalsIgnoreCase(str)) {
                 Log.w("cronet", "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
             } else {
-                this.mCj.add(Pair.create(str, str2));
+                this.mKr.add(Pair.create(str, str2));
             }
             return this;
         }
 
-        public Builder dwc() {
-            this.mzZ = true;
+        public Builder dzp() {
+            this.mIf = true;
             return this;
         }
 
-        public Builder dwd() {
-            this.mCm = true;
+        public Builder dzq() {
+            this.mKu = true;
             return this;
         }
 
-        public Builder dwe() {
-            this.mAb = true;
+        public Builder dzr() {
+            this.mIh = true;
             return this;
         }
 
-        public Builder Hx(int i) {
-            this.mAe = i;
+        public Builder HS(int i) {
+            this.mIk = i;
             return this;
         }
 
-        public Builder Hy(int i) {
-            this.mAf = i;
+        public Builder HT(int i) {
+            this.mIl = i;
             return this;
         }
 
-        public Builder Hz(int i) {
-            this.mAg = i;
+        public Builder HU(int i) {
+            this.mIm = i;
             return this;
         }
 
-        public Builder PK(String str) {
-            this.mAi = str;
+        public Builder Qv(String str) {
+            this.mIo = str;
             return this;
         }
 
-        public Builder PL(String str) {
-            this.mAj = str;
+        public Builder Qw(String str) {
+            this.mIq = str;
             return this;
         }
 
@@ -182,59 +182,59 @@ public interface UrlRequest {
             if (executor == null) {
                 throw new NullPointerException("Invalid UploadDataProvider Executor.");
             }
-            if (this.dac == null) {
-                this.dac = "POST";
+            if (this.dfN == null) {
+                this.dfN = "POST";
             }
-            this.mCk = uploadDataProvider;
-            this.mCl = executor;
+            this.mKs = uploadDataProvider;
+            this.mKt = executor;
             return this;
         }
 
-        public UrlRequest dwf() {
-            UrlRequest a = this.mBw.a(this.mUrl, this.mzJ, this.mExecutor, this.mPriority, this.mzY, this.mzZ, this.mAa, this.mAb);
-            if (this.dac != null) {
-                a.Px(this.dac);
+        public UrlRequest dzs() {
+            UrlRequest a = this.mJE.a(this.mUrl, this.mHO, this.mExecutor, this.mPriority, this.mIe, this.mIf, this.mIg, this.mIh);
+            if (this.dfN != null) {
+                a.Qi(this.dfN);
             }
-            Iterator<Pair<String, String>> it = this.mCj.iterator();
+            Iterator<Pair<String, String>> it = this.mKr.iterator();
             while (it.hasNext()) {
                 Pair<String, String> next = it.next();
                 a.addHeader((String) next.first, (String) next.second);
             }
-            if (this.mCk != null) {
-                a.a(this.mCk, this.mCl);
+            if (this.mKs != null) {
+                a.a(this.mKs, this.mKt);
             }
-            if (this.mCm) {
-                a.dvj();
+            if (this.mKu) {
+                a.dyw();
             }
-            if (this.mAd) {
-                a.dvk();
+            if (this.mIj) {
+                a.dyx();
             }
-            if (this.mAe > 0) {
-                a.setTimeout(this.mAe);
+            if (this.mIk > 0) {
+                a.setTimeout(this.mIk);
             }
-            if (this.mAf > 0) {
-                a.Hi(this.mAf);
+            if (this.mIl > 0) {
+                a.HD(this.mIl);
             }
-            if (this.mAg > 0) {
-                a.Hj(this.mAg);
+            if (this.mIm > 0) {
+                a.HE(this.mIm);
             }
-            if (this.mAh > 0) {
-                a.Hk(this.mAh);
+            if (this.mIn > 0) {
+                a.HF(this.mIn);
             }
             if (this.mTag != null) {
                 a.setTag(this.mTag);
             }
-            if (!TextUtils.isEmpty(this.mAi)) {
-                a.Py(this.mAi);
+            if (!TextUtils.isEmpty(this.mIo)) {
+                a.Qj(this.mIo);
             }
-            if (!TextUtils.isEmpty(this.mAj)) {
-                a.Pz(this.mAj);
+            if (!TextUtils.isEmpty(this.mIq)) {
+                a.Qk(this.mIq);
             }
             return a;
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     public static abstract class Callback {
         public abstract void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) throws Exception;
 
@@ -250,12 +250,12 @@ public interface UrlRequest {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     public static class Status {
         static final /* synthetic */ boolean $assertionsDisabled;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes.dex */
+        /* loaded from: classes19.dex */
         public @interface StatusValues {
         }
 
@@ -267,7 +267,7 @@ public interface UrlRequest {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static int HA(int i) {
+        public static int HV(int i) {
             if ($assertionsDisabled || (i >= 0 && i <= 15)) {
                 switch (i) {
                     case 0:

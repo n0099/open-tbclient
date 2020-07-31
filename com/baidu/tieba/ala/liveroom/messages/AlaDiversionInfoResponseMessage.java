@@ -2,9 +2,9 @@ package com.baidu.tieba.ala.liveroom.messages;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaDiversionInfoResponseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.tieba.ala.liveroom.data.c ghm;
+    private com.baidu.tieba.ala.liveroom.data.c gmm;
 
     public AlaDiversionInfoResponseMessage() {
         super(1021181);
@@ -15,12 +15,12 @@ public class AlaDiversionInfoResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONObject("data") != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.ghm = new com.baidu.tieba.ala.liveroom.data.c();
-            this.ghm.parse(optJSONObject);
+            this.gmm = new com.baidu.tieba.ala.liveroom.data.c();
+            this.gmm.parse(optJSONObject);
         }
     }
 
-    public com.baidu.tieba.ala.liveroom.data.c bHN() {
-        return this.ghm;
+    public com.baidu.tieba.ala.liveroom.data.c bKT() {
+        return this.gmm;
     }
 }

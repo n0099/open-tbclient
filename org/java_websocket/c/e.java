@@ -1,21 +1,21 @@
 package org.java_websocket.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e extends g implements i {
-    private short oan;
-    private String oao;
+    private short oiX;
+    private String oiY;
 
     @Override // org.java_websocket.c.h
-    public String dTV() {
-        return this.oao;
+    public String dXr() {
+        return this.oiY;
     }
 
     @Override // org.java_websocket.c.i
-    public void SI(String str) {
-        this.oao = str;
+    public void Tt(String str) {
+        this.oiY = str;
     }
 
     @Override // org.java_websocket.c.i
     public void l(short s) {
-        this.oan = s;
+        this.oiX = s;
     }
 }

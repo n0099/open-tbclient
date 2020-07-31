@@ -1,5 +1,5 @@
 package com.baidu.tieba.imMessageCenter.im.addFriend;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a {
     public String userId;
     public String userName;

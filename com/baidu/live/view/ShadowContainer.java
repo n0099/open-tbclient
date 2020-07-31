@@ -12,14 +12,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.live.sdk.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ShadowContainer extends ViewGroup {
-    private final float boe;
-    private final float bof;
-    private final float bog;
-    private final float boh;
-    private final float boi;
-    private boolean boj;
+    private final float boA;
+    private final float boB;
+    private final float boC;
+    private final float boD;
+    private boolean boE;
+    private final float boz;
     private final Paint mShadowPaint;
 
     public ShadowContainer(Context context) {
@@ -33,12 +33,12 @@ public class ShadowContainer extends ViewGroup {
     public ShadowContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.ShadowContainer);
-        this.boe = obtainStyledAttributes.getDimension(a.k.ShadowContainer_topDeltaLength, 0.0f);
-        this.bof = obtainStyledAttributes.getDimension(a.k.ShadowContainer_bottomDeltaLength, 0.0f);
-        this.bog = obtainStyledAttributes.getDimension(a.k.ShadowContainer_leftDeltaLength, 0.0f);
-        this.boh = obtainStyledAttributes.getDimension(a.k.ShadowContainer_rightDeltaLength, 0.0f);
-        this.boi = obtainStyledAttributes.getDimension(a.k.ShadowContainer_containerCornerRadius, 0.0f);
-        this.boj = obtainStyledAttributes.getBoolean(a.k.ShadowContainer_enable, true);
+        this.boz = obtainStyledAttributes.getDimension(a.k.ShadowContainer_topDeltaLength, 0.0f);
+        this.boA = obtainStyledAttributes.getDimension(a.k.ShadowContainer_bottomDeltaLength, 0.0f);
+        this.boB = obtainStyledAttributes.getDimension(a.k.ShadowContainer_leftDeltaLength, 0.0f);
+        this.boC = obtainStyledAttributes.getDimension(a.k.ShadowContainer_rightDeltaLength, 0.0f);
+        this.boD = obtainStyledAttributes.getDimension(a.k.ShadowContainer_containerCornerRadius, 0.0f);
+        this.boE = obtainStyledAttributes.getBoolean(a.k.ShadowContainer_enable, true);
         float dimension = obtainStyledAttributes.getDimension(a.k.ShadowContainer_deltaX, 0.0f);
         float dimension2 = obtainStyledAttributes.getDimension(a.k.ShadowContainer_deltaY, 0.0f);
         float dimension3 = obtainStyledAttributes.getDimension(a.k.ShadowContainer_containerShadowRadius, 0.0f);
@@ -58,27 +58,27 @@ public class ShadowContainer extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.boj) {
+        if (this.boE) {
             if (getLayerType() != 1) {
                 setLayerType(1, null);
             }
             View childAt = getChildAt(0);
             int left = childAt.getLeft();
-            int top2 = childAt.getTop();
+            int top = childAt.getTop();
             int right = childAt.getRight();
             int bottom = childAt.getBottom();
             if (Build.VERSION.SDK_INT >= 21) {
-                canvas.drawRoundRect(left, top2, right, bottom, this.boi, this.boi, this.mShadowPaint);
+                canvas.drawRoundRect(left, top, right, bottom, this.boD, this.boD, this.mShadowPaint);
             } else {
                 Path path = new Path();
-                path.moveTo(left + this.boi, top2);
-                path.arcTo(new RectF(left, top2, left + (this.boi * 2.0f), top2 + (this.boi * 2.0f)), -90.0f, -90.0f, false);
-                path.lineTo(left, bottom - this.boi);
-                path.arcTo(new RectF(left, bottom - (this.boi * 2.0f), left + (this.boi * 2.0f), bottom), 180.0f, -90.0f, false);
-                path.lineTo(right - this.boi, bottom);
-                path.arcTo(new RectF(right - (this.boi * 2.0f), bottom - (this.boi * 2.0f), right, bottom), 90.0f, -90.0f, false);
-                path.lineTo(right, top2 + this.boi);
-                path.arcTo(new RectF(right - (this.boi * 2.0f), top2, right, top2 + (this.boi * 2.0f)), 0.0f, -90.0f, false);
+                path.moveTo(left + this.boD, top);
+                path.arcTo(new RectF(left, top, left + (this.boD * 2.0f), top + (this.boD * 2.0f)), -90.0f, -90.0f, false);
+                path.lineTo(left, bottom - this.boD);
+                path.arcTo(new RectF(left, bottom - (this.boD * 2.0f), left + (this.boD * 2.0f), bottom), 180.0f, -90.0f, false);
+                path.lineTo(right - this.boD, bottom);
+                path.arcTo(new RectF(right - (this.boD * 2.0f), bottom - (this.boD * 2.0f), right, bottom), 90.0f, -90.0f, false);
+                path.lineTo(right, top + this.boD);
+                path.arcTo(new RectF(right - (this.boD * 2.0f), top, right, top + (this.boD * 2.0f)), 0.0f, -90.0f, false);
                 path.close();
                 canvas.drawPath(path, this.mShadowPaint);
             }
@@ -87,8 +87,8 @@ public class ShadowContainer extends ViewGroup {
     }
 
     public void setDrawShadow(boolean z) {
-        if (this.boj != z) {
-            this.boj = z;
+        if (this.boE != z) {
+            this.boE = z;
             postInvalidate();
         }
     }
@@ -109,10 +109,10 @@ public class ShadowContainer extends ViewGroup {
         int mode2 = View.MeasureSpec.getMode(i2);
         View childAt = getChildAt(0);
         ShadowLayoutParams shadowLayoutParams = (ShadowLayoutParams) childAt.getLayoutParams();
-        int i7 = (int) this.bof;
-        int i8 = (int) this.bog;
-        int i9 = (int) this.boh;
-        int i10 = (int) this.boe;
+        int i7 = (int) this.boA;
+        int i8 = (int) this.boB;
+        int i9 = (int) this.boC;
+        int i10 = (int) this.boz;
         if (mode == 0) {
             i3 = 0;
             i4 = View.MeasureSpec.getSize(i);
@@ -146,18 +146,18 @@ public class ShadowContainer extends ViewGroup {
         int measuredWidth2 = childAt.getMeasuredWidth();
         int i11 = mode4 == Integer.MIN_VALUE ? measuredHeight2 + i10 + i7 : measuredHeight;
         int i12 = mode3 == Integer.MIN_VALUE ? measuredWidth2 + i9 + i8 : measuredWidth;
-        if (i12 < measuredWidth2 + this.bog + this.boh) {
-            i12 = (int) (measuredWidth2 + this.bog + this.boh);
+        if (i12 < measuredWidth2 + this.boB + this.boC) {
+            i12 = (int) (measuredWidth2 + this.boB + this.boC);
         }
-        if (i11 < measuredHeight2 + this.boe + this.bof) {
-            i11 = (int) (measuredHeight2 + this.boe + this.bof);
+        if (i11 < measuredHeight2 + this.boz + this.boA) {
+            i11 = (int) (measuredHeight2 + this.boz + this.boA);
         }
         if (i11 != measuredHeight || i12 != measuredWidth) {
             setMeasuredDimension(i12, i11);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ShadowLayoutParams extends ViewGroup.MarginLayoutParams {
         public ShadowLayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
@@ -191,6 +191,6 @@ public class ShadowContainer extends ViewGroup {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         View childAt = getChildAt(0);
         int measuredWidth = childAt.getMeasuredWidth();
-        childAt.layout((int) this.bog, (int) this.boe, (int) (measuredWidth + this.bog), (int) (childAt.getMeasuredHeight() + this.boe));
+        childAt.layout((int) this.boB, (int) this.boz, (int) (measuredWidth + this.boB), (int) (childAt.getMeasuredHeight() + this.boz));
     }
 }

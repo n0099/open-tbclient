@@ -1,5 +1,7 @@
 package com.baidu.ar.algo;
-/* loaded from: classes3.dex */
+
+import io.flutter.plugin.platform.PlatformPlugin;
+/* loaded from: classes11.dex */
 public class a {
     private static a cb = new a();
     private static a cc;
@@ -12,7 +14,7 @@ public class a {
     public int width;
 
     static {
-        cb.width = 1280;
+        cb.width = PlatformPlugin.DEFAULT_SYSTEM_UI;
         cb.height = 720;
         cb.cg = true;
         cb.ce = new float[]{1110.8284f, 0.0f, 640.0f, 0.0f, 1111.2183f, 360.0f, 0.0f, 0.0f, 1.0f};

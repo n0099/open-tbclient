@@ -27,7 +27,7 @@ import org.conscrypt.NativeCrypto;
 import org.conscrypt.NativeRef;
 import org.conscrypt.SSLParametersImpl;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ConscryptFileDescriptorSocket extends OpenSSLSocketImpl implements NativeCrypto.SSLHandshakeCallbacks, SSLParametersImpl.AliasChooser, SSLParametersImpl.PSKCallbacks {
     private static final boolean DBG_STATE = false;
     private final ActiveSession activeSession;
@@ -403,7 +403,7 @@ public class ConscryptFileDescriptorSocket extends OpenSSLSocketImpl implements 
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     private class SSLInputStream extends InputStream {
         private final Object readLock = new Object();
 
@@ -452,7 +452,7 @@ public class ConscryptFileDescriptorSocket extends OpenSSLSocketImpl implements 
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     private class SSLOutputStream extends OutputStream {
         private final Object writeLock = new Object();
 

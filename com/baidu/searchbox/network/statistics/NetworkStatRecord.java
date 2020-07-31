@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class NetworkStatRecord {
     public static final String HEAD_X_BFE_SVBBRERS = "X-Bfe-Svbbrers";
     public String clientIP;

@@ -1,25 +1,25 @@
 package com.baidu.swan.apps.statistic.a;
 
 import android.text.TextUtils;
-import com.baidu.swan.apps.v.b.b;
+import com.baidu.swan.apps.u.c.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b extends e {
-    public String cKX = "";
+    public String cOs = "";
 
     @Override // com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        com.baidu.swan.apps.runtime.e aai;
-        if (this.cLe == null) {
-            this.cLe = new JSONObject();
+        com.baidu.swan.apps.runtime.e aad;
+        if (this.cOz == null) {
+            this.cOz = new JSONObject();
         }
-        if (TextUtils.isEmpty(this.cKX) && (aai = com.baidu.swan.apps.w.f.ajb().aai()) != null) {
-            b.a RP = aai.RP();
-            this.cKX = RP != null ? RP.ahQ() : "";
+        if (TextUtils.isEmpty(this.cOs) && (aad = com.baidu.swan.apps.v.f.akr().aad()) != null) {
+            b.a Se = aad.Se();
+            this.cOs = Se != null ? Se.ajg() : "";
         }
         try {
-            this.cLe.put("source", this.cKX);
+            this.cOz.put("source", this.cOs);
         } catch (JSONException e) {
             e.printStackTrace();
         }

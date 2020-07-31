@@ -4,7 +4,7 @@ import com.baidu.sapi2.utils.h;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static byte[] a(byte[] bArr, byte[] bArr2) {
         try {

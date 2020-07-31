@@ -14,65 +14,65 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.sharedPref.b;
-import com.baidu.tbadk.core.util.w;
-import com.baidu.tieba.play.QuickVideoView;
-import com.baidu.tieba.play.j;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tieba.play.f;
 import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.videoplay.VideoPlayFragment;
 import com.baidu.tieba.videoplay.a.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
-    private j.b kSS;
-    private QuickVideoView.c kTk;
+    private f.b lbN;
     private List<VideoItemData> mDatas;
     public String mFrom;
     public String mFromPage;
     private Rect mRect;
-    private boolean mgr;
-    private a mgs;
-    private long mgt;
-    public String mgu;
-    private SparseArray<VideoPlayFragment> mgv;
+    private boolean mnG;
+    private a mnH;
+    private long mnI;
+    public String mnJ;
+    private SparseArray<VideoPlayFragment> mnK;
+    private VideoPlayFragment.a mnz;
 
     public VideoPlayFragmentAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
-        this.mgt = -1L;
-        this.mgv = new SparseArray<>();
-        this.mgs = new a();
+        this.mnI = -1L;
+        this.mnK = new SparseArray<>();
+        this.mnH = new a();
     }
 
     @Override // android.support.v4.app.FragmentStatePagerAdapter
     public Fragment getItem(int i) {
         VideoPlayFragment videoPlayFragment = new VideoPlayFragment();
-        videoPlayFragment.a(this.kSS);
-        videoPlayFragment.setVideoStatusListener(this.kTk);
+        videoPlayFragment.a(this.lbN);
+        videoPlayFragment.a(this.mnz);
         Bundle bundle = new Bundle();
-        bundle.putSerializable(VideoPlayActivityConfig.VIDEO_DATA, (Serializable) w.getItem(this.mDatas, i));
+        bundle.putSerializable(VideoPlayActivityConfig.VIDEO_DATA, (Serializable) x.getItem(this.mDatas, i));
         bundle.putSerializable(VideoPlayActivityConfig.VIDEO_INDEX, Integer.valueOf(i));
         bundle.putSerializable(VideoPlayActivityConfig.PAGE_FROM, this.mFrom);
         bundle.putSerializable("from", this.mFromPage);
-        bundle.putSerializable("obj_id", this.mgu);
-        if (this.mgr) {
+        bundle.putSerializable("obj_id", this.mnJ);
+        if (this.mnG) {
             bundle.putParcelable(VideoPlayActivityConfig.VIDEO_COVER_RECT, this.mRect);
-            this.mgr = false;
+            this.mnG = false;
         }
         videoPlayFragment.setArguments(bundle);
         return videoPlayFragment;
     }
 
-    public void setVideoStatusListener(QuickVideoView.c cVar) {
-        this.kTk = cVar;
+    public void a(VideoPlayFragment.a aVar) {
+        this.mnz = aVar;
     }
 
-    public void a(j.b bVar) {
-        this.kSS = bVar;
+    public void a(f.b bVar) {
+        this.lbN = bVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (w.isEmpty(this.mDatas)) {
+        if (x.isEmpty(this.mDatas)) {
             return 0;
         }
         return this.mDatas.size();
@@ -81,13 +81,13 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
     @Override // android.support.v4.app.FragmentStatePagerAdapter, android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         super.destroyItem(viewGroup, i, obj);
-        this.mgv.remove(i);
+        this.mnK.remove(i);
     }
 
     @Override // android.support.v4.app.FragmentStatePagerAdapter, android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         VideoPlayFragment videoPlayFragment = (VideoPlayFragment) super.instantiateItem(viewGroup, i);
-        this.mgv.put(i, videoPlayFragment);
+        this.mnK.put(i, videoPlayFragment);
         return videoPlayFragment;
     }
 
@@ -100,35 +100,35 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         return bundle;
     }
 
-    public VideoPlayFragment Gr(int i) {
-        return this.mgv.get(i);
+    public VideoPlayFragment GN(int i) {
+        return this.mnK.get(i);
     }
 
     public void a(List<VideoItemData> list, Rect rect) {
         this.mDatas = list;
-        this.mgr = true;
+        this.mnG = true;
         this.mRect = rect;
     }
 
-    public void dqc() {
-        int i = b.aVP().getInt("nani_key_download_show_rate", 2);
-        if (this.mgt > 0 && i != 1) {
-            b.aVP().putLong("key_vertical_shown_time", this.mgt);
+    public void dtl() {
+        int i = b.aZP().getInt("nani_key_download_show_rate", 2);
+        if (this.mnI > 0 && i != 1) {
+            b.aZP().putLong("key_vertical_shown_time", this.mnI);
         }
     }
 
-    public void Gs(int i) {
+    public void GO(int i) {
         List<String> list;
         String str;
-        VideoPlayFragment Gr;
-        VideoPlayFragment Gr2;
+        VideoPlayFragment GN;
+        VideoPlayFragment GN2;
         String str2 = null;
-        VideoPlayFragment videoPlayFragment = this.mgv.get(i);
+        VideoPlayFragment videoPlayFragment = this.mnK.get(i);
         if (videoPlayFragment != null) {
-            List<String> mediaIDs = videoPlayFragment.getMediaIDs();
-            if (w.getCount(mediaIDs) >= 5) {
-                list = mediaIDs;
-                str = videoPlayFragment.dpY();
+            List<String> dtg = videoPlayFragment.dtg();
+            if (x.getCount(dtg) >= 5) {
+                list = dtg;
+                str = videoPlayFragment.dth();
             } else {
                 return;
             }
@@ -136,19 +136,19 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
             list = null;
             str = null;
         }
-        String dpY = (i + (-1) < 0 || (Gr2 = Gr(i + (-1))) == null) ? null : Gr2.dpY();
-        if (i + 1 < getCount() && (Gr = Gr(i + 1)) != null) {
-            str2 = Gr.dpY();
+        String dth = (i + (-1) < 0 || (GN2 = GN(i + (-1))) == null) ? null : GN2.dth();
+        if (i + 1 < getCount() && (GN = GN(i + 1)) != null) {
+            str2 = GN.dth();
         }
         ArrayList arrayList = new ArrayList();
-        int count = w.getCount(list);
+        int count = x.getCount(list);
         for (int i2 = 0; i2 < count; i2++) {
             String str3 = list.get(i2);
-            if (!TextUtils.equals(str3, str) && !TextUtils.equals(str3, dpY) && !TextUtils.equals(str3, str2)) {
+            if (!TextUtils.equals(str3, str) && !TextUtils.equals(str3, dth) && !TextUtils.equals(str3, str2)) {
                 arrayList.add(str3);
             }
         }
-        if (!w.isEmpty(arrayList)) {
+        if (!x.isEmpty(arrayList)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RELEASE_SOME_PLAYER, arrayList));
         }
     }

@@ -6,24 +6,24 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class l extends z {
     public l(com.facebook.common.memory.g gVar) {
-        super(com.facebook.common.b.a.dzd(), gVar);
+        super(com.facebook.common.b.a.dCp(), gVar);
     }
 
     @Override // com.facebook.imagepipeline.producers.z
     protected com.facebook.imagepipeline.g.e g(ImageRequest imageRequest) throws IOException {
-        byte[] QR = QR(imageRequest.dGU().toString());
-        return e(new ByteArrayInputStream(QR), QR.length);
+        byte[] RC = RC(imageRequest.dKg().toString());
+        return e(new ByteArrayInputStream(RC), RC.length);
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String dGm() {
+    protected String dJy() {
         return "DataFetchProducer";
     }
 
-    static byte[] QR(String str) {
+    static byte[] RC(String str) {
         com.facebook.common.internal.g.checkArgument(str.substring(0, 5).equals("data:"));
         int indexOf = str.indexOf(44);
         String substring = str.substring(indexOf + 1, str.length());

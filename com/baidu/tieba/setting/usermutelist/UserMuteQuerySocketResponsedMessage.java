@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.UserMuteQuery.DataRes;
 import tbclient.UserMuteQuery.UserMuteQueryResIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class UserMuteQuerySocketResponsedMessage extends SocketResponsedMessage {
     private DataRes mResult;
 

@@ -3,16 +3,16 @@ package com.baidu.live.im.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ImBarragePayResponseMessage extends JsonHttpResponsedMessage {
-    private long aWs;
+    private long aXm;
 
     public ImBarragePayResponseMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
     }
 
-    public long AX() {
-        return this.aWs;
+    public long Bz() {
+        return this.aXm;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -21,7 +21,7 @@ public class ImBarragePayResponseMessage extends JsonHttpResponsedMessage {
             super.decodeLogicInBackGround(i, jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.aWs = optJSONObject.optLong("left_scores");
+                this.aXm = optJSONObject.optLong("left_scores");
             }
         }
     }

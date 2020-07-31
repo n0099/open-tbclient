@@ -15,7 +15,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a extends aa {
     private String callback;
 
@@ -28,7 +28,7 @@ public class a extends aa {
         if (context == null || callbackHandler == null || eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (eVar.Va()) {
+        } else if (eVar.VF()) {
             if (DEBUG) {
                 Log.d("SetPhoneContactAction", "SetPhoneContactAction does not supported when app is invisible.");
             }
@@ -48,8 +48,8 @@ public class a extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
             }
-            com.baidu.swan.apps.i.a aG = com.baidu.swan.apps.i.a.aG(optParamsAsJo);
-            if (!aG.isValid()) {
+            com.baidu.swan.apps.i.a aJ = com.baidu.swan.apps.i.a.aJ(optParamsAsJo);
+            if (!aJ.isValid()) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
             }
@@ -72,11 +72,11 @@ public class a extends aa {
             switch (c) {
                 case 0:
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    a(context, aG, callbackHandler);
+                    a(context, aJ, callbackHandler);
                     return true;
                 case 1:
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    b(context, aG, callbackHandler);
+                    b(context, aJ, callbackHandler);
                     return true;
                 default:
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -122,20 +122,20 @@ public class a extends aa {
 
     private ArrayList<ContentValues> a(com.baidu.swan.apps.i.a aVar) {
         ArrayList<ContentValues> arrayList = new ArrayList<>(16);
-        arrayList.add(aVar.XY());
-        arrayList.add(aVar.XZ());
-        arrayList.add(aVar.Ya());
-        arrayList.add(aVar.Yb());
-        arrayList.add(aVar.Yc());
-        arrayList.add(aVar.Yd());
-        arrayList.add(aVar.XW());
-        arrayList.add(aVar.Ye());
-        arrayList.add(aVar.Yg());
-        arrayList.add(aVar.XX());
-        arrayList.add(aVar.Yf());
-        arrayList.add(aVar.Yh());
-        arrayList.add(aVar.Yi());
-        arrayList.add(aVar.Yj());
+        arrayList.add(aVar.YE());
+        arrayList.add(aVar.YF());
+        arrayList.add(aVar.YG());
+        arrayList.add(aVar.YH());
+        arrayList.add(aVar.YI());
+        arrayList.add(aVar.YJ());
+        arrayList.add(aVar.YC());
+        arrayList.add(aVar.YK());
+        arrayList.add(aVar.YM());
+        arrayList.add(aVar.YD());
+        arrayList.add(aVar.YL());
+        arrayList.add(aVar.YN());
+        arrayList.add(aVar.YO());
+        arrayList.add(aVar.YP());
         return arrayList;
     }
 }

@@ -1,42 +1,55 @@
 package com.baidu.swan.b.d;
 
-import android.support.annotation.NonNull;
-import com.baidu.swan.apps.adaptation.a.ap;
-import org.json.JSONObject;
-/* loaded from: classes11.dex */
-public class c implements ap {
-    private static volatile c cXP;
-    private com.baidu.swan.b.b.b cXQ;
-    private b cXR;
-
-    public c() {
-        init();
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.searchbox.http.request.HttpCommonRequest;
+import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import org.apache.http.client.methods.HttpTrace;
+/* loaded from: classes10.dex */
+public class c extends HttpCommonRequest<a> {
+    public c(a aVar) {
+        super(aVar);
     }
 
-    private void init() {
-        this.cXQ = new com.baidu.swan.b.b.b();
-        this.cXR = new b();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    /* renamed from: aKJ */
+    public a newBuilder() {
+        return new a(this);
     }
 
-    public static c ayl() {
-        if (cXP == null) {
-            synchronized (c.class) {
-                if (cXP == null) {
-                    cXP = new c();
-                }
-            }
-        }
-        return cXP;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    /* renamed from: c */
+    public a newBuilder(AbstractHttpManager abstractHttpManager) {
+        return new a(this, abstractHttpManager);
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.ap
-    public com.baidu.swan.apps.api.c.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.n.b bVar) {
-        if (this.cXQ.re(str)) {
-            return this.cXQ.a(str, jSONObject, bVar);
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    protected Request buildOkRequest(RequestBody requestBody) {
+        return this.okRequestBuilder.method(HttpTrace.METHOD_NAME, requestBody).build();
+    }
+
+    /* loaded from: classes10.dex */
+    public static class a extends HttpCommonRequestBuilder<a> {
+        public a(AbstractHttpManager abstractHttpManager) {
+            super(abstractHttpManager);
         }
-        if (this.cXQ.ayk()) {
-            return this.cXR.a(str, jSONObject, bVar);
+
+        public a(c cVar) {
+            this(cVar, null);
         }
-        return new com.baidu.swan.apps.api.c.b(10001, "authorize fail.");
+
+        public a(c cVar, AbstractHttpManager abstractHttpManager) {
+            super(cVar, abstractHttpManager);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
+        /* renamed from: aKt */
+        public c build() {
+            return new c(this);
+        }
     }
 }

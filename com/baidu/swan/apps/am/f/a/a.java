@@ -13,7 +13,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/memoryWarning");
@@ -44,11 +44,11 @@ public class a extends aa {
     }
 
     public void b(Context context, final CallbackHandler callbackHandler, final String str) {
-        b RR;
-        if ((context instanceof com.baidu.swan.apps.am.f.c) && (RR = ((com.baidu.swan.apps.am.f.c) context).RR()) != null) {
-            RR.a(new com.baidu.swan.apps.am.f.a() { // from class: com.baidu.swan.apps.am.f.a.a.1
+        b Sg;
+        if ((context instanceof com.baidu.swan.apps.am.f.c) && (Sg = ((com.baidu.swan.apps.am.f.c) context).Sg()) != null) {
+            Sg.a(new com.baidu.swan.apps.am.f.a() { // from class: com.baidu.swan.apps.am.f.a.a.1
                 @Override // com.baidu.swan.apps.am.f.a
-                public void hI(int i) {
+                public void hR(int i) {
                     c.i("MemoryWarningAction", "trimMemory consume level:" + i);
                     if (i == 10 || i == 15) {
                         JSONObject jSONObject = new JSONObject();

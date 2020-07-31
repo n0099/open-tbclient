@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HTypeListView extends HListView {
     TypeAdapter mTypeAdapter;
 

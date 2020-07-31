@@ -4,7 +4,7 @@ import android.animation.ObjectAnimator;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static ObjectAnimator a(BaseMenuView baseMenuView) {
@@ -23,7 +23,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static ObjectAnimator aJ(View view) {
+    public static ObjectAnimator aO(View view) {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "alpha", 0.0f);
         ofFloat.setDuration(160L);
         ofFloat.setInterpolator(new LinearInterpolator());
@@ -39,6 +39,6 @@ public class c {
     }
 
     private static long c(BaseMenuView baseMenuView) {
-        return baseMenuView.aFW() ? 240L : 200L;
+        return baseMenuView.aJN() ? 240L : 200L;
     }
 }

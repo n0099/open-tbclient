@@ -24,22 +24,22 @@ import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import com.baidu.live.tbadk.core.util.UrlManager;
 import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private com.baidu.live.gift.a.d aPc;
-    private AlaGiftTabView.a aPd;
-    private a aPe;
-    private int aPf;
-    private CustomMessageListener aPg;
-    private CustomMessageListener aPh;
-    private CustomMessageListener aPi;
-    private CustomMessageListener aPj;
-    private com.baidu.live.noble.b.a aPk;
-    private NobleUserInfo aPl;
+    private CustomMessageListener aQA;
+    private CustomMessageListener aQB;
+    private CustomMessageListener aQC;
+    private com.baidu.live.noble.b.a aQD;
+    private NobleUserInfo aQE;
+    private com.baidu.live.gift.a.d aQv;
+    private AlaGiftTabView.a aQw;
+    private a aQx;
+    private int aQy;
+    private CustomMessageListener aQz;
     private TbPageContext mContext;
     private Handler mHandler;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(int i, SupportXFragment... supportXFragmentArr);
 
@@ -49,7 +49,7 @@ public class b {
 
         void onClose();
 
-        l zx();
+        l zZ();
     }
 
     public b(TbPageContext tbPageContext) {
@@ -61,8 +61,8 @@ public class b {
     }
 
     public void a(a aVar, AlaGiftTabView.a aVar2) {
-        this.aPe = aVar;
-        this.aPd = aVar2;
+        this.aQx = aVar;
+        this.aQw = aVar2;
         registerListener();
         this.mHandler = new Handler();
         this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.gift.panel.b.1
@@ -71,165 +71,165 @@ public class b {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913087));
             }
         }, 300L);
-        Bj();
-        if (this.aPe != null && this.aPc != null && this.aPc.aMA != null) {
-            this.aPe.a(this.aPc.aMA);
+        BL();
+        if (this.aQx != null && this.aQv != null && this.aQv.aNV != null) {
+            this.aQx.a(this.aQv.aNV);
         }
-        Bk();
-        Bl();
+        BM();
+        BN();
     }
 
-    public boolean Bd() {
-        return this.aPc != null && this.aPc.aMB;
+    public boolean BF() {
+        return this.aQv != null && this.aQv.aNW;
     }
 
-    public void Be() {
-        if (this.aPl != null && !TextUtils.isEmpty(this.aPl.detailUrl)) {
+    public void BG() {
+        if (this.aQE != null && !TextUtils.isEmpty(this.aQE.detailUrl)) {
             NobleDetailInfo nobleDetailInfo = new NobleDetailInfo();
-            nobleDetailInfo.url = this.aPl.detailUrl;
-            if (this.aPl.user != null) {
-                nobleDetailInfo.roleId = this.aPl.user.id;
+            nobleDetailInfo.url = this.aQE.detailUrl;
+            if (this.aQE.user != null) {
+                nobleDetailInfo.roleId = this.aQE.user.id;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913199, nobleDetailInfo));
-            if (this.aPe != null) {
-                this.aPe.onClose();
+            if (this.aQx != null) {
+                this.aQx.onClose();
             }
         }
     }
 
-    public void fq(String str) {
+    public void fp(String str) {
         UrlManager.getInstance().dealOneLink(this.mContext, new String[]{str});
     }
 
     public void release() {
-        this.aPe = null;
+        this.aQx = null;
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.aPk != null) {
-            this.aPk.release();
+        if (this.aQD != null) {
+            this.aQD.release();
         }
-        MessageManager.getInstance().unRegisterListener(this.aPg);
-        MessageManager.getInstance().unRegisterListener(this.aPh);
-        MessageManager.getInstance().unRegisterListener(this.aPi);
-        MessageManager.getInstance().unRegisterListener(this.aPj);
+        MessageManager.getInstance().unRegisterListener(this.aQz);
+        MessageManager.getInstance().unRegisterListener(this.aQA);
+        MessageManager.getInstance().unRegisterListener(this.aQB);
+        MessageManager.getInstance().unRegisterListener(this.aQC);
     }
 
     private void k(Intent intent) {
-        this.aPc = new com.baidu.live.gift.a.d();
+        this.aQv = new com.baidu.live.gift.a.d();
         if (intent != null) {
-            this.aPf = intent.getIntExtra("custom_tab_id", 1);
-            this.aPc.mUserName = intent.getStringExtra("user_name");
-            this.aPc.mUserId = intent.getStringExtra("user_id");
-            this.aPc.mLiveId = intent.getStringExtra("live_Id");
-            this.aPc.mRoomId = intent.getStringExtra("room_id");
-            this.aPc.aMu = intent.getStringExtra("feed_id");
-            this.aPc.aMv = intent.getIntExtra("is_block", 0);
-            this.aPc.aMw = intent.getStringExtra(FaceBaseDTO.KEY_BUSINESS_SCENE);
-            this.aPc.mAppId = intent.getStringExtra("app_id");
-            this.aPc.aMx = intent.getBooleanExtra("can_graffiti", true);
-            this.aPc.aLn = intent.getIntExtra("custom_category_id", -1);
-            this.aPc.aLo = intent.getIntExtra("custom_gift_id", -1);
-            this.aPc.aJq = intent.getBooleanExtra("new_gift_t_dou_strategy", false);
-            this.aPc.aJo = intent.getIntExtra("user_level", -1);
-            this.aPc.aKJ = intent.getBooleanExtra("isJoinGuardClub", false);
-            this.aPc.isNewUser = intent.getBooleanExtra("is_new_user", false);
-            this.aPc.aLp = intent.getIntExtra("guard_club_join_amount", 1000);
-            this.aPc.aLA = intent.getBooleanExtra("is_redpkg_unable", false);
-            this.aPc.aMz = intent.getIntExtra(VideoPlayActivityConfig.PAGE_FROM, -1);
-            this.aPc.aJx = intent.getBooleanExtra("throne_enabled", false);
-            this.aPc.aMB = intent.getBooleanExtra("noble_enabled", false);
+            this.aQy = intent.getIntExtra("custom_tab_id", 1);
+            this.aQv.mUserName = intent.getStringExtra("user_name");
+            this.aQv.mUserId = intent.getStringExtra("user_id");
+            this.aQv.mLiveId = intent.getStringExtra("live_Id");
+            this.aQv.mRoomId = intent.getStringExtra("room_id");
+            this.aQv.aNP = intent.getStringExtra("feed_id");
+            this.aQv.aNQ = intent.getIntExtra("is_block", 0);
+            this.aQv.aNR = intent.getStringExtra(FaceBaseDTO.KEY_BUSINESS_SCENE);
+            this.aQv.mAppId = intent.getStringExtra("app_id");
+            this.aQv.aNS = intent.getBooleanExtra("can_graffiti", true);
+            this.aQv.aMJ = intent.getIntExtra("custom_category_id", -1);
+            this.aQv.aMK = intent.getIntExtra("custom_gift_id", -1);
+            this.aQv.aKM = intent.getBooleanExtra("new_gift_t_dou_strategy", false);
+            this.aQv.aKK = intent.getIntExtra("user_level", -1);
+            this.aQv.aMf = intent.getBooleanExtra("isJoinGuardClub", false);
+            this.aQv.isNewUser = intent.getBooleanExtra("is_new_user", false);
+            this.aQv.aML = intent.getIntExtra("guard_club_join_amount", 1000);
+            this.aQv.aMW = intent.getBooleanExtra("is_redpkg_unable", false);
+            this.aQv.aNU = intent.getIntExtra(VideoPlayActivityConfig.PAGE_FROM, -1);
+            this.aQv.aKT = intent.getBooleanExtra("throne_enabled", false);
+            this.aQv.aNW = intent.getBooleanExtra("noble_enabled", false);
             String stringExtra = intent.getStringExtra("bg_info");
             if (!TextUtils.isEmpty(stringExtra)) {
                 AlaLiveGiftUIInfo alaLiveGiftUIInfo = new AlaLiveGiftUIInfo();
                 alaLiveGiftUIInfo.parserJson(stringExtra);
-                this.aPc.aMA = alaLiveGiftUIInfo;
+                this.aQv.aNV = alaLiveGiftUIInfo;
             }
             String stringExtra2 = intent.getStringExtra(IntentConfig.OTHER_PARAMS);
             if (stringExtra2 == null) {
                 stringExtra2 = "";
             }
-            this.aPc.mOtherParams = stringExtra2;
+            this.aQv.mOtherParams = stringExtra2;
         }
     }
 
     private void registerListener() {
-        Bf();
-        Bg();
-        Bh();
-        Bi();
+        BH();
+        BI();
+        BJ();
+        BK();
     }
 
-    private void Bf() {
-        this.aPg = new CustomMessageListener(2913097) { // from class: com.baidu.live.gift.panel.b.2
+    private void BH() {
+        this.aQz = new CustomMessageListener(2913097) { // from class: com.baidu.live.gift.panel.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.aPe != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    b.this.aPe.onClose();
+                if (b.this.aQx != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
+                    b.this.aQx.onClose();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aPg);
+        MessageManager.getInstance().registerListener(this.aQz);
     }
 
-    private void Bg() {
-        this.aPh = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.live.gift.panel.b.3
+    private void BI() {
+        this.aQA = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.live.gift.panel.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                b.this.Bk();
+                b.this.BM();
             }
         };
-        MessageManager.getInstance().registerListener(this.aPh);
+        MessageManager.getInstance().registerListener(this.aQA);
     }
 
-    private void Bh() {
-        this.aPi = new CustomMessageListener(2913024) { // from class: com.baidu.live.gift.panel.b.4
+    private void BJ() {
+        this.aQB = new CustomMessageListener(2913024) { // from class: com.baidu.live.gift.panel.b.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.aPe != null) {
-                    b.this.aPe.onClose();
+                if (b.this.aQx != null) {
+                    b.this.aQx.onClose();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aPi);
+        MessageManager.getInstance().registerListener(this.aQB);
     }
 
-    private void Bi() {
-        this.aPj = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.live.gift.panel.b.5
+    private void BK() {
+        this.aQC = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.live.gift.panel.b.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                b.this.Bk();
+                b.this.BM();
             }
         };
-        MessageManager.getInstance().registerListener(this.aPj);
+        MessageManager.getInstance().registerListener(this.aQC);
     }
 
-    private void Bj() {
+    private void BL() {
         int i;
         f.a aVar = new f.a() { // from class: com.baidu.live.gift.panel.b.6
             @Override // com.baidu.live.gift.panel.f.a
-            public l zx() {
-                if (b.this.aPe != null) {
-                    return b.this.aPe.zx();
+            public l zZ() {
+                if (b.this.aQx != null) {
+                    return b.this.aQx.zZ();
                 }
                 return null;
             }
         };
-        c ct = c.ct(0);
-        ct.setPageContext(this.mContext);
-        ct.a(aVar);
-        ct.b(this.aPd);
-        ct.a(this.aPc);
-        c ct2 = c.ct(1);
-        ct2.setPageContext(this.mContext);
-        ct2.a(aVar);
-        ct2.b(this.aPd);
-        ct2.a(this.aPc);
-        switch (this.aPf) {
+        c cz = c.cz(0);
+        cz.setPageContext(this.mContext);
+        cz.a(aVar);
+        cz.b(this.aQw);
+        cz.a(this.aQv);
+        c cz2 = c.cz(1);
+        cz2.setPageContext(this.mContext);
+        cz2.a(aVar);
+        cz2.b(this.aQw);
+        cz2.a(this.aQv);
+        switch (this.aQy) {
             case 1:
                 i = 0;
                 break;
@@ -240,13 +240,13 @@ public class b {
                 i = 0;
                 break;
         }
-        if (this.aPe != null) {
-            this.aPe.a(i, ct, ct2);
+        if (this.aQx != null) {
+            this.aQx.a(i, cz, cz2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Bk() {
+    public void BM() {
         if (TbadkCoreApplication.isLogin()) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES);
             httpMessage.addParam("tbs", TbadkCoreApplication.getCurrentTbs());
@@ -254,23 +254,23 @@ public class b {
         }
     }
 
-    private void Bl() {
+    private void BN() {
         CustomResponsedMessage runTask;
-        if (Bd()) {
-            if (this.aPk == null && (runTask = MessageManager.getInstance().runTask(2913198, com.baidu.live.noble.b.a.class, this.mContext.getPageActivity())) != null && runTask.getData() != null) {
-                this.aPk = (com.baidu.live.noble.b.a) runTask.getData();
+        if (BF()) {
+            if (this.aQD == null && (runTask = MessageManager.getInstance().runTask(2913198, com.baidu.live.noble.b.a.class, this.mContext.getPageActivity())) != null && runTask.getData() != null) {
+                this.aQD = (com.baidu.live.noble.b.a) runTask.getData();
             }
-            if (this.aPk != null) {
-                this.aPk.a(new a.InterfaceC0173a() { // from class: com.baidu.live.gift.panel.b.7
+            if (this.aQD != null) {
+                this.aQD.a(new a.InterfaceC0173a() { // from class: com.baidu.live.gift.panel.b.7
                     @Override // com.baidu.live.noble.b.a.InterfaceC0173a
                     public void a(NobleUserInfo nobleUserInfo) {
-                        b.this.aPl = nobleUserInfo;
-                        if (b.this.aPe != null) {
-                            b.this.aPe.a(nobleUserInfo != null ? nobleUserInfo.tip : null);
+                        b.this.aQE = nobleUserInfo;
+                        if (b.this.aQx != null) {
+                            b.this.aQx.a(nobleUserInfo != null ? nobleUserInfo.tip : null);
                         }
                     }
                 });
-                this.aPk.Gi();
+                this.aQD.Gc();
             }
         }
     }

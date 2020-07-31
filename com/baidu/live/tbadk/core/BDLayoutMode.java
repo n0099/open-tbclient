@@ -25,7 +25,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BDLayoutMode {
     private static final String ATTR_NAME_BACKGROUND = "tb_background";
     private static final String ATTR_NAME_DIVIDER = "tb_divider";

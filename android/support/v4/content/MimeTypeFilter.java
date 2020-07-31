@@ -3,7 +3,7 @@ package android.support.v4.content;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class MimeTypeFilter {
     private MimeTypeFilter() {
     }

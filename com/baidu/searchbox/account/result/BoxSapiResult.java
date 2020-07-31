@@ -2,7 +2,7 @@ package com.baidu.searchbox.account.result;
 
 import android.text.TextUtils;
 import android.util.SparseArray;
-/* loaded from: classes12.dex */
+/* loaded from: classes9.dex */
 public class BoxSapiResult {
     public static final int ERROR_CODE_METHOD_DEPRECATED = -206;
     public static final int ERROR_CODE_NETWORK_UNAVAILABLE = -201;

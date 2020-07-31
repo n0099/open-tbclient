@@ -20,9 +20,9 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class f {
-    private static final Map<String, m<e>> As = new HashMap();
+    private static final Map<String, m<e>> Au = new HashMap();
 
     public static m<e> s(Context context, String str) {
         return com.airbnb.lottie.network.b.v(context, str);
@@ -223,8 +223,8 @@ public class f {
                 }
             });
         }
-        if (As.containsKey(str)) {
-            return As.get(str);
+        if (Au.containsKey(str)) {
+            return Au.get(str);
         }
         m<e> mVar = new m<>(callable);
         mVar.a(new i<e>() { // from class: com.airbnb.lottie.f.8
@@ -234,17 +234,17 @@ public class f {
                 if (str != null) {
                     com.airbnb.lottie.model.g.hZ().a(str, eVar);
                 }
-                f.As.remove(str);
+                f.Au.remove(str);
             }
         });
         mVar.c(new i<Throwable>() { // from class: com.airbnb.lottie.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.airbnb.lottie.i
             public void onResult(Throwable th) {
-                f.As.remove(str);
+                f.Au.remove(str);
             }
         });
-        As.put(str, mVar);
+        Au.put(str, mVar);
         return mVar;
     }
 }

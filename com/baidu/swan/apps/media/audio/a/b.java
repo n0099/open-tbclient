@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.adaptation.a.p;
-import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.aq.al;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.media.audio.SwanAppAudioPlayer;
 import com.baidu.swan.apps.runtime.e;
@@ -17,7 +17,7 @@ import com.baidu.swan.apps.storage.PathType;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b extends aa {
     public b(j jVar) {
         super(jVar, "/swanAPI/audio");
@@ -35,14 +35,14 @@ public class b extends aa {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e eVar) {
-        SwanAppAudioPlayer lH;
+        SwanAppAudioPlayer mi;
         boolean z;
         boolean z2;
         char c = 65535;
         if (DEBUG) {
             Log.d("AudioPlayerAction", "handleSubAction subAction: " + str);
         }
-        if (eVar.Va()) {
+        if (eVar.VF()) {
             if (DEBUG) {
                 Log.d("AudioPlayerAction", "AudioPlayerAction does not supported when app is invisible.");
             }
@@ -74,29 +74,29 @@ public class b extends aa {
                     return false;
             }
         }
-        JSONObject lG = lG(unitedSchemeEntity.getParam("params"));
-        if (lG == null) {
+        JSONObject mh = mh(unitedSchemeEntity.getParam("params"));
+        if (mh == null) {
             c.e("audio", "object is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         } else if (TextUtils.equals(str, "/swanAPI/audio/setInnerAudioOption")) {
-            return a(lG, eVar, unitedSchemeEntity, callbackHandler);
+            return a(mh, eVar, unitedSchemeEntity, callbackHandler);
         } else {
             if (TextUtils.equals(str, "/swanAPI/audio/getAvailableAudioSources")) {
                 return a(unitedSchemeEntity, callbackHandler, eVar);
             }
-            String optString = lG.optString("audioId");
+            String optString = mh.optString("audioId");
             if (TextUtils.equals(str, "/swanAPI/audio/open")) {
-                lH = new SwanAppAudioPlayer(optString);
+                mi = new SwanAppAudioPlayer(optString);
             } else {
-                lH = lH(optString);
+                mi = mi(optString);
             }
-            if (lH == null) {
+            if (mi == null) {
                 c.e("audio", "player is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            com.baidu.swan.apps.media.audio.b a = com.baidu.swan.apps.media.audio.b.a(lG, lH.aju());
+            com.baidu.swan.apps.media.audio.b a = com.baidu.swan.apps.media.audio.b.a(mh, mi.akK());
             if (!a.isValid()) {
                 c.e("audio", "params is invalid");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -151,38 +151,38 @@ public class b extends aa {
             }
             switch (c) {
                 case 0:
-                    c.i("audio", "open, audio id:" + a.cop);
-                    a(context, callbackHandler, lH, a);
+                    c.i("audio", "open, audio id:" + a.cqu);
+                    a(context, callbackHandler, mi, a);
                     z = true;
                     break;
                 case 1:
-                    c.i("audio", "update, audio id:" + a.cop);
-                    a(context, lH, a);
+                    c.i("audio", "update, audio id:" + a.cqu);
+                    a(context, mi, a);
                     z = true;
                     break;
                 case 2:
-                    c.i("audio", "play, audio id:" + a.cop);
-                    lH.play();
+                    c.i("audio", "play, audio id:" + a.cqu);
+                    mi.play();
                     z = true;
                     break;
                 case 3:
-                    c.i("audio", "pause, audio id:" + a.cop);
-                    lH.pause();
+                    c.i("audio", "pause, audio id:" + a.cqu);
+                    mi.pause();
                     z = true;
                     break;
                 case 4:
-                    c.i("audio", "seek, audio id:" + a.cop);
-                    lH.seekTo(a.mPos);
+                    c.i("audio", "seek, audio id:" + a.cqu);
+                    mi.seekTo(a.mPos);
                     z = true;
                     break;
                 case 5:
-                    c.i("audio", "stop, audio id:" + a.cop);
-                    lH.stop();
+                    c.i("audio", "stop, audio id:" + a.cqu);
+                    mi.stop();
                     z = true;
                     break;
                 case 6:
-                    c.i("audio", "release, audio id:" + a.cop);
-                    lH.release();
+                    c.i("audio", "release, audio id:" + a.cqu);
+                    mi.release();
                     z = true;
                     break;
                 default:
@@ -198,13 +198,13 @@ public class b extends aa {
     }
 
     private void a(Context context, final SwanAppAudioPlayer swanAppAudioPlayer, final com.baidu.swan.apps.media.audio.b bVar) {
-        if (TextUtils.isEmpty(bVar.mUrl) && com.baidu.swan.apps.storage.b.oY(bVar.mUrl) == PathType.CLOUD) {
-            com.baidu.swan.apps.u.a.agq().a(context, bVar.mUrl, new com.baidu.swan.apps.aq.e.b<String>() { // from class: com.baidu.swan.apps.media.audio.a.b.1
+        if (TextUtils.isEmpty(bVar.mUrl) && com.baidu.swan.apps.storage.b.pJ(bVar.mUrl) == PathType.CLOUD) {
+            com.baidu.swan.apps.t.a.ahC().a(context, bVar.mUrl, new com.baidu.swan.apps.aq.e.b<String>() { // from class: com.baidu.swan.apps.media.audio.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.aq.e.b
                 /* renamed from: onCallback */
                 public void H(final String str) {
-                    aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.media.audio.a.b.1.1
+                    al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.media.audio.a.b.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             bVar.mUrl = str;
@@ -219,14 +219,14 @@ public class b extends aa {
     }
 
     private void a(Context context, final CallbackHandler callbackHandler, final SwanAppAudioPlayer swanAppAudioPlayer, final com.baidu.swan.apps.media.audio.b bVar) {
-        p agq = com.baidu.swan.apps.u.a.agq();
-        if (agq != null && com.baidu.swan.apps.storage.b.oY(bVar.mUrl) == PathType.CLOUD) {
-            agq.a(context, bVar.mUrl, new com.baidu.swan.apps.aq.e.b<String>() { // from class: com.baidu.swan.apps.media.audio.a.b.2
+        p ahC = com.baidu.swan.apps.t.a.ahC();
+        if (ahC != null && com.baidu.swan.apps.storage.b.pJ(bVar.mUrl) == PathType.CLOUD) {
+            ahC.a(context, bVar.mUrl, new com.baidu.swan.apps.aq.e.b<String>() { // from class: com.baidu.swan.apps.media.audio.a.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.aq.e.b
                 /* renamed from: onCallback */
                 public void H(final String str) {
-                    aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.media.audio.a.b.2.1
+                    al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.media.audio.a.b.2.1
                         @Override // java.lang.Runnable
                         public void run() {
                             bVar.mUrl = str;
@@ -240,18 +240,18 @@ public class b extends aa {
         }
     }
 
-    private SwanAppAudioPlayer lH(String str) {
+    private SwanAppAudioPlayer mi(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        com.baidu.swan.apps.media.a lB = com.baidu.swan.apps.media.b.lB(str);
-        if (!(lB instanceof SwanAppAudioPlayer)) {
+        com.baidu.swan.apps.media.a mc = com.baidu.swan.apps.media.b.mc(str);
+        if (!(mc instanceof SwanAppAudioPlayer)) {
             return null;
         }
-        return (SwanAppAudioPlayer) lB.ajo();
+        return (SwanAppAudioPlayer) mc.akE();
     }
 
-    private JSONObject lG(String str) {
+    private JSONObject mh(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 return new JSONObject(str);
@@ -272,7 +272,7 @@ public class b extends aa {
         }
         try {
             boolean optBoolean = jSONObject.optBoolean("mixWithOther", false);
-            eVar.aqe().a("key_audio_is_mix_with_other", Boolean.valueOf(optBoolean));
+            eVar.arN().a("key_audio_is_mix_with_other", Boolean.valueOf(optBoolean));
             if (DEBUG) {
                 Log.d("AudioPlayerAction", "Audio Mix Changed to " + optBoolean);
             }

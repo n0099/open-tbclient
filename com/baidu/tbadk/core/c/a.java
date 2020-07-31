@@ -16,7 +16,7 @@ public class a extends CustomMessageListener {
     private static HashMap<String, l<byte[]>> byteCacheMap;
     private static ArrayList<String> noEvictList;
     private static HashMap<String, l<String>> stringCacheMap;
-    public static a dPh = null;
+    public static a dVt = null;
     private static HashMap<String, Integer> cacheCountLimitMap = new HashMap<>();
 
     static {
@@ -77,11 +77,11 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_KV_CACHE_SUCC));
     }
 
-    public static a aUM() {
-        if (dPh == null) {
-            dPh = new a();
+    public static a aYG() {
+        if (dVt == null) {
+            dVt = new a();
         }
-        return dPh;
+        return dVt;
     }
 
     private a() {
@@ -89,15 +89,15 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().registerListenerFromBackground(this);
     }
 
-    public l<byte[]> wb(String str) {
-        return dc(str, null);
+    public l<byte[]> xi(String str) {
+        return df(str, null);
     }
 
-    public l<String> wc(String str) {
-        return dd(str, null);
+    public l<String> xj(String str) {
+        return dg(str, null);
     }
 
-    public l<byte[]> dc(String str, String str2) {
+    public l<byte[]> df(String str, String str2) {
         if (str == null) {
             return null;
         }
@@ -122,7 +122,7 @@ public class a extends CustomMessageListener {
         return lVar;
     }
 
-    public l<String> dd(String str, String str2) {
+    public l<String> dg(String str, String str2) {
         if (str == null) {
             return null;
         }

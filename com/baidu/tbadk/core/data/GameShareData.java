@@ -10,14 +10,14 @@ public class GameShareData implements Parcelable {
     public static final Parcelable.Creator<GameShareData> CREATOR = new Parcelable.Creator<GameShareData>() { // from class: com.baidu.tbadk.core.data.GameShareData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: J */
+        /* renamed from: L */
         public GameShareData createFromParcel(Parcel parcel) {
             return new GameShareData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: kr */
+        /* renamed from: kL */
         public GameShareData[] newArray(int i) {
             return new GameShareData[i];
         }

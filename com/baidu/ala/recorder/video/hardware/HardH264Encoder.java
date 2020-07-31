@@ -15,8 +15,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.data.ConstantData;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class HardH264Encoder {
     private static final int CHECK_STREAM_DURATION = 5000;
     public static final int ENCODE_FPS = 25;
@@ -67,7 +66,7 @@ public class HardH264Encoder {
             int selectColorFormat = selectColorFormat(capabilitiesForType);
             int selectProfile = selectProfile(capabilitiesForType);
             this.mMediaFormat = MediaFormat.createVideoFormat("video/avc", this.mRecorder.getOutputWidth(), this.mRecorder.getOutputHeight());
-            this.mMediaFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, this.mRecorder.getBitRate());
+            this.mMediaFormat.setInteger("bitrate", this.mRecorder.getBitRate());
             this.mMediaFormat.setInteger("frame-rate", 25);
             this.mMediaFormat.setInteger("color-format", selectColorFormat);
             this.mMediaFormat.setInteger("i-frame-interval", 2);

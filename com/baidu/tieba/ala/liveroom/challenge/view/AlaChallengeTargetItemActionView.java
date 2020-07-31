@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaChallengeTargetItemActionView extends TextView {
     private int mStyle;
 

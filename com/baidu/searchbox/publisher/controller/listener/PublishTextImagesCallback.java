@@ -1,7 +1,7 @@
 package com.baidu.searchbox.publisher.controller.listener;
 
 import com.baidu.searchbox.ugc.model.PublishModels;
-/* loaded from: classes13.dex */
+/* loaded from: classes19.dex */
 public interface PublishTextImagesCallback {
     void onPublishFail(String str);
 

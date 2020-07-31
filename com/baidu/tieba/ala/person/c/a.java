@@ -8,21 +8,22 @@ import com.baidu.live.data.PersonUserData;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.ala.person.a.d;
 import com.baidu.tieba.ala.person.c.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private InterfaceC0591a gzc;
-    private com.baidu.live.n.a gzd;
-    private c gze;
-    private c gzf;
+    private InterfaceC0600a gED;
+    private com.baidu.live.n.a gEE;
+    private c gEF;
+    private c gEG;
     private TbPageContext mTbPageContext;
 
     /* renamed from: com.baidu.tieba.ala.person.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0591a {
-        void a(com.baidu.tieba.ala.person.a.d dVar);
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0600a {
+        void a(d dVar);
 
-        void b(com.baidu.tieba.ala.person.a.d dVar);
+        void b(d dVar);
 
         void c(PersonUserData personUserData);
 
@@ -31,13 +32,13 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.gze = new c(tbPageContext);
-        this.gzf = new c(tbPageContext);
-        this.gze.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.1
+        this.gEF = new c(tbPageContext);
+        this.gEG = new c(tbPageContext);
+        this.gEF.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.1
             @Override // com.baidu.tieba.ala.person.c.c.a
-            public void c(com.baidu.tieba.ala.person.a.d dVar) {
-                if (dVar != null && a.this.gzc != null) {
-                    a.this.gzc.a(dVar);
+            public void c(d dVar) {
+                if (dVar != null && a.this.gED != null) {
+                    a.this.gED.a(dVar);
                 }
             }
 
@@ -45,11 +46,11 @@ public class a {
             public void onFail(String str) {
             }
         });
-        this.gzf.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.2
+        this.gEG.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.2
             @Override // com.baidu.tieba.ala.person.c.c.a
-            public void c(com.baidu.tieba.ala.person.a.d dVar) {
-                if (dVar != null && a.this.gzc != null) {
-                    a.this.gzc.b(dVar);
+            public void c(d dVar) {
+                if (dVar != null && a.this.gED != null) {
+                    a.this.gED.b(dVar);
                 }
             }
 
@@ -59,53 +60,53 @@ public class a {
         });
     }
 
-    public void h(String str, String str2, String str3, String str4, String str5) {
+    public void j(String str, String str2, String str3, String str4, String str5) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.gzc != null) {
-                this.gzc.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_no_network));
+            if (this.gED != null) {
+                this.gED.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_no_network));
                 return;
             }
             return;
         }
-        this.gzd = new com.baidu.live.n.a(new com.baidu.live.n.c() { // from class: com.baidu.tieba.ala.person.c.a.3
+        this.gEE = new com.baidu.live.n.a(new com.baidu.live.n.c() { // from class: com.baidu.tieba.ala.person.c.a.3
             @Override // com.baidu.live.n.c
             public void a(PersonUserData personUserData) {
-                if (a.this.gzc != null) {
-                    a.this.gzc.c(personUserData);
+                if (a.this.gED != null) {
+                    a.this.gED.c(personUserData);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913214, personUserData));
             }
 
             @Override // com.baidu.live.n.c
             public void q(int i, String str6) {
-                if (a.this.gzc != null) {
-                    a.this.gzc.onFail(str6);
+                if (a.this.gED != null) {
+                    a.this.gED.onFail(str6);
                 }
             }
         });
-        this.gzd.execute(str, str2, str3, str4, str5);
-        dO(str, str4);
+        this.gEE.execute(str, str2, str3, str4, str5);
+        dP(str, str4);
     }
 
-    public void dO(String str, String str2) {
+    public void dP(String str, String str2) {
         if (TbadkCoreApplication.isLogin()) {
-            this.gze.setPn(-1);
-            this.gze.h(0, str, str2);
-            this.gzf.setPn(-1);
-            this.gzf.h(1, str, str2);
+            this.gEF.setPn(-1);
+            this.gEF.h(0, str, str2);
+            this.gEG.setPn(-1);
+            this.gEG.h(1, str, str2);
         }
     }
 
     public void onDestroy() {
-        if (this.gzd != null && !this.gzd.isCancelled()) {
-            this.gzd.cancel();
+        if (this.gEE != null && !this.gEE.isCancelled()) {
+            this.gEE.cancel();
         }
-        if (this.gzc != null) {
-            this.gzc.onFail(null);
+        if (this.gED != null) {
+            this.gED.onFail(null);
         }
     }
 
-    public void a(InterfaceC0591a interfaceC0591a) {
-        this.gzc = interfaceC0591a;
+    public void a(InterfaceC0600a interfaceC0600a) {
+        this.gED = interfaceC0600a;
     }
 }

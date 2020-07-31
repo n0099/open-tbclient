@@ -2,7 +2,7 @@ package com.baidu.cyberplayer.sdk.statistics;
 
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class DpStatConstants {
     public static final int ACTION_ACTIVATE_CORE_RESULT = 20737;
     public static final int ACTION_LIB_LOAD_RESULT = 20736;
@@ -14,20 +14,28 @@ public class DpStatConstants {
     public static final String KEY_DATA = "data";
     public static final String KEY_DECODE_MODE = "decode_mode";
     public static final String KEY_DETAIL = "detail";
+    public static final String KEY_DOWNLOAD_SO_FAIL = "download_so";
     public static final String KEY_DURATION = "duration";
     public static final String KEY_ERROR_CODE = "error_code";
     public static final String KEY_FILE_CACHE = "file_cache";
     public static final String KEY_FIRST_DISPLAY = "first_display";
     public static final String KEY_HEIGHT = "height";
+    public static final String KEY_INIT_RTC_SDK = "init_sdk";
     public static final String KEY_IS_FEED_VIDEO = "is_feed_video";
     public static final String KEY_ITEMS = "items";
     public static final String KEY_KERNEL_SESSION_ID = "k_id";
+    public static final String KEY_LOAD_SO_FAIL = "load_so";
+    public static final String KEY_LOGIN_STATUS = "login_status";
+    public static final String KEY_LOGIN_TIME = "login_time";
+    public static final String KEY_LOGOUT_TIME = "logout_time";
     public static final String KEY_NETWORK = "network";
     public static final String KEY_NETWORK_STATUS = "network_status";
+    public static final String KEY_NET_LEVEL = "net_level";
     public static final String KEY_PREPARED = "prepared";
     public static final String KEY_PROTO = "proto";
     public static final String KEY_P_ID = "p_id";
     public static final String KEY_REAL_PLAY_TIME = "real_played_time";
+    public static final String KEY_ROOM_NAME = "room_name";
     public static final String KEY_SDK_VERSION = "cyber_sdk_ver";
     public static final String KEY_SERVER_TYPE = "server_type";
     public static final String KEY_SUB_CODE = "sub_code";
@@ -35,10 +43,12 @@ public class DpStatConstants {
     public static final String KEY_TIMESTAMP = "timestamp";
     public static final String KEY_TYPE = "type";
     public static final String KEY_URL = "url";
+    public static final String KEY_USER_ID = "userid";
     public static final String KEY_WIDTH = "width";
     public static final int MEDIA_ERROR_MEDIA_PLAYER = -10000;
     public static final String SERVER_TYPE_DUPLAYER_INIT = "dp_init";
     public static final String SERVER_TYPE_DUPLAYER_MONITOR = "duplayer_monitor";
+    public static final String SERVER_TYPE_DUPLAYER_RTC = "duplayer_rtc";
     public static final int SESSION_TYPE_DP_INIT_COMMON = 24323;
     public static final int SESSION_TYPE_ERROR = 20481;
     public static final int SESSION_TYPE_FIRST_SCREEN = 20513;
@@ -46,5 +56,6 @@ public class DpStatConstants {
     public static final int SESSION_TYPE_LIVE_STREAM_INFO = 20487;
     public static final int SESSION_TYPE_MEDIA_FORMAT_INFO = 20514;
     public static final int SESSION_TYPE_PLAY_COMMON = 24322;
+    public static final int SESSION_TYPE_RTC_COMMON = 20488;
     public static final int SESSION_TYPE_STAGE_INFO = 20484;
 }

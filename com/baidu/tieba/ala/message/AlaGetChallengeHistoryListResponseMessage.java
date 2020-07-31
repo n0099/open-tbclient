@@ -2,14 +2,14 @@ package com.baidu.tieba.ala.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.data.a;
-import com.baidu.tieba.ala.data.k;
+import com.baidu.tieba.ala.data.l;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaGetChallengeHistoryListResponseMessage extends JsonHttpResponsedMessage {
-    public ArrayList<a> fgC;
-    public k gvY;
+    public ArrayList<a> flH;
+    public l gBv;
 
     public AlaGetChallengeHistoryListResponseMessage() {
         super(1021118);
@@ -21,18 +21,18 @@ public class AlaGetChallengeHistoryListResponseMessage extends JsonHttpResponsed
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("history_list");
             if (optJSONArray != null) {
-                this.fgC = new ArrayList<>();
+                this.flH = new ArrayList<>();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     a aVar = new a();
                     aVar.parseJson(optJSONObject);
-                    this.fgC.add(aVar);
+                    this.flH.add(aVar);
                 }
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("user_pk_info");
             if (optJSONObject2 != null) {
-                this.gvY = new k();
-                this.gvY.parseJson(optJSONObject2);
+                this.gBv = new l();
+                this.gBv.parseJson(optJSONObject2);
             }
         }
     }

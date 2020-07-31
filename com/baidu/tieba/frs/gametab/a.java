@@ -1,19 +1,19 @@
 package com.baidu.tieba.frs.gametab;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a {
-    private int hRE;
+    private int hXD;
     private int tabId;
 
     public a(int i, int i2) {
         this.tabId = i;
-        this.hRE = i2;
+        this.hXD = i2;
     }
 
     public int getTabId() {
         return this.tabId;
     }
 
-    public boolean ccS() {
-        return 1 == this.hRE;
+    public boolean cgq() {
+        return 1 == this.hXD;
     }
 }

@@ -4,12 +4,12 @@ import android.os.Bundle;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c extends d {
-    public final e cEe = new e(this, "");
+    public final e cGR = new e(this, "");
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppProcessInfo aoi() {
+    public SwanAppProcessInfo apS() {
         return SwanAppProcessInfo.current();
     }
 
@@ -19,33 +19,33 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public boolean aok() {
+    public boolean apU() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public boolean aoj() {
+    public boolean apT() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppCores aol() {
+    public SwanAppCores apV() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public int RF() {
+    public int RU() {
         return -1;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public com.baidu.swan.apps.process.messaging.client.a apD() {
+    public com.baidu.swan.apps.process.messaging.client.a arm() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public e apE() {
-        return this.cEe;
+    public e arn() {
+        return this.cGR;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
@@ -58,11 +58,7 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public void apF() {
-    }
-
-    @Override // com.baidu.swan.apps.runtime.h
-    public void i(SwanAppActivity swanAppActivity) {
+    public void aro() {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
@@ -70,12 +66,16 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppActivity apG() {
+    public void k(SwanAppActivity swanAppActivity) {
+    }
+
+    @Override // com.baidu.swan.apps.runtime.h
+    public SwanAppActivity arp() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.d
-    protected com.baidu.swan.pms.c.f apH() {
+    protected com.baidu.swan.pms.c.f arq() {
         return null;
     }
 }

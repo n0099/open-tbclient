@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.restnet.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
     public boolean a() {
         return false;

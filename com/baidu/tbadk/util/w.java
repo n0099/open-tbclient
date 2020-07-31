@@ -16,9 +16,9 @@ public final class w {
             return false;
         }
         try {
-            a biW = a.biW();
+            a bmP = a.bmP();
             for (String str : strArr) {
-                if (biW.getProperty(str) != null) {
+                if (bmP.getProperty(str) != null) {
                     return true;
                 }
             }
@@ -31,26 +31,26 @@ public final class w {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class a {
-        private static a eEw;
-        private final Properties eEx = new Properties();
+        private static a eKS;
+        private final Properties eKT = new Properties();
 
         private a() throws IOException {
-            this.eEx.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+            this.eKT.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
-        public static a biW() throws IOException {
-            if (eEw == null) {
+        public static a bmP() throws IOException {
+            if (eKS == null) {
                 synchronized (a.class) {
-                    if (eEw == null) {
-                        eEw = new a();
+                    if (eKS == null) {
+                        eKS = new a();
                     }
                 }
             }
-            return eEw;
+            return eKS;
         }
 
         public String getProperty(String str) {
-            return this.eEx.getProperty(str);
+            return this.eKT.getProperty(str);
         }
     }
 }

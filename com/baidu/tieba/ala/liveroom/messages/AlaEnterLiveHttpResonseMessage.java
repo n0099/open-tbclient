@@ -1,47 +1,47 @@
 package com.baidu.tieba.ala.liveroom.messages;
 
-import com.baidu.live.data.aj;
-import com.baidu.live.data.am;
-import com.baidu.live.data.aq;
+import com.baidu.live.data.ak;
+import com.baidu.live.data.an;
+import com.baidu.live.data.ar;
 import com.baidu.live.data.q;
 import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
-    private q aLQ;
-    private aj gmN;
+    private q avf;
+    private ak grL;
 
     public AlaEnterLiveHttpResonseMessage() {
         super(1021005);
     }
 
-    public q FU() {
-        return this.aLQ;
+    public q FO() {
+        return this.avf;
     }
 
-    public aj bHO() {
-        return this.gmN;
+    public ak bKU() {
+        return this.grL;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
         JSONObject optJSONObject2;
-        am amVar;
-        aq aqVar;
-        aq aqVar2 = null;
+        an anVar;
+        ar arVar;
+        ar arVar2 = null;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.aLQ = new q();
-            this.aLQ.parserJson(optJSONObject);
-            this.aLQ.axR = jSONObject.optLong("logid");
-            if (this.aLQ.mLiveInfo != null && this.aLQ.mLiveInfo.live_id > 0) {
-                com.baidu.live.c.vf().putLong("ala_live_room_last_live_id", this.aLQ.mLiveInfo.live_id);
+            this.avf = new q();
+            this.avf.parserJson(optJSONObject);
+            this.avf.aze = jSONObject.optLong("logid");
+            if (this.avf.mLiveInfo != null && this.avf.mLiveInfo.live_id > 0) {
+                com.baidu.live.c.vf().putLong("ala_live_room_last_live_id", this.avf.mLiveInfo.live_id);
             }
-            if (this.aLQ.mLiveInfo != null && this.aLQ.mLiveInfo.broadGiftMsgId > 0) {
-                com.baidu.live.gift.a.broadGiftMsgId = this.aLQ.mLiveInfo.broadGiftMsgId;
+            if (this.avf.mLiveInfo != null && this.avf.mLiveInfo.broadGiftMsgId > 0) {
+                com.baidu.live.gift.a.broadGiftMsgId = this.avf.mLiveInfo.broadGiftMsgId;
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("live_info");
             if (optJSONObject3 != null) {
@@ -52,28 +52,28 @@ public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject4 != null && (optJSONObject2 = optJSONObject4.optJSONObject("data")) != null) {
                 JSONObject optJSONObject5 = optJSONObject2.optJSONObject("challenge_info");
                 if (optJSONObject5 != null) {
-                    amVar = new am();
-                    amVar.parseJson(optJSONObject5);
+                    anVar = new an();
+                    anVar.parseJson(optJSONObject5);
                 } else {
-                    amVar = null;
+                    anVar = null;
                 }
                 JSONObject optJSONObject6 = optJSONObject2.optJSONObject("anchor_info");
                 if (optJSONObject6 != null) {
-                    aqVar = new aq();
-                    aqVar.parseJson(optJSONObject6);
+                    arVar = new ar();
+                    arVar.parseJson(optJSONObject6);
                 } else {
-                    aqVar = null;
+                    arVar = null;
                 }
                 JSONObject optJSONObject7 = optJSONObject2.optJSONObject("rival_info");
                 if (optJSONObject7 != null) {
-                    aqVar2 = new aq();
-                    aqVar2.parseJson(optJSONObject7);
+                    arVar2 = new ar();
+                    arVar2.parseJson(optJSONObject7);
                 }
-                if (amVar != null && aqVar != null && aqVar2 != null) {
-                    this.gmN = new aj();
-                    this.gmN.aBD = amVar;
-                    this.gmN.aBE = aqVar;
-                    this.gmN.aBF = aqVar2;
+                if (anVar != null && arVar != null && arVar2 != null) {
+                    this.grL = new ak();
+                    this.grL.aCY = anVar;
+                    this.grL.aCZ = arVar;
+                    this.grL.aDa = arVar2;
                 }
             }
         }

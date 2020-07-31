@@ -1,5 +1,5 @@
 package com.baidu.live.view.web;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface f {
-    void cM(int i);
+    void cN(int i);
 }

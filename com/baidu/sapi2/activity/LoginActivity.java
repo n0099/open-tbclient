@@ -8,7 +8,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.widget.Toast;
-import com.baidu.f.a.a;
+import com.baidu.g.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
@@ -34,7 +34,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class LoginActivity extends BaseActivity {
     public static final String EXTRA_LOGIN_FINISH_AFTER_SUC = "extra_login_finish_after_suc";
     public static final String EXTRA_LOGIN_TYPE = "extra_login_type";

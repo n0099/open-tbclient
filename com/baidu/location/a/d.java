@@ -31,7 +31,7 @@ import java.util.Random;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d {
     private Handler I;
     private static d j = null;
@@ -75,7 +75,7 @@ public class d {
     double i = 40.245667323d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends com.baidu.location.d.e {
         String a = null;
 

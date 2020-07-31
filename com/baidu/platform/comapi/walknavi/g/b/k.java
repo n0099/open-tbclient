@@ -6,7 +6,7 @@ import android.view.animation.Animation;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class k implements View.OnClickListener {
     final /* synthetic */ c a;
 

@@ -589,6 +589,10 @@ public final class IMBoxManager {
         return ChatMsgManager.getPaMsgByChatType(context, i, i2);
     }
 
+    public static List<ChatMsg> getPaMsgByChatType(Context context, List<Integer> list, int i) {
+        return ChatMsgManager.getPaMsgByChatType(context, list, i);
+    }
+
     public static void getPaMsgByChatTypeAndPaidList(Context context, List<Integer> list, List<Long> list2, long j, int i, IFetchNotificationDataListener iFetchNotificationDataListener) {
         ChatMsgManager.getPaMsgByChatTypeAndPaidList(context, list, list2, j, i, iFetchNotificationDataListener);
     }
@@ -720,16 +724,16 @@ public final class IMBoxManager {
         return ChatMsgManager.setMsgReadByMsgId(context, j, i);
     }
 
-    public static void getSubscription(Context context, long j, List<Long> list, String str, IGetSubscriptionListener iGetSubscriptionListener) {
-        ShieldAndTopManager.getInstance(context).getSubscription(j, list, str, iGetSubscriptionListener);
+    public static void getSubscription(Context context, long j, List<Long> list, List<String> list2, String str, IGetSubscriptionListener iGetSubscriptionListener) {
+        ShieldAndTopManager.getInstance(context).getSubscription(j, list, list2, str, iGetSubscriptionListener);
     }
 
-    public static void setSubscription(Context context, long j, List<Long> list, int i, String str, ISetSubscriptionListener iSetSubscriptionListener) {
-        ShieldAndTopManager.getInstance(context).setSubscription(j, list, i, str, iSetSubscriptionListener);
+    public static void setSubscription(Context context, long j, List<Long> list, List<String> list2, int i, String str, ISetSubscriptionListener iSetSubscriptionListener) {
+        ShieldAndTopManager.getInstance(context).setSubscription(j, list, list2, i, str, iSetSubscriptionListener);
     }
 
-    public static void getServiceNotifyMenuStatus(Context context, long j, List<Long> list, int i, String str, IGetServiceNotifyMenuListener iGetServiceNotifyMenuListener) {
-        ShieldAndTopManager.getInstance(context).getServiceNotifyMenuStatus(j, list, str, i, iGetServiceNotifyMenuListener);
+    public static void getServiceNotifyMenuStatus(Context context, long j, List<Long> list, List<String> list2, int i, String str, IGetServiceNotifyMenuListener iGetServiceNotifyMenuListener) {
+        ShieldAndTopManager.getInstance(context).getServiceNotifyMenuStatus(j, list, list2, str, i, iGetServiceNotifyMenuListener);
     }
 
     public static void getShield(Context context, long j, IGetShieldAndTopListener iGetShieldAndTopListener) {

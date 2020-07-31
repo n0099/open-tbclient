@@ -8,14 +8,14 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public final class a implements d {
-    private final d nPu;
-    private final d.b nPv;
+    private final d nYd;
+    private final d.b nYe;
 
     public a(d dVar, d.b bVar) {
         q.m(dVar, "left");
         q.m(bVar, "element");
-        this.nPu = dVar;
-        this.nPv = bVar;
+        this.nYd = dVar;
+        this.nYe = bVar;
     }
 
     @Override // kotlin.coroutines.experimental.d
@@ -23,9 +23,9 @@ public final class a implements d {
         q.m(cVar, "key");
         a aVar = this;
         while (true) {
-            E e = (E) aVar.nPv.a(cVar);
+            E e = (E) aVar.nYe.a(cVar);
             if (e == null) {
-                d dVar = aVar.nPu;
+                d dVar = aVar.nYd;
                 if (dVar instanceof a) {
                     aVar = (a) dVar;
                 } else {
@@ -40,33 +40,33 @@ public final class a implements d {
     @Override // kotlin.coroutines.experimental.d
     public <R> R fold(R r, m<? super R, ? super d.b, ? extends R> mVar) {
         q.m(mVar, "operation");
-        return mVar.invoke((Object) this.nPu.fold(r, mVar), this.nPv);
+        return mVar.invoke((Object) this.nYd.fold(r, mVar), this.nYe);
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
         q.m(cVar, "key");
-        if (this.nPv.a(cVar) != null) {
-            return this.nPu;
+        if (this.nYe.a(cVar) != null) {
+            return this.nYd;
         }
-        d b = this.nPu.b(cVar);
-        return b == this.nPu ? this : b == e.nPy ? this.nPv : new a(b, this.nPv);
+        d b = this.nYd.b(cVar);
+        return b == this.nYd ? this : b == e.nYh ? this.nYe : new a(b, this.nYe);
     }
 
     private final int size() {
-        if (this.nPu instanceof a) {
-            return ((a) this.nPu).size() + 1;
+        if (this.nYd instanceof a) {
+            return ((a) this.nYd).size() + 1;
         }
         return 2;
     }
 
     private final boolean a(d.b bVar) {
-        return q.l(a((d.c<d.b>) bVar.dQD()), bVar);
+        return q.l(a((d.c<d.b>) bVar.dTZ()), bVar);
     }
 
     private final boolean a(a aVar) {
-        while (a(aVar.nPv)) {
-            d dVar = aVar.nPu;
+        while (a(aVar.nYe)) {
+            d dVar = aVar.nYd;
             if (dVar instanceof a) {
                 aVar = (a) dVar;
             } else if (dVar == null) {
@@ -83,7 +83,7 @@ public final class a implements d {
     }
 
     public int hashCode() {
-        return this.nPu.hashCode() + this.nPv.hashCode();
+        return this.nYd.hashCode() + this.nYe.hashCode();
     }
 
     public String toString() {

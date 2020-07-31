@@ -1,11 +1,11 @@
 package com.baidu.swan.a;
 
 import android.text.TextUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class c {
     private static String sUrl = "";
 
-    public static String awj() {
+    public static String ayX() {
         return sUrl;
     }
 

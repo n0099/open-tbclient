@@ -6,23 +6,23 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
-    public String aFv;
-    public c aFw;
+    public String aGQ;
+    public c aGR;
     public int frameCount;
     public String id;
     public int priority;
     public String videoMd5;
     public String videoUrl;
 
-    public JSONObject xc() {
+    public JSONObject xF() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("id", this.id);
             jSONObject.put("mp4_file_url", this.videoUrl);
             jSONObject.put("video_md5", this.videoMd5);
-            jSONObject.put(FuFaceItem.JK_SO_URL, this.aFv);
+            jSONObject.put(FuFaceItem.JK_SO_URL, this.aGQ);
             jSONObject.put("frame_count", this.frameCount);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -33,27 +33,27 @@ public class a {
     public a k(String str, String str2, String str3, String str4) {
         this.videoUrl = str;
         this.videoMd5 = str4;
-        if (this.aFw == null) {
-            this.aFw = new c();
+        if (this.aGR == null) {
+            this.aGR = new c();
         }
-        this.aFw.aGh = str2;
-        this.aFw.videoPath = str3;
+        this.aGR.aHC = str2;
+        this.aGR.videoPath = str3;
         return this;
     }
 
     public a b(String str, String str2, List<String> list) {
-        this.aFv = str;
-        if (this.aFw == null) {
-            this.aFw = new c();
+        this.aGQ = str;
+        if (this.aGR == null) {
+            this.aGR = new c();
         }
-        this.aFw.upZipDirPath = str2;
+        this.aGR.upZipDirPath = str2;
         if (list != null) {
             this.frameCount = list.size();
-            if (this.aFw.aGg != null && this.aFw.aGg.aGf != null) {
-                this.aFw.aGg.aGf.frame_count = this.frameCount;
+            if (this.aGR.aHB != null && this.aGR.aHB.aHA != null) {
+                this.aGR.aHB.aHA.frame_count = this.frameCount;
             }
-            this.aFw.unZipFilesPathList = new ArrayList<>();
-            this.aFw.unZipFilesPathList.addAll(list);
+            this.aGR.unZipFilesPathList = new ArrayList<>();
+            this.aGR.unZipFilesPathList.addAll(list);
         }
         return this;
     }

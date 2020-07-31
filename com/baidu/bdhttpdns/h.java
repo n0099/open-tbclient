@@ -2,14 +2,14 @@ package com.baidu.bdhttpdns;
 
 import android.util.LruCache;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes9.dex */
 class h {
     private final String a;
-    private final LruCache<String, a> abU = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
+    private final LruCache<String, a> abP = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
     private boolean c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         private ArrayList<String> a;
         private ArrayList<String> b;
@@ -62,7 +62,7 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.abU.evictAll();
+        this.abP.evictAll();
         l.a("Clear %s cache", this.a);
     }
 
@@ -73,7 +73,7 @@ class h {
         if ((b == null || b.isEmpty()) && (c == null || c.isEmpty())) {
             return;
         }
-        this.abU.put(str, aVar);
+        this.abP.put(str, aVar);
         Object[] objArr = new Object[5];
         objArr[0] = this.a;
         objArr[1] = str;
@@ -91,7 +91,7 @@ class h {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ArrayList<String> b() {
         ArrayList<String> arrayList = new ArrayList<>();
-        for (String str : this.abU.snapshot().keySet()) {
+        for (String str : this.abP.snapshot().keySet()) {
             arrayList.add(str);
         }
         return arrayList;
@@ -99,19 +99,19 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(String str) {
-        a cV = cV(str);
-        if (cV == null || !cV.a()) {
+        a cU = cU(str);
+        if (cU == null || !cU.a()) {
             return;
         }
-        this.abU.remove(str);
+        this.abP.remove(str);
         l.a("Remove expired entry from %s cache, host(%s)", this.a, str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a cV(String str) {
-        a aVar = this.abU.get(str);
+    public a cU(String str) {
+        a aVar = this.abP.get(str);
         if (aVar != null && aVar.a() && this.c) {
-            this.abU.remove(str);
+            this.abP.remove(str);
             l.a("Remove expired entry from %s cache while reading, host(%s)", this.a, str);
             return null;
         }

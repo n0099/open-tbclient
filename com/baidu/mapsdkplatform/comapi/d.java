@@ -2,7 +2,7 @@ package com.baidu.mapsdkplatform.comapi;
 
 import com.baidu.mapsdkplatform.comapi.NativeLoader;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public /* synthetic */ class d {
     static final /* synthetic */ int[] a = new int[NativeLoader.a.values().length];
 

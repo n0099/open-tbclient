@@ -2,7 +2,7 @@ package com.baidu.ar.arplay.core.engine.pixel;
 
 import android.graphics.Rect;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class ReadParams {
     private static final int DEFAULT_CACHE_SIZE = 3;
     private static final int DEFAULT_ROTATE_DEGREE = 0;

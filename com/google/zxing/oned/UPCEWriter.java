@@ -5,7 +5,7 @@ import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class UPCEWriter extends UPCEANWriter {
     private static final int CODE_WIDTH = 51;
 

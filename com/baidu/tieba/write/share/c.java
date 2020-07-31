@@ -1,17 +1,17 @@
 package com.baidu.tieba.write.share;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
-    public String Qx;
+    public String Qw;
     public String appKey;
     public String appName;
     public String content;
     public String forumId;
     public String imageUrl;
     public String linkUrl;
-    public String mpD;
-    public String mpE;
-    public String mpF;
-    public String mpG;
-    public String mpH;
+    public String mxC;
+    public String mxD;
+    public String mxE;
+    public String mxF;
+    public String mxG;
     public String title;
 }

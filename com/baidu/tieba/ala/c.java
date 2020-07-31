@@ -1,45 +1,45 @@
 package com.baidu.tieba.ala;
 
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
-    private static c fgi;
-    private List<ao> eXh;
+    private static c flk;
+    private List<ap> fbI;
 
-    public static c brT() {
-        if (fgi == null) {
+    public static c buZ() {
+        if (flk == null) {
             synchronized (c.class) {
-                if (fgi == null) {
-                    fgi = new c();
+                if (flk == null) {
+                    flk = new c();
                 }
             }
         }
-        return fgi;
+        return flk;
     }
 
-    public void e(ao aoVar) {
-        if (aoVar != null) {
-            if (this.eXh == null) {
-                this.eXh = new ArrayList();
+    public void e(ap apVar) {
+        if (apVar != null) {
+            if (this.fbI == null) {
+                this.fbI = new ArrayList();
             }
-            if (this.eXh != null) {
-                this.eXh.add(aoVar);
+            if (this.fbI != null) {
+                this.fbI.add(apVar);
             }
         }
     }
 
-    public void brU() {
-        if (w.getCount(this.eXh) != 0) {
-            for (ao aoVar : this.eXh) {
-                if (aoVar != null) {
-                    TiebaStatic.log(aoVar);
+    public void bva() {
+        if (x.getCount(this.fbI) != 0) {
+            for (ap apVar : this.fbI) {
+                if (apVar != null) {
+                    TiebaStatic.log(apVar);
                 }
             }
-            this.eXh.clear();
+            this.fbI.clear();
         }
     }
 }

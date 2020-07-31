@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public int buy_staus;
     private String description;
     private String end_time;
-    private String gDg;
-    private int gDi;
-    private int gDj;
-    private int gDk;
-    private int gDl;
-    private String gDm;
-    private String gDn;
-    private String gDo;
+    private String gID;
+    private int gIF;
+    private int gIG;
+    private int gIH;
+    private int gII;
+    private String gIJ;
+    private String gIK;
+    private String gIL;
     private int height;
     private String mark_name;
     private String mark_pic;
@@ -29,22 +29,22 @@ public class b {
     private int weight;
     private int width;
     public int propId = -1;
-    private List<d> gDp = new ArrayList();
+    private List<d> gIM = new ArrayList();
 
     public void parserJson(JSONObject jSONObject) {
         this.type = jSONObject.optInt("type");
-        this.gDj = jSONObject.optInt("mark_id");
+        this.gIG = jSONObject.optInt("mark_id");
         this.mark_name = jSONObject.optString("mark_name");
         this.description = jSONObject.optString("description");
-        this.gDl = jSONObject.optInt("wear_status");
+        this.gII = jSONObject.optInt("wear_status");
         this.mark_pic = jSONObject.optString("mark_pic");
-        this.gDk = jSONObject.optInt("mark_rank");
+        this.gIH = jSONObject.optInt("mark_rank");
         this.width = jSONObject.optInt("width");
         this.height = jSONObject.optInt("height");
         this.weight = jSONObject.optInt("weight");
-        this.gDn = jSONObject.optString("next_level_diff");
-        this.gDm = jSONObject.optString("mark_dir_level");
-        this.gDo = jSONObject.optString("expire_text");
+        this.gIK = jSONObject.optString("next_level_diff");
+        this.gIJ = jSONObject.optString("mark_dir_level");
+        this.gIL = jSONObject.optString("expire_text");
         this.start_time = jSONObject.optString("begin_time");
         this.end_time = jSONObject.optString("end_time");
         JSONArray optJSONArray = jSONObject.optJSONArray("mark_other");
@@ -52,7 +52,7 @@ public class b {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 d dVar = new d();
                 dVar.parseJson(optJSONArray.optJSONObject(i));
-                this.gDp.add(dVar);
+                this.gIM.add(dVar);
             }
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("props_info");
@@ -69,70 +69,70 @@ public class b {
         }
     }
 
-    public List<d> bLD() {
-        if (this.gDp == null) {
-            this.gDp = new ArrayList();
+    public List<d> bOL() {
+        if (this.gIM == null) {
+            this.gIM = new ArrayList();
         }
-        return this.gDp;
+        return this.gIM;
     }
 
-    public boolean bLE() {
-        return this.gDi == 1;
+    public boolean bOM() {
+        return this.gIF == 1;
     }
 
-    public void sm(int i) {
-        this.gDi = i;
+    public void sE(int i) {
+        this.gIF = i;
     }
 
-    public String bLC() {
-        return this.gDg;
+    public String bOK() {
+        return this.gID;
     }
 
-    public void Dz(String str) {
-        this.gDg = str;
+    public void Ek(String str) {
+        this.gID = str;
     }
 
-    public int bLF() {
-        return this.gDj;
+    public int bON() {
+        return this.gIG;
     }
 
-    public String bLG() {
+    public String bOO() {
         return this.mark_name;
     }
 
-    public String bLH() {
+    public String bOP() {
         return this.mark_pic;
     }
 
-    public int bLI() {
-        return this.gDl;
+    public int bOQ() {
+        return this.gII;
     }
 
-    public void sn(int i) {
-        this.gDl = i;
+    public void sF(int i) {
+        this.gII = i;
     }
 
     public String getDescription() {
         return this.description;
     }
 
-    public String bLJ() {
-        return this.gDn;
+    public String bOR() {
+        return this.gIK;
     }
 
-    public int bLK() {
-        return this.gDk;
+    public int bOS() {
+        return this.gIH;
     }
 
-    public String bLL() {
-        return this.gDo;
+    public String bOT() {
+        return this.gIL;
     }
 
-    public boolean bLM() {
+    public boolean bOU() {
         return this.type == 10;
     }
 
-    public boolean bLN() {
+    public boolean bOV() {
         return this.type == 9;
     }
 }

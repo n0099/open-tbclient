@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Properties;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes20.dex */
 public class Statistics {
     private static final String AS_FILE_NAME = "as";
     private static final int MESSAGE_INSTANT_SYNC_FILE = 1;
@@ -195,7 +195,7 @@ public class Statistics {
         return Holder.instance;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes20.dex */
     private static final class Holder {
         private static final Statistics instance = new Statistics();
 
@@ -204,7 +204,7 @@ public class Statistics {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes20.dex */
     public static final class StatisticsResult {
         public String errmsg;
         public int errno;

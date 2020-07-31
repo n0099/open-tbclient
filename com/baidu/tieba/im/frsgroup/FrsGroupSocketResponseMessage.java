@@ -10,7 +10,7 @@ import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.GroupPermission;
 import protobuf.QueryGroupsByFid.QueryGroupsByFidResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class FrsGroupSocketResponseMessage extends SocketResponsedMessage {
     private GroupPermData groupPerm;
     private List<GroupInfoData> groups;

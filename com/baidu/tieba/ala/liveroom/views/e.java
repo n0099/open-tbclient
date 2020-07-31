@@ -1,25 +1,25 @@
 package com.baidu.tieba.ala.liveroom.views;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface e {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        void bHj();
+        void bKp();
 
-        void bHk();
+        void bKq();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
-        void bHl();
+        void bKr();
 
-        void bHm();
+        void bKs();
 
-        void bHn();
+        void bKt();
 
-        boolean bHo();
+        boolean bKu();
 
-        void bHp();
+        void bKv();
 
         void d(com.baidu.tieba.ala.category.b.a aVar);
 

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.process.ipc;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.process.ipc";
     public static final String BUILD_TYPE = "release";

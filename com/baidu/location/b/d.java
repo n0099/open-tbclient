@@ -1,5 +1,5 @@
 package com.baidu.location.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class d {
     public static String a(int i) {
         if (i.i()) {

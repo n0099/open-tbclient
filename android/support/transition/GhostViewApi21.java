@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @RequiresApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 class GhostViewApi21 implements GhostViewImpl {
     private static final String TAG = "GhostViewApi21";
     private static Method sAddGhostMethod;
@@ -21,7 +21,7 @@ class GhostViewApi21 implements GhostViewImpl {
     private static boolean sRemoveGhostMethodFetched;
     private final View mGhostView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     static class Creator implements GhostViewImpl.Creator {
         @Override // android.support.transition.GhostViewImpl.Creator
         public GhostViewImpl addGhost(View view, ViewGroup viewGroup, Matrix matrix) {

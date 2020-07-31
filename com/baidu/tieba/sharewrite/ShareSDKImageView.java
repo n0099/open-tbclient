@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class ShareSDKImageView extends TbClipImageView {
     private int mDefaultBgId;
     private int mDefaultId;

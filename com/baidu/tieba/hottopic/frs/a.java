@@ -4,23 +4,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.w;
 import com.baidu.tieba.card.x;
 import com.baidu.tieba.frs.j;
-/* loaded from: classes8.dex */
-public class a extends j<bu, com.baidu.tieba.card.a.a<w>> implements x {
-    private aa<bu> fpn;
+/* loaded from: classes15.dex */
+public class a extends j<bv, com.baidu.tieba.card.a.a<w>> implements x {
+    private aa<bv> fuy;
     private String mFrom;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.fpn = new aa<bu>() { // from class: com.baidu.tieba.hottopic.frs.a.1
+        this.fuy = new aa<bv>() { // from class: com.baidu.tieba.hottopic.frs.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
-            public void a(View view, bu buVar, Object obj) {
+            public void a(View view, bv bvVar, Object obj) {
             }
         };
         this.mPageContext = tbPageContext;
@@ -36,14 +36,14 @@ public class a extends j<bu, com.baidu.tieba.card.a.a<w>> implements x {
     }
 
     @Override // com.baidu.tieba.card.x
-    public String OP() {
+    public String Pe() {
         return "FrsHottopicVideoDelegateAdapter";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aK */
+    /* renamed from: aL */
     public com.baidu.tieba.card.a.a<w> b(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new w(this.mPageContext, viewGroup));
     }
@@ -51,12 +51,12 @@ public class a extends j<bu, com.baidu.tieba.card.a.a<w>> implements x {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bu buVar, com.baidu.tieba.card.a.a<w> aVar) {
-        if (aVar == null || aVar.bPh() == null) {
+    public View a(int i, View view, ViewGroup viewGroup, bv bvVar, com.baidu.tieba.card.a.a<w> aVar) {
+        if (aVar == null || aVar.bSs() == null) {
             return null;
         }
-        aVar.bPh().c(this.fpn);
-        aVar.bPh().a(buVar);
+        aVar.bSs().c(this.fuy);
+        aVar.bSs().a(bvVar);
         return aVar.getView();
     }
 

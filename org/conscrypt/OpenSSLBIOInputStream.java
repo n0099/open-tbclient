@@ -4,7 +4,7 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class OpenSSLBIOInputStream extends FilterInputStream {
     private long ctx;
 

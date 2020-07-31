@@ -11,7 +11,7 @@ import com.baidu.ar.face.algo.FaceFrame;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class a {
     private HashMap<Integer, float[]> na = new HashMap<>();
     private boolean nb = false;

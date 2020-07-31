@@ -10,7 +10,7 @@ import android.widget.ListView;
 import com.baidu.android.app.event.EventBusWrapper;
 import com.baidu.searchbox.ui.CoolPraiseView;
 import rx.functions.b;
-/* loaded from: classes13.dex */
+/* loaded from: classes7.dex */
 public class PraiseTouchInterceptor {
     private static final boolean DEBUG = DebugUtil.isApkInDebug();
     private static final String TAG = "PraiseTouchInterceptor";

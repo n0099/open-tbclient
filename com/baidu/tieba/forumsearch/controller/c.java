@@ -14,16 +14,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class c {
-    public final TextView dmF;
-    public final ImageView fHT;
-    public final BdTypeListView fml;
-    public final ImageView gKl;
-    private final RelativeLayout hxN;
-    public final EditText hxO;
+    public final TextView dsB;
+    public final ImageView fNo;
+    public final BdTypeListView frv;
+    public final ImageView gPR;
+    private final RelativeLayout hDB;
+    public final EditText hDC;
     private TbPageContext mPageContext;
     public final View mRoot;
     private int mSkinType = 3;
@@ -31,20 +31,20 @@ public class c {
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
         this.mRoot = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.forum_search_main, (ViewGroup) null);
-        this.hxN = (RelativeLayout) this.mRoot.findViewById(R.id.search_area_root);
-        this.fHT = (ImageView) this.mRoot.findViewById(R.id.search_bar_icon);
-        this.hxO = (EditText) this.mRoot.findViewById(R.id.home_et_search);
-        this.gKl = (ImageView) this.mRoot.findViewById(R.id.home_bt_search_del);
-        this.hxO.setHint(R.string.search_bar_you_want_post_to_share);
-        this.dmF = (TextView) this.mRoot.findViewById(R.id.home_bt_search_cancel_s);
-        this.dmF.setText(tbPageContext.getString(R.string.cancel));
-        this.fml = (BdTypeListView) this.mRoot.findViewById(R.id.search_bar_list);
-        bWM();
+        this.hDB = (RelativeLayout) this.mRoot.findViewById(R.id.search_area_root);
+        this.fNo = (ImageView) this.mRoot.findViewById(R.id.search_bar_icon);
+        this.hDC = (EditText) this.mRoot.findViewById(R.id.home_et_search);
+        this.gPR = (ImageView) this.mRoot.findViewById(R.id.home_bt_search_del);
+        this.hDC.setHint(R.string.search_bar_you_want_post_to_share);
+        this.dsB = (TextView) this.mRoot.findViewById(R.id.home_bt_search_cancel_s);
+        this.dsB.setText(tbPageContext.getString(R.string.cancel));
+        this.frv = (BdTypeListView) this.mRoot.findViewById(R.id.search_bar_list);
+        caf();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void bWM() {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hxN.getLayoutParams();
+    private void caf() {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hDB.getLayoutParams();
         layoutParams.height = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds88);
         int dimens = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds8);
         layoutParams.rightMargin = dimens;
@@ -53,20 +53,20 @@ public class c {
         if (immersiveStickyBarHeight > 0) {
             layoutParams.topMargin = immersiveStickyBarHeight;
         }
-        this.hxN.setLayoutParams(layoutParams);
+        this.hDB.setLayoutParams(layoutParams);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            SvgManager.aWQ().a(this.fHT, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
-            an.setViewTextColor(this.dmF, R.color.cp_link_tip_a, 1);
-            SvgManager.aWQ().a(this.gKl, R.drawable.icon_pure_search_empty16_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.baR().a(this.fNo, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+            ao.setViewTextColor(this.dsB, R.color.cp_link_tip_a, 1);
+            SvgManager.baR().a(this.gPR, R.drawable.icon_pure_search_empty16_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             if (i == 2) {
-                this.hxO.setHintTextColor(an.getColor(R.color.s_navbar_title_color));
+                this.hDC.setHintTextColor(ao.getColor(R.color.s_navbar_title_color));
             } else {
-                this.hxO.setHintTextColor(an.getColor(R.color.cp_cont_e));
+                this.hDC.setHintTextColor(ao.getColor(R.color.cp_cont_e));
             }
-            an.setNavbarTitleColor(this.hxO, R.color.cp_cont_b, R.color.s_navbar_title_color);
+            ao.setNavbarTitleColor(this.hDC, R.color.cp_cont_b, R.color.s_navbar_title_color);
             this.mSkinType = i;
         }
     }

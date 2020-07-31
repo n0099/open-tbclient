@@ -5,83 +5,83 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public final class UrlResponseInfo {
-    private final int mAT;
-    private final List<String> mCn;
-    private final String mCo;
-    private final boolean mCp;
-    private final String mCq;
-    private final String mCr;
-    private final AtomicLong mCs = new AtomicLong();
-    private final HeaderBlock mCt;
+    private final int mJc;
+    private final AtomicLong mKA = new AtomicLong();
+    private final HeaderBlock mKB;
+    private final List<String> mKv;
+    private final String mKw;
+    private final boolean mKx;
+    private final String mKy;
+    private final String mKz;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes19.dex */
     public static final class HeaderBlock {
-        private final List<Map.Entry<String, String>> mCu;
+        private final List<Map.Entry<String, String>> mKC;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public HeaderBlock(List<Map.Entry<String, String>> list) {
-            this.mCu = list;
+            this.mKC = list;
         }
 
-        public List<Map.Entry<String, String>> dwm() {
-            return this.mCu;
+        public List<Map.Entry<String, String>> dzz() {
+            return this.mKC;
         }
     }
 
     public UrlResponseInfo(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3) {
-        this.mCn = Collections.unmodifiableList(list);
-        this.mAT = i;
-        this.mCo = str;
-        this.mCt = new HeaderBlock(Collections.unmodifiableList(list2));
-        this.mCp = z;
-        this.mCq = str2;
-        this.mCr = str3;
+        this.mKv = Collections.unmodifiableList(list);
+        this.mJc = i;
+        this.mKw = str;
+        this.mKB = new HeaderBlock(Collections.unmodifiableList(list2));
+        this.mKx = z;
+        this.mKy = str2;
+        this.mKz = str3;
     }
 
     public String getUrl() {
-        return this.mCn.get(this.mCn.size() - 1);
+        return this.mKv.get(this.mKv.size() - 1);
     }
 
-    public List<String> dwg() {
-        return this.mCn;
+    public List<String> dzt() {
+        return this.mKv;
     }
 
     public int getHttpStatusCode() {
-        return this.mAT;
+        return this.mJc;
     }
 
-    public String dwh() {
-        return this.mCo;
+    public String dzu() {
+        return this.mKw;
     }
 
-    public List<Map.Entry<String, String>> dwi() {
-        return this.mCt.dwm();
+    public List<Map.Entry<String, String>> dzv() {
+        return this.mKB.dzz();
     }
 
-    public boolean dwj() {
-        return this.mCp;
+    public boolean dzw() {
+        return this.mKx;
     }
 
-    public String dwk() {
-        return this.mCq;
+    public String dzx() {
+        return this.mKy;
     }
 
-    public String dwl() {
-        return this.mCr;
+    public String dzy() {
+        return this.mKz;
     }
 
     public long getReceivedBytesCount() {
-        return this.mCs.get();
+        return this.mKA.get();
     }
 
     public String toString() {
-        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), dwg().toString(), Integer.valueOf(getHttpStatusCode()), dwh(), dwi().toString(), Boolean.valueOf(dwj()), dwk(), dwl(), Long.valueOf(getReceivedBytesCount()));
+        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), dzt().toString(), Integer.valueOf(getHttpStatusCode()), dzu(), dzv().toString(), Boolean.valueOf(dzw()), dzx(), dzy(), Long.valueOf(getReceivedBytesCount()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void fE(long j) {
-        this.mCs.set(j);
+    public void fR(long j) {
+        this.mKA.set(j);
     }
 }

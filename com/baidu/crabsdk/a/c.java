@@ -6,33 +6,33 @@ import android.os.Looper;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public class c {
-    private static c alB;
-    private static Context alC;
-    private static ExecutorService alD;
+    private static c alw;
+    private static Context alx;
+    private static ExecutorService aly;
     private static boolean an = false;
-    public p alA;
-    public l alz;
+    public l alu;
+    public p alv;
 
     private c(Context context) {
-        alC = context;
-        this.alA = new p(Looper.getMainLooper().getThread(), a.W);
-        this.alz = new l(new d(this), context);
-        if (alD == null) {
-            alD = Executors.newSingleThreadExecutor();
+        alx = context;
+        this.alv = new p(Looper.getMainLooper().getThread(), a.W);
+        this.alu = new l(new d(this), context);
+        if (aly == null) {
+            aly = Executors.newSingleThreadExecutor();
         }
     }
 
     public static c Y(Context context) {
-        if (alB == null) {
+        if (alw == null) {
             synchronized (c.class) {
-                if (alB == null) {
-                    alB = new c(context);
+                if (alw == null) {
+                    alw = new c(context);
                 }
             }
         }
-        return alB;
+        return alw;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,23 +42,23 @@ public class c {
         if (c.isEmpty()) {
             return;
         }
-        a sX = a.sX();
-        sX.alv = c;
-        sX.a(j, j2, j3, j4);
+        a sZ = a.sZ();
+        sZ.alq = c;
+        sZ.a(j, j2, j3, j4);
     }
 
     public static void start() {
         an = true;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.alF.start();
-            com.baidu.crabsdk.c.a.di("start FrameMonitor...");
+            e.alA.start();
+            com.baidu.crabsdk.c.a.dh("start FrameMonitor...");
         }
     }
 
     public static void stop() {
         an = false;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.alF.stop();
+            e.alA.stop();
         }
     }
 }

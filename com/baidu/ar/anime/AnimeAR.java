@@ -16,7 +16,7 @@ import com.baidu.ar.lua.LuaMsgListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class AnimeAR extends c {
     private static final String TAG = AnimeAR.class.getSimpleName();
     private LuaMsgListener ci;
@@ -53,8 +53,8 @@ public class AnimeAR extends c {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, final boolean z) {
         final a aVar = new a();
-        aVar.a(new a.InterfaceC0072a() { // from class: com.baidu.ar.anime.AnimeAR.3
-            @Override // com.baidu.ar.anime.a.InterfaceC0072a
+        aVar.a(new a.InterfaceC0073a() { // from class: com.baidu.ar.anime.AnimeAR.3
+            @Override // com.baidu.ar.anime.a.InterfaceC0073a
             public void b(FramePixels framePixels) {
                 AnimeAR.this.a(framePixels);
                 if (z && AnimeAR.this.cj != null) {
@@ -165,8 +165,8 @@ public class AnimeAR extends c {
             com.baidu.ar.f.b.b(TAG, "mAbilityName error: " + this.bJ);
         }
         if (this.cj == null) {
-            this.cj = new b(new b.InterfaceC0074b() { // from class: com.baidu.ar.anime.AnimeAR.1
-                @Override // com.baidu.ar.anime.b.InterfaceC0074b
+            this.cj = new b(new b.InterfaceC0075b() { // from class: com.baidu.ar.anime.AnimeAR.1
+                @Override // com.baidu.ar.anime.b.InterfaceC0075b
                 public void a(int i, String str, long j) {
                     if (i != 200) {
                         com.baidu.ar.f.b.b(AnimeAR.TAG, "request error! code:" + i + " msg:" + str);

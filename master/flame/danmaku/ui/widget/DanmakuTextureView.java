@@ -19,24 +19,24 @@ import master.flame.danmaku.danmaku.b.a;
 import master.flame.danmaku.danmaku.model.android.DanmakuContext;
 import master.flame.danmaku.danmaku.model.l;
 @SuppressLint({"NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DanmakuTextureView extends TextureView implements TextureView.SurfaceTextureListener, f, g {
-    private c.a nSa;
-    private LinkedList<Long> nSi;
-    private c nWT;
-    private boolean nWU;
-    private boolean nWV;
-    private f.a nWW;
-    private a nWX;
-    private boolean nWY;
-    private boolean nWZ;
-    protected int nXa;
+    private c.a oaJ;
+    private LinkedList<Long> oaR;
+    private c ofE;
+    private boolean ofF;
+    private boolean ofG;
+    private f.a ofH;
+    private a ofI;
+    private boolean ofJ;
+    private boolean ofK;
+    protected int ofL;
 
     public DanmakuTextureView(Context context) {
         super(context);
-        this.nWV = true;
-        this.nWZ = true;
-        this.nXa = 0;
+        this.ofG = true;
+        this.ofK = true;
+        this.ofL = 0;
         init();
     }
 
@@ -48,56 +48,56 @@ public class DanmakuTextureView extends TextureView implements TextureView.Surfa
         setDrawingCacheEnabled(false);
         setWillNotDraw(false);
         setSurfaceTextureListener(this);
-        d.az(true, true);
-        this.nWX = a.b(this);
+        d.aA(true, true);
+        this.ofI = a.b(this);
     }
 
     public DanmakuTextureView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nWV = true;
-        this.nWZ = true;
-        this.nXa = 0;
+        this.ofG = true;
+        this.ofK = true;
+        this.ofL = 0;
         init();
     }
 
     public DanmakuTextureView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nWV = true;
-        this.nWZ = true;
-        this.nXa = 0;
+        this.ofG = true;
+        this.ofK = true;
+        this.ofL = 0;
         init();
     }
 
     @Override // master.flame.danmaku.a.f
     public l getCurrentVisibleDanmakus() {
-        if (this.nWT != null) {
-            return this.nWT.getCurrentVisibleDanmakus();
+        if (this.ofE != null) {
+            return this.ofE.getCurrentVisibleDanmakus();
         }
         return null;
     }
 
     public void setCallback(c.a aVar) {
-        this.nSa = aVar;
-        if (this.nWT != null) {
-            this.nWT.setCallback(aVar);
+        this.oaJ = aVar;
+        if (this.ofE != null) {
+            this.ofE.setCallback(aVar);
         }
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-        this.nWU = true;
+        this.ofF = true;
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public synchronized boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        this.nWU = false;
+        this.ofF = false;
         return true;
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-        if (this.nWT != null) {
-            this.nWT.ea(i, i2);
+        if (this.ofE != null) {
+            this.ofE.ec(i, i2);
         }
     }
 
@@ -106,61 +106,61 @@ public class DanmakuTextureView extends TextureView implements TextureView.Surfa
     }
 
     public DanmakuContext getConfig() {
-        if (this.nWT == null) {
+        if (this.ofE == null) {
             return null;
         }
-        return this.nWT.getConfig();
+        return this.ofE.getConfig();
     }
 
-    private float dTh() {
-        long dTf = master.flame.danmaku.danmaku.c.c.dTf();
-        this.nSi.addLast(Long.valueOf(dTf));
-        Long peekFirst = this.nSi.peekFirst();
+    private float dWD() {
+        long dWB = master.flame.danmaku.danmaku.c.c.dWB();
+        this.oaR.addLast(Long.valueOf(dWB));
+        Long peekFirst = this.oaR.peekFirst();
         if (peekFirst == null) {
             return 0.0f;
         }
-        float longValue = (float) (dTf - peekFirst.longValue());
-        if (this.nSi.size() > 50) {
-            this.nSi.removeFirst();
+        float longValue = (float) (dWB - peekFirst.longValue());
+        if (this.oaR.size() > 50) {
+            this.oaR.removeFirst();
         }
-        return longValue > 0.0f ? (this.nSi.size() * 1000) / longValue : 0.0f;
+        return longValue > 0.0f ? (this.oaR.size() * 1000) / longValue : 0.0f;
     }
 
     @Override // master.flame.danmaku.a.g
-    public synchronized long dRP() {
-        long dTf;
-        if (!this.nWU) {
-            dTf = 0;
+    public synchronized long dVl() {
+        long dWB;
+        if (!this.ofF) {
+            dWB = 0;
         } else {
-            long dTf2 = master.flame.danmaku.danmaku.c.c.dTf();
+            long dWB2 = master.flame.danmaku.danmaku.c.c.dWB();
             if (!isShown()) {
-                dTf = -1;
+                dWB = -1;
             } else {
                 Canvas lockCanvas = lockCanvas();
                 if (lockCanvas != null) {
-                    if (this.nWT != null) {
-                        a.b al = this.nWT.al(lockCanvas);
-                        if (this.nWY) {
-                            if (this.nSi == null) {
-                                this.nSi = new LinkedList<>();
+                    if (this.ofE != null) {
+                        a.b al = this.ofE.al(lockCanvas);
+                        if (this.ofJ) {
+                            if (this.oaR == null) {
+                                this.oaR = new LinkedList<>();
                             }
-                            long dTf3 = master.flame.danmaku.danmaku.c.c.dTf() - dTf2;
-                            d.c(lockCanvas, String.format(Locale.getDefault(), "fps %.2f,time:%d s,cache:%d,miss:%d", Float.valueOf(dTh()), Long.valueOf(getCurrentTime() / 1000), Long.valueOf(al.nWk), Long.valueOf(al.nWl)));
+                            long dWB3 = master.flame.danmaku.danmaku.c.c.dWB() - dWB2;
+                            d.c(lockCanvas, String.format(Locale.getDefault(), "fps %.2f,time:%d s,cache:%d,miss:%d", Float.valueOf(dWD()), Long.valueOf(getCurrentTime() / 1000), Long.valueOf(al.oeU), Long.valueOf(al.oeV)));
                         }
                     }
-                    if (this.nWU) {
+                    if (this.ofF) {
                         unlockCanvasAndPost(lockCanvas);
                     }
                 }
-                dTf = master.flame.danmaku.danmaku.c.c.dTf() - dTf2;
+                dWB = master.flame.danmaku.danmaku.c.c.dWB() - dWB2;
             }
         }
-        return dTf;
+        return dWB;
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        boolean onTouchEvent = this.nWX.onTouchEvent(motionEvent);
+        boolean onTouchEvent = this.ofI.onTouchEvent(motionEvent);
         if (!onTouchEvent) {
             return super.onTouchEvent(motionEvent);
         }
@@ -168,13 +168,13 @@ public class DanmakuTextureView extends TextureView implements TextureView.Surfa
     }
 
     @Override // master.flame.danmaku.a.g
-    public boolean dRQ() {
-        return this.nWV;
+    public boolean dVm() {
+        return this.ofG;
     }
 
     @Override // master.flame.danmaku.a.g
-    public boolean dRO() {
-        return this.nWU;
+    public boolean dVk() {
+        return this.ofF;
     }
 
     public View getView() {
@@ -182,18 +182,18 @@ public class DanmakuTextureView extends TextureView implements TextureView.Surfa
     }
 
     public void setOnDanmakuClickListener(f.a aVar) {
-        this.nWW = aVar;
+        this.ofH = aVar;
     }
 
     @Override // master.flame.danmaku.a.f
     public f.a getOnDanmakuClickListener() {
-        return this.nWW;
+        return this.ofH;
     }
 
     @Override // master.flame.danmaku.a.g
     public synchronized void clear() {
         Canvas lockCanvas;
-        if (dRO() && (lockCanvas = lockCanvas()) != null) {
+        if (dVk() && (lockCanvas = lockCanvas()) != null) {
             d.e(lockCanvas);
             unlockCanvasAndPost(lockCanvas);
         }
@@ -201,16 +201,16 @@ public class DanmakuTextureView extends TextureView implements TextureView.Surfa
 
     @Override // android.view.View
     public boolean isShown() {
-        return this.nWZ && super.isShown();
+        return this.ofK && super.isShown();
     }
 
     public void setDrawingThreadType(int i) {
-        this.nXa = i;
+        this.ofL = i;
     }
 
     public long getCurrentTime() {
-        if (this.nWT != null) {
-            return this.nWT.getCurrentTime();
+        if (this.ofE != null) {
+            return this.ofE.getCurrentTime();
         }
         return 0L;
     }

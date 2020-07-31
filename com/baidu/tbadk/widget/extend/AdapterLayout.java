@@ -10,8 +10,8 @@ import com.baidu.tbadk.h.g;
 import com.baidu.tbadk.widget.extend.a.b;
 /* loaded from: classes.dex */
 public abstract class AdapterLayout extends ViewGroup {
-    protected b eIZ;
-    private boolean eJa;
+    protected b ePv;
+    private boolean ePw;
     protected DataSetObserver mObserver;
 
     public AdapterLayout(Context context) {
@@ -24,15 +24,15 @@ public abstract class AdapterLayout extends ViewGroup {
 
     public AdapterLayout(final Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eJa = false;
+        this.ePw = false;
         if (context instanceof Activity) {
             ((Activity) context).getApplication().registerActivityLifecycleCallbacks(new g() { // from class: com.baidu.tbadk.widget.extend.AdapterLayout.1
                 @Override // com.baidu.tbadk.h.g, android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityDestroyed(Activity activity) {
                     if (activity == context) {
-                        if (AdapterLayout.this.eIZ != null && AdapterLayout.this.mObserver != null) {
-                            AdapterLayout.this.eIZ.unregisterDataSetObserver(AdapterLayout.this.mObserver);
-                            AdapterLayout.this.eIZ = null;
+                        if (AdapterLayout.this.ePv != null && AdapterLayout.this.mObserver != null) {
+                            AdapterLayout.this.ePv.unregisterDataSetObserver(AdapterLayout.this.mObserver);
+                            AdapterLayout.this.ePv = null;
                             AdapterLayout.this.mObserver = null;
                         }
                         ((Activity) context).getApplication().unregisterActivityLifecycleCallbacks(this);
@@ -43,53 +43,53 @@ public abstract class AdapterLayout extends ViewGroup {
     }
 
     public void setAdapter(b bVar) {
-        bkd();
+        bnW();
         if (bVar == null) {
             throw new NullPointerException("FlowBaseAdapter is null");
         }
-        this.eIZ = bVar;
+        this.ePv = bVar;
         this.mObserver = new DataSetObserver() { // from class: com.baidu.tbadk.widget.extend.AdapterLayout.2
             @Override // android.database.DataSetObserver
             public void onChanged() {
-                AdapterLayout.this.bkf();
+                AdapterLayout.this.bnY();
             }
         };
-        bke();
-        bkf();
+        bnX();
+        bnY();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        bkd();
+        bnW();
         super.onDetachedFromWindow();
     }
 
-    private void bkd() {
-        if (this.eIZ != null && this.mObserver != null && this.eJa) {
-            this.eJa = false;
-            this.eIZ.unregisterDataSetObserver(this.mObserver);
+    private void bnW() {
+        if (this.ePv != null && this.mObserver != null && this.ePw) {
+            this.ePw = false;
+            this.ePv.unregisterDataSetObserver(this.mObserver);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        bke();
+        bnX();
     }
 
-    private void bke() {
-        if (this.eIZ != null && this.mObserver != null && !this.eJa) {
-            this.eIZ.registerDataSetObserver(this.mObserver);
-            this.eJa = true;
+    private void bnX() {
+        if (this.ePv != null && this.mObserver != null && !this.ePw) {
+            this.ePv.registerDataSetObserver(this.mObserver);
+            this.ePw = true;
         }
     }
 
-    protected void bkf() {
-        if (this.eIZ != null) {
+    protected void bnY() {
+        if (this.ePv != null) {
             removeAllViews();
-            int count = this.eIZ.getCount();
+            int count = this.ePv.getCount();
             for (int i = 0; i < count; i++) {
-                View view = this.eIZ.getView(i, this);
+                View view = this.ePv.getView(i, this);
                 view.setFocusable(true);
                 addView(view);
             }

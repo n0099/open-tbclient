@@ -9,7 +9,7 @@ import com.baidu.ar.constants.ARConfigKey;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 class c extends Handler {
     private b vg;
     private Map<String, String> vh;

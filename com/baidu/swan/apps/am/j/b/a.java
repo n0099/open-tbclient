@@ -8,20 +8,21 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.ad.c;
-import com.baidu.swan.apps.w.f;
-/* loaded from: classes11.dex */
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.ac.c;
+import com.baidu.swan.apps.runtime.d;
+/* loaded from: classes7.dex */
 public class a {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final boolean DEBUG;
-    private long cMQ;
-    private b cMR;
-    private final c.a cMS;
+    private long cQl;
+    private b cQm;
+    private final c.a cQn;
 
     /* renamed from: com.baidu.swan.apps.am.j.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     private static class C0300a {
-        public static final a cMU = new a();
+        public static final a cQp = new a();
     }
 
     static {
@@ -30,12 +31,12 @@ public class a {
     }
 
     private a() {
-        this.cMQ = 0L;
-        this.cMS = new c.a() { // from class: com.baidu.swan.apps.am.j.b.a.1
-            @Override // com.baidu.swan.apps.ad.c.a
+        this.cQl = 0L;
+        this.cQn = new c.a() { // from class: com.baidu.swan.apps.am.j.b.a.1
+            @Override // com.baidu.swan.apps.ac.c.a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.cMR != null) {
-                    a.this.cMR.bu(a.this.cMQ);
+                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.cQm != null) {
+                    a.this.cQm.bH(a.this.cQl);
                 }
             }
         };
@@ -44,49 +45,49 @@ public class a {
         }
         Vibrator vibrator = (Vibrator) AppRuntime.getAppContext().getSystemService("vibrator");
         if (vibrator != null) {
-            this.cMR = new b(vibrator);
+            this.cQm = new b(vibrator);
         }
     }
 
-    public static a atE() {
-        return C0300a.cMU;
+    public static a avF() {
+        return C0300a.cQp;
     }
 
-    void bu(long j) {
-        this.cMQ = j;
-        if (this.cMR == null) {
+    void bH(long j) {
+        this.cQl = j;
+        if (this.cQm == null) {
             if (DEBUG) {
                 throw new RuntimeException("not support vibration");
             }
         } else if (checkVibratePermission()) {
-            this.cMR.bu(this.cMQ);
+            this.cQm.bH(this.cQl);
         } else {
             String[] strArr = {"android.permission.VIBRATE"};
-            f ajb = f.ajb();
-            if (ajb != null) {
-                ajb.a(CyberPlayerManager.MEDIA_INFO_VIDEO_TRACK_LAGGING, strArr, this.cMS);
+            SwanAppActivity arp = d.arr().arp();
+            if (arp != null) {
+                arp.a(CyberPlayerManager.MEDIA_INFO_VIDEO_TRACK_LAGGING, strArr, this.cQn);
             }
         }
     }
 
     private boolean checkVibratePermission() {
-        if (com.baidu.swan.apps.aq.b.hasMarshMallow()) {
+        if (com.baidu.swan.apps.aq.c.hasMarshMallow()) {
             Context appContext = AppRuntime.getAppContext();
             return appContext != null && ActivityCompat.checkSelfPermission(appContext, "android.permission.VIBRATE") == 0;
         }
         return true;
     }
 
-    public void atF() {
-        bu(15L);
+    public void avG() {
+        bH(15L);
     }
 
-    public void atG() {
-        bu(400L);
+    public void avH() {
+        bH(400L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         private Vibrator mVibrator;
 
@@ -95,9 +96,9 @@ public class a {
         }
 
         @SuppressLint({"MissingPermission"})
-        void bu(long j) {
+        void bH(long j) {
             try {
-                if (com.baidu.swan.apps.aq.b.hasOreo()) {
+                if (com.baidu.swan.apps.aq.c.hasOreo()) {
                     this.mVibrator.vibrate(VibrationEffect.createOneShot(j, -1));
                 } else {
                     this.mVibrator.vibrate(j);

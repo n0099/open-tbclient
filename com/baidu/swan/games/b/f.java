@@ -1,12 +1,12 @@
 package com.baidu.swan.games.b;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class f {
     public String msg;
     public int state;
 
-    public static f bN(JSONObject jSONObject) {
+    public static f bS(JSONObject jSONObject) {
         f fVar = new f();
         fVar.state = jSONObject.optInt("state");
         fVar.msg = jSONObject.optString("msg");

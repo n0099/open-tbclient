@@ -22,7 +22,7 @@ import android.view.ViewParent;
 import android.view.animation.Interpolator;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ItemTouchHelper extends RecyclerView.ItemDecoration implements RecyclerView.OnChildAttachStateChangeListener {
     static final int ACTION_MODE_DRAG_MASK = 16711680;
     private static final int ACTION_MODE_IDLE_MASK = 255;
@@ -179,7 +179,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ViewDropHandler {
         void prepareForDrop(View view, View view2, int i, int i2);
     }
@@ -830,7 +830,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Callback {
         private static final int ABS_HORIZONTAL_DIR_FLAGS = 789516;
         public static final int DEFAULT_DRAG_ANIMATION_DURATION = 200;
@@ -956,7 +956,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             RecyclerView.ViewHolder viewHolder3;
             int bottom;
             int abs;
-            int top2;
+            int top;
             int left;
             int right;
             int abs2;
@@ -965,7 +965,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             RecyclerView.ViewHolder viewHolder4 = null;
             int i7 = -1;
             int left2 = i - viewHolder.itemView.getLeft();
-            int top3 = i2 - viewHolder.itemView.getTop();
+            int top2 = i2 - viewHolder.itemView.getTop();
             int size = list.size();
             int i8 = 0;
             while (i8 < size) {
@@ -982,12 +982,12 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
                 } else {
                     viewHolder2 = viewHolder5;
                 }
-                if (top3 >= 0 || (top2 = viewHolder5.itemView.getTop() - i2) <= 0 || viewHolder5.itemView.getTop() >= viewHolder.itemView.getTop() || (i5 = Math.abs(top2)) <= i4) {
+                if (top2 >= 0 || (top = viewHolder5.itemView.getTop() - i2) <= 0 || viewHolder5.itemView.getTop() >= viewHolder.itemView.getTop() || (i5 = Math.abs(top)) <= i4) {
                     i5 = i4;
                 } else {
                     viewHolder2 = viewHolder5;
                 }
-                if (top3 <= 0 || (bottom = viewHolder5.itemView.getBottom() - height) >= 0 || viewHolder5.itemView.getBottom() <= viewHolder.itemView.getBottom() || (abs = Math.abs(bottom)) <= i5) {
+                if (top2 <= 0 || (bottom = viewHolder5.itemView.getBottom() - height) >= 0 || viewHolder5.itemView.getBottom() <= viewHolder.itemView.getBottom() || (abs = Math.abs(bottom)) <= i5) {
                     i6 = i5;
                     viewHolder3 = viewHolder2;
                 } else {
@@ -1112,7 +1112,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static abstract class SimpleCallback extends Callback {
         private int mDefaultDragDirs;
         private int mDefaultSwipeDirs;
@@ -1145,7 +1145,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class ItemTouchHelperGestureListener extends GestureDetector.SimpleOnGestureListener {
         private boolean mShouldReactToLongPress = true;
 
@@ -1182,7 +1182,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class RecoverAnimation implements Animator.AnimatorListener {
         final int mActionState;
         final int mAnimationType;

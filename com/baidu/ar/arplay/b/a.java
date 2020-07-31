@@ -16,7 +16,7 @@ import com.baidu.ar.arplay.d.a;
 import com.baidu.ar.arplay.d.b;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class a implements ARPMessage.MessageHandler {
     private ARPEngine.g gm = new ARPEngine.g() { // from class: com.baidu.ar.arplay.b.a.1
         @Override // com.baidu.ar.arplay.core.engine.ARPEngine.g
@@ -191,22 +191,22 @@ public class a implements ARPMessage.MessageHandler {
             return;
         }
         String a = com.baidu.ar.arplay.c.c.a(hashMap.get(LuaMessageHelper.KEY_EVENT_NAME), "");
-        a.C0077a c0077a = new a.C0077a();
+        a.C0078a c0078a = new a.C0078a();
         if ("load_webview".equals(a)) {
-            c0077a.dX = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
-            c0077a.width = com.baidu.ar.arplay.c.c.a(hashMap.get("width"), 0);
-            c0077a.height = com.baidu.ar.arplay.c.c.a(hashMap.get("height"), 0);
-            c0077a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
-            c0077a.gB = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
-            b.bh().c(c0077a);
+            c0078a.dX = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
+            c0078a.width = com.baidu.ar.arplay.c.c.a(hashMap.get("width"), 0);
+            c0078a.height = com.baidu.ar.arplay.c.c.a(hashMap.get("height"), 0);
+            c0078a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
+            c0078a.gB = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
+            b.bh().c(c0078a);
         } else if ("update_webview_js".equals(a)) {
-            c0077a.dX = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
-            c0077a.gC = com.baidu.ar.arplay.c.c.a(hashMap.get("js_code"), (String) null);
-            b.bh().e(c0077a);
+            c0078a.dX = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
+            c0078a.gC = com.baidu.ar.arplay.c.c.a(hashMap.get("js_code"), (String) null);
+            b.bh().e(c0078a);
         } else if ("load_native_webview".equals(a)) {
-            c0077a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
-            c0077a.gB = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
-            b.bh().d(c0077a);
+            c0078a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
+            c0078a.gB = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
+            b.bh().d(c0078a);
         }
     }
 

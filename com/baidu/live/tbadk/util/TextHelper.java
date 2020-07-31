@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.widget.EditText;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TextHelper {
     public static int getTextLength(EditText editText) {
         if (editText == null) {

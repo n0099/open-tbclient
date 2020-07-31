@@ -2,7 +2,7 @@ package com.facebook.d;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 class c {
     public static int a(InputStream inputStream, int i, boolean z) throws IOException {
         int i2;

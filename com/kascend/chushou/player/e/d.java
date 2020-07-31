@@ -24,16 +24,16 @@ import java.util.List;
 import java.util.Map;
 import tv.chushou.zues.utils.h;
 import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d extends com.kascend.chushou.player.e {
     public String a;
     public String b;
     private View c;
     private FrameLayout d;
     private boolean h;
-    private FrescoThumbnailView nne;
-    private c.a nnf;
-    private c nnd = null;
+    private FrescoThumbnailView nvR;
+    private c.a nvS;
+    private c nvQ = null;
     private boolean g = false;
 
     public static d c(String str, boolean z, String str2) {
@@ -59,16 +59,16 @@ public class d extends com.kascend.chushou.player.e {
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         this.c = layoutInflater.inflate(a.h.videoplayer_root_view_show_parent, viewGroup, false);
         this.d = (FrameLayout) this.c.findViewById(a.f.game_fragment);
-        this.nne = (FrescoThumbnailView) this.c.findViewById(a.f.view_cover);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.nne.getLayoutParams();
-        int aw = tv.chushou.zues.utils.systemBar.b.aw(getActivity());
-        if (aw > 0) {
-            layoutParams.topMargin -= aw;
+        this.nvR = (FrescoThumbnailView) this.c.findViewById(a.f.view_cover);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.nvR.getLayoutParams();
+        int ax = tv.chushou.zues.utils.systemBar.b.ax(getActivity());
+        if (ax > 0) {
+            layoutParams.topMargin -= ax;
             layoutParams.bottomMargin = 0;
         }
-        this.nne.setLayoutParams(layoutParams);
-        this.nne.setVisibility(0);
-        this.nne.setBlur(true);
+        this.nvR.setLayoutParams(layoutParams);
+        this.nvR.setVisibility(0);
+        this.nvR.setBlur(true);
         a(this.a);
         if (this.g) {
             this.g = false;
@@ -78,8 +78,8 @@ public class d extends com.kascend.chushou.player.e {
     }
 
     public void a(String str) {
-        if (this.nne != null && !h.isEmpty(str)) {
-            this.nne.i(str, 0, 0, 0);
+        if (this.nvR != null && !h.isEmpty(str)) {
+            this.nvR.i(str, 0, 0, 0);
         }
     }
 
@@ -92,450 +92,450 @@ public class d extends com.kascend.chushou.player.e {
     }
 
     private void c() {
-        this.nne.setVisibility(8);
+        this.nvR.setVisibility(8);
         this.d.setVisibility(0);
-        this.nnd = c.b(this.a, this.h, this.b);
-        this.nnd.a(this.nnf);
+        this.nvQ = c.b(this.a, this.h, this.b);
+        this.nvQ.a(this.nvS);
         FragmentTransaction beginTransaction = getChildFragmentManager().beginTransaction();
-        beginTransaction.replace(a.f.game_fragment, this.nnd);
+        beginTransaction.replace(a.f.game_fragment, this.nvQ);
         beginTransaction.commitAllowingStateLoss();
     }
 
     public void a(c.a aVar) {
-        this.nnf = aVar;
+        this.nvS = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kascend.chushou.player.e
     public void k() {
-        if (this.nnd != null) {
-            this.nnd.k();
+        if (this.nvQ != null) {
+            this.nvQ.k();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kascend.chushou.player.e
     public void m() {
-        if (this.nnd != null) {
-            this.nnd.m();
+        if (this.nvQ != null) {
+            this.nvQ.m();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kascend.chushou.player.e
     public void l() {
-        if (this.nnd != null) {
-            this.nnd.l();
+        if (this.nvQ != null) {
+            this.nvQ.l();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void r() {
-        if (this.nnd != null) {
-            this.nnd.r();
+        if (this.nvQ != null) {
+            this.nvQ.r();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void j() {
-        if (this.nnd != null) {
-            this.nnd.j();
+        if (this.nvQ != null) {
+            this.nvQ.j();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kascend.chushou.player.e
     public void e(boolean z) {
-        if (this.nnd != null) {
-            this.nnd.e(z);
+        if (this.nvQ != null) {
+            this.nvQ.e(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b() {
-        if (this.nnd != null) {
-            this.nnd.Z();
+        if (this.nvQ != null) {
+            this.nvQ.Z();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void f(boolean z) {
-        if (this.nnd != null) {
-            this.nnd.f(z);
+        if (this.nvQ != null) {
+            this.nvQ.f(z);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void f() {
-        if (this.nnd != null) {
-            this.nnd.f();
+        if (this.nvQ != null) {
+            this.nvQ.f();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void c(String str) {
-        if (this.nnd != null) {
-            this.nnd.c(str);
+        if (this.nvQ != null) {
+            this.nvQ.c(str);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void a(n nVar) {
-        if (this.nnd != null) {
-            this.nnd.a(nVar);
+        if (this.nvQ != null) {
+            this.nvQ.a(nVar);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public boolean a(MotionEvent motionEvent) {
-        if (this.nnd != null) {
-            return this.nnd.a(motionEvent);
+        if (this.nvQ != null) {
+            return this.nvQ.a(motionEvent);
         }
         return false;
     }
 
     @Override // com.kascend.chushou.player.e
     public void a(boolean z) {
-        if (this.nnd != null) {
-            this.nnd.a(z);
+        if (this.nvQ != null) {
+            this.nvQ.a(z);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void e(int i) {
-        if (this.nnd != null) {
-            this.nnd.e(i);
+        if (this.nvQ != null) {
+            this.nvQ.e(i);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void p() {
-        if (this.nnd != null) {
-            this.nnd.p();
+        if (this.nvQ != null) {
+            this.nvQ.p();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void g(boolean z) {
-        if (this.nnd != null) {
-            this.nnd.g(z);
+        if (this.nvQ != null) {
+            this.nvQ.g(z);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void h(boolean z) {
-        if (this.nnd != null) {
-            this.nnd.h(z);
+        if (this.nvQ != null) {
+            this.nvQ.h(z);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void e() {
-        if (this.nnd != null) {
-            this.nnd.e();
+        if (this.nvQ != null) {
+            this.nvQ.e();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void x() {
-        if (this.nnd != null) {
-            this.nnd.x();
+        if (this.nvQ != null) {
+            this.nvQ.x();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public boolean b(MotionEvent motionEvent) {
-        if (this.nnd != null) {
-            return this.nnd.b(motionEvent);
+        if (this.nvQ != null) {
+            return this.nvQ.b(motionEvent);
         }
         return false;
     }
 
     @Override // com.kascend.chushou.player.e
     public boolean a(int i, KeyEvent keyEvent) {
-        if (this.nnd != null) {
-            return this.nnd.a(i, keyEvent);
+        if (this.nvQ != null) {
+            return this.nvQ.a(i, keyEvent);
         }
         return false;
     }
 
     @Override // com.kascend.chushou.player.e
     public void s() {
-        if (this.nnd != null) {
-            this.nnd.s();
+        if (this.nvQ != null) {
+            this.nvQ.s();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void a(com.kascend.chushou.player.b bVar) {
-        if (this.nnd != null) {
-            this.nnd.a(bVar);
+        if (this.nvQ != null) {
+            this.nvQ.a(bVar);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void y() {
-        if (this.nnd != null) {
-            this.nnd.y();
+        if (this.nvQ != null) {
+            this.nvQ.y();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void g(int i) {
-        if (this.nnd != null) {
-            this.nnd.g(i);
+        if (this.nvQ != null) {
+            this.nvQ.g(i);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void z() {
-        if (this.nnd != null) {
-            this.nnd.z();
+        if (this.nvQ != null) {
+            this.nvQ.z();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void A() {
-        if (this.nnd != null) {
-            this.nnd.A();
+        if (this.nvQ != null) {
+            this.nvQ.A();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void i(boolean z) {
-        if (this.nnd != null) {
-            this.nnd.i(z);
+        if (this.nvQ != null) {
+            this.nvQ.i(z);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void B() {
-        if (this.nnd != null) {
-            this.nnd.B();
+        if (this.nvQ != null) {
+            this.nvQ.B();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void C() {
-        if (this.nnd != null) {
-            this.nnd.C();
+        if (this.nvQ != null) {
+            this.nvQ.C();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void a(int i, boolean z) {
-        if (this.nnd != null) {
-            this.nnd.a(i, z);
+        if (this.nvQ != null) {
+            this.nvQ.a(i, z);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void E() {
-        if (this.nnd != null) {
-            this.nnd.E();
+        if (this.nvQ != null) {
+            this.nvQ.E();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void a(boolean z, boolean z2, boolean z3) {
-        if (this.nnd != null) {
-            this.nnd.a(z, z2, z3);
+        if (this.nvQ != null) {
+            this.nvQ.a(z, z2, z3);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void G() {
-        if (this.nnd != null) {
-            this.nnd.G();
+        if (this.nvQ != null) {
+            this.nvQ.G();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void F() {
-        if (this.nnd != null) {
-            this.nnd.F();
+        if (this.nvQ != null) {
+            this.nvQ.F();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void H() {
-        if (this.nnd != null) {
-            this.nnd.H();
+        if (this.nvQ != null) {
+            this.nvQ.H();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void a(int i, int i2, Intent intent) {
-        if (this.nnd != null) {
-            this.nnd.a(i, i2, intent);
+        if (this.nvQ != null) {
+            this.nvQ.a(i, i2, intent);
         }
     }
 
     @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.h5.b.b.a
     public void a(long j) {
-        if (this.nnd != null) {
-            this.nnd.a(j);
+        if (this.nvQ != null) {
+            this.nvQ.a(j);
         }
     }
 
     @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.h5.b.b.a
     public void b(int i) {
-        if (this.nnd != null) {
-            this.nnd.b(i);
+        if (this.nvQ != null) {
+            this.nvQ.b(i);
         }
     }
 
     @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.h5.b.b.a
     public void a(com.kascend.chushou.player.ui.h5.c.a aVar) {
-        if (this.nnd != null) {
-            this.nnd.a(aVar);
+        if (this.nvQ != null) {
+            this.nvQ.a(aVar);
         }
     }
 
-    @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.h5.d.a.InterfaceC0830a
+    @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.h5.d.a.InterfaceC0839a
     public void b(long j) {
-        if (this.nnd != null) {
-            this.nnd.b(j);
+        if (this.nvQ != null) {
+            this.nvQ.b(j);
         }
     }
 
-    @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.h5.a.a.InterfaceC0828a
+    @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.h5.a.a.InterfaceC0837a
     public void c(int i) {
-        if (this.nnd != null) {
-            this.nnd.c(i);
+        if (this.nvQ != null) {
+            this.nvQ.c(i);
         }
     }
 
-    @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.h5.d.a.InterfaceC0830a
+    @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.h5.d.a.InterfaceC0839a
     public void b(com.kascend.chushou.player.ui.h5.c.a aVar) {
-        if (this.nnd != null) {
-            this.nnd.b(aVar);
+        if (this.nvQ != null) {
+            this.nvQ.b(aVar);
         }
     }
 
-    @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.h5.redpacket.a.InterfaceC0831a
+    @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.h5.redpacket.a.InterfaceC0840a
     public void a(int i) {
-        if (this.nnd != null) {
-            this.nnd.a(i);
+        if (this.nvQ != null) {
+            this.nvQ.a(i);
         }
     }
 
-    @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.h5.redpacket.a.InterfaceC0831a
+    @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.h5.redpacket.a.InterfaceC0840a
     public void D() {
-        if (this.nnd != null) {
-            this.nnd.D();
+        if (this.nvQ != null) {
+            this.nvQ.D();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void a(List<ListItem> list) {
-        if (this.nnd != null) {
-            this.nnd.a(list);
+        if (this.nvQ != null) {
+            this.nvQ.a(list);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void a(IconConfig iconConfig, Map<String, SkinConfig.SkinRes> map) {
-        if (this.nnd != null) {
-            this.nnd.a(iconConfig, map);
+        if (this.nvQ != null) {
+            this.nvQ.a(iconConfig, map);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void I() {
-        if (this.nnd != null) {
-            this.nnd.I();
+        if (this.nvQ != null) {
+            this.nvQ.I();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void c(com.kascend.chushou.player.ui.h5.c.a aVar) {
-        if (this.nnd != null) {
-            this.nnd.c(aVar);
+        if (this.nvQ != null) {
+            this.nvQ.c(aVar);
         }
     }
 
-    @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.a.a.InterfaceC0825a
+    @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.a.a.InterfaceC0834a
     public void a(IconConfig.Config config) {
-        if (this.nnd != null) {
-            this.nnd.a(config);
+        if (this.nvQ != null) {
+            this.nvQ.a(config);
         }
     }
 
-    @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.a.a.InterfaceC0825a
+    @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.a.a.InterfaceC0834a
     public void a(BangInfo bangInfo, String str) {
-        if (this.nnd != null) {
-            this.nnd.a(bangInfo, str);
+        if (this.nvQ != null) {
+            this.nvQ.a(bangInfo, str);
         }
     }
 
-    @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.a.a.InterfaceC0825a
+    @Override // com.kascend.chushou.player.e, com.kascend.chushou.player.ui.a.a.InterfaceC0834a
     public void a(long j, BangInfo bangInfo, String str) {
-        if (this.nnd != null) {
-            this.nnd.a(j, bangInfo, str);
+        if (this.nvQ != null) {
+            this.nvQ.a(j, bangInfo, str);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void J() {
-        if (this.nnd != null) {
-            this.nnd.J();
+        if (this.nvQ != null) {
+            this.nvQ.J();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void K() {
-        if (this.nnd != null) {
-            this.nnd.K();
+        if (this.nvQ != null) {
+            this.nvQ.K();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void L() {
-        if (this.nnd != null) {
-            this.nnd.L();
+        if (this.nvQ != null) {
+            this.nvQ.L();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void b(List<g.a> list) {
-        if (this.nnd != null) {
-            this.nnd.b(list);
+        if (this.nvQ != null) {
+            this.nvQ.b(list);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void a(PkNotifyInfo pkNotifyInfo, String str) {
-        if (this.nnd != null) {
-            this.nnd.a(pkNotifyInfo, str);
+        if (this.nvQ != null) {
+            this.nvQ.a(pkNotifyInfo, str);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void M() {
-        if (this.nnd != null) {
-            this.nnd.M();
+        if (this.nvQ != null) {
+            this.nvQ.M();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void N() {
-        if (this.nnd != null) {
-            this.nnd.N();
+        if (this.nvQ != null) {
+            this.nvQ.N();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void O() {
-        if (this.nnd != null) {
-            this.nnd.O();
+        if (this.nvQ != null) {
+            this.nvQ.O();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void P() {
-        if (this.nnd != null) {
-            this.nnd.P();
+        if (this.nvQ != null) {
+            this.nvQ.P();
         }
     }
 }

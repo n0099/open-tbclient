@@ -21,12 +21,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.location.data.SearchLocationActivityConfig;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.tieba.tbadkCore.location.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class c implements View.OnClickListener, AdapterView.OnItemClickListener, com.baidu.tbadk.suspended.a {
-    private BdListView US;
-    private Intent iIV;
-    private ImageView iwg;
-    private b jxw;
+    private BdListView UL;
+    private ImageView iCk;
+    private Intent iPa;
+    private b jGa;
     private LinearLayout mContentView;
     private NavigationBar mNavigationBar;
     private TbPageContext<SelectLocationActivity> mPageContext;
@@ -35,71 +35,71 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
         this.mPageContext = tbPageContext;
         this.mContentView = linearLayout;
         this.mNavigationBar = navigationBar;
-        biq();
-        Px();
+        bmb();
+        PM();
     }
 
-    private void biq() {
+    private void bmb() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getResources().getString(R.string.select_position_title));
-        this.iwg = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iwg.getLayoutParams();
+        this.iCk = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iCk.getLayoutParams();
         layoutParams.setMargins(0, 0, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds10), 0);
-        this.iwg.setLayoutParams(layoutParams);
-        this.iwg.setOnClickListener(this);
+        this.iCk.setLayoutParams(layoutParams);
+        this.iCk.setOnClickListener(this);
     }
 
-    private void Px() {
+    private void PM() {
         LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.select_location_activity, (ViewGroup) this.mContentView, true);
-        this.US = (BdListView) this.mContentView.findViewById(R.id.select_position_list);
-        this.jxw = new b(this.mPageContext);
-        this.US.setAdapter((ListAdapter) this.jxw);
-        this.US.setOnItemClickListener(this);
+        this.UL = (BdListView) this.mContentView.findViewById(R.id.select_position_list);
+        this.jGa = new b(this.mPageContext);
+        this.UL.setAdapter((ListAdapter) this.jGa);
+        this.UL.setOnItemClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.iwg) {
+        if (view == this.iCk) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SEARCH_LOCATION_PAGE, new SearchLocationActivityConfig(this.mPageContext.getPageActivity(), RequestResponseCode.REQUEST_CLOSE_SELECT_LOCATION_ACTIVITY)));
         }
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.jxw != null) {
+        if (this.jGa != null) {
             MessageManager messageManager = MessageManager.getInstance();
             if (i == 0) {
                 messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
                 this.mPageContext.getOrignalPage().finish();
                 return;
             }
-            Object item = this.jxw.getItem(i);
-            if (item instanceof a.C0746a) {
-                a.C0746a c0746a = (a.C0746a) item;
-                messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0746a.getName(), c0746a.getAddr(), c0746a.axE()));
+            Object item = this.jGa.getItem(i);
+            if (item instanceof a.C0756a) {
+                a.C0756a c0756a = (a.C0756a) item;
+                messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0756a.getName(), c0756a.getAddr(), c0756a.aAC()));
                 this.mPageContext.getOrignalPage().finish();
             }
         }
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bim() {
+    public boolean blX() {
         View childAt;
-        return this.US != null && this.US.getFirstVisiblePosition() == 0 && (childAt = this.US.getChildAt(0)) != null && childAt.getTop() == 0;
+        return this.UL != null && this.UL.getFirstVisiblePosition() == 0 && (childAt = this.UL.getChildAt(0)) != null && childAt.getTop() == 0;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bin() {
+    public boolean blY() {
         return true;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public void ob(int i) {
-        SvgManager.aWQ().a(this.iwg, R.drawable.icon_pure_topbar_search44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        this.jxw.notifyDataSetChanged();
+    public void ot(int i) {
+        SvgManager.baR().a(this.iCk, R.drawable.icon_pure_topbar_search44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.jGa.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public Intent bio() {
-        return this.iIV;
+    public Intent blZ() {
+        return this.iPa;
     }
 }

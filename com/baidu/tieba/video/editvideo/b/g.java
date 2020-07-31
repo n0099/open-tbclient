@@ -10,7 +10,7 @@ import android.opengl.EGLSurface;
 import android.util.Log;
 import android.view.Surface;
 @TargetApi(18)
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 class g {
     private EGLContext mEGLContext;
     private EGLDisplay mEGLDisplay;

@@ -1,24 +1,24 @@
 package com.baidu.swan.apps.canvas.b;
 
-import com.baidu.swan.apps.aq.ag;
+import com.baidu.swan.apps.aq.ai;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class d extends a {
-    public String bTb;
-    public float bTc;
-    public boolean bTd;
-    public boolean bTe;
+    public String bTT;
+    public float bTU;
+    public boolean bTV;
+    public boolean bTW;
     public boolean mItalic;
     public String mText;
 
     public d(String str) {
         super(str);
         String[] split;
-        this.bTb = "sans-serif";
-        this.bTc = ag.D(10.0f);
-        this.bTd = false;
+        this.bTT = "sans-serif";
+        this.bTU = ai.D(10.0f);
+        this.bTV = false;
         this.mItalic = false;
-        this.bTe = true;
+        this.bTW = true;
         try {
             JSONObject jSONObject = new JSONObject(str);
             this.mText = jSONObject.optString("text");
@@ -30,9 +30,9 @@ public class d extends a {
                     } else if (str2.contains("oblique")) {
                         this.mItalic = true;
                     } else if (str2.contains("bold")) {
-                        this.bTd = true;
+                        this.bTV = true;
                     } else if (str2.contains("normal")) {
-                        this.bTe = true;
+                        this.bTW = true;
                     } else if (Character.isDigit(str2.charAt(0))) {
                         int length = str2.length();
                         int i = 0;
@@ -46,9 +46,9 @@ public class d extends a {
                                 i++;
                             }
                         }
-                        this.bTc = ag.D(Float.parseFloat(str2.substring(0, i)));
+                        this.bTU = ai.D(Float.parseFloat(str2.substring(0, i)));
                     } else {
-                        this.bTb = str2;
+                        this.bTT = str2;
                     }
                 }
             }

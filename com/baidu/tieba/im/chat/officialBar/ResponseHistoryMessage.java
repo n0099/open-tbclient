@@ -4,7 +4,7 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.Date;
@@ -12,12 +12,12 @@ import java.util.LinkedList;
 import java.util.List;
 import protobuf.QueryHistoryMsg.MsgInfo;
 import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class ResponseHistoryMessage extends TbSocketReponsedMessage {
     private List<a> msg;
     private int msgCount;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes20.dex */
     public static class a {
         public String content;
         public int id;
@@ -52,7 +52,7 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                 if (msgInfo != null) {
                     Date date = new Date();
                     date.setTime(msgInfo.sendTime.longValue() * 1000);
-                    aVar.time = ar.getDateStringMouth(date);
+                    aVar.time = as.getDateStringMouth(date);
                     aVar.type = msgInfo.type.intValue();
                     aVar.content = msgInfo.content;
                     aVar.id = msgInfo.id.intValue();
@@ -61,10 +61,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             }
         }
         if (!this.msg.isEmpty()) {
-            l<byte[]> wb = com.baidu.tbadk.core.c.a.aUM().wb("tb.im_official_history");
+            l<byte[]> xi = com.baidu.tbadk.core.c.a.aYG().xi("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage != null && requestHistoryMessage.getRequestId() == 0) {
-                wb.setForever(TbadkApplication.getCurrentAccount() + UgcConstant.AT_RULE_TAG + String.valueOf(requestHistoryMessage.getFid()), bArr);
+                xi.setForever(TbadkApplication.getCurrentAccount() + UgcConstant.AT_RULE_TAG + String.valueOf(requestHistoryMessage.getFid()), bArr);
             }
         }
     }

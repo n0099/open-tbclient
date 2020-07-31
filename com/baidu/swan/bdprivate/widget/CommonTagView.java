@@ -9,11 +9,11 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import com.baidu.swan.apps.aq.ag;
+import com.baidu.swan.apps.aq.ai;
 import com.baidu.swan.bdprivate.b;
 /* loaded from: classes11.dex */
 public class CommonTagView extends TextView {
-    private boolean cTt;
+    private boolean cYg;
     private int mBorderColor;
     private int mBorderWidth;
     private Context mContext;
@@ -33,7 +33,7 @@ public class CommonTagView extends TextView {
     public CommonTagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mHasBorder = true;
-        this.cTt = true;
+        this.cYg = true;
         init(context, attributeSet, i);
     }
 
@@ -43,11 +43,11 @@ public class CommonTagView extends TextView {
         this.mBorderColor = obtainStyledAttributes.getColor(b.h.CommonTagView_borderColor, ViewCompat.MEASURED_STATE_MASK);
         this.mCornerRadius = obtainStyledAttributes.getDimensionPixelOffset(b.h.CommonTagView_cornerRadius, 3);
         obtainStyledAttributes.recycle();
-        setPadding(getPaddingLeft() == 0 ? ag.dip2px(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? ag.dip2px(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? ag.dip2px(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? ag.dip2px(context, 1.0f) : getPaddingBottom());
-        de(context);
+        setPadding(getPaddingLeft() == 0 ? ai.dip2px(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? ai.dip2px(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? ai.dip2px(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? ai.dip2px(context, 1.0f) : getPaddingBottom());
+        dj(context);
     }
 
-    private void de(Context context) {
+    private void dj(Context context) {
         this.mContext = context;
         this.mPaint = new Paint();
         this.mRectF = new RectF();
@@ -60,7 +60,7 @@ public class CommonTagView extends TextView {
             this.mPaint.setStyle(Paint.Style.STROKE);
             this.mPaint.setAntiAlias(true);
             this.mPaint.setStrokeWidth(this.mBorderWidth);
-            if (this.cTt && this.mBorderColor != getCurrentTextColor()) {
+            if (this.cYg && this.mBorderColor != getCurrentTextColor()) {
                 this.mBorderColor = getCurrentTextColor();
             }
             this.mPaint.setColor(this.mBorderColor);

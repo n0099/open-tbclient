@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private a aqZ;
+    private a aqV;
     private Map<String, com.baidu.helios.channels.a> b = new HashMap();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         List<com.baidu.helios.channels.a> ut();
     }
 
     public b(a aVar) {
-        this.aqZ = aVar;
+        this.aqV = aVar;
         for (com.baidu.helios.channels.a aVar2 : aVar.ut()) {
             this.b.put(aVar2.getName(), aVar2);
         }

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.network.core;
 
 import java.io.IOException;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public interface Callback {
     void onFailure(Call call, IOException iOException);
 

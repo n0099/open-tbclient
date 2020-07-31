@@ -8,12 +8,12 @@ import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.walknavi.segmentbrowse.c;
 import com.baidu.platform.comapi.wnplatform.o.e;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RGStateCar3D extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
         b.a().Q().l();
-        b.a().Q().c(R.drawable.aiapps_checkbox_checked);
+        b.a().Q().c(R.drawable.aiapps_clickable_toast_icon);
         if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
             if (b.a().J() != 4) {
                 b.a().Q().a(true);
@@ -47,7 +47,7 @@ public class RGStateCar3D extends RGState {
         MapStatus i = b.a().G().i();
         if (i != null) {
             MapStatus.Builder builder = new MapStatus.Builder(i);
-            builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f995top + i.winRound.bottom) / 2) - ((int) (0.0f - (Math.abs(i.winRound.bottom - i.winRound.f995top) * 0.2f)))));
+            builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.top + i.winRound.bottom) / 2) - ((int) (0.0f - (Math.abs(i.winRound.bottom - i.winRound.top) * 0.2f)))));
             builder.rotate(b.a().D().d());
             if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
                 builder.overlook(-50.0f);

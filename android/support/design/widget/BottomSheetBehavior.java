@@ -24,7 +24,7 @@ import android.view.ViewParent;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     private static final float HIDE_FRICTION = 0.1f;
     private static final float HIDE_THRESHOLD = 0.5f;
@@ -57,7 +57,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     ViewDragHelper mViewDragHelper;
     WeakReference<V> mViewRef;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public static abstract class BottomSheetCallback {
         public abstract void onSlide(@NonNull View view, float f);
 
@@ -66,7 +66,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public @interface State {
     }
 
@@ -107,8 +107,8 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                     i = BottomSheetBehavior.this.mParentHeight;
                     i2 = 5;
                 } else if (f2 == 0.0f) {
-                    int top2 = view.getTop();
-                    if (Math.abs(top2 - BottomSheetBehavior.this.mMinOffset) < Math.abs(top2 - BottomSheetBehavior.this.mMaxOffset)) {
+                    int top = view.getTop();
+                    if (Math.abs(top - BottomSheetBehavior.this.mMinOffset) < Math.abs(top - BottomSheetBehavior.this.mMaxOffset)) {
                         i = BottomSheetBehavior.this.mMinOffset;
                     } else {
                         i = BottomSheetBehavior.this.mMaxOffset;
@@ -181,8 +181,8 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                     i = BottomSheetBehavior.this.mParentHeight;
                     i2 = 5;
                 } else if (f2 == 0.0f) {
-                    int top2 = view.getTop();
-                    if (Math.abs(top2 - BottomSheetBehavior.this.mMinOffset) < Math.abs(top2 - BottomSheetBehavior.this.mMaxOffset)) {
+                    int top = view.getTop();
+                    if (Math.abs(top - BottomSheetBehavior.this.mMinOffset) < Math.abs(top - BottomSheetBehavior.this.mMaxOffset)) {
                         i = BottomSheetBehavior.this.mMinOffset;
                     } else {
                         i = BottomSheetBehavior.this.mMaxOffset;
@@ -250,7 +250,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         if (ViewCompat.getFitsSystemWindows(coordinatorLayout) && !ViewCompat.getFitsSystemWindows(v)) {
             ViewCompat.setFitsSystemWindows(v, true);
         }
-        int top2 = v.getTop();
+        int top = v.getTop();
         coordinatorLayout.onLayoutChild(v, i);
         this.mParentHeight = coordinatorLayout.getHeight();
         if (this.mPeekHeightAuto) {
@@ -270,7 +270,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         } else if (this.mState == 4) {
             ViewCompat.offsetTopAndBottom(v, this.mMaxOffset);
         } else if (this.mState == 1 || this.mState == 2) {
-            ViewCompat.offsetTopAndBottom(v, top2 - v.getTop());
+            ViewCompat.offsetTopAndBottom(v, top - v.getTop());
         }
         if (this.mViewDragHelper == null) {
             this.mViewDragHelper = ViewDragHelper.create(coordinatorLayout, this.mDragCallback);
@@ -361,11 +361,11 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, V v, View view, int i, int i2, int[] iArr) {
         if (view == this.mNestedScrollingChildRef.get()) {
-            int top2 = v.getTop();
-            int i3 = top2 - i2;
+            int top = v.getTop();
+            int i3 = top - i2;
             if (i2 > 0) {
                 if (i3 < this.mMinOffset) {
-                    iArr[1] = top2 - this.mMinOffset;
+                    iArr[1] = top - this.mMinOffset;
                     ViewCompat.offsetTopAndBottom(v, -iArr[1]);
                     setStateInternal(3);
                 } else {
@@ -379,7 +379,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                     ViewCompat.offsetTopAndBottom(v, -i2);
                     setStateInternal(1);
                 } else {
-                    iArr[1] = top2 - this.mMaxOffset;
+                    iArr[1] = top - this.mMaxOffset;
                     ViewCompat.offsetTopAndBottom(v, -iArr[1]);
                     setStateInternal(4);
                 }
@@ -403,8 +403,8 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 i = this.mParentHeight;
                 i2 = 5;
             } else if (this.mLastNestedScrollDy == 0) {
-                int top2 = v.getTop();
-                if (Math.abs(top2 - this.mMinOffset) < Math.abs(top2 - this.mMaxOffset)) {
+                int top = v.getTop();
+                if (Math.abs(top - this.mMinOffset) < Math.abs(top - this.mMaxOffset)) {
                     i = this.mMinOffset;
                 } else {
                     i = this.mMaxOffset;
@@ -591,7 +591,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public class SettleRunnable implements Runnable {
         private final int mTargetState;
         private final View mView;
@@ -612,7 +612,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.design.widget.BottomSheetBehavior.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

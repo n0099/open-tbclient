@@ -7,10 +7,10 @@ import com.baidu.card.ai;
 import com.baidu.card.ak;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.f, ak<com.baidu.tieba.homepage.personalize.data.f>> {
-    private com.baidu.adp.widget.ListView.v ajy;
-    public BdUniqueId eyE;
+    private com.baidu.adp.widget.ListView.v ajt;
+    public BdUniqueId eEU;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -21,16 +21,16 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aQ */
+    /* renamed from: aR */
     public ak<com.baidu.tieba.homepage.personalize.data.f> b(ViewGroup viewGroup) {
         ai.a aVar = new ai.a(this.mPageContext.getPageActivity(), false);
-        aVar.c(new com.baidu.tieba.homepage.personalize.view.b(this.mPageContext, this.eyE));
-        aVar.sc().bo(0);
-        aVar.sc().bq(0);
-        aVar.sc().bp(0);
-        aVar.sc().bk(0);
-        ak<com.baidu.tieba.homepage.personalize.data.f> akVar = new ak<>(aVar.a(true, viewGroup, this.ajy));
-        akVar.setPageId(this.eyE);
+        aVar.c(new com.baidu.tieba.homepage.personalize.view.b(this.mPageContext, this.eEU));
+        aVar.se().bq(0);
+        aVar.se().bs(0);
+        aVar.se().br(0);
+        aVar.se().bm(0);
+        ak<com.baidu.tieba.homepage.personalize.data.f> akVar = new ak<>(aVar.a(true, viewGroup, this.ajt));
+        akVar.setPageId(this.eEU);
         return akVar;
     }
 
@@ -42,13 +42,13 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             return null;
         }
         akVar.b((ak<com.baidu.tieba.homepage.personalize.data.f>) fVar);
-        akVar.se().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.card.s.bOB().e(fVar.ckb());
-        com.baidu.tieba.a.d.boB().e(fVar.ckb());
+        akVar.sg().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        com.baidu.tieba.card.s.bRL().e(fVar.cnC());
+        com.baidu.tieba.a.d.brD().e(fVar.cnC());
         return akVar.getView();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.eyE = bdUniqueId;
+        this.eEU = bdUniqueId;
     }
 }

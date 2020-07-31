@@ -2,7 +2,7 @@ package com.baidu.fsg.face.liveness.video;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class h implements c {
     public static final int f = 24;
     public static final int g = 1;

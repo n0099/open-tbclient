@@ -1,28 +1,28 @@
 package com.baidu.live.e;
 
 import com.baidu.live.adp.widget.IGuideTab;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private static volatile a aws;
-    private b awt;
+    private static volatile a axx;
+    private b axy;
 
     private a() {
     }
 
-    public static a wg() {
-        if (aws == null) {
+    public static a wC() {
+        if (axx == null) {
             synchronized (a.class) {
-                if (aws == null) {
-                    aws = new a();
+                if (axx == null) {
+                    axx = new a();
                 }
             }
         }
-        return aws;
+        return axx;
     }
 
-    public IGuideTab wh() {
-        if (this.awt != null) {
-            return this.awt.wi();
+    public IGuideTab wD() {
+        if (this.axy != null) {
+            return this.axy.wE();
         }
         return null;
     }

@@ -3,7 +3,7 @@ package com.baidu.android.util.android;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.view.accessibility.AccessibilityManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class AccessibilityUtil {
     private static final String MODE_ACCESSIBILITY_TAG = "talkback";
 

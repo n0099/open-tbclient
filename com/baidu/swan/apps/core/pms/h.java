@@ -8,7 +8,7 @@ import com.baidu.swan.apps.SwanAppActivity;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class h {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -36,10 +36,10 @@ public class h {
         }
         switch (c) {
             case 0:
-                jD(str2);
+                jU(str2);
                 return;
             case 1:
-                jE(str2);
+                jV(str2);
                 return;
             case 2:
                 I(str2, z);
@@ -49,24 +49,20 @@ public class h {
         }
     }
 
-    private static void jD(String str) {
+    private static void jU(String str) {
         if (DEBUG) {
             Log.d("SwanAppPkgUpdateManager", "send update ready msg");
         }
         c("updateReady", str, null);
     }
 
-    private static void jE(String str) {
-        if (DEBUG) {
-            Log.d("SwanAppPkgUpdateManager", "send update failed msg");
-        }
+    private static void jV(String str) {
+        com.baidu.swan.apps.console.c.aW("SwanAppPkgUpdateManager", "send update failed msg");
         c("updateFailed", str, null);
     }
 
     private static void I(String str, boolean z) {
-        if (DEBUG) {
-            Log.d("SwanAppPkgUpdateManager", "send checkForUpdate msg, hasUpdate=" + z);
-        }
+        com.baidu.swan.apps.console.c.aW("SwanAppPkgUpdateManager", "send checkForUpdate msg, hasUpdate=" + z);
         Bundle bundle = new Bundle();
         bundle.putBoolean("hasUpdate", z);
         c("checkForUpdate", str, bundle);
@@ -74,17 +70,14 @@ public class h {
 
     private static void c(String str, String str2, Bundle bundle) {
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
-            if (DEBUG) {
-                Log.d("SwanAppPkgUpdateManager", "appId is empty or eventType is empty");
-                return;
-            }
+            com.baidu.swan.apps.console.c.aW("SwanAppPkgUpdateManager", "appId is empty or eventType is empty");
             return;
         }
         if (bundle == null) {
             bundle = new Bundle();
         }
         bundle.putString("eventType", str);
-        com.baidu.swan.apps.process.messaging.a.anM().a(new com.baidu.swan.apps.process.messaging.c(107, bundle).t(str2));
+        com.baidu.swan.apps.process.messaging.a.apw().a(new com.baidu.swan.apps.process.messaging.c(107, bundle).t(str2));
     }
 
     public static void l(Message message) {
@@ -105,11 +98,11 @@ public class h {
             }
             hashMap.put("data", jSONObject.toString());
             com.baidu.swan.apps.event.a.b bVar = new com.baidu.swan.apps.event.a.b("updateStatusChange", hashMap);
-            SwanAppActivity aiL = com.baidu.swan.apps.w.f.ajb().aiL();
-            if (aiL != null && aiL.RF() == 1) {
-                com.baidu.swan.games.aa.a.aDe().ai(string, bundle.getBoolean("hasUpdate"));
+            SwanAppActivity akb = com.baidu.swan.apps.v.f.akr().akb();
+            if (akb != null && akb.RU() == 1) {
+                com.baidu.swan.games.aa.a.aGL().ah(string, bundle.getBoolean("hasUpdate"));
             } else {
-                com.baidu.swan.apps.w.f.ajb().a(bVar);
+                com.baidu.swan.apps.v.f.akr().a(bVar);
             }
         }
     }

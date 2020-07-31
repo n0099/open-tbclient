@@ -9,26 +9,26 @@ import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private static final b bEB = new b();
-    private final int bEA;
-    private final int bEw;
-    private final int bEx;
-    private int bEy;
-    private int bEz;
-    private final com.baidu.prologue.a.b.a bEv = com.baidu.prologue.a.b.a.bEl.get();
-    private final boolean DEBUG = this.bEv.OJ();
+    private static final b bEY = new b();
+    private final int bET;
+    private final int bEU;
+    private int bEV;
+    private int bEW;
+    private final int bEX;
+    private final com.baidu.prologue.a.b.a bES = com.baidu.prologue.a.b.a.bEI.get();
+    private final boolean DEBUG = this.bES.OY();
 
     private b() {
-        DisplayMetrics displayMetrics = this.bEv.Oz().getResources().getDisplayMetrics();
-        this.bEx = displayMetrics.heightPixels;
-        this.bEw = displayMetrics.widthPixels;
-        this.bEA = displayMetrics.densityDpi;
+        DisplayMetrics displayMetrics = this.bES.OO().getResources().getDisplayMetrics();
+        this.bEU = displayMetrics.heightPixels;
+        this.bET = displayMetrics.widthPixels;
+        this.bEX = displayMetrics.densityDpi;
     }
 
-    public static b OY() {
-        return bEB;
+    public static b Pn() {
+        return bEY;
     }
 
     public String a(@NonNull View view, @NonNull int[] iArr) {
@@ -36,25 +36,25 @@ public class b {
         view.getLocationOnScreen(iArr2);
         int i = iArr2[1];
         int height = i + view.getHeight();
-        Point Z = Z(view);
-        int i2 = this.bEw;
-        int i3 = this.bEx;
-        if (Z != null) {
-            i2 = Z.x;
-            i3 = Z.y;
-            this.bEy = Z.x;
-            this.bEz = Z.y;
+        Point ac = ac(view);
+        int i2 = this.bET;
+        int i3 = this.bEU;
+        if (ac != null) {
+            i2 = ac.x;
+            i3 = ac.y;
+            this.bEV = ac.x;
+            this.bEW = ac.y;
         }
         String[] strArr = new String[9];
         strArr[0] = "v2";
-        strArr[1] = this.bEv.OL() ? "1" : "0";
+        strArr[1] = this.bES.Pa() ? "1" : "0";
         strArr[2] = String.valueOf(iArr[0]);
         strArr[3] = String.valueOf(iArr[1]);
         strArr[4] = String.valueOf(i);
         strArr[5] = String.valueOf(height);
         strArr[6] = String.valueOf(i2);
         strArr[7] = String.valueOf(i3);
-        strArr[8] = String.valueOf(this.bEA);
+        strArr[8] = String.valueOf(this.bEX);
         String join = TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, strArr);
         if (this.DEBUG) {
             Log.d("ClickInfoProvider", "createHotPictureParams info:" + join);
@@ -65,11 +65,11 @@ public class b {
         return join;
     }
 
-    public int[] OZ() {
-        return this.bEy != 0 ? new int[]{this.bEy, this.bEz, this.bEA} : new int[]{this.bEw, this.bEx, this.bEA};
+    public int[] Po() {
+        return this.bEV != 0 ? new int[]{this.bEV, this.bEW, this.bEX} : new int[]{this.bET, this.bEU, this.bEX};
     }
 
-    private Point Z(@NonNull View view) {
+    private Point ac(@NonNull View view) {
         Display display;
         if (Build.VERSION.SDK_INT < 17 || (display = view.getDisplay()) == null) {
             return null;

@@ -2,7 +2,7 @@ package com.tencent.open.utils;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class e {
     private static Context a;
 

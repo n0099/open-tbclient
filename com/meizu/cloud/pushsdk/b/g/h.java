@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.b.g;
 
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 final class h implements c {
     public final b a;
     public final l b;

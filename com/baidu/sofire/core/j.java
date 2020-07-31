@@ -1,7 +1,7 @@
 package com.baidu.sofire.core;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class j {
     public static void a(Context context) {
         try {

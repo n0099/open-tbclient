@@ -9,7 +9,7 @@ import com.baidu.mobstat.Config;
 import com.baidu.searchbox.ugc.transcoder.TranscoderManager;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes14.dex */
 public class TranscoderPlugin implements TranscoderManager.OnCompletionListener, TranscoderManager.OnErrorListener, TranscoderManager.OnInfoListener {
     public static final String AUDIO_CODEC = "aac";
     public static final String KEY_SUPPORT_HW_ENCODE = "support_hw_encode";
@@ -28,7 +28,7 @@ public class TranscoderPlugin implements TranscoderManager.OnCompletionListener,
     private volatile int mStatus = 0;
     private Map<String, String> mVideoParams = new HashMap();
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes14.dex */
     public interface Status {
         public static final int COMPLETION = 4;
         public static final int ERROR = 2;

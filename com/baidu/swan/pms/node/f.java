@@ -1,5 +1,5 @@
 package com.baidu.swan.pms.node;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class f {
     public static c a(Node node) {
         Class<? extends c> processor;

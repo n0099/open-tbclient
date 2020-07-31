@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import com.kascend.chushou.a;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RippleButton extends FrameLayout implements View.OnClickListener {
     private LinkedList<a> a;
     private Paint b;
@@ -28,7 +28,7 @@ public class RippleButton extends FrameLayout implements View.OnClickListener {
     private float i;
     private float j;
     private float k;
-    private View.OnClickListener nyy;
+    private View.OnClickListener nHh;
 
     public RippleButton(@NonNull Context context) {
         this(context, null);
@@ -62,7 +62,7 @@ public class RippleButton extends FrameLayout implements View.OnClickListener {
 
     @Override // android.view.View
     public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
-        this.nyy = onClickListener;
+        this.nHh = onClickListener;
         this.g.setOnClickListener(this);
     }
 
@@ -98,8 +98,8 @@ public class RippleButton extends FrameLayout implements View.OnClickListener {
             }
         });
         ofFloat.start();
-        if (this.nyy != null) {
-            this.nyy.onClick(this);
+        if (this.nHh != null) {
+            this.nHh.onClick(this);
         }
     }
 
@@ -138,7 +138,7 @@ public class RippleButton extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         float a;
 

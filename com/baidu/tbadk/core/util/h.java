@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class h extends DiskFileOperate {
-    protected a dSZ;
+    protected a dZr;
     protected Bitmap mBitmap;
     protected BitmapFactory.Options mOptions;
 
@@ -15,16 +15,16 @@ public class h extends DiskFileOperate {
         super(str, str2, action);
         this.mBitmap = null;
         this.mOptions = null;
-        this.dSZ = null;
-        this.dSZ = new a();
+        this.dZr = null;
+        this.dZr = new a();
     }
 
     public boolean isGif() {
-        return this.dSZ.mIsGif;
+        return this.dZr.mIsGif;
     }
 
     public void setGif(boolean z) {
-        this.dSZ.mIsGif = z;
+        this.dZr.mIsGif = z;
     }
 
     public Bitmap getBitmap() {
@@ -44,7 +44,7 @@ public class h extends DiskFileOperate {
         if (this.mData == null) {
             return null;
         }
-        return this.dSZ.toByteArray();
+        return this.dZr.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -56,8 +56,8 @@ public class h extends DiskFileOperate {
             this.mOptions = new BitmapFactory.Options();
             this.mOptions.inPreferredConfig = Bitmap.Config.RGB_565;
         }
-        boolean paserFromByte = this.dSZ.paserFromByte(bArr);
-        if (this.dSZ.mValidTime == 0 || this.dSZ.mValidTime >= System.currentTimeMillis()) {
+        boolean paserFromByte = this.dZr.paserFromByte(bArr);
+        if (this.dZr.mValidTime == 0 || this.dZr.mValidTime >= System.currentTimeMillis()) {
             int headerSize = a.getHeaderSize();
             if (!paserFromByte) {
                 headerSize = 0;

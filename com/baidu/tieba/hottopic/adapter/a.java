@@ -9,125 +9,125 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.VideoMiddlePageActivityConfig;
 import com.baidu.tieba.card.aa;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
-/* loaded from: classes8.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.l, C0642a> {
-    private BdUniqueId eyE;
-    private aa<com.baidu.tieba.card.data.l> hfO;
-    private com.baidu.tieba.card.l iBT;
+/* loaded from: classes15.dex */
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.l, C0652a> {
+    private BdUniqueId eEU;
+    private aa<com.baidu.tieba.card.data.l> hly;
+    private com.baidu.tieba.card.l iHX;
     private TbPageContext<HotTopicActivity> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<HotTopicActivity> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.hfO = new aa<com.baidu.tieba.card.data.l>() { // from class: com.baidu.tieba.hottopic.adapter.a.1
+        this.hly = new aa<com.baidu.tieba.card.data.l>() { // from class: com.baidu.tieba.hottopic.adapter.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, com.baidu.tieba.card.data.l lVar) {
-                if (lVar != null && lVar.aPS() != null && !StringUtils.isNull(lVar.aPS().getTid()) && !StringUtils.isNull(lVar.bOO()) && a.this.mPageContext != null && (a.this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
+                if (lVar != null && lVar.aTN() != null && !StringUtils.isNull(lVar.aTN().getTid()) && !StringUtils.isNull(lVar.bRZ()) && a.this.mPageContext != null && (a.this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
                     ((HotTopicActivity) a.this.mPageContext.getOrignalPage()).t(lVar);
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.eyE = tbPageContext.getUniqueId();
+        this.eEU = tbPageContext.getUniqueId();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bI */
-    public C0642a b(ViewGroup viewGroup) {
-        this.iBT = new com.baidu.tieba.card.l(this.mPageContext);
-        this.iBT.lV(false);
-        this.iBT.o(this.eyE);
-        this.iBT.setFrom(VideoMiddlePageActivityConfig.FROM_HOTTOPIC);
-        return new C0642a(this.iBT);
+    /* renamed from: bJ */
+    public C0652a b(ViewGroup viewGroup) {
+        this.iHX = new com.baidu.tieba.card.l(this.mPageContext);
+        this.iHX.mA(false);
+        this.iHX.p(this.eEU);
+        this.iHX.setFrom(VideoMiddlePageActivityConfig.FROM_HOTTOPIC);
+        return new C0652a(this.iHX);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.l lVar, C0642a c0642a) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.l lVar, C0652a c0652a) {
         if (lVar != null) {
-            lVar.sR(i + 1);
+            lVar.tj(i + 1);
             lVar.sourceType = 1;
         }
-        c0642a.iBV.a(lVar);
-        c0642a.iBV.c(this.hfO);
+        c0652a.iHZ.a(lVar);
+        c0652a.iHZ.c(this.hly);
         if (this.mPageContext != null && (this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
             this.mPageContext.getOrignalPage().s(lVar);
         }
-        return c0642a.getView();
+        return c0652a.getView();
     }
 
     /* renamed from: com.baidu.tieba.hottopic.adapter.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0642a extends ad.a implements com.baidu.tieba.play.f {
-        public com.baidu.tieba.card.l iBV;
+    /* loaded from: classes15.dex */
+    public static class C0652a extends ad.a implements com.baidu.tieba.play.e {
+        public com.baidu.tieba.card.l iHZ;
 
-        public C0642a(com.baidu.tieba.card.l lVar) {
+        public C0652a(com.baidu.tieba.card.l lVar) {
             super(lVar.getView());
-            this.iBV = lVar;
+            this.iHZ = lVar;
         }
 
-        @Override // com.baidu.tieba.play.f
+        @Override // com.baidu.tieba.play.e
         public boolean isPlayStarted() {
-            if (this.iBV == null) {
+            if (this.iHZ == null) {
                 return false;
             }
-            return this.iBV.isPlayStarted();
+            return this.iHZ.isPlayStarted();
         }
 
-        @Override // com.baidu.tieba.play.f
+        @Override // com.baidu.tieba.play.e
         public boolean isPlaying() {
-            if (this.iBV == null) {
+            if (this.iHZ == null) {
                 return false;
             }
-            return this.iBV.isPlaying();
+            return this.iHZ.isPlaying();
         }
 
-        @Override // com.baidu.tieba.play.f
+        @Override // com.baidu.tieba.play.e
         public boolean isFullScreen() {
             return false;
         }
 
-        @Override // com.baidu.tieba.play.f
+        @Override // com.baidu.tieba.play.e
         public void startPlay() {
-            if (this.iBV != null) {
-                this.iBV.startPlay();
+            if (this.iHZ != null) {
+                this.iHZ.startPlay();
             }
         }
 
-        @Override // com.baidu.tieba.play.f
+        @Override // com.baidu.tieba.play.e
         public void stopPlay() {
-            if (this.iBV != null) {
-                this.iBV.stopPlay();
+            if (this.iHZ != null) {
+                this.iHZ.stopPlay();
             }
         }
 
-        @Override // com.baidu.tieba.play.f
+        @Override // com.baidu.tieba.play.e
         public View getVideoContainer() {
-            if (this.iBV == null) {
+            if (this.iHZ == null) {
                 return null;
             }
-            return this.iBV.getVideoContainer();
+            return this.iHZ.getVideoContainer();
         }
 
-        @Override // com.baidu.tieba.play.f
+        @Override // com.baidu.tieba.play.e
         public String getPlayUrl() {
-            if (this.iBV == null) {
+            if (this.iHZ == null) {
                 return null;
             }
-            return this.iBV.getPlayUrl();
+            return this.iHZ.getPlayUrl();
         }
 
-        @Override // com.baidu.tieba.play.f
+        @Override // com.baidu.tieba.play.e
         public int getCurrentPosition() {
-            if (this.iBV == null) {
+            if (this.iHZ == null) {
                 return 0;
             }
-            return this.iBV.getCurrentPosition();
+            return this.iHZ.getCurrentPosition();
         }
     }
 }

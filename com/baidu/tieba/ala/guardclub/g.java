@@ -4,38 +4,38 @@ import android.view.View;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.tieba.ala.guardclub.model.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g {
-    private com.baidu.tieba.ala.guardclub.view.d fJr;
-    private e.a fJt = new e.a() { // from class: com.baidu.tieba.ala.guardclub.g.1
+    private com.baidu.tieba.ala.guardclub.view.d fOM;
+    private e.a fOO = new e.a() { // from class: com.baidu.tieba.ala.guardclub.g.1
     };
-    private BdUniqueId aZD = BdUniqueId.gen();
-    private com.baidu.tieba.ala.guardclub.model.e fJs = new com.baidu.tieba.ala.guardclub.model.e(this.aZD, this.fJt);
+    private BdUniqueId aZB = BdUniqueId.gen();
+    private com.baidu.tieba.ala.guardclub.model.e fON = new com.baidu.tieba.ala.guardclub.model.e(this.aZB, this.fOO);
 
     public g(BaseActivity baseActivity, String str, BdUniqueId bdUniqueId) {
-        this.fJr = new com.baidu.tieba.ala.guardclub.view.d(baseActivity, bdUniqueId);
-        this.fJr.setOtherParams(str);
-        this.fJs.a(this.fJr);
-        this.fJr.f(this.fJs);
+        this.fOM = new com.baidu.tieba.ala.guardclub.view.d(baseActivity, bdUniqueId);
+        this.fOM.setOtherParams(str);
+        this.fON.a(this.fOM);
+        this.fOM.f(this.fON);
     }
 
     public View getView() {
-        return this.fJr.getView();
+        return this.fOM.getView();
     }
 
     public void notifyDataSetInvalidated() {
-        if (this.fJr != null) {
-            this.fJr.notifyDataSetInvalidated();
+        if (this.fOM != null) {
+            this.fOM.notifyDataSetInvalidated();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aDK() {
-        if (this.fJs != null) {
-            this.fJs.onDestory();
+    public void aHB() {
+        if (this.fON != null) {
+            this.fON.onDestory();
         }
-        if (this.fJr != null) {
-            this.fJr.bxu();
+        if (this.fOM != null) {
+            this.fOM.bAK();
         }
     }
 }

@@ -5,11 +5,11 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ao;
-/* loaded from: classes9.dex */
+import com.baidu.tbadk.core.util.ap;
+/* loaded from: classes16.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.j>> {
-    private BdUniqueId eyE;
-    private com.baidu.tieba.card.j itd;
+    private BdUniqueId eEU;
+    private com.baidu.tieba.card.j izh;
     private TbPageContext<?> mPageContext;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.ad$a] */
@@ -20,46 +20,46 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     public b(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.iuQ);
+        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.iAU);
         this.mPageContext = tbPageContext;
-        this.itd = new com.baidu.tieba.card.j(this.mPageContext);
-        this.itd.x("c10714", "c10739", "c10712", "c10738");
-        this.itd.setFrom("home");
+        this.izh = new com.baidu.tieba.card.j(this.mPageContext);
+        this.izh.x("c10714", "c10739", "c10712", "c10738");
+        this.izh.setFrom("home");
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.eyE = bdUniqueId;
-        if (this.itd != null) {
-            this.itd.l(this.eyE);
+        this.eEU = bdUniqueId;
+        if (this.izh != null) {
+            this.izh.m(this.eEU);
         }
     }
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.b bVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar.bPh() == null) {
+        if (aVar.bSs() == null) {
             return null;
         }
-        aVar.bPh().a(bVar);
-        com.baidu.tieba.card.s.bOB().e(new ao("c10714").dk(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.bOs()));
+        aVar.bSs().a(bVar);
+        com.baidu.tieba.card.s.bRL().e(new ap("c10714").dn(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.bRC()));
         return aVar.getView();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aK */
+    /* renamed from: aL */
     public com.baidu.tieba.card.a.a b(ViewGroup viewGroup) {
-        if (this.itd == null) {
-            this.itd = new com.baidu.tieba.card.j(this.mPageContext);
-            this.itd.l(this.eyE);
-            this.itd.x("c10714", "c10739", "c10712", "c10738");
+        if (this.izh == null) {
+            this.izh = new com.baidu.tieba.card.j(this.mPageContext);
+            this.izh.m(this.eEU);
+            this.izh.x("c10714", "c10739", "c10712", "c10738");
         }
-        return new com.baidu.tieba.card.a.a(this.itd);
+        return new com.baidu.tieba.card.a.a(this.izh);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.itd != null) {
-            this.itd.onChangeSkinType(this.mPageContext, i);
+        if (this.izh != null) {
+            this.izh.onChangeSkinType(this.mPageContext, i);
         }
     }
 }

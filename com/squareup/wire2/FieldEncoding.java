@@ -2,7 +2,7 @@ package com.squareup.wire2;
 
 import java.io.IOException;
 import java.net.ProtocolException;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public enum FieldEncoding {
     VARINT(0),
     FIXED64(1),

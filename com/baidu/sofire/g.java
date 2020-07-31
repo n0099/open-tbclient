@@ -2,7 +2,7 @@ package com.baidu.sofire;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class g {
     public SharedPreferences a;
     public SharedPreferences.Editor b;

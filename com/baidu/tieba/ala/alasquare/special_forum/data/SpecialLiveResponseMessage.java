@@ -6,7 +6,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
     private h mData;
 
@@ -19,12 +19,12 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             this.mData = new h();
-            this.mData.ftP = jSONObject.optInt("concern_live_show") == 1;
+            this.mData.fyW = jSONObject.optInt("concern_live_show") == 1;
             JSONObject optJSONObject = jSONObject.optJSONObject("head_live");
             if (optJSONObject != null) {
                 a aVar = new a();
                 aVar.parse(optJSONObject);
-                this.mData.ftO = aVar;
+                this.mData.fyV = aVar;
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("tab_info");
             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -43,14 +43,14 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject2 != null) {
                 AlaUserInfoData alaUserInfoData = new AlaUserInfoData();
                 alaUserInfoData.parserJson(optJSONObject2);
-                this.mData.ftR = alaUserInfoData;
+                this.mData.fyY = alaUserInfoData;
             }
-            this.mData.ftQ = jSONObject.optInt("is_like") == 1;
+            this.mData.fyX = jSONObject.optInt("is_like") == 1;
             JSONObject optJSONObject3 = jSONObject.optJSONObject("user_sign_info");
             if (optJSONObject2 != null) {
                 i iVar = new i();
                 iVar.parserJson(optJSONObject3);
-                this.mData.ftS = iVar;
+                this.mData.fyZ = iVar;
             }
         }
     }

@@ -15,7 +15,7 @@ import rx.j;
 import rx.k;
 /* loaded from: classes6.dex */
 public final class UnicastSubject<T> extends c<T, T> {
-    final State<T> ohQ;
+    final State<T> oqz;
 
     public static <T> UnicastSubject<T> a(int i, rx.functions.a aVar) {
         return new UnicastSubject<>(new State(i, aVar));
@@ -23,22 +23,22 @@ public final class UnicastSubject<T> extends c<T, T> {
 
     private UnicastSubject(State<T> state) {
         super(state);
-        this.ohQ = state;
+        this.oqz = state;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.ohQ.onNext(t);
+        this.oqz.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.ohQ.onError(th);
+        this.oqz.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.ohQ.onCompleted();
+        this.oqz.onCompleted();
     }
 
     /* loaded from: classes6.dex */
@@ -62,9 +62,9 @@ public final class UnicastSubject<T> extends c<T, T> {
             Queue<Object> xVar;
             this.terminateOnce = aVar != null ? new AtomicReference<>(aVar) : null;
             if (i > 1) {
-                xVar = ae.dVf() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
+                xVar = ae.dYB() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
             } else {
-                xVar = ae.dVf() ? new x<>() : new rx.internal.util.atomic.e<>();
+                xVar = ae.dYB() ? new x<>() : new rx.internal.util.atomic.e<>();
             }
             this.queue = xVar;
         }
@@ -210,7 +210,7 @@ public final class UnicastSubject<T> extends c<T, T> {
                                         j3 = 1 + j;
                                     } catch (Throwable th) {
                                         queue.clear();
-                                        rx.exceptions.a.L(th);
+                                        rx.exceptions.a.K(th);
                                         jVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
                                         return;
                                     }

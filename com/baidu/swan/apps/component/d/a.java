@@ -2,11 +2,11 @@ package com.baidu.swan.apps.component.d;
 
 import android.support.annotation.IntRange;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int bVG = 5;
-    private int[] bVH;
+    private static int bWx = 5;
+    private int[] bWy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i) {
@@ -27,11 +27,11 @@ public class a {
             }
             i = 500;
         }
-        this.bVH = new int[eI(i - 1) + 1];
-        int length = this.bVH.length;
+        this.bWy = new int[eK(i - 1) + 1];
+        int length = this.bWy.length;
         if (z) {
             for (int i2 = 0; i2 < length; i2++) {
-                this.bVH[i2] = -1;
+                this.bWy[i2] = -1;
             }
         }
     }
@@ -44,7 +44,7 @@ public class a {
             }
             return;
         }
-        int length = (this.bVH.length << bVG) - 1;
+        int length = (this.bWy.length << bWx) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -53,9 +53,9 @@ public class a {
             }
             return;
         }
-        int[] iArr = this.bVH;
-        int eI = eI(i);
-        iArr[eI] = iArr[eI] | (1 << i);
+        int[] iArr = this.bWy;
+        int eK = eK(i);
+        iArr[eK] = iArr[eK] | (1 << i);
     }
 
     public boolean get(@IntRange(from = 0) int i) {
@@ -66,7 +66,7 @@ public class a {
             }
             return false;
         }
-        int length = (this.bVH.length << bVG) - 1;
+        int length = (this.bWy.length << bWx) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -75,10 +75,10 @@ public class a {
             }
             return false;
         }
-        return (this.bVH[eI(i)] & (1 << i)) != 0;
+        return (this.bWy[eK(i)] & (1 << i)) != 0;
     }
 
-    private int eI(int i) {
-        return i >> bVG;
+    private int eK(int i) {
+        return i >> bWx;
     }
 }

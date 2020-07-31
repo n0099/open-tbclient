@@ -7,8 +7,7 @@ import android.util.JsonToken;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class l implements aj<com.tb.airbnb.lottie.model.content.c> {
     private int FV;
 
@@ -88,7 +87,7 @@ public class l implements aj<com.tb.airbnb.lottie.model.content.c> {
         }
     }
 
-    @IntRange(from = 0, to = IjkMediaMeta.AV_CH_LAYOUT_7POINT1_WIDE_BACK)
+    @IntRange(from = 0, to = 255)
     private int a(double d, double[] dArr, double[] dArr2) {
         int i = 1;
         while (true) {

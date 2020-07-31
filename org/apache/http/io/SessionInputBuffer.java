@@ -3,7 +3,7 @@ package org.apache.http.io;
 import java.io.IOException;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public interface SessionInputBuffer {
     HttpTransportMetrics getMetrics();
 

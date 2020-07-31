@@ -11,7 +11,7 @@ import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class ObjectArrayCodec implements ObjectDeserializer, ObjectSerializer {
     public static final ObjectArrayCodec instance = new ObjectArrayCodec();
 
@@ -94,7 +94,7 @@ public class ObjectArrayCodec implements ObjectDeserializer, ObjectSerializer {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x006e */
-    /* JADX WARN: Type inference failed for: r0v1, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r0v1, types: [T, byte[]] */
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
     public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
         Type componentType;

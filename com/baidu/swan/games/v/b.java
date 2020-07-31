@@ -5,62 +5,62 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private static volatile b dhi;
-    private int aMO;
-    private volatile ArrayList<a> dhj = new ArrayList<>(20);
+    private static volatile b dmR;
+    private int aOj;
+    private volatile ArrayList<a> dmS = new ArrayList<>(20);
 
     private b() {
     }
 
-    public static b aCP() {
-        if (dhi == null) {
+    public static b aGw() {
+        if (dmR == null) {
             synchronized (b.class) {
-                if (dhi == null) {
-                    dhi = new b();
+                if (dmR == null) {
+                    dmR = new b();
                 }
             }
         }
-        return dhi;
+        return dmR;
     }
 
     public synchronized void a(a aVar) {
         if (aVar != null) {
-            if (this.dhj.size() < 20) {
-                this.dhj.add(aVar);
+            if (this.dmS.size() < 20) {
+                this.dmS.add(aVar);
             } else {
-                this.aMO++;
+                this.aOj++;
             }
         }
     }
 
-    public synchronized JSONObject aCQ() {
+    public synchronized JSONObject aGx() {
         JSONObject jSONObject;
-        int size = this.dhj.size();
+        int size = this.dmS.size();
         if (size == 0) {
             jSONObject = null;
         } else {
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject2.put("dropcnt", this.aMO);
+                jSONObject2.put("dropcnt", this.aOj);
                 jSONObject2.put("errorcnt", size);
                 JSONArray jSONArray = new JSONArray();
                 jSONObject2.put("errors", jSONArray);
-                Iterator<a> it = this.dhj.iterator();
+                Iterator<a> it = this.dmS.iterator();
                 while (it.hasNext()) {
                     jSONArray.put(it.next().toJSON());
                 }
             } catch (JSONException e) {
             }
-            this.dhj.clear();
+            this.dmS.clear();
             jSONObject = jSONObject2;
         }
         return jSONObject;
     }
 
     public synchronized void clear() {
-        this.dhj.clear();
-        this.aMO = 0;
+        this.dmS.clear();
+        this.aOj = 0;
     }
 }

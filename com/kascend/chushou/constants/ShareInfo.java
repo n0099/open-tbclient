@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ShareInfo implements Parcelable, Serializable {
     public static final Parcelable.Creator<ShareInfo> CREATOR = new Parcelable.Creator<ShareInfo>() { // from class: com.kascend.chushou.constants.ShareInfo.1
         /* JADX DEBUG: Method merged with bridge method */

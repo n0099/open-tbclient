@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.frs.FrsTabViewPager;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class FrsNoFullViewPager extends FrsTabViewPager {
     public FrsNoFullViewPager(Context context) {
         this(context, null);

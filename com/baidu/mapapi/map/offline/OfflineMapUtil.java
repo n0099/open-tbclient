@@ -5,7 +5,7 @@ import com.baidu.mapsdkplatform.comapi.map.q;
 import com.baidu.mapsdkplatform.comapi.map.t;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class OfflineMapUtil {
     public static MKOLSearchRecord getSearchRecordFromLocalCityInfo(q qVar) {
         long j;

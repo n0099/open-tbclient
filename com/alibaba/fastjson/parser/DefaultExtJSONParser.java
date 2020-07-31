@@ -1,6 +1,6 @@
 package com.alibaba.fastjson.parser;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class DefaultExtJSONParser extends DefaultJSONParser {
     public DefaultExtJSONParser(String str) {
         this(str, ParserConfig.getGlobalInstance());

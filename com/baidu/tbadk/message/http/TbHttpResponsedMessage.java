@@ -5,7 +5,7 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.network.http.d;
 import com.baidu.adp.lib.network.http.e;
 import com.baidu.adp.lib.util.j;
-import com.baidu.tbadk.core.util.ab;
+import com.baidu.tbadk.core.util.ac;
 /* loaded from: classes.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public TbHttpResponsedMessage(int i) {
@@ -54,14 +54,14 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public void logStatInBackground(int i, e eVar) {
         if (eVar.kV().size() > 0) {
             d dVar = eVar.kV().get(eVar.kV().size() - 1);
-            ab.mErrorNums.addAndGet(eVar.kV().size() - 1);
-            ab.a aVar = new ab.a();
+            ac.mErrorNums.addAndGet(eVar.kV().size() - 1);
+            ac.a aVar = new ac.a();
             aVar.mMode = getMode(j.netType());
             aVar.mSize = dVar.downloadSize;
             aVar.mTime = dVar.KE;
             aVar.mTimesNum = dVar.retry;
             aVar.mMethod = eVar.kT().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
-            ab.a(aVar);
+            ac.a(aVar);
         }
     }
 }

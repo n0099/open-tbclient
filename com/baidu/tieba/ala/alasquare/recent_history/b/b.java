@@ -1,26 +1,26 @@
 package com.baidu.tieba.ala.alasquare.recent_history.b;
 
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
-    public bu dLi;
-    public long fsI;
+    public bv dLK;
+    public long fxQ;
     public boolean isFollow;
     public List<a> tagList;
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.isFollow = jSONObject.optInt("is_follow") == 1;
-            this.fsI = jSONObject.optLong("last_watch_time");
+            this.fxQ = jSONObject.optLong("last_watch_time");
             JSONObject optJSONObject = jSONObject.optJSONObject("thread_info");
             if (optJSONObject != null) {
-                this.dLi = new bu();
-                this.dLi.parserJson(optJSONObject);
+                this.dLK = new bv();
+                this.dLK.parserJson(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray(CommandMessage.TYPE_TAGS);
             if (optJSONArray != null) {
@@ -38,15 +38,15 @@ public class b {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
-        public int awC;
-        public String fsJ;
+        public int axP;
+        public String fxR;
 
         public void parse(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.awC = jSONObject.optInt("tag_type");
-                this.fsJ = jSONObject.optString("tag_word");
+                this.axP = jSONObject.optInt("tag_type");
+                this.fxR = jSONObject.optString("tag_word");
             }
         }
     }

@@ -59,8 +59,8 @@ public class i implements g {
                         i.this.v(new k.e(2, "cannot connect"));
                     } else {
                         i.this.Pj = System.currentTimeMillis() - currentTimeMillis;
+                        i.this.ng();
                         i.this.nf();
-                        i.this.ne();
                         k.b bVar = new k.b(i.this.Pa + ":" + i.this.Pb);
                         bVar.mPath = i.this.Pc;
                         bVar.mQuery = i.this.Pd;
@@ -84,7 +84,7 @@ public class i implements g {
     }
 
     public i() {
-        nd();
+        ne();
     }
 
     public boolean sendMessage(c cVar) {
@@ -203,7 +203,7 @@ public class i implements g {
         this.OU.sendMessage(obtainMessage);
     }
 
-    protected void nd() {
+    protected void ne() {
         this.OU = new Handler() { // from class: com.baidu.adp.lib.webSocket.i.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
@@ -233,7 +233,7 @@ public class i implements g {
                 } else if (message.obj instanceof k.C0025k) {
                     k.C0025k c0025k2 = (k.C0025k) message.obj;
                     if (i.this.Pe != null) {
-                        i.this.Pe.mW();
+                        i.this.Pe.mX();
                     }
                 } else if (message.obj instanceof k.c) {
                     i.this.close(1, null);
@@ -297,18 +297,18 @@ public class i implements g {
     protected void w(Object obj) {
     }
 
-    protected void ne() {
+    protected void nf() {
         HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
         handlerThread.start();
         this.OW = new o(handlerThread.getLooper(), this.OU, this.OX, this.Pf);
     }
 
-    protected void nf() {
+    protected void ng() {
         this.OV = new m(this.OU, this.OX, this.Pf, "WebSocketReader");
         this.OV.start();
     }
 
-    public boolean ng() {
+    public boolean nh() {
         return this.Pk != null;
     }
 
@@ -325,9 +325,9 @@ public class i implements g {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void na() {
+    public void nb() {
         if (this.OW != null) {
-            this.OW.na();
+            this.OW.nb();
         }
     }
 
@@ -338,9 +338,9 @@ public class i implements g {
         return 0L;
     }
 
-    public void nb() {
+    public void nc() {
         if (this.OV != null) {
-            this.OV.nb();
+            this.OV.nc();
         }
     }
 
@@ -351,21 +351,21 @@ public class i implements g {
         return 0L;
     }
 
-    public long nh() {
+    public long ni() {
         if (this.OX != null) {
-            return this.OX.mU();
+            return this.OX.mV();
         }
         return 0L;
     }
 
-    public String ni() {
+    public String nj() {
         if (this.OX != null) {
-            return this.OX.mT();
+            return this.OX.mU();
         }
         return null;
     }
 
-    public long nj() {
+    public long nk() {
         return this.Pj;
     }
 

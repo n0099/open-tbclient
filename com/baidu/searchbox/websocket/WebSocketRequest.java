@@ -14,7 +14,7 @@ import kotlin.sequences.e;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @h
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class WebSocketRequest {
     public static final Companion Companion = new Companion(null);
     public static final String PARAM_KEY_HEADER = "header";
@@ -82,7 +82,7 @@ public final class WebSocketRequest {
         this(r0);
         String url = builder.getUrl();
         if (url == null) {
-            q.dQK();
+            q.dUg();
         }
         this.method = builder.getMethod();
         this.headers = builder.getHeaders();
@@ -91,7 +91,7 @@ public final class WebSocketRequest {
     }
 
     @h
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static final class Companion {
         private Companion() {
         }
@@ -138,14 +138,14 @@ public final class WebSocketRequest {
                     objectRef.element = new JSONArray();
                     ((JSONArray) objectRef.element).put("");
                 }
-                builder.setProtocols(e.b(e.c(kotlin.collections.o.i(kotlin.b.l.dX(0, ((JSONArray) objectRef.element).length())), new WebSocketRequest$Companion$fromJSON$1$2(objectRef))));
+                builder.setProtocols(e.b(e.c(kotlin.collections.o.i(kotlin.b.l.dZ(0, ((JSONArray) objectRef.element).length())), new WebSocketRequest$Companion$fromJSON$1$2(objectRef))));
             }
             return builder.build();
         }
     }
 
     @h
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder {
         private Integer connectionLostTimeout;
         private Map<String, String> headers;

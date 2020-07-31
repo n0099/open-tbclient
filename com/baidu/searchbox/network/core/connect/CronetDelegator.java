@@ -18,7 +18,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class CronetDelegator implements IHttpDelegator {
     private static final boolean DEBUG = false;
     private static final long DEFAULT_CACHE_SIZE = 10485760;
@@ -31,7 +31,7 @@ public class CronetDelegator implements IHttpDelegator {
     private Method mOpenConnectionMethod;
     private RequestClient mRequest;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public enum AppState {
         APP_STATE_BACKGROUND,
         APP_STATE_FOREGROUND
@@ -120,7 +120,7 @@ public class CronetDelegator implements IHttpDelegator {
         this.mRequest = requestClient;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     private class CronetInvocationHandler implements InvocationHandler {
         private CronetInvocationHandler() {
         }

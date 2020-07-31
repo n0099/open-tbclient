@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.bikenavi.widget;
 import android.widget.ImageView;
 import com.baidu.platform.comapi.bikenavi.widget.CustomScrollView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d implements CustomScrollView.b {
     final /* synthetic */ a a;
 

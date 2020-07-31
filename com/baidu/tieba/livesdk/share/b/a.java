@@ -4,9 +4,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
-    public String jwI;
+    public String jFm;
     public int mErrorCode;
     public String mErrorMsg;
 
@@ -22,7 +22,7 @@ public class a {
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
             if (optJSONObject2 != null) {
-                this.jwI = optJSONObject2.optString("usermsg");
+                this.jFm = optJSONObject2.optString("usermsg");
             }
         }
     }

@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.util.httpnet;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HttpNetContext {
     private HttpRequest request = new HttpRequest();
     private HttpResponse response = new HttpResponse();

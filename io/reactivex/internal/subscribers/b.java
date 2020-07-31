@@ -22,18 +22,18 @@ public abstract class b<T, R> implements d<R>, j<T> {
             if (dVar instanceof d) {
                 this.qs = (d) dVar;
             }
-            if (dPB()) {
+            if (dSX()) {
                 this.actual.onSubscribe(this);
-                dPC();
+                dSY();
             }
         }
     }
 
-    protected boolean dPB() {
+    protected boolean dSX() {
         return true;
     }
 
-    protected void dPC() {
+    protected void dSY() {
     }
 
     public void onError(Throwable th) {
@@ -46,8 +46,8 @@ public abstract class b<T, R> implements d<R>, j<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void M(Throwable th) {
-        io.reactivex.exceptions.a.L(th);
+    public final void L(Throwable th) {
+        io.reactivex.exceptions.a.K(th);
         this.s.cancel();
         onError(th);
     }
@@ -60,7 +60,7 @@ public abstract class b<T, R> implements d<R>, j<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int KP(int i) {
+    public final int Lj(int i) {
         d<T> dVar = this.qs;
         if (dVar == null || (i & 4) != 0) {
             return 0;

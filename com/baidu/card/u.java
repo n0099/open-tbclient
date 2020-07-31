@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class u extends b<AbsThreadDataSupport> {
-    private MultiImgLayout aeS;
-    private AbsThreadDataSupport aea;
+    private AbsThreadDataSupport adQ;
+    private MultiImgLayout aeI;
     private String mFrom;
     private int mSkinType;
 
     public u(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.aeS = new MultiImgLayout(context);
+        this.aeI = new MultiImgLayout(context);
     }
 
     public void setFrom(String str) {
@@ -29,42 +29,42 @@ public class u extends b<AbsThreadDataSupport> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.aeS;
+        return this.aeI;
     }
 
     @Override // com.baidu.card.b
     public void setOnCardSubClickListener(com.baidu.tieba.card.aa<AbsThreadDataSupport> aaVar) {
-        this.aeS.setSubClickListener(aaVar);
+        this.aeI.setSubClickListener(aaVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.n
     /* renamed from: b */
     public void D(AbsThreadDataSupport absThreadDataSupport) {
-        this.aea = absThreadDataSupport;
-        this.aeS.setFrom(this.mFrom);
-        this.aeS.D(absThreadDataSupport);
+        this.adQ = absThreadDataSupport;
+        this.aeI.setFrom(this.mFrom);
+        this.aeI.D(absThreadDataSupport);
     }
 
     @Override // com.baidu.card.o
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.an.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
-            this.aeS.aix.onChangeSkinType();
+            com.baidu.tbadk.core.util.ao.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
+            this.aeI.aip.onChangeSkinType();
         }
         this.mSkinType = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
-    public void rI() {
+    public void rK() {
         a(1, new a.b() { // from class: com.baidu.card.u.1
             @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0098a c0098a) {
-                if (u.this.aea != null && u.this.aea.aPS() != null) {
-                    com.baidu.tieba.card.m.DO(u.this.aea.aPS().getId());
-                    com.baidu.tieba.card.m.a(u.this.aeS.mTitle, u.this.aea.aPS().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-                    com.baidu.tieba.card.m.a(u.this.aeS.aeA, u.this.aea.aPS().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+            public boolean a(a.C0096a c0096a) {
+                if (u.this.adQ != null && u.this.adQ.aTN() != null) {
+                    com.baidu.tieba.card.m.Ez(u.this.adQ.aTN().getId());
+                    com.baidu.tieba.card.m.a(u.this.aeI.mTitle, u.this.adQ.aTN().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
+                    com.baidu.tieba.card.m.a(u.this.aeI.aeq, u.this.adQ.aTN().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
                 }
                 return false;
             }
@@ -72,26 +72,26 @@ public class u extends b<AbsThreadDataSupport> {
     }
 
     public void setConstrainLayoutPool(com.baidu.adp.lib.d.b<ConstrainImageLayout> bVar) {
-        if (this.aeS != null) {
-            this.aeS.setConstrainLayoutPool(bVar);
+        if (this.aeI != null) {
+            this.aeI.setConstrainLayoutPool(bVar);
         }
     }
 
     public void setConstrainImagePool(com.baidu.adp.lib.d.b<TbImageView> bVar) {
-        if (this.aeS != null) {
-            this.aeS.setConstrainImagePool(bVar);
+        if (this.aeI != null) {
+            this.aeI.setConstrainImagePool(bVar);
         }
     }
 
     public void setFromCDN(boolean z) {
-        this.aeS.setFromCDN(z);
+        this.aeI.setFromCDN(z);
     }
 
     public void setPreloadSizeReadyCallback(com.baidu.adp.widget.a.b bVar) {
-        this.aeS.setPreloadSizeReadyCallback(bVar);
+        this.aeI.setPreloadSizeReadyCallback(bVar);
     }
 
     public void setNeedFrsTabName(boolean z) {
-        this.aeS.setNeedFrsTabName(z);
+        this.aeI.setNeedFrsTabName(z);
     }
 }

@@ -2,11 +2,11 @@ package com.baidu.tieba.interestlabel.model;
 
 import com.baidu.tieba.interestlabel.b.b;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public interface a {
     void a(LabelRequestEnum labelRequestEnum, b bVar, int i);
 
-    void cwq();
+    void cAo();
 
-    void dE(List<Integer> list);
+    void dL(List<Integer> list);
 }

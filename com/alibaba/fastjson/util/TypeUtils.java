@@ -69,8 +69,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class TypeUtils {
     public static boolean compatibleWithFieldName;
     public static boolean compatibleWithJavaBean;
@@ -828,7 +827,7 @@ public class TypeUtils {
                 return parserConfig2.getDeserializers().get(cls) != null ? (T) JSON.parseObject(JSON.toJSONString(jSONObject), cls) : (T) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, jSONObject);
             }
             if (cls == Locale.class) {
-                Object obj2 = map.get(IjkMediaMeta.IJKM_KEY_LANGUAGE);
+                Object obj2 = map.get("language");
                 Object obj3 = map.get("country");
                 if (obj2 instanceof String) {
                     String str5 = (String) obj2;

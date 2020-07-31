@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.safe;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class JavaTypesHelper {
     public static int toInt(String str, int i) {
         if (str != null) {

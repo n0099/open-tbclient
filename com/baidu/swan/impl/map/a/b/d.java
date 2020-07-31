@@ -3,14 +3,14 @@ package com.baidu.swan.impl.map.a.b;
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
-import com.baidu.swan.apps.ad.c;
-import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.ac.c;
+import com.baidu.swan.apps.aq.al;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class d {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public interface a {
         void onFail();
 
@@ -22,9 +22,9 @@ public class d {
             aVar.onFail();
             return;
         }
-        com.baidu.swan.apps.runtime.e apM = com.baidu.swan.apps.runtime.e.apM();
-        if (apM != null) {
-            apM.apY().b((Activity) context, "mapp_location", new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.swan.impl.map.a.b.d.1
+        com.baidu.swan.apps.runtime.e arv = com.baidu.swan.apps.runtime.e.arv();
+        if (arv != null) {
+            arv.arH().b((Activity) context, "mapp_location", new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.swan.impl.map.a.b.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.aq.e.b
                 /* renamed from: a */
@@ -41,11 +41,12 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(final a aVar) {
-        if (aj.auU()) {
+        com.baidu.swan.apps.runtime.e arw = com.baidu.swan.apps.runtime.e.arw();
+        if (al.axa() && arw != null) {
             aVar.onSuccess();
         } else {
-            com.baidu.swan.apps.w.f.ajb().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new c.a() { // from class: com.baidu.swan.impl.map.a.b.d.2
-                @Override // com.baidu.swan.apps.ad.c.a
+            arw.arp().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new c.a() { // from class: com.baidu.swan.impl.map.a.b.d.2
+                @Override // com.baidu.swan.apps.ac.c.a
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                     if (i != 0) {
                         a.this.onFail();

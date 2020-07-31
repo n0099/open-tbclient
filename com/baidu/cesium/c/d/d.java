@@ -1,9 +1,9 @@
 package com.baidu.cesium.c.d;
 
 import java.math.BigInteger;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public interface d {
-    BigInteger sE();
+    BigInteger sG();
 
-    BigInteger sF();
+    BigInteger sH();
 }

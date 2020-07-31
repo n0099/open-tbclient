@@ -1,18 +1,18 @@
 package com.baidu.tieba.k;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class m implements l {
     @Override // com.baidu.tieba.k.l
-    public i au(String str, String str2, String str3) {
+    public i av(String str, String str2, String str3) {
         return new j(str, str2, str3);
     }
 
     @Override // com.baidu.tieba.k.l
-    public e Jf(String str) {
+    public e JR(String str) {
         return new com.baidu.tieba.l.b(str);
     }
 
     @Override // com.baidu.tieba.k.l
-    public h cCQ() {
-        return com.baidu.tieba.post.j.cWT();
+    public h cGE() {
+        return com.baidu.tieba.post.j.daa();
     }
 }

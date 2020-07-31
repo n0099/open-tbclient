@@ -8,7 +8,7 @@ import android.support.v4.internal.view.SupportMenuItem;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public final class MenuItemCompat {
     static final MenuVersionImpl IMPL;
     @Deprecated
@@ -23,7 +23,7 @@ public final class MenuItemCompat {
     public static final int SHOW_AS_ACTION_WITH_TEXT = 4;
     private static final String TAG = "MenuItemCompat";
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     interface MenuVersionImpl {
         int getAlphabeticModifiers(MenuItem menuItem);
 
@@ -53,14 +53,14 @@ public final class MenuItemCompat {
     }
 
     @Deprecated
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public interface OnActionExpandListener {
         boolean onMenuItemActionCollapse(MenuItem menuItem);
 
         boolean onMenuItemActionExpand(MenuItem menuItem);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     static class MenuItemCompatBaseImpl implements MenuVersionImpl {
         MenuItemCompatBaseImpl() {
         }
@@ -125,7 +125,7 @@ public final class MenuItemCompat {
     }
 
     @RequiresApi(26)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     static class MenuItemCompatApi26Impl extends MenuItemCompatBaseImpl {
         MenuItemCompatApi26Impl() {
         }

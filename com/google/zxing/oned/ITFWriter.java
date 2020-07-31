@@ -5,7 +5,7 @@ import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class ITFWriter extends OneDimensionalCodeWriter {
     private static final int[] START_PATTERN = {1, 1, 1, 1};
     private static final int[] END_PATTERN = {3, 1, 1};

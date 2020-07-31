@@ -34,7 +34,7 @@ public class b {
         return true;
     }
 
-    public void ca(String str) {
+    public void bY(String str) {
         if (!TextUtils.isEmpty(str)) {
             long currentTimeMillis = System.currentTimeMillis();
             try {

@@ -1,4 +1,5 @@
 package com.baidu.swan.apps.adlanding.download.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public interface a {
+    void Vj();
 }

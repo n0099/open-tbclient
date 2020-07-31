@@ -33,7 +33,7 @@ import java.io.File;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class BdSailorPlatform implements INoProGuard {
     public static final int APP_STATE_BACKGROUND = 0;
     public static final int APP_STATE_FOREGROUND = 1;
@@ -61,7 +61,7 @@ public final class BdSailorPlatform implements INoProGuard {
     private boolean mIsNeedUpdateKernel = true;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public class a extends BroadcastReceiver {
         private a() {
         }
@@ -262,10 +262,10 @@ public final class BdSailorPlatform implements INoProGuard {
     }
 
     public final void clearCache(boolean z) {
-        com.baidu.browser.sailor.webkit.a rF = com.baidu.browser.sailor.webkit.a.rF();
+        com.baidu.browser.sailor.webkit.a rH = com.baidu.browser.sailor.webkit.a.rH();
         try {
-            rF.e();
-            rF.adO.clearCache(z);
+            rH.e();
+            rH.adE.clearCache(z);
         } catch (Exception e) {
             Log.printStackTrace(e);
         }
@@ -345,7 +345,7 @@ public final class BdSailorPlatform implements INoProGuard {
             if (context.getFilesDir() != null) {
                 z = doInitWorkspace(filesDir.getAbsolutePath() + str);
                 initFeature(context);
-                BdCore.rn().init(context, false);
+                BdCore.rp().init(context, false);
                 if (this.mHandler == null) {
                     this.mHandler = new com.baidu.browser.sailor.platform.a(this, Looper.getMainLooper());
                 }
@@ -354,7 +354,7 @@ public final class BdSailorPlatform implements INoProGuard {
         }
         z = false;
         initFeature(context);
-        BdCore.rn().init(context, false);
+        BdCore.rp().init(context, false);
         if (this.mHandler == null) {
         }
         return z;
@@ -371,10 +371,10 @@ public final class BdSailorPlatform implements INoProGuard {
             this.mWebkitMgr.initWebkit(str, z, cls);
         }
         long currentTimeMillis = System.currentTimeMillis();
-        com.baidu.browser.sailor.webkit.a rF = com.baidu.browser.sailor.webkit.a.rF();
+        com.baidu.browser.sailor.webkit.a rH = com.baidu.browser.sailor.webkit.a.rH();
         Context appContext = getAppContext();
-        if (rF.b == null) {
-            rF.b = appContext.getApplicationContext();
+        if (rH.b == null) {
+            rH.b = appContext.getApplicationContext();
             Log.d(com.baidu.browser.sailor.webkit.a.a, "in BdWebViewSingleton, init");
         }
         this.mIsWebkitInited = true;
@@ -392,7 +392,7 @@ public final class BdSailorPlatform implements INoProGuard {
             return;
         }
         getAppContext();
-        com.baidu.browser.sailor.webkit.update.a.rG().a(getAppContext());
+        com.baidu.browser.sailor.webkit.update.a.rI().a(getAppContext());
     }
 
     public final boolean isFixWebViewSecurityHoles() {
@@ -453,7 +453,7 @@ public final class BdSailorPlatform implements INoProGuard {
                 this.mHandler.removeMessages(1);
                 if (this.mWebkitTimerPaused) {
                     Log.d(TAG, "do resume");
-                    com.baidu.browser.sailor.webkit.a.rF().d();
+                    com.baidu.browser.sailor.webkit.a.rH().d();
                     CookieSyncManager createInstance = CookieSyncManager.createInstance(this.mContext);
                     if (createInstance != null) {
                         createInstance.startSync();

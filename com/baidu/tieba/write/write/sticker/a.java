@@ -3,40 +3,40 @@ package com.baidu.tieba.write.write.sticker;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
+    private Bitmap mEy;
     private Matrix mMatrix = new Matrix();
-    private Bitmap mwu;
 
     public a(Bitmap bitmap) {
-        this.mwu = bitmap;
+        this.mEy = bitmap;
     }
 
     public void draw(Canvas canvas) {
         if (canvas != null) {
-            canvas.drawBitmap(this.mwu, this.mMatrix, null);
+            canvas.drawBitmap(this.mEy, this.mMatrix, null);
         }
     }
 
-    public int duo() {
-        if (this.mwu == null) {
+    public int dxA() {
+        if (this.mEy == null) {
             return 0;
         }
-        return this.mwu.getWidth();
+        return this.mEy.getWidth();
     }
 
-    public int dup() {
-        if (this.mwu == null) {
+    public int dxB() {
+        if (this.mEy == null) {
             return 0;
         }
-        return this.mwu.getHeight();
+        return this.mEy.getHeight();
     }
 
     public Matrix getMatrix() {
         return this.mMatrix;
     }
 
-    public Bitmap duq() {
-        return this.mwu;
+    public Bitmap dxC() {
+        return this.mEy;
     }
 }

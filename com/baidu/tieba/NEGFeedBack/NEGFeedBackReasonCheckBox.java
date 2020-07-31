@@ -6,9 +6,9 @@ import android.util.AttributeSet;
 import android.widget.CheckBox;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class NEGFeedBackReasonCheckBox extends CheckBox {
     private Context mContext;
     private int mSkinType;
@@ -43,11 +43,11 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
         setButtonDrawable((Drawable) null);
     }
 
-    public void aYj() {
+    public void bci() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
-            an.setBackgroundResource(this, R.drawable.btn_home_neg_feedback_reason_selector);
-            an.setViewTextColor(this, R.drawable.text_home_neg_feedback_reason_selector, 4);
+            ao.setBackgroundResource(this, R.drawable.btn_home_neg_feedback_reason_selector);
+            ao.setViewTextColor(this, R.drawable.text_home_neg_feedback_reason_selector, 4);
             this.mSkinType = skinType;
         }
     }

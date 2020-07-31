@@ -2,7 +2,7 @@ package com.baidu.mobads.f;
 
 import com.baidu.mobads.openad.c.b;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a extends b {
     public a(String str) {
         super(str);

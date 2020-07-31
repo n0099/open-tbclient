@@ -2,18 +2,18 @@ package com.baidu.tieba.a;
 
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.ubs.analytics.SampleResult;
 import com.baidu.ubs.analytics.c;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class c {
-    private boolean eXe = false;
+    private boolean fbF = false;
     private int mChannel;
 
     public c() {
-        boy();
+        brA();
     }
 
     public void a(ArrayList<Integer> arrayList, b bVar) {
@@ -21,30 +21,30 @@ public class c {
             Iterator<Integer> it = arrayList.iterator();
             while (it.hasNext()) {
                 int intValue = it.next().intValue();
-                bVar.bm(intValue, pz(intValue));
+                bVar.bp(intValue, pM(intValue));
             }
         }
     }
 
-    private int pz(int i) {
+    private int pM(int i) {
         if (i == 1) {
-            return pA(i);
+            return pN(i);
         }
         if (this.mChannel == 1) {
-            return pC(i);
+            return pP(i);
         }
         if (this.mChannel == 0) {
-            return pA(i);
+            return pN(i);
         }
         return 0;
     }
 
-    private int pA(int i) {
-        String pB = pB(i);
-        return (!ar.isEmpty(pB) && com.baidu.tbadk.core.sharedPref.b.aVP().getInt(pB, 0) == 1) ? 1 : 0;
+    private int pN(int i) {
+        String pO = pO(i);
+        return (!as.isEmpty(pO) && com.baidu.tbadk.core.sharedPref.b.aZP().getInt(pO, 0) == 1) ? 1 : 0;
     }
 
-    private String pB(int i) {
+    private String pO(int i) {
         if (i == 1) {
             return "key_card_show_type";
         }
@@ -54,53 +54,53 @@ public class c {
         return null;
     }
 
-    private int pC(int i) {
-        String pD = pD(i);
-        if (ar.isEmpty(pD)) {
+    private int pP(int i) {
+        String pQ = pQ(i);
+        if (as.isEmpty(pQ)) {
             return 0;
         }
-        SampleResult Qd = com.baidu.ubs.analytics.a.Qd(pD);
-        return (Qd == SampleResult.T1 || Qd == SampleResult.T2 || Qd == SampleResult.T3 || Qd == SampleResult.T4 || Qd == SampleResult.T5) ? 1 : 0;
+        SampleResult QO = com.baidu.ubs.analytics.a.QO(pQ);
+        return (QO == SampleResult.T1 || QO == SampleResult.T2 || QO == SampleResult.T3 || QO == SampleResult.T4 || QO == SampleResult.T5) ? 1 : 0;
     }
 
-    private String pD(int i) {
+    private String pQ(int i) {
         if (i == 2) {
             return "46";
         }
         return null;
     }
 
-    private void boy() {
-        this.mChannel = com.baidu.tbadk.core.sharedPref.b.aVP().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0);
+    private void brA() {
+        this.mChannel = com.baidu.tbadk.core.sharedPref.b.aZP().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0);
         initSdk();
     }
 
-    public void pE(int i) {
+    public void pR(int i) {
         if (i == 1 || i == 0) {
             this.mChannel = i;
-            com.baidu.tbadk.core.sharedPref.b.aVP().putInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, this.mChannel);
+            com.baidu.tbadk.core.sharedPref.b.aZP().putInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, this.mChannel);
             initSdk();
         }
     }
 
     private void initSdk() {
-        if (!this.eXe && this.mChannel == 1) {
-            this.eXe = boA();
-            if (!this.eXe) {
+        if (!this.fbF && this.mChannel == 1) {
+            this.fbF = brC();
+            if (!this.fbF) {
                 this.mChannel = 0;
             }
         }
     }
 
-    public boolean boz() {
-        return this.eXe;
+    public boolean brB() {
+        return this.fbF;
     }
 
-    public boolean boA() {
+    public boolean brC() {
         boolean z = true;
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             try {
-                com.baidu.ubs.analytics.a.a(new c.a().fJ(TbadkCoreApplication.getInst()).wm(false).fF(30L).HI(1).wn(false).fG(15L).HJ(1000).dxf());
+                com.baidu.ubs.analytics.a.a(new c.a().fM(TbadkCoreApplication.getInst()).wR(false).fS(30L).Id(1).wS(false).fT(15L).Ie(1000).dAs());
             } catch (Exception e) {
                 e.printStackTrace();
                 z = false;

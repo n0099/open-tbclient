@@ -3,33 +3,33 @@ package com.baidu.live.guardclub;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import com.baidu.live.utils.p;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends HttpMessage {
-    private boolean aRk;
-    private int aRl;
-    private long awn;
+    private boolean aSD;
+    private int aSE;
+    private long axs;
 
     public b() {
         super(1021137);
-        this.aRl = 2;
-        this.aRk = false;
+        this.aSE = 2;
+        this.aSD = false;
     }
 
-    public boolean Cd() {
-        return this.aRk;
+    public boolean CF() {
+        return this.aSD;
     }
 
-    public void Ce() {
-        this.aRk = true;
+    public void CG() {
+        this.aSD = true;
     }
 
     public void af(long j) {
-        this.awn = j;
+        this.axs = j;
     }
 
     public void setParams() {
-        addParam("scene_from", p.yU());
-        addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.awn + ""));
-        addParam("client_type", this.aRl);
+        addParam("scene_from", p.zw());
+        addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.axs + ""));
+        addParam("client_type", this.aSE);
     }
 }

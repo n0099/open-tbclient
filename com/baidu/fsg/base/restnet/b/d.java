@@ -5,7 +5,7 @@ import com.baidu.fsg.base.restnet.RestMultipartEntity;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.http.HttpDefines;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class d {
     private static d a;
 

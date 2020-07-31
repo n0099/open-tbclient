@@ -13,7 +13,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import java.util.HashMap;
 import java.util.HashSet;
 @TargetApi(9)
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public final class a {
     private static final String a = "WalletDownloadManager";
     private static final String b = "content://downloads/my_downloads/";
@@ -23,8 +23,8 @@ public final class a {
     private Context f;
 
     /* renamed from: com.baidu.fsg.base.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0118a {
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0115a {
         void a(c cVar);
     }
 
@@ -41,9 +41,9 @@ public final class a {
         return c;
     }
 
-    public void a(Context context, long j, InterfaceC0118a interfaceC0118a) {
+    public void a(Context context, long j, InterfaceC0115a interfaceC0115a) {
         b bVar;
-        if (interfaceC0118a != null && -1 != j) {
+        if (interfaceC0115a != null && -1 != j) {
             b bVar2 = this.e.get(Long.valueOf(j));
             if (bVar2 == null) {
                 bVar = new b(context, j);
@@ -52,16 +52,16 @@ public final class a {
             } else {
                 bVar = bVar2;
             }
-            bVar.a(interfaceC0118a);
+            bVar.a(interfaceC0115a);
         }
     }
 
-    public void b(Context context, long j, InterfaceC0118a interfaceC0118a) {
+    public void b(Context context, long j, InterfaceC0115a interfaceC0115a) {
         b bVar;
         if (j == -1 || (bVar = this.e.get(Long.valueOf(j))) == null) {
             return;
         }
-        bVar.b(interfaceC0118a);
+        bVar.b(interfaceC0115a);
         if (bVar.a()) {
             context.getContentResolver().unregisterContentObserver(bVar);
             this.e.remove(Uri.parse(b + j));
@@ -149,10 +149,10 @@ public final class a {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private final class b extends ContentObserver {
         private final c b;
-        private final HashSet<InterfaceC0118a> c;
+        private final HashSet<InterfaceC0115a> c;
         private long d;
         private long e;
         private int f;
@@ -181,23 +181,23 @@ public final class a {
                 this.f = this.b.a();
                 this.e = currentTimeMillis;
                 synchronized (this) {
-                    InterfaceC0118a[] interfaceC0118aArr = new InterfaceC0118a[this.c.size()];
-                    this.c.toArray(interfaceC0118aArr);
-                    for (InterfaceC0118a interfaceC0118a : interfaceC0118aArr) {
-                        interfaceC0118a.a(this.b);
+                    InterfaceC0115a[] interfaceC0115aArr = new InterfaceC0115a[this.c.size()];
+                    this.c.toArray(interfaceC0115aArr);
+                    for (InterfaceC0115a interfaceC0115a : interfaceC0115aArr) {
+                        interfaceC0115a.a(this.b);
                     }
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public synchronized boolean a(InterfaceC0118a interfaceC0118a) {
-            return this.c.add(interfaceC0118a);
+        public synchronized boolean a(InterfaceC0115a interfaceC0115a) {
+            return this.c.add(interfaceC0115a);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public synchronized boolean b(InterfaceC0118a interfaceC0118a) {
-            return this.c.remove(interfaceC0118a);
+        public synchronized boolean b(InterfaceC0115a interfaceC0115a) {
+            return this.c.remove(interfaceC0115a);
         }
 
         /* JADX INFO: Access modifiers changed from: private */

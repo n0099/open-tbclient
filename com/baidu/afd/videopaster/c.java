@@ -2,21 +2,21 @@ package com.baidu.afd.videopaster;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class c implements a {
-    private int XA;
-    private HashMap XB;
-    private final int Xx;
+    private final int Xq;
+    private HashMap Xt;
+    private int floor;
     private final int height;
     private final String pid;
     private final int refreshCount;
     private final int width;
 
     private c(int i, int i2, String str, int i3, int i4, int i5) {
-        this.Xx = i;
+        this.Xq = i;
         this.refreshCount = i2;
         this.pid = str;
-        this.XA = i3;
+        this.floor = i3;
         this.width = i4;
         this.height = i5;
     }
@@ -36,27 +36,30 @@ public class c implements a {
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public String pT() {
+    public String pU() {
         return this.pid;
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public int pG() {
-        return this.Xx;
+    public int pH() {
+        return this.Xq;
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public int pI() {
-        return this.XA;
+    public int pJ() {
+        return this.floor;
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public Map<String, String> pJ() {
-        return this.XB;
+    public Map<String, String> pK() {
+        return this.Xt;
     }
 
     @Override // com.baidu.afd.videopaster.a
     public void w(HashMap hashMap) {
-        this.XB = hashMap;
+        this.Xt = hashMap;
+        if (!this.Xt.containsKey("iadex")) {
+            hashMap.put("iadex", com.baidu.tbadk.util.c.bmq());
+        }
     }
 }

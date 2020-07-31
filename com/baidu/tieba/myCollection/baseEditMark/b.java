@@ -4,57 +4,57 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel jME;
+    private MarkModel jVc;
 
     public b(BaseActivity baseActivity) {
-        this.jME = null;
-        this.jME = new MarkModel(baseActivity);
+        this.jVc = null;
+        this.jVc = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.jME = null;
-        this.jME = new MarkModel(baseFragmentActivity);
+        this.jVc = null;
+        this.jVc = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void gJ(boolean z) {
-        this.jME.gJ(z);
+    public void he(boolean z) {
+        this.jVc.he(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String aOn() {
-        return this.jME.aOn();
+    public String aSi() {
+        return this.jVc.aSi();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void a(a.InterfaceC0477a interfaceC0477a) {
-        this.jME.a(interfaceC0477a);
+    public void a(a.InterfaceC0489a interfaceC0489a) {
+        this.jVc.a(interfaceC0489a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void aOp() {
-        this.jME.aOp();
+    public void aSk() {
+        this.jVc.aSk();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void aOq() {
-        this.jME.aOq();
+    public void aSl() {
+        this.jVc.aSl();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData aOr() {
-        return this.jME.aOr();
+    public MarkData aSm() {
+        return this.jVc.aSm();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.jME.a(markData);
+        this.jVc.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean aOo() {
-        return this.jME.aOo();
+    public boolean aSj() {
+        return this.jVc.aSj();
     }
 }

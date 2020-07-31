@@ -1,7 +1,7 @@
 package com.baidu.swan.pms.node.d;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class a {
-    public com.baidu.swan.pms.model.d drW;
-    public com.baidu.swan.pms.model.d drX;
-    public com.baidu.swan.pms.model.b drk;
+    public com.baidu.swan.pms.model.d dxN;
+    public com.baidu.swan.pms.model.d dxO;
+    public com.baidu.swan.pms.model.b dxc;
 }

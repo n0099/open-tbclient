@@ -1,7 +1,7 @@
 package com.baidu.live.gift.biggift;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface b {
-    void bV(int i);
+    void cb(int i);
 
     void l(com.baidu.live.gift.a.c cVar);
 

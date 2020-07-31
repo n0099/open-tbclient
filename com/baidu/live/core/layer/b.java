@@ -2,150 +2,123 @@ package com.baidu.live.core.layer;
 
 import android.view.View;
 import android.view.ViewGroup;
-import java.lang.ref.SoftReference;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
-/* loaded from: classes3.dex */
+import android.widget.RelativeLayout;
+import com.baidu.live.adp.lib.util.BdLog;
+/* loaded from: classes4.dex */
 public class b {
-    private static b awu;
-    private ViewGroup awv;
-    private LinkedHashMap<String, SoftReference<a>> aww;
+    private static b axH;
+    private a axD = new a() { // from class: com.baidu.live.core.layer.b.1
+        @Override // com.baidu.live.core.layer.a
+        public void a(LayerChildView layerChildView) {
+        }
+
+        @Override // com.baidu.live.core.layer.a
+        public void b(LayerChildView layerChildView) {
+            layerChildView.release();
+            b.this.axI.removeView(layerChildView);
+            if (b.this.axI.getChildCount() <= 1) {
+                b.this.axI.setVisibility(8);
+            }
+        }
+    };
+    private ViewGroup axI;
 
     private b() {
     }
 
-    public static b wk() {
-        if (awu == null) {
+    public static b wN() {
+        if (axH == null) {
             synchronized (b.class) {
-                if (awu == null) {
-                    awu = new b();
+                if (axH == null) {
+                    axH = new b();
                 }
             }
         }
-        return awu;
+        return axH;
     }
 
-    public void k(ViewGroup viewGroup) {
-        this.awv = viewGroup;
+    public void l(ViewGroup viewGroup) {
+        this.axI = viewGroup;
+        this.axI.setVisibility(8);
     }
 
-    public void a(String str, a aVar) {
-        a(str, aVar, false);
-    }
-
-    public void a(String str, a aVar, boolean z) {
-        a aVar2;
-        View rootView;
-        if (this.awv != null) {
-            if (this.aww == null) {
-                this.aww = new LinkedHashMap<>();
+    public void d(LayerChildView layerChildView) {
+        if (this.axI == null) {
+            BdLog.e("LAYER_ERRORparams error LayerParentView is null");
+        } else if (layerChildView == null || layerChildView.getRootView() == null) {
+            BdLog.e("LAYER_ERRORparams error layer or layer view is null");
+        } else {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (this.axI.indexOfChild(layerChildView) != -1) {
+                BdLog.e("LAYER_ERRORerror layer has showed");
+                return;
             }
-            if (this.aww.containsKey(str)) {
-                if (z) {
-                    SoftReference<a> remove = this.aww.remove(str);
-                    if (remove != null && (aVar2 = remove.get()) != null && (rootView = aVar2.getRootView()) != null && this.awv.indexOfChild(rootView) != -1) {
-                        this.awv.removeView(rootView);
-                    }
-                } else {
-                    return;
-                }
-            }
-            this.aww.put(str, new SoftReference<>(aVar));
-            View rootView2 = aVar.getRootView();
-            if (this.awv.indexOfChild(rootView2) != -1) {
-                this.awv.removeView(rootView2);
-            }
-            if (aVar.wj() != null) {
-                this.awv.addView(rootView2, aVar.wj());
-            } else {
-                this.awv.addView(rootView2);
-            }
+            this.axI.addView(layerChildView, new RelativeLayout.LayoutParams(-1, -1));
+            this.axI.setVisibility(0);
+            layerChildView.setLayerCallback(this.axD);
+            layerChildView.wF();
+            BdLog.d("layer show cost time is" + (System.currentTimeMillis() - currentTimeMillis));
         }
     }
 
-    public a et(String str) {
-        if (this.awv == null || this.aww == null) {
-            return null;
-        }
-        if (this.aww.containsKey(str)) {
-            SoftReference<a> remove = this.aww.remove(str);
-            if (remove == null || remove.get() == null) {
-                return null;
-            }
-            a aVar = remove.get();
-            View rootView = aVar.getRootView();
-            if (aVar.getRootView() == null) {
-                return null;
-            }
-            if (this.awv.indexOfChild(rootView) != -1) {
-                this.awv.removeView(rootView);
-                return aVar;
-            }
-            return aVar;
-        }
-        return null;
-    }
-
-    public a wl() {
-        if (this.awv == null || this.aww == null) {
-            return null;
-        }
-        Iterator<Map.Entry<String, SoftReference<a>>> it = this.aww.entrySet().iterator();
-        if (it.hasNext()) {
-            SoftReference<a> remove = this.aww.remove(it.next().getKey());
-            if (remove == null) {
-                return null;
-            }
-            return remove.get();
-        }
-        return null;
-    }
-
-    public void wm() {
-        if (this.aww != null) {
-            if (!this.aww.isEmpty()) {
-                for (Map.Entry<String, SoftReference<a>> entry : this.aww.entrySet()) {
-                    SoftReference<a> value = entry.getValue();
-                    if (value != null && value.get() != null) {
-                        value.get().release();
-                    }
-                }
-            }
-            this.aww.clear();
-            this.aww = null;
-        }
-        if (this.awv != null) {
-            this.awv.removeAllViews();
-            this.awv = null;
+    public boolean e(LayerChildView layerChildView) {
+        if (this.axI == null || layerChildView == null) {
+            BdLog.e("LAYER_ERRORremove layer error, param error, mLayerParentView is null or layerView is null");
+            return false;
+        } else if (this.axI.indexOfChild(layerChildView) >= 0) {
+            layerChildView.wG();
+            return true;
+        } else {
+            BdLog.e("LAYER_ERRORremove layer error, layerView is " + layerChildView);
+            return false;
         }
     }
 
     public boolean onBackPressed() {
-        if (this.aww != null && this.aww.size() > 0) {
-            a wl = wl();
-            if (wl == null || wl.getRootView() == null) {
-                return false;
-            }
-            View rootView = wl.getRootView();
-            if (this.awv.indexOfChild(rootView) != -1) {
-                this.awv.removeView(rootView);
-            }
-            wl.release();
-            return true;
-        } else if (this.awv == null || this.awv.getChildCount() <= 0) {
+        if (this.axI == null || this.axI.getChildCount() <= 0) {
             return false;
-        } else {
-            int childCount = this.awv.getChildCount() - 1;
-            if (childCount >= 0) {
-                this.awv.removeViewAt(childCount);
-                return true;
+        }
+        View childAt = this.axI.getChildAt(this.axI.getChildCount() - 1);
+        if (childAt instanceof LayerChildView) {
+            LayerChildView layerChildView = (LayerChildView) childAt;
+            if (layerChildView.cancelableFlag && !layerChildView.axE) {
+                return e(layerChildView);
             }
             return true;
         }
+        return false;
+    }
+
+    public void wO() {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (this.axI != null && this.axI.getChildCount() > 0) {
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 >= this.axI.getChildCount()) {
+                    break;
+                }
+                View childAt = this.axI.getChildAt(i2);
+                if (childAt instanceof LayerChildView) {
+                    ((LayerChildView) childAt).release();
+                }
+                i = i2 + 1;
+            }
+            this.axI.clearAnimation();
+            this.axI.removeAllViews();
+            this.axI.setVisibility(8);
+        }
+        BdLog.d("layer clear cost time is" + (System.currentTimeMillis() - currentTimeMillis));
+    }
+
+    public void onResume() {
+    }
+
+    public void onPause() {
     }
 
     public void onDestroy() {
-        wm();
+        wO();
+        this.axI = null;
     }
 }

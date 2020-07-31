@@ -7,17 +7,17 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
 import com.baidu.tieba.im.message.GroupsByUidMessage;
 import com.baidu.tieba.im.message.RequestUserPermissionMessage;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
     public long friendUid;
-    private RequestUserPermissionMessage iZM;
-    private boolean iZN;
+    private RequestUserPermissionMessage jig;
+    private boolean jih;
     public int mImageHeight;
     public int mImageWidth;
 
     public PersonGroupModel(PersonGroupActivity personGroupActivity) {
         super(personGroupActivity.getPageContext());
-        this.iZN = false;
+        this.jih = false;
         this.mImageWidth = l.dip2px(TbadkApplication.getInst().getContext(), 70.0f);
         this.mImageHeight = l.dip2px(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = 0L;
@@ -25,7 +25,7 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
 
     public PersonGroupModel(PersonGroupActivity personGroupActivity, long j) {
         super(personGroupActivity.getPageContext());
-        this.iZN = false;
+        this.jih = false;
         this.mImageWidth = l.dip2px(TbadkApplication.getInst().getContext(), 70.0f);
         this.mImageHeight = l.dip2px(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = j;
@@ -33,23 +33,23 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void update() {
         if (this.friendUid == 0) {
-            if (this.iZN) {
+            if (this.jih) {
                 super.sendMessage(new GroupsByUidMessage(this.mImageWidth, this.mImageHeight));
                 return;
             }
-            this.iZN = true;
+            this.jih = true;
             super.sendMessage(new GroupsByUidLocalMessage());
             return;
         }
         super.sendMessage(new GroupsByUidMessage(this.friendUid, this.mImageWidth, this.mImageHeight));
     }
 
-    public void eG(long j) {
-        this.iZM = eH(j);
-        super.sendMessage(this.iZM);
+    public void eU(long j) {
+        this.jig = eV(j);
+        super.sendMessage(this.jig);
     }
 
-    private RequestUserPermissionMessage eH(long j) {
+    private RequestUserPermissionMessage eV(long j) {
         RequestUserPermissionMessage requestUserPermissionMessage = new RequestUserPermissionMessage();
         requestUserPermissionMessage.setForumId(j);
         return requestUserPermissionMessage;
@@ -68,6 +68,6 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
         super.cancelMessage();
-        this.iZM = null;
+        this.jig = null;
     }
 }

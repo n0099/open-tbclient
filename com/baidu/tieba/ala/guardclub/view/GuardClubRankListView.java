@@ -8,17 +8,17 @@ import com.baidu.live.adp.widget.listview.BdListView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.LoadMoreFooter;
 import com.baidu.tieba.ala.guardclub.m;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GuardClubRankListView extends BdListView {
-    private a fML;
-    private boolean fMM;
-    private LoadMoreFooter fMN;
+    private a fSf;
+    private boolean fSg;
+    private LoadMoreFooter fSh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        void bxS();
+        void bBh();
 
-        void bxT();
+        void bBi();
     }
 
     public GuardClubRankListView(Context context, AttributeSet attributeSet) {
@@ -27,24 +27,24 @@ public class GuardClubRankListView extends BdListView {
     }
 
     public void setCallback(a aVar) {
-        this.fML = aVar;
+        this.fSf = aVar;
     }
 
     public void setLoadMoreEnabled(boolean z, boolean z2) {
-        this.fMM = z;
+        this.fSg = z;
         if (z) {
-            bxw();
+            bAM();
         } else {
-            kn(z2);
+            kR(z2);
         }
     }
 
     public void release() {
-        this.fML = null;
-        bye();
+        this.fSf = null;
+        bBt();
     }
 
-    public void bye() {
+    public void bBt() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -65,9 +65,9 @@ public class GuardClubRankListView extends BdListView {
 
     private void init() {
         initUI();
-        byf();
-        byg();
-        byh();
+        bBu();
+        bBv();
+        bBw();
     }
 
     private void initUI() {
@@ -79,7 +79,7 @@ public class GuardClubRankListView extends BdListView {
         setVerticalScrollBarEnabled(false);
     }
 
-    private void byf() {
+    private void bBu() {
         setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.1
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
@@ -87,18 +87,18 @@ public class GuardClubRankListView extends BdListView {
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                if (GuardClubRankListView.this.fML != null) {
-                    GuardClubRankListView.this.fML.bxS();
+                if (GuardClubRankListView.this.fSf != null) {
+                    GuardClubRankListView.this.fSf.bBh();
                 }
-                if (GuardClubRankListView.this.fML != null && GuardClubRankListView.this.fMM && !GuardClubRankListView.this.fMN.isLoading() && i + i2 > i3 - 2) {
-                    GuardClubRankListView.this.byi();
-                    GuardClubRankListView.this.fML.bxT();
+                if (GuardClubRankListView.this.fSf != null && GuardClubRankListView.this.fSg && !GuardClubRankListView.this.fSh.isLoading() && i + i2 > i3 - 2) {
+                    GuardClubRankListView.this.bBx();
+                    GuardClubRankListView.this.fSf.bBi();
                 }
             }
         });
     }
 
-    private void byg() {
+    private void bBv() {
         setRecyclerListener(new AbsListView.RecyclerListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.2
             @Override // android.widget.AbsListView.RecyclerListener
             public void onMovedToScrapHeap(View view) {
@@ -110,39 +110,39 @@ public class GuardClubRankListView extends BdListView {
         });
     }
 
-    private void byh() {
-        this.fMN = new LoadMoreFooter(getContext());
-        this.fMN.setBackgroundColor(getResources().getColor(a.d.live_gcb_primary));
-        this.fMN.createView();
+    private void bBw() {
+        this.fSh = new LoadMoreFooter(getContext());
+        this.fSh.setBackgroundColor(getResources().getColor(a.d.live_gcb_primary));
+        this.fSh.createView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byi() {
-        if (this.fMN != null) {
-            if (this.fMN.getView().getParent() == null) {
-                setNextPage(this.fMN);
+    public void bBx() {
+        if (this.fSh != null) {
+            if (this.fSh.getView().getParent() == null) {
+                setNextPage(this.fSh);
             }
-            this.fMN.showLoadView();
+            this.fSh.showLoadView();
         }
     }
 
-    private void bxw() {
-        if (this.fMN != null) {
-            this.fMN.endLoadData();
+    private void bAM() {
+        if (this.fSh != null) {
+            this.fSh.endLoadData();
             setNextPage(null);
         }
     }
 
-    private void kn(boolean z) {
+    private void kR(boolean z) {
         if (z) {
-            if (this.fMN != null) {
+            if (this.fSh != null) {
                 setNextPage(null);
             }
-        } else if (this.fMN != null) {
-            if (this.fMN.getView().getParent() == null) {
-                setNextPage(this.fMN);
+        } else if (this.fSh != null) {
+            if (this.fSh.getView().getParent() == null) {
+                setNextPage(this.fSh);
             }
-            this.fMN.showNoMoreData();
+            this.fSh.showNoMoreData();
         }
     }
 }

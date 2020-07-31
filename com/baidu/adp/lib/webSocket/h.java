@@ -20,7 +20,7 @@ public class h {
     private i OP = null;
     private ArrayList<g.a> OQ = new ArrayList<>();
 
-    public static h mX() {
+    public static h mY() {
         if (OI == null) {
             synchronized (h.class) {
                 if (OI == null) {
@@ -93,10 +93,10 @@ public class h {
             }
 
             @Override // com.baidu.adp.lib.webSocket.g.a
-            public void mW() {
+            public void mX() {
                 Iterator it = h.this.OQ.iterator();
                 while (it.hasNext()) {
-                    ((g.a) it.next()).mW();
+                    ((g.a) it.next()).mX();
                 }
             }
 
@@ -123,7 +123,7 @@ public class h {
         };
     }
 
-    public boolean mY() {
+    public boolean mZ() {
         if (isDebug()) {
             com.baidu.adp.lib.util.l.checkMainThread();
         }
@@ -139,7 +139,7 @@ public class h {
         this.OP = new i();
         try {
             l lVar = new l();
-            lVar.ce(this.OO);
+            lVar.cc(this.OO);
             this.OP.a(this.OJ, this.OM, this.OR, lVar, this.OL);
             return true;
         } catch (WebSocketException e) {
@@ -164,10 +164,10 @@ public class h {
         if (isDebug()) {
             com.baidu.adp.lib.util.l.checkMainThread();
         }
-        return (this.OP == null || !this.OP.isOpen() || this.OP.ng()) ? false : true;
+        return (this.OP == null || !this.OP.isOpen() || this.OP.nh()) ? false : true;
     }
 
-    public boolean mZ() {
+    public boolean na() {
         if (isDebug()) {
             com.baidu.adp.lib.util.l.checkMainThread();
         }
@@ -211,9 +211,9 @@ public class h {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void na() {
+    public void nb() {
         if (this.OP != null) {
-            this.OP.na();
+            this.OP.nb();
         }
     }
 
@@ -224,9 +224,9 @@ public class h {
         return -1L;
     }
 
-    public void nb() {
+    public void nc() {
         if (this.OP != null) {
-            this.OP.nb();
+            this.OP.nc();
         }
     }
 
@@ -237,23 +237,23 @@ public class h {
         return -1L;
     }
 
-    public long mU() {
+    public long mV() {
         if (this.OP != null) {
-            return this.OP.nh();
+            return this.OP.ni();
         }
         return -1L;
     }
 
-    public String mT() {
+    public String mU() {
         if (this.OP != null) {
-            return this.OP.ni();
+            return this.OP.nj();
         }
         return null;
     }
 
-    public long nc() {
+    public long nd() {
         if (this.OP != null) {
-            return this.OP.nj();
+            return this.OP.nk();
         }
         return -1L;
     }

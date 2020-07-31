@@ -34,7 +34,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class WebViewFactory {
     private static final String CHROMIUM_HOST_APP = "com.baidu.browser.apps";
     private static final String CHROMIUM_LIBS_PATH = "files/zeus/libs";
@@ -46,6 +46,7 @@ public final class WebViewFactory {
     private static final String ZEUS_LIB_NAME = "libcom.baidu.zeus.so";
     private static IABTestInterface mABTestObject;
     private static Context mContext;
+    private static ICronetListenerInterface mCronetListenerObject;
     private static Thread mInitWebViewThread;
     private static boolean mIsInstallUpdate;
     private static boolean mIsZeusProvideInit;
@@ -59,6 +60,7 @@ public final class WebViewFactory {
     private static String sProcessSuffix;
     private static boolean sProcessSuffixDone;
     private static boolean sUsingSystemWebView;
+    private static boolean sforceMainProcessNoZeus;
     private static final String SPLASH = File.separator;
     private static final Object mProviderLock = new Object();
     private static final Object mZeusProviderLock = new Object();
@@ -66,7 +68,7 @@ public final class WebViewFactory {
     private static int sIsPreInitWebViewEnable = -1;
     private static final Object sProviderLock = new Object();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public interface WebKitUnzipCallback {
         void unzipFinished();
     }
@@ -256,12 +258,20 @@ public final class WebViewFactory {
         return r0;
     }
 
+    public static boolean forceNoZeus() {
+        return sforceMainProcessNoZeus;
+    }
+
     public static IABTestInterface getAbTestInterface() {
         return mABTestObject;
     }
 
     public static Context getContext() {
         return mContext;
+    }
+
+    public static ICronetListenerInterface getCronetListenerInterface() {
+        return mCronetListenerObject;
     }
 
     public static String getDataDirectorySuffix() {
@@ -439,18 +449,7 @@ public final class WebViewFactory {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00ac  */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x013f  */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0150  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x0187  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x018e  */
-    /* JADX WARN: Removed duplicated region for block: B:93:0x026f  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private static WebViewFactoryProvider getProviderImpl() {
-        boolean z;
-        Throwable th;
         if (!sUsingSystemWebView) {
             ZeusPerformanceTiming.getProviderImplStart();
             ZeusPerformanceTiming.shouldUseSystemWebViewStart();
@@ -476,9 +475,8 @@ public final class WebViewFactory {
                 fetchDefaultPackageInfo();
             }
         }
-        if (mPackageInfo == null || shouldUseSystemWebView) {
-            z = false;
-        } else {
+        sforceMainProcessNoZeus = false;
+        if (mPackageInfo != null && !shouldUseSystemWebView) {
             try {
                 if (!checkZeusVersion(mPackageInfo)) {
                     throw new Exception("sdk and zeus dismatch " + WebKitFactory.getSdkVersionCode() + ", " + mPackageInfo.versionName);
@@ -495,26 +493,8 @@ public final class WebViewFactory {
                     d.a(mContext).b();
                 }
                 if (Build.VERSION.SDK_INT < 21 && isMainAppProcess() && ZeusInitConfigUtils.get("no_zeus_under_5", false)) {
-                    try {
-                        throw new Exception("disable main process zeus under android 5.0");
-                    } catch (Throwable th2) {
-                        th = th2;
-                        z = true;
-                        mProvider = null;
-                        LoadErrorCode.getInstance().set(4, LoadErrorCode.getRootMessage(th));
-                        if (mProvider != null) {
-                        }
-                        Log.i(TAG, "**** getProvider end, sys = " + shouldUseSystemWebView + "  mProvider = " + mProvider);
-                        if (!isRendererProcess()) {
-                        }
-                        if (LoadErrorCode.getInstance().getInt() != 0) {
-                        }
-                        if (!isRendererProcess()) {
-                        }
-                        if (!sUsingSystemWebView) {
-                        }
-                        return mProvider;
-                    }
+                    sforceMainProcessNoZeus = true;
+                    throw new Exception("disable main process zeus under android 5.0");
                 }
                 ZeusPerformanceTiming.newWebViewChromiumFactoryProviderInstanceStart();
                 mProvider = (WebViewFactoryProvider) loadClass.getMethod("getInstance", null).invoke(null, null);
@@ -523,14 +503,13 @@ public final class WebViewFactory {
                     checkNativeLibraryVersion(mPackageInfo, mProvider);
                     mEngineType.set(1);
                 }
-                z = false;
-            } catch (Throwable th3) {
-                th = th3;
-                z = false;
+            } catch (Throwable th) {
+                mProvider = null;
+                LoadErrorCode.getInstance().set(4, LoadErrorCode.getRootMessage(th));
             }
         }
-        if (mProvider != null) {
-            if (mIsInstallUpdate && !z) {
+        if (mProvider == null) {
+            if (mIsInstallUpdate && !sforceMainProcessNoZeus) {
                 EngineManager.getInstance().resetZeus();
                 EngineManager.getInstance().setNeedKillProcess(true);
             }
@@ -909,6 +888,11 @@ public final class WebViewFactory {
 
     public static void setAbTestInterface(IABTestInterface iABTestInterface) {
         mABTestObject = iABTestInterface;
+    }
+
+    public static void setCronetListenerInterface(ICronetListenerInterface iCronetListenerInterface) {
+        Log.i(TAG, "setCronetListernerInterface " + iCronetListenerInterface);
+        mCronetListenerObject = iCronetListenerInterface;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes13.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseEruptionStrategy implements IEruptionStrategy {
     protected Random mRandom = new Random();
 

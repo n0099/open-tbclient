@@ -2,21 +2,21 @@ package org.java_websocket.b;
 
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface b {
-    boolean SF(String str);
+    boolean Tq(String str);
 
-    boolean SG(String str);
+    boolean Tr(String str);
 
     void c(Framedata framedata) throws InvalidDataException;
 
     void d(Framedata framedata);
 
-    String dTL();
+    String dXh();
 
-    String dTM();
+    String dXi();
 
-    b dTN();
+    b dXj();
 
     void e(Framedata framedata) throws InvalidDataException;
 

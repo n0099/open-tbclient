@@ -4,97 +4,97 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public abstract class a extends BaseAdapter {
-    private boolean hNT = true;
-    private f hNY;
+    private boolean hTS = true;
+    private f hTX;
 
     public abstract View c(int i, View view, ViewGroup viewGroup);
 
-    public abstract int cci();
+    public abstract int cfG();
 
-    public abstract int ccj();
+    public abstract int cfH();
 
-    public abstract Object vl(int i);
+    public abstract Object vD(int i);
 
-    public abstract long vm(int i);
+    public abstract long vE(int i);
 
-    public abstract void vn(int i);
+    public abstract void vF(int i);
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (ccn()) {
-            if (this.hNT) {
-                return this.hNY.getArrowIndex() + 1;
+        if (cfL()) {
+            if (this.hTS) {
+                return this.hTX.getArrowIndex() + 1;
             }
-            if (this.hNY != null && this.hNY.ccl()) {
-                return ccj() + 1;
+            if (this.hTX != null && this.hTX.cfJ()) {
+                return cfH() + 1;
             }
-            return ccj();
+            return cfH();
         }
-        return ccj();
+        return cfH();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (ccn()) {
-            int vo = vo(i);
-            if (vo >= 0) {
-                return vl(vo);
+        if (cfL()) {
+            int vG = vG(i);
+            if (vG >= 0) {
+                return vD(vG);
             }
-            return vl(i);
+            return vD(i);
         }
-        return vl(i);
+        return vD(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (ccn()) {
-            int vo = vo(i);
-            if (vo >= 0) {
-                return vm(vo);
+        if (cfL()) {
+            int vG = vG(i);
+            if (vG >= 0) {
+                return vE(vG);
             }
-            return vm(i);
+            return vE(i);
         }
-        return vm(i);
+        return vE(i);
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return getItemViewType(i) == 0 ? c(vo(i), view, viewGroup) : cb(view);
+        return getItemViewType(i) == 0 ? c(vG(i), view, viewGroup) : ch(view);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         int arrowIndex;
-        return (ccn() && (arrowIndex = this.hNY.getArrowIndex()) > 0 && i == arrowIndex) ? 1 : 0;
+        return (cfL() && (arrowIndex = this.hTX.getArrowIndex()) > 0 && i == arrowIndex) ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        return ccn() ? 2 : 1;
+        return cfL() ? 2 : 1;
     }
 
     public void a(f fVar) {
-        this.hNY = fVar;
+        this.hTX = fVar;
     }
 
-    private View cb(View view) {
-        if (this.hNY != null) {
-            if (view == null || view != this.hNY.getArrowView()) {
-                view = this.hNY.getArrowView();
+    private View ch(View view) {
+        if (this.hTX != null) {
+            if (view == null || view != this.hTX.getArrowView()) {
+                view = this.hTX.getArrowView();
                 if (view.getLayoutParams() == null) {
-                    view.setLayoutParams(new AbsListView.LayoutParams(-1, cci()));
+                    view.setLayoutParams(new AbsListView.LayoutParams(-1, cfG()));
                 }
             }
-            this.hNY.ca(view);
+            this.hTX.cg(view);
         }
         return view;
     }
 
-    public int vo(int i) {
+    public int vG(int i) {
         int arrowIndex;
-        if (this.hNY != null && this.hNY.ccl() && i >= (arrowIndex = this.hNY.getArrowIndex())) {
+        if (this.hTX != null && this.hTX.cfJ() && i >= (arrowIndex = this.hTX.getArrowIndex())) {
             if (i == arrowIndex) {
                 return -1;
             }
@@ -103,11 +103,11 @@ public abstract class a extends BaseAdapter {
         return i;
     }
 
-    public boolean ccn() {
-        return this.hNY != null && this.hNY.ccl() && ccj() + (-1) > this.hNY.getArrowIndex();
+    public boolean cfL() {
+        return this.hTX != null && this.hTX.cfJ() && cfH() + (-1) > this.hTX.getArrowIndex();
     }
 
-    public void nG(boolean z) {
-        this.hNT = z;
+    public void ol(boolean z) {
+        this.hTS = z;
     }
 }

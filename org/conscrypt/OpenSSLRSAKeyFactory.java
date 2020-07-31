@@ -16,7 +16,7 @@ import java.security.spec.RSAPrivateCrtKeySpec;
 import java.security.spec.RSAPrivateKeySpec;
 import java.security.spec.RSAPublicKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class OpenSSLRSAKeyFactory extends KeyFactorySpi {
     @Override // java.security.KeyFactorySpi
     protected PublicKey engineGeneratePublic(KeySpec keySpec) throws InvalidKeySpecException {

@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.data;
 
 import com.baidu.live.adp.lib.util.BdLog;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseData {
     public abstract void parserJson(JSONObject jSONObject);
 

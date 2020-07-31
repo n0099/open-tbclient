@@ -5,7 +5,7 @@ import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 import org.apache.http.cookie.SetCookie;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public class RFC2109VersionHandler extends AbstractCookieAttributeHandler {
     public RFC2109VersionHandler() {
         throw new RuntimeException("Stub!");

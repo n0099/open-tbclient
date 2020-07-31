@@ -13,9 +13,9 @@ import android.view.ViewGroup;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.kascend.chushou.constants.ListItem;
 import com.kascend.chushou.widget.cswebview.CSWebView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class k {
-    public static final k nrj = new k() { // from class: com.kascend.chushou.player.ui.food.k.2
+    public static final k nzT = new k() { // from class: com.kascend.chushou.player.ui.food.k.2
         @Override // com.kascend.chushou.player.ui.food.k
         int a() {
             return 17367043;
@@ -30,8 +30,8 @@ public abstract class k {
         }
     };
     private boolean a;
-    FoodView nrh;
-    private com.kascend.chushou.player.ui.food.a nri;
+    FoodView nzR;
+    private com.kascend.chushou.player.ui.food.a nzS;
     Context q;
     int m = AdCard.INVALID_NUM;
     int n = AdCard.INVALID_NUM;
@@ -40,7 +40,7 @@ public abstract class k {
     private long c = 0;
     private boolean d = false;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public boolean a;
         public boolean b;
@@ -64,8 +64,8 @@ public abstract class k {
     @CallSuper
     public void f(FoodView foodView) {
         this.q = foodView.getContext();
-        this.nrh = foodView;
-        this.nrh.removeAllViews();
+        this.nzR = foodView;
+        this.nzR.removeAllViews();
         LayoutInflater.from(foodView.getContext()).inflate(a(), (ViewGroup) foodView, true);
     }
 
@@ -78,12 +78,12 @@ public abstract class k {
                     this.a = true;
                 } else {
                     viewGroup.removeAllViews();
-                    this.nri = null;
+                    this.nzS = null;
                     this.a = false;
                 }
             } else {
-                this.nri = new com.kascend.chushou.player.ui.food.a(this.q.getApplicationContext());
-                this.nri.setOnTouchListener(new View.OnTouchListener() { // from class: com.kascend.chushou.player.ui.food.k.1
+                this.nzS = new com.kascend.chushou.player.ui.food.a(this.q.getApplicationContext());
+                this.nzS.setOnTouchListener(new View.OnTouchListener() { // from class: com.kascend.chushou.player.ui.food.k.1
                     @Override // android.view.View.OnTouchListener
                     public boolean onTouch(View view, MotionEvent motionEvent) {
                         if (motionEvent.getActionMasked() == 0) {
@@ -94,7 +94,7 @@ public abstract class k {
                         } else if (motionEvent.getActionMasked() == 1) {
                             k.this.o = (int) motionEvent.getX();
                             k.this.p = (int) motionEvent.getY();
-                            k.this.nrh.a(k.this.m, k.this.n, k.this.o, k.this.p);
+                            k.this.nzR.a(k.this.m, k.this.n, k.this.o, k.this.p);
                         }
                         if (k.this.d) {
                             return false;
@@ -102,15 +102,15 @@ public abstract class k {
                         if (motionEvent.getActionMasked() != 1 || System.currentTimeMillis() - k.this.c <= 1000) {
                             return true;
                         }
-                        k.this.nri.performClick();
+                        k.this.nzS.performClick();
                         k.this.c = System.currentTimeMillis();
                         return true;
                     }
                 });
-                CSWebView.a(this.nri, this.q, null, null);
-                this.nri.resumeTimers();
-                this.nri.onResume();
-                viewGroup.addView(this.nri, 0, new ViewGroup.LayoutParams(-1, -1));
+                CSWebView.a(this.nzS, this.q, null, null);
+                this.nzS.resumeTimers();
+                this.nzS.onResume();
+                viewGroup.addView(this.nzS, 0, new ViewGroup.LayoutParams(-1, -1));
                 this.a = true;
             }
         } else {
@@ -120,7 +120,7 @@ public abstract class k {
                     ((com.kascend.chushou.player.ui.food.a) viewGroup.getChildAt(0)).destroy();
                 }
                 viewGroup.removeAllViews();
-                this.nri = null;
+                this.nzS = null;
             }
         }
         return this.a;
@@ -133,14 +133,14 @@ public abstract class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c() {
         this.d = true;
-        if (dKN() != null) {
-            dKN().setEnableTouch(true);
+        if (dOi() != null) {
+            dOi().setEnableTouch(true);
         }
     }
 
     @Nullable
-    public com.kascend.chushou.player.ui.food.a dKN() {
-        return this.nri;
+    public com.kascend.chushou.player.ui.food.a dOi() {
+        return this.nzS;
     }
 
     public void a(ListItem listItem, boolean z, boolean z2) {
@@ -150,17 +150,17 @@ public abstract class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     @CallSuper
     public void e() {
-        if (this.nri != null) {
-            this.nri.destroy();
-            this.nri = null;
+        if (this.nzS != null) {
+            this.nzS.destroy();
+            this.nzS = null;
         }
     }
 
     @Nullable
-    public final <T extends View> T Km(@IdRes int i) {
-        if (this.nrh == null) {
+    public final <T extends View> T KG(@IdRes int i) {
+        if (this.nzR == null) {
             return null;
         }
-        return (T) this.nrh.findViewById(i);
+        return (T) this.nzR.findViewById(i);
     }
 }

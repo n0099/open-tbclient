@@ -5,7 +5,7 @@ import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class c {
     private Charset charset = Charset.forName("UTF-8");
     private String content;
@@ -20,16 +20,16 @@ public class c {
         }
     }
 
-    public byte[] dQl() {
+    public byte[] dTH() {
         byte[] bArr = null;
         try {
             bArr = getContent().getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {
         }
-        return dQm().digest(bArr);
+        return dTI().digest(bArr);
     }
 
-    private MessageDigest dQm() {
+    private MessageDigest dTI() {
         return this.md5;
     }
 
@@ -54,7 +54,7 @@ public class c {
     }
 
     public String toString() {
-        String bigInteger = new BigInteger(1, dQl()).toString(16);
+        String bigInteger = new BigInteger(1, dTH()).toString(16);
         while (bigInteger.length() < 32) {
             bigInteger = "0" + bigInteger;
         }
@@ -69,7 +69,7 @@ public class c {
         this.charset = charset;
     }
 
-    public static String Sr(String str) {
+    public static String Tc(String str) {
         return g(str, new String[0]).toString();
     }
 }

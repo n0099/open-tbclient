@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.live.adp.base.db.BdDatabaseHelper;
 import com.baidu.live.adp.lib.util.BdLog;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class PhoneDatabaseHelper extends SQLiteOpenHelper implements BdDatabaseHelper {
     private BdDatabaseHelper.OnDatabaseCreatedCallback callback;
     private final String databaseName;

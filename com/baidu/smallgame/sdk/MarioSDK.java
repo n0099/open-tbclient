@@ -12,16 +12,16 @@ import com.baidu.smallgame.sdk.delegate.AREngineDelegate;
 import java.util.ArrayList;
 import java.util.List;
 @NotProguard
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class MarioSDK {
     private static final String TAG = "MarioSDK";
     private AREngineDelegate mAREngineDelegate;
     private b mMarioInitListener;
     private V8Engine mV8Engine;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface b {
-        void Rm();
+        void RB();
     }
 
     public void setMarioInitListener(b bVar) {
@@ -74,7 +74,7 @@ public class MarioSDK {
         }
         MarioSDK marioSDK = new MarioSDK(v8Engine, aREngineDelegate);
         if (bVar != null) {
-            bVar.Rm();
+            bVar.RB();
         }
         return marioSDK;
     }
@@ -125,21 +125,21 @@ public class MarioSDK {
         if (aVar.mContext != null) {
             aVar2.setContext(aVar.mContext);
         }
-        if (aVar.bJw != null) {
-            aVar2.setRenderer(aVar.bJw);
+        if (aVar.bJV != null) {
+            aVar2.setRenderer(aVar.bJV);
         }
-        if (aVar.Rl() != null) {
-            for (DebugConsole debugConsole : aVar.Rl()) {
+        if (aVar.RA() != null) {
+            for (DebugConsole debugConsole : aVar.RA()) {
                 aVar2.addDebugConsole(debugConsole);
             }
         }
         return aVar2;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        private List<DebugConsole> bJZ = new ArrayList();
-        private GLSurfaceView.Renderer bJw;
+        private GLSurfaceView.Renderer bJV;
+        private List<DebugConsole> bKv = new ArrayList();
         private Context mContext;
         private ArBridge.FirstFrameListener mFirstFrameListener;
         private int mRenderMode;
@@ -154,17 +154,17 @@ public class MarioSDK {
         }
 
         public void setRenderer(GLSurfaceView.Renderer renderer) {
-            this.bJw = renderer;
+            this.bJV = renderer;
         }
 
         public void addDebugConsole(DebugConsole debugConsole) {
             if (debugConsole != null) {
-                this.bJZ.add(debugConsole);
+                this.bKv.add(debugConsole);
             }
         }
 
-        public List<DebugConsole> Rl() {
-            return this.bJZ;
+        public List<DebugConsole> RA() {
+            return this.bKv;
         }
 
         public void setFirstFrameListener(ArBridge.FirstFrameListener firstFrameListener) {

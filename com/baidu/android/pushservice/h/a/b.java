@@ -4,11 +4,11 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.c.e;
 import com.baidu.android.pushservice.h.a.a.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
 
     /* renamed from: com.baidu.android.pushservice.h.a.b$2  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     static /* synthetic */ class AnonymousClass2 {
         static final /* synthetic */ int[] a = new int[a.e.values().length];
 
@@ -36,7 +36,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         private Context a;
         private com.baidu.android.pushservice.c.a.a b = new com.baidu.android.pushservice.c.a.a();
@@ -81,13 +81,13 @@ public class b {
     }
 
     /* renamed from: com.baidu.android.pushservice.h.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static final class C0065b {
+    /* loaded from: classes9.dex */
+    public static final class C0066b {
         private Context a;
         private com.baidu.android.pushservice.c.a.b b = new com.baidu.android.pushservice.c.a.b();
         private boolean c;
 
-        public C0065b(Context context) {
+        public C0066b(Context context) {
             this.a = context;
             this.b.a = -1L;
             this.b.b = -1L;
@@ -98,17 +98,17 @@ public class b {
             this.b.g = -1L;
         }
 
-        public C0065b a(long j) {
+        public C0066b a(long j) {
             this.b.a = j;
             return this;
         }
 
-        public C0065b a(String str) {
+        public C0066b a(String str) {
             this.b.c = str;
             return this;
         }
 
-        public C0065b a(boolean z) {
+        public C0066b a(boolean z) {
             this.c = z;
             return this;
         }
@@ -121,28 +121,28 @@ public class b {
             }
         }
 
-        public C0065b b(long j) {
+        public C0066b b(long j) {
             this.b.b = j;
             return this;
         }
 
-        public C0065b b(String str) {
+        public C0066b b(String str) {
             this.b.f = str;
             return this;
         }
 
-        public C0065b c(long j) {
+        public C0066b c(long j) {
             this.b.e = j;
             return this;
         }
 
-        public C0065b d(long j) {
+        public C0066b d(long j) {
             this.b.g = j;
             return this;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class c {
         private Context a;
         private com.baidu.android.pushservice.c.a.c b = new com.baidu.android.pushservice.c.a.c();
@@ -173,7 +173,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class d {
         private Context a;
         private com.baidu.android.pushservice.c.a.e b = new com.baidu.android.pushservice.c.a.e();

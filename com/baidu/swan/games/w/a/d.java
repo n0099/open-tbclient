@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import com.baidu.searchbox.v8engine.JSExceptionType;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class d {
     private final Object data;
     private final String error;
@@ -19,14 +19,14 @@ public class d {
         return this.error == null;
     }
 
-    public String cB(String str, String str2) {
+    public String cE(String str, String str2) {
         if (isSuccess()) {
-            return a.sG(str);
+            return a.tE(str);
         }
-        return a.Q(str, str2, aDa());
+        return a.Q(str, str2, aGH());
     }
 
-    public String aDa() {
+    public String aGH() {
         return this.error;
     }
 
@@ -34,11 +34,11 @@ public class d {
         return this.data;
     }
 
-    public static Object aDb() {
+    public static Object aGI() {
         return new JsObject();
     }
 
-    public static String iH(int i) {
+    public static String iY(int i) {
         switch (i) {
             case 1:
                 return "boolean";
@@ -70,7 +70,7 @@ public class d {
         return new d(null, obj);
     }
 
-    public static d sH(@NonNull String str) {
+    public static d tF(@NonNull String str) {
         return new d(str, null);
     }
 
@@ -78,7 +78,7 @@ public class d {
         if (dVar.isSuccess()) {
             return dVar.getData();
         }
-        String Q = a.Q(str, str2, dVar.aDa());
+        String Q = a.Q(str, str2, dVar.aGH());
         bVar.throwJSException(JSExceptionType.Error, Q);
         return Q;
     }

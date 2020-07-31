@@ -18,16 +18,16 @@ import com.baidu.live.p.e;
 import com.baidu.live.p.f;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
-    protected com.baidu.live.liveroom.a.c aYR;
-    protected com.baidu.live.liveroom.g.a aYS;
-    protected e aYT;
-    protected f aYU;
+    protected com.baidu.live.liveroom.a.c aYP;
+    protected com.baidu.live.liveroom.g.a aYQ;
+    protected e aYR;
+    protected f aYS;
     protected Activity activity;
     protected ViewGroup rootView;
     protected Handler mHandler = new Handler();
-    private CustomMessageListener aYV = new CustomMessageListener(2913146) { // from class: com.baidu.live.liveroom.f.a.1
+    private CustomMessageListener aYT = new CustomMessageListener(2913146) { // from class: com.baidu.live.liveroom.f.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,7 +39,7 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
             }
         }
     };
-    private CustomMessageListener aYW = new CustomMessageListener(2913167) { // from class: com.baidu.live.liveroom.f.a.2
+    private CustomMessageListener aYU = new CustomMessageListener(2913167) { // from class: com.baidu.live.liveroom.f.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -52,7 +52,7 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
         }
     };
 
-    public abstract boolean FO();
+    public abstract boolean FI();
 
     public abstract View a(Context context, q qVar, boolean z);
 
@@ -88,41 +88,41 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     public abstract void onStop();
 
     public void init() {
-        MessageManager.getInstance().registerListener(this.aYV);
-        MessageManager.getInstance().registerListener(this.aYW);
+        MessageManager.getInstance().registerListener(this.aYT);
+        MessageManager.getInstance().registerListener(this.aYU);
     }
 
     public void a(com.baidu.live.liveroom.a.c cVar) {
-        this.aYR = cVar;
+        this.aYP = cVar;
     }
 
     public void setActivity(Activity activity) {
         this.activity = activity;
     }
 
-    public void m(ViewGroup viewGroup) {
+    public void n(ViewGroup viewGroup) {
         this.rootView = viewGroup;
     }
 
     public void b(com.baidu.live.liveroom.g.a aVar) {
-        this.aYS = aVar;
+        this.aYQ = aVar;
     }
 
-    public void bU(boolean z) {
+    public void bV(boolean z) {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     @Override // com.baidu.live.liveroom.middleware.i
-    public final void q(Activity activity) {
+    public final void r(Activity activity) {
     }
 
     @Override // com.baidu.live.liveroom.middleware.i
-    public void bT(boolean z) {
+    public void bU(boolean z) {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        MessageManager.getInstance().unRegisterListener(this.aYV);
-        MessageManager.getInstance().unRegisterListener(this.aYW);
+        MessageManager.getInstance().unRegisterListener(this.aYT);
+        MessageManager.getInstance().unRegisterListener(this.aYU);
     }
 
     @Override // com.baidu.live.liveroom.middleware.i
@@ -134,11 +134,11 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
     }
 
-    public void bL(int i) {
+    public void bR(int i) {
     }
 
     public void a(e eVar, f fVar) {
-        this.aYT = eVar;
-        this.aYU = fVar;
+        this.aYR = eVar;
+        this.aYS = fVar;
     }
 }

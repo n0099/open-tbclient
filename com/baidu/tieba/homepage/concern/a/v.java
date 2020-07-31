@@ -13,24 +13,24 @@ import com.baidu.card.e;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.aa;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, ak<com.baidu.tieba.card.data.k>> implements com.baidu.tieba.a.f {
-    private aa<com.baidu.tieba.card.data.k> adX;
-    private String afG;
-    private com.baidu.adp.widget.ListView.v ajy;
-    public BdUniqueId eyE;
+    private aa<com.baidu.tieba.card.data.k> adN;
+    private String afx;
+    private com.baidu.adp.widget.ListView.v ajt;
+    public BdUniqueId eEU;
     private TbPageContext<?> mPageContext;
 
     public v(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.adX = new aa<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.a.v.1
+        this.adN = new aa<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.a.v.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
-                if (view != null && kVar != null && kVar.aPS() != null && !StringUtils.isNull(kVar.aPS().getTid())) {
+                if (view != null && kVar != null && kVar.aTN() != null && !StringUtils.isNull(kVar.aTN().getTid())) {
                     v.this.b(view, kVar);
                 }
             }
@@ -39,7 +39,7 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void a(com.baidu.adp.widget.ListView.v vVar) {
-        this.ajy = vVar;
+        this.ajt = vVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -55,13 +55,13 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aQ */
+    /* renamed from: aR */
     public ak b(ViewGroup viewGroup) {
         ai.a aVar = new ai.a(this.mPageContext.getPageActivity());
         com.baidu.card.e eVar = new com.baidu.card.e(this.mPageContext.getPageActivity());
-        eVar.setPageUniqueId(this.eyE);
-        eVar.bd(128);
-        eVar.be(1024);
+        eVar.setPageUniqueId(this.eEU);
+        eVar.bf(128);
+        eVar.bg(1024);
         eVar.a(new e.a() { // from class: com.baidu.tieba.homepage.concern.a.v.2
             @Override // com.baidu.card.e.a
             public void a(AbsThreadDataSupport absThreadDataSupport, View view) {
@@ -77,10 +77,10 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             }
         });
         aVar.a(eVar);
-        ai a = aVar.a(false, viewGroup, this.ajy);
+        ai a = aVar.a(false, viewGroup, this.ajt);
         a.setSourceForPb(1);
         ak akVar = new ak(a);
-        akVar.setPageId(this.eyE);
+        akVar.setPageId(this.eEU);
         a(new z() { // from class: com.baidu.tieba.homepage.concern.a.v.3
             @Override // com.baidu.adp.widget.ListView.z
             public void a(View view, com.baidu.adp.widget.ListView.q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -88,11 +88,11 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                     ak akVar2 = (ak) view.getTag();
                     com.baidu.tieba.card.data.k kVar = (com.baidu.tieba.card.data.k) qVar;
                     kVar.objType = 1;
-                    if (v.this.adX != null) {
-                        v.this.adX.a(akVar2.getView(), kVar);
+                    if (v.this.adN != null) {
+                        v.this.adN.a(akVar2.getView(), kVar);
                     }
-                    aw.a((AbsThreadDataSupport) kVar, view.getContext(), 1, false, com.baidu.card.f.a((com.baidu.adp.widget.ListView.v) viewGroup2, view, i));
-                    akVar2.se().b(new a.C0098a(1));
+                    ax.a((AbsThreadDataSupport) kVar, view.getContext(), 1, false, com.baidu.card.f.a((com.baidu.adp.widget.ListView.v) viewGroup2, view, i));
+                    akVar2.sg().b(new a.C0096a(1));
                 }
             }
         });
@@ -103,23 +103,23 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, ak<com.baidu.tieba.card.data.k> akVar) {
-        if (kVar == null || akVar == null || akVar.getView() == null || kVar.dLi == null) {
+        if (kVar == null || akVar == null || akVar.getView() == null || kVar.dLK == null) {
             return null;
         }
-        kVar.sR(kVar.position + 1);
-        akVar.se().setPosition(i);
-        if (akVar.se() instanceof com.baidu.tieba.a.e) {
-            akVar.se().setPage(this.afG);
+        kVar.tj(kVar.position + 1);
+        akVar.sg().setPosition(i);
+        if (akVar.sg() instanceof com.baidu.tieba.a.e) {
+            akVar.sg().setPage(this.afx);
         }
-        akVar.a(kVar.aPZ(), Align.ALIGN_RIGHT_TOP);
+        akVar.a(true, Align.ALIGN_RIGHT_TOP);
         akVar.b((ak<com.baidu.tieba.card.data.k>) kVar);
-        akVar.se().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        akVar.se().a(this.adX);
+        akVar.sg().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        akVar.sg().a(this.adN);
         return akVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ae(String str) {
-        this.afG = str;
+    public void AP(String str) {
+        this.afx = str;
     }
 }

@@ -19,18 +19,18 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class e {
     private static final String TAG = e.class.getSimpleName();
-    private static e oix = new e();
-    private static String oiy = "";
-    private ExecutorService oiw = Executors.newCachedThreadPool();
+    private static e orh = new e();
+    private static String ori = "";
+    private ExecutorService orf = Executors.newCachedThreadPool();
 
     private e() {
     }
 
-    public static e dVY() {
-        return oix;
+    public static e dZu() {
+        return orh;
     }
 
     private String getCpuName() {
@@ -51,7 +51,7 @@ public final class e {
     }
 
     @SuppressLint({"DefaultLocale"})
-    private String SU(String str) {
+    private String TF(String str) {
         if (str.toLowerCase().contains("arm")) {
             return "armeabi";
         }
@@ -64,10 +64,10 @@ public final class e {
         return IDevices.ABI_MIPS;
     }
 
-    public void w(Context context, String str, String str2) {
-        String SU = SU(getCpuName());
-        oiy = str2;
-        tv.chushou.a.a.c.a.dWu().d(TAG, "cpuArchitect: " + SU);
+    public void v(Context context, String str, String str2) {
+        String TF = TF(getCpuName());
+        ori = str2;
+        tv.chushou.a.a.c.a.dZQ().d(TAG, "cpuArchitect: " + TF);
         long currentTimeMillis = System.currentTimeMillis();
         try {
             ZipFile zipFile = new ZipFile(str);
@@ -76,12 +76,12 @@ public final class e {
                 ZipEntry nextElement = entries.nextElement();
                 if (!nextElement.isDirectory()) {
                     String name = nextElement.getName();
-                    if (name.endsWith(PluginInstallerService.APK_LIB_SUFFIX) && name.contains(SU)) {
+                    if (name.endsWith(PluginInstallerService.APK_LIB_SUFFIX) && name.contains(TF)) {
                         long time = nextElement.getTime();
-                        if (time == tv.chushou.basis.a.a.bh(context, name)) {
-                            tv.chushou.a.a.c.a.dWu().d(TAG, "skip copying, the so lib is exist and not change: " + name);
+                        if (time == tv.chushou.basis.a.a.bg(context, name)) {
+                            tv.chushou.a.a.c.a.dZQ().d(TAG, "skip copying, the so lib is exist and not change: " + name);
                         } else {
-                            this.oiw.execute(new a(context, zipFile, nextElement, time));
+                            this.orf.execute(new a(context, zipFile, nextElement, time));
                         }
                     }
                 }
@@ -89,42 +89,42 @@ public final class e {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        tv.chushou.a.a.c.a.dWu().d(TAG, "### copy so time : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+        tv.chushou.a.a.c.a.dZQ().d(TAG, "### copy so time : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private class a implements Runnable {
         private Context mContext;
-        private ZipFile oiA;
-        private ZipEntry oiB;
-        private long oiC;
-        private String oiz;
+        private String orj;
+        private ZipFile ork;
+        private ZipEntry orl;
+        private long orm;
 
         a(Context context, ZipFile zipFile, ZipEntry zipEntry, long j) {
-            this.oiA = zipFile;
+            this.ork = zipFile;
             this.mContext = context;
-            this.oiB = zipEntry;
-            this.oiz = SV(zipEntry.getName());
-            this.oiC = j;
+            this.orl = zipEntry;
+            this.orj = TG(zipEntry.getName());
+            this.orm = j;
         }
 
-        private final String SV(String str) {
+        private final String TG(String str) {
             return str.substring(str.lastIndexOf("/") + 1);
         }
 
-        private void dVZ() throws IOException {
-            copy(this.oiA.getInputStream(this.oiB), new FileOutputStream(new File(e.oiy, this.oiz)));
-            this.oiA.close();
+        private void dZv() throws IOException {
+            copy(this.ork.getInputStream(this.orl), new FileOutputStream(new File(e.ori, this.orj)));
+            this.ork.close();
         }
 
         public void copy(InputStream inputStream, OutputStream outputStream) throws IOException {
             if (inputStream != null && outputStream != null) {
                 BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
                 BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
-                int L = L(bufferedInputStream);
-                byte[] bArr = new byte[L];
+                int K = K(bufferedInputStream);
+                byte[] bArr = new byte[K];
                 while (true) {
-                    int read = bufferedInputStream.read(bArr, 0, L);
+                    int read = bufferedInputStream.read(bArr, 0, K);
                     if (read != -1) {
                         bufferedOutputStream.write(bArr, 0, read);
                     } else {
@@ -137,7 +137,7 @@ public final class e {
             }
         }
 
-        private int L(InputStream inputStream) throws IOException {
+        private int K(InputStream inputStream) throws IOException {
             if (inputStream == null) {
                 return 0;
             }
@@ -151,11 +151,11 @@ public final class e {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                dVZ();
-                tv.chushou.basis.a.a.d(this.mContext, this.oiB.getName(), this.oiC);
-                tv.chushou.a.a.c.a.dWu().d(e.TAG, "copy so lib success: " + this.oiB.getName());
+                dZv();
+                tv.chushou.basis.a.a.d(this.mContext, this.orl.getName(), this.orm);
+                tv.chushou.a.a.c.a.dZQ().d(e.TAG, "copy so lib success: " + this.orl.getName());
             } catch (IOException e) {
-                tv.chushou.a.a.c.a.dWu().e(e.TAG, "copy so lib failed: " + e.toString());
+                tv.chushou.a.a.c.a.dZQ().e(e.TAG, "copy so lib failed: " + e.toString());
                 e.printStackTrace();
             }
         }

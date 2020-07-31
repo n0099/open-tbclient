@@ -9,7 +9,7 @@ public class ItemStarData implements Serializable {
     public List<SingleItemStar> list;
 
     public void parseProto(List<HeadItem> list) {
-        if (com.baidu.tbadk.core.util.w.getCount(list) != 0) {
+        if (com.baidu.tbadk.core.util.x.getCount(list) != 0) {
             this.list = new ArrayList();
             for (HeadItem headItem : list) {
                 if (headItem != null) {

@@ -15,7 +15,7 @@ import com.baidu.live.tbadk.core.BDLayoutMode;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFragmentActivity> {
     BaseFragmentActivity orginal;
 

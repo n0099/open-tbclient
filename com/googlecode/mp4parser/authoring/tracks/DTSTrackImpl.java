@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class DTSTrackImpl extends AbstractTrack {
     int bcCoreBitRate;
     int bcCoreChannelMask;
@@ -286,7 +286,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r22.bitrate = 1152;
      */
     /* JADX WARN: Code restructure failed: missing block: B:102:0x020c, code lost:
-        r22.bitrate = 1280;
+        r22.bitrate = io.flutter.plugin.platform.PlatformPlugin.DEFAULT_SYSTEM_UI;
      */
     /* JADX WARN: Code restructure failed: missing block: B:103:0x0214, code lost:
         r22.bitrate = 1344;

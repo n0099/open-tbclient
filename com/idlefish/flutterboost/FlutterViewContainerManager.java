@@ -17,7 +17,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public class FlutterViewContainerManager implements IContainerManager {
     private final Map<IFlutterViewContainer, IContainerRecord> mRecordMap = new LinkedHashMap();
     private final Set<ContainerRef> mRefs = new HashSet();
@@ -26,7 +26,7 @@ public class FlutterViewContainerManager implements IContainerManager {
     private final Map<String, OnResult> mOnResults = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public interface OnResult {
         void onResult(Map<String, Object> map);
     }
@@ -76,7 +76,7 @@ public class FlutterViewContainerManager implements IContainerManager {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void popRecord(IContainerRecord iContainerRecord) {
-        if (this.mRecordStack.peek() == iContainerRecord) {
+        if (!this.mRecordStack.empty() && this.mRecordStack.peek() == iContainerRecord) {
             this.mRecordStack.pop();
         }
     }
@@ -224,7 +224,7 @@ public class FlutterViewContainerManager implements IContainerManager {
         return false;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public static class ContainerRef {
         public final WeakReference<IFlutterViewContainer> container;
         public final String uniqueId;

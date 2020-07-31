@@ -4,7 +4,7 @@ import com.baidu.ar.f.g;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static b aP(String str) {
         File file = new File(str, "targets.json");

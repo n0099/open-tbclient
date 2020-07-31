@@ -2,7 +2,7 @@ package com.baidu.tieba.ad.download;
 
 import com.baidu.tieba.ad.download.state.DownloadStatus;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class AdDownloadExtra implements Serializable {
     private final AdDownloadData mAdDownload;
     private int mDownloadFakePercent;

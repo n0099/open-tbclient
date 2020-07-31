@@ -11,7 +11,7 @@ import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class BdZeusDownloadHelper {
     protected static String d;
     protected static String e;
@@ -19,14 +19,14 @@ public final class BdZeusDownloadHelper {
     protected long c;
     private Context h;
     public static final String a = BdZeusDownloadHelper.class.getSimpleName();
-    private static BdZeusDownloadHelper adP = null;
+    private static BdZeusDownloadHelper adF = null;
     protected static String f = "com.baidu.android.appswitchsdk:web";
     private String i = "";
     private String k = "";
     private int j = a.c;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public class ZeusDownloadTaskListener implements BdSailorClient.IDownloadTaskListener {
         private ZeusDownloadTaskListener() {
         }
@@ -110,7 +110,7 @@ public final class BdZeusDownloadHelper {
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static final int a = 1;
         public static final int b = 2;
@@ -131,14 +131,14 @@ public final class BdZeusDownloadHelper {
     }
 
     public static BdZeusDownloadHelper Q(Context context) {
-        if (adP == null) {
+        if (adF == null) {
             synchronized (BdZeusDownloadHelper.class) {
-                if (adP == null) {
-                    adP = new BdZeusDownloadHelper(context);
+                if (adF == null) {
+                    adF = new BdZeusDownloadHelper(context);
                 }
             }
         }
-        return adP;
+        return adF;
     }
 
     public static void a() {

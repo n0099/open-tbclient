@@ -1,27 +1,27 @@
 package com.baidu.tieba.frs.game.strategy.data;
 
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.data.bu;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.util.x;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class c {
-    public int hNh;
-    public List<q> hNi;
+    public int hTg;
+    public List<q> hTh;
     public boolean hasMore;
     public String key;
     public int labelId;
     public int pn;
 
-    public int cB(List<q> list) {
+    public int cG(List<q> list) {
         boolean z;
-        if (w.isEmpty(list)) {
+        if (x.isEmpty(list)) {
             return 0;
         }
-        if (w.isEmpty(this.hNi)) {
-            this.hNi = new LinkedList();
-            this.hNi.addAll(list);
+        if (x.isEmpty(this.hTh)) {
+            this.hTh = new LinkedList();
+            this.hTh.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,15 +29,15 @@ public class c {
             q qVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.hNi.size()) {
+                if (i2 >= this.hTh.size()) {
                     z = false;
                     break;
                 }
-                q qVar2 = this.hNi.get(i2);
+                q qVar2 = this.hTh.get(i2);
                 if (qVar != null && (qVar instanceof b) && qVar2 != null && (qVar2 instanceof b)) {
-                    bu aPS = ((b) qVar).aPS();
-                    bu aPS2 = ((b) qVar2).aPS();
-                    if (aPS != null && aPS2 != null && aPS.getTid() != null && aPS2.getTid() != null && aPS.getTid().equals(aPS2.getTid())) {
+                    bv aTN = ((b) qVar).aTN();
+                    bv aTN2 = ((b) qVar2).aTN();
+                    if (aTN != null && aTN2 != null && aTN.getTid() != null && aTN2.getTid() != null && aTN.getTid().equals(aTN2.getTid())) {
                         z = true;
                         break;
                     }
@@ -45,11 +45,11 @@ public class c {
                 i2++;
             }
             if (!z) {
-                w.add(linkedList, qVar);
+                x.add(linkedList, qVar);
             }
         }
         if (linkedList.size() != 0) {
-            w.addAll(this.hNi, 0, linkedList);
+            x.addAll(this.hTh, 0, linkedList);
         }
         return linkedList.size();
     }

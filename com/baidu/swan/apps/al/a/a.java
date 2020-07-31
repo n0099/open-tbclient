@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.aq.i;
+import com.baidu.swan.apps.aq.j;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.runtime.e;
-import com.baidu.swan.e.d;
+import com.baidu.swan.d.d;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,10 +15,10 @@ import java.util.Comparator;
 import java.util.Date;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private final String cKv;
+    private final String cNM;
 
     public a() {
         String str;
@@ -31,24 +31,24 @@ public class a {
             str = "";
         }
         if (!TextUtils.isEmpty(str)) {
-            this.cKv = str + File.separator + "aiapps_folder/stability";
+            this.cNM = str + File.separator + "aiapps_folder/stability";
         } else {
-            this.cKv = "";
+            this.cNM = "";
         }
     }
 
-    public File D(JSONArray jSONArray) {
+    public File E(JSONArray jSONArray) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            hd(9);
+            hm(9);
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("_app_id", e.apO() == null ? "" : e.apO());
-            jSONObject.put("_date", i.a(new Date(currentTimeMillis), "yyyy-MM-dd HH:mm:ss"));
+            jSONObject.put("_app_id", e.arx() == null ? "" : e.arx());
+            jSONObject.put("_date", j.a(new Date(currentTimeMillis), "yyyy-MM-dd HH:mm:ss"));
             jSONArray.put(jSONObject);
-            File bp = bp(currentTimeMillis);
-            if (bp != null) {
-                if (com.baidu.swan.apps.t.a.l(bp.getPath(), jSONArray.toString(), false)) {
-                    return bp;
+            File bA = bA(currentTimeMillis);
+            if (bA != null) {
+                if (com.baidu.swan.apps.s.a.l(bA.getPath(), jSONArray.toString(), false)) {
+                    return bA;
                 }
             }
             return null;
@@ -60,12 +60,12 @@ public class a {
         }
     }
 
-    public File[] ash() {
-        if (TextUtils.isEmpty(this.cKv)) {
+    public File[] aue() {
+        if (TextUtils.isEmpty(this.cNM)) {
             return null;
         }
         try {
-            return new File(this.cKv).listFiles();
+            return new File(this.cNM).listFiles();
         } catch (Exception e) {
             if (DEBUG) {
                 Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e);
@@ -75,13 +75,14 @@ public class a {
         }
     }
 
-    private void hd(int i) {
-        File[] ash = ash();
-        if (ash != null && ash.length != 0) {
+    private void hm(int i) {
+        File[] aue = aue();
+        if (aue != null && aue.length != 0) {
             long currentTimeMillis = System.currentTimeMillis();
-            Arrays.sort(ash, new Comparator<File>() { // from class: com.baidu.swan.apps.al.a.a.1
+            Arrays.sort(aue, new Comparator<File>() { // from class: com.baidu.swan.apps.al.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
+                /* renamed from: c */
                 public int compare(File file, File file2) {
                     long lastModified = file.lastModified();
                     long lastModified2 = file2.lastModified();
@@ -91,9 +92,9 @@ public class a {
                     return lastModified - lastModified2 > 0 ? 1 : -1;
                 }
             });
-            ArrayList<File> arrayList = new ArrayList(ash.length);
+            ArrayList<File> arrayList = new ArrayList(aue.length);
             int i2 = 0;
-            for (File file : ash) {
+            for (File file : aue) {
                 if (i2 < i) {
                     if (file.lastModified() - currentTimeMillis > 172800000) {
                         arrayList.add(file);
@@ -109,10 +110,10 @@ public class a {
         }
     }
 
-    private File bp(long j) {
-        if (TextUtils.isEmpty(this.cKv)) {
+    private File bA(long j) {
+        if (TextUtils.isEmpty(this.cNM)) {
             return null;
         }
-        return new File(this.cKv + File.separator + (e.apO() == null ? "" : e.apO()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + j + "_swan_stability_traces.log");
+        return new File(this.cNM + File.separator + (e.arx() == null ? "" : e.arx()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + j + "_swan_stability_traces.log");
     }
 }

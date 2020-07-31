@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class VideoPasterResponseData extends JsonHttpResponsedMessage {
     private static final String TPL_IMAGE_TYPE = "ad_video_attach_image";
     private static final String TPL_VIDEO_TYPE = "ad_video_attach_video";
@@ -30,12 +30,12 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                 parserJson(jSONObject);
                 return;
             } catch (ParseError e) {
-                this.pasterData.aR(3);
+                this.pasterData.aT(3);
                 e.printStackTrace();
                 return;
             }
         }
-        this.pasterData.aR(3);
+        this.pasterData.aT(3);
     }
 
     private void parserJson(JSONObject jSONObject) throws ParseError {
@@ -81,7 +81,7 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
         }
         if (optJSONObject3.optInt("advisible", 1) == 0) {
             this.type = 2;
-            this.pasterData.aR(this.type);
+            this.pasterData.aT(this.type);
             return;
         }
         JSONArray optJSONArray4 = optJSONObject3.optJSONArray("material");
@@ -110,7 +110,7 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
         String optString = optJSONObject.optString("adType");
         if (!TextUtils.isEmpty(optString) && optString.equals("3")) {
             this.type = 2;
-            this.pasterData.aR(this.type);
+            this.pasterData.aT(this.type);
             return;
         }
         String optString2 = optJSONObject.optString("tplName");
@@ -138,8 +138,8 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject4 = optJSONArray.optJSONObject(i);
                 if (optJSONObject4 != null) {
-                    this.pasterData.Yw.add(optJSONObject4.optString("show_url"));
-                    this.pasterData.Yx.add(optJSONObject4.optString("click_url"));
+                    this.pasterData.Ym.add(optJSONObject4.optString("show_url"));
+                    this.pasterData.Yn.add(optJSONObject4.optString("click_url"));
                 }
             }
         }
@@ -147,15 +147,15 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
         String optString5 = optJSONObject3.optString(BigdayActivityConfig.JUMP_URL);
         String str = null;
         if (TextUtils.isEmpty(optString4)) {
-            this.pasterData.Yt = true;
-            this.pasterData.Yu = 10;
-            this.pasterData.Yv = 2;
-            this.pasterData.aR(3);
+            this.pasterData.Yj = true;
+            this.pasterData.Yk = 10;
+            this.pasterData.Yl = 2;
+            this.pasterData.aT(3);
         } else if (TextUtils.isEmpty(optString5)) {
-            this.pasterData.Yt = true;
-            this.pasterData.Yu = 10;
-            this.pasterData.Yv = 1;
-            this.pasterData.aR(3);
+            this.pasterData.Yj = true;
+            this.pasterData.Yk = 10;
+            this.pasterData.Yl = 1;
+            this.pasterData.aT(3);
         } else {
             JSONArray optJSONArray2 = optJSONObject3.optJSONArray("image_list");
             if (this.type == 0) {
@@ -168,9 +168,9 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                 }
                 str = optJSONObject5.optString("image");
                 if (TextUtils.isEmpty(str)) {
-                    this.pasterData.Yt = true;
-                    this.pasterData.Yu = 10;
-                    this.pasterData.Yv = 3;
+                    this.pasterData.Yj = true;
+                    this.pasterData.Yk = 10;
+                    this.pasterData.Yl = 3;
                     throw new ParseError(2, "image has no data");
                 }
             }
@@ -191,9 +191,9 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                 str2 = optJSONObject7.optString("url");
                 str3 = optJSONObject7.optString("cover");
                 if (TextUtils.isEmpty(str2)) {
-                    this.pasterData.Yt = true;
-                    this.pasterData.Yu = 10;
-                    this.pasterData.Yv = 4;
+                    this.pasterData.Yj = true;
+                    this.pasterData.Yk = 10;
+                    this.pasterData.Yl = 4;
                     throw new ParseError(2, "video url or cover has no data");
                 }
             }
@@ -203,20 +203,20 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                 i2 = optJSONObject8.optInt("time");
             }
             if (this.type == 3) {
-                this.pasterData.Yt = true;
-                this.pasterData.Yu = 10;
-                this.pasterData.Yv = 24;
+                this.pasterData.Yj = true;
+                this.pasterData.Yk = 10;
+                this.pasterData.Yl = 24;
             }
             this.pasterData.adid = optString3;
-            this.pasterData.aR(this.type);
+            this.pasterData.aT(this.type);
             this.pasterData.tplName = optString2;
-            this.pasterData.Yo = i2;
-            this.pasterData.Yn = optString5;
-            this.pasterData.Ym = optString4;
-            this.pasterData.Yr = optString7;
-            this.pasterData.Yq = optString6;
-            this.pasterData.Ys = optString8;
-            this.pasterData.Yp = str3;
+            this.pasterData.Ye = i2;
+            this.pasterData.Yc = optString5;
+            this.pasterData.Yb = optString4;
+            this.pasterData.Yh = optString7;
+            this.pasterData.Yg = optString6;
+            this.pasterData.Yi = optString8;
+            this.pasterData.Yf = str3;
             this.pasterData.videoUrl = str2;
             this.pasterData.picUrl = str;
         }

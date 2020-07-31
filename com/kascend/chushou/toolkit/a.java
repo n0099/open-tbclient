@@ -1,11 +1,11 @@
 package com.kascend.chushou.toolkit;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a implements tv.chushou.zues.toolkit.richtext.a {
     public a(int i) {
     }
 
     @Override // tv.chushou.zues.toolkit.richtext.a
-    public CharSequence Ro(String str) {
+    public CharSequence RZ(String str) {
         return str;
     }
 }

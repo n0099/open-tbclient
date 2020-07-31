@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import com.baidu.idl.authority.IDLAuthorityException;
 import com.baidu.idl.facesdk.FaceSDK;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class FaceTracker {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes4.dex */
     public enum ActionType {
         DELETE,
         REGIST,
@@ -15,7 +15,7 @@ public class FaceTracker {
         RECOGNIZE
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes4.dex */
     public enum ErrCode {
         OK,
         PITCH_OUT_OF_RANGE,

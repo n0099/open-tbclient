@@ -10,7 +10,7 @@ import com.baidu.mapapi.common.SysOSUtil;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BitmapDescriptorFactory {
     static final /* synthetic */ boolean a;
 

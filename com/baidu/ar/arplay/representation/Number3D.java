@@ -1,7 +1,7 @@
 package com.baidu.ar.arplay.representation;
 
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class Number3D {
     public static final int M00 = 0;
     public static final int M01 = 4;
@@ -24,7 +24,7 @@ public class Number3D {
     public float y;
     public float z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public enum Axis {
         X,
         Y,

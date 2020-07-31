@@ -33,6 +33,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.WindowInsets;
 import android.view.accessibility.AccessibilityEvent;
+import io.flutter.plugin.platform.PlatformPlugin;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -196,7 +197,7 @@ public class DrawerLayout extends ViewGroup {
                         return windowInsets.consumeSystemWindowInsets();
                     }
                 });
-                setSystemUiVisibility(1280);
+                setSystemUiVisibility(PlatformPlugin.DEFAULT_SYSTEM_UI);
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(THEME_ATTRS);
                 try {
                     this.mStatusBarBackground = obtainStyledAttributes.getDrawable(0);

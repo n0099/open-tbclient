@@ -3,7 +3,7 @@ package com.baidu.searchbox.ugc.utils;
 import com.baidu.searchbox.config.AppConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes19.dex */
 public class UgcRDUBCUtils {
     public static final String ALBUM_IMAGE = "image";
     public static final String ALBUM_VIDEO = "video";

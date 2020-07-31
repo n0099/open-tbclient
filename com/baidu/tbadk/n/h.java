@@ -2,20 +2,20 @@ package com.baidu.tbadk.n;
 /* loaded from: classes.dex */
 public class h extends g {
     public long costTime;
-    public boolean eAN;
+    public boolean eHc;
     public boolean isSuccess;
     public String resourceFromType;
 
-    public void bhK() {
+    public void blv() {
         o oVar;
-        if (m.bhP().bhQ() && (oVar = (o) m.bhP().nZ(this.mSubType)) != null) {
+        if (m.blA().blB() && (oVar = (o) m.blA().or(this.mSubType)) != null) {
             oVar.a(this, "head");
         }
     }
 
-    public void bhL() {
+    public void blw() {
         o oVar;
-        if (m.bhP().bhQ() && (oVar = (o) m.bhP().nZ(this.mSubType)) != null) {
+        if (m.blA().blB() && (oVar = (o) m.blA().or(this.mSubType)) != null) {
             oVar.a(this, "img");
         }
     }

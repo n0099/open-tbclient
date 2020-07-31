@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.main.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tbadk.core.view.BlueCheckRadioButton;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class CustomBlueCheckRadioButton extends BlueCheckRadioButton {
     public CustomBlueCheckRadioButton(Context context) {
         super(context);

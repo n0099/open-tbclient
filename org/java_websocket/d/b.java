@@ -1,21 +1,21 @@
 package org.java_websocket.d;
 
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b implements a {
-    private final String oaq;
+    private final String oja;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.oaq = str;
+        this.oja = str;
     }
 
     @Override // org.java_websocket.d.a
-    public boolean SL(String str) {
+    public boolean Tw(String str) {
         for (String str2 : str.replaceAll(" ", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (this.oaq.equals(str2)) {
+            if (this.oja.equals(str2)) {
                 return true;
             }
         }
@@ -23,18 +23,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String dTX() {
-        return this.oaq;
+    public String dXt() {
+        return this.oja;
     }
 
     @Override // org.java_websocket.d.a
-    public a dTY() {
-        return new b(dTX());
+    public a dXu() {
+        return new b(dXt());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return dTX();
+        return dXt();
     }
 
     public boolean equals(Object obj) {
@@ -44,10 +44,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.oaq.equals(((b) obj).oaq);
+        return this.oja.equals(((b) obj).oja);
     }
 
     public int hashCode() {
-        return this.oaq.hashCode();
+        return this.oja.hashCode();
     }
 }

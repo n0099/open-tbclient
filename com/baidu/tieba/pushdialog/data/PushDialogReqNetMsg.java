@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.util.t;
 import tbclient.GetLockWindowMsg.DataReq;
 import tbclient.GetLockWindowMsg.GetLockWindowMsgReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class PushDialogReqNetMsg extends NetMessage {
     private long task_id;
     private long tid;

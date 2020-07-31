@@ -4,26 +4,26 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class f {
-    private RelativeLayout jYv;
-    private TextView jYw;
-    private TextView jYx;
-    private ImageView jYy;
+    private RelativeLayout kgV;
+    private TextView kgW;
+    private TextView kgX;
+    private ImageView kgY;
     private View rootView;
 
     public f(View view) {
         this.rootView = view;
-        this.jYv = (RelativeLayout) view.findViewById(R.id.chosen_pb_reply_text);
-        this.jYw = (TextView) view.findViewById(R.id.chosen_pb_reply_comment);
-        this.jYx = (TextView) view.findViewById(R.id.chosen_pb_reply_number);
-        this.jYy = (ImageView) view.findViewById(R.id.chosen_pb_reply_share);
+        this.kgV = (RelativeLayout) view.findViewById(R.id.chosen_pb_reply_text);
+        this.kgW = (TextView) view.findViewById(R.id.chosen_pb_reply_comment);
+        this.kgX = (TextView) view.findViewById(R.id.chosen_pb_reply_number);
+        this.kgY = (ImageView) view.findViewById(R.id.chosen_pb_reply_share);
     }
 
     public void P(View.OnClickListener onClickListener) {
-        this.jYv.setOnClickListener(onClickListener);
+        this.kgV.setOnClickListener(onClickListener);
     }
 
     public void setVisible(boolean z) {
@@ -31,18 +31,18 @@ public class f {
     }
 
     public void Q(View.OnClickListener onClickListener) {
-        this.jYy.setOnClickListener(onClickListener);
+        this.kgY.setOnClickListener(onClickListener);
     }
 
-    public void JE(String str) {
-        this.jYx.setText(str);
+    public void Kq(String str) {
+        this.kgX.setText(str);
     }
 
     public void onChangeSkinType() {
-        an.setBackgroundResource(this.rootView, R.drawable.bg_rec_lick);
-        an.setBackgroundResource(this.jYv, R.drawable.bg_rec_comment);
-        an.setViewTextColor(this.jYw, R.color.cp_cont_c, 1);
-        an.setViewTextColor(this.jYx, R.color.cp_cont_e, 1);
-        an.setImageResource(this.jYy, R.drawable.recommend_pb_share_selector);
+        ao.setBackgroundResource(this.rootView, R.drawable.bg_rec_lick);
+        ao.setBackgroundResource(this.kgV, R.drawable.bg_rec_comment);
+        ao.setViewTextColor(this.kgW, R.color.cp_cont_c, 1);
+        ao.setViewTextColor(this.kgX, R.color.cp_cont_e, 1);
+        ao.setImageResource(this.kgY, R.drawable.recommend_pb_share_selector);
     }
 }

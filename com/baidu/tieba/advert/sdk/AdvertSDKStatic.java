@@ -1,14 +1,12 @@
 package com.baidu.tieba.advert.sdk;
 
 import android.util.Log;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class AdvertSDKStatic {
-    public static String Tag = "tag";
-
     static {
-        new a().xp();
+        new a().registerTask();
         Log.e("AdvertSDKStatic", "Advert install finished.");
-        new b().xp();
-        new c().xp();
+        new b().registerTask();
+        new c().registerTask();
     }
 }

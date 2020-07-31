@@ -4,8 +4,8 @@ import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class c extends kotlin.b.a {
-    public static final a nQg = new a(null);
-    private static final c nQf = new c((char) 1, (char) 0);
+    public static final a nYP = new a(null);
+    private static final c nYO = new c((char) 1, (char) 0);
 
     public c(char c, char c2) {
         super(c, c2, 1);
@@ -13,12 +13,12 @@ public final class c extends kotlin.b.a {
 
     @Override // kotlin.b.a
     public boolean isEmpty() {
-        return dQR() > dQS();
+        return dUn() > dUo();
     }
 
     @Override // kotlin.b.a
     public boolean equals(Object obj) {
-        return (obj instanceof c) && ((isEmpty() && ((c) obj).isEmpty()) || (dQR() == ((c) obj).dQR() && dQS() == ((c) obj).dQS()));
+        return (obj instanceof c) && ((isEmpty() && ((c) obj).isEmpty()) || (dUn() == ((c) obj).dUn() && dUo() == ((c) obj).dUo()));
     }
 
     @Override // kotlin.b.a
@@ -26,12 +26,12 @@ public final class c extends kotlin.b.a {
         if (isEmpty()) {
             return -1;
         }
-        return (dQR() * 31) + dQS();
+        return (dUn() * 31) + dUo();
     }
 
     @Override // kotlin.b.a
     public String toString() {
-        return dQR() + IStringUtil.TOP_PATH + dQS();
+        return dUn() + IStringUtil.TOP_PATH + dUo();
     }
 
     @kotlin.h

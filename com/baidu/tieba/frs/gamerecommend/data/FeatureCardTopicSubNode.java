@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.gamerecommend.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class FeatureCardTopicSubNode extends OrmObject {
     public int article_num;
     public String image;

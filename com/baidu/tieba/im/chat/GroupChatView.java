@@ -8,14 +8,14 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class GroupChatView extends CommonGroupMsglistView {
-    protected TextView iJM;
-    protected ImageView iJN;
-    private GroupChatActivity iJO;
+    protected TextView iPR;
+    protected ImageView iPS;
+    private GroupChatActivity iPT;
 
     public GroupChatView(MsglistActivity msglistActivity, boolean z) {
         super(msglistActivity, z);
@@ -25,17 +25,17 @@ public class GroupChatView extends CommonGroupMsglistView {
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void initHeader(TalkableActivity talkableActivity, boolean z) {
         super.initHeader(talkableActivity, z);
-        this.iJO = (GroupChatActivity) talkableActivity;
+        this.iPT = (GroupChatActivity) talkableActivity;
         String string = talkableActivity.getPageContext().getString(R.string.msglist_groupinfo);
         if (string != null) {
             String stringExtra = talkableActivity.getIntent().getStringExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID);
             this.mBtnGroupInfo = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.group_info_btn, talkableActivity);
-            this.iJM = (TextView) this.mBtnGroupInfo.findViewById(R.id.group_info_btn_txt);
-            this.iJM.setText(string);
-            this.iJN = (ImageView) this.mBtnGroupInfo.findViewById(R.id.red_dot);
-            this.iJN.setVisibility(8);
+            this.iPR = (TextView) this.mBtnGroupInfo.findViewById(R.id.group_info_btn_txt);
+            this.iPR.setText(string);
+            this.iPS = (ImageView) this.mBtnGroupInfo.findViewById(R.id.red_dot);
+            this.iPS.setVisibility(8);
             if (!StringUtils.isNull(stringExtra) && stringExtra.equals(TbadkApplication.getCurrentAccount())) {
-                cna();
+                cqA();
             }
             if (MessageManager.getInstance().findTask(CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START) == null) {
                 this.mBtnGroupInfo.setVisibility(4);
@@ -48,22 +48,22 @@ public class GroupChatView extends CommonGroupMsglistView {
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.iJM != null) {
-            an.setViewTextColor(this.iJM, R.color.cp_cont_b, 1);
+        if (this.iPR != null) {
+            ao.setViewTextColor(this.iPR, R.color.cp_cont_b, 1);
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         }
     }
 
-    public void cna() {
-        if (!com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean(SharedPrefConfig.HAS_SHOWN_GROUP_BTN_DOT, false)) {
-            this.iJN.setVisibility(0);
+    public void cqA() {
+        if (!com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean(SharedPrefConfig.HAS_SHOWN_GROUP_BTN_DOT, false)) {
+            this.iPS.setVisibility(0);
         }
     }
 
-    public void cnb() {
-        this.iJN.setVisibility(8);
-        com.baidu.tbadk.core.sharedPref.b.aVP().putBoolean(SharedPrefConfig.HAS_SHOWN_GROUP_BTN_DOT, true);
+    public void cqB() {
+        this.iPS.setVisibility(8);
+        com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean(SharedPrefConfig.HAS_SHOWN_GROUP_BTN_DOT, true);
     }
 }

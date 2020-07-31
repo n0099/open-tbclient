@@ -809,7 +809,7 @@ public class SlidingPaneLayout extends ViewGroup {
         }
         View childAt = getChildCount() > 1 ? getChildAt(1) : null;
         if (childAt != null && drawable != null) {
-            int top2 = childAt.getTop();
+            int top = childAt.getTop();
             int bottom = childAt.getBottom();
             int intrinsicWidth = drawable.getIntrinsicWidth();
             if (isLayoutRtlSupport()) {
@@ -819,7 +819,7 @@ public class SlidingPaneLayout extends ViewGroup {
                 left = childAt.getLeft();
                 i = left - intrinsicWidth;
             }
-            drawable.setBounds(i, top2, left, bottom);
+            drawable.setBounds(i, top, left, bottom);
             drawable.draw(canvas);
         }
     }

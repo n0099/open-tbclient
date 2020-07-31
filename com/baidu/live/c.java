@@ -4,9 +4,9 @@ import android.content.SharedPreferences;
 import com.baidu.ala.AlaSharedPrefConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends SharedPrefHelper {
-    private static volatile c atN;
+    private static volatile c atJ;
 
     @Override // com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper
     public synchronized SharedPreferences getSharedPreferences() {
@@ -14,13 +14,13 @@ public class c extends SharedPrefHelper {
     }
 
     public static c vf() {
-        if (atN == null) {
+        if (atJ == null) {
             synchronized (c.class) {
-                if (atN == null) {
-                    atN = new c();
+                if (atJ == null) {
+                    atJ = new c();
                 }
             }
         }
-        return atN;
+        return atJ;
     }
 }

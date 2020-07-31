@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.t;
 import tbclient.GetOfficialSwitch.DataReq;
 import tbclient.GetOfficialSwitch.GetOfficialSwitchReqIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class OfficialAccountPushRequestMessage extends NetMessage {
     public OfficialAccountPushRequestMessage() {
         super(CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, 309620);

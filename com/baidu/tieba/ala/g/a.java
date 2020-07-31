@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.g;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
-    public static String dR(long j) {
+    public static String ee(long j) {
         int i;
         int i2;
         int i3;

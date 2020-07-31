@@ -1,71 +1,74 @@
 package com.baidu.swan.apps.scheme.actions.m;
 
-import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.adaptation.b.f;
+import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
+import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
-public class e extends aa {
-    private f caX;
-
-    public e(j jVar) {
-        super(jVar, "/swanAPI/webviewPostMessage");
+/* loaded from: classes7.dex */
+public abstract class e extends aa {
+    public e(j jVar, String str) {
+        super(jVar, str);
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.aa
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (DEBUG) {
-            Log.d("WebViewPostMsgAction", "handle entity: " + unitedSchemeEntity.toString());
-        }
-        com.baidu.swan.apps.console.c.i("webviewPostMsg", "start post webview msg");
-        if (this.caX == null) {
-            com.baidu.swan.apps.console.c.e("webviewPostMsg", "none webview widget");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none webview widget");
-            return false;
-        }
-        d Ur = this.caX.Ur();
-        if (Ur == null) {
-            com.baidu.swan.apps.console.c.e("webviewPostMsg", "none WWWParams");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none WWWParams");
-            return false;
-        }
-        JSONObject b = b(unitedSchemeEntity, "params");
-        if (b == null) {
-            com.baidu.swan.apps.console.c.e("webviewPostMsg", "none params");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
-            return false;
-        } else if (!b.has("data")) {
-            com.baidu.swan.apps.console.c.e("webviewPostMsg", "none param data");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none param data");
-            return false;
-        } else {
-            String optString = b.optString("data");
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("data", optString);
-                jSONObject.put("eventType", "message");
-                jSONObject.put("wvID", Ur.bUu);
-                jSONObject.put("webviewId", Ur.bUt);
-            } catch (JSONException e) {
-                if (DEBUG) {
-                    e.printStackTrace();
-                }
-                com.baidu.swan.apps.console.c.e("webviewPostMsg", "meet json exception");
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(final CallbackHandler callbackHandler, SwanAppSlaveManager swanAppSlaveManager, final d dVar) {
+        swanAppSlaveManager.b(new com.baidu.swan.apps.core.f.d() { // from class: com.baidu.swan.apps.scheme.actions.m.e.1
+            @Override // com.baidu.swan.apps.core.f.d
+            public void fY(String str) {
             }
-            com.baidu.swan.apps.view.b.b.a.b(Ur.bUu, Ur.bUt, "webview", "message", jSONObject);
-            com.baidu.swan.apps.console.c.i("webviewPostMsg", "post webview msg success");
-            unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
-        }
+
+            @Override // com.baidu.swan.apps.core.f.d
+            public void goBack() {
+            }
+
+            @Override // com.baidu.swan.apps.core.f.d
+            public boolean fZ(String str) {
+                if (e.this.e(str, dVar.cLd)) {
+                    e.this.a(str, callbackHandler, dVar.callback);
+                    return true;
+                }
+                return false;
+            }
+
+            @Override // com.baidu.swan.apps.core.f.d
+            public void fH(String str) {
+            }
+
+            @Override // com.baidu.swan.apps.core.f.d
+            public void d(int i, String str, String str2) {
+            }
+        });
     }
 
-    public void c(f fVar) {
-        this.caX = fVar;
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean a(String str, CallbackHandler callbackHandler, String str2) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("url", str);
+        } catch (JSONException e) {
+            if (DEBUG) {
+                e.printStackTrace();
+            }
+        }
+        callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+        return true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean e(String str, List<String> list) {
+        if (TextUtils.isEmpty(str) || list == null || list.isEmpty()) {
+            return false;
+        }
+        for (String str2 : list) {
+            if (!TextUtils.isEmpty(str2) && str.startsWith(str2)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

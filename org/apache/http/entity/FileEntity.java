@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public class FileEntity extends AbstractHttpEntity {
     protected final File file;
 

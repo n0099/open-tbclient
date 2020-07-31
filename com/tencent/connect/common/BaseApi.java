@@ -28,8 +28,7 @@ import java.net.SocketTimeoutException;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public abstract class BaseApi {
     protected c a;
     protected QQToken b;
@@ -50,7 +49,7 @@ public abstract class BaseApi {
     /* JADX INFO: Access modifiers changed from: protected */
     public Bundle a() {
         Bundle bundle = new Bundle();
-        bundle.putString(IjkMediaMeta.IJKM_KEY_FORMAT, "json");
+        bundle.putString("format", "json");
         bundle.putString("status_os", Build.VERSION.RELEASE);
         bundle.putString("status_machine", Build.MODEL);
         bundle.putString("status_version", Build.VERSION.SDK);
@@ -185,7 +184,7 @@ public abstract class BaseApi {
     public void releaseResource() {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public class TempRequestListener implements IRequestListener {
         private final IUiListener b;
         private final Handler c;

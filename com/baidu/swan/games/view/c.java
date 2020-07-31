@@ -2,43 +2,43 @@ package com.baidu.swan.games.view;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.swan.apps.w.f;
-/* loaded from: classes11.dex */
+import com.baidu.swan.apps.v.f;
+/* loaded from: classes7.dex */
 public class c {
     public static boolean c(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d aje = f.ajb().aje();
-        return aje != null && aje.a(view, aVar);
+        d aku = f.akr().aku();
+        return aku != null && aku.a(view, aVar);
     }
 
     public static boolean b(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d aje = f.ajb().aje();
-        return aje != null && aje.b(view, aVar);
+        d aku = f.akr().aku();
+        return aku != null && aku.b(view, aVar);
     }
 
-    public static boolean av(View view) {
-        d aje = f.ajb().aje();
-        return aje != null && aje.av(view);
+    public static boolean ay(View view) {
+        d aku = f.akr().aku();
+        return aku != null && aku.ay(view);
     }
 
-    public static Context aDE() {
-        d aje = f.ajb().aje();
-        if (aje != null) {
-            return aje.getContext();
+    public static Context aHu() {
+        d aku = f.akr().aku();
+        if (aku != null) {
+            return aku.getContext();
         }
         return null;
     }
 
     public static void a(a aVar) {
-        d aje = f.ajb().aje();
-        if (aje != null) {
-            aje.a(aVar);
+        d aku = f.akr().aku();
+        if (aku != null) {
+            aku.a(aVar);
         }
     }
 
     public static void b(a aVar) {
-        d aje = f.ajb().aje();
-        if (aje != null) {
-            aje.b(aVar);
+        d aku = f.akr().aku();
+        if (aku != null) {
+            aku.b(aVar);
         }
     }
 }

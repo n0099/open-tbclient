@@ -10,16 +10,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tieba.R;
 import tbclient.VideoInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class aq extends h {
-    private static final int agA = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds88);
-    private static int agB = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
-    private static int agC = agB;
-    private static int agD = agC / 2;
-    private static int agE = agC / 3;
-    private AbsThreadDataSupport aea;
-    private VideoImageNoPlayerLayout agF;
-    private com.baidu.card.view.a agG;
+    private static final int agr = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds88);
+    private static int ags = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
+    private static int agt = ags;
+    private static int agu = agt / 2;
+    private static int agv = agt / 3;
+    private AbsThreadDataSupport adQ;
+    private VideoImageNoPlayerLayout agw;
+    private com.baidu.card.view.a agx;
     private Context mContext;
     private String mFrom;
     private int mLastScreenWidth;
@@ -30,13 +30,13 @@ public class aq extends h {
         this.mLastScreenWidth = 0;
         this.mSkinType = 3;
         this.mContext = context;
-        this.agF = new VideoImageNoPlayerLayout(context);
+        this.agw = new VideoImageNoPlayerLayout(context);
         b((Boolean) true);
     }
 
     @Override // com.baidu.card.b
     public View getView() {
-        return this.agF;
+        return this.agw;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,44 +44,47 @@ public class aq extends h {
     /* renamed from: b */
     public void D(AbsThreadDataSupport absThreadDataSupport) {
         boolean z;
+        boolean z2 = true;
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
         if (equipmentWidth != this.mLastScreenWidth) {
-            agB = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
-            agC = agB;
-            agD = agC / 2;
-            agE = agC / 3;
+            ags = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
+            agt = ags;
+            agu = agt / 2;
+            agv = agt / 3;
             this.mLastScreenWidth = equipmentWidth;
         }
-        this.aea = absThreadDataSupport;
-        if (this.aea == null || this.aea.aPS() == null || this.aea.aPS().dNX == null || this.aea.aPS().dNX.dID) {
-            this.agF.setVisibility(8);
+        this.adQ = absThreadDataSupport;
+        if (this.adQ == null || this.adQ.aTN() == null || this.adQ.aTN().dUi == null || this.adQ.aTN().dUi.dOO) {
+            this.agw.setVisibility(8);
             return;
         }
-        this.agF.setVisibility(0);
-        this.agF.D(absThreadDataSupport);
-        ViewGroup.LayoutParams layoutParams = this.agF.getLayoutParams();
-        ViewGroup.LayoutParams layoutParams2 = this.agF.ajL.getLayoutParams();
+        this.agw.setVisibility(0);
+        this.agw.D(absThreadDataSupport);
+        ViewGroup.LayoutParams layoutParams = this.agw.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = this.agw.ajG.getLayoutParams();
         int i = layoutParams.width;
         int i2 = layoutParams.height;
-        if (this.aea.aPS().dNX.videoInfo.is_vertical.intValue() == 1) {
-            VideoInfo videoInfo = this.aea.aPS().dNX.videoInfo;
+        if (this.adQ.aTN().dUi.videoInfo.is_vertical.intValue() == 1) {
+            VideoInfo videoInfo = this.adQ.aTN().dUi.videoInfo;
             if (videoInfo != null) {
-                int i3 = (agD / 9) * 16;
-                int i4 = agE;
+                int i3 = (agu / 9) * 16;
+                int i4 = agv;
                 int intValue = videoInfo.video_width.intValue();
                 int intValue2 = videoInfo.video_height.intValue();
-                layoutParams.width = agC;
-                layoutParams2.width = agD;
-                boolean z2 = i != layoutParams.width;
+                layoutParams.width = agt;
+                layoutParams2.width = agu;
+                boolean z3 = i != layoutParams.width;
                 if (intValue == 0 || intValue2 == 0) {
                     layoutParams.height = i3;
                     layoutParams2.height = i3;
                     if (i2 != layoutParams.height) {
                         z = true;
+                        z2 = com.baidu.tbadk.a.b.a.a(layoutParams, layoutParams2, i, i2, z);
                     }
-                    z = z2;
+                    z = z3;
+                    z2 = com.baidu.tbadk.a.b.a.a(layoutParams, layoutParams2, i, i2, z);
                 } else {
-                    int i5 = (int) (((1.0f * intValue2) / intValue) * agD);
+                    int i5 = (int) (((1.0f * intValue2) / intValue) * agu);
                     if (i5 >= i4) {
                         i4 = i5 > i3 ? i3 : i5;
                     }
@@ -89,46 +92,50 @@ public class aq extends h {
                     layoutParams2.height = i4;
                     if (i2 != layoutParams.height) {
                         z = true;
+                        z2 = com.baidu.tbadk.a.b.a.a(layoutParams, layoutParams2, i, i2, z);
                     }
-                    z = z2;
+                    z = z3;
+                    z2 = com.baidu.tbadk.a.b.a.a(layoutParams, layoutParams2, i, i2, z);
                 }
             } else {
                 return;
             }
         } else {
-            layoutParams.width = agC;
-            layoutParams2.width = agC;
-            layoutParams.height = ((agC / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-            layoutParams2.height = ((agC / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-            z = (i2 == layoutParams.height && i == layoutParams.width) ? false : true;
+            layoutParams.width = agt;
+            layoutParams2.width = agt;
+            layoutParams.height = ((agt / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+            layoutParams2.height = ((agt / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+            if (i2 == layoutParams.height && i == layoutParams.width) {
+                z2 = false;
+            }
         }
-        if (z) {
-            this.agF.setLayoutParams(layoutParams);
-            this.agF.ajL.setLayoutParams(layoutParams2);
+        if (z2) {
+            this.agw.setLayoutParams(layoutParams);
+            this.agw.ajG.setLayoutParams(layoutParams2);
         }
-        this.agF.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.aq.1
+        this.agw.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.aq.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (aq.this.adY != null) {
-                    aq.this.adY.a(aq.this.aea);
+                if (aq.this.adO != null) {
+                    aq.this.adO.a(aq.this.adQ);
                 }
             }
         });
-        this.agF.setData(this.aea);
-        if (rJ() != null) {
+        this.agw.setData(this.adQ);
+        if (rL() != null) {
         }
     }
 
     @Override // com.baidu.card.b
     public void setOnCardSubClickListener(com.baidu.tieba.card.aa<AbsThreadDataSupport> aaVar) {
         super.setOnCardSubClickListener(aaVar);
-        this.agF.setOnCardSubClickListener(aaVar);
+        this.agw.setOnCardSubClickListener(aaVar);
     }
 
     @Override // com.baidu.card.o
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            this.agF.onChangeSkinType(tbPageContext, i);
+            this.agw.onChangeSkinType(tbPageContext, i);
         }
         this.mSkinType = i;
     }
@@ -138,23 +145,23 @@ public class aq extends h {
     }
 
     public void a(b.a aVar) {
-        this.adY = aVar;
+        this.adO = aVar;
     }
 
     public void setVideoAreaClickListener(com.baidu.card.view.a aVar) {
-        this.agG = aVar;
+        this.agx = aVar;
         if (aVar != null) {
-            si();
+            sk();
         }
     }
 
-    private void si() {
-        if (this.agF != null) {
-            this.agF.setVideoAreaClickListener(new com.baidu.card.view.a() { // from class: com.baidu.card.aq.2
+    private void sk() {
+        if (this.agw != null) {
+            this.agw.setVideoAreaClickListener(new com.baidu.card.view.a() { // from class: com.baidu.card.aq.2
                 @Override // com.baidu.card.view.a
                 public void a(AbsThreadDataSupport absThreadDataSupport) {
-                    if (aq.this.agG != null) {
-                        aq.this.agG.a(aq.this.aea);
+                    if (aq.this.agx != null) {
+                        aq.this.agx.a(aq.this.adQ);
                     }
                 }
             });

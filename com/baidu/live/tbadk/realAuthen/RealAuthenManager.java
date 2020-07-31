@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.realAuthen;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RealAuthenManager {
     private static RealAuthenManager instance = null;
     private RealAuthen mRealAuthen;

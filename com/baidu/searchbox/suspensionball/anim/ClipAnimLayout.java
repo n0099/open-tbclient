@@ -16,7 +16,7 @@ import android.widget.FrameLayout;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
-/* loaded from: classes13.dex */
+/* loaded from: classes14.dex */
 public class ClipAnimLayout extends FrameLayout {
     private static final boolean DEBUG = AppConfig.isDebug();
     private int mAnimDuration;
@@ -26,7 +26,7 @@ public class ClipAnimLayout extends FrameLayout {
     private int mClipTop;
     private int mClipWidth;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes14.dex */
     public interface OnAnimationListener {
         void onAnimationEnd();
 

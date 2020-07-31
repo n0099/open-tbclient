@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [65=4] */
     public static boolean a(String str, File file, c.b bVar) {

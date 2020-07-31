@@ -5,19 +5,19 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class SwanCoreVersion extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanCoreVersion> CREATOR = new Parcelable.Creator<SwanCoreVersion>() { // from class: com.baidu.swan.apps.swancore.model.SwanCoreVersion.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: w */
+        /* renamed from: x */
         public SwanCoreVersion createFromParcel(Parcel parcel) {
             return new SwanCoreVersion(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: hr */
+        /* renamed from: hA */
         public SwanCoreVersion[] newArray(int i) {
             return new SwanCoreVersion[i];
         }

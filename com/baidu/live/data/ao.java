@@ -1,26 +1,22 @@
 package com.baidu.live.data;
 
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.live.tbadk.core.atomdata.GuardClubInfoActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ao {
-    public String aBW;
-    public String aBX;
-    public long endTime;
-    public int flag;
-    public long serverTime;
-    public long startTime;
-    public int type;
+    public String aDo;
+    public String aDp;
+    public long aDq;
+    public String mNickName;
+    public String mPortrait;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.type = jSONObject.optInt("type");
-            this.aBW = jSONObject.optString(AlaLiveStickerInfo.STICKER_ID);
-            this.startTime = jSONObject.optLong("start_time");
-            this.endTime = jSONObject.optLong("end_time");
-            this.serverTime = jSONObject.optLong("server_time");
-            this.aBX = jSONObject.optString("punish_key");
-            this.flag = jSONObject.optInt(FrsActivityConfig.FLAG);
+            this.mNickName = jSONObject.optString("nickname");
+            this.mPortrait = jSONObject.optString("mvp_user_portrait");
+            this.aDo = jSONObject.optString("anchor_nickname");
+            this.aDp = jSONObject.optString(GuardClubInfoActivityConfig.ANCHOR_PORTRAIT);
+            this.aDq = jSONObject.optLong("win_score");
         }
     }
 }

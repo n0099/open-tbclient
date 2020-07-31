@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 class e implements com.baidu.sapi2.callback.a.b {
     final /* synthetic */ f a;
 

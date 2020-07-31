@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes13.dex */
 public class NightResourceStatic {
     public static String Tag = "tag";
 

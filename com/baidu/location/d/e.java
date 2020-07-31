@@ -5,7 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class e {
     public String h = null;
     public int i = 3;

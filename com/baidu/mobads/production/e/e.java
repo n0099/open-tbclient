@@ -3,7 +3,7 @@ package com.baidu.mobads.production.e;
 import android.os.CountDownTimer;
 import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class e extends CountDownTimer {
     final /* synthetic */ b a;
 

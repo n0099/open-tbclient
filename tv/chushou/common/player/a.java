@@ -2,7 +2,7 @@ package tv.chushou.common.player;
 
 import android.net.Uri;
 import android.view.SurfaceHolder;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface a {
     int getCurrentPos();
 

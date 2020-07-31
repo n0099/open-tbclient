@@ -1,7 +1,7 @@
 package com.baidu.sapi2.share;
 
 import com.baidu.sapi2.result.SapiResult;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class p extends SapiResult {
     public static final String a = "您已取消%s授权登录";
     public static final String b = "互通登录失败，该应用暂未授权";

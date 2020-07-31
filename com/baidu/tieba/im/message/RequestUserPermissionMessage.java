@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryUserPermission.DataReq;
 import protobuf.QueryUserPermission.QueryUserPermissionReqIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class RequestUserPermissionMessage extends TbSocketMessage {
     private long forumId;
 

@@ -13,18 +13,18 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes7.dex */
 public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final h<? super Object[], R> combiner;
-    final org.a.b<?>[] nKZ;
-    final Iterable<? extends org.a.b<?>> nLa;
+    final org.a.b<?>[] nTH;
+    final Iterable<? extends org.a.b<?>> nTI;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         int length;
-        org.a.b<?>[] bVarArr = this.nKZ;
+        org.a.b<?>[] bVarArr = this.nTH;
         int i = 0;
         if (bVarArr == null) {
             bVarArr = new org.a.b[8];
             try {
-                for (org.a.b<?> bVar : this.nLa) {
+                for (org.a.b<?> bVar : this.nTI) {
                     if (i == bVarArr.length) {
                         bVarArr = (org.a.b[]) Arrays.copyOf(bVarArr, (i >> 1) + i);
                     }
@@ -34,7 +34,7 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
                 }
                 length = i;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.L(th);
+                io.reactivex.exceptions.a.K(th);
                 EmptySubscription.error(th, cVar);
                 return;
             }
@@ -42,13 +42,13 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
             length = bVarArr.length;
         }
         if (length == 0) {
-            new f(this.nJW, new a()).a(cVar);
+            new f(this.nSE, new a()).a(cVar);
             return;
         }
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(cVar, this.combiner, length);
         cVar.onSubscribe(withLatestFromSubscriber);
         withLatestFromSubscriber.subscribe(bVarArr, length);
-        this.nJW.a((j) withLatestFromSubscriber);
+        this.nSE.a((j) withLatestFromSubscriber);
     }
 
     /* loaded from: classes7.dex */
@@ -117,7 +117,7 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
                 io.reactivex.internal.util.e.a(this.actual, io.reactivex.internal.functions.a.k(this.combiner.apply(objArr), "The combiner returned a null value"), this, this.error);
                 return true;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.L(th);
+                io.reactivex.exceptions.a.K(th);
                 cancel();
                 onError(th);
                 return false;

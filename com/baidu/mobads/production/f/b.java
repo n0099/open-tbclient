@@ -17,7 +17,7 @@ import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class b extends com.baidu.mobads.production.b implements a {
     private boolean A;
     private boolean B;

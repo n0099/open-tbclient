@@ -8,11 +8,11 @@ import rx.internal.util.RxThreadFactory;
 import rx.k;
 /* loaded from: classes6.dex */
 public final class b extends rx.g implements h {
-    static final int nMA;
-    static final c ofd;
-    static final C0927b ofe;
-    final ThreadFactory bAJ;
-    final AtomicReference<C0927b> nMC = new AtomicReference<>(ofe);
+    static final int nVi;
+    static final c onM;
+    static final C0942b onN;
+    final ThreadFactory nVk;
+    final AtomicReference<C0942b> nVl = new AtomicReference<>(onN);
 
     static {
         int intValue = Integer.getInteger("rx.scheduler.max-computation-threads", 0).intValue();
@@ -20,123 +20,123 @@ public final class b extends rx.g implements h {
         if (intValue <= 0 || intValue > availableProcessors) {
             intValue = availableProcessors;
         }
-        nMA = intValue;
-        ofd = new c(RxThreadFactory.NONE);
-        ofd.unsubscribe();
-        ofe = new C0927b(null, 0);
+        nVi = intValue;
+        onM = new c(RxThreadFactory.NONE);
+        onM.unsubscribe();
+        onN = new C0942b(null, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.internal.schedulers.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0927b {
+    public static final class C0942b {
         long n;
-        final int nMH;
-        final c[] ofl;
+        final int nVq;
+        final c[] onT;
 
-        C0927b(ThreadFactory threadFactory, int i) {
-            this.nMH = i;
-            this.ofl = new c[i];
+        C0942b(ThreadFactory threadFactory, int i) {
+            this.nVq = i;
+            this.onT = new c[i];
             for (int i2 = 0; i2 < i; i2++) {
-                this.ofl[i2] = new c(threadFactory);
+                this.onT[i2] = new c(threadFactory);
             }
         }
 
-        public c dUO() {
-            int i = this.nMH;
+        public c dYk() {
+            int i = this.nVq;
             if (i == 0) {
-                return b.ofd;
+                return b.onM;
             }
-            c[] cVarArr = this.ofl;
+            c[] cVarArr = this.onT;
             long j = this.n;
             this.n = 1 + j;
             return cVarArr[(int) (j % i)];
         }
 
         public void shutdown() {
-            for (c cVar : this.ofl) {
+            for (c cVar : this.onT) {
                 cVar.unsubscribe();
             }
         }
     }
 
     public b(ThreadFactory threadFactory) {
-        this.bAJ = threadFactory;
+        this.nVk = threadFactory;
         start();
     }
 
     @Override // rx.g
     public g.a createWorker() {
-        return new a(this.nMC.get().dUO());
+        return new a(this.nVl.get().dYk());
     }
 
     @Override // rx.internal.schedulers.h
     public void start() {
-        C0927b c0927b = new C0927b(this.bAJ, nMA);
-        if (!this.nMC.compareAndSet(ofe, c0927b)) {
-            c0927b.shutdown();
+        C0942b c0942b = new C0942b(this.nVk, nVi);
+        if (!this.nVl.compareAndSet(onN, c0942b)) {
+            c0942b.shutdown();
         }
     }
 
     @Override // rx.internal.schedulers.h
     public void shutdown() {
-        C0927b c0927b;
+        C0942b c0942b;
         do {
-            c0927b = this.nMC.get();
-            if (c0927b == ofe) {
+            c0942b = this.nVl.get();
+            if (c0942b == onN) {
                 return;
             }
-        } while (!this.nMC.compareAndSet(c0927b, ofe));
-        c0927b.shutdown();
+        } while (!this.nVl.compareAndSet(c0942b, onN));
+        c0942b.shutdown();
     }
 
     public k g(rx.functions.a aVar) {
-        return this.nMC.get().dUO().b(aVar, -1L, TimeUnit.NANOSECONDS);
+        return this.nVl.get().dYk().b(aVar, -1L, TimeUnit.NANOSECONDS);
     }
 
     /* loaded from: classes6.dex */
     static final class a extends g.a {
-        private final rx.internal.util.i ofg = new rx.internal.util.i();
-        private final rx.subscriptions.b ofh = new rx.subscriptions.b();
-        private final rx.internal.util.i ofi = new rx.internal.util.i(this.ofg, this.ofh);
-        private final c ofj;
+        private final rx.internal.util.i onO = new rx.internal.util.i();
+        private final rx.subscriptions.b onP = new rx.subscriptions.b();
+        private final rx.internal.util.i onQ = new rx.internal.util.i(this.onO, this.onP);
+        private final c onR;
 
         a(c cVar) {
-            this.ofj = cVar;
+            this.onR = cVar;
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.ofi.unsubscribe();
+            this.onQ.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.ofi.isUnsubscribed();
+            return this.onQ.isUnsubscribed();
         }
 
         @Override // rx.g.a
         public k c(final rx.functions.a aVar) {
-            return isUnsubscribed() ? rx.subscriptions.e.dVS() : this.ofj.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.1
+            return isUnsubscribed() ? rx.subscriptions.e.dZo() : this.onR.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.1
                 @Override // rx.functions.a
                 public void call() {
                     if (!a.this.isUnsubscribed()) {
                         aVar.call();
                     }
                 }
-            }, 0L, (TimeUnit) null, this.ofg);
+            }, 0L, (TimeUnit) null, this.onO);
         }
 
         @Override // rx.g.a
         public k a(final rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            return isUnsubscribed() ? rx.subscriptions.e.dVS() : this.ofj.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.2
+            return isUnsubscribed() ? rx.subscriptions.e.dZo() : this.onR.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.2
                 @Override // rx.functions.a
                 public void call() {
                     if (!a.this.isUnsubscribed()) {
                         aVar.call();
                     }
                 }
-            }, j, timeUnit, this.ofh);
+            }, j, timeUnit, this.onP);
         }
     }
 

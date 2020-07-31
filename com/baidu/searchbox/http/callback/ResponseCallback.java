@@ -1,7 +1,7 @@
 package com.baidu.searchbox.http.callback;
 
 import okhttp3.Response;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public abstract class ResponseCallback<T> {
     public abstract void onFail(Exception exc);
 

@@ -12,7 +12,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class OtherBean extends NetworkBean {
     private static final String TAG = "OtherBaseBean";
 

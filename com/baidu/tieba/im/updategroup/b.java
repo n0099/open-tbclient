@@ -3,46 +3,46 @@ package com.baidu.tieba.im.updategroup;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class b extends d {
-    protected TextView jbX;
+    protected TextView jks;
 
     public b(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.jbX = null;
+        this.jks = null;
         setContentView(R.layout.update_group_info_activity);
-        yS(R.string.group_update_info);
-        this.jbX = (TextView) this.jbY.findViewById(R.id.edit_count);
+        zr(R.string.group_update_info);
+        this.jks = (TextView) this.jkt.findViewById(R.id.edit_count);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void ctA() {
+    public void cxC() {
         String obj;
         if (this.mEditText.getText() != null && (obj = this.mEditText.getText().toString()) != null) {
             int length = obj.length();
-            C(length, length, 15, 300);
+            D(length, length, 15, 300);
             int i = 300 - length;
-            this.jbX.setText(String.valueOf(i));
+            this.jks.setText(String.valueOf(i));
             if (i <= 50) {
-                this.jbX.setVisibility(0);
+                this.jks.setVisibility(0);
             } else {
-                this.jbX.setVisibility(8);
+                this.jks.setVisibility(8);
             }
             if (i == 0) {
-                this.jbX.setTextColor(this.jbY.getResources().getColor(R.color.common_color_10170));
+                this.jks.setTextColor(this.jkt.getResources().getColor(R.color.common_color_10170));
             } else {
-                coq();
+                crV();
             }
         }
     }
 
-    private void coq() {
-        this.jbY.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.jbY.getLayoutMode().onModeChanged(this.jbX);
+    private void crV() {
+        this.jkt.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.jkt.getLayoutMode().onModeChanged(this.jks);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public int ctB() {
+    public int cxD() {
         return R.string.group_step_info_error;
     }
 }

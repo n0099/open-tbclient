@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser;
 
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -9,7 +10,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public abstract class FullContainerBox extends AbstractContainerBox implements FullBox {
     private static Logger LOG = Logger.getLogger(FullContainerBox.class.getName());
     private int flags;
@@ -72,7 +73,7 @@ public abstract class FullContainerBox extends AbstractContainerBox implements F
     @Override // com.googlecode.mp4parser.AbstractContainerBox
     public ByteBuffer getHeader() {
         ByteBuffer wrap;
-        if (this.largeBox || getSize() >= 4294967296L) {
+        if (this.largeBox || getSize() >= AccountConstants.TYPE_MODIFY_EXT_FIELDS) {
             byte[] bArr = new byte[20];
             bArr[3] = 1;
             bArr[4] = this.type.getBytes()[0];

@@ -1,18 +1,18 @@
 package com.baidu.swan.facade.requred.a.a;
 
 import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.swan.apps.adaptation.a.ao;
-import com.baidu.swan.game.ad.f.m;
+import com.baidu.swan.apps.adaptation.a.aq;
+import com.baidu.swan.game.ad.e.n;
 import com.baidu.swan.games.a.c;
-/* loaded from: classes11.dex */
-public class a implements ao {
-    @Override // com.baidu.swan.apps.adaptation.a.ao
+/* loaded from: classes4.dex */
+public class a implements aq {
+    @Override // com.baidu.swan.apps.adaptation.a.aq
     public c a(com.baidu.swan.games.f.b bVar, JsObject jsObject) {
-        return new m(bVar, jsObject);
+        return new n(bVar, jsObject);
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.ao
+    @Override // com.baidu.swan.apps.adaptation.a.aq
     public com.baidu.swan.games.a.b b(com.baidu.swan.games.f.b bVar, JsObject jsObject) {
-        return new com.baidu.swan.game.ad.f.c(bVar, jsObject);
+        return new com.baidu.swan.game.ad.e.c(bVar, jsObject);
     }
 }

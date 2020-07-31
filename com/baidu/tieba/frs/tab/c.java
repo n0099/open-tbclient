@@ -1,5 +1,5 @@
 package com.baidu.tieba.frs.tab;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public interface c {
-    void cev();
+    void chU();
 }

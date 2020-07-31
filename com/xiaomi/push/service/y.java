@@ -8,36 +8,36 @@ import com.xiaomi.push.iw;
 import com.xiaomi.push.service.bg;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class y extends bg.a {
     final /* synthetic */ XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ k f942a;
+    final /* synthetic */ k f938a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y(String str, long j, XMPushService xMPushService, k kVar) {
         super(str, j);
         this.a = xMPushService;
-        this.f942a = kVar;
+        this.f938a = kVar;
     }
 
     @Override // com.xiaomi.push.service.bg.a
     void a(bg bgVar) {
         com.xiaomi.push.au a = com.xiaomi.push.au.a(this.a);
         String a2 = bgVar.a("MSAID", "msaid");
-        String str = a.a() + a.mo129b() + a.c() + a.d();
+        String str = a.a() + a.mo130b() + a.c() + a.d();
         if (TextUtils.isEmpty(str) || TextUtils.equals(a2, str)) {
             return;
         }
         bgVar.a("MSAID", "msaid", str);
         il ilVar = new il();
-        ilVar.b(this.f942a.d);
-        ilVar.c(hw.ClientInfoUpdate.f482a);
+        ilVar.b(this.f938a.d);
+        ilVar.c(hw.ClientInfoUpdate.f478a);
         ilVar.a(an.a());
         ilVar.a(new HashMap());
-        a.a(ilVar.m427a());
-        this.a.a(this.a.getPackageName(), iw.a(w.a(this.a.getPackageName(), this.f942a.d, ilVar, hm.Notification)), true);
+        a.a(ilVar.m428a());
+        this.a.a(this.a.getPackageName(), iw.a(w.a(this.a.getPackageName(), this.f938a.d, ilVar, hm.Notification)), true);
     }
 }

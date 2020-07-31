@@ -8,7 +8,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.StringRes;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class f {
     public static final int a(String str, @ColorRes int i) {
         String str2 = str;
@@ -29,7 +29,7 @@ public final class f {
             q.l((Object) string, "Res.getString(id)");
             return string;
         } else if (str == null) {
-            q.dQK();
+            q.dUg();
             return str;
         } else {
             return str;

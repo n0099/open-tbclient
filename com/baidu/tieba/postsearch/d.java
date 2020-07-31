@@ -13,22 +13,22 @@ import com.baidu.mobstat.Config;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class d {
-    public String hxA;
-    private PostSearchActivity kZB;
-    private String kZU;
-    public ArrayList<String> lad;
-    public int kZV = 0;
-    public int kZW = 0;
-    public int kZX = 1;
-    public int kZY = 1;
-    public int kZZ = 1;
-    public boolean laa = false;
-    public boolean lab = false;
-    public boolean lac = false;
-    private int lae = 0;
-    private final HttpMessageListener laf = new HttpMessageListener(1003016) { // from class: com.baidu.tieba.postsearch.d.1
+    public String hDo;
+    private PostSearchActivity lgS;
+    private String lhk;
+    public ArrayList<String> lht;
+    public int lhl = 0;
+    public int lhm = 0;
+    public int lhn = 1;
+    public int lho = 1;
+    public int lhp = 1;
+    public boolean lhq = false;
+    public boolean lhr = false;
+    public boolean lhs = false;
+    private int lhu = 0;
+    private final HttpMessageListener lhv = new HttpMessageListener(1003016) { // from class: com.baidu.tieba.postsearch.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -37,130 +37,130 @@ public class d {
             if ((httpResponsedMessage instanceof PostSearchHttpResponseMessage) && (httpResponsedMessage.getOrginalMessage() instanceof HttpMessage)) {
                 HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
                 int intValue = httpMessage.getExtra() instanceof Integer ? ((Integer) httpMessage.getExtra()).intValue() : 0;
-                d.this.Da(intValue);
-                boolean z = d.this.CZ(intValue) > 1;
+                d.this.Dw(intValue);
+                boolean z = d.this.Dv(intValue) > 1;
                 PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
-                    d.this.kZB.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
-                    d.this.CY(intValue);
-                    d.this.cXx();
-                    d.this.cXA();
+                    d.this.lgS.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
+                    d.this.Du(intValue);
+                    d.this.daE();
+                    d.this.daH();
                     return;
                 }
                 String errorString = postSearchHttpResponseMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    errorString = d.this.kZB.getResources().getString(R.string.neterror);
+                    errorString = d.this.lgS.getResources().getString(R.string.neterror);
                 }
-                d.this.kZB.showToast(errorString);
-                d.this.kZB.a(intValue, null, z);
+                d.this.lgS.showToast(errorString);
+                d.this.lgS.a(intValue, null, z);
             }
         }
     };
-    private CustomMessageListener lag = new CustomMessageListener(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA) { // from class: com.baidu.tieba.postsearch.d.2
+    private CustomMessageListener lhw = new CustomMessageListener(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA) { // from class: com.baidu.tieba.postsearch.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data;
             if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
-                d.this.lad = (ArrayList) data;
-                d.this.kZB.cXj();
+                d.this.lht = (ArrayList) data;
+                d.this.lgS.daq();
             }
         }
     };
 
     public d(PostSearchActivity postSearchActivity) {
-        this.kZB = postSearchActivity;
-        this.kZB.registerListener(this.lag);
-        this.kZB.registerListener(this.laf);
+        this.lgS = postSearchActivity;
+        this.lgS.registerListener(this.lhw);
+        this.lgS.registerListener(this.lhv);
     }
 
-    public boolean bw(String str, int i) {
+    public boolean bu(String str, int i) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (!str.equals(this.hxA)) {
-            cXz();
+        if (!str.equals(this.hDo)) {
+            daG();
         }
         switch (i) {
             case 1:
-                return Lm(str);
+                return LU(str);
             case 2:
-                return Ln(str);
+                return LV(str);
             case 3:
-                return Lo(str);
+                return LW(str);
             default:
                 return false;
         }
     }
 
-    public boolean Lm(String str) {
-        if (this.laa) {
+    public boolean LU(String str) {
+        if (this.lhq) {
             return false;
         }
-        this.hxA = str;
-        this.lae = 1;
-        this.kZB.sendMessage(CX(this.lae));
-        this.laa = true;
+        this.hDo = str;
+        this.lhu = 1;
+        this.lgS.sendMessage(Dt(this.lhu));
+        this.lhq = true;
         return true;
     }
 
-    public boolean Ln(String str) {
-        if (this.lab) {
+    public boolean LV(String str) {
+        if (this.lhr) {
             return false;
         }
-        this.hxA = str;
-        this.lae = 2;
-        this.kZB.sendMessage(CX(this.lae));
-        this.lab = true;
+        this.hDo = str;
+        this.lhu = 2;
+        this.lgS.sendMessage(Dt(this.lhu));
+        this.lhr = true;
         return true;
     }
 
-    public boolean Lo(String str) {
-        if (this.lac) {
+    public boolean LW(String str) {
+        if (this.lhs) {
             return false;
         }
-        this.hxA = str;
-        this.lae = 3;
-        this.kZB.sendMessage(CX(this.lae));
-        this.lac = true;
+        this.hDo = str;
+        this.lhu = 3;
+        this.lgS.sendMessage(Dt(this.lhu));
+        this.lhs = true;
         return true;
     }
 
-    public void cXw() {
-        this.kZB.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
+    public void daD() {
+        this.lgS.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
     }
 
-    public void cXx() {
-        if (!StringUtils.isNull(this.hxA) && !this.hxA.equals(this.kZU)) {
-            this.kZB.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.hxA));
-            this.kZU = this.hxA;
+    public void daE() {
+        if (!StringUtils.isNull(this.hDo) && !this.hDo.equals(this.lhk)) {
+            this.lgS.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.hDo));
+            this.lhk = this.hDo;
         }
     }
 
-    public void cXy() {
-        if (this.lad != null) {
-            this.lad.clear();
+    public void daF() {
+        if (this.lht != null) {
+            this.lht.clear();
         }
-        this.kZB.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
+        this.lgS.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
     }
 
-    public void cXz() {
-        this.kZX = 1;
-        this.kZY = 1;
-        this.kZZ = 1;
+    public void daG() {
+        this.lhn = 1;
+        this.lho = 1;
+        this.lhp = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cXA() {
-        if (this.lad == null) {
-            this.lad = new ArrayList<>();
+    public void daH() {
+        if (this.lht == null) {
+            this.lht = new ArrayList<>();
         }
-        this.lad.remove(this.hxA);
-        this.lad.add(0, this.hxA);
-        eH(this.lad);
+        this.lht.remove(this.hDo);
+        this.lht.add(0, this.hDo);
+        eN(this.lht);
     }
 
-    private void eH(List<String> list) {
+    private void eN(List<String> list) {
         int size;
         if (list != null && list.size() - 5 > 0) {
             int size2 = list.size();
@@ -170,43 +170,43 @@ public class d {
         }
     }
 
-    private HttpMessage CX(int i) {
+    private HttpMessage Dt(int i) {
         HttpMessage httpMessage = new HttpMessage(1003016);
-        httpMessage.addParam("word", this.hxA);
+        httpMessage.addParam("word", this.hDo);
         httpMessage.addParam("rn", 30);
-        httpMessage.addParam("kw", this.kZB.mForumName);
-        httpMessage.setExtra(Integer.valueOf(this.lae));
+        httpMessage.addParam("kw", this.lgS.mForumName);
+        httpMessage.setExtra(Integer.valueOf(this.lhu));
         switch (i) {
             case 1:
                 httpMessage.addParam("sm", 1);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.kZX);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.lhn);
                 break;
             case 2:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.kZY);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.lho);
                 break;
             case 3:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 1);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.kZZ);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.lhp);
                 break;
         }
         return httpMessage;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void CY(int i) {
+    public void Du(int i) {
         switch (i) {
             case 1:
-                this.kZX++;
+                this.lhn++;
                 return;
             case 2:
-                this.kZY++;
+                this.lho++;
                 return;
             case 3:
-                this.kZZ++;
+                this.lhp++;
                 return;
             default:
                 return;
@@ -214,30 +214,30 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int CZ(int i) {
+    public int Dv(int i) {
         switch (i) {
             case 1:
-                return this.kZX;
+                return this.lhn;
             case 2:
-                return this.kZY;
+                return this.lho;
             case 3:
-                return this.kZZ;
+                return this.lhp;
             default:
                 return 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Da(int i) {
+    public void Dw(int i) {
         switch (i) {
             case 1:
-                this.laa = false;
+                this.lhq = false;
                 return;
             case 2:
-                this.lab = false;
+                this.lhr = false;
                 return;
             case 3:
-                this.lac = false;
+                this.lhs = false;
                 return;
             default:
                 return;

@@ -3,7 +3,7 @@ package org.apache.http.protocol;
 import java.util.List;
 import org.apache.http.HttpRequestInterceptor;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public interface HttpRequestInterceptorList {
     void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor);
 

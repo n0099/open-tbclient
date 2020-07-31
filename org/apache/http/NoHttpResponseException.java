@@ -2,7 +2,7 @@ package org.apache.http;
 
 import java.io.IOException;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public class NoHttpResponseException extends IOException {
     public NoHttpResponseException(String str) {
         throw new RuntimeException("Stub!");

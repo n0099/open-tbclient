@@ -1,23 +1,19 @@
 package com.baidu.swan.apps.k;
 
 import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.apps.aq.aj;
-import com.baidu.swan.apps.r.e;
-import com.baidu.swan.e.d;
+import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.r.d;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import okhttp3.OkHttpClient;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private OkHttpClient okHttpClient = new OkHttpClient();
-
-    public void a(e.c cVar, String str, final e.b bVar) {
+    public void a(d.c cVar, String str, final d.b bVar) {
         final File file = new File(str);
-        com.baidu.swan.c.b.a aVar = new com.baidu.swan.c.b.a(cVar.mDownloadUrl, new ResponseCallback() { // from class: com.baidu.swan.apps.k.a.1
+        com.baidu.swan.b.b.a aVar = new com.baidu.swan.b.b.a(cVar.mDownloadUrl, new ResponseCallback() { // from class: com.baidu.swan.apps.k.a.1
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public Object parseResponse(Response response, int i) throws Exception {
                 a.this.a(response, bVar, file);
@@ -33,15 +29,15 @@ public class a {
                 a.this.a(bVar, 1, 0);
             }
         });
-        aVar.dpO = false;
-        aVar.dpP = false;
-        aVar.dpQ = false;
-        com.baidu.swan.c.c.a.aGD().a(aVar);
+        aVar.dvF = false;
+        aVar.dvG = false;
+        aVar.dvH = false;
+        com.baidu.swan.b.c.a.aKu().a(aVar);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [121=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [117=4] */
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(Response response, e.b bVar, File file) throws IOException {
+    public void a(Response response, d.b bVar, File file) throws IOException {
         InputStream inputStream;
         Throwable th;
         InputStream inputStream2;
@@ -72,8 +68,8 @@ public class a {
                         if (read == -1) {
                             fileOutputStream.flush();
                             a(bVar, 0, 100);
-                            d.closeSafely(inputStream);
-                            d.closeSafely(fileOutputStream);
+                            com.baidu.swan.d.d.closeSafely(inputStream);
+                            com.baidu.swan.d.d.closeSafely(fileOutputStream);
                             return;
                         }
                         fileOutputStream.write(bArr, 0, read);
@@ -83,22 +79,22 @@ public class a {
                         inputStream2 = inputStream;
                         try {
                             a(bVar, 1, 0);
-                            d.closeSafely(inputStream2);
-                            d.closeSafely(fileOutputStream);
+                            com.baidu.swan.d.d.closeSafely(inputStream2);
+                            com.baidu.swan.d.d.closeSafely(fileOutputStream);
                             return;
                         } catch (Throwable th2) {
                             inputStream = inputStream2;
                             fileOutputStream2 = fileOutputStream;
                             th = th2;
-                            d.closeSafely(inputStream);
-                            d.closeSafely(fileOutputStream2);
+                            com.baidu.swan.d.d.closeSafely(inputStream);
+                            com.baidu.swan.d.d.closeSafely(fileOutputStream2);
                             throw th;
                         }
                     } catch (Throwable th3) {
                         fileOutputStream2 = fileOutputStream;
                         th = th3;
-                        d.closeSafely(inputStream);
-                        d.closeSafely(fileOutputStream2);
+                        com.baidu.swan.d.d.closeSafely(inputStream);
+                        com.baidu.swan.d.d.closeSafely(fileOutputStream2);
                         throw th;
                     }
                 }
@@ -118,7 +114,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final e.b bVar, int i, final int i2) {
+    public void a(final d.b bVar, int i, final int i2) {
         Runnable runnable;
         if (bVar != null) {
             switch (i) {
@@ -148,7 +144,7 @@ public class a {
                     };
                     break;
             }
-            aj.runOnUiThread(runnable);
+            al.runOnUiThread(runnable);
         }
     }
 }

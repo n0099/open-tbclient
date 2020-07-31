@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.kascend.chushou.widget.cswebview.CSWebView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MyWebView extends CSWebView {
     long a;
 

@@ -8,13 +8,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.Thread;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public final class f implements Thread.UncaughtExceptionHandler {
-    private Thread.UncaughtExceptionHandler anX = null;
-    private Context anY = null;
+    private Thread.UncaughtExceptionHandler anT = null;
+    private Context anU = null;
     public static boolean bK = false;
-    private static final String anV = Environment.getExternalStorageDirectory().getPath() + File.separator + com.baidu.crabsdk.b.p.tg() + File.separator + "oom" + File.separator;
-    private static f anW = new f();
+    private static final String anR = Environment.getExternalStorageDirectory().getPath() + File.separator + com.baidu.crabsdk.b.p.tj() + File.separator + "oom" + File.separator;
+    private static f anS = new f();
 
     private f() {
     }
@@ -30,16 +30,16 @@ public final class f implements Thread.UncaughtExceptionHandler {
     }
 
     public static f tt() {
-        return anW;
+        return anS;
     }
 
     public final void e(Context context) {
-        if (this.anX == null) {
-            this.anX = Thread.getDefaultUncaughtExceptionHandler();
+        if (this.anT == null) {
+            this.anT = Thread.getDefaultUncaughtExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
-        if (this.anY == null) {
-            this.anY = context.getApplicationContext();
+        if (this.anU == null) {
+            this.anU = context.getApplicationContext();
         }
     }
 
@@ -78,7 +78,7 @@ public final class f implements Thread.UncaughtExceptionHandler {
         if (obj != null && !str.trim().equals("")) {
             if (com.baidu.crabsdk.a.n && k(th)) {
                 try {
-                    String str2 = anV;
+                    String str2 = anR;
                     File file = new File(str2);
                     if (!file.exists()) {
                         if (file.mkdirs()) {
@@ -96,12 +96,12 @@ public final class f implements Thread.UncaughtExceptionHandler {
             }
             if (h.tv() && h.ac() && h.l(th)) {
                 bK = false;
-                if (this.anY != null && thread != null && th != null) {
-                    i.c(this.anY, i.e(g.a(this.anY, th, false)));
+                if (this.anU != null && thread != null && th != null) {
+                    i.c(this.anU, i.e(g.a(this.anU, th, false)));
                     h.c(th);
                     h.m(th);
                     h.af();
-                    k.a(false, this.anY);
+                    k.a(false, this.anU);
                 }
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
@@ -122,9 +122,9 @@ public final class f implements Thread.UncaughtExceptionHandler {
                 }
             }
         }
-        if (this.anX.equals(this)) {
+        if (this.anT.equals(this)) {
             return;
         }
-        this.anX.uncaughtException(thread, th);
+        this.anT.uncaughtException(thread, th);
     }
 }

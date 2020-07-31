@@ -2,10 +2,9 @@ package com.baidu.tieba.homepage.hotTopic.tab.net;
 
 import android.text.TextUtils;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.hotTopic.tab.b.c;
@@ -16,7 +15,7 @@ import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements a {
     private List<q> mHotTopicDataList;
 
@@ -40,13 +39,13 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements a
             setErrorString(hotThreadListResIdl.error.usermsg);
             if (getError() == 0 && hotThreadListResIdl.data != null) {
                 this.mHotTopicDataList = new ArrayList();
-                if (!w.isEmpty(hotThreadListResIdl.data.topic_list)) {
+                if (!x.isEmpty(hotThreadListResIdl.data.topic_list)) {
                     this.mHotTopicDataList.add(new f(TbadkCoreApplication.getInst().getString(R.string.hot_topic_tab_rank_list_title)));
                     this.mHotTopicDataList.add(new c(hotThreadListResIdl.data.topic_list));
                 }
                 this.mHotTopicDataList.add(new f(TbadkCoreApplication.getInst().getString(R.string.hot_topic_hot_tie_title)));
                 this.mHotTopicDataList.add(new d(TbadkCoreApplication.getInst().getString(R.string.hot_topic_hot_tie_sub_title)));
-                if (!w.isEmpty(hotThreadListResIdl.data.thread_info)) {
+                if (!x.isEmpty(hotThreadListResIdl.data.thread_info)) {
                     int size = hotThreadListResIdl.data.thread_info.size();
                     int i3 = 0;
                     int i4 = 0;
@@ -64,7 +63,7 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements a
                     }
                 }
                 if (!z) {
-                    x xVar = new x();
+                    com.baidu.adp.widget.ListView.x xVar = new com.baidu.adp.widget.ListView.x();
                     xVar.resId = R.drawable.new_pic_emotion_05;
                     this.mHotTopicDataList.add(xVar);
                 }

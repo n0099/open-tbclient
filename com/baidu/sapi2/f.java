@@ -7,7 +7,7 @@ import com.baidu.sapi2.outsdk.c;
 import com.baidu.sapi2.result.OneKeyLoginResult;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class f implements c.a {
     final /* synthetic */ OneKeyLoginCallback a;
     final /* synthetic */ String b;

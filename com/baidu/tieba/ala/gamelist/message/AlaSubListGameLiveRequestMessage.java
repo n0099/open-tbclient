@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.util.t;
 import tbclient.LiveTabliveSubTab.DataReq;
 import tbclient.LiveTabliveSubTab.LiveTabliveSubTabReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaSubListGameLiveRequestMessage extends NetMessage {
     public Integer entryId;
     public String entryName;

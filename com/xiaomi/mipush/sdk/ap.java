@@ -1,7 +1,7 @@
 package com.xiaomi.mipush.sdk;
 
 import com.xiaomi.push.hm;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 /* synthetic */ class ap {
     static final /* synthetic */ int[] a = new int[hm.values().length];
 

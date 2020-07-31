@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.core.data.ConstantData;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
+import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -15,19 +16,22 @@ import java.util.Random;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class AdElementInfo implements Parcelable {
+    public static final int ACTION_TYPE_DOWNLOAD = 2;
+    public static final int ACTION_TYPE_LANDING_PAGE = 1;
+    public static final int CLOSE_TYPE_TO_NEW_STRATEGY = 6;
     public static final Parcelable.Creator<AdElementInfo> CREATOR = new Parcelable.Creator<AdElementInfo>() { // from class: com.baidu.swan.game.ad.entity.AdElementInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: y */
+        /* renamed from: A */
         public AdElementInfo createFromParcel(Parcel parcel) {
             return new AdElementInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: in */
+        /* renamed from: iB */
         public AdElementInfo[] newArray(int i) {
             return new AdElementInfo[i];
         }
@@ -37,6 +41,7 @@ public class AdElementInfo implements Parcelable {
     private int mActionType;
     private String mAdId;
     private JSONObject mAdJsonObject;
+    private JSONObject mAdMonitors;
     private int mAntiTag;
     private String mApkName;
     private String mAppName;
@@ -45,19 +50,26 @@ public class AdElementInfo implements Parcelable {
     private String mClickUrl;
     private Set<String> mCloseTrackers;
     private int mCloseType;
+    private Set<String> mConversionUrls;
     private String mDescription;
     private int mDuration;
     private String mEndFrameHtml;
     private int mExpire;
     private String mFallback;
     private String mFbAct;
+    private boolean mGdtAd;
     private String mIconUrl;
     private Set<String> mImpressionUrls;
+    private String mLandBannerHtml;
     private Set<String> mMonitorClickers;
     private String mPackageName;
     private String mPage;
     private String mPictureUrl;
     private String mQueryKey;
+    private int mRewardTime;
+    private int mRewardTimeDefault;
+    private int mSkipTime;
+    private int mSkipTimeDefault;
     private Set<String> mSkipTrackers;
     private Set<String> mStartTrackers;
     private Set<String> mThirdClickMonitorTrackers;
@@ -82,6 +94,9 @@ public class AdElementInfo implements Parcelable {
         this.mSkipTrackers = new HashSet();
         this.mCloseTrackers = new HashSet();
         this.mMonitorClickers = new HashSet();
+        this.mRewardTimeDefault = 15;
+        this.mSkipTimeDefault = 5;
+        this.mConversionUrls = new HashSet();
         this.mAdJsonObject = jSONObject;
         try {
             this.createTime = System.currentTimeMillis();
@@ -105,7 +120,10 @@ public class AdElementInfo implements Parcelable {
             this.mDuration = jSONObject.optInt("duration", 0);
             this.mCloseType = jSONObject.optInt("closetype", 0);
             this.mExpire = jSONObject.optInt("expiration", 0);
+            this.mRewardTime = jSONObject.optInt("rewardtime", this.mRewardTimeDefault);
+            this.mSkipTime = jSONObject.optInt("skiptime", this.mSkipTimeDefault);
             JSONObject optJSONObject = jSONObject.optJSONObject("monitors");
+            this.mAdMonitors = optJSONObject;
             if (optJSONObject != null) {
                 Iterator<String> keys = optJSONObject.keys();
                 while (keys.hasNext()) {
@@ -113,7 +131,7 @@ public class AdElementInfo implements Parcelable {
                     if (next.equals("s")) {
                         JSONArray optJSONArray = optJSONObject.optJSONArray(next);
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            qz(optJSONArray.optString(i));
+                            rs(optJSONArray.optString(i));
                         }
                     } else if (next.equals("vskip")) {
                         JSONArray optJSONArray2 = optJSONObject.optJSONArray(next);
@@ -133,12 +151,12 @@ public class AdElementInfo implements Parcelable {
                     } else if (next.equals("click")) {
                         JSONArray optJSONArray5 = optJSONObject.optJSONArray(next);
                         for (int i5 = 0; i5 < optJSONArray5.length(); i5++) {
-                            qB(optJSONArray5.optString(i5));
+                            ru(optJSONArray5.optString(i5));
                         }
                     } else if (next.equals("c")) {
                         JSONArray optJSONArray6 = optJSONObject.optJSONArray(next);
                         for (int i6 = 0; i6 < optJSONArray6.length(); i6++) {
-                            qA(optJSONArray6.optString(i6));
+                            rt(optJSONArray6.optString(i6));
                         }
                     }
                 }
@@ -156,6 +174,8 @@ public class AdElementInfo implements Parcelable {
                         this.mBannerHtml = optJSONObject2.optString(next2);
                     } else if (next2.equals("int_snippet")) {
                         this.mEndFrameHtml = optJSONObject2.optString(next2);
+                    } else if (next2.equals("banner_land_snippet")) {
+                        this.mLandBannerHtml = optJSONObject2.optString(next2);
                     }
                 }
             }
@@ -166,6 +186,77 @@ public class AdElementInfo implements Parcelable {
                 this.mFbAct = jSONObject.optString("fb_act", "");
             }
             this.mUniqueId = this.mQueryKey + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + new Random().nextLong() + System.currentTimeMillis() + "|";
+            this.mGdtAd = false;
+        } catch (Exception e) {
+        }
+    }
+
+    public AdElementInfo(JSONObject jSONObject, boolean z) {
+        JSONObject optJSONObject;
+        JSONArray optJSONArray;
+        JSONObject optJSONObject2;
+        this.mAdId = "-1";
+        this.mImpressionUrls = new HashSet();
+        this.mVideoWidth = 0;
+        this.mVideoHeight = 0;
+        this.mThirdImpMonitorTrackers = new HashSet();
+        this.mThirdClickMonitorTrackers = new HashSet();
+        this.mStartTrackers = new HashSet();
+        this.mSkipTrackers = new HashSet();
+        this.mCloseTrackers = new HashSet();
+        this.mMonitorClickers = new HashSet();
+        this.mRewardTimeDefault = 15;
+        this.mSkipTimeDefault = 5;
+        this.mConversionUrls = new HashSet();
+        this.mAdJsonObject = jSONObject;
+        try {
+            this.mGdtAd = true;
+            this.mAdId = jSONObject.optString("adid", "-1");
+            this.mIconUrl = jSONObject.optString("icon_url", "");
+            this.mTitle = jSONObject.optString("title", "");
+            this.mDescription = jSONObject.optString("description", "");
+            this.mAppName = jSONObject.optString("app_name", "");
+            this.mPackageName = jSONObject.optString("app_bundle", "");
+            this.mActionType = jSONObject.optInt("interact_type") + 1;
+            this.mClickUrl = jSONObject.optString("target_url");
+            this.createTime = System.currentTimeMillis();
+            if (jSONObject.has(TbConfig.IMAGE_CACHE_DIR_NAME) && (optJSONArray = jSONObject.optJSONArray(TbConfig.IMAGE_CACHE_DIR_NAME)) != null && optJSONArray.length() > 0 && (optJSONObject2 = optJSONArray.optJSONObject(0)) != null) {
+                this.mPictureUrl = optJSONObject2.optString("url", "");
+            }
+            if (jSONObject.has("video") && (optJSONObject = jSONObject.optJSONObject("video")) != null) {
+                this.mVideoUrl = optJSONObject.optString("url", "");
+                this.mVideoWidth = optJSONObject.optInt("width", 0);
+                this.mVideoHeight = optJSONObject.optInt("height", 0);
+                this.mDuration = optJSONObject.optInt("duration", 0);
+            }
+            if (jSONObject.has("imp_urls")) {
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("imp_urls");
+                for (int i = 0; optJSONArray2 != null && i < optJSONArray2.length(); i++) {
+                    if (!TextUtils.isEmpty(optJSONArray2.optString(i))) {
+                        this.mImpressionUrls.add(optJSONArray2.optString(i));
+                    }
+                }
+            }
+            if (jSONObject.has("click_urls")) {
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("click_urls");
+                for (int i2 = 0; optJSONArray3 != null && i2 < optJSONArray3.length(); i2++) {
+                    rt(optJSONArray3.optString(i2));
+                }
+            }
+            if (jSONObject.has("video_play_urls")) {
+                JSONArray optJSONArray4 = jSONObject.optJSONArray("video_play_urls");
+                for (int i3 = 0; optJSONArray4 != null && i3 < optJSONArray4.length(); i3++) {
+                    addCloseMonitorTrackers(optJSONArray4.optString(i3));
+                }
+            }
+            if (jSONObject.has("conversion_urls")) {
+                JSONArray optJSONArray5 = jSONObject.optJSONArray("conversion_urls");
+                for (int i4 = 0; optJSONArray5 != null && i4 < optJSONArray5.length(); i4++) {
+                    rv(optJSONArray5.optString(i4));
+                }
+            }
+            this.mExpire = jSONObject.optInt("expiration", 0);
+            this.mUniqueId = this.mAdId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + new Random().nextLong() + System.currentTimeMillis() + "|";
         } catch (Exception e) {
         }
     }
@@ -181,6 +272,9 @@ public class AdElementInfo implements Parcelable {
         this.mSkipTrackers = new HashSet();
         this.mCloseTrackers = new HashSet();
         this.mMonitorClickers = new HashSet();
+        this.mRewardTimeDefault = 15;
+        this.mSkipTimeDefault = 5;
+        this.mConversionUrls = new HashSet();
         this.mQueryKey = parcel.readString();
         this.mAdId = parcel.readString();
         this.mTitle = parcel.readString();
@@ -205,6 +299,8 @@ public class AdElementInfo implements Parcelable {
         this.mVersion = parcel.readString();
         this.mFallback = parcel.readString();
         this.mFbAct = parcel.readString();
+        this.mRewardTime = parcel.readInt();
+        this.mSkipTime = parcel.readInt();
     }
 
     @Override // android.os.Parcelable
@@ -233,26 +329,56 @@ public class AdElementInfo implements Parcelable {
         parcel.writeString(this.mVersion);
         parcel.writeString(this.mFallback);
         parcel.writeString(this.mFbAct);
+        parcel.writeInt(this.mRewardTime);
+        parcel.writeInt(this.mSkipTime);
     }
 
     public String getTitle() {
         return this.mTitle;
     }
 
-    public String axl() {
+    public String getDescription() {
+        return this.mDescription;
+    }
+
+    public String aAb() {
         return this.mPictureUrl;
+    }
+
+    public String getIconUrl() {
+        return this.mIconUrl;
     }
 
     public String getVideoUrl() {
         return this.mVideoUrl;
     }
 
-    public String axm() {
+    public int getDuration() {
+        return this.mDuration;
+    }
+
+    public int aAc() {
+        return aAe() == 6 ? this.mRewardTime : this.mRewardTimeDefault;
+    }
+
+    public int aAd() {
+        return aAe() == 6 ? this.mSkipTime : this.mSkipTimeDefault;
+    }
+
+    public int aAe() {
+        return this.mCloseType;
+    }
+
+    public String aAf() {
         return this.mClickUrl;
     }
 
     public int getActionType() {
         return this.mActionType;
+    }
+
+    public String getPackageName() {
+        return this.mPackageName;
     }
 
     public String getAppName() {
@@ -268,20 +394,36 @@ public class AdElementInfo implements Parcelable {
         return 0;
     }
 
-    public int axn() {
+    public int aAg() {
         return this.mExpire;
     }
 
-    public String axo() {
+    public int getVideoWidth() {
+        return this.mVideoWidth;
+    }
+
+    public int getVideoHeight() {
+        return this.mVideoHeight;
+    }
+
+    public String aAh() {
         return this.mBannerHtml;
     }
 
-    public String axp() {
+    public String aAi() {
+        return this.mLandBannerHtml;
+    }
+
+    public String aAj() {
         return this.mEndFrameHtml;
     }
 
-    public List<String> axq() {
+    public List<String> aAk() {
         return new ArrayList(this.mImpressionUrls);
+    }
+
+    public JSONObject aAl() {
+        return this.mAdMonitors;
     }
 
     public List<String> getThirdImpressionTrackingUrls() {
@@ -304,13 +446,17 @@ public class AdElementInfo implements Parcelable {
         return new ArrayList(this.mCloseTrackers);
     }
 
-    private void qz(String str) {
+    public List<String> aAm() {
+        return new ArrayList(this.mConversionUrls);
+    }
+
+    private void rs(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mThirdImpMonitorTrackers.add(str);
         }
     }
 
-    private void qA(String str) {
+    private void rt(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mThirdClickMonitorTrackers.add(str);
         }
@@ -334,9 +480,19 @@ public class AdElementInfo implements Parcelable {
         }
     }
 
-    private void qB(String str) {
+    private void ru(String str) {
         if (str != null && !str.equals("")) {
             this.mMonitorClickers.add(str);
         }
+    }
+
+    private void rv(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            this.mConversionUrls.add(str);
+        }
+    }
+
+    public boolean aAn() {
+        return this.mGdtAd;
     }
 }

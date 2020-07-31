@@ -30,36 +30,36 @@ import java.util.UUID;
 /* loaded from: classes.dex */
 public class o extends BdAsyncTask<String, String, b> {
     private Activity activity;
-    private String crm;
-    private a eEh;
-    private File eEi;
-    private boolean eEj;
+    private String ctp;
+    private a eKD;
+    private File eKE;
+    private boolean eKF;
     private String imagePath;
     private String url;
     private int from = 0;
-    private boolean eEk = true;
-    private boolean eEl = false;
+    private boolean eKG = true;
+    private boolean eKH = false;
 
     public o(Activity activity, String str, a aVar) {
         this.activity = activity;
         this.url = str;
-        this.eEh = aVar;
+        this.eKD = aVar;
     }
 
-    public void iF(boolean z) {
-        this.eEk = z;
+    public void jm(boolean z) {
+        this.eKG = z;
     }
 
-    public void iG(boolean z) {
-        this.eEl = z;
+    public void jn(boolean z) {
+        this.eKH = z;
     }
 
     public void setFrom(int i) {
         this.from = i;
     }
 
-    public o iH(boolean z) {
-        this.eEj = z;
+    public o jo(boolean z) {
+        this.eKF = z;
         return this;
     }
 
@@ -71,14 +71,14 @@ public class o extends BdAsyncTask<String, String, b> {
         if (TextUtils.isEmpty(this.url)) {
             return new b(false, "url is null");
         }
-        if (!biO()) {
+        if (!bmH()) {
             return new b(false, "make file error");
         }
-        if (!this.eEj) {
-            if (!biP()) {
+        if (!this.eKF) {
+            if (!bmI()) {
                 return new b(false, "download error");
             }
-        } else if (!biQ()) {
+        } else if (!bmJ()) {
             return new b(false, "decode base64 error");
         }
         return new b(true, null);
@@ -91,28 +91,28 @@ public class o extends BdAsyncTask<String, String, b> {
     public void onPostExecute(b bVar) {
         super.onPostExecute(bVar);
         if (bVar == null) {
-            if (this.eEh != null) {
-                this.eEh.onError(-2, BdStatsConstant.StatsType.ERROR);
+            if (this.eKD != null) {
+                this.eKD.onError(-2, BdStatsConstant.StatsType.ERROR);
             }
         } else if (!bVar.isSuccess()) {
-            if (this.eEh != null) {
-                this.eEh.onError(-1, bVar.getMessage());
+            if (this.eKD != null) {
+                this.eKD.onError(-1, bVar.getMessage());
             }
         } else {
-            if (this.eEl && M(new File(this.imagePath))) {
-                String replace = this.imagePath.replace(yP(this.imagePath), ".gif");
-                this.eEi.renameTo(new File(replace));
+            if (this.eKH && Q(new File(this.imagePath))) {
+                String replace = this.imagePath.replace(zW(this.imagePath), ".gif");
+                this.eKE.renameTo(new File(replace));
                 this.imagePath = replace;
-                this.eEi = new File(this.imagePath);
+                this.eKE = new File(this.imagePath);
             }
-            biR();
-            if (this.eEh != null) {
-                this.eEh.onSuccess(this.imagePath);
+            bmK();
+            if (this.eKD != null) {
+                this.eKD.onSuccess(this.imagePath);
             }
         }
     }
 
-    private boolean M(File file) {
+    private boolean Q(File file) {
         try {
             FileInputStream fileInputStream = new FileInputStream(file);
             fileInputStream.skip(fileInputStream.available() - 1);
@@ -136,7 +136,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean biO() {
+    private boolean bmH() {
         File externalStoragePublicDirectory;
         String lowerCase;
         try {
@@ -149,14 +149,14 @@ public class o extends BdAsyncTask<String, String, b> {
                 externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
             }
             if (externalStoragePublicDirectory != null && externalStoragePublicDirectory.exists()) {
-                this.crm = externalStoragePublicDirectory.getAbsolutePath();
-                if (!TextUtils.isEmpty(this.crm) && !this.crm.endsWith("/")) {
-                    this.crm += "/";
+                this.ctp = externalStoragePublicDirectory.getAbsolutePath();
+                if (!TextUtils.isEmpty(this.ctp) && !this.ctp.endsWith("/")) {
+                    this.ctp += "/";
                 }
             } else {
-                this.crm = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
+                this.ctp = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
             }
-            File file = new File(this.crm);
+            File file = new File(this.ctp);
             if (!file.exists()) {
                 file.mkdir();
             }
@@ -165,15 +165,15 @@ public class o extends BdAsyncTask<String, String, b> {
             } else {
                 lowerCase = UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase();
             }
-            this.imagePath = this.crm + lowerCase + yP(this.url);
-            this.eEi = new File(this.imagePath);
-            if (this.eEi.exists()) {
-                this.eEi.delete();
+            this.imagePath = this.ctp + lowerCase + zW(this.url);
+            this.eKE = new File(this.imagePath);
+            if (this.eKE.exists()) {
+                this.eKE.delete();
             }
-            if (this.eEi.exists()) {
+            if (this.eKE.exists()) {
                 return true;
             }
-            this.eEi.createNewFile();
+            this.eKE.createNewFile();
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -181,7 +181,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean biP() {
+    private boolean bmI() {
         return m(this.url, this.imagePath, 3);
     }
 
@@ -213,7 +213,7 @@ public class o extends BdAsyncTask<String, String, b> {
         try {
             a2 = a(new URL(str), i, i2);
             try {
-                fileOutputStream = new FileOutputStream(zj(str2), true);
+                fileOutputStream = new FileOutputStream(Ar(str2), true);
                 try {
                     a2.connect();
                     responseCode = a2.getResponseCode();
@@ -221,21 +221,21 @@ public class o extends BdAsyncTask<String, String, b> {
                         String headerField2 = a2.getHeaderField(Headers.LOCATION);
                         com.baidu.adp.lib.f.a.close(a2);
                         try {
-                            if (this.eEi != null) {
-                                this.eEi.delete();
+                            if (this.eKE != null) {
+                                this.eKE.delete();
                             }
                         } catch (Exception e) {
                         }
-                        this.imagePath = this.crm + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + yP(headerField2);
-                        this.eEi = new File(this.imagePath);
-                        if (this.eEi.exists()) {
-                            this.eEi.delete();
+                        this.imagePath = this.ctp + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + zW(headerField2);
+                        this.eKE = new File(this.imagePath);
+                        if (this.eKE.exists()) {
+                            this.eKE.delete();
                         }
-                        if (!this.eEi.exists()) {
-                            this.eEi.createNewFile();
+                        if (!this.eKE.exists()) {
+                            this.eKE.createNewFile();
                         }
                         com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
-                        FileOutputStream fileOutputStream3 = new FileOutputStream(this.eEi, true);
+                        FileOutputStream fileOutputStream3 = new FileOutputStream(this.eKE, true);
                         try {
                             a2 = a(new URL(headerField2), i, i2);
                             a2.connect();
@@ -278,7 +278,7 @@ public class o extends BdAsyncTask<String, String, b> {
             inputStream = null;
             fileOutputStream2 = fileOutputStream;
         }
-        if ((headerField != null ? com.baidu.adp.lib.f.b.toInt(headerField, 0) : 0) == 0 && this.eEk) {
+        if ((headerField != null ? com.baidu.adp.lib.f.b.toInt(headerField, 0) : 0) == 0 && this.eKG) {
             com.baidu.adp.lib.f.a.close((InputStream) null);
             com.baidu.adp.lib.f.a.close(a2);
             com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
@@ -322,7 +322,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean biQ() {
+    private boolean bmJ() {
         FileOutputStream fileOutputStream;
         byte[] decode = Base64.decode(this.url.substring(this.url.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP) + 1, this.url.length()), 0);
         for (int i = 0; i < decode.length; i++) {
@@ -332,7 +332,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
         FileOutputStream fileOutputStream2 = null;
         try {
-            FileOutputStream fileOutputStream3 = new FileOutputStream(this.eEi, true);
+            FileOutputStream fileOutputStream3 = new FileOutputStream(this.eKE, true);
             try {
                 fileOutputStream3.write(decode);
                 fileOutputStream3.flush();
@@ -365,7 +365,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private File zj(String str) {
+    private File Ar(String str) {
         com.baidu.adp.lib.util.f.delFile(str);
         return new File(str);
     }
@@ -416,13 +416,13 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private void biR() {
-        if (this.eEi != null) {
-            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.eEi)));
+    private void bmK() {
+        if (this.eKE != null) {
+            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.eKE)));
         }
     }
 
-    private String yP(String str) {
+    private String zW(String str) {
         if (TextUtils.isEmpty(str)) {
             return ".jpg";
         }

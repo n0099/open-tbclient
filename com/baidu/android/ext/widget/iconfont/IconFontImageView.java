@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.android.common.ui.R;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class IconFontImageView extends ImageView {
     private static final int DEFAULT_ICON_FONT_COLOR = -16777216;
     private Context mContext;

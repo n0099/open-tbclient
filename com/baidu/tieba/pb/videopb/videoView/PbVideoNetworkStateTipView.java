@@ -8,13 +8,13 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView;
-import com.baidu.tieba.video.h;
-/* loaded from: classes9.dex */
+import com.baidu.tieba.video.g;
+/* loaded from: classes16.dex */
 public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
-    private TextView dxA;
+    private TextView dDs;
 
     public PbVideoNetworkStateTipView(Context context) {
         super(context);
@@ -37,23 +37,23 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
     }
 
     private void init() {
-        this.dxA = (TextView) findViewById(R.id.video_net_tip_duration);
+        this.dDs = (TextView) findViewById(R.id.video_net_tip_duration);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
     public void setVideoDuration(int i) {
         if (i > 0) {
-            this.dxA.setText(String.format(getResources().getString(R.string.pb_video_duration), ar.stringForVideoTime(i * 1000)));
+            this.dDs.setText(String.format(getResources().getString(R.string.pb_video_duration), as.stringForVideoTime(i * 1000)));
         }
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
-    public boolean cQF() {
-        return (hasAgreeToPlay() || h.dmo().dmp() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !j.isMobileNet()) ? false : true;
+    public boolean cUv() {
+        return (hasAgreeToPlay() || g.dpz().dpA() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !j.isMobileNet()) ? false : true;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
-    public void am(boolean z, boolean z2) {
+    public void an(boolean z, boolean z2) {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView, android.view.View.OnClickListener
@@ -62,8 +62,8 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
             if (view.getId() == R.id.free_flow) {
                 com.baidu.tbadk.browser.a.startWebActivity(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
             } else if (view.getId() == R.id.play) {
-                if (this.kXu != null) {
-                    this.kXu.onClick(view);
+                if (this.leV != null) {
+                    this.leV.onClick(view);
                 }
                 TiebaStatic.log("c12618");
             }

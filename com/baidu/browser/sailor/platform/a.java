@@ -7,7 +7,7 @@ import android.os.Message;
 import com.baidu.webkit.sdk.CookieSyncManager;
 import com.baidu.webkit.sdk.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class a extends Handler {
     final /* synthetic */ BdSailorPlatform a;
 
@@ -36,7 +36,7 @@ public final class a extends Handler {
                     }
                     try {
                         Log.d(BdSailorPlatform.TAG, "do pause");
-                        this.a.mWebkitTimerPaused = com.baidu.browser.sailor.webkit.a.rF().c();
+                        this.a.mWebkitTimerPaused = com.baidu.browser.sailor.webkit.a.rH().c();
                         context3 = this.a.mContext;
                         CookieSyncManager createInstance = CookieSyncManager.createInstance(context3);
                         if (createInstance != null) {

@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.GetForumDetail.DataReq;
 import tbclient.GetForumDetail.GetForumDetailReqIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class ForumDetailRequestMessage extends NetMessage {
     private long forumId;
 

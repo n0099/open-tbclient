@@ -7,9 +7,9 @@ import com.baidu.mobstat.Config;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private static InetAddress On() {
+    private static InetAddress Ou() {
         InetAddress inetAddress;
         try {
             Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
@@ -49,11 +49,11 @@ public class a {
         }
     }
 
-    private static String Oo() {
+    private static String Ov() {
         byte[] hardwareAddress;
         try {
-            InetAddress On = On();
-            if (On == null || (hardwareAddress = NetworkInterface.getByInetAddress(On).getHardwareAddress()) == null) {
+            InetAddress Ou = Ou();
+            if (Ou == null || (hardwareAddress = NetworkInterface.getByInetAddress(Ou).getHardwareAddress()) == null) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
@@ -73,11 +73,11 @@ public class a {
         }
     }
 
-    private static String Op() {
-        return ((WifiManager) g.Os().getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
+    private static String Ow() {
+        return ((WifiManager) g.OA().getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
     }
 
-    private static String Oq() {
+    private static String Ox() {
         byte[] hardwareAddress;
         try {
             NetworkInterface byName = NetworkInterface.getByName("wlan0");
@@ -98,20 +98,20 @@ public class a {
         }
     }
 
-    private static boolean gG(String str) {
+    private static boolean gF(String str) {
         return (TextUtils.isEmpty(str) || str.equals(Config.DEF_MAC_ID)) ? false : true;
     }
 
     public static String getMacAddress() {
-        String Oq;
+        String Ox;
         if (Build.VERSION.SDK_INT < 23) {
-            Oq = Op();
+            Ox = Ow();
         } else {
-            Oq = Oq();
+            Ox = Ox();
         }
-        if (!gG(Oq)) {
-            Oq = Oo();
+        if (!gF(Ox)) {
+            Ox = Ov();
         }
-        return !TextUtils.isEmpty(Oq) ? Oq.toUpperCase() : Oq;
+        return !TextUtils.isEmpty(Ox) ? Ox.toUpperCase() : Ox;
     }
 }

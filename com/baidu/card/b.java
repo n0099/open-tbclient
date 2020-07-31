@@ -6,15 +6,15 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.card.a.a;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public abstract class b<T extends AbsThreadDataSupport> implements n<T>, o {
-    protected ai adV;
-    private Boolean adW = false;
-    private com.baidu.tieba.card.aa<T> adX;
-    public a adY;
+    protected ai adL;
+    private Boolean adM = false;
+    private com.baidu.tieba.card.aa<T> adN;
+    public a adO;
     protected Context mContext;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void a(AbsThreadDataSupport absThreadDataSupport);
     }
@@ -27,32 +27,32 @@ public abstract class b<T extends AbsThreadDataSupport> implements n<T>, o {
     }
 
     public void a(ai aiVar) {
-        this.adV = aiVar;
-    }
-
-    public void bd(int i) {
-    }
-
-    public void be(int i) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void rI() {
-    }
-
-    public com.baidu.tieba.card.aa<T> rJ() {
-        return this.adX;
-    }
-
-    public void setOnCardSubClickListener(com.baidu.tieba.card.aa<T> aaVar) {
-        this.adX = aaVar;
-    }
-
-    public void a(int i, a.b bVar) {
-        this.adV.a(i, bVar);
+        this.adL = aiVar;
     }
 
     public void bf(int i) {
+    }
+
+    public void bg(int i) {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void rK() {
+    }
+
+    public com.baidu.tieba.card.aa<T> rL() {
+        return this.adN;
+    }
+
+    public void setOnCardSubClickListener(com.baidu.tieba.card.aa<T> aaVar) {
+        this.adN = aaVar;
+    }
+
+    public void a(int i, a.b bVar) {
+        this.adL.a(i, bVar);
+    }
+
+    public void bh(int i) {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
@@ -68,11 +68,11 @@ public abstract class b<T extends AbsThreadDataSupport> implements n<T>, o {
         }
     }
 
-    public Boolean rK() {
-        return this.adW;
+    public Boolean rM() {
+        return this.adM;
     }
 
     public void b(Boolean bool) {
-        this.adW = bool;
+        this.adM = bool;
     }
 }

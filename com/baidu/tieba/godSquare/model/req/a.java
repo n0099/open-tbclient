@@ -5,17 +5,17 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.godSquare.model.res.GodSquareCacheResponsedMsg;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class a implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         if (customMessage == null || !(customMessage instanceof GodSquareCacheRequestMsg)) {
             return null;
         }
-        byte[] ET = new com.baidu.tieba.godSquare.model.a().ET(((GodSquareCacheRequestMsg) customMessage).cacheKey);
+        byte[] FE = new com.baidu.tieba.godSquare.model.a().FE(((GodSquareCacheRequestMsg) customMessage).cacheKey);
         GodSquareCacheResponsedMsg godSquareCacheResponsedMsg = new GodSquareCacheResponsedMsg();
         try {
-            godSquareCacheResponsedMsg.decodeInBackGround(CmdConfigCustom.CMD_GET_HOT_GOD_CACHE, ET);
+            godSquareCacheResponsedMsg.decodeInBackGround(CmdConfigCustom.CMD_GET_HOT_GOD_CACHE, FE);
             return godSquareCacheResponsedMsg;
         } catch (Exception e) {
             e.printStackTrace();

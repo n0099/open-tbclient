@@ -3,7 +3,7 @@ package com.baidu.webkit.logsdk.upload;
 import android.text.TextUtils;
 import com.baidu.webkit.logsdk.d;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class c implements d {
     final /* synthetic */ a a;
     final /* synthetic */ b b;

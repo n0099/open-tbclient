@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.e;
 
 import android.content.Intent;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class c {
     public static b a(g gVar, Intent intent) {
         int intExtra = intent.getIntExtra("transition_type", 0);

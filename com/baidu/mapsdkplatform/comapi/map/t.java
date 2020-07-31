@@ -1,7 +1,7 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import com.baidu.mapapi.model.inner.GeoPoint;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class t {
     public int a;
     public String b;

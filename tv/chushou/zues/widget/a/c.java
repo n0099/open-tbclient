@@ -9,7 +9,7 @@ import android.support.v4.content.ContextCompat;
 import android.text.style.ImageSpan;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c extends com.facebook.drawee.span.b {
     private int flag;
 

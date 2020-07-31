@@ -2,7 +2,6 @@ package com.baidu.mobads.production.c;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.down.utils.Constants;
 import com.baidu.mobad.feeds.RequestParameters;
 import com.baidu.mobads.AdSize;
 import com.baidu.mobads.g.q;
@@ -21,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class c extends com.baidu.mobads.production.b {
     private d w;
     private ArrayList<IXAdInstanceInfo> x;
@@ -47,7 +46,7 @@ public class c extends com.baidu.mobads.production.b {
             arrayList.add(adConstants.getSupportedActionType4RequestingDownload());
         }
         this.w.b(XAdSDKFoundationFacade.getInstance().getCommonUtils().a((List<String>) arrayList));
-        this.w.d(Constants.HTTP_DNS_INAVAILABLE_TIME);
+        this.w.d(600);
         this.w.e(500);
         this.w.h(0);
         this.w.d(str);

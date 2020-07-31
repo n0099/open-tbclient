@@ -8,7 +8,7 @@ import com.baidu.ar.arplay.core.engine.rotate.Orientation;
 import com.baidu.ar.arplay.core.filter.OutputFillMode;
 import com.baidu.ar.bean.Size;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static PixelRotation a(DuMixOutput.b bVar, DuMixOutput.a aVar) {

@@ -22,7 +22,7 @@ public class b {
         return this.time;
     }
 
-    public int bdd() {
+    public int bgK() {
         return this.hide;
     }
 }

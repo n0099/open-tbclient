@@ -11,18 +11,18 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.helios.bridge.a;
 import com.baidu.helios.bridge.multiprocess.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseIPCProvider extends ContentProvider {
-    private e aqF;
-    private UriMatcher aqG = new UriMatcher(-1);
+    private e aqB;
+    private UriMatcher aqC = new UriMatcher(-1);
 
     private String a(String str) {
         return str + um();
     }
 
     private synchronized void a() {
-        if (this.aqF == null) {
-            this.aqF = new e.a() { // from class: com.baidu.helios.bridge.multiprocess.BaseIPCProvider.1
+        if (this.aqB == null) {
+            this.aqB = new e.a() { // from class: com.baidu.helios.bridge.multiprocess.BaseIPCProvider.1
                 private g e;
 
                 {
@@ -62,7 +62,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
 
                 @Override // com.baidu.helios.bridge.multiprocess.e
                 public boolean a(String str) {
-                    return this.e.un().dX(str);
+                    return this.e.un().dW(str);
                 }
             };
         }
@@ -85,7 +85,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
             switch (c) {
                 case 0:
                     a();
-                    h.a(bundle2, this.aqF.asBinder());
+                    h.a(bundle2, this.aqB.asBinder());
                     return bundle2;
             }
         }
@@ -109,20 +109,20 @@ public abstract class BaseIPCProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        this.aqG.addURI(a(getContext().getPackageName()), "ipc/method/get_bridge", 0);
+        this.aqC.addURI(a(getContext().getPackageName()), "ipc/method/get_bridge", 0);
         Log.i("Helios", "provider onCreate");
         return true;
     }
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        int match = this.aqG.match(uri);
+        int match = this.aqC.match(uri);
         Log.i("Helios", "provider query, code = " + match);
         switch (match) {
             case 0:
                 a();
                 Bundle bundle = new Bundle();
-                h.a(bundle, this.aqF.asBinder());
+                h.a(bundle, this.aqB.asBinder());
                 return new d(bundle);
             default:
                 return null;

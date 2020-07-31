@@ -2,21 +2,21 @@ package com.baidu.tieba.pb.pb.sub.b;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class b implements q {
-    public static final BdUniqueId kvj = BdUniqueId.gen();
-    private int aoN = 0;
+    public static final BdUniqueId kEc = BdUniqueId.gen();
+    private int aoJ = 0;
 
     public void setReplyNum(int i) {
-        this.aoN = i;
+        this.aoJ = i;
     }
 
     public int getReplyNum() {
-        return this.aoN;
+        return this.aoJ;
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return kvj;
+        return kEc;
     }
 }

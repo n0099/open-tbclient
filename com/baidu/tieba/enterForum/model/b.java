@@ -5,37 +5,37 @@ import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tbadk.switchs.HttpsConnSwitch;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class b {
-    public static boolean bSB() {
+    public static boolean bVS() {
         if (j.isNetWorkAvailable()) {
             return SwitchManager.getInstance().findType(HttpsConnSwitch.KEY) == 1;
         }
         return false;
     }
 
-    public static void bSC() {
+    public static void bVT() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.enterForum.model.b.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-                    y yVar = new y("http://tiebac.baidu.com/empty.gif");
-                    yVar.getNetData();
-                    int i = yVar.isNetSuccess() ? 1 : 0;
-                    y yVar2 = new y("https://tiebac.baidu.com/empty.gif");
-                    yVar2.getNetData();
-                    int i2 = yVar2.isNetSuccess() ? 1 : 0;
-                    y yVar3 = new y("http://c.tieba.baidu.com/c/s/recordHttpsConnectivity");
-                    yVar3.addPostData("is_success_http", String.valueOf(i));
-                    yVar3.addPostData("is_success_https", String.valueOf(i2));
-                    yVar3.postNetData();
-                    TiebaStatic.log(new ao("c13734").ag("obj_locate", 1).ag("obj_type", i));
-                    TiebaStatic.log(new ao("c13734").ag("obj_locate", 2).ag("obj_type", i2));
+                    z zVar = new z("http://tiebac.baidu.com/empty.gif");
+                    zVar.getNetData();
+                    int i = zVar.isNetSuccess() ? 1 : 0;
+                    z zVar2 = new z("https://tiebac.baidu.com/empty.gif");
+                    zVar2.getNetData();
+                    int i2 = zVar2.isNetSuccess() ? 1 : 0;
+                    z zVar3 = new z("http://c.tieba.baidu.com/c/s/recordHttpsConnectivity");
+                    zVar3.addPostData("is_success_http", String.valueOf(i));
+                    zVar3.addPostData("is_success_https", String.valueOf(i2));
+                    zVar3.postNetData();
+                    TiebaStatic.log(new ap("c13734").ah("obj_locate", 1).ah("obj_type", i));
+                    TiebaStatic.log(new ap("c13734").ah("obj_locate", 2).ah("obj_type", i2));
                 }
                 return null;
             }

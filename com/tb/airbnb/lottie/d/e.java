@@ -6,7 +6,7 @@ import android.support.annotation.FloatRange;
 import com.tb.airbnb.lottie.a.a.j;
 import com.tb.airbnb.lottie.model.content.h;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e {
     public static PointF a(PointF pointF, PointF pointF2) {
         return new PointF(pointF.x + pointF2.x, pointF.y + pointF2.y);
@@ -80,7 +80,7 @@ public class e {
 
     public static void a(com.tb.airbnb.lottie.model.e eVar, int i, List<com.tb.airbnb.lottie.model.e> list, com.tb.airbnb.lottie.model.e eVar2, j jVar) {
         if (eVar.i(jVar.getName(), i)) {
-            list.add(eVar2.RP(jVar.getName()).a(jVar));
+            list.add(eVar2.SA(jVar.getName()).a(jVar));
         }
     }
 }

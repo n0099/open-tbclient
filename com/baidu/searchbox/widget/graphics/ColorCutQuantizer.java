@@ -11,7 +11,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes13.dex */
+/* loaded from: classes11.dex */
 public final class ColorCutQuantizer {
     static final int COMPONENT_BLUE = -1;
     static final int COMPONENT_GREEN = -2;
@@ -104,7 +104,7 @@ public final class ColorCutQuantizer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes11.dex */
     public class Vbox {
         private int mLowerIndex;
         private int mMaxBlue;

@@ -10,18 +10,18 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi;
 import com.baidu.swan.apps.api.module.favorite.a;
-import com.baidu.swan.apps.aq.aj;
-import com.baidu.swan.apps.aq.n;
+import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.aq.p;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.storage.c.h;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
-public class g extends aa implements a.InterfaceC0311a {
-    private long bPf;
-    private long bPg;
-    private long bPh;
+/* loaded from: classes7.dex */
+public class g extends aa implements a.InterfaceC0310a {
+    private long bPW;
+    private long bPX;
+    private long bPY;
     private CallbackHandler mCallbackHandler;
     private String mCallbackKey;
 
@@ -32,7 +32,7 @@ public class g extends aa implements a.InterfaceC0311a {
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(final Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, final com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "call ShowFavoriteGuideAction pid=" + Process.myPid() + ", Thread=" + Thread.currentThread().getName());
-        if (!aj.auY()) {
+        if (!al.axe()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support outside baiduboxapp");
             com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "not support outside baiduboxapp");
             return false;
@@ -44,21 +44,26 @@ public class g extends aa implements a.InterfaceC0311a {
             com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "params parse error");
             return false;
         }
-        n.auA().execute(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.b.g.1
+        final String optString = b.optString("type");
+        if (com.baidu.swan.apps.api.module.favorite.a.VH().hx(optString)) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            return false;
+        }
+        p.awC().execute(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.b.g.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.storage.c.b asV = h.asV();
-                final ShowFavoriteGuideApi.GuideType parse = ShowFavoriteGuideApi.GuideType.parse(b.optString("type"));
+                com.baidu.swan.apps.storage.c.b auW = h.auW();
+                final ShowFavoriteGuideApi.GuideType parse = ShowFavoriteGuideApi.GuideType.parse(optString);
                 final String string = context.getString(parse.defaultText);
                 g.this.mCallbackKey = b.optString("cb");
                 String str = eVar.id;
                 String str2 = "favorite_guide_count_" + str;
-                if (com.baidu.swan.apps.database.favorite.a.ke(str)) {
+                if (com.baidu.swan.apps.database.favorite.a.ky(str)) {
                     com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "favorite already");
-                    h.asV().putString(str2, "-1");
+                    h.auW().putString(str2, "-1");
                     return;
                 }
-                String string2 = h.asV().getString(str2, "");
+                String string2 = h.auW().getString(str2, "");
                 if (TextUtils.equals("-1", string2)) {
                     com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "favorite at one time");
                     return;
@@ -71,16 +76,16 @@ public class g extends aa implements a.InterfaceC0311a {
                     j = Long.parseLong(split[1]);
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                g.this.bPf = asV.getLong("swan_favorite_guide_duration", 3L);
-                g.this.bPg = asV.getLong("swan_favorite_guide_intervalDays", 3L);
-                g.this.bPh = asV.getLong("swan_favorite_guide_maxTimes", 3L);
-                com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "duration=" + g.this.bPf + ", mIntervalDays=" + g.this.bPg + ", mMaxTimes=" + g.this.bPh + " ,storageValue=" + string2);
-                if (i < g.this.bPh && currentTimeMillis - j > g.this.bPg * 86400000) {
-                    h.asV().putString(str2, (i + 1) + "#" + currentTimeMillis);
-                    aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.b.g.1.1
+                g.this.bPW = auW.getLong("swan_favorite_guide_duration", 3L);
+                g.this.bPX = auW.getLong("swan_favorite_guide_intervalDays", 3L);
+                g.this.bPY = auW.getLong("swan_favorite_guide_maxTimes", 3L);
+                com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "duration=" + g.this.bPW + ", mIntervalDays=" + g.this.bPX + ", mMaxTimes=" + g.this.bPY + " ,storageValue=" + string2);
+                if (i < g.this.bPY && currentTimeMillis - j > g.this.bPX * 86400000) {
+                    h.auW().putString(str2, (i + 1) + "#" + currentTimeMillis);
+                    al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.b.g.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            com.baidu.swan.apps.api.module.favorite.a.Vc().a(g.this, (Activity) context, eVar, parse, string, eVar.apQ().getIconUrl(), g.this.bPf);
+                            com.baidu.swan.apps.api.module.favorite.a.VH().a(g.this, (Activity) context, eVar, parse, string, eVar.arz().getIconUrl(), g.this.bPW);
                         }
                     });
                     return;
@@ -93,9 +98,9 @@ public class g extends aa implements a.InterfaceC0311a {
         return true;
     }
 
-    @Override // com.baidu.swan.apps.api.module.favorite.a.InterfaceC0311a
+    @Override // com.baidu.swan.apps.api.module.favorite.a.InterfaceC0310a
     @AnyThread
-    public void dp(boolean z) {
+    public void ds(boolean z) {
         if (this.mCallbackKey != null && this.mCallbackHandler != null) {
             JSONObject jSONObject = new JSONObject();
             try {

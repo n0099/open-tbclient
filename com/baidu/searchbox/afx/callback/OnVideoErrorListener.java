@@ -1,5 +1,5 @@
 package com.baidu.searchbox.afx.callback;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public interface OnVideoErrorListener {
     boolean onError(ErrorInfo errorInfo);
 }

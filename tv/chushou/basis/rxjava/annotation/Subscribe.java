@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 import tv.chushou.basis.rxjava.thread.EventThread;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public @interface Subscribe {
     Tag[] tags() default {};
 

@@ -1,5 +1,5 @@
 package com.baidu.swan.games.utils.so;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public interface b {
     void load(String str) throws Throwable;
 

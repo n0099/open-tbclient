@@ -1,7 +1,7 @@
 package com.baidu.mapapi.walknavi.controllers.a;
 
 import com.baidu.mapapi.walknavi.adapter.IWTTSPlayer;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 final class d implements com.baidu.platform.comapi.wnplatform.m.c {
     @Override // com.baidu.platform.comapi.wnplatform.m.c
     public void a() {

@@ -1,11 +1,11 @@
 package com.baidu.poly.a.a;
 
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public abstract class d<K, V> {
-    private Map<K, V> map = com.baidu.poly.util.e.Or();
+    private Map<K, V> map = com.baidu.poly.util.e.Oy();
 
-    public Map<K, V> NT() {
+    public Map<K, V> NZ() {
         return this.map;
     }
 

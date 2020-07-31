@@ -5,16 +5,16 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.view.View;
 import android.widget.RelativeLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class a extends RelativeLayout {
     private static final String a = a.class.getName();
     private Rect b;
     private boolean c;
-    private InterfaceC0876a d;
+    private InterfaceC0885a d;
 
     /* renamed from: com.tencent.open.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0876a {
+    /* loaded from: classes19.dex */
+    public interface InterfaceC0885a {
         void a();
 
         void a(int i);
@@ -30,8 +30,8 @@ public class a extends RelativeLayout {
         }
     }
 
-    public void a(InterfaceC0876a interfaceC0876a) {
-        this.d = interfaceC0876a;
+    public void a(InterfaceC0885a interfaceC0885a) {
+        this.d = interfaceC0885a;
     }
 
     @Override // android.widget.RelativeLayout, android.view.View

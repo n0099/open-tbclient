@@ -4,11 +4,11 @@ import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class KasChildViewPager extends ViewPager {
     private float lastX;
-    private boolean opr;
-    private boolean ops;
+    private boolean oxQ;
+    private boolean oxR;
 
     public KasChildViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -28,26 +28,26 @@ public class KasChildViewPager extends ViewPager {
             case 1:
                 getParent().requestDisallowInterceptTouchEvent(false);
                 this.lastX = motionEvent.getX();
-                this.opr = false;
-                this.ops = false;
+                this.oxQ = false;
+                this.oxR = false;
                 break;
             case 2:
                 if (getCurrentItem() == 0) {
-                    if (this.lastX <= motionEvent.getX() && !this.ops) {
+                    if (this.lastX <= motionEvent.getX() && !this.oxR) {
                         getParent().requestDisallowInterceptTouchEvent(false);
                         break;
                     } else {
-                        this.ops = true;
+                        this.oxR = true;
                         this.lastX = motionEvent.getX();
                         getParent().requestDisallowInterceptTouchEvent(true);
                         break;
                     }
                 } else if (getCurrentItem() == getAdapter().getCount() - 1) {
-                    if (this.lastX >= motionEvent.getX() && !this.opr) {
+                    if (this.lastX >= motionEvent.getX() && !this.oxQ) {
                         getParent().requestDisallowInterceptTouchEvent(false);
                         break;
                     } else {
-                        this.opr = true;
+                        this.oxQ = true;
                         this.lastX = motionEvent.getX();
                         getParent().requestDisallowInterceptTouchEvent(true);
                         break;

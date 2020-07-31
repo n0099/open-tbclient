@@ -6,7 +6,7 @@ import android.view.View;
 import com.baidu.ala.widget.multicolumn.absView.AbsFragment;
 import com.baidu.ala.widget.multicolumn.absView.AbsTabActivity;
 import com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.AlaAchievementMarkFragment;
@@ -14,10 +14,10 @@ import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEnterEffectFrag
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaPrivilegeFragmentAdapter;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
-    private LinkedList<AbsFragment> gCb = new LinkedList<>();
-    private AlaPrivilegeFragmentAdapter gCc;
+    private LinkedList<AbsFragment> gHy = new LinkedList<>();
+    private AlaPrivilegeFragmentAdapter gHz;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -29,12 +29,12 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
     public void onPreInit() {
         super.onPreInit();
-        if (!w.isEmpty(this.gCb)) {
-            this.gCb.clear();
+        if (!x.isEmpty(this.gHy)) {
+            this.gHy.clear();
         }
-        this.gCb.add(new AlaAchievementMarkFragment());
-        this.gCb.add(new AlaEnterEffectFragment());
-        this.gCc = new AlaPrivilegeFragmentAdapter(getSupportFragmentManager(), this.gCb);
+        this.gHy.add(new AlaAchievementMarkFragment());
+        this.gHy.add(new AlaEnterEffectFragment());
+        this.gHz = new AlaPrivilegeFragmentAdapter(getSupportFragmentManager(), this.gHy);
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
@@ -50,15 +50,15 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
     protected AbsTabPagerAdapter getAdapter() {
-        return this.gCc;
+        return this.gHz;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (!w.isEmpty(this.gCb)) {
-            Iterator<AbsFragment> it = this.gCb.iterator();
+        if (!x.isEmpty(this.gHy)) {
+            Iterator<AbsFragment> it = this.gHy.iterator();
             while (it.hasNext()) {
                 AbsFragment next = it.next();
                 if (next != null) {

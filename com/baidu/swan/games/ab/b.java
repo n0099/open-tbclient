@@ -1,7 +1,7 @@
 package com.baidu.swan.games.ab;
 
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b {
     @V8JavascriptField
     public String uuap_p_token;

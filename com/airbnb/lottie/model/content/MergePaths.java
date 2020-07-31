@@ -1,12 +1,12 @@
 package com.airbnb.lottie.model.content;
 
 import android.support.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class MergePaths implements b {
     private final MergePathsMode Ew;
     private final String name;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes20.dex */
     public enum MergePathsMode {
         Merge,
         Add,

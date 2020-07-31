@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.atomData.CreateBarActivityConfig;
 import com.baidu.tbadk.core.atomData.CreateBarGuideActivityConfig;
 import com.baidu.tbadk.core.atomData.CreateForumActivityConfig;
 import com.baidu.tbadk.core.atomData.CreateForumSuccessActivityConfig;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class CreateBarActivityStatic {
     public static String Tag = "tag";
 

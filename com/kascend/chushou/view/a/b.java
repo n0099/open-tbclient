@@ -2,13 +2,13 @@ package com.kascend.chushou.view.a;
 
 import android.os.SystemClock;
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b<T> implements a<T> {
     private long a = 0;
-    private a<T> ngA;
+    private a<T> npm;
 
     public b(a<T> aVar) {
-        this.ngA = aVar;
+        this.npm = aVar;
     }
 
     @Override // com.kascend.chushou.view.a.a
@@ -16,8 +16,8 @@ public class b<T> implements a<T> {
         long uptimeMillis = SystemClock.uptimeMillis();
         if (uptimeMillis - this.a > 500) {
             this.a = uptimeMillis;
-            if (this.ngA != null) {
-                this.ngA.b(view, t);
+            if (this.npm != null) {
+                this.npm.b(view, t);
             }
         }
     }

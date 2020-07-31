@@ -2,7 +2,7 @@ package com.baidu.helios.bridge.multiprocess;
 
 import android.database.AbstractCursor;
 import android.os.Bundle;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class d extends AbstractCursor {
     private Bundle a;
 

@@ -8,11 +8,12 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class b implements Handler.Callback {
     public static final List<Message> e = new ArrayList();
     @SuppressLint({"StaticFieldLeak"})
@@ -156,11 +157,11 @@ public class b implements Handler.Callback {
                         }
                     }
                     boolean z2 = z;
-                    if (jSONObject.has("net_level")) {
-                        String string2 = jSONObject.getString("net_level");
+                    if (jSONObject.has(DpStatConstants.KEY_NET_LEVEL)) {
+                        String string2 = jSONObject.getString(DpStatConstants.KEY_NET_LEVEL);
                         if (!TextUtils.isEmpty(string2)) {
                             int parseInt = Integer.parseInt(string2);
-                            edit.putInt("net_level", (parseInt < 0 || parseInt > 3) ? 3 : 3);
+                            edit.putInt(DpStatConstants.KEY_NET_LEVEL, (parseInt < 0 || parseInt > 3) ? 3 : 3);
                         }
                     }
                     if (jSONObject.has("timeout")) {
@@ -283,10 +284,15 @@ public class b implements Handler.Callback {
     }
 
     public final com.baidu.webkit.logsdk.c.c h() {
-        if (this.n == null) {
-            this.n = new com.baidu.webkit.logsdk.c.c();
+        com.baidu.webkit.logsdk.c.c cVar;
+        synchronized (b.class) {
+            if (this.n == null) {
+                com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "BdLogDataProcessor getProcessor");
+                this.n = new com.baidu.webkit.logsdk.c.c();
+            }
+            cVar = this.n;
         }
-        return this.n;
+        return cVar;
     }
 
     @Override // android.os.Handler.Callback

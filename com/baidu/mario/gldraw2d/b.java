@@ -1,82 +1,82 @@
 package com.baidu.mario.gldraw2d;
 
 import com.baidu.mario.gldraw2d.c.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private com.baidu.mario.gldraw2d.b.a brP;
-    private c brQ;
-    private com.baidu.mario.gldraw2d.params.c brR;
+    private com.baidu.mario.gldraw2d.b.a bsk;
+    private c bsl;
+    private com.baidu.mario.gldraw2d.params.c bsm;
 
     public b(com.baidu.mario.gldraw2d.params.c cVar) {
-        this.brR = cVar;
-        this.brP = new com.baidu.mario.gldraw2d.b.a(cVar.getEGLContext(), 1);
-        Ln();
+        this.bsm = cVar;
+        this.bsk = new com.baidu.mario.gldraw2d.b.a(cVar.getEGLContext(), 1);
+        Lu();
     }
 
-    public void Ll() {
-        this.brQ = this.brR.LM();
-        b(this.brQ);
+    public void Ls() {
+        this.bsl = this.bsm.LT();
+        b(this.bsl);
     }
 
-    public com.baidu.mario.gldraw2d.b.a Lm() {
-        return this.brP;
+    public com.baidu.mario.gldraw2d.b.a Lt() {
+        return this.bsk;
     }
 
     public void aF(long j) {
-        if (this.brQ != null && this.brR != null) {
-            if (this.brR.LL()) {
-                Ln();
+        if (this.bsl != null && this.bsm != null) {
+            if (this.bsm.LS()) {
+                Lu();
             }
             if (j != 0) {
-                this.brR.LN().setTimestamp(j);
+                this.bsm.LU().setTimestamp(j);
             }
-            this.brQ.c(this.brR.LJ(), this.brR.LN());
+            this.bsl.c(this.bsm.LQ(), this.bsm.LU());
         }
     }
 
     public void a(c cVar) {
-        if (this.brR != null) {
-            this.brR.c(cVar);
+        if (this.bsm != null) {
+            this.bsm.c(cVar);
         }
-        this.brQ.release();
+        this.bsl.release();
         b(cVar);
     }
 
     public void release() {
-        if (this.brQ != null) {
-            this.brQ.release();
-            this.brQ = null;
+        if (this.bsl != null) {
+            this.bsl.release();
+            this.bsl = null;
         }
-        if (this.brP != null) {
-            this.brP.release();
-            this.brP = null;
+        if (this.bsk != null) {
+            this.bsk.release();
+            this.bsk = null;
         }
     }
 
-    private void Ln() {
-        float[] LC = this.brR.LN().LC();
-        com.baidu.mario.gldraw2d.e.b.v(LC);
-        com.baidu.mario.gldraw2d.params.a LK = this.brR.LK();
-        com.baidu.mario.gldraw2d.e.b.a(LC, LK.getTranslateX(), LK.getTranslateY());
-        com.baidu.mario.gldraw2d.e.b.a(LC, LK.Lw());
-        com.baidu.mario.gldraw2d.e.b.a(LC, LK.Lz());
-        if ((LK.LA() + 360) % 180 == 0) {
-            com.baidu.mario.gldraw2d.e.b.a(LC, this.brR.LH(), this.brR.LI(), LK.Lx(), LK.Ly());
+    private void Lu() {
+        float[] LJ = this.bsm.LU().LJ();
+        com.baidu.mario.gldraw2d.e.b.v(LJ);
+        com.baidu.mario.gldraw2d.params.a LR = this.bsm.LR();
+        com.baidu.mario.gldraw2d.e.b.a(LJ, LR.getTranslateX(), LR.getTranslateY());
+        com.baidu.mario.gldraw2d.e.b.a(LJ, LR.LD());
+        com.baidu.mario.gldraw2d.e.b.a(LJ, LR.LG());
+        if ((LR.LH() + 360) % 180 == 0) {
+            com.baidu.mario.gldraw2d.e.b.a(LJ, this.bsm.LO(), this.bsm.LP(), LR.LE(), LR.LF());
             return;
         }
-        com.baidu.mario.gldraw2d.d.c clone = this.brR.LI().clone();
-        clone.setWidth(this.brR.LI().getHeight());
-        clone.setHeight(this.brR.LI().getWidth());
-        com.baidu.mario.gldraw2d.e.b.a(LC, this.brR.LH(), clone, LK.Lx(), LK.Ly());
+        com.baidu.mario.gldraw2d.d.c clone = this.bsm.LP().clone();
+        clone.setWidth(this.bsm.LP().getHeight());
+        clone.setHeight(this.bsm.LP().getWidth());
+        com.baidu.mario.gldraw2d.e.b.a(LJ, this.bsm.LO(), clone, LR.LE(), LR.LF());
     }
 
     private void b(c cVar) {
         if (cVar == null) {
-            this.brQ = new com.baidu.mario.gldraw2d.c.b();
+            this.bsl = new com.baidu.mario.gldraw2d.c.b();
         } else {
-            this.brQ = cVar;
+            this.bsl = cVar;
         }
-        this.brQ.a(this.brR.LH(), this.brR.LI());
+        this.bsl.a(this.bsm.LO(), this.bsm.LP());
     }
 }

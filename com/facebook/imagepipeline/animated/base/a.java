@@ -2,17 +2,17 @@ package com.facebook.imagepipeline.animated.base;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;
-/* loaded from: classes13.dex */
+/* loaded from: classes12.dex */
 public interface a {
-    AnimatedDrawableFrameInfo HP(int i);
+    int IW(int i);
 
-    int IB(int i);
+    AnimatedDrawableFrameInfo Ik(int i);
 
     void c(int i, Canvas canvas);
 
-    int dCk();
+    int dFw();
 
-    int dCl();
+    int dFx();
 
     int getFrameCount();
 

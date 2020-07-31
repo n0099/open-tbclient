@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.web.WebRequestType;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class DefaultWebViewRequestParam extends BaseWebViewRequestParam {
     public DefaultWebViewRequestParam() {
     }

@@ -10,17 +10,17 @@ import okhttp3.Response;
 import okhttp3.Route;
 import org.apache.http.auth.AUTH;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ProxyConfiguration {
-    public final String nDi;
-    public final Proxy.Type nDj;
+    public final String nLQ;
+    public final Proxy.Type nLR;
     public final String password;
     public final int port;
     public final String user;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Proxy proxy() {
-        return new Proxy(this.nDj, new InetSocketAddress(this.nDi, this.port));
+        return new Proxy(this.nLR, new InetSocketAddress(this.nLQ, this.port));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

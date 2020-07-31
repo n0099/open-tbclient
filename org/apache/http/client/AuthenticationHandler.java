@@ -8,7 +8,7 @@ import org.apache.http.auth.AuthenticationException;
 import org.apache.http.auth.MalformedChallengeException;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public interface AuthenticationHandler {
     Map<String, Header> getChallenges(HttpResponse httpResponse, HttpContext httpContext) throws MalformedChallengeException;
 

@@ -1,5 +1,5 @@
 package com.baidu.swan.config.e;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a<T> {
     void run(T t);
 }

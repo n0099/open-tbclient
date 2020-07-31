@@ -10,7 +10,7 @@ import com.baidu.ubc.aa;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes19.dex */
 public class UgcUBCUtils {
     private static final String CONTENT_KEY_NET = "network";
     public static final String HOME_UGC_PUBLISH_ENTRANCE_ID = "649";
@@ -109,7 +109,7 @@ public class UgcUBCUtils {
     public static final boolean DEBUG = AppConfig.isDebug();
     private static JSONObject extInfo = new JSONObject();
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes19.dex */
     public static class UbcConfig {
         public static final String UBC_ID_DUARTION_PUBLISH_PAGE = "703";
         public static final String UBC_ID_DURATION_PICK_PIC = "131";

@@ -3,27 +3,27 @@ package com.kascend.chushou.d;
 import android.app.Activity;
 import android.support.annotation.Nullable;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     private static WeakReference<Activity> a;
 
     public static String a() {
-        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dWk().S(tv.chushou.basis.d.a.b.b.class);
-        return bVar != null ? bVar.dKT() : "";
+        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dZG().S(tv.chushou.basis.d.a.b.b.class);
+        return bVar != null ? bVar.dOo() : "";
     }
 
     public static String b() {
-        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dWk().S(tv.chushou.basis.d.a.b.b.class);
-        return bVar != null ? bVar.ada() : "";
+        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dZG().S(tv.chushou.basis.d.a.b.b.class);
+        return bVar != null ? bVar.aef() : "";
     }
 
     public static String c() {
-        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dWk().S(tv.chushou.basis.d.a.b.b.class);
+        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dZG().S(tv.chushou.basis.d.a.b.b.class);
         return bVar != null ? bVar.getSdkVersion() : "";
     }
 
     public static String d() {
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dWk().S(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dZG().S(tv.chushou.basis.d.a.a.a.class);
         return aVar != null ? aVar.getString("token", "") : "";
     }
 

@@ -6,38 +6,38 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.xiaomi.push.ai;
 import com.xiaomi.push.cb;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class bp {
     private static volatile bp a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f140a;
+    private Context f136a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ce f142a;
+    private ce f138a;
 
     /* renamed from: a  reason: collision with other field name */
-    private cf f143a;
+    private cf f139a;
     private String e;
     private String f;
 
     /* renamed from: a  reason: collision with other field name */
-    private final String f144a = "push_stat_sp";
+    private final String f140a = "push_stat_sp";
 
     /* renamed from: b  reason: collision with other field name */
-    private final String f145b = "upload_time";
+    private final String f141b = "upload_time";
 
     /* renamed from: c  reason: collision with other field name */
-    private final String f146c = DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM;
+    private final String f142c = DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM;
     private final String d = "check_time";
 
     /* renamed from: a  reason: collision with other field name */
-    private ai.a f141a = new bq(this);
+    private ai.a f137a = new bq(this);
     private ai.a b = new br(this);
     private ai.a c = new bs(this);
 
     private bp(Context context) {
-        this.f140a = context;
+        this.f136a = context;
     }
 
     public static bp a(Context context) {
@@ -52,48 +52,48 @@ public class bp {
     }
 
     private boolean a() {
-        return com.xiaomi.push.service.ak.a(this.f140a).a(hr.StatDataSwitch.a(), true);
+        return com.xiaomi.push.service.ak.a(this.f136a).a(hr.StatDataSwitch.a(), true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
-        SharedPreferences.Editor edit = this.f140a.getSharedPreferences("push_stat_sp", 0).edit();
+        SharedPreferences.Editor edit = this.f136a.getSharedPreferences("push_stat_sp", 0).edit();
         edit.putLong(str, System.currentTimeMillis());
         r.a(edit);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String c() {
-        return this.f140a.getDatabasePath(bt.f148a).getAbsolutePath();
+        return this.f136a.getDatabasePath(bt.f144a).getAbsolutePath();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m169a() {
+    public String m170a() {
         return this.e;
     }
 
     public void a(cb.a aVar) {
-        cb.a(this.f140a).a(aVar);
+        cb.a(this.f136a).a(aVar);
     }
 
     public void a(hq hqVar) {
         if (a() && com.xiaomi.push.service.bi.a(hqVar.e())) {
-            a(by.a(this.f140a, c(), hqVar));
+            a(by.a(this.f136a, c(), hqVar));
         }
     }
 
     public void a(String str) {
         if (a() && !TextUtils.isEmpty(str)) {
-            a(cg.a(this.f140a, str));
+            a(cg.a(this.f136a, str));
         }
     }
 
     public void a(String str, String str2, Boolean bool) {
-        if (this.f142a != null) {
+        if (this.f138a != null) {
             if (bool.booleanValue()) {
-                this.f142a.a(this.f140a, str2, str);
+                this.f138a.a(this.f136a, str2, str);
             } else {
-                this.f142a.b(this.f140a, str2, str);
+                this.f138a.b(this.f136a, str2, str);
             }
         }
     }

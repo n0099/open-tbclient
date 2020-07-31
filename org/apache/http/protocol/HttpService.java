@@ -9,7 +9,7 @@ import org.apache.http.HttpResponseFactory;
 import org.apache.http.HttpServerConnection;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public class HttpService {
     public HttpService(HttpProcessor httpProcessor, ConnectionReuseStrategy connectionReuseStrategy, HttpResponseFactory httpResponseFactory) {
         throw new RuntimeException("Stub!");

@@ -5,61 +5,61 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class i {
-    private final String bRi;
-    private final String bRu;
-    private final boolean bRv;
+    private final String bRZ;
+    private final String bSl;
+    private final boolean bSm;
 
     public i(@NonNull String str, @NonNull JSONObject jSONObject, String str2) {
-        this.bRu = str;
-        this.bRi = str2;
-        this.bRv = jSONObject.optBoolean("useEvent");
+        this.bSl = str;
+        this.bRZ = str2;
+        this.bSm = jSONObject.optBoolean("useEvent");
     }
 
     public void a(com.baidu.swan.apps.api.a.d dVar) {
-        if (this.bRv) {
-            dVar.a(this.bRi, new com.baidu.swan.apps.api.c.b(0));
+        if (this.bSm) {
+            dVar.a(this.bRZ, new com.baidu.swan.apps.api.c.b(0));
         }
     }
 
     public void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        if (this.bRv) {
-            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0).toString(), this.bRi);
+        if (this.bSm) {
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0).toString(), this.bRZ);
         }
     }
 
     public void a(com.baidu.swan.apps.api.a.d dVar, JSONObject jSONObject) {
         com.baidu.swan.apps.api.c.b bVar = new com.baidu.swan.apps.api.c.b(0, jSONObject);
-        if (this.bRv) {
-            com.baidu.swan.apps.w.f.ajb().a(new com.baidu.swan.apps.event.a.f(this.bRu, bVar));
+        if (this.bSm) {
+            com.baidu.swan.apps.v.f.akr().a(new com.baidu.swan.apps.event.a.f(this.bSl, bVar));
         } else {
-            dVar.a(this.bRi, bVar);
+            dVar.a(this.bRZ, bVar);
         }
     }
 
     public void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONObject jSONObject) {
-        if (this.bRv) {
-            com.baidu.swan.apps.w.f.ajb().a(new com.baidu.swan.apps.event.a.f(this.bRu, new com.baidu.swan.apps.api.c.b(0, jSONObject)));
+        if (this.bSm) {
+            com.baidu.swan.apps.v.f.akr().a(new com.baidu.swan.apps.event.a.f(this.bSl, new com.baidu.swan.apps.api.c.b(0, jSONObject)));
             return;
         }
-        UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.bRi);
+        UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.bRZ);
     }
 
     public void a(com.baidu.swan.apps.api.a.d dVar, String str) {
         com.baidu.swan.apps.api.c.b bVar = new com.baidu.swan.apps.api.c.b(1001, str);
-        if (this.bRv) {
-            com.baidu.swan.apps.w.f.ajb().a(new com.baidu.swan.apps.event.a.f(this.bRu, bVar));
+        if (this.bSm) {
+            com.baidu.swan.apps.v.f.akr().a(new com.baidu.swan.apps.event.a.f(this.bSl, bVar));
         } else {
-            dVar.a(this.bRi, bVar);
+            dVar.a(this.bRZ, bVar);
         }
     }
 
     public void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        if (this.bRv) {
-            com.baidu.swan.apps.w.f.ajb().a(new com.baidu.swan.apps.event.a.f(this.bRu, new com.baidu.swan.apps.api.c.b(1001, str)));
+        if (this.bSm) {
+            com.baidu.swan.apps.v.f.akr().a(new com.baidu.swan.apps.event.a.f(this.bSl, new com.baidu.swan.apps.api.c.b(1001, str)));
             return;
         }
-        UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), this.bRi);
+        UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), this.bRZ);
     }
 }

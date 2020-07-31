@@ -5,14 +5,14 @@ import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class e {
     public String d;
     public String e;
     public int f = 2;
     private int n = 0;
 
-    public static e Q(String str, String str2) {
+    public static e P(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -40,11 +40,11 @@ public class e {
         return new String(com.baidu.cesium.d.a.a(str.getBytes()));
     }
 
-    public static e dc(String str) {
-        return dd(e(str));
+    public static e db(String str) {
+        return dc(e(str));
     }
 
-    private static e dd(String str) {
+    private static e dc(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

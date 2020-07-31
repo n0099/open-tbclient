@@ -6,14 +6,14 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.frs.gamesubpb.model.d;
 import com.baidu.tieba.frs.gamesubpb.view.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a extends com.baidu.adp.widget.ListView.a<d, b.a> {
-    private InterfaceC0624a hQA;
-    private TbPageContext hQz;
+    private TbPageContext hWy;
+    private InterfaceC0634a hWz;
 
     /* renamed from: com.baidu.tieba.frs.gamesubpb.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0624a {
+    /* loaded from: classes16.dex */
+    public interface InterfaceC0634a {
         void a(d dVar);
 
         void b(d dVar);
@@ -24,16 +24,16 @@ public class a extends com.baidu.adp.widget.ListView.a<d, b.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.hQz = tbPageContext;
+        this.hWy = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bu */
+    /* renamed from: bv */
     public b.a b(ViewGroup viewGroup) {
-        com.baidu.tieba.frs.gamesubpb.view.b bVar = new com.baidu.tieba.frs.gamesubpb.view.b(this.hQz);
-        bVar.setClickListener(this.hQA);
+        com.baidu.tieba.frs.gamesubpb.view.b bVar = new com.baidu.tieba.frs.gamesubpb.view.b(this.hWy);
+        bVar.setClickListener(this.hWz);
         return new b.a(bVar);
     }
 
@@ -47,7 +47,7 @@ public class a extends com.baidu.adp.widget.ListView.a<d, b.a> {
         return aVar.getView();
     }
 
-    public void setClickListener(InterfaceC0624a interfaceC0624a) {
-        this.hQA = interfaceC0624a;
+    public void setClickListener(InterfaceC0634a interfaceC0634a) {
+        this.hWz = interfaceC0634a;
     }
 }

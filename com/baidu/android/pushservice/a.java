@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.webkit.internal.GlobalConstants;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static String a(Context context) {
         return context.getSharedPreferences("pst", 4).getString("s_e", "default");

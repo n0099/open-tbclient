@@ -6,10 +6,10 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.r.a.a;
-import com.baidu.swan.e.d;
+import com.baidu.swan.d.d;
 import java.io.File;
 import java.io.FileFilter;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -51,9 +51,9 @@ public class b {
         if (!b.exists() && !b.mkdirs()) {
             return new com.baidu.swan.pms.b.b.b(1002, "解压失败：解压文件夹创建失败");
         }
-        a.b w = com.baidu.swan.apps.r.a.a.w(file);
-        if (w.type != -1) {
-            if (com.baidu.swan.apps.r.a.a.a(w.clr, b, w.type).isSuccess) {
+        a.b x = com.baidu.swan.apps.r.a.a.x(file);
+        if (x.type != -1) {
+            if (com.baidu.swan.apps.r.a.a.a(x.cnw, b, x.type).isSuccess) {
                 return new com.baidu.swan.pms.b.b.b(0, "解密成功");
             }
             return new com.baidu.swan.pms.b.b.b(1011, "解密失败");
@@ -66,11 +66,11 @@ public class b {
 
     public static void c(com.baidu.swan.pms.b.a aVar) {
         if (aVar != null) {
-            f(aVar.getAppId(), aVar.getBundleId(), aVar.getVersionCode());
+            g(aVar.getAppId(), aVar.getBundleId(), aVar.getVersionCode());
         }
     }
 
-    private static void f(String str, String str2, long j) {
+    private static void g(String str, String str2, long j) {
         File[] listFiles;
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (listFiles = new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "swan_mini_folder" + File.separator + str, str2).listFiles(new FileFilter() { // from class: com.baidu.swan.mini.c.b.1
             @Override // java.io.FileFilter
@@ -79,7 +79,7 @@ public class b {
             }
         })) != null && listFiles.length > 0) {
             for (File file : listFiles) {
-                if (file != null && e(j, file.getName()) && !com.baidu.swan.mini.a.aGq().contains(file.getAbsolutePath())) {
+                if (file != null && g(j, file.getName()) && !com.baidu.swan.mini.a.aKh().contains(file.getAbsolutePath())) {
                     if (DEBUG) {
                         Log.i("Mini-Pm", "删除低版本文件夹：" + file.getAbsolutePath());
                     }
@@ -89,7 +89,7 @@ public class b {
         }
     }
 
-    private static boolean e(long j, String str) {
+    private static boolean g(long j, String str) {
         if (DEBUG) {
             Log.i("Mini-Pm", "curVersion:" + j + " ,targetVersion:" + str);
         }

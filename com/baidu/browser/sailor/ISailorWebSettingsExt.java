@@ -2,7 +2,7 @@ package com.baidu.browser.sailor;
 
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.WebSettings;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public interface ISailorWebSettingsExt extends INoProGuard {
     boolean getAdBlockEnabledExt();
 

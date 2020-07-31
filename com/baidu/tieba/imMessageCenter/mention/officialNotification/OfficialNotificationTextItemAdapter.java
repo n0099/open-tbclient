@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class OfficialNotificationTextItemAdapter extends e<a> {
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
@@ -19,7 +19,7 @@ public class OfficialNotificationTextItemAdapter extends e<a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bR */
+    /* renamed from: bS */
     public e.a<a> b(ViewGroup viewGroup) {
         a aVar = new a(this.mPageContext, viewGroup, this.mOnClickListener);
         return new e.a<>(aVar.getView(), aVar);
@@ -30,10 +30,10 @@ public class OfficialNotificationTextItemAdapter extends e<a> {
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<a> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        a cnA = aVar.cnA();
-        cnA.onChangeSkinType();
-        if (cnA != null) {
-            cnA.setData(chatMessage);
+        a cra = aVar.cra();
+        cra.onChangeSkinType();
+        if (cra != null) {
+            cra.setData(chatMessage);
         }
         return view;
     }

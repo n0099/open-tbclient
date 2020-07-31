@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import org.conscrypt.NativeLibraryLoader;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 final class NativeCryptoJni {
     private static final String DYNAMIC_LIB_NAME_PREFIX = "conscrypt_openjdk_jni";
     private static final String STATIC_LIB_NAME = "conscrypt";
@@ -57,7 +57,7 @@ final class NativeCryptoJni {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class ErrorComparator implements Comparator<NativeLibraryLoader.LoadResult> {
         static final ErrorComparator INSTANCE = new ErrorComparator();
 

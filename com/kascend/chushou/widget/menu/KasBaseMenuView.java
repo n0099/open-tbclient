@@ -8,16 +8,16 @@ import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import com.kascend.chushou.a;
 import com.kascend.chushou.constants.MicMemberInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class KasBaseMenuView extends RelativeLayout implements View.OnClickListener, Animation.AnimationListener {
     protected Context e;
     protected View f;
     protected View g;
     protected boolean h;
     protected boolean i;
-    private a nzM;
+    private a nIv;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 
@@ -44,14 +44,14 @@ public abstract class KasBaseMenuView extends RelativeLayout implements View.OnC
 
     public void e() {
         this.h = false;
-        Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), a.C0815a.slide_out_bottom_anim);
+        Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), a.C0824a.slide_out_bottom_anim);
         loadAnimation.setAnimationListener(this);
         this.f.startAnimation(loadAnimation);
         this.f.postDelayed(new Runnable() { // from class: com.kascend.chushou.widget.menu.KasBaseMenuView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (!KasBaseMenuView.this.h && KasBaseMenuView.this.nzM != null) {
-                    KasBaseMenuView.this.nzM.a();
+                if (!KasBaseMenuView.this.h && KasBaseMenuView.this.nIv != null) {
+                    KasBaseMenuView.this.nIv.a();
                 }
             }
         }, 200L);
@@ -63,9 +63,9 @@ public abstract class KasBaseMenuView extends RelativeLayout implements View.OnC
     public void c() {
         setVisibility(0);
         this.h = true;
-        this.f.startAnimation(AnimationUtils.loadAnimation(getContext(), a.C0815a.slide_in_bottom_anim));
-        if (this.nzM != null) {
-            this.nzM.b();
+        this.f.startAnimation(AnimationUtils.loadAnimation(getContext(), a.C0824a.slide_in_bottom_anim));
+        if (this.nIv != null) {
+            this.nIv.b();
         }
         this.f.postDelayed(new Runnable() { // from class: com.kascend.chushou.widget.menu.KasBaseMenuView.2
             @Override // java.lang.Runnable
@@ -102,7 +102,7 @@ public abstract class KasBaseMenuView extends RelativeLayout implements View.OnC
     }
 
     public void setVisibilityListener(a aVar) {
-        this.nzM = aVar;
+        this.nIv = aVar;
     }
 
     @Override // android.view.View
@@ -114,7 +114,7 @@ public abstract class KasBaseMenuView extends RelativeLayout implements View.OnC
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.nzM = null;
+        this.nIv = null;
         this.e = null;
         this.f = null;
         this.g = null;

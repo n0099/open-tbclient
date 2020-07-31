@@ -27,7 +27,7 @@ import javax.ws.rs.ext.Providers;
 @Produces({"*/*"})
 @Provider
 @Consumes({"*/*"})
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class FastJsonProvider implements MessageBodyReader<Object>, MessageBodyWriter<Object> {
     @Deprecated
     protected Charset charset;

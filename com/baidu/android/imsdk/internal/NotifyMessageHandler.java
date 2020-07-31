@@ -7,7 +7,8 @@ import com.baidu.android.imsdk.chatmessage.request.Type;
 import com.baidu.android.imsdk.chatmessage.sync.Generator;
 import com.baidu.android.imsdk.chatmessage.sync.SyncGroupMessageService;
 import com.baidu.android.imsdk.chatmessage.sync.SyncStrategy;
-import com.baidu.android.imsdk.mcast.McastManagerImpl;
+import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
+import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -64,14 +65,19 @@ public abstract class NotifyMessageHandler {
         }
     }
 
-    public static void handleMcastMessage(Context context, JSONObject jSONObject) throws JSONException {
+    public static void handleMcastMessage(final Context context, final JSONObject jSONObject) throws JSONException {
         LogUtils.i(TAG, "handleMessage mcast:" + jSONObject.toString());
         if (jSONObject.has("mcast_id")) {
             jSONObject.getLong("mcast_id");
         } else {
             LogUtils.e(TAG, "handleMcastMessage cast error!!");
         }
-        McastManagerImpl.getInstance(context).handleMessage(jSONObject);
+        TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.internal.NotifyMessageHandler.1
+            @Override // java.lang.Runnable
+            public void run() {
+                ConversationStudioManImpl.getInstance(context).handleMessage(jSONObject);
+            }
+        });
     }
 
     /* JADX WARN: Type inference failed for: r3v2, types: [T, java.lang.Long] */

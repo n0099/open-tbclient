@@ -1,12 +1,14 @@
 package com.baidu.mario.a.b;
-/* loaded from: classes11.dex */
+
+import io.flutter.plugin.platform.PlatformPlugin;
+/* loaded from: classes10.dex */
 public class d {
     private String mOutputFile = "/sdcard/AR/video/arvideo.mp4";
     private int mOutputFormat = 0;
     private long mOutputTotalMs = 0;
     private boolean mVideoIncluded = true;
     private int mVideoWidth = 720;
-    private int mVideoHeight = 1280;
+    private int mVideoHeight = PlatformPlugin.DEFAULT_SYSTEM_UI;
     private String mVideoCodec = com.baidu.fsg.face.liveness.video.f.b;
     private int mVideoBitrate = 8294400;
     private int mVideoFrameRate = 30;

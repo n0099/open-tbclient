@@ -3,15 +3,15 @@ package com.baidu.cyberplayer.sdk.dlna;
 import com.baidu.cyberplayer.sdk.Keep;
 import java.util.Map;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public abstract class DlnaProvider {
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface DlnaSearchListener {
         void onDeviceChangeNotification(Map<String, Object> map);
 
-        void onRefreshFinishNotification();
+        void onRefreshFinishNotification(int i, int i2);
     }
 
     public abstract CtrlPointProvider ctrlPoint(String str);

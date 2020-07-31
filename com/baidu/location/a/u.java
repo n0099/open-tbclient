@@ -1,7 +1,7 @@
 package com.baidu.location.a;
 
 import android.location.Location;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class u {
     private static long a;
     private static com.baidu.location.b.a b;

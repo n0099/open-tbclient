@@ -2,7 +2,7 @@ package com.baidu.ar.face.algo;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class FaceFrame {
     static final int FACE_ANIMATION_POINTS_COUNT = 95;
     static final int FACE_LANDMARKS_COUNT = 190;

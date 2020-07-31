@@ -4,27 +4,29 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.baidu.swan.apps.adaptation.a.ai;
+import com.baidu.swan.apps.adaptation.a.ak;
 import com.baidu.swan.apps.adaptation.b.d;
 import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
-/* loaded from: classes11.dex */
-public interface c<T extends d> extends ai, e<T> {
-    boolean Uf();
+/* loaded from: classes7.dex */
+public interface c<T extends d> extends ak, e<T> {
+    boolean UG();
 
-    PullToRefreshBaseWebView Ug();
+    PullToRefreshBaseWebView UH();
 
-    f Uh();
+    f UI();
 
-    boolean Ui();
+    boolean UJ();
 
-    void Uj();
+    void UK();
 
     @Nullable
-    com.baidu.swan.apps.component.c.a Uk();
+    com.baidu.swan.apps.component.c.a UL();
 
-    boolean Ul();
+    boolean UM();
 
-    com.baidu.swan.apps.adaptation.b.a.d Um();
+    com.baidu.swan.apps.adaptation.b.a.d UN();
+
+    String UO();
 
     void a(ViewGroup viewGroup, View view);
 
@@ -44,11 +46,13 @@ public interface c<T extends d> extends ai, e<T> {
 
     boolean c(com.baidu.swan.apps.scheme.actions.m.d dVar);
 
-    void et(int i);
+    void ev(int i);
 
-    boolean eu(int i);
+    boolean ew(int i);
 
-    void hh(String str);
+    void hn(String str);
+
+    void ho(String str);
 
     void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5);
 }

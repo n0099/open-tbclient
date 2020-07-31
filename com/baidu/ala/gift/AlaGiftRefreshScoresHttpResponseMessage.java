@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaGiftRefreshScoresHttpResponseMessage extends JsonHttpResponsedMessage {
     private String contentStr;
     private AlaUserScoreData data;

@@ -11,24 +11,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.aq.ag;
-/* loaded from: classes12.dex */
+import com.baidu.swan.apps.aq.ai;
+/* loaded from: classes19.dex */
 public class a {
-    public static View a(final com.baidu.swan.impl.map.item.c cVar, final com.baidu.swan.apps.x.a.a.d dVar) {
+    public static View a(final com.baidu.swan.impl.map.item.c cVar, final com.baidu.swan.apps.w.a.a.d dVar) {
         com.baidu.swan.apps.console.c.i("map", "creatCallout start");
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint.setColor(dVar.cod.color);
-        paint.setTextSize(dVar.cod.aot);
-        float f = dVar.cod.coi;
-        float f2 = dVar.cod.aon;
+        paint.setColor(dVar.cqi.color);
+        paint.setTextSize(dVar.cqi.aop);
+        float f = dVar.cqi.cqn;
+        float f2 = dVar.cqi.aoj;
         Paint paint2 = new Paint();
         paint2.setAntiAlias(true);
         paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint2.setColor(dVar.cod.bgColor);
-        String str = dVar.cod.content;
-        int D = ag.D(6.0f);
+        paint2.setColor(dVar.cqi.bgColor);
+        String str = dVar.cqi.content;
+        int D = ai.D(6.0f);
         float measureText = paint.measureText(str) + (2.0f * f);
         float f3 = paint.getFontMetrics().bottom - paint.getFontMetrics().top;
         float f4 = D + f3 + (2.0f * f);

@@ -1,6 +1,6 @@
 package com.baidu.pass.biometrics.base.dto;
 
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PassBiometricDto implements Serializable {
 }

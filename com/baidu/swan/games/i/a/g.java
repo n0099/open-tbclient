@@ -1,23 +1,23 @@
 package com.baidu.swan.games.i.a;
 
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class g {
-    private int dcV;
-    private int dcW;
+    private int diG;
+    private int diH;
     @V8JavascriptField
     public String errMsg;
     @V8JavascriptField
     public String savedFilePath;
 
     public g() {
-        this.dcW = 0;
-        int i = this.dcW;
-        this.dcW = i + 1;
-        this.dcV = i;
+        this.diH = 0;
+        int i = this.diH;
+        this.diH = i + 1;
+        this.diG = i;
     }
 
     public String toString() {
-        return "SaveFileCallBack" + this.dcV;
+        return "SaveFileCallBack" + this.diG;
     }
 }

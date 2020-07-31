@@ -9,7 +9,7 @@ import com.baidu.minivideo.plugin.capture.download.DownloadRequest;
 import com.baidu.minivideo.plugin.capture.download.base.DownloadCallback;
 import com.baidu.minivideo.plugin.capture.download.exception.DownloadException;
 import com.baidu.minivideo.plugin.capture.download.utils.CommonUtils;
-/* loaded from: classes13.dex */
+/* loaded from: classes9.dex */
 public class CaptureDownloadService extends Service {
     public static final String ACTION_CANCEL = "com.baidu.ugc.download.ACTION_CANCEL";
     public static final String ACTION_CANCEL_ALL = "com.baidu.ugc.download.ACTION_CANCEL_ALL";
@@ -162,7 +162,7 @@ public class CaptureDownloadService extends Service {
         this.mDownloadManager.download(new DownloadRequest.Builder().setUri(requestTask.getUrl()).build(), str, new ProgressCallback(i, requestTask, getApplicationContext()));
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes9.dex */
     public static class ProgressCallback extends DownloadCallback {
         private RequestTask mAppInfo;
         private int mLastProgress;

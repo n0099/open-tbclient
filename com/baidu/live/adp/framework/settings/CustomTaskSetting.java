@@ -1,5 +1,5 @@
 package com.baidu.live.adp.framework.settings;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CustomTaskSetting extends TaskSetting {
     private static volatile CustomTaskSetting sInstance = null;
 

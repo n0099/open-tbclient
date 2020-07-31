@@ -3,7 +3,7 @@ package com.baidu.sapi2.share;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class w implements Runnable {
     final /* synthetic */ SapiContext a;
 

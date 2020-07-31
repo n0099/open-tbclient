@@ -8,39 +8,39 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class b {
-    private static b fhh = new b();
-    public static boolean fhk = false;
-    private JSONObject fhi;
-    private int fhj = 3;
+    private static b fmq = new b();
+    public static boolean fmt = false;
+    private JSONObject fmr;
+    private int fms = 3;
 
-    public static b bsh() {
-        return fhh;
+    public static b bvq() {
+        return fmq;
     }
 
     public void init() {
         loadData();
     }
 
-    public void bsi() {
+    public void bvr() {
         HttpMessage httpMessage = new HttpMessage(1021204);
         httpMessage.setTag(null);
-        httpMessage.addParam("classification_id", bsk());
+        httpMessage.addParam("classification_id", bvt());
         httpMessage.addParam(HttpConstants.HTTP_HARDWARE, Build.HARDWARE);
         httpMessage.addParam("live_model", Build.MODEL);
         httpMessage.addParam("manufacture", Build.MANUFACTURER);
-        httpMessage.addParam("quality_sign", bsj());
+        httpMessage.addParam("quality_sign", bvs());
         httpMessage.addParam("submodule", "live");
         httpMessage.addParam(HttpConstants.HTTP_BOARD, Build.BOARD);
         httpMessage.addParam("arsdk_version", String.valueOf(com.baidu.minivideo.arface.a.getVersion()));
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private String bsj() {
+    private String bvs() {
         String str = null;
         if (!isEmpty()) {
-            str = this.fhi.optString("quality_sign");
+            str = this.fmr.optString("quality_sign");
         }
         if (TextUtils.isEmpty(str)) {
             return "default";
@@ -48,10 +48,10 @@ public final class b {
         return str;
     }
 
-    private String bsk() {
+    private String bvt() {
         String str = null;
         if (!isEmpty()) {
-            str = this.fhi.optString("classification_id");
+            str = this.fmr.optString("classification_id");
         }
         if (TextUtils.isEmpty(str)) {
             return "default";
@@ -59,34 +59,34 @@ public final class b {
         return str;
     }
 
-    public JSONObject bsl() {
+    public JSONObject bvu() {
         if (isEmpty()) {
             return null;
         }
-        return this.fhi.optJSONObject("classification");
+        return this.fmr.optJSONObject("classification");
     }
 
-    public JSONObject bsm() {
+    public JSONObject bvv() {
         if (isEmpty()) {
             return null;
         }
-        return this.fhi.optJSONObject("quality");
+        return this.fmr.optJSONObject("quality");
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:59:0x0104 -> B:69:0x00cf). Please submit an issue!!! */
-    public JSONObject cT(JSONObject jSONObject) {
+    public JSONObject cZ(JSONObject jSONObject) {
         JSONObject jSONObject2 = new JSONObject();
         if (jSONObject == null) {
-            return this.fhi;
+            return this.fmr;
         }
-        if (this.fhi == null) {
+        if (this.fmr == null) {
             if (jSONObject.has("quality") && com.baidu.live.ar.b.s(jSONObject.optJSONObject("quality")) == null) {
                 return null;
             }
             return jSONObject;
         }
-        String optString = this.fhi.optString("classification_id");
-        JSONObject optJSONObject = this.fhi.optJSONObject("classification");
+        String optString = this.fmr.optString("classification_id");
+        JSONObject optJSONObject = this.fmr.optJSONObject("classification");
         String jSONObject3 = optJSONObject != null ? optJSONObject.toString() : null;
         if (jSONObject.has("classification_id")) {
             String optString2 = jSONObject.optString("classification_id");
@@ -110,8 +110,8 @@ public final class b {
             } catch (JSONException e2) {
             }
         }
-        String optString3 = this.fhi.optString("quality_sign");
-        JSONObject optJSONObject3 = this.fhi.optJSONObject("quality");
+        String optString3 = this.fmr.optString("quality_sign");
+        JSONObject optJSONObject3 = this.fmr.optJSONObject("quality");
         String jSONObject5 = optJSONObject3 != null ? optJSONObject3.toString() : null;
         if (jSONObject.has("quality_sign")) {
             String optString4 = jSONObject.optString("quality_sign");
@@ -141,24 +141,24 @@ public final class b {
     public void d(JSONObject jSONObject, boolean z) {
         if (jSONObject != null && jSONObject.length() != 0) {
             if (z) {
-                cU(jSONObject);
+                da(jSONObject);
             }
-            this.fhi = jSONObject;
-            com.baidu.minivideo.arface.b.setGradingConfig(bsl());
-            com.baidu.minivideo.arface.b.Y(bsm());
+            this.fmr = jSONObject;
+            com.baidu.minivideo.arface.b.setGradingConfig(bvu());
+            com.baidu.minivideo.arface.b.Y(bvv());
         }
     }
 
-    private void cU(JSONObject jSONObject) {
+    private void da(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject.length() > 0) {
             c.vf().putString("ar_grading_quality_config", jSONObject.toString());
-            if (com.baidu.live.ar.b.d(this.fhi, jSONObject)) {
+            if (com.baidu.live.ar.b.d(this.fmr, jSONObject)) {
                 c.vf().putBoolean("ar_grading_quality_config_need_update", true);
             }
         }
     }
 
-    private void bsn() {
+    private void bvw() {
         String string = c.vf().getString("ar_grading_quality_config", "");
         if (!TextUtils.isEmpty(string)) {
             try {
@@ -170,11 +170,11 @@ public final class b {
     }
 
     protected void loadData() {
-        bsn();
-        bsi();
+        bvw();
+        bvr();
     }
 
     public boolean isEmpty() {
-        return this.fhi == null || this.fhi.length() == 0;
+        return this.fmr == null || this.fmr.length() == 0;
     }
 }

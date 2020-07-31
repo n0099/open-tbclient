@@ -9,7 +9,7 @@ import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class l extends c {
     private Animator a = null;
     private long b = 0;
@@ -20,7 +20,7 @@ public class l extends c {
     private Object[] g;
 
     @TargetApi(11)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements TypeEvaluator {
         public a() {
         }
@@ -34,7 +34,7 @@ public class l extends c {
     }
 
     @TargetApi(11)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b implements TypeEvaluator {
         public b() {
         }

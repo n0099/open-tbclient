@@ -16,42 +16,42 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class UploadInfoCollector {
-    private static UploadInfoCollector nCs;
-    private final String nCt;
-    private final String nCu;
-    private File nCv = null;
-    private long nCw;
-    private static ExecutorService nCr = null;
+    private static UploadInfoCollector nLa;
+    private final String nLb;
+    private final String nLc;
+    private File nLd = null;
+    private long nLe;
+    private static ExecutorService nKZ = null;
     private static OkHttpClient httpClient = null;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static abstract class RecordMsg {
-        public abstract String dMF();
+        public abstract String dQb();
     }
 
     private UploadInfoCollector(String str, String str2) {
-        this.nCu = str;
-        this.nCt = str2;
+        this.nLc = str;
+        this.nLb = str2;
         try {
-            dME();
+            dQa();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private static UploadInfoCollector dMD() {
-        if (nCs == null) {
-            nCs = new UploadInfoCollector("_qiniu_record_file_hs5z9lo7anx03", "https://uplog.qbox.me/log/3");
+    private static UploadInfoCollector dPY() {
+        if (nLa == null) {
+            nLa = new UploadInfoCollector("_qiniu_record_file_hs5z9lo7anx03", "https://uplog.qbox.me/log/3");
         }
-        return nCs;
+        return nLa;
     }
 
     public static void a(UpToken upToken, RecordMsg recordMsg) {
         try {
-            if (Config.nCn) {
-                dMD().c(upToken, recordMsg);
+            if (Config.nKV) {
+                dPY().c(upToken, recordMsg);
             }
         } catch (Throwable th) {
         }
@@ -124,36 +124,36 @@ public final class UploadInfoCollector {
         }
     }
 
-    private static OkHttpClient alD() {
+    private static OkHttpClient dPZ() {
         if (httpClient == null) {
             OkHttpClient.Builder builder = new OkHttpClient.Builder();
             builder.connectTimeout(10L, TimeUnit.SECONDS);
             builder.readTimeout(15L, TimeUnit.SECONDS);
-            builder.writeTimeout((((Config.ayh / 2) + 1) * 60) - 10, TimeUnit.SECONDS);
+            builder.writeTimeout((((Config.azu / 2) + 1) * 60) - 10, TimeUnit.SECONDS);
             httpClient = builder.build();
         }
         return httpClient;
     }
 
-    private void dME() throws IOException {
-        if (Config.nCn) {
-            am(RA(Config.nCo));
+    private void dQa() throws IOException {
+        if (Config.nKV) {
+            ap(Sl(Config.nKW));
         }
-        if (!Config.nCn && nCr != null) {
-            nCr.shutdown();
+        if (!Config.nKV && nKZ != null) {
+            nKZ.shutdown();
         }
-        if (Config.nCn) {
-            if (nCr == null || nCr.isShutdown()) {
-                nCr = Executors.newSingleThreadExecutor();
+        if (Config.nKV) {
+            if (nKZ == null || nKZ.isShutdown()) {
+                nKZ = Executors.newSingleThreadExecutor();
             }
         }
     }
 
-    private File RA(String str) {
+    private File Sl(String str) {
         return new File(str);
     }
 
-    private void am(File file) throws IOException {
+    private void ap(File file) throws IOException {
         if (file == null) {
             throw new IOException("record's dir is not setted");
         }
@@ -164,30 +164,30 @@ public final class UploadInfoCollector {
         } else if (!file.isDirectory()) {
             throw new IOException(file.getAbsolutePath() + " is not a dir");
         } else {
-            this.nCv = new File(file, this.nCu);
+            this.nLd = new File(file, this.nLc);
         }
     }
 
     private void c(final UpToken upToken, final RecordMsg recordMsg) {
-        if (nCr != null && !nCr.isShutdown()) {
-            nCr.submit(new Runnable() { // from class: com.qiniu.android.collect.UploadInfoCollector.1
+        if (nKZ != null && !nKZ.isShutdown()) {
+            nKZ.submit(new Runnable() { // from class: com.qiniu.android.collect.UploadInfoCollector.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (Config.nCn) {
+                    if (Config.nKV) {
                         try {
-                            UploadInfoCollector.this.o(recordMsg.dMF(), UploadInfoCollector.this.nCv);
+                            UploadInfoCollector.this.q(recordMsg.dQb(), UploadInfoCollector.this.nLd);
                         } catch (Throwable th) {
                         }
                     }
                 }
             });
-            if (Config.isUpload && upToken != UpToken.nEe) {
-                nCr.submit(new Runnable() { // from class: com.qiniu.android.collect.UploadInfoCollector.2
+            if (Config.isUpload && upToken != UpToken.nMM) {
+                nKZ.submit(new Runnable() { // from class: com.qiniu.android.collect.UploadInfoCollector.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (Config.nCn && Config.isUpload) {
+                        if (Config.nKV && Config.isUpload) {
                             try {
-                                UploadInfoCollector.this.a(upToken, UploadInfoCollector.this.nCv);
+                                UploadInfoCollector.this.a(upToken, UploadInfoCollector.this.nLd);
                             } catch (Throwable th) {
                             }
                         }
@@ -198,18 +198,18 @@ public final class UploadInfoCollector {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o(String str, File file) {
-        if (Config.nCn && file.length() < Config.nCp) {
+    public void q(String str, File file) {
+        if (Config.nKV && file.length() < Config.nKX) {
             b(file, str + "\n", true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(UpToken upToken, File file) {
-        if (Config.isUpload && file.length() > Config.nCq) {
+        if (Config.isUpload && file.length() > Config.nKY) {
             long time = new Date().getTime();
-            if (time > this.nCw + (Config.ayh * 60 * 1000)) {
-                this.nCw = time;
+            if (time > this.nLe + (Config.azu * 60 * 1000)) {
+                this.nLe = time;
                 if (b(upToken, file)) {
                     b(file, "", false);
                     b(file, "", false);
@@ -220,7 +220,7 @@ public final class UploadInfoCollector {
 
     private boolean b(UpToken upToken, File file) {
         try {
-            Response execute = alD().newCall(new Request.Builder().url(this.nCt).addHeader("Authorization", "UpToken " + upToken.token).addHeader("User-Agent", UserAgent.dMN().RH(upToken.nCH)).post(RequestBody.create(MediaType.parse("text/plain"), file)).build()).execute();
+            Response execute = dPZ().newCall(new Request.Builder().url(this.nLb).addHeader("Authorization", "UpToken " + upToken.token).addHeader("User-Agent", UserAgent.dQj().Ss(upToken.nLp)).post(RequestBody.create(MediaType.parse("text/plain"), file)).build()).execute();
             boolean g = g(execute);
             try {
                 execute.body().close();

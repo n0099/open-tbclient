@@ -7,7 +7,7 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class U implements V.a {
     final /* synthetic */ V a;
 
@@ -17,12 +17,12 @@ public class U implements V.a {
     }
 
     @Override // com.baidu.sapi2.V.a
-    public void a(X.a.C0266a c0266a) {
+    public void a(X.a.C0269a c0269a) {
         Context context;
         Context context2;
         Context context3;
-        String c = X.a.C0266a.c(c0266a.a);
-        String b = X.a.C0266a.b(c0266a.a);
+        String c = X.a.C0269a.c(c0269a.a);
+        String b = X.a.C0269a.b(c0269a.a);
         context = this.a.d;
         if (new File(context.getFilesDir(), c).exists()) {
             try {
@@ -40,6 +40,6 @@ public class U implements V.a {
     }
 
     @Override // com.baidu.sapi2.V.a
-    public void a(X.a.C0266a c0266a, String str) {
+    public void a(X.a.C0269a c0269a, String str) {
     }
 }

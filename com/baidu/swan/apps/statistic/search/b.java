@@ -5,12 +5,12 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.swan.apps.statistic.search.SearchFlowEvent;
-import com.baidu.swan.apps.v.b.e;
+import com.baidu.swan.apps.u.c.e;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static a cLu;
+    public static a cOP;
 
     public static synchronized void a(SearchFlowEvent searchFlowEvent) {
         synchronized (b.class) {
@@ -19,23 +19,23 @@ public final class b {
                     Log.d("SwanAppSearchFlowUBC", "Event is null...");
                 }
             } else {
-                switch (searchFlowEvent.cLt) {
+                switch (searchFlowEvent.cOO) {
                     case START:
-                        asB();
-                        if (cLu != null) {
-                            cLu.a(searchFlowEvent);
+                        auC();
+                        if (cOP != null) {
+                            cOP.a(searchFlowEvent);
                             break;
                         }
                         break;
                     case END:
-                        if (cLu != null) {
-                            cLu.a(searchFlowEvent);
+                        if (cOP != null) {
+                            cOP.a(searchFlowEvent);
                         }
-                        Xo();
+                        XU();
                         break;
                     case NORMAL:
-                        if (cLu != null) {
-                            cLu.a(searchFlowEvent);
+                        if (cOP != null) {
+                            cOP.a(searchFlowEvent);
                             break;
                         }
                         break;
@@ -47,13 +47,13 @@ public final class b {
         }
     }
 
-    public static synchronized void q(com.baidu.swan.apps.v.b.b bVar) {
+    public static synchronized void p(com.baidu.swan.apps.u.c.b bVar) {
         synchronized (b.class) {
             if (bVar != null) {
-                e(bVar.ahV(), bVar.ahQ());
-                if (cLu != null) {
-                    cLu.setAppId(bVar.getAppId());
-                    cLu.setSource(bVar.ahQ());
+                e(bVar.ajl(), bVar.ajg());
+                if (cOP != null) {
+                    cOP.setAppId(bVar.getAppId());
+                    cOP.setSource(bVar.ajg());
                 }
             }
         }
@@ -62,26 +62,26 @@ public final class b {
     public static synchronized void e(e eVar) {
         synchronized (b.class) {
             if (eVar != null) {
-                e(eVar.ahW(), eVar.ahQ());
-                if (cLu != null) {
-                    cLu.setAppId(eVar.getAppId());
-                    cLu.setSource(eVar.ahQ());
+                e(eVar.ajm(), eVar.ajg());
+                if (cOP != null) {
+                    cOP.setAppId(eVar.getAppId());
+                    cOP.setSource(eVar.ajg());
                 }
             }
         }
     }
 
-    private static void asB() {
-        if (cLu != null) {
-            cLu.destroy();
-            cLu = null;
+    private static void auC() {
+        if (cOP != null) {
+            cOP.destroy();
+            cOP = null;
         }
-        cLu = new a("772");
+        cOP = new a("772");
     }
 
-    private static void Xo() {
-        if (cLu != null) {
-            cLu.send();
+    private static void XU() {
+        if (cOP != null) {
+            cOP.send();
         }
     }
 
@@ -96,9 +96,9 @@ public final class b {
                 return;
             }
             a(new SearchFlowEvent("dom_click", bundle.getLong("search_dom_click_timestamp"), "", "", SearchFlowEvent.EventType.START));
-            if (cLu != null) {
-                cLu.addExt(ETAG.KEY_SEARCH_ID, string == null ? "" : string);
-                cLu.addExt("url", bundle.getString("search_url"));
+            if (cOP != null) {
+                cOP.addExt(ETAG.KEY_SEARCH_ID, string == null ? "" : string);
+                cOP.addExt("url", bundle.getString("search_url"));
             }
         }
     }

@@ -1,5 +1,5 @@
 package com.baidu.pano.platform.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class i {
     public static String a = "https://sv.map.baidu.com/scape/?qt=idata";
     public static String b = "https://sv.map.baidu.com/?qt=guide";

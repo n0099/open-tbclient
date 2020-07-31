@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.fsg.base.activity.BaseActivity;
 import org.apache.http.HttpStatus;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class ErrorCorrection {
     private static final int MODULO_VALUE = 301;
     private static final int[] FACTOR_SETS = {5, 7, 10, 11, 12, 14, 18, 20, 24, 28, 36, 42, 48, 56, 62, 68};

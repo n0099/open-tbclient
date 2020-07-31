@@ -17,14 +17,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotRanklistActivity;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.data.c, com.baidu.tieba.hottopic.a.b> {
     private TbPageContext mPageContext;
     protected int mSkinType;
@@ -39,7 +39,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bK */
+    /* renamed from: bL */
     public com.baidu.tieba.hottopic.a.b b(ViewGroup viewGroup) {
         return new com.baidu.tieba.hottopic.a.b(LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_ranklist_normal_item, viewGroup, false));
     }
@@ -57,67 +57,67 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
 
     private void a(int i, com.baidu.tieba.hottopic.a.b bVar, final com.baidu.tieba.hottopic.data.c cVar) {
         if (bVar != null && cVar != null) {
-            bVar.iFq.setVisibility(8);
-            if (cVar.clE() == 1) {
-                bVar.iFn.setText("");
-                an.setBackgroundResource(bVar.iFn, R.drawable.icon_grade_shaitu1);
-                bVar.iFq.setVisibility(0);
-                bVar.iFr.setText(er(StringUtils.isNull(cVar.clB()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_list) : cVar.clB(), StringUtils.isNull(cVar.getTips()) ? this.mContext.getResources().getString(R.string.hot_topic_update_time) : cVar.getTips()));
-                bVar.iFj.setVisibility(0);
-                an.setBackgroundResource(bVar.iFu, R.drawable.hot_topic_ranklist_bg);
-                bVar.iFu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.d.1
+            bVar.iLu.setVisibility(8);
+            if (cVar.cpe() == 1) {
+                bVar.iLr.setText("");
+                ao.setBackgroundResource(bVar.iLr, R.drawable.icon_grade_shaitu1);
+                bVar.iLu.setVisibility(0);
+                bVar.iLv.setText(et(StringUtils.isNull(cVar.cpb()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_list) : cVar.cpb(), StringUtils.isNull(cVar.getTips()) ? this.mContext.getResources().getString(R.string.hot_topic_update_time) : cVar.getTips()));
+                bVar.iLn.setVisibility(0);
+                ao.setBackgroundResource(bVar.iLy, R.drawable.hot_topic_ranklist_bg);
+                bVar.iLy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.d.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (d.this.mPageContext != null) {
-                            String clC = cVar.clC();
-                            if (!StringUtils.isNull(clC)) {
-                                bc.aWU().b(d.this.mPageContext, new String[]{clC});
+                            String cpc = cVar.cpc();
+                            if (!StringUtils.isNull(cpc)) {
+                                bd.baV().b(d.this.mPageContext, new String[]{cpc});
                             }
                         }
                         TiebaStatic.log("c10820");
                     }
                 });
-            } else if (cVar.clE() == 2) {
-                bVar.iFn.setText("");
-                bVar.iFj.setVisibility(8);
-                an.setBackgroundResource(bVar.iFn, R.drawable.icon_grade_shaitu2);
-            } else if (cVar.clE() == 3) {
-                bVar.iFn.setText("");
-                bVar.iFj.setVisibility(8);
-                an.setBackgroundResource(bVar.iFn, R.drawable.icon_grade_shaitu3);
+            } else if (cVar.cpe() == 2) {
+                bVar.iLr.setText("");
+                bVar.iLn.setVisibility(8);
+                ao.setBackgroundResource(bVar.iLr, R.drawable.icon_grade_shaitu2);
+            } else if (cVar.cpe() == 3) {
+                bVar.iLr.setText("");
+                bVar.iLn.setVisibility(8);
+                ao.setBackgroundResource(bVar.iLr, R.drawable.icon_grade_shaitu3);
             } else {
-                String str = "" + cVar.clE();
-                if (cVar.clE() < 10) {
+                String str = "" + cVar.cpe();
+                if (cVar.cpe() < 10) {
                     str = "0" + str;
                 }
-                bVar.iFn.setText(str);
-                bVar.iFj.setVisibility(8);
-                bVar.iFn.setBackgroundDrawable(null);
+                bVar.iLr.setText(str);
+                bVar.iLn.setVisibility(8);
+                bVar.iLr.setBackgroundDrawable(null);
             }
             if (cVar.getTag() == 1) {
-                bVar.iFp.setVisibility(0);
-                an.setBackgroundResource(bVar.iFp, R.drawable.icon_topic_ranklist_new);
+                bVar.iLt.setVisibility(0);
+                ao.setBackgroundResource(bVar.iLt, R.drawable.icon_topic_ranklist_new);
             } else if (cVar.getTag() == 2) {
-                bVar.iFp.setVisibility(0);
-                an.setBackgroundResource(bVar.iFp, R.drawable.icon_topic_ranklist_hot);
+                bVar.iLt.setVisibility(0);
+                ao.setBackgroundResource(bVar.iLt, R.drawable.icon_topic_ranklist_hot);
             } else if (cVar.getTag() == 3) {
-                bVar.iFp.setVisibility(0);
-                an.setBackgroundResource(bVar.iFp, R.drawable.icon_topic_ranklist_tuijian);
+                bVar.iLt.setVisibility(0);
+                ao.setBackgroundResource(bVar.iLt, R.drawable.icon_topic_ranklist_tuijian);
             } else {
-                bVar.iFp.setVisibility(8);
+                bVar.iLt.setVisibility(8);
             }
-            String numFormat9999W = ar.numFormat9999W(cVar.clD());
+            String numFormat9999W = as.numFormat9999W(cVar.cpd());
             String str2 = "";
             if (!TextUtils.isEmpty(cVar.getName())) {
                 str2 = UtilHelper.getFixedText(cVar.getName(), 10);
             }
-            bVar.iFg.setText(str2);
-            bVar.iFo.setText(numFormat9999W);
-            bVar.iFt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.d.2
+            bVar.iLk.setText(str2);
+            bVar.iLs.setText(numFormat9999W);
+            bVar.iLx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.d.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(view.getContext()).createNormalConfig(String.valueOf(cVar.getId()), cVar.getName(), "5")));
-                    TiebaStatic.log(new ao("c11237").dk("obj_id", String.valueOf(cVar.getId())).dk("obj_locate", d.this.type));
+                    TiebaStatic.log(new ap("c11237").dn("obj_id", String.valueOf(cVar.getId())).dn("obj_locate", d.this.type));
                 }
             });
         }
@@ -126,26 +126,26 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(com.baidu.tieba.hottopic.a.b bVar) {
         if (bVar != null) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            if (bVar.ahx != this.mSkinType) {
-                bVar.ahx = this.mSkinType;
-                an.setBackgroundColor(bVar.getView(), R.color.cp_bg_line_d);
-                an.setViewTextColor(bVar.iFn, R.color.cp_cont_e, 1);
-                an.setViewTextColor(bVar.iFg, R.color.cp_cont_b, 1);
-                an.setViewTextColor(bVar.iFo, R.color.cp_cont_e, 1);
-                an.setBackgroundColor(bVar.iFj, R.color.cp_bg_line_c);
-                an.setBackgroundColor(bVar.iFk, R.color.cp_bg_line_c);
-                an.setBackgroundResource(bVar.iFt, R.drawable.hot_topic_ranklist_bg);
-                an.setViewTextColor(bVar.iFs, R.color.cp_link_tip_a, 1);
-                an.setViewTextColor(bVar.iFr, R.color.cp_cont_d, 1);
+            if (bVar.aho != this.mSkinType) {
+                bVar.aho = this.mSkinType;
+                ao.setBackgroundColor(bVar.getView(), R.color.cp_bg_line_d);
+                ao.setViewTextColor(bVar.iLr, R.color.cp_cont_e, 1);
+                ao.setViewTextColor(bVar.iLk, R.color.cp_cont_b, 1);
+                ao.setViewTextColor(bVar.iLs, R.color.cp_cont_e, 1);
+                ao.setBackgroundColor(bVar.iLn, R.color.cp_bg_line_c);
+                ao.setBackgroundColor(bVar.iLo, R.color.cp_bg_line_c);
+                ao.setBackgroundResource(bVar.iLx, R.drawable.hot_topic_ranklist_bg);
+                ao.setViewTextColor(bVar.iLw, R.color.cp_link_tip_a, 1);
+                ao.setViewTextColor(bVar.iLv, R.color.cp_cont_d, 1);
             }
         }
     }
 
-    public void Gj(String str) {
+    public void GV(String str) {
         this.type = str;
     }
 
-    private SpannableString er(String str, String str2) {
+    private SpannableString et(String str, String str2) {
         int length = !StringUtils.isNull(str) ? str.length() : 0;
         int length2 = !StringUtils.isNull(str2) ? str2.length() : 0;
         SpannableString spannableString = new SpannableString("" + str + str2);

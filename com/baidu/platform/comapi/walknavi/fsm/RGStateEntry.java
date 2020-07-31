@@ -6,7 +6,7 @@ import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.wnplatform.o.e;
 import com.baidu.platform.comapi.wnplatform.walkmap.f;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RGStateEntry extends RGStateCar3D {
     private int b = 0;
     private f a = new a(this);
@@ -14,7 +14,7 @@ public class RGStateEntry extends RGStateCar3D {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
         b.a().Q().l();
-        b.a().Q().c(R.drawable.aiapps_checkbox_checked);
+        b.a().Q().c(R.drawable.aiapps_clickable_toast_icon);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState

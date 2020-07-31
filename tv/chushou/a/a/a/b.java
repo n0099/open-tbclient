@@ -2,7 +2,7 @@ package tv.chushou.a.a.a;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b {
     public static boolean equals(@Nullable Object obj, @Nullable Object obj2) {
         return obj == obj2 || (obj != null && obj.equals(obj2));

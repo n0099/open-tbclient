@@ -1,7 +1,7 @@
 package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
-import com.baidu.f.a.a;
+import com.baidu.g.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiWebView;
@@ -11,7 +11,7 @@ import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class RegisterActivity extends BaseActivity {
     private WebAuthResult r = new WebAuthResult() { // from class: com.baidu.sapi2.activity.RegisterActivity.1
         @Override // com.baidu.sapi2.shell.result.WebAuthResult

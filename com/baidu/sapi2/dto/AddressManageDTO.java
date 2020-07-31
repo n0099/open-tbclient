@@ -1,7 +1,7 @@
 package com.baidu.sapi2.dto;
 
 import com.baidu.sapi2.permissions.PermissionsDTO;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class AddressManageDTO extends SapiWebDTO {
     public static final String ADDRESS_EDIT = "1";
     public static final String ADDRESS_LIST = "0";

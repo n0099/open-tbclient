@@ -1,7 +1,7 @@
 package com.baidu.fsg.base.a;
 
 import android.annotation.SuppressLint;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c {
     private final long a;
     private long b;

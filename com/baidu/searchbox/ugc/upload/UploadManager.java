@@ -24,7 +24,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes13.dex */
+/* loaded from: classes14.dex */
 public class UploadManager {
     private static final String BOS_ENDPOINT = "bj.bcebos.com";
     private static final int RETRY_DELAY = 3000;
@@ -89,7 +89,7 @@ public class UploadManager {
     };
     private Handler mHandler = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes14.dex */
     public interface UploadCallback extends UploadFileTask.TaskCallback {
         void onError(String str);
     }
@@ -161,7 +161,7 @@ public class UploadManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes14.dex */
     public class ProcessTasksCallable implements Callable<Void> {
         private Future mFuture;
         private List<UploadFileTask> mTasks;

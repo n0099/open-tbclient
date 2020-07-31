@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class h extends g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -14,7 +14,7 @@ public class h extends g {
 
     @Override // com.baidu.swan.apps.media.b.a.g
     public boolean a(com.baidu.swan.apps.media.b.a aVar, com.baidu.swan.apps.media.b.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        com.baidu.swan.apps.console.c.i("video", "remove, video id:" + cVar.cop + " slave id: " + cVar.bUu);
+        com.baidu.swan.apps.console.c.i("video", "remove, video id:" + cVar.cqu + " slave id: " + cVar.bVm);
         b(aVar, cVar, unitedSchemeEntity, callbackHandler);
         return true;
     }
@@ -22,9 +22,9 @@ public class h extends g {
     private void b(com.baidu.swan.apps.media.b.a aVar, com.baidu.swan.apps.media.b.c cVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         com.baidu.swan.apps.component.b.a d = com.baidu.swan.apps.component.container.a.d(cVar);
         if (d != null) {
-            d.Wo();
+            d.WV();
         } else {
-            com.baidu.swan.apps.component.e.a.aU("VideoPlayerAction", "remove with a null component");
+            com.baidu.swan.apps.component.e.a.aV("VideoPlayerAction", "remove with a null component");
         }
         aVar.onDestroy();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

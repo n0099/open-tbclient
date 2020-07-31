@@ -7,10 +7,10 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.lang.reflect.Field;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class PASSMethodCallTransfer {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes20.dex */
     public static abstract class DynamicCallbak {
         public static final int ERROR_CODE_NOT_FIND_CALL_METHOD = -1002;
         public static final int ERROR_CODE_NOT_LOGIN = -1001;
@@ -22,7 +22,7 @@ public class PASSMethodCallTransfer {
         public abstract void onFailure(int i, String str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes20.dex */
     public static class ParamsWap {
         public Map<String, String> attributes;
         public Object param;

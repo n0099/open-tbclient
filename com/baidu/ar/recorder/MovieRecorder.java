@@ -16,7 +16,7 @@ import com.baidu.ar.recorder.b.d;
 import com.baidu.ar.recorder.b.e;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class MovieRecorder implements b {
     public static final int ERROR_CODE_ON_START = 4001;
     public static final int ERROR_CODE_ON_STOP = 4002;
@@ -44,7 +44,7 @@ public class MovieRecorder implements b {
     private volatile boolean td = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);

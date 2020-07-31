@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(21)
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class c extends BasePool<Bitmap> {
     public c(com.facebook.common.memory.c cVar, r rVar, s sVar) {
         super(cVar, rVar, sVar);
@@ -15,43 +15,43 @@ public class c extends BasePool<Bitmap> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: Jb */
-    public Bitmap IS(int i) {
+    /* renamed from: Jw */
+    public Bitmap Jn(int i) {
         return Bitmap.createBitmap(1, (int) Math.ceil(i / 2.0d), Bitmap.Config.RGB_565);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: aa */
+    /* renamed from: ad */
     public void bl(Bitmap bitmap) {
         com.facebook.common.internal.g.checkNotNull(bitmap);
         bitmap.recycle();
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int IT(int i) {
+    protected int Jo(int i) {
         return i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: ab */
+    /* renamed from: ae */
     public int bm(Bitmap bitmap) {
         com.facebook.common.internal.g.checkNotNull(bitmap);
         return bitmap.getAllocationByteCount();
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int IU(int i) {
+    protected int Jp(int i) {
         return i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: ac */
+    /* renamed from: af */
     public boolean bn(Bitmap bitmap) {
         com.facebook.common.internal.g.checkNotNull(bitmap);
         return !bitmap.isRecycled() && bitmap.isMutable();

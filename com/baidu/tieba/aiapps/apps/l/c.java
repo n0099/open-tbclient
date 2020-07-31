@@ -9,13 +9,13 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.adaptation.a.o;
-import com.baidu.swan.apps.aq.n;
-/* loaded from: classes12.dex */
+import com.baidu.swan.apps.aq.p;
+/* loaded from: classes19.dex */
 public class c implements o {
     @Override // com.baidu.swan.apps.adaptation.a.o
     public void a(Activity activity, Bundle bundle, final com.baidu.swan.apps.media.chooser.c.d dVar) {
         if (ProcessUtils.isMainProcess()) {
-            n.postOnIO(new b(activity, bundle, dVar), "main process compress files");
+            p.postOnIO(new b(activity, bundle, dVar), "main process compress files");
         } else {
             DelegateUtils.callOnMainWithActivity(activity, PluginDelegateActivity.class, a.class, bundle, new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.l.c.1
                 @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener

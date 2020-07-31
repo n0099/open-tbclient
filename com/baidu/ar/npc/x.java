@@ -1,7 +1,7 @@
 package com.baidu.ar.npc;
 
 import com.baidu.ar.npc.BaiduArView;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class x implements Runnable {
     final /* synthetic */ BaiduArView a;
 

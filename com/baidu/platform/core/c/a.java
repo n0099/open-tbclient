@@ -6,7 +6,7 @@ import com.baidu.mapapi.search.poi.PoiCitySearchOption;
 import com.baidu.mapapi.search.poi.PoiDetailSearchOption;
 import com.baidu.mapapi.search.poi.PoiIndoorOption;
 import com.baidu.mapapi.search.poi.PoiNearbySearchOption;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface a {
     void a();
 

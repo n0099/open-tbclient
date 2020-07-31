@@ -9,9 +9,8 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeStatisticUtil;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class h extends UnitedSchemeBaseDispatcher {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = h.class.getSimpleName();
@@ -23,10 +22,8 @@ public class h extends UnitedSchemeBaseDispatcher {
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
     public boolean invoke(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        if (DEBUG) {
-            Log.i(TAG, String.format(Locale.getDefault(), "entity(%s)", unitedSchemeEntity.getUri()));
-        }
-        com.baidu.swan.apps.console.c.d(TAG, "start UnitedSchemeWalletDispatcher");
+        com.baidu.swan.apps.console.c.c(TAG, "entity uri = ", unitedSchemeEntity.getUri());
+        com.baidu.swan.apps.console.c.i(TAG, "start UnitedSchemeWalletDispatcher");
         String path = unitedSchemeEntity.getPath(false);
         if (TextUtils.isEmpty(path)) {
             if (!unitedSchemeEntity.isOnlyVerify()) {
@@ -48,27 +45,27 @@ public class h extends UnitedSchemeBaseDispatcher {
             String optString = optParamsAsJo.optString("orderInfo");
             String optString2 = optParamsAsJo.optString("version");
             String optString3 = optParamsAsJo.optString("cb");
-            com.baidu.swan.apps.runtime.e apM = com.baidu.swan.apps.runtime.e.apM();
-            if (apM == null) {
+            com.baidu.swan.apps.runtime.e arv = com.baidu.swan.apps.runtime.e.arv();
+            if (arv == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (apM.apG() == null) {
+            } else if (arv.arp() == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                com.baidu.swan.apps.ac.b bVar = new com.baidu.swan.apps.ac.b(apM, unitedSchemeEntity, callbackHandler, optString2, apM.getAppKey(), optString3);
+                com.baidu.swan.apps.ab.b bVar = new com.baidu.swan.apps.ab.b(arv, unitedSchemeEntity, callbackHandler, optString2, arv.getAppKey(), optString3);
                 if ("requestPayment".equals(path)) {
-                    com.baidu.swan.apps.console.c.d(TAG, "start PAYMENT");
-                    return bVar.bB("mapp_request_duxiaoman", optString);
+                    com.baidu.swan.apps.console.c.i(TAG, "start PAYMENT");
+                    return bVar.bD("mapp_request_duxiaoman", optString);
                 } else if ("requestAliPayment".equals(path)) {
-                    com.baidu.swan.apps.console.c.d(TAG, "start ALI PAYMENT");
-                    return bVar.bB("mapp_request_alipayment", optString);
+                    com.baidu.swan.apps.console.c.i(TAG, "start ALI PAYMENT");
+                    return bVar.bD("mapp_request_alipayment", optString);
                 } else if ("requestPolymerPayment".equals(path)) {
-                    com.baidu.swan.apps.console.c.d(TAG, "start POLYMER PAYMENT");
+                    com.baidu.swan.apps.console.c.i(TAG, "start POLYMER PAYMENT");
                     return bVar.f(optString, optParamsAsJo);
                 } else if (TextUtils.equals("requestWeChatPayment", path)) {
-                    com.baidu.swan.apps.console.c.d(TAG, "start WECHAT HTML5 PAYMENT");
-                    return bVar.bB("mapp_request_wechatpayment", optString);
+                    com.baidu.swan.apps.console.c.i(TAG, "start WECHAT HTML5 PAYMENT");
+                    return bVar.bD("mapp_request_wechatpayment", optString);
                 } else {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;

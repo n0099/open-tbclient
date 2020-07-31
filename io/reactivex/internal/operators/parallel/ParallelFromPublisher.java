@@ -13,13 +13,13 @@ import org.a.c;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class ParallelFromPublisher<T> extends a<T> {
-    final int nMd;
+    final int nUL;
     final int prefetch;
     final b<? extends T> source;
 
     @Override // io.reactivex.parallel.a
-    public int dPG() {
-        return this.nMd;
+    public int dTc() {
+        return this.nUL;
     }
 
     @Override // io.reactivex.parallel.a
@@ -116,7 +116,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                         } else {
                             return;
                         }
-                    } while (!atomicLongArray.compareAndSet(this.j, j2, io.reactivex.internal.util.b.N(j2, j)));
+                    } while (!atomicLongArray.compareAndSet(this.j, j2, io.reactivex.internal.util.b.P(j2, j)));
                     if (ParallelDispatcher.this.subscriberCount.get() == this.m) {
                         ParallelDispatcher.this.drain();
                     }
@@ -221,7 +221,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                                     i7 = 0;
                                 }
                             } catch (Throwable th2) {
-                                io.reactivex.exceptions.a.L(th2);
+                                io.reactivex.exceptions.a.K(th2);
                                 this.s.cancel();
                                 for (c<? super T> cVar3 : cVarArr) {
                                     cVar3.onError(th2);
@@ -312,7 +312,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                                 jArr[i4] = 1 + j2;
                                 i3 = 0;
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.L(th);
+                                io.reactivex.exceptions.a.K(th);
                                 this.s.cancel();
                                 for (c<? super T> cVar2 : cVarArr) {
                                     cVar2.onError(th);

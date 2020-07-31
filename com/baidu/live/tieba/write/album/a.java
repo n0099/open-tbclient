@@ -3,94 +3,94 @@ package com.baidu.live.tieba.write.album;
 import android.view.View;
 import com.baidu.live.adp.base.BdBaseView;
 import com.baidu.live.tbadk.BaseActivity;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends BdBaseView<BaseActivity> {
-    private AlbumActivity biJ;
-    private String biQ;
-    private String biR;
-    private String[] biS;
-    private j biT;
-    private h biU;
+    private AlbumActivity bjd;
+    private String bjk;
+    private String bjl;
+    private String[] bjm;
+    private j bjn;
+    private h bjo;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.biQ = "tag_image";
-        this.biR = "tag_b_image";
-        this.biJ = albumActivity;
+        this.bjk = "tag_image";
+        this.bjl = "tag_b_image";
+        this.bjd = albumActivity;
     }
 
-    public void IC() {
-        this.biS = new String[2];
-        this.biT = new j(this.biJ.getPageContext(), this.biJ);
-        this.biS[0] = this.biQ;
-        this.biU = new h(this.biJ.getPageContext(), this.biJ);
-        this.biS[1] = this.biR;
+    public void II() {
+        this.bjm = new String[2];
+        this.bjn = new j(this.bjd.getPageContext(), this.bjd);
+        this.bjm[0] = this.bjk;
+        this.bjo = new h(this.bjd.getPageContext(), this.bjd);
+        this.bjm[1] = this.bjl;
     }
 
     public void onChangeSkinType(int i) {
-        this.biT.onChangeSkinType(i);
-        this.biU.onChangeSkinType(i);
+        this.bjn.onChangeSkinType(i);
+        this.bjo.onChangeSkinType(i);
     }
 
-    public View ID() {
-        if (this.biT == null) {
+    public View IJ() {
+        if (this.bjn == null) {
             return null;
         }
-        return this.biT.IV();
+        return this.bjn.Jb();
     }
 
-    public View IE() {
-        if (this.biT == null) {
+    public View IK() {
+        if (this.bjn == null) {
             return null;
         }
-        return this.biT.IZ();
+        return this.bjn.Jf();
     }
 
-    public View IF() {
-        if (this.biU == null) {
+    public View IL() {
+        if (this.bjo == null) {
             return null;
         }
-        return this.biU.IV();
+        return this.bjo.Jb();
     }
 
-    public View IG() {
-        if (this.biU == null) {
+    public View IM() {
+        if (this.bjo == null) {
             return null;
         }
-        return this.biU.IW();
+        return this.bjo.Jc();
     }
 
-    public View IH() {
-        if (this.biU == null) {
+    public View IN() {
+        if (this.bjo == null) {
             return null;
         }
-        return this.biU.IH();
+        return this.bjo.IN();
     }
 
-    public View II() {
-        if (this.biT == null) {
+    public View IO() {
+        if (this.bjn == null) {
             return null;
         }
-        return this.biT.IH();
+        return this.bjn.IN();
     }
 
     public void onDestroy() {
     }
 
-    public h IJ() {
-        return this.biU;
+    public h IP() {
+        return this.bjo;
     }
 
-    public j IK() {
-        return this.biT;
+    public j IQ() {
+        return this.bjn;
     }
 
-    public void cn(boolean z) {
-        if (this.biU != null) {
-            this.biU.cn(z);
+    public void cp(boolean z) {
+        if (this.bjo != null) {
+            this.bjo.cp(z);
         }
-        if (this.biT != null) {
-            this.biT.cn(z);
+        if (this.bjn != null) {
+            this.bjn.cp(z);
         }
     }
 }

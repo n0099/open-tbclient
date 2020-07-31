@@ -5,7 +5,7 @@ import java.net.ConnectException;
 import java.net.NoRouteToHostException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class HttpException extends Exception {
     public static final int HTTP_ERROR = 4;
     public static final int INVOKE_ERROR = 3;

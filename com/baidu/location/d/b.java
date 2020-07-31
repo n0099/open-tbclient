@@ -7,7 +7,7 @@ import com.baidu.android.bbalbs.common.util.CommonParam;
 import com.baidu.location.a.n;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
     public String a = null;
     public String b = null;

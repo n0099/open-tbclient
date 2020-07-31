@@ -27,20 +27,20 @@ import java.util.Date;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private CustomMessageListener aVB;
-    private q fST;
-    private boolean giF = true;
-    private boolean giG = false;
-    private c giQ;
-    private CustomMessageListener giR;
-    private boolean giS;
-    private boolean giT;
-    private com.baidu.tieba.ala.liveroom.guideim.a giU;
-    private Handler giV;
-    private GuideImInputView giW;
-    private GuideImInputView.a giX;
+    private CustomMessageListener aWT;
+    private q fYm;
+    private boolean gnD = true;
+    private boolean gnE = false;
+    private c gnO;
+    private CustomMessageListener gnP;
+    private boolean gnQ;
+    private boolean gnR;
+    private com.baidu.tieba.ala.liveroom.guideim.a gnS;
+    private Handler gnT;
+    private GuideImInputView gnU;
+    private GuideImInputView.a gnV;
     private TbPageContext mContext;
     private String mOtherParams;
     private ViewGroup mParentView;
@@ -48,24 +48,24 @@ public class b {
 
     public b(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
-        bFg();
+        bIo();
     }
 
     public void c(ViewGroup viewGroup, boolean z) {
         this.mParentView = viewGroup;
-        this.giS = z;
+        this.gnQ = z;
     }
 
     public void a(com.baidu.tieba.ala.liveroom.guideim.a aVar) {
-        this.giU = aVar;
+        this.gnS = aVar;
     }
 
     public void c(q qVar, String str) {
-        this.fST = qVar;
-        this.giT = false;
-        bFh();
-        bFv();
-        bFu();
+        this.fYm = qVar;
+        this.gnR = false;
+        bIp();
+        bID();
+        bIC();
         this.mVid = "";
         if (qVar != null && qVar.mLiveInfo != null && qVar.mLiveInfo.feed_id != null) {
             this.mVid = qVar.mLiveInfo.feed_id;
@@ -74,43 +74,43 @@ public class b {
             str = "";
         }
         this.mOtherParams = str;
-        bFx();
+        bIF();
     }
 
-    public void lb(boolean z) {
-        this.giF = z;
-        bFt();
+    public void lE(boolean z) {
+        this.gnD = z;
+        bIB();
     }
 
-    public void lc(boolean z) {
-        this.giG = z;
-        bFt();
+    public void lF(boolean z) {
+        this.gnE = z;
+        bIB();
     }
 
-    private void bFt() {
-        if (this.giV != null) {
-            if (!this.giF || this.giG) {
-                bFA();
+    private void bIB() {
+        if (this.gnT != null) {
+            if (!this.gnD || this.gnE) {
+                bII();
             }
         }
     }
 
-    public void Fo() {
-        this.giT = false;
-        bFz();
-        bFw();
+    public void Fi() {
+        this.gnR = false;
+        bIH();
+        bIE();
     }
 
     public void release() {
-        if (this.giV != null) {
-            this.giV.removeCallbacksAndMessages(null);
+        if (this.gnT != null) {
+            this.gnT.removeCallbacksAndMessages(null);
         }
-        bFw();
-        DZ();
+        bIE();
+        GD();
     }
 
-    private void bFg() {
-        this.giQ = new c();
+    private void bIo() {
+        this.gnO = new c();
         String string = com.baidu.live.c.vf().getString("guide_speak_show_times_date", "");
         if (!TextUtils.isEmpty(string)) {
             try {
@@ -118,10 +118,10 @@ public class b {
                 String optString = jSONObject.optString("date");
                 String b = j.b(new Date());
                 if (optString.equals(b)) {
-                    this.giQ.giZ = jSONObject.optBoolean("hasInput");
-                    if (!this.giQ.giZ) {
-                        this.giQ.date = b;
-                        this.giQ.fKO = jSONObject.optInt("times");
+                    this.gnO.gnX = jSONObject.optBoolean("hasInput");
+                    if (!this.gnO.gnX) {
+                        this.gnO.date = b;
+                        this.gnO.cVg = jSONObject.optInt("times");
                     }
                 }
             } catch (JSONException e) {
@@ -130,20 +130,20 @@ public class b {
         }
     }
 
-    private void bFh() {
-        if (this.giQ == null) {
-            this.giQ = new c();
+    private void bIp() {
+        if (this.gnO == null) {
+            this.gnO = new c();
         }
-        String str = this.giQ.date;
+        String str = this.gnO.date;
         if (!TextUtils.isEmpty(str) && !str.equals(j.b(new Date()))) {
-            this.giQ.giZ = false;
-            this.giQ.fKO = 0;
+            this.gnO.gnX = false;
+            this.gnO.cVg = 0;
         }
     }
 
-    private void bFu() {
-        if (this.aVB == null) {
-            this.aVB = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.guideim.b.1
+    private void bIC() {
+        if (this.aWT == null) {
+            this.aWT = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.guideim.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -156,181 +156,181 @@ public class b {
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.aVB);
+            MessageManager.getInstance().registerListener(this.aWT);
         }
     }
 
-    private void DZ() {
-        if (this.aVB != null) {
-            MessageManager.getInstance().unRegisterListener(this.aVB);
+    private void GD() {
+        if (this.aWT != null) {
+            MessageManager.getInstance().unRegisterListener(this.aWT);
         }
     }
 
-    private void bFv() {
-        if (!this.giQ.giZ) {
-            this.giR = new CustomMessageListener(2913043) { // from class: com.baidu.tieba.ala.liveroom.guideim.b.2
+    private void bID() {
+        if (!this.gnO.gnX) {
+            this.gnP = new CustomMessageListener(2913043) { // from class: com.baidu.tieba.ala.liveroom.guideim.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    b.this.bFB();
+                    b.this.bIJ();
                 }
             };
-            MessageManager.getInstance().registerListener(this.giR);
+            MessageManager.getInstance().registerListener(this.gnP);
         }
     }
 
-    private void bFw() {
-        if (this.giR != null) {
-            MessageManager.getInstance().unRegisterListener(this.giR);
+    private void bIE() {
+        if (this.gnP != null) {
+            MessageManager.getInstance().unRegisterListener(this.gnP);
         }
     }
 
-    private void bFx() {
+    private void bIF() {
         int i;
-        bFz();
-        if ((this.fST == null || this.fST.axI == null || (this.fST.axI.isUegBlock <= 0 && this.fST.axI.isBlock <= 0)) && !this.giT && !TbadkCoreApplication.getInst().isMobileBaidu()) {
-            if (this.giQ.giZ) {
-                bFw();
+        bIH();
+        if ((this.fYm == null || this.fYm.ayV == null || (this.fYm.ayV.isUegBlock <= 0 && this.fYm.ayV.isBlock <= 0)) && !this.gnR && !TbadkCoreApplication.getInst().isMobileBaidu()) {
+            if (this.gnO.gnX) {
+                bIE();
                 return;
             }
-            z zVar = com.baidu.live.v.a.Hm().aZp;
-            if (zVar != null && (i = zVar.aAq) > 0) {
-                if (!j.b(new Date()).equals(this.giQ.date) || this.giQ.fKO < zVar.aAr) {
-                    if (this.giV == null) {
-                        this.giV = new a(this);
+            z zVar = com.baidu.live.v.a.Hs().aZn;
+            if (zVar != null && (i = zVar.aBD) > 0) {
+                if (!j.b(new Date()).equals(this.gnO.date) || this.gnO.cVg < zVar.aBE) {
+                    if (this.gnT == null) {
+                        this.gnT = new a(this);
                     }
-                    this.giV.sendEmptyMessageDelayed(1, i);
+                    this.gnT.sendEmptyMessageDelayed(1, i);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFy() {
+    public void bIG() {
         String[] strArr;
         int length;
-        this.giT = true;
-        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isPopupWindowUnabled()) && this.giF && !this.giG) {
-            if (this.giQ.giZ) {
-                bFw();
+        this.gnR = true;
+        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isPopupWindowUnabled()) && this.gnD && !this.gnE) {
+            if (this.gnO.gnX) {
+                bIE();
                 return;
             }
-            z zVar = com.baidu.live.v.a.Hm().aZp;
-            if (zVar != null && (strArr = zVar.aAs) != null && (length = strArr.length) != 0) {
+            z zVar = com.baidu.live.v.a.Hs().aZn;
+            if (zVar != null && (strArr = zVar.aBF) != null && (length = strArr.length) != 0) {
                 String str = strArr[new Random().nextInt(length)];
                 if (!TextUtils.isEmpty(str)) {
-                    if (this.giW == null) {
-                        this.giW = new GuideImInputView(this.mContext.getPageActivity());
+                    if (this.gnU == null) {
+                        this.gnU = new GuideImInputView(this.mContext.getPageActivity());
                     }
-                    if (this.giX == null) {
-                        this.giX = new GuideImInputView.a() { // from class: com.baidu.tieba.ala.liveroom.guideim.b.3
+                    if (this.gnV == null) {
+                        this.gnV = new GuideImInputView.a() { // from class: com.baidu.tieba.ala.liveroom.guideim.b.3
                             @Override // com.baidu.tieba.ala.liveroom.guideim.GuideImInputView.a
-                            public void CW(String str2) {
-                                if (b.this.giU != null && b.this.giU.Dd()) {
+                            public void DI(String str2) {
+                                if (b.this.gnS != null && b.this.gnS.DF()) {
                                     MessageManager.getInstance().sendMessage(new CustomMessage(2913100, new ImSendMsgData(str2)));
                                 }
-                                b.this.bFz();
+                                b.this.bIH();
                                 LogManager.getCommonLogger().doClickSpeakGuideButtonLog(b.this.mVid, b.this.mOtherParams, str2);
                                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "msg_clk").setContentExt(null, "popup", null));
                             }
                         };
-                        this.giW.setCallback(this.giX);
+                        this.gnU.setCallback(this.gnV);
                     }
-                    CU(str);
+                    DG(str);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFz() {
-        if (this.giV != null) {
-            this.giV.removeCallbacksAndMessages(null);
+    public void bIH() {
+        if (this.gnT != null) {
+            this.gnT.removeCallbacksAndMessages(null);
         }
-        bFA();
+        bII();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFA() {
-        if (this.giW != null) {
-            this.giW.setVisibility(8);
+    public void bII() {
+        if (this.gnU != null) {
+            this.gnU.setVisibility(8);
         }
     }
 
-    private void CU(String str) {
-        this.giT = true;
-        CV(str);
-        this.giV.sendEmptyMessageDelayed(2, 5000L);
-        aNp();
+    private void DG(String str) {
+        this.gnR = true;
+        DH(str);
+        this.gnT.sendEmptyMessageDelayed(2, 5000L);
+        aRd();
         LogManager.getCommonLogger().doDisplaySpeakGuideLog(this.mVid, this.mOtherParams, str);
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "msg_show").setContentExt(null, "popup", null));
     }
 
-    private void CV(String str) {
+    private void DH(String str) {
         int dimensionPixelSize;
         if (this.mParentView != null) {
-            if (this.mParentView.indexOfChild(this.giW) < 0) {
+            if (this.mParentView.indexOfChild(this.gnU) < 0) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((BdUtilHelper.getEquipmentWidth(this.mContext.getPageActivity()) - this.mContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds180)) - this.mContext.getPageActivity().getResources().getDimensionPixelOffset(a.e.sdk_tbds26), -2);
                 layoutParams.addRule(12);
                 layoutParams.leftMargin = this.mContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_tbds26);
-                if (this.giS) {
+                if (this.gnQ) {
                     dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds96);
                 } else {
                     dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_tbds130);
                 }
                 layoutParams.bottomMargin = dimensionPixelSize;
-                this.mParentView.addView(this.giW, layoutParams);
+                this.mParentView.addView(this.gnU, layoutParams);
             }
-            this.giW.setText(str);
-            this.giW.setVisibility(0);
+            this.gnU.setText(str);
+            this.gnU.setVisibility(0);
         }
     }
 
-    private void aNp() {
+    private void aRd() {
         String b = j.b(new Date());
-        if (b.equals(this.giQ.date)) {
-            this.giQ.fKO++;
+        if (b.equals(this.gnO.date)) {
+            this.gnO.cVg++;
         } else {
-            this.giQ.date = b;
-            this.giQ.fKO = 1;
+            this.gnO.date = b;
+            this.gnO.cVg = 1;
         }
-        if (this.giQ.fKO >= com.baidu.live.v.a.Hm().aZp.aAr) {
-            bFB();
-            bFw();
+        if (this.gnO.cVg >= com.baidu.live.v.a.Hs().aZn.aBE) {
+            bIJ();
+            bIE();
             return;
         }
-        com.baidu.live.c.vf().putString("guide_speak_show_times_date", this.giQ.toJsonString());
+        com.baidu.live.c.vf().putString("guide_speak_show_times_date", this.gnO.toJsonString());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFB() {
-        if (this.giV != null) {
-            this.giV.removeMessages(1);
+    public void bIJ() {
+        if (this.gnT != null) {
+            this.gnT.removeMessages(1);
         }
-        this.giQ.giZ = true;
-        this.giQ.date = j.b(new Date());
-        com.baidu.live.c.vf().putString("guide_speak_show_times_date", this.giQ.toJsonString());
+        this.gnO.gnX = true;
+        this.gnO.date = j.b(new Date());
+        com.baidu.live.c.vf().putString("guide_speak_show_times_date", this.gnO.toJsonString());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends Handler {
-        private final WeakReference<b> bdn;
+        private final WeakReference<b> bdF;
 
         a(b bVar) {
-            this.bdn = new WeakReference<>(bVar);
+            this.bdF = new WeakReference<>(bVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            b bVar = this.bdn.get();
+            b bVar = this.bdF.get();
             if (bVar != null) {
                 switch (message.what) {
                     case 1:
-                        bVar.bFy();
+                        bVar.bIG();
                         return;
                     case 2:
-                        bVar.bFA();
+                        bVar.bII();
                         return;
                     default:
                         return;

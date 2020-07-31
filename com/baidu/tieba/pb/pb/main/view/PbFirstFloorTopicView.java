@@ -6,14 +6,14 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickListener {
-    private int hEJ;
-    private int hEL;
+    private int hKH;
+    private int hKJ;
     private Context mContext;
     private int mWidth;
 
@@ -38,27 +38,27 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         setOrientation(1);
         this.mContext = context;
-        this.hEL = l.getDimens(this.mContext, R.dimen.ds8);
+        this.hKJ = l.getDimens(this.mContext, R.dimen.ds8);
         this.mWidth = l.getEquipmentWidth(this.mContext);
-        this.hEJ = l.getEquipmentWidth(this.mContext) / 2;
+        this.hKH = l.getEquipmentWidth(this.mContext) / 2;
     }
 
     public void setData(ArrayList<String> arrayList) {
         LinearLayout linearLayout;
-        if (!w.isEmpty(arrayList)) {
+        if (!x.isEmpty(arrayList)) {
             if (getChildCount() > 0) {
                 removeAllViews();
             }
-            int count = w.getCount(arrayList);
+            int count = x.getCount(arrayList);
             LinearLayout linearLayout2 = null;
             int i = 0;
             while (i < count) {
                 if (i % 2 == 0) {
-                    linearLayout = cND();
+                    linearLayout = cRq();
                 } else {
                     if (linearLayout2 != null) {
-                        b(linearLayout2, (String) w.getItem(arrayList, i - 1));
-                        b(linearLayout2, (String) w.getItem(arrayList, i));
+                        b(linearLayout2, (String) x.getItem(arrayList, i - 1));
+                        b(linearLayout2, (String) x.getItem(arrayList, i));
                     }
                     linearLayout = linearLayout2;
                 }
@@ -66,8 +66,8 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
                 linearLayout2 = linearLayout;
             }
             if (linearLayout2 != null && linearLayout2.getChildCount() == 0) {
-                this.hEJ = this.mWidth;
-                b(linearLayout2, (String) w.getItem(arrayList, count - 1));
+                this.hKH = this.mWidth;
+                b(linearLayout2, (String) x.getItem(arrayList, count - 1));
             }
         }
     }
@@ -76,23 +76,23 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         TextView textView = new TextView(this.mContext);
         textView.setText(str);
         textView.setGravity(17);
-        an.setBackgroundColor(textView, R.color.cp_bg_line_c);
-        an.setViewTextColor(textView, (int) R.color.black_alpha100);
+        ao.setBackgroundColor(textView, R.color.cp_bg_line_c);
+        ao.setViewTextColor(textView, R.color.black_alpha100);
         textView.setTextSize(0, getResources().getDimension(R.dimen.ds28));
         textView.setTypeface(null, 1);
         textView.setMinLines(1);
         textView.setMaxLines(1);
-        textView.setWidth(this.hEJ);
+        textView.setWidth(this.hKH);
         textView.setOnClickListener(this);
         linearLayout.addView(textView);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-        layoutParams.leftMargin = this.hEL;
-        layoutParams.rightMargin = this.hEL;
+        layoutParams.leftMargin = this.hKJ;
+        layoutParams.rightMargin = this.hKJ;
     }
 
-    private LinearLayout cND() {
+    private LinearLayout cRq() {
         LinearLayout linearLayout = new LinearLayout(this.mContext);
-        an.setBackgroundColor(linearLayout, R.color.transparent);
+        ao.setBackgroundColor(linearLayout, R.color.transparent);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.mWidth, -2));
         linearLayout.setGravity(17);
         addView(linearLayout);

@@ -5,7 +5,7 @@ import android.os.HandlerThread;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class e {
     a cZ;
     Handler mHandler;
@@ -16,7 +16,7 @@ public class e {
     Object mLock = new Object();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public class a extends Thread {
         private a() {
         }

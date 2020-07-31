@@ -1,29 +1,28 @@
 package com.baidu.swan.apps.setting.oauth.a;
 
-import android.app.Activity;
+import android.content.Context;
 import com.baidu.searchbox.http.request.HttpRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class d extends g<JSONObject> {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected final Activity mActivity;
+    protected final Context mContext;
 
-    public d(Activity activity) {
-        this.mActivity = activity;
+    public d(Context context) {
+        this.mContext = context;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean arw() {
-        com.baidu.swan.apps.runtime.e apM = com.baidu.swan.apps.runtime.e.apM();
-        if (apM != null) {
+    protected boolean ato() {
+        com.baidu.swan.apps.runtime.e arv = com.baidu.swan.apps.runtime.e.arv();
+        if (arv != null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ma_id", apM.id);
+                jSONObject.put("ma_id", arv.id);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            bR("data", jSONObject.toString());
+            bS("data", jSONObject.toString());
             return true;
         }
         return true;
@@ -32,13 +31,13 @@ public class d extends g<JSONObject> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
-    /* renamed from: bv */
-    public JSONObject bo(JSONObject jSONObject) throws JSONException {
-        return com.baidu.swan.apps.setting.oauth.c.bq(jSONObject);
+    /* renamed from: bA */
+    public JSONObject bt(JSONObject jSONObject) throws JSONException {
+        return com.baidu.swan.apps.setting.oauth.c.bv(jSONObject);
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
     protected HttpRequest a(g gVar) {
-        return com.baidu.swan.apps.u.a.agj().h(this.mActivity, gVar.arS());
+        return com.baidu.swan.apps.t.a.ahv().h(this.mContext, gVar.atO());
     }
 }

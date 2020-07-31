@@ -20,16 +20,16 @@ import java.util.List;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class g {
-    c akT;
-    private a.C0103a akX;
-    private volatile FileLock akY;
-    private volatile RandomAccessFile akZ;
-    private com.baidu.cesium.b.b ala;
+    c akO;
+    private a.C0101a akS;
+    private volatile FileLock akT;
+    private volatile RandomAccessFile akU;
+    private com.baidu.cesium.b.b akV;
     private Context g;
     private static boolean c = false;
-    public static Comparator<com.baidu.cesium.b.a> alb = new Comparator<com.baidu.cesium.b.a>() { // from class: com.baidu.cesium.g.1
+    public static Comparator<com.baidu.cesium.b.a> akW = new Comparator<com.baidu.cesium.b.a>() { // from class: com.baidu.cesium.g.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -39,7 +39,7 @@ public class g {
         }
     };
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static final String[] a = {ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "O", "0"};
         private String i;
@@ -116,7 +116,7 @@ public class g {
             return Arrays.hashCode(new Object[]{this.i, this.j, this.k, this.m, Integer.valueOf(this.n)});
         }
 
-        public e sK() {
+        public e sM() {
             e eVar = new e();
             eVar.d = this.i;
             StringBuilder sb = new StringBuilder();
@@ -137,9 +137,9 @@ public class g {
             throw new NullPointerException("context should not be null!!!");
         }
         this.g = context.getApplicationContext();
-        this.akX = aVar.sG().db("bohrium");
-        this.akX.a();
-        this.akT = cVar;
+        this.akS = aVar.sI().da("bohrium");
+        this.akS.a();
+        this.akO = cVar;
         a(aVar);
     }
 
@@ -178,20 +178,20 @@ public class g {
     }
 
     private String a(boolean z) {
-        return this.akX.a("libbh.so", z);
+        return this.akS.a("libbh.so", z);
     }
 
     private void a(com.baidu.cesium.e.a aVar) {
         com.baidu.cesium.b.b bVar = new com.baidu.cesium.b.b(new com.baidu.cesium.a());
-        a.C0100a c0100a = new a.C0100a();
-        c0100a.a = this.g;
-        c0100a.ajZ = aVar;
+        a.C0098a c0098a = new a.C0098a();
+        c0098a.a = this.g;
+        c0098a.ajU = aVar;
         a.c cVar = new a.c();
         for (com.baidu.cesium.b.a aVar2 : bVar.a()) {
-            aVar2.a(c0100a);
+            aVar2.a(c0098a);
             aVar2.a(cVar);
         }
-        this.ala = bVar;
+        this.akV = bVar;
     }
 
     private static String c(String str) {
@@ -225,7 +225,7 @@ public class g {
     }
 
     public a a() {
-        if (new File(this.akX.b(), "libbh.so").exists()) {
+        if (new File(this.akS.b(), "libbh.so").exists()) {
             return a(a(true));
         }
         return null;
@@ -233,7 +233,7 @@ public class g {
 
     public void a(a aVar) {
         a.d dVar = new a.d();
-        for (com.baidu.cesium.b.a aVar2 : this.ala.a()) {
+        for (com.baidu.cesium.b.a aVar2 : this.akV.a()) {
             aVar2.a(dVar, aVar);
         }
     }
@@ -245,7 +245,7 @@ public class g {
         }
         if (!z2) {
             try {
-                if (new File(this.akX.b(), "libbh.so").exists() && (a2 = a(a(true))) != null) {
+                if (new File(this.akS.b(), "libbh.so").exists() && (a2 = a(a(true))) != null) {
                     String g = a2.g();
                     if (!TextUtils.isEmpty(g) && g.equals(aVar.g())) {
                         return true;
@@ -256,7 +256,7 @@ public class g {
                 return false;
             }
         }
-        return this.akX.c("libbh.so", aVar.f(), z);
+        return this.akS.c("libbh.so", aVar.f(), z);
     }
 
     public a b(e eVar) {
@@ -321,7 +321,7 @@ public class g {
         RandomAccessFile randomAccessFile;
         boolean z = false;
         synchronized (this) {
-            File b = this.akX.b(".lock");
+            File b = this.akS.b(".lock");
             if (!b.exists()) {
                 try {
                     b.createNewFile();
@@ -337,8 +337,8 @@ public class g {
                         break;
                     }
                     try {
-                        this.akY = randomAccessFile.getChannel().lock();
-                        this.akZ = randomAccessFile;
+                        this.akT = randomAccessFile.getChannel().lock();
+                        this.akU = randomAccessFile;
                         z = true;
                         break;
                     } catch (OverlappingFileLockException e2) {
@@ -348,7 +348,7 @@ public class g {
                         } catch (Exception e3) {
                             e = e3;
                             com.baidu.cesium.f.c.a(e);
-                            if (this.akY == null) {
+                            if (this.akT == null) {
                                 com.baidu.cesium.f.c.a(randomAccessFile);
                             }
                             return z;
@@ -364,24 +364,24 @@ public class g {
     }
 
     public synchronized void c() {
-        if (this.akY != null) {
+        if (this.akT != null) {
             try {
-                this.akY.release();
+                this.akT.release();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            this.akY = null;
+            this.akT = null;
         }
-        com.baidu.cesium.f.c.a(this.akZ);
-        this.akZ = null;
+        com.baidu.cesium.f.c.a(this.akU);
+        this.akU = null;
     }
 
     public a d() {
         a.f fVar = new a.f();
         fVar.a = true;
-        List<com.baidu.cesium.b.a> a2 = this.ala.a();
-        Collections.sort(a2, com.baidu.cesium.b.a.ajY);
-        List<b> U = this.akT.U(this.g);
+        List<com.baidu.cesium.b.a> a2 = this.akV.a();
+        Collections.sort(a2, com.baidu.cesium.b.a.ajT);
+        List<b> U = this.akO.U(this.g);
         if (U != null) {
             for (b bVar : U) {
                 if (!bVar.d && bVar.c) {

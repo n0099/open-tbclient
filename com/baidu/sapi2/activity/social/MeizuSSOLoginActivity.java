@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.widget.RelativeLayout;
-import com.baidu.f.a.a.a.a;
+import com.baidu.g.a.a.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -23,7 +23,7 @@ import sdk.meizu.auth.MzAuthenticator;
 import sdk.meizu.auth.OAuthError;
 import sdk.meizu.auth.OAuthToken;
 import sdk.meizu.auth.callback.ImplictCallback;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
     private static final String TAG = "MeizuSSOLoginActivity";
 

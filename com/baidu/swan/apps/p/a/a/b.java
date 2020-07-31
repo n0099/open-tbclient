@@ -2,11 +2,11 @@ package com.baidu.swan.apps.p.a.a;
 
 import android.support.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.swan.apps.p.a<com.baidu.swan.apps.p.a.c> {
     @Override // com.baidu.swan.apps.p.a
     @NonNull
-    public String afq() {
+    public String agB() {
         return "releasekeyboard";
     }
 

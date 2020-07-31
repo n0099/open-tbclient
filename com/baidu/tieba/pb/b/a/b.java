@@ -6,19 +6,19 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bd;
 import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class b implements c {
-    private SpannableString kvm;
+    private SpannableString kEf;
     private TbPageContext<?> pageContext;
     private String url;
 
     public b(TbPageContext<?> tbPageContext, ExcContent excContent) {
         if (excContent != null && excContent.type.longValue() == 1 && !StringUtils.isNull(excContent.text)) {
             this.pageContext = tbPageContext;
-            this.kvm = new SpannableString(excContent.text);
-            this.kvm.setSpan(new a(), 0, excContent.text.length(), 17);
+            this.kEf = new SpannableString(excContent.text);
+            this.kEf.setSpan(new a(), 0, excContent.text.length(), 17);
             this.url = excContent.link;
         }
     }
@@ -29,18 +29,18 @@ public class b implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence cOM() {
-        return this.kvm;
+    public CharSequence cSz() {
+        return this.kEf;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes17.dex */
     private class a extends ClickableSpan {
         private a() {
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            bc.aWU().b(b.this.pageContext, new String[]{b.this.url});
+            bd.baV().b(b.this.pageContext, new String[]{b.this.url});
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -51,7 +51,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean cON() {
+    public boolean cSA() {
         return false;
     }
 }

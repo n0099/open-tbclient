@@ -40,7 +40,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class g {
     private String c;
     private boolean d;

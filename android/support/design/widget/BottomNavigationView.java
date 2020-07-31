@@ -28,7 +28,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public class BottomNavigationView extends FrameLayout {
     private static final int[] CHECKED_STATE_SET = {16842912};
     private static final int[] DISABLED_STATE_SET = {-16842910};
@@ -40,12 +40,12 @@ public class BottomNavigationView extends FrameLayout {
     private OnNavigationItemReselectedListener mReselectedListener;
     private OnNavigationItemSelectedListener mSelectedListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public interface OnNavigationItemReselectedListener {
         void onNavigationItemReselected(@NonNull MenuItem menuItem);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public interface OnNavigationItemSelectedListener {
         boolean onNavigationItemSelected(@NonNull MenuItem menuItem);
     }
@@ -222,7 +222,7 @@ public class BottomNavigationView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.design.widget.BottomNavigationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

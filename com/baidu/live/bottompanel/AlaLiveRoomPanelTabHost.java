@@ -23,27 +23,27 @@ import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.widget.CustomViewPager;
 import com.baidu.live.tieba.view.GradientTextView;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveRoomPanelTabHost extends LinearLayout implements ViewPager.OnPageChangeListener {
-    private CustomViewPager avA;
-    private AlaAudienceLiveRoomBottomPanelAdapter avB;
-    private float avC;
-    private float avD;
-    private int avE;
-    private float avF;
-    private int avG;
-    private boolean avH;
-    private boolean avI;
-    private int avJ;
-    private int avK;
-    private int avL;
-    private List<d> avM;
-    private boolean avN;
-    private a avO;
-    private b avP;
-    private View.OnClickListener avQ;
-    private FrameLayout avy;
-    private LinearLayout avz;
+    private FrameLayout awD;
+    private LinearLayout awE;
+    private CustomViewPager awF;
+    private AlaAudienceLiveRoomBottomPanelAdapter awG;
+    private float awH;
+    private float awI;
+    private int awJ;
+    private float awK;
+    private int awL;
+    private boolean awM;
+    private boolean awN;
+    private int awO;
+    private int awP;
+    private int awQ;
+    private List<d> awR;
+    private boolean awS;
+    private a awT;
+    private b awU;
+    private View.OnClickListener awV;
     private float mCurrentPositionOffset;
     private int mCurrentTabIndex;
     private int mDividerColor;
@@ -55,12 +55,12 @@ public class AlaLiveRoomPanelTabHost extends LinearLayout implements ViewPager.O
     private int mSelectorColor;
     private int mSkinType;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(int i, d dVar);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void onPageSelected(int i);
     }
@@ -76,14 +76,14 @@ public class AlaLiveRoomPanelTabHost extends LinearLayout implements ViewPager.O
         this.mIsClicked = false;
         this.mSelectorColor = TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_cp_cont_b);
         this.mDividerColor = TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_cp_bg_line_c);
-        this.avQ = new View.OnClickListener() { // from class: com.baidu.live.bottompanel.AlaLiveRoomPanelTabHost.1
+        this.awV = new View.OnClickListener() { // from class: com.baidu.live.bottompanel.AlaLiveRoomPanelTabHost.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int indexOfChild = AlaLiveRoomPanelTabHost.this.avz.indexOfChild(view);
+                int indexOfChild = AlaLiveRoomPanelTabHost.this.awE.indexOfChild(view);
                 if (indexOfChild >= 0) {
                     AlaLiveRoomPanelTabHost.this.mIsClicked = true;
-                    if (AlaLiveRoomPanelTabHost.this.avA != null) {
-                        AlaLiveRoomPanelTabHost.this.avA.setCurrentItem(indexOfChild);
+                    if (AlaLiveRoomPanelTabHost.this.awF != null) {
+                        AlaLiveRoomPanelTabHost.this.awF.setCurrentItem(indexOfChild);
                     }
                 }
             }
@@ -103,14 +103,14 @@ public class AlaLiveRoomPanelTabHost extends LinearLayout implements ViewPager.O
         this.mIsClicked = false;
         this.mSelectorColor = TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_cp_cont_b);
         this.mDividerColor = TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_cp_bg_line_c);
-        this.avQ = new View.OnClickListener() { // from class: com.baidu.live.bottompanel.AlaLiveRoomPanelTabHost.1
+        this.awV = new View.OnClickListener() { // from class: com.baidu.live.bottompanel.AlaLiveRoomPanelTabHost.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int indexOfChild = AlaLiveRoomPanelTabHost.this.avz.indexOfChild(view);
+                int indexOfChild = AlaLiveRoomPanelTabHost.this.awE.indexOfChild(view);
                 if (indexOfChild >= 0) {
                     AlaLiveRoomPanelTabHost.this.mIsClicked = true;
-                    if (AlaLiveRoomPanelTabHost.this.avA != null) {
-                        AlaLiveRoomPanelTabHost.this.avA.setCurrentItem(indexOfChild);
+                    if (AlaLiveRoomPanelTabHost.this.awF != null) {
+                        AlaLiveRoomPanelTabHost.this.awF.setCurrentItem(indexOfChild);
                     }
                 }
             }
@@ -120,72 +120,72 @@ public class AlaLiveRoomPanelTabHost extends LinearLayout implements ViewPager.O
     }
 
     private void ak(Context context) {
-        this.avC = getResources().getDimensionPixelOffset(a.e.sdk_ds80);
-        this.avD = getResources().getDimensionPixelOffset(a.e.sdk_fontsize34);
-        this.avE = getResources().getColor(a.d.sdk_color_727272);
-        this.avF = getResources().getDimensionPixelOffset(a.e.sdk_fontsize34);
-        this.avH = true;
-        this.avI = true;
-        this.avJ = -1;
+        this.awH = getResources().getDimensionPixelOffset(a.e.sdk_ds80);
+        this.awI = getResources().getDimensionPixelOffset(a.e.sdk_fontsize34);
+        this.awJ = getResources().getColor(a.d.sdk_color_727272);
+        this.awK = getResources().getDimensionPixelOffset(a.e.sdk_fontsize34);
+        this.awM = true;
+        this.awN = true;
+        this.awO = -1;
     }
 
     private void b(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_AlaLiveRoomPanelTabHost);
-        this.avC = obtainStyledAttributes.getDimension(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_height, getResources().getDimensionPixelOffset(a.e.sdk_ds80));
-        this.avD = obtainStyledAttributes.getDimension(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_textDefSize, getResources().getDimensionPixelOffset(a.e.sdk_fontsize34));
-        this.avE = obtainStyledAttributes.getColor(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_textDefColor, getResources().getColor(a.d.sdk_color_727272));
-        this.avF = obtainStyledAttributes.getDimension(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_textSelSize, getResources().getDimensionPixelOffset(a.e.sdk_fontsize34));
-        this.avG = obtainStyledAttributes.getColor(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_textSelColor, getResources().getColor(a.d.sdk_color_ff174f));
-        this.avH = obtainStyledAttributes.getBoolean(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_dividerShow, true);
-        this.avI = obtainStyledAttributes.getBoolean(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_indicatorShow, true);
-        this.avJ = obtainStyledAttributes.getInt(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_tabItemViewGravity, -1);
-        this.avK = obtainStyledAttributes.getColor(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_textSelStartColor, 0);
-        this.avL = obtainStyledAttributes.getColor(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_textSelEndColor, 0);
+        this.awH = obtainStyledAttributes.getDimension(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_height, getResources().getDimensionPixelOffset(a.e.sdk_ds80));
+        this.awI = obtainStyledAttributes.getDimension(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_textDefSize, getResources().getDimensionPixelOffset(a.e.sdk_fontsize34));
+        this.awJ = obtainStyledAttributes.getColor(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_textDefColor, getResources().getColor(a.d.sdk_color_727272));
+        this.awK = obtainStyledAttributes.getDimension(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_textSelSize, getResources().getDimensionPixelOffset(a.e.sdk_fontsize34));
+        this.awL = obtainStyledAttributes.getColor(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_textSelColor, getResources().getColor(a.d.sdk_color_ff174f));
+        this.awM = obtainStyledAttributes.getBoolean(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_dividerShow, true);
+        this.awN = obtainStyledAttributes.getBoolean(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_indicatorShow, true);
+        this.awO = obtainStyledAttributes.getInt(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_tabItemViewGravity, -1);
+        this.awP = obtainStyledAttributes.getColor(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_textSelStartColor, 0);
+        this.awQ = obtainStyledAttributes.getColor(a.k.sdk_AlaLiveRoomPanelTabHost_sdk_textSelEndColor, 0);
         obtainStyledAttributes.recycle();
     }
 
     private void init() {
         setOrientation(1);
-        this.avy = new FrameLayout(getContext());
-        this.avy.setClickable(true);
-        addView(this.avy, new LinearLayout.LayoutParams(-1, (int) this.avC));
-        this.avz = new LinearLayout(getContext());
+        this.awD = new FrameLayout(getContext());
+        this.awD.setClickable(true);
+        addView(this.awD, new LinearLayout.LayoutParams(-1, (int) this.awH));
+        this.awE = new LinearLayout(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
         layoutParams.setMargins(getResources().getDimensionPixelOffset(a.e.sdk_ds34), 0, getResources().getDimensionPixelOffset(a.e.sdk_ds34), 0);
-        this.avy.addView(this.avz, layoutParams);
-        this.avA = new CustomViewPager(getContext());
-        this.avA.setOnPageChangeListener(this);
-        addView(this.avA);
-        this.avB = new AlaAudienceLiveRoomBottomPanelAdapter();
-        this.avA.setAdapter(this.avB);
+        this.awD.addView(this.awE, layoutParams);
+        this.awF = new CustomViewPager(getContext());
+        this.awF.setOnPageChangeListener(this);
+        addView(this.awF);
+        this.awG = new AlaAudienceLiveRoomBottomPanelAdapter();
+        this.awF.setAdapter(this.awG);
         this.mRectPaint = new Paint();
         this.mRectPaint.setAntiAlias(true);
         this.mRectPaint.setStyle(Paint.Style.FILL);
     }
 
     public void setData(List<d> list, boolean z) {
-        this.avM = list;
-        r(list);
-        this.avB.setData(list);
+        this.awR = list;
+        t(list);
+        this.awG.setData(list);
         getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.live.bottompanel.AlaLiveRoomPanelTabHost.2
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 AlaLiveRoomPanelTabHost.this.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                AlaLiveRoomPanelTabHost.this.mCurrentTabIndex = AlaLiveRoomPanelTabHost.this.avA.getCurrentItem();
+                AlaLiveRoomPanelTabHost.this.mCurrentTabIndex = AlaLiveRoomPanelTabHost.this.awF.getCurrentItem();
             }
         });
         if (z) {
             int i = com.baidu.live.c.vf().getInt("ala_live_room_tab_id", -1);
-            if (com.baidu.live.c.vf().getBoolean("ala_person_ala_entrance_same_live_room", false) && i >= 0 && i < this.avB.getCount()) {
-                this.avA.setCurrentItem(i);
+            if (com.baidu.live.c.vf().getBoolean("ala_person_ala_entrance_same_live_room", false) && i >= 0 && i < this.awG.getCount()) {
+                this.awF.setCurrentItem(i);
                 com.baidu.live.c.vf().remove("ala_person_ala_entrance_same_live_room");
                 return;
             }
-            this.avA.setCurrentItem(0);
+            this.awF.setCurrentItem(0);
             return;
         }
-        this.avA.setCurrentItem(0);
+        this.awF.setCurrentItem(0);
     }
 
     public void setData(List<d> list) {
@@ -193,39 +193,39 @@ public class AlaLiveRoomPanelTabHost extends LinearLayout implements ViewPager.O
     }
 
     public void setCurrentIndex(int i) {
-        if (this.avA != null) {
-            this.avA.setCurrentItem(i);
+        if (this.awF != null) {
+            this.awF.setCurrentItem(i);
         }
         updateTabStyles();
     }
 
-    private void r(List<d> list) {
+    private void t(List<d> list) {
         for (d dVar : list) {
             c cVar = new c(getContext(), dVar.getTitle());
-            cVar.setOnClickListener(this.avQ);
+            cVar.setOnClickListener(this.awV);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             layoutParams.weight = 1.0f;
-            if (this.avJ != -1) {
-                layoutParams.gravity = this.avJ;
+            if (this.awO != -1) {
+                layoutParams.gravity = this.awO;
             }
-            a(cVar.vE(), false, this.mSkinType);
-            a((TextView) cVar.vE(), false);
-            this.avz.addView(cVar, layoutParams);
+            a(cVar.wa(), false, this.mSkinType);
+            a((TextView) cVar.wa(), false);
+            this.awE.addView(cVar, layoutParams);
         }
     }
 
     private void a(GradientTextView gradientTextView, boolean z, int i) {
         if (gradientTextView != null) {
             if (!z) {
-                if (this.avE == getResources().getColor(a.d.sdk_color_727272)) {
+                if (this.awJ == getResources().getColor(a.d.sdk_color_727272)) {
                     SkinManager.setViewTextColor(gradientTextView, a.d.sdk_color_727272, 1, i);
                 } else {
-                    gradientTextView.setGradientTextColor(this.avE, this.avE);
+                    gradientTextView.setGradientTextColor(this.awJ, this.awJ);
                 }
-            } else if (this.avK != 0 || this.avL != 0) {
-                gradientTextView.setGradientTextColor(this.avK, this.avL);
+            } else if (this.awP != 0 || this.awQ != 0) {
+                gradientTextView.setGradientTextColor(this.awP, this.awQ);
             } else {
-                gradientTextView.setGradientTextColor(this.avG, this.avG);
+                gradientTextView.setGradientTextColor(this.awL, this.awL);
             }
         }
     }
@@ -233,28 +233,28 @@ public class AlaLiveRoomPanelTabHost extends LinearLayout implements ViewPager.O
     private void a(TextView textView, boolean z) {
         if (textView != null) {
             if (!z) {
-                textView.setTextSize(0, this.avD);
+                textView.setTextSize(0, this.awI);
             } else {
-                textView.setTextSize(0, this.avF);
+                textView.setTextSize(0, this.awK);
             }
         }
     }
 
     private void updateTabStyles() {
-        int childCount = this.avz.getChildCount();
+        int childCount = this.awE.getChildCount();
         int i = 0;
         while (i < childCount) {
-            View childAt = this.avz.getChildAt(i);
+            View childAt = this.awE.getChildAt(i);
             if (childAt instanceof c) {
-                a(((c) childAt).vE(), i == this.mCurrentTabIndex, this.mSkinType);
-                a(((c) childAt).vE(), i == this.mCurrentTabIndex);
+                a(((c) childAt).wa(), i == this.mCurrentTabIndex, this.mSkinType);
+                a(((c) childAt).wa(), i == this.mCurrentTabIndex);
             }
             i++;
         }
     }
 
     public void setIndicatorWidthAuto(boolean z) {
-        this.avN = z;
+        this.awS = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -262,64 +262,64 @@ public class AlaLiveRoomPanelTabHost extends LinearLayout implements ViewPager.O
         float paddingLeft;
         float f;
         super.dispatchDraw(canvas);
-        if (!isInEditMode() && this.avz.getChildCount() != 0) {
-            int height = this.avy.getHeight();
+        if (!isInEditMode() && this.awE.getChildCount() != 0) {
+            int height = this.awD.getHeight();
             this.mRectPaint.setColor(this.mSelectorColor);
-            c cVar = (c) this.avz.getChildAt(this.mCurrentTabIndex);
-            if (this.avN) {
-                paddingLeft = this.avz.getLeft() + cVar.getLeft() + cVar.vE().getLeft();
-                f = paddingLeft + cVar.vE().getWidth();
-                if (this.mCurrentPositionOffset > 0.0f && this.mCurrentTabIndex < this.avz.getChildCount() - 1) {
-                    c cVar2 = (c) this.avz.getChildAt(this.mCurrentTabIndex + 1);
-                    float left = cVar2.getLeft() + cVar2.vE().getLeft() + this.avz.getLeft();
+            c cVar = (c) this.awE.getChildAt(this.mCurrentTabIndex);
+            if (this.awS) {
+                paddingLeft = this.awE.getLeft() + cVar.getLeft() + cVar.wa().getLeft();
+                f = paddingLeft + cVar.wa().getWidth();
+                if (this.mCurrentPositionOffset > 0.0f && this.mCurrentTabIndex < this.awE.getChildCount() - 1) {
+                    c cVar2 = (c) this.awE.getChildAt(this.mCurrentTabIndex + 1);
+                    float left = cVar2.getLeft() + cVar2.wa().getLeft() + this.awE.getLeft();
                     paddingLeft = (paddingLeft * (1.0f - this.mCurrentPositionOffset)) + (left * this.mCurrentPositionOffset);
-                    f = ((cVar2.vE().getWidth() + left) * this.mCurrentPositionOffset) + ((1.0f - this.mCurrentPositionOffset) * f);
+                    f = ((cVar2.wa().getWidth() + left) * this.mCurrentPositionOffset) + ((1.0f - this.mCurrentPositionOffset) * f);
                 }
             } else {
-                paddingLeft = cVar.getPaddingLeft() + this.avz.getLeft() + cVar.getLeft() + ((((cVar.getWidth() - cVar.getPaddingLeft()) - cVar.getPaddingRight()) - this.mIndicatorWidth) / 2);
+                paddingLeft = cVar.getPaddingLeft() + this.awE.getLeft() + cVar.getLeft() + ((((cVar.getWidth() - cVar.getPaddingLeft()) - cVar.getPaddingRight()) - this.mIndicatorWidth) / 2);
                 f = paddingLeft + this.mIndicatorWidth;
-                if (this.mCurrentPositionOffset > 0.0f && this.mCurrentTabIndex < this.avz.getChildCount() - 1) {
-                    View childAt = this.avz.getChildAt(this.mCurrentTabIndex + 1);
-                    float paddingLeft2 = childAt.getPaddingLeft() + childAt.getLeft() + this.avz.getLeft() + ((((childAt.getWidth() - childAt.getPaddingRight()) - childAt.getPaddingLeft()) - this.mIndicatorWidth) / 2);
+                if (this.mCurrentPositionOffset > 0.0f && this.mCurrentTabIndex < this.awE.getChildCount() - 1) {
+                    View childAt = this.awE.getChildAt(this.mCurrentTabIndex + 1);
+                    float paddingLeft2 = childAt.getPaddingLeft() + childAt.getLeft() + this.awE.getLeft() + ((((childAt.getWidth() - childAt.getPaddingRight()) - childAt.getPaddingLeft()) - this.mIndicatorWidth) / 2);
                     paddingLeft = (paddingLeft * (1.0f - this.mCurrentPositionOffset)) + (paddingLeft2 * this.mCurrentPositionOffset);
                     f = (this.mCurrentPositionOffset * (this.mIndicatorWidth + paddingLeft2)) + ((1.0f - this.mCurrentPositionOffset) * f);
                 }
             }
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                if (this.avI) {
+                if (this.awN) {
                     this.mRectPaint.setShader(new LinearGradient(paddingLeft, height - this.mIndicatorHeight, f, height, TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_hk_gradient_color_start), TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_hk_gradient_color_end), Shader.TileMode.CLAMP));
                     canvas.drawRect(paddingLeft, height - this.mIndicatorHeight, f, height, this.mRectPaint);
                 }
-                if (this.avH) {
+                if (this.awM) {
                     this.mRectPaint.setColor(this.mDividerColor);
                     this.mRectPaint.setShader(null);
-                    canvas.drawRect(0.0f, height - this.mDividerHeight, this.avy.getWidth(), height, this.mRectPaint);
+                    canvas.drawRect(0.0f, height - this.mDividerHeight, this.awD.getWidth(), height, this.mRectPaint);
                 }
             } else if (TbadkCoreApplication.getInst().isQuanmin()) {
-                if (this.avI) {
+                if (this.awN) {
                     this.mRectPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_qm_main_color));
                     canvas.drawRect(paddingLeft, height - this.mIndicatorHeight, f, height, this.mRectPaint);
                 }
-                if (this.avH) {
+                if (this.awM) {
                     this.mRectPaint.setColor(this.mDividerColor);
-                    canvas.drawRect(0.0f, height - this.mDividerHeight, this.avy.getWidth(), height, this.mRectPaint);
+                    canvas.drawRect(0.0f, height - this.mDividerHeight, this.awD.getWidth(), height, this.mRectPaint);
                 }
             } else if (TbadkCoreApplication.getInst().isTieba()) {
-                if (this.avI) {
+                if (this.awN) {
                     this.mRectPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_qm_main_color));
                     canvas.drawRect(paddingLeft, height - this.mIndicatorHeight, f, height, this.mRectPaint);
                 }
-                if (this.avH) {
+                if (this.awM) {
                     this.mRectPaint.setColor(this.mDividerColor);
-                    canvas.drawRect(0.0f, height - this.mDividerHeight, this.avy.getWidth(), height, this.mRectPaint);
+                    canvas.drawRect(0.0f, height - this.mDividerHeight, this.awD.getWidth(), height, this.mRectPaint);
                 }
             } else {
-                if (this.avI) {
+                if (this.awN) {
                     canvas.drawRect(paddingLeft, height - this.mIndicatorHeight, f, height, this.mRectPaint);
                 }
-                if (this.avH) {
+                if (this.awM) {
                     this.mRectPaint.setColor(this.mDividerColor);
-                    canvas.drawRect(0.0f, height - this.mDividerHeight, this.avy.getWidth(), height, this.mRectPaint);
+                    canvas.drawRect(0.0f, height - this.mDividerHeight, this.awD.getWidth(), height, this.mRectPaint);
                 }
             }
         }
@@ -327,13 +327,13 @@ public class AlaLiveRoomPanelTabHost extends LinearLayout implements ViewPager.O
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
-        if (this.avz.getChildCount() != 0 && !this.mIsClicked) {
+        if (this.awE.getChildCount() != 0 && !this.mIsClicked) {
             this.mCurrentTabIndex = i;
             this.mCurrentPositionOffset = f;
             updateTabStyles();
             invalidate();
-            if (this.avO != null) {
-                this.avO.a(this.mCurrentTabIndex, (d) ListUtils.getItem(this.avM, this.mCurrentTabIndex));
+            if (this.awT != null) {
+                this.awT.a(this.mCurrentTabIndex, (d) ListUtils.getItem(this.awR, this.mCurrentTabIndex));
             }
         }
     }
@@ -344,18 +344,18 @@ public class AlaLiveRoomPanelTabHost extends LinearLayout implements ViewPager.O
             this.mCurrentTabIndex = i;
             updateTabStyles();
             invalidate();
-            if (this.avO != null) {
-                this.avO.a(this.mCurrentTabIndex, (d) ListUtils.getItem(this.avM, this.mCurrentTabIndex));
+            if (this.awT != null) {
+                this.awT.a(this.mCurrentTabIndex, (d) ListUtils.getItem(this.awR, this.mCurrentTabIndex));
             }
         }
-        if (this.avP != null) {
-            this.avP.onPageSelected(i);
+        if (this.awU != null) {
+            this.awU.onPageSelected(i);
         }
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
-        if (this.avz.getChildCount() != 0 && this.avA != null && i == 0) {
+        if (this.awE.getChildCount() != 0 && this.awF != null && i == 0) {
             this.mCurrentPositionOffset = 0.0f;
             this.mIsClicked = false;
         }
@@ -365,32 +365,32 @@ public class AlaLiveRoomPanelTabHost extends LinearLayout implements ViewPager.O
         this.mSkinType = i;
         this.mSelectorColor = SkinManager.getColor(i, a.d.sdk_cp_cont_b);
         this.mDividerColor = SkinManager.getColor(i, a.d.sdk_cp_bg_line_c);
-        if (!ListUtils.isEmpty(this.avM)) {
-            for (d dVar : this.avM) {
+        if (!ListUtils.isEmpty(this.awR)) {
+            for (d dVar : this.awR) {
                 if (dVar != null) {
                     dVar.onChangeSkinType(i);
                 }
             }
         }
-        this.avB.onChangeSkinType(i);
+        this.awG.onChangeSkinType(i);
     }
 
     public void enterForeground() {
-        this.avB.vB();
+        this.awG.vX();
     }
 
     public void setOnPageChangeListener(a aVar) {
-        this.avO = aVar;
+        this.awT = aVar;
     }
 
     public void setPageSelectedListener(b bVar) {
-        this.avP = bVar;
+        this.awU = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends FrameLayout {
-        private GradientTextView avS;
+        private GradientTextView awX;
 
         public c(@NonNull Context context, String str) {
             super(context);
@@ -398,20 +398,20 @@ public class AlaLiveRoomPanelTabHost extends LinearLayout implements ViewPager.O
         }
 
         private void ep(String str) {
-            this.avS = new GradientTextView(getContext());
-            this.avS.setCheckStrEquals(false);
-            this.avS.setTextSize(0, getContext().getResources().getDimensionPixelSize(a.e.sdk_fontsize34));
-            if (this.avS != null) {
-                this.avS.getPaint().setFakeBoldText(true);
+            this.awX = new GradientTextView(getContext());
+            this.awX.setCheckStrEquals(false);
+            this.awX.setTextSize(0, getContext().getResources().getDimensionPixelSize(a.e.sdk_fontsize34));
+            if (this.awX != null) {
+                this.awX.getPaint().setFakeBoldText(true);
             }
-            this.avS.setText(str);
+            this.awX.setText(str);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            addView(this.avS, layoutParams);
+            addView(this.awX, layoutParams);
         }
 
-        public GradientTextView vE() {
-            return this.avS;
+        public GradientTextView wa() {
+            return this.awX;
         }
     }
 }

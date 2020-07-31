@@ -8,14 +8,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.h.f;
 import com.baidu.tieba.newlist.view.HotTopicListInfoItem;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newlist.b.b, a> {
-    private f<com.baidu.tieba.newlist.b.b> iqN;
+    private f<com.baidu.tieba.newlist.b.b> iwR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newlist.b.a.jUX);
-        this.iqN = new f<com.baidu.tieba.newlist.b.b>() { // from class: com.baidu.tieba.newlist.a.b.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newlist.b.a.kdw);
+        this.iwR = new f<com.baidu.tieba.newlist.b.b>() { // from class: com.baidu.tieba.newlist.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, com.baidu.tieba.newlist.b.b bVar, int i, long j) {
@@ -34,10 +34,10 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newlist.b
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cb */
+    /* renamed from: cc */
     public a b(ViewGroup viewGroup) {
         HotTopicListInfoItem hotTopicListInfoItem = new HotTopicListInfoItem(viewGroup.getContext());
-        hotTopicListInfoItem.setOnItemCoverListener(this.iqN);
+        hotTopicListInfoItem.setOnItemCoverListener(this.iwR);
         hotTopicListInfoItem.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
         a aVar = new a(hotTopicListInfoItem);
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -57,23 +57,23 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newlist.b
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public static class a extends ad.a {
-        private HotTopicListInfoItem jUW;
+        private HotTopicListInfoItem kdv;
 
         a(HotTopicListInfoItem hotTopicListInfoItem) {
             super(hotTopicListInfoItem);
-            this.jUW = hotTopicListInfoItem;
+            this.kdv = hotTopicListInfoItem;
         }
 
         void a(com.baidu.tieba.newlist.b.b bVar) {
             if (bVar != null) {
-                this.jUW.a(bVar);
+                this.kdv.a(bVar);
             }
         }
 
         void onChangeSkinType(int i) {
-            this.jUW.onChangeSkinType(i);
+            this.kdv.onChangeSkinType(i);
         }
     }
 }

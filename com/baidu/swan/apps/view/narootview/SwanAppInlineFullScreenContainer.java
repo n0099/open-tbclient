@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class SwanAppInlineFullScreenContainer extends FrameLayout {
     public SwanAppInlineFullScreenContainer(Context context) {
         super(context);

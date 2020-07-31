@@ -2,31 +2,31 @@ package com.baidu.tieba.im.updategroup;
 
 import android.view.View;
 import com.baidu.tbadk.core.dialog.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public interface a {
-    void EO();
+    void EV();
 
-    void Hu(String str);
+    void Ij(String str);
 
     void b(a.b bVar);
 
     void c(a.b bVar);
 
-    boolean coW();
+    boolean csB();
 
-    View cov();
+    View csL();
 
-    View cpg();
+    View csa();
 
-    void ctA();
+    String cxA();
 
-    int ctB();
+    View cxB();
 
-    boolean ctC();
+    void cxC();
 
-    String cty();
+    int cxD();
 
-    View ctz();
+    boolean cxE();
 
     long getGroupId();
 

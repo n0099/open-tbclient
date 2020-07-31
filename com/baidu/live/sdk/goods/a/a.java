@@ -6,25 +6,25 @@ import com.baidu.tbadk.TbConfig;
 import org.apache.http.HttpHost;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
-    public String bcA;
-    public int bcB;
-    public String bcC;
-    public String bcD;
-    public JSONObject bcn;
-    public String bco;
-    public String bcp;
-    public String bcq;
-    public String bcr;
-    public long bcs;
-    public long bct;
-    public String bcu;
-    public String bcv;
-    public int bcw;
-    public String bcx;
-    public String bcy;
-    public String bcz;
+    public JSONObject bcF;
+    public String bcG;
+    public String bcH;
+    public String bcI;
+    public String bcJ;
+    public long bcK;
+    public long bcL;
+    public String bcM;
+    public String bcN;
+    public int bcO;
+    public String bcP;
+    public String bcQ;
+    public String bcR;
+    public String bcS;
+    public int bcT;
+    public String bcU;
+    public String bcV;
     public String fromType;
     public String imageUrl;
     public String nid;
@@ -34,25 +34,25 @@ public class a {
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.bcn = jSONObject.optJSONObject("slink");
-            this.bco = jSONObject.optString("num_id");
-            this.bcp = jSONObject.optString("goods_id");
+            this.bcF = jSONObject.optJSONObject("slink");
+            this.bcG = jSONObject.optString("num_id");
+            this.bcH = jSONObject.optString("goods_id");
             this.title = jSONObject.optString("title");
-            this.bcq = jSONObject.optString("original_title");
+            this.bcI = jSONObject.optString("original_title");
             this.price = jSONObject.optString("price");
-            this.bcr = jSONObject.optString(TbConfig.IMAGE_CACHE_DIR_NAME);
-            this.bcs = jSONObject.optLong("v_start_time");
-            this.bct = jSONObject.optLong("v_end_time");
+            this.bcJ = jSONObject.optString(TbConfig.IMAGE_CACHE_DIR_NAME);
+            this.bcK = jSONObject.optLong("v_start_time");
+            this.bcL = jSONObject.optLong("v_end_time");
             this.fromType = jSONObject.optString("from_type");
             this.platform = jSONObject.optString("platform");
             this.nid = jSONObject.optString("nid");
-            this.bcu = jSONObject.optString("c_status");
-            this.bcv = jSONObject.optString("b_status");
-            this.bcw = jSONObject.optInt("index_id");
-            this.bcx = jSONObject.optString("reserve_price");
-            this.bcy = jSONObject.optString("profit");
-            this.bcz = jSONObject.optString("sale_num");
-            this.bcA = jSONObject.optString("coupon");
+            this.bcM = jSONObject.optString("c_status");
+            this.bcN = jSONObject.optString("b_status");
+            this.bcO = jSONObject.optInt("index_id");
+            this.bcP = jSONObject.optString("reserve_price");
+            this.bcQ = jSONObject.optString("profit");
+            this.bcR = jSONObject.optString("sale_num");
+            this.bcS = jSONObject.optString("coupon");
         }
     }
 
@@ -62,11 +62,11 @@ public class a {
             return null;
         }
         a aVar = new a();
-        aVar.bcn = jSONObject.optJSONObject("zhibo_url");
-        aVar.bcp = jSONObject.optString("gid");
+        aVar.bcF = jSONObject.optJSONObject("zhibo_url");
+        aVar.bcH = jSONObject.optString("gid");
         aVar.price = jSONObject.optString("price");
-        aVar.bcB = jSONObject.optInt("goodsStatus");
-        aVar.bcA = jSONObject.optString("coupon");
+        aVar.bcT = jSONObject.optInt("goodsStatus");
+        aVar.bcS = jSONObject.optString("coupon");
         aVar.platform = jSONObject.optString("platform");
         aVar.title = jSONObject.optString("title");
         aVar.fromType = jSONObject.optString("from_type");
@@ -79,17 +79,17 @@ public class a {
                 aVar.imageUrl = optString;
             }
         }
-        aVar.bcz = jSONObject.optString("sale_num");
+        aVar.bcR = jSONObject.optString("sale_num");
         JSONObject optJSONObject2 = jSONObject.optJSONObject("zhibo_url");
         if (optJSONObject2 != null) {
-            aVar.bcD = optJSONObject2.optString("na");
-            aVar.bcC = optJSONObject2.optString("h5");
+            aVar.bcV = optJSONObject2.optString("na");
+            aVar.bcU = optJSONObject2.optString("h5");
             return aVar;
         }
         return aVar;
     }
 
-    public boolean GU() {
-        return (TextUtils.isEmpty(this.bcp) || TextUtils.equals("0", this.bcp)) ? false : true;
+    public boolean Ha() {
+        return (TextUtils.isEmpty(this.bcH) || TextUtils.equals("0", this.bcH)) ? false : true;
     }
 }

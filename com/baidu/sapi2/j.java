@@ -5,7 +5,7 @@ import com.baidu.sapi2.callback.RegisterUserFaceIDCallback;
 import com.baidu.sapi2.dto.FaceIDRegDTO;
 import com.baidu.sapi2.result.SapiResult;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class j extends AuthWidgetCallback {
     final /* synthetic */ RegisterUserFaceIDCallback a;
     final /* synthetic */ FaceIDRegDTO b;

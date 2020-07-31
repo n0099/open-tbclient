@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alasquare.special_forum.data;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public long end_time;

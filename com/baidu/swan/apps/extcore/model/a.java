@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.extcore.model;
 
 import android.support.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a {
-    public String cio;
+    public String ckm;
     @Nullable
     public String sign;
     public String versionName;

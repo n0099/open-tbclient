@@ -8,38 +8,38 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class q extends h {
     private static final int TOP_MARGIN = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-    private ItemCardView aeB;
+    private ItemCardView aer;
 
     public q(Context context) {
         super(context);
-        this.aeB = new ItemCardView(context);
+        this.aer = new ItemCardView(context);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.aeB;
+        return this.aer;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.n
     /* renamed from: b */
     public void D(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport != null && absThreadDataSupport.aPS() != null && absThreadDataSupport.aPS().aUu() != null) {
-            this.aeB.setVisibility(0);
-            this.aeB.setData(absThreadDataSupport.aPS().aUu(), 13);
+        if (absThreadDataSupport != null && absThreadDataSupport.aTN() != null && absThreadDataSupport.aTN().aYo() != null) {
+            this.aer.setVisibility(0);
+            this.aer.setData(absThreadDataSupport.aTN().aYo(), 13);
             return;
         }
-        this.aeB.setVisibility(8);
+        this.aer.setVisibility(8);
     }
 
-    public void rU() {
+    public void rV() {
         setTopMargin(TOP_MARGIN);
-        bg(0);
-        a(this.aeB, TOP_MARGIN, 0);
+        bi(0);
+        a(this.aer, TOP_MARGIN, 0);
     }
 
     private void a(View view, int i, int i2) {
@@ -55,6 +55,6 @@ public class q extends h {
 
     @Override // com.baidu.card.o
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.aeB.onChangeSkinType();
+        this.aer.onChangeSkinType();
     }
 }

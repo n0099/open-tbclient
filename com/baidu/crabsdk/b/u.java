@@ -11,28 +11,28 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public final class u {
-    private static com.baidu.crabsdk.c.b<List> amE = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
+    private static com.baidu.crabsdk.c.b<List> amz = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
     private static String bv = "";
     private static String bc = "";
-    private static int amF = 0;
-    private static int amG = 0;
+    private static int amA = 0;
+    private static int amB = 0;
 
-    private static WebView H(View view) {
+    private static WebView J(View view) {
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, amF, amG)))) {
+                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, amA, amB)))) {
                         continue;
                     } else if (childAt instanceof WebView) {
                         return (WebView) childAt;
                     } else {
-                        WebView H = H(childAt);
-                        if (H != null) {
-                            return H;
+                        WebView J = J(childAt);
+                        if (J != null) {
+                            return J;
                         }
                     }
                 }
@@ -42,7 +42,7 @@ public final class u {
     }
 
     public static String tm() {
-        return amE.size() > 0 ? new JSONArray((Collection) amE).toString() : "";
+        return amz.size() > 0 ? new JSONArray((Collection) amz).toString() : "";
     }
 
     public static boolean tn() {
@@ -55,15 +55,15 @@ public final class u {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void urlRecordEvent(MotionEvent motionEvent, Activity activity) {
-        WebView H;
+        WebView J;
         if (activity == null) {
             return;
         }
-        if (amF == 0 || amG == 0) {
+        if (amA == 0 || amB == 0) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            amG = displayMetrics.heightPixels;
-            amF = displayMetrics.widthPixels;
+            amB = displayMetrics.heightPixels;
+            amA = displayMetrics.widthPixels;
         }
         switch (motionEvent.getAction()) {
             case 0:
@@ -71,15 +71,15 @@ public final class u {
                 if (!name.equals(bc)) {
                     com.baidu.crabsdk.c.a.v("***** !tempName.equals(activityName) *****");
                     bc = name;
-                    amE.clear();
+                    amz.clear();
                 }
                 if (activity != null) {
                     try {
                         View decorView = activity.getWindow().getDecorView();
                         if (decorView != null) {
-                            H = H(decorView);
-                            if (H == null) {
-                                String url = H.getUrl();
+                            J = J(decorView);
+                            if (J == null) {
+                                String url = J.getUrl();
                                 if (url.equals(bv)) {
                                     return;
                                 }
@@ -87,10 +87,10 @@ public final class u {
                                 bv = url;
                                 ArrayList arrayList = new ArrayList();
                                 arrayList.add(Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
-                                arrayList.add(H.getTitle());
+                                arrayList.add(J.getTitle());
                                 arrayList.add(bv);
-                                com.baidu.crabsdk.c.a.v("title:" + H.getTitle() + "; url:" + bv);
-                                amE.add(arrayList);
+                                com.baidu.crabsdk.c.a.v("title:" + J.getTitle() + "; url:" + bv);
+                                amz.add(arrayList);
                                 com.baidu.crabsdk.c.a.v("###### jsonArray.toString() : " + tm());
                                 return;
                             }
@@ -101,8 +101,8 @@ public final class u {
                         return;
                     }
                 }
-                H = null;
-                if (H == null) {
+                J = null;
+                if (J == null) {
                 }
             default:
                 return;

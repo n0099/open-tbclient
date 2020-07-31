@@ -8,18 +8,18 @@ import com.baidu.card.view.MutiImgTextLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class x extends b<AbsThreadDataSupport> {
-    private MutiImgTextLayout aeX;
-    private AbsThreadDataSupport aea;
+    private AbsThreadDataSupport adQ;
+    private MutiImgTextLayout aeN;
     private String mFrom;
     private int mSkinType;
 
     public x(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.aeX = new MutiImgTextLayout(context);
-        this.aeX.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
+        this.aeN = new MutiImgTextLayout(context);
+        this.aeN.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
     }
 
     public void setFrom(String str) {
@@ -29,21 +29,21 @@ public class x extends b<AbsThreadDataSupport> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.aeX;
+        return this.aeN;
     }
 
     @Override // com.baidu.card.b
     public void setOnCardSubClickListener(com.baidu.tieba.card.aa<AbsThreadDataSupport> aaVar) {
-        this.aeX.setSubClickListener(aaVar);
+        this.aeN.setSubClickListener(aaVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.n
     /* renamed from: b */
     public void D(AbsThreadDataSupport absThreadDataSupport) {
-        this.aea = absThreadDataSupport;
-        this.aeX.setFrom(this.mFrom);
-        this.aeX.D(absThreadDataSupport);
+        this.adQ = absThreadDataSupport;
+        this.aeN.setFrom(this.mFrom);
+        this.aeN.D(absThreadDataSupport);
     }
 
     @Override // com.baidu.card.o
@@ -55,14 +55,14 @@ public class x extends b<AbsThreadDataSupport> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
-    public void rI() {
+    public void rK() {
         a(1, new a.b() { // from class: com.baidu.card.x.1
             @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0098a c0098a) {
-                if (x.this.aea != null && x.this.aea.aPS() != null) {
-                    com.baidu.tieba.card.m.DO(x.this.aea.aPS().getId());
-                    com.baidu.tieba.card.m.a(x.this.aeX.mTitle, x.this.aea.aPS().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-                    com.baidu.tieba.card.m.a(x.this.aeX.aeA, x.this.aea.aPS().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+            public boolean a(a.C0096a c0096a) {
+                if (x.this.adQ != null && x.this.adQ.aTN() != null) {
+                    com.baidu.tieba.card.m.Ez(x.this.adQ.aTN().getId());
+                    com.baidu.tieba.card.m.a(x.this.aeN.mTitle, x.this.adQ.aTN().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
+                    com.baidu.tieba.card.m.a(x.this.aeN.aeq, x.this.adQ.aTN().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
                 }
                 return false;
             }
@@ -70,10 +70,10 @@ public class x extends b<AbsThreadDataSupport> {
     }
 
     public void setFromCDN(boolean z) {
-        this.aeX.setFromCDN(z);
+        this.aeN.setFromCDN(z);
     }
 
     public void setNeedFrsTabName(boolean z) {
-        this.aeX.setNeedFrsTabName(z);
+        this.aeN.setNeedFrsTabName(z);
     }
 }

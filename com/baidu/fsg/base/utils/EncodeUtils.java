@@ -3,7 +3,7 @@ package com.baidu.fsg.base.utils;
 import android.util.Base64;
 import java.lang.Character;
 import java.net.URLEncoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public final class EncodeUtils {
     private EncodeUtils() {
     }

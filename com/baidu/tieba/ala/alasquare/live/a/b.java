@@ -9,56 +9,56 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.subtablist.c.i;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private final List<com.baidu.adp.widget.ListView.a> aUP = new ArrayList();
-    private e dPR;
-    private BdTypeListView fml;
-    private a fmm;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.a fmn;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.b fmo;
+    private final List<com.baidu.adp.widget.ListView.a> aWf = new ArrayList();
+    private e dWk;
+    private BdTypeListView frv;
+    private a frw;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.a frx;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.b fry;
 
     public b(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.dPR = tbPageContext;
-        this.fml = bdTypeListView;
-        Dz();
+        this.dWk = tbPageContext;
+        this.frv = bdTypeListView;
+        DS();
     }
 
-    private void Dz() {
-        this.fmo = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.dPR);
-        this.fmo.setFrom(1);
-        this.fmn = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.dPR);
-        this.fmn.setFrom(1);
-        this.fmm = new a((TbPageContext) this.dPR, com.baidu.tieba.ala.alasquare.live.b.b.fms);
-        this.aUP.add(this.fmo);
-        this.aUP.add(this.fmn);
-        this.aUP.add(this.fmm);
-        this.fml.addAdapters(this.aUP);
+    private void DS() {
+        this.fry = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.dWk);
+        this.fry.setFrom(1);
+        this.frx = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.dWk);
+        this.frx.setFrom(1);
+        this.frw = new a((TbPageContext) this.dWk, com.baidu.tieba.ala.alasquare.live.b.b.frC);
+        this.aWf.add(this.fry);
+        this.aWf.add(this.frx);
+        this.aWf.add(this.frw);
+        this.frv.addAdapters(this.aWf);
     }
 
     public void setDatas(List<q> list) {
-        if (this.fml != null) {
-            this.fml.setData(list);
+        if (this.frv != null) {
+            this.frv.setData(list);
         }
     }
 
-    public void pY(int i) {
-        this.fmo.pY(i);
-        this.fmn.pY(i);
+    public void qn(int i) {
+        this.fry.qn(i);
+        this.frx.qn(i);
     }
 
     public void notifyDataSetChanged() {
-        if (this.fml != null && (this.fml.getAdapter() instanceof BaseAdapter)) {
-            this.fml.getAdapter().notifyDataSetChanged();
+        if (this.frv != null && (this.frv.getAdapter() instanceof BaseAdapter)) {
+            this.frv.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.fmm.a(iAlaSquareTabController);
+        this.frw.a(iAlaSquareTabController);
     }
 
     public void a(i iVar) {
-        this.fmo.b(iVar);
-        this.fmn.b(iVar);
+        this.fry.b(iVar);
+        this.frx.b(iVar);
     }
 }

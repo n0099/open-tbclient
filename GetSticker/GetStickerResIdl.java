@@ -3,7 +3,7 @@ package GetSticker;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import tbclient.Error;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class GetStickerResIdl extends Message {
     @ProtoField(tag = 2)
     public final DataRes data;
@@ -21,7 +21,7 @@ public final class GetStickerResIdl extends Message {
         this.data = builder.data;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder extends Message.Builder<GetStickerResIdl> {
         public DataRes data;
         public Error error;

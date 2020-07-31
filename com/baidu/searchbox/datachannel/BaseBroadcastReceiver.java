@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Intent;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes12.dex */
 public abstract class BaseBroadcastReceiver extends BroadcastReceiver {
     public String mAction;
     public String mHost;

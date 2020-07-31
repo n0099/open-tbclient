@@ -4,11 +4,11 @@ import com.baidu.live.data.AlaLiveUserInfoData;
 import com.baidu.live.data.k;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private AlaLiveUserInfoData axp;
-    private k fAE;
-    private long fAF;
+    private AlaLiveUserInfoData ayC;
+    private k fFO;
+    private long fFP;
     private long mAudienceCount;
 
     public OnlineListHttpResponseMessage() {
@@ -22,31 +22,31 @@ public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.mAudienceCount = optJSONObject.optLong("audience_count");
             if (optJSONObject.optJSONArray("initmacy_rank") != null) {
-                this.fAE = new k();
-                this.fAE.parserJson(optJSONObject);
+                this.fFO = new k();
+                this.fFO.parserJson(optJSONObject);
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("current_user_info");
             if (optJSONObject2 != null) {
-                this.axp = new AlaLiveUserInfoData();
-                this.axp.parserJson(optJSONObject2);
+                this.ayC = new AlaLiveUserInfoData();
+                this.ayC.parserJson(optJSONObject2);
             }
-            this.fAF = optJSONObject.optLong("live_total_price");
+            this.fFP = optJSONObject.optLong("live_total_price");
         }
     }
 
-    public long bwd() {
+    public long bzr() {
         return this.mAudienceCount;
     }
 
-    public k bwe() {
-        return this.fAE;
+    public k bzs() {
+        return this.fFO;
     }
 
-    public AlaLiveUserInfoData bwf() {
-        return this.axp;
+    public AlaLiveUserInfoData bzt() {
+        return this.ayC;
     }
 
-    public long bwg() {
-        return this.fAF;
+    public long bzu() {
+        return this.fFP;
     }
 }

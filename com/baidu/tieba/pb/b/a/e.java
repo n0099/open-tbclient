@@ -3,26 +3,26 @@ package com.baidu.tieba.pb.b.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.af;
+import com.baidu.tbadk.core.util.ag;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes10.dex */
-public class e implements af, d {
+/* loaded from: classes17.dex */
+public class e implements ag, d {
     private int height;
-    private ArrayList<PreLoadImageInfo> kvo;
-    public String kvp;
+    private ArrayList<PreLoadImageInfo> kEh;
+    public String kEi;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.kvo = new ArrayList<>(1);
+            this.kEh = new ArrayList<>(1);
             this.src = excContent.src;
-            this.kvp = excContent.bsize;
-            if (this.kvp != null) {
+            this.kEi = excContent.bsize;
+            if (this.kEi != null) {
                 try {
-                    String[] split = this.kvp.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = this.kEi.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     this.width = com.baidu.adp.lib.f.b.toInt(split[0], 0);
                     this.height = com.baidu.adp.lib.f.b.toInt(split[1], 0);
                 } catch (Exception e) {
@@ -45,7 +45,7 @@ public class e implements af, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.kvo.add(preLoadImageInfo);
+            this.kEh.add(preLoadImageInfo);
         }
     }
 
@@ -53,7 +53,7 @@ public class e implements af, d {
         return this.src;
     }
 
-    public int BP(int i) {
+    public int Cp(int i) {
         if (i <= 0) {
             return 0;
         }
@@ -65,8 +65,8 @@ public class e implements af, d {
         return 3;
     }
 
-    @Override // com.baidu.tbadk.core.util.af
+    @Override // com.baidu.tbadk.core.util.ag
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.kvo;
+        return this.kEh;
     }
 }

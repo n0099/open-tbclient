@@ -179,7 +179,7 @@ public class BindStateManager {
     }
 
     private static void syncPushInfo(Context context, String str, String str2, String str3) {
-        if (!LoginManager.getInstance(context).isIMLogined()) {
+        if (!LoginManager.getInstance(context).isIMLogined() || AccountManager.isCuidLogin(context)) {
             LogUtils.d(TAG, "syncPushInfo methodId :190 by intercept because unlogin ");
             return;
         }

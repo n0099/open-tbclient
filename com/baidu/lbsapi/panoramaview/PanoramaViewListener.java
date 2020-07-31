@@ -1,5 +1,5 @@
 package com.baidu.lbsapi.panoramaview;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface PanoramaViewListener {
     void onCustomMarkerClick(String str);
 

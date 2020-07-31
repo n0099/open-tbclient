@@ -5,17 +5,17 @@ import android.view.View;
 import com.baidu.card.view.MutiImgSingleHorizontalLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class v extends b<AbsThreadDataSupport> {
-    private MutiImgSingleHorizontalLayout aeU;
-    private AbsThreadDataSupport aea;
+    private AbsThreadDataSupport adQ;
+    private MutiImgSingleHorizontalLayout aeK;
     private String mFrom;
     private int mSkinType;
 
     public v(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.aeU = new MutiImgSingleHorizontalLayout(context);
+        this.aeK = new MutiImgSingleHorizontalLayout(context);
     }
 
     public void setFrom(String str) {
@@ -25,20 +25,20 @@ public class v extends b<AbsThreadDataSupport> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.aeU;
+        return this.aeK;
     }
 
     @Override // com.baidu.card.b
     public void setOnCardSubClickListener(com.baidu.tieba.card.aa<AbsThreadDataSupport> aaVar) {
-        this.aeU.setSubClickListener(aaVar);
+        this.aeK.setSubClickListener(aaVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.n
     /* renamed from: b */
     public void D(AbsThreadDataSupport absThreadDataSupport) {
-        this.aea = absThreadDataSupport;
-        this.aeU.D(absThreadDataSupport);
+        this.adQ = absThreadDataSupport;
+        this.aeK.D(absThreadDataSupport);
     }
 
     @Override // com.baidu.card.o
@@ -50,10 +50,10 @@ public class v extends b<AbsThreadDataSupport> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
-    public void rI() {
+    public void rK() {
     }
 
     public void setFromCDN(boolean z) {
-        this.aeU.setFromCDN(z);
+        this.aeK.setFromCDN(z);
     }
 }

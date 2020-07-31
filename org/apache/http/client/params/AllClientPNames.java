@@ -8,6 +8,6 @@ import org.apache.http.cookie.params.CookieSpecPNames;
 import org.apache.http.params.CoreConnectionPNames;
 import org.apache.http.params.CoreProtocolPNames;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public interface AllClientPNames extends AuthPNames, ClientPNames, ConnConnectionPNames, ConnManagerPNames, ConnRoutePNames, CookieSpecPNames, CoreConnectionPNames, CoreProtocolPNames {
 }

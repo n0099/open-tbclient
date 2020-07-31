@@ -8,25 +8,25 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.c.s;
+import com.baidu.live.c.t;
 import com.baidu.live.data.AlaLiveWishListData;
 import com.baidu.live.data.k;
 import com.baidu.live.data.q;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.widget.ScrollTextView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements com.baidu.live.i.a, ScrollTextView.c {
-    private q aLQ;
-    private ViewGroup fIb;
-    private ViewGroup.LayoutParams fYb;
-    private ViewGroup gvx;
-    protected WishListEntryView gvy;
+    private q avf;
+    private ViewGroup fNw;
+    private ViewGroup gAU;
+    protected WishListEntryView gAV;
+    private ViewGroup.LayoutParams gdi;
     private Context mContext;
-    private BdUniqueId fAz = BdUniqueId.gen();
-    private boolean fAa = true;
-    private boolean gvz = true;
-    private boolean gvA = true;
+    private BdUniqueId fFJ = BdUniqueId.gen();
+    private boolean fFh = true;
+    private boolean gAW = true;
+    private boolean gAX = true;
 
     public a(Context context) {
         this.mContext = context;
@@ -36,54 +36,54 @@ public class a implements com.baidu.live.i.a, ScrollTextView.c {
     public void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         if (viewGroup != null) {
             reset(true);
-            this.fIb = viewGroup;
-            this.fYb = layoutParams;
-            bvX();
+            this.fNw = viewGroup;
+            this.gdi = layoutParams;
+            bzi();
         }
     }
 
-    private void bvX() {
-        this.gvx = new FrameLayout(this.fIb.getContext());
-        this.gvx.setBackgroundColor(0);
-        this.fIb.addView(this.gvx, this.fYb);
+    private void bzi() {
+        this.gAU = new FrameLayout(this.fNw.getContext());
+        this.gAU.setBackgroundColor(0);
+        this.fNw.addView(this.gAU, this.gdi);
     }
 
     @Override // com.baidu.live.i.a
     public void a(q qVar) {
         if (qVar != null && qVar.mLiveInfo != null) {
-            this.aLQ = qVar;
-            if (this.gvx == null || this.fIb.indexOfChild(this.gvx) < 0) {
-                bvX();
-                this.gvx.setVisibility(this.fAa ? 0 : 8);
+            this.avf = qVar;
+            if (this.gAU == null || this.fNw.indexOfChild(this.gAU) < 0) {
+                bzi();
+                this.gAU.setVisibility(this.fFh ? 0 : 8);
             }
-            if (this.gvy == null || (this.gvx != null && this.gvx.indexOfChild(this.gvy) < 0)) {
-                this.gvy = new WishListEntryView(this.gvx.getContext());
-                this.gvx.addView(this.gvy, new FrameLayout.LayoutParams(-2, -2));
-                this.gvy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.livewishlist.a.1
+            if (this.gAV == null || (this.gAU != null && this.gAU.indexOfChild(this.gAV) < 0)) {
+                this.gAV = new WishListEntryView(this.gAU.getContext());
+                this.gAU.addView(this.gAV, new FrameLayout.LayoutParams(-2, -2));
+                this.gAV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.livewishlist.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.Co();
+                        a.this.CQ();
                     }
                 });
-                this.gvy.setOnScrollTextViewChangeListener(this);
+                this.gAV.setOnScrollTextViewChangeListener(this);
             }
-            if (this.gvA) {
-                if (this.gvy != null) {
-                    this.gvy.Z(this.aLQ.axL);
+            if (this.gAX) {
+                if (this.gAV != null) {
+                    this.gAV.aa(this.avf.ayY);
                 }
-                this.gvA = false;
+                this.gAX = false;
             }
-            if (ListUtils.isEmpty(this.aLQ.axL) || this.aLQ.axL.size() == 1) {
-                this.gvA = true;
+            if (ListUtils.isEmpty(this.avf.ayY) || this.avf.ayY.size() == 1) {
+                this.gAX = true;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913151, qVar));
         }
     }
 
     @Override // com.baidu.live.i.a
-    public void Co() {
-        if (this.aLQ != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new s(this.mContext, this.aLQ, String.valueOf(this.aLQ.mLiveInfo.live_id), String.valueOf(this.aLQ.axp.userId), this.gvz)));
+    public void CQ() {
+        if (this.avf != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new t(this.mContext, this.avf, String.valueOf(this.avf.mLiveInfo.live_id), String.valueOf(this.avf.ayC.userId), this.gAW)));
         }
     }
 
@@ -92,45 +92,45 @@ public class a implements com.baidu.live.i.a, ScrollTextView.c {
     }
 
     @Override // com.baidu.live.i.a
-    public void bC(boolean z) {
-        this.gvz = z;
+    public void bF(boolean z) {
+        this.gAW = z;
     }
 
     @Override // com.baidu.live.i.a
     public void setCanVisible(boolean z) {
-        if (this.gvy != null && this.gvy.getView() != null) {
-            this.gvy.getView().setVisibility(z ? 0 : 8);
+        if (this.gAV != null && this.gAV.getView() != null) {
+            this.gAV.getView().setVisibility(z ? 0 : 8);
         }
     }
 
     @Override // com.baidu.tieba.ala.widget.ScrollTextView.c
     public void a(AlaLiveWishListData alaLiveWishListData, int i) {
-        if (this.gvy != null && this.aLQ != null) {
-            this.gvy.Y(this.aLQ.axL);
+        if (this.gAV != null && this.avf != null) {
+            this.gAV.Z(this.avf.ayY);
         }
     }
 
     @Override // com.baidu.live.i.a
-    public void Cl() {
-        jx(true);
+    public void CN() {
+        kb(true);
     }
 
     @Override // com.baidu.live.i.a
     public void onDestroy() {
-        jx(true);
+        kb(true);
     }
 
     private void reset(boolean z) {
-        this.fAa = true;
-        jx(z);
+        this.fFh = true;
+        kb(z);
     }
 
-    private void jx(boolean z) {
-        if (this.gvy != null && (this.gvy.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gvy.getParent()).removeView(this.gvy);
+    private void kb(boolean z) {
+        if (this.gAV != null && (this.gAV.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gAV.getParent()).removeView(this.gAV);
         }
-        if (z && this.gvx != null && (this.gvx.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gvx.getParent()).removeView(this.gvx);
+        if (z && this.gAU != null && (this.gAU.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gAU.getParent()).removeView(this.gAU);
         }
     }
 }

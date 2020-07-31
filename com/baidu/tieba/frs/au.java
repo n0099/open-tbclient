@@ -1,5 +1,5 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public interface au {
     String getForumId();
 

@@ -9,7 +9,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HorizontalMarqueeView extends HorizontalScrollView {
     protected Context a;
     protected int b;
@@ -25,8 +25,8 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
     protected int l;
     protected boolean m;
     protected boolean n;
-    protected ArrayList<Integer> ngl;
-    protected ArrayList<Integer> nsM;
+    protected ArrayList<Integer> nBw;
+    protected ArrayList<Integer> noX;
     protected int o;
     protected int p;
     protected ArrayList<View> q;
@@ -51,8 +51,8 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
         this.n = false;
         this.q = new ArrayList<>();
         this.r = new ArrayList<>();
-        this.ngl = new ArrayList<>();
-        this.nsM = new ArrayList<>();
+        this.noX = new ArrayList<>();
+        this.nBw = new ArrayList<>();
         this.a = context;
         h();
     }
@@ -71,7 +71,7 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
         return linearLayout;
     }
 
-    public void n(View view, int i, int i2) {
+    public void p(View view, int i, int i2) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(i, 0, i2, 0);
         view.setLayoutParams(layoutParams);
@@ -79,16 +79,16 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
         this.q.add(view);
         view.measure(0, 0);
         this.r.add(Integer.valueOf(view.getMeasuredWidth()));
-        this.ngl.add(Integer.valueOf(i));
-        this.nsM.add(Integer.valueOf(i2));
+        this.noX.add(Integer.valueOf(i));
+        this.nBw.add(Integer.valueOf(i2));
     }
 
     public void a() {
         this.c.removeAllViews();
         this.q.clear();
         this.r.clear();
-        this.ngl.clear();
-        this.nsM.clear();
+        this.noX.clear();
+        this.nBw.clear();
     }
 
     public void setScrollDirection(int i) {

@@ -6,7 +6,7 @@ import android.animation.ValueAnimator;
 import android.os.Build;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public abstract class a extends ValueAnimator {
     private final Set<ValueAnimator.AnimatorUpdateListener> Gd = new CopyOnWriteArraySet();
     private final Set<Animator.AnimatorListener> Ge = new CopyOnWriteArraySet();

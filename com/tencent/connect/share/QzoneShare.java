@@ -27,7 +27,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class QzoneShare extends BaseApi {
     public static final String SHARE_TO_QQ_APP_NAME = "appName";
     public static final String SHARE_TO_QQ_AUDIO_URL = "audio_url";
@@ -177,7 +177,7 @@ public class QzoneShare extends BaseApi {
                 bundle.putString("title", j.a(str, 200, (String) null, (String) null));
             }
             if (!j.e(string2) && string2.length() > 600) {
-                bundle.putString("summary", j.a(string2, (int) com.baidu.down.utils.Constants.HTTP_DNS_INAVAILABLE_TIME, (String) null, (String) null));
+                bundle.putString("summary", j.a(string2, 600, (String) null, (String) null));
             }
         }
         if (!TextUtils.isEmpty(a)) {

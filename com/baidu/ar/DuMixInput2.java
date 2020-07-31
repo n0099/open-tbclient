@@ -1,7 +1,7 @@
 package com.baidu.ar;
 
 import com.baidu.ar.arrender.Texture;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class DuMixInput2 extends DuMixInput {
     private Texture bf;
     private boolean bg;

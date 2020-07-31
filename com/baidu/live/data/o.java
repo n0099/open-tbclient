@@ -3,41 +3,41 @@ package com.baidu.live.data;
 import com.baidu.android.imsdk.internal.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class o {
     public a mCastIds;
     public long mRoomId;
     public String tbs;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
-        public String axB;
-        public String axC;
-        public String axD;
-        public String axE;
-        public String axF;
-        public String axG;
+        public String ayO;
+        public String ayP;
+        public String ayQ;
+        public String ayR;
+        public String ayS;
+        public String ayT;
 
         public void parseJson(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.axB = jSONObject.optString("chat_mcast_id");
-                this.axC = jSONObject.optString("ensure_mcast_id");
-                this.axD = jSONObject.optString("chat_msg_hls_url");
-                this.axE = jSONObject.optString("host_msg_hls_url");
-                this.axF = jSONObject.optString("reliable_msg_hls_url");
-                this.axG = jSONObject.optString("msg_hls_pull_internal_in_second");
+                this.ayO = jSONObject.optString("chat_mcast_id");
+                this.ayP = jSONObject.optString("ensure_mcast_id");
+                this.ayQ = jSONObject.optString("chat_msg_hls_url");
+                this.ayR = jSONObject.optString("host_msg_hls_url");
+                this.ayS = jSONObject.optString("reliable_msg_hls_url");
+                this.ayT = jSONObject.optString("msg_hls_pull_internal_in_second");
             }
         }
 
         public JSONObject toJsonObject() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("chat_mcast_id", this.axB);
-                jSONObject.put("ensure_mcast_id", this.axC);
-                jSONObject.put("chat_msg_hls_url", this.axD);
-                jSONObject.put("host_msg_hls_url", this.axE);
-                jSONObject.put("reliable_msg_hls_url", this.axF);
-                jSONObject.put("msg_hls_pull_internal_in_second", this.axG);
+                jSONObject.put("chat_mcast_id", this.ayO);
+                jSONObject.put("ensure_mcast_id", this.ayP);
+                jSONObject.put("chat_msg_hls_url", this.ayQ);
+                jSONObject.put("host_msg_hls_url", this.ayR);
+                jSONObject.put("reliable_msg_hls_url", this.ayS);
+                jSONObject.put("msg_hls_pull_internal_in_second", this.ayT);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

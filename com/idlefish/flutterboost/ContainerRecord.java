@@ -7,7 +7,7 @@ import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public class ContainerRecord implements IContainerRecord {
     private final IFlutterViewContainer mContainer;
     private final FlutterViewContainerManager mManager;
@@ -53,7 +53,7 @@ public class ContainerRecord implements IContainerRecord {
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IOperateSyncer
-    public void onAppear(boolean z) {
+    public void onAppear() {
         Utils.assertCallOnMainThread();
         if (this.mState != 1 && this.mState != 3) {
             Debuger.exception("state error");
@@ -69,22 +69,18 @@ public class ContainerRecord implements IContainerRecord {
                 this.mManager.pushShowRecord(this);
             }
         }
-        if (z) {
-            this.mProxy.appear();
-        }
+        this.mProxy.appear();
         this.mContainer.getBoostFlutterView().onAttach();
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IOperateSyncer
-    public void onDisappear(boolean z) {
+    public void onDisappear() {
         Utils.assertCallOnMainThread();
         if (this.mState != 2) {
             Debuger.exception("state error");
         }
         this.mState = 3;
-        if (z) {
-            this.mProxy.disappear();
-        }
+        this.mProxy.disappear();
         if (getContainer().getContextActivity().isFinishing()) {
             this.mProxy.destroy();
         }
@@ -161,7 +157,7 @@ public class ContainerRecord implements IContainerRecord {
     public void onLowMemory() {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     private class MethodChannelProxy {
         private int mState;
 

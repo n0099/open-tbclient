@@ -1,7 +1,7 @@
 package com.baidu.helios.bridge.multiprocess;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class g {
     private Context a;
 

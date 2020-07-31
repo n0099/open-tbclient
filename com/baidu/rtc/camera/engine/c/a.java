@@ -3,49 +3,49 @@ package com.baidu.rtc.camera.engine.c;
 import android.content.Context;
 import android.graphics.SurfaceTexture;
 import com.baidu.rtc.camera.engine.b.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a implements com.baidu.rtc.camera.engine.b.a, b {
     public a(Context context, boolean z, com.baidu.rtc.camera.b.a aVar) {
-        com.baidu.rtc.camera.engine.a.b.Qw().de(z);
-        com.baidu.rtc.camera.a.b.Qu().bHk = aVar;
-        com.baidu.rtc.camera.engine.d.b.QC().a(this).a(this).aP(context);
+        com.baidu.rtc.camera.engine.a.b.QL().dg(z);
+        com.baidu.rtc.camera.a.b.QJ().bHJ = aVar;
+        com.baidu.rtc.camera.engine.d.b.QR().a(this).a(this).aQ(context);
     }
 
     public void startRecording() {
-        com.baidu.rtc.camera.engine.d.b.QC().startRecording();
+        com.baidu.rtc.camera.engine.d.b.QR().startRecording();
     }
 
     public void stopRecording() {
-        com.baidu.rtc.camera.engine.d.b.QC().stopRecording();
+        com.baidu.rtc.camera.engine.d.b.QR().stopRecording();
     }
 
     public void c(SurfaceTexture surfaceTexture) {
-        com.baidu.rtc.camera.engine.d.b.QC().c(surfaceTexture);
+        com.baidu.rtc.camera.engine.d.b.QR().c(surfaceTexture);
     }
 
     public void switchCamera() {
-        com.baidu.rtc.camera.engine.d.b.QC().switchCamera();
+        com.baidu.rtc.camera.engine.d.b.QR().switchCamera();
     }
 
     public void R(int i, int i2) {
-        com.baidu.rtc.camera.engine.d.b.QC().R(i, i2);
+        com.baidu.rtc.camera.engine.d.b.QR().R(i, i2);
     }
 
-    public void Qy() {
-        com.baidu.rtc.camera.engine.d.b.QC().QD();
+    public void QN() {
+        com.baidu.rtc.camera.engine.d.b.QR().QS();
     }
 
-    public void Qz() {
-        com.baidu.rtc.camera.engine.d.b.QC().Qz();
+    public void QO() {
+        com.baidu.rtc.camera.engine.d.b.QR().QO();
     }
 
     @Override // com.baidu.rtc.camera.engine.b.a
-    public void Qx() {
+    public void QM() {
     }
 
     @Override // com.baidu.rtc.camera.engine.b.a
     public void E(byte[] bArr) {
-        com.baidu.rtc.camera.engine.d.b.QC().requestRender();
+        com.baidu.rtc.camera.engine.d.b.QR().requestRender();
     }
 
     @Override // com.baidu.rtc.camera.engine.b.b

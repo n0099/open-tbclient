@@ -18,10 +18,10 @@ import com.baidu.tbadk.BdToken.f;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView;
 import java.util.HashMap;
@@ -32,25 +32,25 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements a {
-    private long dJs;
-    private long hHX;
-    private TopicDetailModel ixU;
-    private TopicDetailView ixV;
-    private long ixW = 1;
+    private long dPD;
+    private long hNX;
+    private TopicDetailModel iDY;
+    private TopicDetailView iDZ;
+    private long iEa = 1;
     private boolean mIsFromSchema = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.ixU = new TopicDetailModel(getPageContext());
-        this.ixV = new TopicDetailView(getPageContext(), this, bundle);
-        setContentView(this.ixV);
+        this.iDY = new TopicDetailModel(getPageContext());
+        this.iDZ = new TopicDetailView(getPageContext(), this, bundle);
+        setContentView(this.iDZ);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
-        this.ixU.a(this);
+        this.iDY.a(this);
         loadData();
         if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !com.baidu.adp.base.a.jC().bj("MainTabActivity")) {
             this.mIsFromSchema = true;
@@ -58,22 +58,22 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         if (this.mIsFromSchema) {
             setIsAddSwipeBackLayout(false);
         }
-        this.ixV.getEditor().cbY();
+        this.iDZ.getEditor().cfw();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        TiebaStatic.log(new ao("c13350").s("topic_id", this.dJs));
+        TiebaStatic.log(new ap("c13350").t("topic_id", this.dPD));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.ixV != null && this.ixV.getEditor() != null) {
-            this.ixV.getEditor().bfY();
+        if (this.iDZ != null && this.iDZ.getEditor() != null) {
+            this.iDZ.getEditor().bjJ();
         }
     }
 
@@ -103,18 +103,18 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             finish();
             return;
         }
-        this.dJs = -1L;
+        this.dPD = -1L;
         if (intent.getParcelableExtra(IntentConfig.KEY_URI) != null) {
             Uri uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI);
             String uri2 = uri.toString();
             if (f.p(uri)) {
-                f.aMH().f(uri, new f.a() { // from class: com.baidu.tieba.homepage.topic.topicdetail.TopicDetailActivity.1
+                f.aQv().f(uri, new f.a() { // from class: com.baidu.tieba.homepage.topic.topicdetail.TopicDetailActivity.1
                     @Override // com.baidu.tbadk.BdToken.f.a
-                    public void C(HashMap<String, Object> hashMap) {
-                        if (hashMap != null && (hashMap.get(f.dAi) instanceof String)) {
-                            String str = (String) hashMap.get(f.dAi);
+                    public void B(HashMap<String, Object> hashMap) {
+                        if (hashMap != null && (hashMap.get(f.dGe) instanceof String)) {
+                            String str = (String) hashMap.get(f.dGe);
                             if (!StringUtils.isNull(str)) {
-                                TopicDetailActivity.this.dJs = b.toLong(str, -1L);
+                                TopicDetailActivity.this.dPD = b.toLong(str, -1L);
                             }
                         }
                     }
@@ -122,7 +122,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             } else if (!StringUtils.isNull(uri2) && uri2.startsWith("tbtopicdetail://")) {
                 String decode = Uri.decode(uri.getEncodedPath());
                 if (!StringUtils.isNull(decode)) {
-                    FJ(decode);
+                    Gv(decode);
                     Matcher matcher = Pattern.compile(".*fr=(.*)&topic_id=([\\d]+).*").matcher(decode);
                     if (matcher.find()) {
                         substring = matcher.group(2);
@@ -135,65 +135,65 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                         }
                     }
                     if (!StringUtils.isNull(substring)) {
-                        this.dJs = b.toLong(substring, -1L);
+                        this.dPD = b.toLong(substring, -1L);
                     }
                 } else {
                     return;
                 }
             }
         } else {
-            this.dJs = intent.getLongExtra("topic_id", -1L);
+            this.dPD = intent.getLongExtra("topic_id", -1L);
         }
-        if (this.dJs < 0) {
+        if (this.dPD < 0) {
             finish();
         } else if (!j.isNetworkAvailableForImmediately()) {
-            this.ixV.hideLoadingView();
-            this.ixV.mB(true);
+            this.iDZ.hideLoadingView();
+            this.iDZ.ng(true);
         } else {
-            this.ixV.btO();
-            this.ixV.ga(false);
-            if (this.ixV != null && this.ixV.getEditor() != null) {
-                this.ixV.getEditor().setTopicId(this.dJs);
+            this.iDZ.bwX();
+            this.iDZ.gw(false);
+            if (this.iDZ != null && this.iDZ.getEditor() != null) {
+                this.iDZ.getEditor().setTopicId(this.dPD);
             }
-            this.ixU.et(this.dJs);
+            this.iDY.eG(this.dPD);
         }
     }
 
     @Override // com.baidu.tieba.homepage.topic.topicdetail.a
     public void a(int i, com.baidu.tieba.homepage.topic.topicdetail.b.a aVar) {
-        this.ixV.hideLoadingView();
-        if (i != 0 || aVar == null || w.isEmpty(aVar.mDataList)) {
-            this.ixV.mB(true);
+        this.iDZ.hideLoadingView();
+        if (i != 0 || aVar == null || x.isEmpty(aVar.mDataList)) {
+            this.iDZ.ng(true);
             return;
         }
-        this.ixV.btO();
-        this.ixV.setData(aVar);
+        this.iDZ.bwX();
+        this.iDZ.setData(aVar);
     }
 
-    public void es(long j) {
-        this.ixW++;
-        this.hHX = j;
-        this.ixU.f(this.dJs, this.ixW, this.hHX);
+    public void eF(long j) {
+        this.iEa++;
+        this.hNX = j;
+        this.iDY.f(this.dPD, this.iEa, this.hNX);
     }
 
     @Override // com.baidu.tieba.homepage.topic.topicdetail.a
     public void a(int i, boolean z, List<q> list) {
-        this.ixV.setNextData(i, z, list);
+        this.iDZ.setNextData(i, z, list);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.ixV.onChangeSkinType();
+        this.iDZ.onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.ixV != null && this.ixV.getEditor() != null) {
-            this.ixV.getEditor().onActivityResult(i, i2, intent);
+        if (this.iDZ != null && this.iDZ.getEditor() != null) {
+            this.iDZ.getEditor().onActivityResult(i, i2, intent);
         }
     }
 
@@ -202,33 +202,33 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         return "a024";
     }
 
-    private void FJ(String str) {
+    private void Gv(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
-        Map<String, String> paramPair = bc.getParamPair(str);
+        Map<String, String> paramPair = bd.getParamPair(str);
         if (paramPair != null) {
-            ao aoVar = new ao("c10320");
-            aoVar.dk("obj_locate", paramPair.get("obj_locate"));
-            aoVar.ag("obj_type", 1);
-            aoVar.dk("tid", paramPair.get("tid"));
-            aoVar.dk("obj_source", paramPair.get("obj_source"));
-            aoVar.dk(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2));
-            aoVar.ag(TiebaInitialize.Params.OBJ_TO, 3);
-            aoVar.dk("obj_id", paramPair.get("bdid"));
-            if (!ar.isEmpty(paramPair.get(LogConfig.LOG_EXT_LOG))) {
+            ap apVar = new ap("c10320");
+            apVar.dn("obj_locate", paramPair.get("obj_locate"));
+            apVar.ah("obj_type", 1);
+            apVar.dn("tid", paramPair.get("tid"));
+            apVar.dn("obj_source", paramPair.get("obj_source"));
+            apVar.dn(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2));
+            apVar.ah(TiebaInitialize.Params.OBJ_TO, 3);
+            apVar.dn("obj_id", paramPair.get("bdid"));
+            if (!as.isEmpty(paramPair.get(LogConfig.LOG_EXT_LOG))) {
                 try {
                     JSONObject jSONObject = new JSONObject(paramPair.get(LogConfig.LOG_EXT_LOG));
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        aoVar.dk(next, jSONObject.getString(next));
+                        apVar.dn(next, jSONObject.getString(next));
                     }
                 } catch (JSONException e) {
                     BdLog.e(e.getMessage());
                 }
             }
-            TiebaStatic.log(aoVar);
+            TiebaStatic.log(apVar);
         }
     }
 }

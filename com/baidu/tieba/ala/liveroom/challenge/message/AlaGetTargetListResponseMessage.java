@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaGetTargetListResponseMessage extends JsonHttpResponsedMessage {
-    private b fZw;
-    private List<d> fZx;
+    private b geE;
+    private List<d> geF;
 
     public AlaGetTargetListResponseMessage() {
         super(1021105);
@@ -23,29 +23,29 @@ public class AlaGetTargetListResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("page");
             if (optJSONObject2 != null) {
-                this.fZw = new b();
-                this.fZw.parseJson(optJSONObject2);
+                this.geE = new b();
+                this.geE.parseJson(optJSONObject2);
             }
             JSONArray optJSONArray = optJSONObject.optJSONArray("user_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.fZx = new ArrayList();
+                this.geF = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject3 != null) {
                         d dVar = new d();
                         dVar.parseJson(optJSONObject3);
-                        this.fZx.add(dVar);
+                        this.geF.add(dVar);
                     }
                 }
             }
         }
     }
 
-    public b bCP() {
-        return this.fZw;
+    public b bGa() {
+        return this.geE;
     }
 
-    public List<d> bCQ() {
-        return this.fZx;
+    public List<d> bGb() {
+        return this.geF;
     }
 }

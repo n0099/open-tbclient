@@ -11,25 +11,25 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.d.d;
 import com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout;
 import com.baidu.tieba.frs.j;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a extends j<com.baidu.tieba.h.b, b> implements d {
-    private com.baidu.tieba.frs.d.b hIE;
+    private com.baidu.tieba.frs.d.b hOE;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.hIE = new com.baidu.tieba.frs.d.b();
+        this.hOE = new com.baidu.tieba.frs.d.b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bq */
+    /* renamed from: br */
     public b b(ViewGroup viewGroup) {
         return new b(LayoutInflater.from(this.mContext).inflate(R.layout.game_rank_list_item, (ViewGroup) null));
     }
@@ -42,32 +42,32 @@ public class a extends j<com.baidu.tieba.h.b, b> implements d {
         if (bVar == null) {
             return null;
         }
-        an.setBackgroundColor(view, R.color.cp_bg_line_d);
-        if (this.hIE != null) {
-            TiebaStatic.log(new ao("c12104").dk("fid", this.hIE.hWO));
+        ao.setBackgroundColor(view, R.color.cp_bg_line_d);
+        if (this.hOE != null) {
+            TiebaStatic.log(new ap("c12104").dn("fid", this.hOE.icM));
         }
-        if (bVar2.hOF != null) {
-            bVar2.hOF.setData(bVar);
-            bVar2.hOF.setOnCardClickListener(new GameRankHorizontalLayout.a() { // from class: com.baidu.tieba.frs.gamepaltform.a.1
+        if (bVar2.hUE != null) {
+            bVar2.hUE.setData(bVar);
+            bVar2.hUE.setOnCardClickListener(new GameRankHorizontalLayout.a() { // from class: com.baidu.tieba.frs.gamepaltform.a.1
                 @Override // com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.a
                 public void b(com.baidu.tieba.h.a aVar, int i2) {
                     if (aVar != null) {
-                        if (a.this.hIE != null) {
-                            TiebaStatic.log(new ao("c12105").dk("fid", a.this.hIE.hWO).ag("obj_locate", i2 + 1));
+                        if (a.this.hOE != null) {
+                            TiebaStatic.log(new ap("c12105").dn("fid", a.this.hOE.icM).ah("obj_locate", i2 + 1));
                         }
-                        if (!StringUtils.isNull(aVar.cgR())) {
-                            com.baidu.tbadk.browser.a.startWebActivity(a.this.mPageContext.getPageActivity(), aVar.cgR());
+                        if (!StringUtils.isNull(aVar.ckq())) {
+                            com.baidu.tbadk.browser.a.startWebActivity(a.this.mPageContext.getPageActivity(), aVar.ckq());
                         }
                     }
                 }
             });
         }
-        if (bVar2.hOG != null) {
-            bVar2.hOG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamepaltform.a.2
+        if (bVar2.hUF != null) {
+            bVar2.hUF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamepaltform.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    com.baidu.tbadk.core.sharedPref.b.aVP().putString(SharedPrefConfig.GAME_RANK_LIST_INFO, System.currentTimeMillis() + ",7");
-                    com.baidu.tbadk.core.sharedPref.b.aVP().putInt(SharedPrefConfig.GAME_RANK_LIST_SHOW_TIMES, 0);
+                    com.baidu.tbadk.core.sharedPref.b.aZP().putString(SharedPrefConfig.GAME_RANK_LIST_INFO, System.currentTimeMillis() + ",7");
+                    com.baidu.tbadk.core.sharedPref.b.aZP().putInt(SharedPrefConfig.GAME_RANK_LIST_SHOW_TIMES, 0);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CLOSE_GAME_RANK_CARD));
                 }
             });
@@ -79,6 +79,6 @@ public class a extends j<com.baidu.tieba.h.b, b> implements d {
 
     @Override // com.baidu.tieba.frs.d.d
     public com.baidu.tieba.frs.d.b getStatisticMetaData() {
-        return this.hIE;
+        return this.hOE;
     }
 }

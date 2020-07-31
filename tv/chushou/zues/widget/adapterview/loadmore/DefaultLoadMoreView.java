@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import tv.chushou.zues.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DefaultLoadMoreView extends RelativeLayout {
     public DefaultLoadMoreView(Context context) {
         this(context, null, 0);

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class GroundOverlayOptions extends OverlayOptions {
     int a;
     Bundle c;

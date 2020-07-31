@@ -2,9 +2,9 @@ package tv.chushou.basis.a;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
-    public static ClassLoader oiq = b.class.getClassLoader();
+    public static ClassLoader oqZ = b.class.getClassLoader();
 
     @TargetApi(11)
     public static void d(Context context, String str, long j) {
@@ -12,7 +12,7 @@ public class a {
     }
 
     @TargetApi(11)
-    public static long bh(Context context, String str) {
+    public static long bg(Context context, String str) {
         return context.getSharedPreferences("dynamic_load_configs", 4).getLong(str, 0L);
     }
 }

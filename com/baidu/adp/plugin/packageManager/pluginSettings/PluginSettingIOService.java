@@ -76,12 +76,12 @@ public class PluginSettingIOService extends Service {
                     }
                     return;
                 case 6:
-                    if (b.oM().oN() != null && (data5 = message.getData()) != null) {
+                    if (b.oN().oO() != null && (data5 = message.getData()) != null) {
                         boolean z = data5.getBoolean(PluginSettingIOService.KEY_FORBIDDEN);
-                        PluginSetting findPluginSetting = b.oM().oN().findPluginSetting(data5.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                        PluginSetting findPluginSetting = b.oN().oO().findPluginSetting(data5.getString(PluginSettingIOService.KEY_SETTING_NAME));
                         if (findPluginSetting != null) {
                             findPluginSetting.forbidden = z;
-                            PluginSettingIOService.this.save(b.oM().oN(), null);
+                            PluginSettingIOService.this.save(b.oN().oO(), null);
                             PluginSettingIOService.this.sendUpdateMsg(6, data5);
                             return;
                         }
@@ -89,28 +89,28 @@ public class PluginSettingIOService extends Service {
                     }
                     return;
                 case 7:
-                    if (b.oM().oN() != null && (data3 = message.getData()) != null) {
-                        b.oM().oN().removePluginSetting(data3.getString(PluginSettingIOService.KEY_SETTING_NAME));
-                        PluginSettingIOService.this.save(b.oM().oN(), null);
+                    if (b.oN().oO() != null && (data3 = message.getData()) != null) {
+                        b.oN().oO().removePluginSetting(data3.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                        PluginSettingIOService.this.save(b.oN().oO(), null);
                         PluginSettingIOService.this.sendUpdateMsg(7, data3);
                         return;
                     }
                     return;
                 case 8:
-                    if (b.oM().oN() != null && (data7 = message.getData()) != null) {
-                        b.oM().oN().setAllPluginEnable(data7.getBoolean(PluginSettingIOService.KEY_ENABLE));
-                        PluginSettingIOService.this.save(b.oM().oN(), null);
+                    if (b.oN().oO() != null && (data7 = message.getData()) != null) {
+                        b.oN().oO().setAllPluginEnable(data7.getBoolean(PluginSettingIOService.KEY_ENABLE));
+                        PluginSettingIOService.this.save(b.oN().oO(), null);
                         PluginSettingIOService.this.sendUpdateMsg(8, data7);
                         return;
                     }
                     return;
                 case 9:
-                    if (b.oM().oN() != null && (data6 = message.getData()) != null) {
+                    if (b.oN().oO() != null && (data6 = message.getData()) != null) {
                         boolean z2 = data6.getBoolean(PluginSettingIOService.KEY_ENABLE);
-                        PluginSetting findPluginSetting2 = b.oM().oN().findPluginSetting(data6.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                        PluginSetting findPluginSetting2 = b.oN().oO().findPluginSetting(data6.getString(PluginSettingIOService.KEY_SETTING_NAME));
                         if (findPluginSetting2 != null) {
                             findPluginSetting2.enable = z2;
-                            PluginSettingIOService.this.save(b.oM().oN(), null);
+                            PluginSettingIOService.this.save(b.oN().oO(), null);
                             PluginSettingIOService.this.sendUpdateMsg(9, data6);
                             return;
                         }
@@ -118,20 +118,20 @@ public class PluginSettingIOService extends Service {
                     }
                     return;
                 case 10:
-                    if (b.oM().oN() != null && (data2 = message.getData()) != null) {
-                        b.oM().oN().setContainerSetting(data2.getString(PluginSettingIOService.KEY_VERSION));
-                        PluginSettingIOService.this.save(b.oM().oN(), null);
+                    if (b.oN().oO() != null && (data2 = message.getData()) != null) {
+                        b.oN().oO().setContainerSetting(data2.getString(PluginSettingIOService.KEY_VERSION));
+                        PluginSettingIOService.this.save(b.oN().oO(), null);
                         PluginSettingIOService.this.sendUpdateMsg(10, data2);
                         return;
                     }
                     return;
                 case 11:
-                    if (b.oM().oN() != null && (data4 = message.getData()) != null) {
+                    if (b.oN().oO() != null && (data4 = message.getData()) != null) {
                         int i = data4.getInt(PluginSettingIOService.KEY_INSTALL_STATUS);
-                        PluginSetting findPluginSetting3 = b.oM().oN().findPluginSetting(data4.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                        PluginSetting findPluginSetting3 = b.oN().oO().findPluginSetting(data4.getString(PluginSettingIOService.KEY_SETTING_NAME));
                         if (findPluginSetting3 != null) {
                             findPluginSetting3.installStatus = i;
-                            PluginSettingIOService.this.save(b.oM().oN(), null);
+                            PluginSettingIOService.this.save(b.oN().oO(), null);
                             PluginSettingIOService.this.sendUpdateMsg(11, data4);
                             return;
                         }
@@ -139,9 +139,9 @@ public class PluginSettingIOService extends Service {
                     }
                     return;
                 case 12:
-                    if (b.oM().oN() != null && (data = message.getData()) != null) {
-                        b.oM().oN().setForbiddenFeatures(data.getString(PluginSettingIOService.KEY_FORBIDDEN_FEATURE));
-                        PluginSettingIOService.this.save(b.oM().oN(), null);
+                    if (b.oN().oO() != null && (data = message.getData()) != null) {
+                        b.oN().oO().setForbiddenFeatures(data.getString(PluginSettingIOService.KEY_FORBIDDEN_FEATURE));
+                        PluginSettingIOService.this.save(b.oN().oO(), null);
                         PluginSettingIOService.this.sendUpdateMsg(12, data);
                         return;
                     }
@@ -152,7 +152,7 @@ public class PluginSettingIOService extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void save(PluginSettings pluginSettings, d dVar) {
-        b.oM().save(pluginSettings, dVar);
+        b.oN().save(pluginSettings, dVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

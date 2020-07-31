@@ -4,6 +4,7 @@ import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.adp.lib.util.FieldUtil;
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -15,39 +16,39 @@ import java.util.Date;
 import org.apache.http.HttpStatus;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class TrackHeaderBox extends AbstractFullBox {
     public static final String TYPE = "tkhd";
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_16 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_17 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_18 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_19 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_20 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_21 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_22 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_23 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_24 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_25 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_26 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_27 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_28 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_29 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_16 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_17 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_18 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_19 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_20 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_21 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_22 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_23 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_24 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_25 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_26 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_27 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_28 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_29 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_9 = null;
     private int alternateGroup;
     private Date creationTime;
     private long duration;
@@ -242,7 +243,7 @@ public class TrackHeaderBox extends AbstractFullBox {
     public void setCreationTime(Date date) {
         RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, date));
         this.creationTime = date;
-        if (DateHelper.convert(date) >= 4294967296L) {
+        if (DateHelper.convert(date) >= AccountConstants.TYPE_MODIFY_EXT_FIELDS) {
             setVersion(1);
         }
     }
@@ -250,36 +251,36 @@ public class TrackHeaderBox extends AbstractFullBox {
     public void setModificationTime(Date date) {
         RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, date));
         this.modificationTime = date;
-        if (DateHelper.convert(date) >= 4294967296L) {
+        if (DateHelper.convert(date) >= AccountConstants.TYPE_MODIFY_EXT_FIELDS) {
             setVersion(1);
         }
     }
 
     public void setTrackId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.gy(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.gL(j)));
         this.trackId = j;
     }
 
     public void setDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.gy(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.gL(j)));
         this.duration = j;
-        if (j >= 4294967296L) {
+        if (j >= AccountConstants.TYPE_MODIFY_EXT_FIELDS) {
             setFlags(1);
         }
     }
 
     public void setLayer(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.Lj(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.LD(i)));
         this.layer = i;
     }
 
     public void setAlternateGroup(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.Lj(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.LD(i)));
         this.alternateGroup = i;
     }
 
     public void setVolume(float f) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_18, this, this, org.aspectj.a.a.a.aV(f)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_18, this, this, org.aspectj.a.a.a.aU(f)));
         this.volume = f;
     }
 
@@ -319,7 +320,7 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setEnabled(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_26, this, this, org.aspectj.a.a.a.xB(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_26, this, this, org.aspectj.a.a.a.yg(z)));
         if (z) {
             setFlags(getFlags() | 1);
         } else {
@@ -328,7 +329,7 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setInMovie(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_27, this, this, org.aspectj.a.a.a.xB(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_27, this, this, org.aspectj.a.a.a.yg(z)));
         if (z) {
             setFlags(getFlags() | 2);
         } else {
@@ -337,7 +338,7 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setInPreview(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_28, this, this, org.aspectj.a.a.a.xB(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_28, this, this, org.aspectj.a.a.a.yg(z)));
         if (z) {
             setFlags(getFlags() | 4);
         } else {
@@ -346,7 +347,7 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setInPoster(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_29, this, this, org.aspectj.a.a.a.xB(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_29, this, this, org.aspectj.a.a.a.yg(z)));
         if (z) {
             setFlags(getFlags() | 8);
         } else {

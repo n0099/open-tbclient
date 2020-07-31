@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.prologue.a.c.j;
+import com.baidu.prologue.a.c.k;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
 
@@ -29,7 +29,7 @@ public class a {
 
     public static List<e> o(JSONObject jSONObject, String str) throws ParseError {
         List<e> list;
-        List<e> Pm;
+        List<e> PB;
         if (DEBUG) {
             Log.d("AfdResponseParser", "AFD response : " + jSONObject.toString());
         }
@@ -45,12 +45,12 @@ public class a {
         JSONArray optJSONArray = optJSONObject.optJSONArray("ad");
         if (optJSONObject2 != null) {
             String optString = optJSONObject2.optString("cmd");
-            SplashStyleRecorder.ae(optJSONObject2.optJSONObject("style_desc"));
+            SplashStyleRecorder.af(optJSONObject2.optJSONObject("style_desc"));
             if (TextUtils.equals(IMTrack.DbBuilder.ACTION_UPDATE, optString)) {
                 list = a(optJSONArray, str, false);
                 String optString2 = optJSONObject2.optString("empty_ext_info");
                 if (!TextUtils.isEmpty(optString2)) {
-                    j.setString("empty_ext_info", optString2);
+                    k.setString("empty_ext_info", optString2);
                 } else if (DEBUG) {
                     throw new IllegalStateException("splash empty接口没有empty_ext_info信息");
                 }
@@ -59,9 +59,9 @@ public class a {
                     list = a(optJSONArray, str, true);
                 } else {
                     String optString3 = optJSONObject2.optString("ukey");
-                    if (!TextUtils.isEmpty(optString3) && (Pm = d.Pm()) != null) {
-                        for (e eVar : Pm) {
-                            if (TextUtils.equals(eVar.bEL, optString3)) {
+                    if (!TextUtils.isEmpty(optString3) && (PB = d.PB()) != null) {
+                        for (e eVar : PB) {
+                            if (TextUtils.equals(eVar.bFi, optString3)) {
                                 arrayList.add(eVar);
                                 list = arrayList;
                                 break;
@@ -82,22 +82,22 @@ public class a {
         if (jSONArray == null || jSONArray.length() == 0) {
             return null;
         }
-        List<e> o = e.o(jSONArray);
+        List<e> p = e.p(jSONArray);
         if (z) {
-            for (e eVar : o) {
-                eVar.bEV = true;
+            for (e eVar : p) {
+                eVar.bFs = true;
             }
         } else {
             new ArrayList();
-            HashMap<String, e> Pn = d.Pn();
-            if (Pn == null || Pn.size() == 0) {
-                d.V(o);
+            HashMap<String, e> PC = d.PC();
+            if (PC == null || PC.size() == 0) {
+                d.V(p);
             } else {
-                d.Pl();
-                d.V(o);
+                d.PA();
+                d.V(p);
             }
-            d.W(o);
+            d.W(p);
         }
-        return o;
+        return p;
     }
 }

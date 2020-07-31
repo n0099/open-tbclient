@@ -9,7 +9,7 @@ import com.baidu.ar.c.j;
 import com.baidu.ar.c.l;
 import com.baidu.ar.databasic.AlgoHandleController;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public abstract class b extends j implements a {
     private static final String TAG = b.class.getSimpleName();
     protected c cP;

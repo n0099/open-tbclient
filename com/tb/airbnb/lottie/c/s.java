@@ -11,7 +11,7 @@ import com.tb.airbnb.lottie.model.layer.Layer;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class s {
     public static Layer d(com.tb.airbnb.lottie.d dVar) {
         Rect gS = dVar.gS();

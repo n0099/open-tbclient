@@ -6,11 +6,11 @@ import android.os.IBinder;
 import android.os.Process;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.Keep;
-import com.baidu.cyberplayer.sdk.m;
+import com.baidu.cyberplayer.sdk.n;
 import com.baidu.cyberplayer.sdk.remote.g;
 import java.util.Map;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class RemotePlayerService extends Service {
     public long getKernelNetHandle() {
         return 0L;
@@ -43,7 +43,7 @@ public class RemotePlayerService extends Service {
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        if (!m.n()) {
+        if (!n.n()) {
             Process.killProcess(Process.myPid());
         }
         return super.onUnbind(intent);

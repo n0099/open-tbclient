@@ -1,43 +1,44 @@
 package com.baidu.tieba.play;
 
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
+import android.content.Context;
+import android.database.ContentObserver;
 import android.os.Handler;
-import android.os.Message;
-import java.lang.ref.WeakReference;
+import android.provider.Settings;
 /* loaded from: classes.dex */
-public class k implements SensorEventListener {
-    private WeakReference<Handler> mHandler;
+public class k extends ContentObserver {
+    private a lcd;
+    private Context mContext;
 
-    public k(Handler handler) {
-        this.mHandler = new WeakReference<>(handler);
+    /* loaded from: classes.dex */
+    public interface a {
+        void onChange(boolean z);
     }
 
-    @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i) {
+    public k(Context context, Handler handler) {
+        super(handler);
+        this.mContext = context;
     }
 
-    @Override // android.hardware.SensorEventListener
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        Handler handler;
-        Message obtainMessage;
-        if (sensorEvent != null && sensorEvent.values != null && sensorEvent.values.length >= 3) {
-            float[] fArr = sensorEvent.values;
-            float f = -fArr[0];
-            float f2 = -fArr[1];
-            float f3 = -fArr[2];
-            if ((f * f) + (f2 * f2) >= f3 * f3) {
-                int round = 90 - Math.round(((float) Math.atan2(-f2, f)) * 57.29578f);
-                if (round >= 360) {
-                    round -= 360;
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        Ir();
+    }
+
+    private void Ir() {
+        if (this.mContext != null) {
+            try {
+                int i = Settings.System.getInt(this.mContext.getContentResolver(), "accelerometer_rotation");
+                if (this.lcd != null) {
+                    this.lcd.onChange(i == 1);
                 }
-                int i = round < 0 ? round + 360 : round;
-                if (this.mHandler != null && this.mHandler.get() != null && (obtainMessage = (handler = this.mHandler.get()).obtainMessage(1)) != null) {
-                    obtainMessage.arg1 = i;
-                    handler.sendMessage(obtainMessage);
-                }
+            } catch (Settings.SettingNotFoundException e) {
+                e.printStackTrace();
             }
         }
+    }
+
+    public void a(a aVar) {
+        this.lcd = aVar;
+        Ir();
     }
 }

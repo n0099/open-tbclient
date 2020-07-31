@@ -25,7 +25,7 @@ public final class CancellableSubscription extends AtomicReference<d> implements
             try {
                 andSet.cancel();
             } catch (Exception e) {
-                a.L(e);
+                a.K(e);
                 c.onError(e);
             }
         }

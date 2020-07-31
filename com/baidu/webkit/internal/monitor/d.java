@@ -3,12 +3,11 @@ package com.baidu.webkit.internal.monitor;
 import android.text.TextUtils;
 import com.baidu.webkit.internal.Base64;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-import com.baidu.webkit.internal.e;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class d implements Runnable {
     final /* synthetic */ String a;
     final /* synthetic */ String b;
@@ -37,7 +36,7 @@ public final class d implements Runnable {
             String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("gzip_support");
             if (GetCloudSettingsValue == null || !GetCloudSettingsValue.equals("false")) {
                 try {
-                    if (WebSettingsGlobalBlink.getLogsdkEnabled()) {
+                    if (WebSettingsGlobalBlink.getLogsdkEnabled() || WebSettingsGlobalBlink.getDoubleLogEnabled()) {
                         z = SessionMonitorNetWorker.mLogSdkInit;
                         if (!z) {
                             Log.i("ZeusMonitorEngine", "BdLogSDK.init1");
@@ -45,8 +44,11 @@ public final class d implements Runnable {
                             boolean unused = SessionMonitorNetWorker.mLogSdkInit = true;
                         }
                         com.baidu.webkit.logsdk.a.a(this.b, this.a);
+                        if (WebSettingsGlobalBlink.getDoubleLogEnabled()) {
+                            this.e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(this.a.getBytes())), this.c, this.d);
+                        }
                     } else {
-                        this.e.sendStatisticsDataToServer(e.b(e.c(this.a.getBytes())), this.c, this.d);
+                        this.e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(this.a.getBytes())), this.c, this.d);
                     }
                 } catch (IOException e) {
                     com.a.a.a.a.a.a.a.a(e);
@@ -60,11 +62,11 @@ public final class d implements Runnable {
                 }
                 com.baidu.webkit.logsdk.a.a(this.b, this.a);
             } else {
-                this.e.sendStatisticsDataToServer(e.b(Base64.encode(this.a.getBytes(), false)), this.c, this.d);
+                this.e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(Base64.encode(this.a.getBytes(), false)), this.c, this.d);
             }
         }
         if (WebSettingsGlobalBlink.useT5Log()) {
-            this.e.sendStatisticsDataToServer(e.b(Base64.encode(this.a.getBytes(), false)), this.c, this.d);
+            this.e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(Base64.encode(this.a.getBytes(), false)), this.c, this.d);
         }
     }
 }

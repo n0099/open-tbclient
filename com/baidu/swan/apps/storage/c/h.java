@@ -2,23 +2,23 @@ package com.baidu.swan.apps.storage.c;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public final class h {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    static final Map<String, b> cLS = new HashMap();
+    static final Map<String, b> cPn = new HashMap();
 
-    public static b asV() {
-        return po("searchbox_webapps_sp");
+    public static b auW() {
+        return pZ("searchbox_webapps_sp");
     }
 
-    public static b po(String str) {
-        b bVar = cLS.get(str);
+    public static b pZ(String str) {
+        b bVar = cPn.get(str);
         if (bVar == null) {
             synchronized (h.class) {
-                bVar = cLS.get(str);
+                bVar = cPn.get(str);
                 if (bVar == null) {
                     bVar = new b(str);
-                    cLS.put(str, bVar);
+                    cPn.put(str, bVar);
                 }
             }
         }

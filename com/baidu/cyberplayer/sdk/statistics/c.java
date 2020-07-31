@@ -3,7 +3,7 @@ package com.baidu.cyberplayer.sdk.statistics;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class c {
     private int a;
     private ArrayList<e> b = new ArrayList<>();
@@ -18,7 +18,7 @@ public class c {
 
     public JSONObject a(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
-            if (this.a != 24321 && this.a != 24323 && this.a != 24322) {
+            if (this.a != 24321 && this.a != 24323 && this.a != 24322 && this.a != 20488) {
                 jSONObject.put("type", this.a);
             }
             int size = this.b.size();

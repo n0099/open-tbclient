@@ -2,9 +2,9 @@ package com.baidu.tieba.frs.game.strategy.message;
 
 import android.text.TextUtils;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.data.ai;
-import com.baidu.tbadk.core.data.bu;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.data.aj;
+import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.tieba.frs.game.strategy.data.b;
 import com.baidu.tieba.frs.game.strategy.tab.e;
@@ -13,10 +13,10 @@ import java.util.LinkedList;
 import java.util.List;
 import tbclient.GameForumGuideTab.GameForumSubTab;
 import tbclient.ThreadInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a {
-    public static List<e> cC(List<GameForumSubTab> list) {
-        if (w.isEmpty(list)) {
+    public static List<e> cH(List<GameForumSubTab> list) {
+        if (x.isEmpty(list)) {
             return null;
         }
         ArrayList arrayList = new ArrayList(list.size());
@@ -34,8 +34,8 @@ public class a {
         return arrayList;
     }
 
-    public static List<q> cD(List<ThreadInfo> list) {
-        if (w.isEmpty(list)) {
+    public static List<q> cI(List<ThreadInfo> list) {
+        if (x.isEmpty(list)) {
             return null;
         }
         LinkedList linkedList = new LinkedList();
@@ -46,14 +46,14 @@ public class a {
                 return linkedList;
             }
             b bVar = new b();
-            bu buVar = new bu();
-            bVar.setThreadData(buVar);
-            buVar.a(list.get(i2));
-            buVar.aTn();
-            if (!TextUtils.isEmpty(buVar.aTz())) {
-                ai aiVar = new ai();
-                aiVar.vG(buVar.aTz());
-                linkedList.add(aiVar);
+            bv bvVar = new bv();
+            bVar.setThreadData(bvVar);
+            bvVar.a(list.get(i2));
+            bvVar.aXj();
+            if (!TextUtils.isEmpty(bvVar.aXv())) {
+                aj ajVar = new aj();
+                ajVar.wN(bvVar.aXv());
+                linkedList.add(ajVar);
             } else {
                 linkedList.add(bVar);
             }

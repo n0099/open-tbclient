@@ -10,10 +10,10 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.widget.ImageView;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class PersonExpandImageView extends ImageView {
-    private final DisplayMetrics kRb;
-    private int kRc;
+    private final DisplayMetrics kZX;
+    private int kZY;
     private final Rect mDstRect;
     private final Paint mPaint;
     private final Rect mSrcRect;
@@ -22,14 +22,14 @@ public class PersonExpandImageView extends ImageView {
         super(context, attributeSet);
         this.mSrcRect = new Rect();
         this.mDstRect = new Rect();
-        this.kRc = 0;
+        this.kZY = 0;
         setScaleType(ImageView.ScaleType.MATRIX);
         this.mPaint = new Paint();
-        this.kRb = getResources().getDisplayMetrics();
+        this.kZX = getResources().getDisplayMetrics();
     }
 
     public void setInitHeight(int i) {
-        this.kRc = i;
+        this.kZY = i;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -40,12 +40,12 @@ public class PersonExpandImageView extends ImageView {
         float f2;
         float f3;
         float f4 = 0.0f;
-        if (this.kRc != 0 && (drawable = getDrawable()) != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
-            int scaledWidth = bitmap.getScaledWidth(this.kRb);
-            int scaledHeight = bitmap.getScaledHeight(this.kRb);
+        if (this.kZY != 0 && (drawable = getDrawable()) != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
+            int scaledWidth = bitmap.getScaledWidth(this.kZX);
+            int scaledHeight = bitmap.getScaledHeight(this.kZX);
             if (scaledWidth != 0 && scaledHeight != 0) {
-                if ((scaledWidth * 1.0f) / scaledHeight < (getWidth() * 1.0f) / this.kRc) {
-                    float width = (((((getWidth() * getHeight()) * 1.0f) / this.kRc) - getWidth()) * 0.2f) + getWidth();
+                if ((scaledWidth * 1.0f) / scaledHeight < (getWidth() * 1.0f) / this.kZY) {
+                    float width = (((((getWidth() * getHeight()) * 1.0f) / this.kZY) - getWidth()) * 0.2f) + getWidth();
                     float f5 = ((scaledHeight * 1.0f) / scaledWidth) * width;
                     if (width != 0.0f && f5 != 0.0f) {
                         float width2 = (getWidth() * scaledWidth) / width;

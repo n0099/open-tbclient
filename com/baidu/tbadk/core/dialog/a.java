@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.dialog;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
@@ -13,23 +14,30 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.R;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class a {
+    private TextView aRC;
     private View bdDialog_divider_line;
-    private b dPj;
-    private b dPk;
-    private b dPl;
-    private Button dPm;
+    private TextView dVA;
+    private ImageView dVB;
+    private TextView dVC;
+    private c dVE;
+    private b dVv;
+    private b dVw;
+    private b dVx;
+    private Button dVy;
     private View dividerWithButton;
     protected final Activity mActivity;
     private DialogInterface.OnCancelListener mCancelListenr;
@@ -51,34 +59,41 @@ public class a {
     private boolean isMessageShowCenter = false;
     private boolean isTitleShowCenter = false;
     private int mButtonTextColor = -1;
-    private int dPi = -1;
+    private int dVu = -1;
     private int dialogSize = 0;
     private boolean mDialogCreated = false;
     private boolean cancelableFlag = true;
     private boolean mCancelable = true;
     private boolean isAutoNight = true;
+    private boolean dVz = false;
+    private boolean dVD = false;
 
     /* loaded from: classes.dex */
     public interface b {
         void onClick(a aVar);
     }
 
-    public a wd(String str) {
+    /* loaded from: classes.dex */
+    public interface c {
+        void aYM();
+    }
+
+    public a xk(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public a kS(int i) {
-        wd(this.mActivity.getResources().getString(i));
+    public a lm(int i) {
+        xk(this.mActivity.getResources().getString(i));
         return this;
     }
 
-    public a we(String str) {
+    public a xl(String str) {
         this.mMessage = str;
         return this;
     }
 
-    public a aP(View view) {
+    public a aV(View view) {
         this.mContentView = view;
         return this;
     }
@@ -88,31 +103,31 @@ public class a {
         return this;
     }
 
-    public a c(DialogInterface.OnDismissListener onDismissListener) {
+    public a b(DialogInterface.OnDismissListener onDismissListener) {
         this.mDismissListener = onDismissListener;
         return this;
     }
 
     public a a(String str, b bVar) {
         this.mPositiveButtonTip = str;
-        this.dPj = bVar;
+        this.dVv = bVar;
         return this;
     }
 
     public a b(String str, b bVar) {
         this.mNegativeButtonTip = str;
-        this.dPk = bVar;
+        this.dVw = bVar;
         return this;
     }
 
     public a a(b bVar) {
         if (bVar != null) {
-            this.dPl = bVar;
+            this.dVx = bVar;
         }
         return this;
     }
 
-    public a kT(int i) {
+    public a ln(int i) {
         if (this.mActivity != null) {
             this.mMessage = this.mActivity.getResources().getString(i);
         }
@@ -122,7 +137,7 @@ public class a {
     public a a(int i, b bVar) {
         if (this.mActivity != null) {
             this.mPositiveButtonTip = this.mActivity.getResources().getString(i);
-            this.dPj = bVar;
+            this.dVv = bVar;
         }
         return this;
     }
@@ -130,17 +145,17 @@ public class a {
     public a b(int i, b bVar) {
         if (this.mActivity != null) {
             this.mNegativeButtonTip = this.mActivity.getResources().getString(i);
-            this.dPk = bVar;
+            this.dVw = bVar;
         }
         return this;
     }
 
-    public a hf(boolean z) {
+    public a hJ(boolean z) {
         this.mCancelable = z;
         return this;
     }
 
-    public a hg(boolean z) {
+    public a hK(boolean z) {
         this.cancelableFlag = z;
         return this;
     }
@@ -151,25 +166,25 @@ public class a {
         this.mRealView = (ViewGroup) this.mRootView.findViewById(R.id.real_view);
     }
 
-    public a kU(int i) {
+    public a lo(int i) {
         if (isAutoNight()) {
-            this.mButtonTextColor = an.getColor(i);
+            this.mButtonTextColor = ao.getColor(i);
         } else {
             this.mButtonTextColor = this.mActivity.getResources().getColor(i);
         }
         return this;
     }
 
-    public a kV(int i) {
+    public a lp(int i) {
         if (isAutoNight()) {
-            this.dPi = an.getColor(i);
+            this.dVu = ao.getColor(i);
         } else {
-            this.dPi = this.mActivity.getResources().getColor(i);
+            this.dVu = this.mActivity.getResources().getColor(i);
         }
         return this;
     }
 
-    public a kW(int i) {
+    public a lq(int i) {
         this.dialogSize = i;
         return this;
     }
@@ -184,7 +199,7 @@ public class a {
             this.noButton = (TextView) this.mRootView.findViewById(R.id.no);
             this.dividerWithButton = this.mRootView.findViewById(R.id.divider_yes_no_button);
             this.bdDialog_divider_line = this.mRootView.findViewById(R.id.bdDialog_divider_line);
-            this.dPm = (Button) this.mRootView.findViewById(R.id.close_btn);
+            this.dVy = (Button) this.mRootView.findViewById(R.id.close_btn);
             if (this.mContentView != null) {
                 linearLayout.removeAllViews();
                 if (this.mContentView.getParent() != null) {
@@ -196,24 +211,24 @@ public class a {
                     linearLayout.addView(this.mContentView);
                 }
             } else {
-                View isShowTitleAndMessage = isShowTitleAndMessage();
-                if (isShowTitleAndMessage != null) {
+                View aYH = this.dVz ? aYH() : isShowTitleAndMessage();
+                if (aYH != null) {
                     linearLayout.removeAllViews();
-                    if (isShowTitleAndMessage.getParent() != null) {
-                        if (isShowTitleAndMessage.getParent() instanceof ViewGroup) {
-                            ((ViewGroup) isShowTitleAndMessage.getParent()).removeView(isShowTitleAndMessage);
-                            linearLayout.addView(isShowTitleAndMessage);
+                    if (aYH.getParent() != null) {
+                        if (aYH.getParent() instanceof ViewGroup) {
+                            ((ViewGroup) aYH.getParent()).removeView(aYH);
+                            linearLayout.addView(aYH);
                         }
                     } else {
-                        linearLayout.addView(isShowTitleAndMessage);
+                        linearLayout.addView(aYH);
                     }
                 }
             }
             c(eVar);
-            if (this.dPl != null) {
-                this.dPm.setVisibility(0);
-                this.dPm.setOnClickListener(new View$OnClickListenerC0479a(this, this.dPl));
-                an.setBackgroundResource(this.dPm, R.drawable.icon_popup_close_n, isAutoNight() ? TbadkCoreApplication.getInst().getSkinType() : 0);
+            if (this.dVx != null) {
+                this.dVy.setVisibility(0);
+                this.dVy.setOnClickListener(new View$OnClickListenerC0491a(this, this.dVx));
+                ao.setBackgroundResource(this.dVy, R.drawable.icon_popup_close_n, isAutoNight() ? TbadkCoreApplication.getInst().getSkinType() : 0);
             }
             if (this.mButtonTextColor != -1) {
                 if (this.yesButton != null) {
@@ -223,16 +238,16 @@ public class a {
                     this.noButton.setTextColor(this.mButtonTextColor);
                 }
             }
-            if (this.dPi != -1 && this.noButton != null) {
-                this.noButton.setTextColor(this.dPi);
+            if (this.dVu != -1 && this.noButton != null) {
+                this.noButton.setTextColor(this.dVu);
             }
             if (TextUtils.isEmpty(this.mPositiveButtonTip) || this.yesButton == null) {
                 z = false;
             } else {
                 this.yesButton.setText(this.mPositiveButtonTip);
                 this.yesButton.setTag(this.yesTag);
-                if (this.dPj != null) {
-                    this.yesButton.setOnClickListener(new View$OnClickListenerC0479a(this, this.dPj));
+                if (this.dVv != null) {
+                    this.yesButton.setOnClickListener(new View$OnClickListenerC0491a(this, this.dVv));
                 }
                 z = true;
             }
@@ -240,8 +255,8 @@ public class a {
                 z2 = false;
             } else {
                 this.noButton.setText(this.mNegativeButtonTip);
-                if (this.dPk != null) {
-                    this.noButton.setOnClickListener(new View$OnClickListenerC0479a(this, this.dPk));
+                if (this.dVw != null) {
+                    this.noButton.setOnClickListener(new View$OnClickListenerC0491a(this, this.dVw));
                 }
             }
             mouldButtons(z, z2);
@@ -283,11 +298,58 @@ public class a {
         return null;
     }
 
+    public View aYH() {
+        View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.dialog_content_with_no_tip_again, (ViewGroup) null);
+        this.aRC = (TextView) inflate.findViewById(R.id.title);
+        this.aRC.setText(this.mTitle);
+        this.dVA = (TextView) inflate.findViewById(R.id.intro);
+        this.dVA.setText(this.mMessage);
+        this.dVC = (TextView) inflate.findViewById(R.id.no_tip_again_text);
+        this.dVB = (ImageView) inflate.findViewById(R.id.checkbox);
+        aYI();
+        this.dVB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.a.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                a.this.dVD = !a.this.dVD;
+                a.this.aYI();
+                if (a.this.dVE != null) {
+                    a.this.dVE.aYM();
+                }
+            }
+        });
+        return inflate;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aYI() {
+        Drawable a;
+        if (this.dVB != null) {
+            ImageView imageView = this.dVB;
+            if (this.dVD) {
+                a = SvgManager.baR().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
+            } else {
+                a = SvgManager.baR().a(R.drawable.ic_icon_mask_use_check16_svg, null);
+            }
+            imageView.setImageDrawable(a);
+        }
+    }
+
+    public boolean aYJ() {
+        return this.dVD;
+    }
+
+    private void aYK() {
+        ao.setViewTextColor(this.aRC, R.color.cp_cont_b);
+        ao.setViewTextColor(this.dVA, R.color.cp_cont_j);
+        aYI();
+        ao.setViewTextColor(this.dVC, R.color.cp_cont_j);
+    }
+
     public void c(@Nullable com.baidu.adp.base.e<?> eVar) {
         int skinType = isAutoNight() ? TbadkCoreApplication.getInst().getSkinType() : 0;
         if (eVar instanceof TbPageContext) {
             ((TbPageContext) eVar).getLayoutMode().setNightMode(skinType == 1);
-            ((TbPageContext) eVar).getLayoutMode().dFs = isAutoNight() ? false : true;
+            ((TbPageContext) eVar).getLayoutMode().dLp = isAutoNight() ? false : true;
             ((TbPageContext) eVar).getLayoutMode().onModeChanged(this.mRootView);
             if (this.mContentView != null) {
                 ((TbPageContext) eVar).getLayoutMode().onModeChanged(this.mContentView);
@@ -299,8 +361,9 @@ public class a {
         if (this.mRealView != null && this.dialogSize == 2) {
             this.mRealView.setBackgroundResource(R.drawable.dialog_private_background);
         } else {
-            an.setBackgroundResource(this.mRealView, R.drawable.dialog_background, skinType);
+            ao.setBackgroundResource(this.mRealView, R.drawable.dialog_background, skinType);
         }
+        aYK();
     }
 
     private void mouldButtons(boolean z, boolean z2) {
@@ -326,14 +389,14 @@ public class a {
                 this.bdDialog_divider_line.setVisibility(8);
             }
         } else if (z) {
-            an.setBackgroundResource(this.yesButton, R.drawable.dialog_single_button_bg_selector, skinType);
+            ao.setBackgroundResource(this.yesButton, R.drawable.dialog_single_button_bg_selector, skinType);
             if (this.noButton != null && this.dividerWithButton != null && this.bdDialog_divider_line != null) {
                 this.bdDialog_divider_line.setVisibility(0);
                 this.yesButton.setVisibility(0);
                 this.noButton.setVisibility(8);
             }
         } else if (z2) {
-            an.setBackgroundResource(this.noButton, R.drawable.dialog_single_button_bg_selector, skinType);
+            ao.setBackgroundResource(this.noButton, R.drawable.dialog_single_button_bg_selector, skinType);
             if (this.yesButton != null && this.dividerWithButton != null && this.bdDialog_divider_line != null) {
                 this.bdDialog_divider_line.setVisibility(0);
                 this.noButton.setVisibility(0);
@@ -346,7 +409,7 @@ public class a {
         }
     }
 
-    private a hh(boolean z) {
+    private a hL(boolean z) {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
@@ -395,8 +458,8 @@ public class a {
                 window.setAttributes(attributes);
                 window.setContentView(this.mRootView);
                 final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                be.a(this.mRootView, false, new be.a() { // from class: com.baidu.tbadk.core.dialog.a.1
-                    @Override // com.baidu.tbadk.core.util.be.a
+                bf.a(this.mRootView, false, new bf.a() { // from class: com.baidu.tbadk.core.dialog.a.2
+                    @Override // com.baidu.tbadk.core.util.bf.a
                     public boolean onViewFound(View view) {
                         if (view instanceof EditText) {
                             atomicBoolean.set(true);
@@ -446,8 +509,8 @@ public class a {
         }
     }
 
-    public a aUN() {
-        return hh(true);
+    public a aYL() {
+        return hL(true);
     }
 
     public void dismiss() {
@@ -459,19 +522,19 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.core.dialog.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class View$OnClickListenerC0479a implements View.OnClickListener {
-        private final a aaa;
-        private final b dPo;
+    public class View$OnClickListenerC0491a implements View.OnClickListener {
+        private final a ZV;
+        private final b dVG;
 
-        public View$OnClickListenerC0479a(a aVar, b bVar) {
-            this.aaa = aVar;
-            this.dPo = bVar;
+        public View$OnClickListenerC0491a(a aVar, b bVar) {
+            this.ZV = aVar;
+            this.dVG = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.dPo != null) {
-                this.dPo.onClick(this.aaa);
+            if (this.dVG != null) {
+                this.dVG.onClick(this.ZV);
             }
         }
     }
@@ -496,10 +559,6 @@ public class a {
         this.isAutoNight = z;
     }
 
-    public Window getWindow() {
-        return this.mDialog.getWindow();
-    }
-
     public void setOnlyMessageShowCenter(boolean z) {
         this.isOnlyMessageShowCenter = z;
     }
@@ -514,5 +573,9 @@ public class a {
 
     public void setOnKeyListener(DialogInterface.OnKeyListener onKeyListener) {
         this.mOnKeyListener = onKeyListener;
+    }
+
+    public void hM(boolean z) {
+        this.dVz = z;
     }
 }

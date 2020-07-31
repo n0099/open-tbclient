@@ -4,19 +4,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.special_forum.data.f, d.a> {
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.f.fpr);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.f.fuC);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Q */
+    /* renamed from: R */
     public d.a b(ViewGroup viewGroup) {
         com.baidu.tieba.ala.alasquare.special_forum.subtab.a.d dVar = new com.baidu.tieba.ala.alasquare.special_forum.subtab.a.d(this.mPageContext, viewGroup);
         dVar.getClass();
@@ -30,7 +30,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         if (aVar == null || fVar == null) {
             return null;
         }
-        aVar.fvb.a(fVar);
+        aVar.fAi.a(fVar);
         return aVar.getView();
     }
 }

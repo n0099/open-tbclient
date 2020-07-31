@@ -12,7 +12,7 @@ import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static final String a = c.class.getSimpleName();
     private HashMap<String, String> b;
@@ -20,7 +20,7 @@ public class c {
     private HashMap<String, Object> d;
     private HashMap<String, Object> e;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         private Context a = null;
 

@@ -1,7 +1,7 @@
 package com.baidu.tieba.k;
 /* loaded from: classes.dex */
 public class a {
-    public static String t(Throwable th) {
+    public static String s(Throwable th) {
         if (th == null) {
             return "";
         }

@@ -5,9 +5,9 @@ import android.graphics.Paint;
 import android.text.TextUtils;
 import com.baidu.live.adp.widget.HorizontalTranslateLayout;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class ah extends a {
-    private Paint.Align bTp;
+    private Paint.Align bUh;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
@@ -15,11 +15,11 @@ public class ah extends a {
             if (jSONArray.length() > 0) {
                 String optString = jSONArray.optString(0);
                 if (TextUtils.equals(optString, "left")) {
-                    this.bTp = Paint.Align.LEFT;
+                    this.bUh = Paint.Align.LEFT;
                 } else if (TextUtils.equals(optString, "center")) {
-                    this.bTp = Paint.Align.CENTER;
+                    this.bUh = Paint.Align.CENTER;
                 } else if (TextUtils.equals(optString, HorizontalTranslateLayout.DIRECTION_RIGHT)) {
-                    this.bTp = Paint.Align.RIGHT;
+                    this.bUh = Paint.Align.RIGHT;
                 }
             }
         } catch (Exception e) {
@@ -31,8 +31,8 @@ public class ah extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.bTp != null) {
-            bVar.bSE.setTextAlign(this.bTp);
+        if (this.bUh != null) {
+            bVar.bTw.setTextAlign(this.bUh);
         }
     }
 }

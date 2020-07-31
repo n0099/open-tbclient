@@ -3,39 +3,32 @@ package com.baidu.smallgame.sdk;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.opengl.EGLContext;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Message;
 import android.view.OrientationEventListener;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
+import com.baidu.smallgame.sdk.b.c;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ArBridge {
     private static final boolean DEBUG = false;
     private static final int INVALID_MESSAGE_ID = -1;
-    private static final int MSG_MESSAGE_FROM_ENGINE = 1;
     static final String TAG = "EngineLogger";
     private com.baidu.smallgame.sdk.a.a mDataStore;
     private EGLContext mEglContext;
     private FirstFrameListener mFirstFrameListener;
-    private com.baidu.mario.a.b mGameRecorder;
-    private Handler mHandler;
-    private List<a> mMsgHandlers;
     private long mNativeARBridge;
     private OrientationEventListener mOrientationEventListener;
     private int mScreenHeight;
     private int mScreenWidth;
-    private com.baidu.smallgame.sdk.b.c mStuckScreenHandler;
-    private e mVideoCallback;
+    private c mStuckScreenHandler;
+    private b mVideoCallback;
     private List<Runnable> mPendingRunnables = new LinkedList();
     private boolean mIsInitNative = false;
     private AtomicBoolean mDestroyed = new AtomicBoolean(true);
@@ -47,15 +40,15 @@ public class ArBridge {
     private boolean mHasResumeByUser = false;
     private int mImuType = 0;
     private final PerformanceJsonBean mPerformanceJsonBean = new PerformanceJsonBean();
-    private HandlerThread mThread = new HandlerThread("msg_callback_thread");
+    private com.baidu.mario.a.b mGameRecorder = new com.baidu.mario.a.b(V8Engine.getAppContext());
 
     @NotProguard
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface FirstFrameListener {
         void onFirstFrameFinished();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public enum TouchOrientation {
         SCREEN_ORIENTATION_PORTRAIT,
         SCREEN_ORIENTATION_LANDSCAPE,
@@ -64,18 +57,13 @@ public class ArBridge {
         SCREEN_ORIENTATION_NOT_DEFINED
     }
 
-    /* loaded from: classes11.dex */
-    public interface c {
+    /* loaded from: classes10.dex */
+    public interface a {
         void g(Bitmap bitmap);
     }
 
-    /* loaded from: classes11.dex */
-    public interface d {
-        void handleMessage(int i, int i2, HashMap<String, Object> hashMap);
-    }
-
-    /* loaded from: classes11.dex */
-    public interface e {
+    /* loaded from: classes10.dex */
+    public interface b {
         void e(String str, int i, String str2);
     }
 
@@ -177,7 +165,7 @@ public class ArBridge {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public com.baidu.smallgame.sdk.b.c getStuckScreenHandler() {
+    public c getStuckScreenHandler() {
         return this.mStuckScreenHandler;
     }
 
@@ -192,21 +180,6 @@ public class ArBridge {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ArBridge() {
         this.mNativeARBridge = 0L;
-        this.mThread.start();
-        this.mHandler = new Handler(this.mThread.getLooper(), new Handler.Callback() { // from class: com.baidu.smallgame.sdk.ArBridge.1
-            @Override // android.os.Handler.Callback
-            public boolean handleMessage(Message message) {
-                switch (message.what) {
-                    case 1:
-                        ArBridge.this.processIncomingMessage((b) message.obj);
-                        return false;
-                    default:
-                        return false;
-                }
-            }
-        });
-        this.mMsgHandlers = new LinkedList();
-        this.mGameRecorder = new com.baidu.mario.a.b(V8Engine.getAppContext());
         this.mNativeARBridge = nativeInitializeAR();
         Log.e(TAG, "initialize ar bridge. nativePtr: " + this.mNativeARBridge);
         this.mStuckScreenHandler = new com.baidu.smallgame.sdk.b();
@@ -268,39 +241,14 @@ public class ArBridge {
     }
 
     @Deprecated
-    public void surfaceViewCapture(c cVar) {
-        if (cVar != null) {
-            cVar.g(null);
+    public void surfaceViewCapture(a aVar) {
+        if (aVar != null) {
+            aVar.g(null);
         }
     }
 
-    public synchronized void registerMessageHandler(final int i, final d dVar) {
-        this.mHandler.post(new Runnable() { // from class: com.baidu.smallgame.sdk.ArBridge.2
-            @Override // java.lang.Runnable
-            public void run() {
-                ArBridge.this.mMsgHandlers.add(new a(i, -1, dVar));
-            }
-        });
-    }
-
-    public synchronized void removeMessageHandeler(final d dVar) {
-        this.mHandler.post(new Runnable() { // from class: com.baidu.smallgame.sdk.ArBridge.3
-            @Override // java.lang.Runnable
-            public void run() {
-                if (ArBridge.this.mMsgHandlers != null) {
-                    Iterator it = ArBridge.this.mMsgHandlers.iterator();
-                    while (it.hasNext()) {
-                        if (((a) it.next()).bJY == dVar) {
-                            it.remove();
-                        }
-                    }
-                }
-            }
-        });
-    }
-
-    public synchronized void setVideoUpdateCallback(e eVar) {
-        this.mVideoCallback = eVar;
+    public synchronized void setVideoUpdateCallback(b bVar) {
+        this.mVideoCallback = bVar;
     }
 
     public void updateVideoFrame(String str, int i, String str2) {
@@ -310,68 +258,12 @@ public class ArBridge {
         }
     }
 
-    private void receiveMsgFromEngine(int i, int i2, HashMap<String, Object> hashMap, int i3) {
-        this.mHandler.obtainMessage(1, new b(i, i2, hashMap, i3)).sendToTarget();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void processIncomingMessage(b bVar) {
-        for (a aVar : this.mMsgHandlers) {
-            if (aVar.mMessageType == 0 || bVar.mMessageType == aVar.mMessageType) {
-                if (-1 == aVar.mMessageId || bVar.mResMessageID == aVar.mMessageId) {
-                    aVar.bJY.handleMessage(bVar.mMessageType, bVar.mMessageID, bVar.mData);
-                }
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
-    public static class b {
-        public HashMap<String, Object> mData;
-        public int mMessageID;
-        public int mMessageType;
-        public int mResMessageID;
-
-        public b(int i, int i2, HashMap<String, Object> hashMap, int i3) {
-            this.mMessageType = i;
-            this.mMessageID = i2;
-            this.mData = hashMap;
-            this.mResMessageID = i3;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
-    public static class a {
-        public d bJY;
-        public int mMessageId;
-        public int mMessageType;
-
-        public a(int i, int i2, d dVar) {
-            this.mMessageType = i;
-            this.mMessageId = i2;
-            this.bJY = dVar;
-        }
-    }
-
     public void setGLThreadID(long j) {
         this.mCurrentGLThreadID = j;
     }
 
     public void setDensity(float f) {
         nativeDensity(f);
-    }
-
-    public void release() {
-        this.mHandler.post(new Runnable() { // from class: com.baidu.smallgame.sdk.ArBridge.4
-            @Override // java.lang.Runnable
-            public void run() {
-                if (ArBridge.this.mMsgHandlers != null) {
-                    ArBridge.this.mMsgHandlers.clear();
-                }
-            }
-        });
     }
 
     public void updateRTMatrix(float[] fArr) {
@@ -418,13 +310,6 @@ public class ArBridge {
         ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
         if (arBridge != null) {
             arBridge.updateVideoFrame(str, i, str2);
-        }
-    }
-
-    private static void receiveMsgFromEngine(Object obj, int i, int i2, HashMap<String, Object> hashMap, int i3) {
-        ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
-        if (arBridge != null) {
-            arBridge.receiveMsgFromEngine(i, i2, hashMap, i3);
         }
     }
 

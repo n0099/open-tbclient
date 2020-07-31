@@ -7,117 +7,118 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tieba.pb.data.f;
 import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.tieba.pb.pb.main.PbLandscapeListView;
 import com.baidu.tieba.pb.video.g;
 import com.baidu.tieba.pb.video.h;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class e {
-    private PbFragment kbv;
-    private h kpI;
-    private g kpJ;
-    private boolean kpK = false;
+    private PbFragment kjZ;
+    private h kyG;
+    private g kyH;
+    private boolean kyI = false;
 
     public e(PbFragment pbFragment) {
-        this.kbv = pbFragment;
+        this.kjZ = pbFragment;
     }
 
-    public void a(com.baidu.tieba.pb.data.e eVar, PostData postData, BdTypeListView bdTypeListView, d dVar, FrameLayout frameLayout, com.baidu.tieba.pb.pb.main.view.c cVar, String str, long j) {
-        if (eVar != null && eVar.cHn()) {
-            if (this.kpI == null) {
-                this.kpI = new h(this.kbv, cVar, eVar.cGO().aSH(), j);
-                this.kpI.a(eVar.cGO().aSH(), eVar.cGO(), eVar.getForumId());
-                this.kpI.startPlay();
-            } else if (this.kpK) {
-                this.kpI.a(eVar.cGO().aSH(), eVar.cGO(), eVar.getForumId());
-                this.kpI.startPlay();
+    public void a(f fVar, PostData postData, BdTypeListView bdTypeListView, d dVar, FrameLayout frameLayout, com.baidu.tieba.pb.pb.main.view.c cVar, String str, long j) {
+        if (fVar != null && fVar.cKX()) {
+            if (this.kyG == null) {
+                this.kyG = new h(this.kjZ, cVar, fVar.cKx().aWD(), j);
+                this.kyG.a(fVar.cKx().aWD(), fVar.cKx(), fVar.getForumId());
+                this.kyG.startPlay();
+            } else if (this.kyI) {
+                this.kyG.a(fVar.cKx().aWD(), fVar.cKx(), fVar.getForumId());
+                this.kyG.startPlay();
             } else {
-                this.kpI.Kv(eVar.getForumId());
+                this.kyG.Lj(fVar.getForumId());
             }
-            com.baidu.tieba.pb.c.a.a(this.kbv.getUniqueId(), eVar, postData, 1, 1);
-            if (eVar.cGP() != null && eVar.cGP().size() >= 1) {
-                bu buVar = eVar.cGP().get(0);
-                this.kpI.aN(buVar);
-                this.kpI.Kw(buVar.getTitle());
+            com.baidu.tieba.pb.c.a.a(this.kjZ.getUniqueId(), fVar, postData, 1, 1);
+            if (fVar.cKy() != null && fVar.cKy().size() >= 1) {
+                bv bvVar = fVar.cKy().get(0);
+                this.kyG.aK(bvVar);
+                this.kyG.Lk(bvVar.getTitle());
             }
-            this.kpI.b(postData, eVar.cGO(), eVar.cHm());
-            this.kpK = false;
-            bdTypeListView.removeHeaderView(this.kpI.cOY());
-            bdTypeListView.addHeaderView(this.kpI.cOY(), 0);
-            if (this.kpI.bub() != null && this.kpI.bub().getParent() == null) {
-                frameLayout.addView(this.kpI.bub());
+            this.kyG.b(postData, fVar.cKx(), fVar.cKW());
+            this.kyI = false;
+            bdTypeListView.removeHeaderView(this.kyG.cSL());
+            bdTypeListView.addHeaderView(this.kyG.cSL(), 0);
+            if (this.kyG.bxk() != null && this.kyG.bxk().getParent() == null) {
+                frameLayout.addView(this.kyG.bxk());
             }
-            if (this.kpJ == null) {
-                this.kpJ = new g(this.kbv.getBaseFragmentActivity());
+            if (this.kyH == null) {
+                this.kyH = new g(this.kjZ.getBaseFragmentActivity());
             }
-            this.kpJ.b(eVar, str);
-            bdTypeListView.removeHeaderView(this.kpJ.cOR());
-            bdTypeListView.addHeaderView(this.kpJ.cOR(), 1);
+            this.kyH.b(fVar, str);
+            bdTypeListView.removeHeaderView(this.kyH.cSE());
+            bdTypeListView.addHeaderView(this.kyH.cSE(), 1);
             dVar.c(bdTypeListView);
             dVar.a(bdTypeListView, 2);
-            if (this.kpI != null) {
-                cVar.sA(false);
-                this.kpI.BF(TbadkCoreApplication.getInst().getSkinType());
+            if (this.kyG != null) {
+                cVar.tg(false);
+                this.kyG.Ce(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
 
     public void c(BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
-            if (this.kpI != null) {
-                bdTypeListView.removeHeaderView(this.kpI.cOY());
+            if (this.kyG != null) {
+                bdTypeListView.removeHeaderView(this.kyG.cSL());
             }
-            if (this.kpJ != null) {
-                this.kpJ.e(bdTypeListView);
+            if (this.kyH != null) {
+                this.kyH.e(bdTypeListView);
             }
         }
     }
 
-    public void sr(boolean z) {
-        this.kpK = z;
+    public void sW(boolean z) {
+        this.kyI = z;
     }
 
-    public void T(View.OnClickListener onClickListener) {
-        if (this.kpI != null) {
-            this.kpI.T(onClickListener);
+    public void U(View.OnClickListener onClickListener) {
+        if (this.kyG != null) {
+            this.kyG.U(onClickListener);
         }
     }
 
     public void d(BdTypeListView bdTypeListView) {
-        if (this.kpI != null) {
-            TiebaStatic.log(new ao("c11997").ag("obj_type", 1));
-            this.kpI.cNp();
+        if (this.kyG != null) {
+            TiebaStatic.log(new ap("c11997").ah("obj_type", 1));
+            this.kyG.cRc();
             bdTypeListView.smoothScrollToPosition(0);
         }
     }
 
-    public boolean BE(int i) {
-        if (this.kpI != null) {
-            return this.kpI.uR(i);
+    public boolean Cd(int i) {
+        if (this.kyG != null) {
+            return this.kyG.vj(i);
         }
         return false;
     }
 
     public void a(PbLandscapeListView pbLandscapeListView, TextView textView, int i) {
         if (pbLandscapeListView != null) {
-            if (this.kpI != null && this.kpI.bub() != null) {
+            if (this.kyG != null && this.kyG.bxk() != null) {
                 if (textView != null) {
                     pbLandscapeListView.removeHeaderView(textView);
                     pbLandscapeListView.setTextViewAdded(false);
                 }
                 if (i != 1) {
-                    pbLandscapeListView.removeHeaderView(this.kpI.cOY());
-                    pbLandscapeListView.addHeaderView(this.kpI.cOY(), 0);
+                    pbLandscapeListView.removeHeaderView(this.kyG.cSL());
+                    pbLandscapeListView.addHeaderView(this.kyG.cSL(), 0);
                     return;
                 }
                 return;
             }
-            if (this.kpI != null) {
-                pbLandscapeListView.removeHeaderView(this.kpI.cOY());
+            if (this.kyG != null) {
+                pbLandscapeListView.removeHeaderView(this.kyG.cSL());
             }
             if (textView != null) {
                 pbLandscapeListView.removeHeaderView(textView);
@@ -126,101 +127,101 @@ public class e {
         }
     }
 
-    public boolean cMV() {
-        return this.kpI != null && this.kpI.cMV();
+    public boolean cQH() {
+        return this.kyG != null && this.kyG.cQH();
     }
 
-    public void cMW() {
-        if (this.kpI != null) {
-            this.kpI.onPause();
+    public void cQI() {
+        if (this.kyG != null) {
+            this.kyG.onPause();
         }
     }
 
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (this.kpI != null) {
-            this.kpI.c(absListView, i);
+        if (this.kyG != null) {
+            this.kyG.c(absListView, i);
         }
     }
 
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (this.kpI != null) {
-            this.kpI.onScrollStateChanged(absListView, i);
+        if (this.kyG != null) {
+            this.kyG.onScrollStateChanged(absListView, i);
         }
     }
 
-    public void sp(boolean z) {
-        if (this.kpI != null) {
-            this.kpI.sp(z);
+    public void sU(boolean z) {
+        if (this.kyG != null) {
+            this.kyG.sU(z);
         }
     }
 
-    public void cNp() {
-        if (this.kpI != null) {
-            this.kpI.cNp();
+    public void cRc() {
+        if (this.kyG != null) {
+            this.kyG.cRc();
         }
     }
 
     public void destroy() {
-        if (this.kpI != null) {
-            this.kpI.destroy();
+        if (this.kyG != null) {
+            this.kyG.destroy();
         }
     }
 
     public void onPause() {
-        if (this.kpI != null) {
-            this.kpI.onPause();
+        if (this.kyG != null) {
+            this.kyG.onPause();
         }
     }
 
     public void onResume() {
-        if (this.kpI != null) {
-            this.kpI.onResume();
+        if (this.kyG != null) {
+            this.kyG.onResume();
         }
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.kpI != null) {
-            this.kpI.onConfigurationChanged(configuration);
+        if (this.kyG != null) {
+            this.kyG.onConfigurationChanged(configuration);
         }
     }
 
-    public void BF(int i) {
-        if (this.kpI != null) {
-            this.kpI.BF(i);
+    public void Ce(int i) {
+        if (this.kyG != null) {
+            this.kyG.Ce(i);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kpJ != null) {
-            this.kpJ.onChangeSkinType(i);
+        if (this.kyH != null) {
+            this.kyH.onChangeSkinType(i);
         }
     }
 
-    public View bub() {
-        if (this.kpI != null) {
-            return this.kpI.bub();
+    public View bxk() {
+        if (this.kyG != null) {
+            return this.kyG.bxk();
         }
         return null;
     }
 
-    public int cNq() {
-        View bub = bub();
-        if (bub != null) {
-            return bub.getHeight();
+    public int cRd() {
+        View bxk = bxk();
+        if (bxk != null) {
+            return bxk.getHeight();
         }
         return 0;
     }
 
-    public int cNr() {
-        if (this.kpI != null) {
-            return this.kpI.cNr();
+    public int cRe() {
+        if (this.kyG != null) {
+            return this.kyG.cRe();
         }
         return 0;
     }
 
-    public boolean bAs() {
-        if (this.kpI != null) {
-            return this.kpI.bAs();
+    public boolean bDD() {
+        if (this.kyG != null) {
+            return this.kyG.bDD();
         }
         return false;
     }

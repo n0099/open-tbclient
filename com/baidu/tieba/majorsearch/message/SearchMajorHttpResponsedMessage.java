@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.majorsearch.c.a;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class SearchMajorHttpResponsedMessage extends JsonHttpResponsedMessage {
     private a mSearchMajorResultData;
 

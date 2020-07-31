@@ -56,6 +56,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     private String mServiceType;
     private int mStatus;
     private int mSubChatType;
+    private int mTemplateType;
     private long mTime;
     private String mTips;
     private int mTipsCode;
@@ -104,6 +105,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         this.isMediaRoleMsg = false;
         this.mTipsCode = 0;
         this.mTips = "";
+        this.mTemplateType = 0;
         this.sendMsgId = generateSendMsgId();
     }
 
@@ -140,6 +142,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         this.isMediaRoleMsg = false;
         this.mTipsCode = 0;
         this.mTips = "";
+        this.mTemplateType = 0;
         this.mMsgId = parcel.readLong();
         this.mTime = parcel.readLong();
         this.mFromUser = parcel.readLong();
@@ -181,6 +184,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         this.mServiceType = parcel.readString();
         this.mTipsCode = parcel.readInt();
         this.mTips = parcel.readString();
+        this.mTemplateType = parcel.readInt();
     }
 
     @Override // android.os.Parcelable
@@ -233,6 +237,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         parcel.writeString(this.mServiceType);
         parcel.writeInt(this.mTipsCode);
         parcel.writeString(this.mTips);
+        parcel.writeInt(this.mTemplateType);
     }
 
     public void setReSend() {
@@ -926,5 +931,13 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
 
     public void setTips(String str) {
         this.mTips = str;
+    }
+
+    public void setTemplateType(int i) {
+        this.mTemplateType = i;
+    }
+
+    public int getTemplateType() {
+        return this.mTemplateType;
     }
 }

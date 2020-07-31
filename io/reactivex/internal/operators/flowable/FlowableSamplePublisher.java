@@ -8,17 +8,17 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
-    final boolean nKM;
-    final org.a.b<?> nKw;
+    final org.a.b<?> nTe;
+    final boolean nTu;
     final org.a.b<T> source;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        if (this.nKM) {
-            this.source.subscribe(new SampleMainEmitLast(bVar, this.nKw));
+        if (this.nTu) {
+            this.source.subscribe(new SampleMainEmitLast(bVar, this.nTe));
         } else {
-            this.source.subscribe(new SampleMainNoLast(bVar, this.nKw));
+            this.source.subscribe(new SampleMainNoLast(bVar, this.nTe));
         }
     }
 
@@ -114,32 +114,32 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
 
     /* loaded from: classes7.dex */
     static final class a<T> implements j<Object> {
-        final SamplePublisherSubscriber<T> nKN;
+        final SamplePublisherSubscriber<T> nTv;
 
         a(SamplePublisherSubscriber<T> samplePublisherSubscriber) {
-            this.nKN = samplePublisherSubscriber;
+            this.nTv = samplePublisherSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            if (this.nKN.setOther(dVar)) {
+            if (this.nTv.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(Object obj) {
-            this.nKN.run();
+            this.nTv.run();
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.nKN.error(th);
+            this.nTv.error(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
-            this.nKN.complete();
+            this.nTv.complete();
         }
     }
 

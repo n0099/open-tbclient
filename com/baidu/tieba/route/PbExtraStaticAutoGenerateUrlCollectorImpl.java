@@ -4,7 +4,7 @@ import com.baidu.adp.framework.a.d;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public final class PbExtraStaticAutoGenerateUrlCollectorImpl implements d {
     @Override // com.baidu.adp.framework.a.d
     public Map<String, ArrayList<String>> getConfigRouterMap() {

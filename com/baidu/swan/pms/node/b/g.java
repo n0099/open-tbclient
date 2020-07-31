@@ -1,47 +1,47 @@
 package com.baidu.swan.pms.node.b;
 
-import com.baidu.swan.e.j;
+import com.baidu.swan.d.i;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class g {
-    private static volatile g drN;
-    private a drO = new a();
+    private static volatile g dxE;
+    private a dxF = new a();
 
-    public static g aIp() {
-        if (drN == null) {
+    public static g aMh() {
+        if (dxE == null) {
             synchronized (g.class) {
-                if (drN == null) {
-                    drN = new g();
+                if (dxE == null) {
+                    dxE = new g();
                 }
             }
         }
-        return drN;
+        return dxE;
     }
 
     private g() {
     }
 
     public String getVersion() {
-        return this.drO.getString("version", "0");
+        return this.dxF.getString("version", "0");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void co(JSONObject jSONObject) {
-        f cp;
-        if (jSONObject != null && (cp = f.cp(jSONObject)) != null) {
-            com.baidu.swan.pms.d.aGV().a(cp);
+    public void cu(JSONObject jSONObject) {
+        f cv;
+        if (jSONObject != null && (cv = f.cv(jSONObject)) != null) {
+            com.baidu.swan.pms.d.aKM().a(cv);
         }
     }
 
     public void b(f fVar) {
         if (fVar != null) {
-            this.drO.edit().putString("version", fVar.getVersion()).apply();
+            this.dxF.edit().putString("version", fVar.getVersion()).apply();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
-    public static class a extends j {
+    /* loaded from: classes19.dex */
+    public static class a extends i {
         private a() {
             super("swan_preload_package");
         }

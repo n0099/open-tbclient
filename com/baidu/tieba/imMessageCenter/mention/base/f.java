@@ -4,64 +4,68 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.MessageRedDotView;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class f {
-    private HeadImageView iLM;
-    private TextView iLN;
-    private MessageRedDotView iLQ;
-    private View jja;
-    private LinearLayout jjb;
-    private ImageView jjc;
-    private int mIcon;
-
-    public f(TbPageContext tbPageContext) {
-        this.jja = LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.reply_and_at_item, (ViewGroup) null, false);
-        this.jjb = (LinearLayout) this.jja.findViewById(R.id.reply_and_at_item);
-        this.jjc = (ImageView) this.jja.findViewById(R.id.arrow_view);
-        this.iLM = (HeadImageView) this.jja.findViewById(R.id.reply_and_at_head);
-        this.iLM.setIsRound(true);
-        this.iLM.setDrawBorder(false);
-        this.iLQ = (MessageRedDotView) this.jja.findViewById(R.id.new_message);
-        this.iLN = (TextView) this.jja.findViewById(R.id.desc_view);
-    }
-
-    public void bk(String str, int i) {
-        this.iLN.setText(str);
-        this.mIcon = i;
-        aYi();
-    }
-
-    public void X(int i, boolean z) {
-        if (i > 0) {
-            if (z) {
-                i = 0;
+    private ImageView fbc;
+    private TextView jrG;
+    private TBSpecificationBtn jrH;
+    private a jrI;
+    private com.baidu.adp.base.e mContext;
+    private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.base.f.1
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (view.getId() == f.this.jrH.getId()) {
+                com.baidu.tbadk.coreExtra.c.a.f(f.this.mContext);
+                TiebaStatic.log(new ap("c13705").ah("obj_type", 1));
+            } else if (view.getId() == f.this.fbc.getId()) {
+                com.baidu.tbadk.core.sharedPref.b.aZP().putLong("key_im_open_notification_close_time", System.currentTimeMillis());
+                if (f.this.jrI != null) {
+                    f.this.jrI.onClose();
+                }
+                TiebaStatic.log(new ap("c13705").ah("obj_type", 2));
             }
-            this.iLQ.refresh(i);
-            this.iLQ.setVisibility(0);
-            return;
         }
-        this.iLQ.setVisibility(8);
+    };
+    private View mView;
+
+    /* loaded from: classes16.dex */
+    public interface a {
+        void onClose();
     }
 
-    public void aYi() {
-        an.setViewTextColor(this.iLN, R.color.cp_cont_b, 1);
-        this.jja.setBackgroundDrawable(an.ls(R.color.cp_bg_line_e));
-        SvgManager.aWQ().a(this.jjc, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        an.setImageResource(this.iLM, this.mIcon);
-        if (this.iLQ != null) {
-            this.iLQ.onChangeSkinType();
-        }
+    public f(com.baidu.adp.base.e eVar) {
+        this.mContext = eVar;
+        this.mView = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.open_notification_view, (ViewGroup) null);
+        this.fbc = (ImageView) this.mView.findViewById(R.id.img_close);
+        this.fbc.setOnClickListener(this.mOnClickListener);
+        this.jrG = (TextView) this.mView.findViewById(R.id.open_desc);
+        this.jrH = (TBSpecificationBtn) this.mView.findViewById(R.id.btn_open);
+        this.jrH.setConfig(new com.baidu.tbadk.core.view.commonBtn.c());
+        this.jrH.setText(eVar.getString(R.string.go_to_open));
+        this.jrH.setOnClickListener(this.mOnClickListener);
+        TiebaStatic.log("c13704");
+        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public View getView() {
-        return this.jja;
+        return this.mView;
+    }
+
+    public void onChangeSkinType(int i) {
+        ao.setBackgroundColor(this.mView, R.color.cp_bg_line_g);
+        SvgManager.baR().a(this.fbc, R.drawable.icon_pure_close16_n_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        ao.setViewTextColor(this.jrG, R.color.cp_cont_j);
+    }
+
+    public void a(a aVar) {
+        this.jrI = aVar;
     }
 }

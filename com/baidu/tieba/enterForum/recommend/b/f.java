@@ -1,11 +1,11 @@
 package com.baidu.tieba.enterForum.recommend.b;
 
 import tbclient.Recommforum.TestInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class f {
     public int createTime;
-    public boolean hgl;
-    public String hgm;
+    public boolean hlV;
+    public String hlW;
     public String imageUrl;
     public long testId;
     public String title;
@@ -16,8 +16,8 @@ public class f {
             this.title = testInfo.title == null ? "" : testInfo.title;
             this.imageUrl = testInfo.image_url;
             this.createTime = testInfo.create_time.intValue();
-            this.hgl = testInfo.answered.intValue() == 1;
-            this.hgm = testInfo.result_img;
+            this.hlV = testInfo.answered.intValue() == 1;
+            this.hlW = testInfo.result_img;
         }
     }
 }

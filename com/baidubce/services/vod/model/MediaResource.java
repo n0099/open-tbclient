@@ -2,7 +2,7 @@ package com.baidubce.services.vod.model;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class MediaResource {
     private Attributes attributes;
     private String createTime;

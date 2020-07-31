@@ -3,7 +3,7 @@ package com.baidu.sapi2.activity.social;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.f.a.a.a.a;
+import com.baidu.g.a.a.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.utils.Log;
@@ -15,7 +15,7 @@ import com.huawei.hms.support.api.hwid.HuaweiId;
 import com.huawei.hms.support.api.hwid.HuaweiIdSignInOptions;
 import com.huawei.hms.support.api.hwid.SignInHuaweiId;
 import com.huawei.hms.support.api.hwid.SignInResult;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     private static final int REQUEST_HMS_RESOLVE_ERROR = 1000;
     private static final int REQUEST_SIGN_IN_AUTH = 1003;

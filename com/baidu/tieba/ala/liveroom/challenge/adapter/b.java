@@ -11,10 +11,10 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends BaseAdapter {
     private List<com.baidu.tieba.ala.liveroom.challenge.a.b> dataList;
-    public String fZd;
+    public String gek;
     private Context mContext;
 
     public b(Context context, List<com.baidu.tieba.ala.liveroom.challenge.a.b> list) {
@@ -49,7 +49,7 @@ public class b extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.layout_item_mvp_choose_punish, (ViewGroup) null);
             a aVar2 = new a(view);
-            aVar2.fZe.setDefaultBgResource(a.f.sdk_shape_transparent);
+            aVar2.gel.setDefaultBgResource(a.f.sdk_shape_transparent);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -57,29 +57,29 @@ public class b extends BaseAdapter {
         }
         com.baidu.tieba.ala.liveroom.challenge.a.b bVar = (com.baidu.tieba.ala.liveroom.challenge.a.b) getItem(i);
         if (bVar != null) {
-            aVar.fZe.startLoad(bVar.bgurl, 10, false);
-            if (TextUtils.equals(this.fZd, bVar.id)) {
-                aVar.fZf.setImageResource(a.f.icon_mvp_choose_punish_check);
+            aVar.gel.startLoad(bVar.bgurl, 10, false);
+            if (TextUtils.equals(this.gek, bVar.id)) {
+                aVar.gem.setImageResource(a.f.icon_mvp_choose_punish_check);
             } else {
-                aVar.fZf.setImageResource(a.f.icon_mvp_choose_punish_not_check);
+                aVar.gem.setImageResource(a.f.icon_mvp_choose_punish_not_check);
             }
-            aVar.fZg.setText(bVar.name);
+            aVar.gen.setText(bVar.name);
         }
         return view;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
-        public TbImageView fZe;
-        public ImageView fZf;
-        public TextView fZg;
+        public TbImageView gel;
+        public ImageView gem;
+        public TextView gen;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.fZe = (TbImageView) view.findViewById(a.g.sticker_imageView);
-            this.fZf = (ImageView) view.findViewById(a.g.check_imageView);
-            this.fZg = (TextView) view.findViewById(a.g.stickerName_textView);
+            this.gel = (TbImageView) view.findViewById(a.g.sticker_imageView);
+            this.gem = (ImageView) view.findViewById(a.g.check_imageView);
+            this.gen = (TextView) view.findViewById(a.g.stickerName_textView);
         }
     }
 }

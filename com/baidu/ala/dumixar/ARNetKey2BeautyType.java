@@ -3,7 +3,7 @@ package com.baidu.ala.dumixar;
 import com.baidu.minivideo.arface.bean.BeautyType;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ARNetKey2BeautyType {
     public static HashMap<String, BeautyType> sKeyMap = new HashMap<>();
 

@@ -13,7 +13,7 @@ import java.io.OutputStream;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class FileCopyUtils {
     private static final int a = 4096;
 

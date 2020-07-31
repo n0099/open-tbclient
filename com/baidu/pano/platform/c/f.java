@@ -7,7 +7,7 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class f {
     private static f j;
     private int a;

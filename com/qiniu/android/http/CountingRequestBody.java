@@ -10,18 +10,18 @@ import okio.BufferedSink;
 import okio.ForwardingSink;
 import okio.Okio;
 import okio.Sink;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class CountingRequestBody extends RequestBody {
     private final RequestBody body;
-    private final ProgressHandler nDb;
-    private final long nDc;
-    private final CancellationHandler nDd;
+    private final ProgressHandler nLJ;
+    private final long nLK;
+    private final CancellationHandler nLL;
 
     public CountingRequestBody(RequestBody requestBody, ProgressHandler progressHandler, long j, CancellationHandler cancellationHandler) {
         this.body = requestBody;
-        this.nDb = progressHandler;
-        this.nDc = j;
-        this.nDd = cancellationHandler;
+        this.nLJ = progressHandler;
+        this.nLK = j;
+        this.nLL = cancellationHandler;
     }
 
     @Override // okhttp3.RequestBody
@@ -41,28 +41,28 @@ public final class CountingRequestBody extends RequestBody {
         buffer.flush();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     protected final class CountingSink extends ForwardingSink {
-        private int nDe;
+        private int nLM;
 
         public CountingSink(Sink sink) {
             super(sink);
-            this.nDe = 0;
+            this.nLM = 0;
         }
 
         @Override // okio.ForwardingSink, okio.Sink
         public void write(Buffer buffer, long j) throws IOException {
-            if (CountingRequestBody.this.nDd != null || CountingRequestBody.this.nDb != null) {
-                if (CountingRequestBody.this.nDd != null && CountingRequestBody.this.nDd.isCancelled()) {
+            if (CountingRequestBody.this.nLL != null || CountingRequestBody.this.nLJ != null) {
+                if (CountingRequestBody.this.nLL != null && CountingRequestBody.this.nLL.isCancelled()) {
                     throw new CancellationHandler.CancellationException();
                 }
                 super.write(buffer, j);
-                this.nDe = (int) (this.nDe + j);
-                if (CountingRequestBody.this.nDb != null) {
-                    AsyncRun.I(new Runnable() { // from class: com.qiniu.android.http.CountingRequestBody.CountingSink.1
+                this.nLM = (int) (this.nLM + j);
+                if (CountingRequestBody.this.nLJ != null) {
+                    AsyncRun.H(new Runnable() { // from class: com.qiniu.android.http.CountingRequestBody.CountingSink.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            CountingRequestBody.this.nDb.onProgress(CountingSink.this.nDe, CountingRequestBody.this.nDc);
+                            CountingRequestBody.this.nLJ.onProgress(CountingSink.this.nLM, CountingRequestBody.this.nLK);
                         }
                     });
                     return;

@@ -5,9 +5,9 @@ import android.app.Dialog;
 import android.os.Build;
 import com.baidu.live.data.q;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private Dialog grd;
+    private Dialog gwz;
     private TbPageContext mContext;
 
     public b(TbPageContext tbPageContext) {
@@ -17,8 +17,8 @@ public class b {
     public void y(q qVar) {
         if (qVar != null && this.mContext != null) {
             dismiss();
-            this.grd = new a(this.mContext.getPageActivity(), this.mContext, qVar, this);
-            this.grd.show();
+            this.gwz = new a(this.mContext.getPageActivity(), this.mContext, qVar, this);
+            this.gwz.show();
         }
     }
 
@@ -27,23 +27,23 @@ public class b {
     }
 
     public void dismiss() {
-        if (bJk()) {
-            yY();
-            this.grd = null;
+        if (bMq()) {
+            zA();
+            this.gwz = null;
         }
     }
 
-    private void yY() {
-        if (this.grd != null && this.grd.isShowing()) {
+    private void zA() {
+        if (this.gwz != null && this.gwz.isShowing()) {
             try {
-                this.grd.dismiss();
+                this.gwz.dismiss();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private boolean bJk() {
+    private boolean bMq() {
         if (this.mContext == null || this.mContext.getPageActivity() == null) {
             return false;
         }

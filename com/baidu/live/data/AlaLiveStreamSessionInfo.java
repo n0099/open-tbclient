@@ -9,14 +9,14 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveStreamSessionInfo implements Serializable {
     public static final String STREAM_LEVEL_DEFAULT = "L0";
     public static final String STREAM_LEVEL_HIGH = "L3";
     public static final String STREAM_LEVEL_LOW = "L1";
     public static final String STREAM_LEVEL_MEDIUM = "L2";
     public static final String STREAM_LEVEL_SUPER_HIGH = "L4";
-    private static au iReplaceUrl;
+    private static av iReplaceUrl;
     public String defaultLine;
     public String flvUrl;
     public String hlsUrl;
@@ -25,7 +25,7 @@ public class AlaLiveStreamSessionInfo implements Serializable {
     private String pushUrl;
     public String rtmpUrl;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class AlaLiveStreamSessionLine implements Serializable {
         public String flvUrl;
         public String hslUrl;
@@ -216,11 +216,11 @@ public class AlaLiveStreamSessionInfo implements Serializable {
         return iReplaceUrl != null ? iReplaceUrl.replacePushUrl(this.pushUrl) : this.pushUrl;
     }
 
-    public static au getIReplaceUrl() {
+    public static av getIReplaceUrl() {
         return iReplaceUrl;
     }
 
-    public static void setIReplaceUrl(au auVar) {
-        iReplaceUrl = auVar;
+    public static void setIReplaceUrl(av avVar) {
+        iReplaceUrl = avVar;
     }
 }

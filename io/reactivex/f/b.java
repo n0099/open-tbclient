@@ -13,11 +13,11 @@ public final class b<T> {
         this.unit = (TimeUnit) io.reactivex.internal.functions.a.k(timeUnit, "unit is null");
     }
 
-    public T dQf() {
+    public T dTB() {
         return this.value;
     }
 
-    public long amH() {
+    public long aob() {
         return this.time;
     }
 

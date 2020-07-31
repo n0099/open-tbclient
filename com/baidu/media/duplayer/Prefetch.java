@@ -3,7 +3,7 @@ package com.baidu.media.duplayer;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.TbConfig;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class Prefetch {
     public static String TAG = "filecache-Prefetch";
 

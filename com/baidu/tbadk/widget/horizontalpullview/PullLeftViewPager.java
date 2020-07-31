@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class PullLeftViewPager extends BdBaseViewPager {
     public PullLeftViewPager(Context context) {
         super(context);
@@ -17,7 +17,7 @@ public class PullLeftViewPager extends BdBaseViewPager {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.view.ViewPager
     public boolean canScroll(View view, boolean z, int i, int i2, int i3) {
-        if (view != this && (view instanceof PullLeftRefreshLayout) && ((PullLeftRefreshLayout) view).bkh()) {
+        if (view != this && (view instanceof PullLeftRefreshLayout) && ((PullLeftRefreshLayout) view).boa()) {
             return true;
         }
         return super.canScroll(view, z, i, i2, i3);

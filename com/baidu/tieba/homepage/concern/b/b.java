@@ -2,27 +2,27 @@ package com.baidu.tieba.homepage.concern.b;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ap;
-import com.baidu.tbadk.core.data.bm;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.aq;
+import com.baidu.tbadk.core.data.bn;
+import com.baidu.tbadk.core.data.bv;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.User;
 import tbclient.Userlike.ConcernData;
-/* loaded from: classes9.dex */
-public class b extends bm {
-    public static final Integer inn = 6;
-    private boolean dKA;
-    private List<MetaData> dKB = new ArrayList();
+/* loaded from: classes16.dex */
+public class b extends bn {
+    public static final Integer itq = 6;
+    private boolean dQM;
+    private List<MetaData> dQN = new ArrayList();
 
-    @Override // com.baidu.tbadk.core.data.bm
-    public void aF(List<User> list) {
+    @Override // com.baidu.tbadk.core.data.bn
+    public void aM(List<User> list) {
         if (list != null) {
             int min = Math.min(list.size(), 10);
             for (int i = 0; i < min; i++) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i));
-                this.dKB.add(metaData);
+                this.dQN.add(metaData);
             }
         }
     }
@@ -31,36 +31,36 @@ public class b extends bm {
         if (concernData == null) {
             return false;
         }
-        return concernData.recom_type.equals(inn);
+        return concernData.recom_type.equals(itq);
     }
 
-    @Override // com.baidu.tbadk.core.data.bm, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tbadk.core.data.bn, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return dIb;
+        return dOm;
     }
 
-    @Override // com.baidu.tbadk.core.data.bm
-    public List<MetaData> aRC() {
-        return this.dKB;
+    @Override // com.baidu.tbadk.core.data.bn
+    public List<MetaData> aVy() {
+        return this.dQN;
     }
 
-    @Override // com.baidu.tbadk.core.data.bm, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bu aPS() {
+    @Override // com.baidu.tbadk.core.data.bn, com.baidu.tbadk.core.data.AbsThreadDataSupport
+    public bv aTN() {
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.data.bm, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ap aPU() {
-        return new ap();
+    @Override // com.baidu.tbadk.core.data.bn, com.baidu.tbadk.core.data.AbsThreadDataSupport
+    public aq aTP() {
+        return new aq();
     }
 
-    @Override // com.baidu.tbadk.core.data.bm
-    public boolean aRD() {
-        return this.dKA;
+    @Override // com.baidu.tbadk.core.data.bn
+    public boolean aVz() {
+        return this.dQM;
     }
 
-    @Override // com.baidu.tbadk.core.data.bm
-    public void gV(boolean z) {
-        this.dKA = z;
+    @Override // com.baidu.tbadk.core.data.bn
+    public void hz(boolean z) {
+        this.dQM = z;
     }
 }

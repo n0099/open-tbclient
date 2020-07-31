@@ -1,20 +1,20 @@
 package com.baidu.tieba.homepage.framework;
 
 import android.util.SparseArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a {
-    private static a inH = new a();
+    private static a itJ = new a();
     private long creatTime = 0;
-    private SparseArray<Long> inI = new SparseArray<>();
-    private SparseArray<Long> inJ = new SparseArray<>();
-    private SparseArray<Long> inK = new SparseArray<>();
-    private SparseArray<Long> inL = new SparseArray<>();
+    private SparseArray<Long> itK = new SparseArray<>();
+    private SparseArray<Long> itL = new SparseArray<>();
+    private SparseArray<Long> itM = new SparseArray<>();
+    private SparseArray<Long> itN = new SparseArray<>();
 
     private a() {
     }
 
-    public static a cig() {
-        return inH;
+    public static a clF() {
+        return itJ;
     }
 
     public long getCreateTime() {
@@ -25,20 +25,8 @@ public class a {
         this.creatTime = j;
     }
 
-    public long wP(int i) {
-        Long l = this.inJ.get(i);
-        if (l == null) {
-            return -1L;
-        }
-        return l.longValue();
-    }
-
-    public void n(long j, int i) {
-        this.inJ.put(i, Long.valueOf(j));
-    }
-
-    public long wQ(int i) {
-        Long l = this.inI.get(i);
+    public long xh(int i) {
+        Long l = this.itL.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +34,11 @@ public class a {
     }
 
     public void o(long j, int i) {
-        this.inI.put(i, Long.valueOf(j));
+        this.itL.put(i, Long.valueOf(j));
     }
 
-    public long wR(int i) {
-        Long l = this.inK.get(i);
+    public long xi(int i) {
+        Long l = this.itK.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +46,11 @@ public class a {
     }
 
     public void p(long j, int i) {
-        this.inK.put(i, Long.valueOf(j));
+        this.itK.put(i, Long.valueOf(j));
     }
 
-    public long wS(int i) {
-        Long l = this.inL.get(i);
+    public long xj(int i) {
+        Long l = this.itM.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +58,18 @@ public class a {
     }
 
     public void q(long j, int i) {
-        this.inL.put(i, Long.valueOf(j));
+        this.itM.put(i, Long.valueOf(j));
+    }
+
+    public long xk(int i) {
+        Long l = this.itN.get(i);
+        if (l == null) {
+            return -1L;
+        }
+        return l.longValue();
+    }
+
+    public void r(long j, int i) {
+        this.itN.put(i, Long.valueOf(j));
     }
 }

@@ -5,9 +5,9 @@ import java.util.List;
 import tbclient.GetAddressList.friendList;
 import tbclient.GetAddressList.listData;
 import tbclient.GetAddressList.robotsList;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class e {
-    private List<com.baidu.tbadk.coreExtra.relationship.a> eZZ;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> feB;
     private String mKey;
 
     public String getKey() {
@@ -15,22 +15,22 @@ public class e {
     }
 
     public List<com.baidu.tbadk.coreExtra.relationship.a> getContacts() {
-        if (this.eZZ == null) {
-            this.eZZ = new ArrayList();
+        if (this.feB == null) {
+            this.feB = new ArrayList();
         }
-        return this.eZZ;
+        return this.feB;
     }
 
     public void a(listData listdata) {
         if (listdata != null) {
             this.mKey = listdata.key;
             if (listdata.friend_list != null) {
-                this.eZZ = new ArrayList();
+                this.feB = new ArrayList();
                 for (friendList friendlist : listdata.friend_list) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.a(friendlist);
-                    aVar.xM(this.mKey);
-                    this.eZZ.add(aVar);
+                    aVar.yS(this.mKey);
+                    this.feB.add(aVar);
                 }
             }
         }
@@ -40,12 +40,12 @@ public class e {
         if (robotslist != null) {
             this.mKey = robotslist.key;
             if (robotslist.friend_list != null) {
-                this.eZZ = new ArrayList();
+                this.feB = new ArrayList();
                 for (friendList friendlist : robotslist.friend_list) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.a(friendlist);
-                    aVar.xM(this.mKey);
-                    this.eZZ.add(aVar);
+                    aVar.yS(this.mKey);
+                    this.feB.add(aVar);
                 }
             }
         }

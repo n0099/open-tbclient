@@ -1,44 +1,61 @@
 package com.baidu.browser.sailor;
 
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.crashpad.ZwCrashpad;
-import com.baidu.webkit.sdk.IABTestInterface;
+import android.app.Activity;
+import android.content.Context;
+import android.view.Window;
+import android.widget.FrameLayout;
 import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.WebKitFactory;
-import com.baidu.webkit.sdk.WebViewFactory;
+import com.baidu.webkit.sdk.WebChromeClient;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class a implements Runnable {
-    final /* synthetic */ BdSailor adg;
+    final /* synthetic */ BdSailorWebView acZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a(BdSailor bdSailor) {
-        this.adg = bdSailor;
+    public a(BdSailorWebView bdSailorWebView) {
+        this.acZ = bdSailorWebView;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
+        String str;
+        FrameLayout frameLayout;
+        FrameLayout frameLayout2;
+        WebChromeClient.CustomViewCallback customViewCallback;
+        int i;
+        WebChromeClient.CustomViewCallback customViewCallback2;
+        FrameLayout frameLayout3;
         try {
-            IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
-            boolean z = abTestInterface != null ? abTestInterface.getSwitch("no_zeus_under_5", true) : true;
-            ZwCrashpad.setEnabled(true);
-            String[] strArr = new String[12];
-            strArr[0] = WebKitFactory.getCyberSdkVersion();
-            strArr[1] = WebKitFactory.getCPUType();
-            strArr[2] = WebKitFactory.getCUIDString();
-            strArr[3] = BdZeusUtil.checkEmulator();
-            strArr[4] = WebKitFactory.getCrashCallback();
-            strArr[5] = BdZeusUtil.getTnNumbersFromApk(this.adg.getAppContext());
-            strArr[6] = WebKitFactory.getProcessTypeString();
-            strArr[7] = z ? "true" : "false";
-            strArr[8] = this.adg.getAppContext().getExternalFilesDir("").getAbsolutePath();
-            strArr[9] = WebKitFactory.getSdkVersionCode();
-            strArr[10] = "0";
-            strArr[11] = this.adg.getAppContext() != null ? this.adg.getAppContext().getApplicationInfo().nativeLibraryDir : "0";
-            ZwCrashpad.doInit(this.adg.getAppContext(), strArr);
-        } catch (Throwable th) {
-            Log.e("CRASHPAD", "bdsailor.initWebkit->zwcrashpad doInit fail");
-            th.printStackTrace();
+            Context context = this.acZ.getContext();
+            Activity activity = context instanceof Activity ? (Activity) context : null;
+            if (activity != null) {
+                if (this.acZ.getCurrentWebView() != null) {
+                    this.acZ.getCurrentWebView().setVisibility(0);
+                }
+                this.acZ.setFullscreen(activity, false);
+                Window window = activity.getWindow();
+                if (window == null || (frameLayout = (FrameLayout) window.getDecorView()) == null) {
+                    return;
+                }
+                frameLayout2 = this.acZ.mFullscreenContainer;
+                if (frameLayout2 != null) {
+                    frameLayout3 = this.acZ.mFullscreenContainer;
+                    frameLayout.removeView(frameLayout3);
+                    this.acZ.mFullscreenContainer = null;
+                }
+                this.acZ.mCustomView = null;
+                customViewCallback = this.acZ.mCustomViewCallback;
+                if (customViewCallback != null) {
+                    customViewCallback2 = this.acZ.mCustomViewCallback;
+                    customViewCallback2.onCustomViewHidden();
+                }
+                i = this.acZ.mOriginalOrientation;
+                activity.setRequestedOrientation(i);
+            }
+        } catch (Exception e) {
+            str = BdSailorWebView.LOG_TAG;
+            Log.e(str, "Exception happened when hide custom view");
+            e.printStackTrace();
         }
     }
 }

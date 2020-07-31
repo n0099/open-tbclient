@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class e<E extends g> extends ProtoAdapter<E> {
-    private Method nFa;
+    private Method nNI;
     private final Class<E> type;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,14 +17,14 @@ public final class e<E extends g> extends ProtoAdapter<E> {
         this.type = cls;
     }
 
-    private Method dNl() {
-        Method method = this.nFa;
+    private Method dQH() {
+        Method method = this.nNI;
         if (method != null) {
             return method;
         }
         try {
             Method method2 = this.type.getMethod("fromValue", Integer.TYPE);
-            this.nFa = method2;
+            this.nNI = method2;
             return method2;
         } catch (NoSuchMethodException e) {
             throw new AssertionError(e);
@@ -51,7 +51,7 @@ public final class e<E extends g> extends ProtoAdapter<E> {
     public E decode(c cVar) throws IOException {
         int readVarint32 = cVar.readVarint32();
         try {
-            E e = (E) dNl().invoke(null, Integer.valueOf(readVarint32));
+            E e = (E) dQH().invoke(null, Integer.valueOf(readVarint32));
             if (e == null) {
                 throw new ProtoAdapter.EnumConstantNotFoundException(readVarint32, this.type);
             }

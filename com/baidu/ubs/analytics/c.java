@@ -2,15 +2,15 @@ package com.baidu.ubs.analytics;
 
 import android.content.Context;
 import com.baidu.ubs.analytics.d.j;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class c {
     private long e;
     private Context mContext;
-    private long mEA;
-    private boolean mEB;
-    private int mEC;
-    private boolean mEy;
-    private long mEz;
+    private boolean mMC;
+    private long mMD;
+    private long mME;
+    private boolean mMF;
+    private int mMG;
 
     /* synthetic */ c(a aVar, byte b) {
         this(aVar);
@@ -18,12 +18,12 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.mEy = aVar.mEy;
-        this.e = aVar.mED;
-        this.mEz = aVar.mEz;
-        this.mEB = aVar.mEB;
-        this.mEA = aVar.mEA;
-        this.mEC = aVar.mEC;
+        this.mMC = aVar.mMC;
+        this.e = aVar.mMH;
+        this.mMD = aVar.mMD;
+        this.mMF = aVar.mMF;
+        this.mME = aVar.mME;
+        this.mMG = aVar.mMG;
     }
 
     public final Context b() {
@@ -31,7 +31,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.mEy;
+        return this.mMC;
     }
 
     public final long d() {
@@ -39,68 +39,68 @@ public final class c {
     }
 
     public final long e() {
-        return this.mEz;
+        return this.mMD;
     }
 
     public final long f() {
-        return this.mEA;
+        return this.mME;
     }
 
     public final boolean g() {
-        return this.mEB;
+        return this.mMF;
     }
 
     public final int h() {
-        return this.mEC;
+        return this.mMG;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         private Context mContext;
-        private boolean mEy = true;
-        private long mED = 30000;
-        private long mEz = 60000;
-        private long mEA = 10000;
-        private boolean mEB = false;
-        private int mEC = 1000;
+        private boolean mMC = true;
+        private long mMH = 30000;
+        private long mMD = 60000;
+        private long mME = 10000;
+        private boolean mMF = false;
+        private int mMG = 1000;
 
-        public a fJ(Context context) {
+        public a fM(Context context) {
             this.mContext = context;
             return this;
         }
 
-        public a wm(boolean z) {
-            this.mEy = z;
+        public a wR(boolean z) {
+            this.mMC = z;
             return this;
         }
 
-        public a fF(long j) {
-            this.mED = 1000 * j;
+        public a fS(long j) {
+            this.mMH = 1000 * j;
             return this;
         }
 
-        public a HI(int i) {
-            this.mEz = i * 60 * 1000;
+        public a Id(int i) {
+            this.mMD = i * 60 * 1000;
             return this;
         }
 
-        public a fG(long j) {
-            this.mEA = 1000 * j;
+        public a fT(long j) {
+            this.mME = 1000 * j;
             return this;
         }
 
-        public a wn(boolean z) {
-            this.mEB = z;
+        public a wS(boolean z) {
+            this.mMF = z;
             return this;
         }
 
-        public a HJ(int i) {
+        public a Ie(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.mEC = i2 < 1000 ? i2 : 1000;
+            this.mMG = i2 < 1000 ? i2 : 1000;
             return this;
         }
 
-        public c dxf() {
+        public c dAs() {
             if (this.mContext == null) {
                 j.I("Context must be not empty!");
                 return null;

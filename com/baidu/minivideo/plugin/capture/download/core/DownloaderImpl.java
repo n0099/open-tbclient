@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.Executor;
-/* loaded from: classes13.dex */
+/* loaded from: classes9.dex */
 public class DownloaderImpl implements DownloadTask.OnDownloadListener, Downloader, HttpConnectTask.OnConnectListener {
     private DownloadConfig mConfig;
     private HttpConnectTask mConnectTask;

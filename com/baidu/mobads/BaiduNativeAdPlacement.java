@@ -3,10 +3,10 @@ package com.baidu.mobads;
 import com.baidu.mobads.interfaces.IXAdResponseInfo;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.lang.ref.WeakReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class BaiduNativeAdPlacement {
     private String a;
-    private IXAdResponseInfo bxj;
+    private IXAdResponseInfo bxy;
     private boolean c;
     private boolean d;
     private boolean e = false;
@@ -16,12 +16,12 @@ public class BaiduNativeAdPlacement {
     private int i = 1;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cR(boolean z) {
+    public void cT(boolean z) {
         this.e = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean No() {
+    public boolean Nt() {
         return this.e;
     }
 
@@ -31,7 +31,7 @@ public class BaiduNativeAdPlacement {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public BaiduNativeH5AdView Np() {
+    public BaiduNativeH5AdView Nu() {
         if (this.f == null) {
             return null;
         }
@@ -52,47 +52,47 @@ public class BaiduNativeAdPlacement {
 
     public void setAdResponse(IXAdResponseInfo iXAdResponseInfo) {
         this.d = false;
-        this.bxj = iXAdResponseInfo;
+        this.bxy = iXAdResponseInfo;
     }
 
     public boolean hasValidResponse() {
-        return this.bxj != null && Nr();
+        return this.bxy != null && Nw();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public IXAdResponseInfo Nq() {
-        return this.bxj;
+    public IXAdResponseInfo Nv() {
+        return this.bxy;
     }
 
-    protected boolean Nr() {
+    protected boolean Nw() {
         boolean z;
-        if (this.bxj == null || this.bxj.getPrimaryAdInstanceInfo() == null) {
+        if (this.bxy == null || this.bxy.getPrimaryAdInstanceInfo() == null) {
             z = false;
         } else {
-            z = System.currentTimeMillis() - this.bxj.getPrimaryAdInstanceInfo().getCreateTime() <= 1800000;
+            z = System.currentTimeMillis() - this.bxy.getPrimaryAdInstanceInfo().getCreateTime() <= 1800000;
         }
         return z && !this.c;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean Ns() {
+    public boolean Nx() {
         return this.d;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cS(boolean z) {
+    public void cU(boolean z) {
         this.c = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cT(boolean z) {
+    public void cV(boolean z) {
         this.d = z;
     }
 
     public boolean isAdDataLoaded() {
-        BaiduNativeH5AdView Np = Np();
-        if (Np != null) {
-            return Np.isAdDataLoaded();
+        BaiduNativeH5AdView Nu = Nu();
+        if (Nu != null) {
+            return Nu.isAdDataLoaded();
         }
         return false;
     }
@@ -105,7 +105,7 @@ public class BaiduNativeAdPlacement {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int Nt() {
+    public int Ny() {
         return this.g;
     }
 
@@ -116,7 +116,7 @@ public class BaiduNativeAdPlacement {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int Nu() {
+    public int Nz() {
         return this.h;
     }
 

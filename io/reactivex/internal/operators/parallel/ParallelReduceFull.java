@@ -11,14 +11,14 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class ParallelReduceFull<T> extends g<T> {
-    final a<? extends T> nMb;
+    final a<? extends T> nUJ;
     final c<T, T, T> reducer;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        ParallelReduceFullMainSubscriber parallelReduceFullMainSubscriber = new ParallelReduceFullMainSubscriber(cVar, this.nMb.dPG(), this.reducer);
+        ParallelReduceFullMainSubscriber parallelReduceFullMainSubscriber = new ParallelReduceFullMainSubscriber(cVar, this.nUJ.dTc(), this.reducer);
         cVar.onSubscribe(parallelReduceFullMainSubscriber);
-        this.nMb.a(parallelReduceFullMainSubscriber.subscribers);
+        this.nUJ.a(parallelReduceFullMainSubscriber.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -100,7 +100,7 @@ public final class ParallelReduceFull<T> extends g<T> {
                     try {
                         t = (T) io.reactivex.internal.functions.a.k(this.reducer.apply(addValue.first, addValue.second), "The reducer returned a null value");
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.L(th);
+                        io.reactivex.exceptions.a.K(th);
                         innerError(th);
                         return;
                     }
@@ -150,7 +150,7 @@ public final class ParallelReduceFull<T> extends g<T> {
                 try {
                     this.value = (T) io.reactivex.internal.functions.a.k(this.reducer.apply(t2, t), "The reducer returned a null value");
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.L(th);
+                    io.reactivex.exceptions.a.K(th);
                     get().cancel();
                     onError(th);
                 }

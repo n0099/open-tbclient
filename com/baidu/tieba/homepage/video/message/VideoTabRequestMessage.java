@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.t;
 import tbclient.RecomVideo.DataReq;
 import tbclient.RecomVideo.RecomVideoReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class VideoTabRequestMessage extends NetMessage {
     public int load_type;
     public int new_net_type;

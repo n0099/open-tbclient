@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.t;
 import tbclient.GetInfluenceRank.DataReq;
 import tbclient.GetInfluenceRank.GetInfluenceRankReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class HotUserRankReqMsg extends NetMessage {
     public String category;
     public long forumId;

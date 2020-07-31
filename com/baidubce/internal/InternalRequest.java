@@ -7,7 +7,7 @@ import com.baidubce.model.AbstractBceRequest;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class InternalRequest<T extends AbstractBceRequest> {
     private RestartableInputStream content;
     private BceCredentials credentials;

@@ -5,13 +5,12 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.im.chat.g;
-import com.baidu.tieba.im.chat.officialBar.c;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.a;
 import java.util.List;
-/* loaded from: classes13.dex */
-public class MsgMultiImageTextView extends g {
-    private MultiContentView iLZ;
+/* loaded from: classes20.dex */
+public class MsgMultiImageTextView extends com.baidu.tieba.im.chat.g {
+    private MultiContentView iSg;
 
     public MsgMultiImageTextView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_multi_pictext_view);
@@ -19,19 +18,19 @@ public class MsgMultiImageTextView extends g {
     }
 
     private void init() {
-        this.fqs = (TextView) findViewById(R.id.tex_msgitem_time);
-        this.iLZ = (MultiContentView) findViewById(R.id.msg_content);
+        this.fvC = (TextView) findViewById(R.id.tex_msgitem_time);
+        this.iSg = (MultiContentView) findViewById(R.id.msg_content);
     }
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
             b(chatMessage);
-            List<c.a> a = c.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId());
-            this.iLZ.setPosition(this.mPosition);
-            this.iLZ.setOnItemViewLongClickListener(this.iKx);
-            this.iLZ.setNeedNightMode(false);
-            this.iLZ.setType(1);
-            this.iLZ.setData(tbPageContext, a, view);
+            List<a.C0667a> a = com.baidu.tieba.im.message.chat.a.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId());
+            this.iSg.setPosition(this.mPosition);
+            this.iSg.setOnItemViewLongClickListener(this.iQC);
+            this.iSg.setNeedNightMode(true);
+            this.iSg.setType(1);
+            this.iSg.setData(tbPageContext, a, view);
         }
     }
 }

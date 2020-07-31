@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class b {
     private static String c;
     private String a;

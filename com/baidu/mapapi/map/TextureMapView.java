@@ -28,7 +28,7 @@ import com.baidu.mapsdkplatform.comapi.map.ac;
 import com.baidu.mapsdkplatform.comapi.map.ak;
 import com.baidu.webkit.net.BdNetTask;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class TextureMapView extends ViewGroup {
     private static String i;
     private int A;

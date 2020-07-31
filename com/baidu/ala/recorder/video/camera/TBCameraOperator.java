@@ -36,7 +36,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class TBCameraOperator implements ICameraOperator {
     private static final int DEFAULT_ROTATE = 0;
     private static final boolean IS_OPEN_TAG = false;
@@ -158,7 +158,7 @@ public class TBCameraOperator implements ICameraOperator {
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
     public void surfaceChanged(int i, int i2) {
-        if (this.mEncoder != null) {
+        if (this.mEglCore != null) {
             if (Math.abs(this.mWindowSurfaceHeight - i2) >= 10 || Math.abs(this.mWindowSurfaceWidth - i) >= 10) {
                 if (this.mWindowSurfaceHeight > this.mWindowSurfaceWidth && i2 > i && this.mWindowSurfaceWidth > 0) {
                     this.mWindowSurfaceHeight = i2;

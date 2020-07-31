@@ -20,14 +20,14 @@ public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListV
     public static final Parcelable.Creator<TransmitForumData> CREATOR = new Parcelable.Creator<TransmitForumData>() { // from class: com.baidu.tbadk.core.data.TransmitForumData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: K */
+        /* renamed from: M */
         public TransmitForumData createFromParcel(Parcel parcel) {
             return new TransmitForumData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: kR */
+        /* renamed from: ll */
         public TransmitForumData[] newArray(int i) {
             return new TransmitForumData[i];
         }

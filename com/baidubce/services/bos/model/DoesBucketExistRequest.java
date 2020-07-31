@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
 
 import com.baidubce.auth.BceCredentials;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class DoesBucketExistRequest extends GenericBucketRequest {
     public DoesBucketExistRequest(String str) {
         super(str);

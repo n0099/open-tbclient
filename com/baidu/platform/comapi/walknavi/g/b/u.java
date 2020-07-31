@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.mapapi.NetworkUtil;
 import com.baidu.platform.comapi.walknavi.g.b.c;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class u implements Runnable {
     final /* synthetic */ t a;
 

@@ -19,7 +19,7 @@ import android.widget.FrameLayout;
 import java.lang.reflect.Method;
 @RequiresApi(14)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class MenuItemWrapperICS extends BaseMenuWrapper<SupportMenuItem> implements MenuItem {
     static final String LOG_TAG = "MenuItemWrapper";
     private Method mSetExclusiveCheckableMethod;
@@ -354,7 +354,7 @@ public class MenuItemWrapperICS extends BaseMenuWrapper<SupportMenuItem> impleme
         return new ActionProviderWrapper(this.mContext, actionProvider);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     private class OnMenuItemClickListenerWrapper extends BaseWrapper<MenuItem.OnMenuItemClickListener> implements MenuItem.OnMenuItemClickListener {
         OnMenuItemClickListenerWrapper(MenuItem.OnMenuItemClickListener onMenuItemClickListener) {
             super(onMenuItemClickListener);
@@ -366,7 +366,7 @@ public class MenuItemWrapperICS extends BaseMenuWrapper<SupportMenuItem> impleme
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     private class OnActionExpandListenerWrapper extends BaseWrapper<MenuItem.OnActionExpandListener> implements MenuItem.OnActionExpandListener {
         OnActionExpandListenerWrapper(MenuItem.OnActionExpandListener onActionExpandListener) {
             super(onActionExpandListener);
@@ -384,7 +384,7 @@ public class MenuItemWrapperICS extends BaseMenuWrapper<SupportMenuItem> impleme
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class ActionProviderWrapper extends android.support.v4.view.ActionProvider {
         final ActionProvider mInner;
 
@@ -414,7 +414,7 @@ public class MenuItemWrapperICS extends BaseMenuWrapper<SupportMenuItem> impleme
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     static class CollapsibleActionViewWrapper extends FrameLayout implements android.support.v7.view.CollapsibleActionView {
         final CollapsibleActionView mWrappedView;
 

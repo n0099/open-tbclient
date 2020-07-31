@@ -6,7 +6,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.util.UUID;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public final class e {
     protected static UUID uuid;
 

@@ -1,13 +1,13 @@
 package com.baidu.live.im;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i {
-    public String aMj;
-    public long aUA;
-    public long aUB;
-    public long aUC;
-    public long aUv;
-    public long aUw;
-    public long aUx;
-    public long aUy;
-    public long aUz;
+    public String aNE;
+    public long aVO;
+    public long aVP;
+    public long aVQ;
+    public long aVR;
+    public long aVS;
+    public long aVT;
+    public long aVU;
+    public long aVV;
 }

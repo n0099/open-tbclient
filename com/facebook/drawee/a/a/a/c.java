@@ -1,25 +1,25 @@
 package com.facebook.drawee.a.a.a;
 
 import javax.annotation.Nullable;
-/* loaded from: classes13.dex */
+/* loaded from: classes4.dex */
 public class c extends com.facebook.imagepipeline.h.a {
-    private String mKC;
+    private String mSH;
     @Nullable
-    private final b mKD;
+    private final b mSI;
 
     public c(String str, @Nullable b bVar) {
-        this.mKD = bVar;
+        this.mSI = bVar;
         init(str);
     }
 
     public void init(String str) {
-        this.mKC = str;
+        this.mSH = str;
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.producers.am
     public void G(String str, String str2, boolean z) {
-        if (this.mKD != null) {
-            this.mKD.g(this.mKC, d.QJ(str2), z);
+        if (this.mSI != null) {
+            this.mSI.g(this.mSH, d.Ru(str2), z);
         }
     }
 }

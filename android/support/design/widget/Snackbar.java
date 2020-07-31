@@ -18,7 +18,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.Button;
 import android.widget.FrameLayout;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public final class Snackbar extends BaseTransientBottomBar<Snackbar> {
     public static final int LENGTH_INDEFINITE = -2;
     public static final int LENGTH_LONG = 0;
@@ -26,7 +26,7 @@ public final class Snackbar extends BaseTransientBottomBar<Snackbar> {
     @Nullable
     private BaseTransientBottomBar.BaseCallback<Snackbar> mCallback;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public static class Callback extends BaseTransientBottomBar.BaseCallback<Snackbar> {
         public static final int DISMISS_EVENT_ACTION = 1;
         public static final int DISMISS_EVENT_CONSECUTIVE = 4;
@@ -156,7 +156,7 @@ public final class Snackbar extends BaseTransientBottomBar<Snackbar> {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public static final class SnackbarLayout extends BaseTransientBottomBar.SnackbarBaseLayout {
         public SnackbarLayout(Context context) {
             super(context);

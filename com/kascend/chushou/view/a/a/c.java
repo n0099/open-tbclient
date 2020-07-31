@@ -7,24 +7,24 @@ import android.support.annotation.ColorInt;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c extends RecyclerView.ItemDecoration {
     private int c;
     private int d;
     private int e;
     private Paint f;
-    private GridLayoutManager nuM;
-    private GridLayoutManager.SpanSizeLookup nuN;
+    private GridLayoutManager nDv;
+    private GridLayoutManager.SpanSizeLookup nDw;
 
     public c(GridLayoutManager gridLayoutManager, int i) {
         this(gridLayoutManager, i, -1);
     }
 
     public c(GridLayoutManager gridLayoutManager, int i, @ColorInt int i2) {
-        this.nuM = gridLayoutManager;
-        this.nuN = this.nuM.getSpanSizeLookup();
-        this.nuN.setSpanIndexCacheEnabled(true);
-        this.c = this.nuM.getSpanCount();
+        this.nDv = gridLayoutManager;
+        this.nDw = this.nDv.getSpanSizeLookup();
+        this.nDw.setSpanIndexCacheEnabled(true);
+        this.c = this.nDv.getSpanCount();
         this.d = i;
         this.e = this.d / 2;
         this.f = new Paint();
@@ -34,10 +34,10 @@ public class c extends RecyclerView.ItemDecoration {
     @Override // android.support.v7.widget.RecyclerView.ItemDecoration
     public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
         int childAdapterPosition = recyclerView.getChildAdapterPosition(view);
-        int spanSize = this.nuN.getSpanSize(childAdapterPosition);
+        int spanSize = this.nDw.getSpanSize(childAdapterPosition);
         if (spanSize != this.c) {
             int i = this.d;
-            int spanIndex = this.nuN.getSpanIndex(childAdapterPosition, this.c);
+            int spanIndex = this.nDw.getSpanIndex(childAdapterPosition, this.c);
             int i2 = (this.c - spanIndex) - spanSize;
             int i3 = this.c / spanSize;
             int i4 = (int) (((i3 - 1) * (i * 1.0f)) / i3);
@@ -66,9 +66,9 @@ public class c extends RecyclerView.ItemDecoration {
             if (childAt != null) {
                 int i3 = this.d;
                 int childAdapterPosition = recyclerView.getChildAdapterPosition(childAt);
-                int spanSize = this.nuN.getSpanSize(childAdapterPosition);
+                int spanSize = this.nDw.getSpanSize(childAdapterPosition);
                 if (spanSize != this.c) {
-                    int spanIndex = this.nuN.getSpanIndex(childAdapterPosition, this.c);
+                    int spanIndex = this.nDw.getSpanIndex(childAdapterPosition, this.c);
                     int i4 = (this.c - spanIndex) - spanSize;
                     int i5 = this.c / spanSize;
                     int i6 = (int) (((i5 - 1) * (i3 * 1.0f)) / i5);
@@ -101,9 +101,9 @@ public class c extends RecyclerView.ItemDecoration {
     }
 
     private void b(Canvas canvas, View view, int i) {
-        int top2 = view.getTop();
+        int top = view.getTop();
         int bottom = view.getBottom();
         int right = view.getRight();
-        canvas.drawRect(right, top2, right + i, bottom, this.f);
+        canvas.drawRect(right, top, right + i, bottom, this.f);
     }
 }

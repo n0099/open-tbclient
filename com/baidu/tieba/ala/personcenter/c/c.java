@@ -7,21 +7,21 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     private boolean isHost = false;
     private AlaUserInfoData user_info = new AlaUserInfoData();
-    private h gBw = new h();
-    private p gBx = new p();
-    private final a gBA = new a();
-    private List<AlaLiveInfoData> gBy = new ArrayList();
-    private List<o> gBz = new ArrayList();
+    private h gGT = new h();
+    private p gGU = new p();
+    private final a gGX = new a();
+    private List<AlaLiveInfoData> gGV = new ArrayList();
+    private List<o> gGW = new ArrayList();
 
-    public a bLu() {
-        return this.gBA;
+    public a bOC() {
+        return this.gGX;
     }
 
-    public AlaUserInfoData bLv() {
+    public AlaUserInfoData bOD() {
         return this.user_info;
     }
 
@@ -45,17 +45,17 @@ public class c {
                 for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
                     o oVar = new o();
                     oVar.parseJson(optJSONArray.getJSONObject(i));
-                    this.gBz.add(oVar);
+                    this.gGW.add(oVar);
                 }
                 JSONArray optJSONArray2 = jSONObject2.optJSONArray("live_list");
                 for (int i2 = 0; optJSONArray2 != null && optJSONArray2.length() < i2; i2++) {
                     AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
                     alaLiveInfoData.parserJson(optJSONArray2.getJSONObject(i2));
-                    this.gBy.add(alaLiveInfoData);
+                    this.gGV.add(alaLiveInfoData);
                 }
-                this.gBw.parserJson(jSONObject2.optJSONObject("media"));
-                this.gBx.parserJson(jSONObject2.optJSONObject("privacy_set"));
-                this.gBA.parserJson(jSONObject2.optJSONObject("authority_info"));
+                this.gGT.parserJson(jSONObject2.optJSONObject("media"));
+                this.gGU.parserJson(jSONObject2.optJSONObject("privacy_set"));
+                this.gGX.parserJson(jSONObject2.optJSONObject("authority_info"));
             } catch (Exception e) {
                 e.printStackTrace();
             }

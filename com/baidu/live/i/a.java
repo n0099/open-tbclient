@@ -3,11 +3,11 @@ package com.baidu.live.i;
 import android.view.ViewGroup;
 import com.baidu.live.data.k;
 import com.baidu.live.data.q;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface a {
-    void Cl();
+    void CN();
 
-    void Co();
+    void CQ();
 
     void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
 
@@ -15,7 +15,7 @@ public interface a {
 
     void a(q qVar);
 
-    void bC(boolean z);
+    void bF(boolean z);
 
     void onDestroy();
 

@@ -2,7 +2,7 @@ package com.baidu.ar.vo.b;
 
 import com.baidu.ar.slam.TrackModel;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class g {
     private boolean mR;
     private long mTimestamp;

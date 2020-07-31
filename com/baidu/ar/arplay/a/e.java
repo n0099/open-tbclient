@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class e {
     public static final String TAG = e.class.getSimpleName();
     private static e dO;
@@ -41,12 +41,12 @@ public class e {
     };
     private Map<String, Integer> dQ = new Hashtable();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public interface a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public static class b {
         String dV;
         SurfaceTexture dW;

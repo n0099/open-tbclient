@@ -20,7 +20,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DownloaderHelper {
     public static String getFileMd5(File file) {
         String md5 = s.toMd5(n.GetStreamFromFile(file));

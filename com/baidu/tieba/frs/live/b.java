@@ -5,101 +5,101 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.card.s;
 import com.baidu.tieba.card.y;
-/* loaded from: classes9.dex */
-public class b implements CustomMessageTask.CustomRunnable<bu>, y {
-    private int hID = 3;
-    private com.baidu.tieba.frs.d.b hTG;
-    private int hTH;
+/* loaded from: classes16.dex */
+public class b implements CustomMessageTask.CustomRunnable<bv>, y {
+    private int hOD = 3;
+    private com.baidu.tieba.frs.d.b hZF;
+    private int hZG;
     private BdUniqueId mPageId;
     private TbPageTag mTbPageTag;
 
     public b(com.baidu.tieba.frs.d.b bVar, TbPageTag tbPageTag, BdUniqueId bdUniqueId) {
-        this.hTG = null;
+        this.hZF = null;
         this.mTbPageTag = null;
-        this.hTG = bVar;
+        this.hZF = bVar;
         this.mTbPageTag = tbPageTag;
         this.mPageId = bdUniqueId;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<bu> customMessage) {
-        if (customMessage != null && (customMessage.getData() instanceof bu)) {
-            bu data = customMessage.getData();
+    public CustomResponsedMessage<?> run(CustomMessage<bv> customMessage) {
+        if (customMessage != null && (customMessage.getData() instanceof bv)) {
+            bv data = customMessage.getData();
             if (customMessage.getCmd() == 2921018) {
-                av(data);
-                com.baidu.tieba.frs.d.c.cer().a(this.hTG, data, 1);
-                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.hTG, this.mTbPageTag);
+                as(data);
+                com.baidu.tieba.frs.d.c.chQ().a(this.hZF, data, 1);
+                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.hZF, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921016) {
-                av(data);
-                com.baidu.tieba.frs.d.c.cer().a(this.hTG, data, 2);
-                com.baidu.tieba.frs.d.a.a(data, 2, this.mPageId, this.hTG, this.mTbPageTag);
+                as(data);
+                com.baidu.tieba.frs.d.c.chQ().a(this.hZF, data, 2);
+                com.baidu.tieba.frs.d.a.a(data, 2, this.mPageId, this.hZF, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921019) {
-                av(data);
-                com.baidu.tieba.frs.d.c.cer().a(this.hTG, data, 4);
-                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.hTG, this.mTbPageTag);
+                as(data);
+                com.baidu.tieba.frs.d.c.chQ().a(this.hZF, data, 4);
+                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.hZF, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921017) {
-                aw(data);
-                com.baidu.tieba.frs.d.c.cer().a(this.hTG, data);
-                com.baidu.tieba.frs.d.a.a(data, this.mPageId, this.hTG, this.mTbPageTag);
+                at(data);
+                com.baidu.tieba.frs.d.c.chQ().a(this.hZF, data);
+                com.baidu.tieba.frs.d.a.a(data, this.mPageId, this.hZF, this.mTbPageTag);
             }
         }
         return null;
     }
 
-    private void av(bu buVar) {
-        if (buVar != null && buVar.aSp() != null && buVar.aSJ() != null) {
+    private void as(bv bvVar) {
+        if (bvVar != null && bvVar.aWl() != null && bvVar.aWF() != null) {
             long j = 0;
-            if (buVar.aSJ().user_info != null) {
-                j = buVar.aSJ().user_info.ala_id;
+            if (bvVar.aWF().user_info != null) {
+                j = bvVar.aWF().user_info.ala_id;
             }
-            ao aoVar = new ao("c13615");
-            aoVar.dk("uid", buVar.aSp().getUserId());
-            aoVar.s("fid", buVar.getFid());
-            aoVar.dk("ab_tag", buVar.mRecomAbTag);
-            aoVar.ag("obj_type", buVar.aSJ().isChushou ? 2 : 1);
-            aoVar.dk("tid", buVar.getTid());
-            aoVar.s(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, buVar.aSJ().live_id);
-            aoVar.s("star_id", j);
-            aoVar.dk("extra", buVar.mRecomExtra);
-            aoVar.dk("source_from", buVar.mRecomSource);
-            if (this.hTH == 14) {
-                aoVar.ag("obj_locate", 1);
-            } else if (this.hTH == 13) {
-                aoVar.ag("obj_locate", 2);
+            ap apVar = new ap("c13615");
+            apVar.dn("uid", bvVar.aWl().getUserId());
+            apVar.t("fid", bvVar.getFid());
+            apVar.dn("ab_tag", bvVar.mRecomAbTag);
+            apVar.ah("obj_type", bvVar.aWF().isChushou ? 2 : 1);
+            apVar.dn("tid", bvVar.getTid());
+            apVar.t(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, bvVar.aWF().live_id);
+            apVar.t("star_id", j);
+            apVar.dn("extra", bvVar.mRecomExtra);
+            apVar.dn("source_from", bvVar.mRecomSource);
+            if (this.hZG == 14) {
+                apVar.ah("obj_locate", 1);
+            } else if (this.hZG == 13) {
+                apVar.ah("obj_locate", 2);
             }
-            TiebaStatic.log(aoVar);
+            TiebaStatic.log(apVar);
         }
     }
 
-    private void aw(bu buVar) {
-        if (buVar != null && buVar.aSp() != null && buVar.aSJ() != null) {
+    private void at(bv bvVar) {
+        if (bvVar != null && bvVar.aWl() != null && bvVar.aWF() != null) {
             long j = 0;
-            if (buVar.aSJ().user_info != null) {
-                j = buVar.aSJ().user_info.ala_id;
+            if (bvVar.aWF().user_info != null) {
+                j = bvVar.aWF().user_info.ala_id;
             }
-            ao aoVar = new ao("c13614");
-            aoVar.dk("uid", buVar.aSp().getUserId());
-            aoVar.s("fid", buVar.getFid());
-            aoVar.dk("ab_tag", buVar.mRecomAbTag);
-            aoVar.ag("obj_type", buVar.aSJ().isChushou ? 2 : 1);
-            aoVar.dk("tid", buVar.getTid());
-            aoVar.s(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, buVar.aSJ().live_id);
-            aoVar.s("star_id", j);
-            aoVar.dk("extra", buVar.mRecomExtra);
-            aoVar.dk("source_from", buVar.mRecomSource);
-            if (this.hTH == 14) {
-                aoVar.ag("obj_locate", 1);
-            } else if (this.hTH == 13) {
-                aoVar.ag("obj_locate", 2);
+            ap apVar = new ap("c13614");
+            apVar.dn("uid", bvVar.aWl().getUserId());
+            apVar.t("fid", bvVar.getFid());
+            apVar.dn("ab_tag", bvVar.mRecomAbTag);
+            apVar.ah("obj_type", bvVar.aWF().isChushou ? 2 : 1);
+            apVar.dn("tid", bvVar.getTid());
+            apVar.t(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, bvVar.aWF().live_id);
+            apVar.t("star_id", j);
+            apVar.dn("extra", bvVar.mRecomExtra);
+            apVar.dn("source_from", bvVar.mRecomSource);
+            if (this.hZG == 14) {
+                apVar.ah("obj_locate", 1);
+            } else if (this.hZG == 13) {
+                apVar.ah("obj_locate", 2);
             }
-            s.bOB().e(aoVar);
+            s.bRL().e(apVar);
         }
     }
 
@@ -108,11 +108,11 @@ public class b implements CustomMessageTask.CustomRunnable<bu>, y {
     }
 
     @Override // com.baidu.tieba.card.y
-    public void qX(int i) {
-        this.hID = i;
+    public void rn(int i) {
+        this.hOD = i;
     }
 
-    public void vA(int i) {
-        this.hTH = i;
+    public void vS(int i) {
+        this.hZG = i;
     }
 }

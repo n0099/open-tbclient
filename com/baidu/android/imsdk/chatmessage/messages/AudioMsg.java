@@ -8,7 +8,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes3.dex */
 public class AudioMsg extends RichMediaMsg {
     public static final Parcelable.Creator<AudioMsg> CREATOR = new Parcelable.Creator<AudioMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.AudioMsg.1
@@ -71,7 +70,7 @@ public class AudioMsg extends RichMediaMsg {
         try {
             JSONObject jSONObject = new JSONObject(this.mjsonContent);
             this.mRemoteUrl = jSONObject.optString("url");
-            this.mFormat = jSONObject.optInt(IjkMediaMeta.IJKM_KEY_FORMAT);
+            this.mFormat = jSONObject.optInt("format");
             this.mDuration = jSONObject.optInt("duration");
             if (this.mRemoteUrl.regionMatches(0, "http%3A", 0, 7)) {
                 transCodeUrl(jSONObject);
@@ -114,7 +113,7 @@ public class AudioMsg extends RichMediaMsg {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("url", str);
-                jSONObject.put(IjkMediaMeta.IJKM_KEY_FORMAT, i);
+                jSONObject.put("format", i);
                 jSONObject.put("duration", i2);
                 return jSONObject.toString();
             } catch (JSONException e) {

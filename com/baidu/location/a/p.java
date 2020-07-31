@@ -19,7 +19,7 @@ import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class p extends com.baidu.location.d.e {
     private static p q = null;
     String a = null;

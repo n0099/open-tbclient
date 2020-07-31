@@ -13,8 +13,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class CommonEmptyView extends RelativeLayout {
+    public TextView cCI;
     public FrameLayout mBottomLayout;
     public ImageView mIcon;
     public TextView mLinkText;
@@ -44,6 +45,7 @@ public class CommonEmptyView extends RelativeLayout {
         this.mLinkText = (TextView) findViewById(a.f.emptyview_link);
         this.mRefreshTextBtn = (TextView) findViewById(a.f.emptyview_btn);
         this.mBottomLayout = (FrameLayout) findViewById(a.f.emptyview_bottom_layout);
+        this.cCI = (TextView) findViewById(a.f.emptyview_problem_feedback);
         setPageResources();
     }
 
@@ -114,14 +116,14 @@ public class CommonEmptyView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        com.baidu.swan.apps.u.a.ags().a(this, new com.baidu.swan.apps.ak.a() { // from class: com.baidu.swan.apps.res.ui.CommonEmptyView.1
+        com.baidu.swan.apps.t.a.ahF().a(this, new com.baidu.swan.apps.ak.a() { // from class: com.baidu.swan.apps.res.ui.CommonEmptyView.1
         });
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.swan.apps.u.a.ags().unsubscribeNightModeChangedEvent(this);
+        com.baidu.swan.apps.t.a.ahF().unsubscribeNightModeChangedEvent(this);
     }
 
     public void setPageResources() {
@@ -134,7 +136,7 @@ public class CommonEmptyView extends RelativeLayout {
         }
         if (this.mRefreshTextBtn != null) {
             this.mRefreshTextBtn.setBackground(getResources().getDrawable(a.e.aiapps_emptyview_btn_bg));
-            this.mRefreshTextBtn.setTextColor(getResources().getColorStateList(a.c.aiapps_emptyview_btn_text_color));
+            this.mRefreshTextBtn.setTextColor(getResources().getColorStateList(a.c.swan_app_emptyview_btn_text_color));
         }
         if (this.mSubTitle != null) {
             this.mSubTitle.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));

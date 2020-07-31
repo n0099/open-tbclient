@@ -6,24 +6,24 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.x;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements b {
     private String callFrom = "";
-    private List<q> iqI;
-    private HotTopicListModel jUL;
-    private HotTopicListView jUM;
+    private List<q> iwM;
+    private HotTopicListModel kdk;
+    private HotTopicListView kdl;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        as(bundle);
-        this.jUL = new HotTopicListModel(getPageContext(), this);
-        this.jUM = new HotTopicListView(getPageContext(), this, bundle);
-        setContentView(this.jUM);
+        at(bundle);
+        this.kdk = new HotTopicListModel(getPageContext(), this);
+        this.kdl = new HotTopicListView(getPageContext(), this, bundle);
+        setContentView(this.kdl);
         setIsAddSwipeBackLayout(false);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
@@ -34,10 +34,10 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        TiebaStatic.log(new ao("c13741").dk("uid", TbadkCoreApplication.getCurrentAccount()));
+        TiebaStatic.log(new ap("c13741").dn("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 
-    private void as(Bundle bundle) {
+    private void at(Bundle bundle) {
         Intent intent = getIntent();
         if (intent != null) {
             this.callFrom = intent.getStringExtra("call_from");
@@ -48,42 +48,42 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
 
     @Override // com.baidu.tieba.newlist.b
     public void loadData() {
-        boolean LoadData = this.jUL.LoadData();
-        if (w.isEmpty(this.iqI)) {
+        boolean LoadData = this.kdk.LoadData();
+        if (x.isEmpty(this.iwM)) {
             if (LoadData) {
-                this.jUM.showLoadingView();
-                this.jUM.btO();
+                this.kdl.showLoadingView();
+                this.kdl.bwX();
                 return;
             }
-            this.jUM.hideLoadingView();
-            this.jUM.mB(false);
+            this.kdl.hideLoadingView();
+            this.kdl.ng(false);
         } else if (!LoadData) {
-            this.jUM.hideLoadingView();
-            this.jUM.btV();
+            this.kdl.hideLoadingView();
+            this.kdl.bxe();
         }
     }
 
     @Override // com.baidu.tieba.newlist.b
     public void n(int i, List<q> list) {
-        this.jUM.hideLoadingView();
-        this.jUM.btV();
-        if (i != 0 || w.isEmpty(list)) {
-            if (w.isEmpty(this.iqI)) {
-                this.jUM.mB(false);
+        this.kdl.hideLoadingView();
+        this.kdl.bxe();
+        if (i != 0 || x.isEmpty(list)) {
+            if (x.isEmpty(this.iwM)) {
+                this.kdl.ng(false);
                 return;
             }
             return;
         }
-        this.jUM.setData(list);
-        this.jUM.buK();
-        this.iqI = list;
+        this.kdl.setData(list);
+        this.kdl.bxT();
+        this.iwM = list;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.jUM.onChangeSkinType();
+        this.kdl.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a

@@ -6,8 +6,7 @@ import android.media.MediaFormat;
 import android.view.Surface;
 import com.baidu.ar.record.EncoderParams;
 import java.nio.ByteBuffer;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class f extends b {
     private static final String TAG = f.class.getSimpleName();
     private Surface tF;
@@ -28,7 +27,7 @@ public class f extends b {
             this.tx = dVar;
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(encoderParams.getVideoCodec(), encoderParams.getVideoWidth(), encoderParams.getVideoHeight());
             createVideoFormat.setInteger("color-format", 2130708361);
-            createVideoFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, encoderParams.getVideoBitrate());
+            createVideoFormat.setInteger("bitrate", encoderParams.getVideoBitrate());
             createVideoFormat.setInteger("frame-rate", encoderParams.getVideoFrameRate());
             createVideoFormat.setInteger("i-frame-interval", encoderParams.getVideoIFrameInterval());
             try {

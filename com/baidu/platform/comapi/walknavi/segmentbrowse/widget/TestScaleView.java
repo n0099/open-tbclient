@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class TestScaleView extends View {
     private double a;
     private double b;

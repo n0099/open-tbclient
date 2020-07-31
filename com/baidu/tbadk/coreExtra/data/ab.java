@@ -1,24 +1,24 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class ab {
-    private String ekn;
-    private ArrayList<Object> eko;
+    private String eqB;
+    private ArrayList<Object> eqC;
 
     public ab() {
-        C(new ArrayList<>());
+        D(new ArrayList<>());
     }
 
-    public String bao() {
-        return this.ekn;
+    public String bel() {
+        return this.eqB;
     }
 
-    public ArrayList<Object> bap() {
-        return this.eko;
+    public ArrayList<Object> bem() {
+        return this.eqC;
     }
 
-    public void C(ArrayList<Object> arrayList) {
-        this.eko = arrayList;
+    public void D(ArrayList<Object> arrayList) {
+        this.eqC = arrayList;
     }
 }

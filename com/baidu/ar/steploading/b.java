@@ -3,7 +3,7 @@ package com.baidu.ar.steploading;
 import com.baidu.ar.callback.ICallback;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.callback.IError;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 class b<T> extends com.baidu.ar.d.a<T, T> {
     private ICallback we;
     private IError wf;

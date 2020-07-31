@@ -1,5 +1,5 @@
 package com.baidu.live.liveroom.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface c {
     void a(a aVar, int i, int i2);
 }

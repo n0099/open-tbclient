@@ -5,7 +5,7 @@ import android.os.Message;
 import com.baidu.sofire.b;
 import com.baidu.sofire.i.d;
 import com.baidu.sofire.i.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class Report {
     private static Report a;
     private Context b;

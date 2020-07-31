@@ -78,6 +78,9 @@ public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandle
             case 27:
                 i2 = 27;
                 break;
+            case 29:
+                i2 = 29;
+                break;
             case 100:
                 i2 = 100;
                 break;

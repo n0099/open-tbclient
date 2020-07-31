@@ -3,7 +3,7 @@ package com.kascend.chushou.constants;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PannelItem implements Serializable {
     private static final long serialVersionUID = 5147506391323782042L;
     public String mBreakpoint;

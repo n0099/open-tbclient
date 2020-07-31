@@ -32,6 +32,8 @@ import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.statistics.DpNetworkUtils;
 import com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.cyberplayer.sdk.utils.DuplayerHandlerThread;
+import com.baidu.cyberplayer.sdk.utils.DuplayerHandlerThreadPool;
 import com.baidu.live.adp.widget.HorizontalTranslateLayout;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.media.duplayer.DuplayerCore;
@@ -53,10 +55,9 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tv.danmaku.ijk.media.player.IjkMediaPlayerLocal;
 import tv.danmaku.ijk.media.player.misc.IAndroidIO;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     private static volatile boolean r = false;
     private static volatile boolean s = false;
@@ -84,7 +85,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     private long mNativeMediaPlayer;
     @Keep
     private int mNativeSurfaceTexture;
-    private com.baidu.media.duplayer.a.a n;
+    private DuplayerHandlerThread n;
     private f o;
     private boolean p;
     private int q;
@@ -92,7 +93,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     private e v;
     private d w;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public static class a implements d {
         public static final a a = new a();
 
@@ -104,7 +105,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public static class b extends Handler {
         private final WeakReference<IjkMediaPlayer> a;
 
@@ -258,23 +259,23 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface c {
         String a(int i);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface d {
         String a(tv.danmaku.ijk.media.player.b bVar, String str, int i, int i2);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface e {
         boolean a(int i, Bundle bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public static class f extends Handler {
         private final WeakReference<IjkMediaPlayer> a;
 
@@ -791,7 +792,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                     if (cVar == null) {
                         return false;
                     }
-                    int i2 = bundle.getInt(IjkMediaPlayerLocal.OnNativeInvokeListener.ARG_SEGMENT_INDEX, -1);
+                    int i2 = bundle.getInt("segment_index", -1);
                     if (i2 < 0) {
                         throw new InvalidParameterException("onNativeInvoke(invalid segment index)");
                     }
@@ -874,7 +875,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         }
         this.p = false;
         if (!Utils.d(CyberPlayerManager.getApplicationContext()) || Thread.currentThread() == Looper.getMainLooper().getThread()) {
-            this.n = com.baidu.media.duplayer.a.b.MK().MM();
+            this.n = DuplayerHandlerThreadPool.getInstance().obtain();
             this.o = new f(this, this.n.getLooper());
             CyberLog.i("IjkMediaPlayer", "create player in main thread, use request handler. thread:" + Thread.currentThread().getName() + " request thread:" + this.n.getName() + " mRequestHandler:" + this.o);
             this.p = true;
@@ -912,7 +913,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
 
     private synchronized void y() {
         if (this.p) {
-            com.baidu.media.duplayer.a.b.MK().a(this.n);
+            DuplayerHandlerThreadPool.getInstance().recycle(this.n);
             this.n = null;
         }
     }
@@ -1279,6 +1280,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
             if (this.o != null) {
                 this.o.removeCallbacksAndMessages(null);
             }
+            this.b.removeCallbacksAndMessages(null);
             if (c(2)) {
                 this.o = null;
             } else {
@@ -1319,7 +1321,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     }
 
     public long t() {
-        return _getPropertyLong(IjkMediaPlayerLocal.FFP_PROP_INT64_TCP_SPEED, 0L);
+        return _getPropertyLong(20200, 0L);
     }
 
     public void u() {

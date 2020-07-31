@@ -4,84 +4,50 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.view.SortSwitchButton;
-/* loaded from: classes9.dex */
-public class ap extends m<com.baidu.tieba.pb.data.l, aq> {
-    private View.OnClickListener aLl;
-    private com.baidu.tieba.pb.data.e kck;
-    private SortSwitchButton.a kgn;
-    private BdUniqueId klp;
-    private BdUniqueId klq;
-    private boolean klr;
+import com.baidu.tieba.pb.pb.main.ao;
+/* loaded from: classes16.dex */
+public class ap extends o<am, ao> {
+    private com.baidu.tieba.pb.data.f kkM;
+    private ao.a ktO;
 
-    public ap(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
-        super(bVar, bdUniqueId);
-        this.klr = false;
-        this.klp = BdUniqueId.gen();
-        this.klq = BdUniqueId.gen();
+    /* JADX INFO: Access modifiers changed from: protected */
+    public ap(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
+        this.ktO = new ao.a() { // from class: com.baidu.tieba.pb.pb.main.ap.1
+            @Override // com.baidu.tieba.pb.pb.main.ao.a
+            public void b(am amVar) {
+                if (amVar != null) {
+                    com.baidu.tieba.pb.c.a.a(ap.this.kkM, amVar, amVar.locate, 5);
+                }
+            }
+        };
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cl */
-    public aq b(ViewGroup viewGroup) {
-        aq aqVar = new aq(this.kdO.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_title_layout, viewGroup, false));
-        aqVar.v(this.kbv.kfl);
-        aqVar.WY = false;
-        aqVar.S(this.aLl);
-        aqVar.setOnSwitchChangeListener(this.kgn);
-        if (getType() == com.baidu.tieba.pb.data.l.jZY) {
-            aqVar.l(this.klp);
-        } else if (getType() == com.baidu.tieba.pb.data.l.jZZ) {
-            aqVar.u(this.klq);
-        }
-        return aqVar;
+    /* renamed from: cm */
+    public ao b(ViewGroup viewGroup) {
+        return new ao(this.kjZ.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_page_news, viewGroup, false), this.ktO);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.m, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.l lVar, aq aqVar) {
-        super.a(i, view, viewGroup, (ViewGroup) lVar, (com.baidu.tieba.pb.data.l) aqVar);
-        if (aqVar != null) {
-            cLD();
-            lVar.kae = this.kck.jYL;
-            aqVar.a(lVar);
+    @Override // com.baidu.tieba.pb.pb.main.o, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, am amVar, ao aoVar) {
+        super.a(i, view, viewGroup, (ViewGroup) amVar, (am) aoVar);
+        if (amVar != null) {
+            amVar.locate = i + 1;
+            com.baidu.tieba.pb.c.a.a(this.kjZ.getUniqueId(), this.kkM, amVar, amVar.locate, 5);
+            aoVar.a(amVar);
+            aoVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
         return view;
     }
 
-    private void cLD() {
-        if (this.kck != null && this.kck.cGO() != null && this.kck.cGN() != null && this.kck.jYO && !this.klr) {
-            this.klr = true;
-            boolean isLike = this.kck.cGN().getIsLike();
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ao("common_exp").dk("page_type", PageStayDurationConstants.PageName.PB).ag("obj_isad", 1).ag("obj_floor", 1).ag("obj_adlocate", 9).dk("obj_id", this.kck.cGN().getForumId()).ag("thread_type", this.kck.cGO().getThreadType()).dk("tid", this.kck.cGO().getId()));
-            if (!isLike) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.ao("common_exp").dk("page_type", PageStayDurationConstants.PageName.PB).ag("obj_isad", 1).ag("obj_floor", 1).ag("obj_adlocate", 10).dk("obj_id", this.kck.cGN().getForumId()).ag("thread_type", this.kck.cGO().getThreadType()).dk("tid", this.kck.cGO().getId()));
-            }
-        }
-    }
-
-    public void onDestroy() {
-        this.klr = false;
-        MessageManager.getInstance().unRegisterListener(this.klp);
-        MessageManager.getInstance().unRegisterListener(this.klq);
-    }
-
-    public void z(View.OnClickListener onClickListener) {
-        this.aLl = onClickListener;
-    }
-
-    public void a(SortSwitchButton.a aVar) {
-        this.kgn = aVar;
-    }
-
-    public void setData(com.baidu.tieba.pb.data.e eVar) {
-        this.kck = eVar;
+    public void setData(com.baidu.tieba.pb.data.f fVar) {
+        this.kkM = fVar;
     }
 }

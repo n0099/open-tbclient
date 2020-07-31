@@ -10,7 +10,7 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes8.dex */
 public abstract class Message {
     private static final Wire WIRE = new Wire(new Class[0]);
     private transient int cachedSerializedSize;
@@ -18,7 +18,7 @@ public abstract class Message {
     private transient boolean haveCachedSerializedSize;
     private transient UnknownFieldMap unknownFields;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public enum Datatype {
         INT32(1),
         INT64(2),
@@ -197,7 +197,7 @@ public abstract class Message {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public enum Label {
         REQUIRED(32),
         OPTIONAL(64),
@@ -335,7 +335,7 @@ public abstract class Message {
         return WIRE.messageAdapter(getClass()).toString(this);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Builder<T extends Message> {
         UnknownFieldMap unknownFieldMap;
 

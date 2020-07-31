@@ -2,7 +2,7 @@ package com.baidubce.services.bos.model;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class ListMultipartUploadsResponse extends BosResponse {
     private String bucketName;
     private List<String> commonPrefixes;

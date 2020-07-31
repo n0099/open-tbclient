@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.webkit.internal.ETAG;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends HttpRule {
     public a(int i) {
         super(i);

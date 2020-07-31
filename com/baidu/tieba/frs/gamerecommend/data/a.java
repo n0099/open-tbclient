@@ -1,19 +1,19 @@
 package com.baidu.tieba.frs.gamerecommend.data;
 
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tbadk.data.FeatureCardGod;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a {
-    public int hPp;
-    public ScoreCardInfo hPr;
+    public int hVo;
+    public ScoreCardInfo hVq;
     public boolean hasMore;
-    public List<bu> hPq = new ArrayList();
-    public List<FeatureCardHot> hPs = new ArrayList();
-    public List<FeatureCardTopic> hPt = new ArrayList();
-    public List<b> hPu = new ArrayList();
-    public List<FeatureCardCompetition> hPv = new ArrayList();
-    public List<FeatureCardGod> hPw = new ArrayList();
-    public List<FeatureCardGame> hPx = new ArrayList();
+    public List<bv> hVp = new ArrayList();
+    public List<FeatureCardHot> hVr = new ArrayList();
+    public List<FeatureCardTopic> hVs = new ArrayList();
+    public List<b> hVt = new ArrayList();
+    public List<FeatureCardCompetition> hVu = new ArrayList();
+    public List<FeatureCardGod> hVv = new ArrayList();
+    public List<FeatureCardGame> hVw = new ArrayList();
 }

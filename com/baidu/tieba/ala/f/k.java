@@ -1,7 +1,5 @@
 package com.baidu.tieba.ala.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface k {
-    void az(int i, String str);
-
-    void b(com.baidu.tieba.ala.data.d dVar);
+    void a(int i, String str, Object obj);
 }

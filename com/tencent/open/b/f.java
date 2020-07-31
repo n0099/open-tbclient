@@ -16,7 +16,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class f extends SQLiteOpenHelper {
     protected static final String[] a = {"key"};
     protected static f b;

@@ -37,8 +37,8 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        if (!g.a(this.nJW, cVar, this.mapper)) {
-            this.nJW.subscribe(a(cVar, this.mapper, this.prefetch, this.errorMode));
+        if (!g.a(this.nSE, cVar, this.mapper)) {
+            this.nSE.subscribe(a(cVar, this.mapper, this.prefetch, this.errorMode));
         }
     }
 
@@ -230,7 +230,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
                                                 this.inner.setSubscription(new b(call, this.inner));
                                             }
                                         } catch (Throwable th) {
-                                            io.reactivex.exceptions.a.L(th);
+                                            io.reactivex.exceptions.a.K(th);
                                             this.s.cancel();
                                             this.errors.addThrowable(th);
                                             this.actual.onError(this.errors.terminate());
@@ -241,7 +241,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
                                         bVar.subscribe(this.inner);
                                     }
                                 } catch (Throwable th2) {
-                                    io.reactivex.exceptions.a.L(th2);
+                                    io.reactivex.exceptions.a.K(th2);
                                     this.s.cancel();
                                     this.errors.addThrowable(th2);
                                     this.actual.onError(this.errors.terminate());
@@ -249,7 +249,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
                                 }
                             }
                         } catch (Throwable th3) {
-                            io.reactivex.exceptions.a.L(th3);
+                            io.reactivex.exceptions.a.K(th3);
                             this.s.cancel();
                             this.errors.addThrowable(th3);
                             this.actual.onError(this.errors.terminate());
@@ -399,7 +399,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
                                                 this.inner.setSubscription(new b(call, this.inner));
                                             }
                                         } catch (Throwable th) {
-                                            io.reactivex.exceptions.a.L(th);
+                                            io.reactivex.exceptions.a.K(th);
                                             this.s.cancel();
                                             this.errors.addThrowable(th);
                                             this.actual.onError(this.errors.terminate());
@@ -410,7 +410,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
                                         bVar.subscribe(this.inner);
                                     }
                                 } catch (Throwable th2) {
-                                    io.reactivex.exceptions.a.L(th2);
+                                    io.reactivex.exceptions.a.K(th2);
                                     this.s.cancel();
                                     this.errors.addThrowable(th2);
                                     this.actual.onError(this.errors.terminate());
@@ -418,7 +418,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
                                 }
                             }
                         } catch (Throwable th3) {
-                            io.reactivex.exceptions.a.L(th3);
+                            io.reactivex.exceptions.a.K(th3);
                             this.s.cancel();
                             this.errors.addThrowable(th3);
                             this.actual.onError(this.errors.terminate());

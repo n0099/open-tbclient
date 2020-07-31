@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class PolygonOptions extends OverlayOptions {
     int a;
     Bundle c;

@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class g extends com.baidu.tieba.frs.j<com.baidu.tieba.frs.m, h> {
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -13,7 +13,7 @@ public class g extends com.baidu.tieba.frs.j<com.baidu.tieba.frs.m, h> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ba */
+    /* renamed from: bb */
     public h b(ViewGroup viewGroup) {
         return new h(new View(this.mContext));
     }
@@ -23,8 +23,8 @@ public class g extends com.baidu.tieba.frs.j<com.baidu.tieba.frs.m, h> {
     @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.m mVar, h hVar) {
         super.a(i, view, viewGroup, (ViewGroup) mVar, (com.baidu.tieba.frs.m) hVar);
-        hVar.tX(mVar.getHeight());
-        hVar.setBackground(mVar.bXQ());
+        hVar.up(mVar.getHeight());
+        hVar.setBackground(mVar.cbm());
         return view;
     }
 }

@@ -11,96 +11,99 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class a {
-    private TbPageContext dPv;
-    private TextView fBh;
-    private ImageView gOA;
-    private TextView gOB;
-    boolean gOC = false;
+    private TbPageContext dVN;
+    private TextView fGr;
+    private ImageView gUg;
+    private TextView gUh;
+    boolean gUi = false;
     private String mThreadId;
     private TextView mTitle;
 
     public a(TbPageContext tbPageContext) {
-        this.dPv = tbPageContext;
-        xp();
+        this.dVN = tbPageContext;
+        registerTask();
     }
 
     public void setThreadId(String str) {
         this.mThreadId = str;
     }
 
-    public void bNW() {
+    public void bRh() {
         if (!TbSingleton.getInstance().mCanCallFans) {
-            this.dPv.showToast(R.string.have_used_call_fans_this_week);
-        } else if (b.aVP().getBoolean("key_call_fans_no_tip_again", false)) {
-            bNY();
+            this.dVN.showToast(R.string.have_used_call_fans_this_week);
+        } else if (b.aZP().getBoolean("key_call_fans_no_tip_again", false)) {
+            bRi();
         } else {
-            final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.dPv.getPageActivity());
-            aVar.kW(1);
-            View inflate = LayoutInflater.from(this.dPv.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
+            final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.dVN.getPageActivity());
+            aVar.lq(1);
+            View inflate = LayoutInflater.from(this.dVN.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
             this.mTitle = (TextView) inflate.findViewById(R.id.title);
-            this.fBh = (TextView) inflate.findViewById(R.id.call_fans_intro);
-            this.gOB = (TextView) inflate.findViewById(R.id.no_tip_again_text);
-            this.gOA = (ImageView) inflate.findViewById(R.id.checkbox);
-            bNX();
-            this.gOA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.callfans.a.1
+            this.fGr = (TextView) inflate.findViewById(R.id.call_fans_intro);
+            this.gUh = (TextView) inflate.findViewById(R.id.no_tip_again_text);
+            this.gUg = (ImageView) inflate.findViewById(R.id.checkbox);
+            aYI();
+            this.gUg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.callfans.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.gOC = !a.this.gOC;
-                    a.this.bNX();
-                    b.aVP().putBoolean("key_call_fans_no_tip_again", a.this.gOC);
+                    a.this.gUi = !a.this.gUi;
+                    a.this.aYI();
+                    b.aZP().putBoolean("key_call_fans_no_tip_again", a.this.gUi);
                 }
             });
             onChangeSkinType();
-            aVar.aP(inflate);
-            aVar.a(this.dPv.getString(R.string.call_fans), new a.b() { // from class: com.baidu.tieba.callfans.a.2
+            aVar.aV(inflate);
+            aVar.a(this.dVN.getString(R.string.call_fans), new a.b() { // from class: com.baidu.tieba.callfans.a.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    a.this.bNY();
+                    a.this.bRi();
                     aVar.dismiss();
                 }
             });
-            aVar.b(this.dPv.getString(R.string.next_time), new a.b() { // from class: com.baidu.tieba.callfans.a.3
+            aVar.b(this.dVN.getString(R.string.next_time), new a.b() { // from class: com.baidu.tieba.callfans.a.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    b.aVP().putBoolean("key_call_fans_no_tip_again", false);
+                    b.aZP().putBoolean("key_call_fans_no_tip_again", false);
                     aVar.dismiss();
                 }
             });
-            aVar.b(this.dPv).aUN();
+            aVar.b(this.dVN).aYL();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bNX() {
+    public void aYI() {
         Drawable a;
-        if (this.gOA != null) {
-            ImageView imageView = this.gOA;
-            if (this.gOC) {
-                a = SvgManager.aWQ().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
+        if (this.gUg != null) {
+            ImageView imageView = this.gUg;
+            if (this.gUi) {
+                a = SvgManager.baR().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
             } else {
-                a = SvgManager.aWQ().a(R.drawable.ic_icon_mask_use_check16_svg, null);
+                a = SvgManager.baR().a(R.drawable.ic_icon_mask_use_check16_svg, null);
             }
             imageView.setImageDrawable(a);
         }
     }
 
     public void onChangeSkinType() {
-        an.setViewTextColor(this.mTitle, (int) R.color.cp_cont_b);
-        an.setViewTextColor(this.fBh, (int) R.color.cp_cont_j);
-        bNX();
-        an.setViewTextColor(this.gOB, (int) R.color.cp_cont_j);
+        ao.setViewTextColor(this.mTitle, R.color.cp_cont_b);
+        ao.setViewTextColor(this.fGr, R.color.cp_cont_j);
+        aYI();
+        ao.setViewTextColor(this.gUh, R.color.cp_cont_j);
     }
 
-    private void xp() {
+    private void registerTask() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CALL_FANS, TbConfig.SERVER_ADDRESS + TbConfig.URL_CALL_FANS);
         tbHttpMessageTask.setResponsedClass(CallFansResMsg.class);
@@ -109,12 +112,16 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bNY() {
+    public void bRi() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CALL_FANS);
         httpMessage.addParam("thread_id", this.mThreadId);
         MessageManager.getInstance().sendMessage(httpMessage);
-        this.dPv.showToast(R.string.your_thread_is_recommended_to_fans);
+        this.dVN.showToast(R.string.your_thread_is_recommended_to_fans);
         TbSingleton.getInstance().mCallFansTid = this.mThreadId;
         TbSingleton.getInstance().mCanCallFans = false;
+    }
+
+    public void j(int i, int i2, String str) {
+        TiebaStatic.log(new ap("c13847").ah("obj_source", i).ah("obj_type", i2).dn("tid", str).dn("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 }

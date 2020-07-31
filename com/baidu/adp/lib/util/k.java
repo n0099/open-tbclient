@@ -61,6 +61,53 @@ public class k {
         return format;
     }
 
+    public static String getTimeStringNoYear(Date date) {
+        String format;
+        if (date == null) {
+            return "";
+        }
+        String timeStringWithinMonth = getTimeStringWithinMonth(date);
+        if (timeStringWithinMonth == null) {
+            synchronized (FORMATE_DATE_DAY_NO_YEAR) {
+                format = FORMATE_DATE_DAY_NO_YEAR.format(date);
+            }
+            return format;
+        }
+        return timeStringWithinMonth;
+    }
+
+    public static String getTimeStringWithinMonth(Date date) {
+        Date date2 = new Date();
+        int day = date2.getDay() - date.getDay();
+        long time = date2.getTime() - date.getTime();
+        if (time >= 30000) {
+            long j = 30000 * 2;
+            if (time < j) {
+                return "半分钟前";
+            }
+            long j2 = j * 60;
+            if (time < j2) {
+                return String.valueOf((time * 60) / j2) + "分钟前";
+            }
+            long j3 = j2 * 24;
+            if (time < j3) {
+                if (day == 0) {
+                    return getDateStringHm(date);
+                }
+                return "1天前";
+            }
+            long j4 = j3 * 31;
+            if (time < j4) {
+                return String.valueOf((time * 31) / j4) + "天前";
+            }
+            if (time < j4 + 86400000) {
+                return "1个月前";
+            }
+            return null;
+        }
+        return "刚刚";
+    }
+
     public static boolean isChinese(char c) {
         Character.UnicodeBlock of = Character.UnicodeBlock.of(c);
         return of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A || of == Character.UnicodeBlock.GENERAL_PUNCTUATION || of == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION || of == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS;
@@ -146,7 +193,7 @@ public class k {
         return sb.toString();
     }
 
-    public static boolean z(String str, String str2) {
+    public static boolean y(String str, String str2) {
         if (str == null || str2 == null) {
             return false;
         }

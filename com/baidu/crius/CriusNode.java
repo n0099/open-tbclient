@@ -4,7 +4,7 @@ import com.baidu.crius.proguard.annotations.DoNotStrip;
 import java.util.ArrayList;
 import java.util.List;
 @DoNotStrip
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class CriusNode {
     private static final int BORDER = 4;
     private static final int MARGIN = 1;

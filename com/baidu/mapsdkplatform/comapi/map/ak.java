@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.mapapi.common.SysOSUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ak extends LinearLayout implements View.OnTouchListener {
     private ImageView a;
     private ImageView b;

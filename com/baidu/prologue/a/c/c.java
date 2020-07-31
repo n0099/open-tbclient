@@ -3,15 +3,16 @@ package com.baidu.prologue.a.c;
 import android.content.Context;
 import android.provider.Settings;
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c {
     private static String _ANDROID_ID = "";
 
-    public static String aJ(Context context) {
+    public static String aK(Context context) {
         if (TextUtils.isEmpty(_ANDROID_ID)) {
             try {
                 _ANDROID_ID = Settings.System.getString(context.getContentResolver(), "android_id");
             } catch (Exception e) {
+                return "";
             }
         }
         return _ANDROID_ID;

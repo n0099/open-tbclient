@@ -13,7 +13,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes19.dex */
 public class SelectUtil {
     private static String selectedVideoPath;
     private static List<ImageStruct> selectedImages = new ArrayList();

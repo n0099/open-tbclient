@@ -6,7 +6,7 @@ import com.google.zxing.Writer;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public abstract class OneDimensionalCodeWriter implements Writer {
     public abstract boolean[] encode(String str);
 

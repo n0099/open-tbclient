@@ -3,55 +3,56 @@ package com.baidu.swan.videoplayer.media.a.a;
 import android.util.Log;
 import android.util.SparseArray;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.cyberplayer.sdk.rtc.RTCConst;
 import com.baidu.mapapi.UIMsg;
 import com.baidu.swan.apps.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static final SparseArray<Integer> dwW = new SparseArray<>(32);
-    private static final SparseArray<String> dwX;
+    private static final SparseArray<Integer> dCO = new SparseArray<>(32);
+    private static final SparseArray<String> dCP;
 
     static {
-        dwW.put(CyberPlayerManager.MEDIA_INFO_CONNECTED_SERVER, 2001);
-        dwW.put(CyberPlayerManager.MEDIA_INFO_START_PULL_STREAM, 2002);
-        dwW.put(CyberPlayerManager.MEDIA_INFO_FIRST_DISP_INTERVAL, 2003);
-        dwW.put(CyberPlayerManager.MEDIA_INFO_START_PLAY, 2004);
-        dwW.put(10004, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND));
-        dwW.put(701, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE));
-        dwW.put(10005, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE));
-        dwW.put(10006, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE));
-        dwW.put(10007, -2301);
-        dwW.put(10008, 2101);
-        dwW.put(CyberPlayerManager.MEDIA_INFO_NET_RECONNECTING, 2103);
-        dwW.put(10009, 2105);
-        dwW.put(CyberPlayerManager.MEDIA_INFO_HARDWARE_START_FAIL_CHANGE_MODE, 2106);
-        dwW.put(10003, 2107);
-        dwW.put(CyberPlayerManager.MEDIA_INFO_FIRST_FRAME_DECODE_FAIL_CHANGE_MODE, 2108);
-        dwW.put(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION, 3001);
-        dwW.put(3002, 3002);
-        dwW.put(CyberPlayerManager.MEDIA_INFO_RTMP_HANDSHAKE_FAIL, Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_RTMP_HANDSHAKE_FAIL));
-        dwW.put(CyberPlayerManager.MEDIA_INFO_RTMP_IO_FAIL, 3005);
-        dwX = new SparseArray<>();
-        dwX.put(10007, "MEDIA_ERR_NETWORK");
-        dwX.put(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION, "MEDIA_ERR_NETWORK");
-        dwX.put(3002, "MEDIA_ERR_NETWORK");
-        dwX.put(CyberPlayerManager.MEDIA_INFO_RTMP_HANDSHAKE_FAIL, "MEDIA_ERR_NETWORK");
-        dwX.put(CyberPlayerManager.MEDIA_INFO_RTMP_IO_FAIL, "MEDIA_ERR_NETWORK");
-        dwX.put(-2022, "MEDIA_ERR_NETWORK");
-        dwX.put(-111, "MEDIA_ERR_NETWORK");
-        dwX.put(10008, "MEDIA_ERR_DECODE");
+        dCO.put(CyberPlayerManager.MEDIA_INFO_CONNECTED_SERVER, 2001);
+        dCO.put(CyberPlayerManager.MEDIA_INFO_START_PULL_STREAM, 2002);
+        dCO.put(CyberPlayerManager.MEDIA_INFO_FIRST_DISP_INTERVAL, 2003);
+        dCO.put(CyberPlayerManager.MEDIA_INFO_START_PLAY, 2004);
+        dCO.put(10004, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND));
+        dCO.put(701, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE));
+        dCO.put(10005, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE));
+        dCO.put(10006, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE));
+        dCO.put(10007, -2301);
+        dCO.put(10008, Integer.valueOf((int) RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL1));
+        dCO.put(CyberPlayerManager.MEDIA_INFO_NET_RECONNECTING, Integer.valueOf((int) RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL3));
+        dCO.put(10009, Integer.valueOf((int) RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL5));
+        dCO.put(CyberPlayerManager.MEDIA_INFO_HARDWARE_START_FAIL_CHANGE_MODE, Integer.valueOf((int) RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL6));
+        dCO.put(10003, Integer.valueOf((int) RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL7));
+        dCO.put(CyberPlayerManager.MEDIA_INFO_FIRST_FRAME_DECODE_FAIL_CHANGE_MODE, Integer.valueOf((int) RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL8));
+        dCO.put(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION, 3001);
+        dCO.put(3002, 3002);
+        dCO.put(CyberPlayerManager.MEDIA_INFO_RTMP_HANDSHAKE_FAIL, Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_RTMP_HANDSHAKE_FAIL));
+        dCO.put(CyberPlayerManager.MEDIA_INFO_RTMP_IO_FAIL, 3005);
+        dCP = new SparseArray<>();
+        dCP.put(10007, "MEDIA_ERR_NETWORK");
+        dCP.put(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION, "MEDIA_ERR_NETWORK");
+        dCP.put(3002, "MEDIA_ERR_NETWORK");
+        dCP.put(CyberPlayerManager.MEDIA_INFO_RTMP_HANDSHAKE_FAIL, "MEDIA_ERR_NETWORK");
+        dCP.put(CyberPlayerManager.MEDIA_INFO_RTMP_IO_FAIL, "MEDIA_ERR_NETWORK");
+        dCP.put(-2022, "MEDIA_ERR_NETWORK");
+        dCP.put(-111, "MEDIA_ERR_NETWORK");
+        dCP.put(10008, "MEDIA_ERR_DECODE");
     }
 
-    public static int jP(int i) {
-        if (dwW.indexOfKey(i) < 0) {
+    public static int ki(int i) {
+        if (dCO.indexOfKey(i) < 0) {
             if (DEBUG) {
                 Log.e("LiveStatusCodeAdapter", "Please check sStatusCodeMap already putted correct K,V pair. what: " + i);
             }
             return 100;
         }
-        return dwW.get(i).intValue();
+        return dCO.get(i).intValue();
     }
 
     private static JSONObject y(String str, Object obj) {
@@ -67,11 +68,11 @@ public final class a {
         return jSONObject;
     }
 
-    public static JSONObject jQ(int i) {
-        return y("errMsg", jR(i));
+    public static JSONObject kj(int i) {
+        return y("errMsg", kk(i));
     }
 
-    private static String jR(int i) {
-        return dwX.get(i, "MEDIA_ERR_SRC_NOT_SUPPORTED");
+    private static String kk(int i) {
+        return dCP.get(i, "MEDIA_ERR_SRC_NOT_SUPPORTED");
     }
 }

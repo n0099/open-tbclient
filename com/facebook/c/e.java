@@ -3,9 +3,9 @@ package com.facebook.c;
 import com.facebook.common.internal.g;
 import java.io.UnsupportedEncodingException;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class e {
-    public static byte[] QH(String str) {
+    public static byte[] Rs(String str) {
         g.checkNotNull(str);
         try {
             return str.getBytes(HTTP.ASCII);

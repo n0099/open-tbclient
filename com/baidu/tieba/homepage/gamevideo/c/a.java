@@ -4,7 +4,7 @@ import com.baidu.fsg.face.base.b.c;
 import com.baidu.tbadk.core.data.m;
 import org.json.JSONObject;
 import tbclient.RecomVertical.SubClassItem;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a extends m {
     public int enable;
     public String sub_class_icon;

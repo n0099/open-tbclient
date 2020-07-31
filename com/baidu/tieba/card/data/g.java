@@ -1,7 +1,7 @@
 package com.baidu.tieba.card.data;
 
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class g implements com.baidu.tieba.horizonalList.widget.c {
     public String forumAvatar;
     public long forumId;

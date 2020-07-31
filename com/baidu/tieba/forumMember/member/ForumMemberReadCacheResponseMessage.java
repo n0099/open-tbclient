@@ -10,7 +10,7 @@ import tbclient.GetMemberInfo.ManagerApplyInfo;
 import tbclient.GetMemberInfo.MemberGodInfo;
 import tbclient.MemberGroupInfo;
 import tbclient.PriManagerApplyInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<Object> {
     private boolean mIsBawuShow;
     private boolean mIsPrivateForum;
@@ -39,7 +39,7 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
                     this.mUserInfo.setLike(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                     this.mUserInfo.setCurScore(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                     this.mUserInfo.setLevelupScore(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
-                    this.mUserInfo.EC(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
+                    this.mUserInfo.EY(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
                     this.mUserInfo.setLevelName(getMemberInfoResIdl.data.forum_member_info.level_name);
                 }
                 this.mMemberGroupInfoList = getMemberInfoResIdl.data.member_group_info;

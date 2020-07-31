@@ -3,7 +3,7 @@ package com.kascend.chushou.toolkit.a;
 import com.tencent.connect.common.Constants;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static void a(Map<String, Object> map) {
     }
@@ -49,6 +49,6 @@ public class a {
                 str5 = "6";
             }
         }
-        com.kascend.chushou.c.c.dIP().a(str5, str2, str3, str4);
+        com.kascend.chushou.c.c.dMk().a(str5, str2, str3, str4);
     }
 }

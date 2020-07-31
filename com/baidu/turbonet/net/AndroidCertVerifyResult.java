@@ -8,22 +8,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 @JNINamespace
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class AndroidCertVerifyResult {
+    private final boolean mGW;
+    private final List<X509Certificate> mGX;
     private final int mStatus;
-    private final boolean myR;
-    private final List<X509Certificate> myS;
 
     public AndroidCertVerifyResult(int i, boolean z, List<X509Certificate> list) {
         this.mStatus = i;
-        this.myR = z;
-        this.myS = new ArrayList(list);
+        this.mGW = z;
+        this.mGX = new ArrayList(list);
     }
 
     public AndroidCertVerifyResult(int i) {
         this.mStatus = i;
-        this.myR = false;
-        this.myS = Collections.emptyList();
+        this.mGW = false;
+        this.mGX = Collections.emptyList();
     }
 
     @CalledByNative
@@ -33,15 +33,15 @@ public class AndroidCertVerifyResult {
 
     @CalledByNative
     public boolean isIssuedByKnownRoot() {
-        return this.myR;
+        return this.mGW;
     }
 
     @CalledByNative
     public byte[][] getCertificateChainEncoded() {
-        byte[][] bArr = new byte[this.myS.size()];
-        for (int i = 0; i < this.myS.size(); i++) {
+        byte[][] bArr = new byte[this.mGX.size()];
+        for (int i = 0; i < this.mGX.size(); i++) {
             try {
-                bArr[i] = this.myS.get(i).getEncoded();
+                bArr[i] = this.mGX.get(i).getEncoded();
             } catch (CertificateEncodingException e) {
                 return new byte[0];
             }

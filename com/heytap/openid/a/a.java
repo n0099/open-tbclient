@@ -2,10 +2,10 @@ package com.heytap.openid.a;
 
 import android.content.Context;
 import com.heytap.openid.a.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class a {
     public static void a(Context context) {
-        b.b = c.b.neg.a(b.ga(context));
+        b.b = c.b.nmQ.a(b.gi(context));
         b.a = true;
     }
 
@@ -18,21 +18,21 @@ public class a {
 
     public static String b(Context context) {
         if (b.a) {
-            return c.b.neg.a(b.ga(context), "OUID");
+            return c.b.nmQ.a(b.gi(context), "OUID");
         }
         throw new RuntimeException("SDK Need Init First!");
     }
 
     public static String c(Context context) {
         if (b.a) {
-            return c.b.neg.a(b.ga(context), "DUID");
+            return c.b.nmQ.a(b.gi(context), "DUID");
         }
         throw new RuntimeException("SDK Need Init First!");
     }
 
     public static String d(Context context) {
         if (b.a) {
-            return c.b.neg.a(b.ga(context), "AUID");
+            return c.b.nmQ.a(b.gi(context), "AUID");
         }
         throw new RuntimeException("SDK Need Init First!");
     }

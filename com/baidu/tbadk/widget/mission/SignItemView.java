@@ -13,23 +13,23 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class SignItemView extends FrameLayout {
-    private LineView eLW;
-    private ArrayList<b> eLX;
-    private int eLZ;
-    private int eMa;
-    private int eMb;
-    private int eMc;
-    private a eMo;
+    private a eSJ;
+    private LineView eSr;
+    private ArrayList<b> eSs;
+    private int eSu;
+    private int eSv;
+    private int eSw;
+    private int eSx;
     private LinearLayout mContainer;
     private int mSkinType;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void b(ActiveCenterData.ActiveCenterStatusData activeCenterStatusData);
     }
@@ -37,46 +37,46 @@ public class SignItemView extends FrameLayout {
     public SignItemView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.eLX = new ArrayList<>();
-        this.eMb = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds160);
-        this.eMc = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+        this.eSs = new ArrayList<>();
+        this.eSw = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds160);
+        this.eSx = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
         init();
     }
 
     public SignItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.eLX = new ArrayList<>();
-        this.eMb = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds160);
-        this.eMc = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+        this.eSs = new ArrayList<>();
+        this.eSw = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds160);
+        this.eSx = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
         init();
     }
 
     public SignItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.eLX = new ArrayList<>();
-        this.eMb = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds160);
-        this.eMc = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+        this.eSs = new ArrayList<>();
+        this.eSw = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds160);
+        this.eSx = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.sign_dialog_cus_view, (ViewGroup) this, true);
         this.mContainer = (LinearLayout) findViewById(R.id.sign_item_container);
-        this.eLW = (LineView) findViewById(R.id.line_view);
-        this.eLZ = l.getDimens(getContext(), R.dimen.tbds23);
-        this.eMa = l.getDimens(getContext(), R.dimen.tbds26);
+        this.eSr = (LineView) findViewById(R.id.line_view);
+        this.eSu = l.getDimens(getContext(), R.dimen.tbds23);
+        this.eSv = l.getDimens(getContext(), R.dimen.tbds26);
     }
 
     public void setItemClickListener(a aVar) {
-        this.eMo = aVar;
+        this.eSJ = aVar;
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            this.eLW.onChangeSkinType();
-            Iterator<b> it = this.eLX.iterator();
+            this.eSr.onChangeSkinType();
+            Iterator<b> it = this.eSs.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType();
             }
@@ -90,35 +90,35 @@ public class SignItemView extends FrameLayout {
             int size = arrayList.size();
             if (arrayList != null && size != 0) {
                 this.mContainer.removeAllViews();
-                this.eLX.clear();
+                this.eSs.clear();
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                     if (size <= 3) {
-                        marginLayoutParams.leftMargin = this.eMa;
-                        marginLayoutParams.rightMargin = this.eMa;
+                        marginLayoutParams.leftMargin = this.eSv;
+                        marginLayoutParams.rightMargin = this.eSv;
                     } else {
-                        marginLayoutParams.leftMargin = this.eLZ;
-                        marginLayoutParams.rightMargin = this.eLZ;
+                        marginLayoutParams.leftMargin = this.eSu;
+                        marginLayoutParams.rightMargin = this.eSu;
                     }
                     setLayoutParams(marginLayoutParams);
                 }
-                if (this.eLW.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.eLW.getLayoutParams();
+                if (this.eSr.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.eSr.getLayoutParams();
                     if (size <= 3) {
-                        if (marginLayoutParams2.leftMargin != this.eMb || marginLayoutParams2.rightMargin != this.eMb) {
-                            marginLayoutParams2.leftMargin = this.eMb;
-                            marginLayoutParams2.rightMargin = this.eMb;
-                            this.eLW.setLayoutParams(marginLayoutParams2);
+                        if (marginLayoutParams2.leftMargin != this.eSw || marginLayoutParams2.rightMargin != this.eSw) {
+                            marginLayoutParams2.leftMargin = this.eSw;
+                            marginLayoutParams2.rightMargin = this.eSw;
+                            this.eSr.setLayoutParams(marginLayoutParams2);
                         }
-                    } else if (marginLayoutParams2.leftMargin != this.eMc || marginLayoutParams2.rightMargin != this.eMc) {
-                        marginLayoutParams2.leftMargin = this.eMc;
-                        marginLayoutParams2.rightMargin = this.eMc;
-                        this.eLW.setLayoutParams(marginLayoutParams2);
+                    } else if (marginLayoutParams2.leftMargin != this.eSx || marginLayoutParams2.rightMargin != this.eSx) {
+                        marginLayoutParams2.leftMargin = this.eSx;
+                        marginLayoutParams2.rightMargin = this.eSx;
+                        this.eSr.setLayoutParams(marginLayoutParams2);
                     }
                 }
                 for (int i = 0; i < size; i++) {
-                    this.eLX.add(c(arrayList.get(i)));
+                    this.eSs.add(c(arrayList.get(i)));
                 }
             }
         }
@@ -130,82 +130,82 @@ public class SignItemView extends FrameLayout {
         layoutParams.weight = 1.0f;
         this.mContainer.addView(inflate, layoutParams);
         final b bVar = new b(inflate, activeCenterStatusData);
-        bVar.eMk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.widget.mission.SignItemView.1
+        bVar.eSF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.widget.mission.SignItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!bVar.eMm) {
-                    Iterator it = SignItemView.this.eLX.iterator();
+                if (!bVar.eSH) {
+                    Iterator it = SignItemView.this.eSs.iterator();
                     while (it.hasNext()) {
-                        ((b) it.next()).iQ(false);
+                        ((b) it.next()).jv(false);
                     }
-                    bVar.iQ(true);
-                    if (SignItemView.this.eMo == null) {
+                    bVar.jv(true);
+                    if (SignItemView.this.eSJ == null) {
                         return;
                     }
-                    SignItemView.this.eMo.b(bVar.eMn);
+                    SignItemView.this.eSJ.b(bVar.eSI);
                 }
             }
         });
         return bVar;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public static class b {
-        private int eMj;
-        private ImageView eMk;
-        private CircleView eMl;
-        private ActiveCenterData.ActiveCenterStatusData eMn;
+        private int eSE;
+        private ImageView eSF;
+        private CircleView eSG;
+        private ActiveCenterData.ActiveCenterStatusData eSI;
         private View itemView;
         private TextView textView;
-        private int eMf = R.drawable.ic_pic_mask_task_complete_svg;
-        private int eMg = R.drawable.ic_pic_mask_task_select_svg;
-        private int eMh = R.drawable.ic_pic_mask_task_comingsoon_svg;
-        private int eMi = R.drawable.ic_pic_mask_task_uncomplete_svg;
-        private boolean eMm = false;
+        private int eSA = R.drawable.ic_pic_mask_task_complete_svg;
+        private int eSB = R.drawable.ic_pic_mask_task_select_svg;
+        private int eSC = R.drawable.ic_pic_mask_task_comingsoon_svg;
+        private int eSD = R.drawable.ic_pic_mask_task_uncomplete_svg;
+        private boolean eSH = false;
 
         public b(View view, ActiveCenterData.ActiveCenterStatusData activeCenterStatusData) {
-            this.eMj = this.eMh;
-            this.eMn = activeCenterStatusData;
+            this.eSE = this.eSC;
+            this.eSI = activeCenterStatusData;
             this.itemView = view;
-            this.eMk = (ImageView) this.itemView.findViewById(R.id.item_icon);
+            this.eSF = (ImageView) this.itemView.findViewById(R.id.item_icon);
             this.textView = (TextView) this.itemView.findViewById(R.id.item_text);
-            this.eMl = (CircleView) this.itemView.findViewById(R.id.select_circle);
-            this.eMl.setVisibility(4);
+            this.eSG = (CircleView) this.itemView.findViewById(R.id.select_circle);
+            this.eSG.setVisibility(4);
             if (activeCenterStatusData.is_today_mission == 0) {
                 if (activeCenterStatusData.is_completed) {
-                    this.eMj = this.eMf;
+                    this.eSE = this.eSA;
                 } else {
-                    this.eMj = this.eMi;
+                    this.eSE = this.eSD;
                 }
             } else if (activeCenterStatusData.is_today_mission == 1) {
-                this.eMl.setVisibility(0);
+                this.eSG.setVisibility(0);
                 if (activeCenterStatusData.is_completed) {
-                    this.eMj = this.eMf;
+                    this.eSE = this.eSA;
                 } else {
-                    this.eMj = this.eMg;
+                    this.eSE = this.eSB;
                 }
             } else {
-                this.eMj = this.eMh;
+                this.eSE = this.eSC;
             }
-            SvgManager.aWQ().a(this.eMk, this.eMj, SvgManager.SvgResourceStateType.NORMAL);
-            an.setViewTextColor(this.textView, (int) R.color.cp_cont_d);
+            SvgManager.baR().a(this.eSF, this.eSE, SvgManager.SvgResourceStateType.NORMAL);
+            ao.setViewTextColor(this.textView, R.color.cp_cont_d);
             this.textView.setText(activeCenterStatusData.day + "天");
         }
 
         public void onChangeSkinType() {
-            SvgManager.aWQ().a(this.eMk, this.eMj, SvgManager.SvgResourceStateType.NORMAL);
-            an.setViewTextColor(this.textView, (int) R.color.cp_cont_d);
-            this.eMl.onChangeSkinType();
+            SvgManager.baR().a(this.eSF, this.eSE, SvgManager.SvgResourceStateType.NORMAL);
+            ao.setViewTextColor(this.textView, R.color.cp_cont_d);
+            this.eSG.onChangeSkinType();
         }
 
-        public void iQ(boolean z) {
+        public void jv(boolean z) {
             if (z) {
-                this.eMm = true;
-                this.eMl.setVisibility(0);
+                this.eSH = true;
+                this.eSG.setVisibility(0);
                 return;
             }
-            this.eMm = false;
-            this.eMl.setVisibility(4);
+            this.eSH = false;
+            this.eSG.setVisibility(4);
         }
     }
 }

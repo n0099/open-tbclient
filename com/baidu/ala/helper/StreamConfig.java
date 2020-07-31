@@ -5,7 +5,7 @@ import android.media.AudioManager;
 import android.os.Build;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class StreamConfig {
     public static final int AUDIO_IO_CXX = 2;
     public static final int AUDIO_IO_JAVA = 1;
@@ -27,7 +27,7 @@ public class StreamConfig {
     private static final String[] BLACKLISTED_OPEN_SL_ES_MODELS = {"vivo X9", "Redmi Note 8 Pro", "vivo X21"};
     private static final String[] WHITELISTED_OPEN_SL_ES_MODELS = {"MI 5s Plus", "MI 8", "MIX 2", "MI 6", "DUB-AL20", "V1821A", "VKY-AL00", "PACM00", "PBEM00", "OPPO R11", "OPPO R11s", "OPPO R11 Plus", "OPPO R9sk", "OPPO R9tm", "OPPO R9m", "vivo X21i A", "vivo X20A", "V1809A"};
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class Audio {
         public static final int AUDIO_FORMAT_BIT = 2;
         public static final int AUDIO_FORMAT_CHANNELS_NB1 = 1;
@@ -41,7 +41,7 @@ public class StreamConfig {
         public static final int AUDIO_RTC_FREQUENCY_48K = 48000;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class Video {
         public static final int CAMERA_FACING_DEFAULT = 1;
     }

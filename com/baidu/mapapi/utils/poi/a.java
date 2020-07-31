@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.platform.comapi.pano.a;
 import com.baidu.platform.comapi.pano.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 final class a implements a.InterfaceC0225a<c> {
     final /* synthetic */ Context a;
 

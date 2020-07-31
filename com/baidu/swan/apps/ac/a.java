@@ -1,89 +1,67 @@
 package com.baidu.swan.apps.ac;
 
+import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.core.d.h;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes11.dex */
+import android.support.annotation.NonNull;
+import com.baidu.swan.apps.SwanAppBaseActivity;
+import com.baidu.swan.apps.ac.c;
+import java.util.ArrayList;
+/* loaded from: classes7.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String TAG = a.class.getSimpleName();
-    public static volatile a cvB;
-    public String appId;
-    public String cvA;
-    public com.baidu.g.a.a cvC;
-    public String cvz;
+    private static String TAG = "RequestPermissionHelper";
 
-    private a() {
-    }
-
-    public static a amc() {
-        if (cvB == null) {
-            synchronized (a.class) {
-                if (cvB == null) {
-                    cvB = new a();
-                }
-            }
-        }
-        return cvB;
-    }
-
-    public boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-        String a = a(unitedSchemeEntity, "params");
-        if (TextUtils.isEmpty(a)) {
-            com.baidu.swan.apps.console.c.i(TAG, "wxPay: url is empty");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-            return false;
-        } else if (!com.baidu.g.b.NN().aF(context)) {
-            com.baidu.swan.apps.res.widget.b.d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).showToast();
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
-            return false;
-        } else if (!h.b("wxPay", com.baidu.swan.apps.model.b.bz(a, a))) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
+    public static void a(@NonNull String str, @NonNull String[] strArr, @NonNull int i, @NonNull Context context, @NonNull b bVar) {
+        if (context == null || !(context instanceof Activity)) {
+            bVar.O(2, "context should be activity ref");
+        } else if (com.baidu.swan.uuid.b.c.hasPermission(context, str)) {
+            bVar.hm("permission has already granted");
         } else {
-            com.baidu.swan.apps.console.c.i(TAG, "open wxPay page success");
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("finalUrl", a);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-            return true;
+            a(context, strArr, i, bVar);
         }
     }
 
-    private static String a(UnitedSchemeEntity unitedSchemeEntity, String str) {
-        String str2 = unitedSchemeEntity.getParams().get(str);
-        if (TextUtils.isEmpty(str2)) {
-            return null;
+    public static void a(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull b bVar) {
+        ArrayList arrayList = new ArrayList();
+        for (String str : strArr) {
+            if (!com.baidu.swan.uuid.b.c.hasPermission(context, str)) {
+                arrayList.add(str);
+            }
         }
-        try {
-            return new JSONObject(str2).optString(UserAccountActionItem.KEY_SRC);
-        } catch (JSONException e) {
+        if (arrayList.size() > 0) {
+            a(context, (String[]) arrayList.toArray(new String[0]), i, bVar);
+        } else {
+            bVar.hm("permission has already granted");
+        }
+    }
+
+    public static void a(Context context, String[] strArr, final int i, @NonNull final b bVar) {
+        if (context == null || !(context instanceof SwanAppBaseActivity)) {
+            bVar.O(2, "method should be called after setActivityRef");
             if (DEBUG) {
-                e.printStackTrace();
+                throw new IllegalStateException("this method should be called after setActivityRef");
             }
-            return null;
+            return;
         }
-    }
-
-    public static int gm(int i) {
-        switch (i) {
-            case -2:
-                return 2;
-            case -1:
-            default:
-                return 6;
-            case 0:
-                return 0;
-        }
+        ((SwanAppBaseActivity) context).a(i, strArr, new c.a() { // from class: com.baidu.swan.apps.ac.a.1
+            @Override // com.baidu.swan.apps.ac.c.a
+            public void onRequestPermissionsResult(int i2, @NonNull String[] strArr2, @NonNull int[] iArr) {
+                if (i2 != i) {
+                    b bVar2 = bVar;
+                    b bVar3 = bVar;
+                    bVar2.O(2, "request permission fail");
+                    return;
+                }
+                for (int i3 : iArr) {
+                    if (i3 == -1) {
+                        b bVar4 = bVar;
+                        b bVar5 = bVar;
+                        bVar4.O(1, "user denied");
+                        return;
+                    }
+                }
+                bVar.hm("permission granted successful");
+            }
+        });
     }
 }

@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.METHOD})
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public @interface GuardedBy {
     String value();
 }

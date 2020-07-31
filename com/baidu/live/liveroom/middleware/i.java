@@ -3,9 +3,9 @@ package com.baidu.live.liveroom.middleware;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.KeyEvent;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface i {
-    void bT(boolean z);
+    void bU(boolean z);
 
     void onActivityResult(int i, int i2, Intent intent);
 
@@ -19,5 +19,5 @@ public interface i {
 
     void onStop();
 
-    void q(Activity activity);
+    void r(Activity activity);
 }

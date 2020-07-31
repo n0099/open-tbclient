@@ -2,7 +2,7 @@ package com.baidu.live.adp.lib.util;
 
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NetWorkChangedMessage extends CustomResponsedMessage<NetworkState> {
     public final long mCurChangedTime;
     public final int mCurNetState;

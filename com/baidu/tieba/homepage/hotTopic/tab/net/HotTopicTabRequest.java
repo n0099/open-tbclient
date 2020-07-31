@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.t;
 import tbclient.HotThreadList.DataReq;
 import tbclient.HotThreadList.HotThreadListReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class HotTopicTabRequest extends NetMessage {
     public static final String HOT_COMMENT_TAB_ID = "2";
     public static final String HOT_THREAD_TAB_ID = "1";

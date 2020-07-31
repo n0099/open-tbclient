@@ -9,19 +9,19 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.ad;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.hotTopic.tab.b.d, a> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.iqU);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.iwY);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bC */
+    /* renamed from: bD */
     public a b(ViewGroup viewGroup) {
         TextView textView = new TextView(viewGroup.getContext());
         textView.setPadding(l.getDimens(viewGroup.getContext(), R.dimen.tbds44), l.getDimens(viewGroup.getContext(), R.dimen.tbds27), l.getDimens(viewGroup.getContext(), R.dimen.tbds44), l.getDimens(viewGroup.getContext(), R.dimen.tbds27));
@@ -51,28 +51,28 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public static class a extends ad.a {
-        private TextView dDu;
-        private int iqP;
+        private TextView dJr;
+        private int iwT;
 
         a(TextView textView) {
             super(textView);
-            this.iqP = 3;
-            this.dDu = textView;
+            this.iwT = 3;
+            this.dJr = textView;
         }
 
         void a(com.baidu.tieba.homepage.hotTopic.tab.b.d dVar) {
             if (dVar != null) {
-                this.dDu.setText(dVar.getTitle());
+                this.dJr.setText(dVar.getTitle());
             }
         }
 
         void onChangeSkinType(int i) {
-            if (this.iqP != i) {
-                an.setBackgroundColor(this.dDu, R.color.cp_bg_line_g);
-                an.setViewTextColor(this.dDu, (int) R.color.cp_cont_d);
-                this.iqP = i;
+            if (this.iwT != i) {
+                ao.setBackgroundColor(this.dJr, R.color.cp_bg_line_g);
+                ao.setViewTextColor(this.dJr, R.color.cp_cont_d);
+                this.iwT = i;
             }
         }
     }

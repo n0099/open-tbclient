@@ -2,7 +2,7 @@ package com.baidu.swan.games.glsurface.a.a;
 
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a {
     @V8JavascriptField
     public b[] changedTouches;

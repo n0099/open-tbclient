@@ -39,9 +39,9 @@ public class m extends Thread {
         public int Qa;
         public int Qb;
         public int Qc;
-        public int Qe;
+        public int Qd;
+        public byte[] Qe;
         public byte[] Qf;
-        public byte[] Qg;
 
         private a() {
         }
@@ -58,8 +58,8 @@ public class m extends Thread {
         this.PI = handler;
         this.OX = aVar;
         this.Pf = lVar;
-        this.PJ = ByteBuffer.allocateDirect(lVar.nl() + 14);
-        this.PM = new d(lVar.nm());
+        this.PJ = ByteBuffer.allocateDirect(lVar.nm() + 14);
+        this.PM = new d(lVar.nn());
         this.PQ = null;
         this.mState = 1;
     }
@@ -72,7 +72,7 @@ public class m extends Thread {
         this.PI.sendMessage(obtainMessage);
     }
 
-    private boolean ns() throws Exception {
+    private boolean nt() throws Exception {
         int i;
         String str;
         int i2;
@@ -148,12 +148,12 @@ public class m extends Thread {
                     this.PQ.Qa = i3;
                     this.PQ.Qc = (int) j;
                     this.PQ.Qb = i2;
-                    this.PQ.Qe = this.PQ.Qb + this.PQ.Qc;
-                    this.PQ.Qf = null;
+                    this.PQ.Qd = this.PQ.Qb + this.PQ.Qc;
+                    this.PQ.Qe = null;
                     int position = this.PJ.position();
-                    this.PQ.Qg = new byte[this.PQ.Qb];
+                    this.PQ.Qf = new byte[this.PQ.Qb];
                     this.PJ.position(0);
-                    this.PJ.get(this.PQ.Qg, 0, this.PQ.Qb);
+                    this.PJ.get(this.PQ.Qf, 0, this.PQ.Qb);
                     this.PJ.position(this.PQ.Qb);
                     this.PJ.limit(position);
                     this.PJ.compact();
@@ -169,13 +169,13 @@ public class m extends Thread {
                         i = 1005;
                         str = null;
                     } else {
-                        i = (this.PQ.Qg[1] & 255) + ((this.PQ.Qg[0] & 255) * 256);
+                        i = (this.PQ.Qf[1] & 255) + ((this.PQ.Qf[0] & 255) * 256);
                         if (i < 1000 || ((i >= 1000 && i <= 2999 && i != 1000 && i != 1001 && i != 1002 && i != 1003 && i != 1007 && i != 1008 && i != 1009 && i != 1010 && i != 1011) || i >= 5000)) {
                             throw new WebSocketException("invalid close code " + i);
                         }
                         if (this.PQ.Qc > 2) {
                             byte[] bArr2 = new byte[this.PQ.Qc - 2];
-                            System.arraycopy(this.PQ.Qg, 2, bArr2, 0, this.PQ.Qc - 2);
+                            System.arraycopy(this.PQ.Qf, 2, bArr2, 0, this.PQ.Qc - 2);
                             f fVar = new f();
                             fVar.l(bArr2);
                             if (!fVar.isValid()) {
@@ -198,19 +198,19 @@ public class m extends Thread {
                 if (!this.PO) {
                     this.PO = true;
                     this.PP = this.PQ.PY;
-                    if (this.PP == 1 && this.Pf.np()) {
+                    if (this.PP == 1 && this.Pf.nq()) {
                         this.PT.reset();
                     }
                 }
-                if (this.PP == 1 && this.Pf.np() && !this.PT.l(this.PM.toByteArray())) {
+                if (this.PP == 1 && this.Pf.nq() && !this.PT.l(this.PM.toByteArray())) {
                     throw new WebSocketException("invalid UTF-8 in text message payload");
                 }
                 if (this.PQ.PZ) {
                     if (this.PP == 1) {
-                        if (this.Pf.np() && !this.PT.isValid()) {
+                        if (this.Pf.nq() && !this.PT.isValid()) {
                             throw new WebSocketException("UTF-8 text message payload ended within Unicode code point");
                         }
-                        if (this.Pf.nk()) {
+                        if (this.Pf.nl()) {
                             m(this.PM.toByteArray());
                         } else {
                             onTextMessage(new String(this.PM.toByteArray(), "UTF-8"));
@@ -278,7 +278,7 @@ public class m extends Thread {
         x(new k.a(bArr, this.PV, this.PW));
     }
 
-    private boolean nt() throws UnsupportedEncodingException {
+    private boolean nu() throws UnsupportedEncodingException {
         boolean z;
         boolean z2;
         boolean z3 = false;
@@ -292,9 +292,9 @@ public class m extends Thread {
                 int position2 = this.PJ.position();
                 Map<String, String> map = null;
                 if (this.PJ.get(0) == 72 && this.PJ.get(1) == 84 && this.PJ.get(2) == 84 && this.PJ.get(3) == 80) {
-                    Pair<Integer, String> nu = nu();
-                    if (((Integer) nu.first).intValue() >= 300) {
-                        x(new k.p(((Integer) nu.first).intValue(), (String) nu.second));
+                    Pair<Integer, String> nv = nv();
+                    if (((Integer) nv.first).intValue() >= 300) {
+                        x(new k.p(((Integer) nv.first).intValue(), (String) nv.second));
                         z = true;
                     } else {
                         z = false;
@@ -311,7 +311,7 @@ public class m extends Thread {
                 this.PJ.position(position + 4);
                 this.PJ.limit(position2);
                 this.PJ.compact();
-                if (this.PU < this.OX.mV() && map.size() == 0) {
+                if (this.PU < this.OX.mW() && map.size() == 0) {
                     this.PU++;
                     return true;
                 }
@@ -346,7 +346,7 @@ public class m extends Thread {
         return hashMap;
     }
 
-    private Pair<Integer, String> nu() throws UnsupportedEncodingException {
+    private Pair<Integer, String> nv() throws UnsupportedEncodingException {
         int i = 4;
         while (i < this.PJ.position() && this.PJ.get(i) != 32) {
             i++;
@@ -372,12 +372,12 @@ public class m extends Thread {
         return new Pair<>(Integer.valueOf(i4), new String(bArr, "UTF-8"));
     }
 
-    private boolean nv() throws Exception {
+    private boolean nw() throws Exception {
         if (this.mState == 3 || this.mState == 2) {
-            return ns();
+            return nt();
         }
         if (this.mState == 1) {
-            return nt();
+            return nu();
         }
         if (this.mState == 0) {
         }
@@ -411,7 +411,7 @@ public class m extends Thread {
                     }
                     if (read > 0) {
                         do {
-                        } while (nv());
+                        } while (nw());
                     } else if (read < 0) {
                         x(new k.d(new SocketException("len < 0")));
                         this.mStopped = true;
@@ -435,7 +435,7 @@ public class m extends Thread {
         }
     }
 
-    public void nb() {
+    public void nc() {
         synchronized (m.class) {
             PN = 0L;
         }

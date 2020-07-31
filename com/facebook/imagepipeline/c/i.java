@@ -4,23 +4,23 @@ import android.app.ActivityManager;
 import android.os.Build;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class i implements com.facebook.common.internal.j<q> {
-    private final ActivityManager cOh;
+    private final ActivityManager cRE;
 
     public i(ActivityManager activityManager) {
-        this.cOh = activityManager;
+        this.cRE = activityManager;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: dCE */
+    /* renamed from: dFQ */
     public q get() {
-        return new q(dCF(), 256, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return new q(dFR(), 256, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
-    private int dCF() {
-        int min = Math.min(this.cOh.getMemoryClass() * 1048576, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+    private int dFR() {
+        int min = Math.min(this.cRE.getMemoryClass() * 1048576, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
         if (min < 33554432) {
             return 4194304;
         }

@@ -1,10 +1,10 @@
 package org.java_websocket;
 
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface WebSocket {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public enum READYSTATE {
         NOT_YET_CONNECTED,
         CONNECTING,
@@ -13,7 +13,7 @@ public interface WebSocket {
         CLOSED
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public enum Role {
         CLIENT,
         SERVER

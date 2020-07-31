@@ -2,7 +2,7 @@ package com.baidu.live.tieba.model.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CheckRealNameHttpResponseMessage extends JsonHttpResponsedMessage {
     public CheckRealNameHttpResponseMessage(int i) {
         super(i);

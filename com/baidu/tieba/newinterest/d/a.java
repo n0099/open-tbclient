@@ -13,53 +13,53 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.newinterest.data.b;
 import com.baidu.tieba.newinterest.fragment.InterestSelectionFragment;
 import com.baidu.tieba.newinterest.fragment.InterestedForumFragment;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class a implements View.OnClickListener, InterestSelectionFragment.a {
-    private View hCa;
-    private BaseFragmentActivity hep;
-    private TextView jUI;
-    private InterestedForumFragment jUJ;
-    private InterestSelectionFragment jUK;
+    private View hHY;
+    private BaseFragmentActivity hjZ;
+    private TextView kdh;
+    private InterestedForumFragment kdi;
+    private InterestSelectionFragment kdj;
     private NavigationBar mNavigationBar;
     private View mRoot;
 
     public a(BaseFragmentActivity baseFragmentActivity) {
-        this.hep = baseFragmentActivity;
+        this.hjZ = baseFragmentActivity;
         initUI();
-        cbW();
+        cfu();
     }
 
     private void initUI() {
-        this.mRoot = LayoutInflater.from(this.hep).inflate(R.layout.activity_interest_guide_layout, (ViewGroup) null);
+        this.mRoot = LayoutInflater.from(this.hjZ).inflate(R.layout.activity_interest_guide_layout, (ViewGroup) null);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.navigation_bar);
-        this.jUI = new TextView(this.hep);
-        this.jUI.setClickable(true);
-        this.jUI.setText(this.hep.getString(R.string.skip));
-        this.jUI.setTextSize(0, l.getDimens(this.hep, R.dimen.tbds37));
-        an.setViewTextColor(this.jUI, (int) R.color.cp_cont_j);
+        this.kdh = new TextView(this.hjZ);
+        this.kdh.setClickable(true);
+        this.kdh.setText(this.hjZ.getString(R.string.skip));
+        this.kdh.setTextSize(0, l.getDimens(this.hjZ, R.dimen.tbds37));
+        ao.setViewTextColor(this.kdh, R.color.cp_cont_j);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        layoutParams.rightMargin = l.getDimens(this.hep, R.dimen.tbds44);
-        this.jUI.setLayoutParams(layoutParams);
-        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.jUI, this);
-        this.hCa = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.jUK = new InterestSelectionFragment();
-        getFragmentManager().beginTransaction().add(R.id.content_container, this.jUK).commitAllowingStateLoss();
-        TiebaStatic.log(new ao("c13681"));
+        layoutParams.rightMargin = l.getDimens(this.hjZ, R.dimen.tbds44);
+        this.kdh.setLayoutParams(layoutParams);
+        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.kdh, this);
+        this.hHY = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.kdj = new InterestSelectionFragment();
+        getFragmentManager().beginTransaction().add(R.id.content_container, this.kdj).commitAllowingStateLoss();
+        TiebaStatic.log(new ap("c13681"));
     }
 
-    private void cbW() {
-        this.jUI.setOnClickListener(this);
-        this.hCa.setOnClickListener(this);
-        this.jUK.a(this);
+    private void cfu() {
+        this.kdh.setOnClickListener(this);
+        this.hHY.setOnClickListener(this);
+        this.kdj.a(this);
     }
 
     public View getView() {
@@ -68,39 +68,39 @@ public class a implements View.OnClickListener, InterestSelectionFragment.a {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hCa && this.hep != null) {
-            if (this.jUJ != null && this.jUJ.isVisible()) {
+        if (view == this.hHY && this.hjZ != null) {
+            if (this.kdi != null && this.kdi.isVisible()) {
                 getFragmentManager().popBackStack();
             } else {
-                cFx();
+                cJg();
             }
-        } else if (view == this.jUI) {
-            cFx();
+        } else if (view == this.kdh) {
+            cJg();
         }
     }
 
-    private void cFx() {
-        ao aoVar = new ao("c13682");
-        aoVar.ag("obj_type", 1);
-        TiebaStatic.log(aoVar);
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.hep).createNormalCfg(0)));
+    private void cJg() {
+        ap apVar = new ap("c13682");
+        apVar.ah("obj_type", 1);
+        TiebaStatic.log(apVar);
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.hjZ).createNormalCfg(0)));
     }
 
     @Override // com.baidu.tieba.newinterest.fragment.InterestSelectionFragment.a
-    public void ef(List<b> list) {
-        this.jUJ = new InterestedForumFragment();
-        this.jUJ.eg(list);
-        getFragmentManager().beginTransaction().add(R.id.content_container, this.jUJ).addToBackStack(null).commitAllowingStateLoss();
+    public void el(List<b> list) {
+        this.kdi = new InterestedForumFragment();
+        this.kdi.em(list);
+        getFragmentManager().beginTransaction().add(R.id.content_container, this.kdi).addToBackStack(null).commitAllowingStateLoss();
     }
 
     private FragmentManager getFragmentManager() {
-        return this.hep.getSupportFragmentManager();
+        return this.hjZ.getSupportFragmentManager();
     }
 
     public void onBackPressed() {
     }
 
     public void onChangeSkinType() {
-        an.setBackgroundColor(this.mRoot, R.color.cp_bg_line_d);
+        ao.setBackgroundColor(this.mRoot, R.color.cp_bg_line_d);
     }
 }

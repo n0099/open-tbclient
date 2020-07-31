@@ -7,7 +7,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.download.DownloadData;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class RecAppDownloadReceiver extends BroadcastReceiver {
     public static final String ACTION_CANCEL_DOWNLOAD = "action_cancel_download";
     public static final String ACTION_PAUSE_DOWNLOAD = "action_pause_download";
@@ -24,16 +24,16 @@ public class RecAppDownloadReceiver extends BroadcastReceiver {
                 }
                 if (status == 7) {
                     downloadData.setStatus(5);
-                    i.cZf().a(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
-                    i.cZf().i(downloadData);
+                    i.dcm().a(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
+                    i.dcm().i(downloadData);
                 } else if (status == 1 || status == 5) {
                     downloadData.setStatus(4);
-                    i.cZf().C(downloadData.getUrl(), downloadData.getId(), true);
-                    i.cZf().k(downloadData);
+                    i.dcm().C(downloadData.getUrl(), downloadData.getId(), true);
+                    i.dcm().k(downloadData);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_APP_DOWNLOAD_MSG, downloadData));
             } else if ("action_cancel_download".equals(intent.getAction())) {
-                i.cZf().m(downloadData);
+                i.dcm().m(downloadData);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_DELETE_DOWNLOAD_MSG, downloadData));
             }
         }

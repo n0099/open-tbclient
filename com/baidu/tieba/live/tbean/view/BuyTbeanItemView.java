@@ -22,7 +22,7 @@ import com.baidu.tieba.live.tbean.TBeanUtil;
 import com.baidu.tieba.live.tbean.data.IconInfoData;
 import com.baidu.tieba.live.tbean.data.IconInfoWrapperData;
 import com.baidu.tieba.live.tbean.data.UserInfoData;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BuyTbeanItemView extends a<IconInfoWrapperData> {
     private boolean mIsFromAlaLiveRoom;
     private TbImageView mIvIcon;

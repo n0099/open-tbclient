@@ -12,27 +12,27 @@ import com.baidu.tbadk.core.hybrid.n;
 import com.baidu.tbadk.core.hybrid.o;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a extends n {
-    private l dRN;
-    private String eEs;
+    private l dYf;
+    private String eKO;
 
     public a(l lVar, String str) {
         super(lVar);
-        this.dRN = lVar;
-        this.eEs = str;
+        this.dYf = lVar;
+        this.eKO = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String aPb() {
+    public String aSW() {
         return "TBHY_COMMON_DOWNLOAD_GAME";
     }
 
-    @o(aVB = false, value = "downloadGame")
+    @o(aZB = false, value = "downloadGame")
     private void downloadGame(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("packageName");
@@ -40,26 +40,26 @@ public class a extends n {
             String optString3 = jSONObject.optString("imageUrl");
             if (!StringUtils.isNull(optString)) {
                 if (!j.isNetWorkAvailable()) {
-                    UtilHelper.showToast(getContext(), (int) R.string.neterror);
+                    UtilHelper.showToast(getContext(), R.string.neterror);
                     return;
                 }
                 if (StringUtils.isNull(optString2)) {
-                    Fr(optString);
+                    Gd(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.e.cYZ().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.LJ(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.e.dcg().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.Mr(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
-                TiebaStatic.log(new ao("c12775").dk("fid", StringUtils.isNull(this.eEs) ? "" : this.eEs));
+                TiebaStatic.log(new ap("c12775").dn("fid", StringUtils.isNull(this.eKO) ? "" : this.eKO));
             }
         }
     }
 
-    private void Fr(String str) {
+    private void Gd(String str) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str));
         try {
-            if (!(this.dRN.getContext() instanceof Activity)) {
+            if (!(this.dYf.getContext() instanceof Activity)) {
                 intent.addFlags(268435456);
             }
-            this.dRN.getContext().startActivity(intent);
+            this.dYf.getContext().startActivity(intent);
         } catch (ActivityNotFoundException e) {
             BdLog.e(e.getMessage());
         }

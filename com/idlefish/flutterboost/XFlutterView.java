@@ -22,11 +22,10 @@ import android.view.accessibility.AccessibilityNodeProvider;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.FrameLayout;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.UtilHelper;
+import io.flutter.Log;
 import io.flutter.embedding.android.AndroidTouchProcessor;
 import io.flutter.embedding.android.FlutterSurfaceView;
-import io.flutter.embedding.android.FlutterTextureView;
 import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
@@ -36,7 +35,7 @@ import io.flutter.view.AccessibilityBridge;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public class XFlutterView extends FrameLayout {
     @Nullable
     private AccessibilityBridge accessibilityBridge;
@@ -82,11 +81,13 @@ public class XFlutterView extends FrameLayout {
         this.hasAddFirstFrameRenderedListener = false;
         this.viewportMetrics = new FlutterRenderer.ViewportMetrics();
         this.onAccessibilityChangeListener = new AccessibilityBridge.OnAccessibilityChangeListener() { // from class: com.idlefish.flutterboost.XFlutterView.1
+            @Override // io.flutter.view.AccessibilityBridge.OnAccessibilityChangeListener
             public void onAccessibilityChanged(boolean z, boolean z2) {
                 XFlutterView.this.resetWillNotDraw(z, z2);
             }
         };
         this.flutterUiDisplayListener = new FlutterUiDisplayListener() { // from class: com.idlefish.flutterboost.XFlutterView.2
+            @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
             public void onFlutterUiDisplayed() {
                 XFlutterView.this.isFlutterUiDisplayed = true;
                 for (FlutterUiDisplayListener flutterUiDisplayListener : XFlutterView.this.flutterUiDisplayListeners) {
@@ -94,6 +95,7 @@ public class XFlutterView extends FrameLayout {
                 }
             }
 
+            @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
             public void onFlutterUiNoLongerDisplayed() {
                 XFlutterView.this.isFlutterUiDisplayed = false;
                 for (FlutterUiDisplayListener flutterUiDisplayListener : XFlutterView.this.flutterUiDisplayListeners) {
@@ -107,42 +109,24 @@ public class XFlutterView extends FrameLayout {
     }
 
     private void init() {
-        BdLog.v("Initializing FlutterView");
-        switch (AnonymousClass3.$SwitchMap$io$flutter$embedding$android$FlutterView$RenderMode[this.renderMode.ordinal()]) {
-            case 1:
-                BdLog.v("Internally using a FlutterSurfaceView.");
+        Log.v("FlutterView", "Initializing FlutterView");
+        switch (this.renderMode) {
+            case surface:
+                Log.v("FlutterView", "Internally using a FlutterSurfaceView.");
                 FlutterSurfaceView flutterSurfaceView = new FlutterSurfaceView(getContext(), this.transparencyMode == FlutterView.TransparencyMode.transparent);
                 this.renderSurface = flutterSurfaceView;
                 addView(flutterSurfaceView);
                 break;
-            case 2:
-                BdLog.v("Internally using a FlutterTextureView.");
-                FlutterTextureView flutterTextureView = new FlutterTextureView(getContext());
-                this.renderSurface = flutterTextureView;
-                addView(flutterTextureView);
+            case texture:
+                Log.v("FlutterView", "Internally using a FlutterTextureView.");
+                XFlutterTextureView xFlutterTextureView = new XFlutterTextureView(getContext());
+                this.renderSurface = xFlutterTextureView;
+                addView(xFlutterTextureView);
                 break;
         }
         setPadding();
         setFocusable(true);
         setFocusableInTouchMode(true);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: com.idlefish.flutterboost.XFlutterView$3  reason: invalid class name */
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class AnonymousClass3 {
-        static final /* synthetic */ int[] $SwitchMap$io$flutter$embedding$android$FlutterView$RenderMode = new int[FlutterView.RenderMode.values().length];
-
-        static {
-            try {
-                $SwitchMap$io$flutter$embedding$android$FlutterView$RenderMode[FlutterView.RenderMode.surface.ordinal()] = 1;
-            } catch (NoSuchFieldError e) {
-            }
-            try {
-                $SwitchMap$io$flutter$embedding$android$FlutterView$RenderMode[FlutterView.RenderMode.texture.ordinal()] = 2;
-            } catch (NoSuchFieldError e2) {
-            }
-        }
     }
 
     private void setPadding() {
@@ -161,19 +145,19 @@ public class XFlutterView extends FrameLayout {
     @Override // android.view.View
     protected void onConfigurationChanged(@NonNull Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        BdLog.v("Configuration changed. Sending locales and user settings to Flutter.");
+        Log.v("FlutterView", "Configuration changed. Sending locales and user settings to Flutter.");
         try {
             sendLocalesToFlutter(configuration);
             sendUserSettingsToFlutter();
         } catch (Throwable th) {
-            BdLog.e("onConfigurationChanged error ");
+            Log.e("FlutterView", "onConfigurationChanged error ");
         }
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        BdLog.v("Size changed. Sending Flutter new viewport metrics. FlutterView was " + i3 + " x " + i4 + ", it is now " + i + " x " + i2);
+        Log.v("FlutterView", "Size changed. Sending Flutter new viewport metrics. FlutterView was " + i3 + " x " + i4 + ", it is now " + i + " x " + i2);
         this.viewportMetrics.width = i;
         this.viewportMetrics.height = i2;
         sendViewportMetricsToFlutter();
@@ -194,7 +178,7 @@ public class XFlutterView extends FrameLayout {
         this.viewportMetrics.viewInsetRight = 0;
         this.viewportMetrics.viewInsetBottom = windowInsets.getSystemWindowInsetBottom();
         this.viewportMetrics.viewInsetLeft = 0;
-        BdLog.v("Updating window insets (onApplyWindowInsets()):\nStatus bar insets: Top: " + this.viewportMetrics.paddingTop + ", Left: " + this.viewportMetrics.paddingLeft + ", Right: " + this.viewportMetrics.paddingRight + "\nKeyboard insets: Bottom: " + this.viewportMetrics.viewInsetBottom + ", Left: " + this.viewportMetrics.viewInsetLeft + ", Right: " + this.viewportMetrics.viewInsetRight + "System Gesture Insets - Left: " + this.viewportMetrics.systemGestureInsetLeft + ", Top: " + this.viewportMetrics.systemGestureInsetTop + ", Right: " + this.viewportMetrics.systemGestureInsetRight + ", Bottom: " + this.viewportMetrics.viewInsetBottom);
+        Log.v("FlutterView", "Updating window insets (onApplyWindowInsets()):\nStatus bar insets: Top: " + this.viewportMetrics.paddingTop + ", Left: " + this.viewportMetrics.paddingLeft + ", Right: " + this.viewportMetrics.paddingRight + "\nKeyboard insets: Bottom: " + this.viewportMetrics.viewInsetBottom + ", Left: " + this.viewportMetrics.viewInsetLeft + ", Right: " + this.viewportMetrics.viewInsetRight + "System Gesture Insets - Left: " + this.viewportMetrics.systemGestureInsetLeft + ", Top: " + this.viewportMetrics.systemGestureInsetTop + ", Right: " + this.viewportMetrics.systemGestureInsetRight + ", Bottom: " + this.viewportMetrics.viewInsetBottom);
         sendViewportMetricsToFlutter();
         return onApplyWindowInsets;
     }
@@ -210,7 +194,7 @@ public class XFlutterView extends FrameLayout {
             this.viewportMetrics.viewInsetRight = 0;
             this.viewportMetrics.viewInsetBottom = rect.bottom;
             this.viewportMetrics.viewInsetLeft = 0;
-            BdLog.v("Updating window insets (fitSystemWindows()):\nStatus bar insets: Top: " + this.viewportMetrics.paddingTop + ", Left: " + this.viewportMetrics.paddingLeft + ", Right: " + this.viewportMetrics.paddingRight + "\nKeyboard insets: Bottom: " + this.viewportMetrics.viewInsetBottom + ", Left: " + this.viewportMetrics.viewInsetLeft + ", Right: " + this.viewportMetrics.viewInsetRight);
+            Log.v("FlutterView", "Updating window insets (fitSystemWindows()):\nStatus bar insets: Top: " + this.viewportMetrics.paddingTop + ", Left: " + this.viewportMetrics.paddingLeft + ", Right: " + this.viewportMetrics.paddingRight + "\nKeyboard insets: Bottom: " + this.viewportMetrics.viewInsetBottom + ", Left: " + this.viewportMetrics.viewInsetLeft + ", Right: " + this.viewportMetrics.viewInsetRight);
             sendViewportMetricsToFlutter();
             return true;
         }
@@ -298,16 +282,14 @@ public class XFlutterView extends FrameLayout {
         setWillNotDraw(false);
     }
 
-    @RequiresApi(api = 3)
-    @SuppressLint({"NewApi"})
     public void attachToFlutterEngine(@NonNull FlutterEngine flutterEngine) {
-        BdLog.d("Attaching to a FlutterEngine: " + flutterEngine);
+        Log.d("FlutterView", "Attaching to a FlutterEngine: " + flutterEngine);
         if (isAttachedToFlutterEngine()) {
             if (flutterEngine == this.flutterEngine) {
-                BdLog.d("Already attached to this engine. Doing nothing.");
+                Log.d("FlutterView", "Already attached to this engine. Doing nothing.");
                 return;
             } else {
-                BdLog.d("Currently attached to a different engine. Detaching and then attaching to new engine.");
+                Log.d("FlutterView", "Currently attached to a different engine. Detaching and then attaching to new engine.");
                 detachFromFlutterEngine();
             }
         }
@@ -316,10 +298,9 @@ public class XFlutterView extends FrameLayout {
         this.isFlutterUiDisplayed = renderer.isDisplayingFlutterUi();
         this.renderSurface.attachToRenderer(renderer);
         renderer.addIsDisplayingFlutterUiListener(this.flutterUiDisplayListener);
-        if (this.textInputPlugin == null) {
-            this.textInputPlugin = new XTextInputPlugin(this, flutterEngine.getTextInputChannel(), this.flutterEngine.getPlatformViewsController());
-        }
-        this.textInputPlugin.setTextInputMethodHandler();
+        this.flutterEngine.getPlatformViewsController().attachToView(this);
+        this.textInputPlugin = XTextInputPlugin.getTextInputPlugin(this.flutterEngine.getDartExecutor(), this.flutterEngine.getPlatformViewsController());
+        this.textInputPlugin.updateView(this);
         this.textInputPlugin.getInputMethodManager().restartInput(this);
         this.androidKeyProcessor = new XAndroidKeyProcessor(this.flutterEngine.getKeyEventChannel(), this.textInputPlugin);
         this.androidTouchProcessor = new AndroidTouchProcessor(this.flutterEngine.getRenderer());
@@ -337,15 +318,16 @@ public class XFlutterView extends FrameLayout {
     }
 
     public void detachFromFlutterEngine() {
-        BdLog.d("Detaching from a FlutterEngine: " + this.flutterEngine);
+        Log.d("FlutterView", "Detaching from a FlutterEngine: " + this.flutterEngine);
         if (!isAttachedToFlutterEngine()) {
-            BdLog.d("Not attached to an engine. Doing nothing.");
+            Log.d("FlutterView", "Not attached to an engine. Doing nothing.");
             return;
         }
         for (FlutterView.FlutterEngineAttachmentListener flutterEngineAttachmentListener : this.flutterEngineAttachmentListeners) {
             flutterEngineAttachmentListener.onFlutterEngineDetachedFromFlutterView();
         }
         this.flutterEngine.getPlatformViewsController().detachAccessibiltyBridge();
+        this.flutterEngine.getPlatformViewsController().detachFromView();
         this.accessibilityBridge.release();
         this.accessibilityBridge = null;
         FlutterRenderer renderer = this.flutterEngine.getRenderer();
@@ -359,7 +341,7 @@ public class XFlutterView extends FrameLayout {
 
     public void release() {
         if (this.textInputPlugin != null) {
-            this.textInputPlugin.release();
+            this.textInputPlugin.release(this);
         }
     }
 
@@ -403,10 +385,10 @@ public class XFlutterView extends FrameLayout {
 
     private void sendViewportMetricsToFlutter() {
         if (!isAttachedToFlutterEngine()) {
-            BdLog.w("Tried to send viewport metrics from Android to Flutter but this FlutterView was not attached to a FlutterEngine.");
-            return;
+            Log.w("FlutterView", "Tried to send viewport metrics from Android to Flutter but this FlutterView was not attached to a FlutterEngine.");
+        } else if (this.viewportMetrics.width != 0 || this.viewportMetrics.height != 0) {
+            this.viewportMetrics.devicePixelRatio = getResources().getDisplayMetrics().density;
+            this.flutterEngine.getRenderer().setViewportMetrics(this.viewportMetrics);
         }
-        this.viewportMetrics.devicePixelRatio = getResources().getDisplayMetrics().density;
-        this.flutterEngine.getRenderer().setViewportMetrics(this.viewportMetrics);
     }
 }

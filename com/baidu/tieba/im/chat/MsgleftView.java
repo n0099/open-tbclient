@@ -18,60 +18,60 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class MsgleftView extends g {
     private static final String TAG = MsgleftView.class.getName();
-    private UserIconBox ahD;
-    private TbPageContext<MsglistActivity<?>> dPv;
-    private HeadImageView hDg;
-    private ViewGroup iLd;
-    private ImageView iLe;
-    private final TouchType iLf;
-    View.OnLongClickListener iLg;
+    private UserIconBox ahu;
+    private TbPageContext<MsglistActivity<?>> dVN;
+    private HeadImageView hJe;
+    private ViewGroup iRi;
+    private ImageView iRj;
+    private final TouchType iRk;
+    View.OnLongClickListener iRl;
     private TextView mName;
 
     public MsgleftView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_msgleft_view);
-        this.iLf = new TouchType();
-        this.iLg = new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.MsgleftView.2
+        this.iRk = new TouchType();
+        this.iRl = new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.MsgleftView.2
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                MsgleftView.this.iLf.set(true);
+                MsgleftView.this.iRk.set(true);
                 return true;
             }
         };
-        this.dPv = tbPageContext;
+        this.dVN = tbPageContext;
         initView();
-        this.iLe = (ImageView) findViewById(R.id.iv_live_group_host);
+        this.iRj = (ImageView) findViewById(R.id.iv_live_group_host);
         this.mName = (TextView) findViewById(R.id.tex_msgitem_name);
-        this.iLd = (ViewGroup) findViewById(R.id.box_msgitem_bubble);
-        this.hDg = (HeadImageView) findViewById(R.id.img_msgitem_photo);
-        this.hDg.setAutoChangeStyle(false);
-        this.hDg.setDrawerType(1);
-        this.hDg.setRadius(l.dip2px(this.dPv.getContext(), 4.0f));
-        this.hDg.setPlaceHolder(1);
-        this.ahD = (UserIconBox) findViewById(R.id.user_tshow_icon_box);
-        this.hDg.setLongClickable(true);
-        this.hDg.setOnLongClickListener(this.iLg);
-        this.hDg.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.im.chat.MsgleftView.1
-            long iLh = 0;
+        this.iRi = (ViewGroup) findViewById(R.id.box_msgitem_bubble);
+        this.hJe = (HeadImageView) findViewById(R.id.img_msgitem_photo);
+        this.hJe.setAutoChangeStyle(false);
+        this.hJe.setDrawerType(1);
+        this.hJe.setRadius(l.dip2px(this.dVN.getContext(), 4.0f));
+        this.hJe.setPlaceHolder(1);
+        this.ahu = (UserIconBox) findViewById(R.id.user_tshow_icon_box);
+        this.hJe.setLongClickable(true);
+        this.hJe.setOnLongClickListener(this.iRl);
+        this.hJe.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.im.chat.MsgleftView.1
+            long iRm = 0;
 
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
-                    this.iLh = System.currentTimeMillis();
+                    this.iRm = System.currentTimeMillis();
                 } else if (motionEvent.getAction() == 1) {
-                    if (System.currentTimeMillis() - this.iLh > 200) {
-                        if (MsgleftView.this.iLf.get()) {
-                            MsgleftView.this.iKx.onItemViewLongClick(view, 2, MsgleftView.this.mPosition, 0L);
-                            MsgleftView.this.iLf.set(false);
+                    if (System.currentTimeMillis() - this.iRm > 200) {
+                        if (MsgleftView.this.iRk.get()) {
+                            MsgleftView.this.iQC.onItemViewLongClick(view, 2, MsgleftView.this.mPosition, 0L);
+                            MsgleftView.this.iRk.set(false);
                         }
                     } else {
-                        MsgleftView.this.iKw.onItemViewClick(view, 2, MsgleftView.this.mPosition, 0L);
+                        MsgleftView.this.iQB.onItemViewClick(view, 2, MsgleftView.this.mPosition, 0L);
                     }
                 }
                 return false;
             }
         });
-        this.iKW.setIsLeft(true);
-        this.iKX.setIsLeft(true);
+        this.iRb.setIsLeft(true);
+        this.iRc.setIsLeft(true);
     }
 
     @Override // com.baidu.tieba.im.chat.g
@@ -79,27 +79,27 @@ public class MsgleftView extends g {
         String str = null;
         super.b(view, chatMessage);
         ArrayList<IconData> tShowInfoNew = chatMessage != null ? chatMessage.getUserInfo().getTShowInfoNew() : null;
-        cnB();
-        if (this.ahD != null && this.iLa) {
-            this.ahD.setVisibility(0);
-            this.ahD.setAutoChangedStyle(false);
-            Resources resources = this.dPv.getResources();
-            this.ahD.a(tShowInfoNew, 2, resources.getDimensionPixelSize(R.dimen.ds32), resources.getDimensionPixelSize(R.dimen.ds32), resources.getDimensionPixelSize(R.dimen.ds8), true);
+        crb();
+        if (this.ahu != null && this.iRf) {
+            this.ahu.setVisibility(0);
+            this.ahu.setAutoChangedStyle(false);
+            Resources resources = this.dVN.getResources();
+            this.ahu.a(tShowInfoNew, 2, resources.getDimensionPixelSize(R.dimen.ds32), resources.getDimensionPixelSize(R.dimen.ds32), resources.getDimensionPixelSize(R.dimen.ds8), true);
         }
         if (chatMessage == null) {
             this.mName.setText((CharSequence) null);
-            this.iKS.setVisibility(0);
-            this.iKS.setText(null);
-            xZ(8);
-            this.iKZ.getImage().setTag(null);
-            this.iKT.setVisibility(8);
-            this.iKT.setTag(null);
-            this.iKV.setVisibility(8);
-            this.iKV.setTag(null);
-            this.iKW.setVisibility(8);
-            this.iKX.setVisibility(8);
-            this.iKY.setVisibility(8);
-            this.iLe.setVisibility(8);
+            this.iQX.setVisibility(0);
+            this.iQX.setText(null);
+            yr(8);
+            this.iRe.getImage().setTag(null);
+            this.iQY.setVisibility(8);
+            this.iQY.setTag(null);
+            this.iRa.setVisibility(8);
+            this.iRa.setTag(null);
+            this.iRb.setVisibility(8);
+            this.iRc.setVisibility(8);
+            this.iRd.setVisibility(8);
+            this.iRj.setVisibility(8);
             return;
         }
         b(chatMessage);
@@ -109,23 +109,23 @@ public class MsgleftView extends g {
         try {
             if (chatMessage.getUserInfo() != null) {
                 this.mName.setText(chatMessage.getUserInfo().getName_show());
-                this.hDg.setUserId(chatMessage.getUserInfo().getUserId());
+                this.hJe.setUserId(chatMessage.getUserInfo().getUserId());
                 str = chatMessage.getUserInfo().getAvater();
             }
             if (chatMessage.getUserInfo().getUserType() == 1 || chatMessage.getUserInfo().getUserType() == 3) {
-                this.hDg.startLoad(str, 10, false);
+                this.hJe.startLoad(str, 10, false);
             } else {
-                this.hDg.startLoad(str, 12, false);
+                this.hJe.startLoad(str, 12, false);
             }
-            this.hDg.setContentDescription(chatMessage.getUserInfo().getName_show());
-            this.iKS.setVisibility(8);
-            xZ(8);
-            this.iKT.setVisibility(8);
-            this.iKU.setVisibility(8);
-            this.iKV.setVisibility(8);
-            this.iKX.setVisibility(8);
-            this.iKW.setVisibility(8);
-            this.iKY.setVisibility(8);
+            this.hJe.setContentDescription(chatMessage.getUserInfo().getName_show());
+            this.iQX.setVisibility(8);
+            yr(8);
+            this.iQY.setVisibility(8);
+            this.iQZ.setVisibility(8);
+            this.iRa.setVisibility(8);
+            this.iRc.setVisibility(8);
+            this.iRb.setVisibility(8);
+            this.iRd.setVisibility(8);
             switch (chatMessage.getMsgType()) {
                 case 1:
                     a(chatMessage, TAG);
@@ -157,17 +157,17 @@ public class MsgleftView extends g {
     }
 
     private void c(ChatMessage chatMessage) {
-        String string = com.baidu.tbadk.core.sharedPref.b.aVP().getString(SharedPrefConfig.LIVE_ROOM_CHAT_PAGE_AUTHOR_ID, "");
+        String string = com.baidu.tbadk.core.sharedPref.b.aZP().getString(SharedPrefConfig.LIVE_ROOM_CHAT_PAGE_AUTHOR_ID, "");
         if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getUserId() != null && chatMessage.getUserInfo().getUserId().equals(string)) {
-            this.iLe.setVisibility(0);
+            this.iRj.setVisibility(0);
         } else {
-            this.iLe.setVisibility(8);
+            this.iRj.setVisibility(8);
         }
     }
 
     private void d(ChatMessage chatMessage) {
         int i;
-        if (this.iLa) {
+        if (this.iRf) {
             if (chatMessage == null) {
                 i = 0;
             } else if (chatMessage.getUserInfo() != null) {
@@ -185,23 +185,23 @@ public class MsgleftView extends g {
             } else {
                 i = 0;
             }
-            if (!this.iLa) {
+            if (!this.iRf) {
                 i = 0;
             }
             this.mName.setCompoundDrawablesWithIntrinsicBounds(0, 0, i, 0);
         }
     }
 
-    public void cnB() {
-        if (this.iLa) {
+    public void crb() {
+        if (this.iRf) {
             this.mName.setVisibility(0);
-            this.ahD.setVisibility(0);
+            this.ahu.setVisibility(0);
             return;
         }
         this.mName.setVisibility(8);
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.iLd.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.iRi.getLayoutParams();
         marginLayoutParams.topMargin = 0;
-        this.iLd.setLayoutParams(marginLayoutParams);
-        this.ahD.setVisibility(8);
+        this.iRi.setLayoutParams(marginLayoutParams);
+        this.ahu.setVisibility(8);
     }
 }

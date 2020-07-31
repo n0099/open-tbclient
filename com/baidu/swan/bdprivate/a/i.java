@@ -7,9 +7,9 @@ public class i extends ProviderDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
     public Bundle execCall(Bundle bundle) {
         Bundle bundle2 = new Bundle();
-        z cU = a.cU(getAgent().getContext());
-        bundle2.putString("NICK_NAME", cU.displayName);
-        bundle2.putString("AVATAR_URL", cU.aRD);
+        z cZ = a.cZ(getAgent().getContext());
+        bundle2.putString("NICK_NAME", cZ.displayName);
+        bundle2.putString("AVATAR_URL", cZ.aSW);
         return bundle2;
     }
 }

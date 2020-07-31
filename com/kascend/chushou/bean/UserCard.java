@@ -5,7 +5,7 @@ import kotlin.h;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class UserCard {
     private final Family family;
     private final String managerLevel;
@@ -84,7 +84,7 @@ public final class UserCard {
     }
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class Family {
         private final String customCard;
         private final String icon;
@@ -181,7 +181,7 @@ public final class UserCard {
     }
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class UserCardInfo {
         private final String avatar;
         private final String gender;
@@ -359,7 +359,7 @@ public final class UserCard {
     }
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class UserCardMeta {
         private final int bangCount;
         private final List<String> cardFrame;
@@ -648,7 +648,7 @@ public final class UserCard {
     }
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class Medal {
         private final String introductionUrl;
         private final String url;

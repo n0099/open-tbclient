@@ -8,9 +8,9 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
 import com.baidu.live.adp.widget.SwipeBackLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
-    private SwipeBackLayout.SwipeControlInterface bnq;
+    private SwipeBackLayout.SwipeControlInterface bnL;
     private boolean isIntercept;
     private int mActivePointerId;
     private float mInitialMotionX;
@@ -43,7 +43,7 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
     }
 
     public void setSwipeControlInterface(SwipeBackLayout.SwipeControlInterface swipeControlInterface) {
-        this.bnq = swipeControlInterface;
+        this.bnL = swipeControlInterface;
     }
 
     @Override // android.view.View
@@ -54,8 +54,8 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
         int action = motionEvent.getAction() & 255;
         if (action == 3 || action == 1) {
             this.isIntercept = false;
-            if (this.bnq != null) {
-                this.bnq.enableSwipeBack();
+            if (this.bnL != null) {
+                this.bnL.enableSwipeBack();
             }
             return super.onFilterTouchEventForSecurity(motionEvent);
         }
@@ -66,22 +66,22 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
                 if (this.mActivePointerId != -1) {
                     this.mInitialMotionX = MotionEventCompat.getX(motionEvent, actionIndex);
                     this.mInitialMotionY = MotionEventCompat.getY(motionEvent, actionIndex);
-                    if (this.bnq != null) {
-                        this.bnq.disableSwipeBack();
+                    if (this.bnL != null) {
+                        this.bnL.disableSwipeBack();
                         break;
                     }
                 }
                 break;
             case 1:
             default:
-                if (this.bnq != null) {
-                    this.bnq.enableSwipeBack();
+                if (this.bnL != null) {
+                    this.bnL.enableSwipeBack();
                     break;
                 }
                 break;
             case 2:
-                if (this.bnq != null) {
-                    this.bnq.disableSwipeBack();
+                if (this.bnL != null) {
+                    this.bnL.disableSwipeBack();
                 }
                 determinIntercept(motionEvent);
                 if (this.isIntercept) {
@@ -97,21 +97,21 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
         switch (motionEvent.getAction()) {
             case 0:
                 this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
-                if (this.bnq != null) {
-                    this.bnq.disableSwipeBack();
+                if (this.bnL != null) {
+                    this.bnL.disableSwipeBack();
                     break;
                 }
                 break;
             case 1:
                 this.isIntercept = false;
-                if (this.bnq != null) {
-                    this.bnq.enableSwipeBack();
+                if (this.bnL != null) {
+                    this.bnL.enableSwipeBack();
                     break;
                 }
                 break;
             case 2:
-                if (this.bnq != null) {
-                    this.bnq.disableSwipeBack();
+                if (this.bnL != null) {
+                    this.bnL.disableSwipeBack();
                 }
                 if (!this.isIntercept) {
                     determinIntercept(motionEvent);
@@ -122,8 +122,8 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
                 }
                 break;
             default:
-                if (this.bnq != null) {
-                    this.bnq.enableSwipeBack();
+                if (this.bnL != null) {
+                    this.bnL.enableSwipeBack();
                     break;
                 }
                 break;

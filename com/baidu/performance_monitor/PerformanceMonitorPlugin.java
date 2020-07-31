@@ -18,7 +18,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private static HashMap<String, String> flutterEngineStartInfo = new HashMap<>();
     private final CustomMessageListener mFlutterEngineInitListener = new CustomMessageListener(2921451) { // from class: com.baidu.performance_monitor.PerformanceMonitorPlugin.1
@@ -32,15 +32,18 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
         }
     };
 
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "performance_monitor").setMethodCallHandler(new PerformanceMonitorPlugin());
+        new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "performance_monitor").setMethodCallHandler(new PerformanceMonitorPlugin());
         MessageManager.getInstance().registerListener(this.mFlutterEngineInitListener);
     }
 
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         MessageManager.getInstance().unRegisterListener(this.mFlutterEngineInitListener);
     }
 
+    @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
     public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
         HashMap hashMap;
         String str;
@@ -75,9 +78,9 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
                 }
             }
             BdStatisticsManager.getInstance().performance(str2, statsItem);
-            result.success((Object) null);
+            result.success(null);
         } else if (methodCall.method.equals("reportPageLoadPerformance")) {
-            if (m.bhP().bhQ() && methodCall.arguments != null && (hashMap = (HashMap) methodCall.arguments) != null && hashMap.get("viewCreateTime") != null && ((Double) hashMap.get("viewCreateTime")).doubleValue() > 0.0d) {
+            if (m.blA().blB() && methodCall.arguments != null && (hashMap = (HashMap) methodCall.arguments) != null && hashMap.get("viewCreateTime") != null && ((Double) hashMap.get("viewCreateTime")).doubleValue() > 0.0d) {
                 String str3 = (String) hashMap.get("pageName");
                 if ("SignAllForum".equals(str3)) {
                     str = "sign_all_flt";
@@ -88,7 +91,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
                 lo.append("action", "time");
                 lo.append("ishttp", hashMap.get("isHttp"));
                 lo.append("issuccess", hashMap.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
-                lo.append("nettype", m.bhP().getNetType());
+                lo.append("nettype", m.blA().getNetType());
                 if (hashMap.containsKey("whiteTime") && (hashMap.get("whiteTime") instanceof Double)) {
                     lo.append("wt", Double.valueOf(((Double) hashMap.get("whiteTime")).doubleValue() * 1000.0d));
                 }

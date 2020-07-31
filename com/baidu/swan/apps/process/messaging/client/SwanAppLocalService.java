@@ -9,18 +9,18 @@ import android.os.Messenger;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.swan.apps.aq.aj;
-import com.baidu.swan.apps.aq.n;
+import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.aq.p;
 import com.baidu.swan.apps.core.turbo.d;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.swan.apps.performance.g;
+import com.baidu.swan.apps.performance.i;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.swan.apps.v.f;
 import com.baidu.swan.apps.view.c;
-import com.baidu.swan.apps.w.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class SwanAppLocalService extends Service implements Handler.Callback {
     private static final String AB_SWAN_PRECLASS = "swan_preclass";
     public static final String ACTION_PERLOAD = "com.baidu.swan.action.SWAN_APP_LOCAL_SERVICE_PERLOAD";
@@ -33,13 +33,13 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
     @Override // android.app.Service
     public void onCreate() {
         SwanAppProcessInfo.init(getProcessInfo());
-        com.baidu.swan.apps.u.a.agO().TU();
+        com.baidu.swan.apps.t.a.aib().Uu();
         super.onCreate();
-        this.mMessenger = new Messenger(a.anW().anZ());
+        this.mMessenger = new Messenger(a.apG().apJ());
         if (DEBUG) {
             Log.i(TAG, "onCreate " + getProcessInfo());
         }
-        a.anW().anY();
+        a.apG().apI();
     }
 
     @Override // android.app.Service
@@ -89,39 +89,39 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
             if (TextUtils.isEmpty(stringExtra)) {
                 stringExtra = "0";
             }
-            HybridUbcFlow bF = g.mx("preload").f(new UbcFlowEvent("na_pre_load_launch").bg(longExtra)).f(new UbcFlowEvent("na_pre_load_swan_updated").bg(longExtra2)).f(new UbcFlowEvent("na_pre_load_receive").bg(currentTimeMillis)).bF("with_preload", "1");
+            HybridUbcFlow bH = i.mX("preload").f(new UbcFlowEvent("na_pre_load_launch").bm(longExtra)).f(new UbcFlowEvent("na_pre_load_swan_updated").bm(longExtra2)).f(new UbcFlowEvent("na_pre_load_receive").bm(currentTimeMillis)).bH("with_preload", "1");
             if (!TextUtils.isEmpty(stringExtra)) {
-                bF.bF("preload_scene", stringExtra);
+                bH.bH("preload_scene", stringExtra);
             }
-            if (com.baidu.swan.apps.u.a.aga() != null && com.baidu.swan.apps.u.a.aga().Sq()) {
+            if (com.baidu.swan.apps.t.a.ahm() != null && com.baidu.swan.apps.t.a.ahm().SI()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("time", currentTimeMillis);
                     jSONObject.put("process", intent.getIntExtra("bundle_key_process", -1));
                     jSONObject.put(BdStatsConstant.StatsKey.COST, currentTimeMillis - longExtra2);
-                    jSONObject.put("is_preload_started", d.cfI);
-                    jSONObject.put("is_preload_ready", d.acr().acx());
+                    jSONObject.put("is_preload_started", d.chs);
+                    jSONObject.put("is_preload_ready", d.adw().adC());
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
                     }
                 }
-                g.a mI = new g.a("812").mG("swan").mH("receive").mI(intent.getStringExtra("bundle_key_preload_src"));
-                mI.bA(jSONObject);
-                g.onEvent(mI);
+                i.a nk = new i.a("812").ni("swan").nj("receive").nk(intent.getStringExtra("bundle_key_preload_src"));
+                nk.bF(jSONObject);
+                i.onEvent(nk);
             }
             d.b.q(intent);
             com.baidu.swan.games.utils.so.d.x(intent);
-            f.ajb().u(intent);
-            com.baidu.swan.games.j.a.aBj().p(intent);
+            f.akr().u(intent);
+            com.baidu.swan.games.j.a.aEO().p(intent);
             if (!sFlagPreloaded) {
                 sFlagPreloaded = true;
-                aj.p(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.SwanAppLocalService.1
+                al.p(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.SwanAppLocalService.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        f.ajb().Tn();
-                        com.baidu.swan.apps.u.a.agp().ahp();
-                        c.cG(com.baidu.swan.apps.u.a.afX());
+                        f.akr().TL();
+                        com.baidu.swan.apps.t.a.ahB().aiE();
+                        c.cL(com.baidu.swan.apps.t.a.ahj());
                         SwanAppLocalService.this.preloadActivityClass();
                     }
                 });
@@ -131,13 +131,13 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void preloadActivityClass() {
-        final int i = com.baidu.swan.apps.u.a.aga().getSwitch(AB_SWAN_PRECLASS, 0);
+        final int i = com.baidu.swan.apps.t.a.ahm().getSwitch(AB_SWAN_PRECLASS, 0);
         if (i > 0) {
-            n.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.SwanAppLocalService.2
+            p.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.SwanAppLocalService.2
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        com.baidu.swan.apps.aq.c.a.n(SwanAppProcessInfo.current().activity.newInstance()).a(com.baidu.swan.apps.aq.c.a.cPG).hX(i);
+                        com.baidu.swan.apps.aq.c.a.n(SwanAppProcessInfo.current().activity.newInstance()).a(com.baidu.swan.apps.aq.c.a.cTh).ii(i);
                     } catch (Throwable th) {
                         if (SwanAppLocalService.DEBUG) {
                             th.printStackTrace();

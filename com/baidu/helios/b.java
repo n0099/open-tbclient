@@ -20,32 +20,32 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
-    private static volatile b aqd;
-    private ExecutorService aqg;
+    private static volatile b apZ;
+    private ExecutorService aqc;
     private Context mContext;
-    private com.baidu.helios.bridge.b aqf = new com.baidu.helios.bridge.b(new com.baidu.helios.b.a());
-    private com.baidu.helios.bridge.a aqe = this.aqf.ul();
+    private com.baidu.helios.bridge.b aqb = new com.baidu.helios.bridge.b(new com.baidu.helios.b.a());
+    private com.baidu.helios.bridge.a aqa = this.aqb.ul();
 
     private b(Context context) {
         this.mContext = context.getApplicationContext();
-        a.C0131a c0131a = new a.C0131a();
-        c0131a.aqn = new com.baidu.helios.b.c();
-        c0131a.aqo = new com.baidu.helios.b.b();
-        c0131a.applicationContext = this.mContext;
-        c0131a.aqp = new ThreadPoolExecutor(0, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        c0131a.aqq = new ThreadPoolExecutor(0, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 5L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.aqg = new ThreadPoolExecutor(0, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.aqe.a(c0131a);
-        this.aqe.a(new a.b());
+        a.C0129a c0129a = new a.C0129a();
+        c0129a.aqj = new com.baidu.helios.b.c();
+        c0129a.aqk = new com.baidu.helios.b.b();
+        c0129a.applicationContext = this.mContext;
+        c0129a.aql = new ThreadPoolExecutor(0, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        c0129a.aqm = new ThreadPoolExecutor(0, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 5L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.aqc = new ThreadPoolExecutor(0, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.aqa.a(c0129a);
+        this.aqa.a(new a.b());
     }
 
     public static synchronized b af(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (aqd == null) {
-                aqd = new b(context.getApplicationContext());
+            if (apZ == null) {
+                apZ = new b(context.getApplicationContext());
             }
-            bVar = aqd;
+            bVar = apZ;
         }
         return bVar;
     }
@@ -69,18 +69,18 @@ public class b {
 
     /* renamed from: com.baidu.helios.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0130b {
-        private List<c> aqk = new ArrayList();
+    public static class C0128b {
+        private List<c> aqg = new ArrayList();
 
-        public C0130b(List<c> list) {
-            this.aqk.addAll(list);
+        public C0128b(List<c> list) {
+            this.aqg.addAll(list);
         }
 
         public List<c> uk() {
-            return this.aqk;
+            return this.aqg;
         }
 
-        static C0130b dW(String str) {
+        static C0128b dV(String str) {
             try {
                 ArrayList arrayList = new ArrayList();
                 JSONArray jSONArray = new JSONArray(str);
@@ -89,41 +89,41 @@ public class b {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     arrayList.add(new c(jSONObject.getString(Config.INPUT_DEF_PKG), jSONObject.getString("aid"), jSONObject.getLong("priority")));
                 }
-                return new C0130b(arrayList);
+                return new C0128b(arrayList);
             } catch (JSONException e) {
                 return null;
             }
         }
 
         public String toString() {
-            return "sids {" + this.aqk + '}';
+            return "sids {" + this.aqg + '}';
         }
     }
 
     public String ug() {
-        return this.aqe.d("ssaid", null).id;
+        return this.aqa.d("ssaid", null).id;
     }
 
     public String uh() {
-        return this.aqe.d("aid", null).id;
+        return this.aqa.d("aid", null).id;
     }
 
     public String getIid() {
-        return this.aqe.d("iid", null).id;
+        return this.aqa.d("iid", null).id;
     }
 
-    public void a(com.baidu.helios.c<C0130b> cVar) {
+    public void a(com.baidu.helios.c<C0128b> cVar) {
         a(cVar, Looper.getMainLooper());
     }
 
-    public void a(com.baidu.helios.c<C0130b> cVar, Looper looper) {
+    public void a(com.baidu.helios.c<C0128b> cVar, Looper looper) {
         final a aVar = new a(cVar, looper);
-        this.aqe.a("sids", null, new a.c<String>() { // from class: com.baidu.helios.b.1
+        this.aqa.a("sids", null, new a.c<String>() { // from class: com.baidu.helios.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.helios.bridge.a.c
             /* renamed from: c */
             public void a(String str, Bundle bundle) {
-                aVar.b(C0130b.dW(str), bundle);
+                aVar.b(C0128b.dV(str), bundle);
             }
 
             @Override // com.baidu.helios.bridge.a.c
@@ -142,12 +142,12 @@ public class b {
     }
 
     public boolean ui() {
-        return this.aqe.dX(this.mContext.getPackageName());
+        return this.aqa.dW(this.mContext.getPackageName());
     }
 
     private void a(String str, com.baidu.helios.c<String> cVar, Looper looper) {
         final a aVar = new a(cVar, looper);
-        this.aqe.a(str, null, new a.c<String>() { // from class: com.baidu.helios.b.2
+        this.aqa.a(str, null, new a.c<String>() { // from class: com.baidu.helios.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.helios.bridge.a.c
             /* renamed from: c */
@@ -165,11 +165,11 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static class a<T> extends Handler {
-        private com.baidu.helios.c<T> aqj;
+        private com.baidu.helios.c<T> aqf;
 
         public a(com.baidu.helios.c<T> cVar, Looper looper) {
             super(looper);
-            this.aqj = cVar;
+            this.aqf = cVar;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.helios.c<T> */
@@ -179,11 +179,11 @@ public class b {
             switch (message.what) {
                 case 0:
                     Pair pair = (Pair) message.obj;
-                    this.aqj.a(pair.first, (Bundle) pair.second);
+                    this.aqf.a(pair.first, (Bundle) pair.second);
                     return;
                 case 1:
                     Pair pair2 = (Pair) message.obj;
-                    this.aqj.a(message.arg1, (Throwable) pair2.first, (Bundle) pair2.second);
+                    this.aqf.a(message.arg1, (Throwable) pair2.first, (Bundle) pair2.second);
                     return;
                 default:
                     return;
@@ -201,6 +201,6 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public com.baidu.helios.bridge.a uj() {
-        return this.aqe;
+        return this.aqa;
     }
 }

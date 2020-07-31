@@ -1,5 +1,5 @@
 package com.kascend.chushou.constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class OnlineVipItem {
     public String mAvatar;
     public String mScore;

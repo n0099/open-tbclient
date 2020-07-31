@@ -1,5 +1,5 @@
 package com.google.zxing.common.reedsolomon;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class ReedSolomonDecoder {
     private final GenericGF field;
 

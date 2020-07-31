@@ -4,29 +4,29 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.aq.n;
+import com.baidu.swan.apps.aq.p;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a dpG = new a();
+    private a dvx = new a();
 
-    public void cK(@NonNull String str, @Nullable String str2) {
-        this.dpG.cJ(str, str2);
+    public void cN(@NonNull String str, @Nullable String str2) {
+        this.dvx.cM(str, str2);
     }
 
     public void V(@NonNull String str, @NonNull String str2, @Nullable String str3) {
-        this.dpG.U(str, str2, str3);
+        this.dvx.U(str, str2, str3);
     }
 
-    public void j(@NonNull final String str, @Nullable final Map<String, String> map) {
-        n.postOnComputation(new Runnable() { // from class: com.baidu.swan.mini.d.b.1
+    public void k(@NonNull final String str, @Nullable final Map<String, String> map) {
+        p.postOnComputation(new Runnable() { // from class: com.baidu.swan.mini.d.b.1
             @Override // java.lang.Runnable
             public void run() {
-                JSONArray th = b.this.dpG.th(str);
-                if (th != null) {
+                JSONArray uk = b.this.dvx.uk(str);
+                if (uk != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("from", "swan");
@@ -36,7 +36,7 @@ public class b {
                                 jSONObject2.put(str2, map.get(str2));
                             }
                         }
-                        jSONObject2.put("info", th);
+                        jSONObject2.put("info", uk);
                         jSONObject.put("ext", jSONObject2);
                         b.this.k("1181", jSONObject);
                     } catch (Exception e) {
@@ -50,7 +50,7 @@ public class b {
     }
 
     public void a(final int i, @Nullable final String str, @Nullable final String str2, @Nullable final String str3, @Nullable final String str4) {
-        n.postOnComputation(new Runnable() { // from class: com.baidu.swan.mini.d.b.2
+        p.postOnComputation(new Runnable() { // from class: com.baidu.swan.mini.d.b.2
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject jSONObject = new JSONObject();
@@ -83,7 +83,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k(@NonNull final String str, @NonNull final JSONObject jSONObject) {
-        n.postOnIO(new Runnable() { // from class: com.baidu.swan.mini.d.b.3
+        p.postOnIO(new Runnable() { // from class: com.baidu.swan.mini.d.b.3
             @Override // java.lang.Runnable
             public void run() {
                 if (b.DEBUG) {

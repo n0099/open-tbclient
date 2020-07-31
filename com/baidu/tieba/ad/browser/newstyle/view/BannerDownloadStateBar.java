@@ -11,10 +11,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class BannerDownloadStateBar extends LinearLayout {
-    private TextView eYU;
-    private ImageView eYV;
+    private TextView fdw;
+    private ImageView fdx;
     private View mRootView;
 
     public BannerDownloadStateBar(Context context) {
@@ -35,8 +35,8 @@ public class BannerDownloadStateBar extends LinearLayout {
         setOrientation(0);
         setGravity(17);
         setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-        this.eYV = (ImageView) this.mRootView.findViewById(R.id.apk_download_state_icon);
-        this.eYU = (TextView) this.mRootView.findViewById(R.id.apk_download_state_text);
+        this.fdx = (ImageView) this.mRootView.findViewById(R.id.apk_download_state_icon);
+        this.fdw = (TextView) this.mRootView.findViewById(R.id.apk_download_state_text);
         setState(0);
     }
 
@@ -44,45 +44,45 @@ public class BannerDownloadStateBar extends LinearLayout {
         switch (i) {
             case 0:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.eYV.setVisibility(8);
-                this.eYV.setImageDrawable(null);
-                this.eYU.setText(R.string.ad_button_download_now);
-                this.eYU.setTextColor(Color.parseColor("#333333"));
+                this.fdx.setVisibility(8);
+                this.fdx.setImageDrawable(null);
+                this.fdw.setText(R.string.ad_button_download_now);
+                this.fdw.setTextColor(Color.parseColor("#333333"));
                 return;
             case 1:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.eYV.setVisibility(0);
-                this.eYV.setImageResource(R.drawable.ad_banner_download_pause);
-                this.eYU.setText(R.string.ad_button_pause);
-                this.eYU.setTextColor(Color.parseColor("#333333"));
+                this.fdx.setVisibility(0);
+                this.fdx.setImageResource(R.drawable.ad_banner_download_pause);
+                this.fdw.setText(R.string.ad_button_pause);
+                this.fdw.setTextColor(Color.parseColor("#333333"));
                 return;
             case 2:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.eYV.setVisibility(0);
-                this.eYV.setImageResource(R.drawable.ad_banner_download_resume);
-                this.eYU.setText(R.string.ad_button_resume);
-                this.eYU.setTextColor(Color.parseColor("#333333"));
+                this.fdx.setVisibility(0);
+                this.fdx.setImageResource(R.drawable.ad_banner_download_resume);
+                this.fdw.setText(R.string.ad_button_resume);
+                this.fdw.setTextColor(Color.parseColor("#333333"));
                 return;
             case 3:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_open);
-                this.eYV.setVisibility(8);
-                this.eYV.setImageDrawable(null);
-                this.eYU.setText(R.string.ad_button_install);
-                this.eYU.setTextColor(Color.parseColor("#FFFFFF"));
+                this.fdx.setVisibility(8);
+                this.fdx.setImageDrawable(null);
+                this.fdw.setText(R.string.ad_button_install);
+                this.fdw.setTextColor(Color.parseColor("#FFFFFF"));
                 return;
             case 4:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_open);
-                this.eYV.setVisibility(8);
-                this.eYV.setImageDrawable(null);
-                this.eYU.setText(R.string.ad_button_open);
-                this.eYU.setTextColor(Color.parseColor("#FFFFFF"));
+                this.fdx.setVisibility(8);
+                this.fdx.setImageDrawable(null);
+                this.fdw.setText(R.string.ad_button_open);
+                this.fdw.setTextColor(Color.parseColor("#FFFFFF"));
                 return;
             default:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.eYV.setVisibility(8);
-                this.eYV.setImageDrawable(null);
-                this.eYU.setText(R.string.ad_button_download_now);
-                this.eYU.setTextColor(Color.parseColor("#333333"));
+                this.fdx.setVisibility(8);
+                this.fdx.setImageDrawable(null);
+                this.fdw.setText(R.string.ad_button_download_now);
+                this.fdw.setTextColor(Color.parseColor("#333333"));
                 return;
         }
     }

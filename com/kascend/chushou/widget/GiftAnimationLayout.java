@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.kascend.chushou.a;
 import tv.chushou.zues.widget.gift.view.GiftFrameLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GiftAnimationLayout extends LinearLayout {
     private int a;
     private int b;

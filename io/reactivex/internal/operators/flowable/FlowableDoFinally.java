@@ -10,9 +10,9 @@ public final class FlowableDoFinally<T> extends a<T, T> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.nJW.a((j) new DoFinallyConditionalSubscriber((io.reactivex.internal.a.a) cVar, this.onFinally));
+            this.nSE.a((j) new DoFinallyConditionalSubscriber((io.reactivex.internal.a.a) cVar, this.onFinally));
         } else {
-            this.nJW.a((j) new DoFinallySubscriber(cVar, this.onFinally));
+            this.nSE.a((j) new DoFinallySubscriber(cVar, this.onFinally));
         }
     }
 
@@ -106,7 +106,7 @@ public final class FlowableDoFinally<T> extends a<T, T> {
                 try {
                     this.onFinally.run();
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.L(th);
+                    io.reactivex.exceptions.a.K(th);
                     io.reactivex.e.a.onError(th);
                 }
             }
@@ -208,7 +208,7 @@ public final class FlowableDoFinally<T> extends a<T, T> {
                 try {
                     this.onFinally.run();
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.L(th);
+                    io.reactivex.exceptions.a.K(th);
                     io.reactivex.e.a.onError(th);
                 }
             }

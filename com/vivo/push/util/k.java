@@ -7,7 +7,7 @@ import com.baidu.android.util.devices.RomUtils;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class k {
     public static final boolean a = z.b("ro.vivo.product.overseas", NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).equals("yes");
     public static final String b;

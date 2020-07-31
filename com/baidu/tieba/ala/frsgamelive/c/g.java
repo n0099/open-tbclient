@@ -5,9 +5,9 @@ import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.ad;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private h fHp;
+    private h fMK;
     private TbPageContext mPageContext;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -17,20 +17,20 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     private void initView() {
-        this.fHp = new h(this.mPageContext);
-        ((ViewGroup) getView()).addView(this.fHp.getView());
+        this.fMK = new h(this.mPageContext);
+        ((ViewGroup) getView()).addView(this.fMK.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.fHp != null) {
-            this.fHp.onChangeSkinType(tbPageContext, i);
+        if (this.fMK != null) {
+            this.fMK.onChangeSkinType(tbPageContext, i);
         }
     }
 
-    public void c(com.baidu.tieba.ala.d dVar) {
-        if (this.fHp != null) {
-            this.fHp.d(dVar);
+    public void c(com.baidu.tieba.ala.e eVar) {
+        if (this.fMK != null) {
+            this.fMK.d(eVar);
         }
     }
 
@@ -42,8 +42,8 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.dLi != null && this.fHp != null) {
-            this.fHp.a(cVar.dLi);
+        if (cVar != null && cVar.dLK != null && this.fMK != null) {
+            this.fMK.a(cVar.dLK);
         }
     }
 
@@ -51,13 +51,13 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     public void onClick(View view) {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends ad.a {
-        public g fHq;
+        public g fML;
 
         public a(g gVar) {
             super(gVar.getView());
-            this.fHq = gVar;
+            this.fML = gVar;
         }
     }
 }

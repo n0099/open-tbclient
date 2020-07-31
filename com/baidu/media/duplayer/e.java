@@ -8,14 +8,15 @@ import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
 import com.baidu.cyberplayer.sdk.SDKVersion;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.media.duplayer.d;
 import dalvik.system.BaseDexClassLoader;
 import java.io.File;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private static e buK;
+    private static e buX;
     private static String b = null;
     private static String c = null;
     private static final Set<String> d = new LinkedHashSet();
@@ -23,21 +24,27 @@ public class e {
     private e() {
     }
 
-    public static synchronized e MO() {
+    public static synchronized e MS() {
         e eVar;
         synchronized (e.class) {
-            if (buK == null) {
+            if (buX == null) {
                 b = Utils.f();
-                buK = new e();
+                buX = new e();
             }
-            eVar = buK;
+            eVar = buX;
         }
         return eVar;
     }
 
     private String a(Context context, d dVar) {
-        String findLibrary = dVar.b().equals(a(dVar.a())) ? ((BaseDexClassLoader) context.getClassLoader()).findLibrary(dVar.a()) : null;
-        return TextUtils.isEmpty(findLibrary) ? c + File.separator + b + File.separator + dVar.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.b() + File.separator + "lib" + dVar.a() + PluginInstallerService.APK_LIB_SUFFIX : findLibrary;
+        if (dVar.MR() == d.a.LIB_TYPE_JAR) {
+            return (dVar.b().equals(a(dVar.a())) && com.baidu.media.ext.a.b(context.getClassLoader())) ? "apk_internal_jar" : c + File.separator + dVar.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.b() + ".jar";
+        } else if (dVar.MR() == d.a.LIB_TYPE_SO) {
+            String findLibrary = dVar.b().equals(a(dVar.a())) ? ((BaseDexClassLoader) context.getClassLoader()).findLibrary(dVar.a()) : null;
+            return TextUtils.isEmpty(findLibrary) ? c + File.separator + b + File.separator + dVar.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.b() + File.separator + "lib" + dVar.a() + PluginInstallerService.APK_LIB_SUFFIX : findLibrary;
+        } else {
+            return null;
+        }
     }
 
     private String a(String str) {
@@ -60,11 +67,13 @@ public class e {
         for (d dVar : LibsInfoDef.getAllGroupMap().values()) {
             String a = a(context, dVar);
             dVar.a(a);
-            File parentFile = new File(a).getParentFile();
-            if (!parentFile.exists() || parentFile.isFile()) {
-                parentFile.mkdirs();
+            if (dVar.MR() == d.a.LIB_TYPE_SO) {
+                File parentFile = new File(a).getParentFile();
+                if (!parentFile.exists() || parentFile.isFile()) {
+                    parentFile.mkdirs();
+                }
+                d.add(parentFile.getAbsolutePath());
             }
-            d.add(parentFile.getAbsolutePath());
         }
     }
 
@@ -100,7 +109,7 @@ public class e {
         }
     }
 
-    public String[] MP() {
+    public String[] MT() {
         return (String[]) d.toArray(new String[d.size()]);
     }
 
@@ -119,7 +128,10 @@ public class e {
         if ((i & 8) == 8) {
             i2 |= 896;
         }
-        return (i & 16) == 16 ? i2 | 3 : i2;
+        if ((i & 16) == 16) {
+            i2 |= 3;
+        }
+        return (i & 32) == 32 ? i2 | 2048 : i2;
     }
 
     public String c() {
@@ -181,6 +193,10 @@ public class e {
     }
 
     public boolean h(int i) {
+        return (i & 2048) == i;
+    }
+
+    public boolean i(int i) {
         return (i & 3) == i;
     }
 }

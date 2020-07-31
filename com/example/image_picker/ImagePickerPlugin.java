@@ -14,14 +14,17 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.util.sp.PreferenceUtils;
+import com.baidu.i.a.a;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.EditHeadActivityConfig;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.util.o;
@@ -31,14 +34,17 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class ImagePickerPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
+    private static BroadcastReciver broadcastReciver;
     private static PostAsyncTask.PostCallback callback;
     private static MethodChannel channel;
     private static MethodChannel channel_utily;
-    private BroadcastReciver broadcastReciver;
     private static Activity currentActivity = null;
     private static String barId = null;
+    private static boolean isEditHeadImage = false;
+    private static boolean onlyNeedImageUrl = false;
+    private static double scaleRate = 1.0d;
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921464, new CustomMessageTask.CustomRunnable<Intent>() { // from class: com.example.image_picker.ImagePickerPlugin.1
@@ -50,11 +56,20 @@ public class ImagePickerPlugin implements FlutterPlugin, MethodChannel.MethodCal
                     WriteImagesInfo writeImagesInfo = new WriteImagesInfo(1);
                     writeImagesInfo.parseJson(stringExtra);
                     writeImagesInfo.updateQuality();
-                    if (!w.isEmpty(writeImagesInfo.getChosedFiles())) {
-                        EditHeadActivityConfig editHeadActivityConfig = new EditHeadActivityConfig((Context) ImagePickerPlugin.currentActivity, (int) RequestResponseCode.REQUEST_ALBUM_IMAGE, (int) RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW, data.getData(), TbadkCoreApplication.getCurrentAccountObj(), 4, writeImagesInfo.getChosedFiles().get(0).getFilePath(), 1.0f, true);
-                        editHeadActivityConfig.setWaterMaskType(3);
-                        editHeadActivityConfig.setNeedPaste(false);
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, editHeadActivityConfig));
+                    if (!x.isEmpty(writeImagesInfo.getChosedFiles())) {
+                        if (ImagePickerPlugin.isEditHeadImage) {
+                            EditHeadActivityConfig editHeadActivityConfig = new EditHeadActivityConfig((Context) ImagePickerPlugin.currentActivity, (int) RequestResponseCode.REQUEST_ALBUM_IMAGE, (int) RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW, data.getData(), TbadkCoreApplication.getCurrentAccountObj(), 0, writeImagesInfo.getChosedFiles().get(0).getFilePath(), (float) ImagePickerPlugin.scaleRate, true);
+                            editHeadActivityConfig.setWaterMaskType(3);
+                            editHeadActivityConfig.setFromWhere(EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER);
+                            editHeadActivityConfig.setNeedPaste(true);
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, editHeadActivityConfig));
+                        } else {
+                            EditHeadActivityConfig editHeadActivityConfig2 = new EditHeadActivityConfig((Context) ImagePickerPlugin.currentActivity, (int) RequestResponseCode.REQUEST_ALBUM_IMAGE, (int) RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW, data.getData(), TbadkCoreApplication.getCurrentAccountObj(), 4, writeImagesInfo.getChosedFiles().get(0).getFilePath(), (float) ImagePickerPlugin.scaleRate, true);
+                            editHeadActivityConfig2.setWaterMaskType(3);
+                            editHeadActivityConfig2.setFromWhere(EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER);
+                            editHeadActivityConfig2.setNeedPaste(false);
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, editHeadActivityConfig2));
+                        }
                     }
                 }
                 return null;
@@ -73,22 +88,24 @@ public class ImagePickerPlugin implements FlutterPlugin, MethodChannel.MethodCal
             @Override // com.example.image_picker.PostAsyncTask.PostCallback
             public void onFailure(PostAsyncTask.ResultData resultData) {
                 if (resultData != null) {
-                    ImagePickerPlugin.notifyFlutter(resultData.error_code, resultData.error_msg, "");
+                    ImagePickerPlugin.notifyFlutter(resultData.error_code, resultData.error_msg, resultData.url);
                 }
             }
         };
     }
 
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        channel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "image_picker");
+        channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "image_picker");
         channel.setMethodCallHandler(new ImagePickerPlugin());
-        channel_utily = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "utility_plugin");
+        channel_utily = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "utility_plugin");
+        registerBroadcastReciver();
     }
 
     private void unRegisterBroadcastReciver() {
         try {
-            if (this.broadcastReciver != null) {
-                currentActivity.unregisterReceiver(this.broadcastReciver);
+            if (broadcastReciver != null) {
+                TbadkCoreApplication.getInst().unregisterReceiver(broadcastReciver);
             }
         } catch (Exception e) {
             BdLog.e(e);
@@ -97,35 +114,52 @@ public class ImagePickerPlugin implements FlutterPlugin, MethodChannel.MethodCal
 
     private void registerBroadcastReciver() {
         try {
-            this.broadcastReciver = new BroadcastReciver();
+            broadcastReciver = new BroadcastReciver();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.tieba.action.ImagePickerPlugin");
-            currentActivity.registerReceiver(this.broadcastReciver, intentFilter);
+            TbadkCoreApplication.getInst().registerReceiver(broadcastReciver, intentFilter);
         } catch (Exception e) {
             BdLog.e(e);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     public static class BroadcastReciver extends BroadcastReceiver {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            PhotoUrlData photoUrlData;
-            if (intent != null && "com.tieba.action.ImagePickerPlugin".equals(intent.getAction()) && (photoUrlData = (PhotoUrlData) intent.getSerializableExtra("pic_info")) != null && TbadkCoreApplication.getInst().isMainProcess(true)) {
-                new PostAsyncTask(photoUrlData.getOriginPic(), ImagePickerPlugin.barId, ImagePickerPlugin.callback).execute(new String[0]);
+            if (intent != null && "com.tieba.action.ImagePickerPlugin".equals(intent.getAction())) {
+                if (intent.getBooleanExtra("isHeadImage", false)) {
+                    if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_DATA_CHANGED));
+                        return;
+                    }
+                    return;
+                }
+                PhotoUrlData photoUrlData = (PhotoUrlData) intent.getSerializableExtra("pic_info");
+                if (photoUrlData != null && TbadkCoreApplication.getInst().isMainProcess(true)) {
+                    String originPic = photoUrlData.getOriginPic();
+                    if (ImagePickerPlugin.onlyNeedImageUrl) {
+                        ImagePickerPlugin.notifyFlutter(0, "", originPic);
+                    } else {
+                        new PostAsyncTask(originPic, ImagePickerPlugin.barId, ImagePickerPlugin.callback).execute(new String[0]);
+                    }
+                }
             }
         }
     }
 
+    @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
     public void onMethodCall(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
-        Map map;
         Log.e("ImagePickerPlugin", "onMethodCall: " + methodCall.method + methodCall.arguments);
         if (methodCall.method.equals("editUserPortrait")) {
+            currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.clearRequestPermissionList();
             permissionJudgePolicy.appendRequestPermission(currentActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (!permissionJudgePolicy.startRequestPermission(TbadkCoreApplication.getInst().getCurrentActivity())) {
+            if (!permissionJudgePolicy.startRequestPermission(currentActivity)) {
+                isEditHeadImage = true;
                 AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) currentActivity, new WriteImagesInfo().toJsonString(), true);
+                albumActivityConfig.getIntent().putExtra("from", AlbumActivityConfig.FROM_FLUTTER);
                 albumActivityConfig.setRequestCode(RequestResponseCode.REQUEST_ALBUM_IMAGE);
                 albumActivityConfig.setIntentAction(IntentAction.ActivityForResult);
                 albumActivityConfig.setResourceType(2);
@@ -134,17 +168,36 @@ public class ImagePickerPlugin implements FlutterPlugin, MethodChannel.MethodCal
             }
         } else if (methodCall.method.equals("takePhoto") || methodCall.method.equals("chosePhotoLibrary")) {
             currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            unRegisterBroadcastReciver();
-            registerBroadcastReciver();
             PermissionJudgePolicy permissionJudgePolicy2 = new PermissionJudgePolicy();
             permissionJudgePolicy2.clearRequestPermissionList();
             permissionJudgePolicy2.appendRequestPermission(currentActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (!permissionJudgePolicy2.startRequestPermission(TbadkCoreApplication.getInst().getCurrentActivity()) && (map = (Map) methodCall.arguments) != null) {
-                barId = (String) map.get("barId");
+            if (permissionJudgePolicy2.startRequestPermission(TbadkCoreApplication.getInst().getCurrentActivity())) {
+                if (PreferenceUtils.getBoolean("imagepicker_tost_show", false) && !a.shouldShowRequestPermissionRationale(TbadkCoreApplication.getInst().getCurrentActivity(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                    BdToast.b(currentActivity, "请到设置-隐私-照片开启照片权限").aYR();
+                }
+                PreferenceUtils.setBoolean("imagepicker_tost_show", true);
+                return;
+            }
+            Map map = (Map) methodCall.arguments;
+            if (map != null) {
+                onlyNeedImageUrl = false;
+                barId = null;
+                scaleRate = 1.0d;
+                isEditHeadImage = false;
+                if (map.containsKey("onlyNeedImageUrl")) {
+                    onlyNeedImageUrl = ((Boolean) map.get("onlyNeedImageUrl")).booleanValue();
+                }
+                if (onlyNeedImageUrl) {
+                    scaleRate = 0.5625d;
+                }
+                if (map.containsKey("barId")) {
+                    barId = (String) map.get("barId");
+                }
                 AlbumActivityConfig albumActivityConfig2 = new AlbumActivityConfig((Context) currentActivity, new WriteImagesInfo().toJsonString(), true);
                 albumActivityConfig2.setRequestCode(RequestResponseCode.REQUEST_ALBUM_IMAGE);
                 albumActivityConfig2.setIntentAction(IntentAction.ActivityForResult);
                 albumActivityConfig2.setCanEditImage(false);
+                albumActivityConfig2.getIntent().putExtra("from", AlbumActivityConfig.FROM_FLUTTER);
                 albumActivityConfig2.setResourceType(2);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig2));
             }
@@ -152,6 +205,21 @@ public class ImagePickerPlugin implements FlutterPlugin, MethodChannel.MethodCal
             Map map2 = (Map) methodCall.arguments;
             if (map2 != null) {
                 currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                PermissionJudgePolicy permissionJudgePolicy3 = new PermissionJudgePolicy();
+                permissionJudgePolicy3.clearRequestPermissionList();
+                permissionJudgePolicy3.appendRequestPermission(currentActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+                if (permissionJudgePolicy3.startRequestPermission(TbadkCoreApplication.getInst().getCurrentActivity())) {
+                    if (PreferenceUtils.getBoolean("imagepicker_tost_show", false) && !a.shouldShowRequestPermissionRationale(TbadkCoreApplication.getInst().getCurrentActivity(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                        BdToast.b(currentActivity, "请到设置-隐私-照片开启照片权限").aYR();
+                    }
+                    PreferenceUtils.setBoolean("imagepicker_tost_show", true);
+                    return;
+                }
+                onlyNeedImageUrl = false;
+                isEditHeadImage = false;
+                if (map2.containsKey("onlyNeedImageUrl")) {
+                    onlyNeedImageUrl = ((Boolean) map2.get("onlyNeedImageUrl")).booleanValue();
+                }
                 downloadImage((String) map2.get(TableDefine.PaSubscribeColumns.COLUMN_AVATAR));
             }
         } else {
@@ -159,6 +227,7 @@ public class ImagePickerPlugin implements FlutterPlugin, MethodChannel.MethodCal
         }
     }
 
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         unRegisterBroadcastReciver();
     }
@@ -176,8 +245,8 @@ public class ImagePickerPlugin implements FlutterPlugin, MethodChannel.MethodCal
                     ImagePickerPlugin.notifyFlutter(0, "保存成功！", "");
                 }
             });
-            oVar.iF(false);
-            oVar.iG(true);
+            oVar.jm(false);
+            oVar.jn(true);
             oVar.execute(new String[0]);
         }
     }
@@ -191,7 +260,11 @@ public class ImagePickerPlugin implements FlutterPlugin, MethodChannel.MethodCal
         hashMap.put("msg", str);
         hashMap.put("errorcode", String.valueOf(i));
         HashMap hashMap2 = new HashMap();
-        hashMap2.put("uniqueKey", "kUpDateBaHeadNSNotification");
+        if (onlyNeedImageUrl) {
+            hashMap2.put("uniqueKey", "kUpDateBaHeadNSNotificationBarBroadcast");
+        } else {
+            hashMap2.put("uniqueKey", "kUpDateBaHeadNSNotification");
+        }
         hashMap2.put("data", hashMap);
         Log.e("notifyflutter", hashMap2.toString());
         channel_utily.invokeMethod("onNotification", hashMap2);

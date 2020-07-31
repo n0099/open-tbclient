@@ -4,7 +4,7 @@ import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class h {
     public static int a(SapiConfiguration sapiConfiguration) {
         FingerprintManager fingerprintManager;

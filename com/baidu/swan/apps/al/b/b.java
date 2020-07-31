@@ -2,12 +2,13 @@ package com.baidu.swan.apps.al.b;
 
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.swan.apps.performance.e;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b implements a<JSONObject> {
-    private JSONArray cKt = new JSONArray();
+    private JSONArray cNK = new JSONArray();
 
     public void add(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
@@ -22,7 +23,7 @@ public class b implements a<JSONObject> {
             jSONObject.put("actionId", str);
             jSONObject.put("timeStamp", String.valueOf(System.currentTimeMillis()));
             jSONObject.put("info", str2);
-            bz(jSONObject);
+            bE(jSONObject);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.w("LaunchTraceCollector", Log.getStackTraceString(e));
@@ -30,24 +31,24 @@ public class b implements a<JSONObject> {
         }
     }
 
-    public void bz(JSONObject jSONObject) {
+    public void bE(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.cKt.put(jSONObject);
+            this.cNK.put(jSONObject);
         }
     }
 
-    public JSONObject asg() {
+    public JSONObject aud() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("launchLog", this.cKt);
-            jSONObject.put("performance", com.baidu.swan.apps.performance.c.amB());
+            jSONObject.put("launchLog", this.cNK);
+            jSONObject.put("performance", e.anV());
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e));
             }
         }
         try {
-            jSONObject.put("abtest", com.baidu.swan.apps.u.a.aga().getRawSwitch());
+            jSONObject.put("abtest", com.baidu.swan.apps.t.a.ahm().getRawSwitch());
         } catch (Exception e2) {
             if (DEBUG) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e2));
@@ -57,6 +58,6 @@ public class b implements a<JSONObject> {
     }
 
     public void clear() {
-        this.cKt = new JSONArray();
+        this.cNK = new JSONArray();
     }
 }

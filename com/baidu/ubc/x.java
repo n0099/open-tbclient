@@ -25,28 +25,28 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes9.dex */
 public class x extends SQLiteOpenHelper {
     private static final boolean DEBUG = AppConfig.isDebug();
-    private static x mEu = null;
-    private static ReentrantLock mEv = new ReentrantLock();
-    private ReentrantReadWriteLock mEt;
+    private static x mMy = null;
+    private static ReentrantLock mMz = new ReentrantLock();
+    private ReentrantReadWriteLock mMx;
     private long mTotalLength;
 
-    public static x fI(Context context) {
-        if (mEu == null) {
-            mEv.lock();
-            if (mEu == null) {
-                mEu = new x(context);
+    public static x fL(Context context) {
+        if (mMy == null) {
+            mMz.lock();
+            if (mMy == null) {
+                mMy = new x(context);
             }
-            mEv.unlock();
+            mMz.unlock();
         }
-        return mEu;
+        return mMy;
     }
 
     private x(Context context) {
         super(context, "bdbehavior.db", (SQLiteDatabase.CursorFactory) null, 7);
-        this.mEt = new ReentrantReadWriteLock(true);
+        this.mMx = new ReentrantReadWriteLock(true);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper, java.lang.AutoCloseable
@@ -64,7 +64,7 @@ public class x extends SQLiteOpenHelper {
             sQLiteDatabase.execSQL("CREATE TABLE flow (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowid TEXT,flowhandle INTEGER,state TEXT,begintime LONG,endtime LONG,content TEXT,option INTEGER,reserve1 TEXT,reserve2 TEXT,slot TEXT,extend TEXT );");
             sQLiteDatabase.execSQL("CREATE TABLE config (eventid TEXT PRIMARY KEY,type TEXT,recordrule TEXT,uploadrule TEXT,cycle INTEGER,switch TEXT,sample INTEGER,reserve1 TEXT,reserve2 TEXT,extend TEXT,reallog TEXT);");
             sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
-            ag.dxc().putString("ubc_cloudconfig_version", "0");
+            ag.dAp().putString("ubc_cloudconfig_version", "0");
         } catch (Exception e) {
             Log.w("UBCDatabaseHelper", "Error while creating db: " + e.toString());
         }
@@ -84,7 +84,7 @@ public class x extends SQLiteOpenHelper {
             switch (i) {
                 case 1:
                     try {
-                        E(sQLiteDatabase);
+                        F(sQLiteDatabase);
                         break;
                     } catch (Throwable th) {
                         try {
@@ -97,16 +97,16 @@ public class x extends SQLiteOpenHelper {
                         }
                     }
                 case 2:
-                    H(sQLiteDatabase);
+                    I(sQLiteDatabase);
                     break;
                 case 3:
-                    F(sQLiteDatabase);
-                    break;
-                case 4:
                     G(sQLiteDatabase);
                     break;
+                case 4:
+                    H(sQLiteDatabase);
+                    break;
                 case 6:
-                    ae(sQLiteDatabase);
+                    ah(sQLiteDatabase);
                     break;
             }
             i++;
@@ -114,7 +114,7 @@ public class x extends SQLiteOpenHelper {
         sQLiteDatabase.setTransactionSuccessful();
     }
 
-    private void E(SQLiteDatabase sQLiteDatabase) {
+    private void F(SQLiteDatabase sQLiteDatabase) {
         try {
             sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
         } catch (SQLException e) {
@@ -124,7 +124,7 @@ public class x extends SQLiteOpenHelper {
         }
     }
 
-    private void F(SQLiteDatabase sQLiteDatabase) {
+    private void G(SQLiteDatabase sQLiteDatabase) {
         try {
             sQLiteDatabase.execSQL("ALTER TABLE event ADD COLUMN extend TEXT");
             sQLiteDatabase.execSQL("ALTER TABLE flow ADD COLUMN extend TEXT");
@@ -135,7 +135,7 @@ public class x extends SQLiteOpenHelper {
         }
     }
 
-    private void G(SQLiteDatabase sQLiteDatabase) {
+    private void H(SQLiteDatabase sQLiteDatabase) {
         try {
             sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN extend TEXT");
         } catch (SQLException e) {
@@ -145,7 +145,7 @@ public class x extends SQLiteOpenHelper {
         }
     }
 
-    private void ae(SQLiteDatabase sQLiteDatabase) {
+    private void ah(SQLiteDatabase sQLiteDatabase) {
         try {
             sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN reallog DEFAULT '0'");
             sQLiteDatabase.execSQL("ALTER TABLE event ADD COLUMN reallog DEFAULT '0'");
@@ -156,7 +156,7 @@ public class x extends SQLiteOpenHelper {
         }
     }
 
-    private void H(SQLiteDatabase sQLiteDatabase) {
+    private void I(SQLiteDatabase sQLiteDatabase) {
         try {
             sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN sample TEXT");
             sQLiteDatabase.execSQL("ALTER TABLE flow ADD COLUMN slot TEXT");
@@ -176,15 +176,15 @@ public class x extends SQLiteOpenHelper {
             }
             return;
         }
-        this.mEt.writeLock().lock();
+        this.mMx.writeLock().lock();
         try {
             ContentValues f = f(nVar);
-            String aJy = nVar.aJy();
+            String aNq = nVar.aNq();
             String id = nVar.getId();
-            int aJz = nVar.aJz();
+            int aNr = nVar.aNr();
             SQLiteDatabase writableDatabase = getWritableDatabase();
             writableDatabase.beginTransactionNonExclusive();
-            if (a(aJy, id, aJz, writableDatabase)) {
+            if (a(aNq, id, aNr, writableDatabase)) {
                 long insert = writableDatabase.insert(NotificationCompat.CATEGORY_EVENT, null, f);
                 if (DEBUG) {
                     Log.d("UBCDatabaseHelper", "saveEvent#performTransaction: rowId=" + insert);
@@ -193,12 +193,12 @@ public class x extends SQLiteOpenHelper {
             writableDatabase.setTransactionSuccessful();
             writableDatabase.endTransaction();
         } finally {
-            this.mEt.writeLock().unlock();
+            this.mMx.writeLock().unlock();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void at(List<n> list) {
+    public void az(List<n> list) {
         if (list == null || list.size() == 0) {
             if (DEBUG) {
                 Log.d("UBCDatabaseHelper", "saveEvents#data must not be null");
@@ -212,8 +212,8 @@ public class x extends SQLiteOpenHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean dwW() {
-        this.mEt.writeLock().lock();
+    public boolean dAj() {
+        this.mMx.writeLock().lock();
         try {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             writableDatabase.beginTransactionNonExclusive();
@@ -222,27 +222,27 @@ public class x extends SQLiteOpenHelper {
             writableDatabase.endTransaction();
             return delete > 0;
         } finally {
-            this.mEt.writeLock().unlock();
+            this.mMx.writeLock().unlock();
         }
     }
 
     private ContentValues f(n nVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("flowhandle", Integer.valueOf(nVar.aJz()));
+        contentValues.put("flowhandle", Integer.valueOf(nVar.aNr()));
         contentValues.put("eventid", nVar.getId());
         contentValues.put("begintime", Long.valueOf(nVar.getTime()));
         if (!TextUtils.isEmpty(nVar.getContent())) {
             contentValues.put("content", nVar.getContent());
-        } else if (nVar.aJB() != null && !TextUtils.isEmpty(nVar.aJB().toString())) {
-            contentValues.put("content", nVar.aJB().toString());
+        } else if (nVar.aNt() != null && !TextUtils.isEmpty(nVar.aNt().toString())) {
+            contentValues.put("content", nVar.aNt().toString());
         }
-        if (!TextUtils.isEmpty(nVar.aJA())) {
-            contentValues.put("reserve1", nVar.aJA());
+        if (!TextUtils.isEmpty(nVar.aNs())) {
+            contentValues.put("reserve1", nVar.aNs());
         }
         if (!TextUtils.isEmpty(nVar.getCategory())) {
             contentValues.put("reserve2", nVar.getCategory());
         }
-        if (nVar.aJw()) {
+        if (nVar.aNo()) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("ctr", "1");
@@ -253,8 +253,8 @@ public class x extends SQLiteOpenHelper {
                 }
             }
         }
-        if (!TextUtils.isEmpty(nVar.dwQ())) {
-            contentValues.put("reallog", nVar.dwQ());
+        if (!TextUtils.isEmpty(nVar.dAd())) {
+            contentValues.put("reallog", nVar.dAd());
         } else {
             contentValues.put("reallog", "0");
         }
@@ -278,7 +278,7 @@ public class x extends SQLiteOpenHelper {
         String string;
         int i2;
         long j3;
-        this.mEt.readLock().lock();
+        this.mMx.readLock().lock();
         Cursor cursor5 = null;
         long j4 = Long.MAX_VALUE;
         long j5 = 0;
@@ -331,7 +331,7 @@ public class x extends SQLiteOpenHelper {
                         }
                         Closeables.closeSafely(cursor4);
                         i = 0;
-                        ahVar.s(j, j2);
+                        ahVar.t(j, j2);
                         return i;
                     } catch (UnsupportedEncodingException e6) {
                         long j7 = j5;
@@ -344,7 +344,7 @@ public class x extends SQLiteOpenHelper {
                         }
                         Closeables.closeSafely(cursor3);
                         i = 0;
-                        ahVar.s(j, j2);
+                        ahVar.t(j, j2);
                         return i;
                     } catch (RuntimeException e7) {
                         long j8 = j5;
@@ -357,7 +357,7 @@ public class x extends SQLiteOpenHelper {
                         }
                         Closeables.closeSafely(cursor2);
                         i = 0;
-                        ahVar.s(j, j2);
+                        ahVar.t(j, j2);
                         return i;
                     }
                     if (rawQuery.getCount() > 0) {
@@ -391,7 +391,7 @@ public class x extends SQLiteOpenHelper {
                             String string4 = rawQuery.getString(columnIndex4);
                             if (!TextUtils.isEmpty(string4)) {
                                 jSONObject.put("abtest", string4);
-                                ahVar.ud("1");
+                                ahVar.vg("1");
                                 this.mTotalLength += string4.getBytes("UTF-8").length;
                             }
                             if (!TextUtils.isEmpty(rawQuery.getString(columnIndex5))) {
@@ -403,15 +403,15 @@ public class x extends SQLiteOpenHelper {
                                 }
                                 this.mTotalLength += string.getBytes("UTF-8").length;
                             }
-                            g dwM = g.dwM();
-                            jSONObject.put("idtype", dwM.tS(string2));
-                            jSONObject.put("isreal", dwM.PR(string2) ? "1" : "0");
-                            String PS = dwM.PS(string2);
-                            if (!TextUtils.isEmpty(PS) && !TextUtils.equals(PS, "0")) {
-                                jSONObject.put("gflow", PS);
+                            g dzZ = g.dzZ();
+                            jSONObject.put("idtype", dzZ.uV(string2));
+                            jSONObject.put("isreal", dzZ.QC(string2) ? "1" : "0");
+                            String QD = dzZ.QD(string2);
+                            if (!TextUtils.isEmpty(QD) && !TextUtils.equals(QD, "0")) {
+                                jSONObject.put("gflow", QD);
                             }
-                            ahVar.cE(jSONObject);
-                            ahVar.uc(rawQuery.getString(columnIndex));
+                            ahVar.cK(jSONObject);
+                            ahVar.vf(rawQuery.getString(columnIndex));
                             if (this.mTotalLength >= 10485760) {
                                 break;
                             }
@@ -424,7 +424,7 @@ public class x extends SQLiteOpenHelper {
                         long j11 = j3;
                         i = i2;
                         j = j11;
-                        ahVar.s(j, j2);
+                        ahVar.t(j, j2);
                         return i;
                     }
                 }
@@ -435,14 +435,14 @@ public class x extends SQLiteOpenHelper {
                 long j112 = j3;
                 i = i2;
                 j = j112;
-                ahVar.s(j, j2);
+                ahVar.t(j, j2);
                 return i;
             } catch (Throwable th2) {
                 th = th2;
                 cursor5 = cursor;
             }
         } finally {
-            this.mEt.readLock().unlock();
+            this.mMx.readLock().unlock();
         }
     }
 
@@ -455,26 +455,26 @@ public class x extends SQLiteOpenHelper {
             }
             return;
         }
-        this.mEt.writeLock().lock();
+        this.mMx.writeLock().lock();
         try {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             writableDatabase.beginTransactionNonExclusive();
             ContentValues contentValues = new ContentValues();
             contentValues.put("flowid", pVar.getId());
-            contentValues.put("flowhandle", Integer.valueOf(pVar.aJz()));
-            contentValues.put("state", pVar.aJH());
-            contentValues.put("begintime", Long.valueOf(pVar.aJG()));
-            if (pVar.aJB() != null) {
-                contentValues.put("content", pVar.aJB().toString());
+            contentValues.put("flowhandle", Integer.valueOf(pVar.aNr()));
+            contentValues.put("state", pVar.aNz());
+            contentValues.put("begintime", Long.valueOf(pVar.aNy()));
+            if (pVar.aNt() != null) {
+                contentValues.put("content", pVar.aNt().toString());
             } else {
                 contentValues.put("content", pVar.getContent());
             }
             contentValues.put("option", Integer.valueOf(pVar.getOption()));
-            contentValues.put("reserve1", pVar.aJA());
+            contentValues.put("reserve1", pVar.aNs());
             if (!TextUtils.isEmpty(pVar.getCategory())) {
                 contentValues.put("reserve2", pVar.getCategory());
             }
-            if (pVar.aJw()) {
+            if (pVar.aNo()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("ctr", "1");
@@ -492,7 +492,7 @@ public class x extends SQLiteOpenHelper {
             writableDatabase.setTransactionSuccessful();
             writableDatabase.endTransaction();
         } finally {
-            this.mEt.writeLock().unlock();
+            this.mMx.writeLock().unlock();
         }
     }
 
@@ -505,7 +505,7 @@ public class x extends SQLiteOpenHelper {
             }
             return;
         }
-        this.mEt.writeLock().lock();
+        this.mMx.writeLock().lock();
         try {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             writableDatabase.beginTransactionNonExclusive();
@@ -524,7 +524,7 @@ public class x extends SQLiteOpenHelper {
             writableDatabase.setTransactionSuccessful();
             writableDatabase.endTransaction();
         } finally {
-            this.mEt.writeLock().unlock();
+            this.mMx.writeLock().unlock();
         }
     }
 
@@ -537,7 +537,7 @@ public class x extends SQLiteOpenHelper {
             }
             return;
         }
-        this.mEt.writeLock().lock();
+        this.mMx.writeLock().lock();
         try {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             writableDatabase.beginTransactionNonExclusive();
@@ -554,7 +554,7 @@ public class x extends SQLiteOpenHelper {
             writableDatabase.setTransactionSuccessful();
             writableDatabase.endTransaction();
         } finally {
-            this.mEt.writeLock().unlock();
+            this.mMx.writeLock().unlock();
         }
     }
 
@@ -567,7 +567,7 @@ public class x extends SQLiteOpenHelper {
             }
             return;
         }
-        this.mEt.writeLock().lock();
+        this.mMx.writeLock().lock();
         try {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             writableDatabase.beginTransactionNonExclusive();
@@ -582,14 +582,14 @@ public class x extends SQLiteOpenHelper {
             writableDatabase.setTransactionSuccessful();
             writableDatabase.endTransaction();
         } finally {
-            this.mEt.writeLock().unlock();
+            this.mMx.writeLock().unlock();
         }
     }
 
     private boolean a(String str, String str2, int i, SQLiteDatabase sQLiteDatabase) {
         Cursor cursor = null;
         boolean z = false;
-        this.mEt.writeLock().lock();
+        this.mMx.writeLock().lock();
         try {
             if (str.equals(str2)) {
                 z = true;
@@ -622,7 +622,7 @@ public class x extends SQLiteOpenHelper {
             }
             return z;
         } finally {
-            this.mEt.writeLock().unlock();
+            this.mMx.writeLock().unlock();
         }
     }
 
@@ -631,13 +631,13 @@ public class x extends SQLiteOpenHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void aIS() {
+    public void aMK() {
         Cursor cursor = null;
-        this.mEt.writeLock().lock();
+        this.mMx.writeLock().lock();
         try {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             writableDatabase.beginTransactionNonExclusive();
-            long currentTimeMillis = System.currentTimeMillis() - g.dwM().aJl();
+            long currentTimeMillis = System.currentTimeMillis() - g.dzZ().aNd();
             int delete = writableDatabase.delete("flow", "endtime < " + currentTimeMillis, null);
             if (DEBUG) {
                 Log.d("UBCDatabaseHelper", "clearInvalidData: delete flow count:" + delete);
@@ -673,8 +673,8 @@ public class x extends SQLiteOpenHelper {
                     }
                     writableDatabase.setTransactionSuccessful();
                     writableDatabase.endTransaction();
-                    tF("flow");
-                    tF(NotificationCompat.CATEGORY_EVENT);
+                    uI("flow");
+                    uI(NotificationCompat.CATEGORY_EVENT);
                 }
                 Closeables.closeSafely(cursor);
                 if (arrayList.size() > 0) {
@@ -689,14 +689,14 @@ public class x extends SQLiteOpenHelper {
                 }
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
-                tF("flow");
-                tF(NotificationCompat.CATEGORY_EVENT);
+                uI("flow");
+                uI(NotificationCompat.CATEGORY_EVENT);
             } catch (Throwable th) {
                 Closeables.closeSafely(cursor);
                 throw th;
             }
         } finally {
-            this.mEt.writeLock().unlock();
+            this.mMx.writeLock().unlock();
         }
     }
 
@@ -705,10 +705,10 @@ public class x extends SQLiteOpenHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void tF(String str) {
+    private void uI(String str) {
         int i;
         Cursor cursor = null;
-        this.mEt.writeLock().lock();
+        this.mMx.writeLock().lock();
         try {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             writableDatabase.beginTransactionNonExclusive();
@@ -731,7 +731,7 @@ public class x extends SQLiteOpenHelper {
             }
             if (cursor != null && cursor.getCount() > 0) {
                 cursor.moveToFirst();
-                if (cursor.getInt(0) > g.dwM().aJm()) {
+                if (cursor.getInt(0) > g.dzZ().aNe()) {
                     i = (cursor.getInt(1) + cursor.getInt(2)) / 2;
                     Closeables.closeSafely(cursor);
                     int delete = writableDatabase.delete(str, "_id < " + i, null);
@@ -750,13 +750,13 @@ public class x extends SQLiteOpenHelper {
             writableDatabase.setTransactionSuccessful();
             writableDatabase.endTransaction();
         } finally {
-            this.mEt.writeLock().unlock();
+            this.mMx.writeLock().unlock();
         }
     }
 
     public void a(f fVar) {
         Cursor cursor = null;
-        this.mEt.readLock().lock();
+        this.mMx.readLock().lock();
         try {
             SQLiteDatabase readableDatabase = getReadableDatabase();
             StringBuilder sb = new StringBuilder();
@@ -793,38 +793,38 @@ public class x extends SQLiteOpenHelper {
                     String string5 = cursor.getString(cursor.getColumnIndex("extend"));
                     String string6 = cursor.getString(cursor.getColumnIndex("reallog"));
                     if (TextUtils.equals(string2, "0")) {
-                        fVar.mDT.add(string);
+                        fVar.mLX.add(string);
                     } else if (TextUtils.equals(string2, "1")) {
-                        fVar.mDW.add(string);
+                        fVar.mMa.add(string);
                     }
                     if (i2 == 0) {
-                        fVar.mDU.add(string);
+                        fVar.mLY.add(string);
                     }
                     if (TextUtils.equals(string3, "1")) {
-                        fVar.mDV.add(string);
+                        fVar.mLZ.add(string);
                     }
                     if (i > 0) {
-                        fVar.mDY.put(string, String.valueOf(i));
+                        fVar.mMc.put(string, String.valueOf(i));
                     }
                     if (!TextUtils.isEmpty(string4)) {
-                        fVar.mDZ.put(string, string4);
+                        fVar.mMd.put(string, string4);
                     }
                     if (i3 != 0 && i4 != 0) {
-                        fVar.mEa.put(string, new m(string, i4, i3));
+                        fVar.mMe.put(string, new m(string, i4, i3));
                     }
                     if (!TextUtils.isEmpty(string5)) {
                         try {
                             JSONObject jSONObject = new JSONObject(string5);
                             if (jSONObject.has("idtype")) {
-                                fVar.mEb.add(string);
+                                fVar.mMf.add(string);
                             }
                             if (jSONObject.has("ch") && TextUtils.equals(jSONObject.getString("ch"), "1")) {
-                                fVar.mDX.add(string);
+                                fVar.mMb.add(string);
                             }
                             if (jSONObject.has("gflow")) {
                                 String string7 = jSONObject.getString("gflow");
                                 if (!TextUtils.equals(string7, "0")) {
-                                    fVar.mEd.put(string, string7);
+                                    fVar.mMh.put(string, string7);
                                 }
                             }
                         } catch (JSONException e3) {
@@ -832,14 +832,14 @@ public class x extends SQLiteOpenHelper {
                         }
                     }
                     if (TextUtils.equals(string6, "1")) {
-                        fVar.mEc.add(string);
+                        fVar.mMg.add(string);
                     }
                 } while (cursor.moveToNext());
                 Closeables.closeSafely(cursor);
             }
             Closeables.closeSafely(cursor);
         } finally {
-            this.mEt.readLock().unlock();
+            this.mMx.readLock().unlock();
         }
     }
 
@@ -851,7 +851,7 @@ public class x extends SQLiteOpenHelper {
     public void b(SparseArray<ArrayList> sparseArray) {
         int i;
         Cursor cursor = null;
-        this.mEt.readLock().lock();
+        this.mMx.readLock().lock();
         try {
             SQLiteDatabase readableDatabase = getReadableDatabase();
             StringBuilder sb = new StringBuilder();
@@ -903,17 +903,17 @@ public class x extends SQLiteOpenHelper {
             }
             Closeables.closeSafely(cursor);
         } finally {
-            this.mEt.readLock().unlock();
+            this.mMx.readLock().unlock();
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1332=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k PX(String str) {
+    public k QI(String str) {
         Cursor cursor;
         Cursor cursor2;
         Cursor cursor3;
-        this.mEt.readLock().lock();
+        this.mMx.readLock().lock();
         try {
             try {
                 try {
@@ -932,7 +932,7 @@ public class x extends SQLiteOpenHelper {
                                         JSONObject jSONObject = new JSONObject(string4);
                                         String optString = jSONObject.optString("dfc");
                                         if (!TextUtils.isEmpty(optString)) {
-                                            kVar.PU(optString);
+                                            kVar.QF(optString);
                                         }
                                         String optString2 = jSONObject.optString("version");
                                         if (!TextUtils.isEmpty(optString2)) {
@@ -946,7 +946,7 @@ public class x extends SQLiteOpenHelper {
                                 }
                                 String string5 = cursor2.getString(cursor2.getColumnIndex("reallog"));
                                 if (!TextUtils.isEmpty(string5)) {
-                                    kVar.PV(string5);
+                                    kVar.QG(string5);
                                 }
                                 Closeables.closeSafely(cursor2);
                                 return kVar;
@@ -995,17 +995,17 @@ public class x extends SQLiteOpenHelper {
             }
             return null;
         } finally {
-            this.mEt.readLock().unlock();
+            this.mMx.readLock().unlock();
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1383=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean PY(String str) {
+    public boolean QJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        this.mEt.writeLock().lock();
+        this.mMx.writeLock().lock();
         try {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             writableDatabase.beginTransactionNonExclusive();
@@ -1013,10 +1013,10 @@ public class x extends SQLiteOpenHelper {
             writableDatabase.setTransactionSuccessful();
             writableDatabase.endTransaction();
             boolean z = delete > 0;
-            this.mEt.writeLock().unlock();
+            this.mMx.writeLock().unlock();
             return z;
         } catch (Throwable th) {
-            this.mEt.writeLock().unlock();
+            this.mMx.writeLock().unlock();
             throw th;
         }
     }
@@ -1075,9 +1075,9 @@ public class x extends SQLiteOpenHelper {
         Cursor cursor;
         int i;
         long endTime;
-        long aJG;
+        long aNy;
         String string;
-        this.mEt.readLock().lock();
+        this.mMx.readLock().lock();
         try {
             ArrayList<p> arrayList = new ArrayList<>();
             Cursor cursor2 = null;
@@ -1133,12 +1133,12 @@ public class x extends SQLiteOpenHelper {
                         if ("2".equals(cursor.getString(columnIndex3)) || (Math.abs(cursor.getLong(columnIndex4) - System.currentTimeMillis()) > 86400000 && (cursor.getInt(columnIndex7) & 4) != 0)) {
                             p pVar = new p();
                             pVar.setId(cursor.getString(columnIndex));
-                            pVar.jL(cursor.getInt(columnIndex2));
-                            pVar.bR(cursor.getLong(columnIndex4));
+                            pVar.ke(cursor.getInt(columnIndex2));
+                            pVar.cg(cursor.getLong(columnIndex4));
                             pVar.setEndTime(cursor.getLong(columnIndex5));
                             endTime = (pVar.getEndTime() <= 0 || pVar.getEndTime() <= j2) ? j2 : pVar.getEndTime();
                             try {
-                                aJG = (pVar.aJG() <= 0 || pVar.aJG() >= j) ? j : pVar.aJG();
+                                aNy = (pVar.aNy() <= 0 || pVar.aNy() >= j) ? j : pVar.aNy();
                                 String string2 = cursor.getString(columnIndex6);
                                 if (!TextUtils.isEmpty(string2)) {
                                     pVar.setContent(string2);
@@ -1146,7 +1146,7 @@ public class x extends SQLiteOpenHelper {
                                 }
                                 String string3 = cursor.getString(columnIndex8);
                                 if (!TextUtils.isEmpty(string3)) {
-                                    pVar.tY(string3);
+                                    pVar.vb(string3);
                                     this.mTotalLength = string3.getBytes("UTF-8").length + this.mTotalLength;
                                 }
                                 if (!TextUtils.isEmpty(cursor.getString(columnIndex9))) {
@@ -1154,21 +1154,21 @@ public class x extends SQLiteOpenHelper {
                                 }
                                 String string4 = cursor.getString(columnIndex10);
                                 if (columnIndex10 >= 0 && !TextUtils.isEmpty(string4)) {
-                                    pVar.tZ(string4);
+                                    pVar.vc(string4);
                                     this.mTotalLength = string4.getBytes("UTF-8").length + this.mTotalLength;
                                 }
                                 if (!TextUtils.isEmpty(cursor.getString(columnIndex11))) {
                                     this.mTotalLength = string.getBytes("UTF-8").length + this.mTotalLength;
                                     try {
                                         if (new JSONObject(cursor.getString(columnIndex11)).has("ctr")) {
-                                            pVar.gs(true);
+                                            pVar.gN(true);
                                         }
                                     } catch (JSONException e7) {
                                         e7.printStackTrace();
                                     }
                                 }
                                 arrayList.add(pVar);
-                                ahVar.ay(pVar.aJz(), Integer.parseInt(pVar.getId()));
+                                ahVar.ay(pVar.aNr(), Integer.parseInt(pVar.getId()));
                                 if (this.mTotalLength >= 10485760) {
                                     break;
                                 }
@@ -1184,7 +1184,7 @@ public class x extends SQLiteOpenHelper {
                                     i = 0;
                                     if (arrayList.size() > 0) {
                                     }
-                                    ahVar.s(j, j2);
+                                    ahVar.t(j, j2);
                                     return i;
                                 } catch (Throwable th3) {
                                     th = th3;
@@ -1202,7 +1202,7 @@ public class x extends SQLiteOpenHelper {
                                 i = 0;
                                 if (arrayList.size() > 0) {
                                 }
-                                ahVar.s(j, j2);
+                                ahVar.t(j, j2);
                                 return i;
                             } catch (RuntimeException e10) {
                                 j2 = endTime;
@@ -1214,21 +1214,21 @@ public class x extends SQLiteOpenHelper {
                                 i = 0;
                                 if (arrayList.size() > 0) {
                                 }
-                                ahVar.s(j, j2);
+                                ahVar.t(j, j2);
                                 return i;
                             }
                         } else {
                             endTime = j2;
-                            aJG = j;
+                            aNy = j;
                         }
                         try {
                             if (!cursor.moveToNext()) {
                                 break;
                             }
-                            j = aJG;
+                            j = aNy;
                             j2 = endTime;
                         } catch (SQLiteFullException e11) {
-                            j = aJG;
+                            j = aNy;
                             j2 = endTime;
                             e = e11;
                             cursor2 = cursor;
@@ -1238,10 +1238,10 @@ public class x extends SQLiteOpenHelper {
                             i = 0;
                             if (arrayList.size() > 0) {
                             }
-                            ahVar.s(j, j2);
+                            ahVar.t(j, j2);
                             return i;
                         } catch (UnsupportedEncodingException e12) {
-                            j = aJG;
+                            j = aNy;
                             j2 = endTime;
                             e = e12;
                             if (DEBUG) {
@@ -1250,10 +1250,10 @@ public class x extends SQLiteOpenHelper {
                             i = 0;
                             if (arrayList.size() > 0) {
                             }
-                            ahVar.s(j, j2);
+                            ahVar.t(j, j2);
                             return i;
                         } catch (RuntimeException e13) {
-                            j = aJG;
+                            j = aNy;
                             j2 = endTime;
                             e = e13;
                             if (DEBUG) {
@@ -1262,18 +1262,18 @@ public class x extends SQLiteOpenHelper {
                             i = 0;
                             if (arrayList.size() > 0) {
                             }
-                            ahVar.s(j, j2);
+                            ahVar.t(j, j2);
                             return i;
                         }
                     }
-                    j = aJG;
+                    j = aNy;
                     j2 = endTime;
                     i = 1;
                     Closeables.closeSafely(cursor);
                     if (arrayList.size() > 0) {
                         b(arrayList, ahVar);
                     }
-                    ahVar.s(j, j2);
+                    ahVar.t(j, j2);
                     return i;
                 }
             }
@@ -1281,55 +1281,55 @@ public class x extends SQLiteOpenHelper {
             Closeables.closeSafely(cursor);
             if (arrayList.size() > 0) {
             }
-            ahVar.s(j, j2);
+            ahVar.t(j, j2);
             return i;
         } finally {
-            this.mEt.readLock().unlock();
+            this.mMx.readLock().unlock();
         }
     }
 
     private void b(ArrayList<p> arrayList, ah ahVar) {
         Cursor cursor;
         Cursor cursor2 = null;
-        this.mEt.readLock().lock();
+        this.mMx.readLock().lock();
         try {
             SQLiteDatabase readableDatabase = getReadableDatabase();
             try {
                 Iterator<p> it = arrayList.iterator();
                 while (it.hasNext()) {
                     p next = it.next();
-                    if (next.aJz() >= 0) {
+                    if (next.aNr() >= 0) {
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("id", next.getId());
-                        jSONObject.put(LogBuilder.KEY_START_TIME, Long.toString(next.aJG()));
+                        jSONObject.put(LogBuilder.KEY_START_TIME, Long.toString(next.aNy()));
                         jSONObject.put(LogBuilder.KEY_END_TIME, Long.toString(next.getEndTime()));
                         jSONObject.put("type", "1");
-                        g dwM = g.dwM();
-                        jSONObject.put("isreal", dwM.PR(next.getId()) ? "1" : "0");
-                        String PS = dwM.PS(next.getId());
-                        if (!TextUtils.isEmpty(PS) && !TextUtils.equals(PS, "0")) {
-                            jSONObject.put("gflow", PS);
+                        g dzZ = g.dzZ();
+                        jSONObject.put("isreal", dzZ.QC(next.getId()) ? "1" : "0");
+                        String QD = dzZ.QD(next.getId());
+                        if (!TextUtils.isEmpty(QD) && !TextUtils.equals(QD, "0")) {
+                            jSONObject.put("gflow", QD);
                         }
                         if (!TextUtils.isEmpty(next.getContent())) {
                             jSONObject.put("content", next.getContent());
                         }
-                        if (!TextUtils.isEmpty(next.aJA())) {
-                            jSONObject.put("abtest", next.aJA());
-                            ahVar.ud("1");
+                        if (!TextUtils.isEmpty(next.aNs())) {
+                            jSONObject.put("abtest", next.aNs());
+                            ahVar.vg("1");
                         }
                         if (!TextUtils.isEmpty(next.getCategory())) {
                             jSONObject.put("c", next.getCategory());
                         }
-                        if (next.aJI() != null) {
-                            jSONObject.put("part", next.aJI());
+                        if (next.aNA() != null) {
+                            jSONObject.put("part", next.aNA());
                         }
-                        if (next.aJw()) {
+                        if (next.aNo()) {
                             jSONObject.put("of", "1");
                         }
-                        jSONObject.put("idtype", dwM.tS(next.getId()));
+                        jSONObject.put("idtype", dzZ.uV(next.getId()));
                         JSONArray jSONArray = new JSONArray();
                         StringBuilder sb = new StringBuilder(256);
-                        sb.append("SELECT ").append("eventid").append(" , ").append("begintime").append(" , ").append("content").append(" FROM ").append(NotificationCompat.CATEGORY_EVENT).append(" WHERE ").append("flowhandle").append(" = ").append(next.aJz());
+                        sb.append("SELECT ").append("eventid").append(" , ").append("begintime").append(" , ").append("content").append(" FROM ").append(NotificationCompat.CATEGORY_EVENT).append(" WHERE ").append("flowhandle").append(" = ").append(next.aNr());
                         try {
                             try {
                                 cursor2 = readableDatabase.rawQuery(sb.toString(), null);
@@ -1356,7 +1356,7 @@ public class x extends SQLiteOpenHelper {
                                 Closeables.closeSafely(cursor2);
                                 cursor = cursor2;
                             }
-                            ahVar.cE(jSONObject);
+                            ahVar.cK(jSONObject);
                         } finally {
                         }
                     } else {
@@ -1374,7 +1374,7 @@ public class x extends SQLiteOpenHelper {
                 }
             }
         } finally {
-            this.mEt.readLock().unlock();
+            this.mMx.readLock().unlock();
         }
     }
 
@@ -1405,7 +1405,7 @@ public class x extends SQLiteOpenHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(k kVar) {
         if (kVar != null) {
-            this.mEt.writeLock().lock();
+            this.mMx.writeLock().lock();
             try {
                 SQLiteDatabase writableDatabase = getWritableDatabase();
                 writableDatabase.beginTransactionNonExclusive();
@@ -1413,43 +1413,43 @@ public class x extends SQLiteOpenHelper {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("eventid", kVar.getId());
                     contentValues.put("type", kVar.getType());
-                    if ("1".equals(kVar.aJq())) {
+                    if ("1".equals(kVar.aNi())) {
                         contentValues.put("cycle", (Integer) 0);
                     } else {
                         contentValues.put("cycle", Integer.valueOf(kVar.getTimeout()));
                     }
-                    contentValues.put("switch", kVar.aJp());
-                    contentValues.put("reserve1", kVar.aJr());
+                    contentValues.put("switch", kVar.aNh());
+                    contentValues.put("reserve1", kVar.aNj());
                     if (!TextUtils.isEmpty(kVar.getCategory())) {
                         contentValues.put("reserve2", kVar.getCategory());
                     }
-                    contentValues.put("sample", Integer.valueOf(kVar.aJs()));
-                    if (kVar.aJt() != 0 && kVar.aJu() != 0) {
-                        contentValues.put("recordrule", Integer.valueOf(kVar.aJt()));
-                        contentValues.put("uploadrule", Integer.valueOf(kVar.aJu()));
+                    contentValues.put("sample", Integer.valueOf(kVar.aNk()));
+                    if (kVar.aNl() != 0 && kVar.aNm() != 0) {
+                        contentValues.put("recordrule", Integer.valueOf(kVar.aNl()));
+                        contentValues.put("uploadrule", Integer.valueOf(kVar.aNm()));
                     }
                     JSONObject jSONObject = new JSONObject();
-                    if (TextUtils.equals(kVar.aJv(), "1")) {
+                    if (TextUtils.equals(kVar.aNn(), "1")) {
                         jSONObject.put("idtype", "1");
                     }
-                    if (TextUtils.equals(kVar.dwO(), "1")) {
+                    if (TextUtils.equals(kVar.dAb(), "1")) {
                         jSONObject.put("ch", "1");
                     }
-                    if (TextUtils.equals(kVar.dwP(), "1")) {
+                    if (TextUtils.equals(kVar.dAc(), "1")) {
                         jSONObject.put("dfc", "1");
                     }
                     if (kVar.getVersion() != null) {
                         jSONObject.put("version", kVar.getVersion());
                     }
-                    String dwR = kVar.dwR();
-                    if (!TextUtils.isEmpty(dwR) && !TextUtils.equals(dwR, "0")) {
-                        jSONObject.put("gflow", dwR);
+                    String dAe = kVar.dAe();
+                    if (!TextUtils.isEmpty(dAe) && !TextUtils.equals(dAe, "0")) {
+                        jSONObject.put("gflow", dAe);
                     }
                     if (!TextUtils.isEmpty(jSONObject.toString())) {
                         contentValues.put("extend", jSONObject.toString());
                     }
-                    if (TextUtils.equals(kVar.dwQ(), "1")) {
-                        contentValues.put("reallog", kVar.dwQ());
+                    if (TextUtils.equals(kVar.dAd(), "1")) {
+                        contentValues.put("reallog", kVar.dAd());
                     } else {
                         contentValues.put("reallog", "0");
                     }
@@ -1467,7 +1467,7 @@ public class x extends SQLiteOpenHelper {
                     writableDatabase.endTransaction();
                 }
             } finally {
-                this.mEt.writeLock().unlock();
+                this.mMx.writeLock().unlock();
             }
         }
         return r0;
@@ -1475,7 +1475,7 @@ public class x extends SQLiteOpenHelper {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(SparseArray<Integer> sparseArray, ArrayList<String> arrayList, boolean z, String str) {
-        this.mEt.writeLock().lock();
+        this.mMx.writeLock().lock();
         try {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             writableDatabase.beginTransactionNonExclusive();
@@ -1526,17 +1526,17 @@ public class x extends SQLiteOpenHelper {
             writableDatabase.endTransaction();
             return true;
         } finally {
-            this.mEt.writeLock().unlock();
+            this.mMx.writeLock().unlock();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o PZ(String str) {
+    public o QK(String str) {
         Cursor cursor;
         Throwable th;
         String str2;
         o oVar = null;
-        this.mEt.readLock().lock();
+        this.mMx.readLock().lock();
         try {
             SQLiteDatabase readableDatabase = getReadableDatabase();
             StringBuilder sb = new StringBuilder();
@@ -1582,13 +1582,13 @@ public class x extends SQLiteOpenHelper {
             }
             return oVar;
         } finally {
-            this.mEt.readLock().unlock();
+            this.mMx.readLock().unlock();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void tH(String str) {
-        this.mEt.writeLock().lock();
+    public void uK(String str) {
+        this.mMx.writeLock().lock();
         try {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             writableDatabase.beginTransactionNonExclusive();
@@ -1601,13 +1601,13 @@ public class x extends SQLiteOpenHelper {
             writableDatabase.setTransactionSuccessful();
             writableDatabase.endTransaction();
         } finally {
-            this.mEt.writeLock().unlock();
+            this.mMx.writeLock().unlock();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aIT() {
-        this.mEt.writeLock().lock();
+    public void aML() {
+        this.mMx.writeLock().lock();
         try {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             writableDatabase.beginTransactionNonExclusive();
@@ -1618,13 +1618,13 @@ public class x extends SQLiteOpenHelper {
             writableDatabase.setTransactionSuccessful();
             writableDatabase.endTransaction();
         } finally {
-            this.mEt.writeLock().unlock();
+            this.mMx.writeLock().unlock();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void tI(String str) {
-        this.mEt.writeLock().lock();
+    public void uL(String str) {
+        this.mMx.writeLock().lock();
         try {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             writableDatabase.beginTransactionNonExclusive();
@@ -1639,13 +1639,13 @@ public class x extends SQLiteOpenHelper {
             writableDatabase.setTransactionSuccessful();
             writableDatabase.endTransaction();
         } finally {
-            this.mEt.writeLock().unlock();
+            this.mMx.writeLock().unlock();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void cQ(String str, String str2) {
-        this.mEt.writeLock().lock();
+    public void cT(String str, String str2) {
+        this.mMx.writeLock().lock();
         try {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             writableDatabase.beginTransactionNonExclusive();
@@ -1657,13 +1657,13 @@ public class x extends SQLiteOpenHelper {
             writableDatabase.setTransactionSuccessful();
             writableDatabase.endTransaction();
         } finally {
-            this.mEt.writeLock().unlock();
+            this.mMx.writeLock().unlock();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aIU() {
-        this.mEt.writeLock().lock();
+    public void aMM() {
+        this.mMx.writeLock().lock();
         try {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             writableDatabase.beginTransactionNonExclusive();
@@ -1676,7 +1676,7 @@ public class x extends SQLiteOpenHelper {
             writableDatabase.setTransactionSuccessful();
             writableDatabase.endTransaction();
         } finally {
-            this.mEt.writeLock().unlock();
+            this.mMx.writeLock().unlock();
         }
     }
 

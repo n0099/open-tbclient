@@ -22,60 +22,60 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class i extends Dialog {
     private Context context;
-    private com.baidu.adp.base.e dPR;
-    private float dPS;
-    private k dPT;
-    private CustomMessageListener dPU;
+    private com.baidu.adp.base.e dWk;
+    private float dWl;
+    private k dWm;
     private boolean isDismissing;
     private boolean isShowing;
     protected View mContentView;
     private LinearLayout mRootView;
+    private CustomMessageListener skinChangeListener;
 
     public i(com.baidu.adp.base.e eVar, k kVar) {
         super(eVar.getPageActivity(), 16973835);
-        this.dPS = 0.3f;
+        this.dWl = 0.3f;
         this.isDismissing = false;
         this.isShowing = false;
-        this.dPU = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.core.dialog.i.1
+        this.skinChangeListener = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.core.dialog.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && i.this.dPT != null) {
-                    i.this.dPT.onChangeSkinType();
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && i.this.dWm != null) {
+                    i.this.dWm.onChangeSkinType();
                 }
             }
         };
-        this.dPR = eVar;
+        this.dWk = eVar;
         this.context = eVar.getPageActivity();
-        this.dPT = kVar;
-        this.mContentView = kVar.aVb();
+        this.dWm = kVar;
+        this.mContentView = kVar.aZb();
     }
 
     public i(com.baidu.adp.base.e eVar) {
         super(eVar.getPageActivity(), 16973835);
-        this.dPS = 0.3f;
+        this.dWl = 0.3f;
         this.isDismissing = false;
         this.isShowing = false;
-        this.dPU = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.core.dialog.i.1
+        this.skinChangeListener = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.core.dialog.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && i.this.dPT != null) {
-                    i.this.dPT.onChangeSkinType();
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && i.this.dWm != null) {
+                    i.this.dWm.onChangeSkinType();
                 }
             }
         };
         this.context = eVar.getPageActivity();
-        this.dPR = eVar;
+        this.dWk = eVar;
     }
 
     public void P(float f) {
-        this.dPS = f;
+        this.dWl = f;
     }
 
     public void a(k kVar) {
-        this.dPT = kVar;
-        this.mContentView = kVar.aVb();
+        this.dWm = kVar;
+        this.mContentView = kVar.aZb();
     }
 
     @Override // android.app.Dialog
@@ -84,18 +84,18 @@ public class i extends Dialog {
     }
 
     public void a(String str, String[] strArr, k.c cVar) {
-        this.dPT = new k(this.context);
+        this.dWm = new k(this.context);
         if (!StringUtils.isNull(str)) {
-            this.dPT.setTitleText(str);
+            this.dWm.setTitleText(str);
         }
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < strArr.length; i++) {
-            arrayList.add(new g(i, strArr[i], this.dPT));
+            arrayList.add(new g(i, strArr[i], this.dWm));
         }
-        this.dPT.aL(arrayList);
-        this.dPT.a(cVar);
+        this.dWm.aS(arrayList);
+        this.dWm.a(cVar);
         setCanceledOnTouchOutside(true);
-        this.mContentView = this.dPT.aVb();
+        this.mContentView = this.dWm.aZb();
     }
 
     @Override // android.app.Dialog
@@ -108,7 +108,7 @@ public class i extends Dialog {
         attributes.width = defaultDisplay.getWidth();
         getWindow().setAttributes(attributes);
         getWindow().setBackgroundDrawableResource(R.color.transparent);
-        getWindow().setDimAmount(this.dPS);
+        getWindow().setDimAmount(this.dWl);
         getWindow().setGravity(80);
         getWindow().setWindowAnimations(0);
         setCanceledOnTouchOutside(true);
@@ -139,7 +139,7 @@ public class i extends Dialog {
         if (isShowing()) {
             super.dismiss();
         }
-        com.baidu.adp.lib.f.g.a(this, this.dPR);
+        com.baidu.adp.lib.f.g.a(this, this.dWk);
         if (this.mRootView != null) {
             Animation loadAnimation = AnimationUtils.loadAnimation(this.context, R.anim.pop_enter_anim);
             loadAnimation.setFillAfter(true);
@@ -165,7 +165,7 @@ public class i extends Dialog {
     @Override // android.app.Dialog
     public void show() {
         super.show();
-        this.dPR.registerListener(this.dPU);
+        this.dWk.registerListener(this.skinChangeListener);
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
@@ -185,8 +185,8 @@ public class i extends Dialog {
                     i.this.mRootView.post(new Runnable() { // from class: com.baidu.tbadk.core.dialog.i.4.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (i.this.dPR != null && i.this.dPR.getPageActivity() != null) {
-                                Activity pageActivity = i.this.dPR.getPageActivity();
+                            if (i.this.dWk != null && i.this.dWk.getPageActivity() != null) {
+                                Activity pageActivity = i.this.dWk.getPageActivity();
                                 if (!pageActivity.isFinishing() && pageActivity.getWindow() != null) {
                                     i.super.dismiss();
                                 }
@@ -200,7 +200,7 @@ public class i extends Dialog {
                 }
             });
             this.mRootView.startAnimation(loadAnimation);
-            MessageManager.getInstance().unRegisterListener(this.dPU);
+            MessageManager.getInstance().unRegisterListener(this.skinChangeListener);
         }
     }
 

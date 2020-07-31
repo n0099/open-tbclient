@@ -136,4 +136,8 @@ public class MemberPayActivityConfig extends IntentConfig {
             getIntent().putExtra("from", i);
         }
     }
+
+    public void setClose(boolean z) {
+        getIntent().putExtra("close", z);
+    }
 }

@@ -2,17 +2,17 @@ package com.baidu.browser.sailor.lightapp;
 
 import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class l implements Runnable {
-    final /* synthetic */ BdLightappKernelClient adq;
-    final /* synthetic */ BdLightappKernelJsCallback adw;
-    final /* synthetic */ float adz;
+    final /* synthetic */ BdLightappKernelClient adk;
+    final /* synthetic */ BdLightappKernelJsCallback adq;
+    final /* synthetic */ float adt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(BdLightappKernelClient bdLightappKernelClient, float f, BdLightappKernelJsCallback bdLightappKernelJsCallback) {
-        this.adq = bdLightappKernelClient;
-        this.adz = f;
-        this.adw = bdLightappKernelJsCallback;
+        this.adk = bdLightappKernelClient;
+        this.adt = f;
+        this.adq = bdLightappKernelJsCallback;
     }
 
     @Override // java.lang.Runnable
@@ -20,22 +20,22 @@ public class l implements Runnable {
         MediaPlayer mediaPlayer;
         MediaPlayer mediaPlayer2;
         MediaPlayer mediaPlayer3;
-        mediaPlayer = this.adq.mMediaPlayer;
+        mediaPlayer = this.adk.mMediaPlayer;
         if (mediaPlayer == null) {
-            this.adw.sendFailCallBack("setVolume Not palying Audio");
+            this.adq.sendFailCallBack("setVolume Not palying Audio");
             return;
         }
         try {
-            mediaPlayer2 = this.adq.mMediaPlayer;
+            mediaPlayer2 = this.adk.mMediaPlayer;
             if (mediaPlayer2.isPlaying()) {
-                mediaPlayer3 = this.adq.mMediaPlayer;
-                mediaPlayer3.setVolume(this.adz, this.adz);
-                this.adw.sendCallBack("setVolume", "true", true);
+                mediaPlayer3 = this.adk.mMediaPlayer;
+                mediaPlayer3.setVolume(this.adt, this.adt);
+                this.adq.sendCallBack("setVolume", "true", true);
             } else {
-                this.adw.sendFailCallBack(" setVolume Not palying Audio");
+                this.adq.sendFailCallBack(" setVolume Not palying Audio");
             }
         } catch (IllegalStateException e) {
-            this.adw.sendFailCallBack(e.getMessage());
+            this.adq.sendFailCallBack(e.getMessage());
         }
     }
 }

@@ -1,28 +1,28 @@
 package com.baidu.prologue.service.network;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class c extends b {
-    private static e bGm;
-    private final e bGn;
+    private static e bGL;
+    private final e bGM;
 
     private c(Context context) {
-        this.bGn = new h(context);
+        this.bGM = new h(context);
     }
 
-    public static e aN(Context context) {
-        if (bGm == null) {
+    public static e aO(Context context) {
+        if (bGL == null) {
             synchronized (e.class) {
-                if (bGm == null) {
-                    bGm = new c(context);
+                if (bGL == null) {
+                    bGL = new c(context);
                 }
             }
         }
-        return bGm;
+        return bGL;
     }
 
     @Override // com.baidu.prologue.service.network.e
     public void a(Request request, l lVar) {
-        this.bGn.a(request, lVar);
+        this.bGM.a(request, lVar);
     }
 }

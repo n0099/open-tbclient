@@ -1,20 +1,20 @@
 package com.baidu.tbadk.data;
 /* loaded from: classes.dex */
 public class j {
-    private boolean esI;
+    private boolean ezc;
     private String method;
     private boolean open;
 
-    public boolean beC() {
-        return this.esI;
+    public boolean bil() {
+        return this.ezc;
     }
 
-    public void hX(boolean z) {
-        this.esI = z;
+    public void iB(boolean z) {
+        this.ezc = z;
     }
 
-    public void beD() {
-        this.esI = false;
+    public void bim() {
+        this.ezc = false;
     }
 
     public boolean isOpen() {

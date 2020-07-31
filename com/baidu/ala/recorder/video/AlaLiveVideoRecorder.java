@@ -12,7 +12,7 @@ import com.baidu.ala.recorder.video.camera.ICameraStatusHandler;
 import com.baidu.ala.recorder.video.screen.AlaScreenRecorder;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AlaLiveVideoRecorder implements IFaceUnityOperator, IVideoRecorder, ICameraStatusHandler {
     private Context mContext;
     private RecorderHandler mHandler;

@@ -2,14 +2,14 @@ package com.baidu.swan.videoplayer.media.video.a;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.aq.ag;
+import com.baidu.swan.apps.aq.ai;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.videoplayer.media.video.VideoContainerManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
@@ -37,14 +37,14 @@ public class a {
     }
 
     public static void a(final String str, final String str2, final boolean z, VideoContainerManager videoContainerManager) {
-        final SwanAppComponentContainerView aKQ = videoContainerManager.aKQ();
-        aKQ.post(new Runnable() { // from class: com.baidu.swan.videoplayer.media.video.a.a.1
+        final SwanAppComponentContainerView aOE = videoContainerManager.aOE();
+        aOE.post(new Runnable() { // from class: com.baidu.swan.videoplayer.media.video.a.a.1
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    int F = ag.F(SwanAppComponentContainerView.this.getWidth());
-                    int F2 = ag.F(SwanAppComponentContainerView.this.getHeight());
+                    int F = ai.F(SwanAppComponentContainerView.this.getWidth());
+                    int F2 = ai.F(SwanAppComponentContainerView.this.getHeight());
                     jSONObject.putOpt("fullscreen", z ? "1" : "0");
                     jSONObject.putOpt("width", String.valueOf(F));
                     jSONObject.putOpt("height", String.valueOf(F2));

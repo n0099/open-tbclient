@@ -1,15 +1,15 @@
 package com.baidu.tieba.write.b.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public class g {
-    private static volatile f mpf;
+    private static volatile f mxe;
 
-    public static synchronized f drL() {
+    public static synchronized f duX() {
         f fVar;
         synchronized (g.class) {
-            if (mpf == null) {
-                mpf = new f();
+            if (mxe == null) {
+                mxe = new f();
             }
-            fVar = mpf;
+            fVar = mxe;
         }
         return fVar;
     }

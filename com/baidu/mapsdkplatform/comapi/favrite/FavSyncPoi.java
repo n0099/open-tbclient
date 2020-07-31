@@ -1,7 +1,7 @@
 package com.baidu.mapsdkplatform.comapi.favrite;
 
 import com.baidu.mapapi.model.inner.Point;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class FavSyncPoi {
     public String a;
     public String b;

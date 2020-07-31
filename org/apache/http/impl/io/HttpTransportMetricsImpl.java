@@ -2,7 +2,7 @@ package org.apache.http.impl.io;
 
 import org.apache.http.io.HttpTransportMetrics;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public class HttpTransportMetricsImpl implements HttpTransportMetrics {
     public HttpTransportMetricsImpl() {
         throw new RuntimeException("Stub!");

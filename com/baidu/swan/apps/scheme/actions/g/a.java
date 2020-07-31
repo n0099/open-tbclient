@@ -8,17 +8,16 @@ import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.ag;
-import com.baidu.swan.apps.core.d.b;
-import com.baidu.swan.apps.core.d.i;
+import com.baidu.swan.apps.aq.ai;
+import com.baidu.swan.apps.core.d.c;
+import com.baidu.swan.apps.core.d.f;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.view.SwanAppActionBar;
-import com.baidu.swan.apps.w.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/getMenuButtonBoundingClientRect");
@@ -33,47 +32,47 @@ public class a extends aa {
         if (DEBUG) {
             Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
         }
-        com.baidu.swan.apps.core.d.e RN = f.ajb().RN();
-        if (RN == null) {
+        f Sc = com.baidu.swan.apps.v.f.akr().Sc();
+        if (Sc == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        b ZV = RN.ZV();
-        if (ZV == null) {
+        c aaZ = Sc.aaZ();
+        if (aaZ == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        if (eVar.aqf() && (ZV instanceof i)) {
-            View aaD = ((i) ZV).aaD();
-            if (aaD == null) {
+        if (eVar.arO() && (aaZ instanceof com.baidu.swan.apps.core.d.j)) {
+            View abF = ((com.baidu.swan.apps.core.d.j) aaZ).abF();
+            if (abF == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            unitedSchemeEntity.result = as(aaD);
+            unitedSchemeEntity.result = av(abF);
         } else {
-            SwanAppActionBar Zg = ZV.Zg();
-            if (Zg == null) {
+            SwanAppActionBar aak = aaZ.aak();
+            if (aak == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            View rightMenu = Zg.getRightMenu();
+            View rightMenu = aak.getRightMenu();
             if (rightMenu == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            unitedSchemeEntity.result = as(rightMenu);
+            unitedSchemeEntity.result = av(rightMenu);
         }
         return true;
     }
 
-    private JSONObject as(View view) {
+    private JSONObject av(View view) {
         JSONObject wrapCallbackParams;
-        e apM = e.apM();
-        int px2dpFloat = apM != null ? apM.aqf() : false ? 0 : (int) (ag.px2dpFloat(ag.getStatusBarHeight()) + 0.5f);
-        int px2dpFloat2 = (int) (ag.px2dpFloat(view.getLeft()) + 0.5f);
-        int px2dpFloat3 = (int) (ag.px2dpFloat(view.getRight()) + 0.5f);
-        int px2dpFloat4 = ((int) (ag.px2dpFloat(view.getTop()) + 0.5f)) + px2dpFloat;
-        int px2dpFloat5 = px2dpFloat + ((int) (ag.px2dpFloat(view.getBottom()) + 0.5f));
+        e arv = e.arv();
+        int px2dpFloat = arv != null ? arv.arO() : false ? 0 : (int) (ai.px2dpFloat(ai.getStatusBarHeight()) + 0.5f);
+        int px2dpFloat2 = (int) (ai.px2dpFloat(view.getLeft()) + 0.5f);
+        int px2dpFloat3 = (int) (ai.px2dpFloat(view.getRight()) + 0.5f);
+        int px2dpFloat4 = ((int) (ai.px2dpFloat(view.getTop()) + 0.5f)) + px2dpFloat;
+        int px2dpFloat5 = px2dpFloat + ((int) (ai.px2dpFloat(view.getBottom()) + 0.5f));
         int i = px2dpFloat3 - px2dpFloat2;
         int i2 = px2dpFloat5 - px2dpFloat4;
         try {

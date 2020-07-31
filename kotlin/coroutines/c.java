@@ -10,23 +10,23 @@ public interface c {
     @h
     /* loaded from: classes7.dex */
     public interface b extends c {
-        InterfaceC0898c<?> dQC();
+        InterfaceC0913c<?> dTY();
 
         @Override // kotlin.coroutines.c
-        <E extends b> E get(InterfaceC0898c<E> interfaceC0898c);
+        <E extends b> E get(InterfaceC0913c<E> interfaceC0913c);
     }
 
     @h
     /* renamed from: kotlin.coroutines.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0898c<E extends b> {
+    public interface InterfaceC0913c<E extends b> {
     }
 
     <R> R fold(R r, m<? super R, ? super b, ? extends R> mVar);
 
-    <E extends b> E get(InterfaceC0898c<E> interfaceC0898c);
+    <E extends b> E get(InterfaceC0913c<E> interfaceC0913c);
 
-    c minusKey(InterfaceC0898c<?> interfaceC0898c);
+    c minusKey(InterfaceC0913c<?> interfaceC0913c);
 
     c plus(c cVar);
 

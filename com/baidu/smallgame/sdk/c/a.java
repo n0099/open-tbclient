@@ -2,9 +2,9 @@ package com.baidu.smallgame.sdk.c;
 
 import android.text.TextUtils;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class a {
-    public static boolean hb(String str) {
+    public static boolean gZ(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

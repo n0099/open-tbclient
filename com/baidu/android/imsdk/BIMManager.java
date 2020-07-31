@@ -37,6 +37,7 @@ import com.baidu.android.imsdk.chatuser.IGetUsersProfileBatchListener;
 import com.baidu.android.imsdk.chatuser.IStatusListener;
 import com.baidu.android.imsdk.chatuser.IUserPrivacyListener;
 import com.baidu.android.imsdk.conversation.ConversationManagerImpl;
+import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
 import com.baidu.android.imsdk.conversation.IConversationChangeListener;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
@@ -355,6 +356,9 @@ public class BIMManager extends BaseManager implements NoProGuard {
             @Override // com.baidu.android.imsdk.account.ILoginListener
             public void onLogoutResult(int i, String str, int i2) {
                 LogUtils.i(BaseManager.TAG, "onLogoutResult errorCode : " + i + " , errMsg, " + str + " , loginType, " + i2);
+                if (i != 0) {
+                    Utility.logout(BIMManager.sContext, null);
+                }
                 LoginManager.getInstance(BIMManager.sContext).onLogoutResultInternal(0, str);
                 if (ILoginListener.this != null) {
                     ILoginListener.this.onLogoutResult(0, i != 0 ? "Force logout" : "", i2);
@@ -382,6 +386,10 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static BIMConversation getConversation(Context context, String str, CATEGORY category, String str2, int i) {
+        return getConversation(context, str, false, category, str2, i);
+    }
+
+    public static BIMConversation getConversation(Context context, String str, boolean z, CATEGORY category, String str2, int i) {
         if (isNullContext(context)) {
             LogUtils.e(TAG, "GETCONVERSATION context is null");
             return null;
@@ -391,7 +399,27 @@ public class BIMManager extends BaseManager implements NoProGuard {
             LogUtils.e(LogUtils.TAG, "GETCONVERSATION category should not be ALL or SYSTEM");
             return null;
         }
-        return ConversationManagerImpl.getInstance(sContext).getConversation(category, str, str2, i);
+        return ConversationStudioManImpl.getInstance(sContext).getConversation(category, str, z, str2, i);
+    }
+
+    public static String getAllCastIdList(Context context) {
+        return ConversationStudioManImpl.getInstance(context).getAllCastIdList();
+    }
+
+    public static long getJoinedCastId(Context context) {
+        return ConversationStudioManImpl.getInstance(context).getJoinedCastId();
+    }
+
+    public static long getMaxReliableMsgId(Context context, long j) {
+        return ConversationStudioManImpl.getInstance(context).getMaxReliableMsgId(j);
+    }
+
+    public static long getReliableMsgCount(Context context, long j) {
+        return ConversationStudioManImpl.getInstance(context).getReliableMsgCount(j);
+    }
+
+    public static boolean isIMLogined(Context context) {
+        return LoginManager.getInstance(context).isIMLogined();
     }
 
     public static ArrayList<BIMConversation> getAllConversation(CATEGORY category) {

@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.view.commonLike.forum;
 /* loaded from: classes.dex */
 public interface b extends com.baidu.tbadk.core.view.commonLike.a {
-    void gW(boolean z);
-
     String getForumId();
 
     String getForumName();
+
+    void hA(boolean z);
 }

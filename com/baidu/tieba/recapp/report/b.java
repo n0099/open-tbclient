@@ -1,7 +1,7 @@
 package com.baidu.tieba.recapp.report;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,37 +12,37 @@ import tbclient.Abstract;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class b {
-    private static b ljz;
-    private List<JSONObject> ljA;
-    private List<JSONObject> ljB;
-    private List<JSONObject> ljC;
+    private static b lqS;
+    private List<JSONObject> lqT;
+    private List<JSONObject> lqU;
+    private List<JSONObject> lqV;
 
-    public static b cZL() {
-        if (ljz == null) {
+    public static b dcS() {
+        if (lqS == null) {
             synchronized (b.class) {
-                if (ljz == null) {
-                    ljz = new b();
+                if (lqS == null) {
+                    lqS = new b();
                 }
             }
         }
-        return ljz;
+        return lqS;
     }
 
-    public synchronized void eI(List<JSONObject> list) {
-        if (this.ljA == null) {
-            this.ljA = new ArrayList();
+    public synchronized void eO(List<JSONObject> list) {
+        if (this.lqT == null) {
+            this.lqT = new ArrayList();
         }
-        this.ljA.clear();
-        this.ljA.addAll(list);
+        this.lqT.clear();
+        this.lqT.addAll(list);
     }
 
-    public String cZM() {
+    public String dcT() {
         synchronized (this) {
-            if (w.isEmpty(this.ljA)) {
+            if (x.isEmpty(this.lqT)) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.ljA) {
+            for (JSONObject jSONObject : this.lqT) {
                 if (jSONObject != null) {
                     jSONArray.put(jSONObject);
                 }
@@ -56,21 +56,21 @@ public class b {
         }
     }
 
-    public synchronized void eJ(List<JSONObject> list) {
-        if (this.ljB == null) {
-            this.ljB = new ArrayList();
+    public synchronized void eP(List<JSONObject> list) {
+        if (this.lqU == null) {
+            this.lqU = new ArrayList();
         }
-        this.ljB.clear();
-        this.ljB.addAll(list);
+        this.lqU.clear();
+        this.lqU.addAll(list);
     }
 
-    public String cZN() {
+    public String dcU() {
         synchronized (this) {
-            if (w.isEmpty(this.ljB)) {
+            if (x.isEmpty(this.lqU)) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.ljB) {
+            for (JSONObject jSONObject : this.lqU) {
                 if (jSONObject != null) {
                     jSONArray.put(jSONObject);
                 }
@@ -84,21 +84,21 @@ public class b {
         }
     }
 
-    public synchronized void eK(List<JSONObject> list) {
-        if (this.ljC == null) {
-            this.ljC = new ArrayList();
+    public synchronized void eQ(List<JSONObject> list) {
+        if (this.lqV == null) {
+            this.lqV = new ArrayList();
         }
-        this.ljC.clear();
-        this.ljC.addAll(list);
+        this.lqV.clear();
+        this.lqV.addAll(list);
     }
 
-    public String cZO() {
+    public String dcV() {
         synchronized (this) {
-            if (w.isEmpty(this.ljC)) {
+            if (x.isEmpty(this.lqV)) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.ljC) {
+            for (JSONObject jSONObject : this.lqV) {
                 if (jSONObject != null) {
                     jSONArray.put(jSONObject);
                 }
@@ -112,10 +112,10 @@ public class b {
         }
     }
 
-    public synchronized void cZP() {
-        if (this.ljC != null) {
-            this.ljC.clear();
-            this.ljC = null;
+    public synchronized void dcW() {
+        if (this.lqV != null) {
+            this.lqV.clear();
+            this.lqV = null;
         }
     }
 

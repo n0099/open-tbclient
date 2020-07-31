@@ -1,7 +1,7 @@
 package com.baidu.live.adp.lib.lbs;
 
 import com.baidu.live.adp.lib.lbs.BdLocationMananger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface ILocationProvider {
     void destroy();
 

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ui.multiwindow;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public enum FromType {
     HOME,
     BROWSER,

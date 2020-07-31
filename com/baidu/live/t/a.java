@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.util.IResourceAdapter;
 import com.baidu.live.tbadk.widget.CommonEmptyView;
 import com.baidu.live.y.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements IResourceAdapter {
     @Override // com.baidu.live.tbadk.util.IResourceAdapter
     public Drawable getEmotionDrawable(CommonEmptyView.ImgType imgType, CommonEmptyView.StyleType styleType) {

@@ -4,35 +4,35 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes.dex */
 public class i {
-    private long eDV;
-    private long eDW;
-    private long eDX;
-    private long eDY;
-    private long eDZ;
-    private a eEa;
+    private long eKr;
+    private long eKs;
+    private long eKt;
+    private long eKu;
+    private long eKv;
+    private a eKw;
     private long startTime;
     private Handler handler = new Handler(Looper.getMainLooper());
-    private boolean Uw = false;
-    private Runnable eEb = new Runnable() { // from class: com.baidu.tbadk.util.i.1
+    private boolean Uq = false;
+    private Runnable eKx = new Runnable() { // from class: com.baidu.tbadk.util.i.1
         @Override // java.lang.Runnable
         public void run() {
             long currentTimeMillis = System.currentTimeMillis();
-            if (i.this.eDZ > i.this.eDY) {
-                i.this.eDY = currentTimeMillis - i.this.eDX;
-                i.this.eDZ = i.this.eDY;
+            if (i.this.eKv > i.this.eKu) {
+                i.this.eKu = currentTimeMillis - i.this.eKt;
+                i.this.eKv = i.this.eKu;
             }
-            long j = currentTimeMillis - i.this.eDY;
-            i.this.eDW += i.this.eDX;
-            if (i.this.eDW < i.this.eDV) {
-                i.this.handler.postDelayed(i.this.eEb, (2 * i.this.eDX) - j);
-                if (i.this.eEa != null) {
-                    i.this.eEa.b(i.this.eDV, i.this.eDV - i.this.eDW);
+            long j = currentTimeMillis - i.this.eKu;
+            i.this.eKs += i.this.eKt;
+            if (i.this.eKs < i.this.eKr) {
+                i.this.handler.postDelayed(i.this.eKx, (2 * i.this.eKt) - j);
+                if (i.this.eKw != null) {
+                    i.this.eKw.b(i.this.eKr, i.this.eKr - i.this.eKs);
                 }
             } else {
-                i.this.eDW = i.this.eDV;
+                i.this.eKs = i.this.eKr;
                 i.this.finish();
             }
-            i.this.eDY = currentTimeMillis;
+            i.this.eKu = currentTimeMillis;
         }
     };
 
@@ -44,53 +44,53 @@ public class i {
     }
 
     public i(long j, long j2) {
-        this.eDV = j;
-        this.eDX = j2;
+        this.eKr = j;
+        this.eKt = j2;
     }
 
     public void start() {
         this.startTime = System.currentTimeMillis();
-        this.eDY = this.startTime;
-        if (this.eEa != null) {
-            this.eEa.b(this.eDV, this.eDV - this.eDW);
+        this.eKu = this.startTime;
+        if (this.eKw != null) {
+            this.eKw.b(this.eKr, this.eKr - this.eKs);
         }
-        this.handler.postDelayed(this.eEb, this.eDX);
+        this.handler.postDelayed(this.eKx, this.eKt);
     }
 
     public void pause() {
-        if (!this.Uw) {
-            this.Uw = true;
-            this.eDZ = System.currentTimeMillis();
-            this.handler.removeCallbacks(this.eEb);
+        if (!this.Uq) {
+            this.Uq = true;
+            this.eKv = System.currentTimeMillis();
+            this.handler.removeCallbacks(this.eKx);
         }
     }
 
     public void resume() {
-        if (this.Uw) {
-            this.Uw = false;
-            this.handler.postDelayed(this.eEb, this.eDX - (this.eDZ - this.eDY));
+        if (this.Uq) {
+            this.Uq = false;
+            this.handler.postDelayed(this.eKx, this.eKt - (this.eKv - this.eKu));
         }
     }
 
     public void stop() {
-        this.Uw = false;
-        this.eDY = this.startTime;
-        this.eDZ = this.eDY;
-        this.handler.removeCallbacks(this.eEb);
+        this.Uq = false;
+        this.eKu = this.startTime;
+        this.eKv = this.eKu;
+        this.handler.removeCallbacks(this.eKx);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finish() {
-        if (this.eEa != null) {
-            this.eEa.P(this.eDV);
+        if (this.eKw != null) {
+            this.eKw.P(this.eKr);
         }
     }
 
     public void a(a aVar) {
-        this.eEa = aVar;
+        this.eKw = aVar;
     }
 
-    public long biI() {
-        return this.eDW;
+    public long bmB() {
+        return this.eKs;
     }
 }

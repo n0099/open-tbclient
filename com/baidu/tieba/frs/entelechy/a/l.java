@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class l extends com.baidu.tieba.frs.j<com.baidu.tieba.frs.v, com.baidu.tieba.frs.entelechy.view.e> {
     /* JADX INFO: Access modifiers changed from: protected */
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -16,7 +16,7 @@ public class l extends com.baidu.tieba.frs.j<com.baidu.tieba.frs.v, com.baidu.ti
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bi */
+    /* renamed from: bj */
     public com.baidu.tieba.frs.entelechy.view.e b(ViewGroup viewGroup) {
         return new com.baidu.tieba.frs.entelechy.view.e(LayoutInflater.from(this.mContext).inflate(R.layout.frs_read_progress_item, viewGroup, false), this.mPageContext.getPageActivity());
     }

@@ -2,10 +2,10 @@ package com.baidu.swan.apps.jsbridge;
 
 import android.support.annotation.Keep;
 import android.webkit.JavascriptInterface;
-import com.baidu.swan.apps.aq.h;
+import com.baidu.swan.apps.aq.i;
 import com.baidu.swan.apps.b;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class SwanAppNativeSwanJsBridge {
     private static final boolean DEBUG = b.DEBUG;
     public static final String JAVASCRIPT_INTERFACE_NAME = "_naSwan";
@@ -18,6 +18,6 @@ public class SwanAppNativeSwanJsBridge {
 
     @JavascriptInterface
     public String getAPIs(int i) {
-        return DEBUG ? com.baidu.swan.apps.af.a.a.anz() ? h.A(i, false) : "" : (h.auo() && com.baidu.swan.apps.u.a.aga().Sn()) ? h.A(i, false) : "";
+        return DEBUG ? com.baidu.swan.apps.ae.a.a.apj() ? i.z(i, false) : "" : (i.awq() && com.baidu.swan.apps.t.a.ahm().SE()) ? i.z(i, false) : "";
     }
 }

@@ -14,7 +14,7 @@ public class e extends b {
         return RotateImageAction.ACTION_NAME;
     }
 
-    public static ImageOperation nO(int i) {
+    public static ImageOperation og(int i) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = RotateImageAction.ACTION_NAME;
         imageOperation.actionParam = String.valueOf(i);
@@ -33,7 +33,7 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.bgz().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.bkk().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
         if (this.rotateType == 0 || this.rotateType == 1) {
             return BitmapHelper.rotateBitmap(bitmap, this.rotateType);
         }

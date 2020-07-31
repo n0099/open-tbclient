@@ -2,12 +2,12 @@ package com.facebook.drawee.controller;
 
 import android.graphics.drawable.Animatable;
 import javax.annotation.Nullable;
-/* loaded from: classes13.dex */
+/* loaded from: classes9.dex */
 public class b<INFO> implements c<INFO> {
-    private static final c<Object> mLS = new b();
+    private static final c<Object> mUa = new b();
 
-    public static <INFO> c<INFO> dAS() {
-        return (c<INFO>) mLS;
+    public static <INFO> c<INFO> dEe() {
+        return (c<INFO>) mUa;
     }
 
     @Override // com.facebook.drawee.controller.c
@@ -31,6 +31,6 @@ public class b<INFO> implements c<INFO> {
     }
 
     @Override // com.facebook.drawee.controller.c
-    public void fb(String str) {
+    public void fa(String str) {
     }
 }

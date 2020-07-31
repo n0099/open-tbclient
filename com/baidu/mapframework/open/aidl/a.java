@@ -6,19 +6,19 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.baidu.mapframework.open.aidl.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.baidu.mapframework.open.aidl.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static abstract class AbstractBinderC0200a extends Binder implements a {
+    /* loaded from: classes10.dex */
+    public static abstract class AbstractBinderC0202a extends Binder implements a {
 
         /* renamed from: com.baidu.mapframework.open.aidl.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        private static class C0201a implements a {
+        /* loaded from: classes10.dex */
+        private static class C0203a implements a {
             private IBinder a;
 
-            C0201a(IBinder iBinder) {
+            C0203a(IBinder iBinder) {
                 this.a = iBinder;
             }
 
@@ -48,7 +48,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.mapframework.open.aidl.IMapOpenService");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0201a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0203a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.Binder

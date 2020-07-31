@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import com.baidu.sapi2.utils.p;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class o implements ViewTreeObserver.OnGlobalLayoutListener {
     final /* synthetic */ p a;
 

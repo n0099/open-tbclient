@@ -3,7 +3,7 @@ package com.baidu.mobads.g;
 import com.baidu.mobads.g.q;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class j implements q.a {
     final /* synthetic */ g a;
 

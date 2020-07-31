@@ -47,7 +47,7 @@ public class c implements View.OnClickListener, View.OnKeyListener {
 
     private void a(ViewGroup viewGroup, Activity activity, boolean z) {
         if (this.Kd == null) {
-            this.Kd = m(activity);
+            this.Kd = n(activity);
             this.Kd.setUseDirectOffset(this.mUseDirectOffset);
             if (!z) {
                 this.Kd.setFocusable(false);
@@ -134,7 +134,7 @@ public class c implements View.OnClickListener, View.OnKeyListener {
         this.mShouldCheckLocInWindow = z;
     }
 
-    private MaskView m(Activity activity) {
+    private MaskView n(Activity activity) {
         MaskView maskView = new MaskView(activity);
         maskView.setFullingColor(activity.getResources().getColor(this.Kc.mFullingColorId));
         maskView.setFullingAlpha(this.Kc.mAlpha);

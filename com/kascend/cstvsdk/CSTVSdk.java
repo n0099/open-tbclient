@@ -14,7 +14,7 @@ import tv.chushou.a.a.d.b;
 import tv.chushou.widget.a.c;
 @Keep
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class CSTVSdk {
     public static final CSTVSdk INSTANCE = new CSTVSdk();
     public static final String TAG = "CSTVSdk";
@@ -37,9 +37,9 @@ public final class CSTVSdk {
         q.m(sdkConfig, "config");
         if (!getInitialized()) {
             synchronized (this) {
-                com.kascend.cstvsdk.utils.a.nzY.a(sdkConfig);
+                com.kascend.cstvsdk.utils.a.nIH.a(sdkConfig);
                 inited = true;
-                l lVar = l.nPe;
+                l lVar = l.nXN;
             }
         }
     }
@@ -51,7 +51,7 @@ public final class CSTVSdk {
     }
 
     public final void onLoginStatusChanged(int i) {
-        tv.chushou.basis.d.b.dWj().d(TAG, "onLoginStatusChanged: " + i);
+        tv.chushou.basis.d.b.dZF().d(TAG, "onLoginStatusChanged: " + i);
         if (i == 2) {
             LoginManager.Instance().openLogout(null);
         } else if (i == 1) {
@@ -60,7 +60,7 @@ public final class CSTVSdk {
     }
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a implements SimpleCallback {
         a() {
         }
@@ -72,16 +72,16 @@ public final class CSTVSdk {
         @Override // com.kascend.cstvsdk.interfaces.SimpleCallback
         public void onSuccess() {
             Application application;
-            if (com.kascend.cstvsdk.utils.a.nzY.b() && CSTVSdk.INSTANCE.getInitialized()) {
+            if (com.kascend.cstvsdk.utils.a.nIH.b() && CSTVSdk.INSTANCE.getInitialized()) {
                 Activity e = com.kascend.chushou.d.b.e();
                 if (e != null) {
                     application = e;
                 } else {
-                    Application dWi = tv.chushou.basis.d.b.dWi();
-                    q.l((Object) dWi, "Router.application()");
-                    application = dWi;
+                    Application dZE = tv.chushou.basis.d.b.dZE();
+                    q.l((Object) dZE, "Router.application()");
+                    application = dZE;
                 }
-                com.kascend.cstvsdk.utils.a.nzY.b(application);
+                com.kascend.cstvsdk.utils.a.nIH.b(application);
             }
         }
 
@@ -98,7 +98,7 @@ public final class CSTVSdk {
             }
             String str4 = str2;
             if (!(str4 == null || str4.length() == 0)) {
-                com.kascend.cstvsdk.utils.a.nzY.a(context, str, str2);
+                com.kascend.cstvsdk.utils.a.nIH.a(context, str, str2);
             }
         }
     }
@@ -109,7 +109,7 @@ public final class CSTVSdk {
 
     public final void startH5(Context context, String str, String str2) {
         if (context == null) {
-            context = tv.chushou.basis.d.b.dWi();
+            context = tv.chushou.basis.d.b.dZE();
         }
         com.kascend.chushou.d.a.a(context, str, str2);
     }

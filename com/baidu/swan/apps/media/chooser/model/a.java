@@ -1,59 +1,59 @@
 package com.baidu.swan.apps.media.chooser.model;
 
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a implements Comparable<Object> {
-    private String AX;
-    private String crm;
-    public ArrayList<MediaModel> crn;
+    private String AZ;
+    private String ctp;
+    public ArrayList<MediaModel> ctq;
     private long lastModified;
 
     public String hk() {
-        return this.AX;
+        return this.AZ;
     }
 
-    public void lQ(String str) {
-        this.AX = str;
+    public void mr(String str) {
+        this.AZ = str;
     }
 
-    public String akf() {
-        return this.crm;
+    public String alv() {
+        return this.ctp;
     }
 
-    public void lR(String str) {
-        this.crm = str;
+    public void ms(String str) {
+        this.ctp = str;
     }
 
     public long getLastModified() {
         return this.lastModified;
     }
 
-    public void aZ(long j) {
+    public void bd(long j) {
         this.lastModified = j;
     }
 
-    public int akg() {
-        return this.crn.size();
+    public int alw() {
+        return this.ctq.size();
     }
 
-    public ArrayList<MediaModel> aka() {
-        return this.crn;
+    public ArrayList<MediaModel> alq() {
+        return this.ctq;
     }
 
     public void h(MediaModel mediaModel) {
-        if (this.crn == null) {
-            this.crn = new ArrayList<>();
+        if (this.ctq == null) {
+            this.ctq = new ArrayList<>();
         }
-        this.crn.add(mediaModel);
+        this.ctq.add(mediaModel);
     }
 
     public String toString() {
-        return "MediaDir [firstImgPath=, dirName=" + this.AX + ", imageCount=" + akg() + "]";
+        return "MediaDir [firstImgPath=, dirName=" + this.AZ + ", imageCount=" + alw() + "]";
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof a) {
-            return this.AX.equals(((a) obj).AX);
+            return this.AZ.equals(((a) obj).AZ);
         }
         return false;
     }

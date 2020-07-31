@@ -94,5 +94,7 @@ public class SyncSwitch {
         SwitchManager.getInstance().registerSwitch(FlutterConcernForumEnableSwitch.class);
         SwitchManager.getInstance().registerSwitch(FlutterAttachSwitch.class);
         SwitchManager.getInstance().registerSwitch(XiaomiWebViewInitSwitch.class);
+        SwitchManager.getInstance().registerSwitch(FlutterPersonCenterEnableSwitch.class);
+        SwitchManager.getInstance().registerSwitch(FlutterCrashRepairEnableSwitch.class);
     }
 }

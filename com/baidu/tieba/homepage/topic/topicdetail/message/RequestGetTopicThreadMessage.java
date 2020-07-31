@@ -6,12 +6,12 @@ import com.baidu.tbadk.util.t;
 import tbclient.CommonReq;
 import tbclient.NewTopicThread.DataReq;
 import tbclient.NewTopicThread.NewTopicThreadReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class RequestGetTopicThreadMessage extends NetMessage {
     private String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f1024common;
+    private CommonReq f978common;
     private long lastFeedId;
     private long pageNo;
     private long topicId;
@@ -21,7 +21,7 @@ public class RequestGetTopicThreadMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f1024common = commonReq;
+        this.f978common = commonReq;
     }
 
     public void setTopicId(long j) {
@@ -43,7 +43,7 @@ public class RequestGetTopicThreadMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1218common = this.f1024common;
+        builder.f1164common = this.f978common;
         builder.topic_id = Long.valueOf(this.topicId);
         builder.page_no = Long.valueOf(this.pageNo);
         builder.last_feed_id = Long.valueOf(this.lastFeedId);

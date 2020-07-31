@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 class b {
     static b yk = new b();
     private final Map<Class, a> yl = new HashMap();
@@ -119,7 +119,7 @@ class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes20.dex */
     public static class a {
         final Map<Lifecycle.Event, List<C0001b>> yn = new HashMap();
         final Map<C0001b, Lifecycle.Event> yo;
@@ -154,7 +154,7 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: android.arch.lifecycle.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes20.dex */
     public static class C0001b {
         final Method mMethod;
         final int yp;

@@ -5,9 +5,9 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
-    private com.baidu.tieba.c.e klQ;
+    private com.baidu.tieba.c.e kuN;
     private TbPageContext mPageContext;
 
     public e(TbPageContext tbPageContext) {
@@ -15,34 +15,34 @@ public class e {
     }
 
     public void hideTip() {
-        if (this.klQ != null) {
-            this.klQ.HH();
+        if (this.kuN != null) {
+            this.kuN.HN();
         }
     }
 
-    public void c(EditorTools editorTools) {
-        View nz;
-        if (editorTools != null && editorTools.etQ != null && this.mPageContext != null && (nz = editorTools.etQ.nz(26)) != null) {
-            if (this.klQ == null) {
-                this.klQ = new com.baidu.tieba.c.e(this.mPageContext, nz);
-                this.klQ.cS(R.drawable.bg_tip_blue_down);
-                this.klQ.cR(32);
-                this.klQ.sV(2);
-                this.klQ.c(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.e.1
+    public void d(EditorTools editorTools) {
+        View nR;
+        if (editorTools != null && editorTools.eAi != null && this.mPageContext != null && (nR = editorTools.eAi.nR(26)) != null) {
+            if (this.kuN == null) {
+                this.kuN = new com.baidu.tieba.c.e(this.mPageContext, nR);
+                this.kuN.cS(R.drawable.bg_tip_blue_down);
+                this.kuN.cR(32);
+                this.kuN.tn(2);
+                this.kuN.c(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.e.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        e.this.klQ.HH();
+                        e.this.kuN.HN();
                     }
                 });
                 int dimensionPixelSize = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds10);
                 int dimensionPixelSize2 = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds24);
                 int dimensionPixelSize3 = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds4);
-                this.klQ.y(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
-                this.klQ.sZ(0);
-                this.klQ.setYOffset(-dimensionPixelSize3);
-                this.klQ.cT(3000);
+                this.kuN.z(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
+                this.kuN.tr(0);
+                this.kuN.setYOffset(-dimensionPixelSize3);
+                this.kuN.cT(3000);
             }
-            this.klQ.aC(this.mPageContext.getResources().getString(R.string.hot_topic_tip), SharedPrefConfig.KEY_SHOW_HOTTOPIC_TIP);
+            this.kuN.aC(this.mPageContext.getResources().getString(R.string.hot_topic_tip), SharedPrefConfig.KEY_SHOW_HOTTOPIC_TIP);
         }
     }
 }

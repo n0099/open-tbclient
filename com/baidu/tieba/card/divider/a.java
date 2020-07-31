@@ -3,7 +3,7 @@ package com.baidu.tieba.card.divider;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class a extends com.baidu.adp.widget.ListView.a<b, com.baidu.tieba.card.a.a<c>> {
     private TbPageContext<?> mPageContext;
 
@@ -22,17 +22,17 @@ public class a extends com.baidu.adp.widget.ListView.a<b, com.baidu.tieba.card.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aK */
+    /* renamed from: aL */
     public com.baidu.tieba.card.a.a b(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a(new c(this.mPageContext));
     }
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(int i, View view, ViewGroup viewGroup, b bVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.bPh() == null) {
+        if (aVar == null || aVar.bSs() == null) {
             return null;
         }
-        aVar.bPh().a(bVar);
+        aVar.bSs().a(bVar);
         return aVar.getView();
     }
 }

@@ -24,9 +24,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private static a adQ = null;
+    private static a adG = null;
     protected String a;
     protected String b;
     protected String c;
@@ -34,11 +34,11 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.browser.sailor.webkit.update.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public class C0094a extends BdNetTask implements INetListener {
-        protected ByteArrayOutputStream adR;
+    /* loaded from: classes8.dex */
+    public class C0093a extends BdNetTask implements INetListener {
+        protected ByteArrayOutputStream adH;
 
-        public C0094a(Context context, String str) {
+        public C0093a(Context context, String str) {
             setUrl(a.a(str, context));
             setMethod(BdNet.HttpMethod.METHOD_GET);
         }
@@ -49,16 +49,16 @@ public class a {
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i) {
-            this.adR.reset();
+            this.adH.reset();
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i) {
-            if (this.adR == null) {
-                this.adR = new ByteArrayOutputStream();
+            if (this.adH == null) {
+                this.adH = new ByteArrayOutputStream();
             }
             if (i > 0) {
-                this.adR.write(bArr, 0, i);
+                this.adH.write(bArr, 0, i);
             }
         }
 
@@ -81,9 +81,9 @@ public class a {
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetTaskComplete(BdNet bdNet, BdNetTask bdNetTask) {
-            if (this.adR != null) {
+            if (this.adH != null) {
                 try {
-                    String byteArrayOutputStream = this.adR.toString("utf-8");
+                    String byteArrayOutputStream = this.adH.toString("utf-8");
                     Log.d(EngineManager.LOG_TAG, "received data = " + byteArrayOutputStream);
                     if (byteArrayOutputStream.length() > 0) {
                         JSONObject jSONObject = new JSONObject(byteArrayOutputStream);
@@ -121,15 +121,15 @@ public class a {
         }
 
         public void release() {
-            if (this.adR != null) {
+            if (this.adH != null) {
                 try {
-                    this.adR.reset();
-                    this.adR.close();
+                    this.adH.reset();
+                    this.adH.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            this.adR = null;
+            this.adH = null;
         }
     }
 
@@ -321,15 +321,15 @@ public class a {
         }
     }
 
-    public static a rG() {
-        if (adQ == null) {
+    public static a rI() {
+        if (adG == null) {
             synchronized (a.class) {
-                if (adQ == null) {
-                    adQ = new a();
+                if (adG == null) {
+                    adG = new a();
                 }
             }
         }
-        return adQ;
+        return adG;
     }
 
     public final void a(Context context) {
@@ -355,11 +355,11 @@ public class a {
             }
             if (z) {
                 try {
-                    float rC = com.baidu.browser.core.util.a.rC() / 1024.0f;
-                    if (rC < (TextUtils.isEmpty(WebSettingsGlobalBlink.GetCloudSettingsValue("update_zeus_mem_size_mb")) ? 1024 : Integer.valueOf(GetCloudSettingsValue).intValue())) {
+                    float rE = com.baidu.browser.core.util.a.rE() / 1024.0f;
+                    if (rE < (TextUtils.isEmpty(WebSettingsGlobalBlink.GetCloudSettingsValue("update_zeus_mem_size_mb")) ? 1024 : Integer.valueOf(GetCloudSettingsValue).intValue())) {
                         return;
                     }
-                    BdSailorPlatform.getStatic().b("MemMbSize", String.valueOf(rC));
+                    BdSailorPlatform.getStatic().b("MemMbSize", String.valueOf(rE));
                 } catch (Exception e) {
                 }
             }

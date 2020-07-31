@@ -1,12 +1,12 @@
 package com.baidu.tieba.personCenter.c;
 
 import tbclient.SmartApp;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class m implements c {
-    private String MN;
-    private Long kGE;
-    private String kGF;
-    private Integer kGG;
+    private String MK;
+    private Long kPF;
+    private String kPG;
+    private Integer kPH;
     private String mAppKey;
     private String mAvatar;
     private String mLink;
@@ -17,18 +17,18 @@ public class m implements c {
     public m(SmartApp smartApp) {
         this.mType = 0;
         if (smartApp != null) {
-            this.kGE = smartApp.swan_app_id;
+            this.kPF = smartApp.swan_app_id;
             this.mAppKey = smartApp.id;
             this.mAvatar = smartApp.avatar;
             this.mName = smartApp.name;
-            this.MN = smartApp._abstract;
+            this.MK = smartApp._abstract;
             this.mPic = smartApp.pic;
-            this.kGF = smartApp.h5_url;
+            this.kPG = smartApp.h5_url;
             this.mLink = smartApp.link;
             if (smartApp.is_recom.intValue() == 1) {
                 this.mType = 1;
             }
-            this.kGG = smartApp.is_game;
+            this.kPH = smartApp.is_game;
         }
     }
 
@@ -37,8 +37,8 @@ public class m implements c {
         return this.mType;
     }
 
-    public Long cRV() {
-        return this.kGE;
+    public Long cVL() {
+        return this.kPF;
     }
 
     public String getAppKey() {
@@ -54,14 +54,14 @@ public class m implements c {
     }
 
     public String getH5Url() {
-        return this.kGF;
+        return this.kPG;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public Integer cRW() {
-        return this.kGG;
+    public Integer cVM() {
+        return this.kPH;
     }
 }

@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.GroupPermission;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public final class DataRes extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 3)
     public final List<GroupInfo> commonGroups;
@@ -57,7 +57,7 @@ public final class DataRes extends Message {
         this.commongroupnum = builder.commongroupnum;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes20.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public List<GroupInfo> commonGroups;
         public Integer commongroupnum;

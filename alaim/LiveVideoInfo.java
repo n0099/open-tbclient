@@ -2,7 +2,7 @@ package alaim;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class LiveVideoInfo extends Message {
     public static final Long DEFAULT_DURATION = 0L;
     public static final String DEFAULT_ID = "";
@@ -40,7 +40,7 @@ public final class LiveVideoInfo extends Message {
         this.url = builder.url;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder extends Message.Builder<LiveVideoInfo> {
         public Long duration;
         public String id;

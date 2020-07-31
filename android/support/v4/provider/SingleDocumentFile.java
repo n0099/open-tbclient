@@ -5,7 +5,7 @@ import android.net.Uri;
 import android.provider.DocumentsContract;
 import android.support.annotation.RequiresApi;
 @RequiresApi(19)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 class SingleDocumentFile extends DocumentFile {
     private Context mContext;
     private Uri mUri;

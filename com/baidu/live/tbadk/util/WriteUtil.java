@@ -18,7 +18,7 @@ import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.core.util.FileHelper;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WriteUtil {
     private static final String TMP_IMAGE_NAME = "camera.jpg";
 

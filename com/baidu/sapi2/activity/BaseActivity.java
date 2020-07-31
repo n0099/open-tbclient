@@ -14,7 +14,7 @@ import android.webkit.ValueCallback;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.f.a.a;
+import com.baidu.g.a.a;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
@@ -55,7 +55,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class BaseActivity extends TitleActivity {
     public static final String EXTRA_PARAM_BUSINESS_FROM = "extra_params_business_from";
     public static final int EXTRA_PARAM_FROM_ACCOUNT_CENTER = 2003;
@@ -86,7 +86,7 @@ public class BaseActivity extends TitleActivity {
     protected SapiWebView sapiWebView;
 
     /* renamed from: com.baidu.sapi2.activity.BaseActivity$11  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes19.dex */
     class AnonymousClass11 extends SapiJsCallBacks.FingerprintCallback {
         AnonymousClass11() {
         }

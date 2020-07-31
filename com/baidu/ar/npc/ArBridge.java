@@ -10,7 +10,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ArBridge {
     private static ArBridge a = null;
     private WeakReference<BaiduArView> b;
@@ -25,17 +25,17 @@ public class ArBridge {
     private boolean l = false;
     private HandlerThread c = new HandlerThread("msg_callback_thread");
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface c {
         void a(Bitmap bitmap);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface d {
         void a(int i, int i2, HashMap<String, Object> hashMap);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public enum e {
         SCREEN_ORIENTATION_PORTRAIT,
         SCREEN_ORIENTATION_LANDSCAPE,
@@ -44,7 +44,7 @@ public class ArBridge {
         SCREEN_ORIENTATION_NOT_DEFINED
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface f {
         void a(String str, int i, String str2);
     }
@@ -214,7 +214,7 @@ public class ArBridge {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class b {
         public int a;
         public int b;
@@ -230,7 +230,7 @@ public class ArBridge {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public int a;
         public int b;

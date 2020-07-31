@@ -12,32 +12,32 @@ import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.view.ThreadGodReplyLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class l extends h {
-    private AbsThreadDataSupport aea;
-    private ThreadGodReplyLayout aer;
-    private com.baidu.tbadk.core.util.ao aes;
+    private AbsThreadDataSupport adQ;
+    private ThreadGodReplyLayout aeh;
+    private com.baidu.tbadk.core.util.ap aei;
 
     public l(Context context) {
         super(context);
         setTopMargin(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26));
-        this.aer = new ThreadGodReplyLayout(context);
+        this.aeh = new ThreadGodReplyLayout(context);
         final View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.card.l.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (l.this.rJ() != null) {
-                    l.this.rJ().a(view, l.this.aea);
+                if (l.this.rL() != null) {
+                    l.this.rL().a(view, l.this.adQ);
                 }
             }
         };
-        this.aer.setAfterClickListener(onClickListener);
-        this.aer.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.l.2
+        this.aeh.setAfterClickListener(onClickListener);
+        this.aeh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.l.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PbActivityConfig createNormalCfg = new PbActivityConfig(l.this.mContext).createNormalCfg(l.this.aea.aPS().getTid(), l.this.aea.aPS().aTS().getId() + "", 1, "other");
-                createNormalCfg.setStartFrom(l.this.adV.sa());
+                PbActivityConfig createNormalCfg = new PbActivityConfig(l.this.mContext).createNormalCfg(l.this.adQ.aTN().getTid(), l.this.adQ.aTN().aXO().getId() + "", 1, "other");
+                createNormalCfg.setStartFrom(l.this.adL.sc());
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
-                l.this.adV.b(new a.C0098a(1));
+                l.this.adL.b(new a.C0096a(1));
                 onClickListener.onClick(view);
             }
         });
@@ -46,52 +46,52 @@ public class l extends h {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.aer;
+        return this.aeh;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
-    public void rI() {
+    public void rK() {
         a(1, new a.b() { // from class: com.baidu.card.l.3
             @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0098a c0098a) {
-                com.baidu.tieba.card.m.a(l.this.aer.getGodReplyContent(), l.this.aea.aPS().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+            public boolean a(a.C0096a c0096a) {
+                com.baidu.tieba.card.m.a(l.this.aeh.getGodReplyContent(), l.this.adQ.aTN().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
                 return false;
             }
         });
     }
 
-    public void a(com.baidu.tbadk.core.util.ao aoVar) {
-        this.aes = aoVar;
+    public void a(com.baidu.tbadk.core.util.ap apVar) {
+        this.aei = apVar;
     }
 
     @Override // com.baidu.card.o
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.aer.onChangeSkinType();
+        this.aeh.onChangeSkinType();
     }
 
     public void setFromCDN(boolean z) {
-        this.aer.setFromCDN(z);
+        this.aeh.setFromCDN(z);
     }
 
     public void setForm(String str) {
-        this.aer.setFrom(str);
+        this.aeh.setFrom(str);
     }
 
-    public boolean rT() {
-        return this.aer == null || this.aer.getVisibility() != 8;
+    public boolean rU() {
+        return this.aeh == null || this.aeh.getVisibility() != 8;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.n
     /* renamed from: b */
     public void D(AbsThreadDataSupport absThreadDataSupport) {
-        this.aea = absThreadDataSupport;
-        PostData aTS = absThreadDataSupport.aPS().aTS();
-        if (this.aes != null && aTS != null && aTS.aSp() != null && aTS.aSp().getUserId() != null) {
-            this.aes.dk("tid", absThreadDataSupport.aPS().tid).dk("post_id", aTS.getId()).dk("uid", aTS.aSp().getUserId());
-            com.baidu.tieba.card.s.bOB().e(this.aes);
+        this.adQ = absThreadDataSupport;
+        PostData aXO = absThreadDataSupport.aTN().aXO();
+        if (this.aei != null && aXO != null && aXO.aWl() != null && aXO.aWl().getUserId() != null) {
+            this.aei.dn("tid", absThreadDataSupport.aTN().tid).dn("post_id", aXO.getId()).dn("uid", aXO.aWl().getUserId());
+            com.baidu.tieba.card.s.bRL().e(this.aei);
         }
-        this.aer.setData(absThreadDataSupport.aPS());
+        this.aeh.setData(absThreadDataSupport.aTN());
     }
 }

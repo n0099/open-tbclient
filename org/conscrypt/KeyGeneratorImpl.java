@@ -8,7 +8,7 @@ import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.KeyGeneratorSpi;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class KeyGeneratorImpl extends KeyGeneratorSpi {
     private final String algorithm;
     private int keySizeBits;
@@ -59,49 +59,49 @@ public abstract class KeyGeneratorImpl extends KeyGeneratorSpi {
         return new SecretKeySpec(doKeyGeneration((this.keySizeBits + 7) / 8), this.algorithm);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class HmacMD5 extends KeyGeneratorImpl {
         public HmacMD5() {
             super("HmacMD5", 128);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class HmacSHA1 extends KeyGeneratorImpl {
         public HmacSHA1() {
             super("HmacSHA1", 160);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class HmacSHA224 extends KeyGeneratorImpl {
         public HmacSHA224() {
             super("HmacSHA224", 224);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class HmacSHA256 extends KeyGeneratorImpl {
         public HmacSHA256() {
             super("HmacSHA256", 256);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class HmacSHA384 extends KeyGeneratorImpl {
         public HmacSHA384() {
             super("HmacSHA384", 384);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class HmacSHA512 extends KeyGeneratorImpl {
         public HmacSHA512() {
             super("HmacSHA512", 512);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class DESEDE extends KeyGeneratorImpl {
         public DESEDE() {
             super("DESEDE", 192);
@@ -130,7 +130,7 @@ public abstract class KeyGeneratorImpl extends KeyGeneratorSpi {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class AES extends KeyGeneratorImpl {
         public AES() {
             super(h.q, 128);
@@ -144,7 +144,7 @@ public abstract class KeyGeneratorImpl extends KeyGeneratorSpi {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class ChaCha20 extends KeyGeneratorImpl {
         public ChaCha20() {
             super("ChaCha20", 256);
@@ -158,7 +158,7 @@ public abstract class KeyGeneratorImpl extends KeyGeneratorSpi {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class ARC4 extends KeyGeneratorImpl {
         public ARC4() {
             super("ARC4", 128);

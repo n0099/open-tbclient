@@ -12,7 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public static final int ALA_AUTHENT_STATUS_FAILED = 3;
     public static final int ALA_AUTHENT_STATUS_NOT = 0;

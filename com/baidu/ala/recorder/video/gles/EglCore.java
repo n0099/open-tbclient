@@ -11,7 +11,7 @@ import android.opengl.EGLSurface;
 import android.util.Log;
 import android.view.Surface;
 @TargetApi(18)
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class EglCore {
     private static final int EGL_RECORDABLE_ANDROID = 12610;
     public static final int FLAG_RECORDABLE = 1;

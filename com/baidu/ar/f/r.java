@@ -7,7 +7,7 @@ import java.util.zip.CRC32;
 import java.util.zip.CheckedInputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class r {
     private static void a(ZipInputStream zipInputStream, File file) {
         while (true) {

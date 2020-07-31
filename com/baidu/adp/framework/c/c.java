@@ -37,7 +37,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     public synchronized void registerTask(T t) {
         if (t != null) {
             int cmd = t.getCmd();
-            FrameHelper.V(cmd);
+            FrameHelper.X(cmd);
             this.mTasks.put(cmd, t);
         }
     }
@@ -75,7 +75,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             if (i == 0) {
                 i = messageListener.getCmd();
             }
-            FrameHelper.V(i);
+            FrameHelper.X(i);
             checkListenerLock(i);
             LinkedList<MessageListener<N>> linkedList = this.mListeners.get(i);
             if (linkedList == null) {

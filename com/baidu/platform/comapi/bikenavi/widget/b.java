@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.bikenavi.widget;
 
 import android.app.Activity;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b implements Runnable {
     final /* synthetic */ a a;
 

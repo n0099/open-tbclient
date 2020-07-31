@@ -1,23 +1,23 @@
 package com.baidu.cesium.c.d;
 
 import java.math.BigInteger;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class e implements d {
-    private BigInteger akN;
-    private BigInteger akO;
+    private BigInteger akI;
+    private BigInteger akJ;
 
     public e(byte[] bArr, byte[] bArr2) {
-        this.akN = new BigInteger(bArr);
-        this.akO = new BigInteger(bArr2);
+        this.akI = new BigInteger(bArr);
+        this.akJ = new BigInteger(bArr2);
     }
 
     @Override // com.baidu.cesium.c.d.d
-    public BigInteger sE() {
-        return this.akN;
+    public BigInteger sG() {
+        return this.akI;
     }
 
     @Override // com.baidu.cesium.c.d.d
-    public BigInteger sF() {
-        return this.akO;
+    public BigInteger sH() {
+        return this.akJ;
     }
 }

@@ -22,6 +22,7 @@ import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.sync.SyncAllMessage;
 import com.baidu.android.imsdk.chatmessage.sync.SyncGroupMessageService;
 import com.baidu.android.imsdk.conversation.ConversationManagerImpl;
+import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMSDK;
 import com.baidu.android.imsdk.internal.ListenerManager;
@@ -558,6 +559,7 @@ public final class Utility {
         ChatObjectCache.getInstance().removeAll();
         SyncGroupMessageService.getInstance().clear();
         ConversationManagerImpl.getInstance(context).clear();
+        ConversationStudioManImpl.getInstance(context).clear();
     }
 
     public static long getPaSyncDelay() {
@@ -867,7 +869,7 @@ public final class Utility {
             if (i == 23) {
                 return 9;
             }
-            if (i == 19) {
+            if (i == 19 || i == 29) {
                 return 10;
             }
             return i == 25 ? 20 : 3;

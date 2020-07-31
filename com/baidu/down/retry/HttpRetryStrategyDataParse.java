@@ -7,7 +7,6 @@ import android.webkit.URLUtil;
 import com.baidu.down.loopj.android.urlconnection.HttpURLExecutorRunnable;
 import com.baidu.down.request.taskmanager.HttpDNSCacheInfo;
 import com.baidu.down.request.taskmanager.TaskNetRequestMng;
-import com.baidu.down.utils.Constants;
 import com.baidu.down.utils.CryptUtil;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.Utils;
@@ -89,7 +88,7 @@ public class HttpRetryStrategyDataParse {
                                 if (jSONObject.optInt(HttpRetryStrategyDataParse.DOWNFLOW_FSTAT, 1) == 0 && optJSONObject != null) {
                                     httpDNSCacheInfo.mMode = Integer.parseInt(optJSONObject.optString(HttpRetryStrategyDataParse.DOWNFLOW_MODE, "-1"));
                                     httpDNSCacheInfo.mDownloadUri = optJSONObject.optString(HttpRetryStrategyDataParse.DOWNFLOW_DOWNLOAD_INNER, "");
-                                    httpDNSCacheInfo.mDownFlowLiveTime = optJSONObject.optInt(HttpRetryStrategyDataParse.DOWNFLOW_LIVE_TIME, Constants.HTTP_DNS_INAVAILABLE_TIME);
+                                    httpDNSCacheInfo.mDownFlowLiveTime = optJSONObject.optInt(HttpRetryStrategyDataParse.DOWNFLOW_LIVE_TIME, 600);
                                     httpDNSCacheInfo.mRetryRequestUrl = new ArrayList();
                                     if (httpDNSCacheInfo.mMode == 4 || httpDNSCacheInfo.mMode == 5 || httpDNSCacheInfo.mMode == 7) {
                                         JSONArray optJSONArray = optJSONObject.optJSONArray(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_ARR);
@@ -186,7 +185,7 @@ public class HttpRetryStrategyDataParse {
                                 }
                             }
                         } else if (optInt == 1) {
-                            httpDNSCacheInfo.mIpLiveTime = Constants.HTTP_DNS_INAVAILABLE_TIME;
+                            httpDNSCacheInfo.mIpLiveTime = 600;
                             httpDNSCacheInfo.mApn = Utils.getWifiOr2gOr3G(context);
                             httpDNSCacheInfo.mRequestTime = SystemClock.elapsedRealtime();
                         }

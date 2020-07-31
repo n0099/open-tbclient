@@ -1,5 +1,5 @@
 package com.baidu.searchbox.log.config;
-/* loaded from: classes13.dex */
+/* loaded from: classes11.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.log.config";
     public static final String BUILD_TYPE = "release";

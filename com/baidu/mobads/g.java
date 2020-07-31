@@ -1,10 +1,10 @@
 package com.baidu.mobads;
 
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class g {
     private static HashMap<String, String> b = new HashMap<>();
-    private static g bxD;
+    private static g bxS;
 
     private g() {
     }
@@ -12,10 +12,10 @@ public class g {
     public static synchronized g a() {
         g gVar;
         synchronized (g.class) {
-            if (bxD == null) {
-                bxD = new g();
+            if (bxS == null) {
+                bxS = new g();
             }
-            gVar = bxD;
+            gVar = bxS;
         }
         return gVar;
     }

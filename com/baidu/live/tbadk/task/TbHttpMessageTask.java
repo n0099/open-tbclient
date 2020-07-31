@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.task;
 import com.baidu.live.adp.framework.task.HttpMessageTask;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbHttpMessageTask extends HttpMessageTask {
     private Map<String, String> mCommonParams;
     private boolean mIsBDImage;

@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.servicearea;
 
 import android.view.View;
 import com.baidu.tieba.tbadkCore.y;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public interface b {
     View getView();
 

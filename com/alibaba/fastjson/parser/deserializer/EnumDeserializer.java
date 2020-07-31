@@ -7,7 +7,7 @@ import com.alibaba.fastjson.parser.JSONLexer;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class EnumDeserializer implements ObjectDeserializer {
     protected final Class<?> enumClass;
     protected long[] enumNameHashCodes;

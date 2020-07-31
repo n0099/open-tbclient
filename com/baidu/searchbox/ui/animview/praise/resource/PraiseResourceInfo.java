@@ -9,7 +9,7 @@ import com.baidu.searchbox.ui.animview.base.IResourceProvider;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes7.dex */
 public final class PraiseResourceInfo {
     private static final String JSON_KEY_MAX_HOST_VER = "max_host_ver";
     private static final String JSON_KEY_MIN_HOST_VER = "min_host_ver";

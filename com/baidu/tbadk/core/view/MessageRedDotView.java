@@ -16,29 +16,30 @@ import android.view.View;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class MessageRedDotView extends View {
-    private int beu;
-    private int eaL;
-    private boolean eaM;
-    private String eaN;
-    private int eaO;
-    private Rect eaP;
-    private int eaQ;
-    private int eaR;
-    private int eaS;
-    private RectF eaT;
-    private int eaU;
-    private int eaV;
-    private int eaW;
-    private int eaX;
-    private Paint eaY;
-    private RectF eaZ;
-    private boolean eba;
-    private int ebb;
+    private int beN;
+    private int egW;
+    private boolean egX;
+    private String egY;
+    private int egZ;
+    private Rect eha;
+    private int ehb;
+    private int ehc;
+    private int ehd;
+    private RectF ehe;
+    private int ehf;
+    private int ehg;
+    private int ehh;
+    private int ehi;
+    private Paint ehj;
+    private RectF ehk;
+    private boolean ehl;
+    private boolean ehm;
+    private int ehn;
     private Drawable mBackgroundDrawable;
     private Paint mShadowPaint;
     private int mShadowRadius;
@@ -48,33 +49,41 @@ public class MessageRedDotView extends View {
     public MessageRedDotView(@NonNull Context context) {
         super(context);
         this.mType = 1;
-        this.eba = false;
-        this.ebb = 3;
+        this.ehl = false;
+        this.ehm = false;
+        this.ehn = 3;
         initView();
     }
 
     public MessageRedDotView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mType = 1;
-        this.eba = false;
-        this.ebb = 3;
+        this.ehl = false;
+        this.ehm = false;
+        this.ehn = 3;
         initView();
     }
 
     public MessageRedDotView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mType = 1;
-        this.eba = false;
-        this.ebb = 3;
+        this.ehl = false;
+        this.ehm = false;
+        this.ehn = 3;
         initView();
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         if (this.mBackgroundDrawable != null) {
-            this.eaU = this.eaR >= this.eaS ? this.mShadowRadius + this.eaR : this.mShadowRadius + this.eaS;
-            setMeasuredDimension(this.mBackgroundDrawable.getIntrinsicWidth() + (this.eaU * 2), this.mBackgroundDrawable.getIntrinsicHeight() + (this.eaU * 2));
-            return;
+            this.ehf = this.ehc >= this.ehd ? this.mShadowRadius + this.ehc : this.mShadowRadius + this.ehd;
+            if (this.ehm) {
+                setMeasuredDimension(this.mBackgroundDrawable.getIntrinsicWidth() + (this.ehf * 2), this.mBackgroundDrawable.getIntrinsicHeight() + (this.ehf * 2));
+                return;
+            } else {
+                setMeasuredDimension(this.mBackgroundDrawable.getIntrinsicWidth(), this.mBackgroundDrawable.getIntrinsicHeight());
+                return;
+            }
         }
         setMeasuredDimension(0, 0);
     }
@@ -85,22 +94,26 @@ public class MessageRedDotView extends View {
         if (this.mBackgroundDrawable != null) {
             int intrinsicWidth = this.mBackgroundDrawable.getIntrinsicWidth();
             int intrinsicHeight = this.mBackgroundDrawable.getIntrinsicHeight();
-            if (this.eba) {
-                this.mBackgroundDrawable.setBounds(0, 0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds4) + intrinsicWidth, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds4) + intrinsicHeight);
+            if (this.ehm) {
+                if (this.ehl) {
+                    this.mBackgroundDrawable.setBounds(0, 0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds4) + intrinsicWidth, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds4) + intrinsicHeight);
+                } else {
+                    this.mBackgroundDrawable.setBounds(this.ehf, this.ehf, this.ehf + intrinsicWidth, this.ehf + intrinsicHeight);
+                }
             } else {
-                this.mBackgroundDrawable.setBounds(this.eaU, this.eaU, this.eaU + intrinsicWidth, this.eaU + intrinsicHeight);
+                this.mBackgroundDrawable.setBounds(0, 0, intrinsicWidth, intrinsicHeight);
             }
             this.mBackgroundDrawable.draw(canvas);
-            if (!this.eba) {
-                this.eaT.set(this.eaU, this.eaU, this.eaU + intrinsicWidth, this.eaU + intrinsicHeight);
+            if (!this.ehl && this.ehm) {
+                this.ehe.set(this.ehf, this.ehf, this.ehf + intrinsicWidth, this.ehf + intrinsicHeight);
                 if (intrinsicWidth != intrinsicHeight) {
-                    canvas.drawRoundRect(this.eaT, this.eaV, this.eaV, this.mShadowPaint);
+                    canvas.drawRoundRect(this.ehe, this.ehg, this.ehg, this.mShadowPaint);
                 } else {
-                    canvas.drawOval(this.eaT, this.mShadowPaint);
+                    canvas.drawOval(this.ehe, this.mShadowPaint);
                 }
             }
-            if (!ar.isEmpty(this.eaN)) {
-                if (this.eaN.equals(StringHelper.STRING_MORE)) {
+            if (!as.isEmpty(this.egY)) {
+                if (this.egY.equals(StringHelper.STRING_MORE)) {
                     y(canvas);
                 } else {
                     z(canvas);
@@ -111,80 +124,90 @@ public class MessageRedDotView extends View {
 
     private void y(Canvas canvas) {
         if (this.mBackgroundDrawable != null) {
-            int intrinsicWidth = this.eaU + (this.mBackgroundDrawable.getIntrinsicWidth() / 2);
-            int intrinsicHeight = (this.mBackgroundDrawable.getIntrinsicHeight() / 2) + this.eaU;
-            if (this.eba) {
+            int intrinsicWidth = this.ehf + (this.mBackgroundDrawable.getIntrinsicWidth() / 2);
+            int intrinsicHeight = (this.mBackgroundDrawable.getIntrinsicHeight() / 2) + this.ehf;
+            if (this.ehl || !this.ehm) {
                 Rect bounds = this.mBackgroundDrawable.getBounds();
                 intrinsicWidth = bounds.width() / 2;
                 intrinsicHeight = bounds.height() / 2;
             }
-            int i = intrinsicWidth - (this.eaW / 2);
-            int i2 = intrinsicHeight - (this.eaW / 2);
-            int i3 = intrinsicWidth + (this.eaW / 2);
-            int i4 = intrinsicHeight + (this.eaW / 2);
-            this.eaZ.set(i, i2, i3, i4);
-            canvas.drawOval(this.eaZ, this.eaY);
-            this.eaZ.set((i - this.eaX) - this.eaW, i2, i - this.eaX, i4);
-            canvas.drawOval(this.eaZ, this.eaY);
-            this.eaZ.set(this.eaX + i3, i2, i3 + this.eaX + this.eaW, i4);
-            canvas.drawOval(this.eaZ, this.eaY);
+            int i = intrinsicWidth - (this.ehh / 2);
+            int i2 = intrinsicHeight - (this.ehh / 2);
+            int i3 = intrinsicWidth + (this.ehh / 2);
+            int i4 = intrinsicHeight + (this.ehh / 2);
+            this.ehk.set(i, i2, i3, i4);
+            canvas.drawOval(this.ehk, this.ehj);
+            this.ehk.set((i - this.ehi) - this.ehh, i2, i - this.ehi, i4);
+            canvas.drawOval(this.ehk, this.ehj);
+            this.ehk.set(this.ehi + i3, i2, i3 + this.ehi + this.ehh, i4);
+            canvas.drawOval(this.ehk, this.ehj);
         }
     }
 
     private void z(Canvas canvas) {
-        if (!ar.isEmpty(this.eaN) && this.mBackgroundDrawable != null) {
-            this.mTextPaint.getTextBounds(this.eaN, 0, this.eaN.length(), this.eaP);
+        if (!as.isEmpty(this.egY) && this.mBackgroundDrawable != null) {
+            this.mTextPaint.getTextBounds(this.egY, 0, this.egY.length(), this.eha);
             Paint.FontMetrics fontMetrics = this.mTextPaint.getFontMetrics();
-            int intrinsicWidth = this.eaU + (this.mBackgroundDrawable.getIntrinsicWidth() / 2);
+            int intrinsicWidth = this.ehf + (this.mBackgroundDrawable.getIntrinsicWidth() / 2);
             float dimension = (getResources().getDimension(R.dimen.tbds10) + fontMetrics.bottom) - fontMetrics.ascent;
-            if (this.eba) {
-                Rect bounds = this.mBackgroundDrawable.getBounds();
-                intrinsicWidth = bounds.width() / 2;
-                dimension = (bounds.height() / 2) - (fontMetrics.descent - ((fontMetrics.descent + (-fontMetrics.ascent)) / 2.0f));
+            if (this.ehm) {
+                if (this.ehl) {
+                    Rect bounds = this.mBackgroundDrawable.getBounds();
+                    intrinsicWidth = bounds.width() / 2;
+                    dimension = (bounds.height() / 2) - (fontMetrics.descent - ((fontMetrics.descent + (-fontMetrics.ascent)) / 2.0f));
+                }
+            } else {
+                intrinsicWidth = this.mBackgroundDrawable.getIntrinsicWidth() / 2;
+                dimension = (this.mBackgroundDrawable.getIntrinsicHeight() / 2) - (fontMetrics.descent - ((fontMetrics.descent + (-fontMetrics.ascent)) / 2.0f));
             }
-            canvas.drawText(this.eaN, intrinsicWidth, dimension, this.mTextPaint);
+            canvas.drawText(this.egY, intrinsicWidth, dimension, this.mTextPaint);
         }
     }
 
     private void initView() {
         setLayerType(1, null);
-        aXS();
+        bbS();
         this.mTextPaint = new Paint(1);
-        this.mTextPaint.setColor(an.getColor(R.color.cp_cont_a));
-        if (this.eba) {
+        this.mTextPaint.setColor(ao.getColor(R.color.cp_cont_a));
+        if (this.ehm) {
+            if (this.ehl) {
+                this.mTextPaint.setTextSize(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbfontsize28));
+                this.mTextPaint.setTypeface(Typeface.DEFAULT_BOLD);
+            } else {
+                this.mTextPaint.setTextSize(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbfontsize26));
+                this.mTextPaint.setTypeface(Typeface.MONOSPACE);
+            }
+        } else {
             this.mTextPaint.setTextSize(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbfontsize28));
             this.mTextPaint.setTypeface(Typeface.DEFAULT_BOLD);
-        } else {
-            this.mTextPaint.setTextSize(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbfontsize26));
-            this.mTextPaint.setTypeface(Typeface.MONOSPACE);
         }
         this.mTextPaint.setTextAlign(Paint.Align.CENTER);
-        this.eaP = new Rect();
-        this.beu = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds13);
-        this.eaQ = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42);
+        this.eha = new Rect();
+        this.beN = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds13);
+        this.ehb = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42);
         this.mShadowPaint = new Paint();
         this.mShadowPaint.setAntiAlias(true);
         this.mShadowPaint.setStyle(Paint.Style.FILL);
-        this.mShadowPaint.setColor(an.getColor(R.color.transparent));
-        this.eaR = 0;
+        this.mShadowPaint.setColor(ao.getColor(R.color.transparent));
+        this.ehc = 0;
         this.mShadowRadius = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds8);
-        this.eaS = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds3);
-        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.eaR, this.eaS, an.getColor(R.color.cp_cont_h_alpha66));
-        this.eaT = new RectF();
-        this.eaV = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds21);
-        this.eaW = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds8);
-        this.eaX = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds6);
-        this.eaY = new Paint();
-        this.eaY.setAntiAlias(true);
-        this.eaY.setStyle(Paint.Style.FILL);
-        this.eaY.setColor(an.getColor(R.color.cp_cont_a));
-        this.eaZ = new RectF();
+        this.ehd = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds3);
+        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.ehc, this.ehd, ao.getColor(R.color.cp_cont_h_alpha66));
+        this.ehe = new RectF();
+        this.ehg = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds21);
+        this.ehh = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds8);
+        this.ehi = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds6);
+        this.ehj = new Paint();
+        this.ehj.setAntiAlias(true);
+        this.ehj.setStyle(Paint.Style.FILL);
+        this.ehj.setColor(ao.getColor(R.color.cp_cont_a));
+        this.ehk = new RectF();
     }
 
-    private void aXS() {
+    private void bbS() {
         String str = Build.MODEL;
         if (str.contains(RomUtils.MANUFACTURER_VIVO) && str.contains("X20")) {
-            this.eaO = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds2);
+            this.egZ = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds2);
         }
     }
 
@@ -193,28 +216,28 @@ public class MessageRedDotView extends View {
         int i2;
         if (i <= 0) {
             i2 = R.drawable.icon_news_red_dot;
-            this.eaN = null;
+            this.egY = null;
         } else if (i < 10) {
-            this.eaN = String.valueOf(i);
+            this.egY = String.valueOf(i);
             i2 = R.drawable.icon_news_red_dot_one_number;
         } else if (i < 100) {
-            this.eaN = String.valueOf(i);
+            this.egY = String.valueOf(i);
             i2 = R.drawable.icon_news_red_dot_two_number;
         } else if (this.mType == 1) {
-            this.eaN = StringHelper.STRING_MORE;
+            this.egY = StringHelper.STRING_MORE;
             i2 = R.drawable.icon_news_red_dot_three_dot_number;
         } else if (this.mType == 2) {
-            this.eaN = "99+";
+            this.egY = "99+";
             i2 = R.drawable.icon_news_red_dot_three_number;
         } else {
             i2 = 0;
         }
-        if (i2 != this.eaL) {
-            this.eaM = true;
+        if (i2 != this.egW) {
+            this.egX = true;
         } else {
-            this.eaM = false;
+            this.egX = false;
         }
-        this.eaL = i2;
+        this.egW = i2;
         onChangeSkinType();
     }
 
@@ -223,25 +246,29 @@ public class MessageRedDotView extends View {
     }
 
     public void setEnterForumStyle(boolean z) {
-        this.eba = z;
+        this.ehl = z;
     }
 
     public void onChangeSkinType() {
-        this.ebb = TbadkApplication.getInst().getSkinType();
-        if (this.eaL > 0) {
-            this.mBackgroundDrawable = an.getDrawable(this.eaL);
+        this.ehn = TbadkApplication.getInst().getSkinType();
+        if (this.egW > 0) {
+            this.mBackgroundDrawable = ao.getDrawable(this.egW);
         } else if (this.mBackgroundDrawable instanceof GradientDrawable) {
-            ((GradientDrawable) this.mBackgroundDrawable).setColor(an.getColor(R.color.cp_cont_h));
+            ((GradientDrawable) this.mBackgroundDrawable).setColor(ao.getColor(R.color.cp_cont_h));
         }
-        this.eaY.setColor(an.getColor(R.color.cp_cont_a));
+        this.ehj.setColor(ao.getColor(R.color.cp_cont_a));
         if (this.mTextPaint != null) {
-            this.mTextPaint.setColor(an.getColor(R.color.cp_cont_a));
+            this.mTextPaint.setColor(ao.getColor(R.color.cp_cont_a));
         }
-        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.eaR, this.eaS, an.getColor(R.color.cp_cont_h_alpha66));
-        if (this.eaM) {
-            this.eaM = false;
+        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.ehc, this.ehd, ao.getColor(R.color.cp_cont_h_alpha66));
+        if (this.egX) {
+            this.egX = false;
             requestLayout();
         }
         invalidate();
+    }
+
+    public void setShadowEnabled(boolean z) {
+        this.ehm = z;
     }
 }

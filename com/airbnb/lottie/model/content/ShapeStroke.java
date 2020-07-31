@@ -4,7 +4,7 @@ import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.a.q;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class ShapeStroke implements b {
     private final com.airbnb.lottie.model.a.a DT;
     @Nullable
@@ -17,7 +17,7 @@ public class ShapeStroke implements b {
     private final List<com.airbnb.lottie.model.a.b> Es;
     private final String name;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes20.dex */
     public enum LineCapType {
         Butt,
         Round,
@@ -35,7 +35,7 @@ public class ShapeStroke implements b {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes20.dex */
     public enum LineJoinType {
         Miter,
         Round,

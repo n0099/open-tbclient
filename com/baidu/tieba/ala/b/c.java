@@ -30,13 +30,13 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends d {
-    private RelativeLayout fBF;
-    private TextView fBG;
-    private a fBZ;
-    private g fCa;
-    private ArrayList<g> fCb;
+    private RelativeLayout fGP;
+    private TextView fGQ;
+    private a fHj;
+    private g fHk;
+    private ArrayList<g> fHl;
     private BdListView mListView;
 
     public c(AlaChooseGiftActivity alaChooseGiftActivity, FrameLayout frameLayout, String str, ArrayList<String> arrayList, int i, int i2) {
@@ -44,30 +44,30 @@ public class c extends d {
     }
 
     @Override // com.baidu.tieba.ala.b.d
-    protected int bwj() {
+    protected int bzx() {
         return a.h.ala_choose_num_and_date;
     }
 
     @Override // com.baidu.tieba.ala.b.d
     protected void initView() {
-        this.fBF = (RelativeLayout) this.mRootView.findViewById(a.g.choose_bottom_layout);
-        this.fBF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.b.c.1
+        this.fGP = (RelativeLayout) this.mRootView.findViewById(a.g.choose_bottom_layout);
+        this.fGP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.b.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.brB();
+                c.this.buH();
             }
         });
-        this.fBG = (TextView) this.mRootView.findViewById(a.g.choose_bottom_tip);
-        this.fBG.setText(a.i.sdk_choose_custom_number_tip);
+        this.fGQ = (TextView) this.mRootView.findViewById(a.g.choose_bottom_tip);
+        this.fGQ.setText(a.i.sdk_choose_custom_number_tip);
         this.mListView = (BdListView) this.mRootView.findViewById(a.g.choose_gift_listview);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.b.c.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                if (i >= 0 && i < c.this.fCb.size()) {
-                    c.this.fCa = (g) c.this.fCb.get(i);
-                    if (c.this.fCa != null) {
-                        c.this.fCg = c.this.fCa.getNumber();
-                        c.this.fBZ.qF(c.this.fCg);
+                if (i >= 0 && i < c.this.fHl.size()) {
+                    c.this.fHk = (g) c.this.fHl.get(i);
+                    if (c.this.fHk != null) {
+                        c.this.fHq = c.this.fHk.getNumber();
+                        c.this.fHj.qU(c.this.fHq);
                     }
                 }
             }
@@ -75,7 +75,7 @@ public class c extends d {
     }
 
     @Override // com.baidu.tieba.ala.b.d
-    public void e(TextView textView) {
+    public void g(TextView textView) {
         textView.setText(a.i.sdk_choose_number_title);
     }
 
@@ -91,38 +91,38 @@ public class c extends d {
     }
 
     @Override // com.baidu.tieba.ala.b.d
-    public void aF(int i, String str) {
+    public void aH(int i, String str) {
         e((AlaSdkGetGiftListHttpResponseMessage) null);
     }
 
     private void e(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage) {
         if (alaSdkGetGiftListHttpResponseMessage != null) {
-            this.fCb = alaSdkGetGiftListHttpResponseMessage.AU();
+            this.fHl = alaSdkGetGiftListHttpResponseMessage.Bw();
         }
-        if (ListUtils.isEmpty(this.fCb)) {
-            bwk();
+        if (ListUtils.isEmpty(this.fHl)) {
+            bzy();
         }
-        if (this.fCg > 0) {
-            Iterator<g> it = this.fCb.iterator();
+        if (this.fHq > 0) {
+            Iterator<g> it = this.fHl.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 g next = it.next();
-                if (next != null && this.fCg == next.getNumber()) {
-                    this.fCa = next;
+                if (next != null && this.fHq == next.getNumber()) {
+                    this.fHk = next;
                     break;
                 }
             }
         }
-        this.fBZ = new a(this.fCd.getPageContext());
-        this.mListView.setAdapter((ListAdapter) this.fBZ);
-        this.fBZ.setGiftNum(this.fCg);
-        this.fBZ.setData(this.fCb);
+        this.fHj = new a(this.fHn.getPageContext());
+        this.mListView.setAdapter((ListAdapter) this.fHj);
+        this.fHj.setGiftNum(this.fHq);
+        this.fHj.setData(this.fHl);
     }
 
-    private void bwk() {
-        this.fCb = new ArrayList<>();
+    private void bzy() {
+        this.fHl = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
             g gVar = new g();
             switch (i) {
@@ -151,22 +151,22 @@ public class c extends d {
                     gVar.name = "一生一世";
                     break;
             }
-            this.fCb.add(gVar);
+            this.fHl.add(gVar);
         }
     }
 
     @Override // com.baidu.tieba.ala.b.d
     public void confirm() {
-        if (this.fCa != null) {
-            h(this.fCa.number, this.fCa.name, false);
+        if (this.fHk != null) {
+            h(this.fHk.number, this.fHk.name, false);
         } else {
-            this.fCd.finish();
+            this.fHn.finish();
         }
     }
 
     @Override // com.baidu.tieba.ala.b.d
-    public void qC(int i) {
-        super.qC(i);
+    public void qR(int i) {
+        super.qR(i);
         h(i, "", true);
     }
 
@@ -174,10 +174,10 @@ public class c extends d {
     public void a(CharSequence charSequence, int i, int i2, int i3) {
         super.a(charSequence, i, i2, i3);
         if (JavaTypesHelper.toInt(charSequence.toString(), 0) > 9999) {
-            this.fec.getEditView().setText("9999");
-            this.fec.getEditView().setSelection(this.fec.getEditView().getText().length());
+            this.fiV.getEditView().setText("9999");
+            this.fiV.getEditView().setSelection(this.fiV.getEditView().getText().length());
         }
-        this.fec.setSendEnabled(true);
+        this.fiV.setSendEnabled(true);
     }
 
     private void h(int i, String str, boolean z) {
@@ -191,8 +191,8 @@ public class c extends d {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        this.fCd.setResult(-1, intent);
-        this.fCd.finish();
+        this.fHn.setResult(-1, intent);
+        this.fHn.finish();
     }
 
     @Override // com.baidu.tieba.ala.b.d
@@ -201,7 +201,7 @@ public class c extends d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends BaseAdapter {
         private List<g> dataList;
         private Context mContext;
@@ -215,7 +215,7 @@ public class c extends d {
             this.mGiftNum = i;
         }
 
-        public void qF(int i) {
+        public void qU(int i) {
             if (this.mGiftNum != i) {
                 this.mGiftNum = i;
                 notifyDataSetChanged();
@@ -237,7 +237,7 @@ public class c extends d {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        /* renamed from: cb */
+        /* renamed from: ch */
         public g getItem(int i) {
             if (this.dataList == null) {
                 return null;
@@ -256,9 +256,9 @@ public class c extends d {
             if (view == null) {
                 b bVar2 = new b();
                 view = LayoutInflater.from(this.mContext).inflate(a.h.ala_choose_num_and_date_item, viewGroup, false);
-                bVar2.fBN = (RelativeLayout) view.findViewById(a.g.item_root);
-                bVar2.fBO = (TextView) view.findViewById(a.g.item_num_title);
-                bVar2.fBP = (ImageView) view.findViewById(a.g.item_num_arrow);
+                bVar2.fGX = (RelativeLayout) view.findViewById(a.g.item_root);
+                bVar2.fGY = (TextView) view.findViewById(a.g.item_num_title);
+                bVar2.fGZ = (ImageView) view.findViewById(a.g.item_num_arrow);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
@@ -266,22 +266,22 @@ public class c extends d {
             }
             g item = getItem(i);
             if (item != null) {
-                bVar.fBO.setText(item.getNumber() + " " + item.getName());
+                bVar.fGY.setText(item.getNumber() + " " + item.getName());
                 if (item.getNumber() == this.mGiftNum) {
-                    bVar.fBP.setVisibility(0);
+                    bVar.fGZ.setVisibility(0);
                 } else {
-                    bVar.fBP.setVisibility(8);
+                    bVar.fGZ.setVisibility(8);
                 }
             }
             return view;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private class b {
-        public RelativeLayout fBN;
-        public TextView fBO;
-        public ImageView fBP;
+        public RelativeLayout fGX;
+        public TextView fGY;
+        public ImageView fGZ;
 
         private b() {
         }

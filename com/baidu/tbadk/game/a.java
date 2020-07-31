@@ -12,18 +12,18 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tieba.R;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class a {
-    private static a ewW = new a();
-    private GameInfoData ewX;
-    private final c ewY = new c(CmdConfigSocket.CMD_GET_GAME_DETAIL) { // from class: com.baidu.tbadk.game.a.2
+    private static a eDp = new a();
+    private GameInfoData eDq;
+    private final c eDr = new c(CmdConfigSocket.CMD_GET_GAME_DETAIL) { // from class: com.baidu.tbadk.game.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseGameDetailMessage) && !socketResponsedMessage.hasError()) {
                 ResponseGameDetailMessage responseGameDetailMessage = (ResponseGameDetailMessage) socketResponsedMessage;
                 if (responseGameDetailMessage.getOrginalMessage() instanceof RequestGameDetailMessage) {
-                    a.this.ewX = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
+                    a.this.eDq = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
                 }
             }
         }
@@ -31,25 +31,25 @@ public class a {
     private String mUrl;
 
     private a() {
-        MessageManager.getInstance().registerListener(this.ewY);
+        MessageManager.getInstance().registerListener(this.eDr);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tbadk.game.a.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, a.this.bgq());
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, a.this.bkb());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static a bgn() {
-        return ewW;
+    public static a bjY() {
+        return eDp;
     }
 
-    private GameInfoData bgo() {
+    private GameInfoData bjZ() {
         GameInfoData gameInfoData = new GameInfoData();
         gameInfoData.setGameName(TbadkApplication.getInst().getContext().getString(R.string.default_share_to_game_title));
         gameInfoData.setGameLink(this.mUrl);
@@ -59,19 +59,19 @@ public class a {
         return gameInfoData;
     }
 
-    public GameInfoData bgp() {
-        return this.ewX == null ? bgo() : this.ewX;
+    public GameInfoData bka() {
+        return this.eDq == null ? bjZ() : this.eDq;
     }
 
-    public ShareFromGameCenterMsgData bgq() {
-        GameInfoData bgp = bgp();
+    public ShareFromGameCenterMsgData bkb() {
+        GameInfoData bka = bka();
         ShareFromGameCenterMsgData shareFromGameCenterMsgData = new ShareFromGameCenterMsgData();
-        shareFromGameCenterMsgData.setTitle(StringUtils.isNull(GameShareJsBridge.getInstance().getShareTitle(), true) ? bgp.getGameName() : GameShareJsBridge.getInstance().getShareTitle());
-        shareFromGameCenterMsgData.setContent(StringUtils.isNull(GameShareJsBridge.getInstance().getShareContent(), true) ? bgp.getIntroduce() : GameShareJsBridge.getInstance().getShareContent());
-        shareFromGameCenterMsgData.setImageUrl(StringUtils.isNull(GameShareJsBridge.getInstance().getShareImage(), true) ? bgp.getIconUrl() : GameShareJsBridge.getInstance().getShareImage());
-        shareFromGameCenterMsgData.setShareSource(StringUtils.isNull(GameShareJsBridge.getInstance().getShareName(), true) ? bgp.getGameName() : GameShareJsBridge.getInstance().getShareName());
-        shareFromGameCenterMsgData.setShareSourceIcon(StringUtils.isNull(GameShareJsBridge.getInstance().getIconUrl(), true) ? bgp.getIconUrl() : GameShareJsBridge.getInstance().getIconUrl());
-        String gameId = StringUtils.isNull(GameShareJsBridge.getInstance().getGameId(), true) ? bgp.getGameId() : GameShareJsBridge.getInstance().getGameId();
+        shareFromGameCenterMsgData.setTitle(StringUtils.isNull(GameShareJsBridge.getInstance().getShareTitle(), true) ? bka.getGameName() : GameShareJsBridge.getInstance().getShareTitle());
+        shareFromGameCenterMsgData.setContent(StringUtils.isNull(GameShareJsBridge.getInstance().getShareContent(), true) ? bka.getIntroduce() : GameShareJsBridge.getInstance().getShareContent());
+        shareFromGameCenterMsgData.setImageUrl(StringUtils.isNull(GameShareJsBridge.getInstance().getShareImage(), true) ? bka.getIconUrl() : GameShareJsBridge.getInstance().getShareImage());
+        shareFromGameCenterMsgData.setShareSource(StringUtils.isNull(GameShareJsBridge.getInstance().getShareName(), true) ? bka.getGameName() : GameShareJsBridge.getInstance().getShareName());
+        shareFromGameCenterMsgData.setShareSourceIcon(StringUtils.isNull(GameShareJsBridge.getInstance().getIconUrl(), true) ? bka.getIconUrl() : GameShareJsBridge.getInstance().getIconUrl());
+        String gameId = StringUtils.isNull(GameShareJsBridge.getInstance().getGameId(), true) ? bka.getGameId() : GameShareJsBridge.getInstance().getGameId();
         if ("default".equals(gameId)) {
             shareFromGameCenterMsgData.setShareSourceUrl(gameId);
         } else {
@@ -79,7 +79,7 @@ public class a {
         }
         String shareContentUrl = GameShareJsBridge.getInstance().getShareContentUrl();
         if (StringUtils.isNull(shareContentUrl)) {
-            shareContentUrl = bgp.getGameLink();
+            shareContentUrl = bka.getGameLink();
         }
         if (StringUtils.isNull(shareContentUrl, true)) {
             shareContentUrl = "";

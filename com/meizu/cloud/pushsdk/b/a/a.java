@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.b.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class a {
     private static boolean a = false;
     private static String b = "AndroidNetworking";

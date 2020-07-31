@@ -31,7 +31,7 @@ public final class CallbackCompletableObserver extends AtomicReference<io.reacti
         try {
             this.onComplete.run();
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.L(th);
+            io.reactivex.exceptions.a.K(th);
             io.reactivex.e.a.onError(th);
         }
         lazySet(DisposableHelper.DISPOSED);
@@ -42,7 +42,7 @@ public final class CallbackCompletableObserver extends AtomicReference<io.reacti
         try {
             this.onError.accept(th);
         } catch (Throwable th2) {
-            io.reactivex.exceptions.a.L(th2);
+            io.reactivex.exceptions.a.K(th2);
             io.reactivex.e.a.onError(th2);
         }
         lazySet(DisposableHelper.DISPOSED);

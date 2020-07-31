@@ -1,6 +1,6 @@
 package org.apache.http.conn.scheme;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public final class Scheme {
     public Scheme(String str, SocketFactory socketFactory, int i) {
         throw new RuntimeException("Stub!");

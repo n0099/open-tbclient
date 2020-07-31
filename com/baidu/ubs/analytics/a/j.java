@@ -1,15 +1,15 @@
 package com.baidu.ubs.analytics.a;
 
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class j {
-    private h mEN = new h();
+    private h mMR = new h();
 
-    public final List<i> dxi() {
-        return this.mEN.dxi();
+    public final List<i> dAv() {
+        return this.mMR.dAv();
     }
 
     public final void a(int i) {
-        this.mEN.a(i);
+        this.mMR.a(i);
     }
 }

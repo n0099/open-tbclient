@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.imagemanager.TbImageMemoryCache;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RoundCornerImageAction extends ImageAction {
     private static final String ACTION_NAME = "round_corner";
     private float roundPx;

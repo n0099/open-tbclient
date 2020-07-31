@@ -8,10 +8,10 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.v4.view.ViewCompat;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class BitmapClip {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public enum ClipType {
         ALL,
         LEFT,

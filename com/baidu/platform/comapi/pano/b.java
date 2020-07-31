@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.pano;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.platform.comapi.pano.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b extends HttpClient.ProtoResultCallback {
     final /* synthetic */ a.InterfaceC0225a a;
     final /* synthetic */ a b;

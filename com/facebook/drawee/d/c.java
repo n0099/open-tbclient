@@ -3,11 +3,11 @@ package com.facebook.drawee.d;
 import android.graphics.drawable.Drawable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes13.dex */
+/* loaded from: classes9.dex */
 public interface c extends b {
-    void D(Throwable th);
+    void C(Throwable th);
 
-    void E(Throwable th);
+    void D(Throwable th);
 
     void a(Drawable drawable, float f, boolean z);
 

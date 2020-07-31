@@ -3,11 +3,11 @@ package com.baidu.swan.support.v4.c;
 import android.graphics.Paint;
 import android.os.Build;
 import android.view.View;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class f {
-    static final k dtI;
+    static final k dzx;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     interface k {
         boolean canScrollVertically(View view, int i);
 
@@ -20,7 +20,7 @@ public class f {
         void setSaveFromParentEnabled(View view, boolean z);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     static class a implements k {
         a() {
         }
@@ -49,19 +49,19 @@ public class f {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     static class b extends a {
         b() {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     static class c extends b {
         c() {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     static class d extends c {
         d() {
         }
@@ -82,9 +82,9 @@ public class f {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     static class e extends d {
-        static boolean dtJ = false;
+        static boolean dzy = false;
 
         e() {
         }
@@ -96,9 +96,9 @@ public class f {
     }
 
     /* renamed from: com.baidu.swan.support.v4.c.f$f  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    static class C0466f extends e {
-        C0466f() {
+    /* loaded from: classes9.dex */
+    static class C0478f extends e {
+        C0478f() {
         }
 
         @Override // com.baidu.swan.support.v4.c.f.a, com.baidu.swan.support.v4.c.f.k
@@ -107,25 +107,25 @@ public class f {
         }
     }
 
-    /* loaded from: classes11.dex */
-    static class g extends C0466f {
+    /* loaded from: classes9.dex */
+    static class g extends C0478f {
         g() {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     static class h extends g {
         h() {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     static class i extends h {
         i() {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     static class j extends i {
         j() {
         }
@@ -133,29 +133,29 @@ public class f {
 
     static {
         if (Build.VERSION.SDK_INT >= 21) {
-            dtI = new j();
+            dzx = new j();
         } else {
-            dtI = new i();
+            dzx = new i();
         }
     }
 
     public static boolean canScrollVertically(View view, int i2) {
-        return dtI.canScrollVertically(view, i2);
+        return dzx.canScrollVertically(view, i2);
     }
 
     public static void setLayerType(View view, int i2, Paint paint) {
-        dtI.setLayerType(view, i2, paint);
+        dzx.setLayerType(view, i2, paint);
     }
 
     public static int getLayerType(View view) {
-        return dtI.getLayerType(view);
+        return dzx.getLayerType(view);
     }
 
     public static void setSaveFromParentEnabled(View view, boolean z) {
-        dtI.setSaveFromParentEnabled(view, z);
+        dzx.setSaveFromParentEnabled(view, z);
     }
 
     public static boolean hasOverlappingRendering(View view) {
-        return dtI.hasOverlappingRendering(view);
+        return dzx.hasOverlappingRendering(view);
     }
 }

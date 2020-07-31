@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class g {
     public static final String a = "g";
     private static final String b = "file:///android_asset/";

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ex implements et {
     private void a(Service service, Intent intent) {
         if ("com.xiaomi.mipush.sdk.WAKEUP".equals(intent.getAction())) {
@@ -68,7 +68,7 @@ public class ex implements et {
     @Override // com.xiaomi.push.et
     public void a(Context context, ep epVar) {
         if (epVar != null) {
-            a(context, epVar.m260a(), epVar.c(), epVar.d());
+            a(context, epVar.m261a(), epVar.c(), epVar.d());
         }
     }
 }

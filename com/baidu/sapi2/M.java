@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.result.GetTplStokenResult;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class M extends GetTplStokenCallback {
     final /* synthetic */ Context a;
     final /* synthetic */ SapiAccountService b;

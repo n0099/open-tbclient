@@ -11,20 +11,20 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicPkView;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class TopicDetailHeadView extends RelativeLayout {
-    private TbImageView fqn;
-    private TbImageView hgp;
-    private TextView hgs;
-    private LinearLayout iyG;
-    private View iyH;
-    public TopicPkView iyI;
-    private TopicTimelineView iyJ;
+    private TbImageView fvx;
+    private TbImageView hlZ;
+    private TextView hmc;
+    private LinearLayout iEK;
+    private View iEL;
+    public TopicPkView iEM;
+    private TopicTimelineView iEN;
     private int mSkinType;
 
     public TopicDetailHeadView(Context context) {
@@ -47,25 +47,25 @@ public class TopicDetailHeadView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.topic_detail_head_view_layout, (ViewGroup) this, true);
-        this.fqn = (TbImageView) findViewById(R.id.topic_detail_head_bg);
-        this.fqn.setDrawingCacheEnabled(true);
-        this.hgs = (TextView) findViewById(R.id.topic_detail_head_des);
-        this.iyG = (LinearLayout) findViewById(R.id.topic_detail_head_img_layout);
-        this.hgp = (TbImageView) findViewById(R.id.topic_detail_head_img);
-        this.iyH = findViewById(R.id.topic_detail_head_img_placeholder);
-        this.iyI = (TopicPkView) findViewById(R.id.topic_detail_head_pk);
-        this.iyJ = (TopicTimelineView) findViewById(R.id.topic_detail_head_timeline);
-        ViewGroup.LayoutParams layoutParams = this.hgp.getLayoutParams();
+        this.fvx = (TbImageView) findViewById(R.id.topic_detail_head_bg);
+        this.fvx.setDrawingCacheEnabled(true);
+        this.hmc = (TextView) findViewById(R.id.topic_detail_head_des);
+        this.iEK = (LinearLayout) findViewById(R.id.topic_detail_head_img_layout);
+        this.hlZ = (TbImageView) findViewById(R.id.topic_detail_head_img);
+        this.iEL = findViewById(R.id.topic_detail_head_img_placeholder);
+        this.iEM = (TopicPkView) findViewById(R.id.topic_detail_head_pk);
+        this.iEN = (TopicTimelineView) findViewById(R.id.topic_detail_head_timeline);
+        ViewGroup.LayoutParams layoutParams = this.hlZ.getLayoutParams();
         layoutParams.height = ((l.getEquipmentWidth(getContext()) - l.getDimens(getContext(), R.dimen.tbds88)) * 9) / 16;
-        this.hgp.setLayoutParams(layoutParams);
-        this.hgp.setRadius(l.getDimens(context, R.dimen.tbds10));
-        this.hgp.setConrers(15);
-        this.hgp.setPlaceHolder(3);
+        this.hlZ.setLayoutParams(layoutParams);
+        this.hlZ.setRadius(l.getDimens(context, R.dimen.tbds10));
+        this.hlZ.setConrers(15);
+        this.hlZ.setPlaceHolder(3);
         onChangeSkinType();
     }
 
     public TbImageView getmBgImg() {
-        return this.fqn;
+        return this.fvx;
     }
 
     public void setData(com.baidu.tieba.homepage.topic.topicdetail.b.b bVar) {
@@ -74,44 +74,44 @@ public class TopicDetailHeadView extends RelativeLayout {
             return;
         }
         setVisibility(0);
-        if (bVar.iyj == null && StringUtils.isNull(bVar.iyh)) {
-            ((LinearLayout.LayoutParams) this.hgs.getLayoutParams()).bottomMargin = l.getDimens(getContext(), R.dimen.tbds130);
+        if (bVar.iEn == null && StringUtils.isNull(bVar.iEl)) {
+            ((LinearLayout.LayoutParams) this.hmc.getLayoutParams()).bottomMargin = l.getDimens(getContext(), R.dimen.tbds130);
         }
-        this.hgs.setText(bVar.dKy);
-        if (StringUtils.isNull(bVar.iyh)) {
-            this.iyG.setVisibility(8);
-            this.fqn.setDefaultBgResource(R.drawable.topic_detail_default_bg);
+        this.hmc.setText(bVar.dQK);
+        if (StringUtils.isNull(bVar.iEl)) {
+            this.iEK.setVisibility(8);
+            this.fvx.setDefaultBgResource(R.drawable.topic_detail_default_bg);
         } else {
-            this.iyG.setVisibility(0);
-            this.hgp.startLoad(bVar.iyh, 10, false);
-            this.fqn.setDefaultBgResource(R.drawable.topic_detail_img_default_bg);
+            this.iEK.setVisibility(0);
+            this.hlZ.startLoad(bVar.iEl, 10, false);
+            this.fvx.setDefaultBgResource(R.drawable.topic_detail_img_default_bg);
         }
-        if (bVar.iyj == null) {
-            this.iyH.setVisibility(8);
-            this.iyI.setVisibility(8);
+        if (bVar.iEn == null) {
+            this.iEL.setVisibility(8);
+            this.iEM.setVisibility(8);
         } else {
-            this.iyH.setVisibility(0);
-            this.iyI.setVisibility(0);
-            this.iyI.setData(bVar.iyj);
+            this.iEL.setVisibility(0);
+            this.iEM.setVisibility(0);
+            this.iEM.setData(bVar.iEn);
         }
-        if (bVar.iyk == null || w.isEmpty(bVar.iyk.iyt)) {
-            this.iyJ.setVisibility(8);
+        if (bVar.iEo == null || x.isEmpty(bVar.iEo.iEx)) {
+            this.iEN.setVisibility(8);
         } else {
-            this.iyJ.setVisibility(0);
-            this.iyJ.setData(bVar.iyk);
+            this.iEN.setVisibility(0);
+            this.iEN.setData(bVar.iEo);
         }
-        this.fqn.startLoad(bVar.iyi, 10, false);
+        this.fvx.startLoad(bVar.iEm, 10, false);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            this.fqn.setIsNight(this.mSkinType == 1);
-            an.setViewTextColor(this.hgs, (int) R.color.cp_cont_a);
-            this.hgp.setIsNight(this.mSkinType == 1);
-            this.iyI.onChangeSkinType();
-            this.iyJ.onChangeSkinType();
+            this.fvx.setIsNight(this.mSkinType == 1);
+            ao.setViewTextColor(this.hmc, R.color.cp_cont_a);
+            this.hlZ.setIsNight(this.mSkinType == 1);
+            this.iEM.onChangeSkinType();
+            this.iEN.onChangeSkinType();
         }
     }
 }

@@ -18,21 +18,21 @@ import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.PushStatusData;
 import com.baidu.tbadk.core.data.PushTypeData;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.PushThreadActivityConfig;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class PushThreadActivity extends BaseActivity {
-    private GridView cpt;
-    private PushStatusData dNp;
-    private int kBC;
-    private PushTypeData kBD;
-    private TextView kBE;
-    private ImageButton kBF;
-    private HttpMessageListener kBG = new HttpMessageListener(1001806) { // from class: com.baidu.tieba.pbextra.PushThreadActivity.1
+    private GridView crz;
+    private PushStatusData dTA;
+    private int kKE;
+    private PushTypeData kKF;
+    private TextView kKG;
+    private ImageButton kKH;
+    private HttpMessageListener kKI = new HttpMessageListener(1001806) { // from class: com.baidu.tieba.pbextra.PushThreadActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -40,7 +40,7 @@ public class PushThreadActivity extends BaseActivity {
                 if (httpResponsedMessage.hasError()) {
                     PushThreadActivity.this.showToast(R.string.neterror);
                 } else if (httpResponsedMessage instanceof PbPushHttpResponseMessage) {
-                    if (PushThreadActivity.this.kBC == ((PbPushHttpResponseMessage) httpResponsedMessage).getPushType()) {
+                    if (PushThreadActivity.this.kKE == ((PbPushHttpResponseMessage) httpResponsedMessage).getPushType()) {
                         PushThreadActivity.this.setResult(-1, new Intent());
                     } else {
                         PushThreadActivity.this.showToast(R.string.neterror);
@@ -61,31 +61,31 @@ public class PushThreadActivity extends BaseActivity {
         setActivityBgTransparent();
         initData();
         initUI();
-        this.kBG.setSelfListener(true);
-        registerListener(this.kBG);
+        this.kKI.setSelfListener(true);
+        registerListener(this.kKI);
     }
 
     private void initData() {
-        this.dNp = (PushStatusData) getIntent().getSerializableExtra(PushThreadActivityConfig.KEY_PUSH_DATA);
-        if (this.dNp != null) {
-            this.mPushTypeDatas = this.dNp.getPushTypeDatas();
+        this.dTA = (PushStatusData) getIntent().getSerializableExtra(PushThreadActivityConfig.KEY_PUSH_DATA);
+        if (this.dTA != null) {
+            this.mPushTypeDatas = this.dTA.getPushTypeDatas();
         }
     }
 
     private void initUI() {
         setContentView(R.layout.push_thread_layout);
-        an.setBackgroundResource(findViewById(R.id.push_thread_container), R.drawable.dialog_background);
-        an.setViewTextColor((TextView) findViewById(R.id.select_hint), (int) R.color.cp_cont_b);
-        this.cpt = (GridView) findViewById(R.id.gv_push);
-        this.cpt.setAdapter((ListAdapter) new a());
-        this.cpt.setOnItemClickListener(this);
-        this.kBE = (TextView) findViewById(R.id.push_commit);
-        an.setBackgroundResource(this.kBE, R.drawable.push_commit_selector);
-        an.setViewTextColor(this.kBE, (int) R.color.cp_cont_a);
-        this.kBE.setOnClickListener(this);
-        this.kBF = (ImageButton) findViewById(R.id.ib_close);
-        an.setBackgroundResource(this.kBF, R.drawable.push_close_selector);
-        this.kBF.setOnClickListener(this);
+        ao.setBackgroundResource(findViewById(R.id.push_thread_container), R.drawable.dialog_background);
+        ao.setViewTextColor((TextView) findViewById(R.id.select_hint), R.color.cp_cont_b);
+        this.crz = (GridView) findViewById(R.id.gv_push);
+        this.crz.setAdapter((ListAdapter) new a());
+        this.crz.setOnItemClickListener(this);
+        this.kKG = (TextView) findViewById(R.id.push_commit);
+        ao.setBackgroundResource(this.kKG, R.drawable.push_commit_selector);
+        ao.setViewTextColor(this.kKG, R.color.cp_cont_a);
+        this.kKG.setOnClickListener(this);
+        this.kKH = (ImageButton) findViewById(R.id.ib_close);
+        ao.setBackgroundResource(this.kKH, R.drawable.push_close_selector);
+        this.kKH.setOnClickListener(this);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -99,15 +99,15 @@ public class PushThreadActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes16.dex */
     public class a extends BaseAdapter {
         public a() {
-            PushThreadActivity.this.kBC = 0;
+            PushThreadActivity.this.kKE = 0;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            return w.getCount(PushThreadActivity.this.mPushTypeDatas);
+            return x.getCount(PushThreadActivity.this.mPushTypeDatas);
         }
 
         @Override // android.widget.Adapter
@@ -126,15 +126,15 @@ public class PushThreadActivity extends BaseActivity {
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.iv_item_icon);
             ImageView imageView = (ImageView) inflate.findViewById(R.id.iv_item_hint);
             TextView textView = (TextView) inflate.findViewById(R.id.tv_item_title);
-            PushTypeData pushTypeData = (PushTypeData) w.getItem(PushThreadActivity.this.mPushTypeDatas, i);
+            PushTypeData pushTypeData = (PushTypeData) x.getItem(PushThreadActivity.this.mPushTypeDatas, i);
             if (pushTypeData != null) {
                 tbImageView.startLoad(pushTypeData.getIcon(), 10, false);
                 textView.setText(pushTypeData.getName());
-                if (pushTypeData.getType() == PushThreadActivity.this.kBC) {
-                    an.setImageResource(imageView, R.drawable.bg_choose_ok);
-                    an.setViewTextColor(textView, (int) R.color.cp_other_b);
+                if (pushTypeData.getType() == PushThreadActivity.this.kKE) {
+                    ao.setImageResource(imageView, R.drawable.bg_choose_ok);
+                    ao.setViewTextColor(textView, R.color.cp_other_b);
                 } else {
-                    an.setViewTextColor(textView, (int) R.color.cp_cont_b);
+                    ao.setViewTextColor(textView, R.color.cp_cont_b);
                     imageView.setImageDrawable(null);
                 }
             }
@@ -147,30 +147,30 @@ public class PushThreadActivity extends BaseActivity {
         View childAt;
         ImageView imageView = (ImageView) view.findViewById(R.id.iv_item_hint);
         TextView textView = (TextView) view.findViewById(R.id.tv_item_title);
-        this.kBE.setEnabled(true);
-        PushTypeData pushTypeData = (PushTypeData) w.getItem(this.mPushTypeDatas, i);
+        this.kKG.setEnabled(true);
+        PushTypeData pushTypeData = (PushTypeData) x.getItem(this.mPushTypeDatas, i);
         if (pushTypeData != null) {
-            if (this.kBC == pushTypeData.getType()) {
+            if (this.kKE == pushTypeData.getType()) {
                 imageView.setImageDrawable(null);
-                an.setViewTextColor(textView, (int) R.color.cp_cont_b);
-                this.kBC = -1;
+                ao.setViewTextColor(textView, R.color.cp_cont_b);
+                this.kKE = -1;
                 return;
             }
-            if (this.kBD != null && (childAt = adapterView.getChildAt(w.getPosition(this.mPushTypeDatas, this.kBD))) != null) {
+            if (this.kKF != null && (childAt = adapterView.getChildAt(x.getPosition(this.mPushTypeDatas, this.kKF))) != null) {
                 ((ImageView) childAt.findViewById(R.id.iv_item_hint)).setImageDrawable(null);
-                an.setViewTextColor((TextView) childAt.findViewById(R.id.tv_item_title), (int) R.color.cp_cont_b);
+                ao.setViewTextColor((TextView) childAt.findViewById(R.id.tv_item_title), R.color.cp_cont_b);
             }
-            an.setImageResource(imageView, R.drawable.bg_choose_ok);
-            an.setViewTextColor(textView, (int) R.color.cp_other_b);
-            this.kBC = pushTypeData.getType();
-            this.kBD = pushTypeData;
+            ao.setImageResource(imageView, R.drawable.bg_choose_ok);
+            ao.setViewTextColor(textView, R.color.cp_other_b);
+            this.kKE = pushTypeData.getType();
+            this.kKF = pushTypeData;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.kBE) {
-            if (this.kBC == 0) {
+        if (view == this.kKG) {
+            if (this.kKE == 0) {
                 showToast(R.string.select_category);
                 return;
             }
@@ -178,8 +178,8 @@ public class PushThreadActivity extends BaseActivity {
             long longExtra2 = getIntent().getLongExtra("thread_id", 0L);
             long longExtra3 = getIntent().getLongExtra("user_id", 0L);
             showLoadingDialog("");
-            sendMessage(new PbPushRequestMessage(longExtra, longExtra2, this.kBC, longExtra3));
-        } else if (view == this.kBF) {
+            sendMessage(new PbPushRequestMessage(longExtra, longExtra2, this.kKE, longExtra3));
+        } else if (view == this.kKH) {
             finish();
         }
     }

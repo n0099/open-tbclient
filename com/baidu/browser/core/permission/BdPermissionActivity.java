@@ -3,51 +3,51 @@ package com.baidu.browser.core.permission;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.h.a.a;
-/* loaded from: classes11.dex */
+import com.baidu.i.a.a;
+/* loaded from: classes10.dex */
 public class BdPermissionActivity extends Activity {
-    private int acR;
-    private String[] acS;
+    private int acM;
+    private String[] acN;
 
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        rz();
+        rB();
     }
 
-    private void rz() {
+    private void rB() {
         Intent intent = getIntent();
-        this.acR = intent.getIntExtra("request_code", 0);
-        this.acS = intent.getStringArrayExtra("permissions");
+        this.acM = intent.getIntExtra("request_code", 0);
+        this.acN = intent.getStringArrayExtra("permissions");
     }
 
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
-        rA();
+        rC();
     }
 
-    private void rA() {
-        if (this.acS != null && this.acS.length != 0) {
+    private void rC() {
+        if (this.acN != null && this.acN.length != 0) {
             boolean z = false;
-            for (String str : this.acS) {
-                z = z || com.baidu.h.a.a.shouldShowRequestPermissionRationale(this, str);
+            for (String str : this.acN) {
+                z = z || com.baidu.i.a.a.shouldShowRequestPermissionRationale(this, str);
             }
             if (z) {
-                com.baidu.h.a.a.requestPermissions(this, this.acS, this.acR);
-            } else if (b.f(this, this.acR)) {
-                com.baidu.h.a.a.requestPermissions(this, this.acS, this.acR);
+                com.baidu.i.a.a.requestPermissions(this, this.acN, this.acM);
+            } else if (b.f(this, this.acM)) {
+                com.baidu.i.a.a.requestPermissions(this, this.acN, this.acM);
             } else {
-                onRequestPermissionsResult(this.acR, this.acS, new int[0]);
+                onRequestPermissionsResult(this.acM, this.acN, new int[0]);
             }
         }
     }
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        a.InterfaceC0127a bc = a.rB().bc(this.acR);
-        if (bc != null) {
-            bc.onRequestPermissionsResult(i, strArr, iArr);
+        a.InterfaceC0153a be = a.rD().be(this.acM);
+        if (be != null) {
+            be.onRequestPermissionsResult(i, strArr, iArr);
         }
         finish();
     }

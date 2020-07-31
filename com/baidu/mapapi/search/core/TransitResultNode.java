@@ -3,7 +3,7 @@ package com.baidu.mapapi.search.core;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class TransitResultNode implements Parcelable {
     public static final Parcelable.Creator<TransitResultNode> CREATOR = new p();
     private int a;

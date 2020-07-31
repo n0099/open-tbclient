@@ -7,14 +7,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import com.xiaomi.push.gx;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TrafficProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with other field name */
-    private SQLiteOpenHelper f797a;
+    private SQLiteOpenHelper f793a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Uri f796a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
+    public static final Uri f792a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
     private static final UriMatcher a = new UriMatcher(-1);
 
     static {
@@ -49,17 +49,17 @@ public class TrafficProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        this.f797a = new a(getContext());
+        this.f793a = new a(getContext());
         return true;
     }
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         Cursor query;
-        synchronized (a.f798a) {
+        synchronized (a.f794a) {
             switch (a.match(uri)) {
                 case 1:
-                    query = this.f797a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
+                    query = this.f793a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown URI " + uri);
@@ -75,7 +75,7 @@ public class TrafficProvider extends ContentProvider {
                 if (contentValues == null || !contentValues.containsKey("imsi")) {
                     return 0;
                 }
-                gx.m325a(contentValues.getAsString("imsi"));
+                gx.m326a(contentValues.getAsString("imsi"));
                 return 0;
             default:
                 return 0;

@@ -7,11 +7,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaCharmDetailEmptyView extends LinearLayout {
-    private ImageView fAY;
-    private TextView fAZ;
-    private TextView fBa;
+    private ImageView fGi;
+    private TextView fGj;
+    private TextView fGk;
 
     public AlaCharmDetailEmptyView(Context context) {
         super(context);
@@ -31,31 +31,31 @@ public class AlaCharmDetailEmptyView extends LinearLayout {
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.ala_charm_empty_view, this);
-        this.fAY = (ImageView) findViewById(a.g.empty_image);
-        this.fAZ = (TextView) findViewById(a.g.empty_text);
-        this.fBa = (TextView) findViewById(a.g.empty_sub_text);
+        this.fGi = (ImageView) findViewById(a.g.empty_image);
+        this.fGj = (TextView) findViewById(a.g.empty_text);
+        this.fGk = (TextView) findViewById(a.g.empty_sub_text);
         if (getResources().getConfiguration().orientation == 2) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fAY.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fGi.getLayoutParams();
             layoutParams.topMargin = getResources().getDimensionPixelSize(a.e.sdk_ds20);
-            this.fAY.setLayoutParams(layoutParams);
+            this.fGi.setLayoutParams(layoutParams);
         }
     }
 
     public void setParams(int i, int i2, int i3) {
         if (i != -1) {
-            this.fAY.setImageResource(i);
+            this.fGi.setImageResource(i);
         } else {
-            this.fAY.setVisibility(8);
+            this.fGi.setVisibility(8);
         }
         if (i2 != -1) {
-            this.fAZ.setText(i2);
+            this.fGj.setText(i2);
         } else {
-            this.fAZ.setVisibility(8);
+            this.fGj.setVisibility(8);
         }
         if (i3 != -1) {
-            this.fBa.setText(i3);
+            this.fGk.setText(i3);
         } else {
-            this.fBa.setVisibility(8);
+            this.fGk.setVisibility(8);
         }
     }
 }

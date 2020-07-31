@@ -22,7 +22,7 @@ import com.huewu.pla.lib.internal.PLA_AbsListView;
 import com.huewu.pla.lib.internal.PLA_AdapterView;
 import com.huewu.pla.lib.internal.a;
 import java.security.InvalidParameterException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BdMultiColumnListView extends MultiColumnListView {
     private static final int REFRESH_DELAY = 100;
     private BdSimplePreLoadListAdapter mBdListAdpter;
@@ -53,37 +53,37 @@ public class BdMultiColumnListView extends MultiColumnListView {
     private Runnable preLoadRunnable;
     private Runnable refreshRunnable;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface OnFooterClickListener {
         void onClick(View view);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface OnHeaderClickListener {
         void onClick(View view);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface OnItemWillVisibleListener {
         void onItemWillVisible(int i, boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface OnScrollStopDelayedListener {
         void onScrollStop(int i, int i2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface OnScrollToBottomListener {
         void onScrollToBottom();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface OnScrollToPullListener {
         void onScrollToPull(boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface OnScrollToTopListener {
         void onScrollToTop();
     }
@@ -797,7 +797,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
         return this.mPullRefresh == null || this.mPullRefresh.mState == 3;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static class PullRefresh {
         public static final int DEFAULT_REFRESH_DURATION_TIME = 800;
         private static final int DONE = 3;

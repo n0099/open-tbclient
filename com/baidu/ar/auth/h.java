@@ -3,7 +3,7 @@ package com.baidu.ar.auth;
 import android.content.Context;
 import com.baidu.ar.auth.l;
 import com.baidu.ar.f.p;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 class h implements l {
     private l[] jK;
     private volatile boolean jL = false;

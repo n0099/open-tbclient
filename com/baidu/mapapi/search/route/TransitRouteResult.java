@@ -6,7 +6,7 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.core.TaxiInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class TransitRouteResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<TransitRouteResult> CREATOR = new q();
     private TaxiInfo a;

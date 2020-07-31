@@ -11,10 +11,10 @@ import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class u extends c<t> {
     private final ExecutorService mExecutorService;
-    private int mTr;
+    private int nbt;
 
     public u() {
         this(Executors.newFixedThreadPool(3));
@@ -22,7 +22,7 @@ public class u extends c<t> {
 
     public u(int i) {
         this(Executors.newFixedThreadPool(3));
-        this.mTr = i;
+        this.nbt = i;
     }
 
     u(ExecutorService executorService) {
@@ -42,11 +42,11 @@ public class u extends c<t> {
                 u.this.b(tVar, aVar);
             }
         });
-        tVar.dGp().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
+        tVar.dJB().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dCu() {
+            public void dFG() {
                 if (submit.cancel(false)) {
-                    aVar.dzh();
+                    aVar.dCt();
                 }
             }
         });
@@ -82,7 +82,7 @@ public class u extends c<t> {
                         inputStream = r1;
                     } catch (IOException e) {
                         e = e;
-                        aVar.G(e);
+                        aVar.F(e);
                         if (r1 != 0) {
                             try {
                                 r1.close();
@@ -132,13 +132,13 @@ public class u extends c<t> {
     }
 
     private HttpURLConnection c(Uri uri, int i) throws IOException {
-        HttpURLConnection X = X(uri);
-        X.setConnectTimeout(this.mTr);
-        int responseCode = X.getResponseCode();
-        if (!Jp(responseCode)) {
-            if (Jq(responseCode)) {
-                String headerField = X.getHeaderField(Headers.LOCATION);
-                X.disconnect();
+        HttpURLConnection W = W(uri);
+        W.setConnectTimeout(this.nbt);
+        int responseCode = W.getResponseCode();
+        if (!JK(responseCode)) {
+            if (JL(responseCode)) {
+                String headerField = W.getHeaderField(Headers.LOCATION);
+                W.disconnect();
                 Uri parse = headerField == null ? null : Uri.parse(headerField);
                 String scheme = uri.getScheme();
                 if (i > 0 && parse != null && !parse.getScheme().equals(scheme)) {
@@ -146,21 +146,21 @@ public class u extends c<t> {
                 }
                 throw new IOException(i == 0 ? m("URL %s follows too many redirects", uri.toString()) : m("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
             }
-            X.disconnect();
+            W.disconnect();
             throw new IOException(String.format("Image URL %s returned HTTP code %d", uri.toString(), Integer.valueOf(responseCode)));
         }
-        return X;
+        return W;
     }
 
-    static HttpURLConnection X(Uri uri) throws IOException {
-        return (HttpURLConnection) com.facebook.common.util.d.I(uri).openConnection();
+    static HttpURLConnection W(Uri uri) throws IOException {
+        return (HttpURLConnection) com.facebook.common.util.d.H(uri).openConnection();
     }
 
-    private static boolean Jp(int i) {
+    private static boolean JK(int i) {
         return i >= 200 && i < 300;
     }
 
-    private static boolean Jq(int i) {
+    private static boolean JL(int i) {
         switch (i) {
             case 300:
             case 301:

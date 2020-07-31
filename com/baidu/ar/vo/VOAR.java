@@ -11,10 +11,11 @@ import com.baidu.ar.imu.i;
 import com.baidu.ar.vo.b.d;
 import com.baidu.ar.vo.b.e;
 import com.baidu.mobstat.Config;
+import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class VOAR extends c {
     private static final String TAG = VOAR.class.getSimpleName();
     private com.baidu.ar.lua.c qR;
@@ -82,7 +83,7 @@ public class VOAR extends c {
 
     private d fI() {
         d dVar = new d();
-        dVar.xC = 1280;
+        dVar.xC = PlatformPlugin.DEFAULT_SYSTEM_UI;
         dVar.xD = 720;
         dVar.xE = new d.a() { // from class: com.baidu.ar.vo.VOAR.2
             @Override // com.baidu.ar.vo.b.d.a

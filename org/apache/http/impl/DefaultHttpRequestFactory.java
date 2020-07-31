@@ -5,7 +5,7 @@ import org.apache.http.HttpRequestFactory;
 import org.apache.http.MethodNotSupportedException;
 import org.apache.http.RequestLine;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public class DefaultHttpRequestFactory implements HttpRequestFactory {
     public DefaultHttpRequestFactory() {
         throw new RuntimeException("Stub!");

@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetVideoGoodsListHttpResponseMessage extends JsonHttpResponsedMessage {
-    public List<com.baidu.live.sdk.goods.a.a> bcU;
+    public List<com.baidu.live.sdk.goods.a.a> bdm;
     public int count;
     private long mLogId;
 
@@ -20,7 +20,7 @@ public class GetVideoGoodsListHttpResponseMessage extends JsonHttpResponsedMessa
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             this.mLogId = jSONObject.optLong("logid");
-            this.bcU = new ArrayList();
+            this.bdm = new ArrayList();
             JSONObject optJSONObject = jSONObject.optJSONObject("result");
             if (optJSONObject != null && getError() == 0) {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("good_list");
@@ -29,7 +29,7 @@ public class GetVideoGoodsListHttpResponseMessage extends JsonHttpResponsedMessa
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                         com.baidu.live.sdk.goods.a.a aVar = new com.baidu.live.sdk.goods.a.a();
                         aVar.parseJson(jSONObject2);
-                        this.bcU.add(aVar);
+                        this.bdm.add(aVar);
                     }
                 }
                 this.count = optJSONObject.optInt("count");

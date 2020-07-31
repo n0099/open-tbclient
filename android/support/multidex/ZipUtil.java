@@ -1,18 +1,19 @@
 package android.support.multidex;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.zip.CRC32;
 import java.util.zip.ZipException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 final class ZipUtil {
     private static final int BUFFER_SIZE = 16384;
     private static final int ENDHDR = 22;
     private static final int ENDSIG = 101010256;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class CentralDirectory {
         long offset;
         long size;
@@ -66,14 +67,14 @@ final class ZipUtil {
         long j = centralDirectory.size;
         randomAccessFile.seek(centralDirectory.offset);
         byte[] bArr = new byte[16384];
-        int read = randomAccessFile.read(bArr, 0, (int) Math.min(16384L, j));
+        int read = randomAccessFile.read(bArr, 0, (int) Math.min((long) PlaybackStateCompat.ACTION_PREPARE, j));
         while (read != -1) {
             crc32.update(bArr, 0, read);
             j -= read;
             if (j == 0) {
                 break;
             }
-            read = randomAccessFile.read(bArr, 0, (int) Math.min(16384L, j));
+            read = randomAccessFile.read(bArr, 0, (int) Math.min((long) PlaybackStateCompat.ACTION_PREPARE, j));
         }
         return crc32.getValue();
     }

@@ -10,7 +10,7 @@ import android.view.SurfaceView;
 import android.widget.Toast;
 import com.baidu.platform.comapi.wnplatform.o.g;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback {
     public static final int WALK_AR_PERMISSION = 3001;
     SurfaceHolder a;

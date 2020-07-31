@@ -8,16 +8,16 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.k;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
 import com.baidu.tieba.recapp.lego.view.LoopADView;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class AdCardLoopPicView extends AdCardBaseView {
-    private View lgW;
-    private LoopADView lgX;
+    private View loo;
+    private LoopADView lop;
 
     public AdCardLoopPicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -29,45 +29,45 @@ public class AdCardLoopPicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected void cY(View view) {
-        this.lgW = view.findViewById(R.id.advert_loop_ad_container);
-        this.lgX = (LoopADView) view.findViewById(R.id.loop_view);
+    protected void de(View view) {
+        this.loo = view.findViewById(R.id.advert_loop_ad_container);
+        this.lop = (LoopADView) view.findViewById(R.id.loop_view);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(final AdCard adCard) {
         AdCard.d[] dVarArr = adCard.threadPicList;
-        boolean isShowImages = k.aPA().isShowImages();
-        this.lgX.setBussinessType(getBusinessType());
+        boolean isShowImages = k.aTv().isShowImages();
+        this.lop.setBussinessType(getBusinessType());
         if (!isShowImages) {
-            this.lgW.setVisibility(8);
+            this.loo.setVisibility(8);
             return;
         }
-        this.lgW.setVisibility(0);
-        u(this.lgW, 0);
-        this.lgX.setOnClickCallbackListener(new LoopADView.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardLoopPicView.1
+        this.loo.setVisibility(0);
+        v(this.loo, 0);
+        this.lop.setOnClickCallbackListener(new LoopADView.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardLoopPicView.1
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
             public void b(TbImageView tbImageView, AdCard.b bVar) {
                 AdCardLoopPicView.this.a(tbImageView, bVar, new AdCardBaseView.b(adCard));
             }
 
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
-            public String LP(String str) {
-                return AdCardLoopPicView.this.LM(ar.cutStringWithSuffix(str, 100, StringHelper.STRING_MORE));
+            public String Mx(String str) {
+                return AdCardLoopPicView.this.Mu(as.cutStringWithSuffix(str, 100, StringHelper.STRING_MORE));
             }
 
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
             public void reset() {
-                if (AdCardLoopPicView.this.lgW != null) {
-                    AdCardLoopPicView.this.lgW.setScrollX(0);
+                if (AdCardLoopPicView.this.loo != null) {
+                    AdCardLoopPicView.this.loo.setScrollX(0);
                 }
             }
         });
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds92);
         if (!adCard.needResize) {
-            this.lgX.a(dVarArr, 30, 0, 0, dimensionPixelSize);
+            this.lop.a(dVarArr, 30, 0, 0, dimensionPixelSize);
         } else {
-            this.lgX.a(dVarArr, 30, adCard.width, adCard.height, dimensionPixelSize);
+            this.lop.a(dVarArr, 30, adCard.width, adCard.height, dimensionPixelSize);
         }
     }
 
@@ -81,12 +81,12 @@ public class AdCardLoopPicView extends AdCardBaseView {
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView, com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void a(AdCard adCard, int i) {
         super.a(adCard, i);
-        if (this.lgX != null && this.lgX.getVisibility() == 0) {
-            this.lgX.aYi();
+        if (this.lop != null && this.lop.getVisibility() == 0) {
+            this.lop.changeSkin();
         }
     }
 
-    private void u(View view, int i) {
+    private void v(View view, int i) {
         if (view != null && view.getVisibility() == 0) {
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {

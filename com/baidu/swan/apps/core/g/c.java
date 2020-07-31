@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.swan.apps.core.SwanAppWebViewManager;
 import com.baidu.swan.apps.core.b.a;
 import com.baidu.swan.apps.core.container.NgWebView;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c extends SwanAppWebViewManager implements com.baidu.swan.apps.adaptation.b.b<NgWebView> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -15,15 +15,15 @@ public class c extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void Yt() {
+    public void Zj() {
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    protected void Yq() {
+    protected void Zg() {
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
-    public String Up() {
+    public String UR() {
         return "master";
     }
 
@@ -33,22 +33,22 @@ public class c extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
     }
 
     @Override // com.baidu.swan.apps.core.g.a
-    public com.baidu.swan.apps.core.container.a UX() {
-        return Un();
+    public com.baidu.swan.apps.core.container.a VC() {
+        return UP();
     }
 
     @Override // com.baidu.swan.apps.core.g.a
     public void a(com.baidu.swan.apps.core.turbo.a aVar) {
-        if (aVar != null && a.b.er(0)) {
+        if (aVar != null && a.b.et(0)) {
             if (DEBUG) {
                 Log.d("SwanAppMasterManager", "pathList item: " + aVar.appPath);
             }
-            this.bYq.getSettings().setCodeCacheSetting(com.baidu.swan.apps.core.b.b.aY("appjs", aVar.appPath));
+            this.bZE.getSettings().setCodeCacheSetting(com.baidu.swan.apps.core.b.b.ba("appjs", aVar.appPath));
         }
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
     public void onJSLoaded() {
-        com.baidu.swan.apps.core.turbo.d.acr().dR(true);
+        com.baidu.swan.apps.core.turbo.d.adw().dX(true);
     }
 }

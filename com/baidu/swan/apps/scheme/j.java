@@ -28,13 +28,13 @@ import com.baidu.swan.apps.storage.a.o;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class j extends UnitedSchemeBaseDispatcher {
     private static final String TAG = j.class.getSimpleName();
-    protected final Map<String, aa> cGp = new HashMap();
+    protected final Map<String, aa> cJh = new HashMap();
 
     public j() {
-        aqU();
+        asD();
     }
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
@@ -67,7 +67,7 @@ public class j extends UnitedSchemeBaseDispatcher {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str2 + " @ " + str3);
                     return false;
                 }
-                aa aaVar = this.cGp.get(str2);
+                aa aaVar = this.cJh.get(str2);
                 if (aaVar != null) {
                     if (unitedSchemeEntity.isOnlyVerify()) {
                         return true;
@@ -86,8 +86,8 @@ public class j extends UnitedSchemeBaseDispatcher {
         return null;
     }
 
-    protected void aqU() {
-        this.cGp.clear();
+    protected void asD() {
+        this.cJh.clear();
         a(new u(this));
         a(new com.baidu.swan.apps.network.i(this));
         a(new ad(this));
@@ -149,11 +149,11 @@ public class j extends UnitedSchemeBaseDispatcher {
         a(new com.baidu.swan.apps.am.h.a(this));
         a(new com.baidu.swan.apps.c.a.a.a(this));
         a(new com.baidu.swan.apps.setting.a.h(this));
-        a(new com.baidu.swan.apps.p.b.d(this));
+        a(new com.baidu.swan.apps.p.c.d(this));
         a(new com.baidu.swan.apps.c.a.b.a.a(this));
     }
 
     public void a(aa aaVar) {
-        this.cGp.put(aaVar.name, aaVar);
+        this.cJh.put(aaVar.name, aaVar);
     }
 }

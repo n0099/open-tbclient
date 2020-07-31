@@ -1,7 +1,7 @@
 package com.baidu.ar.b.b;
 
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public abstract class b extends d {
     public b(int i) {
         super(i);

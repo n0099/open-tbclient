@@ -9,7 +9,7 @@ import com.baidu.fsg.base.utils.JsonUtils;
 import com.baidu.fsg.base.utils.NetworkUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class ApollonBean {
     private static final String BEAN_TASK_MGR_KEY = "BeanTaskManager";
     private static final String BEAN_TASK_MGR_TASK_KEY = "ApollonBeanTask";

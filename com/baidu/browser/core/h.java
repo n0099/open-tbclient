@@ -19,41 +19,41 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h extends Resources {
-    private Resources acA;
-    private Resources acB;
-    private Map<String, String> acz;
+    private Map<String, String> act;
+    private Resources acu;
+    private Resources acv;
     private String mPackageName;
-    private static final String acy = Environment.getRootDirectory().toString() + File.separator + "baidu/flyflow/plugin_asset";
+    private static final String acs = Environment.getRootDirectory().toString() + File.separator + "baidu/flyflow/plugin_asset";
     private static final String TAG = h.class.getSimpleName();
-    private static HashMap<String, com.baidu.browser.core.util.e<String, Integer>> acx = new HashMap<>();
+    private static HashMap<String, com.baidu.browser.core.util.e<String, Integer>> acr = new HashMap<>();
 
     public h(Resources resources, AssetManager assetManager, DisplayMetrics displayMetrics, Configuration configuration) {
         super(assetManager, displayMetrics, configuration);
-        this.acB = resources;
-        this.acz = new HashMap();
+        this.acv = resources;
+        this.act = new HashMap();
     }
 
-    public int ba(int i) {
+    public int bc(int i) {
         com.baidu.browser.core.util.e<String, Integer> eVar;
         if (TextUtils.isEmpty(this.mPackageName) || this.mPackageName.equals("com.baidu.browser.theme.default")) {
             return 0;
         }
         try {
-            String resourceEntryName = this.acB.getResourceEntryName(i);
-            String resourceTypeName = this.acB.getResourceTypeName(i);
-            com.baidu.browser.core.util.e<String, Integer> eVar2 = acx.get(resourceTypeName);
+            String resourceEntryName = this.acv.getResourceEntryName(i);
+            String resourceTypeName = this.acv.getResourceTypeName(i);
+            com.baidu.browser.core.util.e<String, Integer> eVar2 = acr.get(resourceTypeName);
             if (eVar2 == null) {
                 com.baidu.browser.core.util.e<String, Integer> eVar3 = new com.baidu.browser.core.util.e<>(100);
-                acx.put(resourceTypeName, eVar3);
+                acr.put(resourceTypeName, eVar3);
                 eVar = eVar3;
             } else {
                 eVar = eVar2;
             }
             Integer num = eVar.get(resourceEntryName);
             if (num == null) {
-                num = Integer.valueOf(this.acA.getIdentifier(resourceEntryName, resourceTypeName, this.mPackageName));
+                num = Integer.valueOf(this.acu.getIdentifier(resourceEntryName, resourceTypeName, this.mPackageName));
                 if (num.intValue() != 0) {
                     eVar.put(resourceEntryName, num);
                 }
@@ -67,13 +67,13 @@ public class h extends Resources {
 
     @Override // android.content.res.Resources
     public Configuration getConfiguration() {
-        return this.acB.getConfiguration();
+        return this.acv.getConfiguration();
     }
 
     @Override // android.content.res.Resources
     public XmlResourceParser getAnimation(int i) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getAnimation(ba) : this.acB.getAnimation(i);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getAnimation(bc) : this.acv.getAnimation(i);
     }
 
     @Override // android.content.res.Resources
@@ -83,8 +83,8 @@ public class h extends Resources {
 
     @Override // android.content.res.Resources
     public int getColor(int i, Resources.Theme theme) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getColor(ba) : this.acB.getColor(i);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getColor(bc) : this.acv.getColor(i);
     }
 
     @Override // android.content.res.Resources
@@ -94,204 +94,204 @@ public class h extends Resources {
 
     @Override // android.content.res.Resources
     public ColorStateList getColorStateList(int i, Resources.Theme theme) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getColorStateList(ba) : this.acB.getColorStateList(i);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getColorStateList(bc) : this.acv.getColorStateList(i);
     }
 
     @Override // android.content.res.Resources
     public float getDimension(int i) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getDimension(ba) : this.acB.getDimension(i);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getDimension(bc) : this.acv.getDimension(i);
     }
 
     @Override // android.content.res.Resources
     public int getDimensionPixelOffset(int i) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getDimensionPixelOffset(ba) : this.acB.getDimensionPixelOffset(i);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getDimensionPixelOffset(bc) : this.acv.getDimensionPixelOffset(i);
     }
 
     @Override // android.content.res.Resources
     public int getDimensionPixelSize(int i) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getDimensionPixelSize(ba) : this.acB.getDimensionPixelSize(i);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getDimensionPixelSize(bc) : this.acv.getDimensionPixelSize(i);
     }
 
     @Override // android.content.res.Resources
     public Drawable getDrawable(int i) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getDrawable(ba) : this.acB.getDrawable(i);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getDrawable(bc) : this.acv.getDrawable(i);
     }
 
     @Override // android.content.res.Resources
     @TargetApi(21)
     public Drawable getDrawable(int i, Resources.Theme theme) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getDrawable(ba, null) : this.acB.getDrawable(i, theme);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getDrawable(bc, null) : this.acv.getDrawable(i, theme);
     }
 
     @Override // android.content.res.Resources
     @TargetApi(15)
     public Drawable getDrawableForDensity(int i, int i2) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getDrawableForDensity(ba, i2) : this.acB.getDrawableForDensity(i, i2);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getDrawableForDensity(bc, i2) : this.acv.getDrawableForDensity(i, i2);
     }
 
     @Override // android.content.res.Resources
     public float getFraction(int i, int i2, int i3) {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getFraction(ba, i2, i3) : this.acB.getFraction(i, i2, i3);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getFraction(bc, i2, i3) : this.acv.getFraction(i, i2, i3);
     }
 
     @Override // android.content.res.Resources
     public int[] getIntArray(int i) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getIntArray(ba) : this.acB.getIntArray(i);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getIntArray(bc) : this.acv.getIntArray(i);
     }
 
     @Override // android.content.res.Resources
     public int getInteger(int i) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getInteger(ba) : this.acB.getInteger(i);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getInteger(bc) : this.acv.getInteger(i);
     }
 
     @Override // android.content.res.Resources
     public XmlResourceParser getLayout(int i) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getLayout(ba) : this.acB.getLayout(i);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getLayout(bc) : this.acv.getLayout(i);
     }
 
     @Override // android.content.res.Resources
     public Movie getMovie(int i) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getMovie(ba) : this.acB.getMovie(i);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getMovie(bc) : this.acv.getMovie(i);
     }
 
     @Override // android.content.res.Resources
     public CharSequence getQuantityText(int i, int i2) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getQuantityText(ba, i2) : this.acB.getQuantityText(i, i2);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getQuantityText(bc, i2) : this.acv.getQuantityText(i, i2);
     }
 
     @Override // android.content.res.Resources
     public String getQuantityString(int i, int i2) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getQuantityString(ba, i2) : this.acB.getQuantityString(i, i2);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getQuantityString(bc, i2) : this.acv.getQuantityString(i, i2);
     }
 
     @Override // android.content.res.Resources
     public String getQuantityString(int i, int i2, Object... objArr) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getQuantityString(ba, i2, objArr) : this.acB.getQuantityString(i, i2, objArr);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getQuantityString(bc, i2, objArr) : this.acv.getQuantityString(i, i2, objArr);
     }
 
     @Override // android.content.res.Resources
     public String getString(int i) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getString(ba) : this.acB.getString(i);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getString(bc) : this.acv.getString(i);
     }
 
     @Override // android.content.res.Resources
     public String getString(int i, Object... objArr) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getString(ba, objArr) : this.acB.getString(i, objArr);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getString(bc, objArr) : this.acv.getString(i, objArr);
     }
 
     @Override // android.content.res.Resources
     public String[] getStringArray(int i) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getStringArray(ba) : this.acB.getStringArray(i);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getStringArray(bc) : this.acv.getStringArray(i);
     }
 
     @Override // android.content.res.Resources
     public CharSequence getText(int i) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getText(ba) : this.acB.getText(i);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getText(bc) : this.acv.getText(i);
     }
 
     @Override // android.content.res.Resources
     public CharSequence getText(int i, CharSequence charSequence) {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getText(ba, charSequence) : this.acB.getText(i, charSequence);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getText(bc, charSequence) : this.acv.getText(i, charSequence);
     }
 
     @Override // android.content.res.Resources
     public CharSequence[] getTextArray(int i) throws Resources.NotFoundException {
-        int ba = ba(i);
-        return ba != 0 ? this.acA.getTextArray(ba) : this.acB.getTextArray(i);
+        int bc = bc(i);
+        return bc != 0 ? this.acu.getTextArray(bc) : this.acv.getTextArray(i);
     }
 
     @Override // android.content.res.Resources
     public void getValue(int i, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
-        int ba = ba(i);
-        if (ba != 0) {
-            this.acA.getValue(ba, typedValue, z);
+        int bc = bc(i);
+        if (bc != 0) {
+            this.acu.getValue(bc, typedValue, z);
         } else {
-            this.acB.getValue(i, typedValue, z);
+            this.acv.getValue(i, typedValue, z);
         }
     }
 
     @Override // android.content.res.Resources
     @TargetApi(15)
     public void getValueForDensity(int i, int i2, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
-        int ba = ba(i);
-        if (ba != 0) {
-            this.acA.getValueForDensity(ba, i2, typedValue, z);
+        int bc = bc(i);
+        if (bc != 0) {
+            this.acu.getValueForDensity(bc, i2, typedValue, z);
         } else {
-            this.acB.getValueForDensity(i, i2, typedValue, z);
+            this.acv.getValueForDensity(i, i2, typedValue, z);
         }
     }
 
     @Override // android.content.res.Resources
     public TypedArray obtainTypedArray(int i) throws Resources.NotFoundException {
-        return this.acB.obtainTypedArray(i);
+        return this.acv.obtainTypedArray(i);
     }
 
     @Override // android.content.res.Resources
     public boolean getBoolean(int i) throws Resources.NotFoundException {
-        return this.acB.getBoolean(i);
+        return this.acv.getBoolean(i);
     }
 
     @Override // android.content.res.Resources
     public XmlResourceParser getXml(int i) throws Resources.NotFoundException {
-        return this.acB.getXml(i);
+        return this.acv.getXml(i);
     }
 
     @Override // android.content.res.Resources
     public void getValue(String str, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
-        this.acB.getValue(str, typedValue, z);
+        this.acv.getValue(str, typedValue, z);
     }
 
     @Override // android.content.res.Resources
     public TypedArray obtainAttributes(AttributeSet attributeSet, int[] iArr) {
-        return this.acB.obtainAttributes(attributeSet, iArr);
+        return this.acv.obtainAttributes(attributeSet, iArr);
     }
 
     @Override // android.content.res.Resources
     public String getResourceName(int i) throws Resources.NotFoundException {
-        return this.acB.getResourceName(i);
+        return this.acv.getResourceName(i);
     }
 
     @Override // android.content.res.Resources
     public String getResourcePackageName(int i) throws Resources.NotFoundException {
-        return this.acB.getResourcePackageName(i);
+        return this.acv.getResourcePackageName(i);
     }
 
     @Override // android.content.res.Resources
     public String getResourceTypeName(int i) throws Resources.NotFoundException {
-        return this.acB.getResourceTypeName(i);
+        return this.acv.getResourceTypeName(i);
     }
 
     @Override // android.content.res.Resources
     public String getResourceEntryName(int i) throws Resources.NotFoundException {
-        return this.acB.getResourceEntryName(i);
+        return this.acv.getResourceEntryName(i);
     }
 
     @Override // android.content.res.Resources
     public InputStream openRawResource(int i) throws Resources.NotFoundException {
-        int ba = ba(i);
-        if (ba != 0 && this.acA != null) {
+        int bc = bc(i);
+        if (bc != 0 && this.acu != null) {
             try {
-                InputStream openRawResource = this.acA.openRawResource(ba);
+                InputStream openRawResource = this.acu.openRawResource(bc);
                 if (openRawResource != null) {
                     return openRawResource;
                 }
@@ -299,15 +299,15 @@ public class h extends Resources {
                 e.printStackTrace();
             }
         }
-        return this.acB.openRawResource(i);
+        return this.acv.openRawResource(i);
     }
 
     @Override // android.content.res.Resources
     public InputStream openRawResource(int i, TypedValue typedValue) throws Resources.NotFoundException {
-        int ba = ba(i);
-        if (ba != 0 && this.acA != null) {
+        int bc = bc(i);
+        if (bc != 0 && this.acu != null) {
             try {
-                InputStream openRawResource = this.acA.openRawResource(ba, typedValue);
+                InputStream openRawResource = this.acu.openRawResource(bc, typedValue);
                 if (openRawResource != null) {
                     return openRawResource;
                 }
@@ -315,15 +315,15 @@ public class h extends Resources {
                 e.printStackTrace();
             }
         }
-        return this.acB.openRawResource(i, typedValue);
+        return this.acv.openRawResource(i, typedValue);
     }
 
     @Override // android.content.res.Resources
     public AssetFileDescriptor openRawResourceFd(int i) throws Resources.NotFoundException {
-        int ba = ba(i);
-        if (ba != 0 && this.acA != null) {
+        int bc = bc(i);
+        if (bc != 0 && this.acu != null) {
             try {
-                AssetFileDescriptor openRawResourceFd = this.acA.openRawResourceFd(ba);
+                AssetFileDescriptor openRawResourceFd = this.acu.openRawResourceFd(bc);
                 if (openRawResourceFd != null) {
                     return openRawResourceFd;
                 }
@@ -331,6 +331,6 @@ public class h extends Resources {
                 e.printStackTrace();
             }
         }
-        return this.acB.openRawResourceFd(i);
+        return this.acv.openRawResourceFd(i);
     }
 }

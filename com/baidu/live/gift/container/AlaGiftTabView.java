@@ -30,8 +30,8 @@ import com.baidu.live.adp.lib.safe.SafeHandler;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.data.bb;
-import com.baidu.live.data.g;
+import com.baidu.live.c.r;
+import com.baidu.live.data.bc;
 import com.baidu.live.data.q;
 import com.baidu.live.data.s;
 import com.baidu.live.gift.container.AlaComboBtnAnimView;
@@ -70,68 +70,68 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
-    private int aJo;
-    private boolean aJq;
-    private boolean aJx;
-    public ArrayList<i> aKC;
-    private ArrayList<com.baidu.live.data.f> aKD;
-    private ArrayList<g> aKE;
-    private final String aKI;
-    private boolean aKJ;
-    private View aKK;
-    private GiftPanelNumRoundRectView aKL;
-    public TextView aKM;
-    private BaseViewPager aKN;
-    private RoundRectPageIndicator aKO;
-    private HorizontalScrollView aKP;
-    private LinearLayout aKQ;
-    private CommonEmptyView aKR;
-    private View aKS;
-    private com.baidu.live.gift.container.c aKT;
-    private TextView aKU;
-    private TextView aKV;
-    private TextView aKW;
-    public GiftPanelOperationSendView aKX;
-    private List<View> aKY;
-    private ArrayList<List<com.baidu.live.gift.g>> aKZ;
-    private boolean aLA;
-    private boolean aLB;
-    private boolean aLC;
-    private View.OnClickListener aLD;
-    AdapterView.OnItemClickListener aLE;
-    private CustomMessageListener aLF;
-    private CustomMessageListener aLG;
-    private CustomMessageListener aLH;
-    private CustomMessageListener aLI;
-    private d aLa;
-    private int aLb;
-    private int aLc;
-    private int aLd;
-    private boolean aLe;
-    private boolean aLf;
-    private int aLg;
-    private com.baidu.live.gift.g aLh;
-    private int aLi;
-    private SparseIntArray aLj;
-    private SparseBooleanArray aLk;
-    private View.OnClickListener aLl;
-    private boolean aLm;
-    private int aLn;
-    private int aLo;
-    private int aLp;
-    private SparseBooleanArray aLq;
-    private Set<String> aLr;
-    private boolean aLs;
-    private BdAlertDialog aLt;
-    private int aLu;
-    private a aLv;
-    private int aLw;
-    private AlaComboBtnAnimView aLx;
-    private TbImageView aLy;
-    private com.baidu.live.gift.container.d aLz;
-    private int ayd;
+    private int aKK;
+    private boolean aKM;
+    private boolean aKT;
+    public ArrayList<i> aLY;
+    private ArrayList<com.baidu.live.data.f> aLZ;
+    private boolean aMA;
+    private boolean aMB;
+    private int aMC;
+    private g aMD;
+    private int aME;
+    private SparseIntArray aMF;
+    private SparseBooleanArray aMG;
+    private View.OnClickListener aMH;
+    private boolean aMI;
+    private int aMJ;
+    private int aMK;
+    private int aML;
+    private SparseBooleanArray aMM;
+    private Set<String> aMN;
+    private boolean aMO;
+    private BdAlertDialog aMP;
+    private int aMQ;
+    private a aMR;
+    private int aMS;
+    private AlaComboBtnAnimView aMT;
+    private TbImageView aMU;
+    private com.baidu.live.gift.container.d aMV;
+    private boolean aMW;
+    private boolean aMX;
+    private boolean aMY;
+    private View.OnClickListener aMZ;
+    private ArrayList<com.baidu.live.data.g> aMa;
+    private final String aMe;
+    private boolean aMf;
+    private View aMg;
+    private GiftPanelNumRoundRectView aMh;
+    public TextView aMi;
+    private BaseViewPager aMj;
+    private RoundRectPageIndicator aMk;
+    private HorizontalScrollView aMl;
+    private LinearLayout aMm;
+    private CommonEmptyView aMn;
+    private View aMo;
+    private com.baidu.live.gift.container.c aMp;
+    private TextView aMq;
+    private TextView aMr;
+    private TextView aMs;
+    public GiftPanelOperationSendView aMt;
+    private List<View> aMu;
+    private ArrayList<List<g>> aMv;
+    private d aMw;
+    private int aMx;
+    private int aMy;
+    private int aMz;
+    AdapterView.OnItemClickListener aNa;
+    private CustomMessageListener aNb;
+    private CustomMessageListener aNc;
+    private CustomMessageListener aNd;
+    private CustomMessageListener aNe;
+    private int azq;
     private boolean isLandscape;
     private String liveId;
     private TbPageContext mContext;
@@ -142,196 +142,196 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
     private String otherParams;
     private String roomId;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        void a(com.baidu.live.gift.g gVar);
+        void a(g gVar);
 
-        void al(String str, String str2);
+        void ak(String str, String str2);
 
         void c(boolean z, int i);
 
         void e(boolean z, String str);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface d {
-        void Aa();
+        void AC();
     }
 
     public AlaGiftTabView(TbPageContext tbPageContext, View.OnClickListener onClickListener, boolean z, String str) {
-        this.aKI = "live_key_privilege_tab_unlock_giftid_array_" + (TbadkCoreApplication.getCurrentAccountInfo() == null ? "" : TbadkCoreApplication.getCurrentAccountInfo().getID());
-        this.aKY = new ArrayList();
-        this.aLb = 0;
-        this.aLc = 0;
+        this.aMe = "live_key_privilege_tab_unlock_giftid_array_" + (TbadkCoreApplication.getCurrentAccountInfo() == null ? "" : TbadkCoreApplication.getCurrentAccountInfo().getID());
+        this.aMu = new ArrayList();
+        this.aMx = 0;
+        this.aMy = 0;
         this.mSelectedPosition = 0;
-        this.aLd = 0;
-        this.aLj = new SparseIntArray();
-        this.aLk = new SparseBooleanArray();
+        this.aMz = 0;
+        this.aMF = new SparseIntArray();
+        this.aMG = new SparseBooleanArray();
         this.isLandscape = false;
-        this.aLm = false;
-        this.aLn = -1;
-        this.aLo = -1;
-        this.aJq = false;
-        this.aJo = -1;
-        this.aLq = new SparseBooleanArray();
-        this.aLr = new HashSet();
-        this.aLA = false;
-        this.aJx = false;
-        this.aLB = false;
-        this.aLC = false;
-        this.aLD = new View.OnClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabView.11
+        this.aMI = false;
+        this.aMJ = -1;
+        this.aMK = -1;
+        this.aKM = false;
+        this.aKK = -1;
+        this.aMM = new SparseBooleanArray();
+        this.aMN = new HashSet();
+        this.aMW = false;
+        this.aKT = false;
+        this.aMX = false;
+        this.aMY = false;
+        this.aMZ = new View.OnClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabView.11
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaGiftTabView.this.aLx == null || !AlaGiftTabView.this.aLx.zs()) {
-                    if (AlaGiftTabView.this.aKT == null) {
-                        AlaGiftTabView.this.aKT = new com.baidu.live.gift.container.c(AlaGiftTabView.this.mContext, AlaGiftTabView.this.mType, AlaGiftTabView.this.aLE);
+                if (AlaGiftTabView.this.aMT == null || !AlaGiftTabView.this.aMT.zU()) {
+                    if (AlaGiftTabView.this.aMp == null) {
+                        AlaGiftTabView.this.aMp = new com.baidu.live.gift.container.c(AlaGiftTabView.this.mContext, AlaGiftTabView.this.mType, AlaGiftTabView.this.aNa);
                     }
-                    AlaGiftTabView.this.bs(true);
-                    AlaGiftTabView.this.aKT.a(AlaGiftTabView.this.aKK, AlaGiftTabView.this.aKE, AlaGiftTabView.this.isLandscape, new PopupWindow.OnDismissListener() { // from class: com.baidu.live.gift.container.AlaGiftTabView.11.1
+                    AlaGiftTabView.this.bv(true);
+                    AlaGiftTabView.this.aMp.a(AlaGiftTabView.this.aMg, AlaGiftTabView.this.aMa, AlaGiftTabView.this.isLandscape, new PopupWindow.OnDismissListener() { // from class: com.baidu.live.gift.container.AlaGiftTabView.11.1
                         @Override // android.widget.PopupWindow.OnDismissListener
                         public void onDismiss() {
-                            AlaGiftTabView.this.bs(false);
+                            AlaGiftTabView.this.bv(false);
                         }
                     });
                 }
             }
         };
-        this.aLE = new AdapterView.OnItemClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabView.12
+        this.aNa = new AdapterView.OnItemClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabView.12
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 g.a aVar;
-                AlaGiftTabView.this.aKT.dismiss();
-                if (AlaGiftTabView.this.aKE != null && AlaGiftTabView.this.aKE.size() > 0) {
-                    if (i != AlaGiftTabView.this.aKE.size()) {
-                        com.baidu.live.data.g gVar = (com.baidu.live.data.g) AlaGiftTabView.this.aKE.get(i);
+                AlaGiftTabView.this.aMp.dismiss();
+                if (AlaGiftTabView.this.aMa != null && AlaGiftTabView.this.aMa.size() > 0) {
+                    if (i != AlaGiftTabView.this.aMa.size()) {
+                        com.baidu.live.data.g gVar = (com.baidu.live.data.g) AlaGiftTabView.this.aMa.get(i);
                         if (gVar != null) {
                             int number = gVar.getNumber();
-                            if (AlaGiftTabView.this.mType == 1 && (aVar = AlaGiftTabView.this.aLh.aGH) != null) {
+                            if (AlaGiftTabView.this.mType == 1 && (aVar = AlaGiftTabView.this.aMD.aIc) != null) {
                                 if (number == -1) {
-                                    number = aVar.aGO;
+                                    number = aVar.aIj;
                                 }
-                                if (number > AlaGiftTabView.this.aLu) {
-                                    number = AlaGiftTabView.this.aLu;
+                                if (number > AlaGiftTabView.this.aMQ) {
+                                    number = AlaGiftTabView.this.aMQ;
                                 }
                             }
-                            AlaGiftTabView.this.ff(String.valueOf(number));
+                            AlaGiftTabView.this.fe(String.valueOf(number));
                             return;
                         }
                         return;
                     }
-                    AlaGiftTabView.this.zQ();
+                    AlaGiftTabView.this.As();
                     return;
                 }
-                AlaGiftTabView.this.ff("1");
+                AlaGiftTabView.this.fe("1");
             }
         };
-        this.aLF = new CustomMessageListener(2913078) { // from class: com.baidu.live.gift.container.AlaGiftTabView.4
+        this.aNb = new CustomMessageListener(2913078) { // from class: com.baidu.live.gift.container.AlaGiftTabView.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.live.f.c)) {
                     com.baidu.live.f.c cVar = (com.baidu.live.f.c) customResponsedMessage.getData();
-                    if ((cVar.aFk == 1 || cVar.aFk == 2 || cVar.aFk == 5 || cVar.aFk == 6) && cVar.aFl != null) {
-                        AlaGiftTabView.this.an(cVar.aFl.getId(), cVar.aFl.getUrl());
+                    if ((cVar.aGF == 1 || cVar.aGF == 2 || cVar.aGF == 5 || cVar.aGF == 6) && cVar.aGG != null) {
+                        AlaGiftTabView.this.am(cVar.aGG.getId(), cVar.aGG.getUrl());
                     }
                 }
             }
         };
-        this.aLG = new CustomMessageListener(2913120) { // from class: com.baidu.live.gift.container.AlaGiftTabView.5
+        this.aNc = new CustomMessageListener(2913120) { // from class: com.baidu.live.gift.container.AlaGiftTabView.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                AlaGiftTabView.this.bn(true);
-                if (AlaGiftTabView.this.aLh != null && AlaGiftTabView.this.b(AlaGiftTabView.this.aLh) && AlaGiftTabView.this.aKJ) {
-                    AlaGiftTabView.this.aKX.setStyle(AlaGiftTabView.this.aLh.xS() ? 2 : 1);
-                    AlaGiftTabView.this.aKL.setStyleEnabled(true);
+                AlaGiftTabView.this.bq(true);
+                if (AlaGiftTabView.this.aMD != null && AlaGiftTabView.this.b(AlaGiftTabView.this.aMD) && AlaGiftTabView.this.aMf) {
+                    AlaGiftTabView.this.aMt.setStyle(AlaGiftTabView.this.aMD.yu() ? 2 : 1);
+                    AlaGiftTabView.this.aMh.setStyleEnabled(true);
                 }
             }
         };
-        this.aLH = new CustomMessageListener(2913082) { // from class: com.baidu.live.gift.container.AlaGiftTabView.6
+        this.aNd = new CustomMessageListener(2913082) { // from class: com.baidu.live.gift.container.AlaGiftTabView.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 q qVar;
-                if (AlaGiftTabView.this.mType == 0 && customResponsedMessage != null && (customResponsedMessage.getData() instanceof q) && (qVar = (q) customResponsedMessage.getData()) != null && qVar.axI != null) {
+                if (AlaGiftTabView.this.mType == 0 && customResponsedMessage != null && (customResponsedMessage.getData() instanceof q) && (qVar = (q) customResponsedMessage.getData()) != null && qVar.ayV != null) {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    String str2 = qVar.axI.throneUid;
+                    String str2 = qVar.ayV.throneUid;
                     boolean z2 = (TextUtils.isEmpty(currentAccount) || TextUtils.isEmpty(str2) || !currentAccount.equals(str2)) ? false : true;
-                    if (AlaGiftTabView.this.aJx != z2) {
-                        AlaGiftTabView.this.aJx = z2;
-                        AlaGiftTabView.this.zZ();
-                        AlaGiftTabView.this.zY();
+                    if (AlaGiftTabView.this.aKT != z2) {
+                        AlaGiftTabView.this.aKT = z2;
+                        AlaGiftTabView.this.AB();
+                        AlaGiftTabView.this.AA();
                     }
                 }
             }
         };
-        this.aLI = new CustomMessageListener(2913179) { // from class: com.baidu.live.gift.container.AlaGiftTabView.7
+        this.aNe = new CustomMessageListener(2913179) { // from class: com.baidu.live.gift.container.AlaGiftTabView.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2913179 && AlaGiftTabView.this.mType == 0) {
-                    AlaGiftTabView.this.zP();
-                    AlaGiftTabView.this.aKX.setStyle(AlaGiftTabView.this.aLh.xS() ? 4 : 3);
-                    AlaGiftTabView.this.aKL.setStyleEnabled(false);
-                    if (AlaGiftTabView.this.aLv != null) {
-                        AlaGiftTabView.this.aLv.e(false, null);
+                    AlaGiftTabView.this.Ar();
+                    AlaGiftTabView.this.aMt.setStyle(AlaGiftTabView.this.aMD.yu() ? 4 : 3);
+                    AlaGiftTabView.this.aMh.setStyleEnabled(false);
+                    if (AlaGiftTabView.this.aMR != null) {
+                        AlaGiftTabView.this.aMR.e(false, null);
                     }
                 }
             }
         };
         this.mContext = tbPageContext;
         this.otherParams = str;
-        this.aLl = onClickListener;
-        this.aLm = z;
+        this.aMH = onClickListener;
+        this.aMI = z;
         this.mRoot = (ViewGroup) LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.h.live_gift_panel_fragment, (ViewGroup) null);
         this.isLandscape = 2 == UtilHelper.getRealScreenOrientation(this.mContext.getPageActivity());
         initViews();
         initListener();
-        this.aLg = BdUtilHelper.getDimens(this.mContext.getPageActivity(), a.e.sdk_ds36);
-        this.aKZ = new ArrayList<>();
+        this.aMC = BdUtilHelper.getDimens(this.mContext.getPageActivity(), a.e.sdk_ds36);
+        this.aMv = new ArrayList<>();
     }
 
     public void setType(int i) {
         this.mType = i;
         switch (this.mType) {
             case 0:
-                this.aLu = 9999;
+                this.aMQ = 9999;
                 return;
             case 1:
-                this.aLu = 999;
+                this.aMQ = 999;
                 return;
             default:
                 return;
         }
     }
 
-    public void cf(int i) {
+    public void cl(int i) {
         int childCount;
-        this.aLw = i;
-        if (this.aKQ != null && (childCount = this.aKQ.getChildCount()) > 0) {
+        this.aMS = i;
+        if (this.aMm != null && (childCount = this.aMm.getChildCount()) > 0) {
             for (int i2 = 0; i2 < childCount; i2++) {
-                if (i2 == this.aLd) {
-                    ((GradientTextView) ((ViewGroup) this.aKQ.getChildAt(i2)).findViewById(a.g.text_view)).setGradientTextColor(this.aLw, this.aLw);
+                if (i2 == this.aMz) {
+                    ((GradientTextView) ((ViewGroup) this.aMm.getChildAt(i2)).findViewById(a.g.text_view)).setGradientTextColor(this.aMS, this.aMS);
                 }
             }
         }
     }
 
     public void a(a aVar) {
-        this.aLv = aVar;
+        this.aMR = aVar;
     }
 
-    public void am(String str, String str2) {
+    public void al(String str, String str2) {
         this.liveId = str;
         this.roomId = str2;
     }
 
-    public void bm(boolean z) {
+    public void bp(boolean z) {
         this.mShowing = z;
     }
 
     public void onVisibilityChanged(boolean z) {
-        bm(z);
+        bp(z);
     }
 
     public View getRootView() {
@@ -339,78 +339,78 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
     }
 
     private void initViews() {
-        this.aKK = this.mRoot.findViewById(a.g.gift_count_layout);
-        this.aKK.setOnClickListener(this.aLD);
-        this.aKL = (GiftPanelNumRoundRectView) this.mRoot.findViewById(a.g.gift_count_round);
-        this.aKM = (TextView) this.mRoot.findViewById(a.g.gift_count_input);
-        this.aKM.setText("1");
-        this.aKM.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_fontsize24));
-        this.aKN = (BaseViewPager) this.mRoot.findViewById(a.g.gift_viewpager);
-        this.aKN.setOnPageChangeListener(this);
-        this.aKO = (RoundRectPageIndicator) this.mRoot.findViewById(a.g.gift_tab_indicator);
-        this.aKQ = (LinearLayout) this.mRoot.findViewById(a.g.gift_tab_layout);
-        this.aKP = (HorizontalScrollView) this.mRoot.findViewById(a.g.gift_tab_scrollview);
-        if (this.aLm) {
-            this.aKP.setVisibility(8);
+        this.aMg = this.mRoot.findViewById(a.g.gift_count_layout);
+        this.aMg.setOnClickListener(this.aMZ);
+        this.aMh = (GiftPanelNumRoundRectView) this.mRoot.findViewById(a.g.gift_count_round);
+        this.aMi = (TextView) this.mRoot.findViewById(a.g.gift_count_input);
+        this.aMi.setText("1");
+        this.aMi.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_fontsize24));
+        this.aMj = (BaseViewPager) this.mRoot.findViewById(a.g.gift_viewpager);
+        this.aMj.setOnPageChangeListener(this);
+        this.aMk = (RoundRectPageIndicator) this.mRoot.findViewById(a.g.gift_tab_indicator);
+        this.aMm = (LinearLayout) this.mRoot.findViewById(a.g.gift_tab_layout);
+        this.aMl = (HorizontalScrollView) this.mRoot.findViewById(a.g.gift_tab_scrollview);
+        if (this.aMI) {
+            this.aMl.setVisibility(8);
         }
-        this.aKU = (TextView) this.mRoot.findViewById(a.g.current_money);
-        this.aKU.setOnClickListener(this.aLl);
-        this.aKV = (TextView) this.mRoot.findViewById(a.g.current_flower);
-        this.aKV.setOnClickListener(this.aLl);
-        this.aKX = (GiftPanelOperationSendView) this.mRoot.findViewById(a.g.donate);
-        this.aKW = (TextView) this.mRoot.findViewById(a.g.current_recharge);
-        this.aKW.setOnClickListener(this.aLl);
-        this.aKX.setOnClickListener(this.aLl);
+        this.aMq = (TextView) this.mRoot.findViewById(a.g.current_money);
+        this.aMq.setOnClickListener(this.aMH);
+        this.aMr = (TextView) this.mRoot.findViewById(a.g.current_flower);
+        this.aMr.setOnClickListener(this.aMH);
+        this.aMt = (GiftPanelOperationSendView) this.mRoot.findViewById(a.g.donate);
+        this.aMs = (TextView) this.mRoot.findViewById(a.g.current_recharge);
+        this.aMs.setOnClickListener(this.aMH);
+        this.aMt.setOnClickListener(this.aMH);
         FrameLayout frameLayout = (FrameLayout) this.mRoot.findViewById(a.g.layout_error);
         frameLayout.getLayoutParams().width = ScreenHelper.getRealScreenHeight(this.mContext.getPageActivity());
-        this.aKR = new CommonEmptyView(this.mContext.getPageActivity());
-        this.aKR.setVisibility(8);
-        this.aKR.addToParent(frameLayout);
-        this.aKS = this.mRoot.findViewById(a.g.donate_layout);
-        this.aLx = (AlaComboBtnAnimView) this.mRoot.findViewById(a.g.combo_layout);
-        this.aLx.setComboClickListener(this.aLl);
-        this.aLx.setComboListener(new AlaComboBtnAnimView.a() { // from class: com.baidu.live.gift.container.AlaGiftTabView.1
+        this.aMn = new CommonEmptyView(this.mContext.getPageActivity());
+        this.aMn.setVisibility(8);
+        this.aMn.addToParent(frameLayout);
+        this.aMo = this.mRoot.findViewById(a.g.donate_layout);
+        this.aMT = (AlaComboBtnAnimView) this.mRoot.findViewById(a.g.combo_layout);
+        this.aMT.setComboClickListener(this.aMH);
+        this.aMT.setComboListener(new AlaComboBtnAnimView.a() { // from class: com.baidu.live.gift.container.AlaGiftTabView.1
             @Override // com.baidu.live.gift.container.AlaComboBtnAnimView.a
-            public void zt() {
-                AlaGiftTabView.this.bv(true);
+            public void zV() {
+                AlaGiftTabView.this.by(true);
             }
         });
-        this.aLy = (TbImageView) this.mRoot.findViewById(a.g.iv_official);
+        this.aMU = (TbImageView) this.mRoot.findViewById(a.g.iv_official);
     }
 
-    public void zN() {
-        this.aLs = true;
-        this.aKU.setVisibility(8);
-        this.aKV.setVisibility(8);
-        this.aKW.setVisibility(8);
+    public void Ap() {
+        this.aMO = true;
+        this.aMq.setVisibility(8);
+        this.aMr.setVisibility(8);
+        this.aMs.setVisibility(8);
     }
 
-    public void bn(boolean z) {
-        this.aKJ = z;
+    public void bq(boolean z) {
+        this.aMf = z;
     }
 
     public void b(boolean z, String str, String str2, String str3) {
-        if (com.baidu.live.v.a.Hm().Hp() && !TbadkCoreApplication.getInst().isMobileBaidu() && z) {
-            this.aKW.setText(this.mContext.getPageActivity().getString(a.i.first_recharge_text));
-            if (!this.aLr.contains(str)) {
+        if (com.baidu.live.v.a.Hs().Hv() && !TbadkCoreApplication.getInst().isMobileBaidu() && z) {
+            this.aMs.setText(this.mContext.getPageActivity().getString(a.i.first_recharge_text));
+            if (!this.aMN.contains(str)) {
                 LogManager.getFirstChargeLogger().doDisplayLiveFirstChargePanelEntryLog(str, str2, str3, this.otherParams);
-                this.aLr.add(str);
+                this.aMN.add(str);
             }
         }
     }
 
-    public void aP(boolean z) {
+    public void aR(boolean z) {
     }
 
-    public void bJ(int i) {
-        this.aLp = i;
+    public void bL(int i) {
+        this.aML = i;
     }
 
-    public void bo(boolean z) {
-        this.aLB = z;
-        if (z && !ListUtils.isEmpty(this.aKD)) {
-            zT();
-            this.aLC = true;
+    public void br(boolean z) {
+        this.aMX = z;
+        if (z && !ListUtils.isEmpty(this.aLZ)) {
+            Av();
+            this.aMY = true;
         }
     }
 
@@ -418,44 +418,44 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
     public void a(s sVar) {
         if (sVar != null) {
             UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "tycoon_pop_show"));
-            if (this.aLz == null) {
-                this.aLz = new com.baidu.live.gift.container.d(this.mContext);
+            if (this.aMV == null) {
+                this.aMV = new com.baidu.live.gift.container.d(this.mContext);
             }
-            this.aLz.m(sVar.dialogTitle, sVar.axX + sVar.axY, sVar.axY);
+            this.aMV.m(sVar.dialogTitle, sVar.azk + sVar.azl, sVar.azl);
         }
     }
 
-    private void N(View view) {
-        if (this.aLz == null) {
-            this.aLz = new com.baidu.live.gift.container.d(this.mContext);
+    private void Q(View view) {
+        if (this.aMV == null) {
+            this.aMV = new com.baidu.live.gift.container.d(this.mContext);
         }
-        this.aLz.L(view);
+        this.aMV.O(view);
     }
 
-    public void bp(boolean z) {
-        this.aLA = z;
+    public void bs(boolean z) {
+        this.aMW = z;
     }
 
-    public void cg(int i) {
-        this.ayd = i;
+    public void cm(int i) {
+        this.azq = i;
     }
 
-    public void aR(boolean z) {
-        this.aJx = z;
+    public void aT(boolean z) {
+        this.aKT = z;
     }
 
-    public void bq(boolean z) {
+    public void bt(boolean z) {
         if (z) {
-            ViewGroup.LayoutParams layoutParams = this.aKN.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.aMj.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds72) + this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds24);
-                this.aKN.setLayoutParams(layoutParams);
+                this.aMj.setLayoutParams(layoutParams);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         private int mPosition;
 
@@ -465,55 +465,55 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            AlaGiftTabView.this.ch(this.mPosition);
+            AlaGiftTabView.this.cn(this.mPosition);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ch(int i) {
-        if (this.aLv != null) {
-            this.aLv.c(false, this.aLu);
+    public void cn(int i) {
+        if (this.aMR != null) {
+            this.aMR.c(false, this.aMQ);
         }
-        ci(i);
-        this.aKN.setCurrentItem(this.aLb);
-        zU();
-        zO();
+        co(i);
+        this.aMj.setCurrentItem(this.aMx);
+        Aw();
+        Aq();
     }
 
-    private void ci(int i) {
-        int min = Math.min(i, this.aLj.size());
+    private void co(int i) {
+        int min = Math.min(i, this.aMF.size());
         int i2 = 0;
         for (int i3 = 0; i3 < min; i3++) {
-            i2 += this.aLj.get(i3);
+            i2 += this.aMF.get(i3);
         }
-        this.aLb = i2;
+        this.aMx = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements AdapterView.OnItemClickListener {
         private b() {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            com.baidu.live.gift.g item = ((com.baidu.live.gift.container.a) adapterView.getAdapter()).getItem(i);
+            g item = ((com.baidu.live.gift.container.a) adapterView.getAdapter()).getItem(i);
             if (item != null && item.isRed()) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.c.q(AlaGiftTabView.this.mContext, AlaGiftTabView.this.liveId, AlaGiftTabView.this.roomId)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new r(AlaGiftTabView.this.mContext, AlaGiftTabView.this.liveId, AlaGiftTabView.this.roomId)));
                 AlaGiftTabView.this.mContext.getPageActivity().finish();
                 return;
             }
-            AlaGiftTabView.this.aLc = AlaGiftTabView.this.aLb;
+            AlaGiftTabView.this.aMy = AlaGiftTabView.this.aMx;
             AlaGiftTabView.this.a((com.baidu.live.gift.container.a) adapterView.getAdapter(), i);
         }
     }
 
-    private void zO() {
-        if (this.aLv != null) {
-            if (this.aLh != null && this.aLh.aGI) {
-                this.aLv.al(this.aLh.aGJ, this.aLh.aGK);
+    private void Aq() {
+        if (this.aMR != null) {
+            if (this.aMD != null && this.aMD.aId) {
+                this.aMR.ak(this.aMD.aIe, this.aMD.aIf);
             } else {
-                this.aLv.al(null, null);
+                this.aMR.ak(null, null);
             }
         }
     }
@@ -521,111 +521,111 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
     public void a(com.baidu.live.gift.container.a aVar, int i) {
         int i2;
         this.mSelectedPosition = i;
-        if (this.aLv != null) {
-            this.aLv.c(false, this.aLu);
+        if (this.aMR != null) {
+            this.aMR.c(false, this.aMQ);
         }
         if (aVar != null) {
-            com.baidu.live.gift.g item = aVar.getItem(i);
+            g item = aVar.getItem(i);
             if (item != null) {
                 d(item);
-                aVar.bY(i);
+                aVar.ce(i);
                 aVar.notifyDataSetChanged();
-                this.aKS.setVisibility(aVar.getCount() > 0 ? 0 : 4);
-                ff("1");
+                this.aMo.setVisibility(aVar.getCount() > 0 ? 0 : 4);
+                fe("1");
                 int i3 = -1;
                 if (this.mType == 0) {
-                    if (this.aLh.yi()) {
-                        this.aKX.setStyle(this.aLh.xS() ? 4 : 3);
-                        this.aKL.setStyleEnabled(false);
-                        if (this.aLv != null) {
-                            this.aLv.e(false, null);
+                    if (this.aMD.yK()) {
+                        this.aMt.setStyle(this.aMD.yu() ? 4 : 3);
+                        this.aMh.setStyleEnabled(false);
+                        if (this.aMR != null) {
+                            this.aMR.e(false, null);
                         }
-                        if (!TextUtils.isEmpty(this.aLh.xV()) && this.mShowing) {
-                            this.mContext.showToast(this.aLh.xV());
+                        if (!TextUtils.isEmpty(this.aMD.yx()) && this.mShowing) {
+                            this.mContext.showToast(this.aMD.yx());
                             return;
                         }
                         return;
                     }
-                    zO();
-                    this.aKX.setEnabled(true);
-                    if (this.aLh.yl()) {
-                        if (this.aLv != null) {
-                            this.aLv.e(false, null);
+                    Aq();
+                    this.aMt.setEnabled(true);
+                    if (this.aMD.yN()) {
+                        if (this.aMR != null) {
+                            this.aMR.e(false, null);
                         }
-                        if (this.aLh.yh() == 6 && this.aJo < 3) {
+                        if (this.aMD.yJ() == 6 && this.aKK < 3) {
                             i3 = 3;
-                        } else if (this.aLh.yh() == 7 && this.aJo < 7) {
+                        } else if (this.aMD.yJ() == 7 && this.aKK < 7) {
                             i3 = 7;
-                        } else if (this.aLh.yh() == 8 && this.aJo < 13) {
+                        } else if (this.aMD.yJ() == 8 && this.aKK < 13) {
                             i3 = 13;
-                        } else if (this.aLh.yh() == 9 && this.aJo < 22) {
+                        } else if (this.aMD.yJ() == 9 && this.aKK < 22) {
                             i3 = 22;
-                        } else if (this.aLh.yh() == 10 && this.aJo < 29) {
+                        } else if (this.aMD.yJ() == 10 && this.aKK < 29) {
                             i3 = 29;
-                        } else if (this.aLh.yh() == 11 && this.aJo < 39) {
+                        } else if (this.aMD.yJ() == 11 && this.aKK < 39) {
                             i3 = 39;
-                        } else if (this.aLh.yh() == 12 && this.aJo < 47) {
+                        } else if (this.aMD.yJ() == 12 && this.aKK < 47) {
                             i3 = 47;
                         }
                     }
                     boolean z = i3 == -1;
                     if (z) {
-                        this.aKX.setStyle(this.aLh.xS() ? 2 : 1);
+                        this.aMt.setStyle(this.aMD.yu() ? 2 : 1);
                     } else {
-                        this.aKX.setStyle(this.aLh.xS() ? 4 : 3);
+                        this.aMt.setStyle(this.aMD.yu() ? 4 : 3);
                     }
-                    this.aKL.setStyleEnabled(z);
-                    zZ();
+                    this.aMh.setStyleEnabled(z);
+                    AB();
                     i2 = i3;
                 } else {
-                    this.aKX.setStyle(this.aLh.xS() ? 2 : 1);
-                    if (this.aLh.aGH != null && this.aLh.aGH.aGN != null && this.aLh.aGH.aGN.equals("20")) {
-                        this.aKX.setText("使用");
+                    this.aMt.setStyle(this.aMD.yu() ? 2 : 1);
+                    if (this.aMD.aIc != null && this.aMD.aIc.aIi != null && this.aMD.aIc.aIi.equals("20")) {
+                        this.aMt.setText("使用");
                     } else {
-                        this.aKX.setText("赠送");
+                        this.aMt.setText("赠送");
                     }
-                    this.aKL.setStyleEnabled(true);
+                    this.aMh.setStyleEnabled(true);
                     i2 = -1;
                 }
-                if (this.aLh.xT()) {
-                    br(true);
+                if (this.aMD.yv()) {
+                    bu(true);
                 } else {
-                    br(false);
-                    ff("1");
+                    bu(false);
+                    fe("1");
                 }
                 d(false, i2);
                 return;
             }
-            this.aKX.setStyle(3);
+            this.aMt.setStyle(3);
             return;
         }
-        this.aKX.setStyle(3);
+        this.aMt.setStyle(3);
     }
 
     private void d(boolean z, int i) {
         g.a aVar;
-        if (this.mShowing && this.aLh != null) {
+        if (this.mShowing && this.aMD != null) {
             if (this.mType == 0) {
-                if (this.aLh.yk() && !this.aJx) {
+                if (this.aMD.yM() && !this.aKT) {
                     this.mContext.showToast(a.i.sdk_throne_disabled_alert);
-                } else if (!TextUtils.isEmpty(this.aLh.xV()) && this.aLh.yi() && !z) {
-                    this.mContext.showToast(this.aLh.xV());
-                } else if (this.aLh.yl() && i != -1) {
+                } else if (!TextUtils.isEmpty(this.aMD.yx()) && this.aMD.yK() && !z) {
+                    this.mContext.showToast(this.aMD.yx());
+                } else if (this.aMD.yN() && i != -1) {
                     this.mContext.showToast(String.format(this.mContext.getString(a.i.send_family_level_gift_toast_live), Integer.valueOf(i)));
-                } else if (this.aLh.yg()) {
+                } else if (this.aMD.yI()) {
                     BdUtilHelper.showLongToast(this.mContext.getPageActivity(), this.mContext.getString(a.i.send_broadcast_gift_toast));
                 }
-            } else if (this.mType == 1 && (aVar = this.aLh.aGH) != null && !TextUtils.isEmpty(aVar.aGQ)) {
-                this.mContext.showToast(aVar.aGQ);
+            } else if (this.mType == 1 && (aVar = this.aMD.aIc) != null && !TextUtils.isEmpty(aVar.aIl)) {
+                this.mContext.showToast(aVar.aIl);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean b(com.baidu.live.gift.g gVar) {
-        if (com.baidu.live.v.a.Hm().bdV != null && com.baidu.live.v.a.Hm().bdV.aCS != null) {
-            String str = com.baidu.live.v.a.Hm().bdV.aCS.aCe;
-            if (!TextUtils.isEmpty(str) && str.equals(String.valueOf(gVar.yh()))) {
+    public boolean b(g gVar) {
+        if (com.baidu.live.v.a.Hs().beo != null && com.baidu.live.v.a.Hs().beo.aEn != null) {
+            String str = com.baidu.live.v.a.Hs().beo.aEn.aDz;
+            if (!TextUtils.isEmpty(str) && str.equals(String.valueOf(gVar.yJ()))) {
                 return true;
             }
         }
@@ -633,119 +633,119 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zP() {
-        if (!this.aLf) {
-            this.aLt = new BdAlertDialog(this.mContext.getPageActivity());
-            this.aLt.setCancelable(false);
-            this.aLt.setCanceledOnTouchOutside(false);
-            this.aLt.setTitle(this.mContext.getPageActivity().getString(a.i.need_join_guard_club_title));
-            this.aLt.setMessage(String.format(this.mContext.getPageActivity().getString(a.i.need_join_guard_club_content), Integer.valueOf(this.aLp)));
+    public void Ar() {
+        if (!this.aMB) {
+            this.aMP = new BdAlertDialog(this.mContext.getPageActivity());
+            this.aMP.setCancelable(false);
+            this.aMP.setCanceledOnTouchOutside(false);
+            this.aMP.setTitle(this.mContext.getPageActivity().getString(a.i.need_join_guard_club_title));
+            this.aMP.setMessage(String.format(this.mContext.getPageActivity().getString(a.i.need_join_guard_club_content), Integer.valueOf(this.aML)));
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                this.aLt.setPositiveButtonTextColor(this.mContext.getResources().getColorStateList(a.f.sdk_dialog_blue_button_txt_selector));
-                this.aLt.setNagetiveButtonTextColor(this.mContext.getResources().getColorStateList(a.f.sdk_dialog_gray_button_txt_selector));
+                this.aMP.setPositiveButtonTextColor(this.mContext.getResources().getColorStateList(a.f.sdk_dialog_blue_button_txt_selector));
+                this.aMP.setNagetiveButtonTextColor(this.mContext.getResources().getColorStateList(a.f.sdk_dialog_gray_button_txt_selector));
             } else {
-                this.aLt.setPositiveButtonTextColor(-57754);
-                this.aLt.setNagetiveButtonTextColor(ViewCompat.MEASURED_STATE_MASK);
+                this.aMP.setPositiveButtonTextColor(-57754);
+                this.aMP.setNagetiveButtonTextColor(ViewCompat.MEASURED_STATE_MASK);
             }
-            this.aLt.setPositiveButton(this.mContext.getPageActivity().getString(a.i.ala_gift_join_now), new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabView.13
+            this.aMP.setPositiveButton(this.mContext.getPageActivity().getString(a.i.ala_gift_join_now), new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabView.13
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog) {
-                    AlaGiftTabView.this.aLf = false;
+                    AlaGiftTabView.this.aMB = false;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913119));
                     bdAlertDialog.dismiss();
                 }
             });
-            this.aLt.setNegativeButton(this.mContext.getPageActivity().getString(a.i.ala_gift_think), new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabView.14
+            this.aMP.setNegativeButton(this.mContext.getPageActivity().getString(a.i.ala_gift_think), new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabView.14
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog) {
-                    AlaGiftTabView.this.aLf = false;
+                    AlaGiftTabView.this.aMB = false;
                     bdAlertDialog.dismiss();
                 }
             });
-            this.aLt.create(this.mContext).show();
-            this.aLf = true;
+            this.aMP.create(this.mContext).show();
+            this.aMB = true;
             LogManager.getGuardClubLogger().doDisplayLiveGiftPopupLog(null, null, null, this.otherParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void br(boolean z) {
+    public void bu(boolean z) {
         int i = 0;
-        boolean z2 = z && com.baidu.live.v.a.Hm().aZp.azo;
+        boolean z2 = z && com.baidu.live.v.a.Hs().aZn.aAB;
         if (z2) {
-            this.aKK.setVisibility(4);
-            this.aKX.setStyle(1);
+            this.aMg.setVisibility(4);
+            this.aMt.setStyle(1);
         } else {
-            View view = this.aKK;
-            if (this.aLh == null || !this.aLh.xS()) {
+            View view = this.aMg;
+            if (this.aMD == null || !this.aMD.yu()) {
                 i = 4;
             }
             view.setVisibility(i);
         }
-        if (this.aLv != null) {
-            this.aLv.e(z2, this.aLh != null ? this.aLh.getThumbnail_url() : null);
+        if (this.aMR != null) {
+            this.aMR.e(z2, this.aMD != null ? this.aMD.getThumbnail_url() : null);
         }
     }
 
-    public void zQ() {
-        if (this.aLv != null) {
-            this.aLv.c(true, this.aLu);
+    public void As() {
+        if (this.aMR != null) {
+            this.aMR.c(true, this.aMQ);
         }
     }
 
     @Override // com.baidu.live.view.input.b.a
-    public void fc(String str) {
+    public void fb(String str) {
         if (JavaTypesHelper.toInt(str, 0) <= 0) {
             str = "1";
         }
-        ff(str);
+        fe(str);
     }
 
-    public void ff(String str) {
-        this.aKM.setText(str);
-        this.aKM.setTextSize(0, this.mContext.getResources().getDimensionPixelOffset(str.length() >= 4 ? a.e.sdk_fontsize20 : a.e.sdk_fontsize24));
-        bs(false);
-        if (this.aLh != null && this.aLh.xS()) {
-            this.aKK.setVisibility(0);
-            this.aLi = JavaTypesHelper.toInt(this.aKM.getText().toString(), 1);
+    public void fe(String str) {
+        this.aMi.setText(str);
+        this.aMi.setTextSize(0, this.mContext.getResources().getDimensionPixelOffset(str.length() >= 4 ? a.e.sdk_fontsize20 : a.e.sdk_fontsize24));
+        bv(false);
+        if (this.aMD != null && this.aMD.yu()) {
+            this.aMg.setVisibility(0);
+            this.aME = JavaTypesHelper.toInt(this.aMi.getText().toString(), 1);
             return;
         }
-        this.aKK.setVisibility(4);
-        this.aLi = 1;
+        this.aMg.setVisibility(4);
+        this.aME = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bs(boolean z) {
-        this.aKM.setGravity(17);
+    public void bv(boolean z) {
+        this.aMi.setGravity(17);
         if (z) {
-            this.aKM.setCompoundDrawablesWithIntrinsicBounds(0, 0, a.f.sdk_icon_tabbar_arrow_down, 0);
+            this.aMi.setCompoundDrawablesWithIntrinsicBounds(0, 0, a.f.sdk_icon_tabbar_arrow_down, 0);
         } else {
-            this.aKM.setCompoundDrawablesWithIntrinsicBounds(0, 0, a.f.sdk_icon_tabbar_arrow_up, 0);
+            this.aMi.setCompoundDrawablesWithIntrinsicBounds(0, 0, a.f.sdk_icon_tabbar_arrow_up, 0);
         }
     }
 
     public void a(boolean z, ArrayList<i> arrayList, ArrayList<com.baidu.live.data.f> arrayList2, ArrayList<com.baidu.live.data.g> arrayList3, boolean z2, int i) {
-        if (this.aKC == null || this.aKC.isEmpty() || (z2 && arrayList != null && !arrayList.isEmpty())) {
-            if (this.aKC == null) {
-                this.aKC = new ArrayList<>();
+        if (this.aLY == null || this.aLY.isEmpty() || (z2 && arrayList != null && !arrayList.isEmpty())) {
+            if (this.aLY == null) {
+                this.aLY = new ArrayList<>();
             }
-            this.aKC.clear();
+            this.aLY.clear();
             if (arrayList != null) {
-                this.aKC.addAll(arrayList);
+                this.aLY.addAll(arrayList);
             }
-            this.aKD = arrayList2;
-            this.aKE = arrayList3;
-            this.aLe = false;
-            if (this.aKD == null || this.aKD.isEmpty()) {
-                this.aKP.setVisibility(8);
+            this.aLZ = arrayList2;
+            this.aMa = arrayList3;
+            this.aMA = false;
+            if (this.aLZ == null || this.aLZ.isEmpty()) {
+                this.aMl.setVisibility(8);
             }
             a(z, z2, i);
         }
     }
 
     public void z(String str, int i) {
-        if (!TextUtils.isEmpty(str) && this.mType == 1 && this.aKY != null) {
-            for (View view : this.aKY) {
+        if (!TextUtils.isEmpty(str) && this.mType == 1 && this.aMu != null) {
+            for (View view : this.aMu) {
                 if (view instanceof ViewGroup) {
                     ViewGroup viewGroup = (ViewGroup) view;
                     int i2 = 0;
@@ -768,124 +768,124 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
     public void a(boolean z, boolean z2, int i) {
         String string;
         boolean z3;
-        zR();
-        if (this.aKC == null || this.aKC.size() <= 0 || !z2) {
-            pZ();
-            if (this.aKO != null) {
-                this.aKO.setVisibility(4);
+        At();
+        if (this.aLY == null || this.aLY.size() <= 0 || !z2) {
+            qa();
+            if (this.aMk != null) {
+                this.aMk.setVisibility(4);
             }
-            this.aKS.setVisibility(4);
-            this.aKR.reset();
+            this.aMo.setVisibility(4);
+            this.aMn.reset();
             if (!z2 && BdNetTypeUtil.isNetWorkAvailable()) {
                 string = this.mContext.getPageActivity().getString(a.i.sdk_net_fail_tip_rank);
-                this.aKR.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
+                this.aMn.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
             } else if (z2) {
                 string = this.mContext.getPageActivity().getString(a.i.sdk_net_fail_tip_rank);
                 i = MessageConfig.GITT_NO_DATA;
-                this.aKR.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
+                this.aMn.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
             } else {
                 string = this.mContext.getPageActivity().getString(a.i.sdk_net_no);
-                this.aKR.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+                this.aMn.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
             }
-            if (com.baidu.live.v.a.Hm().aZp.aAO && i != 0) {
+            if (com.baidu.live.v.a.Hs().aZn.aCb && i != 0) {
                 string = string + "(" + i + ")";
             }
-            this.aKR.setTitle(string);
-            this.aKR.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabView.15
+            this.aMn.setTitle(string);
+            this.aMn.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabView.15
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (AlaGiftTabView.this.aLa != null) {
-                        AlaGiftTabView.this.aLa.Aa();
+                    if (AlaGiftTabView.this.aMw != null) {
+                        AlaGiftTabView.this.aMw.AC();
                     }
                 }
             });
-            this.aKR.setVisibility(0);
+            this.aMn.setVisibility(0);
             return;
         }
-        this.aKR.setVisibility(8);
+        this.aMn.setVisibility(8);
         if (z) {
-            h(this.aKD);
+            h(this.aLZ);
         }
-        bb bbVar = com.baidu.live.v.a.Hm().bdV;
-        if (this.mType == 0 && bbVar != null && bbVar.aCW != null && bbVar.aCW.aEO && !this.aLA && this.aKC.get(0) != null && this.aKC.get(0).ym() != null) {
-            List<com.baidu.live.gift.g> ym = this.aKC.get(0).ym();
-            if (ym.size() <= 1 || ym.get(1) == null) {
+        bc bcVar = com.baidu.live.v.a.Hs().beo;
+        if (this.mType == 0 && bcVar != null && bcVar.aEr != null && bcVar.aEr.aGi && !this.aMW && this.aLY.get(0) != null && this.aLY.get(0).yO() != null) {
+            List<g> yO = this.aLY.get(0).yO();
+            if (yO.size() <= 1 || yO.get(1) == null) {
                 z3 = true;
             } else {
-                z3 = !ym.get(1).isRed();
+                z3 = !yO.get(1).isRed();
             }
-            if (!ym.isEmpty() && z3) {
-                com.baidu.live.gift.g gVar = new com.baidu.live.gift.g();
-                gVar.ba(true);
+            if (!yO.isEmpty() && z3) {
+                g gVar = new g();
+                gVar.bd(true);
                 gVar.setGiftName("发红包");
-                ym.add(1, gVar);
+                yO.add(1, gVar);
             }
         }
-        c(this.aKC, z);
-        ff("1");
+        c(this.aLY, z);
+        fe("1");
     }
 
-    private void pZ() {
-        this.aLb = 0;
-        this.aLc = 0;
+    private void qa() {
+        this.aMx = 0;
+        this.aMy = 0;
         this.mSelectedPosition = 0;
-        this.aLd = 0;
-        if (this.aLj != null) {
-            this.aLj.clear();
+        this.aMz = 0;
+        if (this.aMF != null) {
+            this.aMF.clear();
         }
-        if (this.aKY != null) {
-            this.aKY.clear();
+        if (this.aMu != null) {
+            this.aMu.clear();
         }
-        if (this.aKN != null) {
-            this.aKN.setAdapter(null);
+        if (this.aMj != null) {
+            this.aMj.setAdapter(null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean c(com.baidu.live.gift.g gVar) {
+    public boolean c(g gVar) {
         if (gVar == null) {
             return false;
         }
-        if (gVar.yl()) {
-            if (gVar.yh() == 6 && this.aJo < 3) {
+        if (gVar.yN()) {
+            if (gVar.yJ() == 6 && this.aKK < 3) {
                 return false;
             }
-            if (gVar.yh() == 7 && this.aJo < 7) {
+            if (gVar.yJ() == 7 && this.aKK < 7) {
                 return false;
             }
-            if (gVar.yh() == 8 && this.aJo < 13) {
+            if (gVar.yJ() == 8 && this.aKK < 13) {
                 return false;
             }
-            if (gVar.yh() == 9 && this.aJo < 22) {
+            if (gVar.yJ() == 9 && this.aKK < 22) {
                 return false;
             }
-            if (gVar.yh() == 10 && this.aJo < 29) {
+            if (gVar.yJ() == 10 && this.aKK < 29) {
                 return false;
             }
-            if (gVar.yh() == 11 && this.aJo < 39) {
+            if (gVar.yJ() == 11 && this.aKK < 39) {
                 return false;
             }
-            if (gVar.yh() == 12 && this.aJo < 47) {
+            if (gVar.yJ() == 12 && this.aKK < 47) {
                 return false;
             }
         }
-        if (gVar.yk()) {
-            return this.aJx;
+        if (gVar.yM()) {
+            return this.aKT;
         }
         return true;
     }
 
     public void b(final s sVar) {
         if (sVar == null || TextUtils.isEmpty(sVar.iconUrl)) {
-            this.aLy.setVisibility(8);
+            this.aMU.setVisibility(8);
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "tycoon_show"));
-            this.aLy.setVisibility(0);
-            this.aLy.startLoad(sVar.iconUrl, 10, false);
-            this.aLy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabView.16
+            this.aMU.setVisibility(0);
+            this.aMU.startLoad(sVar.iconUrl, 10, false);
+            this.aMU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabView.16
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "tycoon_clk"));
@@ -893,23 +893,23 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                 }
             });
             String str = "key_live_official_tip" + currentAccount;
-            if (com.baidu.live.c.vf().getInt(str, 0) == 0 && this.aLB) {
-                N(this.aLy);
+            if (com.baidu.live.c.vf().getInt(str, 0) == 0 && this.aMX) {
+                Q(this.aMU);
                 com.baidu.live.c.vf().putInt(str, 1);
             }
         }
     }
 
-    private void zR() {
-        if (ListUtils.getCount(this.aKD) != 0 && ListUtils.getCount(this.aKC) != 0) {
+    private void At() {
+        if (ListUtils.getCount(this.aLZ) != 0 && ListUtils.getCount(this.aLY) != 0) {
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
-            Iterator<com.baidu.live.data.f> it = this.aKD.iterator();
+            Iterator<com.baidu.live.data.f> it = this.aLZ.iterator();
             while (it.hasNext()) {
                 com.baidu.live.data.f next = it.next();
-                if (next != null && (TextUtils.isEmpty(next.getCategoryName()) || (this.mType == 0 && ListUtils.getCount(next.wu()) == 0))) {
+                if (next != null && (TextUtils.isEmpty(next.getCategoryName()) || (this.mType == 0 && ListUtils.getCount(next.wW()) == 0))) {
                     arrayList.add(next);
-                    Iterator<i> it2 = this.aKC.iterator();
+                    Iterator<i> it2 = this.aLY.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             break;
@@ -923,22 +923,22 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                 }
             }
             if (this.isLandscape) {
-                Iterator<i> it3 = this.aKC.iterator();
+                Iterator<i> it3 = this.aLY.iterator();
                 while (it3.hasNext()) {
-                    ListIterator<com.baidu.live.gift.g> listIterator = it3.next().ym().listIterator();
+                    ListIterator<g> listIterator = it3.next().yO().listIterator();
                     while (listIterator.hasNext()) {
-                        com.baidu.live.gift.g next3 = listIterator.next();
-                        if (next3 != null && next3.xT()) {
+                        g next3 = listIterator.next();
+                        if (next3 != null && next3.yv()) {
                             listIterator.remove();
                         }
                     }
                 }
             }
             if (arrayList.size() > 0) {
-                this.aKD.removeAll(arrayList);
+                this.aLZ.removeAll(arrayList);
             }
             if (arrayList2.size() > 0) {
-                this.aKC.removeAll(arrayList2);
+                this.aLY.removeAll(arrayList2);
             }
         }
     }
@@ -949,12 +949,12 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
         ArrayList arrayList2;
         int i2;
         int i3;
-        com.baidu.live.gift.g gVar;
-        List<com.baidu.live.gift.g> ym;
+        g gVar;
+        List<g> yO;
         if (arrayList != null) {
-            this.aLj.clear();
-            this.aKY.clear();
-            this.aKN.setAdapter(null);
+            this.aMF.clear();
+            this.aMu.clear();
+            this.aMj.setAdapter(null);
             if (this.mType != 1) {
                 z2 = false;
             } else {
@@ -966,7 +966,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                         break;
                     }
                     i iVar = arrayList.get(i5);
-                    if (iVar == null || (ym = iVar.ym()) == null || ym.isEmpty()) {
+                    if (iVar == null || (yO = iVar.yO()) == null || yO.isEmpty()) {
                         i4 = i5 + 1;
                     } else {
                         z2 = false;
@@ -974,8 +974,8 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                     }
                 }
             }
-            this.aKZ.clear();
-            D(arrayList);
+            this.aMv.clear();
+            F(arrayList);
             int i6 = 0;
             while (true) {
                 int i7 = i6;
@@ -983,42 +983,42 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                     break;
                 }
                 if (z2) {
-                    this.aKY.add(cj(i7));
-                    this.aLj.append(i7, 1);
+                    this.aMu.add(cp(i7));
+                    this.aMF.append(i7, 1);
                 } else {
                     i iVar2 = arrayList.get(i7);
                     iVar2.getCategoryId();
-                    List<com.baidu.live.gift.g> ym2 = iVar2.ym();
-                    if (ym2 == null) {
+                    List<g> yO2 = iVar2.yO();
+                    if (yO2 == null) {
                         i = 0;
                     } else {
-                        i = ym2.size();
+                        i = yO2.size();
                     }
                     int i8 = 0;
                     if (i <= 0) {
                         i8 = 1;
                         ArrayList arrayList3 = new ArrayList();
-                        if (this.aLk.get(i7)) {
-                            this.aKY.add(bt(true));
+                        if (this.aMG.get(i7)) {
+                            this.aMu.add(bw(true));
                         } else {
-                            this.aKY.add(b(arrayList3, -1, i7));
+                            this.aMu.add(b(arrayList3, -1, i7));
                         }
-                    } else if (ym2 != null) {
+                    } else if (yO2 != null) {
                         int i9 = this.isLandscape ? 12 : 8;
                         int ceil = (int) Math.ceil(i / i9);
                         for (int i10 = 0; i10 < ceil; i10++) {
                             if (i10 == ceil - 1) {
                                 if (i10 * i9 == i - 1) {
                                     ArrayList arrayList4 = new ArrayList();
-                                    arrayList4.add(ym2.get(i - 1));
+                                    arrayList4.add(yO2.get(i - 1));
                                     arrayList2 = arrayList4;
                                 } else {
-                                    arrayList2 = new ArrayList(ym2.subList(i10 * i9, i));
+                                    arrayList2 = new ArrayList(yO2.subList(i10 * i9, i));
                                 }
                             } else {
-                                arrayList2 = new ArrayList(ym2.subList(i10 * i9, (i10 + 1) * i9));
+                                arrayList2 = new ArrayList(yO2.subList(i10 * i9, (i10 + 1) * i9));
                             }
-                            this.aKZ.add(arrayList2);
+                            this.aMv.add(arrayList2);
                             if (i7 == 0 && i10 == 0 && z) {
                                 int i11 = 0;
                                 while (true) {
@@ -1029,7 +1029,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                                         break;
                                     }
                                     gVar = arrayList2.get(i3);
-                                    if (gVar == null || gVar.xM() == null || !gVar.xM().equals(String.valueOf(this.aLo))) {
+                                    if (gVar == null || gVar.yo() == null || !gVar.yo().equals(String.valueOf(this.aMK))) {
                                         i11 = i3 + 1;
                                     } else {
                                         this.mSelectedPosition = i3;
@@ -1039,22 +1039,22 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                                 if (gVar == null && arrayList2.size() > 0) {
                                     arrayList2.get(0);
                                 }
-                                this.aKY.add(b(arrayList2, i3, i7));
-                                this.aKX.removeCallbacks(null);
-                                this.aKX.postDelayed(new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabView.17
+                                this.aMu.add(b(arrayList2, i3, i7));
+                                this.aMt.removeCallbacks(null);
+                                this.aMt.postDelayed(new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabView.17
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        if (AlaGiftTabView.this.aLh != null) {
-                                            boolean xT = AlaGiftTabView.this.aLh.xT();
-                                            AlaGiftTabView.this.br(xT);
-                                            if (!xT) {
-                                                boolean c2 = AlaGiftTabView.this.c(AlaGiftTabView.this.aLh);
+                                        if (AlaGiftTabView.this.aMD != null) {
+                                            boolean yv = AlaGiftTabView.this.aMD.yv();
+                                            AlaGiftTabView.this.bu(yv);
+                                            if (!yv) {
+                                                boolean c2 = AlaGiftTabView.this.c(AlaGiftTabView.this.aMD);
                                                 if (!c2) {
-                                                    AlaGiftTabView.this.aKX.setStyle(AlaGiftTabView.this.aLh.xS() ? 4 : 3);
+                                                    AlaGiftTabView.this.aMt.setStyle(AlaGiftTabView.this.aMD.yu() ? 4 : 3);
                                                 } else {
-                                                    AlaGiftTabView.this.aKX.setStyle(AlaGiftTabView.this.aLh.xS() ? 2 : 1);
+                                                    AlaGiftTabView.this.aMt.setStyle(AlaGiftTabView.this.aMD.yu() ? 2 : 1);
                                                 }
-                                                AlaGiftTabView.this.aKL.setStyleEnabled(c2);
+                                                AlaGiftTabView.this.aMh.setStyleEnabled(c2);
                                             }
                                         }
                                     }
@@ -1067,86 +1067,86 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                                         if (i2 >= arrayList2.size()) {
                                             break;
                                         }
-                                        com.baidu.live.gift.g gVar2 = arrayList2.get(i2);
-                                        if (gVar2 == null || !gVar2.xM().equals(String.valueOf(this.aLo))) {
+                                        g gVar2 = arrayList2.get(i2);
+                                        if (gVar2 == null || !gVar2.yo().equals(String.valueOf(this.aMK))) {
                                             i12 = i2 + 1;
                                         } else {
                                             this.mSelectedPosition = i2;
                                             break;
                                         }
                                     }
-                                    this.aKY.add(b(arrayList2, i2, i7));
+                                    this.aMu.add(b(arrayList2, i2, i7));
                                 }
                                 i2 = -1;
-                                this.aKY.add(b(arrayList2, i2, i7));
+                                this.aMu.add(b(arrayList2, i2, i7));
                             }
                         }
                         i8 = ceil;
                     }
-                    this.aLj.append(i7, i8);
+                    this.aMF.append(i7, i8);
                 }
                 i6 = i7 + 1;
             }
-            this.aKN.setAdapter(new AlaGiftPagerAdapter(this.aKY));
-            zS();
-            this.aKN.setCurrentItem(this.aLb);
-            zU();
-            if (z && !this.aLC && this.aLB) {
-                this.aLC = true;
-                zT();
+            this.aMj.setAdapter(new AlaGiftPagerAdapter(this.aMu));
+            Au();
+            this.aMj.setCurrentItem(this.aMx);
+            Aw();
+            if (z && !this.aMY && this.aMX) {
+                this.aMY = true;
+                Av();
             }
         }
     }
 
-    private void zS() {
+    private void Au() {
         int i = 0;
-        if (this.aLo > 0 && !ListUtils.isEmpty(this.aKZ)) {
+        if (this.aMK > 0 && !ListUtils.isEmpty(this.aMv)) {
             boolean z = false;
-            for (int i2 = 0; i2 < this.aKZ.size() && !z; i2++) {
-                Iterator<com.baidu.live.gift.g> it = this.aKZ.get(i2).iterator();
+            for (int i2 = 0; i2 < this.aMv.size() && !z; i2++) {
+                Iterator<g> it = this.aMv.get(i2).iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    com.baidu.live.gift.g next = it.next();
-                    if (next != null && next.xM() != null && next.xM().equals(String.valueOf(this.aLo))) {
-                        this.aLb = i2;
+                    g next = it.next();
+                    if (next != null && next.yo() != null && next.yo().equals(String.valueOf(this.aMK))) {
+                        this.aMx = i2;
                         z = true;
                         d(next);
                         break;
                     }
                 }
             }
-            if (this.ayd == 111 && !z && this.mShowing) {
+            if (this.azq == 111 && !z && this.mShowing) {
                 BdUtilHelper.showToast(this.mContext.getPageActivity(), a.i.ala_not_find_gift_toast);
             }
-            this.aLc = this.aLb;
-            this.aKZ.clear();
-        } else if (this.aLn > 0) {
+            this.aMy = this.aMx;
+            this.aMv.clear();
+        } else if (this.aMJ > 0) {
             while (true) {
                 int i3 = i;
-                if (i3 >= this.aKD.size()) {
+                if (i3 >= this.aLZ.size()) {
                     break;
                 }
-                com.baidu.live.data.f fVar = this.aKD.get(i3);
-                if (fVar == null || this.aLn != fVar.getCategoryId()) {
+                com.baidu.live.data.f fVar = this.aLZ.get(i3);
+                if (fVar == null || this.aMJ != fVar.getCategoryId()) {
                     i = i3 + 1;
                 } else {
-                    ci(i3);
+                    co(i3);
                     break;
                 }
             }
-            this.aLc = this.aLb;
+            this.aMy = this.aMx;
         }
     }
 
-    private void D(List<i> list) {
-        if (list != null && this.aLn > 0 && this.aLo <= 0) {
+    private void F(List<i> list) {
+        if (list != null && this.aMJ > 0 && this.aMK <= 0) {
             for (i iVar : list) {
-                if (iVar.getCategoryId() == this.aLn) {
-                    List<com.baidu.live.gift.g> ym = iVar.ym();
-                    if (ym != null && !ym.isEmpty() && ym.get(0) != null) {
-                        this.aLo = Integer.valueOf(ym.get(0).xM()).intValue();
+                if (iVar.getCategoryId() == this.aMJ) {
+                    List<g> yO = iVar.yO();
+                    if (yO != null && !yO.isEmpty() && yO.get(0) != null) {
+                        this.aMK = Integer.valueOf(yO.get(0).yo()).intValue();
                         return;
                     }
                     return;
@@ -1155,7 +1155,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
         }
     }
 
-    private View bt(boolean z) {
+    private View bw(boolean z) {
         FrameLayout frameLayout = new FrameLayout(this.mContext.getPageActivity());
         CommonEmptyView commonEmptyView = new CommonEmptyView(this.mContext.getPageActivity());
         commonEmptyView.setTitle(a.i.sdk_net_fail_tip_rank);
@@ -1167,8 +1167,8 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
         commonEmptyView.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabView.18
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaGiftTabView.this.aLa != null) {
-                    AlaGiftTabView.this.aLa.Aa();
+                if (AlaGiftTabView.this.aMw != null) {
+                    AlaGiftTabView.this.aMw.AC();
                 }
             }
         });
@@ -1176,22 +1176,22 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
         return frameLayout;
     }
 
-    private FrameLayout b(List<com.baidu.live.gift.g> list, int i, int i2) {
+    private FrameLayout b(List<g> list, int i, int i2) {
         FrameLayout frameLayout = new FrameLayout(this.mContext.getPageActivity());
         final com.baidu.live.gift.container.a aVar = new com.baidu.live.gift.container.a(this.mContext, this.mType);
-        aVar.bf(this.aJq);
+        aVar.bi(this.aKM);
         aVar.setGiftItems(list);
-        aVar.bX(this.aJo);
-        aVar.aR(this.aJx);
-        aVar.bY(i);
+        aVar.cd(this.aKK);
+        aVar.aT(this.aKT);
+        aVar.ce(i);
         if (this.isLandscape) {
-            if (this.aKN.getHeight() > 0) {
-                aVar.bZ(this.aKN.getHeight() / 3);
+            if (this.aMj.getHeight() > 0) {
+                aVar.cf(this.aMj.getHeight() / 3);
             } else {
-                this.aKN.post(new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabView.2
+                this.aMj.post(new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabView.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        aVar.bZ(AlaGiftTabView.this.aKN.getHeight() / 3);
+                        aVar.cf(AlaGiftTabView.this.aMj.getHeight() / 3);
                         aVar.notifyDataSetChanged();
                     }
                 });
@@ -1207,8 +1207,8 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
             @Override // android.widget.AbsListView.RecyclerListener
             public void onMovedToScrapHeap(View view) {
                 Object tag = view.getTag();
-                if (tag instanceof a.C0165a) {
-                    ((a.C0165a) tag).recycle();
+                if (tag instanceof a.C0164a) {
+                    ((a.C0164a) tag).recycle();
                 }
             }
         });
@@ -1216,7 +1216,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
         return frameLayout;
     }
 
-    private FrameLayout cj(int i) {
+    private FrameLayout cp(int i) {
         FrameLayout b2 = b(null, -1, i);
         int i2 = 0;
         while (true) {
@@ -1240,26 +1240,26 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
     private void h(ArrayList<com.baidu.live.data.f> arrayList) {
         boolean z;
         if (arrayList != null && arrayList.size() > 0) {
-            if (!this.aLm) {
-                this.aKP.setVisibility(0);
+            if (!this.aMI) {
+                this.aMl.setVisibility(0);
             }
-            this.aKQ.removeAllViews();
+            this.aMm.removeAllViews();
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
                 com.baidu.live.data.f fVar = arrayList.get(i);
-                if (!TextUtils.isEmpty(fVar.getCategoryName()) && (this.mType != 0 || (fVar.wu() != null && fVar.wu().size() > 0))) {
+                if (!TextUtils.isEmpty(fVar.getCategoryName()) && (this.mType != 0 || (fVar.wW() != null && fVar.wW().size() > 0))) {
                     ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.h.ala_gift_tab_item, (ViewGroup) null);
                     GradientTextView gradientTextView = (GradientTextView) viewGroup.findViewById(a.g.text_view);
                     gradientTextView.setCheckStrEquals(false);
                     gradientTextView.setText(fVar.getCategoryName());
                     viewGroup.setOnClickListener(new c(i));
                     if (i != 0) {
-                        layoutParams.leftMargin = this.aLg;
+                        layoutParams.leftMargin = this.aMC;
                     }
-                    if (this.aKC.size() > i && this.aKC.get(i) != null) {
-                        for (com.baidu.live.gift.g gVar : this.aKC.get(i).ym()) {
-                            if (gVar != null && gVar.xR() != 6) {
+                    if (this.aLY.size() > i && this.aLY.get(i) != null) {
+                        for (g gVar : this.aLY.get(i).yO()) {
+                            if (gVar != null && gVar.yt() != 6) {
                                 z = false;
                                 break;
                             }
@@ -1267,10 +1267,10 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                     }
                     z = true;
                     viewGroup.setTag(Boolean.valueOf(z));
-                    this.aKQ.addView(viewGroup, layoutParams);
+                    this.aMm.addView(viewGroup, layoutParams);
                 }
             }
-            ck(this.aLd);
+            cq(this.aMz);
         }
     }
 
@@ -1283,24 +1283,24 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void ck(int i) {
+    private void cq(int i) {
         int i2;
         JSONArray jSONArray;
         JSONException e;
-        List<com.baidu.live.gift.g> ym;
-        int childCount = this.aKQ.getChildCount();
+        List<g> yO;
+        int childCount = this.aMm.getChildCount();
         if (i >= 0 && i < childCount) {
-            if ((this.aLd != i || !this.aLe) && this.aKD.size() > i && this.aKD.get(i) != null) {
-                int min = Math.min(i, this.aLj.size());
+            if ((this.aMz != i || !this.aMA) && this.aLZ.size() > i && this.aLZ.get(i) != null) {
+                int min = Math.min(i, this.aMF.size());
                 int i3 = 0;
                 for (int i4 = 0; i4 < min; i4++) {
-                    i3 += this.aLj.get(i4);
+                    i3 += this.aMF.get(i4);
                 }
-                if (this.aKY.size() > i3 && this.aKC.size() > i && (this.aKY.get(i3) instanceof ViewGroup)) {
-                    this.aLc = i3;
-                    i iVar = this.aKC.get(i);
-                    if (iVar != null && iVar.ym() != null && !iVar.ym().isEmpty()) {
-                        ViewGroup viewGroup = (ViewGroup) this.aKY.get(i3);
+                if (this.aMu.size() > i3 && this.aLY.size() > i && (this.aMu.get(i3) instanceof ViewGroup)) {
+                    this.aMy = i3;
+                    i iVar = this.aLY.get(i);
+                    if (iVar != null && iVar.yO() != null && !iVar.yO().isEmpty()) {
+                        ViewGroup viewGroup = (ViewGroup) this.aMu.get(i3);
                         int i5 = 0;
                         while (true) {
                             if (i5 >= viewGroup.getChildCount()) {
@@ -1310,14 +1310,14 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                             } else {
                                 com.baidu.live.gift.container.a aVar = (com.baidu.live.gift.container.a) ((GridView) viewGroup.getChildAt(i5)).getAdapter();
                                 if (aVar != null) {
-                                    if (this.aLe) {
+                                    if (this.aMA) {
                                         i2 = 0;
                                     } else {
-                                        i2 = ((this.isLandscape ? 12 : 8) * this.aLb) + this.mSelectedPosition;
+                                        i2 = ((this.isLandscape ? 12 : 8) * this.aMx) + this.mSelectedPosition;
                                     }
                                     a(aVar, i2);
                                     if (this.mShowing) {
-                                        this.aLe = true;
+                                        this.aMA = true;
                                     }
                                 }
                             }
@@ -1325,22 +1325,22 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                     }
                 }
             }
-            if (this.aKD.size() > i && this.aKD.get(i) != null) {
-                int categoryId = this.aKD.get(i).getCategoryId();
-                if (!this.aLq.get(categoryId)) {
+            if (this.aLZ.size() > i && this.aLZ.get(i) != null) {
+                int categoryId = this.aLZ.get(i).getCategoryId();
+                if (!this.aMM.get(categoryId)) {
                     LogManager.getGiftLogger().doDisplayGiftTabLog(null, this.otherParams, String.valueOf(categoryId));
-                    this.aLq.put(categoryId, true);
+                    this.aMM.put(categoryId, true);
                 }
             }
             for (int i6 = 0; i6 < childCount; i6++) {
-                ViewGroup viewGroup2 = (ViewGroup) this.aKQ.getChildAt(i6);
+                ViewGroup viewGroup2 = (ViewGroup) this.aMm.getChildAt(i6);
                 GradientTextView gradientTextView = (GradientTextView) viewGroup2.findViewById(a.g.text_view);
                 ImageView imageView = (ImageView) viewGroup2.findViewById(a.g.icon_new_unlock_gift);
                 imageView.setVisibility(8);
-                i iVar2 = this.aKC.get(i6);
-                if (iVar2.yn()) {
+                i iVar2 = this.aLY.get(i6);
+                if (iVar2.yP()) {
                     HashSet hashSet = new HashSet();
-                    String string = SharedPrefHelper.getInstance().getString(this.aKI, "");
+                    String string = SharedPrefHelper.getInstance().getString(this.aMe, "");
                     if (TextUtils.isEmpty(string)) {
                         jSONArray = null;
                     } else {
@@ -1352,8 +1352,8 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                                 } catch (JSONException e2) {
                                     e = e2;
                                     e.printStackTrace();
-                                    ym = iVar2.ym();
-                                    if (ym != null) {
+                                    yO = iVar2.yO();
+                                    if (yO != null) {
                                     }
                                     if (i6 == i) {
                                     }
@@ -1366,18 +1366,18 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                             e = e3;
                         }
                     }
-                    ym = iVar2.ym();
-                    if (ym != null) {
+                    yO = iVar2.yO();
+                    if (yO != null) {
                         ArrayList arrayList = new ArrayList();
                         int i8 = 0;
                         while (true) {
                             int i9 = i8;
-                            if (i9 >= ym.size()) {
+                            if (i9 >= yO.size()) {
                                 break;
                             }
-                            com.baidu.live.gift.g gVar = ym.get(i9);
-                            if (!gVar.yi() && !hashSet.contains(gVar.xM())) {
-                                arrayList.add(gVar.xM());
+                            g gVar = yO.get(i9);
+                            if (!gVar.yK() && !hashSet.contains(gVar.yo())) {
+                                arrayList.add(gVar.yo());
                             }
                             i8 = i9 + 1;
                         }
@@ -1391,7 +1391,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                                 for (int i10 = 0; i10 < arrayList.size(); i10++) {
                                     jSONArray.put(arrayList.get(i10));
                                 }
-                                SharedPrefHelper.getInstance().putString(this.aKI, jSONArray.toString());
+                                SharedPrefHelper.getInstance().putString(this.aMe, jSONArray.toString());
                             }
                         }
                     }
@@ -1403,70 +1403,70 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                     if (imageView.getVisibility() == 0) {
                         imageView.setVisibility(8);
                     }
-                    if (this.aLw != 0) {
-                        gradientTextView.setGradientTextColor(this.aLw, this.aLw);
+                    if (this.aMS != 0) {
+                        gradientTextView.setGradientTextColor(this.aMS, this.aMS);
                     } else {
                         gradientTextView.setGradientTextColor(-57754, -39399);
                     }
                     gradientTextView.setTypeface(Typeface.defaultFromStyle(1));
-                    cl(i);
-                    this.aLd = i;
-                    this.aKP.scrollTo(viewGroup2.getLeft(), 0);
+                    cr(i);
+                    this.aMz = i;
+                    this.aMl.scrollTo(viewGroup2.getLeft(), 0);
                 }
                 if (i6 == i) {
                     if (viewGroup2.getTag() instanceof Boolean) {
                         if (((Boolean) viewGroup2.getTag()).booleanValue()) {
-                            bu(false);
+                            bx(false);
                         } else {
-                            bu(true);
+                            bx(true);
                         }
                     } else {
-                        bu(true);
+                        bx(true);
                     }
                 }
             }
         }
     }
 
-    private void bu(boolean z) {
+    private void bx(boolean z) {
         int i = 8;
-        if (this.aKU != null) {
-            this.aKU.setVisibility(z ? this.aLs ? 8 : 0 : 8);
+        if (this.aMq != null) {
+            this.aMq.setVisibility(z ? this.aMO ? 8 : 0 : 8);
         }
-        if (this.aKV != null) {
-            TextView textView = this.aKV;
-            if (!z && !this.aLs) {
+        if (this.aMr != null) {
+            TextView textView = this.aMr;
+            if (!z && !this.aMO) {
                 i = 0;
             }
             textView.setVisibility(i);
         }
     }
 
-    private void cl(int i) {
-        int childCount = this.aKQ.getChildCount();
-        if (i >= 0 && i < childCount && this.aKC != null && this.aKC.size() > i && this.aKC.get(i) != null) {
-            this.aLk.get(i);
+    private void cr(int i) {
+        int childCount = this.aMm.getChildCount();
+        if (i >= 0 && i < childCount && this.aLY != null && this.aLY.size() > i && this.aLY.get(i) != null) {
+            this.aMG.get(i);
         }
     }
 
     public void u(int i, int i2) {
-        this.aLn = i;
-        this.aLo = i2;
+        this.aMJ = i;
+        this.aMK = i2;
     }
 
     public void ab(long j) {
-        if (this.aKU != null) {
-            if (j >= 100 && (this.aJq || com.baidu.live.v.a.Hm().aZp.aAk)) {
-                this.aKU.setText(new DecimalFormat("0.###K").format(JavaTypesHelper.toDouble(String.valueOf(j), 0.0d) / 1000.0d));
+        if (this.aMq != null) {
+            if (j >= 100 && (this.aKM || com.baidu.live.v.a.Hs().aZn.aBx)) {
+                this.aMq.setText(new DecimalFormat("0.###K").format(JavaTypesHelper.toDouble(String.valueOf(j), 0.0d) / 1000.0d));
                 return;
             }
-            this.aKU.setText(String.valueOf(j));
+            this.aMq.setText(String.valueOf(j));
         }
     }
 
     public void ac(long j) {
-        if (this.aKV != null) {
-            this.aKV.setText(String.valueOf(j));
+        if (this.aMr != null) {
+            this.aMr.setText(String.valueOf(j));
         }
     }
 
@@ -1480,25 +1480,25 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        this.aLb = i;
-        zU();
-        zO();
-        if (i >= 0 && i < this.aKY.size() && (this.aKY.get(i) instanceof ViewGroup)) {
-            zT();
-            ViewGroup viewGroup = (ViewGroup) this.aKY.get(i);
+        this.aMx = i;
+        Aw();
+        Aq();
+        if (i >= 0 && i < this.aMu.size() && (this.aMu.get(i) instanceof ViewGroup)) {
+            Av();
+            ViewGroup viewGroup = (ViewGroup) this.aMu.get(i);
             for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
                 if (viewGroup.getChildAt(i2) instanceof GridView) {
                     GridView gridView = (GridView) viewGroup.getChildAt(i2);
                     if (gridView.getAdapter() != null) {
                         com.baidu.live.gift.container.a aVar = (com.baidu.live.gift.container.a) gridView.getAdapter();
-                        if (aVar.getSelectedPosition() >= 0 && i != this.aLc) {
-                            aVar.bY(-1);
+                        if (aVar.getSelectedPosition() >= 0 && i != this.aMy) {
+                            aVar.ce(-1);
                         }
-                        if (aVar.getSelectedPosition() < 0 && i == this.aLc) {
-                            aVar.bY(this.mSelectedPosition);
+                        if (aVar.getSelectedPosition() < 0 && i == this.aMy) {
+                            aVar.ce(this.mSelectedPosition);
                         }
                         aVar.notifyDataSetChanged();
-                        this.aKS.setVisibility(aVar.getCount() <= 0 ? 4 : 0);
+                        this.aMo.setVisibility(aVar.getCount() <= 0 ? 4 : 0);
                         return;
                     }
                     return;
@@ -1507,9 +1507,9 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
         }
     }
 
-    private void zT() {
+    private void Av() {
         JSONObject jSONObject = new JSONObject();
-        com.baidu.live.data.f fVar = (com.baidu.live.data.f) ListUtils.getItem(this.aKD, this.aLd);
+        com.baidu.live.data.f fVar = (com.baidu.live.data.f) ListUtils.getItem(this.aLZ, this.aMz);
         if (fVar != null) {
             try {
                 jSONObject.put("tabid", fVar.getCategoryId());
@@ -1521,55 +1521,55 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "giftpanel_show").setContentExt(null, "giftpanel", jSONObject));
     }
 
-    private void zU() {
+    private void Aw() {
         int i = 0;
-        for (int i2 = 0; i2 < this.aLj.size(); i2++) {
-            for (int i3 = 0; i3 < this.aLj.get(i2); i3++) {
-                if (i + i3 == this.aLb) {
-                    if (this.aLj.get(i2) <= 1) {
-                        this.aKO.setVisibility(4);
+        for (int i2 = 0; i2 < this.aMF.size(); i2++) {
+            for (int i3 = 0; i3 < this.aMF.get(i2); i3++) {
+                if (i + i3 == this.aMx) {
+                    if (this.aMF.get(i2) <= 1) {
+                        this.aMk.setVisibility(4);
                     } else {
-                        this.aKO.setVisibility(0);
+                        this.aMk.setVisibility(0);
                     }
-                    this.aKO.setCount(this.aLj.get(i2));
-                    this.aKO.onPageSelected(i3);
-                    ck(i2);
+                    this.aMk.setCount(this.aMF.get(i2));
+                    this.aMk.onPageSelected(i3);
+                    cq(i2);
                     return;
                 }
             }
-            i += this.aLj.get(i2);
+            i += this.aMF.get(i2);
         }
     }
 
-    public com.baidu.live.gift.g zV() {
-        return this.aLh;
+    public g Ax() {
+        return this.aMD;
     }
 
-    public int zW() {
-        return this.aLi;
+    public int Ay() {
+        return this.aME;
     }
 
     public void a(d dVar) {
-        this.aLa = dVar;
+        this.aMw = dVar;
     }
 
-    public void cm(int i) {
-        this.aLi = i;
+    public void cs(int i) {
+        this.aME = i;
     }
 
     private void initListener() {
-        MessageManager.getInstance().registerListener(this.aLF);
-        MessageManager.getInstance().registerListener(this.aLG);
-        MessageManager.getInstance().registerListener(this.aLH);
-        MessageManager.getInstance().registerListener(this.aLI);
+        MessageManager.getInstance().registerListener(this.aNb);
+        MessageManager.getInstance().registerListener(this.aNc);
+        MessageManager.getInstance().registerListener(this.aNd);
+        MessageManager.getInstance().registerListener(this.aNe);
     }
 
-    public void zX() {
-        if (!ListUtils.isEmpty(this.aKY)) {
+    public void Az() {
+        if (!ListUtils.isEmpty(this.aMu)) {
             SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabView.8
                 @Override // java.lang.Runnable
                 public void run() {
-                    for (View view : AlaGiftTabView.this.aKY) {
+                    for (View view : AlaGiftTabView.this.aMu) {
                         if (view instanceof ViewGroup) {
                             ViewGroup viewGroup = (ViewGroup) view;
                             int i = 0;
@@ -1593,12 +1593,12 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void an(final String str, final String str2) {
-        if (!ListUtils.isEmpty(this.aKY) && !TextUtils.isEmpty(str)) {
+    public void am(final String str, final String str2) {
+        if (!ListUtils.isEmpty(this.aMu) && !TextUtils.isEmpty(str)) {
             SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabView.9
                 @Override // java.lang.Runnable
                 public void run() {
-                    for (View view : AlaGiftTabView.this.aKY) {
+                    for (View view : AlaGiftTabView.this.aMu) {
                         if (view instanceof ViewGroup) {
                             ViewGroup viewGroup = (ViewGroup) view;
                             int i = 0;
@@ -1622,12 +1622,12 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zY() {
-        if (!ListUtils.isEmpty(this.aKY)) {
+    public void AA() {
+        if (!ListUtils.isEmpty(this.aMu)) {
             SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabView.10
                 @Override // java.lang.Runnable
                 public void run() {
-                    for (View view : AlaGiftTabView.this.aKY) {
+                    for (View view : AlaGiftTabView.this.aMu) {
                         if (view instanceof ViewGroup) {
                             ViewGroup viewGroup = (ViewGroup) view;
                             int i = 0;
@@ -1639,7 +1639,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
                                 } else {
                                     GridView gridView = (GridView) viewGroup.getChildAt(i);
                                     if (gridView.getAdapter() instanceof com.baidu.live.gift.container.a) {
-                                        ((com.baidu.live.gift.container.a) gridView.getAdapter()).a(gridView, AlaGiftTabView.this.aJx);
+                                        ((com.baidu.live.gift.container.a) gridView.getAdapter()).a(gridView, AlaGiftTabView.this.aKT);
                                     }
                                 }
                             }
@@ -1651,63 +1651,63 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zZ() {
-        if (this.aLh != null && this.aLh.yk()) {
-            this.aKL.setStyleEnabled(this.aJx);
-            if (this.aJx) {
-                this.aKX.setStyle(this.aLh.xS() ? 2 : 1);
+    public void AB() {
+        if (this.aMD != null && this.aMD.yM()) {
+            this.aMh.setStyleEnabled(this.aKT);
+            if (this.aKT) {
+                this.aMt.setStyle(this.aMD.yu() ? 2 : 1);
             } else {
-                this.aKX.setStyle(this.aLh.xS() ? 4 : 3);
+                this.aMt.setStyle(this.aMD.yu() ? 4 : 3);
             }
         }
     }
 
     public void onDestroy() {
-        this.aLv = null;
-        MessageManager.getInstance().unRegisterListener(this.aLF);
-        MessageManager.getInstance().unRegisterListener(this.aLG);
-        MessageManager.getInstance().unRegisterListener(this.aLH);
-        MessageManager.getInstance().unRegisterListener(this.aLI);
-        pZ();
-        if (this.aLt != null) {
-            this.aLt.dismiss();
+        this.aMR = null;
+        MessageManager.getInstance().unRegisterListener(this.aNb);
+        MessageManager.getInstance().unRegisterListener(this.aNc);
+        MessageManager.getInstance().unRegisterListener(this.aNd);
+        MessageManager.getInstance().unRegisterListener(this.aNe);
+        qa();
+        if (this.aMP != null) {
+            this.aMP.dismiss();
         }
     }
 
-    public void bf(boolean z) {
-        this.aJq = z;
+    public void bi(boolean z) {
+        this.aKM = z;
     }
 
-    public void cn(int i) {
-        this.aJo = i;
+    public void ct(int i) {
+        this.aKK = i;
     }
 
-    public void d(com.baidu.live.gift.g gVar) {
-        this.aLh = gVar;
-        this.aLo = Integer.valueOf(this.aLh.xM()).intValue();
-        if (this.aLv != null) {
-            this.aLv.a(gVar);
+    public void d(g gVar) {
+        this.aMD = gVar;
+        this.aMK = Integer.valueOf(this.aMD.yo()).intValue();
+        if (this.aMR != null) {
+            this.aMR.a(gVar);
         }
-        if (gVar != null && !gVar.xU()) {
-            this.aLx.zr();
-        }
-    }
-
-    public void zq() {
-        if (this.aLx != null) {
-            this.aLx.zq();
+        if (gVar != null && !gVar.yw()) {
+            this.aMT.zT();
         }
     }
 
-    public void zp() {
-        if (this.aLx != null) {
-            this.aLx.zp();
+    public void zS() {
+        if (this.aMT != null) {
+            this.aMT.zS();
         }
     }
 
-    public void bv(boolean z) {
-        if (this.aKX != null) {
-            this.aKX.setVisibility(z ? 0 : 4);
+    public void zR() {
+        if (this.aMT != null) {
+            this.aMT.zR();
+        }
+    }
+
+    public void by(boolean z) {
+        if (this.aMt != null) {
+            this.aMt.setVisibility(z ? 0 : 4);
         }
     }
 }

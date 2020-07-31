@@ -7,7 +7,7 @@ import com.baidu.ar.recg.IOnDeviceIR;
 import com.baidu.ar.track2d.ITrack2D;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class ARProxyManager {
     private HashMap<String, d> a = new HashMap<>();
 

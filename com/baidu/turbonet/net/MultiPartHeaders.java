@@ -3,7 +3,7 @@ package com.baidu.turbonet.net;
 import android.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class MultiPartHeaders {
-    private final List<Pair<String, String>> mAW = new ArrayList();
+    private final List<Pair<String, String>> mJf = new ArrayList();
 }

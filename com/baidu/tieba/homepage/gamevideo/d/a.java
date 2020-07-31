@@ -3,14 +3,14 @@ package com.baidu.tieba.homepage.gamevideo.d;
 import android.util.LongSparseArray;
 import android.util.SparseArray;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.data.bu;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.card.data.c;
 import java.util.List;
 import tbclient.RecomVertical.DataRes;
 import tbclient.RecomVertical.DislikeReason;
 import tbclient.RecomVertical.ThreadPersonalized;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a {
     public static void a(DataRes dataRes, List<q> list) {
         b(dataRes, list);
@@ -18,7 +18,7 @@ public class a {
 
     private static void b(DataRes dataRes, List<q> list) {
         c cVar;
-        bu aPS;
+        bv aTN;
         ThreadPersonalized threadPersonalized;
         if (dataRes != null && list != null) {
             LongSparseArray longSparseArray = new LongSparseArray();
@@ -27,18 +27,18 @@ public class a {
                     longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
                 }
             }
-            int count = w.getCount(list);
+            int count = x.getCount(list);
             for (int i = 0; i < count; i++) {
-                q qVar = (q) w.getItem(list, i);
-                if ((qVar instanceof c) && (aPS = (cVar = (c) qVar).aPS()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.f.b.toLong(aPS.getTid(), 0L))) != null) {
+                q qVar = (q) x.getItem(list, i);
+                if ((qVar instanceof c) && (aTN = (cVar = (c) qVar).aTN()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.f.b.toLong(aTN.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.DQ(threadPersonalized.abtest_tag);
-                    aPS.mRecomAbTag = threadPersonalized.abtest_tag;
-                    aPS.mRecomSource = threadPersonalized.source;
-                    aPS.mRecomWeight = threadPersonalized.weight;
-                    if (aPS.aSH() != null) {
-                        cVar.k(aPS.aSH().is_vertical);
+                    cVar.EB(threadPersonalized.abtest_tag);
+                    aTN.mRecomAbTag = threadPersonalized.abtest_tag;
+                    aTN.mRecomSource = threadPersonalized.source;
+                    aTN.mRecomWeight = threadPersonalized.weight;
+                    if (aTN.aWD() != null) {
+                        cVar.k(aTN.aWD().is_vertical);
                     }
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {

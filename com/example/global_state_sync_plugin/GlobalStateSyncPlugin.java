@@ -10,16 +10,19 @@ import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
+import com.baidu.tbadk.a.d;
+import com.baidu.tbadk.a.e;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.sharedPref.b;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.as;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes12.dex */
 public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private static MethodChannel mMethodChannel;
     private static boolean updatingThemeDataByFlutter = false;
@@ -77,7 +80,7 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes12.dex */
     public enum GlobalStateSubType {
         kGlobalStateSubTypeNone,
         kGlobalStateSubTypeSyncAll,
@@ -90,7 +93,7 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
         kGlobalStateSubTypeCount
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes12.dex */
     public enum GlobalStateType {
         kGlobalStateTheme,
         kGlobalStateSyncData,
@@ -99,12 +102,14 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
         kGlobalStateAll
     }
 
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "global_state_sync_plugin").setMethodCallHandler(new GlobalStateSyncPlugin());
+        new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "global_state_sync_plugin").setMethodCallHandler(new GlobalStateSyncPlugin());
         init();
-        mMethodChannel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "global_state_sync_plugin");
+        mMethodChannel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "global_state_sync_plugin");
     }
 
+    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
     }
 
@@ -116,6 +121,7 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
         MessageManager.getInstance().registerListener(mWriteConfigToFlutterListener);
     }
 
+    @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
     public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
         boolean z;
         if (methodCall.method.equals("read")) {
@@ -221,12 +227,14 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
         HashMap hashMap4 = new HashMap();
         HashMap hashMap5 = new HashMap();
         HashMap hashMap6 = new HashMap();
-        hashMap2.put("financeURL", b.aVP().getString("baidu_finance", null));
+        hashMap2.put("financeURL", b.aZP().getString("baidu_finance", null));
         hashMap2.put("personalCellText", TbadkCoreApplication.getInst().getActivityPrizeData().getPersonItemText());
         hashMap2.put("loginAwardUrl", TbadkCoreApplication.getInst().getActivityPrizeData().getH5Url());
-        hashMap2.put("auditPackageSwitch", Integer.valueOf(b.aVP().getBoolean("person_center_show_lite_game", true) ? 1 : 0));
+        hashMap2.put("auditPackageSwitch", Integer.valueOf(b.aZP().getBoolean("person_center_show_lite_game", true) ? 1 : 0));
         hashMap2.put("isLiteMode", "0");
-        hashMap2.put("isShowBaiduFinanceEntrance", "" + b.aVP().getInt("baidu_financial_display", 1));
+        hashMap2.put("isShowShoubaiDynamicGuide", String.valueOf(b.aZP().getInt("key_is_show_shoubai_dynamic_guide", 0)));
+        hashMap2.put("isShowBaiduFinanceEntrance", String.valueOf(b.aZP().getInt("baidu_financial_display", 1)));
+        hashMap2.put("experimentID", getExperimentID());
         hashMap.put("syncData", hashMap2);
         hashMap.put("configInfo", hashMap3);
         hashMap.put("appConfig", hashMap4);
@@ -234,6 +242,67 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
         hashMap.put("adsenseData", hashMap6);
         hashMap.put("switches", readSwitches());
         return hashMap;
+    }
+
+    private static String getExperimentID() {
+        e j = d.j(com.baidu.tbadk.a.a.e.dIg);
+        if (j != null && !as.isEmpty(j.dIf)) {
+            String str = j.dIf;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case 1687628:
+                    if (str.equals("70_2")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 1687629:
+                    if (str.equals("70_3")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 1687630:
+                    if (str.equals("70_4")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 1687631:
+                    if (str.equals("70_5")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 1687632:
+                    if (str.equals("70_6")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 1688589:
+                    if (str.equals("71_2")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    return "sid_a";
+                case 1:
+                    return "sid_b";
+                case 2:
+                    return "sid_c";
+                case 3:
+                    return "sid_d";
+                case 4:
+                    return "sid_e";
+                case 5:
+                    return "sid_f";
+            }
+        }
+        return "";
     }
 
     private static HashMap<String, Object> readSwitches() {
@@ -284,9 +353,9 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
     /* JADX INFO: Access modifiers changed from: private */
     public static HashMap<String, Object> readThemeData() {
         HashMap<String, Object> hashMap = new HashMap<>();
-        String aWK = an.aWK();
+        String baL = ao.baL();
         HashMap hashMap2 = new HashMap();
-        hashMap.put("mode", aWK);
+        hashMap.put("mode", baL);
         hashMap.put("colors", hashMap2);
         HashMap hashMap3 = new HashMap();
         HashMap hashMap4 = new HashMap();

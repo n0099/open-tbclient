@@ -4,18 +4,17 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.hardware.Camera;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.swan.apps.aq.ae;
+import com.baidu.swan.apps.aq.ag;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.camera.view.CameraPreview;
-import com.baidu.swan.apps.w.f;
-import com.baidu.swan.e.d;
+import com.baidu.swan.apps.v.f;
+import com.baidu.swan.d.d;
 import com.baidu.webkit.sdk.PermissionRequest;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -25,10 +24,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.camera.b.b bRN;
+    private com.baidu.swan.apps.camera.b.b bSF;
     private Timer mTimer;
 
     private a() {
@@ -36,13 +35,13 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.camera.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class C0323a {
-        private static final a bRQ = new a();
+    /* loaded from: classes7.dex */
+    public static class C0325a {
+        private static final a bSI = new a();
     }
 
-    public static a VN() {
-        return C0323a.bRQ;
+    public static a Wu() {
+        return C0325a.bSI;
     }
 
     public boolean a(byte[] bArr, String str, int i, int i2, boolean z) {
@@ -98,46 +97,46 @@ public class a {
     }
 
     public void a(int i, final com.baidu.swan.apps.camera.b.b bVar) {
-        this.bRN = bVar;
+        this.bSF = bVar;
         this.mTimer = new Timer();
         this.mTimer.schedule(new TimerTask() { // from class: com.baidu.swan.apps.camera.a.1
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 if (bVar != null) {
-                    bVar.VQ();
+                    bVar.Wx();
                 }
-                a.this.VO();
+                a.this.Wv();
             }
         }, i);
     }
 
-    public void VO() {
-        this.bRN = null;
+    public void Wv() {
+        this.bSF = null;
         if (this.mTimer != null) {
             this.mTimer.cancel();
         }
     }
 
     public void cancelTimer() {
-        if (this.bRN != null) {
-            this.bRN.cancel();
+        if (this.bSF != null) {
+            this.bSF.cancel();
         }
-        VO();
+        Wv();
     }
 
-    public void dq(boolean z) {
+    public void dt(boolean z) {
         if (z) {
             cancelTimer();
         }
     }
 
     public void i(String str, String str2, boolean z) {
-        if (ae.pT("1.13.0")) {
+        if (ag.qE("1.13.0")) {
             HashMap hashMap = new HashMap();
             hashMap.put("wvID", str);
             hashMap.put("cameraId", str2);
             hashMap.put("eType", z ? BdStatsConstant.StatsType.ERROR : "stop");
-            f.ajb().a(new com.baidu.swan.apps.event.a.b(PixelReadParams.DEFAULT_FILTER_ID, hashMap));
+            f.akr().a(new com.baidu.swan.apps.event.a.b(PixelReadParams.DEFAULT_FILTER_ID, hashMap));
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -153,22 +152,17 @@ public class a {
         com.baidu.swan.apps.view.b.b.a.a(str, str2, PixelReadParams.DEFAULT_FILTER_ID, jSONObject.optString("eType"), jSONObject);
     }
 
-    public boolean bt(Context context) {
+    public boolean bw(Context context) {
         return Build.VERSION.SDK_INT < 23 || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE) == 0;
     }
 
-    public boolean bu(Context context) {
+    public boolean bx(Context context) {
         return Build.VERSION.SDK_INT < 23 || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0;
     }
 
-    public void release() {
+    public void onRelease() {
         try {
-            Camera camera = CameraPreview.bSl;
-            if (camera != null) {
-                camera.setPreviewCallback(null);
-                camera.stopPreview();
-                camera.release();
-            }
+            CameraPreview.releaseCamera();
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();

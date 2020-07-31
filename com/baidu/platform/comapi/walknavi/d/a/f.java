@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.d.a;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class f {
     private final Context a;
 

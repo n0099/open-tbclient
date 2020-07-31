@@ -27,10 +27,10 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class Client {
     private OkHttpClient httpClient;
-    private final UrlConverter nCS;
+    private final UrlConverter nLA;
 
     public Client() {
         this(null, 10, 30, null, null);
@@ -38,12 +38,12 @@ public final class Client {
 
     public Client(ProxyConfiguration proxyConfiguration, int i, int i2, UrlConverter urlConverter, final Dns dns) {
         OkHttpClient.Builder newBuilder;
-        this.nCS = urlConverter;
-        OkHttpClient dMV = UploadManager.dMV();
-        if (dMV == null) {
+        this.nLA = urlConverter;
+        OkHttpClient dQr = UploadManager.dQr();
+        if (dQr == null) {
             newBuilder = new OkHttpClient.Builder();
         } else {
-            newBuilder = dMV.newBuilder();
+            newBuilder = dQr.newBuilder();
             newBuilder.interceptors().clear();
             newBuilder.networkInterceptors().clear();
         }
@@ -111,7 +111,7 @@ public final class Client {
 
     private static JSONObject as(byte[] bArr) throws Exception {
         String str = new String(bArr, "utf-8");
-        return StringUtils.RL(str) ? new JSONObject() : new JSONObject(str);
+        return StringUtils.Sw(str) ? new JSONObject() : new JSONObject(str);
     }
 
     private static ResponseInfo a(Response response, String str, long j, UpToken upToken, long j2) {
@@ -176,10 +176,10 @@ public final class Client {
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(Response response, String str, long j, UpToken upToken, long j2, final CompletionHandler completionHandler) {
         final ResponseInfo a = a(response, str, j, upToken, j2);
-        AsyncRun.I(new Runnable() { // from class: com.qiniu.android.http.Client.3
+        AsyncRun.H(new Runnable() { // from class: com.qiniu.android.http.Client.3
             @Override // java.lang.Runnable
             public void run() {
-                CompletionHandler.this.a(a, a.nDp);
+                CompletionHandler.this.a(a, a.nLX);
             }
         });
     }
@@ -194,9 +194,9 @@ public final class Client {
             });
         }
         if (upToken != null) {
-            builder.header("User-Agent", UserAgent.dMN().RH(upToken.nCH));
+            builder.header("User-Agent", UserAgent.dQj().Ss(upToken.nLp));
         } else {
-            builder.header("User-Agent", UserAgent.dMN().RH("pandora"));
+            builder.header("User-Agent", UserAgent.dQj().Ss("pandora"));
         }
         final ResponseTag responseTag = new ResponseTag();
         this.httpClient.newCall(builder.tag(responseTag).build()).enqueue(new Callback() { // from class: com.qiniu.android.http.Client.5
@@ -231,8 +231,8 @@ public final class Client {
     public void a(String str, byte[] bArr, int i, int i2, StringMap stringMap, UpToken upToken, long j, ProgressHandler progressHandler, CompletionHandler completionHandler, CancellationHandler cancellationHandler) {
         CountingRequestBody create;
         Object obj;
-        if (this.nCS != null) {
-            str = this.nCS.IK(str);
+        if (this.nLA != null) {
+            str = this.nLA.Jz(str);
         }
         if (bArr != null && bArr.length > 0) {
             MediaType parse = MediaType.parse("application/octet-stream");
@@ -259,12 +259,12 @@ public final class Client {
             create = RequestBody.create(MediaType.parse(postArgs.mimeType), postArgs.data);
             length = postArgs.data.length;
         }
-        a(str, postArgs.nDh, upToken, length, progressHandler, postArgs.fileName, create, completionHandler, cancellationHandler);
+        a(str, postArgs.nLP, upToken, length, progressHandler, postArgs.fileName, create, completionHandler, cancellationHandler);
     }
 
     private void a(String str, StringMap stringMap, UpToken upToken, long j, ProgressHandler progressHandler, String str2, RequestBody requestBody, CompletionHandler completionHandler, CancellationHandler cancellationHandler) {
-        if (this.nCS != null) {
-            str = this.nCS.IK(str);
+        if (this.nLA != null) {
+            str = this.nLA.Jz(str);
         }
         final MultipartBody.Builder builder = new MultipartBody.Builder();
         builder.addFormDataPart("file", str2, requestBody);
@@ -287,40 +287,40 @@ public final class Client {
     }
 
     /* renamed from: com.qiniu.android.http.Client$7  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     class AnonymousClass7 implements StringMap.Consumer {
-        final /* synthetic */ Request.Builder nCX;
+        final /* synthetic */ Request.Builder nLF;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
         public void N(String str, Object obj) {
-            this.nCX.header(str, obj.toString());
+            this.nLF.header(str, obj.toString());
         }
     }
 
     /* renamed from: com.qiniu.android.http.Client$8  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     class AnonymousClass8 implements StringMap.Consumer {
-        final /* synthetic */ MultipartBody.Builder nDa;
+        final /* synthetic */ MultipartBody.Builder nLI;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
         public void N(String str, Object obj) {
-            this.nDa.addFormDataPart(str, obj.toString());
+            this.nLI.addFormDataPart(str, obj.toString());
         }
     }
 
     /* renamed from: com.qiniu.android.http.Client$9  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     class AnonymousClass9 implements StringMap.Consumer {
-        final /* synthetic */ Request.Builder nCX;
+        final /* synthetic */ Request.Builder nLF;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
         public void N(String str, Object obj) {
-            this.nCX.header(str, obj.toString());
+            this.nLF.header(str, obj.toString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class ResponseTag {
         public long duration;
         public String ip;

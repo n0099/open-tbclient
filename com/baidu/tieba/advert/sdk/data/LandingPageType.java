@@ -1,5 +1,5 @@
 package com.baidu.tieba.advert.sdk.data;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public enum LandingPageType {
     UNKNOW(0),
     WEBVIEW(1),

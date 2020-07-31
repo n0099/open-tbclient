@@ -8,15 +8,15 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.data.e;
-/* loaded from: classes9.dex */
+import com.baidu.tieba.pb.data.f;
+/* loaded from: classes16.dex */
 public class PbThreadPostView extends LinearLayout {
-    private e kcE;
-    public View ksJ;
-    public TextView ksK;
-    public TextView ksL;
+    public View kBx;
+    public TextView kBy;
+    public TextView kBz;
+    private f klg;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -36,30 +36,30 @@ public class PbThreadPostView extends LinearLayout {
         setOrientation(1);
         setGravity(17);
         LayoutInflater.from(getContext()).inflate(R.layout.pb_thread_post_view, (ViewGroup) this, true);
-        sq();
+        ss();
     }
 
-    private void sq() {
-        this.ksJ = findViewById(R.id.pb_thread_post_container);
-        this.ksK = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.ksL = (TextView) findViewById(R.id.pb_thread_post_button);
+    private void ss() {
+        this.kBx = findViewById(R.id.pb_thread_post_container);
+        this.kBy = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.kBz = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
-    public void setData(e eVar) {
-        this.kcE = eVar;
-        qJ(TbadkCoreApplication.getInst().getSkinType());
+    public void setData(f fVar) {
+        this.klg = fVar;
+        qZ(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.ksL.setOnClickListener(this.mOnClickListener);
+            this.kBz.setOnClickListener(this.mOnClickListener);
         }
     }
 
-    public void qJ(int i) {
-        an.setBackgroundColor(this.ksJ, R.color.cp_bg_line_e, i);
-        an.setViewTextColor(this.ksK, (int) R.color.cp_cont_j);
-        an.setViewTextColor(this.ksL, (int) R.color.cp_link_tip_a);
+    public void qZ(int i) {
+        ao.setBackgroundColor(this.kBx, R.color.cp_bg_line_e, i);
+        ao.setViewTextColor(this.kBy, R.color.cp_cont_j);
+        ao.setViewTextColor(this.kBz, R.color.cp_link_tip_a);
     }
 }

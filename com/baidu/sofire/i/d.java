@@ -56,7 +56,7 @@ import java.util.Properties;
 import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class d {
     public static String b;
     public static String c;
@@ -1414,7 +1414,7 @@ public final class d {
             }
             jSONObject2.put("32", str6);
             jSONObject2.put(SoUtils.SO_EVENT_ID_NEW_SO, com.baidu.sofire.rp.a.a(context));
-            jSONObject2.put("26", com.baidu.sofire.rp.a.b(context));
+            jSONObject2.put(SoUtils.SO_EVENT_ID_V8_SO, com.baidu.sofire.rp.a.b(context));
             jSONObject2.put(com.tencent.connect.common.Constants.VIA_ACT_TYPE_TWENTY_EIGHT, p.a(context));
             String c2 = s.a(context).c();
             if (TextUtils.isEmpty(c2)) {

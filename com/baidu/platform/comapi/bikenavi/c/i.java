@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.baidu.platform.comapi.walknavi.widget.a;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class i implements a.InterfaceC0233a {
     final /* synthetic */ b a;
 

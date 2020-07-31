@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public final class Headers {
     private final String[] namesAndValues;
 
@@ -210,7 +210,7 @@ public final class Headers {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder {
         public final List<String> namesAndValues = new ArrayList(20);
 

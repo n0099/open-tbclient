@@ -5,12 +5,12 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class AppleTrackNumberBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0909a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
     int a;
     int b;
 
@@ -36,7 +36,7 @@ public class AppleTrackNumberBox extends AppleDataBox {
     }
 
     public void setA(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Lj(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.LD(i)));
         this.a = i;
     }
 
@@ -46,7 +46,7 @@ public class AppleTrackNumberBox extends AppleDataBox {
     }
 
     public void setB(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Lj(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.LD(i)));
         this.b = i;
     }
 

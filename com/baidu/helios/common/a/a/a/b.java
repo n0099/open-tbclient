@@ -10,16 +10,16 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class b {
     private static final byte[] a = new byte[0];
-    private d arS;
-    private com.baidu.helios.common.a.b.a arT;
+    private d arO;
+    private com.baidu.helios.common.a.b.a arP;
     private int i;
     private byte[] m;
     private int n;
     private int o;
-    private OAEPParameterSpec akL = null;
+    private OAEPParameterSpec akG = null;
     private String q = "SHA-1";
     private String j = "PKCS1Padding";
 
@@ -42,23 +42,23 @@ public final class b {
             throw new InvalidKeyException("only support helios key");
         }
         this.i = z ? 1 : 4;
-        this.arT = aVar;
-        int a2 = a.a(this.arT.getModulus());
+        this.arP = aVar;
+        int a2 = a.a(this.arP.getModulus());
         this.o = a2;
         this.n = 0;
         if (this.j == "NoPadding") {
             if (algorithmParameterSpec != null) {
                 throw new InvalidAlgorithmParameterException("Parameters not supported");
             }
-            this.arS = d.b(3, a2, secureRandom);
+            this.arO = d.b(3, a2, secureRandom);
             this.m = new byte[a2];
         } else if (this.j == "PKCS1Padding") {
             if (algorithmParameterSpec != null) {
                 throw new InvalidAlgorithmParameterException("Parameters not supported");
             }
-            this.arS = d.b(this.i <= 2 ? 2 : 1, a2, secureRandom);
+            this.arO = d.b(this.i <= 2 ? 2 : 1, a2, secureRandom);
             if (z) {
-                this.m = new byte[this.arS.a()];
+                this.m = new byte[this.arO.a()];
             } else {
                 this.m = new byte[a2];
             }
@@ -72,9 +72,9 @@ public final class b {
             } else {
                 oAEPParameterSpec = (OAEPParameterSpec) algorithmParameterSpec;
             }
-            this.arS = d.b(4, a2, secureRandom, oAEPParameterSpec);
+            this.arO = d.b(4, a2, secureRandom, oAEPParameterSpec);
             if (z) {
-                this.m = new byte[this.arS.a()];
+                this.m = new byte[this.arO.a()];
             } else {
                 this.m = new byte[a2];
             }
@@ -89,14 +89,14 @@ public final class b {
         try {
             switch (this.i) {
                 case 1:
-                    a2 = a.a(this.arS.l(this.m, 0, this.n), this.arT);
+                    a2 = a.a(this.arO.l(this.m, 0, this.n), this.arP);
                     break;
                 case 2:
                     throw new UnsupportedOperationException("only verify supported");
                 case 3:
                     throw new UnsupportedOperationException("only verify supported");
                 case 4:
-                    a2 = this.arS.b(a.a(a.l(this.m, 0, this.n), this.arT));
+                    a2 = this.arO.b(a.a(a.l(this.m, 0, this.n), this.arP));
                     break;
                 default:
                     throw new AssertionError("Internal error");

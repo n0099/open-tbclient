@@ -5,11 +5,11 @@ import com.baidu.mobads.interfaces.IXAdProd;
 import com.baidu.mobads.interfaces.IXLinearAdSlot;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class f {
     private HashMap<String, IXAdProd> a = new HashMap<>();
 
-    public Boolean gu(String str) {
+    public Boolean gt(String str) {
         return Boolean.valueOf(this.a.containsKey(str));
     }
 
@@ -17,11 +17,11 @@ public class f {
         this.a.put(iXAdProd.getId(), iXAdProd);
     }
 
-    public IXAdProd gv(String str) {
+    public IXAdProd gu(String str) {
         return this.a.get(str);
     }
 
-    public IXLinearAdSlot Nn() {
+    public IXLinearAdSlot Ns() {
         return (IXLinearAdSlot) a(IXAdConstants4PDK.SlotType.SLOT_TYPE_PREROLL);
     }
 

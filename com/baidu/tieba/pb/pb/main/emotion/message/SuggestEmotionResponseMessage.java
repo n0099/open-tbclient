@@ -10,7 +10,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
     private a mData;
 
@@ -24,8 +24,8 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null && jSONObject != null) {
             this.mData = new a();
-            this.mData.ci(parseImageData(jSONObject.optJSONArray("memes")));
-            this.mData.eq(parseHotWordsData(jSONObject.optJSONArray("topwords")));
+            this.mData.cn(parseImageData(jSONObject.optJSONArray("memes")));
+            this.mData.ew(parseHotWordsData(jSONObject.optJSONArray("topwords")));
             this.mData.a(parseSingleForumRecommend(jSONObject.optJSONObject("forum_pkg")));
         }
     }

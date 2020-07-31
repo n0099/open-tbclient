@@ -8,7 +8,7 @@ import android.os.Build;
 import android.os.CancellationSignal;
 import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class g extends FingerprintManager.AuthenticationCallback {
     private static final int a = 0;
     private static final int b = -2;

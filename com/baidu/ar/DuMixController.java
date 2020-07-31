@@ -38,7 +38,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
     private static volatile DuMixController aI = null;
     private static volatile int aS = 0;
@@ -63,7 +63,7 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
     private Context mContext;
     private com.baidu.ar.a.b v;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     class a extends Handler {
         public a(Looper looper) {
             super(looper);

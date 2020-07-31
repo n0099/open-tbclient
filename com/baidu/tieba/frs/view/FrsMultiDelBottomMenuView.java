@@ -10,27 +10,27 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.ap;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.aq;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.NEGFeedBack.d;
 import com.baidu.tieba.R;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
 import tbclient.DeleteThreadInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.OnClickListener {
-    private View hKh;
-    private TextView hQn;
-    private final com.baidu.tieba.NEGFeedBack.d ieQ;
-    private TextView ieR;
-    private TextView ieS;
-    private View ieT;
-    private com.baidu.tieba.NEGFeedBack.e ieU;
+    private View hQh;
+    private TextView hWm;
+    private final com.baidu.tieba.NEGFeedBack.d ikQ;
+    private TextView ikR;
+    private TextView ikS;
+    private View ikT;
+    private com.baidu.tieba.NEGFeedBack.e ikU;
     private TbPageContext pageContext;
 
     public FrsMultiDelBottomMenuView(Context context) {
@@ -40,22 +40,22 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
     public FrsMultiDelBottomMenuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         initUI();
-        this.ieQ = new com.baidu.tieba.NEGFeedBack.d("0");
+        this.ikQ = new com.baidu.tieba.NEGFeedBack.d("0");
     }
 
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(R.layout.frs_multi_delete_menu_layout, this);
-        this.hQn = (TextView) findViewById(R.id.multi_del_cancel_btn);
-        this.hQn.setText(R.string.cancel);
-        this.ieR = (TextView) findViewById(R.id.multi_del_btn);
-        this.ieR.setText(R.string.delete);
-        this.ieS = (TextView) findViewById(R.id.multi_del_forbidden_btn);
-        this.ieS.setText(R.string.delete_and_forbidden_one_day);
-        this.hKh = findViewById(R.id.divider_top_line);
-        this.ieT = findViewById(R.id.divider);
-        this.hQn.setOnClickListener(this);
-        this.ieR.setOnClickListener(this);
-        this.ieS.setOnClickListener(this);
+        this.hWm = (TextView) findViewById(R.id.multi_del_cancel_btn);
+        this.hWm.setText(R.string.cancel);
+        this.ikR = (TextView) findViewById(R.id.multi_del_btn);
+        this.ikR.setText(R.string.delete);
+        this.ikS = (TextView) findViewById(R.id.multi_del_forbidden_btn);
+        this.ikS.setText(R.string.delete_and_forbidden_one_day);
+        this.hQh = findViewById(R.id.divider_top_line);
+        this.ikT = findViewById(R.id.divider);
+        this.hWm.setOnClickListener(this);
+        this.ikR.setOnClickListener(this);
+        this.ikS.setOnClickListener(this);
         onChangeSkinType();
         setClickable(true);
     }
@@ -65,36 +65,36 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
         if (i > 0) {
             string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i));
         }
-        this.ieR.setText(string);
+        this.ikR.setText(string);
     }
 
     public void onChangeSkinType() {
-        an.setBackgroundColor(this, R.color.cp_bg_line_d);
-        an.setViewTextColor(this.hQn, (int) R.color.cp_cont_b);
-        an.setBackgroundResource(this.hQn, R.drawable.bg_bottom_up_list_dialog_item);
-        an.setViewTextColor(this.ieS, (int) R.color.cp_cont_b);
-        an.setBackgroundResource(this.ieS, R.drawable.bg_bottom_up_list_dialog_item);
-        an.setViewTextColor(this.ieR, (int) R.color.cp_cont_h);
-        an.setBackgroundResource(this.ieR, R.drawable.bg_bottom_up_list_dialog_item);
-        an.setBackgroundColor(this.hKh, R.color.cp_bg_line_c);
-        an.setBackgroundColor(this.ieT, R.color.cp_bg_line_c);
+        ao.setBackgroundColor(this, R.color.cp_bg_line_d);
+        ao.setViewTextColor(this.hWm, R.color.cp_cont_b);
+        ao.setBackgroundResource(this.hWm, R.drawable.bg_bottom_up_list_dialog_item);
+        ao.setViewTextColor(this.ikS, R.color.cp_cont_b);
+        ao.setBackgroundResource(this.ikS, R.drawable.bg_bottom_up_list_dialog_item);
+        ao.setViewTextColor(this.ikR, R.color.cp_cont_h);
+        ao.setBackgroundResource(this.ikR, R.drawable.bg_bottom_up_list_dialog_item);
+        ao.setBackgroundColor(this.hQh, R.color.cp_bg_line_c);
+        ao.setBackgroundColor(this.ikT, R.color.cp_bg_line_c);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.ieQ.registerListener();
-        if (view == this.hQn) {
-            com.baidu.tieba.frs.b.bXd().reset();
-        } else if (view == this.ieR) {
-            if (!w.isEmpty(com.baidu.tieba.frs.b.bXd().bXa())) {
-                TiebaStatic.log(new ao("c13122").ag("obj_type", 1));
+        this.ikQ.registerListener();
+        if (view == this.hWm) {
+            com.baidu.tieba.frs.b.caw().reset();
+        } else if (view == this.ikR) {
+            if (!x.isEmpty(com.baidu.tieba.frs.b.caw().cat())) {
+                TiebaStatic.log(new ap("c13122").ah("obj_type", 1));
                 setData(1);
-                FO("2");
+                GA("2");
             }
-        } else if (view == this.ieS && !w.isEmpty(com.baidu.tieba.frs.b.bXd().bXa())) {
-            TiebaStatic.log(new ao("c13122").ag("obj_type", 2));
+        } else if (view == this.ikS && !x.isEmpty(com.baidu.tieba.frs.b.caw().cat())) {
+            TiebaStatic.log(new ap("c13122").ah("obj_type", 2));
             setData(2);
-            FO("2");
+            GA("2");
         }
     }
 
@@ -102,36 +102,36 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
         this.pageContext = tbPageContext;
     }
 
-    private void FO(String str) {
+    private void GA(String str) {
         if (this.pageContext != null) {
-            if (this.ieU == null) {
-                this.ieU = new com.baidu.tieba.NEGFeedBack.e(this.pageContext, this);
+            if (this.ikU == null) {
+                this.ikU = new com.baidu.tieba.NEGFeedBack.e(this.pageContext, this);
             }
-            this.ieU.zC(str);
+            this.ikU.AK(str);
         }
     }
 
-    public void bZH() {
-        if (this.ieU != null) {
-            this.ieU.bnt();
+    public void cde() {
+        if (this.ikU != null) {
+            this.ikU.bro();
         }
     }
 
-    public void bnq() {
-        if (this.ieU != null) {
-            this.ieU.bnq();
+    public void brl() {
+        if (this.ikU != null) {
+            this.ikU.brl();
         }
     }
 
     public void setData(int i) {
         if (this.pageContext != null) {
-            if (this.ieU == null) {
-                this.ieU = new com.baidu.tieba.NEGFeedBack.e(this.pageContext, this);
+            if (this.ikU == null) {
+                this.ikU = new com.baidu.tieba.NEGFeedBack.e(this.pageContext, this);
             }
             SparseArray<String> sparseArray = new SparseArray<>();
-            AntiData bXe = com.baidu.tieba.frs.b.bXd().bXe();
-            if (bXe != null && bXe.getDelThreadInfoList() != null) {
-                List<DeleteThreadInfo> delThreadInfoList = bXe.getDelThreadInfoList();
+            AntiData cax = com.baidu.tieba.frs.b.caw().cax();
+            if (cax != null && cax.getDelThreadInfoList() != null) {
+                List<DeleteThreadInfo> delThreadInfoList = cax.getDelThreadInfoList();
                 for (int i2 = 0; i2 < delThreadInfoList.size(); i2++) {
                     if (!TextUtils.isEmpty(delThreadInfoList.get(i2).text_info)) {
                         sparseArray.put(delThreadInfoList.get(i2).text_id, delThreadInfoList.get(i2).text_info);
@@ -139,30 +139,30 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
                 }
             }
             JSONArray jSONArray = new JSONArray();
-            List<bu> bXa = com.baidu.tieba.frs.b.bXd().bXa();
-            for (int i3 = 0; i3 < bXa.size(); i3++) {
-                jSONArray.put(bXa.get(i3).getTid());
+            List<bv> cat = com.baidu.tieba.frs.b.caw().cat();
+            for (int i3 = 0; i3 < cat.size(); i3++) {
+                jSONArray.put(cat.get(i3).getTid());
             }
-            ap apVar = new ap();
-            apVar.setFeedBackReasonMap(sparseArray);
-            apVar.kt(i);
-            apVar.M(jSONArray);
-            apVar.setFid(com.baidu.tieba.frs.b.bXd().getForumId());
-            this.ieU.setDefaultReasonArray(new String[]{getContext().getString(R.string.delete_thread_reason_1), getContext().getString(R.string.delete_thread_reason_2), getContext().getString(R.string.delete_thread_reason_3), getContext().getString(R.string.delete_thread_reason_4), getContext().getString(R.string.delete_thread_reason_5)});
-            this.ieU.setData(apVar);
+            aq aqVar = new aq();
+            aqVar.setFeedBackReasonMap(sparseArray);
+            aqVar.kN(i);
+            aqVar.N(jSONArray);
+            aqVar.setFid(com.baidu.tieba.frs.b.caw().getForumId());
+            this.ikU.setDefaultReasonArray(new String[]{getContext().getString(R.string.delete_thread_reason_1), getContext().getString(R.string.delete_thread_reason_2), getContext().getString(R.string.delete_thread_reason_3), getContext().getString(R.string.delete_thread_reason_4), getContext().getString(R.string.delete_thread_reason_5)});
+            this.ikU.setData(aqVar);
         }
     }
 
     public void onDestroy() {
-        if (this.ieQ != null) {
-            this.ieQ.a((d.a) null);
-            this.ieQ.onDestroy();
+        if (this.ikQ != null) {
+            this.ikQ.a((d.a) null);
+            this.ikQ.onDestroy();
         }
     }
 
     public void setDeleteCallback(d.a aVar) {
-        if (this.ieQ != null) {
-            this.ieQ.a(aVar);
+        if (this.ikQ != null) {
+            this.ikQ.a(aVar);
         }
     }
 }

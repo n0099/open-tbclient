@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.image.loader;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ImageResourceLoaderType {
     public static final int LOCAL_FILE_FIT_IMAGE = 36;
     public static final int LOCAL_FILE_THUMB = 35;

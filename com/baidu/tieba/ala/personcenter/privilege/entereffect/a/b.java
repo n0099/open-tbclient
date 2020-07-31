@@ -5,46 +5,46 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> aUP;
-    private BdTypeListView fml;
-    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a gEC;
-    private c gED;
+    private List<com.baidu.adp.widget.ListView.a> aWf;
+    private BdTypeListView frv;
+    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a gJZ;
+    private c gKa;
     private List<q> mDataList;
     private TbPageContext mPageContext;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
     }
 
     public b(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mPageContext = tbPageContext;
-        this.fml = bdTypeListView;
-        Dz();
+        this.frv = bdTypeListView;
+        DS();
     }
 
-    private void Dz() {
-        this.aUP = new ArrayList();
-        this.gEC = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
-        this.aUP.add(this.gEC);
-        this.gED = new c(this.mPageContext.getPageActivity());
-        this.aUP.add(this.gED);
-        this.fml.addAdapters(this.aUP);
+    private void DS() {
+        this.aWf = new ArrayList();
+        this.gJZ = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
+        this.aWf.add(this.gJZ);
+        this.gKa = new c(this.mPageContext.getPageActivity());
+        this.aWf.add(this.gKa);
+        this.frv.addAdapters(this.aWf);
     }
 
     public void setData(List<q> list) {
-        if (!w.isEmpty(list)) {
-            this.fml.setData(list);
-            this.mDataList = this.fml.getData();
+        if (!x.isEmpty(list)) {
+            this.frv.setData(list);
+            this.mDataList = this.frv.getData();
         }
     }
 
-    public void av(String str, boolean z) {
+    public void at(String str, boolean z) {
         if (!TextUtils.isEmpty(str) && this.mDataList != null) {
             for (q qVar : this.mDataList) {
                 if (qVar instanceof AlaEnterEffectData) {
@@ -60,7 +60,7 @@ public class b {
         }
     }
 
-    public void aw(String str, boolean z) {
+    public void au(String str, boolean z) {
         if (!TextUtils.isEmpty(str) && this.mDataList != null) {
             for (q qVar : this.mDataList) {
                 if (qVar instanceof AlaEnterEffectData) {
@@ -75,7 +75,7 @@ public class b {
         }
     }
 
-    public void aF(String str, int i) {
+    public void aE(String str, int i) {
         if (!StringUtils.isNull(str) && this.mDataList != null) {
             for (q qVar : this.mDataList) {
                 if (qVar instanceof AlaEnterEffectData) {
@@ -90,7 +90,7 @@ public class b {
     }
 
     public void notifyDataSetChanged() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.aUP) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.aWf) {
             aVar.notifyDataSetChanged();
         }
     }

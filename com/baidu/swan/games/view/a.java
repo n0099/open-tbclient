@@ -1,9 +1,9 @@
 package com.baidu.swan.games.view;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public interface a {
-    void axR();
+    void aBh();
 
-    void axS();
+    void aBi();
 
     void onViewDestroy();
 }

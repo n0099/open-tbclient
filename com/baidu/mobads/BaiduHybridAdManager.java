@@ -5,28 +5,28 @@ import android.net.Uri;
 import android.webkit.WebView;
 import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class BaiduHybridAdManager {
-    private com.baidu.mobads.production.d.a bxh;
-    private WebView bxi;
-    private BaiduHybridAdViewListener bxg = new d(this);
+    private com.baidu.mobads.production.d.a bxw;
+    private WebView bxx;
+    private BaiduHybridAdViewListener bxv = new d(this);
     private boolean e = false;
-    IOAdEventListener bxa = new e(this);
+    IOAdEventListener bxp = new e(this);
 
     public void setBaiduHybridAdViewListener(BaiduHybridAdViewListener baiduHybridAdViewListener) {
-        this.bxg = baiduHybridAdViewListener;
+        this.bxv = baiduHybridAdViewListener;
     }
 
     public void injectJavaScriptBridge(WebView webView) {
         if (!this.e) {
-            this.bxi = webView;
-            this.bxh = new com.baidu.mobads.production.d.a(this.bxi);
-            this.bxh.addEventListener(IXAdEvent.AD_LOADED, this.bxa);
-            this.bxh.addEventListener(IXAdEvent.AD_ERROR, this.bxa);
-            this.bxh.addEventListener(IXAdEvent.AD_STARTED, this.bxa);
-            this.bxh.addEventListener("AdUserClick", this.bxa);
-            this.bxh.addEventListener(IXAdEvent.AD_USER_CLOSE, this.bxa);
-            this.bxh.request();
+            this.bxx = webView;
+            this.bxw = new com.baidu.mobads.production.d.a(this.bxx);
+            this.bxw.addEventListener(IXAdEvent.AD_LOADED, this.bxp);
+            this.bxw.addEventListener(IXAdEvent.AD_ERROR, this.bxp);
+            this.bxw.addEventListener(IXAdEvent.AD_STARTED, this.bxp);
+            this.bxw.addEventListener("AdUserClick", this.bxp);
+            this.bxw.addEventListener(IXAdEvent.AD_USER_CLOSE, this.bxp);
+            this.bxw.request();
         }
     }
 
@@ -35,8 +35,8 @@ public class BaiduHybridAdManager {
     }
 
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if (!this.e && this.bxh != null) {
-            this.bxh.a(webView, str);
+        if (!this.e && this.bxw != null) {
+            this.bxw.a(webView, str);
         }
         try {
         } catch (Exception e) {

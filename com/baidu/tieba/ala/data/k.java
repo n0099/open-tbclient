@@ -1,19 +1,14 @@
 package com.baidu.tieba.ala.data;
 
+import com.baidu.android.util.io.BaseJsonData;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class k {
-    public String fEb;
-    public String fEc;
-    public String fEd;
-    public String fEe;
+    public String errorNo;
+    public String message;
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.fEb = jSONObject.optString("pk_count");
-            this.fEc = jSONObject.optString("win_rate");
-            this.fEd = jSONObject.optString("pk_rank");
-            this.fEe = jSONObject.optString("last_pk_res");
-        }
+    public void parserJson(JSONObject jSONObject) {
+        this.errorNo = jSONObject.optString(BaseJsonData.TAG_ERRNO);
+        this.message = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
     }
 }

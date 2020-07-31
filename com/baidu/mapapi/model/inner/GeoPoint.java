@@ -1,5 +1,5 @@
 package com.baidu.mapapi.model.inner;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class GeoPoint {
     private double a;
     private double b;

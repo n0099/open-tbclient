@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.bikenavi.widget;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 /* synthetic */ class e {
     static final /* synthetic */ int[] a = new int[com.baidu.platform.comapi.wnplatform.n.b.values().length];
 

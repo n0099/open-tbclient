@@ -4,26 +4,26 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.an.e;
-import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.aq.al;
 import com.baidu.swan.apps.statistic.a.d;
 import com.baidu.swan.apps.statistic.h;
 import com.facebook.common.b.i;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void i(Bitmap bitmap);
+        void k(Bitmap bitmap);
     }
 
     public static void a(String str, final int i, final a aVar) {
-        Uri uri = aj.getUri(str);
+        Uri uri = al.getUri(str);
         if (uri == null) {
             a(i, aVar, "download icon fail: icon url is null");
             return;
         }
-        com.facebook.drawee.a.a.c.dAc().e(ImageRequestBuilder.ac(uri).dHf(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.pms.f.c.1
+        com.facebook.drawee.a.a.c.dDo().e(ImageRequestBuilder.ab(uri).dKr(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.pms.f.c.1
             @Override // com.facebook.imagepipeline.e.b
             protected void h(Bitmap bitmap) {
                 Bitmap copy;
@@ -38,7 +38,7 @@ public class c {
                         copy = bitmap.copy(bitmap.getConfig(), true);
                     }
                     if (a.this != null) {
-                        a.this.i(copy);
+                        a.this.k(copy);
                     }
                 } catch (Exception e) {
                     c.a(i, a.this, "download icon fail: " + e.getMessage());
@@ -55,16 +55,16 @@ public class c {
                 super.b(bVar);
                 c.a(i, a.this, "download icon fail: onCancellation");
             }
-        }, i.dzi());
+        }, i.dCu());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(int i, a aVar, String str) {
-        com.baidu.swan.apps.an.a pB = new com.baidu.swan.apps.an.a().bw(4L).bx(10L).pB(str);
-        e.atW().g(pB);
-        h.b(new d().f(pB).oK(h.hf(i)));
+        com.baidu.swan.apps.an.a qm = new com.baidu.swan.apps.an.a().bJ(4L).bK(10L).qm(str);
+        e.avX().g(qm);
+        h.b(new d().f(qm).pu(h.ho(i)));
         if (aVar != null) {
-            aVar.i(null);
+            aVar.k(null);
         }
     }
 }

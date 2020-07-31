@@ -4,7 +4,7 @@ import com.baidu.helios.channels.b;
 import com.baidu.helios.channels.csc.QuantumChannel;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b implements b.a {
     @Override // com.baidu.helios.channels.b.a
     public List<com.baidu.helios.channels.a> ut() {

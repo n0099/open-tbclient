@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LoadingView extends AbsAttachView {
     private static final long DELAY_TIME = 200;
     private final int arrayLength;

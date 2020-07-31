@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes.sampleentry;
 
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -10,7 +11,7 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public final class AudioSampleEntry extends AbstractSampleEntry {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE1 = "samr";
@@ -281,7 +282,7 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
     public long getSize() {
         int i = 16;
         long containerSize = (this.soundVersion == 1 ? 16 : 0) + 28 + (this.soundVersion == 2 ? 36 : 0) + getContainerSize();
-        if (!this.largeBox && 8 + containerSize < 4294967296L) {
+        if (!this.largeBox && 8 + containerSize < AccountConstants.TYPE_MODIFY_EXT_FIELDS) {
             i = 8;
         }
         return i + containerSize;

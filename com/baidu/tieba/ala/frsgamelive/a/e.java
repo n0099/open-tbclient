@@ -5,9 +5,9 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.frsgamelive.c.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsgamelive.b.c, f.a> {
-    private com.baidu.tieba.ala.d fFG;
+    private com.baidu.tieba.ala.e fLb;
     private TbPageContext mPageContext;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -18,7 +18,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsga
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ae */
+    /* renamed from: af */
     public f.a b(ViewGroup viewGroup) {
         return new f.a(new com.baidu.tieba.ala.frsgamelive.c.f(this.mPageContext));
     }
@@ -27,12 +27,12 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsga
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.frsgamelive.b.c cVar, f.a aVar) {
-        aVar.fHo.a(cVar);
-        aVar.fHo.c(this.fFG);
+        aVar.fMJ.a(cVar);
+        aVar.fMJ.c(this.fLb);
         return aVar.getView();
     }
 
-    public void a(com.baidu.tieba.ala.d dVar) {
-        this.fFG = dVar;
+    public void a(com.baidu.tieba.ala.e eVar) {
+        this.fLb = eVar;
     }
 }

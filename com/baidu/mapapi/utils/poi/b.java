@@ -2,7 +2,7 @@ package com.baidu.mapapi.utils.poi;
 
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.platform.comapi.pano.PanoStateError;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 /* synthetic */ class b {
     static final /* synthetic */ int[] a;
     static final /* synthetic */ int[] b = new int[HttpClient.HttpStateError.values().length];

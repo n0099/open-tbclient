@@ -4,26 +4,26 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 import tbclient.SimpleUser;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class AccountSafeModel extends BdBaseModel {
-    private boolean eCO;
-    private com.baidu.tieba.setting.im.more.a eXP;
-    private String eXQ;
-    private String eXR;
-    private String eXS;
+    private boolean eJd;
+    private com.baidu.tieba.setting.im.more.a fcr;
+    private String fcs;
+    private String fct;
+    private String fcu;
     private boolean mFinished;
 
-    public com.baidu.tieba.setting.im.more.a boO() {
-        return this.eXP;
+    public com.baidu.tieba.setting.im.more.a brQ() {
+        return this.fcr;
     }
 
-    public String wv() {
-        return this.eXQ;
+    public String wX() {
+        return this.fcs;
     }
 
     public AccountSafeModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.eCO = false;
+        this.eJd = false;
         this.mFinished = false;
     }
 
@@ -34,52 +34,52 @@ public class AccountSafeModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        this.eCO = false;
+        this.eJd = false;
         this.mFinished = false;
         return false;
     }
 
-    private PrivateInfoNetMessage boP() {
+    private PrivateInfoNetMessage brR() {
         return new PrivateInfoNetMessage();
     }
 
-    public boolean boQ() {
-        if (this.eCO) {
+    public boolean brS() {
+        if (this.eJd) {
             return false;
         }
-        this.eCO = true;
+        this.eJd = true;
         this.mFinished = false;
-        sendMessage(boP());
+        sendMessage(brR());
         return true;
     }
 
     public void a(com.baidu.tieba.setting.im.more.a aVar) {
-        this.eXP = aVar;
-        boR();
+        this.fcr = aVar;
+        brT();
     }
 
-    private void boR() {
-        SimpleUser boS = boS();
-        if (boS != null) {
-            this.eXR = boS.secureemail;
-            this.eXS = boS.securemobil;
-            this.eXQ = boS.ahead_url;
+    private void brT() {
+        SimpleUser brU = brU();
+        if (brU != null) {
+            this.fct = brU.secureemail;
+            this.fcu = brU.securemobil;
+            this.fcs = brU.ahead_url;
             this.mFinished = true;
         }
     }
 
-    private SimpleUser boS() {
-        if (this.eXP == null || this.eXP.boS() == null) {
+    private SimpleUser brU() {
+        if (this.fcr == null || this.fcr.brU() == null) {
             return null;
         }
-        return this.eXP.boS();
+        return this.fcr.brU();
     }
 
     public boolean isLoading() {
-        return this.eCO;
+        return this.eJd;
     }
 
     public void setLoading(boolean z) {
-        this.eCO = z;
+        this.eJd = z;
     }
 }

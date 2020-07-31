@@ -9,28 +9,28 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bu;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.tieba.card.data.c;
 import com.baidu.tieba.card.p;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class b {
-    private TbPageContext dPv;
-    private int gyV;
-    private com.baidu.tieba.personPolymeric.tab.fragments.a kPf;
-    private final CustomMessageListener kPg = new CustomMessageListener(2921428) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.2
+    private TbPageContext dVN;
+    private int gEw;
+    private com.baidu.tieba.personPolymeric.tab.fragments.a kYb;
+    private final CustomMessageListener kYc = new CustomMessageListener(2921428) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bu) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == b.this.mBdUniqueId && b.this.kPf != null && b.this.kPf.cUq()) {
-                b.this.aX((bu) customResponsedMessage.getData());
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bv) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == b.this.mBdUniqueId && b.this.kYb != null && b.this.kYb.cYg()) {
+                b.this.aU((bv) customResponsedMessage.getData());
             }
         }
     };
-    private final CustomMessageListener kPh = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_CARD_PERSON_DYNAMIC_THREAD) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.3
+    private final CustomMessageListener kYd = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_CARD_PERSON_DYNAMIC_THREAD) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,51 +39,51 @@ public class b {
             }
         }
     };
-    private final CustomMessageListener kPi = new CustomMessageListener(2921436) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.4
+    private final CustomMessageListener kYe = new CustomMessageListener(2921436) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                b.this.KV((String) customResponsedMessage.getData());
+                b.this.LJ((String) customResponsedMessage.getData());
             }
         }
     };
     private BdUniqueId mBdUniqueId;
 
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId, com.baidu.tieba.personPolymeric.tab.fragments.a aVar, int i) {
-        this.dPv = tbPageContext;
+        this.dVN = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
-        this.kPf = aVar;
-        this.gyV = i;
-        this.kPg.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.kPg);
-        this.kPh.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.kPh);
-        this.kPi.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.kPi);
+        this.kYb = aVar;
+        this.gEw = i;
+        this.kYc.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.kYc);
+        this.kYd.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.kYd);
+        this.kYe.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.kYe);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aX(final bu buVar) {
+    public void aU(final bv bvVar) {
         CardPersonDynamicThreadData cardPersonDynamicThreadData = new CardPersonDynamicThreadData();
-        cardPersonDynamicThreadData.dLi = buVar;
-        cardPersonDynamicThreadData.forumId = String.valueOf(buVar.getFid());
-        cardPersonDynamicThreadData.threadId = buVar.tid;
-        cardPersonDynamicThreadData.postId = buVar.dOC;
-        cardPersonDynamicThreadData.isPrivacy = buVar.isPrivacy;
-        if (buVar != null && buVar.getBaijiahaoData() != null) {
-            cardPersonDynamicThreadData.gVx = buVar.getBaijiahaoData().oriUgcNid;
+        cardPersonDynamicThreadData.dLK = bvVar;
+        cardPersonDynamicThreadData.forumId = String.valueOf(bvVar.getFid());
+        cardPersonDynamicThreadData.threadId = bvVar.tid;
+        cardPersonDynamicThreadData.postId = bvVar.dUO;
+        cardPersonDynamicThreadData.isPrivacy = bvVar.isPrivacy;
+        if (bvVar != null && bvVar.getBaijiahaoData() != null) {
+            cardPersonDynamicThreadData.hbb = bvVar.getBaijiahaoData().oriUgcNid;
         }
-        p pVar = new p(this.dPv);
-        pVar.lZ(this.gyV == 1);
+        p pVar = new p(this.dVN);
+        pVar.mE(this.gEw == 1);
         pVar.create();
         pVar.a(new p.a() { // from class: com.baidu.tieba.personPolymeric.tab.a.b.1
             @Override // com.baidu.tieba.card.p.a
             public void setPrivacy(boolean z) {
                 if (z) {
-                    l.showToast(b.this.dPv.getPageActivity(), (int) R.string.thread_has_hide);
+                    l.showToast(b.this.dVN.getPageActivity(), R.string.thread_has_hide);
                 }
-                b.this.a(z, buVar);
+                b.this.a(z, bvVar);
             }
         });
         pVar.a(cardPersonDynamicThreadData);
@@ -91,21 +91,21 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z, bu buVar) {
-        bu i;
+    public void a(boolean z, bv bvVar) {
+        bv i;
         boolean z2 = false;
-        if (buVar != null && this.kPf != null && !w.isEmpty(this.kPf.ckz()) && this.kPf.cUp() != null && this.kPf.cUp().cUr() != null) {
+        if (bvVar != null && this.kYb != null && !x.isEmpty(this.kYb.cnZ()) && this.kYb.cYf() != null && this.kYb.cYf().cYh() != null) {
             int i2 = 0;
             while (true) {
-                if (i2 >= this.kPf.ckz().size()) {
+                if (i2 >= this.kYb.cnZ().size()) {
                     break;
                 }
-                q qVar = this.kPf.ckz().get(i2);
-                if (qVar != null && (i = com.baidu.tieba.personPolymeric.tab.b.a.i(qVar)) != null && !StringUtils.isNull(i.tid) && i.tid.equals(buVar.tid)) {
+                q qVar = this.kYb.cnZ().get(i2);
+                if (qVar != null && (i = com.baidu.tieba.personPolymeric.tab.b.a.i(qVar)) != null && !StringUtils.isNull(i.tid) && i.tid.equals(bvVar.tid)) {
                     i.isPrivacy = z;
-                    c aB = com.baidu.tieba.personPolymeric.tab.b.a.aB(i);
-                    if (aB != null) {
-                        this.kPf.ckz().set(i2, aB);
+                    c ay = com.baidu.tieba.personPolymeric.tab.b.a.ay(i);
+                    if (ay != null) {
+                        this.kYb.cnZ().set(i2, ay);
                         z2 = true;
                         break;
                     }
@@ -113,17 +113,17 @@ public class b {
                 i2++;
             }
             if (z2) {
-                this.kPf.cUp().eD(this.kPf.ckz());
+                this.kYb.cYf().eJ(this.kYb.cnZ());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void KV(String str) {
+    public void LJ(String str) {
         boolean z;
-        bu i;
-        if (!StringUtils.isNull(str) && this.kPf != null && !w.isEmpty(this.kPf.ckz()) && this.kPf.cUp() != null && this.kPf.cUp().cUr() != null) {
-            Iterator<q> it = this.kPf.ckz().iterator();
+        bv i;
+        if (!StringUtils.isNull(str) && this.kYb != null && !x.isEmpty(this.kYb.cnZ()) && this.kYb.cYf() != null && this.kYb.cYf().cYh() != null) {
+            Iterator<q> it = this.kYb.cnZ().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -137,7 +137,7 @@ public class b {
                 }
             }
             if (z) {
-                this.kPf.cUp().eD(this.kPf.ckz());
+                this.kYb.cYf().eJ(this.kYb.cnZ());
             }
         }
     }
@@ -145,9 +145,9 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void removeThread(String str) {
         boolean z;
-        bu i;
-        if (!StringUtils.isNull(str) && this.kPf != null && !w.isEmpty(this.kPf.ckz()) && this.kPf.cUp() != null && this.kPf.cUp().cUr() != null) {
-            Iterator<q> it = this.kPf.ckz().iterator();
+        bv i;
+        if (!StringUtils.isNull(str) && this.kYb != null && !x.isEmpty(this.kYb.cnZ()) && this.kYb.cYf() != null && this.kYb.cYf().cYh() != null) {
+            Iterator<q> it = this.kYb.cnZ().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -161,7 +161,7 @@ public class b {
                 }
             }
             if (z) {
-                this.kPf.cUp().eD(this.kPf.ckz());
+                this.kYb.cYf().eJ(this.kYb.cnZ());
             }
         }
     }

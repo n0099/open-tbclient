@@ -6,7 +6,7 @@ import com.kascend.chushou.constants.ParserRet;
 import java.util.List;
 import org.json.JSONObject;
 import tv.chushou.zues.utils.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c extends com.kascend.chushou.view.base.c<f> {
     private String d;
     private String c = "";
@@ -27,7 +27,7 @@ public class c extends com.kascend.chushou.view.base.c<f> {
         if (z) {
             this.c = "";
         }
-        com.kascend.chushou.c.c.dIP().b(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.gifts.c.1
+        com.kascend.chushou.c.c.dMk().b(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.gifts.c.1
             @Override // com.kascend.chushou.c.b
             public void a() {
                 if (c.this.b() && z) {
@@ -41,13 +41,13 @@ public class c extends com.kascend.chushou.view.base.c<f> {
                     if (z) {
                         tv.chushou.zues.a.a.post(new com.kascend.chushou.widget.gifts.a.a(c.this.d, 2));
                     }
-                    ParserRet dT = com.kascend.chushou.c.f.dT(jSONObject);
-                    List<GeneralGift> list = (List) dT.mData;
+                    ParserRet ea = com.kascend.chushou.c.f.ea(jSONObject);
+                    List<GeneralGift> list = (List) ea.mData;
                     if (z && h.isEmpty(list)) {
                         tv.chushou.zues.a.a.post(new com.kascend.chushou.widget.gifts.a.a(c.this.d, 6));
                     }
-                    ((f) c.this.b).h(list, true, z);
-                    c.this.c = dT.mBreakpoint;
+                    ((f) c.this.b).g(list, true, z);
+                    c.this.c = ea.mBreakpoint;
                 }
             }
 

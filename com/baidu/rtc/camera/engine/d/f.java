@@ -7,52 +7,52 @@ import android.opengl.GLES30;
 import android.os.HandlerThread;
 import android.view.Surface;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class f extends HandlerThread implements SurfaceTexture.OnFrameAvailableListener, Camera.PreviewCallback {
-    private com.baidu.rtc.camera.engine.a.b bHN;
-    private d bHO;
-    private final Object bHQ;
-    private final Object bHX;
-    private final Object bHY;
-    private boolean bHZ;
-    private com.baidu.rtc.camera.filter.a.a bHh;
-    private int bHr;
-    private int bHs;
-    private boolean bIa;
-    private boolean bIb;
-    private boolean bIc;
-    private com.baidu.rtc.camera.filter.a.c bId;
-    private int bIe;
-    private int bIf;
-    private final float[] bIg;
-    private int bIh;
-    private a bIi;
-    private e bIj;
-    private com.baidu.rtc.camera.a.a bIk;
+    private com.baidu.rtc.camera.filter.a.a bHG;
+    private int bHQ;
+    private int bHR;
+    private boolean bIA;
+    private boolean bIB;
+    private com.baidu.rtc.camera.filter.a.c bIC;
+    private int bID;
+    private int bIE;
+    private final float[] bIF;
+    private int bIG;
+    private a bIH;
+    private e bII;
+    private com.baidu.rtc.camera.a.a bIJ;
+    private com.baidu.rtc.camera.engine.a.b bIm;
+    private d bIn;
+    private final Object bIp;
+    private final Object bIw;
+    private final Object bIx;
+    private boolean bIy;
+    private boolean bIz;
     private Context mContext;
     private SurfaceTexture mSurfaceTexture;
     private long time;
 
     public f(Context context, String str) {
         super(str);
-        this.bHQ = new Object();
-        this.bHX = new Object();
-        this.bHY = new Object();
-        this.bHZ = false;
-        this.bIa = false;
-        this.bIb = false;
-        this.bIc = false;
-        this.bIg = new float[16];
-        this.bIh = 0;
+        this.bIp = new Object();
+        this.bIw = new Object();
+        this.bIx = new Object();
+        this.bIy = false;
+        this.bIz = false;
+        this.bIA = false;
+        this.bIB = false;
+        this.bIF = new float[16];
+        this.bIG = 0;
         this.time = 0L;
         this.mContext = context;
-        this.bHN = com.baidu.rtc.camera.engine.a.b.Qw();
-        this.bIj = e.QF();
-        this.bIi = new a();
+        this.bIm = com.baidu.rtc.camera.engine.a.b.QL();
+        this.bII = e.QU();
+        this.bIH = new a();
     }
 
     public void a(d dVar) {
-        this.bHO = dVar;
+        this.bIn = dVar;
     }
 
     @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
@@ -61,180 +61,180 @@ public class f extends HandlerThread implements SurfaceTexture.OnFrameAvailableL
 
     @Override // android.hardware.Camera.PreviewCallback
     public void onPreviewFrame(byte[] bArr, Camera camera) {
-        synchronized (this.bHQ) {
-            if (this.bHZ || this.bIa) {
-                this.bHO.sendMessage(this.bHO.obtainMessage(17, bArr));
+        synchronized (this.bIp) {
+            if (this.bIy || this.bIz) {
+                this.bIn.sendMessage(this.bIn.obtainMessage(17, bArr));
             }
         }
-        if (this.bHO != null && this.bHN.bHz) {
-            this.bHO.sendEmptyMessage(19);
+        if (this.bIn != null && this.bIm.bHY) {
+            this.bIn.sendEmptyMessage(19);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void E(byte[] bArr) {
-        if (this.bHN.bHI != null) {
-            this.bHN.bHI.E(bArr);
+        if (this.bIm.bIh != null) {
+            this.bIm.bIh.E(bArr);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(Surface surface) {
-        this.bHh = new com.baidu.rtc.camera.filter.a.a(null, 1);
-        this.bId = new com.baidu.rtc.camera.filter.a.c(this.bHh, surface, false);
-        this.bId.makeCurrent();
+        this.bHG = new com.baidu.rtc.camera.filter.a.a(null, 1);
+        this.bIC = new com.baidu.rtc.camera.filter.a.c(this.bHG, surface, false);
+        this.bIC.makeCurrent();
         GLES30.glDisable(2929);
         GLES30.glDisable(2884);
-        this.bIj.init(this.mContext);
-        if (this.bIk == null) {
-            this.bIk = new com.baidu.rtc.camera.a.a(this.mContext, this.bHh);
+        this.bII.init(this.mContext);
+        if (this.bIJ == null) {
+            this.bIJ = new com.baidu.rtc.camera.a.a(this.mContext, this.bHG);
         }
-        this.bIe = com.baidu.rtc.camera.filter.glfilter.utils.a.QV();
-        this.mSurfaceTexture = new SurfaceTexture(this.bIe);
+        this.bID = com.baidu.rtc.camera.filter.glfilter.utils.a.Rk();
+        this.mSurfaceTexture = new SurfaceTexture(this.bID);
         this.mSurfaceTexture.setOnFrameAvailableListener(this);
-        QO();
+        Rd();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void surfaceCreated(SurfaceTexture surfaceTexture) {
-        this.bHh = new com.baidu.rtc.camera.filter.a.a(null, 1);
-        this.bId = new com.baidu.rtc.camera.filter.a.c(this.bHh, surfaceTexture);
-        this.bId.makeCurrent();
+        this.bHG = new com.baidu.rtc.camera.filter.a.a(null, 1);
+        this.bIC = new com.baidu.rtc.camera.filter.a.c(this.bHG, surfaceTexture);
+        this.bIC.makeCurrent();
         GLES30.glDisable(2929);
         GLES30.glDisable(2884);
-        this.bIj.init(this.mContext);
-        if (this.bIk == null) {
-            this.bIk = new com.baidu.rtc.camera.a.a(this.mContext, this.bHh);
+        this.bII.init(this.mContext);
+        if (this.bIJ == null) {
+            this.bIJ = new com.baidu.rtc.camera.a.a(this.mContext, this.bHG);
         }
-        this.bIe = com.baidu.rtc.camera.filter.glfilter.utils.a.QV();
-        this.mSurfaceTexture = new SurfaceTexture(this.bIe);
+        this.bID = com.baidu.rtc.camera.filter.glfilter.utils.a.Rk();
+        this.mSurfaceTexture = new SurfaceTexture(this.bID);
         this.mSurfaceTexture.setOnFrameAvailableListener(this);
-        QO();
+        Rd();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void surfaceChanged(int i, int i2) {
-        this.bIj.T(i, i2);
+        this.bII.T(i, i2);
         startPreview();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void surfaceDestroyed() {
-        this.bId.makeCurrent();
-        this.bIj.release();
-        if (this.bIk != null) {
-            this.bIk.release();
-            this.bIk = null;
+        this.bIC.makeCurrent();
+        this.bII.release();
+        if (this.bIJ != null) {
+            this.bIJ.release();
+            this.bIJ = null;
         }
         releaseCamera();
         if (this.mSurfaceTexture != null) {
             this.mSurfaceTexture.release();
             this.mSurfaceTexture = null;
         }
-        if (this.bId != null) {
-            this.bId.release();
-            this.bId = null;
+        if (this.bIC != null) {
+            this.bIC.release();
+            this.bIC = null;
         }
-        if (this.bHh != null) {
-            this.bHh.release();
-            this.bHh = null;
+        if (this.bHG != null) {
+            this.bHG.release();
+            this.bHG = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void QL() {
-        if (this.mSurfaceTexture != null && this.bId != null) {
-            while (this.bIh > 0) {
-                this.bId.makeCurrent();
+    public void Ra() {
+        if (this.mSurfaceTexture != null && this.bIC != null) {
+            while (this.bIG > 0) {
+                this.bIC.makeCurrent();
                 this.mSurfaceTexture.updateTexImage();
-                this.mSurfaceTexture.getTransformMatrix(this.bIg);
-                this.bIh--;
-                this.bIf = this.bIj.a(this.bIe, this.bIg);
-                this.bId.swapBuffers();
-                if (this.bIa && !this.bIb && this.bIk != null) {
-                    if (this.bIc) {
-                        this.bIk.Qs();
-                        this.bIc = false;
+                this.mSurfaceTexture.getTransformMatrix(this.bIF);
+                this.bIG--;
+                this.bIE = this.bII.a(this.bID, this.bIF);
+                this.bIC.swapBuffers();
+                if (this.bIz && !this.bIA && this.bIJ != null) {
+                    if (this.bIB) {
+                        this.bIJ.QH();
+                        this.bIB = false;
                     }
-                    this.bIk.f(this.bIf, System.nanoTime());
+                    this.bIJ.f(this.bIE, System.nanoTime());
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void QM() {
-        if (this.bHN.bHJ != null) {
-            this.bIi.QA();
-            this.bHN.bHJ.A(this.bIi.QB());
+    public void Rb() {
+        if (this.bIm.bIi != null) {
+            this.bIH.QP();
+            this.bIm.bIi.A(this.bIH.QQ());
         }
     }
 
-    private void QN() {
-        if (this.bHN.orientation == 90 || this.bHN.orientation == 270) {
-            this.bHr = this.bHN.previewHeight;
-            this.bHs = this.bHN.previewWidth;
+    private void Rc() {
+        if (this.bIm.orientation == 90 || this.bIm.orientation == 270) {
+            this.bHQ = this.bIm.previewHeight;
+            this.bHR = this.bIm.previewWidth;
         } else {
-            this.bHr = this.bHN.previewWidth;
-            this.bHs = this.bHN.previewHeight;
+            this.bHQ = this.bIm.previewWidth;
+            this.bHR = this.bIm.previewHeight;
         }
-        this.bIj.S(this.bHr, this.bHs);
+        this.bII.S(this.bHQ, this.bHR);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void startRecording() {
-        this.bIa = true;
+        this.bIz = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void stopRecording() {
-        this.bIc = true;
-        this.bIa = false;
+        this.bIB = true;
+        this.bIz = false;
     }
 
     public void requestRender() {
-        synchronized (this.bHX) {
-            if (this.bHZ) {
-                this.bIh++;
-                if (this.bHO != null) {
-                    this.bHO.sendMessage(this.bHO.obtainMessage(4));
+        synchronized (this.bIw) {
+            if (this.bIy) {
+                this.bIG++;
+                if (this.bIn != null) {
+                    this.bIn.sendMessage(this.bIn.obtainMessage(4));
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void QO() {
+    public void Rd() {
         releaseCamera();
-        com.baidu.rtc.camera.engine.a.a.Qv().aO(this.mContext);
-        com.baidu.rtc.camera.engine.a.a.Qv().b(this.mSurfaceTexture);
-        QN();
-        com.baidu.rtc.camera.engine.a.a.Qv().setPreviewCallback(this);
-        if (this.bHN.bHI != null) {
-            this.bHN.bHI.Qx();
+        com.baidu.rtc.camera.engine.a.a.QK().aP(this.mContext);
+        com.baidu.rtc.camera.engine.a.a.QK().b(this.mSurfaceTexture);
+        Rc();
+        com.baidu.rtc.camera.engine.a.a.QK().setPreviewCallback(this);
+        if (this.bIm.bIh != null) {
+            this.bIm.bIh.QM();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void switchCamera() {
-        this.bHN.bHG = !this.bHN.bHG;
-        if (this.bHN.bHG) {
-            this.bHN.cameraId = 0;
+        this.bIm.bIf = !this.bIm.bIf;
+        if (this.bIm.bIf) {
+            this.bIm.cameraId = 0;
         } else {
-            this.bHN.cameraId = 1;
+            this.bIm.cameraId = 1;
         }
-        QO();
+        Rd();
         startPreview();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void startPreview() {
-        com.baidu.rtc.camera.engine.a.a.Qv().startPreview();
-        this.bHZ = true;
+        com.baidu.rtc.camera.engine.a.a.QK().startPreview();
+        this.bIy = true;
     }
 
     private void releaseCamera() {
-        this.bHZ = false;
-        com.baidu.rtc.camera.engine.a.a.Qv().releaseCamera();
+        this.bIy = false;
+        com.baidu.rtc.camera.engine.a.a.QK().releaseCamera();
     }
 }

@@ -19,7 +19,7 @@ import com.baidu.mapapi.synchronization.histroytrace.OnHistoryTraceListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class e extends Handler {
     private static final String a = e.class.getSimpleName();
     private static OnHistoryTraceListener b;

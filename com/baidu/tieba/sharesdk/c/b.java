@@ -4,13 +4,13 @@ import android.os.Bundle;
 import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class b {
     public static void a(int i, ShareEntity shareEntity) {
-        ao aoVar = new ao(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
+        ap apVar = new ap(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
         int i2 = 0;
         switch (i) {
             case 2:
@@ -30,37 +30,37 @@ public class b {
                 break;
         }
         if (i2 != 0) {
-            aoVar.ag("obj_source", i2);
+            apVar.ah("obj_source", i2);
         }
         if (shareEntity == null) {
-            TiebaStatic.log(aoVar);
+            TiebaStatic.log(apVar);
             return;
         }
-        Bundle bde = shareEntity.bde();
-        if (bde != null) {
-            int i3 = bde.getInt("obj_param1");
+        Bundle bgL = shareEntity.bgL();
+        if (bgL != null) {
+            int i3 = bgL.getInt("obj_param1");
             if (i3 != 0) {
-                aoVar.ag("obj_param1", i3);
+                apVar.ah("obj_param1", i3);
                 if (i3 == 2) {
-                    aoVar.dk("fid", bde.getString("fid"));
+                    apVar.dn("fid", bgL.getString("fid"));
                 } else if (i3 == 3) {
-                    int i4 = bde.getInt("obj_type");
+                    int i4 = bgL.getInt("obj_type");
                     if (i4 != 0) {
-                        aoVar.ag("obj_type", i4);
+                        apVar.ah("obj_type", i4);
                     }
-                    aoVar.dk("tid", bde.getString("tid")).dk("fid", bde.getString("fid"));
+                    apVar.dn("tid", bgL.getString("tid")).dn("fid", bgL.getString("fid"));
                 }
             }
-            String string = bde.getString(TiebaInitialize.Params.OBJ_URL);
-            if (!ar.isEmpty(string)) {
-                aoVar.dk(TiebaInitialize.Params.OBJ_URL, string);
+            String string = bgL.getString(TiebaInitialize.Params.OBJ_URL);
+            if (!as.isEmpty(string)) {
+                apVar.dn(TiebaInitialize.Params.OBJ_URL, string);
             }
         }
-        TiebaStatic.log(aoVar);
+        TiebaStatic.log(apVar);
     }
 
     public static void b(int i, ShareEntity shareEntity) {
-        ao aoVar = new ao(TbadkCoreStatisticKey.KEY_SHARE_CANCEL);
+        ap apVar = new ap(TbadkCoreStatisticKey.KEY_SHARE_CANCEL);
         int i2 = 0;
         switch (i) {
             case 2:
@@ -80,18 +80,18 @@ public class b {
                 break;
         }
         if (i2 != 0) {
-            aoVar.ag("obj_source", i2);
+            apVar.ah("obj_source", i2);
         }
         if (shareEntity == null) {
-            TiebaStatic.log(aoVar);
+            TiebaStatic.log(apVar);
             return;
         }
-        Bundle bde = shareEntity.bde();
-        if (bde != null) {
-            aoVar.dk("tid", bde.getString("tid"));
-            aoVar.dk("uid", bde.getString("uid"));
-            aoVar.dk("fid", bde.getString("fid"));
+        Bundle bgL = shareEntity.bgL();
+        if (bgL != null) {
+            apVar.dn("tid", bgL.getString("tid"));
+            apVar.dn("uid", bgL.getString("uid"));
+            apVar.dn("fid", bgL.getString("fid"));
         }
-        TiebaStatic.log(aoVar);
+        TiebaStatic.log(apVar);
     }
 }

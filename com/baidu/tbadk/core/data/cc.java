@@ -1,18 +1,30 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import org.json.JSONObject;
-import tbclient.VideoDesc;
+import tbclient.VideoChannelInfo;
 /* loaded from: classes.dex */
 public class cc {
-    public static VideoDesc cH(JSONObject jSONObject) {
-        VideoDesc.Builder builder = new VideoDesc.Builder();
-        if (jSONObject != null) {
-            builder.video_id = Integer.valueOf(jSONObject.optInt("video_id"));
-            builder.video_md5 = jSONObject.optString("video_md5");
-            builder.video_url = jSONObject.optString("video_url");
-            builder.video_width = jSONObject.optString("video_width");
-            builder.video_height = jSONObject.optString("video_height");
+    public long dVo;
+    public String dVp;
+    public String dVq;
+
+    public void a(VideoChannelInfo videoChannelInfo) {
+        if (videoChannelInfo != null && videoChannelInfo.channel_id.longValue() > 0) {
+            this.dVo = videoChannelInfo.channel_id.longValue();
+            this.dVp = videoChannelInfo.channel_name;
+            this.dVq = videoChannelInfo.channel_avatar;
         }
-        return builder.build(true);
+    }
+
+    public void cM(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.dVo = jSONObject.optLong(SharedPrefConfig.CHANNEL_ID, 0L);
+                this.dVp = jSONObject.optString("channel_name");
+                this.dVq = jSONObject.optString("channel_avatar");
+            } catch (Exception e) {
+            }
+        }
     }
 }

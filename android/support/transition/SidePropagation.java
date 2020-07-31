@@ -5,7 +5,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class SidePropagation extends VisibilityPropagation {
     private float mPropagationSpeed = 3.0f;
     private int mSide = 80;

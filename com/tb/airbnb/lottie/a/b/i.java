@@ -4,17 +4,17 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.PointF;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class i extends f<PointF> {
-    private final PointF CV;
-    private final float[] CW;
-    private PathMeasure CY;
-    private h nGd;
+    private final PointF CX;
+    private final float[] CY;
+    private PathMeasure Da;
+    private h nOL;
 
     public i(List<? extends com.tb.airbnb.lottie.e.a<PointF>> list) {
         super(list);
-        this.CV = new PointF();
-        this.CW = new float[2];
+        this.CX = new PointF();
+        this.CY = new float[2];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,14 +30,14 @@ public class i extends f<PointF> {
         if (ht == null) {
             return aVar.Gp;
         }
-        if (this.nGa == null || (pointF = (PointF) this.nGa.b(hVar.Ao, hVar.Gs.floatValue(), hVar.Gp, hVar.Gq, hG(), f, getProgress())) == null) {
-            if (this.nGd != hVar) {
-                this.CY = new PathMeasure(ht, false);
-                this.nGd = hVar;
+        if (this.nOI == null || (pointF = (PointF) this.nOI.b(hVar.Aq, hVar.Gs.floatValue(), hVar.Gp, hVar.Gq, hG(), f, getProgress())) == null) {
+            if (this.nOL != hVar) {
+                this.Da = new PathMeasure(ht, false);
+                this.nOL = hVar;
             }
-            this.CY.getPosTan(this.CY.getLength() * f, this.CW, null);
-            this.CV.set(this.CW[0], this.CW[1]);
-            return this.CV;
+            this.Da.getPosTan(this.Da.getLength() * f, this.CY, null);
+            this.CX.set(this.CY[0], this.CY[1]);
+            return this.CX;
         }
         return pointF;
     }

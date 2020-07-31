@@ -9,7 +9,7 @@ import com.vivo.push.cache.ClientConfigManagerImpl;
 import com.vivo.push.model.InsideNotificationItem;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class r extends ab {
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(com.vivo.push.y yVar) {

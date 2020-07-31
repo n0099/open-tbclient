@@ -6,19 +6,19 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public @interface WireField {
-    String dNm() default "";
+    String dQI() default "";
 
-    String dNn();
+    String dQJ();
 
-    Label dNo() default Label.OPTIONAL;
+    Label dQK() default Label.OPTIONAL;
 
-    boolean dNp() default false;
+    boolean dQL() default false;
 
     int tag();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public enum Label {
         REQUIRED,
         OPTIONAL,

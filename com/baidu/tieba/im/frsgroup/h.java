@@ -3,66 +3,66 @@ package com.baidu.tieba.im.frsgroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class h implements q {
-    public static final BdUniqueId iSg = BdUniqueId.gen();
-    private Object agT;
-    private NoDataViewFactory.ImgType iSh;
-    private String iSi;
-    private String iSj;
-    private String iSk;
-    private int iSl;
+    public static final BdUniqueId jaq = BdUniqueId.gen();
+    private Object agK;
+    private NoDataViewFactory.ImgType jar;
+    private String jas;
+    private String jat;
+    private String jau;
+    private int jav;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iSg;
+        return jaq;
     }
 
-    public String cqj() {
-        return this.iSi;
+    public String cuh() {
+        return this.jas;
     }
 
-    public void GZ(String str) {
-        this.iSi = str;
+    public void HO(String str) {
+        this.jas = str;
     }
 
-    public String cqk() {
-        return this.iSj;
+    public String cui() {
+        return this.jat;
     }
 
-    public void Ha(String str) {
-        this.iSj = str;
+    public void HP(String str) {
+        this.jat = str;
     }
 
-    public String cql() {
-        return this.iSk;
+    public String cuj() {
+        return this.jau;
     }
 
-    public void Hb(String str) {
-        this.iSk = str;
+    public void HQ(String str) {
+        this.jau = str;
     }
 
-    public int cqm() {
-        return this.iSl;
+    public int cuk() {
+        return this.jav;
     }
 
-    public void yq(int i) {
-        this.iSl = i;
+    public void yO(int i) {
+        this.jav = i;
     }
 
-    public Object sk() {
-        return this.agT;
+    public Object sm() {
+        return this.agK;
     }
 
     public void setExtraData(Object obj) {
-        this.agT = obj;
+        this.agK = obj;
     }
 
-    public NoDataViewFactory.ImgType cqn() {
-        return this.iSh;
+    public NoDataViewFactory.ImgType cul() {
+        return this.jar;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.iSh = imgType;
+        this.jar = imgType;
     }
 }

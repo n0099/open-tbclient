@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.pay.PayManager;
 import com.baidu.live.tbadk.pay.WalletPayCallback;
 import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
 import com.baidu.tieba.ala.live.b.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d extends a {
     private boolean mIsPaying;
 
@@ -18,8 +18,8 @@ public class d extends a {
     }
 
     @Override // com.baidu.tieba.ala.live.c.a
-    protected com.baidu.tieba.ala.live.b.a a(PayChannelType payChannelType, a.InterfaceC0557a interfaceC0557a) {
-        return new com.baidu.tieba.ala.live.b.c(getPageContext(), interfaceC0557a);
+    protected com.baidu.tieba.ala.live.b.a a(PayChannelType payChannelType, a.InterfaceC0568a interfaceC0568a) {
+        return new com.baidu.tieba.ala.live.b.c(getPageContext(), interfaceC0568a);
     }
 
     @Override // com.baidu.tieba.ala.live.c.a

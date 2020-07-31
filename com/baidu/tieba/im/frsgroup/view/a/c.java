@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.f;
 import com.baidu.tieba.frs.at;
@@ -19,35 +19,35 @@ import com.baidu.tieba.im.frsgroup.h;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class c implements BdListView.e, NoNetworkView.a, f.c {
-    private String eEs;
-    private bb hvT;
-    private b iTI;
-    private String iTL;
-    private at iTM;
+    private String eKO;
+    private bb hBF;
+    private b jbS;
+    private String jbV;
+    private at jbW;
     private int mPageType;
     private final BdUniqueId pageId = BdUniqueId.gen();
-    private List<q> hvO = new ArrayList();
-    private boolean iTK = true;
-    private View.OnClickListener iTN = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.view.a.c.1
+    private List<q> hBA = new ArrayList();
+    private boolean jbU = true;
+    private View.OnClickListener jbX = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.view.a.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.iTK = true;
-            c.this.bWv();
+            c.this.jbU = true;
+            c.this.bZO();
         }
     };
-    private at iTO = new at() { // from class: com.baidu.tieba.im.frsgroup.view.a.c.2
+    private at jbY = new at() { // from class: com.baidu.tieba.im.frsgroup.view.a.c.2
         @Override // com.baidu.tieba.frs.at
         public void a(int i, int i2, bb bbVar, ArrayList<q> arrayList) {
             if (bbVar == null) {
-                c.this.iTI.completePullRefresh();
-                c.this.iTI.hideLoadingView();
+                c.this.jbS.completePullRefresh();
+                c.this.jbS.hideLoadingView();
                 return;
             }
-            c.this.hvT = bbVar;
-            if ((c.this.hvT.pn == 0 || c.this.hvT.pn == 1) && c.this.hvT.hasMore && !c.this.hvT.isLocal) {
-                c.this.btv();
+            c.this.hBF = bbVar;
+            if ((c.this.hBF.pn == 0 || c.this.hBF.pn == 1) && c.this.hBF.hasMore && !c.this.hBF.isLocal) {
+                c.this.bwE();
                 return;
             }
             if (arrayList != null) {
@@ -59,126 +59,126 @@ public class c implements BdListView.e, NoNetworkView.a, f.c {
                     }
                 }
             }
-            if (c.this.iTM != null) {
-                c.this.iTM.a(i, i2, bbVar, arrayList);
+            if (c.this.jbW != null) {
+                c.this.jbW.a(i, i2, bbVar, arrayList);
             }
-            if (w.isEmpty(arrayList)) {
-                if (c.this.iTK) {
-                    c.this.iTI.hideLoadingView();
-                    c.this.iTI.a(c.this.hvT.errMsg, c.this.iTN);
+            if (x.isEmpty(arrayList)) {
+                if (c.this.jbU) {
+                    c.this.jbS.hideLoadingView();
+                    c.this.jbS.a(c.this.hBF.errMsg, c.this.jbX);
                 } else {
-                    c.this.iTI.completePullRefresh();
-                    c.this.iTI.chu();
+                    c.this.jbS.completePullRefresh();
+                    c.this.jbS.ckT();
                 }
             } else {
-                c.this.hvO = arrayList;
-                c.this.iTI.cS(c.this.hvO);
-                if (w.getCount(c.this.hvO) != 1 || !(w.getItem(c.this.hvO, 0) instanceof h)) {
-                    if (c.this.hvT.hasMore) {
-                        c.this.iTI.cht();
+                c.this.hBA = arrayList;
+                c.this.jbS.cX(c.this.hBA);
+                if (x.getCount(c.this.hBA) != 1 || !(x.getItem(c.this.hBA, 0) instanceof h)) {
+                    if (c.this.hBF.hasMore) {
+                        c.this.jbS.ckS();
                     } else {
-                        c.this.iTI.chv();
+                        c.this.jbS.ckU();
                     }
                 } else {
-                    c.this.iTI.cqM();
+                    c.this.jbS.cuK();
                 }
-                if (c.this.iTK) {
-                    c.this.iTI.hideLoadingView();
+                if (c.this.jbU) {
+                    c.this.jbS.hideLoadingView();
                 } else {
-                    c.this.iTI.completePullRefresh();
+                    c.this.jbS.completePullRefresh();
                 }
             }
-            c.this.iTK = false;
+            c.this.jbU = false;
         }
     };
-    private d iTJ = new d();
+    private d jbT = new d();
 
     public c(TbPageContext<?> tbPageContext) {
-        this.iTI = new b(tbPageContext, this);
-        this.iTJ.setTag(this.pageId);
-        this.iTJ.init();
-        this.iTJ.a(this.iTO);
+        this.jbS = new b(tbPageContext, this);
+        this.jbT.setTag(this.pageId);
+        this.jbT.init();
+        this.jbT.a(this.jbY);
     }
 
-    public void dy(List<com.baidu.adp.widget.ListView.a> list) {
-        if (this.iTI != null) {
-            this.iTI.dx(list);
+    public void dF(List<com.baidu.adp.widget.ListView.a> list) {
+        if (this.jbS != null) {
+            this.jbS.dE(list);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
     public void onNetworkChange(boolean z) {
-        if (this.iTI != null) {
-            this.iTI.pu(z);
+        if (this.jbS != null) {
+            this.jbS.qb(z);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        cqO();
+        cuM();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         if (!j.isNetWorkAvailable()) {
-            this.iTI.chu();
+            this.jbS.ckT();
         }
-        if (this.hvT != null) {
-            if (!this.hvT.hasMore) {
-                this.iTI.chv();
+        if (this.hBF != null) {
+            if (!this.hBF.hasMore) {
+                this.jbS.ckU();
             } else {
-                btv();
+                bwE();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btv() {
-        if (this.hvT != null) {
+    public void bwE() {
+        if (this.hBF != null) {
             ay ayVar = new ay();
-            ayVar.forumName = this.iTL;
-            ayVar.forumId = this.eEs;
-            this.hvT.pn++;
-            ayVar.pn = this.hvT.pn;
-            this.iTJ.a(4, this.mPageType, ayVar);
+            ayVar.forumName = this.jbV;
+            ayVar.forumId = this.eKO;
+            this.hBF.pn++;
+            ayVar.pn = this.hBF.pn;
+            this.jbT.a(4, this.mPageType, ayVar);
         }
     }
 
-    private void cqO() {
+    private void cuM() {
         ay ayVar = new ay();
-        ayVar.forumName = this.iTL;
-        ayVar.forumId = this.eEs;
+        ayVar.forumName = this.jbV;
+        ayVar.forumId = this.eKO;
         ayVar.pn = -1;
-        this.iTJ.a(4, this.mPageType, ayVar);
+        this.jbT.a(4, this.mPageType, ayVar);
     }
 
     public void j(int i, String str, String str2) {
         this.mPageType = i;
-        this.eEs = str;
-        this.iTL = str2;
+        this.eKO = str;
+        this.jbV = str2;
     }
 
-    public void bWv() {
-        if (this.iTK) {
-            this.iTI.btO();
-            this.iTI.showLoadingView();
-            cqO();
+    public void bZO() {
+        if (this.jbU) {
+            this.jbS.bwX();
+            this.jbS.showLoadingView();
+            cuM();
         }
     }
 
     public View getView() {
-        return this.iTI.getRootView();
+        return this.jbS.getRootView();
     }
 
     public void onChangeSkinType(int i) {
-        this.iTI.onChangeSkinType(i);
+        this.jbS.onChangeSkinType(i);
     }
 
     public void onDestroy() {
-        this.iTJ.bzg();
+        this.jbT.bCu();
     }
 
     public void b(at atVar) {
-        this.iTM = atVar;
+        this.jbW = atVar;
     }
 }

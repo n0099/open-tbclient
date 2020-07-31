@@ -2,7 +2,7 @@ package com.baidubce.services.vod.model;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes19.dex */
 public class PlayableUrl {
     private String transcodingPresetName;
     private String url;

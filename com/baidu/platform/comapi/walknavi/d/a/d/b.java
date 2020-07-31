@@ -5,14 +5,14 @@ import android.text.TextUtils;
 import com.baidu.ar.npc.ArBridge;
 import com.baidu.platform.comapi.walknavi.d.a.g.j;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
     private final Context a;
     private C0229b b;
     private a c;
     private g d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(int i);
 
@@ -153,7 +153,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.d.a.d.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class C0229b extends Thread {
         private Context b;
         private String c;

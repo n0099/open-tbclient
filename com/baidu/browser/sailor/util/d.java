@@ -13,7 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class d {
     private static int a(BitmapFactory.Options options, int i) {
         int i2 = 1;

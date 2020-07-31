@@ -8,24 +8,24 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class u {
     private CustomMessageListener Ny;
     private static final byte[] mlock = new byte[1];
-    private static u eEq = null;
+    private static u eKM = null;
 
-    public static u biT() {
-        if (eEq == null) {
+    public static u bmM() {
+        if (eKM == null) {
             synchronized (mlock) {
-                if (eEq == null) {
-                    eEq = new u();
+                if (eKM == null) {
+                    eKM = new u();
                 }
             }
         }
-        return eEq;
+        return eKM;
     }
 
     private u() {
@@ -35,7 +35,7 @@ public class u {
     public void registerNetworkChangedListener() {
         try {
             if (this.Ny == null) {
-                this.Ny = biU();
+                this.Ny = bmN();
                 MessageManager.getInstance().registerListener(this.Ny);
             }
         } catch (Exception e) {
@@ -44,7 +44,7 @@ public class u {
         }
     }
 
-    private CustomMessageListener biU() {
+    private CustomMessageListener bmN() {
         return new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.util.u.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -62,10 +62,10 @@ public class u {
             boolean isNetWorkAvailable = com.baidu.adp.lib.util.j.isNetWorkAvailable();
             if (isNetWorkAvailable) {
                 if (com.baidu.adp.lib.util.j.isWifiNet()) {
-                    as.aWR().setNetworkIsWifi(true);
-                    com.baidu.tieba.recapp.d.a.cZG().LT(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                    at.baS().setNetworkIsWifi(true);
+                    com.baidu.tieba.recapp.d.a.dcN().MB(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
                 } else if (com.baidu.adp.lib.util.j.isMobileNet()) {
-                    as.aWR().setNetworkIsWifi(false);
+                    at.baS().setNetworkIsWifi(false);
                 }
             }
             NoNetworkView.setIsHasNetwork(isNetWorkAvailable);

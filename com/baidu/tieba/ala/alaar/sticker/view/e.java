@@ -1,11 +1,11 @@
 package com.baidu.tieba.ala.alaar.sticker.view;
 
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface e {
-    void bsN();
+    void bvW();
 
-    boolean bsO();
+    boolean bvX();
 
     void e(View view, int i, int i2, int i3, int i4);
 
@@ -13,5 +13,5 @@ public interface e {
 
     void onLongPress();
 
-    void v(int i, int i2, int i3, int i4);
+    void w(int i, int i2, int i3, int i4);
 }

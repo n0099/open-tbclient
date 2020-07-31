@@ -5,31 +5,31 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.s;
 import com.baidu.adp.lib.util.u;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.PublicKey;
 /* loaded from: classes.dex */
 public class f {
-    public static boolean m(String str, File file) {
+    public static boolean o(String str, File file) {
         if (TextUtils.isEmpty(str) || file == null || !file.exists()) {
-            TiebaStatic.log(new ao("c10836").dk("obj_type", "checkRSA input args is null"));
+            TiebaStatic.log(new ap("c10836").dn("obj_type", "checkRSA input args is null"));
             return false;
         }
         try {
             PublicKey loadRSAPublicKey = u.loadRSAPublicKey(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
             if (loadRSAPublicKey == null) {
-                TiebaStatic.log(new ao("c10836").dk("obj_type", "publicKeyCode is null").dk("obj_source", file.getName()));
+                TiebaStatic.log(new ap("c10836").dn("obj_type", "publicKeyCode is null").dn("obj_source", file.getName()));
                 return false;
             }
             byte[] decodeHex = decodeHex(str);
             if (decodeHex == null || decodeHex.length <= 0) {
-                TiebaStatic.log(new ao("c10836").dk("obj_type", "server_data is null").dk("obj_source", file.getName()));
+                TiebaStatic.log(new ap("c10836").dn("obj_type", "server_data is null").dn("obj_source", file.getName()));
                 return false;
             }
             byte[] decryptWithRSA = u.decryptWithRSA(loadRSAPublicKey, decodeHex);
             if (decryptWithRSA == null || decryptWithRSA.length <= 0) {
-                TiebaStatic.log(new ao("c10836").dk("obj_type", "des is null").dk("obj_source", file.getName()));
+                TiebaStatic.log(new ap("c10836").dn("obj_type", "des is null").dn("obj_source", file.getName()));
                 return false;
             }
             String trim = new String(decryptWithRSA, "UTF-8").trim();
@@ -38,17 +38,17 @@ public class f {
                 md5 = md5.trim();
             }
             if (TextUtils.isEmpty(md5) || TextUtils.isEmpty(trim)) {
-                TiebaStatic.log(new ao("c10836").dk("obj_type", "apkMd5 or serverMD5 is null").dk("obj_source", file.getName()));
+                TiebaStatic.log(new ap("c10836").dn("obj_type", "apkMd5 or serverMD5 is null").dn("obj_source", file.getName()));
                 return false;
             } else if (md5.equalsIgnoreCase(trim)) {
                 return true;
             } else {
-                TiebaStatic.log(new ao("c10836").dk("obj_type", "apkMd5 != serverMD5").dk("obj_source", file.getName()));
+                TiebaStatic.log(new ap("c10836").dn("obj_type", "apkMd5 != serverMD5").dn("obj_source", file.getName()));
                 BdLog.e("download MD5 RSA ERROR; file:" + file.getName());
                 return false;
             }
         } catch (Exception e) {
-            TiebaStatic.log(new ao("c10836").dk("obj_type", "exception:" + e.getMessage()).dk("obj_source", file.getName()));
+            TiebaStatic.log(new ap("c10836").dn("obj_type", "exception:" + e.getMessage()).dn("obj_source", file.getName()));
             BdLog.e("download MD5 RSA ERROR！Exception:" + e.getMessage() + " ; file:" + file.getName());
             return false;
         }

@@ -1,50 +1,50 @@
 package com.baidu.tbadk.core;
 
 import com.baidu.tbadk.core.data.NewErrorData;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.z;
 /* loaded from: classes.dex */
 public class d {
-    protected y byb;
-    protected NewErrorData dFv = null;
+    protected z byq;
+    protected NewErrorData dLs = null;
 
     public d() {
-        this.byb = null;
-        this.byb = new y();
+        this.byq = null;
+        this.byq = new z();
     }
 
     public void cancel() {
-        if (this.byb != null) {
-            this.byb.cancelNetConnect();
+        if (this.byq != null) {
+            this.byq.cancelNetConnect();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setUrl(String str) {
-        this.byb.setUrl(str);
+        this.byq.setUrl(str);
     }
 
     public void addPostData(String str, String str2) {
-        this.byb.addPostData(str, str2);
+        this.byq.addPostData(str, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String getResult() {
-        String postNetData = this.byb.postNetData();
-        this.dFv = new NewErrorData();
-        this.dFv.parserJson(postNetData);
+        String postNetData = this.byq.postNetData();
+        this.dLs = new NewErrorData();
+        this.dLs.parserJson(postNetData);
         return postNetData;
     }
 
     public boolean isRequestSuccess() {
-        if (this.byb != null) {
-            return this.byb.aWu().aWW().isRequestSuccess();
+        if (this.byq != null) {
+            return this.byq.bav().baX().isRequestSuccess();
         }
         return false;
     }
 
-    public String aPy() {
-        if (this.byb != null) {
-            return this.byb.getErrorString();
+    public String aTt() {
+        if (this.byq != null) {
+            return this.byq.getErrorString();
         }
         return null;
     }

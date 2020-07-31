@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.boxes.apple;
 
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -11,7 +12,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
     public static final String TYPE = "text";
     int backgroundB;
@@ -108,7 +109,7 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
         long containerSize = 52 + getContainerSize() + (this.fontName != null ? this.fontName.length() : 0);
-        return ((this.largeBox || 8 + containerSize >= 4294967296L) ? 16 : 8) + containerSize;
+        return ((this.largeBox || 8 + containerSize >= AccountConstants.TYPE_MODIFY_EXT_FIELDS) ? 16 : 8) + containerSize;
     }
 
     public int getDisplayFlags() {

@@ -6,7 +6,7 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     private String entryName;
     private String lableName;

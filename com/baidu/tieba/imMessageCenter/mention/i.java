@@ -9,45 +9,43 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class i {
-    private static i jho = null;
-    private final HttpMessageListener dUu = new HttpMessageListener(1002500) { // from class: com.baidu.tieba.imMessageCenter.mention.i.1
+    private static i jqd = null;
+    private final HttpMessageListener eaN = new HttpMessageListener(1002500) { // from class: com.baidu.tieba.imMessageCenter.mention.i.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002500 && (httpResponsedMessage instanceof MsgReminderHttpRespMessage)) {
-                h msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData();
-                if (!com.baidu.tbadk.coreExtra.messageCenter.b.bbq() && msgData != null && com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bbX()) {
-                    if (msgData.cuZ() >= 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.b.bbo().setMsgBookmark(msgData.cuZ());
-                    }
-                    if (msgData.cuX() >= 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.b.bbo().setMsgAtme(msgData.cuX());
-                    }
-                    if (msgData.cuW() >= 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.b.bbo().setMsgReplyme(msgData.cuW());
-                    }
-                    if (msgData.cuY() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.d.bbV().bcb()) {
-                        com.baidu.tbadk.coreExtra.messageCenter.b.bbo().setMsgFans(msgData.cuY());
-                    }
-                    if (msgData.cuV() >= 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.b.bbo().na(msgData.cuV());
-                    }
+            h msgData;
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002500 && (httpResponsedMessage instanceof MsgReminderHttpRespMessage) && (msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData()) != null) {
+                if (msgData.cyW() >= 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.b.bfl().setMsgAtme(msgData.cyW());
+                }
+                if (msgData.cyV() >= 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.b.bfl().setMsgReplyme(msgData.cyV());
+                }
+                if (msgData.cyX() >= 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.b.bfl().setMsgFans(msgData.cyX());
+                }
+                if (msgData.cyU() >= 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.b.bfl().ns(msgData.cyU());
+                }
+                if (msgData.cyY() >= 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.b.bfl().setMsgBookmark(msgData.cyY());
                 }
             }
         }
     };
-    private long jhp = 0;
+    private long jqe = 0;
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.imMessageCenter.mention.i.2
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
                 int i = message.arg1;
-                i.this.jhp = System.currentTimeMillis();
+                i.this.jqe = System.currentTimeMillis();
                 boolean z = !MessageManager.getInstance().getSocketClient().isValid();
                 if (i == 2 || (z && com.baidu.adp.lib.util.j.isNetWorkAvailable())) {
-                    i.this.cvb();
+                    i.this.cza();
                 }
                 i.this.z(1, 600000L);
             }
@@ -61,28 +59,28 @@ public class i {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static synchronized i cva() {
+    public static synchronized i cyZ() {
         i iVar;
         synchronized (i.class) {
-            if (jho == null) {
-                jho = new i();
+            if (jqd == null) {
+                jqd = new i();
             }
-            iVar = jho;
+            iVar = jqd;
         }
         return iVar;
     }
 
     public i() {
-        MessageManager.getInstance().registerListener(this.dUu);
+        MessageManager.getInstance().registerListener(this.eaN);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cvb() {
+    public void cza() {
         MessageManager.getInstance().sendMessage(new HttpMessage(1002500));
     }
 
     public void restart() {
-        this.jhp = 0L;
+        this.jqe = 0L;
         destroy();
         start();
     }
@@ -90,7 +88,7 @@ public class i {
     public void start() {
         int i;
         long j;
-        long currentTimeMillis = System.currentTimeMillis() - this.jhp;
+        long currentTimeMillis = System.currentTimeMillis() - this.jqe;
         long j2 = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j2 >= 600000) {
             i = 2;
@@ -100,7 +98,7 @@ public class i {
             j = 600000 - j2;
         }
         z(i, j);
-        this.jhp = System.currentTimeMillis();
+        this.jqe = System.currentTimeMillis();
     }
 
     public void destroy() {

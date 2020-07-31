@@ -6,9 +6,9 @@ import android.graphics.Paint;
 import com.facebook.imagepipeline.b.f;
 import com.facebook.imagepipeline.nativecode.Bitmaps;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public abstract class a implements b {
-    public static final Bitmap.Config mXW = Bitmap.Config.ARGB_8888;
+    public static final Bitmap.Config nfX = Bitmap.Config.ARGB_8888;
 
     @Override // com.facebook.imagepipeline.request.b
     public String getName() {
@@ -21,7 +21,7 @@ public abstract class a implements b {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         if (config == null) {
-            config = mXW;
+            config = nfX;
         }
         com.facebook.common.references.a<Bitmap> c = fVar.c(width, height, config);
         try {
@@ -34,15 +34,15 @@ public abstract class a implements b {
 
     public void d(Bitmap bitmap, Bitmap bitmap2) {
         e(bitmap, bitmap2);
-        af(bitmap);
+        ai(bitmap);
     }
 
-    public void af(Bitmap bitmap) {
+    public void ai(Bitmap bitmap) {
     }
 
     @Override // com.facebook.imagepipeline.request.b
     @Nullable
-    public com.facebook.cache.common.b dGb() {
+    public com.facebook.cache.common.b dJn() {
         return null;
     }
 

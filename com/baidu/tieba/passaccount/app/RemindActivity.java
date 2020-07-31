@@ -6,14 +6,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.data.i;
 import com.baidu.tbadk.switchs.FaceFeedbackEnableSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.passaccount.a.b;
 import com.baidu.tieba.passaccount.a.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class RemindActivity extends BaseActivity<RemindActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -24,27 +24,27 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         ((Button) findViewById(R.id.remind_button)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.cFX().b(new c.a() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1.1
+                c.cJG().b(new c.a() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1.1
                     @Override // com.baidu.tieba.passaccount.a.c.a
                     public void d(boolean z, boolean z2, String str) {
-                        b.cFR().w(z2, str);
+                        b.cJA().w(z2, str);
                         RemindActivity.this.finishActivity(true);
                     }
 
                     @Override // com.baidu.tieba.passaccount.a.c.a
                     public void u(boolean z, String str) {
-                        b.cFR().w(z, str);
+                        b.cJA().w(z, str);
                         RemindActivity.this.finishActivity(true);
                     }
 
                     @Override // com.baidu.tieba.passaccount.a.c.a
-                    public void cFF() {
-                        b.cFR().w(false, null);
+                    public void cJo() {
+                        b.cJA().w(false, null);
                     }
 
                     @Override // com.baidu.tieba.passaccount.a.c.a
                     public void onFail() {
-                        b.cFR().w(false, null);
+                        b.cJA().w(false, null);
                     }
                 });
             }
@@ -55,7 +55,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
             /* JADX WARN: Multi-variable type inference failed */
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                bc.aWU().a(RemindActivity.this.getPageContext(), new String[]{TbConfig.URL_FEED_BACK}, true);
+                bd.baV().a(RemindActivity.this.getPageContext(), new String[]{TbConfig.URL_FEED_BACK}, true);
             }
         });
     }
@@ -68,7 +68,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
     public void finishActivity(boolean z) {
         super.finish();
         if (!z) {
-            b.cFR().a((i.c) null);
+            b.cJA().a((i.c) null);
         }
     }
 }

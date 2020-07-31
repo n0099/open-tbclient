@@ -17,7 +17,7 @@ public class q implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(wZ(str), com.baidu.tbadk.imageManager.c.bgz().yO(wZ(str)), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(yh(str), com.baidu.tbadk.imageManager.c.bkk().zV(yh(str)), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.getRawBitmap() == null || checkIsValidPicMemoryCache.getRawBitmap().isRecycled()) {
             return null;
         }
@@ -38,9 +38,9 @@ public class q implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     public void a(String str, Object obj, int i, int i2, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a) && ((com.baidu.adp.widget.ImageView.a) obj).isNeedCache()) {
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
-            aVar.aB(i);
-            aVar.aC(i2);
-            com.baidu.tbadk.imageManager.c.bgz().c(wZ(str), aVar);
+            aVar.aD(i);
+            aVar.aE(i2);
+            com.baidu.tbadk.imageManager.c.bkk().c(yh(str), aVar);
         }
     }
 
@@ -72,7 +72,7 @@ public class q implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         return null;
     }
 
-    public String wZ(String str) {
+    public String yh(String str) {
         return "videoThumb_" + str;
     }
 }

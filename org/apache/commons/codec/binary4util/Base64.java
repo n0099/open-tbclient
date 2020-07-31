@@ -4,7 +4,7 @@ import android.support.v7.widget.ActivityChooserView;
 import com.baidu.android.imsdk.internal.Constants;
 import java.math.BigInteger;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes13.dex */
+/* loaded from: classes8.dex */
 public class Base64 extends BaseNCodec {
     private static final int BITS_PER_ENCODED_BYTE = 6;
     private static final int BYTES_PER_ENCODED_BLOCK = 4;

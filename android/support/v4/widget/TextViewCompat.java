@@ -27,7 +27,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public final class TextViewCompat {
     public static final int AUTO_SIZE_TEXT_TYPE_NONE = 0;
     public static final int AUTO_SIZE_TEXT_TYPE_UNIFORM = 1;
@@ -35,14 +35,14 @@ public final class TextViewCompat {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public @interface AutoSizeTextType {
     }
 
     private TextViewCompat() {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     static class TextViewCompatBaseImpl {
         private static final int LINES = 1;
         private static final String LOG_TAG = "TextViewCompatBase";
@@ -189,7 +189,7 @@ public final class TextViewCompat {
     }
 
     @RequiresApi(16)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     static class TextViewCompatApi16Impl extends TextViewCompatBaseImpl {
         TextViewCompatApi16Impl() {
         }
@@ -206,7 +206,7 @@ public final class TextViewCompat {
     }
 
     @RequiresApi(17)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     static class TextViewCompatApi17Impl extends TextViewCompatApi16Impl {
         TextViewCompatApi17Impl() {
         }
@@ -256,7 +256,7 @@ public final class TextViewCompat {
     }
 
     @RequiresApi(18)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     static class TextViewCompatApi18Impl extends TextViewCompatApi17Impl {
         TextViewCompatApi18Impl() {
         }
@@ -283,7 +283,7 @@ public final class TextViewCompat {
     }
 
     @RequiresApi(23)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     static class TextViewCompatApi23Impl extends TextViewCompatApi18Impl {
         TextViewCompatApi23Impl() {
         }
@@ -295,7 +295,7 @@ public final class TextViewCompat {
     }
 
     @RequiresApi(26)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     static class TextViewCompatApi26Impl extends TextViewCompatApi23Impl {
         TextViewCompatApi26Impl() {
         }
@@ -407,7 +407,7 @@ public final class TextViewCompat {
     }
 
     @RequiresApi(27)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     static class TextViewCompatApi27Impl extends TextViewCompatApi26Impl {
         TextViewCompatApi27Impl() {
         }

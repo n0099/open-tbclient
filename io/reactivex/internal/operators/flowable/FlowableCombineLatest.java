@@ -15,19 +15,19 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
     final int bufferSize;
     final h<? super Object[], ? extends R> combiner;
     final boolean delayErrors;
-    final org.a.b<? extends T>[] nKg;
-    final Iterable<? extends org.a.b<? extends T>> nKh;
+    final org.a.b<? extends T>[] nSO;
+    final Iterable<? extends org.a.b<? extends T>> nSP;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super R> cVar) {
         int length;
         org.a.b<? extends T>[] bVarArr;
         org.a.b<? extends T>[] bVarArr2;
-        org.a.b<? extends T>[] bVarArr3 = this.nKg;
+        org.a.b<? extends T>[] bVarArr3 = this.nSO;
         if (bVarArr3 == null) {
             org.a.b<? extends T>[] bVarArr4 = new org.a.b[8];
             try {
-                Iterator it = (Iterator) io.reactivex.internal.functions.a.k(this.nKh.iterator(), "The iterator returned is null");
+                Iterator it = (Iterator) io.reactivex.internal.functions.a.k(this.nSP.iterator(), "The iterator returned is null");
                 int i = 0;
                 while (it.hasNext()) {
                     try {
@@ -43,12 +43,12 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
                             i++;
                             bVarArr4 = bVarArr2;
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.L(th);
+                            io.reactivex.exceptions.a.K(th);
                             EmptySubscription.error(th, cVar);
                             return;
                         }
                     } catch (Throwable th2) {
-                        io.reactivex.exceptions.a.L(th2);
+                        io.reactivex.exceptions.a.K(th2);
                         EmptySubscription.error(th2, cVar);
                         return;
                     }
@@ -56,7 +56,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
                 bVarArr = bVarArr4;
                 length = i;
             } catch (Throwable th3) {
-                io.reactivex.exceptions.a.L(th3);
+                io.reactivex.exceptions.a.K(th3);
                 EmptySubscription.error(th3, cVar);
                 return;
             }
@@ -236,7 +236,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
                             ((CombineLatestInnerSubscriber) poll).requestOne();
                             j2 = 1 + j2;
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.L(th);
+                            io.reactivex.exceptions.a.K(th);
                             cancelAll();
                             ExceptionHelper.addThrowable(this.error, th);
                             cVar.onError(ExceptionHelper.terminate(this.error));

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MemberPayActivityConfig extends IntentConfig {
     public static final String FROM = "from";
     public static final int FROM_AVATAR_PENDANT_LIST = 22;

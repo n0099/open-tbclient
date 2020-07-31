@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ui.animview.praise.data;
 
 import android.graphics.Rect;
-/* loaded from: classes13.dex */
+/* loaded from: classes7.dex */
 public class ComboPraiseConfig {
     public Rect mBaseRect = new Rect();
     public boolean mInterceptTouchEvent;

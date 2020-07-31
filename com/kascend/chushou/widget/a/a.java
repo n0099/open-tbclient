@@ -4,7 +4,7 @@ import com.kascend.chushou.constants.ParserRet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a implements d<ParserRet> {
     private final LinkedList<Integer> a = new LinkedList<>();
     private long b = 1;

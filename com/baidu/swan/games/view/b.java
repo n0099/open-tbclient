@@ -1,49 +1,48 @@
 package com.baidu.swan.games.view;
 
 import android.support.annotation.Nullable;
-import com.baidu.swan.apps.core.d.e;
-import com.baidu.swan.apps.core.d.i;
-import com.baidu.swan.apps.w.f;
+import com.baidu.swan.apps.core.d.f;
+import com.baidu.swan.apps.core.d.j;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private ArrayList<a> dhW = new ArrayList<>();
+    private ArrayList<a> dnR = new ArrayList<>();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void Ve();
+        void VJ();
 
-        void ex(int i);
+        void ey(int i);
     }
 
     public synchronized void a(a aVar) {
-        if (!this.dhW.contains(aVar)) {
-            this.dhW.add(aVar);
+        if (!this.dnR.contains(aVar)) {
+            this.dnR.add(aVar);
         }
     }
 
-    public synchronized void iJ(int i) {
-        Iterator<a> it = this.dhW.iterator();
+    public synchronized void ja(int i) {
+        Iterator<a> it = this.dnR.iterator();
         while (it.hasNext()) {
-            it.next().ex(i);
+            it.next().ey(i);
         }
     }
 
-    public synchronized void Ve() {
-        Iterator<a> it = this.dhW.iterator();
+    public synchronized void VJ() {
+        Iterator<a> it = this.dnR.iterator();
         while (it.hasNext()) {
-            it.next().Ve();
+            it.next().VJ();
         }
-        this.dhW.clear();
+        this.dnR.clear();
     }
 
     @Nullable
-    public static b aDD() {
-        i iVar;
-        e RN = f.ajb().RN();
-        if (RN != null && (iVar = (i) RN.q(i.class)) != null) {
-            return iVar.aaw();
+    public static b aHt() {
+        j jVar;
+        f Sc = com.baidu.swan.apps.v.f.akr().Sc();
+        if (Sc != null && (jVar = (j) Sc.q(j.class)) != null) {
+            return jVar.aby();
         }
         return null;
     }

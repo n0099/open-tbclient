@@ -9,31 +9,31 @@ import android.view.ViewGroup;
 import com.kascend.chushou.widget.convenientbanner.ConvenientBanner;
 import com.kascend.chushou.widget.convenientbanner.c.b;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a<T> extends RecyclerView.Adapter<b<T>> {
-    protected List<T> aCA;
-    private boolean nxB;
-    private final int nxI;
-    private com.kascend.chushou.widget.convenientbanner.c.a<T> nxJ;
-    private ConvenientBanner nxK;
+    protected List<T> aDV;
+    private boolean nGk;
+    private final int nGr;
+    private com.kascend.chushou.widget.convenientbanner.c.a<T> nGs;
+    private ConvenientBanner nGt;
 
     public a(com.kascend.chushou.widget.convenientbanner.c.a<T> aVar, List<T> list, boolean z, ConvenientBanner convenientBanner) {
-        this.nxJ = aVar;
-        this.nxI = aVar.getLayoutId();
-        this.aCA = list;
-        this.nxB = z;
-        this.nxK = convenientBanner;
+        this.nGs = aVar;
+        this.nGr = aVar.getLayoutId();
+        this.aDV = list;
+        this.nGk = z;
+        this.nGt = convenientBanner;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: J */
+    /* renamed from: K */
     public b<T> onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(this.nxI, viewGroup, false);
-        if (this.nxK != null) {
-            inflate.setTag(this.nxK);
+        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(this.nGr, viewGroup, false);
+        if (this.nGt != null) {
+            inflate.setTag(this.nGt);
         }
-        return this.nxJ.dv(inflate);
+        return this.nGs.dB(inflate);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class a<T> extends RecyclerView.Adapter<b<T>> {
     /* renamed from: a */
     public void onBindViewHolder(@NonNull b<T> bVar, int i, @NonNull List<Object> list) {
         if (list != null && list.size() > 0 && "wangmai".equals(String.valueOf(list.get(0)))) {
-            bVar.i(this.aCA.get(i % this.aCA.size()), 0);
+            bVar.i(this.aDV.get(i % this.aDV.size()), 0);
             return;
         }
         onBindViewHolder(bVar, i);
@@ -51,18 +51,18 @@ public class a<T> extends RecyclerView.Adapter<b<T>> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(b<T> bVar, int i) {
-        bVar.bw(this.aCA.get(i % this.aCA.size()));
+        bVar.bw(this.aDV.get(i % this.aDV.size()));
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.aCA == null || this.aCA.size() == 0) {
+        if (this.aDV == null || this.aDV.size() == 0) {
             return 0;
         }
-        return this.nxB ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.aCA.size();
+        return this.nGk ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.aDV.size();
     }
 
-    public int buU() {
-        return this.aCA.size();
+    public int byd() {
+        return this.aDV.size();
     }
 }

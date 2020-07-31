@@ -1,25 +1,17 @@
 package com.baidu.swan.apps.adaptation.a;
-
-import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public interface al {
-    void TA();
+    void TU();
 
-    al TB();
+    void TV();
 
-    void TC();
+    long TW();
 
-    void a(com.baidu.swan.apps.media.c.c cVar, Context context);
+    boolean TX();
 
-    void a(com.baidu.swan.apps.media.c.c cVar, boolean z);
+    String[] TY();
 
-    boolean isPlaying();
+    void aJ(long j);
 
-    boolean onBackPressed();
-
-    void pause();
-
-    void resume();
-
-    void stop();
+    String aK(long j);
 }

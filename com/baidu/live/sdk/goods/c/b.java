@@ -1,204 +1,195 @@
 package com.baidu.live.sdk.goods.c;
 
-import android.os.Handler;
-import android.text.TextUtils;
-import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
-import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.live.adp.base.BdBaseModel;
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.listener.HttpMessageListener;
-import com.baidu.live.adp.framework.message.HttpMessage;
-import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.adp.lib.stats.AlaStatManager;
-import com.baidu.live.adp.lib.stats.AlaStatsItem;
-import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.bb;
-import com.baidu.live.sdk.goods.message.GetVideoGoodsListHttpResponseMessage;
-import com.baidu.live.sdk.goods.message.HasGoodsAuthResponseMessage;
-import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
-import com.baidu.live.tbadk.ubc.UbcStatisticItem;
-import com.baidu.live.tbadk.ubc.UbcStatisticManager;
-import com.baidu.webkit.internal.ETAG;
-import com.xiaomi.mipush.sdk.PushMessageHelper;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class b extends BdBaseModel {
-    private boolean bcW;
-    private List<com.baidu.live.sdk.goods.a.a> bcX;
-    private int bcY;
-    private HttpMessageListener bcZ;
-    private a bcj;
-    private HttpMessageListener bda;
-    private int mCount;
-    private Handler mHandler;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.TranslateAnimation;
+import android.webkit.JsResult;
+import android.webkit.ValueCallback;
+import com.baidu.live.adp.lib.safe.ShowUtil;
+import com.baidu.live.sdk.a;
+import com.baidu.live.view.RoundRectRelativeLayout;
+import com.baidu.live.view.web.CommonWebLayout;
+import com.baidu.live.view.web.f;
+import com.baidu.live.view.web.g;
+/* loaded from: classes4.dex */
+public class b extends Dialog {
+    private Activity bdG;
+    private a bdH;
+    private RoundRectRelativeLayout bdI;
+    private CommonWebLayout bdJ;
+    private View bdK;
+    private f bdL;
+    private InterfaceC0182b bdM;
+    private boolean bdN;
 
-    public b(TbPageContext tbPageContext) {
-        super(tbPageContext);
-        this.bcW = false;
-        this.bcX = null;
-        this.mCount = 0;
-        this.bcY = 0;
-        this.bcZ = new HttpMessageListener(1021143) { // from class: com.baidu.live.sdk.goods.c.b.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                b.this.a(httpResponsedMessage);
-            }
-        };
-        this.bda = new HttpMessageListener(1021144) { // from class: com.baidu.live.sdk.goods.c.b.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                b.this.b(httpResponsedMessage);
-            }
-        };
-        this.mHandler = new Handler();
+    /* loaded from: classes4.dex */
+    public interface a {
+        boolean a(String str, JsResult jsResult);
     }
 
-    public void init() {
-        MessageManager.getInstance().registerListener(this.bcZ);
-        MessageManager.getInstance().registerListener(this.bda);
+    /* renamed from: com.baidu.live.sdk.goods.c.b$b  reason: collision with other inner class name */
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0182b {
+        void cb(boolean z);
+    }
+
+    public b(@NonNull Activity activity) {
+        super(activity, a.j.sdk_Transparent);
+        this.bdG = activity;
+        init();
     }
 
     public void a(a aVar) {
-        this.bcj = aVar;
+        this.bdH = aVar;
     }
 
-    public void Fm() {
-        MessageManager.getInstance().sendMessage(new HttpMessage(1021143));
-        UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem("1533", UbcStatConstant.ContentType.UBC_TYPE_GOODS_AUTH, UbcStatConstant.Page.AUTHOR_LIVE_ROOM, null));
+    public void a(f fVar) {
+        this.bdL = fVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(HttpResponsedMessage httpResponsedMessage) {
-        bb bbVar;
-        boolean z = false;
-        if (!(httpResponsedMessage instanceof HasGoodsAuthResponseMessage)) {
-            a(httpResponsedMessage, "data_error", UbcStatConstant.ContentType.UBC_TYPE_GOODS_AUTH);
-        } else if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-            if (httpResponsedMessage.getError() == 1001) {
-                this.bcY = 0;
-                a(httpResponsedMessage, ETAG.KEY_NET_ERROR, UbcStatConstant.ContentType.UBC_TYPE_GOODS_AUTH);
-                return;
-            }
-            a(httpResponsedMessage, ETAG.KEY_NET_ERROR, UbcStatConstant.ContentType.UBC_TYPE_GOODS_AUTH);
-            this.bcY++;
-            if (this.bcY < 3) {
-                this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.sdk.goods.c.b.3
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        b.this.Fm();
-                    }
-                }, 2000L);
-            }
-        } else {
-            this.bcY = 0;
-            HasGoodsAuthResponseMessage hasGoodsAuthResponseMessage = (HasGoodsAuthResponseMessage) httpResponsedMessage;
-            this.bcW = hasGoodsAuthResponseMessage.bcV;
-            if (hasGoodsAuthResponseMessage.bcV && (bbVar = com.baidu.live.v.a.Hm().bdV) != null && bbVar.aCX != null && !TextUtils.isEmpty(bbVar.aCX.aEU)) {
-                z = true;
-            }
-            if (this.bcj != null) {
-                this.bcj.a(hasGoodsAuthResponseMessage.getError(), hasGoodsAuthResponseMessage.getErrorString(), hasGoodsAuthResponseMessage.bcV, z);
-            }
-            a(httpResponsedMessage, null, UbcStatConstant.ContentType.UBC_TYPE_GOODS_AUTH_SUCC);
-        }
+    public CommonWebLayout Hl() {
+        return this.bdJ;
     }
 
-    private void a(HttpResponsedMessage httpResponsedMessage, String str, String str2) {
-        JSONObject jSONObject = new JSONObject();
-        JSONObject jSONObject2 = new JSONObject();
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                jSONObject2.put(PushMessageHelper.ERROR_TYPE, str);
-                jSONObject.put("result", jSONObject2);
-            } catch (JSONException e) {
-                BdLog.e(e);
+    public void show(String str) {
+        EG();
+        show();
+        this.bdJ.loadUrl(str);
+        ShowUtil.windowCount++;
+    }
+
+    private void init() {
+        GH();
+        initView();
+        yV();
+    }
+
+    public void a(InterfaceC0182b interfaceC0182b) {
+        this.bdM = interfaceC0182b;
+    }
+
+    private void GH() {
+        setCancelable(true);
+        setCanceledOnTouchOutside(true);
+        Window window = getWindow();
+        if (window != null) {
+            window.setBackgroundDrawableResource(17170445);
+            window.setGravity(80);
+            window.getDecorView().setPadding(0, 0, 0, 0);
+            WindowManager windowManager = (WindowManager) this.bdG.getSystemService("window");
+            if (windowManager != null) {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                if (Build.VERSION.SDK_INT >= 17) {
+                    windowManager.getDefaultDisplay().getRealMetrics(displayMetrics);
+                } else {
+                    windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+                }
+                WindowManager.LayoutParams attributes = window.getAttributes();
+                attributes.width = displayMetrics.widthPixels;
+                attributes.height = (int) (displayMetrics.heightPixels * 0.65f);
+                window.setAttributes(attributes);
             }
         }
-        UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem("1541", str2, UbcStatConstant.Page.AUTHOR_LIVE_ROOM, null).setContentExt(jSONObject), httpResponsedMessage, true);
     }
 
-    public void d(String str, long j, long j2) {
-        if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isVideoGoodslistUnabled()) {
-            com.baidu.live.sdk.goods.message.c cVar = new com.baidu.live.sdk.goods.message.c();
-            cVar.aHt = str;
-            cVar.liveId = j;
-            cVar.bcT = false;
-            cVar.authorId = j2;
-            cVar.setParams();
-            MessageManager.getInstance().sendMessage(cVar);
-            UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem("1533", UbcStatConstant.ContentType.UBC_TYPE_GOODS_LIST, UbcStatConstant.Page.AUTHOR_LIVE_ROOM, null));
-        }
+    private void initView() {
+        float dimensionPixelOffset = this.bdG.getResources().getDimensionPixelOffset(a.e.sdk_ds20);
+        this.bdI = new RoundRectRelativeLayout(this.bdG);
+        this.bdI.setBackgroundColor(this.bdG.getResources().getColor(a.d.sdk_white_alpha100));
+        this.bdI.setCornerRadius(dimensionPixelOffset, dimensionPixelOffset, 0.0f, 0.0f);
+        initWebView();
+        Hm();
+        setContentView(this.bdI);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(HttpResponsedMessage httpResponsedMessage) {
-        if (!(httpResponsedMessage instanceof GetVideoGoodsListHttpResponseMessage)) {
-            b(httpResponsedMessage, "data_error", UbcStatConstant.ContentType.UBC_TYPE_GOODS_LIST);
-            return;
-        }
-        GetVideoGoodsListHttpResponseMessage getVideoGoodsListHttpResponseMessage = (GetVideoGoodsListHttpResponseMessage) httpResponsedMessage;
-        com.baidu.live.sdk.goods.message.c cVar = (com.baidu.live.sdk.goods.message.c) httpResponsedMessage.getOrginalMessage();
-        long j = cVar.liveId;
-        String str = cVar.aHt;
-        if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-            b(httpResponsedMessage, ETAG.KEY_NET_ERROR, UbcStatConstant.ContentType.UBC_TYPE_GOODS_LIST);
-            AlaStatsItem alaStatsItem = new AlaStatsItem();
-            alaStatsItem.addValue(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, Long.valueOf(j));
-            alaStatsItem.addValue("feedid", str);
-            alaStatsItem.addValue("err", Integer.valueOf(getVideoGoodsListHttpResponseMessage.getError()));
-            alaStatsItem.addValue(BaseJsonData.TAG_ERRMSG, getVideoGoodsListHttpResponseMessage.getErrorString());
-            alaStatsItem.addValue("logid", Long.valueOf(getVideoGoodsListHttpResponseMessage.getLogId()));
-            AlaStatManager.getInstance().debug("livegoodlist_getfail", alaStatsItem);
-            return;
-        }
-        this.bcX = getVideoGoodsListHttpResponseMessage.bcU;
-        this.mCount = getVideoGoodsListHttpResponseMessage.count;
-        b(httpResponsedMessage, null, UbcStatConstant.ContentType.UBC_TYPE_GOODS_LIST_SUCC);
-        if (this.bcj != null) {
-            this.bcj.a(getVideoGoodsListHttpResponseMessage.getError(), getVideoGoodsListHttpResponseMessage.getErrorString(), cVar.bcT, j, getVideoGoodsListHttpResponseMessage.count, getVideoGoodsListHttpResponseMessage.bcU);
-        }
-    }
-
-    private void b(HttpResponsedMessage httpResponsedMessage, String str, String str2) {
-        JSONObject jSONObject = new JSONObject();
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(PushMessageHelper.ERROR_TYPE, str);
-                jSONObject.put("result", jSONObject2);
-            } catch (JSONException e) {
-                BdLog.e(e);
+    private void initWebView() {
+        this.bdJ = new CommonWebLayout(this.bdG);
+        this.bdJ.setCallback(new com.baidu.live.view.web.c() { // from class: com.baidu.live.sdk.goods.c.b.1
+            @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
+            public void fH(String str) {
+                if (b.this.bdK != null) {
+                    b.this.bdK.setVisibility(8);
+                }
+                if (Build.VERSION.SDK_INT >= 19) {
+                    b.this.bdJ.evaluateJavascript("javascript:window.getClientInfo != undefined", new ValueCallback<String>() { // from class: com.baidu.live.sdk.goods.c.b.1.1
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // android.webkit.ValueCallback
+                        public void onReceiveValue(String str2) {
+                            b.this.bdN = Boolean.valueOf(str2).booleanValue();
+                            if (b.this.bdM != null) {
+                                b.this.bdM.cb(Boolean.valueOf(str2).booleanValue());
+                            }
+                        }
+                    });
+                }
             }
+
+            @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
+            public void c(String str, int i, String str2) {
+                if (b.this.bdK != null) {
+                    b.this.bdK.setVisibility(8);
+                }
+            }
+
+            @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
+            public void Hn() {
+                if (b.this.bdK != null) {
+                    b.this.bdK.setVisibility(0);
+                }
+            }
+
+            @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
+            public boolean a(String str, JsResult jsResult) {
+                if (b.this.bdH != null) {
+                    return b.this.bdH.a(str, jsResult);
+                }
+                return true;
+            }
+        });
+        g gVar = new g();
+        gVar.v(this.bdG).b(this.bdL).a(this.bdJ.getSchemeCallback());
+        com.baidu.live.view.web.a[] KV = gVar.KV();
+        for (com.baidu.live.view.web.a aVar : KV) {
+            this.bdJ.addJavascriptInterface(aVar, aVar.getName());
         }
-        UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem("1541", str2, UbcStatConstant.Page.AUTHOR_LIVE_ROOM, null).setContentExt(jSONObject), httpResponsedMessage, true);
+        this.bdI.addView(this.bdJ, new ViewGroup.LayoutParams(-1, -1));
     }
 
-    public boolean GW() {
-        return this.bcW;
+    private void Hm() {
+        this.bdK = LayoutInflater.from(this.bdG).inflate(a.h.live_commerce_web_goods_progress, (ViewGroup) null);
+        this.bdI.addView(this.bdK, new ViewGroup.LayoutParams(-1, -1));
     }
 
-    @Override // com.baidu.live.adp.base.BdBaseModel
-    protected boolean loadData() {
-        return false;
+    private void yV() {
+        setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.live.sdk.goods.c.b.2
+            @Override // android.content.DialogInterface.OnDismissListener
+            public void onDismiss(DialogInterface dialogInterface) {
+                if (b.this.bdJ != null) {
+                    b.this.bdJ.release();
+                }
+                if (ShowUtil.windowCount > 0) {
+                    ShowUtil.windowCount--;
+                }
+            }
+        });
     }
 
-    @Override // com.baidu.live.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        cancelMessage();
-        return false;
-    }
-
-    public void release() {
-        MessageManager.getInstance().unRegisterListener(this.bcZ);
-        MessageManager.getInstance().unRegisterListener(this.bda);
-        if (this.mHandler != null) {
-            this.mHandler.removeCallbacksAndMessages(null);
+    private void EG() {
+        TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 1.0f, 1, 0.0f);
+        translateAnimation.setDuration(300L);
+        translateAnimation.setInterpolator(new LinearInterpolator());
+        if (this.bdI != null) {
+            this.bdI.startAnimation(translateAnimation);
         }
     }
 }

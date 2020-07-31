@@ -4,7 +4,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
-import com.baidu.cyberplayer.sdk.m;
+import com.baidu.cyberplayer.sdk.n;
 import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -15,10 +15,10 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class b {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(String str, long j);
 
@@ -116,7 +116,7 @@ public class b {
         if (str == null || str2 == null || str3 == null) {
             return;
         }
-        m.b(str2);
+        n.b(str2);
         final String str4 = str2 + File.separator + str3;
         String str5 = hashMap.get("is-asyn");
         if (TextUtils.isEmpty(str5) || !str5.equals("0")) {

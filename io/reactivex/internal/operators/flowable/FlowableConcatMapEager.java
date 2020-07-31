@@ -18,7 +18,7 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        this.nJW.a((j) new ConcatMapEagerDelayErrorSubscriber(cVar, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
+        this.nSE.a((j) new ConcatMapEagerDelayErrorSubscriber(cVar, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
     }
 
     /* loaded from: classes7.dex */
@@ -71,7 +71,7 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
                     }
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.L(th);
+                io.reactivex.exceptions.a.K(th);
                 this.s.cancel();
                 onError(th);
             }
@@ -224,7 +224,7 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
                                         innerQueuedSubscriber2.requestOne();
                                     }
                                 } catch (Throwable th) {
-                                    io.reactivex.exceptions.a.L(th);
+                                    io.reactivex.exceptions.a.K(th);
                                     this.current = null;
                                     innerQueuedSubscriber2.cancel();
                                     cancelAll();

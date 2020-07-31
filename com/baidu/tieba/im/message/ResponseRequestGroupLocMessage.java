@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import protobuf.QueryGroupLocation.QueryGroupLocationResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class ResponseRequestGroupLocMessage extends SocketResponsedMessage {
     private List<String> businessAreaList;
     private String position;

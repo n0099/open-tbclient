@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import com.baidu.webkit.internal.ETAG;
 import java.net.URLDecoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class BeanRequestBase {
     private static final String TAG = "BeanRequestBase";
     protected boolean mBelongPaySdk = false;

@@ -9,7 +9,7 @@ import com.baidu.searchbox.afx.proxy.PlayerProxy;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class MediaPlayerProxy extends PlayerProxy {
     private static final String TAG = "MediaPlayerProxy";
     private GLTextureView mGLTextureView;

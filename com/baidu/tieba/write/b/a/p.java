@@ -16,7 +16,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeStatisticUtil;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class p extends UnitedSchemeBaseDispatcher {
     private static final boolean DEBUG = AppConfig.isDebug();
     private static final String TAG = p.class.getSimpleName();

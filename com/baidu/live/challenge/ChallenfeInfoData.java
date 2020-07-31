@@ -1,8 +1,8 @@
 package com.baidu.live.challenge;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ChallenfeInfoData {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum ChallengeStatus {
         CHALLENGE_STAGE_IDEL,
         CHALLENGE_STAGE_MATCHING,

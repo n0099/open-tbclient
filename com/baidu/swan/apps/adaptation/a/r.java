@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.adaptation.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public interface r {
-    com.baidu.swan.apps.setting.oauth.g TS();
+    com.baidu.swan.apps.setting.oauth.g Us();
 }

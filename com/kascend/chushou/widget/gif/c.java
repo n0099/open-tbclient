@@ -2,7 +2,7 @@ package com.kascend.chushou.widget.gif;
 
 import android.graphics.drawable.Drawable;
 import tv.chushou.zues.widget.a.e;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c extends e {
     private String a;
 

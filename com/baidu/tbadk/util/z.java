@@ -7,49 +7,49 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 /* loaded from: classes.dex */
 public class z {
-    private View aKd;
-    private boolean eEA;
-    private int eEz;
+    private View aLz;
+    private int eKV;
+    private boolean eKW;
     private final Handler mHandler;
 
-    public void biY() {
+    public void bmR() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void biZ() {
+    public void bmS() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void iJ(boolean z) {
-        if (this.aKd != null) {
-            if (z || this.aKd.getVisibility() != 8) {
-                biZ();
+    public void hideFloatingView(boolean z) {
+        if (this.aLz != null) {
+            if (z || this.aLz.getVisibility() != 8) {
+                bmS();
             }
         }
     }
 
-    public void iK(boolean z) {
-        if (this.aKd != null) {
-            if (z || this.aKd.getVisibility() != 0) {
-                biY();
+    public void showFloatingView(boolean z) {
+        if (this.aLz != null) {
+            if (z || this.aLz.getVisibility() != 0) {
+                bmR();
             }
         }
     }
 
     public void onScroll(int i, int i2) {
-        if (this.aKd != null) {
-            if (i != 0 && i2 > i && this.aKd.getVisibility() != 8) {
-                iJ(false);
-            } else if ((i == 0 || i2 < i) && this.aKd.getVisibility() != 0) {
-                iK(false);
+        if (this.aLz != null) {
+            if (i != 0 && i2 > i && this.aLz.getVisibility() != 8) {
+                hideFloatingView(false);
+            } else if ((i == 0 || i2 < i) && this.aLz.getVisibility() != 0) {
+                showFloatingView(false);
             }
-            this.eEz = i;
+            this.eKV = i;
         }
     }
 
@@ -63,15 +63,15 @@ public class z {
             } else {
                 return;
             }
-            if (firstVisiblePosition > this.eEz) {
-                iJ(true);
-            } else if (firstVisiblePosition < this.eEz) {
-                iK(true);
-            } else if (firstVisiblePosition == this.eEz) {
-                if (firstVisiblePosition == 0 || !this.eEA) {
-                    iK(true);
+            if (firstVisiblePosition > this.eKV) {
+                hideFloatingView(true);
+            } else if (firstVisiblePosition < this.eKV) {
+                showFloatingView(true);
+            } else if (firstVisiblePosition == this.eKV) {
+                if (firstVisiblePosition == 0 || !this.eKW) {
+                    showFloatingView(true);
                 } else {
-                    iJ(true);
+                    hideFloatingView(true);
                 }
             }
         }

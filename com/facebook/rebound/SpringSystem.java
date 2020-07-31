@@ -1,5 +1,5 @@
 package com.facebook.rebound;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class SpringSystem extends BaseSpringSystem {
     public static SpringSystem create() {
         return new SpringSystem(AndroidSpringLooperFactory.createSpringLooper());

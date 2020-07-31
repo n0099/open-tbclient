@@ -3,26 +3,26 @@ package com.baidu.tieba.frs.mc;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.av;
 import com.baidu.tieba.frs.p;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class j {
-    protected final FrsModelController hAc;
-    protected final com.baidu.tieba.frs.vc.h hAd;
-    protected final FrsFragment hUd;
-    protected final com.baidu.tieba.frs.vc.n hVo;
-    protected final av hVp;
-    protected final c hVq;
-    protected final p hzK;
+    protected final FrsModelController hFS;
+    protected final com.baidu.tieba.frs.vc.h hFT;
+    protected final p hFz;
+    protected final FrsFragment iac;
+    protected final com.baidu.tieba.frs.vc.n ibn;
+    protected final av ibo;
+    protected final c ibp;
 
     public j(FrsFragment frsFragment) {
         if (frsFragment == null) {
             throw new NullPointerException("FrsActivity is NullPointerException");
         }
-        this.hUd = frsFragment;
-        this.hAd = this.hUd.bXX();
-        this.hzK = this.hUd.bYa();
-        this.hVo = this.hUd.bXY();
-        this.hAc = this.hUd.bXV();
-        this.hVp = this.hUd.bXZ();
-        this.hVq = this.hUd.bXW();
+        this.iac = frsFragment;
+        this.hFT = this.iac.cbt();
+        this.hFz = this.iac.cbw();
+        this.ibn = this.iac.cbu();
+        this.hFS = this.iac.cbr();
+        this.ibo = this.iac.cbv();
+        this.ibp = this.iac.cbs();
     }
 }

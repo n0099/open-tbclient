@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.d.a.d;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import java.io.File;
 import java.io.FileFilter;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 class c implements FileFilter {
     final /* synthetic */ b a;
 

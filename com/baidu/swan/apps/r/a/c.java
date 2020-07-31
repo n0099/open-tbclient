@@ -3,17 +3,17 @@ package com.baidu.swan.apps.r.a;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-import com.baidu.swan.e.d;
+import com.baidu.swan.d.d;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c extends HandlerThread {
-    private CountDownLatch cly;
-    private File clz;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private CountDownLatch cnD;
+    private File cnE;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         byte[] content;
         String path;
@@ -26,18 +26,18 @@ public class c extends HandlerThread {
 
     private c(String str, int i, File file, CountDownLatch countDownLatch) {
         super(str, i);
-        this.clz = file;
-        this.cly = countDownLatch;
+        this.cnE = file;
+        this.cnD = countDownLatch;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Handler afW() {
+    public Handler ahi() {
         return new Handler(getLooper()) { // from class: com.baidu.swan.apps.r.a.c.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (message.what == 100) {
                     a aVar = (a) message.obj;
-                    File file = new File(c.this.clz + aVar.path);
+                    File file = new File(c.this.cnE + aVar.path);
                     try {
                         if (!file.exists()) {
                             file.getParentFile().mkdirs();
@@ -46,12 +46,14 @@ public class c extends HandlerThread {
                         FileOutputStream fileOutputStream = new FileOutputStream(file);
                         fileOutputStream.write(aVar.content);
                         d.closeSafely(fileOutputStream);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    } catch (Exception e) {
+                        if (c.DEBUG) {
+                            e.printStackTrace();
+                        }
                     }
                 } else if (message.what == 200) {
-                    if (c.this.cly != null) {
-                        c.this.cly.countDown();
+                    if (c.this.cnD != null) {
+                        c.this.cnD.countDown();
                     }
                     c.this.quit();
                 }

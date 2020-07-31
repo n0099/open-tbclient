@@ -12,16 +12,16 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
-    private AlbumActivity biJ;
-    private Map<Integer, Boolean> biV = new HashMap();
+    private AlbumActivity bjd;
+    private Map<Integer, Boolean> bjp = new HashMap();
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mList;
 
     public AlbumImagePagerAdapter(AlbumActivity albumActivity) {
-        this.biJ = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.biJ.getPageContext().getPageActivity());
+        this.bjd = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.bjd.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -49,10 +49,10 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
     }
 
     public boolean dw(int i) {
-        if (this.biV.get(Integer.valueOf(i)) == null) {
+        if (this.bjp.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.biV.get(Integer.valueOf(i)).booleanValue();
+        return this.bjp.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -68,7 +68,7 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         ImageFileInfo dv = dv(i);
         if (dv != null) {
             tbImageView.startLoad(dv.getFilePath(), 35, false, false);
-            this.biV.put(Integer.valueOf(i), true);
+            this.bjp.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
         SkinManager.setBackgroundColor(inflate, a.d.sdk_cp_bg_line_d);

@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
     private static Class<?> i = null;
     String a;
@@ -49,18 +49,18 @@ public class c {
     private String o;
     private boolean p;
     private com.baidu.location.b.a f = new com.baidu.location.b.a();
-    private C0196c h = null;
+    private C0198c h = null;
     private String m = null;
     b c = new b();
     private long q = 0;
     private boolean r = false;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void onReceiveLocation(BDLocation bDLocation);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     class b extends com.baidu.location.d.e {
         String a = null;
 
@@ -113,12 +113,12 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.location.a.c$c  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C0196c {
+    /* loaded from: classes10.dex */
+    public class C0198c {
         public List<ScanResult> a;
         private long c;
 
-        public C0196c(List<ScanResult> list) {
+        public C0198c(List<ScanResult> list) {
             this.a = null;
             this.c = 0L;
             this.a = list;
@@ -635,7 +635,7 @@ public class c {
         }
         try {
             this.h = null;
-            this.h = new C0196c(this.g.getScanResults());
+            this.h = new C0198c(this.g.getScanResults());
             str2 = this.h.a(i2);
         } catch (Exception e) {
             str2 = null;

@@ -2,57 +2,57 @@ package com.baidu.ubs.analytics.d;
 
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class j {
-    private static int mFJ = 1000;
-    private static boolean mFK = true;
+    private static int mNN = 1000;
+    private static boolean mNO = true;
 
     public static void c(boolean z) {
-        mFK = z;
+        mNO = z;
     }
 
     public static void I(String str) {
-        if (mFK) {
+        if (mNO) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (mFK) {
+        if (mNO) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void G(String str) {
-        if (mFK) {
+        if (mNO) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (mFK) {
+        if (mNO) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
 
     private static void a(int i, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
-            if (str2.length() >= mFJ) {
+            if (str2.length() >= mNN) {
                 switch (i) {
                     case 1:
-                        Log.v(str, str2.substring(0, mFJ));
+                        Log.v(str, str2.substring(0, mNN));
                         break;
                     case 2:
-                        Log.d(str, str2.substring(0, mFJ));
+                        Log.d(str, str2.substring(0, mNN));
                         break;
                     case 3:
-                        Log.i(str, str2.substring(0, mFJ));
+                        Log.i(str, str2.substring(0, mNN));
                         break;
                     case 4:
-                        Log.w(str, str2.substring(0, mFJ));
+                        Log.w(str, str2.substring(0, mNN));
                         break;
                     case 5:
-                        Log.e(str, str2.substring(0, mFJ));
+                        Log.e(str, str2.substring(0, mNN));
                         break;
                 }
             } else {

@@ -3,25 +3,25 @@ package com.baidu.tieba.dnsproxy;
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-/* loaded from: classes6.dex */
+/* loaded from: classes13.dex */
 public class d {
-    private static volatile d gYk = null;
+    private static volatile d hdP = null;
 
-    public static final d bQe() {
-        if (gYk == null) {
+    public static final d bTp() {
+        if (hdP == null) {
             synchronized (d.class) {
-                if (gYk == null) {
-                    gYk = new d();
+                if (hdP == null) {
+                    hdP = new d();
                 }
             }
         }
-        return gYk;
+        return hdP;
     }
 
     private d() {
     }
 
-    public void dW(String str, String str2) {
+    public void dY(String str, String str2) {
         if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_error");
@@ -35,7 +35,7 @@ public class d {
         }
     }
 
-    public void an(String str, String str2, String str3) {
+    public void ao(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2) || !TextUtils.isEmpty(str3)) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_event");

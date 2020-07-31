@@ -5,27 +5,27 @@ import com.baidu.card.view.UnfollowedDecorView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
-public class ap extends d implements n<bu>, o {
-    private static final int afa = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds124);
-    private Align afc;
-    public UnfollowedDecorView agz;
+/* loaded from: classes15.dex */
+public class ap extends d implements n<bv>, o {
+    private static final int aeQ = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds124);
+    private Align aeS;
+    public UnfollowedDecorView agq;
 
     public ap(TbPageContext tbPageContext, Align align) {
         setInsertIndex(-1);
-        this.agz = new UnfollowedDecorView(tbPageContext.getPageActivity());
-        this.agz.setId(R.id.decor_item_right_id);
-        F(this.agz);
+        this.agq = new UnfollowedDecorView(tbPageContext.getPageActivity());
+        this.agq.setId(R.id.decor_item_right_id);
+        H(this.agq);
         a(align);
     }
 
     public void a(Align align) {
-        if (align != this.afc) {
+        if (align != this.aeS) {
             if (align == Align.ALIGN_RIGHT_TOP) {
                 int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
-                int dimens2 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
+                int dimens2 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
                 int dimens3 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
                 int dimens4 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimens, dimens);
@@ -34,12 +34,12 @@ public class ap extends d implements n<bu>, o {
                 layoutParams.rightMargin = dimens3;
                 layoutParams.topMargin = dimens4;
                 a(layoutParams);
-                this.agz.setSvgResId(R.drawable.icon_pure_close12_n_svg, R.color.cp_cont_g);
-                this.agz.setPadding(dimens2, dimens2, dimens2, dimens2);
-                this.agz.setLayoutParams(layoutParams);
+                this.agq.setSvgResId(R.drawable.icon_home_delete_n, R.color.cp_cont_g);
+                this.agq.setPadding(dimens2, dimens2, dimens2, dimens2);
+                this.agq.setLayoutParams(layoutParams);
             } else if (align == Align.ALIGN_RIGHT_CENTER) {
                 int dimens5 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
-                int dimens6 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
+                int dimens6 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
                 int dimens7 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimens5, dimens5);
                 layoutParams2.addRule(11);
@@ -47,11 +47,11 @@ public class ap extends d implements n<bu>, o {
                 layoutParams2.rightMargin = dimens7;
                 layoutParams2.bottomMargin = 0;
                 a(layoutParams2);
-                this.agz.setSvgResId(R.drawable.icon_pure_close12_n_svg, R.color.cp_cont_g);
-                this.agz.setPadding(dimens6, dimens6, dimens6, dimens6);
-                this.agz.setLayoutParams(layoutParams2);
+                this.agq.setSvgResId(R.drawable.icon_home_delete_n, R.color.cp_cont_g);
+                this.agq.setPadding(dimens6, dimens6, dimens6, dimens6);
+                this.agq.setLayoutParams(layoutParams2);
             } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
-                int i = afa;
+                int i = aeQ;
                 int dimens8 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
                 int dimens9 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
                 int dimens10 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds20);
@@ -61,42 +61,35 @@ public class ap extends d implements n<bu>, o {
                 layoutParams3.rightMargin = dimens9;
                 layoutParams3.bottomMargin = dimens10;
                 a(layoutParams3);
-                this.agz.setSvgResId(R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g);
-                this.agz.setPadding(dimens8, dimens8, dimens8, dimens8);
-                this.agz.setLayoutParams(layoutParams3);
+                this.agq.setSvgResId(R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g);
+                this.agq.setPadding(dimens8, dimens8, dimens8, dimens8);
+                this.agq.setLayoutParams(layoutParams3);
             }
-            this.afc = align;
+            this.aeS = align;
         }
     }
 
     public void f(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport.aPZ()) {
-            if (absThreadDataSupport.aPW()) {
-                a(Align.ALIGN_RIGHT_TOP);
-                return;
-            } else if (absThreadDataSupport.aPX()) {
-                if (this.aef != null) {
-                    this.aef.a(this);
-                    return;
-                }
-                return;
-            } else {
-                a(Align.ALIGN_RIGHT_TOP);
-                return;
+        if (absThreadDataSupport.aTR()) {
+            a(Align.ALIGN_RIGHT_TOP);
+        } else if (absThreadDataSupport.aTS()) {
+            if (this.adV != null) {
+                this.adV.a(this);
             }
+        } else {
+            a(Align.ALIGN_RIGHT_TOP);
         }
-        a(Align.ALIGN_RIGHT_BOTTOM);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.n
     /* renamed from: a */
-    public void D(bu buVar) {
-        this.agz.q(buVar);
+    public void D(bv bvVar) {
+        this.agq.q(bvVar);
     }
 
     @Override // com.baidu.card.o
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.agz.onChangeSkinType();
+        this.agq.onChangeSkinType();
     }
 }

@@ -1,8 +1,7 @@
 package com.baidu.live.data;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bi {
-    public int aDE;
-    public int aDF;
-    public int aDG;
-    public int aDH;
+    public String aEW;
+    public String aEX;
+    public String liveId;
 }

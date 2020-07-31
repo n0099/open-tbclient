@@ -1,7 +1,7 @@
 package com.baidu.ar.record;
 
 import android.view.Surface;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public interface MovieRecorderCallback {
     void onRecorderComplete(boolean z, String str);
 

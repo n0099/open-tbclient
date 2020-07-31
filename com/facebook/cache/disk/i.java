@@ -3,28 +3,28 @@ package com.facebook.cache.disk;
 import com.facebook.cache.common.CacheEventListener;
 import com.facebook.infer.annotation.ReturnsOwnership;
 import java.io.IOException;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class i implements com.facebook.cache.common.a {
-    private static final Object mIi = new Object();
-    private static i mIj;
-    private static int mIk;
-    private String kVw;
-    private IOException mDn;
-    private com.facebook.cache.common.b mIl;
-    private long mIm;
-    private long mIn;
-    private long mIo;
-    private CacheEventListener.EvictionReason mIq;
-    private i mIr;
+    private static final Object mQn = new Object();
+    private static i mQo;
+    private static int mQp;
+    private String lcP;
+    private IOException mLt;
+    private com.facebook.cache.common.b mQq;
+    private long mQr;
+    private long mQs;
+    private long mQt;
+    private CacheEventListener.EvictionReason mQu;
+    private i mQv;
 
     @ReturnsOwnership
-    public static i dzb() {
-        synchronized (mIi) {
-            if (mIj != null) {
-                i iVar = mIj;
-                mIj = iVar.mIr;
-                iVar.mIr = null;
-                mIk--;
+    public static i dCn() {
+        synchronized (mQn) {
+            if (mQo != null) {
+                i iVar = mQo;
+                mQo = iVar.mQv;
+                iVar.mQv = null;
+                mQp--;
                 return iVar;
             }
             return new i();
@@ -35,60 +35,60 @@ public class i implements com.facebook.cache.common.a {
     }
 
     public i h(com.facebook.cache.common.b bVar) {
-        this.mIl = bVar;
+        this.mQq = bVar;
         return this;
     }
 
-    public i QB(String str) {
-        this.kVw = str;
+    public i Rm(String str) {
+        this.lcP = str;
         return this;
     }
 
-    public i fH(long j) {
-        this.mIm = j;
+    public i fU(long j) {
+        this.mQr = j;
         return this;
     }
 
-    public i fI(long j) {
-        this.mIo = j;
+    public i fV(long j) {
+        this.mQt = j;
         return this;
     }
 
-    public i fJ(long j) {
-        this.mIn = j;
+    public i fW(long j) {
+        this.mQs = j;
         return this;
     }
 
     public i e(IOException iOException) {
-        this.mDn = iOException;
+        this.mLt = iOException;
         return this;
     }
 
     public i a(CacheEventListener.EvictionReason evictionReason) {
-        this.mIq = evictionReason;
+        this.mQu = evictionReason;
         return this;
     }
 
     public void recycle() {
-        synchronized (mIi) {
-            if (mIk < 5) {
+        synchronized (mQn) {
+            if (mQp < 5) {
                 reset();
-                mIk++;
-                if (mIj != null) {
-                    this.mIr = mIj;
+                mQp++;
+                if (mQo != null) {
+                    this.mQv = mQo;
                 }
-                mIj = this;
+                mQo = this;
             }
         }
     }
 
     private void reset() {
-        this.mIl = null;
-        this.kVw = null;
-        this.mIm = 0L;
-        this.mIn = 0L;
-        this.mIo = 0L;
-        this.mDn = null;
-        this.mIq = null;
+        this.mQq = null;
+        this.lcP = null;
+        this.mQr = 0L;
+        this.mQs = 0L;
+        this.mQt = 0L;
+        this.mLt = null;
+        this.mQu = null;
     }
 }

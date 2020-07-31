@@ -2,7 +2,7 @@ package com.baidu.swan.apps.canvas.a.a;
 
 import android.graphics.Canvas;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class h extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {

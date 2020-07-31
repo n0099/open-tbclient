@@ -15,22 +15,22 @@ import com.baidu.mobads.utils.h;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class BaiduNative {
     private final Context a;
     private final String b;
-    private c bws;
-    private BaiduNativeNetworkListener bwt;
-    private BaiduNativeEventListener bwu;
+    private c bwH;
+    private BaiduNativeNetworkListener bwI;
+    private BaiduNativeEventListener bwJ;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public interface BaiduNativeEventListener {
         void onClicked();
 
         void onImpressionSended();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public interface BaiduNativeNetworkListener {
         void onNativeFail(NativeErrorCode nativeErrorCode);
 
@@ -38,12 +38,12 @@ public class BaiduNative {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public class CustomIOAdEventListener implements IOAdEventListener {
-        private IXAdFeedsRequestParameters bwv;
+        private IXAdFeedsRequestParameters bwK;
 
         public CustomIOAdEventListener(IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
-            this.bwv = iXAdFeedsRequestParameters;
+            this.bwK = iXAdFeedsRequestParameters;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:20:0x007f  */
@@ -56,13 +56,13 @@ public class BaiduNative {
             boolean z;
             boolean z2;
             if (IXAdEvent.AD_STARTED.equals(iOAdEvent.getType())) {
-                BaiduNative.this.bws.removeAllListeners();
-                if (BaiduNative.this.bwt != null) {
+                BaiduNative.this.bwH.removeAllListeners();
+                if (BaiduNative.this.bwI != null) {
                     final ArrayList arrayList = new ArrayList();
                     HashSet hashSet = new HashSet();
                     h adConstants = XAdSDKFoundationFacade.getInstance().getAdConstants();
-                    for (int i = 0; i < BaiduNative.this.bws.q().size(); i++) {
-                        IXAdInstanceInfo iXAdInstanceInfo = BaiduNative.this.bws.q().get(i);
+                    for (int i = 0; i < BaiduNative.this.bwH.q().size(); i++) {
+                        IXAdInstanceInfo iXAdInstanceInfo = BaiduNative.this.bwH.q().get(i);
                         String appPackageName = iXAdInstanceInfo.getAppPackageName();
                         if (iXAdInstanceInfo.getActionType() == adConstants.getActTypeDownload()) {
                             if (appPackageName == null || appPackageName.equals("") || appPackageName.equals("null") || hashSet.contains(appPackageName)) {
@@ -76,7 +76,7 @@ public class BaiduNative {
                                 }
                             }
                             if (z2) {
-                                XAdNativeResponse xAdNativeResponse = new XAdNativeResponse(iXAdInstanceInfo, BaiduNative.this, this.bwv, BaiduNative.this.bws.getCurrentXAdContainer());
+                                XAdNativeResponse xAdNativeResponse = new XAdNativeResponse(iXAdInstanceInfo, BaiduNative.this, this.bwK, BaiduNative.this.bwH.getCurrentXAdContainer());
                                 if (z) {
                                     xAdNativeResponse.setIsDownloadApp(false);
                                 }
@@ -91,19 +91,19 @@ public class BaiduNative {
                     XAdSDKFoundationFacade.getInstance().getCommonUtils().a(new Runnable() { // from class: com.baidu.mobad.feeds.BaiduNative.CustomIOAdEventListener.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            BaiduNative.this.bwt.onNativeLoad(arrayList);
+                            BaiduNative.this.bwI.onNativeLoad(arrayList);
                         }
                     });
                 }
             }
             if (IXAdEvent.AD_ERROR.equals(iOAdEvent.getType())) {
-                BaiduNative.this.bws.removeAllListeners();
+                BaiduNative.this.bwH.removeAllListeners();
                 String str = (String) iOAdEvent.getData().get("message");
-                if (BaiduNative.this.bwt != null) {
+                if (BaiduNative.this.bwI != null) {
                     XAdSDKFoundationFacade.getInstance().getCommonUtils().a(new Runnable() { // from class: com.baidu.mobad.feeds.BaiduNative.CustomIOAdEventListener.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            BaiduNative.this.bwt.onNativeFail(NativeErrorCode.LOAD_AD_FAILED);
+                            BaiduNative.this.bwI.onNativeFail(NativeErrorCode.LOAD_AD_FAILED);
                         }
                     });
                 }
@@ -119,9 +119,9 @@ public class BaiduNative {
         this.a = context;
         XAdSDKFoundationFacade.getInstance().initializeApplicationContext(context.getApplicationContext());
         this.b = str;
-        this.bwt = baiduNativeNetworkListener;
+        this.bwI = baiduNativeNetworkListener;
         q.a(context).a();
-        this.bws = cVar;
+        this.bwH = cVar;
     }
 
     public void destroy() {
@@ -129,7 +129,7 @@ public class BaiduNative {
 
     @Deprecated
     public void setNativeEventListener(BaiduNativeEventListener baiduNativeEventListener) {
-        this.bwu = baiduNativeEventListener;
+        this.bwJ = baiduNativeEventListener;
     }
 
     public void makeRequest() {
@@ -140,57 +140,57 @@ public class BaiduNative {
         if (requestParameters == null) {
             requestParameters = new RequestParameters.Builder().build();
         }
-        requestParameters.bwz = this.b;
+        requestParameters.bwO = this.b;
         CustomIOAdEventListener customIOAdEventListener = new CustomIOAdEventListener(requestParameters);
-        this.bws.addEventListener(IXAdEvent.AD_STARTED, customIOAdEventListener);
-        this.bws.addEventListener(IXAdEvent.AD_ERROR, customIOAdEventListener);
-        this.bws.a(requestParameters);
-        this.bws.request();
+        this.bwH.addEventListener(IXAdEvent.AD_STARTED, customIOAdEventListener);
+        this.bwH.addEventListener(IXAdEvent.AD_ERROR, customIOAdEventListener);
+        this.bwH.a(requestParameters);
+        this.bwH.request();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void c(View view, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
-        this.bws.a(view, iXAdInstanceInfo, iXAdFeedsRequestParameters);
+        this.bwH.a(view, iXAdInstanceInfo, iXAdFeedsRequestParameters);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean isAdAvailable(Context context, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
-        return this.bws.a(context, iXAdInstanceInfo, iXAdFeedsRequestParameters);
+        return this.bwH.a(context, iXAdInstanceInfo, iXAdFeedsRequestParameters);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(View view, IXAdInstanceInfo iXAdInstanceInfo, int i, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
-        this.bws.a(view, iXAdInstanceInfo, i, iXAdFeedsRequestParameters);
+        this.bwH.a(view, iXAdInstanceInfo, i, iXAdFeedsRequestParameters);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void e(Context context, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
-        this.bws.b(context, iXAdInstanceInfo, iXAdFeedsRequestParameters);
+        this.bwH.b(context, iXAdInstanceInfo, iXAdFeedsRequestParameters);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(Context context, int i, int i2, IXAdInstanceInfo iXAdInstanceInfo) {
-        this.bws.a(context, i, i2, iXAdInstanceInfo);
+        this.bwH.a(context, i, i2, iXAdInstanceInfo);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void f(Context context, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
-        this.bws.c(context, iXAdInstanceInfo, iXAdFeedsRequestParameters);
+        this.bwH.c(context, iXAdInstanceInfo, iXAdFeedsRequestParameters);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void c(Context context, int i, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
-        this.bws.a(context, i, iXAdInstanceInfo, iXAdFeedsRequestParameters);
+        this.bwH.a(context, i, iXAdInstanceInfo, iXAdFeedsRequestParameters);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void g(Context context, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
-        this.bws.d(context, iXAdInstanceInfo, iXAdFeedsRequestParameters);
+        this.bwH.d(context, iXAdInstanceInfo, iXAdFeedsRequestParameters);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void d(Context context, int i, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
-        this.bws.b(context, i, iXAdInstanceInfo, iXAdFeedsRequestParameters);
+        this.bwH.b(context, i, iXAdInstanceInfo, iXAdFeedsRequestParameters);
     }
 
     public static void setAppSid(Context context, String str) {

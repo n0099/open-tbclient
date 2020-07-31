@@ -8,7 +8,7 @@ import com.kascend.chushou.player.ui.h5.c.e;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RoomExpandInfo {
     public AutoBang mAutoBang;
     public a mH5Tips;

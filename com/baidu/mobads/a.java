@@ -4,19 +4,19 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a implements IOAdEventListener {
-    final /* synthetic */ AdView bwV;
+    final /* synthetic */ AdView bxk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AdView adView) {
-        this.bwV = adView;
+        this.bxk = adView;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
     public void run(IOAdEvent iOAdEvent) {
         AdViewListener adViewListener;
-        adViewListener = this.bwV.bxc;
+        adViewListener = this.bxk.bxr;
         if (adViewListener != null) {
             XAdSDKFoundationFacade.getInstance().getCommonUtils().a((Runnable) new b(this, iOAdEvent));
         }

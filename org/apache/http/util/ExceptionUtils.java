@@ -1,6 +1,6 @@
 package org.apache.http.util;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes20.dex */
 public final class ExceptionUtils {
     ExceptionUtils() {
         throw new RuntimeException("Stub!");

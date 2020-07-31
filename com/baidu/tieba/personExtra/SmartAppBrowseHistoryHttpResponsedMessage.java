@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.HistorySwan.HistorySwanResIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMessage {
     private a mData;
 

@@ -11,21 +11,21 @@ import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
 /* loaded from: classes6.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> obd = new AtomicReference<>();
-    private final g oho;
-    private final g ohp;
-    private final g ohq;
+    private static final AtomicReference<Schedulers> ojN = new AtomicReference<>();
+    private final g opX;
+    private final g opY;
+    private final g opZ;
 
-    private static Schedulers dVC() {
+    private static Schedulers dYY() {
         Schedulers schedulers;
         while (true) {
-            schedulers = obd.get();
+            schedulers = ojN.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (obd.compareAndSet(null, schedulers)) {
+                if (ojN.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.dVE();
+                schedulers.dZa();
             } else {
                 break;
             }
@@ -34,45 +34,45 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g dVt = f.dVo().dVt();
-        g dVx = dVt.dVx();
-        if (dVx != null) {
-            this.oho = dVx;
+        rx.c.g dYP = f.dYK().dYP();
+        g dYT = dYP.dYT();
+        if (dYT != null) {
+            this.opX = dYT;
         } else {
-            this.oho = rx.c.g.dVu();
+            this.opX = rx.c.g.dYQ();
         }
-        g dVy = dVt.dVy();
-        if (dVy != null) {
-            this.ohp = dVy;
+        g dYU = dYP.dYU();
+        if (dYU != null) {
+            this.opY = dYU;
         } else {
-            this.ohp = rx.c.g.dVv();
+            this.opY = rx.c.g.dYR();
         }
-        g dVz = dVt.dVz();
-        if (dVz != null) {
-            this.ohq = dVz;
+        g dYV = dYP.dYV();
+        if (dYV != null) {
+            this.opZ = dYV;
         } else {
-            this.ohq = rx.c.g.dVw();
+            this.opZ = rx.c.g.dYS();
         }
     }
 
     public static g immediate() {
-        return e.ofv;
+        return e.ood;
     }
 
     public static g trampoline() {
-        return j.ofT;
+        return j.ooB;
     }
 
     public static g newThread() {
-        return c.k(dVC().ohq);
+        return c.k(dYY().opZ);
     }
 
     public static g computation() {
-        return c.i(dVC().oho);
+        return c.i(dYY().opX);
     }
 
     public static g io() {
-        return c.j(dVC().ohp);
+        return c.j(dYY().opY);
     }
 
     public static TestScheduler test() {
@@ -84,49 +84,49 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = obd.getAndSet(null);
+        Schedulers andSet = ojN.getAndSet(null);
         if (andSet != null) {
-            andSet.dVE();
+            andSet.dZa();
         }
     }
 
     public static void start() {
-        Schedulers dVC = dVC();
-        dVC.dVD();
-        synchronized (dVC) {
-            d.oft.start();
+        Schedulers dYY = dYY();
+        dYY.dYZ();
+        synchronized (dYY) {
+            d.oob.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers dVC = dVC();
-        dVC.dVE();
-        synchronized (dVC) {
-            d.oft.shutdown();
+        Schedulers dYY = dYY();
+        dYY.dZa();
+        synchronized (dYY) {
+            d.oob.shutdown();
         }
     }
 
-    synchronized void dVD() {
-        if (this.oho instanceof h) {
-            ((h) this.oho).start();
+    synchronized void dYZ() {
+        if (this.opX instanceof h) {
+            ((h) this.opX).start();
         }
-        if (this.ohp instanceof h) {
-            ((h) this.ohp).start();
+        if (this.opY instanceof h) {
+            ((h) this.opY).start();
         }
-        if (this.ohq instanceof h) {
-            ((h) this.ohq).start();
+        if (this.opZ instanceof h) {
+            ((h) this.opZ).start();
         }
     }
 
-    synchronized void dVE() {
-        if (this.oho instanceof h) {
-            ((h) this.oho).shutdown();
+    synchronized void dZa() {
+        if (this.opX instanceof h) {
+            ((h) this.opX).shutdown();
         }
-        if (this.ohp instanceof h) {
-            ((h) this.ohp).shutdown();
+        if (this.opY instanceof h) {
+            ((h) this.opY).shutdown();
         }
-        if (this.ohq instanceof h) {
-            ((h) this.ohq).shutdown();
+        if (this.opZ instanceof h) {
+            ((h) this.opZ).shutdown();
         }
     }
 }

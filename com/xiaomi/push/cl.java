@@ -1,19 +1,19 @@
 package com.xiaomi.push;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class cl {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f172a;
+    public long f168a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f173a;
+    public String f169a;
 
     public cl() {
     }
 
     public cl(cj cjVar) {
-        this.f172a = cjVar.f169a;
+        this.f168a = cjVar.f165a;
         this.a = cjVar.a;
     }
 }

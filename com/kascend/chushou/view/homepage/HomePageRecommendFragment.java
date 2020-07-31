@@ -26,7 +26,7 @@ import tv.chushou.zues.utils.g;
 import tv.chushou.zues.utils.h;
 import tv.chushou.zues.widget.adapterview.recyclerview.view.SwipRefreshRecyclerView;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HomePageRecommendFragment extends b implements View.OnClickListener {
     public static final int ENTERTAINMENT_RECOMMEND = 1;
     public static final int RECOMMEND = 0;
@@ -87,7 +87,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
         this.mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() { // from class: com.kascend.chushou.view.homepage.HomePageRecommendFragment.1
             @Override // android.support.v7.widget.GridLayoutManager.SpanSizeLookup
             public int getSpanSize(int i) {
-                if (HomePageRecommendFragment.this.mRecyclerView.LN(i) || HomePageRecommendFragment.this.mRecyclerView.LO(i)) {
+                if (HomePageRecommendFragment.this.mRecyclerView.Mh(i) || HomePageRecommendFragment.this.mRecyclerView.Mi(i)) {
                     return 4;
                 }
                 return com.kascend.chushou.view.a.a.b.a(HomePageRecommendFragment.this.mAdapter.getItemViewType(i - HomePageRecommendFragment.this.mRecyclerView.getHeaderViewCount()), 4);
@@ -206,14 +206,14 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
         switch (i) {
             case 1:
                 if (!this.mLoadedSuc) {
-                    this.mEmptyView.Ku(1);
+                    this.mEmptyView.KO(1);
                     this.mRecyclerView.setVisibility(8);
                     return;
                 }
                 return;
             case 2:
                 this.mLoadedSuc = true;
-                this.mEmptyView.Ku(2);
+                this.mEmptyView.KO(2);
                 this.mRecyclerView.completeRefresh();
                 this.mRecyclerView.setVisibility(0);
                 return;
@@ -222,7 +222,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
             case 6:
                 this.mLoadedSuc = false;
                 this.mRecyclerView.completeRefresh();
-                this.mEmptyView.Ku(i);
+                this.mEmptyView.KO(i);
                 this.mRecyclerView.setVisibility(8);
                 return;
             case 5:

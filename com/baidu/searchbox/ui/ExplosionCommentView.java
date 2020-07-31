@@ -25,7 +25,7 @@ import com.baidu.android.util.android.VibrateUtils;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.skin.NightModeHelper;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public class ExplosionCommentView extends FrameLayout implements View.OnClickListener {
     private static final boolean DEBUG = false;
     private static final int DEFAULT_VIBRATE_AMPLITUDE = 30;
@@ -44,7 +44,7 @@ public class ExplosionCommentView extends FrameLayout implements View.OnClickLis
     private FrameLayout mLottieContainer;
     private RelativeLayout mRoot;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes3.dex */
     public interface ExplosionAnimListener {
         void onAnimEnd();
 
@@ -203,7 +203,7 @@ public class ExplosionCommentView extends FrameLayout implements View.OnClickLis
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes3.dex */
     public class LottieAnimPopup extends PopupWindow {
         private FrameLayout mContent;
 

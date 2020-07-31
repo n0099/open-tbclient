@@ -1,5 +1,5 @@
 package com.baidu.ar.objdetect;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class b extends com.baidu.ar.c.b {
     float[] si;
 

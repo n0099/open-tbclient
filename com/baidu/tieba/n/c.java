@@ -1,57 +1,35 @@
 package com.baidu.tieba.n;
 
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.tieba.VideoPlatformStatic;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.n.b;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
-public interface c {
-    JSONObject cWy();
+/* loaded from: classes17.dex */
+public class c extends b.AbstractC0699b {
+    private final int code;
+    private final String msg;
 
-    /* loaded from: classes10.dex */
-    public static abstract class a implements c {
-        public final int state;
-        private final long timestamp = System.currentTimeMillis();
-
-        public a(int i) {
-            this.state = i;
-        }
-
-        @Override // com.baidu.tieba.n.c
-        public JSONObject cWy() {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", this.state);
-                jSONObject.put("timestamp", this.timestamp);
-                jSONObject.put(DpStatConstants.KEY_NETWORK_STATUS, VideoPlatformStatic.lK());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
+    public c(int i, String str, int i2, String str2) {
+        super(i, str);
+        this.code = i2;
+        this.msg = str2;
     }
 
-    /* loaded from: classes10.dex */
-    public static abstract class b implements c {
-        private final String source;
-        public final int state;
-        private final long timestamp = System.currentTimeMillis();
-
-        public b(int i, String str) {
-            this.state = i;
-            this.source = str;
-        }
-
-        @Override // com.baidu.tieba.n.c
-        public JSONObject cWy() {
+    @Override // com.baidu.tieba.n.b.AbstractC0699b, com.baidu.tieba.n.b
+    public JSONObject cZL() {
+        JSONObject cZL = super.cZL();
+        try {
             JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", this.state);
-                jSONObject.put("source", this.source);
-                jSONObject.put("timestamp", this.timestamp);
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (this.code != -4399) {
+                jSONObject.put("code", this.code);
             }
-            return jSONObject;
+            if (!StringUtils.isNull(this.msg)) {
+                jSONObject.put("msg", this.msg);
+            }
+            cZL.put("ext", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+        return cZL;
     }
 }

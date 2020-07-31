@@ -1,74 +1,74 @@
 package com.baidu.swan.pms.c.d;
-/* loaded from: classes11.dex */
-public class c extends f {
-    private String drn;
-    private int dro;
-    private long drp;
-    private String drq;
-    private String drr;
-    private int drt;
+/* loaded from: classes19.dex */
+public class c extends g {
+    private String dxf;
+    private int dxg;
+    private long dxh;
+    private String dxi;
+    private String dxj;
+    private int dxk;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.dro = -1;
-        this.drp = -1L;
-        this.drt = -1;
-        this.drn = str;
+        this.dxg = -1;
+        this.dxh = -1L;
+        this.dxk = -1;
+        this.dxf = str;
     }
 
-    public c jt(int i) {
-        this.drt = i;
+    public c jM(int i) {
+        this.dxk = i;
         return this;
     }
 
-    public int aHW() {
-        return this.drt;
+    public int aLN() {
+        return this.dxk;
     }
 
-    public c tv(String str) {
-        this.drq = str;
+    public c uy(String str) {
+        this.dxi = str;
         return this;
     }
 
-    public c ju(int i) {
-        this.dro = i;
+    public c jN(int i) {
+        this.dxg = i;
         return this;
     }
 
-    public c bO(long j) {
-        this.drp = j;
+    public c ce(long j) {
+        this.dxh = j;
         return this;
     }
 
-    public c tw(String str) {
-        this.drr = str;
+    public c uz(String str) {
+        this.dxj = str;
         return this;
     }
 
-    public c tx(String str) {
+    public c uA(String str) {
         this.mPath = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.drn;
+        return this.dxf;
     }
 
-    public int aHU() {
-        return this.dro;
+    public int aLL() {
+        return this.dxg;
     }
 
-    public long aHV() {
-        return this.drp;
+    public long aLM() {
+        return this.dxh;
     }
 
-    public String aHX() {
-        return this.drq;
+    public String aLO() {
+        return this.dxi;
     }
 
-    public String aHY() {
-        return this.drr;
+    public String aLP() {
+        return this.dxj;
     }
 
     public String getPath() {

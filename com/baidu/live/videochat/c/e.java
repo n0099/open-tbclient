@@ -1,5 +1,5 @@
 package com.baidu.live.videochat.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface e extends c {
     void A(int i, String str);
 
@@ -9,15 +9,15 @@ public interface e extends c {
 
     void D(int i, String str);
 
-    void JA();
+    void JH();
 
-    void JB();
+    void JI();
 
-    void JC();
+    void JJ();
 
-    void JD();
+    void JK();
 
-    void JE();
+    void JL();
 
     void a(com.baidu.live.videochat.b.a aVar);
 

@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.imageManager.c;
 import com.squareup.wire.Wire;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
     private Handler mHandler;
 
@@ -47,9 +47,9 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                         int optInt2 = jSONObject.optInt("video_channel_id", 0);
                         intent.putExtra("video_channel_id", optInt2);
                         intent.putExtra("id", jSONObject.optString("tid"));
-                        TiebaStatic.log(new ao("c11917").ag("obj_id", optInt2));
+                        TiebaStatic.log(new ap("c11917").ah("obj_id", optInt2));
                     } else if (optInt == 126) {
-                        TiebaStatic.log(new ao("c12100"));
+                        TiebaStatic.log(new ap("c12100"));
                         intent.putExtra("is_live", 1);
                         intent.putExtra("is_live_lcs", 1);
                     }
@@ -64,9 +64,9 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                             optString2 = "";
                         }
                         if (!StringUtils.isNull(optString3)) {
-                            a yO = c.bgz().yO(optString4 + 10);
-                            if (yO != null && yO.getRawBitmap() != null) {
-                                NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, yO.getRawBitmap(), false);
+                            a zV = c.bkk().zV(optString4 + 10);
+                            if (zV != null && zV.getRawBitmap() != null) {
+                                NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, zV.getRawBitmap(), false);
                                 return;
                             } else if (!StringUtils.isNull(optString4)) {
                                 final String str = optString2;

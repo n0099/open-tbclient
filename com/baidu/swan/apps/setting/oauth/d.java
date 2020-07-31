@@ -2,12 +2,12 @@ package com.baidu.swan.apps.setting.oauth;
 
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public abstract class d {
     private Exception Pr;
-    private b cIX;
+    private b cMh;
 
-    protected abstract boolean arB() throws Exception;
+    protected abstract boolean att() throws Exception;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Exception getException() {
@@ -16,7 +16,7 @@ public abstract class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d a(b bVar) {
-        this.cIX = bVar;
+        this.cMh = bVar;
         return this;
     }
 
@@ -26,13 +26,13 @@ public abstract class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d arC() {
+    public d atu() {
         AsyncTask.execute(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (d.this.arB()) {
-                        d.this.arD();
+                    if (d.this.att()) {
+                        d.this.atv();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -43,7 +43,7 @@ public abstract class d {
         return this;
     }
 
-    public void arD() {
+    public void atv() {
         t(null);
     }
 
@@ -52,7 +52,7 @@ public abstract class d {
         c.k(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.this.cIX.b(d.this);
+                d.this.cMh.b(d.this);
             }
         });
     }

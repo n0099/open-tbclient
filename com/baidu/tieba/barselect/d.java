@@ -6,9 +6,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<com.baidu.tieba.barselect.data.d> gKy;
+    private List<com.baidu.tieba.barselect.data.d> gQe;
     private TbPageContext mPageContext;
     private f mVoteData;
 
@@ -19,7 +19,7 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void a(f fVar) {
         this.mVoteData = fVar;
         if (fVar != null) {
-            this.gKy = fVar.bNu();
+            this.gQe = fVar.bQF();
         }
         notifyDataSetChanged();
     }
@@ -40,17 +40,17 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.gKy != null) {
-            return this.gKy.size();
+        if (this.gQe != null) {
+            return this.gQe.size();
         }
         return 0;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        if (this.gKy == null || this.gKy.size() <= i || this.gKy.get(i).getRank() != 1 || i != 0) {
+        if (this.gQe == null || this.gQe.size() <= i || this.gQe.get(i).getRank() != 1 || i != 0) {
             return 0;
         }
-        return com.baidu.tieba.barselect.a.a.gNz;
+        return com.baidu.tieba.barselect.a.a.gTf;
     }
 }

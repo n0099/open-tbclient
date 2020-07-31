@@ -16,81 +16,81 @@ import com.baidu.live.tieba.view.NoScrollGridView;
 import com.baidu.live.utils.k;
 import com.baidu.tieba.ala.liveroom.master.panel.a;
 import com.baidu.tieba.compatible.StatusBarUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends Dialog {
-    private NoScrollGridView gmA;
-    private com.baidu.tieba.ala.liveroom.master.panel.a gmB;
-    private a gmC;
-    public final int gmm;
-    private a.InterfaceC0575a gmq;
-    private final int gms;
-    private final int gmt;
-    private final int gmu;
-    private final int gmv;
-    private boolean gmw;
-    private int gmx;
-    private int gmy;
-    private FrameLayout gmz;
+    private a grA;
+    public final int grk;
+    private a.InterfaceC0585a gro;
+    private final int grq;
+    private final int grr;
+    private final int grs;
+    private final int grt;
+    private boolean gru;
+    private int grv;
+    private int grw;
+    private FrameLayout grx;
+    private NoScrollGridView gry;
+    private com.baidu.tieba.ala.liveroom.master.panel.a grz;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        void bHr();
+        void bKA();
 
-        void bHs();
+        void bKx();
 
-        void bHt();
+        void bKy();
 
-        void bHu();
+        void bKz();
 
-        void ll(boolean z);
+        void lO(boolean z);
 
-        void lm(boolean z);
+        void lP(boolean z);
 
-        void ln(boolean z);
+        void lQ(boolean z);
 
-        void lo(boolean z);
+        void lR(boolean z);
     }
 
     public b(Context context, boolean z) {
         super(context);
-        this.gmm = (BdUtilHelper.getScreenDimensions(TbadkCoreApplication.getInst())[1] - (TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds60) * 2)) / 4;
-        this.gms = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds12);
-        this.gmt = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds16);
-        this.gmu = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds60);
-        this.gmv = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds17);
-        this.gmy = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds24);
-        this.gmq = new a.InterfaceC0575a() { // from class: com.baidu.tieba.ala.liveroom.master.panel.b.1
-            @Override // com.baidu.tieba.ala.liveroom.master.panel.a.InterfaceC0575a
+        this.grk = (BdUtilHelper.getScreenDimensions(TbadkCoreApplication.getInst())[1] - (TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds60) * 2)) / 4;
+        this.grq = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds12);
+        this.grr = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds16);
+        this.grs = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds60);
+        this.grt = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds17);
+        this.grw = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds24);
+        this.gro = new a.InterfaceC0585a() { // from class: com.baidu.tieba.ala.liveroom.master.panel.b.1
+            @Override // com.baidu.tieba.ala.liveroom.master.panel.a.InterfaceC0585a
             public void H(int i, boolean z2) {
-                if (b.this.gmC != null) {
+                if (b.this.grA != null) {
                     if (i == 1) {
-                        b.this.gmC.ll(z2);
+                        b.this.grA.lO(z2);
                     } else if (i == 2) {
-                        b.this.gmC.lm(z2);
+                        b.this.grA.lP(z2);
                     } else if (i == 3) {
-                        b.this.gmC.ln(z2);
+                        b.this.grA.lQ(z2);
                     } else if (i == 4) {
-                        b.this.gmC.lo(z2);
+                        b.this.grA.lR(z2);
                     } else if (i == 5) {
-                        b.this.gmC.bHr();
+                        b.this.grA.bKx();
                     } else if (i == 6) {
-                        b.this.gmC.bHs();
+                        b.this.grA.bKy();
                     } else if (i == 7) {
-                        b.this.gmC.bHt();
+                        b.this.grA.bKz();
                     } else if (i == 8) {
-                        b.this.gmC.bHu();
+                        b.this.grA.bKA();
                     }
                 }
             }
         };
-        this.gmw = z;
+        this.gru = z;
         if (UtilHelper.getRealScreenOrientation(context) == 2) {
             getContext().setTheme(a.j.theme_operation_landscape_dialog);
         } else {
             getContext().setTheme(a.j.theme_operation_portrait_dialog);
         }
-        this.gmB = new com.baidu.tieba.ala.liveroom.master.panel.a(getContext(), z);
-        this.gmB.a(this.gmq);
+        this.grz = new com.baidu.tieba.ala.liveroom.master.panel.a(getContext(), z);
+        this.grz.a(this.gro);
     }
 
     @Override // android.app.Dialog
@@ -98,39 +98,39 @@ public class b extends Dialog {
         super.onCreate(bundle);
         StatusBarUtil.from(this).setTransparentStatusbar(true).process();
         createView();
-        bHA();
-        bHz();
+        bKG();
+        bKF();
     }
 
-    private void bHz() {
-        this.gmz.addView(this.gmA);
+    private void bKF() {
+        this.grx.addView(this.gry);
         View view = new View(getContext());
         view.setBackgroundColor(getContext().getResources().getColor(a.d.sdk_white_alpha10));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(a.e.sdk_ds2));
-        layoutParams.topMargin = this.gmx;
-        layoutParams.leftMargin = this.gmy;
-        layoutParams.rightMargin = this.gmy;
-        this.gmz.addView(view, layoutParams);
-        setContentView(this.gmz);
+        layoutParams.topMargin = this.grv;
+        layoutParams.leftMargin = this.grw;
+        layoutParams.rightMargin = this.grw;
+        this.grx.addView(view, layoutParams);
+        setContentView(this.grx);
     }
 
     public void a(a aVar) {
-        this.gmC = aVar;
+        this.grA = aVar;
     }
 
     private void createView() {
-        this.gmz = new FrameLayout(getContext());
-        this.gmA = new NoScrollGridView(getContext());
-        this.gmA.setAdapter((ListAdapter) this.gmB);
+        this.grx = new FrameLayout(getContext());
+        this.gry = new NoScrollGridView(getContext());
+        this.gry.setAdapter((ListAdapter) this.grz);
         View findViewById = findViewById(16908290);
         if (findViewById == null) {
-            this.gmA.setBackgroundColor(getContext().getResources().getColor(a.d.sdk_black_alpha85));
+            this.gry.setBackgroundColor(getContext().getResources().getColor(a.d.sdk_black_alpha85));
         } else {
             findViewById.setBackgroundColor(getContext().getResources().getColor(a.d.sdk_black_alpha85));
         }
     }
 
-    private void bHA() {
+    private void bKG() {
         Display defaultDisplay = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay();
         int navigationBarHeight = k.getNavigationBarHeight(getContext());
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
@@ -139,37 +139,27 @@ public class b extends Dialog {
             attributes.height = defaultDisplay.getHeight();
             getWindow().setAttributes(attributes);
             getWindow().setGravity(5);
-            this.gmA.setNumColumns(2);
-            this.gmA.setPadding(this.gms, this.gmu, navigationBarHeight + this.gmt, this.gmu);
-            this.gmx = ((this.gmw ? this.gmm : this.gmm * 2) + this.gmu) - getContext().getResources().getDimensionPixelSize(a.e.sdk_ds4);
+            this.gry.setNumColumns(2);
+            this.gry.setPadding(this.grq, this.grs, navigationBarHeight + this.grr, this.grs);
+            this.grv = ((this.gru ? this.grk : this.grk * 2) + this.grs) - getContext().getResources().getDimensionPixelSize(a.e.sdk_ds4);
         } else {
             attributes.width = defaultDisplay.getWidth();
-            if (this.gmw) {
+            if (this.gru) {
                 attributes.height = getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds184) + navigationBarHeight;
             } else {
                 attributes.height = getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds334) + navigationBarHeight;
             }
             getWindow().setAttributes(attributes);
             getWindow().setGravity(80);
-            this.gmA.setNumColumns(4);
-            this.gmA.setPadding(this.gmv, getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds32), this.gmv, 0);
+            this.gry.setNumColumns(4);
+            this.gry.setPadding(this.grt, getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds32), this.grt, 0);
         }
         setCanceledOnTouchOutside(true);
         setCancelable(true);
     }
 
-    public void lp(boolean z) {
-        this.gmB.a(1, z ? (short) 1 : (short) 2);
-    }
-
-    public void J(boolean z, boolean z2) {
-        short s = 1;
-        if (!z2) {
-            s = 3;
-        } else if (!z) {
-            s = 2;
-        }
-        this.gmB.a(2, s);
+    public void lS(boolean z) {
+        this.grz.a(1, z ? (short) 1 : (short) 2);
     }
 
     public void K(boolean z, boolean z2) {
@@ -179,14 +169,24 @@ public class b extends Dialog {
         } else if (!z) {
             s = 2;
         }
-        this.gmB.a(3, s);
+        this.grz.a(2, s);
     }
 
-    public void lq(boolean z) {
-        this.gmB.a(4, z ? (short) 1 : (short) 2);
+    public void L(boolean z, boolean z2) {
+        short s = 1;
+        if (!z2) {
+            s = 3;
+        } else if (!z) {
+            s = 2;
+        }
+        this.grz.a(3, s);
     }
 
-    public void bHB() {
-        this.gmB.notifyDataSetChanged();
+    public void lT(boolean z) {
+        this.grz.a(4, z ? (short) 1 : (short) 2);
+    }
+
+    public void bKH() {
+        this.grz.notifyDataSetChanged();
     }
 }

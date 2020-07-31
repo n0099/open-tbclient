@@ -3,7 +3,7 @@ package com.kascend.chushou.widget.gifts;
 import com.kascend.chushou.constants.ParserRet;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d extends com.kascend.chushou.view.base.c<f> {
     private String c = "";
     private int d = 1;
@@ -16,7 +16,7 @@ public class d extends com.kascend.chushou.view.base.c<f> {
     }
 
     public void c() {
-        com.kascend.chushou.c.c.dIP().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.gifts.d.1
+        com.kascend.chushou.c.c.dMk().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.gifts.d.1
             @Override // com.kascend.chushou.c.b
             public void a() {
             }
@@ -24,9 +24,9 @@ public class d extends com.kascend.chushou.view.base.c<f> {
             @Override // com.kascend.chushou.c.b
             public void a(String str, JSONObject jSONObject) {
                 if (d.this.b()) {
-                    ParserRet dT = com.kascend.chushou.c.f.dT(jSONObject);
-                    ((f) d.this.b).h((List) dT.mData, true, false);
-                    d.this.c = dT.mBreakpoint;
+                    ParserRet ea = com.kascend.chushou.c.f.ea(jSONObject);
+                    ((f) d.this.b).g((List) ea.mData, true, false);
+                    d.this.c = ea.mBreakpoint;
                 }
             }
 

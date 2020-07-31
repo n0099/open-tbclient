@@ -8,42 +8,42 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.ap;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.aq;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.OriginalThreadCardView;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class c extends a {
-    private OriginalThreadCardView gSC;
-    private int keB;
-    private int kez;
+    private OriginalThreadCardView gYh;
+    private int knm;
+    private int kno;
 
     public c(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
-        this.kez = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds34);
-        this.keB = i;
+        this.knm = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds34);
+        this.kno = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
-        if (this.gSC == null) {
-            this.gSC = new OriginalThreadCardView(this.dPv.getPageActivity());
-            this.gSC.gTq = this.keB;
-            this.gSC.setSubClickListener(new OriginalThreadCardView.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1
+        if (this.gYh == null) {
+            this.gYh = new OriginalThreadCardView(this.dVN.getPageActivity());
+            this.gYh.gYV = this.kno;
+            this.gYh.setSubClickListener(new OriginalThreadCardView.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1
                 @Override // com.baidu.tieba.card.OriginalThreadCardView.a
                 public void a(OriginalThreadInfo originalThreadInfo) {
-                    if (c.this.krs != null) {
-                        c.this.krs.a(c.this.gSC, new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.c.1.1
+                    if (c.this.kAq != null) {
+                        c.this.kAq.a(c.this.gYh, new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.c.1.1
                             @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-                            public bu aPS() {
-                                if (c.this.krt != null) {
-                                    return c.this.krt.aQQ();
+                            public bv aTN() {
+                                if (c.this.kAr != null) {
+                                    return c.this.kAr.aUM();
                                 }
                                 return null;
                             }
 
                             @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-                            public ap aPU() {
+                            public aq aTP() {
                                 return null;
                             }
 
@@ -56,20 +56,20 @@ public class c extends a {
                 }
             });
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.bottomMargin = this.kez;
-            layoutParams.leftMargin = this.kez;
-            layoutParams.rightMargin = this.kez;
-            this.gSC.setLayoutParams(layoutParams);
-            this.gSC.onChangeSkinType();
+            layoutParams.bottomMargin = this.knm;
+            layoutParams.leftMargin = this.knm;
+            layoutParams.rightMargin = this.knm;
+            this.gYh.setLayoutParams(layoutParams);
+            this.gYh.onChangeSkinType();
         }
-        return this.gSC;
+        return this.gYh;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.krt = originalThreadInfo;
-        if (this.gSC != null) {
-            this.gSC.b(this.krt);
+        this.kAr = originalThreadInfo;
+        if (this.gYh != null) {
+            this.gYh.b(this.kAr);
         }
     }
 
@@ -77,8 +77,8 @@ public class c extends a {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            if (this.gSC != null) {
-                this.gSC.onChangeSkinType();
+            if (this.gYh != null) {
+                this.gYh.onChangeSkinType();
             }
         }
     }

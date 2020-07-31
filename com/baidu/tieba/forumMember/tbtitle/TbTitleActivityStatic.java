@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class TbTitleActivityStatic {
     public static String Tag = "tag";
 

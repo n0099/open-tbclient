@@ -3,47 +3,47 @@ package com.baidu.tbadk.l;
 import android.content.Intent;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b {
-    private String eAf;
-    private final ArrayList<String> eAg = new ArrayList<>();
+    private String eGv;
+    private final ArrayList<String> eGw = new ArrayList<>();
     private BdUniqueId mId;
 
     public b(BdUniqueId bdUniqueId, String str, Intent intent) {
         this.mId = bdUniqueId;
-        this.eAf = str;
+        this.eGv = str;
         G(intent);
     }
 
     public void G(Intent intent) {
-        this.eAg.clear();
+        this.eGw.clear();
         if (intent != null) {
             ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra("tb_page_extar_source_list");
-            if (!w.isEmpty(stringArrayListExtra)) {
-                this.eAg.addAll(stringArrayListExtra);
+            if (!x.isEmpty(stringArrayListExtra)) {
+                this.eGw.addAll(stringArrayListExtra);
             }
         }
     }
 
     public String getCurrentPageKey() {
-        return this.eAf;
+        return this.eGv;
     }
 
-    public ArrayList<String> bht() {
-        return this.eAg;
+    public ArrayList<String> ble() {
+        return this.eGw;
     }
 
-    public ArrayList<String> bhu() {
-        return c.d(this.eAg, this.eAf);
+    public ArrayList<String> blf() {
+        return c.d(this.eGw, this.eGv);
     }
 
-    public String bhv() {
-        return (String) w.getItem(this.eAg, w.getCount(this.eAg) - 1);
+    public String blg() {
+        return (String) x.getItem(this.eGw, x.getCount(this.eGw) - 1);
     }
 
     public boolean isDirtyData() {
-        return StringUtils.isNull(this.eAf);
+        return StringUtils.isNull(this.eGv);
     }
 }

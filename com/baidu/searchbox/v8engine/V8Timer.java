@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeSet;
 @NotProguard
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class V8Timer implements V8Engine.V8StatusListener {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final boolean DEBUG = false;
@@ -37,7 +37,10 @@ public class V8Timer implements V8Engine.V8StatusListener {
     public void destroy() {
         this.mDestroyed = true;
         for (Long l : new TreeSet(this.mActiveTimer.keySet())) {
-            removeTimeTask(l.longValue());
+            TimeTask timeTask = this.mActiveTimer.get(l);
+            if (timeTask != null) {
+                removeTimeTask(timeTask.mTimerID, timeTask.mTimerPtr);
+            }
         }
         this.mV8Engine = null;
         this.mActiveTimer.clear();
@@ -66,18 +69,18 @@ public class V8Timer implements V8Engine.V8StatusListener {
         }
     }
 
-    public synchronized void addTimeTask(long j, long j2, boolean z) {
+    public synchronized void addTimeTask(long j, long j2, long j3, boolean z) {
         if (!$assertionsDisabled && (!this.mInitialized || this.mDestroyed)) {
             throw new AssertionError();
         }
-        TimeTask timeTask = new TimeTask(j, j2, z);
+        TimeTask timeTask = new TimeTask(j, j2, j3, z);
         this.mActiveTimer.put(Long.valueOf(j), timeTask);
         if (!this.mV8Engine.isPaused()) {
-            this.mUiHandler.postDelayed(timeTask, j2);
+            this.mUiHandler.postDelayed(timeTask, j3);
         }
     }
 
-    public synchronized void removeTimeTask(long j) {
+    public synchronized void removeTimeTask(long j, long j2) {
         if (!$assertionsDisabled && !this.mInitialized) {
             throw new AssertionError();
         }
@@ -86,23 +89,25 @@ public class V8Timer implements V8Engine.V8StatusListener {
             timeTask.mRemoved = true;
             this.mUiHandler.removeCallbacks(timeTask);
             this.mActiveTimer.remove(Long.valueOf(j));
-            nativeRemoveTimer(j);
+            nativeRemoveTimer(j2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class TimeTask implements Runnable {
         volatile boolean mRemoved;
         boolean mRepeat;
         long mStart = System.currentTimeMillis();
         long mTimeOut;
         long mTimerID;
+        long mTimerPtr;
 
-        public TimeTask(long j, long j2, boolean z) {
+        public TimeTask(long j, long j2, long j3, boolean z) {
             this.mRemoved = false;
             this.mTimerID = j;
-            this.mTimeOut = j2;
+            this.mTimerPtr = j2;
+            this.mTimeOut = j3;
             this.mRepeat = z;
             this.mRemoved = false;
         }
@@ -132,16 +137,20 @@ public class V8Timer implements V8Engine.V8StatusListener {
                             if (!$assertionsDisabled && V8Timer.this.mV8Engine.isPaused()) {
                                 throw new AssertionError();
                             }
-                            V8Timer.this.nativeTimeOutCallback(TimeTask.this.mTimerID);
+                            V8Timer.this.nativeTimeOutCallback(TimeTask.this.mTimerPtr);
                             if (TimeTask.this.mRepeat) {
                                 V8Timer.this.mUiHandler.postDelayed(TimeTask.this, TimeTask.this.mTimeOut);
                             } else {
-                                V8Timer.this.removeTimeTask(TimeTask.this.mTimerID);
+                                V8Timer.this.removeTimeTask(TimeTask.this.mTimerID, TimeTask.this.mTimerPtr);
                             }
                         }
                     }
                 });
             }
+        }
+
+        public String toString() {
+            return "TimeTask{mTimerID=" + this.mTimerID + ", mTimerPtr=" + this.mTimerPtr + ", mTimeOut=" + this.mTimeOut + ", mStart=" + this.mStart + ", mRepeat=" + this.mRepeat + ", mRemoved=" + this.mRemoved + '}';
         }
     }
 }

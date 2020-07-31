@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.chatmessage.request.Type;
 import com.baidu.android.imsdk.chatmessage.sync.Generator;
 import com.baidu.android.imsdk.chatmessage.sync.SyncGroupMessageService;
 import com.baidu.android.imsdk.chatmessage.sync.SyncStrategy;
-import com.baidu.android.imsdk.mcast.McastManagerImpl;
+import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
 import com.baidu.android.imsdk.request.HeartbeatMessage;
 import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.request.RcvMessage;
@@ -304,7 +304,7 @@ public abstract class IMessageHandler {
         } else {
             LogUtils.e(TAG, "handleMcastMessage cast error!!");
         }
-        McastManagerImpl.getInstance(this.mContext).handleMessage(jSONObject);
+        ConversationStudioManImpl.getInstance(this.mContext).handleMessage(jSONObject);
     }
 
     /* JADX WARN: Type inference failed for: r3v5, types: [T, java.lang.Long] */

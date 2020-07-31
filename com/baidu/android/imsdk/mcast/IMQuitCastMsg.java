@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.mcast;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.request.Message;
@@ -56,35 +57,42 @@ public class IMQuitCastMsg extends Message {
 
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        long j;
         String str2;
         int i2;
-        long j2 = -1;
+        long j = -1;
         if (i == 0) {
             try {
-                McastConfig.mLiveShowing = false;
                 if (jSONObject.has("msg")) {
                     jSONObject.getString("msg");
                 }
                 if (jSONObject.has("mcast_id")) {
-                    j2 = jSONObject.getLong("mcast_id");
+                    j = jSONObject.getLong("mcast_id");
+                    str2 = str;
+                    i2 = i;
                 } else {
-                    i = 1015;
-                    str = Constants.ERROR_MSG_SERVER_INTERNAL_ERROR;
+                    str2 = Constants.ERROR_MSG_SERVER_INTERNAL_ERROR;
+                    i2 = 1015;
                 }
-                j = j2;
+                if (j > 0) {
+                    try {
+                        ConversationStudioManImpl.getInstance(context).removeAckCastId(j);
+                    } catch (Exception e) {
+                        e = e;
+                        LogUtils.e(TAG, "handle IMQuitCastMsg exception :", e);
+                        LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str2);
+                        ConversationStudioManImpl.getInstance(this.mContext).onQuitCastResult(getListenerKey(), i2, str2, j);
+                    }
+                }
+            } catch (Exception e2) {
+                e = e2;
                 str2 = str;
                 i2 = i;
-            } catch (Exception e) {
-                LogUtils.e(TAG, "handle IMQuitCastMsg exception :", e);
             }
-            LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str2);
-            McastManagerImpl.getInstance(this.mContext).onQuitCastResult(getListenerKey(), i2, str2, j);
+        } else {
+            str2 = str;
+            i2 = i;
         }
-        j = -1;
-        str2 = str;
-        i2 = i;
         LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str2);
-        McastManagerImpl.getInstance(this.mContext).onQuitCastResult(getListenerKey(), i2, str2, j);
+        ConversationStudioManImpl.getInstance(this.mContext).onQuitCastResult(getListenerKey(), i2, str2, j);
     }
 }

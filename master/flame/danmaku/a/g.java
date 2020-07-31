@@ -1,15 +1,15 @@
 package master.flame.danmaku.a;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface g {
     void clear();
 
-    boolean dRO();
+    boolean dVk();
 
-    long dRP();
+    long dVl();
 
-    boolean dRQ();
+    boolean dVm();
 
     Context getContext();
 

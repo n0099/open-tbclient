@@ -1,121 +1,31 @@
 package com.baidu.tbadk.core.data;
-
-import com.baidu.adp.lib.util.BdLog;
-import com.xiaomi.mipush.sdk.Constants;
-import org.json.JSONObject;
-import tbclient.TaskInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes17.dex */
 public class bs {
-    private long dKP;
-    private String dKQ;
-    private String dKR;
-    private long endTime;
-    private long forumId;
-    private String forumName;
-    private int mHeight;
-    private int mWidth;
-    private String obj_id;
-    private long taskId;
-    private long threadId;
+    protected String img_url = null;
+    protected String link = null;
+    protected String ckT = null;
 
-    public String getForumName() {
-        return this.forumName;
+    public String aUh() {
+        return this.img_url;
     }
 
-    public String getForumId() {
-        return this.forumId + "";
+    public void wU(String str) {
+        this.img_url = str;
     }
 
-    public long aRH() {
-        return this.dKP;
+    public String getLink() {
+        return this.link;
     }
 
-    public long aRI() {
-        return this.endTime;
+    public void setLink(String str) {
+        this.link = str;
     }
 
-    public String getTaskId() {
-        return this.taskId + "";
+    public String aVC() {
+        return this.ckT;
     }
 
-    public String getThreadId() {
-        return this.threadId + "";
-    }
-
-    public String getThreadImgUrl() {
-        return this.dKR;
-    }
-
-    public int aRJ() {
-        return this.mWidth;
-    }
-
-    public int aRK() {
-        return this.mHeight;
-    }
-
-    public String aRL() {
-        return this.obj_id;
-    }
-
-    public void a(TaskInfo taskInfo) {
-        if (taskInfo != null) {
-            this.forumName = taskInfo.forum_name;
-            this.forumId = taskInfo.forum_id.longValue();
-            this.taskId = taskInfo.task_id != null ? taskInfo.task_id.longValue() : -1L;
-            this.threadId = taskInfo.thread_id != null ? taskInfo.thread_id.longValue() : -1L;
-            this.dKQ = taskInfo.bgimg;
-            this.dKR = taskInfo.thread_img;
-            this.dKP = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
-            this.endTime = taskInfo.end_time != null ? taskInfo.end_time.longValue() : -1L;
-            String str = taskInfo.thread_img_size;
-            if (str != null) {
-                try {
-                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.mWidth = com.baidu.adp.lib.f.b.toInt(split[0], 1);
-                    this.mHeight = com.baidu.adp.lib.f.b.toInt(split[1], 1);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-            if (this.mWidth <= 0) {
-                this.mWidth = 1;
-            }
-            if (this.mHeight <= 0) {
-                this.mHeight = 1;
-            }
-            this.obj_id = taskInfo.obj_id;
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.forumName = jSONObject.optString("forum_name");
-                this.forumId = jSONObject.optLong("forum_id");
-                this.taskId = jSONObject.optLong("task_id");
-                this.threadId = jSONObject.optLong("thread_id");
-                this.dKQ = jSONObject.optString("bgimg");
-                this.dKP = jSONObject.optLong("start_time");
-                this.endTime = jSONObject.optLong("end_time");
-                this.dKR = jSONObject.optString("thread_img");
-                String optString = jSONObject.optString("thread_img_size");
-                if (optString != null && optString.length() > 0) {
-                    String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    if (split.length > 1) {
-                        this.mWidth = Integer.valueOf(split[0]).intValue();
-                        this.mHeight = Integer.valueOf(split[1]).intValue();
-                    }
-                }
-                if (this.mWidth <= 0) {
-                    this.mWidth = 1;
-                }
-                if (this.mHeight <= 0) {
-                    this.mHeight = 1;
-                }
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
-        }
+    public void wV(String str) {
+        this.ckT = str;
     }
 }

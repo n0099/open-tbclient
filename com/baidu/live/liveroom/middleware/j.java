@@ -4,13 +4,13 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import com.baidu.live.data.AlaLivePersonData;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface j {
     void F(Object obj);
 
-    View FB();
+    View Fv();
 
-    void FC();
+    void Fw();
 
     void a(com.baidu.live.liveroom.g.a aVar);
 

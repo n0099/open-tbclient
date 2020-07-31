@@ -9,10 +9,10 @@ import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.ag;
-import com.baidu.swan.apps.aq.aj;
-import com.baidu.swan.apps.aq.n;
-import com.baidu.swan.apps.aq.t;
+import com.baidu.swan.apps.aq.ai;
+import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.aq.p;
+import com.baidu.swan.apps.aq.v;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
@@ -26,7 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a extends aa {
     private String mName;
 
@@ -41,7 +41,7 @@ public class a extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        this.mName = t.parseString(unitedSchemeEntity.getParam("params")).optString("name");
+        this.mName = v.parseString(unitedSchemeEntity.getParam("params")).optString("name");
         if (TextUtils.isEmpty(this.mName)) {
             c.e("Screenshot", "invalid params");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -52,17 +52,17 @@ public class a extends aa {
     }
 
     private void c(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, @NonNull final e eVar) {
-        aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1
+        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1
             @Override // java.lang.Runnable
             public void run() {
-                final Bitmap auM = ag.auM();
-                if (auM == null) {
+                final Bitmap awS = ai.awS();
+                if (awS == null) {
                     a.this.d(unitedSchemeEntity, callbackHandler, "can't get screenshot");
                 } else {
-                    n.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1.1
+                    p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.a(auM, unitedSchemeEntity, callbackHandler, eVar);
+                            a.this.a(awS, unitedSchemeEntity, callbackHandler, eVar);
                         }
                     }, "savescreenshot");
                 }
@@ -93,9 +93,9 @@ public class a extends aa {
     */
     public void a(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull e eVar) {
         FileOutputStream fileOutputStream;
-        String oW = b.oW(eVar.id);
-        if (oW != null) {
-            String str = oW + File.separator + StatisticConstants.SCREENSHOT;
+        String pH = b.pH(eVar.id);
+        if (pH != null) {
+            String str = pH + File.separator + StatisticConstants.SCREENSHOT;
             File file = new File(str);
             if (!file.exists() || !file.isDirectory()) {
                 file.delete();
@@ -112,8 +112,8 @@ public class a extends aa {
                     fileOutputStream = new FileOutputStream(sb);
                     try {
                         bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
-                        c.d("Screenshot", "save screenshot to " + sb);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a(true, b.bY(sb, eVar.id), "success"), 0));
+                        c.i("Screenshot", "save screenshot to " + sb);
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a(true, b.bZ(sb, eVar.id), "success"), 0));
                         r1 = fileOutputStream;
                         if (fileOutputStream != null) {
                             try {

@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener, ICyberVideoView {
     static String a = "BVideoView";
     private float A;
@@ -79,7 +79,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
                         if (buffer != null) {
                             Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
                             createBitmap.copyPixelsFromBuffer(buffer);
-                            Bitmap a2 = m.a(createBitmap);
+                            Bitmap a2 = n.a(createBitmap);
                             CyberLog.d(BVideoView.a, "onTakeSnapShot rotate bmp finished");
                             synchronized (BVideoView.this.w) {
                                 for (int i3 = 0; i3 < BVideoView.this.w.size(); i3++) {
@@ -214,15 +214,15 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     }
 
     private void c() {
-        ArrayList<a.C0107a> b;
+        ArrayList<a.C0104a> b;
         if (this.c == null || (b = this.v.b()) == null) {
             return;
         }
         int size = b.size();
         for (int i = 0; i < size; i++) {
-            a.C0107a c0107a = b.get(i);
-            if (c0107a != null && c0107a.a() != null) {
-                this.c.setExternalInfo(c0107a.a(), c0107a.b());
+            a.C0104a c0104a = b.get(i);
+            if (c0104a != null && c0104a.a() != null) {
+                this.c.setExternalInfo(c0104a.a(), c0104a.b());
             }
         }
     }
@@ -254,7 +254,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void changeProxyDynamic(String str) {
-        if (this.c != null && TextUtils.isEmpty(m.c())) {
+        if (this.c != null && TextUtils.isEmpty(n.c())) {
             String str2 = this.k != null ? this.k.get(CyberPlayerManager.OPT_HTTP_PROXY) : null;
             if (TextUtils.isEmpty(str)) {
                 if (TextUtils.isEmpty(str2)) {
@@ -329,7 +329,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     }
 
     public int getDecodeMode() {
-        return this.x;
+        return this.c != null ? this.c.getDecodeMode() : this.x;
     }
 
     public long getDownloadSpeed() {
@@ -586,7 +586,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
             this.k.put(str, str2);
         }
         if (this.c != null) {
-            if (str == null || !str.equals(CyberPlayerManager.OPT_HTTP_PROXY) || TextUtils.isEmpty(m.c())) {
+            if (str == null || !str.equals(CyberPlayerManager.OPT_HTTP_PROXY) || TextUtils.isEmpty(n.c())) {
                 this.c.setOption(str, str2);
             }
         }

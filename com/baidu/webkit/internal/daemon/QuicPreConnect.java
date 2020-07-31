@@ -1,6 +1,7 @@
 package com.baidu.webkit.internal.daemon;
 
 import android.content.Context;
+import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.internal.ConectivityUtils;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
@@ -10,7 +11,7 @@ import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class QuicPreConnect implements INoProGuard, INetListener {
     private static final String LOG_TAG = "QuicPreConnect";
     private static boolean mDownloading = false;
@@ -40,7 +41,7 @@ public class QuicPreConnect implements INoProGuard, INetListener {
                 bdNetTask.setUrl(getUrl(context));
                 bdNet.start(bdNetTask, false);
             } catch (Exception e) {
-                com.a.a.a.a.a.a.a.a(e);
+                a.a(e);
             }
         }
     }

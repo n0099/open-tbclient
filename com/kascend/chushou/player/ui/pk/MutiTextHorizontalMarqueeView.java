@@ -3,7 +3,7 @@ package com.kascend.chushou.player.ui.pk;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MutiTextHorizontalMarqueeView extends HorizontalMarqueeView {
     private int u;
     private int v;
@@ -30,7 +30,7 @@ public class MutiTextHorizontalMarqueeView extends HorizontalMarqueeView {
         if (z) {
             textView.setShadowLayer(i5, i6, i7, i8);
         }
-        n(textView, i3, i4);
+        p(textView, i3, i4);
         textView.measure(0, 0);
         this.u = textView.getMeasuredWidth();
         this.v = i3;
@@ -44,7 +44,7 @@ public class MutiTextHorizontalMarqueeView extends HorizontalMarqueeView {
             if (z) {
                 textView2.setShadowLayer(i5, i6, i7, i8);
             }
-            n(textView2, i3, i4);
+            p(textView2, i3, i4);
         }
     }
 

@@ -351,7 +351,7 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                                         }
                                     }
                                 } else if (optInt == 1) {
-                                    httpDNSCacheInfo.mIpLiveTime = Constants.HTTP_DNS_INAVAILABLE_TIME;
+                                    httpDNSCacheInfo.mIpLiveTime = 600;
                                     httpDNSCacheInfo.mApn = Utils.getWifiOr2gOr3G(this.mContext);
                                     httpDNSCacheInfo.mRequestTime = SystemClock.elapsedRealtime();
                                 }

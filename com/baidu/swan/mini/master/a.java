@@ -6,63 +6,63 @@ import android.util.Log;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.swan.games.f.g;
 import com.baidu.swan.games.f.h;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.f.a bXp;
-    private com.baidu.swan.games.binding.a cbT = new com.baidu.swan.games.binding.a();
-    private b dpq;
-    private String dpr;
+    private com.baidu.swan.games.f.a bYi;
+    private com.baidu.swan.games.binding.a cdx = new com.baidu.swan.games.binding.a();
+    private b dvh;
+    private String dvi;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void c(com.baidu.swan.games.f.a aVar);
     }
 
     public a(@NonNull String str, @NonNull String str2, @Nullable Object obj) {
-        this.bXp = g.a(aaM(), new C0461a(str, str2, obj), null);
+        this.bYi = g.a(abO(), new C0473a(str, str2, obj), null);
     }
 
     public void setCodeCacheSetting(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
-        this.bXp.setCodeCacheSetting(codeCacheSetting);
+        this.bYi.setCodeCacheSetting(codeCacheSetting);
     }
 
     public com.baidu.swan.games.f.a getV8Engine() {
-        return this.bXp;
+        return this.bYi;
     }
 
     public void finish() {
-        this.bXp.finish();
+        this.bYi.finish();
     }
 
-    private h aaM() {
-        return new h.a().iB(1).rF("master").aAP();
+    private h abO() {
+        return new h.a().iS(1).sE("master").aEu();
     }
 
     public void a(b bVar) {
-        this.dpq = bVar;
+        this.dvh = bVar;
     }
 
     @Nullable
-    public String aGu() {
-        return this.dpr;
+    public String aKl() {
+        return this.dvi;
     }
 
-    public void tg(@NonNull String str) {
-        this.dpr = str;
+    public void uj(@NonNull String str) {
+        this.dvi = str;
     }
 
     /* renamed from: com.baidu.swan.mini.master.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    private class C0461a extends com.baidu.swan.games.f.d.a {
-        private Object dps;
+    /* loaded from: classes7.dex */
+    private class C0473a extends com.baidu.swan.games.f.d.a {
+        private Object dvj;
         private String mBasePath;
         private String mFileName;
 
-        C0461a(@NonNull String str, @NonNull String str2, @Nullable Object obj) {
+        C0473a(@NonNull String str, @NonNull String str2, @Nullable Object obj) {
             this.mBasePath = str;
             this.mFileName = str2;
-            this.dps = obj;
+            this.dvj = obj;
             if (a.DEBUG) {
                 Log.d("SwanAppV8Master", "basePath: " + str + ", jsFile: " + str2);
             }
@@ -70,12 +70,12 @@ public class a {
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
         @Nullable
-        public V8EngineConfiguration.CodeCacheSetting aaN() {
-            if (com.baidu.swan.apps.u.a.aga().er(0)) {
+        public V8EngineConfiguration.CodeCacheSetting abP() {
+            if (com.baidu.swan.apps.t.a.ahm().et(0)) {
                 if (a.DEBUG) {
                     Log.d("SwanAppV8Master", "pathList item: " + this.mBasePath);
                 }
-                return com.baidu.swan.apps.core.b.a.aX("appframe", this.mBasePath);
+                return com.baidu.swan.apps.core.b.a.aZ("appframe", this.mBasePath);
             }
             return null;
         }
@@ -86,21 +86,21 @@ public class a {
         }
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
-        public String aaO() {
+        public String abQ() {
             return this.mFileName;
         }
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
         public void a(com.baidu.swan.games.f.a aVar) {
-            if (this.dps != null) {
-                aVar.addJavascriptInterface(this.dps, "___NA_SWAN_MINI___");
+            if (this.dvj != null) {
+                aVar.addJavascriptInterface(this.dvj, "___NA_SWAN_MINI___");
             }
         }
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
         public void b(com.baidu.swan.games.f.a aVar) {
-            if (a.this.dpq != null) {
-                a.this.dpq.c(aVar);
+            if (a.this.dvh != null) {
+                a.this.dvh.c(aVar);
             }
             aVar.onLoad();
         }

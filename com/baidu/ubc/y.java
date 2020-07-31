@@ -4,20 +4,20 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes13.dex */
+/* loaded from: classes9.dex */
 public class y {
-    public static void ub(String str) {
+    public static void ve(String str) {
     }
 
     public static void e(ah ahVar) {
         if (ahVar != null && !ahVar.isEmpty()) {
-            JSONArray aKd = ahVar.aKd();
-            int length = aKd.length();
-            boolean aKe = ahVar.aKe();
+            JSONArray aNU = ahVar.aNU();
+            int length = aNU.length();
+            boolean aNV = ahVar.aNV();
             for (int i = 0; i < length; i++) {
                 try {
-                    if (aKe != g.dwM().tM(aKd.getJSONObject(i).getString("id"))) {
-                        Log.w("UBCDebug", " data is " + aKe + "  content " + ahVar.dxe().toString());
+                    if (aNV != g.dzZ().uP(aNU.getJSONObject(i).getString("id"))) {
+                        Log.w("UBCDebug", " data is " + aNV + "  content " + ahVar.dAr().toString());
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

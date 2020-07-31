@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class ImSystemShowNotifyMessage extends CustomResponsedMessage<String> {
     private String curSysMid;
 

@@ -20,7 +20,7 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if ("callNativeSMS".equals(str2)) {
-                vs(str3);
+                wu(str3);
                 jsPromptResult.confirm("1");
                 return true;
             } else if ("copyToClipboard".equals(str2)) {
@@ -28,11 +28,11 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
                 jsPromptResult.confirm("1");
                 return true;
             } else if ("setBlockPopInfo".equals(str2)) {
-                vt(str3);
+                wv(str3);
                 jsPromptResult.confirm("1");
                 return true;
             } else if ("bindMobileNumber".equals(str2)) {
-                vu(str3);
+                ww(str3);
                 jsPromptResult.confirm("1");
                 return true;
             } else {
@@ -42,7 +42,7 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
         return false;
     }
 
-    private void vs(String str) {
+    private void wu(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             UtilHelper.smsTo(this.mTbPageContext.getPageActivity(), jSONObject.optString("phoneNumber"), jSONObject.optString("content"));
@@ -59,7 +59,7 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
         }
     }
 
-    private void vt(String str) {
+    private void wv(String str) {
         try {
             BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
             JSONObject jSONObject = new JSONObject(str);
@@ -77,9 +77,9 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
         }
     }
 
-    private void vu(String str) {
+    private void ww(String str) {
         try {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, i.aZZ()));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, i.bdW()));
         } catch (Exception e) {
             e.printStackTrace();
         }

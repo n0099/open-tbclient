@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class d {
     public String forumName;
-    public String hYF;
+    public String ieH;
 }

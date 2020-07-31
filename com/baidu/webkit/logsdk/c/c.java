@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public final class c {
     private b e;
     private final Object d = new Object();
@@ -274,6 +274,7 @@ public final class c {
                 if (length >= 1000) {
                     Arrays.sort(listFiles, new d(this));
                     int max = Math.max(length - 1000, 99);
+                    com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "checkLocalFileNum deleteNum " + max);
                     while (i <= max) {
                         com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "checkLocalFileNum i = " + i);
                         File file = listFiles[i];

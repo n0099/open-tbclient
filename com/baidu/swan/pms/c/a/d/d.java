@@ -1,19 +1,19 @@
 package com.baidu.swan.pms.c.a.d;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class d {
-    private static d dqL;
-    private com.baidu.swan.pms.c.a.c.b dqM = new com.baidu.swan.pms.c.a.c.b();
+    private static d dwD;
+    private com.baidu.swan.pms.c.a.c.b dwE = new com.baidu.swan.pms.c.a.c.b();
 
-    public static d aHE() {
-        if (dqL != null) {
-            return dqL;
+    public static d aLv() {
+        if (dwD != null) {
+            return dwD;
         }
         synchronized (d.class) {
-            if (dqL == null) {
-                dqL = new d();
+            if (dwD == null) {
+                dwD = new d();
             }
         }
-        return dqL;
+        return dwD;
     }
 
     private d() {
@@ -27,23 +27,23 @@ public class d {
     }
 
     public synchronized <T> void j(f<T> fVar) {
-        fVar.go(false);
-        this.dqM.b(fVar);
+        fVar.gJ(false);
+        this.dwE.b(fVar);
     }
 
-    public synchronized boolean tl(String str) {
-        return this.dqM.tl(str);
+    public synchronized boolean uo(String str) {
+        return this.dwE.uo(str);
     }
 
-    public synchronized boolean tm(String str) {
-        return this.dqM.tm(str);
+    public synchronized boolean up(String str) {
+        return this.dwE.up(str);
     }
 
     public synchronized void c(b bVar) {
-        this.dqM.a(bVar);
+        this.dwE.a(bVar);
     }
 
     public synchronized void d(b bVar) {
-        this.dqM.b(bVar);
+        this.dwE.b(bVar);
     }
 }

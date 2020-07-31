@@ -10,76 +10,76 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public class a extends com.baidu.adp.base.c<AboutActivity> {
-    private AboutActivity lpU;
-    private RelativeLayout lpV;
-    private TextView lpW;
-    private SettingTextTestNewView lpX;
-    private ImageView lpY;
-    private TbSettingTextTipView lpZ;
-    private TbSettingTextTipView lqa;
-    private TbSettingTextTipView lqb;
-    private TbSettingTextTipView lqc;
-    protected TextView lqd;
-    private ProgressBar lqe;
+    private AboutActivity lxl;
+    private RelativeLayout lxm;
+    private TextView lxn;
+    private SettingTextTestNewView lxo;
+    private ImageView lxp;
+    private TbSettingTextTipView lxq;
+    private TbSettingTextTipView lxr;
+    private TbSettingTextTipView lxs;
+    private TbSettingTextTipView lxt;
+    protected TextView lxu;
+    private ProgressBar lxv;
     private NavigationBar mNavigationBar;
 
     public a(AboutActivity aboutActivity, d dVar) {
         super(aboutActivity.getPageContext());
-        this.lpU = aboutActivity;
-        bdD();
+        this.lxl = aboutActivity;
+        bhm();
         a(dVar);
     }
 
-    public void dbL() {
-        if (this.lqe != null) {
-            this.lqe.setVisibility(0);
+    public void deS() {
+        if (this.lxv != null) {
+            this.lxv.setVisibility(0);
         }
     }
 
-    public void cev() {
-        if (this.lqe != null) {
-            this.lqe.setVisibility(8);
+    public void chU() {
+        if (this.lxv != null) {
+            this.lxv.setVisibility(8);
         }
     }
 
-    private void bdD() {
-        this.lpU.setContentView(R.layout.about_activity);
-        this.lpV = (RelativeLayout) this.lpU.findViewById(R.id.parent);
-        this.lpY = (ImageView) this.lpU.findViewById(R.id.image_logo);
-        this.mNavigationBar = (NavigationBar) this.lpU.findViewById(R.id.view_navigation_bar);
+    private void bhm() {
+        this.lxl.setContentView(R.layout.about_activity);
+        this.lxm = (RelativeLayout) this.lxl.findViewById(R.id.parent);
+        this.lxp = (ImageView) this.lxl.findViewById(R.id.image_logo);
+        this.mNavigationBar = (NavigationBar) this.lxl.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.lpU.getPageContext().getString(R.string.version_info));
-        this.lpW = (TextView) this.lpU.findViewById(R.id.text_versioninfo);
-        this.lpX = (SettingTextTestNewView) this.lpU.findViewById(R.id.about_version_update);
-        this.lpZ = (TbSettingTextTipView) this.lpU.findViewById(R.id.about_guide);
-        this.lpZ.hideArrow();
-        this.lqa = (TbSettingTextTipView) this.lpU.findViewById(R.id.tieba_protocol_text);
-        this.lqa.hideArrow();
-        this.lqb = (TbSettingTextTipView) this.lpU.findViewById(R.id.tieba_privacy_text);
-        this.lqb.hideArrow();
-        this.lqc = (TbSettingTextTipView) this.lpU.findViewById(R.id.tieba_tdou_use_introduce);
-        this.lqc.hideArrow();
-        this.lqe = (ProgressBar) this.lpU.findViewById(R.id.about_progress);
+        this.mNavigationBar.setTitleText(this.lxl.getPageContext().getString(R.string.version_info));
+        this.lxn = (TextView) this.lxl.findViewById(R.id.text_versioninfo);
+        this.lxo = (SettingTextTestNewView) this.lxl.findViewById(R.id.about_version_update);
+        this.lxq = (TbSettingTextTipView) this.lxl.findViewById(R.id.about_guide);
+        this.lxq.hideArrow();
+        this.lxr = (TbSettingTextTipView) this.lxl.findViewById(R.id.tieba_protocol_text);
+        this.lxr.hideArrow();
+        this.lxs = (TbSettingTextTipView) this.lxl.findViewById(R.id.tieba_privacy_text);
+        this.lxs.hideArrow();
+        this.lxt = (TbSettingTextTipView) this.lxl.findViewById(R.id.tieba_tdou_use_introduce);
+        this.lxt.hideArrow();
+        this.lxv = (ProgressBar) this.lxl.findViewById(R.id.about_progress);
         String version = TbConfig.getVersion();
-        if (TbConfig.getVersionType() == 1 && !ar.isEmpty(TbConfig.getSubVersion())) {
+        if (TbConfig.getVersionType() == 1 && !as.isEmpty(TbConfig.getSubVersion())) {
             version = version + "." + TbConfig.getSubVersion();
         }
-        this.lpW.setText(this.lpU.getPageContext().getString(TbadkCoreApplication.getInst().getApplicationInfo().labelRes) + this.lpU.getPageContext().getString(R.string.setting_version_text) + " " + version);
-        this.lqd = (TextView) this.lpU.findViewById(R.id.text_version_protoco);
-        nq(TbadkCoreApplication.getInst().getSkinType());
+        this.lxn.setText(this.lxl.getPageContext().getString(TbadkCoreApplication.getInst().getApplicationInfo().labelRes) + this.lxl.getPageContext().getString(R.string.setting_version_text) + " " + version);
+        this.lxu = (TextView) this.lxl.findViewById(R.id.text_version_protoco);
+        nI(TbadkCoreApplication.getInst().getSkinType());
         if (MessageManager.getInstance().findTask(CmdConfigCustom.START_GUILD) == null) {
-            this.lpZ.setVisibility(8);
+            this.lxq.setVisibility(8);
         }
-        if (com.baidu.tbadk.core.sharedPref.b.aVP().getBoolean(SharedPrefConfig.PREFS_DEBUG_PLUGIN_SWITCHER, false)) {
-            DZ(0);
+        if (com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean(SharedPrefConfig.PREFS_DEBUG_PLUGIN_SWITCHER, false)) {
+            Ev(0);
         }
     }
 
@@ -91,60 +91,60 @@ public class a extends com.baidu.adp.base.c<AboutActivity> {
             /* JADX WARN: Multi-variable type inference failed */
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == a.this.lqa) {
-                    bc.aWU().b(a.this.lpU.getPageContext(), new String[]{"http://tieba.baidu.com/tb/eula_mobile.html"});
-                } else if (view == a.this.lqb) {
-                    bc.aWU().a(a.this.lpU.getPageContext(), new String[]{"http://tieba.baidu.com/tb/cms/client/wise_secretright.html"}, true);
-                } else if (view == a.this.lqc) {
-                    bc.aWU().b(a.this.lpU.getPageContext(), new String[]{"https://tieba.baidu.com/tb/tdou_mobile.html"});
-                } else if (view != a.this.lpX) {
-                    if (view != a.this.lpZ) {
-                        if (view == a.this.lpY) {
-                            dVar.DY(4);
+                if (view == a.this.lxr) {
+                    bd.baV().b(a.this.lxl.getPageContext(), new String[]{"http://tieba.baidu.com/tb/eula_mobile.html"});
+                } else if (view == a.this.lxs) {
+                    bd.baV().a(a.this.lxl.getPageContext(), new String[]{"http://tieba.baidu.com/tb/cms/client/wise_secretright.html"}, true);
+                } else if (view == a.this.lxt) {
+                    bd.baV().b(a.this.lxl.getPageContext(), new String[]{"https://tieba.baidu.com/tb/tdou_mobile.html"});
+                } else if (view != a.this.lxo) {
+                    if (view != a.this.lxq) {
+                        if (view == a.this.lxp) {
+                            dVar.Eu(4);
                             return;
                         }
                         return;
                     }
-                    dVar.DY(2);
+                    dVar.Eu(2);
                 } else {
-                    dVar.DY(1);
+                    dVar.Eu(1);
                 }
             }
         };
         View.OnLongClickListener onLongClickListener = new View.OnLongClickListener() { // from class: com.baidu.tieba.setting.more.a.2
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                if (view == a.this.lpY && TbConfig.ENABLE_VISIT_PREVIEW_SERVER_DIALOG) {
-                    dVar.DY(5);
+                if (view == a.this.lxp && TbConfig.ENABLE_VISIT_PREVIEW_SERVER_DIALOG) {
+                    dVar.Eu(5);
                     return true;
                 }
                 return false;
             }
         };
-        this.lpX.setOnClickListener(onClickListener);
-        this.lpZ.setOnClickListener(onClickListener);
-        this.lqa.setOnClickListener(onClickListener);
-        this.lqb.setOnClickListener(onClickListener);
-        this.lqc.setOnClickListener(onClickListener);
-        this.lpY.setOnClickListener(onClickListener);
-        this.lpY.setOnLongClickListener(onLongClickListener);
+        this.lxo.setOnClickListener(onClickListener);
+        this.lxq.setOnClickListener(onClickListener);
+        this.lxr.setOnClickListener(onClickListener);
+        this.lxs.setOnClickListener(onClickListener);
+        this.lxt.setOnClickListener(onClickListener);
+        this.lxp.setOnClickListener(onClickListener);
+        this.lxp.setOnLongClickListener(onLongClickListener);
     }
 
-    private void DZ(int i) {
-        this.lpU.findViewById(R.id.line0).setVisibility(i);
+    private void Ev(int i) {
+        this.lxl.findViewById(R.id.line0).setVisibility(i);
     }
 
-    public void dbM() {
-        if (this.lpX != null) {
-            this.lpX.refresh();
+    public void deT() {
+        if (this.lxo != null) {
+            this.lxo.refresh();
         }
     }
 
-    public void nq(int i) {
-        an.setBackgroundColor(this.lpV, R.color.cp_bg_line_d);
+    public void nI(int i) {
+        ao.setBackgroundColor(this.lxm, R.color.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.lpU.getLayoutMode().setNightMode(i == 1);
-        this.lpU.getLayoutMode().onModeChanged(this.lpV);
-        dbM();
+        this.lxl.getLayoutMode().setNightMode(i == 1);
+        this.lxl.getLayoutMode().onModeChanged(this.lxm);
+        deT();
     }
 }

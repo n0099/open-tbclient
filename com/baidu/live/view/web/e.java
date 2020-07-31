@@ -4,9 +4,9 @@ import android.graphics.Color;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e {
-    public static HashMap gb(String str) {
+    public static HashMap ga(String str) {
         HashMap hashMap = new HashMap();
         String replace = str.replace("?", ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         if (replace.contains(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {

@@ -1,19 +1,19 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ad {
-    public int aBk;
-    public int aBl;
-    public int aBm;
+    public int aCx;
+    public int aCy;
+    public int aCz;
 
     public void parseJson(JSONObject jSONObject) {
-        this.aBk = jSONObject.optInt("watch_time");
-        this.aBl = jSONObject.optInt("up_to_level");
-        this.aBm = jSONObject.optInt("first_unlock_effective", 0);
+        this.aCx = jSONObject.optInt("watch_time");
+        this.aCy = jSONObject.optInt("up_to_level");
+        this.aCz = jSONObject.optInt("first_unlock_effective", 0);
     }
 
-    public boolean wM() {
-        return this.aBm == 1;
+    public boolean xo() {
+        return this.aCz == 1;
     }
 }

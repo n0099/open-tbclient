@@ -3,30 +3,30 @@ package com.baidu.live.guardclub;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.utils.p;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends HttpMessage {
-    private a aRm;
-    private int aRu;
+    private a aSF;
+    private int aSN;
 
     public c() {
         super(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
     }
 
-    public void cu(int i) {
-        this.aRu = i;
+    public void cA(int i) {
+        this.aSN = i;
     }
 
     public void a(a aVar) {
-        this.aRm = aVar;
+        this.aSF = aVar;
     }
 
-    public a Cf() {
-        return this.aRm;
+    public a CH() {
+        return this.aSF;
     }
 
     public void setParams() {
-        addParam("scene_from", p.yU());
-        addParam("guard_club_id", this.aRu);
+        addParam("scene_from", p.zw());
+        addParam("guard_club_id", this.aSN);
         addParam("client_type", 2);
     }
 }

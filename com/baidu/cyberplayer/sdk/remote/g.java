@@ -13,7 +13,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class g {
     private static volatile g a;
     private c b;
@@ -64,7 +64,7 @@ public class g {
         }
     };
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public static class a extends c.a {
         RemotePlayerService a;
 
@@ -107,7 +107,7 @@ public class g {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void a();
     }
@@ -164,7 +164,16 @@ public class g {
         intent.putExtra("clientID", this.c);
         intent.putExtra("installType", this.d);
         intent.putExtra("installOpts", (Serializable) map);
-        CyberPlayerManager.getApplicationContext().bindService(intent, this.h, 1);
+        boolean z = false;
+        try {
+            z = CyberPlayerManager.getApplicationContext().bindService(intent, this.h, 1);
+        } catch (Exception e) {
+            CyberLog.e("RemotePlayer", "Failed binding to service!");
+        }
+        if (z) {
+            return;
+        }
+        CyberLog.i("RemotePlayer", "Failed binding to service! need retry!");
     }
 
     public boolean a(String str, String str2, String str3, int i, int i2, int i3) {

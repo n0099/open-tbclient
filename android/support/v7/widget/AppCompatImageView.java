@@ -13,7 +13,7 @@ import android.support.v4.view.TintableBackgroundView;
 import android.support.v4.widget.TintableImageSourceView;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AppCompatImageView extends ImageView implements TintableBackgroundView, TintableImageSourceView {
     private final AppCompatBackgroundHelper mBackgroundTintHelper;
     private final AppCompatImageHelper mImageHelper;

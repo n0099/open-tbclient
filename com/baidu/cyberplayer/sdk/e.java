@@ -14,7 +14,7 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes.dex */
+/* loaded from: classes10.dex */
 public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer {
     protected a a;
     private int h;
@@ -42,7 +42,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     private int x = 0;
     private FloatBuffer c = ByteBuffer.allocateDirect(this.b.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a();
     }

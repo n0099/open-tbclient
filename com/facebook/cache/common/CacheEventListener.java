@@ -1,8 +1,8 @@
 package com.facebook.cache.common;
-/* loaded from: classes13.dex */
+/* loaded from: classes3.dex */
 public interface CacheEventListener {
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes3.dex */
     public enum EvictionReason {
         CACHE_FULL,
         CONTENT_STALE,

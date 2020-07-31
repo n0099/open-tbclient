@@ -2,7 +2,7 @@ package com.vivo.push.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class x implements c {
     private static String a = "SpCache";
     private static String b = "com.vivo.push.cache";

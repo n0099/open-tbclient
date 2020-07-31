@@ -27,8 +27,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LBSAuthManager {
     public static final int CODE_AUTHENTICATE_SUCC = 0;
     public static final int CODE_AUTHENTICATING = 602;
@@ -329,9 +328,9 @@ public class LBSAuthManager {
         } catch (Exception e4) {
         }
         if (TextUtils.isEmpty(str5)) {
-            hashMap.put(IjkMediaMeta.IJKM_KEY_LANGUAGE, "");
+            hashMap.put("language", "");
         } else {
-            hashMap.put(IjkMediaMeta.IJKM_KEY_LANGUAGE, str5);
+            hashMap.put("language", str5);
         }
         if (z) {
             hashMap.put("force", z ? "1" : "0");
@@ -393,9 +392,9 @@ public class LBSAuthManager {
         } catch (Exception e4) {
         }
         if (TextUtils.isEmpty(str5)) {
-            hashMap.put(IjkMediaMeta.IJKM_KEY_LANGUAGE, "");
+            hashMap.put("language", "");
         } else {
-            hashMap.put(IjkMediaMeta.IJKM_KEY_LANGUAGE, str5);
+            hashMap.put("language", str5);
         }
         if (z) {
             hashMap.put("force", z ? "1" : "0");

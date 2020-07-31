@@ -5,21 +5,21 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class c {
-    public int deD;
-    public String deE;
-    public String deA = "";
+    public int dkm;
+    public String dkn;
+    public String dkj = "";
     public int maxLength = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public boolean deB = false;
-    public boolean deC = false;
+    public boolean dkk = false;
+    public boolean dkl = false;
 
     public boolean h(com.baidu.swan.games.binding.model.c cVar) throws JSTypeMismatchException {
         try {
-            this.deA = cVar.optString("defaultValue");
+            this.dkj = cVar.optString("defaultValue");
             this.maxLength = cVar.optInt("maxLength");
-            this.deB = cVar.optBoolean("multiple");
-            this.deC = cVar.optBoolean("confirmHold");
+            this.dkk = cVar.optBoolean("multiple");
+            this.dkl = cVar.optBoolean("confirmHold");
             String optString = cVar.optString("confirmType");
             char c = 65535;
             switch (optString.hashCode()) {
@@ -56,28 +56,28 @@ public class c {
             }
             switch (c) {
                 case 0:
-                    this.deD = 6;
-                    this.deE = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.dkm = 6;
+                    this.dkn = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
                 case 1:
-                    this.deD = 5;
-                    this.deE = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    this.dkm = 5;
+                    this.dkn = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
                     return true;
                 case 2:
-                    this.deD = 3;
-                    this.deE = "search";
+                    this.dkm = 3;
+                    this.dkn = "search";
                     return true;
                 case 3:
-                    this.deD = 2;
-                    this.deE = "go";
+                    this.dkm = 2;
+                    this.dkn = "go";
                     return true;
                 case 4:
-                    this.deD = 4;
-                    this.deE = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
+                    this.dkm = 4;
+                    this.dkn = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
                     return true;
                 default:
-                    this.deD = 6;
-                    this.deE = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.dkm = 6;
+                    this.dkn = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
             }
         } catch (Exception e) {

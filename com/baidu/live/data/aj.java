@@ -1,7 +1,13 @@
 package com.baidu.live.data;
-/* loaded from: classes3.dex */
+
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
 public class aj {
-    public am aBD;
-    public aq aBE;
-    public aq aBF;
+    public long aCX;
+
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.aCX = jSONObject.optLong("challenge_info_interval");
+        }
+    }
 }

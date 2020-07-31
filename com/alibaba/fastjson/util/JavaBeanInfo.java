@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class JavaBeanInfo {
     public final Method buildMethod;
     public final Class<?> builderClass;

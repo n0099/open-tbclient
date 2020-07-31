@@ -1,5 +1,5 @@
 package com.google.gson;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public enum LongSerializationPolicy {
     DEFAULT { // from class: com.google.gson.LongSerializationPolicy.1
         @Override // com.google.gson.LongSerializationPolicy

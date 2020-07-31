@@ -11,7 +11,7 @@ import com.baidu.live.adp.lib.stats.AlaStatsItem;
 import com.baidu.live.adp.lib.stats.IAlaStatUploader;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaStatUploaderManager implements IAlaStatUploader {
     private static volatile AlaStatUploaderManager inst = null;
     static int MAX_LENGTH_WAIT_LIST = 200;

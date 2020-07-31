@@ -9,7 +9,7 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class CustomALSHttpMessage extends HttpMessage {
     private static final TbHttpMessageTask task = new TbHttpMessageTask(1003195, TbConfig.REPORT_PLOG);
     Handler mUIHandler;

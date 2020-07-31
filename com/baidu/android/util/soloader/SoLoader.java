@@ -23,7 +23,7 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public final class SoLoader implements NoProGuard {
     private static final String TAG = "SoLoader";
     private StringBuilder sb = new StringBuilder();

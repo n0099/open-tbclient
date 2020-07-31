@@ -1,9 +1,9 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bu;
-import com.baidu.tbadk.core.util.ao;
-/* loaded from: classes8.dex */
+import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.util.ap;
+/* loaded from: classes15.dex */
 public class j extends k {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
 
@@ -12,24 +12,24 @@ public class j extends k {
         return TYPE;
     }
 
-    public j(bu buVar) {
-        this.dLi = buVar;
+    public j(bv bvVar) {
+        this.dLK = bvVar;
     }
 
-    public static boolean ad(bu buVar) {
-        return buVar != null && buVar.getThreadType() == 49;
+    public static boolean aa(bv bvVar) {
+        return bvVar != null && bvVar.getThreadType() == 49;
     }
 
-    public ao DT(String str) {
-        ao DU = DU(str);
-        DU.delete("obj_type");
-        DU.delete("obj_type");
-        DU.ag("obj_type", 3);
-        return DU;
+    public ap EE(String str) {
+        ap EF = EF(str);
+        EF.delete("obj_type");
+        EF.delete("obj_type");
+        EF.ah("obj_type", 3);
+        return EF;
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bu aPS() {
-        return this.dLi;
+    public bv aTN() {
+        return this.dLK;
     }
 }

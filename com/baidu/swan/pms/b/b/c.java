@@ -8,10 +8,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 class c {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static File afR() {
+    public static File ahd() {
         File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_mini_zip");
         if (!file.exists()) {
             file.mkdirs();
@@ -20,7 +20,7 @@ class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean p(String str, long j) {
+    public static boolean q(String str, long j) {
         boolean z = false;
         if (str != null) {
             try {
@@ -32,7 +32,7 @@ class c {
                 }
             } catch (Throwable th) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.d("Mini-Pm-Download", com.baidu.swan.pms.d.aGV().getProcessName() + ": path exception or no space left." + th.toString());
+                    Log.d("Mini-Pm-Download", com.baidu.swan.pms.d.aKM().getProcessName() + ": path exception or no space left." + th.toString());
                 }
             }
         }
@@ -119,8 +119,8 @@ class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean e(String str, long j, String str2) {
-        if (q(str, j)) {
-            String md5 = str != null ? com.baidu.swan.pms.f.a.toMd5(new File(str), true) : null;
+        if (r(str, j)) {
+            String md5 = str != null ? com.baidu.swan.pms.f.b.toMd5(new File(str), true) : null;
             if (str2 == null || md5 == null) {
                 if (com.baidu.swan.pms.d.DEBUG) {
                     Log.d("Mini-Pm-Download", "md5 校验失败 server:" + str2 + ",local" + md5);
@@ -141,7 +141,7 @@ class c {
         return false;
     }
 
-    private static boolean q(String str, long j) {
+    private static boolean r(String str, long j) {
         File file = new File(str);
         if (!file.exists()) {
             if (com.baidu.swan.pms.d.DEBUG) {

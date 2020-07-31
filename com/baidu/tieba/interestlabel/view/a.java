@@ -6,77 +6,72 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class a implements View.OnClickListener {
-    private ViewGroup gJH;
-    private TextView jnk;
-    private TextView jnl;
-    private ImageView jnm;
-    private TextView jnn;
-    private ImageView jno;
-    private TextView jnp;
-    private int jnq;
-    private int jnr;
-    private int jns;
+    private ViewGroup gPn;
+    private TextView jvO;
+    private TextView jvP;
+    private ImageView jvQ;
+    private TextView jvR;
+    private ImageView jvS;
+    private TextView jvT;
+    private int jvU;
+    private int jvV;
+    private int jvW;
 
     public a(Context context) {
-        this.gJH = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.label_recommend_header, (ViewGroup) null);
-        this.jnk = (TextView) this.gJH.findViewById(R.id.choose_like_label);
-        this.jnl = (TextView) this.gJH.findViewById(R.id.recommend_interest_thread);
-        this.jnm = (ImageView) this.gJH.findViewById(R.id.male_icon);
-        this.jnn = (TextView) this.gJH.findViewById(R.id.male_text);
-        this.jno = (ImageView) this.gJH.findViewById(R.id.female_icon);
-        this.jnp = (TextView) this.gJH.findViewById(R.id.female_text);
-        this.jnm.setOnClickListener(this);
-        this.jno.setOnClickListener(this);
+        this.gPn = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.label_recommend_header, (ViewGroup) null);
+        this.jvO = (TextView) this.gPn.findViewById(R.id.choose_like_label);
+        this.jvP = (TextView) this.gPn.findViewById(R.id.recommend_interest_thread);
+        this.jvQ = (ImageView) this.gPn.findViewById(R.id.male_icon);
+        this.jvR = (TextView) this.gPn.findViewById(R.id.male_text);
+        this.jvS = (ImageView) this.gPn.findViewById(R.id.female_icon);
+        this.jvT = (TextView) this.gPn.findViewById(R.id.female_text);
+        this.jvQ.setOnClickListener(this);
+        this.jvS.setOnClickListener(this);
         onChangeSkinType();
     }
 
     private void onChangeSkinType() {
-        an.setViewTextColor(this.jnk, (int) R.color.cp_cont_b);
-        an.setViewTextColor(this.jnl, (int) R.color.cp_cont_d);
-        an.setImageResource(this.jnm, R.drawable.img_lable_boy_n);
-        an.setViewTextColor(this.jnn, (int) R.color.cp_cont_d);
-        an.setImageResource(this.jno, R.drawable.img_lable_girl_n);
-        an.setViewTextColor(this.jnp, (int) R.color.cp_cont_d);
+        ao.setViewTextColor(this.jvO, R.color.cp_cont_b);
+        ao.setViewTextColor(this.jvP, R.color.cp_cont_d);
+        ao.setImageResource(this.jvQ, R.drawable.img_lable_boy_n);
+        ao.setViewTextColor(this.jvR, R.color.cp_cont_d);
+        ao.setImageResource(this.jvS, R.drawable.img_lable_girl_n);
+        ao.setViewTextColor(this.jvT, R.color.cp_cont_d);
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list) {
-        if (w.getCount(list) == 2) {
-            this.jnq = list.get(0).labelId;
-            this.jnr = list.get(1).labelId;
+        if (x.getCount(list) == 2) {
+            this.jvU = list.get(0).labelId;
+            this.jvV = list.get(1).labelId;
         }
     }
 
-    public ViewGroup cwA() {
-        return this.gJH;
+    public ViewGroup cAy() {
+        return this.gPn;
     }
 
-    public int cwB() {
-        return this.jns;
+    public int cAz() {
+        return this.jvW;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        int i = R.color.cp_cont_d;
-        if (view == this.jnm) {
+        if (view == this.jvQ) {
             z = true;
         } else {
-            z = view == this.jno ? false : false;
+            z = view == this.jvS ? false : false;
         }
-        this.jns = z ? this.jnq : this.jnr;
-        an.setImageResource(this.jnm, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
-        an.setViewTextColor(this.jnn, z ? R.color.cp_link_tip_a : R.color.cp_cont_d);
-        an.setImageResource(this.jno, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
-        TextView textView = this.jnp;
-        if (!z) {
-            i = R.color.cp_cont_h;
-        }
-        an.setViewTextColor(textView, i);
+        this.jvW = z ? this.jvU : this.jvV;
+        ao.setImageResource(this.jvQ, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
+        ao.setViewTextColor(this.jvR, z ? R.color.cp_link_tip_a : R.color.cp_cont_d);
+        ao.setImageResource(this.jvS, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
+        ao.setViewTextColor(this.jvT, z ? R.color.cp_cont_d : R.color.cp_cont_h);
     }
 }

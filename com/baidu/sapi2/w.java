@@ -7,7 +7,7 @@ import com.baidu.sapi2.utils.Log;
 import java.net.URL;
 import java.net.URLConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class w extends AsyncTask<String, Void, Long> {
     final /* synthetic */ String a;
     final /* synthetic */ String b;

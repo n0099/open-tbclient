@@ -15,7 +15,7 @@ import com.baidu.lbsapi.tools.Point;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d implements b {
     final /* synthetic */ InnerPanoramaView a;
 
@@ -294,7 +294,7 @@ public class d implements b {
                     if (!str3.equals(str4)) {
                         panoramaView = this.a.h;
                         str5 = this.a.i;
-                        panoramaView.setPanoramaByUid(str5, 65538);
+                        panoramaView.setPanoramaByUid(str5, PanoramaView.PANOTYPE_STREET);
                         return;
                     }
                     return;
@@ -336,7 +336,7 @@ public class d implements b {
                     this.a.f();
                     panoramaView2 = this.a.h;
                     str2 = this.a.i;
-                    panoramaView2.setPanoramaByUid(str2, 65537);
+                    panoramaView2.setPanoramaByUid(str2, PanoramaView.PANOTYPE_INTERIOR);
                     return;
                 }
                 return;

@@ -1,26 +1,26 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.t;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class a {
-    private int ioQ = 1;
-    private final List<t> ioR = new ArrayList();
+    private int iuU = 1;
+    private final List<t> iuV = new ArrayList();
 
     public a() {
-        List<t> civ = civ();
-        if (!w.isEmpty(civ)) {
-            this.ioR.addAll(civ);
+        List<t> clV = clV();
+        if (!x.isEmpty(clV)) {
+            this.iuV.addAll(clV);
         }
     }
 
-    private List<t> civ() {
+    private List<t> clV() {
         ArrayList arrayList = new ArrayList();
         try {
-            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.aVP().getString("key_index_tab_info_list", "[]"));
+            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.aZP().getString("key_index_tab_info_list", "[]"));
             for (int i = 0; i < jSONArray.length(); i++) {
                 t tVar = new t();
                 tVar.parserJson(jSONArray.getJSONObject(i));
@@ -34,11 +34,11 @@ public class a {
         return arrayList;
     }
 
-    public List<t> ciw() {
-        return this.ioR;
+    public List<t> clW() {
+        return this.iuV;
     }
 
-    public int cix() {
-        return this.ioQ;
+    public int clX() {
+        return this.iuU;
     }
 }

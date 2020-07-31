@@ -12,7 +12,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotRanklistActivity;
 import com.baidu.tieba.hottopic.data.j;
@@ -20,12 +20,12 @@ import com.baidu.tieba.hottopic.data.p;
 import com.baidu.tieba.hottopic.view.HotRankView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class ScrollFragmentAdapter extends PagerAdapter {
-    private int YJ = -1;
-    private List<j> iCX;
-    private List<p> iCY;
-    private List<HotRankView> iIf;
+    private int Yz = -1;
+    private List<j> iJb;
+    private List<p> iJc;
+    private List<HotRankView> iOk;
     private Context mContext;
     private TbPageContext<?> pageContext;
 
@@ -35,81 +35,81 @@ public class ScrollFragmentAdapter extends PagerAdapter {
         if (G instanceof TbPageContext) {
             this.pageContext = (TbPageContext) G;
         }
-        this.iCX = new ArrayList();
-        this.iIf = new ArrayList();
-        this.iIf.add(cmo());
-        this.iIf.add(cmo());
-        this.iIf.add(cmo());
+        this.iJb = new ArrayList();
+        this.iOk = new ArrayList();
+        this.iOk.add(cpO());
+        this.iOk.add(cpO());
+        this.iOk.add(cpO());
     }
 
-    private HotRankView cmo() {
+    private HotRankView cpO() {
         return new HotRankView(this.mContext);
     }
 
-    public void de(List<j> list) {
-        if (this.iCX == null) {
-            this.iCX = new ArrayList();
+    public void dj(List<j> list) {
+        if (this.iJb == null) {
+            this.iJb = new ArrayList();
         }
-        if (!w.isEmpty(list)) {
-            this.iCX.clear();
-            this.iCX.addAll(list);
+        if (!x.isEmpty(list)) {
+            this.iJb.clear();
+            this.iJb.addAll(list);
         }
-        if (this.iCY == null && !w.isEmpty(this.iCX)) {
-            this.iCY = new ArrayList();
-            this.iCY.clear();
-            this.iCY.addAll(this.iCX.get(0).iEF);
+        if (this.iJc == null && !x.isEmpty(this.iJb)) {
+            this.iJc = new ArrayList();
+            this.iJc.clear();
+            this.iJc.addAll(this.iJb.get(0).iKJ);
         }
         notifyDataSetChanged();
-        ckZ();
+        coz();
     }
 
-    private void ckZ() {
+    private void coz() {
         String str;
-        if (this.YJ >= 0) {
-            HotRankView hotRankView = this.iIf.get(this.YJ % 3);
-            j jVar = (j) w.getItem(this.iCX, this.YJ);
+        if (this.Yz >= 0) {
+            HotRankView hotRankView = this.iOk.get(this.Yz % 3);
+            j jVar = (j) x.getItem(this.iJb, this.Yz);
             if (hotRankView != null) {
                 hotRankView.hideLoadingView();
-                hotRankView.btO();
-                p pVar = (p) w.getItem(this.iCY, this.YJ);
+                hotRankView.bwX();
+                p pVar = (p) x.getItem(this.iJc, this.Yz);
                 if (pVar == null) {
                     str = "";
                 } else {
-                    str = pVar.fNu;
+                    str = pVar.fSN;
                 }
                 hotRankView.b(jVar, str);
-                if (jVar == null || w.isEmpty(jVar.clM())) {
-                    hotRankView.aI(TbadkCoreApplication.getInst().getString(R.string.neterror), true);
+                if (jVar == null || x.isEmpty(jVar.cpm())) {
+                    hotRankView.aG(TbadkCoreApplication.getInst().getString(R.string.neterror), true);
                 }
             }
         }
     }
 
-    public void btO() {
-        if (cmp() != null) {
-            cmp().btO();
+    public void bwX() {
+        if (cpP() != null) {
+            cpP().bwX();
         }
     }
 
     public void showLoadingView() {
-        if (cmp() != null) {
-            cmp().A(true, l.getDimens(this.pageContext.getPageActivity(), R.dimen.ds500));
+        if (cpP() != null) {
+            cpP().A(true, l.getDimens(this.pageContext.getPageActivity(), R.dimen.ds500));
         }
     }
 
-    public void oK(boolean z) {
-        if (this.iIf != null) {
-            for (HotRankView hotRankView : this.iIf) {
+    public void pp(boolean z) {
+        if (this.iOk != null) {
+            for (HotRankView hotRankView : this.iOk) {
                 if (hotRankView != null) {
-                    hotRankView.oK(z);
+                    hotRankView.pp(z);
                 }
             }
         }
     }
 
     public void f(View view, int i, int i2, int i3, int i4) {
-        if (this.iIf != null) {
-            for (HotRankView hotRankView : this.iIf) {
+        if (this.iOk != null) {
+            for (HotRankView hotRankView : this.iOk) {
                 if (hotRankView != null) {
                     hotRankView.f(view, i, i2, i3, i4);
                 }
@@ -118,12 +118,12 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     }
 
     public int b(p pVar) {
-        if (this.iCX == null) {
+        if (this.iJb == null) {
             return -1;
         }
         int count = getCount();
         for (int i = 0; i < count; i++) {
-            p pVar2 = this.iCX.get(0).iEF.get(i);
+            p pVar2 = this.iJb.get(0).iKJ.get(i);
             if (pVar2 != null && pVar2.tabName != null && pVar2.tabName.equals(pVar.tabName)) {
                 return i;
             }
@@ -131,20 +131,20 @@ public class ScrollFragmentAdapter extends PagerAdapter {
         return -1;
     }
 
-    private HotRankView cmp() {
-        if (this.YJ == -1) {
+    private HotRankView cpP() {
+        if (this.Yz == -1) {
             return null;
         }
-        return (HotRankView) w.getItem(this.iIf, this.YJ % 3);
+        return (HotRankView) x.getItem(this.iOk, this.Yz % 3);
     }
 
-    public List<j> cmq() {
-        return this.iCX;
+    public List<j> cpQ() {
+        return this.iJb;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return w.getCount(this.iCX);
+        return x.getCount(this.iJb);
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -155,24 +155,24 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        for (HotRankView hotRankView : this.iIf) {
+        for (HotRankView hotRankView : this.iOk) {
             if (hotRankView != null) {
                 hotRankView.onChangeSkinType();
             }
         }
-        if (this.YJ != i) {
-            this.YJ = i;
-            if (!w.isEmpty(this.iCX)) {
+        if (this.Yz != i) {
+            this.Yz = i;
+            if (!x.isEmpty(this.iJb)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                j jVar = this.iCX.get(this.YJ);
-                HotRankView hotRankView2 = this.iIf.get(i % this.iIf.size());
-                if (jVar == null || w.isEmpty(jVar.clM())) {
+                j jVar = this.iJb.get(this.Yz);
+                HotRankView hotRankView2 = this.iOk.get(i % this.iOk.size());
+                if (jVar == null || x.isEmpty(jVar.cpm())) {
                     if (!com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-                        hotRankView2.aI(TbadkCoreApplication.getInst().getString(R.string.neterror), true);
+                        hotRankView2.aG(TbadkCoreApplication.getInst().getString(R.string.neterror), true);
                         return;
                     }
                     hotRankView2.A(true, 0);
-                    ((HotRanklistActivity) this.pageContext.getOrignalPage()).clf();
+                    ((HotRanklistActivity) this.pageContext.getOrignalPage()).coF();
                 }
             }
         }
@@ -181,18 +181,18 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         String str;
-        HotRankView hotRankView = this.iIf.get(i % this.iIf.size());
+        HotRankView hotRankView = this.iOk.get(i % this.iOk.size());
         if (hotRankView.getParent() != null) {
             viewGroup.removeView(hotRankView);
         }
-        j jVar = this.iCX.get(i);
+        j jVar = this.iJb.get(i);
         viewGroup.addView(hotRankView);
         hotRankView.hideLoadingView();
-        hotRankView.btO();
-        if (this.YJ == -1) {
-            str = this.iCY.get(0).fNu;
+        hotRankView.bwX();
+        if (this.Yz == -1) {
+            str = this.iJc.get(0).fSN;
         } else {
-            str = this.iCY.get(this.YJ).fNu;
+            str = this.iJc.get(this.Yz).fSN;
         }
         hotRankView.b(jVar, str);
         return hotRankView;
@@ -204,10 +204,10 @@ public class ScrollFragmentAdapter extends PagerAdapter {
         if (i < 0 || i >= count) {
             return null;
         }
-        if (w.isEmpty(this.iCX) || this.iCX.get(0) == null || w.isEmpty(this.iCX.get(0).iEF)) {
+        if (x.isEmpty(this.iJb) || this.iJb.get(0) == null || x.isEmpty(this.iJb.get(0).iKJ)) {
             return null;
         }
-        return this.iCX.get(0).iEF.get(i).tabName;
+        return this.iJb.get(0).iKJ.get(i).tabName;
     }
 
     @Override // android.support.v4.view.PagerAdapter

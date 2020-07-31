@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewParent;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.k;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 /* loaded from: classes.dex */
 public class ForeDrawableImageView extends TbImageView {
     private String bottomText;
@@ -39,7 +39,7 @@ public class ForeDrawableImageView extends TbImageView {
     }
 
     public void setNoImageBottomTextColor(int i) {
-        this.textPaint.setColor(an.getColor(i));
+        this.textPaint.setColor(ao.getColor(i));
     }
 
     public void setNoImageBottomText(String str) {
@@ -51,7 +51,7 @@ public class ForeDrawableImageView extends TbImageView {
     }
 
     public void setForegroundDrawable(int i) {
-        setForegroundDrawable(an.getDrawable(i));
+        setForegroundDrawable(ao.getDrawable(i));
     }
 
     public void setForegroundDrawable(Drawable drawable) {
@@ -99,7 +99,7 @@ public class ForeDrawableImageView extends TbImageView {
     }
 
     private void drawNoImageBottomText(Canvas canvas, int i, int i2) {
-        if (!StringUtils.isNull(this.bottomText) && !k.aPA().isShowImages()) {
+        if (!StringUtils.isNull(this.bottomText) && !k.aTv().isShowImages()) {
             canvas.drawText(this.bottomText, (int) (i - (this.textPaint.measureText(this.bottomText) / 2.0f)), this.bottomTextPadding + i2, this.textPaint);
         }
     }

@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes20.dex */
 public final class TiebaIMActivityStaticAutoGenerateUrlCollectorImpl implements d {
     @Override // com.baidu.adp.framework.a.d
     public Map<String, ArrayList<String>> getConfigRouterMap() {
@@ -18,6 +18,7 @@ public final class TiebaIMActivityStaticAutoGenerateUrlCollectorImpl implements 
         arrayList.add("PersonGroupActivityConfig");
         arrayList.add("ForumDetailActivityConfig");
         arrayList.add("RecommendDetailActivityConfig");
+        arrayList.add("OfficialBarFeedActivityConfig");
         arrayList.add(UrlSchemaHelper.GOTO_OFFICIAL_CHAT);
         arrayList.add("middlepage");
         hashMap.put("com.baidu.tieba.im.TiebaIMActivityStatic", arrayList);

@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.personalize.data;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.UnreadTip.UnreadTipResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes16.dex */
 public class ConcernUnreadTipHttpResMsg extends HttpResponsedMessage {
     public e mData;
 

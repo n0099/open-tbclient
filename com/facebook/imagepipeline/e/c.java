@@ -5,7 +5,7 @@ import com.facebook.imagepipeline.producers.ap;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class c<T> extends a<com.facebook.common.references.a<T>> {
     public static <T> com.facebook.datasource.b<com.facebook.common.references.a<T>> a(aj<com.facebook.common.references.a<T>> ajVar, ap apVar, com.facebook.imagepipeline.h.c cVar) {
         return new c(ajVar, apVar, cVar);
@@ -18,7 +18,7 @@ public class c<T> extends a<com.facebook.common.references.a<T>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
     @Nullable
-    /* renamed from: dEO */
+    /* renamed from: dIa */
     public com.facebook.common.references.a<T> getResult() {
         return com.facebook.common.references.a.b((com.facebook.common.references.a) super.getResult());
     }

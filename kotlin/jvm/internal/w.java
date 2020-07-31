@@ -1,20 +1,20 @@
 package kotlin.jvm.internal;
 /* loaded from: classes7.dex */
 public class w {
-    private static <T extends Throwable> T S(T t) {
+    private static <T extends Throwable> T R(T t) {
         return (T) q.c(t, w.class.getName());
     }
 
     public static void n(Object obj, String str) {
-        Sw((obj == null ? "null" : obj.getClass().getName()) + " cannot be cast to " + str);
+        Th((obj == null ? "null" : obj.getClass().getName()) + " cannot be cast to " + str);
     }
 
-    public static void Sw(String str) {
+    public static void Th(String str) {
         throw a(new ClassCastException(str));
     }
 
     public static ClassCastException a(ClassCastException classCastException) {
-        throw ((ClassCastException) S(classCastException));
+        throw ((ClassCastException) R(classCastException));
     }
 
     public static int bL(Object obj) {

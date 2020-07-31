@@ -3,7 +3,7 @@ package com.baidu.ar;
 import android.graphics.SurfaceTexture;
 import android.view.Surface;
 import android.view.SurfaceHolder;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class DuMixOutput {
     private Object bh;
     private boolean bi = false;
@@ -14,14 +14,14 @@ public class DuMixOutput {
     private int mOutputHeight;
     private int mOutputWidth;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public enum a {
         NO_MIRRIOR,
         MIRRIOR_VERTICAL,
         MIRRIOR_HORIZONTAL
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public enum b {
         ROTATE_0,
         ROTATE_90,
@@ -29,7 +29,7 @@ public class DuMixOutput {
         ROTATE_270
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public enum c {
         FIT_XY,
         CENTER_INSIDE,

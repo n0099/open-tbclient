@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class f extends Thread {
     final /* synthetic */ e a;
 

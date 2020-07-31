@@ -2,7 +2,7 @@ package com.baidu.live.adp.lib.cache;
 
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.live.adp.lib.util.BdLog;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BdKVCacheSafeImpl<T> extends BdKVCacheImpl<T> {
     public BdKVCacheSafeImpl(String str, BdCacheStorage<T> bdCacheStorage) {
         super(str, bdCacheStorage);

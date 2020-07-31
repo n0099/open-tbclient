@@ -9,7 +9,7 @@ import java.lang.reflect.TypeVariable;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class TypeReference<T> {
     protected final Type type;
     static ConcurrentMap<Type, Type> classTypeCache = new ConcurrentHashMap(16, 0.75f, 1);

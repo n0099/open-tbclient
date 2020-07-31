@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class a {
     public static boolean startActivity(Context context, Intent intent) {
         try {

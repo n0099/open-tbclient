@@ -22,7 +22,7 @@ import com.baidu.mobads.production.v;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class b extends com.baidu.mobads.production.b implements a {
     private CountDownTimer A;
     private f B;

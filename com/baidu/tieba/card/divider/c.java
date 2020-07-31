@@ -5,26 +5,26 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class c extends com.baidu.tieba.card.b<b> {
-    private View eVD;
-    private int gVH;
-    private int gVI;
+    private int dividerHeight;
+    private View fbk;
+    private int hbl;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gVH = R.color.cp_bg_line_c;
-        this.gVI = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
+        this.hbl = R.color.cp_bg_line_c;
+        this.dividerHeight = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
         getView().setOnClickListener(this);
-        this.eVD = getView().findViewById(R.id.card_divider);
+        this.fbk = getView().findViewById(R.id.card_divider);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            an.setBackgroundColor(this.eVD, this.gVH);
+            ao.setBackgroundColor(this.fbk, this.hbl);
         }
         this.mSkinType = i;
     }
@@ -38,19 +38,19 @@ public class c extends com.baidu.tieba.card.b<b> {
     @Override // com.baidu.tieba.card.b
     public void a(b bVar) {
         if (bVar != null) {
-            this.eVD.setVisibility(0);
-            this.gVH = bVar.gVH;
-            this.gVI = bVar.gVI;
-            bPg();
+            this.fbk.setVisibility(0);
+            this.hbl = bVar.hbl;
+            this.dividerHeight = bVar.dividerHeight;
+            bSr();
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void bPg() {
-        ViewGroup.LayoutParams layoutParams = this.eVD.getLayoutParams();
-        if (layoutParams != null && layoutParams.height != this.gVI) {
-            layoutParams.height = this.gVI;
-            this.eVD.setLayoutParams(layoutParams);
+    private void bSr() {
+        ViewGroup.LayoutParams layoutParams = this.fbk.getLayoutParams();
+        if (layoutParams != null && layoutParams.height != this.dividerHeight) {
+            layoutParams.height = this.dividerHeight;
+            this.fbk.setLayoutParams(layoutParams);
         }
     }
 

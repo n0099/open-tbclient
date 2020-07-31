@@ -15,13 +15,13 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.tbadk.widget.TbImageView;
 import com.tb.airbnb.lottie.LottieAnimationView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GuardClubRankHeaderAvatarItemView extends FrameLayout {
-    private HeadImageView aIh;
-    private TbImageView fMp;
-    private LottieAnimationView fMq;
-    private AnimatorSet fMr;
-    private boolean fMs;
+    private HeadImageView avs;
+    private TbImageView fRJ;
+    private LottieAnimationView fRK;
+    private AnimatorSet fRL;
+    private boolean fRM;
 
     public GuardClubRankHeaderAvatarItemView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -29,75 +29,75 @@ public class GuardClubRankHeaderAvatarItemView extends FrameLayout {
     }
 
     public void setData(String str, String str2, boolean z) {
-        if (this.aIh != null) {
-            this.aIh.startLoad(str, 12, false);
+        if (this.avs != null) {
+            this.avs.startLoad(str, 12, false);
         }
-        if (this.fMp != null) {
-            this.fMp.startLoad(str2, 10, false);
+        if (this.fRJ != null) {
+            this.fRJ.startLoad(str2, 10, false);
         }
-        this.fMs = z;
+        this.fRM = z;
         if (z) {
-            this.fMq.setVisibility(0);
-            bya();
+            this.fRK.setVisibility(0);
+            bBp();
             return;
         }
-        byb();
-        this.fMq.setVisibility(8);
+        bBq();
+        this.fRK.setVisibility(8);
     }
 
-    public void bya() {
-        if (this.fMs) {
-            byc();
-            this.fMq.playAnimation();
-            this.fMr.start();
+    public void bBp() {
+        if (this.fRM) {
+            bBr();
+            this.fRK.playAnimation();
+            this.fRL.start();
         }
     }
 
-    public void byb() {
-        if (this.fMq != null) {
-            this.fMq.cancelAnimation();
+    public void bBq() {
+        if (this.fRK != null) {
+            this.fRK.cancelAnimation();
         }
-        if (this.fMr != null) {
-            this.fMr.cancel();
+        if (this.fRL != null) {
+            this.fRL.cancel();
         }
     }
 
     public void release() {
-        if (this.aIh != null) {
-            this.aIh.stopLoad();
+        if (this.avs != null) {
+            this.avs.stopLoad();
         }
-        if (this.fMp != null) {
-            this.fMp.stopLoad();
+        if (this.fRJ != null) {
+            this.fRJ.stopLoad();
         }
-        byb();
+        bBq();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.h.live_guard_club_widget_avatar_item, (ViewGroup) this, true);
-        this.aIh = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.fMp = (TbImageView) findViewById(a.g.iv_level);
-        this.fMq = (LottieAnimationView) findViewById(a.g.lottie_live);
-        this.aIh.setIsRound(true);
-        this.aIh.setAutoChangeStyle(false);
-        this.aIh.setDrawBorder(false);
-        this.aIh.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.aIh.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.fMp.setDefaultBgResource(a.d.sdk_transparent);
-        this.fMp.setDefaultErrorResource(a.f.sdk_shape_transparent);
+        this.avs = (HeadImageView) findViewById(a.g.iv_avatar);
+        this.fRJ = (TbImageView) findViewById(a.g.iv_level);
+        this.fRK = (LottieAnimationView) findViewById(a.g.lottie_live);
+        this.avs.setIsRound(true);
+        this.avs.setAutoChangeStyle(false);
+        this.avs.setDrawBorder(false);
+        this.avs.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.avs.setDefaultBgResource(a.f.sdk_default_avatar);
+        this.fRJ.setDefaultBgResource(a.d.sdk_transparent);
+        this.fRJ.setDefaultErrorResource(a.f.sdk_shape_transparent);
     }
 
-    private void byc() {
-        this.fMq.setAnimation("live_anim_guard_join.json");
-        this.fMq.loop(true);
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.aIh, "scaleX", 0.92f, 1.0f, 0.92f);
+    private void bBr() {
+        this.fRK.setAnimation("live_anim_guard_join.json");
+        this.fRK.loop(true);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.avs, "scaleX", 0.92f, 1.0f, 0.92f);
         ofFloat.setRepeatCount(-1);
         ofFloat.setRepeatMode(2);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.aIh, "scaleY", 0.92f, 1.0f, 0.92f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.avs, "scaleY", 0.92f, 1.0f, 0.92f);
         ofFloat2.setRepeatCount(-1);
         ofFloat2.setRepeatMode(2);
-        this.fMr = new AnimatorSet();
-        this.fMr.setDuration(1000L);
-        this.fMr.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.fMr.play(ofFloat).with(ofFloat2);
+        this.fRL = new AnimatorSet();
+        this.fRL.setDuration(1000L);
+        this.fRL.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.fRL.play(ofFloat).with(ofFloat2);
     }
 }

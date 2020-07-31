@@ -2,7 +2,7 @@ package com.baidu.pass.common;
 
 import android.util.Base64;
 import com.baidu.pass.common.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SecurityUtil {
     public static String md5(byte[] bArr, boolean z) {
         return new a().a(bArr, z);

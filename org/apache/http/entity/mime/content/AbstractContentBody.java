@@ -1,5 +1,5 @@
 package org.apache.http.entity.mime.content;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractContentBody implements ContentBody {
     private final String mediaType;
     private final String mimeType;

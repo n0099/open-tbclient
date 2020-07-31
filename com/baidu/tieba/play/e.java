@@ -1,9 +1,21 @@
 package com.baidu.tieba.play;
+
+import android.view.View;
 /* loaded from: classes.dex */
 public interface e {
-    void cxI();
+    int getCurrentPosition();
 
-    void cxJ();
+    String getPlayUrl();
 
-    void cxK();
+    View getVideoContainer();
+
+    boolean isFullScreen();
+
+    boolean isPlayStarted();
+
+    boolean isPlaying();
+
+    void startPlay();
+
+    void stopPlay();
 }

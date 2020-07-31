@@ -5,19 +5,19 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 /* loaded from: classes.dex */
 public class a {
-    private static a eDL;
-    private com.baidu.tbadk.coreExtra.data.a emJ;
-    private ABTestExtraData emK;
+    private static a eKa;
+    private com.baidu.tbadk.coreExtra.data.a esV;
+    private ABTestExtraData esW;
 
-    public static a biw() {
-        if (eDL == null) {
+    public static a bmh() {
+        if (eKa == null) {
             synchronized (a.class) {
-                if (eDL == null) {
-                    eDL = new a();
+                if (eKa == null) {
+                    eKa = new a();
                 }
             }
         }
-        return eDL;
+        return eKa;
     }
 
     public void a(com.baidu.tbadk.coreExtra.data.a aVar) {
@@ -26,26 +26,26 @@ public class a {
 
     private void b(com.baidu.tbadk.coreExtra.data.a aVar) {
         boolean z = false;
-        z = (aVar == null || this.emJ == null || aVar.aZL() != this.emJ.aZL()) ? true : true;
-        this.emJ = aVar;
+        z = (aVar == null || this.esV == null || aVar.bdI() != this.esV.bdI()) ? true : true;
+        this.esV = aVar;
         if (z) {
-            zg("zan_or_cai_smallflow");
+            An("zan_or_cai_smallflow");
         }
     }
 
-    private void zg(String str) {
+    private void An(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
     }
 
     public void a(ABTestExtraData aBTestExtraData) {
-        this.emK = aBTestExtraData;
+        this.esW = aBTestExtraData;
     }
 
-    public String bix() {
-        if (this.emK == null) {
-            this.emK = new ABTestExtraData();
-            this.emK.parserABTestExtraFormSharedPref();
+    public String bmi() {
+        if (this.esW == null) {
+            this.esW = new ABTestExtraData();
+            this.esW.parserABTestExtraFormSharedPref();
         }
-        return this.emK.getABTestResult();
+        return this.esW.getABTestResult();
     }
 }

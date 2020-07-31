@@ -12,18 +12,18 @@ import android.util.DisplayMetrics;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 class n implements j {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     private static class a {
-        private static a arK;
+        private static a arG;
         private static HashMap<String, Integer> b = new HashMap<>();
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.helios.a.a.n$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class C0129a {
+        /* loaded from: classes10.dex */
+        public static class C0127a {
             private String a;
             private String b;
             private String c;
@@ -32,7 +32,7 @@ class n implements j {
             private int f;
             private String g;
 
-            public C0129a(Context context) {
+            public C0127a(Context context) {
                 c(context);
             }
 
@@ -116,20 +116,20 @@ class n implements j {
             b.put("CMWAP", 41);
             b.put("UNIWAP", 42);
             b.put("CTWAP", 43);
-            arK = new a();
+            arG = new a();
         }
 
         private a() {
         }
 
         public static a uD() {
-            return arK;
+            return arG;
         }
 
         public String a(Context context) {
-            C0129a c0129a = new C0129a(context);
-            String g = c0129a.g();
-            int e = c0129a.e();
+            C0127a c0127a = new C0127a(context);
+            String g = c0127a.g();
+            int e = c0127a.e();
             if (TextUtils.isEmpty(g)) {
                 return ((Object) 5) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + e;
             }
@@ -141,9 +141,9 @@ class n implements j {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     private static class b {
-        private static b arL = new b();
+        private static b arH = new b();
         private String b;
         private DisplayMetrics c;
 
@@ -208,7 +208,7 @@ class n implements j {
         }
 
         public static b uE() {
-            return arL;
+            return arH;
         }
 
         public String a(Context context) {
@@ -221,9 +221,9 @@ class n implements j {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     private static class c {
-        private static c arM = new c();
+        private static c arI = new c();
         private String a;
         private String b;
         private String c;
@@ -263,7 +263,7 @@ class n implements j {
         }
 
         public static c uF() {
-            return arM;
+            return arI;
         }
 
         public String b() {

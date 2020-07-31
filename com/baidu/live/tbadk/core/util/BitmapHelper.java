@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.SoftReference;
 import java.lang.reflect.Array;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BitmapHelper {
     public static final int FILE_2_BITMAP_MUL = 10;
     public static final int ROTATE_LEFT = 0;

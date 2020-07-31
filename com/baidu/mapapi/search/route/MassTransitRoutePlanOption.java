@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.route;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class MassTransitRoutePlanOption {
     public PlanNode mFrom = null;
     public PlanNode mTo = null;
@@ -10,7 +10,7 @@ public class MassTransitRoutePlanOption {
     public int mPageSize = 10;
     public int mPageIndex = 1;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public enum TacticsIncity {
         ETRANS_SUGGEST(0),
         ETRANS_LEAST_TRANSFER(1),
@@ -31,7 +31,7 @@ public class MassTransitRoutePlanOption {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public enum TacticsIntercity {
         ETRANS_LEAST_TIME(0),
         ETRANS_START_EARLY(1),
@@ -49,7 +49,7 @@ public class MassTransitRoutePlanOption {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public enum TransTypeIntercity {
         ETRANS_TRAIN_FIRST(0),
         ETRANS_PLANE_FIRST(1),

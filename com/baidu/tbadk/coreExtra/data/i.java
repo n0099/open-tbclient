@@ -4,22 +4,22 @@ import com.baidu.tieba.tbadkCore.util.f;
 /* loaded from: classes.dex */
 public class i {
     private String authToken;
-    private f.a ejD;
+    private f.a epQ;
     private int type;
 
-    public static i xy(String str) {
+    public static i yD(String str) {
         return new i(0, str);
     }
 
-    public static i aZY() {
+    public static i bdV() {
         return new i(1, null);
     }
 
-    public static i aZZ() {
+    public static i bdW() {
         return new i(2, null);
     }
 
-    public static i baa() {
+    public static i bdX() {
         return new i(3, null);
     }
 
@@ -36,12 +36,12 @@ public class i {
         return this.authToken;
     }
 
-    public f.a bab() {
-        return this.ejD;
+    public f.a bdY() {
+        return this.epQ;
     }
 
     public void a(f.a aVar) {
-        this.ejD = aVar;
+        this.epQ = aVar;
     }
 
     /* loaded from: classes.dex */

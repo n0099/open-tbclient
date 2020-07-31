@@ -2,7 +2,7 @@ package com.baidu.searchbox.process.ipc.delegate.activity;
 
 import com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivity;
 import com.baidu.searchbox.process.ipc.delegate.Delegation;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public abstract class ActivityDelegation extends Delegation<ProcessDelegateBaseActivity> {
     protected abstract boolean onExec();
 
